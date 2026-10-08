@@ -17,8 +17,8 @@ class LiteratureTests(unittest.TestCase):
     def test_49_distinct_works_and_five_lanes(self):
         entries = self.data["entries"]
         self.assertEqual(len(entries), 49)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 32)
-        self.assertEqual(len({e["id"] for e in entries}), 32)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 49)
+        self.assertEqual(len({e["id"] for e in entries}), 49)
         self.assertEqual(len({e["track"] for e in entries}), 5)
 
     def test_forward_and_reverse_indices_are_exactly_reproducible(self):
@@ -106,7 +106,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_non_equivalence_boundaries_are_documented(self):
         lookup = {e["id"]: e for e in self.data["entries"]}
-        self.assertIn("t=3", lookup["LIT-004"]["limits_ru"])
+        self.assertIn("overline{3}", lookup["LIT-004"]["limits_ru"])
         self.assertIn("GF(q)", lookup["LIT-005"]["limits_ru"])
         self.assertIn("байтам", lookup["LIT-027"]["limits_ru"])
         self.assertIn("finite-sample", lookup["LIT-023"]["limits_ru"])
