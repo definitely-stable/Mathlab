@@ -1,10 +1,14 @@
 {
   "id": "LENT-001-G2A",
   "version": 1,
-  "status": "FROZEN_PHASE_A",
+  "status": "COMPLETE",
   "issue": 12,
   "scope": {
-    "prime_fields": [3, 5, 7],
+    "prime_fields": [
+      3,
+      5,
+      7
+    ],
     "d": 2,
     "hard_support": true,
     "novelty_claimed": false
@@ -36,9 +40,21 @@
     }
   ],
   "w1_cases": [
-    {"q": 3, "m": 4, "expected_local_max": 1},
-    {"q": 5, "m": 3, "expected_local_max": 2},
-    {"q": 7, "m": 3, "expected_local_max": 3}
+    {
+      "q": 3,
+      "m": 4,
+      "expected_local_max": 1
+    },
+    {
+      "q": 5,
+      "m": 3,
+      "expected_local_max": 2
+    },
+    {
+      "q": 7,
+      "m": 3,
+      "expected_local_max": 3
+    }
   ],
   "acceptance_markers": [
     "G2A_ASET_EXACT_PASS",
@@ -52,5 +68,7 @@
     "G2_EXPAND_GRID",
     "G2_REDUCE_TARGET",
     "G2_NO_SIGNAL"
-  ]
+  ],
+  "decision": "G2_EXPAND_GRID",
+  "ci_run": 37746812318
 }

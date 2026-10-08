@@ -19,7 +19,7 @@ Terminology: \`LENT-001\` is a stable historical ID. Public-facing work uses
 10. \`LENT-001-PRIOR-ART.md\`
 11. \`DECISIONS.md\`
 12. \`OPEN-QUESTIONS.md\`
-13. older audit/issues/discussion text.
+15. older audit/issues/discussion text.
 
 Executable artifacts verify finite mathematics; they do not establish
 publication novelty.
@@ -28,8 +28,10 @@ publication novelty.
 
 G1B is closed with \`SPLIT_BY_CHARACTERISTIC\`.
 
-G2 is authorized only for exact finite exploration of the odd-characteristic
-hard-support frontier. No preprint novelty claim is authorized.
+G2A exact evidence is accepted with decision `G2_EXPAND_GRID`.
+
+G2B must obtain genuine m>w evidence before theorem selection. No preprint
+novelty claim is authorized.
 
 Any theorem selected by G2 must receive a new theorem-specific prior-art
 audit before promotion.
