@@ -211,14 +211,14 @@ Novelty effect: **fixed-cardinality neighbor only**.
 
 Primary source:
 
-József Balogh? No — use the actual paper:
-Derrick Hart? No — repository authority is the paper metadata below.
-
-S. Huang, M. Tait, R. Won,
+Yixuan Huang, Michael Tait, Robert Won,
 *Sidon sets and 2-caps in \(\mathbb F_3^n\)*,
-arXiv:1809.05117, Involve (2019).
+arXiv:1809.05117, Involve 12 (2019), 995–1003.
 
 https://arxiv.org/abs/1809.05117
+
+DOI:
+https://doi.org/10.2140/involve.2019.12.995
 
 The paper identifies 2-caps in \(\mathbb F_3^n\) with Sidon sets and obtains,
 for even \(n\), maximum size \(3^{n/2}\).
