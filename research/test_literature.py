@@ -40,8 +40,8 @@ class LiteratureTests(unittest.TestCase):
     def _check_report_paper_links(content, registry):
         """Validate both paper existence and visible ID == actual link target."""
         pattern = re.compile(
-            r"\\[[^\\]\\n]*?\\b(LIT-\\d{3})\\b[^\\]\\n]*?\\]"
-            r"\\((?:catalog/)?LITERATURE\\.md#lit-(\\d{3})\\)",
+            r"\[[^\]\n]*?\b(LIT-\d{3})\b[^\]\n]*?\]"
+            r"\((?:catalog/)?LITERATURE\.md#lit-(\d{3})\)",
             re.IGNORECASE,
         )
         links = list(pattern.finditer(content))
