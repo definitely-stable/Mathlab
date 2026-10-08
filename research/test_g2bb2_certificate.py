@@ -63,6 +63,28 @@ class G2BB2CertificateTests(unittest.TestCase):
             with self.assertRaises((RuntimeError,AssertionError)):
                 verify_artifacts(p,drat_trim="/bin/false")
 
+    def test_frozen_exact_ten_provenance_matches_source(self):
+        import json
+        from pathlib import Path
+        from g2bb2_anchor_sat import build_atleast_cnf
+        from lent_hypergraph import build_forbidden_hypergraph
+        record=json.loads((
+            Path(__file__).parent/"lent-001"/"g2bb2-exact10-result.json"
+        ).read_text(encoding="utf-8"))
+        source,dimacs=verify_model_source()
+        upper=record["upper_certificate"]
+        self.assertEqual(record["value"],10)
+        self.assertEqual(source,upper["source_sha256"])
+        self.assertEqual(sha256(dimacs.encode()).hexdigest(),upper["cnf_sha256"])
+        self.assertEqual(upper["variables"],665)
+        self.assertEqual(upper["clauses"],12341)
+        self.assertEqual(
+            len(build_forbidden_hypergraph(5,3,2).edges),9990
+        )
+        self.assertEqual(record["classification"],"EXACT_NUMERICAL_RESULT")
+        self.assertIsNotNone(upper["proof_sha256"])
+        self.assertEqual(len(upper["proof_sha256"]),64)
+
     def test_witness_domain_rejection(self):
         with self.assertRaises(AssertionError):
             independently_validate_witness({
