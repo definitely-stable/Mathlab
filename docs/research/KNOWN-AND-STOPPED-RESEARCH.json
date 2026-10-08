@@ -143,7 +143,7 @@
       "area": "LENT",
       "disposition": "PRIOR_ART",
       "title": "Odd-group weak-Sidon upper lemma",
-      "scope": "s(s-3)+1 <= |G| for weak Sidon; q5 finite upper 11",
+      "scope": "s(s-3)+1 <= order(G) for weak Sidon; q5 finite upper 11",
       "do_not_repeat": "Roth–Seroussi (1996) bound is classical and is already applied to ASET one-way.",
       "authority": [
         "docs/research/LENT-001-G2B-B1-WEAK-SIDON-BOUND.md"
