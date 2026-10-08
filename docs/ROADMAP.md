@@ -6,21 +6,8 @@
 
 Status: **COMPLETE — FOUNDATION_PASS**
 
-Completed:
-
-- deterministic exact additive-sketch model;
-- finite Sparse-Update Hamming-Ball Bound;
-- exact arithmetic checker;
-- original q={2,3} exhaustive grid;
-- claim/evidence discipline;
-- GitHub-hosted CI;
-- Lean plan.
-
-The finite theorem is a baseline impossibility framework; publication
-novelty is not claimed.
-
-Terminology policy: \`LENT-001\` is a stable historical ID. The former
-public label "Locality–Entropy Trilemma" is deprecated.
+Baseline exact model, finite Sparse-Update Hamming-Ball Bound, exact checker,
+hosted CI and verification discipline are established.
 
 ### G1 — model correction and prior-art closure
 
@@ -28,63 +15,57 @@ Status: **IN PROGRESS**
 
 #### G1A — ASET model + exact relation oracle
 
-Status: **COMPLETE ON REVIEWED PR HEAD / EVIDENCE COMMIT CI PENDING**
+Status: **COMPLETE — G1A_ORACLE_PASS**
 
-Primary object:
+Merged as:
 
 \[
-A_q^{\mathrm{set}}(m,w,d).
+\texttt{e435b72fbf7b94f3f514a3f5fbbae88070876525}.
 \]
 
-G1A contains:
+Established:
 
-1. exact ASET definition;
-2. ASET-SIGNED proof with separate positive/negative side bounds;
-3. q=2 equivalence with small-column GF(2) independence;
-4. q=3 and q=5 strict model-separation witnesses;
-5. independent exact checkers for ASET, signed relations and arbitrary
-   small-column dependencies;
-6. frozen q={2,3,5} exhaustive grid;
-7. source-to-claim prior-art matrix.
+- exact ASET definition;
+- ASET-SIGNED equivalence;
+- q=2 equivalence to small-column GF(2) independence;
+- q=3/q=5 strict finite separation;
+- exact q={2,3,5} comparison oracle;
+- exact finite evidence;
+- no novelty claim.
 
-Acceptance marker:
+#### G1B — primary-source novelty closure
 
-\`G1A_ORACLE_PASS\`
+Status: **ACTIVE**
 
-After acceptance, no asymptotic theorem is started yet.
+Issue: #6.
 
-#### G1B — sharp prior-art closure
+Required audit:
 
-Status: **BLOCKED ON G1A ACCEPTANCE**
+1. sparse parity-check matrices;
+2. k-dissociated / bounded-order signed relations;
+3. Sidon / weak Sidon / restricted \(B_h\);
+4. distinct-summand subset-sum systems;
+5. bounded-support/Hamming-ball additive families;
+6. q=3 specializations.
 
-Audit primary sources for:
-
-- sparse parity-check matrices over finite fields;
-- k-dissociated / bounded-order signed-relation families;
-- weak Sidon / restricted B_h families with distinct summands;
-- bounded-weight / Hamming-ball constrained constructions;
-- update-efficient coding where needed for the locality boundary.
-
-G1B must decide exactly one:
+Allowed exit:
 
 - CONTINUE_ASET;
 - REDUCE_TO_KNOWN_OBJECT;
 - SPLIT_Q3_QGT3;
 - STOP_NOT_NOVEL.
 
-This is the actual novelty gate.
+G1B is the publication-novelty gate.
 
 #### G1C — secondary lanes
 
 Status: **BLOCKED ON G1B**
 
-Priority order:
+Priority:
 
 1. nested prefixes + bounded update locality;
 2. mixed/nonuniform cells;
-3. computation only after an independent cost model is frozen.
-
-Pure nestedness tax remains deprioritized.
+3. computation only after a separate cost model is frozen.
 
 ### G2 — finite ASET extremal evidence
 
@@ -92,85 +73,45 @@ Status: **BLOCKED ON G1B**
 
 If G1B continues ASET:
 
-- enumerate exact small values or lower/upper intervals for
-  \(A_q^{\mathrm{set}}(m,w,d)\);
-- record extremal witness families;
-- compare ASET counts with arbitrary-coefficient sparse-linear baselines;
-- identify the smallest parameter regimes where the extremal quantities
-  genuinely diverge;
-- use exact results to choose a plausible asymptotic theorem.
-
-G2 produces EXACT NUMERICAL RESULT evidence, not a novelty claim by itself.
+- enumerate exact small \(A_q^{\mathrm{set}}\) values or intervals;
+- persist extremal witness families;
+- compare against valid sparse-linear baselines;
+- identify the smallest regimes with a provable extremal gap;
+- use exact evidence to choose a theorem target.
 
 ### G3 — baseline formalization
 
 Status: **NOT STARTED**
 
-Lean targets:
-
-1. support of a finite sum is contained in the union of supports;
-2. support cardinality is subadditive;
-3. injectivity gives a cardinality lower bound;
-4. Hamming-ball cardinality;
-5. finite Sparse-Update Hamming-Ball Bound;
-6. ASET-SIGNED equivalence;
-7. binary small-dependency equivalence.
+Lean targets include the finite Hamming-ball bound, ASET-SIGNED and the
+binary equivalence.
 
 ### G4 — new-math lane
 
 Status: **BLOCKED ON G1B/G2**
 
-#### G4A — sharp ASET theorem
-
-Preferred target if G1B/G2 support it:
+Primary candidate: a sharp theorem for
 
 \[
-A_q^{\mathrm{set}}(m,w,d).
+A_q^{\mathrm{set}}(m,w,d)
 \]
 
-Strong outcomes include:
+in a regime left open by G1B.
 
-- a new asymptotic exponent;
-- matching upper/lower exponents in a nontrivial regime;
-- a sharp provable gap from arbitrary-coefficient sparse linear
-  independence;
-- a construction that exploits restricted signed relations.
-
-#### G4B — nested + update-locality tax
-
-Study simultaneous near-optimality of one prefix family under bounded
-update support.
-
-Do not target pure nestedness tax without locality.
-
-#### G4C — mixed alphabets
-
-Study sharp heterogeneous-cell optimization only after the mixed-alphabet
-prior-art map is closed.
-
-#### G4D — computation tradeoff
-
-Only after computation is defined independently from update locality.
+Secondary candidates remain nested+locality and mixed alphabets.
 
 ### G5 — manuscript promotion
 
 Status: **NOT STARTED**
 
-Promotion requires:
-
-- stable theorem;
-- reviewable proof;
-- closed novelty boundary;
-- reproducible verification;
-- explicit formalization status.
+Requires a stable theorem, reviewable proof, closed novelty boundary,
+reproducible evidence and explicit formalization status.
 
 ## Current priority
 
 \[
 \boxed{
-\text{G1A oracle acceptance}
-\rightarrow
-\text{G1B prior-art closure}
+\text{G1B primary-source closure}
 \rightarrow
 \text{G2 finite extremal evidence}
 \rightarrow

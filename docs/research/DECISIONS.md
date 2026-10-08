@@ -113,3 +113,28 @@ Rationale:
 4. precise terminology reduces false novelty and search ambiguity.
 
 Historical documents may retain the old wording when necessary for traceability, but new README headings, issue titles, roadmap entries, preprints, and theorem names must use the preferred terminology.
+
+
+## 2026-10-08 — D013
+
+**ACCEPT:** G1A model/oracle gate is complete.
+
+Evidence:
+
+- ASET-SIGNED proof accepted;
+- q=2 equivalence accepted;
+- q=3 and q=5 strict finite separations accepted;
+- G1A_ORACLE_PASS on hosted CI;
+- post-merge CI green at `e435b72fbf7b94f3f514a3f5fbbae88070876525`.
+
+This establishes a model gap, not publication novelty.
+
+## 2026-10-08 — D014
+
+**OPEN:** G1B primary-source novelty closure as the only allowed next gate for ASET.
+
+Issue: #6.
+
+No sharp ASET theorem may be promoted as new until G1B chooses exactly one
+of CONTINUE_ASET, REDUCE_TO_KNOWN_OBJECT, SPLIT_Q3_QGT3, or
+STOP_NOT_NOVEL.

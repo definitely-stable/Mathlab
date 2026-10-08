@@ -1,0 +1,40 @@
+{
+  "id": "LENT-001-G1B",
+  "version": 1,
+  "status": "FROZEN_FOR_PRIMARY_SOURCE_AUDIT",
+  "issue": 6,
+  "baseline_main": "e435b72fbf7b94f3f514a3f5fbbae88070876525",
+  "primary_object": "A_q^set(m,w,d)",
+  "source_clusters": [
+    "sparse_parity_check",
+    "dissociated_and_k_dissociated",
+    "sidon_weak_sidon_Bh",
+    "distinct_summand_subset_sums",
+    "bounded_support_additive_families",
+    "q3_special_case"
+  ],
+  "required_fields": [
+    "primary_source",
+    "ambient_object",
+    "coefficient_set",
+    "repeated_summands",
+    "cardinality_scope",
+    "cross_cardinality_collisions",
+    "side_bounds",
+    "support_constraint",
+    "theorem_statement",
+    "asymptotic_regime",
+    "parameter_map",
+    "implication_direction",
+    "aset_consequence",
+    "confidence"
+  ],
+  "allowed_decisions": [
+    "CONTINUE_ASET",
+    "REDUCE_TO_KNOWN_OBJECT",
+    "SPLIT_Q3_QGT3",
+    "STOP_NOT_NOVEL"
+  ],
+  "novelty_claimed": false,
+  "preprint_promotion_allowed": false
+}

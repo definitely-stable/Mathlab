@@ -1,6 +1,6 @@
 # LENT-001 — prior-art audit
 
-Status: **G1 OPEN / G1A ACTIVE**.
+Status: **G1 OPEN / G1A COMPLETE / G1B ACTIVE**.
 
 This document records the current source-level boundary between Mathlab and neighboring literature. It is deliberately conservative: mathematical correctness and publication novelty are separate questions.
 
@@ -63,7 +63,7 @@ with
 
 Thus for \(q>2\) Lefmann gives a stronger sufficient condition, not an established equivalence.
 
-This distinction is now a first-class G1A requirement. It already separates at q=3: with m=1,d=1 and columns 1 and 2=-1, ASET singleton states are distinct while the two columns satisfy 1+2=0.
+This distinction was validated in G1A and is now an input to G1B. It already separates at q=3: with m=1,d=1 and columns 1 and 2=-1, ASET singleton states are distinct while the two columns satisfy 1+2=0.
 
 ## 2. ASET / dissociated / Sidon / B_h boundary
 
