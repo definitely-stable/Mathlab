@@ -31,6 +31,14 @@ FOUNDATION_PASS
 
 G2B-A hosted run 37756386646 confirms exact q=3,m=4,w=2 value 7 and a certified q=5,m=3,w=2 interval [10,15]. Run `python research/lent_hypergraph.py` to reproduce its five additional markers. This is finite evidence, not novelty or a proof of the q=5 optimum.
 
+- `locality_transition.py` — HYP-001 projective incidence and HYP-002 Steiner exact-column construction witnesses, including characteristic-two counterexamples.
+- `test_locality_transition.py` — independent small-grid pair-sum checks and falsification cases.
+- `lent-001/hyp001-002-protocol.json` — machine-frozen scope, field domains and evidence acceptance markers.
+
+Run `python research/locality_transition.py` to produce five HYP-001/002
+construction markers. CI checks only the finite witnesses, **not** the
+asymptotic theorems or novelty claims.
+
 ## Evidence semantics
 
 The exhaustive oracle searches unordered families of distinct nonzero columns. For the frozen grid (dge1), this loses no valid exact family: a zero column or duplicate column already violates singleton injectivity.

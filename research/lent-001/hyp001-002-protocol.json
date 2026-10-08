@@ -1,0 +1,126 @@
+{
+  "id": "HYP-001-002-PHASE-A",
+  "version": 1,
+  "origin": "LENT-001",
+  "source_main": "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7",
+  "status": "FROZEN_BEFORE_CI",
+  "domain": {
+    "q": "fixed odd prime",
+    "d": 2,
+    "columns": "distinct nonzero",
+    "state": "F_q^m",
+    "locality": "coordinate support <=w"
+  },
+  "claims": [
+    {
+      "id": "HYP-001-A",
+      "w": 2,
+      "statement": "A_q^set(m,2,2)=Theta_q(m^(3/2))",
+      "class": "DERIVED_THEOREM",
+      "novelty": "UNVERIFIED"
+    },
+    {
+      "id": "HYP-002-A",
+      "w": 3,
+      "statement": "linear 3-uniform hypergraphs give ASET-exact unit columns",
+      "class": "DERIVED_LEMMA"
+    },
+    {
+      "id": "HYP-002-B",
+      "w": 3,
+      "statement": "A_q^set(m,3,2)=Omega_q(m^2)",
+      "class": "DERIVED_RESULT"
+    },
+    {
+      "id": "HYP-002-C",
+      "w": 3,
+      "statement": "A_q^set(m,3,2)=O_q(m^(5/2))",
+      "class": "DERIVED_THEOREM",
+      "novelty": "UNVERIFIED"
+    },
+    {
+      "id": "HYP-002-D",
+      "w": 3,
+      "statement": "A_q^set(m,3,2)=Theta_q(m^2)",
+      "class": "CONJECTURE",
+      "novelty": "UNVERIFIED"
+    }
+  ],
+  "cases": [
+    {
+      "type": "projective",
+      "geometry_prime": 2,
+      "coordinates": 14,
+      "columns": 21,
+      "q_sketch": [
+        3,
+        5,
+        7
+      ]
+    },
+    {
+      "type": "projective",
+      "geometry_prime": 3,
+      "coordinates": 26,
+      "columns": 52,
+      "q_sketch": [
+        3,
+        5,
+        7
+      ]
+    },
+    {
+      "type": "steiner",
+      "geometry": "Fano",
+      "coordinates": 7,
+      "columns": 7,
+      "q_sketch": [
+        3,
+        5,
+        7
+      ]
+    },
+    {
+      "type": "steiner",
+      "geometry": "affine F3^2",
+      "coordinates": 9,
+      "columns": 12,
+      "q_sketch": [
+        3,
+        5,
+        7
+      ]
+    },
+    {
+      "type": "steiner",
+      "geometry": "affine F3^3",
+      "coordinates": 27,
+      "columns": 117,
+      "q_sketch": [
+        3,
+        5
+      ]
+    }
+  ],
+  "adversarial": [
+    "4-cycle gives pairwise collision for odd q",
+    "Pasch linear triples collide in characteristic 2",
+    "nonlinear triples can collide in odd q"
+  ],
+  "acceptance_markers": [
+    "HYP001_PROJECTIVE_CONSTRUCTION_PASS",
+    "HYP002_STEINER_CONSTRUCTION_PASS",
+    "HYP_ODD_CHARACTERISTIC_BOUNDARY_PASS",
+    "HYP_FALSIFICATION_CASES_PASS",
+    "HYP_LOCALITY_PHASE_A_PASS"
+  ],
+  "excluded": [
+    "novelty claim",
+    "quadratic upper bound for w=3",
+    "general prime-power field",
+    "d>2 guarantee",
+    "production Rust crate",
+    "fully formal Lean proof"
+  ],
+  "next_gate": "independent detailed prior-art audit and sharpened HYP-002 bound or counterexample"
+}

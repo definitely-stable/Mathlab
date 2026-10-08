@@ -35,3 +35,6 @@ jobs:
 
       - name: G2B signed-collision hypergraph and certified search
         run: python research/lent_hypergraph.py
+
+      - name: HYP-001/002 locality transition constructive falsification
+        run: python research/locality_transition.py

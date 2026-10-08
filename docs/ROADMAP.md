@@ -81,6 +81,24 @@ G2 must terminate in either:
 G2B-A supporting record: docs/research/LENT-001-G2B-A-PROTOCOL.md and
 LENT-001-G2B-A-EVIDENCE.md. Phase-A acceptance markers do **not** close G2B.
 
+### HYP-001/002 — locality-capacity theorem lane (separate research gate)
+
+Status: **PHASE A / CONSTRUCTIONS + INFORMAL ASYMPTOTIC PROOFS; NOVELTY NOT AUDITED**
+
+- HYP-001 (#24): derived Theta_q(m^(3/2)) for odd primes, w=2, d=2.
+  Complete definition-to-primary-source review of C4-free/Zarankiewicz
+  bounds and projective constructions before promoting theorem originality.
+- HYP-002 (#25): proved quadratic lower and O_q(m^(5/2)) upper for w=3,
+  d=2; the sharp quadratic exponent remains a CONJECTURE.
+- Independent constructive finite checks: PG(2,2)/PG(2,3), STS(7),
+  affine STS(9)/STS(27), plus GF(2) and C4 collision witnesses.
+- Neither finite search nor elementary bounds license a novelty, Lean or
+  Rust crate claim. Source: docs/research/HYP-001-002-LOCALITY-TRANSITION.md.
+- Next: HYP-002 source-to-model prior-art audit, tighter upper bound or
+  superquadratic construction; decide THEOREM_CANDIDATE/NO_SIGNAL explicitly.
+
+This lane **does not supersede** G2B-B (#14), which remains open.
+
 ### G3 — formalization
 
 Status: **NOT STARTED**
