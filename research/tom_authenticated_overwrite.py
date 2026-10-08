@@ -102,19 +102,15 @@ def reconstruct(n: int, indices: Sequence[int], values: Sequence[int],
     objects = {n + i: leaf_digest(i, bit) for i, bit in zip(chosen, values)}
     objects.update(proof)
     hashes = len(chosen)
-    layer = set(objects)
-    while layer != {1}:
-        parents: set[int] = set()
-        for v in layer:
-            if v > 1:
-                parents.add(v // 2)
-        for p in parents:
+    while 1 not in objects:
+        progress = False
+        for p in sorted({i // 2 for i in objects if i > 1}, reverse=True):
             if p not in objects and 2 * p in objects and 2 * p + 1 in objects:
                 objects[p] = parent_digest(objects[2 * p], objects[2 * p + 1])
                 hashes += 1
-        if all(p not in objects for p in parents):
-            raise AssertionError("proof cannot reconstruct parent")
-        layer = parents
+                progress = True
+        if not progress:
+            raise AssertionError("proof cannot reconstruct root")
     return objects[1], hashes
 
 
