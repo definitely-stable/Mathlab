@@ -79,6 +79,19 @@ SOURCE_TITLE_PINS = {
     "doi:10.1016/S0304-3975(01)00144-X": "Complexity measures and decision tree complexity: a survey",
     "doi:10.1007/3-540-48658-5_22": "Incremental Cryptography: The Case of Hashing and Signing",
     "doi:10.1007/3-540-69053-0_13": "A New Paradigm for Collision-Free Hashing: Incrementality at Reduced Cost",
+    # UCT-001 source-title identities (abstract/bibliography verified; not proof verified).
+    "doi:10.1145/73007.73040": "The cell probe complexity of dynamic data structures",
+    "doi:10.1137/S0097539705447256": "Logarithmic Lower Bounds in the Cell-Probe Model",
+    "doi:10.1137/1.9781611973075.12": "On the Cell Probe Complexity of Dynamic Membership",
+    "doi:10.1016/j.tcs.2007.02.058": "On dynamic bit-probe complexity",
+    "doi:10.1016/j.tcs.2019.01.043": "New amortized cell-probe lower bounds for dynamic problems",
+    "doi:10.1109/TIT.1973.1055037": "Noiseless coding of correlated information sources",
+    "doi:10.1016/j.entcs.2005.11.043": "A Library for Self-Adjusting Computation",
+    "doi:10.1002/rsa.20069": "Lower bounds for adaptive locally decodable codes",
+    "publisher:eccc:tr26-047": "An $\\Omega((\\log n / \\log\\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures",
+    "doi:10.1016/0095-8956(75)90067-2": "On cubical graphs",
+    "doi:10.1016/S0019-9958(85)80012-7": "The complexity of cubical graphs",
+    "doi:10.1016/0895-7177(88)90486-4": "Embeddings in hypercubes",
 }
 
 
