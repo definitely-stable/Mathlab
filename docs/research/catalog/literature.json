@@ -1259,6 +1259,827 @@
         "Eric Breyer",
         "Alan Liu"
       ]
+    },
+    {
+      "id": "LIT-050",
+      "title": "Lower Bounds against the Ideal Proof System in Finite Fields",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800721",
+      "primary_url": "https://doi.org/10.1145/3798129.3800721",
+      "track": "proof-complexity",
+      "summary_ru": "Elbaz и соавторы доказывают нижние границы для фрагментов IPS над конечными полями постоянного размера; конструкция knapsack и связи с AC0[p]-Frege.",
+      "limits_ru": "Границы относятся к определённым классам алгебраических опровержений и глубин схем, а не к сложности всех DRAT-протоколов или ASET.",
+      "maps_to": [
+        "OM-116",
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Tal Elbaz",
+        "Nashlen Govindasamy",
+        "Jiaqi Lu",
+        "Iddo Tzameret"
+      ]
+    },
+    {
+      "id": "LIT-051",
+      "title": "The Weak Rank Principle: Lower Bounds and Applications",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800735",
+      "primary_url": "https://doi.org/10.1145/3798129.3800735",
+      "track": "proof-complexity",
+      "summary_ru": "Новые экспоненциальные нижние границы PCR над F2 для слабого rank principle и построение proof-complexity generators.",
+      "limits_ru": "Алгебраические формулы XY=A и доказательства несостоятельности — не сертификат минимальной ёмкости конкретного ASET и не скорость SAT-решателя.",
+      "maps_to": [
+        "OM-116",
+        "ML-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Michal Garlík",
+        "Svyatoslav Gryaznov",
+        "Hanlin Ren",
+        "Iddo Tzameret"
+      ]
+    },
+    {
+      "id": "LIT-052",
+      "title": "The Natural Proofs Barrier against Data-Structure Lower-Bounds",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800843",
+      "primary_url": "https://doi.org/10.1145/3798129.3800843",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Перенос natural-proofs barrier на статические и динамические cell-probe нижние границы через local и locally-updatable PRF при криптографических допущениях.",
+      "limits_ru": "Барьер условен на существование конкретных PRF; не является доказательством отсутствия всех новых нижних границ и не переносится на физическую запись байтов.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Michal Koucký",
+        "Bruno Loff",
+        "Tulasimohan Molli",
+        "Michael E. Saks"
+      ]
+    },
+    {
+      "id": "LIT-053",
+      "title": "Compressing Dynamic Fully Indexable Dictionaries in Word-RAM",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800839",
+      "primary_url": "https://doi.org/10.1145/3798129.3800839",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Domingues строит динамический rank/select словарь с near-information-theoretic пространством и худшим временем обновлений в Word-RAM.",
+      "limits_ru": "Требует заданной модели предвычисленной таблицы и word multiplication; entropy redundancy не тождественен стоимости physical rewrites или history independence.",
+      "maps_to": [
+        "ML-004",
+        "ML-005"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Gabriel Marques Domingues"
+      ]
+    },
+    {
+      "id": "LIT-054",
+      "title": "Approximation Schemes for Edit Distance and LCS in Quasi-Strongly Subquadratic Time",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800789",
+      "primary_url": "https://doi.org/10.1145/3798129.3800789",
+      "track": "fine-grained-algorithms",
+      "summary_ru": "Mao–Rubinstein: рандомизированные (1+ε)-ED и (1−ε)-LCS схемы с ускорением относительно n² на субквадратическом масштабе.",
+      "limits_ru": "Аппроксимация расстояния между строками не даёт exact edit script, оптимальной delta patch-базы или онлайн обновлений.",
+      "maps_to": [
+        "OM-099",
+        "OM-121",
+        "DL-001"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Xiao Mao",
+        "Aviad Rubinstein"
+      ]
+    },
+    {
+      "id": "LIT-055",
+      "title": "A Unified Approach to Memory-Sample Tradeoffs for Detecting Planted Structures",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800739",
+      "primary_url": "https://doi.org/10.1145/3798129.3800739",
+      "track": "randomized-sampling",
+      "summary_ru": "Обобщённая схема нижних границ memory/sample для многопроходного обнаружения planted bicliques, sparse means и sparse PCA.",
+      "limits_ru": "Распределительное различение planted-vs-null не равно set-only GF(2) строгой оценке d; число проходов и модель памяти должны совпасть.",
+      "maps_to": [
+        "OM-140",
+        "DM-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Sumegha Garg",
+        "Jabari Hastings",
+        "Chirag Pabbaraju",
+        "Vatsal Sharan"
+      ]
+    },
+    {
+      "id": "LIT-056",
+      "title": "Incremental Shortest Paths in Almost Linear Time via a Modified Interior Point Method",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800733",
+      "primary_url": "https://doi.org/10.1145/3798129.3800733",
+      "track": "graph-algorithms",
+      "summary_ru": "Детерминированно поддерживаются приближённые односточечные кратчайшие пути при вставке рёбер, суммарно близко к линейному времени.",
+      "limits_ru": "Алгоритм работает с ориентированными взвешенными графами и аппроксимацией расстояния; не сертификат отсутствия эффекта произвольной правки DAG.",
+      "maps_to": [
+        "ML-004",
+        "ML-005"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Yang P. Liu"
+      ]
+    },
+    {
+      "id": "LIT-057",
+      "title": "Closure under Factorization from a Result of Furstenberg",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800738",
+      "primary_url": "https://doi.org/10.1145/3798129.3800738",
+      "track": "algebraic-complexity",
+      "summary_ru": "Из классической формулы Фюрстенберга выводится замкнутость формул и constant-depth алгебраических схем относительно множителей над полями характеристики ноль.",
+      "limits_ru": "Результат не распространяется автоматически на малую положительную характеристику, noncommutative models и произвольные PIT black-box инструкции.",
+      "maps_to": [
+        "OM-116",
+        "OM-135"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Somnath Bhattacharjee",
+        "Mrinal Kumar",
+        "Shanthanu S. Rai",
+        "Varun Ramanathan",
+        "Ramprasad Saptharishi",
+        "Shubhangi Saraf"
+      ]
+    },
+    {
+      "id": "LIT-058",
+      "title": "Separator Theorem for Minor-Free Graphs in Linear Time",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800727",
+      "primary_url": "https://doi.org/10.1145/3798129.3800727",
+      "track": "graph-algorithms",
+      "summary_ru": "Найден линейно-временной алгоритм сбалансированного O(√n)-сепаратора в графах без фиксированного минора.",
+      "limits_ru": "Алгоритм статический и зависит от фиксированного запрещённого минора; нельзя приписывать ему поддержку динамической графовой разметки за O(1).",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Édouard Bonnet",
+        "Tuukka Korhonen",
+        "Hung Le",
+        "Jason Li",
+        "Tomáš Masařík"
+      ]
+    },
+    {
+      "id": "LIT-059",
+      "title": "A Faster Deterministic Algorithm for Fully Dynamic Maximal Matching",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800868",
+      "primary_url": "https://doi.org/10.1145/3798129.3800868",
+      "track": "graph-algorithms",
+      "summary_ru": "Chuzhoy–Khanna–Song: детерминированное поддержание максимального matching в полностью динамическом графе с амортизированным временем n^(1/2+o(1)).",
+      "limits_ru": "Maximal не означает maximum; амортизированная bound не худшая на операцию и не переносится на graph refinement без модели.",
+      "maps_to": [
+        "OM-131",
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Julia Chuzhoy",
+        "Sanjeev Khanna",
+        "Junkai Song"
+      ]
+    },
+    {
+      "id": "LIT-060",
+      "title": "Polynomial Identity Testing and the Ideal Proof System: PIT Is in NP If and Only If IPS Can Be p-Simulated by a Cook-Reckhow Proof System",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800865",
+      "primary_url": "https://doi.org/10.1145/3798129.3800865",
+      "track": "proof-complexity",
+      "summary_ru": "Grochow показывает эквивалентность эффективной детерминированной верифицируемости IPS при p-симуляции и включения PIT в NP (с оговорками о поле).",
+      "limits_ru": "Не утверждается PIT∈NP и не предоставляется готовый детерминированный checker для произвольных полиномиальных схем.",
+      "maps_to": [
+        "OM-116",
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Joshua A. Grochow"
+      ]
+    },
+    {
+      "id": "LIT-061",
+      "title": "Parallel Sampling via Autospeculation",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800828",
+      "primary_url": "https://doi.org/10.1145/3798129.3800828",
+      "track": "randomized-sampling",
+      "summary_ru": "Автоспекулятивная выборка с параллельным доступом к оракулам снижает ожидаемую глубину последовательного генерирования до примерно √n.",
+      "limits_ru": "Выигрыш по параллельной глубине в oracle model не означает меньшую суммарную вычислительную работу, память или низкую latency Rust API.",
+      "maps_to": [
+        "OM-113",
+        "OM-139"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Nima Anari",
+        "Carlo Baronio",
+        "CJ Chen",
+        "Alireza Haqi",
+        "Frederic Koehler",
+        "Anqi Li",
+        "Thuy-Duong Vuong"
+      ]
+    },
+    {
+      "id": "LIT-062",
+      "title": "Shifted Composition IV: Toward Ballistic Acceleration for Log-Concave Sampling",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800881",
+      "primary_url": "https://doi.org/10.1145/3798129.3800881",
+      "track": "randomized-sampling",
+      "summary_ru": "Altschuler–Chewi–Zhang исследуют недодемпфированную Langevin-динамику, KL ошибки дискретизации и ускоренную лог-вогнутую выборку.",
+      "limits_ru": "Гарантии зависят от регулярности log-concave распределения, свойств ULD и модели oracle; не general uniform sampler для дискретных комбинаторных объектов.",
+      "maps_to": [
+        "OM-139",
+        "OM-113"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Jason M. Altschuler",
+        "Sinho Chewi",
+        "Matthew S. Zhang"
+      ]
+    },
+    {
+      "id": "LIT-063",
+      "title": "Combinatorial Bounds for List Recovery via Discrete Brascamp-Lieb Inequalities",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800756",
+      "primary_url": "https://doi.org/10.1145/3798129.3800756",
+      "track": "sparse-coding",
+      "summary_ru": "Дискретные неравенства Браскампа–Либа используются для новых комбинаторных верхних границ размера списка при list recovery.",
+      "limits_ru": "Декодирование при множестве допустимых символов в координате не есть инъективность 0/1/2-сумм, вес столбца ASET не ограничивается теми же параметрами.",
+      "maps_to": [
+        "ML-002",
+        "ML-010"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-002-B-QUADRATIC-THEOREM.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Joshua Brakensiek",
+        "Yeyuan Chen",
+        "Manik Dhar",
+        "Zihan Zhang"
+      ]
+    },
+    {
+      "id": "LIT-064",
+      "title": "Locally Computable High Independence Hashing",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800855",
+      "primary_url": "https://doi.org/10.1145/3798129.3800855",
+      "track": "sparse-coding",
+      "summary_ru": "Dodis–Lovett–Wichs: локально вычисляемые k-wise independent семейства хешей, включая неявные конструкции через lossless expanders.",
+      "limits_ru": "Высокая k-wise независимость хеш-значений не тождественна линейной независимости столбцов или независимости от адаптивного противника.",
+      "maps_to": [
+        "ML-001",
+        "ML-002"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-002-B-QUADRATIC-THEOREM.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Yevgeniy Dodis",
+        "Shachar Lovett",
+        "Daniel Wichs"
+      ]
+    },
+    {
+      "id": "LIT-065",
+      "title": "Dynamic Set Cover with Worst-Case Recourse",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2026.153",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.153",
+      "track": "graph-algorithms",
+      "summary_ru": "Solomon–Uzrad изучают динамическое покрытие множеств и контролируют число замен в решении на каждом обновлении.",
+      "limits_ru": "Recourse решений не эквивалентен количеству переписанных байт памяти; конечные worst-case bounds применимы к собственной динамической set-cover модели.",
+      "maps_to": [
+        "ML-004",
+        "ML-005"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "ICALP 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Shay Solomon",
+        "Amitai Uzrad"
+      ]
+    },
+    {
+      "id": "LIT-066",
+      "title": "Static to Dynamic Correlation Clustering",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2026.48",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.48",
+      "track": "graph-algorithms",
+      "summary_ru": "Преобразование статической аппроксимации корреляционного кластеринга в полностью динамическую с O(1) worst-case update в заявленной модели.",
+      "limits_ru": "Гарантия качества сохраняется с указанной вероятностью; это не точное поддержание всех кластеров и не универсальная динамическая оптимизация.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "ICALP 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi"
+    },
+    {
+      "id": "LIT-067",
+      "title": "Once Rolling Hashing is Enough: Exploiting Rolling Hash Reuse in Delta Compression",
+      "year": 2026,
+      "identity": "doi:10.1145/3767295.3803596",
+      "primary_url": "https://doi.org/10.1145/3767295.3803596",
+      "track": "delta-base-selection",
+      "summary_ru": "FastDelta переиспользует rolling hashes одновременно при CDC, поиске похожих фрагментов и delta encoding, экономя повторные вычисления.",
+      "limits_ru": "Shared hash pipeline не доказывает оптимальное направление reference selection и не равен выигрышу от нового similarity sketch; требуется измерять весь patch pipeline.",
+      "maps_to": [
+        "DL-001",
+        "DL-002",
+        "DL-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "DELSK",
+          "path": ".work/research/claim-matrix.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "EuroSys 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Haoliang Tan",
+        "Wenhao Ou",
+        "Xiangyu Zou",
+        "Cai Deng",
+        "Yanqi Pan",
+        "Hao Huang",
+        "Zhaoquan Gu",
+        "Wen Xia"
+      ]
+    },
+    {
+      "id": "LIT-068",
+      "title": "Sampling Permutations with Cell Probes Is Hard",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800743",
+      "primary_url": "https://doi.org/10.1145/3798129.3800743",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Новые ограничения на выборку перестановок в модели cell probes связывают память, доступ к оракулу и сложность рандомизации.",
+      "limits_ru": "Не доказывает сложность доступа к любой канонической сериализации или запрет на конкретный алгоритм random permutation.",
+      "maps_to": [
+        "OM-139",
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Yaroslav Alekseev",
+        "Mika Göös",
+        "Konstantin Myasnikov",
+        "Artur Riazanov",
+        "Dmitry Sokolov"
+      ]
+    },
+    {
+      "id": "LIT-069",
+      "title": "Superquadratic Lower Bounds for Depth-2 Linear Threshold Circuits",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800802",
+      "primary_url": "https://doi.org/10.1145/3798129.3800802",
+      "track": "algebraic-complexity",
+      "summary_ru": "Chen–Tal–Wang устанавливают сверхквадратичные нижние границы размера схем глубины два с линейными threshold gates.",
+      "limits_ru": "Предел схем глубины 2 не становится автоматически пределом общего вычисления, Fourier трансформов или динамических алгоритмов.",
+      "maps_to": [
+        "OM-130",
+        "OM-132"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Lijie Chen",
+        "Avishay Tal",
+        "Yichuan Wang"
+      ]
+    },
+    {
+      "id": "LIT-070",
+      "title": "Lower Bounds for Near-Quadratic-Depth Resolution over Parities",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800809",
+      "primary_url": "https://doi.org/10.1145/3798129.3800809",
+      "track": "proof-complexity",
+      "summary_ru": "Экспоненциальные нижние границы длины refutation в Res(⊕) при глубине O(N^(2−ε)) для специальных Tseitin/CNF конструкций.",
+      "limits_ru": "Доказательствo для глубинно ограниченного Res(⊕) не ограничивает произвольный SAT/DRAT checker и не доказывает трудность GF(5) ASET.",
+      "maps_to": [
+        "OM-116",
+        "ML-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Sreejata Kishor Bhattacharya",
+        "Farzan Byramji",
+        "Arkadev Chattopadhyay",
+        "Russell Impagliazzo"
+      ]
+    },
+    {
+      "id": "LIT-071",
+      "title": "Improved Pseudorandom Codes from Permuted Puzzles",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800916",
+      "primary_url": "https://doi.org/10.1145/3798129.3800916",
+      "track": "sparse-coding",
+      "summary_ru": "Псевдослучайные коды с устойчивостью к редактированиям над бинарным алфавитом и ключ-известным атакам при обозначенных криптографических гипотезах.",
+      "limits_ru": "Криптографическая неразличимость опирается на permuted puzzles conjecture; кодовая устойчивость к edit noise не равна точному ASET при малом числе ненулевых координат.",
+      "maps_to": [
+        "ML-002",
+        "OM-122"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Miranda Christ",
+        "Noah Golowich",
+        "Sam Gunn",
+        "Ankur Moitra",
+        "Daniel Wichs"
+      ]
+    },
+    {
+      "id": "LIT-072",
+      "title": "Space-Efficient Text Indexing with Mismatches using Function Inversion",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800818",
+      "primary_url": "https://doi.org/10.1145/3798129.3800818",
+      "track": "fine-grained-algorithms",
+      "summary_ru": "Bibbens–Borevitz–McCauley строят линейно-пространственный индекс поиска строк с ≤k Hamming mismatches и сглаженным tradeoff query/space.",
+      "limits_ru": "Поиск при Hamming distance не покрывает вставки/удаления и не является автоматическим поиском минимальной delta patch-базы.",
+      "maps_to": [
+        "OM-099",
+        "OM-121",
+        "DL-001"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Jackson Bibbens",
+        "Levi Borevitz",
+        "Samuel McCauley"
+      ]
+    },
+    {
+      "id": "LIT-073",
+      "title": "Classifying Identities: Subcubic Distributivity Checking and Hardness from Arithmetic Progression Detection",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800854",
+      "primary_url": "https://doi.org/10.1145/3798129.3800854",
+      "track": "algebraic-complexity",
+      "summary_ru": "Алгебраические тождества конечных операций классифицированы по complexity проверки; distributivity за O(|S|^ω) и условные tight lower bounds.",
+      "limits_ru": "Условные reductions из triangle detection/AP detection не дают безусловного lower bound для любой конечной GF(q) арифметики или проверки Rust crate.",
+      "maps_to": [
+        "OM-116",
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Bartłomiej Dudek",
+        "Nick Fischer",
+        "Geri Gokaj",
+        "Ce Jin",
+        "Marvin Künnemann",
+        "Xiao Mao",
+        "Mirza Redžić"
+      ]
+    },
+    {
+      "id": "LIT-074",
+      "title": "Deterministic Padded Decompositions and Negative-Weight Shortest Paths",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800722",
+      "primary_url": "https://doi.org/10.1145/3798129.3800722",
+      "track": "graph-algorithms",
+      "summary_ru": "Jason Li строит детерминированные padded decompositions ориентированных графов и почти линейный negative-weight SSSP.",
+      "limits_ru": "Статический SSSP с отрицательными рёбрами не даёт incremental support или гарантий размера delta patch.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Jason Li"
+      ]
+    },
+    {
+      "id": "LIT-075",
+      "title": "Lower Bounds on Pure Dynamic Programming for Connectivity Problems on Graphs of Bounded Path-Width",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2026.130",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.130",
+      "track": "algebraic-complexity",
+      "summary_ru": "Kluk–Nederlof: нижние границы 2^Ω(k log log k) для tropical-circuit pure DP задач связности/коммивояжёра при pathwidth k.",
+      "limits_ru": "Граница относится к конкретной модели tropical circuits; алгебраические ускорения и общие DP алгоритмы вне класса не опровергаются.",
+      "maps_to": [
+        "OM-133",
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "ICALP 2026",
+      "source_access": "official_conference_toc_abstract_linked_doi",
+      "authors": [
+        "Kacper Kluk",
+        "Jesper Nederlof"
+      ]
     }
   ]
 }
