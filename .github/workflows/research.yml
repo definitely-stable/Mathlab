@@ -61,3 +61,6 @@ jobs:
 
       - name: G2B-B2 anchor orbit and exact cardinality CNF foundation
         run: python research/g2bb2_anchor_sat.py
+
+      - name: TOM-003-D2 authenticated overwrite and multiproof cost gate
+        run: python research/tom_authenticated_overwrite.py
