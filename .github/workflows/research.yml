@@ -35,6 +35,9 @@ jobs:
       - name: Cross-repository research catalog validation
         run: python research/catalog.py --check
 
+      - name: TOM-003 exact overwrite-state lower bound finite oracle
+        run: python research/tom_trust_boundary.py
+
       - name: G2B signed-collision hypergraph and certified search
         run: python research/lent_hypergraph.py
 
