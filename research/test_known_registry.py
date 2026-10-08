@@ -59,7 +59,7 @@ class KnownAndStoppedRegistryTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate(d)
         d = self.modified()
-        d["entries"].pop()
+        d["entries"].pop(19)  # missing internal KR ID must be rejected at any catalog size
         with self.assertRaises(ValueError):
             validate(d)
         d = self.modified()
