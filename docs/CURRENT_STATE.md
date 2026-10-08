@@ -1,19 +1,19 @@
 # CURRENT_STATE
 
-Last verified HEAD: `main@e662cb0489548a8ca61c3f6ea17f4eadbcf8a154`
+Last verified HEAD: `main@f89a8db71b50a3c504643464b391f8414ebc2244`
 
-Current milestone: LENT-001 / G1 — prior-art closure
+Current milestone: LENT-001 / G1A — ASET model freeze
 
-Current slice: classify novelty boundaries for q-ary restricted-coefficient, nested-prefix, nonuniform-cell, and joint computation/locality directions
+Current slice: freeze `A_q^set(m,w,d)`, signed-relation semantics, q=2/q>2 boundaries, and the exact prior-art definition map before any sharp novelty theorem
 
-Open PR: none
+Open PR: #4 — LENT-001-G1A: freeze ASET model and corrected research roadmap
 
-Last CI: `research` run 37719080023 — SUCCESS on merged G0 head; frozen harness and unit tests passed
+Last CI: main `research` run 37719121392 — SUCCESS; PR-head CI pending after documentation update
 
-Acceptance: G0 = FOUNDATION_PASS. The finite theorem is accepted as a baseline theorem with no publication novelty claim.
+Acceptance: G0 = FOUNDATION_PASS. G1A planning target = `G1A_MODEL_PLAN_PASS`. No publication novelty is claimed.
 
-Known blockers: binary extremal novelty overlaps known sparse parity-check-matrix literature; q-ary and nested novelty remain unclassified until G1 closes
+Known blockers: ASET novelty is not yet closed against k-dissociated / weak Sidon / B_h and sparse finite-field literature; q=3 boundary is unresolved; update-efficient and rate-compatible coding must be mapped definition-by-definition
 
-Next allowed action: perform G1 prior-art audit and produce a source-to-claim matrix before strengthening novelty, adding a preprint, or starting a sharp extremal proof
+Next allowed action: finish G1A planning review, then implement the exact q={2,3,5} oracle that separates ASET exactness, signed-relation absence, and arbitrary-coefficient small-column independence
 
 Last updated from repository: 2026-10-08
