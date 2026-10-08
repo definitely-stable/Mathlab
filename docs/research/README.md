@@ -13,6 +13,10 @@
 
 [Theorem-level transfer and source audit](THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) · [machine-readable source-to-claim matrix](THEOREM-GAP-004-TRANSFER.json). Lefmann (2005) achieves the same *odd-field construction exponents* as HYP-001 and HYP-002 under a stronger four-wise independence condition; Mathlab ASET upper bounds are separate. DeltaMeter/DELSK recommendations preserve existing system STOP and unknown product headroom. This is an audit, not a new theorem.
 
+## Supplemental 2026 breadth: 26 STOC/ICALP/EuroSys works beyond sketch
+
+[RESEARCH-LITERATURE-003B: 26 complementary 2026 papers](RESEARCH-LITERATURE-003B-2026-STOC-ICALP-EUROSYS.md) supplements the prior [20-paper 2026 selection](catalog/LITERATURE-003-2026-OPPORTUNITY-AUDIT.md), yielding **95 unique primary literature references** across **14 topical research lanes**, including graph dynamics, proof complexity/certification, algebra, text indexing, sampling, and compression. No current proof or product decision changed.
+
 ## Verified external scholarly literature
 
 [Primary literature catalog](catalog/LITERATURE.md) · [papers by research record](catalog/LITERATURE-BY-RESEARCH.md) · [source/model audit I](catalog/LITERATURE-001-AUDIT.md) · [source corrections and expansion II](catalog/LITERATURE-002-SOURCE-AUDIT.md) · [2026 nonsketch audit III](catalog/LITERATURE-003-2026-OPPORTUNITY-AUDIT.md) · [literature.json](catalog/literature.json).
