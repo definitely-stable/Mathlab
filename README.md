@@ -71,6 +71,10 @@ hard-support evidence. G2B-A yields exact A_3^set(4,2,2)=7 and certified
 10<=A_5^set(3,2,2)<=11 after G2B-B1's classical odd-group weak-Sidon
 bound. [Proof/independent certificate](docs/research/LENT-001-G2B-B1-WEAK-SIDON-BOUND.md).
 The q=5 exact maximum remains UNKNOWN (10 or 11).
+G2B-B2 now has a [globally complete anchored SAT model](docs/research/LENT-001-G2B-B2-A-ANCHORED-SAT-PROTOCOL.md)
+and independent verifier. A bounded SAT run yielding UNKNOWN is not a proof
+of 10. All 11-witnesses can be normalized to contain (0,1,1)
+using a mathematically justified GF5 coordinate-monomial symmetry.
 
 Research extensions: [HYP-001 (#24)](https://github.com/definitely-stable/Mathlab/issues/24)
 provides a classical-order two-cell capacity proof; [HYP-002 (#25)](https://github.com/definitely-stable/Mathlab/issues/25)
