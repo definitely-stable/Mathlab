@@ -1,6 +1,6 @@
 # LENT-001 — prior-art audit
 
-Status: **G1 OPEN / G1A COMPLETE / G1B AUDITS 01–02 COMPLETE**.
+Status: **G1 OPEN / G1A COMPLETE / G1B AUDIT 03 PASS 01 ACTIVE**.
 
 The key novelty correction after Audit 02 is that the broad exact subset
 identification object is established prior art. The only remaining primary
@@ -137,3 +137,36 @@ Audit 03 must close:
 5. fixed-\((d,w)\) sharp asymptotic results.
 
 No manuscript novelty claim is allowed before this closure.
+
+
+## 9. Audit 03 pass 01 — additional direct baselines
+
+### Ericson–Levenshtein modulo-2 superimposed codes
+
+Ericson and Levenshtein (1994) study bounded-active multiple-access coding in
+Hamming space where the receiver observes modulo-2 superposition. This is
+direct additional evidence that binary modular active-set identification is
+classical coding theory rather than a new Mathlab object.
+
+DOI:
+https://doi.org/10.1109/18.340463
+
+### Bshouty–Mazzawi parity-check matrices over Z_p
+
+Bshouty and Mazzawi (2015) construct nearly optimal binary-entry parity-check
+matrices over Z_p whose bounded-size column sets are linearly independent.
+
+DOI:
+https://doi.org/10.1137/120881129
+
+The property is stronger than ASET because it excludes arbitrary field
+coefficients, and it does not impose Mathlab's hard small column-support
+constraint. It is therefore a communication/signature baseline, not closure
+of the sparse-update frontier.
+
+### Current interpretation
+
+These sources further weaken any broad novelty claim but do not close the
+hard-support finite-field signature problem.
+
+Audit 03 remains open. Search failure is not treated as novelty evidence.

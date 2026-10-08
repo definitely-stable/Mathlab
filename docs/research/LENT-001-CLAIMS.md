@@ -15,6 +15,7 @@
 | ASET-Q3-SEP | DERIVED RESULT / EXACT WITNESS | q=3 ASET can hold despite an ordinary short linear dependency | **PROVED / NOT CLAIMED** |
 | ASET-Q5-SEP | DERIVED RESULT / EXACT WITNESS | q=5 ASET can hold despite arbitrary-coefficient short linear dependence | **PROVED / NOT CLAIMED** |
 | ASET-CHAR2-BLOCK | DERIVED RESULT | for \(q=2^s\), ASET is exactly a block-sparse binary short-dependency/BCC problem after basis expansion | **PROVED IN G1B / NOT CLAIMED** |
+| ASET-CHAR2-SANDWICH | DERIVED RESULT | \(A_2(m,w,d)\le A_{2^s}^{set}(m,w,d)\le A_2(sm,sw,d)\) | **PROVED IN G1B / NOT CLAIMED** |
 | ASET-SPARSE-SHARP | RESEARCH TARGET | determine the sharp finite-field signature frontier under hard \(|supp(a_i)|\le w\) | **OPEN / PRIMARY G1B NOVELTY CANDIDATE** |
 | ASET-CHAR2-SHARP | RESEARCH TARGET | classify sharp block-sparse BCC/parity-check behavior for \(q=2^s\) | **OPEN / AUDIT 03** |
 | ASET-ODD-SHARP | RESEARCH TARGET | classify hard-support ASET in odd characteristic, including q=3 side-bound and q>3 coefficient restrictions | **OPEN / AUDIT 03** |
@@ -26,7 +27,7 @@
 | LENT-NESTED-SHARP | DEPRIORITIZED CONJECTURE | pure nestedness tax | **DEPRIORITIZED** |
 | LENT-JOINT | DEFERRED CONJECTURE | communication + locality + independent computation resource | **MODEL NOT FROZEN** |
 
-## Claim policy after G1B Audit 02
+## Claim policy after G1B Audit 03 pass 01
 
 The repository must not claim that exact bounded-active subset identification
 or finite-field signature coding is new.

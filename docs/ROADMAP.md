@@ -22,7 +22,7 @@ separations and exact q={2,3,5} evidence.
 
 #### G1B — primary-source novelty closure
 
-Status: **ACTIVE — AUDIT 02 COMPLETE / AUDIT 03 REQUIRED**
+Status: **ACTIVE — AUDIT 03 STARTED**
 
 Issue: #6.
 
@@ -47,13 +47,26 @@ q=2^s
 Therefore G1B no longer asks whether ASET-like coding is new. It asks whether
 the **hard support-constrained sharp frontier** is already known.
 
-Audit 03 must close:
+Audit 03 is frozen as the final source gate and must close:
 
 1. block-sparse BCC/parity-check extremal results;
 2. zero-error hard-sparse finite-field/mod-q signature codes;
-3. bounded-column-weight quantitative/detecting matrices;
+3. bounded-column-weight additive/quantitative detecting matrices;
 4. support-constrained q-ary \(B_h\)/signed-sum families;
 5. fixed-\((d,w)\) sharp asymptotics.
+
+Characteristic two carries the valid sandwich
+
+\[
+A_2(m,w,d)
+\le
+A_{2^s}^{\mathrm{set}}(m,w,d)
+\le
+A_2(sm,sw,d).
+\]
+
+Any characteristic-two novelty target must therefore sharpen or exploit the
+block structure beyond ordinary binary sparse-code baselines.
 
 Allowed G1B v2 exits:
 

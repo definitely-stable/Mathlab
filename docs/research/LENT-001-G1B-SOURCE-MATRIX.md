@@ -1,6 +1,6 @@
 # LENT-001-G1B — primary-source matrix
 
-Status: **OPEN / AUDIT 02 RECORDED**
+Status: **OPEN / AUDIT 03 PASS 01 RECORDED**
 
 Issue: #6
 
@@ -14,6 +14,7 @@ needs the implication direction recorded below.
 | Source | Exact model | Relation to ASET | Support/locality status | Confidence |
 |---|---|---|---|---|
 | Censor-Hillel–Haeupler–Lynch–Médard, *Bounded-Contention Coding for the Additive Network Model* / arXiv:1208.6125 | binary codewords; XORs of every two distinct subsets of size ≤a must differ | **definitionally binary ASET when the support bound is removed** | no hard small column-weight parameter in the BCC definition | VERIFIED_PRIMARY |
+| Ericson–Levenshtein (1994), *Superimposed Codes in the Hamming Space* | bounded active users/messages; modulo-2 sum channel | older direct binary modular superimposed-code prior art | not a hard-support ASET extremal closure | VERIFIED_PRIMARY |
 | Poltyrev–Snyders (1995), *Linear codes for the sum mod-2 multiple-access channel with restricted access* | unknown active subset among N potential users over sum-mod-2 MAC; active-user/message separation | richer binary modular multiple-access model | not a hard per-signature support extremal theorem | VERIFIED_PRIMARY |
 | Goseling–Stefanović–Popovski, arXiv:1602.02612 / TIT 2018 | up to K active users; signatures summed in \(\mathbb F_q\); identities recoverable from the sum | direct finite-field bounded-active signature-code prior art | construction optimizes signature length; no hard support≤w frontier | VERIFIED_PRIMARY |
 | Yu–Li–Lin, arXiv:2303.14086 and later FFMA/USPM work | finite-field unique sum-pattern multiple access | modern finite-field unique-sum neighbor; different codebook/user model | sparse-form terminology is not by itself ASET column-support extremality | VERIFIED_PRIMARY at model level |
@@ -33,6 +34,7 @@ extremal frontier**.
 | Lefmann–Pudlák–Savický (1996) | binary bounded-column-weight parity-check matrices | direct q=2 sparse baseline | VERIFIED at model level |
 | Lefmann (2005), *Sparse Parity-Check Matrices over GF(q)* | support≤r; every k columns independent for arbitrary nonzero field coefficients | stronger than odd-characteristic ASET; constructions transfer, q>2 upper bounds do not automatically transfer | VERIFIED_PRIMARY |
 | Naor–Verstraete (2005) | improved sparse parity-check bounds | binary/finite-field neighboring baseline | NEEDS_THEOREM_MAP |
+| Bshouty–Mazzawi (2015), *On Parity Check (0,1)-Matrix over Z_p* | binary-entry matrix; every bounded-size column set linearly independent over Z_p; near-optimal row count | stronger arbitrary-linear signature/coin-weighing baseline | no hard small column-weight constraint | VERIFIED_PRIMARY |
 | characteristic-two block reduction | \(q=2^s\) ASET expanded through an \(\mathbb F_2\) basis | exact block-sparse binary short-dependency problem | PROVED_IN_REPO |
 | block-sparse BCC/parity-check extremal literature | hard bound on number of nonzero s-bit coordinate blocks per column | potentially direct char-2 closure | NEEDS_PRIMARY_CHECK |
 
@@ -72,6 +74,7 @@ extremal frontier**.
 |---|---|---|---|
 | Chang–Chen–Guo–Huang, arXiv:1303.6020 | additive \((D,d)\)-separability for d-sparse vectors under standard arithmetic | for D={0,1}, ordinary-arithmetic bounded-d analogue; modular ASET implies ordinary separability | VERIFIED_PRIMARY |
 | bounded-column-weight quantitative/detecting matrices | exact sparse-input recovery + hard measurement-column weight | may provide necessary ASET upper bounds if arithmetic transfer applies | NEEDS_PRIMARY_CHECK |
+| constant-column-weight OR group testing | hard tests-per-item constraint, usually Boolean OR and probabilistic/asymptotic recovery | sparsity orientation matches but arithmetic/guarantee do not | NON_EQUIVALENT_COMPARATOR |
 | modulo-q quantitative/detecting matrices | exact d-sparse recovery modulo q | potentially direct ASET object | NEEDS_PRIMARY_CHECK |
 
 ## G. Characteristic split
@@ -150,3 +153,22 @@ Audit 03 must specifically target:
 Until then:
 
 **G1B STATUS = OPEN.**
+
+
+## K. Audit 03 source-pass additions
+
+- **Mathys (1990), DOI 10.1109/18.59923:** bounded active-user
+  identification/coding over a noiseless real adder; ordinary arithmetic,
+  not hard-support finite-field ASET.
+- **Ericson–Levenshtein (1994), DOI 10.1109/18.340463:** modulo-2
+  superimposed codes with bounded active users/messages; strong q=2 prior
+  art.
+- **Bshouty–Mazzawi (2015), DOI 10.1137/120881129:** nearly optimal
+  binary-entry parity-check matrices over Z_p for short linear independence;
+  no small per-column weight requirement.
+
+These strengthen the conclusion that communication-efficient bounded-active
+identification is established. They do not yet resolve the hard support
+frontier.
+
+Audit 03 remains OPEN.
