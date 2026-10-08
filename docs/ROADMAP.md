@@ -227,14 +227,24 @@ All n<=3 Boolean functions are independently tested by Moore
 partition refinement. This is a classical automata corollary, not a
 publication novelty claim or new Rust crate.
 
-Next separate opportunity O01-D2 is strictly audit-only: freeze a real
-authenticated update protocol with all verification/metadata/CPU cost
-charged; compare direct lookup, maintained counts, ordinary dynamic
-Merkle proofs and PICKLE before any implementation decision.
+O01-D2 (issue #53) freezes a real, **externally authenticated**
+root + count overwrite verifier and exact SSZ-style multiproof
+comparator. Full bit/digest/hash setup/transmission/verification
+cost ledger, exhaustive n<=8 helper/frontier tests and fail-closed
+tampered/stale proof regressions. Existing Ethereum SSZ multiproofs
+and transparency-dev compact ranges already cover the broad
+constructions. **D2 decision: STOP_BROAD_MERKLE_CRATE**, no new
+theorem or Rust artifact. See
+docs/research/TOM-003-D2-AUTHENTICATED-OVERWRITE-AUDIT.md.
+
+Any future O01-D3 must specify a genuinely different authenticated
+update workload, demonstrate the model gap *at source level*, and
+quantify advantage against the BEST trusted-bitmap/cached-Merkle
+baseline before implementing another protocol.
 
 ## Current priority
 
 1. Preserve exact G2B-B2 and full cryptographic proof provenance.
-2. Complete TOM-003 D1 hosted finite audit and STOP/GO gate.
+2. Preserve TOM-003 D1 and D2 exact trust-boundary and existing multiproof STOP gates.
 3. Continue only source-grounded, narrower Rust-product scouting;
    no original theorem or crate has yet cleared the gate.
