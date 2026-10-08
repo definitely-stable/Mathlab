@@ -2,7 +2,7 @@
 
 ## UCT-001 — unified dynamic-information / distinguishability research (2026-10-08)
 
-[UCT research program and four STOP/GO gates](UCT-001-PROGRAM.md) · [formal finite-state/observation baseline, self-contained Hamming-ball proof and triangle embedding counterexample](UCT-001-MODEL-AND-BASELINE.md) · [primary-source overlap and staged nine-work source import](UCT-001-PRIMARY-SOURCES.md), [issue #74](https://github.com/definitely-stable/Mathlab/issues/74). Independent finite exhaustive oracle: `research/test_uct001_baseline.py`. **DERIVED_CLASSICAL baseline; no original general theorem, no canonical LIT-count inflation, no Rust.**
+[UCT research program and four STOP/GO gates](UCT-001-PROGRAM.md) · [formal finite-state/observation baseline, self-contained Hamming-ball proof and triangle embedding counterexample](UCT-001-MODEL-AND-BASELINE.md) · [primary-source overlap and 12-work canonical LIT-111..122 import](UCT-001-PRIMARY-SOURCES.md), [issue #74](https://github.com/definitely-stable/Mathlab/issues/74). Independent finite exhaustive oracle: `research/test_uct001_baseline.py`. **DERIVED_CLASSICAL baseline; no original general theorem, no claim of source-proof verification, no Rust.**
 
 ## HYP-101 G0 — exact BLAKE3 multi-edit source barrier (2026-10-08)
 
