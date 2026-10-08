@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## UCT-001 — unified dynamic-information / distinguishability research (2026-10-08)
+
+[UCT research program and four STOP/GO gates](UCT-001-PROGRAM.md) · [formal finite-state/observation baseline, self-contained Hamming-ball proof and triangle embedding counterexample](UCT-001-MODEL-AND-BASELINE.md) · [primary-source overlap and 12-work canonical LIT-111..122 import](UCT-001-PRIMARY-SOURCES.md), [issue #74](https://github.com/definitely-stable/Mathlab/issues/74). [2026 dynamic Boolean cell-probe Theorem 1.1/model-transfer audit](UCT-001-G1-2026-DYNAMIC-LOWER-BOUND-AUDIT.md). [Fixed-q TOM-006 generalization and exact small parse oracle](UCT-003-FIXED-Q-IMPOSSIBILITY.md) · Independent finite exhaustive oracle: `research/test_uct001_baseline.py`. **44-item known/STOP registry with UCT KR-041..044**; **DERIVED_CLASSICAL baseline; no original general theorem, no claim of source-proof verification, no Rust.**
+
 ## HYP-101 G0 — exact BLAKE3 multi-edit source barrier (2026-10-08)
 
 [1994/1997 incremental cryptography primary-source audit, elementary one-shot lookup-table theorem and multi-edit model freeze](HYP-101-G0-INCREMENTAL-HASH-AUDIT.md), issue [#72](https://github.com/definitely-stable/Mathlab/issues/72). [Independent hash-agnostic test](../../research/test_hyp101_one_shot.py) uses SHA-256 solely as a standard-library deterministic digest comparator; no BLAKE3 implementation or cryptographic security is claimed. LIT-109/110 extend the unique bibliography from 108 to **110**. A one-shot Omega(n/1024) lower bound with free O(n)-bit preprocessing is disproved; exact BLAKE3 *multi-edit* complexity remains OPEN under a fully priced model.

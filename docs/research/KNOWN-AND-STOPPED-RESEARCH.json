@@ -599,6 +599,67 @@
       "primary_sources": [
         "https://www.microsoft.com/en-us/research/publication/bounded-incremental-computation/"
       ]
+    },
+    {
+      "id": "KR-041",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "UCT finite-state reachable-observation Hamming-ball bound",
+      "scope": "Exact state observation O on graph G; code phi into GF(q)^m with <=w changed coordinates per transition implies N_O(x,d)<=V_q(m,min(dw,m)).",
+      "do_not_repeat": "Elementary triangle-inequality and reachable Hamming-ball counting; generalizes presentation of KR-001 but does not add cell-probe/query/communication lower bounds or new scientific novelty.",
+      "authority": [
+        "docs/research/UCT-001-MODEL-AND-BASELINE.md",
+        "docs/research/UCT-001-PROGRAM.md"
+      ],
+      "reopen_only_if": "A stronger graph-structural or joint priced-resource theorem not implied by reachability volumes, after explicit prior-art model transfer.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-042",
+      "area": "UCT",
+      "disposition": "PRIOR_ART",
+      "title": "Binary unit-write locality as classical cubical graph embeddability",
+      "scope": "For O=id,q=2,w=1, injective encoding of undirected G is graph embedding as subgraph of hypercube; triangle and bipartite K(2,3) obstruct it.",
+      "do_not_repeat": "Cubical-graph embeddability and NP-completeness of recognition are known decades before UCT; Hamming-ball capacity is necessary not sufficient and does not establish a new characterization.",
+      "authority": [
+        "docs/research/UCT-001-MODEL-AND-BASELINE.md",
+        "docs/research/UCT-001-PRIMARY-SOURCES.md"
+      ],
+      "reopen_only_if": "A proven strictly distinct observation congruence plus fully charged update/query constraints beyond classical cubical or partial-cube models.",
+      "primary_sources": [
+        "https://doi.org/10.1016/0095-8956(75)90067-2",
+        "https://doi.org/10.1016/S0019-9958(85)80012-7"
+      ]
+    },
+    {
+      "id": "KR-043",
+      "area": "UCT",
+      "disposition": "PRIOR_ART",
+      "title": "Ko 2026 Multiphase Boolean cell-probe joint update-query bound",
+      "scope": "Source Theorem 1.1 claims Omega((log n/log(t_u w))^2) query total when m=n^(1+Omega(1)), t_u=n^o(1), inner product over GF(2); author proof NOT independently reverified.",
+      "do_not_repeat": "Do not claim coupling update/query cell-probe complexity or adding a verification round as UCT originality; Ko's 2.5-round communication lower-bound device is not a Merkle/authenticated witness.",
+      "authority": [
+        "docs/research/UCT-001-G1-2026-DYNAMIC-LOWER-BOUND-AUDIT.md",
+        "docs/research/UCT-001-PRIMARY-SOURCES.md"
+      ],
+      "reopen_only_if": "Independently verify exact primary proof and exhibit a theorem in an explicit new resource model not reducible to Ko/Fredman-Saks/Patrascu-Demaine.",
+      "primary_sources": [
+        "https://eccc.weizmann.ac.il/report/2026/047/revision/1/download"
+      ]
+    },
+    {
+      "id": "KR-044",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Any fixed finite absent-q-gram budget has arbitrarily weak source-only COPY/ADD floor",
+      "scope": "For each fixed r>=1, B=(ab)^r b^(2m) (ab)^r and T=(ab)^m have all U_q=0 up to 2r and relaxed floor 2, while K*>=4m/(2r+1) in the frozen toy fixed-charge model.",
+      "do_not_repeat": "Exact derived-classical adversarial family; no uniform tightness from any fixed finite qmax of absent-window counts. Do not misstate as real VCDIFF bytes or impossibility for growing q or richer indices.",
+      "authority": [
+        "docs/research/UCT-003-FIXED-Q-IMPOSSIBILITY.md",
+        "docs/research/TOM-006-EARLY-KILL-GATE.md"
+      ],
+      "reopen_only_if": "A structural or growing-scale certificate with honestly charged preprocessing, new tightness theorem and source-specific prior-art comparison.",
+      "primary_sources": []
     }
   ]
 }

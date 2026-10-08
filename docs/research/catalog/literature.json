@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "2103ae40c58ff321892497598adf52a897817c1d"
+      "sha": "f15cdc31bad00e7c4a15c76123a82119bbeba852"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -3244,6 +3244,328 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-111",
+      "title": "The cell probe complexity of dynamic data structures",
+      "year": 1989,
+      "identity": "doi:10.1145/73007.73040",
+      "primary_url": "https://doi.org/10.1145/73007.73040",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Fredman–Saks вводят динамические cell-probe нижние границы с учётом операций обновления и запросов и техники chronogram; исходный метод уже связывает количество обращений к ячейкам и динамическую память.",
+      "limits_ru": "Cell-probe считывания/записи слов с параметром размера ячейки отличаются от числа изменённых q-ичных координат в UCT; новую общую границу только из переименования получить нельзя.",
+      "maps_to": [
+        "ML-001",
+        "ML-004"
+      ],
+      "authors": [
+        "Michael L. Fredman",
+        "Michael E. Saks"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-112",
+      "title": "Logarithmic Lower Bounds in the Cell-Probe Model",
+      "year": 2006,
+      "identity": "doi:10.1137/S0097539705447256",
+      "primary_url": "https://doi.org/10.1137/S0097539705447256",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Pătraşcu–Demaine доказывают амортизированные рандомизированные нижние оценки для динамических структур, включая partial sums и connectivity, а также компромиссы стоимости обновлений и запросов.",
+      "limits_ru": "Не переносить асимптотику, word-size или распределение входов без совпадения модели; UCT-A обязан сравниваться с этими сильными известными границами.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Mihai Pătraşcu",
+        "Erik D. Demaine"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-113",
+      "title": "On the Cell Probe Complexity of Dynamic Membership",
+      "year": 2010,
+      "identity": "doi:10.1137/1.9781611973075.12",
+      "primary_url": "https://doi.org/10.1137/1.9781611973075.12",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Yi–Zhang исследуют динамическую принадлежность в модели cell-probe со специальным бесплатным кэшем и границами на обновления при почти одношаговых запросах.",
+      "limits_ru": "Бесплатный кэш и последовательности случайных операций требуют отдельного resource ledger; нельзя смешивать с детерминированными worst-case Hamming writes.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Ke Yi",
+        "Qin Zhang"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-114",
+      "title": "On dynamic bit-probe complexity",
+      "year": 2007,
+      "identity": "doi:10.1016/j.tcs.2007.02.058",
+      "primary_url": "https://doi.org/10.1016/j.tcs.2007.02.058",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Исследование нижних границ dynamic membership и partial sums в bit-probe модели и продолжение техник chronogram; максимально близко к счёту изменённых битов.",
+      "limits_ru": "Запись в один бит памяти, чтение бита и изменение координаты абстрактного кода являются разными ресурсами, которые требуют явной редукции.",
+      "maps_to": [
+        "ML-001",
+        "ML-004"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-115",
+      "title": "New amortized cell-probe lower bounds for dynamic problems",
+      "year": 2019,
+      "identity": "doi:10.1016/j.tcs.2019.01.043",
+      "primary_url": "https://doi.org/10.1016/j.tcs.2019.01.043",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Новые амортизированные cell-probe нижние границы для динамического вычисления полиномов и online matrix-vector multiplication; демонстрируется общий метод нижних оценок.",
+      "limits_ru": "Теоремы привязаны к конкретным семействам задач и амортизированной модели; не распространяются автоматически на любую динамическую систему.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-116",
+      "title": "Noiseless coding of correlated information sources",
+      "year": 1973,
+      "identity": "doi:10.1109/TIT.1973.1055037",
+      "primary_url": "https://doi.org/10.1109/TIT.1973.1055037",
+      "track": "delta-base-selection",
+      "summary_ru": "Slepian–Wolf — классическая теоретико-информационная модель безошибочного кодирования коррелированных случайных источников с распределённым описанием.",
+      "limits_ru": "Стохастические асимптотические скорости кодирования и побочная информация не равны худшему случаю source-only COPY/ADD и оплате индексации; не объявлять lower bound для патчинга следствием SW.",
+      "maps_to": [
+        "DL-001",
+        "ML-004"
+      ],
+      "authors": [
+        "David Slepian",
+        "Jack Wolf"
+      ],
+      "verification": "publisher_bibliography_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-117",
+      "title": "A Library for Self-Adjusting Computation",
+      "year": 2006,
+      "identity": "doi:10.1016/j.entcs.2005.11.043",
+      "primary_url": "https://doi.org/10.1016/j.entcs.2005.11.043",
+      "track": "incremental-computation",
+      "summary_ru": "Библиотека самомодифицирующихся вычислений со ссылками и memoization, примеры change propagation и ускорение инкрементального пересчёта.",
+      "limits_ru": "Из инженерных speedups и программных инвариантов не вытекает универсальная минимальная стоимость обновлений или общий сертификат без полной модели доступа.",
+      "maps_to": [
+        "ML-004",
+        "ML-005"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-118",
+      "title": "Lower bounds for adaptive locally decodable codes",
+      "year": 2005,
+      "identity": "doi:10.1002/rsa.20069",
+      "primary_url": "https://doi.org/10.1002/rsa.20069",
+      "track": "sparse-coding",
+      "summary_ru": "Классические нижние границы локального декодирования сообщений с адаптивными запросами к повреждённым кодовым словам.",
+      "limits_ru": "Это read/query locality на шумных кодах, тогда как LENT-001 задаёт write/update locality; равенство понятий и автоматический перенос границ недопустимы.",
+      "maps_to": [
+        "ML-001",
+        "ML-002"
+      ],
+      "authors": [
+        "Amit Deshpande",
+        "Rahul Jain",
+        "T. Kavitha",
+        "Satyanarayana V. Lokam",
+        "Jaikumar Radhakrishnan"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-119",
+      "title": "An $\\Omega((\\log n / \\log\\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures",
+      "year": 2026,
+      "identity": "publisher:eccc:tr26-047",
+      "primary_url": "https://eccc.weizmann.ac.il/report/2026/047/",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Young Kun Ko, ECCC TR26-047, редакция 7 октября 2026: основной Theorem 1.1 для Multiphase Problem / inner product над F₂ при m=n^{1+Ω(1)}, t_u=n^{o(1)} утверждает t_tot=Ω((log n/log(t_u w))²); доказательство использует 2.5-round communication game с проверкой симуляции.",
+      "limits_ru": "Точная формулировка теоремы проверена по авторской PDF (стр. 3), но полное доказательство не перепроверено. w — размер cell-probe слова, не LENT write locality; m — число preprocessed vectors, не code dimension. Нельзя переносить теорему на произвольную Boolean функцию, динамический range parity или HYP-103 authenticated certificates.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Young Kun Ko"
+      ],
+      "verification": "publisher_full_text_spotchecked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-120",
+      "title": "On cubical graphs",
+      "year": 1975,
+      "identity": "doi:10.1016/0095-8956(75)90067-2",
+      "primary_url": "https://doi.org/10.1016/0095-8956(75)90067-2",
+      "track": "graph-algorithms",
+      "summary_ru": "Garey–Graham исследуют графы, представимые подграфами двоичного гиперкуба, и критически невкладываемые графы — классический prior art для UCT-A.",
+      "limits_ru": "Обычное реберное вложение не является новой теорией локальности; требуются дополнительные строго оплачиваемые ресурсы и корректная структура наблюдений.",
+      "maps_to": [
+        "ML-001",
+        "ML-004"
+      ],
+      "authors": [
+        "M. R. Garey",
+        "R. L. Graham"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-121",
+      "title": "The complexity of cubical graphs",
+      "year": 1985,
+      "identity": "doi:10.1016/S0019-9958(85)80012-7",
+      "primary_url": "https://doi.org/10.1016/S0019-9958(85)80012-7",
+      "track": "graph-algorithms",
+      "summary_ru": "Работа устанавливает NP-полноту распознавания графов, вкладываемых в некоторый двоичный гиперкуб, и изучает минимальную размерность для специальных классов.",
+      "limits_ru": "Новая универсальная теорема о простой решаемости гиперкубного вложения противоречила бы установленной сложности без усиленных ограничений модели.",
+      "maps_to": [
+        "ML-001",
+        "ML-004"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-122",
+      "title": "Embeddings in hypercubes",
+      "year": 1988,
+      "identity": "doi:10.1016/0895-7177(88)90486-4",
+      "primary_url": "https://doi.org/10.1016/0895-7177(88)90486-4",
+      "track": "graph-algorithms",
+      "summary_ru": "Livingston–Stout систематизируют результаты о вложениях графов в гиперкубы, дилатации, расширении, деревьях, решётках и сложности embedding.",
+      "limits_ru": "Нельзя заявлять впервые найденные locality/dilation tradeoffs без полного сравнения с классической теорией cubical graphs; isometric partial cubes — более сильная отдельная модель.",
+      "maps_to": [
+        "ML-001",
+        "ML-004"
+      ],
+      "authors": [
+        "Marilynn Livingston",
+        "Quentin F. Stout"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
           "kind": "model_overlap"
         }
       ],
