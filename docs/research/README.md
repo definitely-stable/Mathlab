@@ -9,6 +9,10 @@
 
 [Theorem-level transfer and source audit](THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) · [machine-readable source-to-claim matrix](THEOREM-GAP-004-TRANSFER.json). Lefmann (2005) achieves the same *odd-field construction exponents* as HYP-001 and HYP-002 under a stronger four-wise independence condition; Mathlab ASET upper bounds are separate. DeltaMeter/DELSK recommendations preserve existing system STOP and unknown product headroom. This is an audit, not a new theorem.
 
+## Literature 2026 — broad cross-domain audit
+
+[Curated **2026 selection: 26 distinct works**, relevance tiers and non-equivalence cautions](RESEARCH-LITERATURE-003-2026-SELECTION.md). This brings the bibliographic catalog to 75 works across 10 research tracks; 0 of the 26 new additions are set-sketch/reconciliation papers. The study of mathematical proofs, dynamic data structures, algebraic circuits, graph dynamics, random sampling, fine-grained string algorithms and delta compression is deliberately broader than one library family.
+
 ## Verified external scholarly literature
 
 [Primary literature catalog](catalog/LITERATURE.md) · [papers by research record](catalog/LITERATURE-BY-RESEARCH.md) · [source/model audit I](catalog/LITERATURE-001-AUDIT.md) · [source corrections and expansion II](catalog/LITERATURE-002-SOURCE-AUDIT.md) · [literature.json](catalog/literature.json).
