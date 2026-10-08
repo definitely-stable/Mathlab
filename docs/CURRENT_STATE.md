@@ -1,5 +1,10 @@
 # CURRENT_STATE
 
+## Anti-rediscovery research inventory (new audit slice)
+
+The [Known / proved / stopped research registry](research/KNOWN-AND-STOPPED-RESEARCH.md) indexes **33** repository-supported claims across LENT, HYP, TOM, reconciliation and DELSK. A pinned JSON record specifies per-item disposition, what not to repeat, its authority, closest public sources where available and a narrow reopening gate. It distinguishes CLOSED_PROVED, PRIOR_ART, STOP_PRODUCT, SUPERSEDED, MODEL_MISMATCH and DEFER. The separate `research/known_registry.py --check` validator audits paths, schema and deterministic human view. This documents existing decisions; it **does not create any new theorem, source proof or Rust artifact**. Baseline for this slice was live main `269aa27c7f99bc5cf2ae6821d31ad0454620c045`, with main research and independent GF5 certifier green. The research registry PR and merged-main checks are separately required before acceptance.
+
+
 Last fully verified main checkpoint: 44d8eb0d1feed1b51f30ec16019629816d004bb7, PR #54 merged 2026-10-08. Recheck live SHA when starting a new task.
 
 Current decision: LENT G2_REDUCE_TARGET for new Rust-product originality; TOM-003 D1 and D2 both COMPLETE as explicit negative research/product gates. No new theorem or Rust crate authorized.

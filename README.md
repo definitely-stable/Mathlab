@@ -12,6 +12,10 @@ The repository deliberately separates:
 
 The operating pattern is adapted from the evidence discipline used in `definitely-stable/deltameter` and the manuscript/supporting-artifact separation visible in `openai/math`. Text and claims are original to this repository.
 
+## Before proposing a new theorem or Rust crate
+
+[**Known / proved / stopped research — anti-rediscovery registry**](docs/research/KNOWN-AND-STOPPED-RESEARCH.md) · [Machine-readable decisions](docs/research/KNOWN-AND-STOPPED-RESEARCH.json). Consult these scoped statuses and reopening gates **before** drafting a new hypothesis, issue, benchmark or crate. A catalogued prior-art overlap is not proof that every variant is solved.
+
 ## Research discovery and evidence catalog
 
 [Indexed research across Mathlab, DELSK, DeltaMeter, openai/math](docs/research/catalog/INDEX.md) — curated Russian summaries, immutable source pins, related results and verification levels. [Registry and maintenance rules](docs/research/catalog/README.md).

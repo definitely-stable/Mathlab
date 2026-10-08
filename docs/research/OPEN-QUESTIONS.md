@@ -1,5 +1,8 @@
 # Open research questions
 
+> **STATUS OVERRIDE (2026-10-08):** This file is a historical question bank, **not an active authorization list**. Before investigating ANY item, consult the [33-record scoped known/closed/STOP registry](KNOWN-AND-STOPPED-RESEARCH.md) and [G2/TOM decision audit](THEOREM-GAP-004-FOUR-STAGE-AUDIT.md). In particular, the G2B q5=10 finite instance is certified CLOSED; HYP-001/002 broad exponents have Lefmann 2005 construction overlap; the HYP-002 quadratic conjecture was DISCHARGED; TOM-003 D1/D2 standalone product lanes are STOP. Nestedness-only tax is DEFER, not an original theorem. Reopen a question only under its stated new model/benefit gate.
+
+
 ## Priority 1 — ASET extremal problem
 
 1. **Sharp ASET growth.** What is the asymptotic growth of

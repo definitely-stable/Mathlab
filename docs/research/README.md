@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## STOP / already known — required pre-research gate
+
+[**Known, proved, stopped and nontransferable research**](KNOWN-AND-STOPPED-RESEARCH.md) · [machine source](KNOWN-AND-STOPPED-RESEARCH.json). 33 source-linked records with scoped dispositions and strict reopening conditions. This **does not** establish an exhaustive global prior-art search, nor does STOP in one workload ban valid different assumptions. Validate with `python research/known_registry.py --check`.
+
+
 ## Four-stage cross-project theorem/prior-art audit (THEOREM-GAP-004)
 
 [Theorem-level transfer and source audit](THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) · [machine-readable source-to-claim matrix](THEOREM-GAP-004-TRANSFER.json). Lefmann (2005) achieves the same *odd-field construction exponents* as HYP-001 and HYP-002 under a stronger four-wise independence condition; Mathlab ASET upper bounds are separate. DeltaMeter/DELSK recommendations preserve existing system STOP and unknown product headroom. This is an audit, not a new theorem.

@@ -32,6 +32,9 @@ jobs:
 
       - name: External research literature identity and source validation
         run: python research/literature.py --check
+      - name: Known/closed/stopped research anti-rediscovery index validation
+        run: python research/known_registry.py --check
+
       - name: Cross-repository research catalog validation
         run: python research/catalog.py --check
 

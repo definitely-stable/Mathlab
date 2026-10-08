@@ -1,0 +1,499 @@
+{
+  "schema": "mathlab.known-and-stopped-research.v1",
+  "as_of": "2026-10-08",
+  "purpose": "Anti-rediscovery guardrail: already proved finite claims, closest primary prior art, stopped product ideas, invalid model transfers, superseded formulations and deferred broad claims. NOT a global literature completeness claim.",
+  "policy": {
+    "CLOSED_PROVED": "Do not rerun same mathematical target unless independent validation or formalization changes.",
+    "PRIOR_ART": "Do not re-propose as novel under same assumptions; source/definition match still required.",
+    "STOP_PRODUCT": "Do not implement standalone Rust product from this claim without a demonstrated new end-to-end operation and benefit.",
+    "SUPERSEDED": "Historical statement remains citation/provenance only; the stronger record governs.",
+    "MODEL_MISMATCH": "Never transfer conclusion without explicit model-preserving reduction.",
+    "DEFER": "Not selected: missing cost/model or known adjacent work; not proof of impossibility."
+  },
+  "entries": [
+    {
+      "id": "KR-001",
+      "area": "LENT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Sparse-update Hamming-ball counting bound",
+      "scope": "N_d(V) <= B_q(m,dw) for exact set sketches",
+      "do_not_repeat": "Elementary reachable-state counting; not a new locality–entropy trilemma.",
+      "authority": [
+        "docs/research/LENT-001-FOUNDATION.md",
+        "docs/research/DECISIONS.md"
+      ],
+      "reopen_only_if": "A distinct sharp matching bound with new assumptions and source-to-model audit.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-002",
+      "area": "LENT",
+      "disposition": "PRIOR_ART",
+      "title": "Unrestricted binary ASET / bounded contention coding",
+      "scope": "q=2 arbitrary set-sum injectivity",
+      "do_not_repeat": "Do not market existence of the binary exact additive sketch primitive as novel.",
+      "authority": [
+        "docs/research/LENT-001-G1B-AUDIT-03-FINAL.md"
+      ],
+      "reopen_only_if": "A sharp support-sensitive bound not implied by binary BCC literature.",
+      "primary_sources": [
+        "https://arxiv.org/abs/1208.6125"
+      ]
+    },
+    {
+      "id": "KR-003",
+      "area": "LENT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Characteristic-two block-sparse reduction",
+      "scope": "q=2^s ASET as binary short dependency after basis expansion",
+      "do_not_repeat": "Exact reduction already derived; no new char-2 object or broad novelty claim.",
+      "authority": [
+        "docs/research/LENT-001-G1B-CHAR2-REDUCTION.md",
+        "docs/research/LENT-001-G1B-CHAR2-BOUNDS.md"
+      ],
+      "reopen_only_if": "Quantified block-aware improvement beyond established sparse parity-check results.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-004",
+      "area": "LENT",
+      "disposition": "PRIOR_ART",
+      "title": "General finite-field bounded-active signature coding",
+      "scope": "Finite-field active subset signatures and adders",
+      "do_not_repeat": "Existing signature coding precedes ASET; naming a new primitive does not establish originality.",
+      "authority": [
+        "docs/research/LENT-001-G1B-AUDIT-03-FINAL.md",
+        "docs/research/catalog/LITERATURE-002-SOURCE-AUDIT.md"
+      ],
+      "reopen_only_if": "A support-constrained theorem with a proved source-model mismatch and stronger guarantee.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2605.08644",
+        "https://doi.org/10.1137/120881129"
+      ]
+    },
+    {
+      "id": "KR-005",
+      "area": "LENT",
+      "disposition": "CLOSED_PROVED",
+      "title": "ASET signed-side relation criterion",
+      "scope": "Only +-1 collisions with independent positive/negative side caps <=d",
+      "do_not_repeat": "No arbitrary GL coefficient small-dependency equivalence for odd fields.",
+      "authority": [
+        "docs/research/LENT-001-G1A-PROOF.md",
+        "docs/research/LENT-001-CLAIMS.md"
+      ],
+      "reopen_only_if": "A new implication beyond the existing proof, checked in the exact field model.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-006",
+      "area": "LENT",
+      "disposition": "CLOSED_PROVED",
+      "title": "w=1 axis-decomposition capacity",
+      "scope": "A_q^set(m,1,2) = m*A_q^set(1,1,2)",
+      "do_not_repeat": "One-sparse case already solved as a baseline; do not re-prove as G4 novelty.",
+      "authority": [
+        "docs/research/DECISIONS.md"
+      ],
+      "reopen_only_if": "Change the capacity/output model and demonstrate a nontrivial gap.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-007",
+      "area": "LENT",
+      "disposition": "CLOSED_PROVED",
+      "title": "G2A calibration exact q3/q5/q7 cases",
+      "scope": "A3(3,2,2)=5, A5(2,2,2)=5, A7(2,2,2)=7",
+      "do_not_repeat": "Finite cases already covered by exact oracles; q5/q7 here have inactive support w=m.",
+      "authority": [
+        "docs/research/LENT-001-G2A-EVIDENCE.md"
+      ],
+      "reopen_only_if": "A distinct previously untested genuinely sparse target with independent completion.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-008",
+      "area": "LENT",
+      "disposition": "CLOSED_PROVED",
+      "title": "G2B GF3 sparse optimum",
+      "scope": "A_3^set(4,2,2)=7",
+      "do_not_repeat": "Global exact finite result has been completed; no need to redo bounded exhaustive search.",
+      "authority": [
+        "docs/research/LENT-001-G2B-A-EVIDENCE.md"
+      ],
+      "reopen_only_if": "An independent mathematical closed-form characterization across dimensions.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-009",
+      "area": "LENT",
+      "disposition": "CLOSED_PROVED",
+      "title": "G2B GF5 sparse optimum",
+      "scope": "A_5^set(3,2,2)=10",
+      "do_not_repeat": "Complete 665-var 12341-clause anchored SAT DRUP refutation independently verified; older [10,15] and [10,11] are superseded.",
+      "authority": [
+        "docs/research/LENT-001-G2B-B2-EXACT10-CERTIFICATE.md",
+        "docs/research/LENT-001-G2B-B1-WEAK-SIDON-BOUND.md"
+      ],
+      "reopen_only_if": "Independent formalization or certificate durability audit; never reopen numerical search merely to repeat it.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-010",
+      "area": "LENT",
+      "disposition": "PRIOR_ART",
+      "title": "Odd-group weak-Sidon upper lemma",
+      "scope": "s(s-3)+1 <= order(G) for weak Sidon; q5 finite upper 11",
+      "do_not_repeat": "Roth–Seroussi (1996) bound is classical and is already applied to ASET one-way.",
+      "authority": [
+        "docs/research/LENT-001-G2B-B1-WEAK-SIDON-BOUND.md"
+      ],
+      "reopen_only_if": "A genuinely support-sensitive strengthening that is not the same group bound.",
+      "primary_sources": [
+        "https://doi.org/10.1109/18.485724"
+      ]
+    },
+    {
+      "id": "KR-011",
+      "area": "HYP",
+      "disposition": "PRIOR_ART",
+      "title": "Two-cell ASET m^(3/2) order",
+      "scope": "Fixed odd q,w=2,d=2 gives Theta_q(m^(3/2))",
+      "do_not_repeat": "Mathlab proof valid but Lefmann 2005 already attains the same construction exponent with stronger 4-column independence.",
+      "authority": [
+        "docs/research/HYP-001-002-LOCALITY-TRANSITION.md",
+        "docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md"
+      ],
+      "reopen_only_if": "Theorem-level new constant/finite inequality with exact Lefmann model comparison.",
+      "primary_sources": [
+        "https://doi.org/10.1017/S0963548304006625"
+      ]
+    },
+    {
+      "id": "KR-012",
+      "area": "HYP",
+      "disposition": "PRIOR_ART",
+      "title": "Three-cell ASET quadratic order",
+      "scope": "Fixed odd q,w=3,d=2 gives Theta_q(m^2)",
+      "do_not_repeat": "Local upper proof exists; quadratic lower exponent is already attainable by sparse 4-wise independent matrices of Lefmann.",
+      "authority": [
+        "docs/research/HYP-002-B-QUADRATIC-THEOREM.md",
+        "docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md"
+      ],
+      "reopen_only_if": "A sharp constant/structure/stronger property after a source-level theorem audit.",
+      "primary_sources": [
+        "https://doi.org/10.1017/S0963548304006625"
+      ]
+    },
+    {
+      "id": "KR-013",
+      "area": "HYP",
+      "disposition": "SUPERSEDED",
+      "title": "Old HYP-002 O(m^(5/2)) bound/conjectured m^2 gap",
+      "scope": "Older Phase-A upper versus Phase-B sharp m^2",
+      "do_not_repeat": "Old bound is valid but weaker; m^2 conjecture was discharged in HYP-002-B.",
+      "authority": [
+        "docs/research/HYP-002-B-QUADRATIC-THEOREM.md",
+        "docs/research/HYP-001-002-LOCALITY-TRANSITION.md"
+      ],
+      "reopen_only_if": "Never revive historical conjecture; only a genuinely stronger problem.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-014",
+      "area": "HYP",
+      "disposition": "STOP_PRODUCT",
+      "title": "Index-free two-ID affine dense trit sketch",
+      "scope": "Strict <=2 distinct active IDs; decoder O(m)",
+      "do_not_repeat": "Untrusted >2 overload can alias valid state; Theta(m) stored trits lose to O(log m) direct two-ID storage in the standalone use case.",
+      "authority": [
+        "docs/research/HYP-002-C-EVIDENCE.md",
+        "docs/research/HYP-002-C-AFFINE-DECODER-PROTOCOL.md"
+      ],
+      "reopen_only_if": "A costed workload where algebraic merge/sharing outweighs trusted membership and payload.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-015",
+      "area": "TOM",
+      "disposition": "SUPERSEDED",
+      "title": "Locality–Entropy Trilemma as public established term",
+      "scope": "Naming and initial broad trilemma packaging",
+      "do_not_repeat": "Public term overstates elementary Hamming counting; keep LENT-001 only as historical ID.",
+      "authority": [
+        "docs/research/DECISIONS.md",
+        "docs/research/LENT-001-TERMINOLOGY.md"
+      ],
+      "reopen_only_if": "A distinct formal impossibility theorem involving three independent resource axes with proof.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-016",
+      "area": "TOM",
+      "disposition": "STOP_PRODUCT",
+      "title": "TOM-C one-edit zero-probe finite label quotient",
+      "scope": "Finite boolean zero-probe one-edit certificates",
+      "do_not_repeat": "Classical finite distinguishability partition, with free preparation/state not charged; not an original Rust primitive.",
+      "authority": [
+        "docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md"
+      ],
+      "reopen_only_if": "An end-to-end maintained-state/certification lower bound beyond classical quotient.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-017",
+      "area": "TOM",
+      "disposition": "CLOSED_PROVED",
+      "title": "TOM-O02 naive no-effect certificate conjunction",
+      "scope": "Combining individually harmless edits on same baseline",
+      "do_not_repeat": "Exact counterexample shows jointly harmful batch can consist of individually harmless changes.",
+      "authority": [
+        "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md"
+      ],
+      "reopen_only_if": "New specifically scoped batch proof system that accounts for interactions and shared work.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-018",
+      "area": "TOM",
+      "disposition": "PRIOR_ART",
+      "title": "Strongly history-independent dynamic partition as broad novelty",
+      "scope": "Canonical dynamic partitioning / physical memory notions",
+      "do_not_repeat": "2024 and extended 2026 Bender et al. HI dynamic partition papers predate broad O04/O06 claims.",
+      "authority": [
+        "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+        "docs/research/TOM-001-OPPORTUNITY-MAP.md"
+      ],
+      "reopen_only_if": "Precisely different physical observable/cost model plus improvement over 2026 theorem.",
+      "primary_sources": [
+        "https://doi.org/10.1145/3651609",
+        "https://doi.org/10.1145/3810240"
+      ]
+    },
+    {
+      "id": "KR-019",
+      "area": "TOM",
+      "disposition": "STOP_PRODUCT",
+      "title": "TOM-003 D1 untrusted overwrite threshold counter",
+      "scope": "Exact arbitrary overwrite, no old-value oracle, no unretained probes",
+      "do_not_repeat": "Minimal state is e essential inputs (classical finite-state argument); count-only alternative needs verified old bits and hidden state.",
+      "authority": [
+        "docs/research/TOM-003-TRUST-BOUNDARY-PROTOCOL.md"
+      ],
+      "reopen_only_if": "A new authentication/read cost contract and advantage over retained exact state.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-020",
+      "area": "TOM",
+      "disposition": "STOP_PRODUCT",
+      "title": "TOM-003 D2 authenticated Merkle batch overwrite",
+      "scope": "Fixed binary tree, trusted root+count, helper-frontier batch proof",
+      "do_not_repeat": "Classical SSZ multiproof; compact range/state reuse known; finite cost oracle is a comparator, not a new Rust primitive.",
+      "authority": [
+        "docs/research/TOM-003-D2-AUTHENTICATED-OVERWRITE-AUDIT.md"
+      ],
+      "reopen_only_if": "Different operation with measured wire/prover/verifier cost gain vs best existing cached multiproofs.",
+      "primary_sources": [
+        "https://github.com/ethereum/consensus-specs/blob/master/ssz/merkle-proofs.md",
+        "https://github.com/transparency-dev/merkle/blob/main/docs/compact_ranges.md",
+        "https://www.rfc-editor.org/rfc/rfc9162.html"
+      ]
+    },
+    {
+      "id": "KR-021",
+      "area": "TOM",
+      "disposition": "PRIOR_ART",
+      "title": "Broad adversarial stable CDC boundaries",
+      "scope": "Bounded local chunking with periodic corner cases",
+      "do_not_repeat": "Chonkers already claims provable size/locality tradeoffs; not a first/broad primitive.",
+      "authority": [
+        "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+        "docs/research/TOM-003-TRUST-BOUNDARY-PROTOCOL.md"
+      ],
+      "reopen_only_if": "A new exact regime omitted by existing theorems, with adversarial counterexample to source assumptions.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2509.11121"
+      ]
+    },
+    {
+      "id": "KR-022",
+      "area": "TOM",
+      "disposition": "PRIOR_ART",
+      "title": "First dynamic synchronizing-set structure",
+      "scope": "Edit-maintained synchronizing sets and static optimal construction",
+      "do_not_repeat": "STACS 2026 is static; CPM 2026 separately covers dynamic strings. Neither can be relabeled first without a new source distinction.",
+      "authority": [
+        "docs/research/TOM-003-TRUST-BOUNDARY-PROTOCOL.md"
+      ],
+      "reopen_only_if": "A scoped online multiscale bound unattained by published dynamic methods.",
+      "primary_sources": [
+        "https://doi.org/10.4230/LIPIcs.STACS.2026.36"
+      ]
+    },
+    {
+      "id": "KR-023",
+      "area": "TOM",
+      "disposition": "PRIOR_ART",
+      "title": "Broad dynamic succinct dictionary gap compression",
+      "scope": "Gap-sensitive dynamic dictionaries with strong time/space guarantees",
+      "do_not_repeat": "2026 Blelloch et al. and earlier cell-probe bounds cover broad O09/O14 headlines.",
+      "authority": [
+        "docs/research/TOM-001-OPPORTUNITY-MAP.md"
+      ],
+      "reopen_only_if": "A separately motivated new constraint with a proof of separation from known models.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2608.06077"
+      ]
+    },
+    {
+      "id": "KR-024",
+      "area": "TOM",
+      "disposition": "MODEL_MISMATCH",
+      "title": "OM-116 positive-char hitting-set transfer into ASET",
+      "scope": "Polynomial identity testing universal tuple versus modular sparse ASET",
+      "do_not_repeat": "Author already reports positive-characteristic hitting constructions; PIT result does not imply ASET m^2 exponent without explicit reduction.",
+      "authority": [
+        "docs/research/TOM-002-OM116-OM140-THEOREM-AUDIT.md"
+      ],
+      "reopen_only_if": "Formal source-to-target reduction with characteristic/invertibility checked.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-025",
+      "area": "TOM",
+      "disposition": "MODEL_MISMATCH",
+      "title": "OM-140 streaming sample-memory lower bound into DAG updates",
+      "scope": "Noiseless Gaussian measurements, finite-state learner",
+      "do_not_repeat": "Streaming angular/sample complexity is not a lower bound on exact update probes; real registers and finite bit memory differ.",
+      "authority": [
+        "docs/research/TOM-002-OM116-OM140-THEOREM-AUDIT.md"
+      ],
+      "reopen_only_if": "A proved randomized-to-adversarial resource-preserving reduction.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-026",
+      "area": "RECONCILIATION",
+      "disposition": "PRIOR_ART",
+      "title": "IBLT/rateless/self-sizing sketch as broad new algorithm",
+      "scope": "Unknown-d set reconciliation and iterative symbols",
+      "do_not_repeat": "Original IBLT, Rateless IBLT and recent self-sizing claims predate broad 'new ReconcileSketch' story.",
+      "authority": [
+        "docs/research/TOM-003-TRUST-BOUNDARY-PROTOCOL.md",
+        "docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md"
+      ],
+      "reopen_only_if": "Specific experimentally defensible additional guarantee or model beyond known bounds, fully costed.",
+      "primary_sources": [
+        "https://arxiv.org/abs/1101.2245",
+        "https://arxiv.org/abs/2402.02668",
+        "https://arxiv.org/abs/2608.26537"
+      ]
+    },
+    {
+      "id": "KR-027",
+      "area": "RECONCILIATION",
+      "disposition": "MODEL_MISMATCH",
+      "title": "XYZ-Sketch headline near-optimal elements equals bytes",
+      "scope": "Static/reconciliation 'elements' versus end-to-end wire size",
+      "do_not_repeat": "2026 conditional fixed-support optimality and element counts do not imply universal bytes/RTT/RSS optimum.",
+      "authority": [
+        "docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md"
+      ],
+      "reopen_only_if": "Complete common-format benchmark including headers, hashes, state, verifier, fallback.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2609.14442"
+      ]
+    },
+    {
+      "id": "KR-028",
+      "area": "RECONCILIATION",
+      "disposition": "STOP_PRODUCT",
+      "title": "DeltaMeter D13B maintained-state reconciliation product",
+      "scope": "Maintained D11 vs direct exact and rateless-oriented baseline",
+      "do_not_repeat": "Pinned D13B system comparison decided STOP_SYSTEM_PRODUCT; new algebraic micro-optimization alone cannot reverse end-to-end evidence.",
+      "authority": [
+        "docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md"
+      ],
+      "reopen_only_if": "New architecture under matched workloads proving end-to-end break-even incl maintenance and verification.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-029",
+      "area": "RECONCILIATION",
+      "disposition": "MODEL_MISMATCH",
+      "title": "GF(2)-F-PCSA asymptotic estimate as strict finite-sample bound",
+      "scope": "ParityDeltaMeter one-sided exact coverage",
+      "do_not_repeat": "Asymptotic normality/Monte Carlo/fitted tails are not finite-sample high-confidence strict guarantees.",
+      "authority": [
+        "docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md"
+      ],
+      "reopen_only_if": "A real explicit finite-sample inequality from first principles with audited implementation.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2310.14977"
+      ]
+    },
+    {
+      "id": "KR-030",
+      "area": "DELSK",
+      "disposition": "PRIOR_ART",
+      "title": "Chunk similarity / directional containment alone as new descriptor",
+      "scope": "General delta base resemblance and containment",
+      "do_not_repeat": "Finesse, DeepSketch, Palantir, Broder, CARD precede broad ideas. A new name or direction is not unique.",
+      "authority": [
+        "docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md"
+      ],
+      "reopen_only_if": "Codec-conditioned net patch-byte or CPU Pareto improvement on matched held-out workload.",
+      "primary_sources": [
+        "https://www.usenix.org/conference/fast19/presentation/zhang",
+        "https://www.usenix.org/conference/fast22/presentation/park",
+        "https://doi.org/10.1145/3620665.3640353"
+      ]
+    },
+    {
+      "id": "KR-031",
+      "area": "DELSK",
+      "disposition": "MODEL_MISMATCH",
+      "title": "Probabilistic filter usefulness equals directional patch gain",
+      "scope": "Binary fuse/FXLT prefilter versus actual delta ranking",
+      "do_not_repeat": "Fast probabilistic membership filters do not establish optimal retained patch size or codec-aware base utility.",
+      "authority": [
+        "docs/research/catalog/LITERATURE-002-SOURCE-AUDIT.md",
+        "docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md"
+      ],
+      "reopen_only_if": "Independent net benefit under actual trial codec and charged filter construction.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2201.01174",
+        "https://arxiv.org/abs/2312.13541"
+      ]
+    },
+    {
+      "id": "KR-032",
+      "area": "LENT",
+      "disposition": "DEFER",
+      "title": "Pure nested/rate-compatible overhead tax",
+      "scope": "Nested family without mandatory bounded update support",
+      "do_not_repeat": "Known rate-compatible techniques mean a strictly positive tax from nestedness alone is not authorized.",
+      "authority": [
+        "docs/research/DECISIONS.md",
+        "docs/research/OPEN-QUESTIONS.md"
+      ],
+      "reopen_only_if": "A frozen nested + hard-support model and proof gap against best rate-compatible codes.",
+      "primary_sources": []
+    },
+    {
+      "id": "KR-033",
+      "area": "TOM",
+      "disposition": "DEFER",
+      "title": "Cross-resource computation+communication+locality theorem",
+      "scope": "Three independently defined operational resource axes",
+      "do_not_repeat": "No frozen independent computation cost: cannot call a tautological resource restatement a trilemma.",
+      "authority": [
+        "docs/research/DECISIONS.md",
+        "docs/research/OPEN-QUESTIONS.md"
+      ],
+      "reopen_only_if": "Precise probes/decoding resource, cost accounting and valid nontrivial lower bound.",
+      "primary_sources": []
+    }
+  ]
+}
