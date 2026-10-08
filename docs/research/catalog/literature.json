@@ -3467,7 +3467,7 @@
     },
     {
       "id": "LIT-119",
-      "title": "An $\\\\Omega((\\\\log n / \\\\log\\\\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures",
+      "title": "An $\\Omega((\\log n / \\log\\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures",
       "year": 2026,
       "identity": "publisher:eccc:tr26-047",
       "primary_url": "https://eccc.weizmann.ac.il/report/2026/047/",
