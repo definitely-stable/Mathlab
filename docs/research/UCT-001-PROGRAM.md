@@ -32,6 +32,10 @@ Prior-art and source-level overlap: [UCT-001-PRIMARY-SOURCES.md](UCT-001-PRIMARY
 - Formally enumerate model-transfer exclusions: arbitrary vs externally validated updates; current-observation vs future-trace distinguishability; cell accesses vs physical changed cells; average vs worst-case; exact vs statistical vs PRF; static correlated source coding vs worst-case deltas.
 - Hosted CI of PR exact head required for acceptance; passing unit tests cannot establish originality or asymptotic optimality.
 
+## UCT-C / UCT-003 Phase-A result: universal fixed-q STOP
+
+[Fixed-q impossibility proof and exact independent oracle](UCT-003-FIXED-Q-IMPOSSIBILITY.md): for **every fixed finite qmax** there are length-sufficient sources B and arbitrarily long targets T for which *all* target q-grams (q<=qmax) occur in B and the TOM-006 relaxed floor is 2, but the optimal source-only fixed-charge COPY/ADD cost grows without bound. This strictly generalizes TOM-006's scoped q<=2 witness. **DERIVED_CLASSICAL negative lemma; no novelty claim.** No claim against growing q, stronger indices, target-self-copy or real VCDIFF wire costs. `research/test_uct003_fixed_q.py` performs exact small parse DP cross-checks. **Decision:** STOP claims of *uniformly tight* bounds using a fixed number of absent-q-gram statistics only; reopen only for a stronger structural certificate with paid preprocessing.
+
 ## G2 and G3 decisions
 - **G2_SOURCE_AUDIT:** compare exact theorem hypotheses, resource units, and parameter scaling to closest primary paper. Classify each claim as KNOWN, DERIVED_CLASSICAL, MODEL_MISMATCH, FALSE, or OPEN_NARROW; no orphan "novel" labels.
 - **G2_FINITE_FALSIFICATION:** independent brute-force or SAT/SMT finite probes, explicit reference test oracles, adversarial constructions, reproducible seeds and query transcripts.
