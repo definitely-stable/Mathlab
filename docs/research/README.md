@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## HYP-103 G0 — exact classical certificate reduction (2026-10-08)
+
+[Complete old-root batch-overwrite probe model, proved minimum-hitting-set characterization, six source-level research constraints and stop decision](HYP-103-G0-CERTIFICATE-REDUCTION.md), [issue #70](https://github.com/definitely-stable/Mathlab/issues/70). An independent [all-Boolean-functions finite oracle](../../research/test_hyp103_certificates.py) is included in GitHub-hosted research CI. The earlier batch-DAG headline **STOP_CLASSICAL_CERTIFICATE_REDUCTION**: certificate complexity already covers the minimum-probe objective. Six further missing primary works LIT-103..108 expand the catalog from 102 to **108**; no publication novelty, G4 or Rust is claimed.
+
 ## TOM-007 — six cross-domain strong-hypothesis gates (2026-10-08)
 
 [Source/model review, exact finite falsifiers and strict stop decisions](TOM-007-SIX-HYPOTHESIS-AUDIT.md), [issue #68](https://github.com/definitely-stable/Mathlab/issues/68), [independent small-instance oracles](../../research/test_tom007_hypotheses.py). Catalog expanded **95 → 102** genuinely distinct primary works (LIT-096..102) and reverse links regenerated. Existing papers already indexed (Bender/Chonkers/Lefmann/Differential Execution) were cross-referenced, **not** reimported. HYP-102/104/106 broad novelty is blocked; HYP-101/103/105 remain narrowly-scoped, NOT theorem-eligible and NOT Rust/product GO.
