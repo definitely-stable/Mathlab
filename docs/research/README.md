@@ -17,10 +17,13 @@ Terminology: `LENT-001` is a stable historical ID. Public-facing work uses
 8. `LENT-001-G1B-SOURCE-MATRIX.md` — active source matrix;
 9. `LENT-001-G1B-AUDIT-01.md`;
 10. `LENT-001-G1B-AUDIT-02.md`;
-11. `LENT-001-PRIOR-ART.md`;
-12. `DECISIONS.md`;
-13. `OPEN-QUESTIONS.md`;
-14. older issue/discussion text.
+11. `LENT-001-G1B-AUDIT-03-PROTOCOL.md`;
+12. `LENT-001-G1B-AUDIT-03-SOURCES-01.md`;
+13. `LENT-001-G1B-CHAR2-BOUNDS.md`;
+14. `LENT-001-PRIOR-ART.md`;
+15. `DECISIONS.md`;
+16. `OPEN-QUESTIONS.md`;
+17. older issue/discussion text.
 
 Executable artifacts verify finite mathematics; they do not establish
 publication novelty.
