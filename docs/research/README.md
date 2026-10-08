@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## HYP-101 G0 — exact BLAKE3 multi-edit source barrier (2026-10-08)
+
+[1994/1997 incremental cryptography primary-source audit, elementary one-shot lookup-table theorem and multi-edit model freeze](HYP-101-G0-INCREMENTAL-HASH-AUDIT.md), issue [#72](https://github.com/definitely-stable/Mathlab/issues/72). [Independent hash-agnostic test](../../research/test_hyp101_one_shot.py) uses SHA-256 solely as a standard-library deterministic digest comparator; no BLAKE3 implementation or cryptographic security is claimed. LIT-109/110 extend the unique bibliography from 108 to **110**. A one-shot Omega(n/1024) lower bound with free O(n)-bit preprocessing is disproved; exact BLAKE3 *multi-edit* complexity remains OPEN under a fully priced model.
+
 ## HYP-103 G0 — exact classical certificate reduction (2026-10-08)
 
 [Complete old-root batch-overwrite probe model, proved minimum-hitting-set characterization, six source-level research constraints and stop decision](HYP-103-G0-CERTIFICATE-REDUCTION.md), [issue #70](https://github.com/definitely-stable/Mathlab/issues/70). An independent [all-Boolean-functions finite oracle](../../research/test_hyp103_certificates.py) is included in GitHub-hosted research CI. The earlier batch-DAG headline **STOP_CLASSICAL_CERTIFICATE_REDUCTION**: certificate complexity already covers the minimum-probe objective. Six further missing primary works LIT-103..108 expand the catalog from 102 to **108**; no publication novelty, G4 or Rust is claimed.
