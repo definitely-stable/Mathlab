@@ -33,26 +33,26 @@
 
 **P0 — сильная необходимость для проверки того, что мы вообще можем доказывать.**
 
-1. **[LIT-072 — The Natural Proofs Barrier against Data-Structure Lower-Bounds (STOC'26)](catalog/LITERATURE.md#lit-052)**. Главная работа для TOM/LENT: описывает условный барьер стандартных cell-probe нижних границ через LLU/local PRFs. Ошибка переноса — утверждать отсутствие любых возможных lower bounds; это барьер методов при допущении.
-2. **[LIT-070](catalog/LITERATURE.md#lit-050) и [LIT-071](catalog/LITERATURE.md#lit-051) — IPS над малыми конечными полями, weak rank principle (STOC'26)**. Проверяют, где реальные размерности, коэффициенты и ограничения формальных доказательств. Приложимость к ASET/DRAT требует конкретной редукции; наш GF(5)-сертификат не становится сильнее автоматически.
-3. **[LIT-073 — Compressing Dynamic Fully Indexable Dictionaries (STOC'26)](catalog/LITERATURE.md#lit-053)**. Очень близко к TOM, физически компактным состояниям и цене rank/select обновлений, но Word-RAM `M_B` ≠ потоковая сериализация, crash durability или history independence.
-4. **[LIT-080 — PIT Is in NP If and Only If IPS Can Be p-Simulated… (STOC'26)](catalog/LITERATURE.md#lit-060)**. Ключевой *стоп-сигнал* для идеи «любой алгебраический proof легко проверяется детерминированно». Заявлена эквивалентность с caveats о поле, а не новое включение PIT в NP.
-5. **[LIT-095 — Lower Bounds on Pure Dynamic Programming… (ICALP'26)](catalog/LITERATURE.md#lit-075)**. Указывает, как строго замораживать модель вычислений (tropical circuits), иначе трансфер нижней границы на все dynamic programs некорректен.
+1. **[LIT-072 — The Natural Proofs Barrier against Data-Structure Lower-Bounds (STOC'26)](catalog/LITERATURE.md#lit-072)**. Главная работа для TOM/LENT: описывает условный барьер стандартных cell-probe нижних границ через LLU/local PRFs. Ошибка переноса — утверждать отсутствие любых возможных lower bounds; это барьер методов при допущении.
+2. **[LIT-070](catalog/LITERATURE.md#lit-070) и [LIT-071](catalog/LITERATURE.md#lit-071) — IPS над малыми конечными полями, weak rank principle (STOC'26)**. Проверяют, где реальные размерности, коэффициенты и ограничения формальных доказательств. Приложимость к ASET/DRAT требует конкретной редукции; наш GF(5)-сертификат не становится сильнее автоматически.
+3. **[LIT-073 — Compressing Dynamic Fully Indexable Dictionaries (STOC'26)](catalog/LITERATURE.md#lit-073)**. Очень близко к TOM, физически компактным состояниям и цене rank/select обновлений, но Word-RAM `M_B` ≠ потоковая сериализация, crash durability или history independence.
+4. **[LIT-080 — PIT Is in NP If and Only If IPS Can Be p-Simulated… (STOC'26)](catalog/LITERATURE.md#lit-080)**. Ключевой *стоп-сигнал* для идеи «любой алгебраический proof легко проверяется детерминированно». Заявлена эквивалентность с caveats о поле, а не новое включение PIT в NP.
+5. **[LIT-095 — Lower Bounds on Pure Dynamic Programming… (ICALP'26)](catalog/LITERATURE.md#lit-095)**. Указывает, как строго замораживать модель вычислений (tropical circuits), иначе трансфер нижней границы на все dynamic programs некорректен.
 
 **P1 — важная соседняя теория для алгоритмического ядра и практических проверок.**
 
-6. **[LIT-074 — Edit Distance and LCS quasi-strong subquadratic approximations (STOC'26)](catalog/LITERATURE.md#lit-054)**. Различает approximate ED и exact delta patch, даёт теоретический ориентир для бенчмарка approximation gap, а не немедленный production backend.
-7. **[LIT-087 — FastDelta / Once Rolling Hashing is Enough (EuroSys'26)](catalog/LITERATURE.md#lit-067)**. Для DELSK/ChunkShift уже prior art на переиспользование rolling hash между CDC, поиском и encoder. Нужен ablation/whole-pipeline cost, не только совпадения chunks.
-8. **[LIT-076](catalog/LITERATURE.md#lit-056), [LIT-079](catalog/LITERATURE.md#lit-059), [LIT-085](catalog/LITERATURE.md#lit-065), [LIT-086](catalog/LITERATURE.md#lit-066)**: обновления графовых объектов — ценны для TOM O01/O04, но нельзя приравнивать dynamic graph recourse к bytes rewritten или точному zero-effect.
-9. **[LIT-093 — Classifying Identities, subcubic distributivity checking (STOC'26)](catalog/LITERATURE.md#lit-073)**. Модельное разграничение: что проверяется полностью за `|S|^ω`, что условно трудно, какие классы тождеств доступны для компактного Rust primitive.
-10. **[LIT-083 — Combinatorial Bounds for List Recovery… (STOC'26)](catalog/LITERATURE.md#lit-063)**. Важный overlap с кодами, но ASET d=2 и list recovery имеют различные допустимые сообщения/ошибки, так что копировать показатели нельзя.
+6. **[LIT-074 — Edit Distance and LCS quasi-strong subquadratic approximations (STOC'26)](catalog/LITERATURE.md#lit-074)**. Различает approximate ED и exact delta patch, даёт теоретический ориентир для бенчмарка approximation gap, а не немедленный production backend.
+7. **[LIT-087 — FastDelta / Once Rolling Hashing is Enough (EuroSys'26)](catalog/LITERATURE.md#lit-087)**. Для DELSK/ChunkShift уже prior art на переиспользование rolling hash между CDC, поиском и encoder. Нужен ablation/whole-pipeline cost, не только совпадения chunks.
+8. **[LIT-076](catalog/LITERATURE.md#lit-076), [LIT-079](catalog/LITERATURE.md#lit-079), [LIT-085](catalog/LITERATURE.md#lit-085), [LIT-086](catalog/LITERATURE.md#lit-086)**: обновления графовых объектов — ценны для TOM O01/O04, но нельзя приравнивать dynamic graph recourse к bytes rewritten или точному zero-effect.
+9. **[LIT-093 — Classifying Identities, subcubic distributivity checking (STOC'26)](catalog/LITERATURE.md#lit-093)**. Модельное разграничение: что проверяется полностью за `|S|^ω`, что условно трудно, какие классы тождеств доступны для компактного Rust primitive.
+10. **[LIT-083 — Combinatorial Bounds for List Recovery… (STOC'26)](catalog/LITERATURE.md#lit-083)**. Важный overlap с кодами, но ASET d=2 и list recovery имеют различные допустимые сообщения/ошибки, так что копировать показатели нельзя.
 
 **P2 — широкое теоретическое питание, без немедленной продуктовой реализации.**
 
-- [LIT-081](catalog/LITERATURE.md#lit-061), [LIT-082](catalog/LITERATURE.md#lit-062), [LIT-075](catalog/LITERATURE.md#lit-055): sampling, распределительная сложность, зависимость от параллельной работы и memory/sample.
-- [LIT-077](catalog/LITERATURE.md#lit-057), [LIT-089](catalog/LITERATURE.md#lit-069), [LIT-090](catalog/LITERATURE.md#lit-070): алгебраические схемы, пороговые схемы и ограниченная глубина формальных доказательств.
-- [LIT-078](catalog/LITERATURE.md#lit-058), [LIT-094](catalog/LITERATURE.md#lit-074): статические графовые структурные ускорения; подсказки для partitioning, не готовые динамические структуры.
-- [LIT-084](catalog/LITERATURE.md#lit-064), [LIT-088](catalog/LITERATURE.md#lit-068), [LIT-091](catalog/LITERATURE.md#lit-071), [LIT-092](catalog/LITERATURE.md#lit-072): local independence, cell probes, pseudorandom edit-tolerant codes, text indexing.
+- [LIT-081](catalog/LITERATURE.md#lit-081), [LIT-082](catalog/LITERATURE.md#lit-082), [LIT-075](catalog/LITERATURE.md#lit-075): sampling, распределительная сложность, зависимость от параллельной работы и memory/sample.
+- [LIT-077](catalog/LITERATURE.md#lit-077), [LIT-089](catalog/LITERATURE.md#lit-089), [LIT-090](catalog/LITERATURE.md#lit-090): алгебраические схемы, пороговые схемы и ограниченная глубина формальных доказательств.
+- [LIT-078](catalog/LITERATURE.md#lit-078), [LIT-094](catalog/LITERATURE.md#lit-094): статические графовые структурные ускорения; подсказки для partitioning, не готовые динамические структуры.
+- [LIT-084](catalog/LITERATURE.md#lit-084), [LIT-088](catalog/LITERATURE.md#lit-088), [LIT-091](catalog/LITERATURE.md#lit-091), [LIT-092](catalog/LITERATURE.md#lit-092): local independence, cell probes, pseudorandom edit-tolerant codes, text indexing.
 
 ## Следующие точные исследования (не запускать до gate)
 
