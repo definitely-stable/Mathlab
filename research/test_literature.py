@@ -14,12 +14,12 @@ class LiteratureTests(unittest.TestCase):
     def test_real_collection_has_no_metadata_errors(self):
         self.assertEqual(valid(self.data, self.catalog), [])
 
-    def test_49_distinct_works_and_five_lanes(self):
+    def test_69_distinct_works_and_ten_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 49)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 49)
-        self.assertEqual(len({e["id"] for e in entries}), 49)
-        self.assertEqual(len({e["track"] for e in entries}), 5)
+        self.assertEqual(len(entries), 69)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 69)
+        self.assertEqual(len({e["id"] for e in entries}), 69)
+        self.assertEqual(len({e["track"] for e in entries}), 10)
 
     def test_forward_and_reverse_indices_are_exactly_reproducible(self):
         self.assertEqual(render(self.data), INDEX.read_text(encoding="utf-8"))
@@ -47,6 +47,49 @@ class LiteratureTests(unittest.TestCase):
         self.assertTrue(any("primary source title mismatch" in x
                             for x in valid(d, self.catalog)))
 
+    def test_2026_broad_selection_is_not_sketch_centric(self):
+        selected = [e for e in self.data["entries"]
+                    if 50 <= int(e["id"][4:]) <= 69]
+        self.assertEqual(len(selected), 20)
+        self.assertEqual({e["year"] for e in selected}, {2026})
+        self.assertEqual(len({e["track"] for e in selected}), 7)
+        self.assertFalse({"streaming-reconciliation", "sparse-coding"} &
+                         {e["track"] for e in selected})
+        self.assertEqual(sum(e["track"] == "proof-certification"
+                             for e in selected), 7)
+        self.assertEqual(sum(e["track"] == "compressed-indexing"
+                             for e in selected), 5)
+        self.assertEqual(sum(e["publication_stage"] ==
+                             "peer_reviewed_proceedings" for e in selected), 16)
+        self.assertEqual(sum(e["publication_stage"] ==
+                             "author_preprint" for e in selected), 4)
+        self.assertTrue(all(e["mentioned_in"][0]["kind"] == "model_overlap"
+                            for e in selected))
+
+    def test_2026_year_stage_and_priority_mislabeling_is_rejected(self):
+        for key, value, diagnostic in (
+            ("year", 2025, "non-2026 cohort entry"),
+            ("publication_stage", "peer_reviewed_proceedings", "proceedings DOI missing"),
+            ("selection_priority", "publication accepted", "missing 2026 selection priority"),
+        ):
+            d = copy.deepcopy(self.data)
+            target = next(x for x in d["entries"] if x["id"] == "LIT-063")
+            target[key] = value
+            self.assertTrue(any(diagnostic in x for x in valid(d, self.catalog)),
+                            f"{key} must fail on mismatched source identity")
+
+    def test_2026_source_and_classification_guardrails(self):
+        d = copy.deepcopy(self.data)
+        x = next(x for x in d["entries"] if x["id"] == "LIT-055")
+        x["mentioned_in"][0]["kind"] = "cited"
+        self.assertTrue(any("invented existing citation" in problem
+                            for problem in valid(d, self.catalog)))
+        d = copy.deepcopy(self.data)
+        x = next(x for x in d["entries"] if x["id"] == "LIT-052")
+        x["title"] = "FSST Fast Random Access"
+        self.assertTrue(any("primary source title mismatch" in problem
+                            for problem in valid(d, self.catalog)))
+
     def test_cross_identifier_alias_collision_is_rejected(self):
         d = copy.deepcopy(self.data)
         target = next(x for x in d["entries"] if x["id"] == "LIT-039")
@@ -69,7 +112,7 @@ class LiteratureTests(unittest.TestCase):
         entries = self.data["entries"]
         self.assertEqual(len({e["id"] for e in entries}), 49)
         tracks = {e["track"] for e in entries}
-        self.assertEqual(len(tracks), 5)
+        self.assertEqual(len(tracks), 10)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
             {e["id"] for e in entries}))
         self.assertTrue({"MATHLAB", "DELSK", "DELTAMETER"}.issubset(
