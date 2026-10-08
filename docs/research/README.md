@@ -12,9 +12,10 @@ For LENT-001, resolve conflicts in this order:
 4. `LENT-001-G1-CORRECTIONS.md` — accepted corrections from the G1 review;
 5. `LENT-001-FOUNDATION.md` — definitions, baseline proofs, derivations and caveats;
 6. `LENT-001-PRIOR-ART.md` — novelty boundary and literature mapping;
-7. `DECISIONS.md` — accepted research decisions;
-8. `OPEN-QUESTIONS.md` — unresolved work;
-9. older issue/discussion text.
+7. `LENT-001-G1A-SOURCE-MATRIX.md` — source-by-source equivalence/implication audit;
+8. `DECISIONS.md` — accepted research decisions;
+9. `OPEN-QUESTIONS.md` — unresolved work;
+10. older issue/discussion text.
 
 Executable artifacts under `research/` validate finite cases and arithmetic. They do not override the mathematical model.
 
