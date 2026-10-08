@@ -28,7 +28,7 @@ Status: **IN PROGRESS**
 
 #### G1A — ASET model + exact relation oracle
 
-Status: **IMPLEMENTED / AWAITING LATEST-HEAD CI**
+Status: **COMPLETE ON REVIEWED PR HEAD / EVIDENCE COMMIT CI PENDING**
 
 Primary object:
 

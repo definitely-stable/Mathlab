@@ -1,21 +1,21 @@
 # CURRENT_STATE
 
-Last verified HEAD: `main@15c1bf7bb47c5edb3727fd50b27c4044daf4813f`
+Last verified HEAD: `research/lent-001-g1a-oracle@40ffeecaff8c3558810f498cafa359a3bde9e6ea`
 
 Current milestone: LENT-001 / G1A — exact ASET relation oracle
 
-Current slice: independently verify ASET exactness, legal signed relations, and arbitrary-coefficient small-column dependence over q={2,3,5}
+Current slice: exact q={2,3,5} model-separation evidence and proof package
 
-Implementation branch: `research/lent-001-g1a-oracle`
+Open PR: #5 — LENT-001-G1A: implement exact ASET relation oracle
 
-Open PR: pending
+Last CI: PR run `37724834067` — SUCCESS; all five G1A acceptance markers emitted; 11 unit tests passed
 
-Last CI: merged G1A planning/terminology PR #4 was green; implementation-head CI pending
+Acceptance: G0 = FOUNDATION_PASS; G1A planning = G1A_MODEL_PLAN_PASS; G1A execution = G1A_ORACLE_PASS on the reviewed code/docs head before this evidence-only commit
 
-Acceptance: G0 = FOUNDATION_PASS; G1A planning = G1A_MODEL_PLAN_PASS; G1A execution requires G1A_ORACLE_PASS plus unit tests on latest PR head
+Exact result: q=3 and q=5 frozen grids contain ASET-exact families that are not arbitrary-coefficient full-linear-independent; q=2 remains equivalent in the frozen grid
 
-Known blockers: publication novelty is still blocked on G1B prior-art closure; general GF(p^k) is intentionally outside the tiny oracle; no sharp asymptotic ASET theorem is authorized yet
+Known blockers: publication novelty remains blocked on G1B primary-source closure; the exact finite gap is not yet an asymptotic or novelty result
 
-Next allowed action: obtain green CI for the exact oracle, review the exact q=3/q=5 separation evidence, then enter G1B source-level novelty closure
+Next allowed action: require green latest-head CI for this evidence commit, merge PR #5, then start G1B source-to-claim closure
 
 Last updated from repository: 2026-10-08
