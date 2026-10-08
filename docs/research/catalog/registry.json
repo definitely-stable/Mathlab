@@ -776,7 +776,9 @@
         "latest": "https://github.com/openai/math/blob/main/lean/docs/099.md"
       },
       "primary_sources": [
-        "https://github.com/openai/math/blob/main/CONTENTS.md"
+        "https://github.com/openai/math/blob/main/CONTENTS.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Edit-Distance-in-l1-Matching-Bounds-up-to-Constants-in-the-Exponent-September-27-2026/paper.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Finite-Circle-Obstructions-Binary-Codes-and-Histogram-Embeddings-for-Edit-Distance-September-27-2026/paper.pdf"
       ],
       "related": [
         {
@@ -810,7 +812,8 @@
         "latest": "https://github.com/openai/math/blob/main/lean/docs/103.md"
       },
       "primary_sources": [
-        "https://github.com/openai/math/blob/main/CONTENTS.md"
+        "https://github.com/openai/math/blob/main/CONTENTS.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Exact-Derandomization-of-Logarithmic-Space-L-equals-RL-equals-BPL-September-23-2026/paper.pdf"
       ],
       "related": [
         {
@@ -840,7 +843,8 @@
         "latest": "https://github.com/openai/math/blob/main/lean/docs/119.md"
       },
       "primary_sources": [
-        "https://github.com/openai/math/blob/main/CONTENTS.md"
+        "https://github.com/openai/math/blob/main/CONTENTS.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Sharp-binary-information-contraction-on-the-discrete-cube-September-24-2026/main.pdf"
       ],
       "related": [
         {
@@ -874,7 +878,8 @@
         "latest": "https://github.com/openai/math/blob/main/lean/docs/121.md"
       },
       "primary_sources": [
-        "https://github.com/openai/math/blob/main/CONTENTS.md"
+        "https://github.com/openai/math/blob/main/CONTENTS.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/An-Almost-Linear-Approximation-Scheme-for-Edit-Distance-September-24-2026/paper.pdf"
       ],
       "related": [
         {
@@ -913,7 +918,9 @@
         "latest": "https://github.com/openai/math/blob/main/lean/docs/122.md"
       },
       "primary_sources": [
-        "https://github.com/openai/math/blob/main/CONTENTS.md"
+        "https://github.com/openai/math/blob/main/CONTENTS.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Uniform-quasipolynomial-time-trace-reconstruction-October-5-2026/uniform-trace-reconstruction.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/quantitative-lower-bounds-for-trace-reconstruction-September-24-2026/paper.pdf"
       ],
       "related": [
         {
