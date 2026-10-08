@@ -231,7 +231,7 @@ def render(data):
                 "",
                 *([f"**Проверенный издательский реестр:** "
                     f"[{e['venue']}]({e['source_listing_url']}) · "
-                    f"**Доступ:** \`{e['source_access']}\`", ""]
+                    f"**Доступ:** `{e['source_access']}`", ""]
                   if e.get("source_listing_url") else []),
                 f"**Связь с исследованиями →** {links}",
                 "",
