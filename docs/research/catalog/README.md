@@ -11,7 +11,7 @@ This is Mathlab's **curated, cross-repository research navigator**, not a mirror
 
 ## Coverage as of 2026-10-08
 
-**RESEARCH-INDEX-002:** 51 curated records (Mathlab 11, DELSK 12, DeltaMeter 14, openai/math 14), cross-linked across 53 generated topics. Existing 26 IDs preserved; 25 new records.
+**RESEARCH-INDEX-002:** 51 curated records (Mathlab 11, DELSK 12, DeltaMeter 14, openai/math 14), cross-linked across 54 generated topics. Existing 26 IDs preserved; 25 new records.
 
 The current external revision pins were verified on 2026-10-08; Mathlab was advanced to the HYP-001/002 merged main snapshot `c3ffc69563ac15241e67f4b6ccfe8063720590f1` (including G2B-A). See the import decision memo for representative source-level checks and claim-policy gates.
 
