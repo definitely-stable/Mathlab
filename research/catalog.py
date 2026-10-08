@@ -153,7 +153,8 @@ def render(data):
                 f"[{n+1}]({u})" for n, u in enumerate(x["primary_sources"])
             ) or "—"
             output += [
-                f"### {identifier} — {x['title']}",
+                f"### {identifier}",
+                f"**{x['title']}**",
                 "",
                 x["summary_ru"],
                 "",
