@@ -12,6 +12,10 @@ The repository deliberately separates:
 
 The operating pattern is adapted from the evidence discipline used in `definitely-stable/deltameter` and the manuscript/supporting-artifact separation visible in `openai/math`. Text and claims are original to this repository.
 
+## Research discovery and evidence catalog
+
+[Indexed research across Mathlab, DELSK, DeltaMeter, openai/math](docs/research/catalog/INDEX.md) — curated Russian summaries, immutable source pins, related results and verification levels. [Registry and maintenance rules](docs/research/catalog/README.md).
+
 ## Current research
 
 ### LENT-001 — Sparse-Update State-Space Bounds for Exact Additive Set Sketches
