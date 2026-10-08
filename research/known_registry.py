@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from datetime import date
 import json
 from pathlib import Path
 from urllib.parse import urlparse
@@ -20,7 +21,7 @@ STATUSES = (
     "CLOSED_PROVED", "PRIOR_ART", "STOP_PRODUCT", "SUPERSEDED",
     "MODEL_MISMATCH", "DEFER",
 )
-EXPECTED_IDS = tuple(f"KR-{i:03d}" for i in range(1, 34))
+MIN_BASELINE_RECORDS = 33
 
 
 def validate(record: dict) -> list[dict]:
@@ -30,8 +31,14 @@ def validate(record: dict) -> list[dict]:
         raise ValueError("bad root registry object/schema")
     if record["schema"] != "mathlab.known-and-stopped-research.v1":
         raise ValueError("unsupported anti-rediscovery schema")
-    if record["as_of"] != "2026-10-08":
-        raise ValueError("missing frozen audit date")
+    if not isinstance(record["as_of"], str):
+        raise ValueError("invalid audit date")
+    try:
+        audit_date = date.fromisoformat(record["as_of"])
+    except ValueError as exc:
+        raise ValueError("invalid ISO audit date") from exc
+    if audit_date < date(2026, 10, 8):
+        raise ValueError("audit date predates registry inception")
     if not isinstance(record["purpose"], str) or "NOT a global" not in record["purpose"]:
         raise ValueError("must explicitly disclaim global completeness")
     if not isinstance(record["policy"], dict) or set(record["policy"]) != set(STATUSES):
@@ -40,8 +47,12 @@ def validate(record: dict) -> list[dict]:
         if not isinstance(desc, str) or len(desc) < 30:
             raise ValueError(f"invalid disposition policy: {k}")
     entries = record["entries"]
-    if not isinstance(entries, list) or tuple(x.get("id") for x in entries) != EXPECTED_IDS:
-        raise ValueError("missing/duplicate/out-of-order frozen research record")
+    if not isinstance(entries, list) or len(entries) < MIN_BASELINE_RECORDS:
+        raise ValueError("missing baseline known-work records")
+    expected = tuple(f"KR-{i:03d}" for i in range(1, len(entries) + 1))
+    actual = tuple(x.get("id") if isinstance(x, dict) else None for x in entries)
+    if actual != expected:
+        raise ValueError("duplicate, missing or out-of-order research IDs")
     seen_titles = set()
     for i, item in enumerate(entries):
         if not isinstance(item, dict) or set(item) != {
