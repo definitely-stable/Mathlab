@@ -57,7 +57,16 @@ that makes overload detection impossible from the trits alone.
 Physical dense-state costs must be compared against directly storing
 two canonical IDs. No new Rust crate or originality is implied.
 
-## G2B-B2 — globally sound eleven-column decision reduction
+## G2B-B2 — exact q5 maximum 10, independently checked computer-assisted proof
+
+[Exact GF5 result and full UNSAT certificate provenance](LENT-001-G2B-B2-EXACT10-CERTIFICATE.md).
+The complete normalized 11-column SAT formula was refuted by Glucose4,
+and the full refutation was accepted by an independently pinned drat-trim
+checker. The original 10-column G1A witness is still exact.
+**A_5^set(3,2,2)=10: EXACT NUMERICAL RESULT, scientific novelty NOT claimed.**
+The former [10,11] interval is now HISTORICAL.
+
+## G2B-B2 — globally sound eleven-column decision reduction (source protocol)
 
 [Single-anchor complete reduction, Tseitin cardinality proof and
 SAT/DRAT audit](LENT-001-G2B-B2-A-ANCHORED-SAT-PROTOCOL.md)
@@ -79,10 +88,11 @@ The **G2B-B1 classical weak-Sidon reduction** now rigorously tightens
 this to **[10,11]**; see [proof and source audit](LENT-001-G2B-B1-WEAK-SIDON-BOUND.md)
 and [GitHub-hosted 84-test evidence](LENT-001-G2B-B1-EVIDENCE.md)
 and [G2B-A historical evidence](LENT-001-G2B-A-EVIDENCE.md).
-The exact q=5 optimum remains UNPROVED; local 10-witness extension
-failure cannot establish global infeasibility of V=11.
-G2B-B remains open until the q=5 gap is audited and a theorem-selection
-decision is justified. No preprint novelty claim is authorized.
+The B1 [10,11] interval and local-only obstruction were historical;
+B2's complete independently checked UNSAT refutation now rigorously proves
+the global exact value V=10 (see the B2 certificate linked above).
+G2B-B2 finite q5 exactness is COMPLETE; G2 theorem-selection and
+source-level originality audit remain separate. No preprint novelty claim is authorized.
 
 TOM-001-OPPORTUNITY-MAP.md and TOM-001-B/C audits remain separate
 scouting/calibration artifacts; TOM-C is STOP as a novelty target.
