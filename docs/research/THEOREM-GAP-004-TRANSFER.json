@@ -1,0 +1,244 @@
+{
+  "schema": "mathlab.theorem-gap-004.v1",
+  "date": "2026-10-08",
+  "source_snapshots": {
+    "MATHLAB": {
+      "repo": "definitely-stable/Mathlab",
+      "sha": "fa5998c7aa42879945a3254998f9343e1183eed4"
+    },
+    "DELSK": {
+      "repo": "definitely-stable/Shift-lab",
+      "sha": "e1ee235fe08c7cc1f6e8ec8884b65439435adf92"
+    },
+    "DELTAMETER": {
+      "repo": "definitely-stable/deltameter",
+      "sha": "862579643fb44bfd3df3b65a863bfdc90b998611"
+    }
+  },
+  "policy": {
+    "originality_verified": false,
+    "external_full_proof_rechecked": false,
+    "lean_independent_check": false,
+    "product_rust_authorized": false,
+    "finite_b2_unchanged": true
+  },
+  "records": [
+    {
+      "id": "TG-001",
+      "stage": 1,
+      "claim": "HYP-001 odd-field w=2 exponent m^(3/2)",
+      "status": "PROVED_LOCALLY_PRIOR_ART_EXPONENT_OVERLAP",
+      "sources": [
+        "LIT-043"
+      ],
+      "research": [
+        "ML-010"
+      ],
+      "direction": "Lefmann k<=4 independent sparse columns => ASET d<=2; source constructs same exponent",
+      "counter_direction": "ASET exact => all 4 column subfamilies linearly independent is FALSE",
+      "model": "fixed odd characteristic q; column support at most 2; d=2; k=4 independence",
+      "research_gap": "ASET-only sharp finite leading constants or extremal structure; novelty unknown"
+    },
+    {
+      "id": "TG-002",
+      "stage": 1,
+      "claim": "HYP-002 odd-field w=3 exponent m^2",
+      "status": "PROVED_LOCALLY_PRIOR_ART_EXPONENT_OVERLAP",
+      "sources": [
+        "LIT-043",
+        "LIT-003",
+        "LIT-004"
+      ],
+      "research": [
+        "ML-010",
+        "ML-011"
+      ],
+      "direction": "Lefmann k<=4 independent sparse columns => ASET d<=2; same exponent; Mathlab own upper remains separate",
+      "counter_direction": "The older theorem is NOT an upper bound for larger ASET family; barred-separable is NOT automatically modular additive exact",
+      "model": "fixed odd characteristic q; support at most 3; d=2",
+      "research_gap": "weighted finite constants and gap between ASET and independent code families; novelty unknown"
+    },
+    {
+      "id": "TG-003",
+      "stage": 1,
+      "claim": "Four-wise linear independence is sufficient but not necessary for exact ASET d=2",
+      "status": "ELEMENTARY_IMPLICATION_WITH_COUNTEREXAMPLE",
+      "sources": [
+        "LIT-043"
+      ],
+      "research": [
+        "ML-007",
+        "ML-010"
+      ],
+      "direction": "any <=4 independent columns => no <=2 distinct subset-sum collision",
+      "counter_direction": "GF(5)^1 columns 1,2 are exact ASET with sums 0,1,2,3 but linearly dependent",
+      "model": "any finite field for sufficient direction; counterexample field GF(5)",
+      "research_gap": "quantify or characterize families gained by relaxation of full linear independence"
+    },
+    {
+      "id": "TG-004",
+      "stage": 1,
+      "claim": "Bshouty–Mazzawi independent binary-entry rows bound",
+      "status": "DIFFERENT_HARD_SUPPORT_MODEL",
+      "sources": [
+        "LIT-044"
+      ],
+      "research": [
+        "ML-002",
+        "ML-007"
+      ],
+      "direction": "2d-column independence would suffice for ASET if strict column support also imposed",
+      "counter_direction": "0/1 entry alphabet does not constrain per-column nonzero COUNT",
+      "model": "prime field; variable number of matrix rows; no fixed hard column weight in cited abstract",
+      "research_gap": "find hard-support construction and explicit decode/update costs"
+    },
+    {
+      "id": "TG-005",
+      "stage": 1,
+      "claim": "Barred separable and constant-weight B2 are separate adjacency models",
+      "status": "REDUCTION_REQUIRED",
+      "sources": [
+        "LIT-003",
+        "LIT-004",
+        "LIT-036",
+        "LIT-005"
+      ],
+      "research": [
+        "ML-010"
+      ],
+      "direction": "primary sources define descendant sets or real pair sums, not the full GF(q) 0/1/2 subset-sum map",
+      "counter_direction": "cannot import published numerical upper without definition-preserving reduction",
+      "model": "barred-2/barred-3; B2 distinct-pair real sums; union-free Boolean union",
+      "research_gap": "source-specific exact reduction and counterexample matrix"
+    },
+    {
+      "id": "TG-006",
+      "stage": 2,
+      "claim": "GF(2) F-PCSA asymptotic accuracy cannot certify finite-sample strict coverage",
+      "status": "STATISTICAL_PROMOTION_FORBIDDEN",
+      "sources": [
+        "LIT-023",
+        "LIT-025"
+      ],
+      "research": [
+        "DM-002",
+        "DM-003"
+      ],
+      "direction": "use original asymptotic estimator as comparator",
+      "counter_direction": "asymptotic estimator moments do not imply fixed-m one-sided all-d high-confidence bounds",
+      "model": "GF(2) turnstile estimator; oblivious randomness; bounded levels",
+      "research_gap": "new independently proved finite-sample bound subject to previous NO-GO"
+    },
+    {
+      "id": "TG-007",
+      "stage": 2,
+      "claim": "XYZ-Sketch theoretical communication and conjectural optimality",
+      "status": "CONDITIONAL_AUTHOR_CLAIM",
+      "sources": [
+        "LIT-042"
+      ],
+      "research": [
+        "DM-006",
+        "DM-008"
+      ],
+      "direction": "author claims (1+epsilon)d elements and O(1) update / O(d log V) decode in specified regime",
+      "counter_direction": "its fixed-support optimality needs an open extremality conjecture; element-count != serialized bytes and protocol RTT",
+      "model": "set reconciliation; sufficiently large d; element count; canonical fixed support",
+      "research_gap": "costed wire protocol and fixed-support lower-bound evidence"
+    },
+    {
+      "id": "TG-008",
+      "stage": 2,
+      "claim": "IBLT worst-case guaranteed listing versus randomized decoding",
+      "status": "MODEL_SPECIFIC_EXACTNESS",
+      "sources": [
+        "LIT-026",
+        "LIT-039",
+        "LIT-040"
+      ],
+      "research": [
+        "DM-006",
+        "DM-008"
+      ],
+      "direction": "guaranteed listing belongs to an explicit restricted incidence/mapping construction",
+      "counter_direction": "generic random IBLT / three-XOR sketch is NOT worst-case exact for all inputs",
+      "model": "element listing; max set cardinality; deterministic versus randomized hash layout",
+      "research_gap": "true maintain and wire bytes under a single frozen decoder guarantee"
+    },
+    {
+      "id": "TG-009",
+      "stage": 2,
+      "claim": "DeltaMeter D13B named-system benchmark",
+      "status": "STOP_SYSTEM_PRODUCT",
+      "sources": [
+        "LIT-027",
+        "LIT-042"
+      ],
+      "research": [
+        "DM-013"
+      ],
+      "direction": "pinned 3900 raw observations and 360 modeled cells rejected D11 and optimistic RIBLT for named applications",
+      "counter_direction": "does NOT prove all possible set reconciliation protocols are inefficient; XYZ headline cannot override measured gate",
+      "model": "u64 sets; direct vs maintained D11 vs RIBLT; actual maintenance/verification/wire/RTT",
+      "research_gap": "new frozen protocol and new system-level evidence needed to revisit"
+    },
+    {
+      "id": "TG-010",
+      "stage": 3,
+      "claim": "Generic resemblance sketch and codec-informed delta candidate selection",
+      "status": "ALREADY_KNOWN_GENERAL_IDEA",
+      "sources": [
+        "LIT-014",
+        "LIT-015",
+        "LIT-016"
+      ],
+      "research": [
+        "DL-001",
+        "DL-002"
+      ],
+      "direction": "Finesse features, DeepSketch delta-ratio-informed learning and Palantir gain filter predate DELSK",
+      "counter_direction": "abstract delta-gain relevance is NOT a unique Delsk innovation",
+      "model": "post-dedup reference search, codec-conditional, separate CPU, metadata and patch bytes",
+      "research_gap": "Pareto gain under identical frozen candidate corpus and budget"
+    },
+    {
+      "id": "TG-011",
+      "stage": 3,
+      "claim": "Context-aware chunk descriptors and sketch/encoder integration",
+      "status": "ALREADY_KNOWN_OR_NEEDS_ABLATION",
+      "sources": [
+        "LIT-038",
+        "LIT-018",
+        "LIT-020"
+      ],
+      "research": [
+        "DL-001",
+        "DL-009"
+      ],
+      "direction": "CARD adds neighbor context, SpeedSketch combines sketch and encode, Broder introduced containment",
+      "counter_direction": "directionality or embedding alone cannot establish new true patch-gain improvement",
+      "model": "held-out cross-workload, identical codecs, independent index, ranking and encoder compute",
+      "research_gap": "isolated ablation on patch bytes plus update/query and storage cost"
+    },
+    {
+      "id": "TG-012",
+      "stage": 4,
+      "claim": "A theorem-ready original Rust primitive from these cross-paper overlaps",
+      "status": "NO_PRODUCT_OR_NOVELTY_AUTHORIZATION",
+      "sources": [
+        "LIT-043",
+        "LIT-042",
+        "LIT-015"
+      ],
+      "research": [
+        "ML-004",
+        "DM-013",
+        "DL-001"
+      ],
+      "direction": "use explicit mismatch/source list as falsification and selection filter",
+      "counter_direction": "shared asymptotic exponents and abstracted benchmark numbers do NOT justify novelty or production Rust crate",
+      "model": "all source-specific assumptions must be matched separately",
+      "research_gap": "new sharply defined theorem statement plus original proof and end-to-end reproducible workload"
+    }
+  ]
+}
