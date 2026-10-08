@@ -127,6 +127,16 @@ class AffineTwoIDTests(unittest.TestCase):
             encode(((0, 1), (0, 1)), 2)
         with self.assertRaises(ValueError):
             trusted_raw_update(encode((), 2), 2, (0, 1), 2)
+        with self.assertRaises(ValueError):
+            size(True)
+        with self.assertRaises(ValueError):
+            canonical_line(True, 1, 2)
+        with self.assertRaises(ValueError):
+            decode((True,) + (0,)*8, 2)
+        with self.assertRaises(ValueError):
+            trusted_raw_update(encode((), 2), 2, (0, 1), True)
+        with self.assertRaises(ValueError):
+            checked_transition(encode((), 2), 2, (0, 1), 1)
 
     def test_dense_memory_vs_canonical_pair(self):
         for rank in (1, 2, 3, 4, 5):
