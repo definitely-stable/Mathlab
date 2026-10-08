@@ -30,15 +30,21 @@ jobs:
       - name: Bounded anchored eleven-column SAT with DRUP logging
         run: python research/g2bb2_decide.py --conflicts 5000000 --artifact-dir "${RUNNER_TEMP}/g2bb2"
 
-      - name: Install independent checker ONLY if complete UNSAT proof exists
+      - name: Build pinned independent DRAT checker ONLY if UNSAT proof exists
         run: |
           if [ -s "${RUNNER_TEMP}/g2bb2/proof.drat" ]; then
-            sudo apt-get update -qq
-            sudo apt-get install -y drat-trim
+            git clone --quiet https://github.com/marijnheule/drat-trim.git "${RUNNER_TEMP}/drat-trim"
+            git -C "${RUNNER_TEMP}/drat-trim" checkout --quiet --detach 2e3b2dc0ecf938addbd779d42877b6ed69d9a985
+            make -C "${RUNNER_TEMP}/drat-trim" drat-trim
           fi
 
-      - name: Independent model, witness or DRUP proof verification
-        run: python research/g2bb2_verify.py --artifact-dir "${RUNNER_TEMP}/g2bb2"
+      - name: Independent model, witness or DRAT proof verification
+        run: |
+          if [ -s "${RUNNER_TEMP}/g2bb2/proof.drat" ]; then
+            python research/g2bb2_verify.py --artifact-dir "${RUNNER_TEMP}/g2bb2" --drat-trim "${RUNNER_TEMP}/drat-trim/drat-trim"
+          else
+            python research/g2bb2_verify.py --artifact-dir "${RUNNER_TEMP}/g2bb2"
+          fi
 
       - name: Preserve exact SAT result or UNKNOWN status with reproducible inputs
         if: always()
