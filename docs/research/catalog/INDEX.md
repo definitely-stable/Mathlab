@@ -308,7 +308,7 @@ Frozen контракт сравнения direct, maintained D11, RIBLT pull и
 
 **Применение:** Методологический benchmark верхних/нижних оценок. **Ограничения:** Факт присутствия Lean-документа не равен независимой экспертизе математической публикации.
 
-**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/099.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/099.md) · первичные источники: [1](https://github.com/openai/math/blob/main/CONTENTS.md)
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/099.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/099.md) · первичные источники: [1](https://github.com/openai/math/blob/main/CONTENTS.md), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Edit-Distance-in-l1-Matching-Bounds-up-to-Constants-in-the-Exponent-September-27-2026/paper.pdf), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Finite-Circle-Obstructions-Binary-Codes-and-Histogram-Embeddings-for-Edit-Distance-September-27-2026/paper.pdf)
 
 **Связи →** [OM-000](#om-000) (catalogued_in), [OM-121](#om-121) (related) · **Обратные ссылки ←** [OM-000](#om-000) (contains), [OM-121](#om-121) (related), [OM-122](#om-122) (related)
 
@@ -321,7 +321,7 @@ Frozen контракт сравнения direct, maintained D11, RIBLT pull и
 
 **Применение:** Пример необходимости отделять proof status от новизны и популярности. **Ограничения:** Сильное заявление; без независимого прочтения доказательства и формализации использовать лишь как предмет аудита.
 
-**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/103.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/103.md) · первичные источники: [1](https://github.com/openai/math/blob/main/CONTENTS.md)
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/103.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/103.md) · первичные источники: [1](https://github.com/openai/math/blob/main/CONTENTS.md), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Exact-Derandomization-of-Logarithmic-Space-L-equals-RL-equals-BPL-September-23-2026/paper.pdf)
 
 **Связи →** [OM-000](#om-000) (catalogued_in) · **Обратные ссылки ←** [OM-000](#om-000) (contains)
 
@@ -334,7 +334,7 @@ Frozen контракт сравнения direct, maintained D11, RIBLT pull и
 
 **Применение:** Возможный методический источник для информационных ограничений. **Ограничения:** Модель noise/information не эквивалентна sparse-update lower bound.
 
-**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/119.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/119.md) · первичные источники: [1](https://github.com/openai/math/blob/main/CONTENTS.md)
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/119.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/119.md) · первичные источники: [1](https://github.com/openai/math/blob/main/CONTENTS.md), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Sharp-binary-information-contraction-on-the-discrete-cube-September-24-2026/main.pdf)
 
 **Связи →** [OM-000](#om-000) (catalogued_in), [ML-001](#ml-001) (conceptual_link) · **Обратные ссылки ←** [OM-000](#om-000) (contains)
 
@@ -347,7 +347,7 @@ Frozen контракт сравнения direct, maintained D11, RIBLT pull и
 
 **Применение:** Поиск algorithmic primitives только после source-level audit. **Ограничения:** Не проверялось сопоставление с актуальными внешними best-known алгоритмами; не использовать как продуктовый benchmark.
 
-**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/121.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/121.md) · первичные источники: [1](https://github.com/openai/math/blob/main/CONTENTS.md)
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/121.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/121.md) · первичные источники: [1](https://github.com/openai/math/blob/main/CONTENTS.md), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/An-Almost-Linear-Approximation-Scheme-for-Edit-Distance-September-24-2026/paper.pdf)
 
 **Связи →** [OM-099](#om-099) (related), [OM-000](#om-000) (catalogued_in), [DL-006](#dl-006) (adjacent_application) · **Обратные ссылки ←** [OM-000](#om-000) (contains), [OM-099](#om-099) (related)
 
@@ -360,6 +360,6 @@ Frozen контракт сравнения direct, maintained D11, RIBLT pull и
 
 **Применение:** Соседняя область lower bounds для работы с изменениями строк. **Ограничения:** Не доказана применимость к dynamic state/cdc; заявленные достижения требуют независимого аудита.
 
-**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/122.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/122.md) · первичные источники: [1](https://github.com/openai/math/blob/main/CONTENTS.md)
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/122.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/122.md) · первичные источники: [1](https://github.com/openai/math/blob/main/CONTENTS.md), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Uniform-quasipolynomial-time-trace-reconstruction-October-5-2026/uniform-trace-reconstruction.pdf), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/quantitative-lower-bounds-for-trace-reconstruction-September-24-2026/paper.pdf)
 
 **Связи →** [OM-000](#om-000) (catalogued_in), [OM-099](#om-099) (related) · **Обратные ссылки ←** [OM-000](#om-000) (contains)
