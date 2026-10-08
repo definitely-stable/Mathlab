@@ -476,11 +476,11 @@ Yi–Zhang исследуют динамическую принадлежнос�
 ### LIT-119
 **[An $\Omega((\log n / \log\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures](https://eccc.weizmann.ac.il/report/2026/047/)** (2026)
 
-Young Kun Ko, ECCC TR26-047, редакция 7 октября 2026: автор заявляет нижнюю границу порядка Omega((log n/loglog n)^2) для Multiphase inner-product Boolean задачи с новым 2.5-round communication game и раундом проверки.
+Young Kun Ko, ECCC TR26-047, редакция 7 октября 2026: основной Theorem 1.1 для Multiphase Problem / inner product над F₂ при m=n^{1+Ω(1)}, t_u=n^{o(1)} утверждает t_tot=Ω((log n/log(t_u w))²); доказательство использует 2.5-round communication game с проверкой симуляции.
 
-**Ограничение:** Проверены метаданные, редакция и abstract, а не доказательство; результат не распространяется на все Boolean структуры и особенно близок UCT-A/B, поэтому требует полной теоремной проверки перед claim о новизне.
+**Ограничение:** Точная формулировка теоремы проверена по авторской PDF (стр. 3), но полное доказательство не перепроверено. w — размер cell-probe слова, не LENT write locality; m — число preprocessed vectors, не code dimension. Нельзя переносить теорему на произвольную Boolean функцию, динамический range parity или HYP-103 authenticated certificates.
 
-**Идентичность:** `publisher:eccc:tr26-047` · **Авторы:** Young Kun Ko · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+**Идентичность:** `publisher:eccc:tr26-047` · **Авторы:** Young Kun Ko · **Проверка:** `publisher_full_text_spotchecked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
