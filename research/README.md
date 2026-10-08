@@ -60,6 +60,16 @@ Run `python research/affine_two_id.py` and `python research/bench_affine_two_id.
 
 Run `python research/lent_weak_sidon.py` and `python research/lent_g2bb_neighborhood.py` for distinct rigorous-group-bound and local-only checks.
 
+- `g2bb2_anchor_sat.py` — theorem-backed H-orbit single-anchor GF5 SAT reduction and pure-stdlib exact cardinality CNF.
+- `g2bb2_decide.py` — optional bounded GitHub-hosted PySAT discovery with DRUP logs; UNKNOWN is not a negative proof.
+- `g2bb2_verify.py` — independently reconstructs the entire 9,990-edge incidence, cross-checks source/CNF hashes and rejects unverified UNSAT.
+- `test_g2bb2_anchor_sat.py`, `test_g2bb2_certificate.py` — 384 symmetry actions, small exhaustive truth tables, source independence and false-SAT/UNSAT protections.
+- `lent-001/g2bb2-sat-protocol.json` — frozen global exactness decision protocol.
+
+Run `python research/g2bb2_anchor_sat.py` for the no-extra-dependency model contract.
+Optional separate GitHub Actions G2B-B2 solver workflow may report SAT/UNSAT/UNKNOWN;
+only independently validated proof or exact witness can settle q5 max 10 versus 11.
+
 ## Evidence semantics
 
 The exhaustive oracle searches unordered families of distinct nonzero columns. For the frozen grid (dge1), this loses no valid exact family: a zero column or duplicate column already violates singleton injectivity.
