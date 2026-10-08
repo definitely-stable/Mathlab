@@ -1,23 +1,23 @@
 # CURRENT_STATE
 
-Last verified HEAD: main@c42670e6756c2012015e7d353068f485c5fd2b95 (baseline of G2B-A PR #21; use live GitHub main ref after merge)
+Last verified HEAD: main@7951fe6d866ed6dd31031bbda1ceee2d86c9f292 (G2B-A merge snapshot; status-only follow-up commit is not self-referential)
 
-Current milestone: LENT-001 G2 genuine sparse extrema / TOM-001 exploratory scouting
+Current milestone: LENT-001 / G2B genuine odd-characteristic hard-support extrema; independent TOM-001 scouting
 
-Current slice: G2B-A signed-collision hypergraph and certified search accepted in hosted CI; G2B-B still pending
+Current slice: G2B-A merged/accepted; G2B-B next (GF(5) upper bound and independent search certificate)
 
-Open issue: #14 (G2B-B exact/certified q=5 follow-up); #15 (TOM research); #1 (LENT parent)
+Open issue: #14 G2B continuation; #15 TOM; #1 LENT parent
 
-Open PR: #21 — G2B-A evidence PR (verify its live merge state)
+Open PR: none after PR #21 merge (snapshot; verify live GitHub pulls list)
 
-Last CI: research run 37756386646 — SUCCESS on 0d3329e97d89605bce2df3980d7990fc9fcb9b45; 34 unit tests; all five G2B-A markers
+Last CI: research run 37756965725 — SUCCESS on merged main 7951fe6; full G0/G1A/G2A/TOM, G2B and cross-repository catalog gates
 
-Acceptance: G0 FOUNDATION_PASS; G1A G1A_ORACLE_PASS; G1B SPLIT_BY_CHARACTERISTIC; G2A G2_EXPAND_GRID; G2B-A G2B_PHASE_A_PASS; TOM-001 A/B/C triage, NO THEOREM SELECTED
+Acceptance: G0 FOUNDATION_PASS; G1A G1A_ORACLE_PASS; G1B SPLIT_BY_CHARACTERISTIC; G2A G2_EXPAND_GRID; G2B-A G2B_PHASE_A_PASS; TOM-A/B/C NO THEOREM SELECTED
 
-Exact evidence: A_3^set(4,2,2)=7 (search exhausted, independent witness); q=5,m=3,w=2 has certified 10<=V<=15 only
+Exact evidence: A_3^set(4,2,2)=7 (exact via exhaustive certified search); 10<=A_5^set(3,2,2)<=15 only (bounded search with independent witness)
 
-Known blockers: q=5 exact optimum not certified; G2B-B and theorem-selection prior-art gate open; Lean not started; TOM-001-C stopped as novelty target
+Known blockers: q=5 exact optimum unknown; G2B theorem choice and specific novelty audit pending; Lean not started; TOM-001-C STOP as a novelty target
 
-Next allowed action: review/merge PR #21 after green head CI; proceed to G2B-B bound tightening and independent audit, not G4 or Rust crate
+Next allowed action: G2B-B scoped solver/certificate improvement under issue #14; do not open a Rust crate or publish a new-theorem claim yet
 
 Last updated from repository: 2026-10-08
