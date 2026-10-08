@@ -1,6 +1,7 @@
 """RESEARCH-LITERATURE-001: deterministic primary-source metadata checks."""
 import copy
 import json
+import re
 import unittest
 from literature import DATA, INTERNAL, INDEX, REVERSE, valid, render, render_reverse
 
@@ -20,6 +21,68 @@ class LiteratureTests(unittest.TestCase):
         self.assertEqual(len({e["identity"].lower() for e in entries}), 95)
         self.assertEqual(len({e["id"] for e in entries}), 95)
         self.assertEqual(len({e["track"] for e in entries}), 14)
+
+    def test_2026_report_links_match_bibliographic_identities(self):
+        """Check real publisher URLs (part A) and internal anchors (part B)."""
+        research = DATA.parent.parent
+        reports = (
+            DATA.parent / "LITERATURE-003-2026-OPPORTUNITY-AUDIT.md",
+            research / "RESEARCH-LITERATURE-003B-2026-STOC-ICALP-EUROSYS.md",
+        )
+        registry = {e["id"]: e for e in self.data["entries"]}
+        for report, expected in zip(reports, (20, 26)):
+            with self.subTest(report=report.name):
+                raw = report.read_text(encoding="utf-8")
+                self.assertEqual(
+                    self._check_report_paper_links(raw, registry), expected)
+
+    @staticmethod
+    def _check_report_paper_links(content, registry):
+        """Match each visible paper ID to its exact canonical source."""
+        pattern = re.compile(
+            r"\[[^\]\n]*?\b(LIT-\d{3})\b[^\]\n]*?\]"
+            r"\(([^)\s]+)\)",
+            re.IGNORECASE,
+        )
+        links = list(pattern.finditer(content))
+        for link in links:
+            visible, target_url = link.group(1).upper(), link.group(2)
+            paper = registry.get(visible)
+            if paper is None:
+                raise AssertionError(f"missing bibliographic work: {visible}")
+            if target_url.startswith("https://"):
+                if target_url != paper["primary_url"]:
+                    raise AssertionError(
+                        f"wrong bibliographic primary URL: {visible} -> "
+                        f"{target_url}, expected {paper['primary_url']}")
+            else:
+                match = re.fullmatch(
+                    r"(?:catalog/)?LITERATURE\.md#lit-(\d{3})",
+                    target_url, re.IGNORECASE)
+                if match is None:
+                    raise AssertionError(
+                        f"unknown bibliographic destination: {target_url}")
+                target = "LIT-" + match.group(1)
+                if target not in registry:
+                    raise AssertionError(
+                        f"missing bibliographic work: {visible} -> {target}")
+                if visible != target:
+                    raise AssertionError(
+                        f"wrong bibliographic anchor: {visible} -> {target}")
+        return len(links)
+
+    def test_report_link_mismatch_is_rejected(self):
+        registry = {e["id"]: e for e in self.data["entries"]}
+        with self.assertRaisesRegex(AssertionError, "wrong bibliographic anchor"):
+            self._check_report_paper_links(
+                "[LIT-072](catalog/LITERATURE.md#lit-052)", registry)
+        with self.assertRaisesRegex(AssertionError, "missing bibliographic work"):
+            self._check_report_paper_links(
+                "[LIT-999](catalog/LITERATURE.md#lit-999)", registry)
+        with self.assertRaisesRegex(AssertionError,
+                                    "wrong bibliographic primary URL"):
+            self._check_report_paper_links(
+                "[LIT-063](https://doi.org/10.1145/wrong)", registry)
 
     def test_forward_and_reverse_indices_are_exactly_reproducible(self):
         self.assertEqual(render(self.data), INDEX.read_text(encoding="utf-8"))
