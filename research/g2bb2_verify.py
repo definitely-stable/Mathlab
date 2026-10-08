@@ -122,6 +122,13 @@ def verify_artifacts(path:Path, drat_trim:str|None=None)->str:
         proof=path/"proof.drat"
         if not proof.exists() or not proof.stat().st_size:
             raise AssertionError("empty or absent DRUP proof")
+        complete_proof=proof.read_bytes()
+        if report.get("proof_sha256") != sha256(complete_proof).hexdigest():
+            raise AssertionError("proof SHA256 mismatch")
+        if report.get("proof_bytes") != len(complete_proof):
+            raise AssertionError("incomplete proof byte count")
+        if report.get("proof_lines") != complete_proof.count(b"\\n"):
+            raise AssertionError("incomplete proof line count")
         executable=drat_trim or shutil.which("drat-trim")
         if not executable:
             raise RuntimeError("drat-trim required to validate UNSAT; exactness NOT claimed")
@@ -136,6 +143,19 @@ def verify_artifacts(path:Path, drat_trim:str|None=None)->str:
                 f"exit={result.returncode}; last output="
                 f"{(result.stdout+result.stderr)[-1500:]}"
             )
+        (path/"verified-result.json").write_text(
+            json.dumps({
+                "verdict": "EXACT_10",
+                "q": 5, "m": 3, "w": 2, "d": 2,
+                "model_source_sha256": source_hash,
+                "cnf_sha256": sha256(dimacs.encode()).hexdigest(),
+                "proof_sha256": report["proof_sha256"],
+                "independent_checker": "drat-trim, source pinned in workflow",
+                "solver": report["solver"],
+                "github_sha": report["github_sha"],
+            }, sort_keys=True, indent=2)+"\\n", encoding="utf-8",
+        )
+        print("G2BB2_PROOF_HASH_AND_LENGTH_PASS")
         print("G2BB2_INDEPENDENT_UNSAT_PROOF_ACCEPTED")
         print("G2BB2_CERTIFIED_EXACT_10")
         return "EXACT_10"
