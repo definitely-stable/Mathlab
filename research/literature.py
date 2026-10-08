@@ -39,6 +39,17 @@ VERIFICATIONS = {
 }
 SOURCE_REPOS = {"MATHLAB", "DELSK", "DELTAMETER"}
 
+SOURCE_TITLE_PINS = {
+    # Authoritative arXiv title checks: forbid a paper ID being paired with
+    # a hallucinated or different publication title.
+    "arxiv:2501.01046": "SEDD: Scalable and Efficient Dataset Deduplication with GPUs",
+    "arxiv:1507.00954": "Bounds and Constructions for overline-3-Separable Codes with Length 3",
+    "arxiv:2509.11121": "The Chonkers Algorithm: Content-Defined Chunking with Provable Strict Guarantees on Size and Locality",
+    "arxiv:2609.14442": "Toward Optimal Time-Space Tradeoffs for Set Reconciliation",
+}
+
+
+
 
 def valid(data, catalog):
     errors = []
@@ -66,8 +77,24 @@ def valid(data, catalog):
         seen_ids.add(ident)
         ref = e.get("identity", "")
         check(bool(IDENTITY.fullmatch(ref)), f"{ident}: malformed canonical identity")
-        check(ref.lower() not in seen_ident, f"{ident}: duplicate canonical identity")
-        seen_ident.add(ref.lower())
+        aliases = e.get("alternate_identities", [])
+        check(isinstance(aliases, list), f"{ident}: invalid alternate identity list")
+        all_identity = [ref] + (aliases if isinstance(aliases, list) else [])
+        for name in all_identity:
+            if not isinstance(name, str):
+                check(False, f"{ident}: invalid alternate identity")
+                continue
+            check(bool(IDENTITY.fullmatch(name)), f"{ident}: malformed canonical/alternate identity")
+            check(name.lower() not in seen_ident, f"{ident}: duplicate canonical identity")
+            seen_ident.add(name.lower())
+        pinned_title = SOURCE_TITLE_PINS.get(ref)
+        if pinned_title is not None:
+            check(e.get("title") == pinned_title, f"{ident}: primary source title mismatch")
+        authors = e.get("authors")
+        if authors is not None:
+            check(isinstance(authors, list) and bool(authors) and all(
+                isinstance(a, str) and len(a) > 3 for a in authors
+            ), f"{ident}: invalid author list")
         url = e.get("primary_url", "")
         check(bool(URL.fullmatch(url)), f"{ident}: malformed primary URL")
         check(url not in seen_urls, f"{ident}: duplicate primary URL")
@@ -163,8 +190,13 @@ def render(data):
                 "",
                 f"**Ограничение:** {e['limits_ru']}",
                 "",
-                f"**Идентичность:** `{e['identity']}` · "
-                f"**Проверка:** `{e['verification']}` · "
+                f"**Идентичность:** `{e['identity']}`"
+                + (f" · **Также:** {', '.join(e['alternate_identities'])}"
+                   if e.get("alternate_identities") else "")
+                + (f" · **Авторы:** {', '.join(e['authors'])}"
+                   if e.get("authors") else "")
+                + " · "
+                + f"**Проверка:** `{e['verification']}` · "
                 "**Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.",
                 "",
                 f"**Связь с исследованиями →** {links}",
