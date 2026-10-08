@@ -1,0 +1,65 @@
+{
+  "id": "LENT-001-G2B-A",
+  "version": 1,
+  "status": "FROZEN_BEFORE_HOSTED_EVIDENCE",
+  "issue": 14,
+  "source_baseline": "c42670e6756c2012015e7d353068f485c5fd2b95",
+  "model": {
+    "prime_fields": [
+      3,
+      5,
+      7
+    ],
+    "d": 2,
+    "forbidden": "distinct subset sums of cardinality <=2",
+    "edge": "symmetric_difference_of_colliding_subsets",
+    "max_edge_size": 4,
+    "side_bounds": {
+      "positive": 2,
+      "negative": 2
+    },
+    "forbid_three_positive_zero_sum": false,
+    "novelty_claimed": false
+  },
+  "cases": [
+    {
+      "q": 3,
+      "m": 4,
+      "w": 2,
+      "candidates": 32,
+      "max_nodes": 300000,
+      "required": "EXACT",
+      "expected_exact": 7
+    },
+    {
+      "q": 5,
+      "m": 3,
+      "w": 2,
+      "candidates": 60,
+      "max_nodes": 25000,
+      "required": "CERTIFIED_INTERVAL",
+      "minimum_lower": 9,
+      "maximum_upper": 15
+    }
+  ],
+  "proof_obligations": [
+    "every collision induces a forbidden hyperedge by cancellation",
+    "every forbidden hyperedge produces a collision if included",
+    "only logically forced exclusions and cardinality upper-bound pruning",
+    "all unexplored subtrees contribute a rigorous upper bound",
+    "witness independently checked by G1A subset-sum oracle"
+  ],
+  "accepted_markers": [
+    "G2B_HYPERGRAPH_ORACLE_PASS",
+    "G2B_Q3_SPARSE_PASS",
+    "G2B_Q5_CERTIFICATE_PASS",
+    "G2B_WITNESS_PASS",
+    "G2B_PHASE_A_PASS"
+  ],
+  "no_go": [
+    "triple a+b+c=0 is not automatically forbidden at d=2",
+    "do not claim q5 exact from budget-limited search",
+    "do not claim new theorem from finite enumeration",
+    "do not change G2A evidence"
+  ]
+}
