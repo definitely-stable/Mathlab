@@ -1,6 +1,6 @@
 # Mathlab roadmap
 
-## LENT-001 — Locality–Entropy Trilemma
+## LENT-001 — Sparse-Update State-Space Bounds for Exact Additive Set Sketches
 
 ### G0 — Foundation
 
@@ -18,6 +18,8 @@ Completed:
 - Lean plan.
 
 The finite theorem remains the baseline impossibility framework, not the current novelty target.
+
+Terminology policy: `LENT-001` is retained as a stable historical ID, but **Locality–Entropy Trilemma** is deprecated as a public name. The project-level framing is **Exact Additive Sketch Locality Frontier**; the baseline theorem is the **Sparse-Update Hamming-Ball Bound**.
 
 ### G1 — Prior-art closure and model correction
 

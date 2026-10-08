@@ -6,6 +6,8 @@ This directory is the canonical mathematical record.
 
 For LENT-001, resolve conflicts in this order:
 
+Terminology: `LENT-001` is a historical stable ID, not an acronym that should be expanded in new material. Public-facing work uses **Sparse-Update State-Space Bounds for Exact Additive Set Sketches**.
+
 1. `LENT-001-PROTOCOL.md` — frozen G0 model and admissible claim changes;
 2. `LENT-001-G1A-PROTOCOL.md` — active G1A ASET model-freeze protocol;
 3. `LENT-001-CLAIMS.md` — current claim/status registry;

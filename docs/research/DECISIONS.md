@@ -87,3 +87,29 @@ No novelty is claimed until mixed-alphabet coding prior art is closed.
 **CLASSIFY:** IBLT-style structures as randomized/additive comparators, not deterministic exact instances by default.
 
 Their practical space/update frontier remains relevant, but a probabilistic listing guarantee is not the frozen all-input injectivity guarantee.
+
+
+## 2026-10-08 — D012
+
+**RENAME PUBLIC TERMINOLOGY; RETAIN INTERNAL ID.**
+
+`LENT-001` remains the stable historical research identifier so that issue, protocol, evidence, and CI references do not break.
+
+Deprecated public label:
+
+`Locality–Entropy Trilemma`
+
+Preferred labels:
+
+- research program: **Exact Additive Sketch Locality Frontier**;
+- baseline theorem: **Sparse-Update Hamming-Ball Bound for Exact Additive Set Sketches**;
+- current extremal lane: **Sparse Bounded-Order Subset-Sum Families** / `A_q^set(m,w,d)`.
+
+Rationale:
+
+1. the word *trilemma* overstates the mathematical content currently proved;
+2. the finite theorem is specifically a reachable-state/Hamming-ball counting bound under sparse updates;
+3. "locality" and "entropy" are heavily overloaded across unrelated fields;
+4. precise terminology reduces false novelty and search ambiguity.
+
+Historical documents may retain the old wording when necessary for traceability, but new README headings, issue titles, roadmap entries, preprints, and theorem names must use the preferred terminology.

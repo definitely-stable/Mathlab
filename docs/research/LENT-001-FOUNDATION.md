@@ -1,6 +1,6 @@
-# LENT-001 — mathematical foundation
+# LENT-001 — sparse-update state-space mathematical foundation
 
-## 1. Finite locality–state bound
+## 1. Sparse-Update Hamming-Ball Bound
 
 **THEOREM (baseline; novelty not claimed).**
 
@@ -31,6 +31,8 @@ B_q(m,dw)
 states. Therefore (N_d(V)le B_q(m,dw)). ∎
 
 This proof is finite and combinatorial. CI checks finite instances but is not the proof.
+
+Naming status: this theorem is the **Sparse-Update Hamming-Ball Bound for Exact Additive Set Sketches**. The historical phrase "Locality–Entropy Trilemma" is not used as a theorem name because the proved statement is a quantitative tradeoff, not a generic assertion that exactly two of three goals can always be optimized.
 
 ## 2. Binary entropy corollary
 

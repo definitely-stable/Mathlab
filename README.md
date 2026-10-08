@@ -14,9 +14,15 @@ The operating pattern is adapted from the evidence discipline used in `definitel
 
 ## Current research
 
-### LENT-001 — Locality–Entropy Trilemma for Exact Additive Set Sketches
+### LENT-001 — Sparse-Update State-Space Bounds for Exact Additive Set Sketches
 
 Issue: #1.
+
+`LENT-001` is a stable historical research identifier. The former public label **Locality–Entropy Trilemma** is deprecated: the accepted theorem is a state-space/update-locality tradeoff, not a general three-way impossibility theorem.
+
+Research-program label: **Exact Additive Sketch Locality Frontier**.
+
+Baseline theorem label: **Sparse-Update Hamming-Ball Bound for Exact Additive Set Sketches**.
 
 We study additive sketches
 
