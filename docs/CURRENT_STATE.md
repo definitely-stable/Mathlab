@@ -1,27 +1,27 @@
 # CURRENT_STATE
 
-Last verified HEAD: main@94d4d0695c26fe947a65e631f492506b2ee228e4
+Last verified HEAD: main@11d9b99ee5481e18d8eb37561a0dd0d8d75eeadb
 
-Current milestone: LENT-001 / G1B — final hard-support novelty closure
+Current milestone: LENT-001 / G1B closure — SPLIT_BY_CHARACTERISTIC
 
-Current slice: Audit 03 source pass 01 + characteristic-two extremal sandwich
+Current slice: finalize G1B decision and open G2 odd-characteristic exact extremal evidence
 
-Implementation branch: research/lent-001-g1b-audit-03
+Implementation branch: research/lent-001-g1b-close
 
 Open issue: #6 — LENT-001-G1B: hard-support novelty closure for A_q^set
 
 Open PR: pending
 
-Last CI: post-merge Audit-02 research run 37727682827 — SUCCESS
+Last CI: research run 37728445330 — SUCCESS on Audit-03 merged head
 
-Acceptance: G0 = FOUNDATION_PASS; G1A = G1A_ORACLE_PASS; G1B remains OPEN
+Acceptance: G0 = FOUNDATION_PASS; G1A = G1A_ORACLE_PASS; G1B decision = SPLIT_BY_CHARACTERISTIC pending merge of this closure package
 
-Audit-03 pass-01 additions: Ericson–Levenshtein modulo-2 superimposed codes, Bshouty–Mazzawi Z_p parity-check matrices, Mathys T-active-out-of-N ordinary-adder coding, and constant-column-weight group-testing comparison
+Final G1B classification: q=2 STOP; q=2^s DEPRIORITIZE block-sparse lane; q=3 CONTINUE as side-bound testbed; odd q>3 CONTINUE as primary support-sensitive lane
 
-Derived characteristic-two bound: A_2(m,w,d) <= A_{2^s}^set(m,w,d) <= A_2(sm,sw,d)
+Primary next target: exact finite evidence for odd q in {3,5,7}, d=2, w in {1,2,3}
 
-Known blockers: exact hard-sparse finite-field/mod-q signature extremal theory, block-sparse parity-check column bounds, zero-error bounded-column-weight additive detecting matrices, and support-constrained q-ary signed-sum/B_h results remain unclosed
+Known constraint: no publication novelty claim is authorized; G2 must first select a precise theorem and that theorem will require a fresh theorem-level prior-art audit
 
-Next allowed action: continue Audit 03 theorem-level search; no novelty exit until each direct hard-support class is closed or reduced
+Next allowed action: merge G1B closure after green CI, close issue #6, open G2 issue and begin exact extremal implementation
 
 Last updated from repository: 2026-10-08
