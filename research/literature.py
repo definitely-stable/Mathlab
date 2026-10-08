@@ -34,6 +34,11 @@ TRACKS = {
     "graph-algorithms": "Динамические графы, гиперграфы и sparsification",
     "algebraic-algorithms": "Алгебраические алгоритмы, subset sum и разреженные матрицы",
     "proof-certification": "Машинные доказательства, сертификаты и верификация",
+    "proof-complexity": "Нижние границы доказательств, IPS/PIT и сертификаты",
+    "algebraic-complexity": "Алгебраические схемы, математика и нижние границы",
+    "fine-grained-algorithms": "Edit distance, строки и тонкая сложность",
+    "randomized-sampling": "Рандомизированная выборка, подсчёт и memory-sample",
+
 }
 VERIFICATIONS = {
     "primary_abstract_checked",
@@ -44,6 +49,7 @@ VERIFICATIONS = {
 }
 SOURCE_REPOS = {"MATHLAB", "DELSK", "DELTAMETER"}
 NEW_2026_IDS = {f"LIT-{i:03d}" for i in range(50, 70)}
+VENUE_2026_IDS = {f"LIT-{i:03d}" for i in range(70, 96)}
 PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
@@ -131,6 +137,37 @@ def valid(data, catalog):
                 check(ref.startswith("doi:"), f"{ident}: proceedings DOI missing")
             check(all(o.get("kind") == "model_overlap" for o in e.get("mentioned_in", [])),
                   f"{ident}: invented existing citation; new survey must use model_overlap")
+
+        if ident in VENUE_2026_IDS:
+            check(e.get("year") == 2026, f"{ident}: venue-2026 cohort has non-2026 work")
+            check(e.get("publication_stage") == "peer_reviewed_proceedings",
+                  f"{ident}: 2026 venue cohort publication status incorrect")
+            check(e.get("selection_priority") in PRIORITIES,
+                  f"{ident}: 2026 venue cohort missing source priority")
+            check(e.get("venue") in {"STOC 2026", "ICALP 2026", "EuroSys 2026"},
+                  f"{ident}: 2026 venue cohort unknown venue")
+            check(bool(URL.fullmatch(e.get("source_listing_url", ""))),
+                  f"{ident}: primary 2026 venue URL missing")
+            expected_listing = {
+                "STOC 2026": "https://acm-stoc.org/stoc2026/toc.html",
+                "ICALP 2026": ("https://drops.dagstuhl.de/entities/document/" + ref[4:]
+                               if ref.startswith("doi:") else ""),
+                "EuroSys 2026": "https://2026.eurosys.org/papers.html",
+            }
+            check(e.get("source_listing_url") ==
+                  expected_listing.get(e.get("venue")),
+                  f"{ident}: primary 2026 listing/identity mismatch")
+            check(e.get("verification") in {"publisher_abstract_checked",
+                                             "publisher_bibliography_checked"},
+                  f"{ident}: unsupported 2026 full-text verification")
+            check(e.get("source_access") in {
+                "official_conference_toc_abstract_linked_doi",
+                "publisher_article_abstract_and_bibliography_checked",
+                "conference_paper_list_and_delsk_fulltext_review"},
+                  f"{ident}: unknown 2026 source access")
+            check(all(o.get("kind") == "model_overlap"
+                      for o in e.get("mentioned_in", [])),
+                  f"{ident}: false explicit citation for imported 2026 paper")
 
         check(e.get("verification") in VERIFICATIONS, f"{ident}: invalid verification")
         check(e.get("full_proof_verified") is False and
@@ -222,6 +259,10 @@ def render(data):
                 + f"**Проверка:** `{e['verification']}` · "
                 "**Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.",
                 "",
+                *([f"**Первоисточник / издательский список:** "
+                    f"[{e['venue']}]({e['source_listing_url']}) · "
+                    f"**Доступ:** `{e['source_access']}`", ""]
+                  if e.get("source_listing_url") else []),
                 f"**Связь с исследованиями →** {links}",
                 "",
                 f"**Происхождение цитаты / пересечения →** {sources}",
