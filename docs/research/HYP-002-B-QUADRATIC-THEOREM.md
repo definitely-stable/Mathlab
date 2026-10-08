@@ -5,6 +5,8 @@ This correction supersedes the non-sharp O_q(m^(5/2)) upper and the
 HYP-002-D CONJECTURE classification in HYP-001-002-LOCALITY-TRANSITION.md.
 The former document remains an historical Phase-A record.
 
+**Source-novelty checkpoint (THEOREM-GAP-004, 2026-10-08):** [Lefmann (2005)](https://doi.org/10.1017/S0963548304006625) has \`N_q(m,4,r)=Theta(m^(ceil(4r/3)/2))\` for odd characteristic, hence at r=3 already gives a **stronger four-wise-independent** weight≤3 family of order Theta(m²). Four-wise independence implies ASET d=2, but ASET does not imply it. Therefore the *lower-bound/construction exponent is prior art*; this document's separate ASET **upper** proof remains a valid derived result, but publication-level novelty of the exact finite upper and constants has NOT been established. See [four-stage audit](THEOREM-GAP-004-FOUR-STAGE-AUDIT.md).
+
 ## Exact finite theorem
 
 Let F_q be any finite field (q>=2) and let A_q^set(m,w,2) denote the
