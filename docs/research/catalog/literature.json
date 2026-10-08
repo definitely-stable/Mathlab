@@ -1084,7 +1084,7 @@
           "kind": "cited"
         }
       ],
-      "verification": "publisher_full_text_spotchecked",
+      "verification": "publisher_abstract_checked",
       "full_proof_verified": false,
       "independent_reproduction": false,
       "authors": [
@@ -1111,7 +1111,7 @@
           "kind": "cited"
         }
       ],
-      "verification": "publisher_full_text_spotchecked",
+      "verification": "publisher_abstract_checked",
       "full_proof_verified": false,
       "independent_reproduction": false,
       "authors": [
