@@ -64,8 +64,12 @@ G1B is closed with \`SPLIT_BY_CHARACTERISTIC\`.
 G2A exact evidence is accepted with decision `G2_EXPAND_GRID`.
 
 G2B-A now has genuine m>w evidence: q=3,m=4,w=2 exact V=7 and
-q=5,m=3,w=2 certified V in [10,15] (CI 37756386646). See
-LENT-001-G2B-A-PROTOCOL.md and LENT-001-G2B-A-EVIDENCE.md.
+q=5,m=3,w=2 originally certified V in [10,15] (CI 37756386646).
+The **G2B-B1 classical weak-Sidon reduction** now rigorously tightens
+this to **[10,11]**; see [proof and source audit](LENT-001-G2B-B1-WEAK-SIDON-BOUND.md)
+and [G2B-A historical evidence](LENT-001-G2B-A-EVIDENCE.md).
+The exact q=5 optimum remains UNPROVED; local 10-witness extension
+failure cannot establish global infeasibility of V=11.
 G2B-B remains open until the q=5 gap is audited and a theorem-selection
 decision is justified. No preprint novelty claim is authorized.
 
