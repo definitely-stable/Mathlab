@@ -1,6 +1,10 @@
 # TOM-003 D2 — authenticated overwrite, total-cost and novelty gate
 
-**2026-10-08 · Issue #53 · parent #15 · research decision: STOP-BROAD-MERKLE (pending CI).**
+**2026-10-08 · Issue #53 CLOSED · parent #15 · ACCEPTED NEGATIVE GATE: STOP_STANDALONE_MERKLE_UPDATE_CRATE.**
+
+Merged PR #54 at main 44d8eb0d1feed1b51f30ec16019629816d004bb7.
+Hosted CI [research #37787311399](https://github.com/definitely-stable/Mathlab/actions/runs/37787311399) SUCCESS (139 tests, 61 catalog entries); independent GF5 proof checker [#37787311395](https://github.com/definitely-stable/Mathlab/actions/runs/37787311395) SUCCESS.
+This acceptance validates the finite comparator and STOP decision, NOT a new theorem.
 
 This is a *red-team comparison*, NOT a proposed new cryptographic primitive,
 a theorem of originality, or a Rust release. Previous D1 issue #49 derived

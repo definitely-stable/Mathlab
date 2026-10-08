@@ -1,21 +1,30 @@
 # CURRENT_STATE
 
-Reference baseline before TOM-003-D2 branch: main fa5998c7aa42879945a3254998f9343e1183eed4 (PR #50 merged on 2026-10-08).
-This branch documentation is PRE-MERGE; verify live main/CI before claiming acceptance.
+Last fully verified main checkpoint: 44d8eb0d1feed1b51f30ec16019629816d004bb7, PR #54 merged 2026-10-08. Recheck live SHA when starting a new task.
 
-Current priority: falsification-first product/theorem selection. LENT G2 is G2_REDUCE_TARGET for new Rust crate and theorem originality; its finite results are preserved.
+Current decision: LENT G2_REDUCE_TARGET for new Rust-product originality; TOM-003 D1 and D2 both COMPLETE as explicit negative research/product gates. No new theorem or Rust crate authorized.
 
-Accepted LENT numerical results: A_3^set(4,2,2)=7 and A_5^set(3,2,2)=10. GF5 complete DRUP proof hash ffbc5fabb0900acf52e72c41304572eea22f9a5d8c6bd19c2377a038d6e2f748; the GitHub-hosted independently checked proof workflow remains active on main.
+## Verified mathematical/research outcomes
 
-Accepted TOM-003 D1 (#49 CLOSED): classical Moore-state necessary/sufficient retained e-bit result under unconditional overwrites and no external reads; trusted-old threshold-count memory saves space only by charging external validation. STOP_STANDALONE_UNTRUSTED_NO_EFFECT.
+- LENT-G2B-B2: exact numerical computer-assisted result A_5^set(3,2,2)=10, verified 10-family and globally complete 11-family DRUP UNSAT certificate. Source docs/research/LENT-001-G2B-B2-EXACT10-CERTIFICATE.md; proof SHA256 ffbc5fabb0900acf52e72c41304572eea22f9a5d8c6bd19c2377a038d6e2f748. GitHub-hosted certifier unchanged.
+- A_3^set(4,2,2)=7 finite exact. HYP-001/002 local derived exponents valid but source-level originality NOT established. THEOREM-GAP-004 audit PR #52 establishes Lefmann (2005) prior-art construction exponent overlap. No novel asymptotic theorem is claimed.
+- TOM-003 D1 (#49 CLOSED): classical Moore/Myhill–Nerode e-essential-bit lower/upper for no-probe untrusted overwrite; externally authenticated old-bit counter requires fully charged verification and external state. STOP_STANDALONE_UNTRUSTED_NO_EFFECT.
+- TOM-003 D2 (#53 CLOSED, PR #54 MERGED): independently authenticated source root **and** count, exact SSZ-style helper multiproof, correct old/new root/count transitions, exact structural byte/hash accounting; negative tests for tampering, false old bits, stale roots, duplicate indices and forged initial count. Known prior art (Ethereum SSZ, transparency-dev compact ranges, RFC 9162); NOT a new theorem. Decision STOP_STANDALONE_MERKLE_UPDATE_CRATE.
 
-TOM-003 D2 (#53 IN REVIEW): externally authenticated old Merkle root **and initial count**, hashed indexed Boolean leaves, exact k-leaf shared helper frontier, verification of old root before applying edits, recomputation of new root/count. Compare trusted bitmap, k independent proofs and standard SSZ-style shared multiproof, and charge setup/retained digests/hash calls/wire fields. Adversarial stale proof/false old/false count tests are mandatory. All primary mechanisms are established; preliminary decision STOP_STANDALONE_MERKLE_UPDATE_CRATE. Independent GitHub CI validation and review/merge required.
+## Hosted CI evidence (exact merged main)
 
-Code: research/tom_authenticated_overwrite.py and research/test_tom_authenticated_overwrite.py.
-Protocol: docs/research/TOM-003-D2-AUTHENTICATED-OVERWRITE-AUDIT.md.
-Parent research: #15. D1 #49 closed, D2 #53 open pending CI.
-No original theorem, Lean completion, Rust crate or demonstrated production speedup.
+- [research #37787311399](https://github.com/definitely-stable/Mathlab/actions/runs/37787311399): SUCCESS, 139 tests, 61 curated cross-repository indexed records, literature schema checks and new TOM-003-D2 finite structural/root/trust gates.
+- [GF5 DRUP proof #37787311395](https://github.com/definitely-stable/Mathlab/actions/runs/37787311395): SUCCESS, independently checked exact=10 refutation retained.
+- [PR #54 review](https://github.com/definitely-stable/Mathlab/pull/54): scope/soundness, conditional SHA-256 security and fixed wire-cost claims audited. All source-level guardrails preserved across simultaneous PR #52.
 
-Next: independently complete CI/review/merge, then STOP this broad Merkle primitive direction, retaining the conditional auth cost model as a baseline. Future D3 only after a sharply different operation and verified source gap.
+D2 source docs/research/TOM-003-D2-AUTHENTICATED-OVERWRITE-AUDIT.md, code research/tom_authenticated_overwrite.py, unit tests research/test_tom_authenticated_overwrite.py.
 
-Last updated from GitHub: 2026-10-08.
+## Remaining work
+
+Issue #15 TOM-001 remains open as research opportunity map. G2 parent #14, HYP #24/#25 remain scoped to source/model and finite prior-art work, not guaranteed theorem novelty.
+
+**Next:** Do not run TOM-003 D3 or create a Rust crate without a **new operation** and best-source gap. The broad authenticated proof operation duplicates standard Merkle multiproofs and source-tested compact range designs. Choose an original-looking different primitive question with a concrete useful workload, before additional theorem engineering. Full verifier source and fresh proof must be charged for future trusted update models.
+
+The post-merge status checkpoint itself is docs-only; its GitHub CI may create a later main SHA while leaving the cited research/certificate evidence at commit 44d8eb0d unchanged.
+
+Last updated: 2026-10-08.
