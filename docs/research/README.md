@@ -5,6 +5,10 @@
 [**Known, proved, stopped and nontransferable research**](KNOWN-AND-STOPPED-RESEARCH.md) · [machine source](KNOWN-AND-STOPPED-RESEARCH.json). 33 source-linked records with scoped dispositions and strict reopening conditions. This **does not** establish an exhaustive global prior-art search, nor does STOP in one workload ban valid different assumptions. Validate with `python research/known_registry.py --check`.
 
 
+## Seven cross-domain theorem proofs — TOM-005
+
+[Proven A-G baseline theorems with exact assumptions, counterexamples and source matrix](TOM-005-SEVEN-THEOREM-AUDIT.md) · [independent finite regressions](../../research/test_tom005_models.py). Seven proofs are classical rather than novel results; no Rust authorization. The anti-rediscovery catalog is extended from 33 to **40** known/STOP/conditional items.
+
 ## Four-stage cross-project theorem/prior-art audit (THEOREM-GAP-004)
 
 [Theorem-level transfer and source audit](THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) · [machine-readable source-to-claim matrix](THEOREM-GAP-004-TRANSFER.json). Lefmann (2005) achieves the same *odd-field construction exponents* as HYP-001 and HYP-002 under a stronger four-wise independence condition; Mathlab ASET upper bounds are separate. DeltaMeter/DELSK recommendations preserve existing system STOP and unknown product headroom. This is an audit, not a new theorem.
