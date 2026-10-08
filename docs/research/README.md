@@ -1,5 +1,12 @@
 # Research index and authority order
 
+## Cross-repository evidence catalog (non-authoritative)
+
+[Research index](catalog/INDEX.md) · [metadata and maintenance](catalog/README.md) · [registry.json](catalog/registry.json).
+
+The catalog indexes selected, commit-pinned results from Mathlab, Shift-lab/DELSK, DeltaMeter and openai/math. It is **a navigator, not a new proof authority**: the source-specific protocols and decisions below remain canonical. External author claims are not independently validated.
+
+
 This directory is the canonical mathematical record.
 
 Terminology: \`LENT-001\` is a stable historical ID. Public-facing work uses
