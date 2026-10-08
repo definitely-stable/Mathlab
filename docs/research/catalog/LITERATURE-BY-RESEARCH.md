@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**49** работ сопоставлены с **21** внутренними исследованиями.
+**75** работ сопоставлены с **33** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -25,6 +25,9 @@
 - [LIT-038](LITERATURE.md#lit-038) — Chunk Content is not Enough: Chunk-Context Aware Resemblance Detection for Deduplication Delta Compression (2021; primary_abstract_checked)
 - [LIT-048](LITERATURE.md#lit-048) — Binary Fuse Filters: Fast and Smaller Than Xor Filters (2022; primary_abstract_checked)
 - [LIT-049](LITERATURE.md#lit-049) — The Fuse XORier Lookup Table: Exploration, Implementation, and Revision of Probabilistic Sets and Maps (2023; primary_abstract_checked)
+- [LIT-054](LITERATURE.md#lit-054) — Approximation Schemes for Edit Distance and LCS in Quasi-Strongly Subquadratic Time (2026; publisher_abstract_checked)
+- [LIT-067](LITERATURE.md#lit-067) — Once Rolling Hashing is Enough: Exploiting Rolling Hash Reuse in Delta Compression (2026; publisher_abstract_checked)
+- [LIT-072](LITERATURE.md#lit-072) — Space-Efficient Text Indexing with Mismatches using Function Inversion (2026; publisher_abstract_checked)
 
 ## DL-002
 
@@ -36,6 +39,13 @@
 - [LIT-022](LITERATURE.md#lit-022) — SEDD: Scalable and Efficient Dataset Deduplication with GPUs (2025; primary_abstract_checked)
 - [LIT-030](LITERATURE.md#lit-030) — Odess: Speeding up Resemblance Detection for Redundancy Elimination by Fast Content-Defined Sampling (2021; publisher_abstract_checked)
 - [LIT-038](LITERATURE.md#lit-038) — Chunk Content is not Enough: Chunk-Context Aware Resemblance Detection for Deduplication Delta Compression (2021; primary_abstract_checked)
+- [LIT-067](LITERATURE.md#lit-067) — Once Rolling Hashing is Enough: Exploiting Rolling Hash Reuse in Delta Compression (2026; publisher_abstract_checked)
+
+## DL-006
+
+**[DELSK-S4-D: ChunkShift integration development screen](INDEX.md#dl-006)**
+
+- [LIT-067](LITERATURE.md#lit-067) — Once Rolling Hashing is Enough: Exploiting Rolling Hash Reuse in Delta Compression (2026; publisher_abstract_checked)
 
 ## DL-007
 
@@ -91,6 +101,7 @@
 - [LIT-024](LITERATURE.md#lit-024) — The Space Complexity of Approximating the Frequency Moments (1996; publisher_abstract_checked)
 - [LIT-025](LITERATURE.md#lit-025) — Information Theoretic Limits of Cardinality Estimation: Fisher Meets Shannon (2020; primary_abstract_checked)
 - [LIT-047](LITERATURE.md#lit-047) — Tight Bounds for Low-Error Frequency Moment Estimation and the Power of Multiple Passes (2025; primary_abstract_checked)
+- [LIT-055](LITERATURE.md#lit-055) — A Unified Approach to Memory-Sample Tradeoffs for Detecting Planted Structures (2026; publisher_abstract_checked)
 
 ## DM-008
 
@@ -114,6 +125,7 @@
 
 - [LIT-001](LITERATURE.md#lit-001) — Bounded-Contention Coding for Wireless Networks in the High SNR Regime (2012; primary_abstract_checked)
 - [LIT-037](LITERATURE.md#lit-037) — Multi-Group Testing for Items with Real-Valued Status under Standard Arithmetic (2013; primary_abstract_checked)
+- [LIT-064](LITERATURE.md#lit-064) — Locally Computable High Independence Hashing (2026; publisher_abstract_checked)
 
 ## ML-002
 
@@ -131,6 +143,9 @@
 - [LIT-037](LITERATURE.md#lit-037) — Multi-Group Testing for Items with Real-Valued Status under Standard Arithmetic (2013; primary_abstract_checked)
 - [LIT-043](LITERATURE.md#lit-043) — Sparse Parity-Check Matrices over GF(q) (2005; publisher_abstract_checked)
 - [LIT-044](LITERATURE.md#lit-044) — On Parity Check (0,1)-Matrix over Z_p (2015; publisher_abstract_checked)
+- [LIT-063](LITERATURE.md#lit-063) — Combinatorial Bounds for List Recovery via Discrete Brascamp-Lieb Inequalities (2026; publisher_abstract_checked)
+- [LIT-064](LITERATURE.md#lit-064) — Locally Computable High Independence Hashing (2026; publisher_abstract_checked)
+- [LIT-071](LITERATURE.md#lit-071) — Improved Pseudorandom Codes from Permuted Puzzles (2026; publisher_abstract_checked)
 
 ## ML-004
 
@@ -148,6 +163,19 @@
 - [LIT-041](LITERATURE.md#lit-041) — Certificates in Data Structures (2014; primary_abstract_checked)
 - [LIT-045](LITERATURE.md#lit-045) — Complexity models for incremental computation (1994; publisher_abstract_checked)
 - [LIT-046](LITERATURE.md#lit-046) — Lower And Upper Bounds For Incremental Algorithms (1992; publisher_abstract_checked)
+- [LIT-050](LITERATURE.md#lit-050) — Lower Bounds against the Ideal Proof System in Finite Fields (2026; publisher_abstract_checked)
+- [LIT-052](LITERATURE.md#lit-052) — The Natural Proofs Barrier against Data-Structure Lower-Bounds (2026; publisher_abstract_checked)
+- [LIT-053](LITERATURE.md#lit-053) — Compressing Dynamic Fully Indexable Dictionaries in Word-RAM (2026; publisher_abstract_checked)
+- [LIT-056](LITERATURE.md#lit-056) — Incremental Shortest Paths in Almost Linear Time via a Modified Interior Point Method (2026; publisher_abstract_checked)
+- [LIT-058](LITERATURE.md#lit-058) — Separator Theorem for Minor-Free Graphs in Linear Time (2026; publisher_abstract_checked)
+- [LIT-059](LITERATURE.md#lit-059) — A Faster Deterministic Algorithm for Fully Dynamic Maximal Matching (2026; publisher_abstract_checked)
+- [LIT-060](LITERATURE.md#lit-060) — Polynomial Identity Testing and the Ideal Proof System: PIT Is in NP If and Only If IPS Can Be p-Simulated by a Cook-Reckhow Proof System (2026; publisher_abstract_checked)
+- [LIT-065](LITERATURE.md#lit-065) — Dynamic Set Cover with Worst-Case Recourse (2026; publisher_abstract_checked)
+- [LIT-066](LITERATURE.md#lit-066) — Static to Dynamic Correlation Clustering (2026; publisher_abstract_checked)
+- [LIT-068](LITERATURE.md#lit-068) — Sampling Permutations with Cell Probes Is Hard (2026; publisher_abstract_checked)
+- [LIT-073](LITERATURE.md#lit-073) — Classifying Identities: Subcubic Distributivity Checking and Hardness from Arithmetic Progression Detection (2026; publisher_abstract_checked)
+- [LIT-074](LITERATURE.md#lit-074) — Deterministic Padded Decompositions and Negative-Weight Shortest Paths (2026; publisher_abstract_checked)
+- [LIT-075](LITERATURE.md#lit-075) — Lower Bounds on Pure Dynamic Programming for Connectivity Problems on Graphs of Bounded Path-Width (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -159,6 +187,9 @@
 - [LIT-013](LITERATURE.md#lit-013) — Change actions: from incremental computation to discrete derivatives (2020; primary_abstract_checked)
 - [LIT-032](LITERATURE.md#lit-032) — Bounded Incremental Computation (1993; publisher_abstract_checked)
 - [LIT-045](LITERATURE.md#lit-045) — Complexity models for incremental computation (1994; publisher_abstract_checked)
+- [LIT-053](LITERATURE.md#lit-053) — Compressing Dynamic Fully Indexable Dictionaries in Word-RAM (2026; publisher_abstract_checked)
+- [LIT-056](LITERATURE.md#lit-056) — Incremental Shortest Paths in Almost Linear Time via a Modified Interior Point Method (2026; publisher_abstract_checked)
+- [LIT-065](LITERATURE.md#lit-065) — Dynamic Set Cover with Worst-Case Recourse (2026; publisher_abstract_checked)
 
 ## ML-006
 
@@ -168,6 +199,7 @@
 - [LIT-029](LITERATURE.md#lit-029) — Space lower bounds for linear prediction in the streaming model (2019; primary_abstract_checked)
 - [LIT-041](LITERATURE.md#lit-041) — Certificates in Data Structures (2014; primary_abstract_checked)
 - [LIT-046](LITERATURE.md#lit-046) — Lower And Upper Bounds For Incremental Algorithms (1992; publisher_abstract_checked)
+- [LIT-052](LITERATURE.md#lit-052) — The Natural Proofs Barrier against Data-Structure Lower-Bounds (2026; publisher_abstract_checked)
 
 ## ML-007
 
@@ -177,6 +209,8 @@
 - [LIT-034](LITERATURE.md#lit-034) — Finite Field Multiple Access (2023; primary_abstract_checked)
 - [LIT-043](LITERATURE.md#lit-043) — Sparse Parity-Check Matrices over GF(q) (2005; publisher_abstract_checked)
 - [LIT-044](LITERATURE.md#lit-044) — On Parity Check (0,1)-Matrix over Z_p (2015; publisher_abstract_checked)
+- [LIT-051](LITERATURE.md#lit-051) — The Weak Rank Principle: Lower Bounds and Applications (2026; publisher_abstract_checked)
+- [LIT-070](LITERATURE.md#lit-070) — Lower Bounds for Near-Quadratic-Depth Resolution over Parities (2026; publisher_abstract_checked)
 
 ## ML-008
 
@@ -196,6 +230,7 @@
 - [LIT-035](LITERATURE.md#lit-035) — Signature codes for weighted binary adder channel and multimedia fingerprinting (2019; primary_abstract_checked)
 - [LIT-036](LITERATURE.md#lit-036) — On Constant-Weight Binary B2-Sequences (2023; primary_abstract_checked)
 - [LIT-043](LITERATURE.md#lit-043) — Sparse Parity-Check Matrices over GF(q) (2005; publisher_abstract_checked)
+- [LIT-063](LITERATURE.md#lit-063) — Combinatorial Bounds for List Recovery via Discrete Brascamp-Lieb Inequalities (2026; publisher_abstract_checked)
 
 ## ML-011
 
@@ -205,9 +240,89 @@
 - [LIT-005](LITERATURE.md#lit-005) — Sharp bounds for uniform union-free hypergraphs (2026; primary_abstract_checked)
 - [LIT-040](LITERATURE.md#lit-040) — Invertible Bloom Lookup Tables with Listing Guarantees (2022; primary_abstract_checked)
 
+## OM-099
+
+**[Family 099: заявленные границы искажения edit distance](INDEX.md#om-099)**
+
+- [LIT-054](LITERATURE.md#lit-054) — Approximation Schemes for Edit Distance and LCS in Quasi-Strongly Subquadratic Time (2026; publisher_abstract_checked)
+- [LIT-072](LITERATURE.md#lit-072) — Space-Efficient Text Indexing with Mismatches using Function Inversion (2026; publisher_abstract_checked)
+
+## OM-113
+
+**[Family 113: Приближённый подсчёт perfect matchings и энтропийная граница](INDEX.md#om-113)**
+
+- [LIT-061](LITERATURE.md#lit-061) — Parallel Sampling via Autospeculation (2026; publisher_abstract_checked)
+- [LIT-062](LITERATURE.md#lit-062) — Shifted Composition IV: Toward Ballistic Acceleration for Log-Concave Sampling (2026; publisher_abstract_checked)
+
+## OM-116
+
+**[Family 116: универсальные матричные PIT-точки в нулевой и положительной характеристике](INDEX.md#om-116)**
+
+- [LIT-050](LITERATURE.md#lit-050) — Lower Bounds against the Ideal Proof System in Finite Fields (2026; publisher_abstract_checked)
+- [LIT-051](LITERATURE.md#lit-051) — The Weak Rank Principle: Lower Bounds and Applications (2026; publisher_abstract_checked)
+- [LIT-057](LITERATURE.md#lit-057) — Closure under Factorization from a Result of Furstenberg (2026; publisher_abstract_checked)
+- [LIT-060](LITERATURE.md#lit-060) — Polynomial Identity Testing and the Ideal Proof System: PIT Is in NP If and Only If IPS Can Be p-Simulated by a Cook-Reckhow Proof System (2026; publisher_abstract_checked)
+- [LIT-070](LITERATURE.md#lit-070) — Lower Bounds for Near-Quadratic-Depth Resolution over Parities (2026; publisher_abstract_checked)
+- [LIT-073](LITERATURE.md#lit-073) — Classifying Identities: Subcubic Distributivity Checking and Hardness from Arithmetic Progression Detection (2026; publisher_abstract_checked)
+
+## OM-121
+
+**[Family 121: заявленная почти-линейная аппроксимация edit distance](INDEX.md#om-121)**
+
+- [LIT-054](LITERATURE.md#lit-054) — Approximation Schemes for Edit Distance and LCS in Quasi-Strongly Subquadratic Time (2026; publisher_abstract_checked)
+- [LIT-072](LITERATURE.md#lit-072) — Space-Efficient Text Indexing with Mismatches using Function Inversion (2026; publisher_abstract_checked)
+
+## OM-122
+
+**[Family 122: заявленные оценки trace reconstruction](INDEX.md#om-122)**
+
+- [LIT-071](LITERATURE.md#lit-071) — Improved Pseudorandom Codes from Permuted Puzzles (2026; publisher_abstract_checked)
+
+## OM-130
+
+**[Family 130: заявленные суб-nlogn точные Fourier схемы](INDEX.md#om-130)**
+
+- [LIT-069](LITERATURE.md#lit-069) — Superquadratic Lower Bounds for Depth-2 Linear Threshold Circuits (2026; publisher_abstract_checked)
+
+## OM-131
+
+**[Family 131: Графовые переключения: оценка смешивания при фиксированных степенях](INDEX.md#om-131)**
+
+- [LIT-059](LITERATURE.md#lit-059) — A Faster Deterministic Algorithm for Fully Dynamic Maximal Matching (2026; publisher_abstract_checked)
+
+## OM-132
+
+**[Family 132: заявленное сверхквадратичное разделение sensitivity](INDEX.md#om-132)**
+
+- [LIT-069](LITERATURE.md#lit-069) — Superquadratic Lower Bounds for Depth-2 Linear Threshold Circuits (2026; publisher_abstract_checked)
+
+## OM-133
+
+**[Family 133: заявленная сложность Weisfeiler–Leman refinement](INDEX.md#om-133)**
+
+- [LIT-058](LITERATURE.md#lit-058) — Separator Theorem for Minor-Free Graphs in Linear Time (2026; publisher_abstract_checked)
+- [LIT-066](LITERATURE.md#lit-066) — Static to Dynamic Correlation Clustering (2026; publisher_abstract_checked)
+- [LIT-074](LITERATURE.md#lit-074) — Deterministic Padded Decompositions and Negative-Weight Shortest Paths (2026; publisher_abstract_checked)
+- [LIT-075](LITERATURE.md#lit-075) — Lower Bounds on Pure Dynamic Programming for Connectivity Problems on Graphs of Bounded Path-Width (2026; publisher_abstract_checked)
+
+## OM-135
+
+**[Family 135: Depth-5 схемы: нижняя и верхняя границы IMM](INDEX.md#om-135)**
+
+- [LIT-057](LITERATURE.md#lit-057) — Closure under Factorization from a Result of Furstenberg (2026; publisher_abstract_checked)
+
+## OM-139
+
+**[Family 139: Лог-вогнутая выборка: число oracle queries против времени](INDEX.md#om-139)**
+
+- [LIT-061](LITERATURE.md#lit-061) — Parallel Sampling via Autospeculation (2026; publisher_abstract_checked)
+- [LIT-062](LITERATURE.md#lit-062) — Shifted Composition IV: Toward Ballistic Acceleration for Log-Concave Sampling (2026; publisher_abstract_checked)
+- [LIT-068](LITERATURE.md#lit-068) — Sampling Permutations with Cell Probes Is Hard (2026; publisher_abstract_checked)
+
 ## OM-140
 
 **[Family 140: Memory–sample: нижняя граница по состоянию при Gaussian regression](INDEX.md#om-140)**
 
 - [LIT-028](LITERATURE.md#lit-028) — Memory-Sample Tradeoffs for Linear Regression with Small Error (2019; primary_abstract_checked)
 - [LIT-029](LITERATURE.md#lit-029) — Space lower bounds for linear prediction in the streaming model (2019; primary_abstract_checked)
+- [LIT-055](LITERATURE.md#lit-055) — A Unified Approach to Memory-Sample Tradeoffs for Detecting Planted Structures (2026; publisher_abstract_checked)
