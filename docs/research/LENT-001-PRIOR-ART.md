@@ -63,7 +63,7 @@ with
 
 Thus for \(q>2\) Lefmann gives a stronger sufficient condition, not an established equivalence.
 
-This distinction is now a first-class G1A requirement.
+This distinction is now a first-class G1A requirement. It already separates at q=3: with m=1,d=1 and columns 1 and 2=-1, ASET singleton states are distinct while the two columns satisfy 1+2=0.
 
 ## 2. ASET / dissociated / Sidon / B_h boundary
 
