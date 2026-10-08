@@ -46,6 +46,13 @@ Run `python research/hyp002_quadratic.py` for Phase-B finite markers.
 The asymptotic theorem is proved in docs/research/HYP-002-B-QUADRATIC-THEOREM.md;
 CI checks instances only and does not establish scientific novelty.
 
+- `affine_two_id.py` — canonical line-ID completion, promised <=2 active-ID decoder, trusted raw/checked transition boundary, dense vs direct memory accounting.
+- `test_affine_two_id.py` — exhaustive 2,79,6904 state regressions and explicit 3-distinct versus 2-line alias.
+- `bench_affine_two_id.py` — non-gating GitHub-hosted Python timing comparison with a direct two-ID baseline; NOT a Rust benchmark.
+- `lent-001/hyp002-c-protocol.json` — frozen correctness/over-capacity/no-go criteria.
+
+Run `python research/affine_two_id.py` and `python research/bench_affine_two_id.py` to reproduce; note that Python immutable raw-update copies O(m) memory even though three coordinate values change.
+
 ## Evidence semantics
 
 The exhaustive oracle searches unordered families of distinct nonzero columns. For the frozen grid (dge1), this loses no valid exact family: a zero column or duplicate column already violates singleton injectivity.

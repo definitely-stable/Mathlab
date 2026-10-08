@@ -1,0 +1,67 @@
+{
+  "id": "HYP-002-C",
+  "version": 1,
+  "status": "FROZEN_FOR_HOSTED_CI",
+  "issue": 34,
+  "baseline_main": "c5b2d61c75304ea3895a298328ec1ebb34097e78",
+  "scope": {
+    "geometry": "affine lines in F_3^r",
+    "rank_ci": [
+      1,
+      2,
+      3
+    ],
+    "m": "3^r",
+    "q": "3",
+    "d": 2,
+    "w": 3,
+    "distinct": true,
+    "canonical_id": "two smallest point indices; third=-x-y mod3"
+  },
+  "claims": [
+    {
+      "status": "DERIVED",
+      "text": "Within valid distinct <=2 active-ID promise, index-free decoder via <=20 line checks after O(m) scan"
+    },
+    {
+      "status": "EXACT COUNTEREXAMPLE",
+      "text": "three distinct lines (012),(036),(048) alias two lines (138),(246) in GF(3)^9 state"
+    },
+    {
+      "status": "DERIVED",
+      "text": "direct canonical two-ID payload O(log m), dense trit state Theta(m) bits"
+    },
+    {
+      "status": "NO-GO RECOMMENDATION",
+      "text": "standalone dense two-active-ID store has no demonstrated memory or safety advantage over direct storage"
+    }
+  ],
+  "counts": {
+    "rank1": 2,
+    "rank2": 79,
+    "rank3": 6904
+  },
+  "acceptance": [
+    "HYP002C_EXHAUSTIVE_ORACLE_PASS",
+    "HYP002C_OVER_CAPACITY_ALIAS_PASS",
+    "HYP002C_INDEX_FREE_DECODER_PASS",
+    "HYP002C_STORAGE_ACCOUNTING_PASS",
+    "HYP002C_PHASE_A_PASS"
+  ],
+  "inputs": [
+    "valid promised subsets",
+    "malformed snapshots",
+    "noncanonical point pairs",
+    "duplicate add/missing delete",
+    "over-capacity alias"
+  ],
+  "non_go": [
+    "no claim of unconditional overload detection",
+    "no O(1) total decoder claim",
+    "no O(1) Python raw-update runtime claim",
+    "no novel theorem",
+    "no Rust crate"
+  ],
+  "decision": "STOP_STANDALONE_DENSE_TWO_ID",
+  "next_research": "specific composable merge workload with enforceable cardinality and end-to-end cost, or move to other theorem target"
+}

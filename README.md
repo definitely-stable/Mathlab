@@ -77,6 +77,12 @@ conjecture is discharged. [Corrected Phase-B proof](docs/research/HYP-002-B-QUAD
 and [historical Phase-A record](docs/research/HYP-001-002-LOCALITY-TRANSITION.md).
 Neither target is a publication novelty claim.
 
+HYP-002-C [affine two-ID decoder issue #34](https://github.com/definitely-stable/Mathlab/issues/34)
+provides a table-free recovery construction under the promise of no more
+than two distinct active IDs. [Product gate and overload collision](docs/research/HYP-002-C-AFFINE-DECODER-PROTOCOL.md)
+show why dense trit state is not competitive with directly storing
+two canonical IDs for this narrow task. No Rust crate is authorized.
+
 Independent [TOM-001](https://github.com/definitely-stable/Mathlab/issues/15)
 continues falsification-first scouting. TOM-001-C is an elementary STOP
 novelty baseline, not a crate or theorem selection.
