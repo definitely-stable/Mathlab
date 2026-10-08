@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**110** работ сопоставлены с **38** внутренними исследованиями.
+**122** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -35,6 +35,7 @@
 - [LIT-099](LITERATURE.md#lit-099) — Longest Common Extension of a Dynamic String in Parallel Constant Time (2026; publisher_abstract_checked)
 - [LIT-109](LITERATURE.md#lit-109) — Incremental Cryptography: The Case of Hashing and Signing (1994; publisher_abstract_checked)
 - [LIT-110](LITERATURE.md#lit-110) — A New Paradigm for Collision-Free Hashing: Incrementality at Reduced Cost (1997; author_paper_or_bibliography_checked)
+- [LIT-116](LITERATURE.md#lit-116) — Noiseless coding of correlated information sources (1973; publisher_bibliography_checked)
 
 ## DL-002
 
@@ -149,6 +150,12 @@
 - [LIT-001](LITERATURE.md#lit-001) — Bounded-Contention Coding for Wireless Networks in the High SNR Regime (2012; primary_abstract_checked)
 - [LIT-037](LITERATURE.md#lit-037) — Multi-Group Testing for Items with Real-Valued Status under Standard Arithmetic (2013; primary_abstract_checked)
 - [LIT-084](LITERATURE.md#lit-084) — Locally Computable High Independence Hashing (2026; publisher_abstract_checked)
+- [LIT-111](LITERATURE.md#lit-111) — The cell probe complexity of dynamic data structures (1989; publisher_abstract_checked)
+- [LIT-114](LITERATURE.md#lit-114) — On dynamic bit-probe complexity (2007; publisher_abstract_checked)
+- [LIT-118](LITERATURE.md#lit-118) — Lower bounds for adaptive locally decodable codes (2005; publisher_abstract_checked)
+- [LIT-120](LITERATURE.md#lit-120) — On cubical graphs (1975; publisher_abstract_checked)
+- [LIT-121](LITERATURE.md#lit-121) — The complexity of cubical graphs (1985; publisher_abstract_checked)
+- [LIT-122](LITERATURE.md#lit-122) — Embeddings in hypercubes (1988; publisher_abstract_checked)
 
 ## ML-002
 
@@ -171,6 +178,7 @@
 - [LIT-083](LITERATURE.md#lit-083) — Combinatorial Bounds for List Recovery via Discrete Brascamp-Lieb Inequalities (2026; publisher_abstract_checked)
 - [LIT-084](LITERATURE.md#lit-084) — Locally Computable High Independence Hashing (2026; publisher_abstract_checked)
 - [LIT-091](LITERATURE.md#lit-091) — Improved Pseudorandom Codes from Permuted Puzzles (2026; publisher_abstract_checked)
+- [LIT-118](LITERATURE.md#lit-118) — Lower bounds for adaptive locally decodable codes (2005; publisher_abstract_checked)
 
 ## ML-003
 
@@ -238,6 +246,17 @@
 - [LIT-108](LITERATURE.md#lit-108) — Complexity measures and decision tree complexity: a survey (2002; publisher_abstract_checked)
 - [LIT-109](LITERATURE.md#lit-109) — Incremental Cryptography: The Case of Hashing and Signing (1994; publisher_abstract_checked)
 - [LIT-110](LITERATURE.md#lit-110) — A New Paradigm for Collision-Free Hashing: Incrementality at Reduced Cost (1997; author_paper_or_bibliography_checked)
+- [LIT-111](LITERATURE.md#lit-111) — The cell probe complexity of dynamic data structures (1989; publisher_abstract_checked)
+- [LIT-112](LITERATURE.md#lit-112) — Logarithmic Lower Bounds in the Cell-Probe Model (2006; publisher_abstract_checked)
+- [LIT-113](LITERATURE.md#lit-113) — On the Cell Probe Complexity of Dynamic Membership (2010; publisher_abstract_checked)
+- [LIT-114](LITERATURE.md#lit-114) — On dynamic bit-probe complexity (2007; publisher_abstract_checked)
+- [LIT-115](LITERATURE.md#lit-115) — New amortized cell-probe lower bounds for dynamic problems (2019; publisher_abstract_checked)
+- [LIT-116](LITERATURE.md#lit-116) — Noiseless coding of correlated information sources (1973; publisher_bibliography_checked)
+- [LIT-117](LITERATURE.md#lit-117) — A Library for Self-Adjusting Computation (2006; publisher_abstract_checked)
+- [LIT-119](LITERATURE.md#lit-119) — An $\\Omega((\\log n / \\log\\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures (2026; primary_abstract_checked)
+- [LIT-120](LITERATURE.md#lit-120) — On cubical graphs (1975; publisher_abstract_checked)
+- [LIT-121](LITERATURE.md#lit-121) — The complexity of cubical graphs (1985; publisher_abstract_checked)
+- [LIT-122](LITERATURE.md#lit-122) — Embeddings in hypercubes (1988; publisher_abstract_checked)
 
 ## ML-005
 
@@ -268,6 +287,7 @@
 - [LIT-105](LITERATURE.md#lit-105) — Instance Complexity and Unlabeled Certificates in the Decision Tree Model (2020; publisher_abstract_checked)
 - [LIT-109](LITERATURE.md#lit-109) — Incremental Cryptography: The Case of Hashing and Signing (1994; publisher_abstract_checked)
 - [LIT-110](LITERATURE.md#lit-110) — A New Paradigm for Collision-Free Hashing: Incrementality at Reduced Cost (1997; author_paper_or_bibliography_checked)
+- [LIT-117](LITERATURE.md#lit-117) — A Library for Self-Adjusting Computation (2006; publisher_abstract_checked)
 
 ## ML-006
 
@@ -289,6 +309,10 @@
 - [LIT-106](LITERATURE.md#lit-106) — Certification complexity of Boolean functions (2026; publisher_abstract_checked)
 - [LIT-107](LITERATURE.md#lit-107) — On Condensation of Block Sensitivity, Certificate Complexity and the $\mathsf{AND}$ (and $\mathsf{OR}$) Decision Tree Complexity (2026; primary_abstract_checked)
 - [LIT-108](LITERATURE.md#lit-108) — Complexity measures and decision tree complexity: a survey (2002; publisher_abstract_checked)
+- [LIT-112](LITERATURE.md#lit-112) — Logarithmic Lower Bounds in the Cell-Probe Model (2006; publisher_abstract_checked)
+- [LIT-113](LITERATURE.md#lit-113) — On the Cell Probe Complexity of Dynamic Membership (2010; publisher_abstract_checked)
+- [LIT-115](LITERATURE.md#lit-115) — New amortized cell-probe lower bounds for dynamic problems (2019; publisher_abstract_checked)
+- [LIT-119](LITERATURE.md#lit-119) — An $\\Omega((\\log n / \\log\\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures (2026; primary_abstract_checked)
 
 ## ML-007
 
