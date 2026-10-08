@@ -30,6 +30,13 @@ Yet no exact encoding obeying w=1 exists. The two-bit hypercube's unit-distance 
 
 Consequently **a sufficient characterisation of write-local representations needs more than graph growth/ball volume**. The next possible theorem must account for edge structure, graph homomorphism/cut geometry, and the *actual update algorithm*, not merely the number of reachable states. This counterexample is elementary and is not an originality claim.
 
+## C2. Bipartiteness still is not sufficient: K(2,3)
+Consider the complete bipartite update graph with parts of sizes 2 and 3, q=2,w=1,m=3 and O(x)=x. Every vertex in the size-2 part has three adjacent vertices, so N_O(x,1)=4=V_2(3,1). The other vertices have N_O(x,1)=3<=4. Every vertex reaches all five vertices by distance 2, so N_O(x,2)=5<=V_2(3,2)=7. Thus all radius bounds hold at every vertex for every d (for d>=3 the radius covers all eight words).
+
+**Nonetheless there is no 1-local injective embedding into F_2^m for any m.** Distinct binary words u,v have at most two common Hamming-distance-one neighbors: if they differ in exactly two coordinates, the two intermediates are the only possibilities; at every other distance they have none. The two vertices in the size-2 part would need three distinct common neighbors, contradiction. QED.
+
+This is a **classical cubical-graph obstruction**, not a new theorem. Original-source overlap: Garey–Graham 1975; cubical graph recognition NP-complete by the 1985 paper (UCT-SRC-12/13), Livingston–Stout 1988 (UCT-SRC-14). Do not confuse arbitrary subgraph embedding ("cubical") with *isometric* embedding ("partial cube"), which requires stronger distance preservation.
+
 ## D. Counterexample: same output ≠ interchangeable online state
 Let f(a,b)=a∧b. Old states x=(0,0), y=(0,1) both have f=0. Under the common public overwrite a<-1, outputs become f(1,0)=0 versus f(1,1)=1. Storing only f(x) cannot implement correct arbitrary overwrites. An assumption that old values are externally authenticated is a different model (TOM-003 D1/T); requiring exact future behavior creates an automaton observational-equivalence condition stronger than equality of current f.
 
@@ -47,7 +54,7 @@ Let f(a,b)=a∧b. Old states x=(0,0), y=(0,1) both have f=0. Under the common pu
 ## F. Independent finite verification protocol
 `research/test_uct001_baseline.py`:
 1. independent reachability BFS and observational image counting vs direct Hamming-ball enumeration, across all directed graphs on <=3 nodes, q=2, m=0..3, w=0..m, d=0..3;
-2. enumerate all distinct encodings of three states into F_2^2; path admits w=1, triangle does not, though both satisfy capacity;
+2. enumerate all distinct encodings of three states into F_2^2; path admits w=1, triangle does not, though both satisfy capacity; separately exhaust K(2,3) embeddings in F_2^3 and check common-neighbor lemma for m<=5;
 3. enumerate all 16 Boolean f(a,b) truth tables and old/new overwrite traces; check that output equality alone does not ensure future-trace equivalence;
 4. compare star bound with explicit weight-one construction for q=2,3 and small m.
 
@@ -55,5 +62,5 @@ Tests can falsify a mistaken universal statement, not establish asymptotic gener
 
 ## G. Research fork after baseline
 - **G1-A:** request a strictly stronger joint inequality for a named dynamic problem and unified cost model; compare [UCT sources](UCT-001-PRIMARY-SOURCES.md).
-- **G1-B:** if a family achieves the Hamming-ball capacity but violates edge embeddability, identify a structural parameter and derive a nontrivial embedding obstruction beyond bipartiteness. Prior-art check of hypercube embeddings / partial cubes is mandatory before novelty claim.
+- **G1-B:** existing binary unit-edge embeddability is the classical cubical-graph problem (NP-complete recognition). STOP novelty for generic subgraph obstructions; only reopen for an explicitly novel observation-quotient, update-algorithm, or multi-resource setting with source-level separation. Isometric partial cubes are strictly different.
 - **G1-C:** separately model deterministic observable-preserving update congruences and state minimization. This is a classical automata-theory object; narrow to a resource improvement only when fully costed.
