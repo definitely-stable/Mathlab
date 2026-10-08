@@ -38,3 +38,6 @@ jobs:
 
       - name: HYP-001/002 locality transition constructive falsification
         run: python research/locality_transition.py
+
+      - name: HYP-002 sharp quadratic prefix-fiber theorem checks
+        run: python research/hyp002_quadratic.py
