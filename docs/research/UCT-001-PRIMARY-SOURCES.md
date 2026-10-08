@@ -17,6 +17,10 @@ Date: 2026-10-08. Parent: [#74](https://github.com/definitely-stable/Mathlab/iss
 | **UCT-SRC-10** | [Hardt & Woodruff, STOC 2013, arXiv:1211.1056](https://arxiv.org/abs/1211.1056) | Attacks on Euclidean-norm linear sketches for adaptively selected inputs. | A negative result for specified linear sketches cannot be lifted to every DeltaMeter estimator. **ALREADY CANONICAL `LIT-100` — do not reimport.** |
 | **UCT-SRC-11** | [Wang & Yin, 2014, arXiv:1404.5743](https://arxiv.org/abs/1404.5743) | Static cell-probe certificate complexity and lower-bound methods. | Static data-structure certificates are not complete costed online authenticated batch-update protocols. **ALREADY CANONICAL `LIT-041` — do not reimport.** |
 
+| **UCT-SRC-12** | [Garey & Graham, *On cubical graphs*, JCTB 1975, DOI:10.1016/0095-8956(75)90067-2](https://doi.org/10.1016/0095-8956(75)90067-2) | Study of graphs embeddable as subgraphs of binary hypercubes and critically nonembeddable graphs. | **Broad graph-embedding novelty CLOSED:** triangle/K2,3 are elementary obstructions, not a new general classification. |
+| **UCT-SRC-13** | [*The complexity of cubical graphs*, Information and Control 1985, DOI:10.1016/S0019-9958(85)80012-7](https://doi.org/10.1016/S0019-9958(85)80012-7) | Hypercube subgraph embeddings; recognition of cubical graphs is NP-complete in the source's model. | The UCT-A `q=2,w=1,O=id` embedding feasibility problem is a classical cubical-graph question. |
+| **UCT-SRC-14** | [Livingston & Stout, *Embeddings in hypercubes*, Mathematical and Computer Modelling 1988, DOI:10.1016/0895-7177(88)90486-4](https://doi.org/10.1016/0895-7177(88)90486-4) | Survey of hypercube graph embeddings, dilation/expansion tradeoffs, trees and meshes. | Do not call graph dilation or minimal hypercube dimension a new resource frontier without precise stronger cost assumptions. |
+
 ## Existing Mathlab results: direct overlap matrix
 | Existing primary Mathlab model | UCT reuse | Decision |
 |---|---|---|
@@ -31,7 +35,7 @@ Date: 2026-10-08. Parent: [#74](https://github.com/definitely-stable/Mathlab/iss
 | [openai/math](https://github.com/openai/math) | Selected mathematical manuscripts as *candidate* proof techniques, preserving pinned identities and individual proof status. | Source-reported manuscript claims ≠ independently validated theorem; no blanket transfer. |
 
 ## Prior-art disposition for four new program lanes
-**UCT-A:** BROAD KNOWN. Dynamic time–space and update/read lower bounds established. A single exact compatible model could still permit a sharper joint result; none shown.
+**UCT-A:** BROAD KNOWN. Dynamic time–space and update/read lower bounds established; bare binary locality-1 graph embeddings are classical **cubical graphs** (1975/1985/1988), with NP-complete recognition. A single exact compatible model could still permit a sharper joint result; none shown.
 
 **UCT-B:** BROAD KNOWN / STOP simple witness. HYP-103 old-input probes exactly promise-domain certificate complexity. Costs for access, prover work, auth and persistent state remain unsolved in any proposed stronger joint statement.
 
