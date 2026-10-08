@@ -1,6 +1,7 @@
 """RESEARCH-LITERATURE-001: deterministic primary-source metadata checks."""
 import copy
 import json
+import re
 import unittest
 from literature import DATA, INTERNAL, INDEX, REVERSE, valid, render, render_reverse
 
@@ -20,6 +21,48 @@ class LiteratureTests(unittest.TestCase):
         self.assertEqual(len({e["identity"].lower() for e in entries}), 95)
         self.assertEqual(len({e["id"] for e in entries}), 95)
         self.assertEqual(len({e["track"] for e in entries}), 14)
+
+    def test_2026_report_links_match_bibliographic_identities(self):
+        """Prevent silent cross-paper links when parallel imports renumber IDs."""
+        base = DATA.parent.parent  # docs/research
+        reports = (
+            DATA.parent / "LITERATURE-003-2026-OPPORTUNITY-AUDIT.md",
+            base / "RESEARCH-LITERATURE-003B-2026-STOC-ICALP-EUROSYS.md",
+        )
+        registry = {e["id"] for e in self.data["entries"]}
+        for report, expected in zip(reports, (20, 26)):
+            with self.subTest(report=report.name):
+                raw = report.read_text(encoding="utf-8")
+                self.assertEqual(self._check_report_paper_links(raw, registry),
+                                 expected)
+
+    @staticmethod
+    def _check_report_paper_links(content, registry):
+        """Validate both paper existence and visible ID == actual link target."""
+        pattern = re.compile(
+            r"\\[[^\\]\\n]*?\\b(LIT-\\d{3})\\b[^\\]\\n]*?\\]"
+            r"\\((?:catalog/)?LITERATURE\\.md#lit-(\\d{3})\\)",
+            re.IGNORECASE,
+        )
+        links = list(pattern.finditer(content))
+        for link in links:
+            visible, target = link.group(1), "LIT-" + link.group(2)
+            if visible not in registry or target not in registry:
+                raise AssertionError(
+                    f"missing bibliographic work: {visible} -> {target}")
+            if visible.lower() != target.lower():
+                raise AssertionError(
+                    f"wrong bibliographic anchor: {visible} -> {target}")
+        return len(links)
+
+    def test_report_link_mismatch_is_rejected(self):
+        ids = {e["id"] for e in self.data["entries"]}
+        with self.assertRaisesRegex(AssertionError, "wrong bibliographic anchor"):
+            self._check_report_paper_links(
+                "[LIT-072](catalog/LITERATURE.md#lit-052)", ids)
+        with self.assertRaisesRegex(AssertionError, "missing bibliographic work"):
+            self._check_report_paper_links(
+                "[LIT-999](catalog/LITERATURE.md#lit-999)", ids)
 
     def test_forward_and_reverse_indices_are_exactly_reproducible(self):
         self.assertEqual(render(self.data), INDEX.read_text(encoding="utf-8"))
