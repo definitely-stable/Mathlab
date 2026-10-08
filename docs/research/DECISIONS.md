@@ -270,3 +270,49 @@ q\in\{3,5,7\},\qquad d=2,\qquad w\in\{1,2,3\}.
 
 The next gate is exact finite extremal evidence sufficient to choose a
 specific asymptotic statement.
+
+
+## 2026-10-08 — D023
+
+**ACCEPT G2A EXACT EVIDENCE; CHOOSE \`G2_EXPAND_GRID\`.**
+
+Hosted CI run \`37746812318\` passed all five G2A markers and 14 unit tests.
+
+Exact Phase-A values:
+
+\[
+A_3^{set}(3,2,2)=5,
+\]
+
+\[
+A_5^{set}(2,2,2)=5,
+\]
+
+\[
+A_7^{set}(2,2,2)=7.
+\]
+
+The corresponding stronger arbitrary-linear maxima are 3, 2 and 2.
+
+However the q=5/q=7 cases have \(w=m=2\), so they do not measure a real
+hard-support restriction.
+
+Therefore theorem selection is deferred.
+
+**NEXT:** G2B must obtain genuine \(m>w\) evidence, with
+q=3,m=4,w=2 first and q=5,m=3,w=2 as the first nontrivial q=5 target.
+
+## 2026-10-08 — D024
+
+**ACCEPT AS EXACT BASELINE:**
+
+\[
+A_q^{set}(m,1,2)
+=
+m A_q^{set}(1,1,2).
+\]
+
+For q=3,5,7 this gives m, 2m and 3m respectively.
+
+This result calibrates the support frontier but is not selected as the main
+new-theorem target.

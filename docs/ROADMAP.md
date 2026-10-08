@@ -33,7 +33,7 @@ hard support \(w\) essentially remains eligible.
 
 ### G2 — odd-characteristic finite extremal evidence
 
-Status: **ACTIVE**
+Status: **ACTIVE — G2A COMPLETE / G2B REQUIRED**
 
 Initial fields:
 
@@ -46,6 +46,17 @@ Initial capacity/support grid:
 \[
 d=2,\qquad w\in\{1,2,3\}.
 \]
+
+Phase A exact harness is accepted in issue #12. Decision: **G2_EXPAND_GRID**.
+
+Phase-A warning: q=5,m=2,w=2 and q=7,m=2,w=2 have w=m, so those cases do
+not exercise hard support. G2B must move to m>w before theorem selection.
+
+G2B priority:
+
+1. q=3,m=4,d=2,w=2;
+2. q=5,m=3,d=2,w=2;
+3. q=7,m=3,d=2,w=2 only after solver improvement.
 
 Tasks:
 

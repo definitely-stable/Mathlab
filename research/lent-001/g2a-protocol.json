@@ -1,0 +1,74 @@
+{
+  "id": "LENT-001-G2A",
+  "version": 1,
+  "status": "COMPLETE",
+  "issue": 12,
+  "scope": {
+    "prime_fields": [
+      3,
+      5,
+      7
+    ],
+    "d": 2,
+    "hard_support": true,
+    "novelty_claimed": false
+  },
+  "exact_cases": [
+    {
+      "q": 3,
+      "m": 3,
+      "w": 2,
+      "expected_aset_max": 5,
+      "expected_linear_max": 3,
+      "expected_lent_upper": 6
+    },
+    {
+      "q": 5,
+      "m": 2,
+      "w": 2,
+      "expected_aset_max": 5,
+      "expected_linear_max": 2,
+      "expected_lent_upper": 6
+    },
+    {
+      "q": 7,
+      "m": 2,
+      "w": 2,
+      "expected_aset_max": 7,
+      "expected_linear_max": 2,
+      "expected_lent_upper": 9
+    }
+  ],
+  "w1_cases": [
+    {
+      "q": 3,
+      "m": 4,
+      "expected_local_max": 1
+    },
+    {
+      "q": 5,
+      "m": 3,
+      "expected_local_max": 2
+    },
+    {
+      "q": 7,
+      "m": 3,
+      "expected_local_max": 3
+    }
+  ],
+  "acceptance_markers": [
+    "G2A_ASET_EXACT_PASS",
+    "G2A_LINEAR_BASELINE_PASS",
+    "G2A_W1_PASS",
+    "G2A_WITNESS_PASS",
+    "G2A_PHASE_A_PASS"
+  ],
+  "allowed_decisions": [
+    "G2_SELECT_THEOREM",
+    "G2_EXPAND_GRID",
+    "G2_REDUCE_TARGET",
+    "G2_NO_SIGNAL"
+  ],
+  "decision": "G2_EXPAND_GRID",
+  "ci_run": 37746812318
+}
