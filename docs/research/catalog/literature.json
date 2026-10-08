@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "eee8e89e1d844bca9f418587d4c8ddba731c2673"
+      "sha": "61071c61c3493454e4c3cb09463baf4bc2dac093"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -2802,6 +2802,212 @@
       "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.130",
       "publication_stage": "peer_reviewed_proceedings",
       "selection_priority": "A"
+    },
+    {
+      "id": "LIT-096",
+      "title": "Incremental Computation with Names",
+      "year": 2015,
+      "identity": "arxiv:1503.07792",
+      "primary_url": "https://arxiv.org/abs/1503.07792",
+      "track": "incremental-computation",
+      "summary_ru": "Nominal Adapton использует именованные вычислительные узлы и доказывает согласованность результатов с полным пересчётом при изменении входов.",
+      "limits_ru": "Известное переиспользование именованных узлов не устанавливает минимальный размер совместного сертификата для произвольных Boolean DAG и батчей.",
+      "maps_to": [
+        "ML-004",
+        "ML-005"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Matthew A. Hammer",
+        "Jana Dunfield",
+        "Kyle Headley",
+        "Nicholas Labich",
+        "Jeffrey S. Foster",
+        "Michael Hicks",
+        "David Van Horn"
+      ]
+    },
+    {
+      "id": "LIT-097",
+      "title": "Bigtable Merge Compaction",
+      "year": 2014,
+      "identity": "arxiv:1407.3008",
+      "primary_url": "https://arxiv.org/abs/1407.3008",
+      "track": "online-optimization",
+      "summary_ru": "Формализует онлайновое объединение файлов Bigtable и конкурентную оценку политик компактации; предшествует гипотезе HYP-104 о pack rewrite.",
+      "limits_ru": "Непосредственная модель не включает совместное хранение объектов и матрицу принадлежности одновременно закреплённых snapshots; год соответствует первой версии arXiv.",
+      "maps_to": [
+        "ML-004",
+        "ML-005"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Claire Mathieu",
+        "Carl Staelin",
+        "Neal E. Young",
+        "Arman Yousefi"
+      ]
+    },
+    {
+      "id": "LIT-098",
+      "title": "Competitive Data-Structure Dynamization",
+      "year": 2020,
+      "identity": "arxiv:2011.02615",
+      "primary_url": "https://arxiv.org/abs/2011.02615",
+      "track": "online-optimization",
+      "summary_ru": "Онлайн-задачи обновления наборов данных с оплачиваемыми build/query затратами и конкурентными гарантиями при неравномерных потоках.",
+      "limits_ru": "Онлайновые set-cover/merge модели нельзя напрямую приравнивать к immutable packs с shared snapshot pins и crash/GC semantics.",
+      "maps_to": [
+        "ML-004",
+        "ML-005"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Claire Mathieu",
+        "Rajmohan Rajaraman",
+        "Neal E. Young",
+        "Arman Yousefi"
+      ]
+    },
+    {
+      "id": "LIT-099",
+      "title": "Longest Common Extension of a Dynamic String in Parallel Constant Time",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.CPM.2026.20",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.CPM.2026.20",
+      "track": "dynamic-data-structures",
+      "summary_ru": "CPM 2026 строит динамическую иерархию string synchronizing sets и отвечает на LCE при вставке и удалении символов в параллельной модели.",
+      "limits_ru": "CRCW PRAM, частично устаревшие сведения и LCE-запросы не эквивалентны строгой канонической CDC локальности и физической переписи чанков.",
+      "maps_to": [
+        "ML-004",
+        "DL-001"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Daniel Alexander Albert"
+      ]
+    },
+    {
+      "id": "LIT-100",
+      "title": "How Robust are Linear Sketches to Adaptive Inputs?",
+      "year": 2012,
+      "identity": "arxiv:1211.1056",
+      "primary_url": "https://arxiv.org/abs/1211.1056",
+      "track": "streaming-reconciliation",
+      "summary_ru": "Hardt и Woodruff показывают уязвимость классических линейных sketch-оценок к адаптивно выбранным запросам, что критично для корректности повторных оценок.",
+      "limits_ru": "Результат об определённых линейных sketches и нормах не является автоматическим impossibility theorem для секретно-ключевых нелинейных односторонних оценок.",
+      "maps_to": [
+        "DM-003",
+        "DM-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Moritz Hardt",
+        "David P. Woodruff"
+      ]
+    },
+    {
+      "id": "LIT-101",
+      "title": "Breaking the Quadratic Barrier: Robust Cardinality Sketches for Adaptive Queries",
+      "year": 2025,
+      "identity": "publisher:pmlr:cohen25c",
+      "primary_url": "https://proceedings.mlr.press/v267/cohen25c.html",
+      "track": "streaming-reconciliation",
+      "summary_ru": "ICML 2025 даёт устойчивые оценки cardinality при адаптивных запросах в модели ограниченного повторного участия каждого элемента.",
+      "limits_ru": "Гарантии bounded participation не переносятся автоматически на DeltaMeter one-sided parity estimator, keyed-PRF transcript и произвольные изменяемые множества.",
+      "maps_to": [
+        "DM-003",
+        "DM-007",
+        "DM-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Edith Cohen",
+        "Mihir Singhal",
+        "Uri Stemmer"
+      ]
+    },
+    {
+      "id": "LIT-102",
+      "title": "Riker: Always-Correct and Fast Incremental Builds from Simple Specifications",
+      "year": 2022,
+      "identity": "usenix:atc22:curtsinger",
+      "primary_url": "https://www.usenix.org/conference/atc22/presentation/curtsinger",
+      "track": "incremental-computation",
+      "summary_ru": "USENIX ATC 2022 автоматически отслеживает файловые зависимости при инкрементальной сборке и поддерживает корректность относительно полного построения.",
+      "limits_ru": "Полная POSIX-модель зависимости не доказывает оптимальную сложность совместных Boolean DAG сертификатов и требует оплаты системных метаданных.",
+      "maps_to": [
+        "ML-004",
+        "ML-005"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Charlie Curtsinger",
+        "Daniel W. Barowy"
+      ]
     }
   ]
 }
