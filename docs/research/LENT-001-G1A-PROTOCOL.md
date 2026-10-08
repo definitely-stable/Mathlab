@@ -1,48 +1,34 @@
-# LENT-001-G1A — ASET model-freeze protocol
+# LENT-001-G1A — ASET model/oracle protocol
 
-Status: **FROZEN FOR PLANNING**
+Status: **FROZEN FOR ORACLE EXECUTION v2**
 
 Issue: #3
 
-Baseline branch point:
+Execution baseline:
 
 \[
-\texttt{main@f89a8db71b50a3c504643464b391f8414ebc2244}
-\]
-
-## 1. Objective
-
-Freeze the exact mathematical object and its nearest prior-art boundaries before attempting a sharp bound or novelty theorem.
-
-Primary object:
-
-\[
-A_q^{\mathrm{set}}(m,w,d).
+\texttt{main@15c1bf7bb47c5edb3727fd50b27c4044daf4813f}
 \]
 
 No publication novelty is claimed in G1A.
 
-## 2. Exact model
+## 1. Primary object
 
-Let \(q\) be a prime power and let
-
-\[
-a_1,\ldots,a_V\in\mathbb F_q^m.
-\]
-
-Each column satisfies
+Let \(q\) be a prime power and
 
 \[
+a_1,\ldots,a_V\in\mathbb F_q^m,
+\qquad
 |\operatorname{supp}(a_i)|\le w.
 \]
 
-For a set \(S\subseteq[V]\), define
+For \(S\subseteq[V]\),
 
 \[
 \Phi(S)=\sum_{i\in S}a_i.
 \]
 
-The family is \((q,m,w,d)\)-ASET-exact when
+The family is ASET-exact through capacity \(d\) when
 
 \[
 S\ne T,\quad |S|,|T|\le d
@@ -50,11 +36,17 @@ S\ne T,\quad |S|,|T|\le d
 \Phi(S)\ne\Phi(T).
 \]
 
-Define \(A_q^{\mathrm{set}}(m,w,d)\) as the maximum \(V\) for which such a family exists.
+Define
 
-## 3. Signed-relation form
+\[
+A_q^{\mathrm{set}}(m,w,d)
+\]
 
-ASET-exactness is equivalent to the nonexistence of a nonzero vector
+as the maximum \(V\) for which such a family exists.
+
+## 2. Signed-relation theorem target
+
+ASET exactness is equivalent to the absence of a nonzero
 
 \[
 \varepsilon\in\{-1,0,1\}^V
@@ -66,21 +58,26 @@ such that
 \sum_i\varepsilon_i a_i=0,
 \]
 
-with
+with separate side bounds
 
 \[
-n_+(\varepsilon)\le d,\qquad n_-(\varepsilon)\le d.
+n_+(\varepsilon)\le d,
+\qquad
+n_-(\varepsilon)\le d.
 \]
 
-The proof must explicitly preserve the two side bounds.
+The side bounds are part of the model and must not be replaced by only
+\(\|\varepsilon\|_0\le2d\).
 
-## 4. Boundary with sparse parity-check matrices
+A complete proof is recorded in
+\`LENT-001-G1A-PROOF.md\`.
 
-Define the stronger property LIN-\(2d\):
+## 3. Boundary with arbitrary-coefficient small-column independence
 
-every set of at most \(2d\) distinct columns is linearly independent over \(\mathbb F_q\).
+Define LIN-\(2d\) to mean that every nonempty set of at most \(2d\)
+distinct columns is linearly independent over \(\mathbb F_q\).
 
-Then
+For every field,
 
 \[
 \text{LIN-}2d
@@ -98,158 +95,163 @@ For \(q=2\),
 \text{ASET-exact}.
 \]
 
-This equivalence is a baseline and not a novelty claim.
-
-### q>2
-
-Do not claim equivalence.
-
-Required separation witness:
-
-\[
-q=5,\quad m=1,\quad d=1,\quad
-a_1=1,\quad a_2=2.
-\]
-
-ASET-exactness holds for sets of size at most one, while the two columns are linearly dependent.
+This is a known-territory baseline, not a novelty claim.
 
 ### q=3
 
-Do not infer equivalence merely because \(\mathbb F_3^\*=\{\pm1\}\).
-
-The ASET condition retains the separate constraints on the number of positive and negative coefficients.
-
-Pinned separation witness: \(m=1,d=1,a_1=1,a_2=2=-1\). The singleton states \(0,1,2\) are distinct, but \(a_1+a_2=0\). Therefore ASET exactness and arbitrary short linear independence are already different for q=3.
-
-## 5. Boundary with Sidon / B_h families
-
-A source-to-definition map must record, for every compared paper:
-
-- whether repeated summands are allowed;
-- whether exactly \(h\) or all sizes up to \(h\) are controlled;
-- whether cross-cardinality collisions are controlled;
-- whether coefficients are all \(+1\), signed, or arbitrary field elements;
-- whether ambient vectors have bounded support;
-- whether the ambient operation is field addition, group addition, OR, or another operation.
-
-No row is allowed to say "equivalent" unless all relevant coordinates of this map agree or a reduction is proved.
-
-## 6. Locality boundary
-
-Mathlab update locality is
+Pinned separation:
 
 \[
-w=\max_i |\operatorname{supp}(a_i)|.
+m=1,\quad d=1,\quad a_1=1,\quad a_2=2=-1.
 \]
 
-It is a write/change locality.
-
-It must not be identified with:
-
-- LDC query locality;
-- LCC repair/query locality;
-- decoding locality;
-- sparse parity-check row weight.
-
-The nearest coding-theory comparator is update efficiency / sparse generator-row structure.
-
-## 7. Nested boundary
-
-Pure nestedness tax is not a G1A target.
-
-The retained candidate is one common family of prefixes that is simultaneously close to the pointwise information bound while preserving bounded update locality.
-
-A future protocol may use a competitive ratio
+The states \(0,1,2\) are distinct, so ASET exactness holds through \(d=1\),
+while
 
 \[
-\rho(D)=
-\max_{d\in D}
-\frac{m_d\log_2 q}{\log_2 N_d(V)}.
+a_1+a_2=0.
 \]
 
-No lower bound on \(\rho(D)\) beyond pointwise LENT is claimed here.
+### q=5
 
-## 8. Mixed alphabets
-
-For coordinate alphabets of sizes \(q_1,\ldots,q_m\), the baseline reachable-state count is
+Pinned separation:
 
 \[
-B_{\mathbf q}(m,r)
-=
-\sum_{\substack{J\subseteq[m]\\|J|\le r}}
-\prod_{j\in J}(q_j-1).
+m=1,\quad d=1,\quad a_1=1,\quad a_2=2.
 \]
 
-Thus
+The singleton states are distinct, while the two nonzero columns in
+\(\mathbb F_5^1\) are linearly dependent; for example
 
 \[
-N_d(V)\le B_{\mathbf q}(m,dw).
+2a_1-a_2=0.
 \]
 
-Status: DERIVED BASELINE / NOVELTY NOT CLAIMED.
+Therefore arbitrary-coefficient small-column independence is strictly
+stronger than ASET exactness in these nonbinary examples.
 
-## 9. G1A execution plan
+## 4. Exact oracle scope
 
-### G1A-1 — model proof
+The executable G1A oracle is intentionally restricted to prime fields
 
-Produce a short proof note for:
+\[
+q\in\{2,3,5\}.
+\]
 
-1. subset-sum injectivity \(\Longleftrightarrow\) signed-relation condition;
-2. q=2 equivalence to small-column independence;
-3. q>2 implication direction and explicit separation;
-4. exact handling of \(d=0\), \(w=0\), \(m=0\), and \(V=0\).
+Coordinate-wise integer arithmetic modulo \(q\) is therefore valid field
+arithmetic.
 
-### G1A-2 — executable oracle
+General \(GF(p^k)\) with \(k>1\) is out of scope until a real finite-field
+representation is introduced.
 
-Extend the research harness so that for tiny parameters it can separately test:
+The oracle independently checks:
 
-- ASET-exactness;
-- signed-relation absence;
-- arbitrary-coefficient small-column independence.
+1. ASET subset-sum exactness;
+2. bounded signed-relation absence;
+3. arbitrary-coefficient small-column independence.
 
-Required fields: \(q=2,3,5\).
+It must not derive one checker from another, because the purpose is to
+falsify incorrect equivalence assumptions.
 
-The oracle must reproduce the pinned q=3 and q=5 singleton separation witnesses and then search small boxes for additional nontrivial separations at d>=2.
+## 5. Frozen exhaustive grid
 
-### G1A-3 — source-to-claim matrix
+The v2 grid is:
 
-Audit primary sources in four clusters:
+- \(q=2,m=4,d=2,w=2,\max V=4\);
+- \(q=3,m=3,d=2,w=2,\max V=4\);
+- \(q=5,m=3,d=2,w=1,\max V=4\).
 
-1. sparse parity-check matrices over finite fields;
-2. dissociated / k-dissociated / weak Sidon / B_h families;
-3. update-efficient codes / sparse generator matrices;
-4. rate-compatible/nested codes and mixed-alphabet bounds.
+The grid is deliberately tiny and exact.
 
-Every source gets:
+No runtime expansion is allowed without a protocol update.
 
-- exact definition;
-- parameter map;
-- implication direction;
-- theorem imported, if any;
-- whether bounded support appears;
-- novelty effect on Mathlab.
+## 6. Required invariants
 
-### G1A-4 — decision gate
+For every enumerated family:
 
-Allowed exits:
+\[
+\text{ASET exact}
+\Longleftrightarrow
+\text{no legal signed relation}.
+\]
 
-- G1A_CONTINUE_ASET;
-- G1A_REDUCE_TO_KNOWN_OBJECT;
-- G1A_SPLIT_Q3_QGT3;
-- G1A_STOP_NOT_NOVEL.
+For every enumerated family:
 
-Nested/locality and mixed-alphabet lanes remain secondary until this gate closes.
+\[
+\text{no arbitrary dependency among }\le2d\text{ columns}
+\Longrightarrow
+\text{ASET exact}.
+\]
 
-## 10. Acceptance
+For \(q=2\), the latter implication must be an equivalence.
 
-Planning acceptance requires:
+The q=3 and q=5 pinned families must demonstrate strict separation.
 
-- issue #3 exists;
-- correction note exists;
-- this protocol exists;
-- ROADMAP, CLAIMS, DECISIONS, OPEN-QUESTIONS and PRIOR-ART are synchronized;
-- CI is green on the PR head.
+Every ASET-exact family must continue to satisfy the finite
+Sparse-Update Hamming-Ball Bound.
 
-Planning marker:
+## 7. Boundary rules retained from G1 planning
 
-G1A_MODEL_PLAN_PASS.
+### Sidon / B_h / dissociated families
+
+No equivalence claim is allowed without a definition-level map covering:
+
+- repeated versus distinct summands;
+- exactly \(h\) versus all sizes through \(h\);
+- cross-cardinality collisions;
+- coefficient set;
+- ambient operation;
+- bounded support.
+
+### Locality
+
+Mathlab locality is write/change locality
+
+\[
+w=\max_i|\operatorname{supp}(a_i)|.
+\]
+
+It is not LCC/LDC query locality.
+
+### Nested families
+
+Pure nestedness tax is deprioritized.
+The retained candidate is nestedness plus bounded update locality.
+
+### Computation
+
+No computation tradeoff is active until an independent computational
+cost model is frozen.
+
+## 8. Acceptance
+
+G1A execution accepts only if GitHub-hosted CI emits all markers:
+
+\`G1A_SIGNED_EQUIV_PASS\`
+
+\`G1A_Q2_EQUIV_PASS\`
+
+\`G1A_Q3_SEPARATION_PASS\`
+
+\`G1A_Q5_SEPARATION_PASS\`
+
+\`G1A_ORACLE_PASS\`
+
+and unit tests pass on the latest PR head.
+
+The planning marker \`G1A_MODEL_PLAN_PASS\` remains historical evidence.
+
+## 9. Next gate
+
+After G1A acceptance, the next allowed research gate is **G1B prior-art
+closure**.
+
+G1B, not G1A, decides one of:
+
+- CONTINUE_ASET;
+- REDUCE_TO_KNOWN_OBJECT;
+- SPLIT_Q3_QGT3;
+- STOP_NOT_NOVEL.
+
+Only after that decision may Mathlab choose a sharp asymptotic ASET theorem
+as a novelty target.

@@ -1,19 +1,21 @@
 # CURRENT_STATE
 
-Last verified HEAD: `main@f89a8db71b50a3c504643464b391f8414ebc2244`
+Last verified HEAD: `main@15c1bf7bb47c5edb3727fd50b27c4044daf4813f`
 
-Current milestone: LENT-001 / G1A — ASET model freeze + public terminology correction
+Current milestone: LENT-001 / G1A — exact ASET relation oracle
 
-Current slice: freeze `A_q^set(m,w,d)`, signed-relation semantics, q=2/q>2 boundaries, and the exact prior-art definition map before any sharp novelty theorem
+Current slice: independently verify ASET exactness, legal signed relations, and arbitrary-coefficient small-column dependence over q={2,3,5}
 
-Open PR: #4 — LENT-001-G1A: freeze ASET model and corrected research roadmap
+Implementation branch: `research/lent-001-g1a-oracle`
 
-Last CI: PR #4 `research` run 37723287508 — SUCCESS on the pre-rename planning head; terminology-only head CI pending
+Open PR: pending
 
-Acceptance: G0 = FOUNDATION_PASS. G1A planning target = `G1A_MODEL_PLAN_PASS`. No publication novelty is claimed.
+Last CI: merged G1A planning/terminology PR #4 was green; implementation-head CI pending
 
-Known blockers: ASET novelty is not yet closed against k-dissociated / weak Sidon / B_h and sparse finite-field literature; q=3/q=5 already separate ASET exactness from arbitrary short linear independence, but the sharp asymptotic gap is unresolved; update-efficient and rate-compatible coding must be mapped definition-by-definition
+Acceptance: G0 = FOUNDATION_PASS; G1A planning = G1A_MODEL_PLAN_PASS; G1A execution requires G1A_ORACLE_PASS plus unit tests on latest PR head
 
-Next allowed action: merge terminology/model documentation when latest-head CI is green, then implement the exact q={2,3,5} oracle that separates ASET exactness, signed-relation absence, and arbitrary-coefficient small-column independence
+Known blockers: publication novelty is still blocked on G1B prior-art closure; general GF(p^k) is intentionally outside the tiny oracle; no sharp asymptotic ASET theorem is authorized yet
+
+Next allowed action: obtain green CI for the exact oracle, review the exact q=3/q=5 separation evidence, then enter G1B source-level novelty closure
 
 Last updated from repository: 2026-10-08
