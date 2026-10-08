@@ -461,7 +461,7 @@
       "title": "FastCDC: A Fast and Efficient Content-Defined Chunking Approach for Data Deduplication",
       "year": 2016,
       "identity": "usenix:atc16:xia",
-      "primary_url": "https://www.usenix.org/conference/atc16/technical-sessions",
+      "primary_url": "https://www.usenix.org/system/files/conference/atc16/atc16-paper-xia.pdf",
       "track": "delta-base-selection",
       "summary_ru": "Gear-based content-defined chunking, пропуск недопустимо коротких разрезов и нормализация длин.",
       "limits_ru": "FastCDC — chunk-boundary baseline, не новая модель оптимальной направленной delta-базы и не строгая история-независимая партиция.",
