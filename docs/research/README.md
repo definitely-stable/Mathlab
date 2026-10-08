@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## TOM-006 — short source-only patch-bound kill gate
+
+[Scoped proofs, fixed-short-q adversarial counterexample, literature overlap and STOP/GO conditions](TOM-006-EARLY-KILL-GATE.md) (issue #63). Elementary positional missing-q-gram bounds are **PROVED_MODEL_BASELINE**, NOT novelty-cleared. Fixed q<=2 has an arbitrarily large cost-floor gap. No real codec/CPU benchmark or Rust authorization; do not replay DeltaMeter M6 without an early workload-specific product gate. [Independent exhaustive oracles](../../research/test_tom006_floor.py) are included in research CI unittest discovery.
+
 ## STOP / already known — required pre-research gate
 
 [**Known, proved, stopped and nontransferable research**](KNOWN-AND-STOPPED-RESEARCH.md) · [machine source](KNOWN-AND-STOPPED-RESEARCH.json). 33 source-linked records with scoped dispositions and strict reopening conditions. This **does not** establish an exhaustive global prior-art search, nor does STOP in one workload ban valid different assumptions. Validate with `python research/known_registry.py --check`.
