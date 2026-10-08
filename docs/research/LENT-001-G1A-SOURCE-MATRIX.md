@@ -59,7 +59,7 @@ Purpose:
 - identify which finite-field results are stronger than elementary LENT counting;
 - record exact parameter conventions.
 
-Status: TO AUDIT.
+Pinned model separation: q=3, m=1, d=1, columns 1 and 2=-1 are ASET-exact for singleton inputs but linearly dependent. Literature classification beyond this model separation remains TO AUDIT.
 
 ## Cluster B — dissociated / Sidon / B_h
 
