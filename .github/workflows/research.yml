@@ -26,3 +26,6 @@ jobs:
 
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
+
+      - name: TOM-001-C exact zero-probe certificate oracle
+        run: python research/tom_certificate.py
