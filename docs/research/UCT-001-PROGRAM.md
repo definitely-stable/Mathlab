@@ -15,6 +15,8 @@ A family of known lower bounds is not itself a new theorem; any proposed joint b
 | **UCT-C / UCT-003** | Source B, target T, precise codec and wire format, preprocessing/index/search/encoding costs, best-of-K trial protocol | TOM-005 A classical interval stop, TOM-006 positional q-gram bounds and adversarial weakness, Slepian–Wolf correlated coding (different probabilistic model) | **SCOUT_NARROW**: efficient admissible instance-specific floor with demonstrated nontrivial competitive tightness after *all* lookup work |
 | **UCT-D / UCT-004** | Mergeable random representations; exact vs statistical vs computational guarantees; online/adaptive adversarial transcripts; fresh/key-reused randomness | DeltaMeter Energy/STRICT-COMPACT scope, Hardt–Woodruff adaptive sketch attack, union bound for fixed tests | **STOP_BROAD**: no adaptive guarantee without joint/conditional analysis; REOPEN for identified keyed protocol with explicit advantage bound |
 
+Additional 2026 source-level theorem statement gate: [Ko ECCC TR26-047, source Theorem 1.1](UCT-001-G1-2026-DYNAMIC-LOWER-BOUND-AUDIT.md) gives an existing joint update/query cell-probe lower bound using a communication verification round. This **stops** any generic UCT-A/B 'verification round' novelty narrative without a formally different costed theorem.
+
 Prior-art and source-level overlap: [UCT-001-PRIMARY-SOURCES.md](UCT-001-PRIMARY-SOURCES.md). Mathematical foundation and falsification: [UCT-001-MODEL-AND-BASELINE.md](UCT-001-MODEL-AND-BASELINE.md).
 
 ## Proposed G1 questions — none proved
