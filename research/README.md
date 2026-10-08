@@ -92,3 +92,11 @@ A successful run means the frozen finite machinery is internally consistent on t
 - `tom-003-protocol.json` — frozen accounting and non-novelty gate.
 
 Run `python research/tom_trust_boundary.py`. Its small finite oracle cannot prove a new scientific theorem. In Model U all essential input bits must survive with no external data access; in Model T caller-supplied old bits require separately charged validation. No new Rust primitive is authorized from this simple counter baseline.
+
+
+## TOM-003-D2 authenticated batch overwrite (issue #53)
+
+- `tom_authenticated_overwrite.py` — existing Merkle multiproof oracle with domain-separated SHA-256, fixed-size bit leaves, externally trusted root **and** initial count; exact helper-node, transmitted-digest and verifier-hash accounting. No security or novelty claim from a toy simulator.
+- `test_tom_authenticated_overwrite.py` — independently rebuilds all helper frontiers and small Merkle roots, checks valid multi-update transcripts and rejects false old bits, stale roots, modified/missing helpers and duplicate indices.
+
+Run `python research/tom_authenticated_overwrite.py`. This is a known SSZ-style protocol comparison, not an original theorem or permission to create a new Rust crate. See `docs/research/TOM-003-D2-AUTHENTICATED-OVERWRITE-AUDIT.md`.
