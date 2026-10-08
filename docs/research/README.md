@@ -57,6 +57,16 @@ that makes overload detection impossible from the trits alone.
 Physical dense-state costs must be compared against directly storing
 two canonical IDs. No new Rust crate or originality is implied.
 
+## G2B-B2 — globally sound eleven-column decision reduction
+
+[Single-anchor complete reduction, Tseitin cardinality proof and
+SAT/DRAT audit](LENT-001-G2B-B2-A-ANCHORED-SAT-PROTOCOL.md)
+for issue #42. Every hypothetical 11-family is isomorphic under a
+verified GF(5) coordinate-monomial action to one containing (0,1,1);
+the 384 group actions are exhaustively tested. The 60-variable
+forbidden-hypergraph model and at-least-11 CNF are regenerated and
+independently checked, with **no solver-verdict promotion on timeout**.
+
 ## Current status
 
 G1B is closed with \`SPLIT_BY_CHARACTERISTIC\`.
