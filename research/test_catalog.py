@@ -17,7 +17,7 @@ class CatalogTests(unittest.TestCase):
     def test_all_four_repositories_have_curated_entries(self):
         observed = {e["repository"] for e in self.data["entries"]}
         self.assertEqual(observed, set(REPOS))
-        self.assertGreaterEqual(len(self.data["entries"]), 49)
+        self.assertGreaterEqual(len(self.data["entries"]), 51)
 
     def test_generated_readable_index_is_byte_for_byte_deterministic(self):
         self.assertEqual(render(self.data), INDEX.read_text(encoding="utf-8"))
@@ -31,13 +31,13 @@ class CatalogTests(unittest.TestCase):
     def test_expanded_import_counts_and_mathlab_revision(self):
         counts = {key: sum(e["repository"] == key for e in self.data["entries"])
                   for key in REPOS}
-        self.assertGreaterEqual(counts["MATHLAB"], 9)
+        self.assertGreaterEqual(counts["MATHLAB"], 11)
         self.assertGreaterEqual(counts["DELSK"], 12)
         self.assertGreaterEqual(counts["DELTAMETER"], 14)
         self.assertGreaterEqual(counts["OPENAI_MATH"], 14)
         self.assertEqual(
             self.data["repositories"]["MATHLAB"]["sha"],
-            "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7")
+            "c3ffc69563ac15241e67f4b6ccfe8063720590f1")
 
     def test_external_imports_remain_unverified_author_claims(self):
         for e in self.data["entries"]:
