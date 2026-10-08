@@ -15,14 +15,33 @@ class LiteratureTests(unittest.TestCase):
     def test_real_collection_has_no_metadata_errors(self):
         self.assertEqual(valid(self.data, self.catalog), [])
 
-    def test_110_distinct_works_and_fourteen_lanes(self):
+    def test_122_distinct_works_and_fourteen_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 110)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 110)
-        self.assertEqual(len({e["id"] for e in entries}), 110)
-        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 111)},
+        self.assertEqual(len(entries), 122)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 122)
+        self.assertEqual(len({e["id"] for e in entries}), 122)
+        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 123)},
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 14)
+
+    def test_uct_2026_primary_import_is_deduplicated_and_not_proof_promoted(self):
+        lookup = {e["id"]: e for e in self.data["entries"]}
+        expected = {f"LIT-{i:03d}" for i in range(111, 123)}
+        self.assertTrue(expected.issubset(lookup))
+        self.assertEqual(len({lookup[k]["identity"].lower() for k in expected}), 12)
+        self.assertEqual(lookup["LIT-119"]["identity"], "publisher:eccc:tr26-047")
+        self.assertEqual(lookup["LIT-119"]["verification"],
+                         "publisher_full_text_spotchecked")
+        for key in expected:
+            paper = lookup[key]
+            self.assertFalse(paper["full_proof_verified"])
+            self.assertFalse(paper["independent_reproduction"])
+            self.assertTrue(all(m["kind"] == "model_overlap"
+                                for m in paper["mentioned_in"]))
+            self.assertIn("docs/research/UCT-001-PRIMARY-SOURCES.md",
+                          [m["path"] for m in paper["mentioned_in"]])
+        self.assertEqual(lookup["LIT-041"]["identity"], "arxiv:1404.5743")
+        self.assertEqual(lookup["LIT-100"]["identity"], "arxiv:1211.1056")
 
     def test_2026_report_links_match_bibliographic_identities(self):
         """Check real publisher URLs (part A) and internal anchors (part B)."""
@@ -146,7 +165,7 @@ class LiteratureTests(unittest.TestCase):
         original = {e["id"] for e in self.data["entries"]}
         self.assertTrue({f"LIT-{i:03d}" for i in range(50, 96)} <= original)
         self.assertTrue({f"LIT-{i:03d}" for i in range(1, 96)} <= original)
-        self.assertEqual(len(self.data["entries"]), 110)
+        self.assertEqual(len(self.data["entries"]), 122)
         all_ids = [e["identity"].lower() for e in self.data["entries"]]
         self.assertEqual(len(all_ids), len(set(all_ids)))
 
@@ -310,7 +329,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 110)
+        self.assertEqual(len({e["id"] for e in entries}), 122)
         tracks = {e["track"] for e in entries}
         self.assertEqual(len(tracks), 14)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
