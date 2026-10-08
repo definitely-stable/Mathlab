@@ -72,7 +72,7 @@ Snapshot: **2026-10-08**. **61** selected records; **60** topics.
 ## algebra
 
 - **[OM-108](INDEX.md#om-108)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — В авторском Lean scope заявлена нижняя граница порядка m³ для точных и предельных представлений перманента m×m в виде детерминанта аффинной матрицы над C. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/108.md).
-- **[OM-116](INDEX.md#om-116)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Первичная рукопись и Lean scope описывают единую рациональную матричную hitting-point конструкцию для division-free некоммутативных формул ограниченного размера в характеристике нуль. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/116.md).
+- **[OM-116](INDEX.md#om-116)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Исходные рукописи заявляют две РАЗНЫЕ конструктивные теоремы: рациональная hitting tuple размерности ≤2ns² в характеристике 0 и отдельная GF(p)-конструкция размерности O(n³s⁶) для любого простого p, включая p=2. Выбранный Lean scope описывает рациональный результат и отдельные rational hitting lists. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/116.md).
 - **[OM-130](INDEX.md#om-130)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Указан Lean scope точной DFT/свёртки со сложностью ниже n log n в модели точной комплексной арифметики и неограниченных коэффициентов. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/130.md).
 - **[OM-134](INDEX.md#om-134)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Scope документ сообщает Lean-формализацию представления регулярных языков обобщёнными регулярными выражениями с вложенностью Kleene star не более трёх. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/134.md).
 - **[OM-135](INDEX.md#om-135)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Selected Lean scope приводит нижнюю n^(sqrt(n)/400) и верхнюю n^(sqrt(n)+4) для синтаксически однородных схем глубины пять, вычисляющих запись произведения n матриц. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/135.md).
@@ -188,7 +188,7 @@ Snapshot: **2026-10-08**. **61** selected records; **60** topics.
 ## finite-field
 
 - **[DM-010](INDEX.md#dm-010)** (DELTAMETER; `RESEARCH_EVIDENCE` / `exact_retained_measurement`) — Приватный эксперимент применил предвычисленные positional nibble tables при сокращении trace polynomials и прошёл предварительно объявленный performance gate. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D11-FIXED-REDUCTION-EVIDENCE.md).
-- **[OM-116](INDEX.md#om-116)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Первичная рукопись и Lean scope описывают единую рациональную матричную hitting-point конструкцию для division-free некоммутативных формул ограниченного размера в характеристике нуль. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/116.md).
+- **[OM-116](INDEX.md#om-116)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Исходные рукописи заявляют две РАЗНЫЕ конструктивные теоремы: рациональная hitting tuple размерности ≤2ns² в характеристике 0 и отдельная GF(p)-конструкция размерности O(n³s⁶) для любого простого p, включая p=2. Выбранный Lean scope описывает рациональный результат и отдельные rational hitting lists. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/116.md).
 
 ## finite-oracle
 
@@ -239,7 +239,7 @@ Snapshot: **2026-10-08**. **61** selected records; **60** topics.
 
 - **[OM-119](INDEX.md#om-119)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Каталог относит к семейству Courtade–Kumar/Hellinger и заявляет sharp information contraction; есть ссылка на Lean-документацию. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/119.md).
 - **[OM-122](INDEX.md#om-122)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Коллекция заявляет границы выборки и uniform decoder для реконструкции строк после удалений; документирует Lean-связку. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/122.md).
-- **[OM-140](INDEX.md#om-140)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Selected Lean scope связывает O(d²) persistent bits со строгой нижней границей Ω_A(d log(1/epsilon)) наблюдений в noiseless Gaussian regression до заданной angular accuracy. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/140.md).
+- **[OM-140](INDEX.md#om-140)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — В первичной рукописи изучен односканирующий learner для шум-free гауссовских линейных измерений единичного сигнала, с ≤2^M состояниями. При M≤Ad² и точности угловой оценки ε заявлен lower bound T≥c_A d log(1/ε) при вероятности успеха ≥2/3. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/140.md).
 
 ## language
 
@@ -261,7 +261,7 @@ Snapshot: **2026-10-08**. **61** selected records; **60** topics.
 - **[OM-132](INDEX.md#om-132)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — По данным Lean scope, построены булевы функции с неограниченным отношением block sensitivity к квадрату sensitivity. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/132.md).
 - **[OM-133](INDEX.md#om-133)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Коллекция формализует выбранные конструкции parity-lift и заявленные пределы распознавания графов методами Weisfeiler–Leman. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/133.md).
 - **[OM-135](INDEX.md#om-135)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Selected Lean scope приводит нижнюю n^(sqrt(n)/400) и верхнюю n^(sqrt(n)+4) для синтаксически однородных схем глубины пять, вычисляющих запись произведения n матриц. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/135.md).
-- **[OM-140](INDEX.md#om-140)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Selected Lean scope связывает O(d²) persistent bits со строгой нижней границей Ω_A(d log(1/epsilon)) наблюдений в noiseless Gaussian regression до заданной angular accuracy. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/140.md).
+- **[OM-140](INDEX.md#om-140)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — В первичной рукописи изучен односканирующий learner для шум-free гауссовских линейных измерений единичного сигнала, с ≤2^M состояниями. При M≤Ad² и точности угловой оценки ε заявлен lower bound T≥c_A d log(1/ε) при вероятности успеха ≥2/3. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/140.md).
 
 ## mathematics
 
@@ -270,7 +270,7 @@ Snapshot: **2026-10-08**. **61** selected records; **60** topics.
 ## memory
 
 - **[OM-137](INDEX.md#om-137)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Описана Lean-формализация двух-пятых-степенной space simulation ограниченных one-tape машин, включая вариант без заранее известного time cap. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/137.md).
-- **[OM-140](INDEX.md#om-140)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Selected Lean scope связывает O(d²) persistent bits со строгой нижней границей Ω_A(d log(1/epsilon)) наблюдений в noiseless Gaussian regression до заданной angular accuracy. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/140.md).
+- **[OM-140](INDEX.md#om-140)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — В первичной рукописи изучен односканирующий learner для шум-free гауссовских линейных измерений единичного сигнала, с ≤2^M состояниями. При M≤Ad² и точности угловой оценки ε заявлен lower bound T≥c_A d log(1/ε) при вероятности успеха ≥2/3. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/140.md).
 
 ## methodology
 
@@ -328,7 +328,7 @@ Snapshot: **2026-10-08**. **61** selected records; **60** topics.
 
 ## polynomial-identity
 
-- **[OM-116](INDEX.md#om-116)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Первичная рукопись и Lean scope описывают единую рациональную матричную hitting-point конструкцию для division-free некоммутативных формул ограниченного размера в характеристике нуль. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/116.md).
+- **[OM-116](INDEX.md#om-116)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Исходные рукописи заявляют две РАЗНЫЕ конструктивные теоремы: рациональная hitting tuple размерности ≤2ns² в характеристике 0 и отдельная GF(p)-конструкция размерности O(n³s⁶) для любого простого p, включая p=2. Выбранный Lean scope описывает рациональный результат и отдельные rational hitting lists. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/116.md).
 
 ## prior-art
 
