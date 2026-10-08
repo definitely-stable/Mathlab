@@ -119,7 +119,7 @@ Do not infer equivalence merely because \(\mathbb F_3^\*=\{\pm1\}\).
 
 The ASET condition retains the separate constraints on the number of positive and negative coefficients.
 
-G1A must either provide a proof of an exact equivalence under additional hypotheses or record a counterexample.
+Pinned separation witness: \(m=1,d=1,a_1=1,a_2=2=-1\). The singleton states \(0,1,2\) are distinct, but \(a_1+a_2=0\). Therefore ASET exactness and arbitrary short linear independence are already different for q=3.
 
 ## 5. Boundary with Sidon / B_h families
 
@@ -209,7 +209,7 @@ Extend the research harness so that for tiny parameters it can separately test:
 
 Required fields: \(q=2,3,5\).
 
-The oracle must reproduce the q=5 separation witness and search for the smallest q=3 separation or certify none in the searched finite box.
+The oracle must reproduce the pinned q=3 and q=5 singleton separation witnesses and then search small boxes for additional nontrivial separations at d>=2.
 
 ### G1A-3 — source-to-claim matrix
 
