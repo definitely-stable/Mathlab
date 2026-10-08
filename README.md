@@ -1,5 +1,9 @@
 # Mathlab
 
+## New theorem scouting — TOM-007
+
+[Six cross-domain hypotheses, rigorous stop/reopen conditions and source-level overlap](docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (issue [#68](https://github.com/definitely-stable/Mathlab/issues/68)). Independent finite falsification probes three hypothesis families and the external literature index adds seven unique primary works (102 total). No novel theorem or new Rust crate claimed; avoid repeating stopped broad hypotheses from TOM-001/TOM-006 and DeltaMeter.
+
 Mathlab is a verification-first repository for mathematical research developed with explicit claim status, executable falsification/checking artifacts, and a path to formal proof.
 
 The repository deliberately separates:

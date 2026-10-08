@@ -64,6 +64,13 @@ SOURCE_TITLE_PINS = {
     "arxiv:2602.08692": "PBLean: Pseudo-Boolean Proof Certificates for Lean 4",
     "arxiv:2607.00563": "Certificate-Carrying Transformation of Event-Driven Block Programs",
     "arxiv:2606.09600": "Formal Foundations and Proof-Carrying Certificates for q-ary Covering Codes in Lean 4",
+    "arxiv:1503.07792": "Incremental Computation with Names",
+    "arxiv:1407.3008": "Bigtable Merge Compaction",
+    "arxiv:2011.02615": "Competitive Data-Structure Dynamization",
+    "doi:10.4230/LIPIcs.CPM.2026.20": "Longest Common Extension of a Dynamic String in Parallel Constant Time",
+    "arxiv:1211.1056": "How Robust are Linear Sketches to Adaptive Inputs?",
+    "publisher:pmlr:cohen25c": "Breaking the Quadratic Barrier: Robust Cardinality Sketches for Adaptive Queries",
+    "usenix:atc22:curtsinger": "Riker: Always-Correct and Fast Incremental Builds from Simple Specifications",
 }
 
 

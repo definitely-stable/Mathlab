@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## TOM-007 — six cross-domain strong-hypothesis gates (2026-10-08)
+
+[Source/model review, exact finite falsifiers and strict stop decisions](TOM-007-SIX-HYPOTHESIS-AUDIT.md), [issue #68](https://github.com/definitely-stable/Mathlab/issues/68), [independent small-instance oracles](../../research/test_tom007_hypotheses.py). Catalog expanded **95 → 102** genuinely distinct primary works (LIT-096..102) and reverse links regenerated. Existing papers already indexed (Bender/Chonkers/Lefmann/Differential Execution) were cross-referenced, **not** reimported. HYP-102/104/106 broad novelty is blocked; HYP-101/103/105 remain narrowly-scoped, NOT theorem-eligible and NOT Rust/product GO.
+
 ## TOM-006 — short source-only patch-bound kill gate
 
 [Scoped proofs, fixed-short-q adversarial counterexample, literature overlap and STOP/GO conditions](TOM-006-EARLY-KILL-GATE.md) (issue #63). Elementary positional missing-q-gram bounds are **PROVED_MODEL_BASELINE**, NOT novelty-cleared. Fixed q<=2 has an arbitrarily large cost-floor gap. No real codec/CPU benchmark or Rust authorization; do not replay DeltaMeter M6 without an early workload-specific product gate. [Independent exhaustive oracles](../../research/test_tom006_floor.py) are included in research CI unittest discovery.
