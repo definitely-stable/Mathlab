@@ -73,13 +73,14 @@ Include a new item only when it changes a concrete mathematical hypothesis, meas
 
 Maintenance: [RESEARCH-INDEX-003 issue #30](https://github.com/definitely-stable/Mathlab/issues/30) (selected OpenAI manuscript metadata audit); [RESEARCH-INDEX-001 issue #20](https://github.com/definitely-stable/Mathlab/issues/20) (foundation); [RESEARCH-INDEX-002 issue #27](https://github.com/definitely-stable/Mathlab/issues/27) (expanded import and thematic discovery).
 
-## External primary literature (RESEARCH-LITERATURE-001/002)
+## External primary literature (RESEARCH-LITERATURE-001/002/003)
 
-- [LITERATURE.md](LITERATURE.md): 49 curated DOI/arXiv/official publisher primary works with summaries, model restrictions, research relationships and commit-pinned citation provenance.
+- [LITERATURE.md](LITERATURE.md): 75 curated DOI/arXiv/official publisher primary works with summaries, model restrictions, research relationships and commit-pinned citation provenance.
 - [LITERATURE-BY-RESEARCH.md](LITERATURE-BY-RESEARCH.md): reverse navigation from existing ML/DL/DM/OM research IDs to papers.
 - [LITERATURE-001-AUDIT.md](LITERATURE-001-AUDIT.md): selection, direct prior-art impact, mismatched models and decisions.
+- [2026 selection report](../RESEARCH-LITERATURE-003-2026-SELECTION.md): 26 venue-grounded works, thematic balance, ranked relevance and falsification agenda.
 - [LITERATURE-002-SOURCE-AUDIT.md](LITERATURE-002-SOURCE-AUDIT.md): verified source corrections, 17 new papers, citation-model barriers and next targets.
 - [literature.json](literature.json): normative external-work IDs. Run `python research/literature.py --write`, then `--check` before merging.
 
-This bibliography is a **separate work-entity type**: internal research registry entries stay 61, external literature adds 49 works and no novel theorem/benchmark is asserted.
+This bibliography is a **separate work-entity type**: internal research registry entries stay 61, external literature adds 75 works and no novel theorem/benchmark is asserted.
 
