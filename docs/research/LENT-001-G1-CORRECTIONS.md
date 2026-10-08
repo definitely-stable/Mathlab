@@ -96,7 +96,7 @@ a_1=1,\qquad a_2=2.
 
 The states \(0,1,2\) are distinct, so the set sketch is exact for \(d=1\). But two nonzero columns in a one-dimensional vector space are linearly dependent.
 
-For \(q=3\), all nonzero coefficients are \(\pm1\), but the separate constraints \(n_+\le d\) and \(n_-\le d\) still prevent a blanket equivalence with arbitrary short linear dependence.
+For \(q=3\), all nonzero coefficients are \(\pm1\), but the separate constraints \(n_+\le d\) and \(n_-\le d\) still prevent a blanket equivalence with arbitrary short linear dependence. In fact the same minimal singleton witness works: for \(m=1,d=1\), columns \(a_1=1\) and \(a_2=2=-1\) give distinct states \(0,1,2\), while \(a_1+a_2=0\).
 
 ## 3. New primary extremal object
 
