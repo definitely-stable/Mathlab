@@ -82,6 +82,10 @@ the 384 group actions are exhaustively tested. The 60-variable
 forbidden-hypergraph model and at-least-11 CNF are regenerated and
 independently checked, with **no solver-verdict promotion on timeout**.
 
+## TOM-003 — overwrite-vs-trusted-delta memory boundary
+
+[Source-aware selection and exact finite automata proof](TOM-003-TRUST-BOUNDARY-PROTOCOL.md), issue #49. The classical e-essential-coordinate overwrite lower bound and the conditional log(n+1)-bit trusted-old counter are checked for every n<=3 Boolean function and adversarial invalid-old examples. A false old bit is not detectable from the count alone; external validation is not free. O01-D1 is **STOP as standalone Rust**, O01-D2 remains audit-only. No publication novelty is claimed.
+
 ## Current status
 
 G1B is closed with \`SPLIT_BY_CHARACTERISTIC\`.
