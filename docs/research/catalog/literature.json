@@ -1259,6 +1259,620 @@
         "Eric Breyer",
         "Alan Liu"
       ]
+    },
+    {
+      "id": "LIT-050",
+      "title": "Dynamic Grammar-Compressed Self-Index in δ-Optimal Space",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.6",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.6",
+      "track": "compressed-indexing",
+      "summary_ru": "Динамический RR-index хранит повторяющиеся строки в сжатом виде, поддерживая вставки, удаления и поиск без полной распаковки; оценка объёма через δ-complexity.",
+      "limits_ru": "Ожидаемые и амортизированные гарантии относятся к строковому индексу и locate-запросам; не означают постоянную стоимость переписывания байтов или CDC-локальность.",
+      "maps_to": [
+        "ML-004",
+        "DL-001"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "authors": [
+        "Takaaki Nishimoto",
+        "Yasuo Tabei"
+      ]
+    },
+    {
+      "id": "LIT-051",
+      "title": "Hardness of Frequency-Related Queries on Compressed Strings",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.143",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.143",
+      "track": "compressed-indexing",
+      "summary_ru": "Модель сжатого индекса и условные lower bounds не являются нижними границами для exact ASET или произвольной инкрементальной метрики.",
+      "limits_ru": [
+        "ML-004",
+        "OM-119"
+      ],
+      "maps_to": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Rajat De",
+            "Dominik Kempa"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Исследуются условные ограничения вычисления rank/frequency-подобных запросов по grammar/LZ-компрессированным строкам без развёртывания.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-052",
+      "title": "OptFSST: Optimized FSST String Compression",
+      "year": 2026,
+      "identity": "arxiv:2607.11271",
+      "primary_url": "https://arxiv.org/abs/2607.11271",
+      "track": "compressed-indexing",
+      "summary_ru": "Оптимальность доказана при фиксированном словаре, а не для совместного поиска словаря; сравнение на 92 наборах — авторский эксперимент, не бенчмарк ChunkShift.",
+      "limits_ru": [
+        "ML-004",
+        "DM-014",
+        "DL-001"
+      ],
+      "maps_to": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Hedi Chehaidar",
+            "Mihail Stoian",
+            "Moritz Stargalla",
+            "Andreas Kipf"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Оптимальное динамическое программирование кодирования при фиксированной таблице символов FSST и NP-трудность обобщённого выбора таблицы; сохраняется независимая распаковка строк.",
+      "authors": "author_preprint"
+    },
+    {
+      "id": "LIT-053",
+      "title": "Relative Compressed Reverse Suffix Array",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.STACS.2026.62",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.STACS.2026.62",
+      "track": "compressed-indexing",
+      "summary_ru": "Это относительное индексирование структур и суффиксных массивов, не универсальный delta patch codec и не гарантия байтовой экономии.",
+      "limits_ru": [
+        "ML-004",
+        "DL-001"
+      ],
+      "maps_to": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Muhammed Oguzhan Kulekci",
+            "Mano Prakash Parthasarathi",
+            "Rahul Shah",
+            "Sharma V. Thankachan"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Короткое относительное кодирование суффиксного массива обращённого текста, если уже имеется FM-index исходного текста; изучается стоимость доступа.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-054",
+      "title": "Efficient Compression in Semigroups",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.STACS.2026.80",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.STACS.2026.80",
+      "track": "compressed-indexing",
+      "summary_ru": "Семигрупповая algebraic compression и запросы Cayley table не эквивалентны сжатию файлов, кодекам дельт или инкрементальным сертификатам.",
+      "limits_ru": [
+        "ML-004",
+        "OM-119"
+      ],
+      "maps_to": "docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Alexander Thumm",
+            "Armin Weiß"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Классификация классов конечных полугрупп, допускающих эффективное представление straight-line programs, и улучшения границ длины/ширины программ.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-055",
+      "title": "DeltaSort: Incremental Sorting of Arrays with Known Updates",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.SEA.2026.18",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SEA.2026.18",
+      "track": "incremental-computation",
+      "summary_ru": "Оценка дана для модели случайных обновлений; не обеспечивает worst-case O(n sqrt(k)), no-effect certificate или стабильный физический порядок битов.",
+      "limits_ru": [
+        "ML-004",
+        "ML-005",
+        "ML-006"
+      ],
+      "maps_to": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Shubham Dwivedi"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Операция инкрементальной сортировки массива, когда известны k изменённых индексов; автор даёт O(n sqrt(k)) ожидаемого времени и O(k) дополнительной памяти.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-056",
+      "title": "Incremental Submodular Maximization: Better Than Greedy",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.134",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.134",
+      "track": "incremental-computation",
+      "summary_ru": "Incremental здесь означает возрастающий бюджет оптимизации, а не поддержание произвольных изменяемых DAG и не худший случай побайтовых правок.",
+      "limits_ru": [
+        "ML-004",
+        "OM-113"
+      ],
+      "maps_to": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Marcin Bienkowski",
+            "Joakim Blikstad",
+            "Jarosław Byrka",
+            "Martín Costa",
+            "Yann Disser",
+            "Annette Lutz"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Алгоритм адаптивного масштабирования улучшает конкурентное отношение всех префиксов cardinality constraint до 1.373; установлена нижняя граница 1.25 для детерминированных алгоритмов.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-057",
+      "title": "Online and Incremental Fractional Vertex Cover on Trees",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.158",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.158",
+      "track": "online-optimization",
+      "summary_ru": "Вторая модель допускает знание всех будущих обновлений заранее; не переносить offline bound на online или на невозрастающие/удаляемые данные.",
+      "limits_ru": [
+        "ML-004",
+        "ML-005"
+      ],
+      "maps_to": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Júlia Baligács",
+            "Bartłomiej Bosek",
+            "Yann Disser",
+            "Andreas Emil Feldmann",
+            "Grzegorz Gutowski",
+            "Katarzyna Kępińska",
+            "Paweł Putra",
+            "Anna Zych-Pawlewicz"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "На деревьях получены competitive bounds 11/6 в online edge-arrival и 3/2 (с matching lower bound) для инкрементальной модели с известными обновлениями.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-058",
+      "title": "Dynamic Pattern Matching with Wildcards",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.STACS.2026.68",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.STACS.2026.68",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Зависимость от количества wildcard и сильной экспоненциальной гипотезы — обязательная часть утверждения; не lower bound на обычную CDC сегментацию.",
+      "limits_ru": [
+        "ML-004",
+        "ML-005",
+        "DL-001"
+      ],
+      "maps_to": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Arshia Ataee Naeini",
+            "Amir-Parsa Mobed",
+            "Masoud Seddighin",
+            "Saeed Seddighin"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Полностью динамическое сопоставление текста и шаблона с k wildcard: суб-линейная сложность при малом k и условный запрет части режимов через SETH.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-059",
+      "title": "Fully Dynamic Spectral Sparsification for Directed Hypergraphs",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.STACS.2026.38",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.STACS.2026.38",
+      "track": "graph-algorithms",
+      "summary_ru": "Спектральная ε-аппроксимация квадратичных форм не означает точного восстановления аддитивных множеств или ASET-коллизий.",
+      "limits_ru": [
+        "ML-004",
+        "ML-007",
+        "OM-133"
+      ],
+      "maps_to": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Sebastian Forster",
+            "Gramoz Goranci",
+            "Ali Momeni"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Поддержание спектрального sparsifier ориентированного гиперграфа под вставкой/удалением ребра и batch-dynamic работе с контролируемой амортизированной сложностью.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-060",
+      "title": "Robustifying Sparse Matrix Multiplication",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.157",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.157",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Робастное приближение крупнейших элементов матрицы — не точное GF(q) ASET-суммирование; knapsack-составляющая не делает алгоритм DeltaMeter backend.",
+      "limits_ru": [
+        "ML-004",
+        "ML-007",
+        "OM-116"
+      ],
+      "maps_to": "docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Karl Bringmann",
+            "Nick Fischer",
+            "Vasileios Nakos"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Чёрноящичная редукция robust top-k sparse matrix multiplication к обычному sparse multiplication с polylog overhead и учётом output sparsity.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-061",
+      "title": "Improving Lagarias-Odlyzko Algorithm for Average-Case Subset Sum: Modular Arithmetic Approach",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.STACS.2026.57",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.STACS.2026.57",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Average-case integer subset sum с распределительными условиями не эквивалентен детерминированному точному GF(q) декодированию bounded active IDs.",
+      "limits_ru": [
+        "ML-002",
+        "ML-007",
+        "OM-116"
+      ],
+      "maps_to": "docs/research/HYP-002-B-QUADRATIC-THEOREM.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Antoine Joux",
+            "Karol Węgrzycki"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Модульная арифметика используется в улучшении алгоритмов средней сложности subset sum на базе lattice reduction.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-062",
+      "title": "Formalization of a Proof Calculus for Incremental Linearization for Satisfiability Modulo Nonlinear Arithmetic and Transcendental Functions",
+      "year": 2026,
+      "identity": "doi:10.1145/3779031.3779111",
+      "primary_url": "https://doi.org/10.1145/3779031.3779111",
+      "track": "proof-certification",
+      "summary_ru": "Soundness формализованного calculus не делает SMT поиск полным; к нашим GF(q) и DRAT-протоколам перенос возможен только через отдельный verified encoding.",
+      "limits_ru": [
+        "ML-004",
+        "ML-006",
+        "OM-116"
+      ],
+      "maps_to": "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Tomaz Mascarenhas",
+            "Harun Khan",
+            "Abdalrhman Mohamed",
+            "Andrew Reynolds",
+            "Haniel Barbosa",
+            "Clark W. Barrett",
+            "Cesare Tinelli"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "CPP 2026: Lean формализация proof calculus cvc5 для инкрементальной линеаризации SMT нелинейной/трансцендентной арифметики; восстановление проверяемых доказательств.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-063",
+      "title": "PBLean: Pseudo-Boolean Proof Certificates for Lean 4",
+      "year": 2026,
+      "identity": "arxiv:2602.08692",
+      "primary_url": "https://arxiv.org/abs/2602.08692",
+      "track": "proof-certification",
+      "summary_ru": "PB сертификаты не равны DRAT; принятие proof log без формально проверенной кодировки исходной ASET модели не даёт end-to-end теоремы.",
+      "limits_ru": [
+        "ML-003",
+        "ML-008",
+        "ML-011"
+      ],
+      "maps_to": "docs/research/HYP-002-B-QUADRATIC-THEOREM.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Stefan Szeider"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Проверяющий VeriPB proof-certificate через отражение в Lean с доказанной корректностью и проверенными переводами комбинаторных задач; поддерживает cutting planes.",
+      "authors": "author_preprint"
+    },
+    {
+      "id": "LIT-064",
+      "title": "Certificate-Carrying Transformation of Event-Driven Block Programs",
+      "year": 2026,
+      "identity": "arxiv:2607.00563",
+      "primary_url": "https://arxiv.org/abs/2607.00563",
+      "track": "proof-certification",
+      "summary_ru": "Доказательство привязано к явной модели наблюдения и cooperative scheduling; не доказывает точность сертификатов произвольного кэша или DAG.",
+      "limits_ru": [
+        "ML-004",
+        "ML-005",
+        "ML-006"
+      ],
+      "maps_to": "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Yuan Si",
+            "Jialu Zhang"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Недоверенный оптимизатор программ Scratch выдаёт предлагаемое преобразование, а отдельный fail-closed checker пересчитывает семантические условия; ключевая лемма механизирована в Lean.",
+      "authors": "author_preprint"
+    },
+    {
+      "id": "LIT-065",
+      "title": "Formal Foundations and Proof-Carrying Certificates for q-ary Covering Codes in Lean 4",
+      "year": 2026,
+      "identity": "arxiv:2606.09600",
+      "primary_url": "https://arxiv.org/abs/2606.09600",
+      "track": "proof-certification",
+      "summary_ru": "Covering codes задают покрытие шаров Хэмминга, а не точность sparse subset sums; машинно проверенная база автора не проверена Mathlab CI.",
+      "limits_ru": [
+        "ML-002",
+        "ML-003",
+        "ML-011"
+      ],
+      "maps_to": "docs/research/HYP-002-B-QUADRATIC-THEOREM.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Andreas Florath"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Формализация covering-code в Lean с проверяемыми сертификатами верхних, нижних и точных covering numbers, сферическими bound и композиционными правилами.",
+      "authors": "author_preprint"
+    },
+    {
+      "id": "LIT-066",
+      "title": "Mechanized Dominator Tree Certification",
+      "year": 2026,
+      "identity": "doi:10.1145/3779031.3779107",
+      "primary_url": "https://doi.org/10.1145/3779031.3779107",
+      "track": "proof-certification",
+      "summary_ru": "Проверяется доминирование потока управления, а не целостность storage/CDC или произвольная корректность incremental recomputation; важно разделение solver/checker.",
+      "limits_ru": [
+        "ML-004",
+        "ML-005",
+        "ML-006"
+      ],
+      "maps_to": "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Jean-Christophe Léchenet"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Проверяемый Rocq сертификат для быстрого вычисления dominator tree в CFG на базе критериев Georgiadis–Tarjan, интегрированный в CompCertSSA.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-067",
+      "title": "Towards Composable Proofs of Cache Coherence Protocols",
+      "year": 2026,
+      "identity": "doi:10.1145/3779031.3779106",
+      "primary_url": "https://doi.org/10.1145/3779031.3779106",
+      "track": "proof-certification",
+      "summary_ru": "Локальные инварианты зависят от formal model cache coherence; они не являются готовыми независимыми сертификатами immutable chunk packs или optimistic concurrency.",
+      "limits_ru": [
+        "ML-004",
+        "ML-005",
+        "ML-006"
+      ],
+      "maps_to": "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Martina Camaioni",
+            "Yann Herklotz",
+            "Tz-Ching Yu",
+            "Thomas Bourgeat"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Композitional MSI verification в Lean 4 через локальные инварианты MI/SI вместо одного сложного глобального доказательства.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-068",
+      "title": "Model-Generic Incrementally Verifiable Computation from Updatable BARGs",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ITCS.2026.6",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ITCS.2026.6",
+      "track": "proof-certification",
+      "summary_ru": "Криптографическая computational soundness и допущения BARG не равны безусловным exact lower bounds для TOM или локального сертификата без криптографии.",
+      "limits_ru": [
+        "ML-004",
+        "ML-005",
+        "ML-006"
+      ],
+      "maps_to": "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Криптографическая IVC модель позволяет инкрементально обновлять проверяемое свидетельство длинных вычислений и переносит построение на distributed/online computation.",
+      "authors": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-069",
+      "title": "Lower Bounds for Ranking-Based Pivot Rules",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.STACS.2026.31",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.STACS.2026.31",
+      "track": "online-optimization",
+      "summary_ru": "Ограничения доказаны для заданных ranking-based pivot rules и MDP/games; не доказывают невозможность всех динамических алгоритмов или произвольного Rust примитива.",
+      "limits_ru": [
+        "ML-004",
+        "OM-137"
+      ],
+      "maps_to": "docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": [
+            "Yann Disser",
+            "Georg Loho",
+            "Matthew Maat",
+            "Nils Mosis"
+          ],
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "selection_priority": "Единый rank-information framework даёт superpolynomial lower bounds для классов strategy-improvement rules и subexponential bounds для policy iteration.",
+      "authors": "peer_reviewed_proceedings"
     }
   ]
 }
