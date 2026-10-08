@@ -1,21 +1,23 @@
 # CURRENT_STATE
 
-Last verified HEAD: `research/lent-001-g1a-oracle@40ffeecaff8c3558810f498cafa359a3bde9e6ea`
+Last verified HEAD: `main@e435b72fbf7b94f3f514a3f5fbbae88070876525`
 
-Current milestone: LENT-001 / G1A — exact ASET relation oracle
+Current milestone: LENT-001 / G1B — primary-source novelty closure
 
-Current slice: exact q={2,3,5} model-separation evidence and proof package
+Current slice: build theorem-level definition/reduction maps for A_q^set against sparse parity-check, dissociated, Sidon/B_h and bounded-support additive literature
 
-Open PR: #5 — LENT-001-G1A: implement exact ASET relation oracle
+Open issue: #6 — LENT-001-G1B: primary-source novelty closure for A_q^set
 
-Last CI: PR run `37724834067` — SUCCESS; all five G1A acceptance markers emitted; 11 unit tests passed
+Implementation branch: `research/lent-001-g1b-prior-art`
 
-Acceptance: G0 = FOUNDATION_PASS; G1A planning = G1A_MODEL_PLAN_PASS; G1A execution = G1A_ORACLE_PASS on the reviewed code/docs head before this evidence-only commit
+Open PR: pending
 
-Exact result: q=3 and q=5 frozen grids contain ASET-exact families that are not arbitrary-coefficient full-linear-independent; q=2 remains equivalent in the frozen grid
+Last CI: post-merge research run `37725038874` — SUCCESS on G1A merge commit
 
-Known blockers: publication novelty remains blocked on G1B primary-source closure; the exact finite gap is not yet an asymptotic or novelty result
+Acceptance: G0 = FOUNDATION_PASS; G1A = G1A_ORACLE_PASS; G1B remains OPEN and no publication novelty is claimed
 
-Next allowed action: require green latest-head CI for this evidence commit, merge PR #5, then start G1B source-to-claim closure
+Known blockers: primary-source definition/theorem mapping is incomplete; the finite q=3/q=5 model gap does not establish a new asymptotic extremal result
+
+Next allowed action: ingest primary-source/deep-research evidence into the G1B source matrix, verify every candidate theorem, then choose one G1B exit decision
 
 Last updated from repository: 2026-10-08
