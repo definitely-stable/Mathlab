@@ -3,11 +3,17 @@
 This is Mathlab's **curated, cross-repository research navigator**, not a mirror of other projects and not a ranking of proven mathematical discoveries.
 
 - [Readable index](INDEX.md): ID-indexed Russian one-paragraph summaries, topical tags, precise source links, primary papers and bidirectional metadata relationships.
+- [Thematic navigator](THEMES.md): generated topic-to-record cross-repository discovery with source/status badges.
+- [Import decision memo](IMPORT-002-REVIEW.md): source selection criteria, fresh pins, scope and limitations.
 - [Machine registry](registry.json): normative record metadata, stable IDs and exact upstream revision pins.
 - [Mathlab research authority](../README.md): proofs, decisions and accepted claim hierarchy remain in their original files.
 - [Catalog program](../../../research/catalog.py): deterministic offline validation and index generation.
 
 ## Coverage as of 2026-10-08
+
+**RESEARCH-INDEX-002:** 49 curated records (Mathlab 9, DELSK 12, DeltaMeter 14, openai/math 14), cross-linked across 53 generated topics. Existing 26 IDs preserved; 23 new records.
+
+The current external revision pins were verified on 2026-10-08; Mathlab was advanced to the G2B-A merged main snapshot `0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7`. See the import decision memo for representative source-level checks and claim-policy gates.
 
 - **Mathlab (ML):** baseline/proof/evidence for LENT-001 and TOM-001 falsification and opportunity review.
 - **Shift-lab/DELSK (DL):** primary-source comparison, negative screening, selector experiments and in-system ChunkShift development screen.
@@ -53,7 +59,7 @@ To change the catalogue:
 1. Read upstream's **canonical source** and confirm provenance, date, source version, theorem assumptions/claim status.
 2. Reuse an existing ID; for genuinely distinct results allocate the next free ID in the relevant namespace. **Never renumber.**
 3. Edit `registry.json`; use the fixed commit/revision of each source, link papers, record limitations and typed relationships.
-4. Run `python research/catalog.py --write`; commit **both** JSON and generated INDEX.
+4. Run `python research/catalog.py --write`; commit the JSON and **both** generated `INDEX.md` and `THEMES.md`.
 5. Run `--check` and CI; review semantic changes independently of syntax/link validation.
 6. If upstream changed, review affected entries and alter the whole source snapshot revision *only after* updating all links/claims for that namespace. For mixed-version imports, extend schema explicitly instead of silently changing source SHA per item.
 
@@ -63,4 +69,4 @@ The validator checks schema, IDs, graph endpoints, source pins, URL syntax and d
 
 Include a new item only when it changes a concrete mathematical hypothesis, measured engineering decision, comparison baseline, or formalization methodology for Mathlab. Exclude automatically discovered low-relevance papers, unchecked social-media claims and duplicate summaries. Retain negative findings with scope limits. Keep Mathlab's accepted LENT-001 and TOM protocols authoritative; this index is a navigation/provenance layer, **not** a new research decision authority.
 
-Maintenance tracking: [RESEARCH-INDEX-001 issue #20](https://github.com/definitely-stable/Mathlab/issues/20).
+Maintenance: [RESEARCH-INDEX-001 issue #20](https://github.com/definitely-stable/Mathlab/issues/20) (foundation); [RESEARCH-INDEX-002 issue #27](https://github.com/definitely-stable/Mathlab/issues/27) (expanded import and thematic discovery).
