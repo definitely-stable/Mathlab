@@ -253,7 +253,7 @@
 - [LIT-115](LITERATURE.md#lit-115) — New amortized cell-probe lower bounds for dynamic problems (2019; publisher_abstract_checked)
 - [LIT-116](LITERATURE.md#lit-116) — Noiseless coding of correlated information sources (1973; publisher_bibliography_checked)
 - [LIT-117](LITERATURE.md#lit-117) — A Library for Self-Adjusting Computation (2006; publisher_abstract_checked)
-- [LIT-119](LITERATURE.md#lit-119) — An $\\Omega((\\log n / \\log\\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures (2026; primary_abstract_checked)
+- [LIT-119](LITERATURE.md#lit-119) — An $\Omega((\log n / \log\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures (2026; primary_abstract_checked)
 - [LIT-120](LITERATURE.md#lit-120) — On cubical graphs (1975; publisher_abstract_checked)
 - [LIT-121](LITERATURE.md#lit-121) — The complexity of cubical graphs (1985; publisher_abstract_checked)
 - [LIT-122](LITERATURE.md#lit-122) — Embeddings in hypercubes (1988; publisher_abstract_checked)
@@ -312,7 +312,7 @@
 - [LIT-112](LITERATURE.md#lit-112) — Logarithmic Lower Bounds in the Cell-Probe Model (2006; publisher_abstract_checked)
 - [LIT-113](LITERATURE.md#lit-113) — On the Cell Probe Complexity of Dynamic Membership (2010; publisher_abstract_checked)
 - [LIT-115](LITERATURE.md#lit-115) — New amortized cell-probe lower bounds for dynamic problems (2019; publisher_abstract_checked)
-- [LIT-119](LITERATURE.md#lit-119) — An $\\Omega((\\log n / \\log\\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures (2026; primary_abstract_checked)
+- [LIT-119](LITERATURE.md#lit-119) — An $\Omega((\log n / \log\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures (2026; primary_abstract_checked)
 
 ## ML-007
 
