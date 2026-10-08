@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**49** работ сопоставлены с **21** внутренними исследованиями.
+**69** работ сопоставлены с **28** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -25,6 +25,10 @@
 - [LIT-038](LITERATURE.md#lit-038) — Chunk Content is not Enough: Chunk-Context Aware Resemblance Detection for Deduplication Delta Compression (2021; primary_abstract_checked)
 - [LIT-048](LITERATURE.md#lit-048) — Binary Fuse Filters: Fast and Smaller Than Xor Filters (2022; primary_abstract_checked)
 - [LIT-049](LITERATURE.md#lit-049) — The Fuse XORier Lookup Table: Exploration, Implementation, and Revision of Probabilistic Sets and Maps (2023; primary_abstract_checked)
+- [LIT-050](LITERATURE.md#lit-050) — Dynamic Grammar-Compressed Self-Index in δ-Optimal Space (2026; publisher_abstract_checked)
+- [LIT-052](LITERATURE.md#lit-052) — OptFSST: Optimized FSST String Compression (2026; primary_abstract_checked)
+- [LIT-053](LITERATURE.md#lit-053) — Relative Compressed Reverse Suffix Array (2026; publisher_abstract_checked)
+- [LIT-058](LITERATURE.md#lit-058) — Dynamic Pattern Matching with Wildcards (2026; publisher_abstract_checked)
 
 ## DL-002
 
@@ -108,6 +112,12 @@
 
 - [LIT-042](LITERATURE.md#lit-042) — Toward Optimal Time-Space Tradeoffs for Set Reconciliation (2026; primary_abstract_checked)
 
+## DM-014
+
+**[M6-B: аудит snapshot codec и научных предположений](INDEX.md#dm-014)**
+
+- [LIT-052](LITERATURE.md#lit-052) — OptFSST: Optimized FSST String Compression (2026; primary_abstract_checked)
+
 ## ML-001
 
 **[Разреженные обновления: ограничение достижимых состояний](INDEX.md#ml-001)**
@@ -131,6 +141,15 @@
 - [LIT-037](LITERATURE.md#lit-037) — Multi-Group Testing for Items with Real-Valued Status under Standard Arithmetic (2013; primary_abstract_checked)
 - [LIT-043](LITERATURE.md#lit-043) — Sparse Parity-Check Matrices over GF(q) (2005; publisher_abstract_checked)
 - [LIT-044](LITERATURE.md#lit-044) — On Parity Check (0,1)-Matrix over Z_p (2015; publisher_abstract_checked)
+- [LIT-061](LITERATURE.md#lit-061) — Improving Lagarias-Odlyzko Algorithm for Average-Case Subset Sum: Modular Arithmetic Approach (2026; publisher_abstract_checked)
+- [LIT-065](LITERATURE.md#lit-065) — Formal Foundations and Proof-Carrying Certificates for q-ary Covering Codes in Lean 4 (2026; primary_abstract_checked)
+
+## ML-003
+
+**[ASET: конечные экстремальные значения G2A](INDEX.md#ml-003)**
+
+- [LIT-063](LITERATURE.md#lit-063) — PBLean: Pseudo-Boolean Proof Certificates for Lean 4 (2026; primary_abstract_checked)
+- [LIT-065](LITERATURE.md#lit-065) — Formal Foundations and Proof-Carrying Certificates for q-ary Covering Codes in Lean 4 (2026; primary_abstract_checked)
 
 ## ML-004
 
@@ -148,6 +167,23 @@
 - [LIT-041](LITERATURE.md#lit-041) — Certificates in Data Structures (2014; primary_abstract_checked)
 - [LIT-045](LITERATURE.md#lit-045) — Complexity models for incremental computation (1994; publisher_abstract_checked)
 - [LIT-046](LITERATURE.md#lit-046) — Lower And Upper Bounds For Incremental Algorithms (1992; publisher_abstract_checked)
+- [LIT-050](LITERATURE.md#lit-050) — Dynamic Grammar-Compressed Self-Index in δ-Optimal Space (2026; publisher_abstract_checked)
+- [LIT-051](LITERATURE.md#lit-051) — Hardness of Frequency-Related Queries on Compressed Strings (2026; publisher_abstract_checked)
+- [LIT-052](LITERATURE.md#lit-052) — OptFSST: Optimized FSST String Compression (2026; primary_abstract_checked)
+- [LIT-053](LITERATURE.md#lit-053) — Relative Compressed Reverse Suffix Array (2026; publisher_abstract_checked)
+- [LIT-054](LITERATURE.md#lit-054) — Efficient Compression in Semigroups (2026; publisher_abstract_checked)
+- [LIT-055](LITERATURE.md#lit-055) — DeltaSort: Incremental Sorting of Arrays with Known Updates (2026; publisher_abstract_checked)
+- [LIT-056](LITERATURE.md#lit-056) — Incremental Submodular Maximization: Better Than Greedy (2026; publisher_abstract_checked)
+- [LIT-057](LITERATURE.md#lit-057) — Online and Incremental Fractional Vertex Cover on Trees (2026; publisher_abstract_checked)
+- [LIT-058](LITERATURE.md#lit-058) — Dynamic Pattern Matching with Wildcards (2026; publisher_abstract_checked)
+- [LIT-059](LITERATURE.md#lit-059) — Fully Dynamic Spectral Sparsification for Directed Hypergraphs (2026; publisher_abstract_checked)
+- [LIT-060](LITERATURE.md#lit-060) — Robustifying Sparse Matrix Multiplication (2026; publisher_abstract_checked)
+- [LIT-062](LITERATURE.md#lit-062) — Formalization of a Proof Calculus for Incremental Linearization for Satisfiability Modulo Nonlinear Arithmetic and Transcendental Functions (2026; publisher_abstract_checked)
+- [LIT-064](LITERATURE.md#lit-064) — Certificate-Carrying Transformation of Event-Driven Block Programs (2026; primary_abstract_checked)
+- [LIT-066](LITERATURE.md#lit-066) — Mechanized Dominator Tree Certification (2026; publisher_abstract_checked)
+- [LIT-067](LITERATURE.md#lit-067) — Towards Composable Proofs of Cache Coherence Protocols (2026; publisher_abstract_checked)
+- [LIT-068](LITERATURE.md#lit-068) — Model-Generic Incrementally Verifiable Computation from Updatable BARGs (2026; publisher_abstract_checked)
+- [LIT-069](LITERATURE.md#lit-069) — Lower Bounds for Ranking-Based Pivot Rules (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -159,6 +195,13 @@
 - [LIT-013](LITERATURE.md#lit-013) — Change actions: from incremental computation to discrete derivatives (2020; primary_abstract_checked)
 - [LIT-032](LITERATURE.md#lit-032) — Bounded Incremental Computation (1993; publisher_abstract_checked)
 - [LIT-045](LITERATURE.md#lit-045) — Complexity models for incremental computation (1994; publisher_abstract_checked)
+- [LIT-055](LITERATURE.md#lit-055) — DeltaSort: Incremental Sorting of Arrays with Known Updates (2026; publisher_abstract_checked)
+- [LIT-057](LITERATURE.md#lit-057) — Online and Incremental Fractional Vertex Cover on Trees (2026; publisher_abstract_checked)
+- [LIT-058](LITERATURE.md#lit-058) — Dynamic Pattern Matching with Wildcards (2026; publisher_abstract_checked)
+- [LIT-064](LITERATURE.md#lit-064) — Certificate-Carrying Transformation of Event-Driven Block Programs (2026; primary_abstract_checked)
+- [LIT-066](LITERATURE.md#lit-066) — Mechanized Dominator Tree Certification (2026; publisher_abstract_checked)
+- [LIT-067](LITERATURE.md#lit-067) — Towards Composable Proofs of Cache Coherence Protocols (2026; publisher_abstract_checked)
+- [LIT-068](LITERATURE.md#lit-068) — Model-Generic Incrementally Verifiable Computation from Updatable BARGs (2026; publisher_abstract_checked)
 
 ## ML-006
 
@@ -168,6 +211,12 @@
 - [LIT-029](LITERATURE.md#lit-029) — Space lower bounds for linear prediction in the streaming model (2019; primary_abstract_checked)
 - [LIT-041](LITERATURE.md#lit-041) — Certificates in Data Structures (2014; primary_abstract_checked)
 - [LIT-046](LITERATURE.md#lit-046) — Lower And Upper Bounds For Incremental Algorithms (1992; publisher_abstract_checked)
+- [LIT-055](LITERATURE.md#lit-055) — DeltaSort: Incremental Sorting of Arrays with Known Updates (2026; publisher_abstract_checked)
+- [LIT-062](LITERATURE.md#lit-062) — Formalization of a Proof Calculus for Incremental Linearization for Satisfiability Modulo Nonlinear Arithmetic and Transcendental Functions (2026; publisher_abstract_checked)
+- [LIT-064](LITERATURE.md#lit-064) — Certificate-Carrying Transformation of Event-Driven Block Programs (2026; primary_abstract_checked)
+- [LIT-066](LITERATURE.md#lit-066) — Mechanized Dominator Tree Certification (2026; publisher_abstract_checked)
+- [LIT-067](LITERATURE.md#lit-067) — Towards Composable Proofs of Cache Coherence Protocols (2026; publisher_abstract_checked)
+- [LIT-068](LITERATURE.md#lit-068) — Model-Generic Incrementally Verifiable Computation from Updatable BARGs (2026; publisher_abstract_checked)
 
 ## ML-007
 
@@ -177,12 +226,16 @@
 - [LIT-034](LITERATURE.md#lit-034) — Finite Field Multiple Access (2023; primary_abstract_checked)
 - [LIT-043](LITERATURE.md#lit-043) — Sparse Parity-Check Matrices over GF(q) (2005; publisher_abstract_checked)
 - [LIT-044](LITERATURE.md#lit-044) — On Parity Check (0,1)-Matrix over Z_p (2015; publisher_abstract_checked)
+- [LIT-059](LITERATURE.md#lit-059) — Fully Dynamic Spectral Sparsification for Directed Hypergraphs (2026; publisher_abstract_checked)
+- [LIT-060](LITERATURE.md#lit-060) — Robustifying Sparse Matrix Multiplication (2026; publisher_abstract_checked)
+- [LIT-061](LITERATURE.md#lit-061) — Improving Lagarias-Odlyzko Algorithm for Average-Case Subset Sum: Modular Arithmetic Approach (2026; publisher_abstract_checked)
 
 ## ML-008
 
 **[ASET G2B-A: точное GF(3) и интервал GF(5)](INDEX.md#ml-008)**
 
 - [LIT-002](LITERATURE.md#lit-002) — Location-correcting codes (1996; publisher_bibliography_checked)
+- [LIT-063](LITERATURE.md#lit-063) — PBLean: Pseudo-Boolean Proof Certificates for Lean 4 (2026; primary_abstract_checked)
 
 ## ML-010
 
@@ -204,6 +257,41 @@
 - [LIT-004](LITERATURE.md#lit-004) — Bounds and Constructions for overline-3-Separable Codes with Length 3 (2015; primary_abstract_checked)
 - [LIT-005](LITERATURE.md#lit-005) — Sharp bounds for uniform union-free hypergraphs (2026; primary_abstract_checked)
 - [LIT-040](LITERATURE.md#lit-040) — Invertible Bloom Lookup Tables with Listing Guarantees (2022; primary_abstract_checked)
+- [LIT-063](LITERATURE.md#lit-063) — PBLean: Pseudo-Boolean Proof Certificates for Lean 4 (2026; primary_abstract_checked)
+- [LIT-065](LITERATURE.md#lit-065) — Formal Foundations and Proof-Carrying Certificates for q-ary Covering Codes in Lean 4 (2026; primary_abstract_checked)
+
+## OM-113
+
+**[Family 113: Приближённый подсчёт perfect matchings и энтропийная граница](INDEX.md#om-113)**
+
+- [LIT-056](LITERATURE.md#lit-056) — Incremental Submodular Maximization: Better Than Greedy (2026; publisher_abstract_checked)
+
+## OM-116
+
+**[Family 116: универсальные матричные PIT-точки в нулевой и положительной характеристике](INDEX.md#om-116)**
+
+- [LIT-060](LITERATURE.md#lit-060) — Robustifying Sparse Matrix Multiplication (2026; publisher_abstract_checked)
+- [LIT-061](LITERATURE.md#lit-061) — Improving Lagarias-Odlyzko Algorithm for Average-Case Subset Sum: Modular Arithmetic Approach (2026; publisher_abstract_checked)
+- [LIT-062](LITERATURE.md#lit-062) — Formalization of a Proof Calculus for Incremental Linearization for Satisfiability Modulo Nonlinear Arithmetic and Transcendental Functions (2026; publisher_abstract_checked)
+
+## OM-119
+
+**[Family 119: заявленное сжатие информации булевых функций](INDEX.md#om-119)**
+
+- [LIT-051](LITERATURE.md#lit-051) — Hardness of Frequency-Related Queries on Compressed Strings (2026; publisher_abstract_checked)
+- [LIT-054](LITERATURE.md#lit-054) — Efficient Compression in Semigroups (2026; publisher_abstract_checked)
+
+## OM-133
+
+**[Family 133: заявленная сложность Weisfeiler–Leman refinement](INDEX.md#om-133)**
+
+- [LIT-059](LITERATURE.md#lit-059) — Fully Dynamic Spectral Sparsification for Directed Hypergraphs (2026; publisher_abstract_checked)
+
+## OM-137
+
+**[Family 137: заявленная one-tape time–space simulation](INDEX.md#om-137)**
+
+- [LIT-069](LITERATURE.md#lit-069) — Lower Bounds for Ranking-Based Pivot Rules (2026; publisher_abstract_checked)
 
 ## OM-140
 
