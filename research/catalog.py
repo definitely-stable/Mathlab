@@ -91,6 +91,34 @@ def check(data):
                     f"{ident}: source permalink not revision-pinned")
             require(src.get("latest") == root + "main/" + path,
                     f"{ident}: latest path malformed")
+        audit = r.get("source_audit")
+        if audit is not None:
+            require(repo == "OPENAI_MATH" and r.get("status") == "EXTERNAL_MANUSCRIPT_CLAIM",
+                    f"{ident}: source audit restricted to external manuscript")
+            require(isinstance(audit, dict), f"{ident}: source audit object required")
+            if isinstance(audit, dict) and repo in repositories:
+                require(audit.get("source_status") == "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
+                        f"{ident}: unsupported source audit status")
+                require(audit.get("full_pdf_reviewed") is False,
+                        f"{ident}: full PDF review may not be inferred")
+                require(audit.get("independent_lean_run") is False,
+                        f"{ident}: external Lean result must not be marked independently run")
+                papers = audit.get("primary_papers", [])
+                require(isinstance(papers, list) and len(papers) >= 1,
+                        f"{ident}: paper paths required")
+                paths = [audit.get("manuscript_readme"), audit.get("comparator_manifest")]
+                if isinstance(papers, list):
+                    paths.extend(papers)
+                for p in paths:
+                    require(isinstance(p, str) and bool(p) and p.startswith(("preprints/", "lean/")),
+                            f"{ident}: invalid audited source path")
+                    if isinstance(p, str):
+                        require(f"https://github.com/{repositories[repo]['full']}/blob/"
+                                f"{repositories[repo]['sha']}/{p}" in r.get("primary_sources", []),
+                                f"{ident}: audited source missing from pinned primary links")
+                require(isinstance(audit.get("scope_mismatch_ru"), str)
+                        and len(audit["scope_mismatch_ru"]) >= 30,
+                        f"{ident}: scope mismatch/caveat note required")
         for ref in r.get("primary_sources", []):
             require(isinstance(ref, str) and bool(URL.fullmatch(ref)),
                     f"{ident}: malformed primary reference")
@@ -172,6 +200,14 @@ def render(data):
                 f"**Связи →** {related} · **Обратные ссылки ←** {backlinks}",
                 "",
             ]
+            if "source_audit" in x:
+                a = x["source_audit"]
+                output += [
+                    f"**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; "
+                    f"полный PDF-доказательство не проверялось, независимого Lean-прогона не было. "
+                    f"**Ограничение:** {a['scope_mismatch_ru']}",
+                    "",
+                ]
     return "\n".join(output).rstrip() + "\n"
 
 
