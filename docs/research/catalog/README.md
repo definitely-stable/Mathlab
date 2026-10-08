@@ -1,12 +1,3 @@
-## External primary literature (RESEARCH-LITERATURE-001)
-
-- [LITERATURE.md](LITERATURE.md): 32 curated DOI/arXiv/official publisher primary works with summaries, model restrictions, research relationships and commit-pinned citation provenance.
-- [LITERATURE-BY-RESEARCH.md](LITERATURE-BY-RESEARCH.md): reverse navigation from existing ML/DL/DM/OM research IDs to papers.
-- [LITERATURE-001-AUDIT.md](LITERATURE-001-AUDIT.md): selection, direct prior-art impact, mismatched models and decisions.
-- [literature.json](literature.json): normative external-work IDs. Run `python research/literature.py --write`, then `--check` before merging.
-
-This bibliography is a **separate work-entity type**: internal research registry entries stay 61, external literature adds 32 works and no novel theorem/benchmark is asserted.
-
 # Research catalog — provenance-first index
 
 This is Mathlab's **curated, cross-repository research navigator**, not a mirror of other projects and not a ranking of proven mathematical discoveries.
@@ -81,3 +72,14 @@ The validator checks schema, IDs, graph endpoints, source pins, URL syntax, audi
 Include a new item only when it changes a concrete mathematical hypothesis, measured engineering decision, comparison baseline, or formalization methodology for Mathlab. Exclude automatically discovered low-relevance papers, unchecked social-media claims and duplicate summaries. Retain negative findings with scope limits. Keep Mathlab's accepted LENT-001 and TOM protocols authoritative; this index is a navigation/provenance layer, **not** a new research decision authority.
 
 Maintenance: [RESEARCH-INDEX-003 issue #30](https://github.com/definitely-stable/Mathlab/issues/30) (selected OpenAI manuscript metadata audit); [RESEARCH-INDEX-001 issue #20](https://github.com/definitely-stable/Mathlab/issues/20) (foundation); [RESEARCH-INDEX-002 issue #27](https://github.com/definitely-stable/Mathlab/issues/27) (expanded import and thematic discovery).
+
+## External primary literature (RESEARCH-LITERATURE-001/002)
+
+- [LITERATURE.md](LITERATURE.md): 49 curated DOI/arXiv/official publisher primary works with summaries, model restrictions, research relationships and commit-pinned citation provenance.
+- [LITERATURE-BY-RESEARCH.md](LITERATURE-BY-RESEARCH.md): reverse navigation from existing ML/DL/DM/OM research IDs to papers.
+- [LITERATURE-001-AUDIT.md](LITERATURE-001-AUDIT.md): selection, direct prior-art impact, mismatched models and decisions.
+- [LITERATURE-002-SOURCE-AUDIT.md](LITERATURE-002-SOURCE-AUDIT.md): verified source corrections, 17 new papers, citation-model barriers and next targets.
+- [literature.json](literature.json): normative external-work IDs. Run `python research/literature.py --write`, then `--check` before merging.
+
+This bibliography is a **separate work-entity type**: internal research registry entries stay 61, external literature adds 49 works and no novel theorem/benchmark is asserted.
+
