@@ -1,3 +1,12 @@
+## External primary literature (RESEARCH-LITERATURE-001)
+
+- [LITERATURE.md](LITERATURE.md): 32 curated DOI/arXiv/official publisher primary works with summaries, model restrictions, research relationships and commit-pinned citation provenance.
+- [LITERATURE-BY-RESEARCH.md](LITERATURE-BY-RESEARCH.md): reverse navigation from existing ML/DL/DM/OM research IDs to papers.
+- [LITERATURE-001-AUDIT.md](LITERATURE-001-AUDIT.md): selection, direct prior-art impact, mismatched models and decisions.
+- [literature.json](literature.json): normative external-work IDs. Run `python research/literature.py --write`, then `--check` before merging.
+
+This bibliography is a **separate work-entity type**: internal research registry entries stay 61, external literature adds 32 works and no novel theorem/benchmark is asserted.
+
 # Research catalog — provenance-first index
 
 This is Mathlab's **curated, cross-repository research navigator**, not a mirror of other projects and not a ranking of proven mathematical discoveries.
