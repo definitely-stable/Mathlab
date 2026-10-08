@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**95** работ сопоставлены с **37** внутренними исследованиями.
+**102** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -32,6 +32,7 @@
 - [LIT-074](LITERATURE.md#lit-074) — Approximation Schemes for Edit Distance and LCS in Quasi-Strongly Subquadratic Time (2026; publisher_abstract_checked)
 - [LIT-087](LITERATURE.md#lit-087) — Once Rolling Hashing is Enough: Exploiting Rolling Hash Reuse in Delta Compression (2026; publisher_abstract_checked)
 - [LIT-092](LITERATURE.md#lit-092) — Space-Efficient Text Indexing with Mismatches using Function Inversion (2026; publisher_abstract_checked)
+- [LIT-099](LITERATURE.md#lit-099) — Longest Common Extension of a Dynamic String in Parallel Constant Time (2026; publisher_abstract_checked)
 
 ## DL-002
 
@@ -87,6 +88,14 @@
 
 - [LIT-023](LITERATURE.md#lit-023) — Probabilistic Counting in Generalized Turnstile Models (2023; primary_abstract_checked)
 - [LIT-025](LITERATURE.md#lit-025) — Information Theoretic Limits of Cardinality Estimation: Fisher Meets Shannon (2020; primary_abstract_checked)
+- [LIT-100](LITERATURE.md#lit-100) — How Robust are Linear Sketches to Adaptive Inputs? (2012; primary_abstract_checked)
+- [LIT-101](LITERATURE.md#lit-101) — Breaking the Quadratic Barrier: Robust Cardinality Sketches for Adaptive Queries (2025; publisher_abstract_checked)
+
+## DM-004
+
+**[STRICT-COMPACT-002: continuous range certificate](INDEX.md#dm-004)**
+
+- [LIT-101](LITERATURE.md#lit-101) — Breaking the Quadratic Barrier: Robust Cardinality Sketches for Adaptive Queries (2025; publisher_abstract_checked)
 
 ## DM-006
 
@@ -106,6 +115,8 @@
 - [LIT-025](LITERATURE.md#lit-025) — Information Theoretic Limits of Cardinality Estimation: Fisher Meets Shannon (2020; primary_abstract_checked)
 - [LIT-047](LITERATURE.md#lit-047) — Tight Bounds for Low-Error Frequency Moment Estimation and the Power of Multiple Passes (2025; primary_abstract_checked)
 - [LIT-075](LITERATURE.md#lit-075) — A Unified Approach to Memory-Sample Tradeoffs for Detecting Planted Structures (2026; publisher_abstract_checked)
+- [LIT-100](LITERATURE.md#lit-100) — How Robust are Linear Sketches to Adaptive Inputs? (2012; primary_abstract_checked)
+- [LIT-101](LITERATURE.md#lit-101) — Breaking the Quadratic Barrier: Robust Cardinality Sketches for Adaptive Queries (2025; publisher_abstract_checked)
 
 ## DM-008
 
@@ -212,6 +223,11 @@
 - [LIT-093](LITERATURE.md#lit-093) — Classifying Identities: Subcubic Distributivity Checking and Hardness from Arithmetic Progression Detection (2026; publisher_abstract_checked)
 - [LIT-094](LITERATURE.md#lit-094) — Deterministic Padded Decompositions and Negative-Weight Shortest Paths (2026; publisher_abstract_checked)
 - [LIT-095](LITERATURE.md#lit-095) — Lower Bounds on Pure Dynamic Programming for Connectivity Problems on Graphs of Bounded Path-Width (2026; publisher_abstract_checked)
+- [LIT-096](LITERATURE.md#lit-096) — Incremental Computation with Names (2015; primary_abstract_checked)
+- [LIT-097](LITERATURE.md#lit-097) — Bigtable Merge Compaction (2014; primary_abstract_checked)
+- [LIT-098](LITERATURE.md#lit-098) — Competitive Data-Structure Dynamization (2020; primary_abstract_checked)
+- [LIT-099](LITERATURE.md#lit-099) — Longest Common Extension of a Dynamic String in Parallel Constant Time (2026; publisher_abstract_checked)
+- [LIT-102](LITERATURE.md#lit-102) — Riker: Always-Correct and Fast Incremental Builds from Simple Specifications (2022; publisher_abstract_checked)
 
 ## ML-005
 
@@ -233,6 +249,10 @@
 - [LIT-073](LITERATURE.md#lit-073) — Compressing Dynamic Fully Indexable Dictionaries in Word-RAM (2026; publisher_abstract_checked)
 - [LIT-076](LITERATURE.md#lit-076) — Incremental Shortest Paths in Almost Linear Time via a Modified Interior Point Method (2026; publisher_abstract_checked)
 - [LIT-085](LITERATURE.md#lit-085) — Dynamic Set Cover with Worst-Case Recourse (2026; publisher_abstract_checked)
+- [LIT-096](LITERATURE.md#lit-096) — Incremental Computation with Names (2015; primary_abstract_checked)
+- [LIT-097](LITERATURE.md#lit-097) — Bigtable Merge Compaction (2014; primary_abstract_checked)
+- [LIT-098](LITERATURE.md#lit-098) — Competitive Data-Structure Dynamization (2020; primary_abstract_checked)
+- [LIT-102](LITERATURE.md#lit-102) — Riker: Always-Correct and Fast Incremental Builds from Simple Specifications (2022; publisher_abstract_checked)
 
 ## ML-006
 
