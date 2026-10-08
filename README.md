@@ -65,7 +65,14 @@ This matters because:
 - classical Sidon/B_h/dissociated objects require a definition-level map before importing results;
 - Mathlab locality is update/write locality, not LCC/LDC query locality.
 
-Current issue: #3 — G1A ASET model freeze.
+G1A/G1B and G2A are complete. Active task:
+[#14](https://github.com/definitely-stable/Mathlab/issues/14) — G2B
+hard-support evidence. G2B-A yields exact A_3^set(4,2,2)=7 and certified
+10<=A_5^set(3,2,2)<=15. The q=5 exact maximum remains unknown.
+
+Independent [TOM-001](https://github.com/definitely-stable/Mathlab/issues/15)
+continues falsification-first scouting. TOM-001-C is an elementary STOP
+novelty baseline, not a crate or theorem selection.
 
 The next gate is not "prove a new theorem immediately". It is to freeze these boundaries, build the exact source-to-claim map, and only then decide whether ASET has a genuinely new sharp regime.
 

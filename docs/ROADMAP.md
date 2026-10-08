@@ -33,7 +33,7 @@ hard support \(w\) essentially remains eligible.
 
 ### G2 — odd-characteristic finite extremal evidence
 
-Status: **ACTIVE — G2A COMPLETE / G2B REQUIRED**
+Status: **ACTIVE — G2A COMPLETE / G2B-A HOSTED EVIDENCE ACCEPTED / G2B-B OPEN**
 
 Initial fields:
 
@@ -52,11 +52,13 @@ Phase A exact harness is accepted in issue #12. Decision: **G2_EXPAND_GRID**.
 Phase-A warning: q=5,m=2,w=2 and q=7,m=2,w=2 have w=m, so those cases do
 not exercise hard support. G2B must move to m>w before theorem selection.
 
-G2B priority:
+G2B-A hosted evidence (run 37756386646):
 
-1. q=3,m=4,d=2,w=2;
-2. q=5,m=3,d=2,w=2;
-3. q=7,m=3,d=2,w=2 only after solver improvement.
+1. q=3,m=4,d=2,w=2: **exact ASET maximum V=7**, certified exhaustive search;
+2. q=5,m=3,d=2,w=2: **certified interval 10 <= V <= 15**; node-budget exhausted, exact maximum UNKNOWN;
+3. q=7,m=3,d=2,w=2: deferred until solver review.
+
+G2B-B is still OPEN. Shrink/close the q=5 gap through independently audited exact search or certificate. Keep the mathematical model correction: a+b+c=0 is not by itself forbidden for d=2; only collisions of admissible subsets generate forbidden hyperedges.
 
 Tasks:
 
@@ -75,6 +77,9 @@ G2 must terminate in either:
 - G2_NO_SIGNAL;
 - G2_REDUCE_TARGET;
 - G2_STOP.
+
+G2B-A supporting record: docs/research/LENT-001-G2B-A-PROTOCOL.md and
+LENT-001-G2B-A-EVIDENCE.md. Phase-A acceptance markers do **not** close G2B.
 
 ### G3 — formalization
 
@@ -100,6 +105,17 @@ Status: **BLOCKED**
 
 Requires theorem proof, theorem-level novelty re-audit, reproducible evidence
 and explicit formalization status.
+
+## TOM-001 — independent falsification-first theorem scouting
+
+Status: **PHASE A/B/C COMPLETE; NO NOVEL THEOREM SELECTED** (issue #15).
+
+- 14 ideas mapped at Phase A; O01/O02/O04/O06 audited against source models.
+- O02 naive no-effect certificate conjunction refuted; broad O04 stopped as novelty.
+- TOM-001-C exact one-edit/zero-probe certificate state quotient accepted as
+  an elementary baseline, **STOP** as a novelty target.
+- Any next O01 must charge input probes, metadata construction/maintenance,
+  repeated updates, certificate size and fallback; independent from LENT G2B.
 
 ## Current priority
 
