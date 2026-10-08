@@ -36,6 +36,7 @@ RELATIONS = {
     "updated_by", "background_for", "motivates", "context", "follows",
     "followed_by", "system_extension", "uses", "counterpart", "bounded_by",
     "catalogued_in", "contains", "conceptual_link", "adjacent_application",
+    "tests", "foundation", "contrast",
 }
 REPOS = {"MATHLAB": "ML", "DELSK": "DL", "DELTAMETER": "DM", "OPENAI_MATH": "OM"}
 
