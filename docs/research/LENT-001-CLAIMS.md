@@ -27,7 +27,7 @@
 | LENT-NESTED-SHARP | DEPRIORITIZED CONJECTURE | pure nestedness tax | **DEPRIORITIZED** |
 | LENT-JOINT | DEFERRED CONJECTURE | communication + locality + independent computation resource | **MODEL NOT FROZEN** |
 
-## Claim policy after G1B Audit 02
+## Claim policy after G1B Audit 03 pass 01
 
 The repository must not claim that exact bounded-active subset identification
 or finite-field signature coding is new.
