@@ -1,19 +1,19 @@
 # CURRENT_STATE
 
-Last verified HEAD: `research/lent-001-foundation@cabce4a7628f397bac4dc521433811afd0ebdb81`
+Last verified HEAD: `main@e662cb0489548a8ca61c3f6ea17f4eadbcf8a154`
 
-Current milestone: LENT-001 / G0 — foundation
+Current milestone: LENT-001 / G1 — prior-art closure
 
-Current slice: frozen model + claim registry + prior-art boundary + exact/exhaustive verification + hosted CI
+Current slice: classify novelty boundaries for q-ary restricted-coefficient, nested-prefix, nonuniform-cell, and joint computation/locality directions
 
-Open PR: #2 — LENT-001: establish verification-first research foundation
+Open PR: none
 
-Last CI: `research` run 37685297199 — SUCCESS; frozen harness and unit tests passed on `cabce4a7628f397bac4dc521433811afd0ebdb81`
+Last CI: `research` run 37719080023 — SUCCESS on merged G0 head; frozen harness and unit tests passed
 
-Acceptance: G0 evidence is complete on the verified head; final acceptance requires the same checks to remain green on the latest PR head. No publication novelty is claimed.
+Acceptance: G0 = FOUNDATION_PASS. The finite theorem is accepted as a baseline theorem with no publication novelty claim.
 
-Known blockers: binary novelty overlaps sparse parity-check-matrix literature; q-ary restricted-coefficient, nested-prefix, nonuniform-cell, and joint computation/locality directions still require G1 prior-art closure
+Known blockers: binary extremal novelty overlaps known sparse parity-check-matrix literature; q-ary and nested novelty remain unclassified until G1 closes
 
-Next allowed action: keep the frozen G0 statement unchanged; after latest-head CI remains green, begin G1 prior-art audit before any novelty strengthening or preprint promotion
+Next allowed action: perform G1 prior-art audit and produce a source-to-claim matrix before strengthening novelty, adding a preprint, or starting a sharp extremal proof
 
 Last updated from repository: 2026-10-08
