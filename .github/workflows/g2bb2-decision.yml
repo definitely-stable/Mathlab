@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "research/g2bb2-*"
+      - main
   workflow_dispatch:
 
 permissions:
@@ -53,4 +54,4 @@ jobs:
           name: g2bb2-anchored-${{ github.sha }}
           path: ${{ runner.temp }}/g2bb2
           if-no-files-found: warn
-          retention-days: 14
+          retention-days: 90
