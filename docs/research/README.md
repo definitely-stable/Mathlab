@@ -39,6 +39,9 @@ Theta_q(m^(3/2)) proof based on classical C4-free graphs. HYP-002 has
 proved Omega(m²) and O_q(m^(5/2)) bounds, while Theta(m²) remains a
 CONJECTURE. Novelty of either theorem has NOT been established.
 
+The finite evidence is recorded in
+[HYP-001-002-PHASE-A-EVIDENCE.md](HYP-001-002-PHASE-A-EVIDENCE.md)
+(CI #37762380556: 49 tests, valid projective/Steiner witnesses).
 The machine-frozen finite test protocol is
 `research/lent-001/hyp001-002-protocol.json`. The finite construction
 oracle is `research/locality_transition.py`.
