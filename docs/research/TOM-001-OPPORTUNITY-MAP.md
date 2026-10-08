@@ -1,9 +1,10 @@
 # TOM-001 — Theorem Opportunity Map (Phase A)
 
-Status: **SCOUTED / SELECT_FOR_AUDIT**  
+Status: **PHASE A COMPLETE; PHASE B TRIAGED / NO THEOREM SELECTED**  
 Novelty: **NOT ESTABLISHED**  
 Date: **2026-10-08**  
 Issue: [#15](https://github.com/definitely-stable/Mathlab/issues/15)  
+Phase-B review: [TOM-001-B-PRIOR-ART-AUDIT.md](TOM-001-B-PRIOR-ART-AUDIT.md)  
 Source baseline: `main@9c0c76da987f0031d4aeef2a0de081306fe532b4`
 
 ## Why this program exists
@@ -42,7 +43,7 @@ Columns: **question** is the possible narrow advancement; **known boundary** is 
 - Rust operation: `certify_unchanged(old_metadata, input_delta)`; comparator: full recomputation, dependency-graph propagation, cached statistics.
 - Formalize the **no-trivial-always-reject condition** before selecting any theorem.
 
-**O02 — Minimal composition of no-effect certificates for overlapping batches** — AUDIT-PRIORITY.
+**O02 — Minimal composition of no-effect certificates for overlapping batches** — REVISE (naive individual-certificate conjunction REFUTED; see Phase B).
 
 - Question: For restricted DAGs and *specified overlap patterns*, can a joint exact certificate have provably smaller bit/probe cost than separately checking each update? Seek an information lower bound and constructive packing; count all shared metadata.
 - Known boundary: [Change Actions](https://arxiv.org/abs/2002.05256), [Ramalingam 1993](https://www.microsoft.com/en-us/research/publication/bounded-incremental-computation/), standard sharing of dependency paths.
@@ -58,10 +59,10 @@ Columns: **question** is the possible narrow advancement; **known boundary** is 
 
 ### B — Canonical dynamic representations and edit locality
 
-**O04 — Local updates to strongly history-independent variable-length partitions** — AUDIT-PRIORITY.
+**O04 — Local updates to strongly history-independent variable-length partitions** — STOP-BROAD; stronger physical-byte/adaptive model SCOUT.
 
 - Question: Can a *precisely defined physical/canonical layout* support insertion, deletion, split and query while limiting moved bytes and retaining strict history independence? Seek a new lower bound or explicit construction only outside published models.
-- Known boundary: [Bender et al., PODS 2024](https://doi.org/10.1145/3651609), [Buchbinder–Petrank 2006](https://doi.org/10.1016/j.ic.2005.11.001), [Hartline et al. 2005](https://www.microsoft.com/en-us/research/publication/characterizing-history-independent-data-structures/).
+- Known boundary: [Bender et al., PACMMOD 2024](https://doi.org/10.1145/3651609), [Bender et al., extended ACM TODS 2026](https://doi.org/10.1145/3810240), [Buchbinder–Petrank 2006](https://doi.org/10.1016/j.ic.2005.11.001), [Hartline et al. 2005](https://www.microsoft.com/en-us/research/publication/characterizing-history-independent-data-structures/).
 - Kill test: if canonicality concerns only logical nodes rather than actual bytes/pointers, problem can collapse to a textbook immutable tree; if fully physical, existing lower bounds may prohibit the target.
 - Rust operation: `canonical_partition`; comparator: history-independent partitioning, balanced trees.
 
@@ -139,7 +140,7 @@ Columns: **question** is the possible narrow advancement; **known boundary** is 
 - Kill test: pure nestedness is already deprioritized; avoid deriving a claimed new tax without a supported rate-compatible-code reduction.
 - Rust operation: `extend_capacity`.
 
-## Provisional shortlist — not a theorem decision
+## Provisional shortlist (Phase A historical; superseded by Phase B triage) — not a theorem decision
 
 | Candidate | Why it survives initial scouting | Principal objection | Next falsification |
 | --- | --- | --- | --- |
@@ -177,4 +178,6 @@ Do not promote an inequality of the form \(W=O(|A|+|\partial A|)\) unless the co
 - Keep LENT-001/G2B running independently; do not claim TOM supersedes or closes it.
 - A negative novelty result is an accepted outcome.
 
-**TOM-001 Phase A decision: SELECT_FOR_AUDIT (O01/O02; O04/O06), with O10 as existing independent evidence lane.**
+**TOM-001 Phase A decision (historical): SELECT_FOR_AUDIT (O01/O02; O04/O06), with O10 as existing independent evidence lane.**
+
+**Phase B triage (2026-10-08):** O01 AUDIT-PENDING after state/probe-model correction; O02 naive composition REFUTED by an exact AND counterexample; O04 STOP-BROAD against 2024 + 2026 HI partitioning; O06 SCOUT/DEFER. See the linked Phase-B audit and its exact tests. **No theorem selected.**
