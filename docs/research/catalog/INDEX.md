@@ -2,7 +2,7 @@
 
 > Generated from `registry.json` by `research/catalog.py`. Edit JSON, not this file.
 
-Snapshot: **2026-10-08**. **51** selected entries; curated, not exhaustive.
+Snapshot: **2026-10-08**. **61** selected entries; curated, not exhaustive.
 
 Обозначения: `EXTERNAL_MANUSCRIPT_CLAIM` — только заявление каталога автора,
 не независимо подтверждённая теорема. `EXACT_NUMERICAL` и `EMPIRICAL_RESULT`
@@ -13,7 +13,7 @@ Snapshot: **2026-10-08**. **51** selected entries; curated, not exhaustive.
 | Mathlab | 11 | [MATHLAB](#mathlab) |
 | DELSK / Shift-lab | 12 | [DELSK](#delsk) |
 | DeltaMeter | 14 | [DELTAMETER](#deltameter) |
-| openai/math | 14 | [OPENAI_MATH](#openai-math) |
+| openai/math | 24 | [OPENAI_MATH](#openai-math) |
 
 ## MATHLAB
 
@@ -28,7 +28,7 @@ Snapshot: **2026-10-08**. **51** selected entries; curated, not exhaustive.
 
 **Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-FOUNDATION.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-FOUNDATION.md) · первичные источники: —
 
-**Связи →** [ML-002](#ml-002) (constrained_by), [DM-001](#dm-001) (related) · **Обратные ссылки ←** [DM-001](#dm-001) (related), [ML-002](#ml-002) (audits), [ML-003](#ml-003) (tests), [OM-119](#om-119) (conceptual_link)
+**Связи →** [ML-002](#ml-002) (constrained_by), [DM-001](#dm-001) (related) · **Обратные ссылки ←** [DM-001](#dm-001) (related), [ML-002](#ml-002) (audits), [ML-003](#ml-003) (tests), [OM-119](#om-119) (conceptual_link), [OM-140](#om-140) (conceptual_link)
 
 ### ML-002
 **ASET: аудит новизны и разделение характеристик**
@@ -67,7 +67,7 @@ Snapshot: **2026-10-08**. **51** selected entries; curated, not exhaustive.
 
 **Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-OPPORTUNITY-MAP.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-OPPORTUNITY-MAP.md) · первичные источники: —
 
-**Связи →** [ML-005](#ml-005) (refined_by), [ML-006](#ml-006) (refined_by) · **Обратные ссылки ←** [DL-007](#dl-007) (method_compare), [DL-009](#dl-009) (method_compare), [ML-005](#ml-005) (corrects), [OM-133](#om-133) (conceptual_link), [OM-137](#om-137) (conceptual_link)
+**Связи →** [ML-005](#ml-005) (refined_by), [ML-006](#ml-006) (refined_by) · **Обратные ссылки ←** [DL-007](#dl-007) (method_compare), [DL-009](#dl-009) (method_compare), [ML-005](#ml-005) (corrects), [OM-114](#om-114) (method_compare), [OM-117](#om-117) (conceptual_link), [OM-133](#om-133) (conceptual_link), [OM-137](#om-137) (conceptual_link)
 
 ### ML-005
 **TOM-B: контрпримеры и уточнение prior art**
@@ -93,7 +93,7 @@ Snapshot: **2026-10-08**. **51** selected entries; curated, not exhaustive.
 
 **Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md) · первичные источники: [1](https://github.com/definitely-stable/Mathlab/actions/runs/37755090131)
 
-**Связи →** [ML-005](#ml-005) (extends), [DM-004](#dm-004) (method_compare) · **Обратные ссылки ←** [DM-004](#dm-004) (method_compare), [ML-004](#ml-004) (refined_by), [ML-005](#ml-005) (precedes), [OM-127](#om-127) (conceptual_link), [OM-129](#om-129) (conceptual_link)
+**Связи →** [ML-005](#ml-005) (extends), [DM-004](#dm-004) (method_compare) · **Обратные ссылки ←** [DM-004](#dm-004) (method_compare), [ML-004](#ml-004) (refined_by), [ML-005](#ml-005) (precedes), [OM-127](#om-127) (conceptual_link), [OM-129](#om-129) (conceptual_link), [OM-139](#om-139) (conceptual_link)
 
 ### ML-007
 **ASET signed relation: точный критерий коллизии**
@@ -106,7 +106,7 @@ Snapshot: **2026-10-08**. **51** selected entries; curated, not exhaustive.
 
 **Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G1A-PROOF.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G1A-PROOF.md) · первичные источники: —
 
-**Связи →** [ML-002](#ml-002) (informs), [ML-003](#ml-003) (foundation_for) · **Обратные ссылки ←** [DM-010](#dm-010) (conceptual_link), [ML-010](#ml-010) (extends)
+**Связи →** [ML-002](#ml-002) (informs), [ML-003](#ml-003) (foundation_for) · **Обратные ссылки ←** [DM-010](#dm-010) (conceptual_link), [ML-010](#ml-010) (extends), [OM-116](#om-116) (conceptual_link)
 
 ### ML-008
 **ASET G2B-A: точное GF(3) и интервал GF(5)**
@@ -145,7 +145,7 @@ Snapshot: **2026-10-08**. **51** selected entries; curated, not exhaustive.
 
 **Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-LOCALITY-TRANSITION.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/HYP-001-002-LOCALITY-TRANSITION.md) · первичные источники: —
 
-**Связи →** [ML-007](#ml-007) (extends), [ML-011](#ml-011) (foundation_for), [ML-008](#ml-008) (context) · **Обратные ссылки ←** [ML-011](#ml-011) (tests)
+**Связи →** [ML-007](#ml-007) (extends), [ML-011](#ml-011) (foundation_for), [ML-008](#ml-008) (context) · **Обратные ссылки ←** [ML-011](#ml-011) (tests), [OM-108](#om-108) (conceptual_link), [OM-113](#om-113) (conceptual_link), [OM-131](#om-131) (method_compare)
 
 ### ML-011
 **HYP-001/002: конструктивные конечные свидетельства**
@@ -372,7 +372,7 @@ GitHub CI проверил PG(2,2)/PG(2,3) incidence и Steiner triples на н�
 
 **Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/STRICT-COMPACT-002-EVIDENCE.md) · [актуальная ветка](https://github.com/definitely-stable/deltameter/blob/main/docs/research/STRICT-COMPACT-002-EVIDENCE.md) · первичные источники: [1](https://github.com/definitely-stable/deltameter/issues/63)
 
-**Связи →** [DM-003](#dm-003) (contrast), [DM-005](#dm-005) (precedes), [ML-006](#ml-006) (method_compare) · **Обратные ссылки ←** [DM-003](#dm-003) (counterpart), [DM-005](#dm-005) (uses), [DM-007](#dm-007) (context), [ML-006](#ml-006) (method_compare)
+**Связи →** [DM-003](#dm-003) (contrast), [DM-005](#dm-005) (precedes), [ML-006](#ml-006) (method_compare) · **Обратные ссылки ←** [DM-003](#dm-003) (counterpart), [DM-005](#dm-005) (uses), [DM-007](#dm-007) (context), [ML-006](#ml-006) (method_compare), [OM-115](#om-115) (conceptual_link)
 
 ### DM-005
 **STRICT-COMPACT: оптимизация state/range и layout**
@@ -411,7 +411,7 @@ Frozen контракт сравнения direct, maintained D11, RIBLT pull и
 
 **Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/OPEN-QUESTIONS.md) · [актуальная ветка](https://github.com/definitely-stable/deltameter/blob/main/docs/research/OPEN-QUESTIONS.md) · первичные источники: —
 
-**Связи →** [DM-003](#dm-003) (extends), [DM-004](#dm-004) (context) · **Обратные ссылки ←** —
+**Связи →** [DM-003](#dm-003) (extends), [DM-004](#dm-004) (context) · **Обратные ссылки ←** [OM-139](#om-139) (method_compare), [OM-140](#om-140) (method_compare)
 
 ### DM-008
 **M6-D2: инкрементальные синдромы и отсутствие повторной передачи**
@@ -450,7 +450,7 @@ Frozen контракт сравнения direct, maintained D11, RIBLT pull и
 
 **Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D11-FIXED-REDUCTION-EVIDENCE.md) · [актуальная ветка](https://github.com/definitely-stable/deltameter/blob/main/docs/M6-D11-FIXED-REDUCTION-EVIDENCE.md) · первичные источники: [1](https://github.com/definitely-stable/deltameter/actions/runs/37598918009)
 
-**Связи →** [DM-009](#dm-009) (follows), [DM-011](#dm-011) (followed_by), [ML-007](#ml-007) (conceptual_link) · **Обратные ссылки ←** [DM-009](#dm-009) (precedes), [DM-011](#dm-011) (extends), [OM-130](#om-130) (conceptual_link)
+**Связи →** [DM-009](#dm-009) (follows), [DM-011](#dm-011) (followed_by), [ML-007](#ml-007) (conceptual_link) · **Обратные ссылки ←** [DM-009](#dm-009) (precedes), [DM-011](#dm-011) (extends), [OM-116](#om-116) (method_compare), [OM-130](#om-130) (conceptual_link), [OM-135](#om-135) (method_compare)
 
 ### DM-011
 **M6-D12: STOP дальнейшей алгебраической микрооптимизации**
@@ -557,7 +557,7 @@ Frozen контракт сравнения direct, maintained D11, RIBLT pull и
 
 **Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/119.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/119.md) · первичные источники: [1](https://github.com/openai/math/blob/main/CONTENTS.md), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Sharp-binary-information-contraction-on-the-discrete-cube-September-24-2026/main.pdf)
 
-**Связи →** [OM-000](#om-000) (catalogued_in), [ML-001](#ml-001) (conceptual_link) · **Обратные ссылки ←** [OM-000](#om-000) (contains), [OM-127](#om-127) (related)
+**Связи →** [OM-000](#om-000) (catalogued_in), [ML-001](#ml-001) (conceptual_link) · **Обратные ссылки ←** [OM-000](#om-000) (contains), [OM-127](#om-127) (related), [OM-140](#om-140) (related)
 
 ### OM-121
 **Family 121: заявленная почти-линейная аппроксимация edit distance**
@@ -688,3 +688,153 @@ Scope документ сообщает Lean-формализацию предс
 **Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/137.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/137.md) · первичные источники: [1](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Simulating-One-Tape-Time-in-Two-Fifths-Power-Space-September-25-2026/article.pdf)
 
 **Связи →** [OM-103](#om-103) (related), [ML-004](#ml-004) (conceptual_link) · **Обратные ссылки ←** —
+
+### OM-108
+**Family 108: Определительная сложность перманента: кубическая нижняя граница**
+
+В авторском Lean scope заявлена нижняя граница порядка m³ для точных и предельных представлений перманента m×m в виде детерминанта аффинной матрицы над C.
+
+**Статус:** `EXTERNAL_MANUSCRIPT_CLAIM` · **Проверка:** `source_catalog` · **Темы:** algebra, lower-bounds, complexity
+
+**Применение:** Образец содержательной нижней границы в строго ограниченной модели алгебраических схем. **Ограничения:** Условие комплексного поля и модель аффинного детерминанта принципиальны; следствия для ABP из рукописи не входят в выбранную формализацию; доказательство не перепроверялось.
+
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/108.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/108.md) · первичные источники: [1](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026.pdf), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026/README.md), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/PermanentCubic.json)
+
+**Связи →** [OM-135](#om-135) (related), [ML-010](#ml-010) (conceptual_link) · **Обратные ссылки ←** [OM-135](#om-135) (related)
+
+**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; полный PDF-доказательство не проверялось, независимого Lean-прогона не было. **Ограничение:** Сomparator охватывает exact/border determinant, но не перенос ABP-свойств из статьи.
+
+### OM-113
+**Family 113: Приближённый подсчёт perfect matchings и энтропийная граница**
+
+Авторская коллекция приводит FPRAS для perfect matchings в произвольных простых графах с гарантией нулевого ответа при отсутствии совпадений и формулирует энтропийную оценку для заданных edge marginals.
+
+**Статус:** `EXTERNAL_MANUSCRIPT_CLAIM` · **Проверка:** `source_catalog` · **Темы:** combinatorics, counting, entropy
+
+**Применение:** Методологический компаратор для сертифицированного случайного подсчёта и ограничений на информацию о комбинаторных объектах. **Ограничения:** Это FPRAS, не детерминированный точный счётчик; формулировки из scope нельзя автоматически использовать как проверенные Mathlab теоремы.
+
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/113.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/113.md) · первичные источники: [1](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-Fully-Polynomial-Randomized-Approximation-Scheme-for-Perfect-Matchings-in-General-Graphs-September-23-2026/main.pdf), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Entropy-and-Face-Dimension-of-the-Perfect-Matching-Polytope-September-23-2026/main.pdf), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-Fully-Polynomial-Randomized-Approximation-Scheme-for-Perfect-Matchings-in-General-Graphs-September-23-2026/README.md), [4](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/MatchingFPRAS.json)
+
+**Связи →** [OM-114](#om-114) (related), [OM-115](#om-115) (related), [ML-010](#ml-010) (conceptual_link) · **Обратные ссылки ←** [OM-114](#om-114) (related), [OM-115](#om-115) (related), [OM-131](#om-131) (conceptual_link)
+
+**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; полный PDF-доказательство не проверялось, независимого Lean-прогона не было. **Ограничение:** Отдельные selected Lean comparators для entropy и counting; не смешивать FPRAS с exact counting.
+
+### OM-114
+**Family 114: Подсчёт общих баз: различать matroid и polymatroid**
+
+Lean scope формулирует FPRAS числа общих баз двух матроидов равного ранга, доступных через independence oracles; общий заголовок коллекции обещает более широкий случай целочисленных полиматроидов.
+
+**Статус:** `EXTERNAL_MANUSCRIPT_CLAIM` · **Проверка:** `source_catalog` · **Темы:** combinatorics, counting, oracles
+
+**Применение:** Оценка минимально необходимого оракула и источников неопределённости в комбинаторной оптимизации. **Ограничения:** Проверенный scope и привязанная первичная рукопись относятся к матроидам; расширение на полиматроиды из общего каталога здесь НЕ формализовано и не подтверждено.
+
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/114.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/114.md) · первичные источники: [1](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Approximate-counting-of-common-bases-of-two-matroids-September-23-2026/main.pdf), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Approximate-counting-of-common-bases-of-two-matroids-September-23-2026/README.md), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/CommonBasesFPRAS.json)
+
+**Связи →** [OM-113](#om-113) (related), [ML-004](#ml-004) (method_compare) · **Обратные ссылки ←** [OM-113](#om-113) (related)
+
+**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; полный PDF-доказательство не проверялось, независимого Lean-прогона не было. **Ограничение:** Общий семейный тезис о polymatroids шире матроидного документа Lean scope; не импортировать его как доказанный результат.
+
+### OM-115
+**Family 115: Точные выборки contingency tables и приближённый подсчёт**
+
+Lean scope описывает точную равномерную генерацию неотрицательных целочисленных таблиц с заданными суммами строк/столбцов и отдельную FPRAS для подсчёта при индивидуальных cell bounds.
+
+**Статус:** `EXTERNAL_MANUSCRIPT_CLAIM` · **Проверка:** `source_catalog` · **Темы:** combinatorics, counting, sampling
+
+**Применение:** Сравнение строгого случайного семплирования, нулевых случаев и сжатого конечного доказательного состояния. **Ограничения:** Разные режимы: exact uniform sampler имеет ожидаемую сложность, а FPRAS — вероятностную относительную погрешность; не тождественен постоянному времени.
+
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/115.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/115.md) · первичные источники: [1](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Exact-Uniform-Sampling-of-Contingency-Tables-with-Arbitrary-Margins-September-24-2026/main.pdf), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/An-FPRAS-for-Cell-Bounded-Contingency-Tables-September-24-2026/main.pdf), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Exact-Uniform-Sampling-of-Contingency-Tables-with-Arbitrary-Margins-September-24-2026/README.md), [4](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/ContingencyTables.json)
+
+**Связи →** [OM-113](#om-113) (related), [DM-004](#dm-004) (conceptual_link) · **Обратные ссылки ←** [OM-113](#om-113) (related)
+
+**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; полный PDF-доказательство не проверялось, независимого Lean-прогона не было. **Ограничение:** Одинаковый comparator JSON перечисляет exactSampling, boundedSampling и counting как разные утверждения.
+
+### OM-116
+**Family 116: Некомутационная проверка тождеств: scope по характеристикам**
+
+Первичная рукопись и Lean scope описывают единую рациональную матричную hitting-point конструкцию для division-free некоммутативных формул ограниченного размера в характеристике нуль.
+
+**Статус:** `EXTERNAL_MANUSCRIPT_CLAIM` · **Проверка:** `source_catalog` · **Темы:** algebra, finite-field, polynomial-identity
+
+**Применение:** Компаратор для возможных ограниченных алгебраических оракулов и детерминированной проверки равенств. **Ограничения:** Family headline обещает uniformity across characteristics, но выбранный Lean scope для одной матричной точки доказывает только характеристику нуль; прямое перенесение на GF(q) запрещено.
+
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/116.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/116.md) · первичные источники: [1](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026.pdf), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026.pdf), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/README.md), [4](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/FormulaHitting.json)
+
+**Связи →** [ML-007](#ml-007) (conceptual_link), [DM-010](#dm-010) (method_compare) · **Обратные ссылки ←** —
+
+**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; полный PDF-доказательство не проверялось, независимого Lean-прогона не было. **Ограничение:** OAI.NCHitting.universal_hitting в выбранной постановке — характеристика нуль; семейные положительные характеристики требуют отдельного первичного источника и аудита.
+
+### OM-117
+**Family 117: Sparsest cut: интегральный разрыв SDP, но не hardness theorem**
+
+Lean scope заявляет последовательность примеров, где интегральная стоимость uniform sparsest cut превышает Goemans–Linial SDP более чем на c sqrt(log n)/(log log n)^3.
+
+**Статус:** `EXTERNAL_MANUSCRIPT_CLAIM` · **Проверка:** `source_catalog` · **Темы:** graphs, lower-bounds, optimization
+
+**Применение:** Шаблон для доказательства отрицательных границ приближений при явно выбранной релаксации. **Ограничения:** Существование SDP-интегрального разрыва не доказывает вычислительную NP-hardness; общая семейная формулировка шире выбранного формального утверждения.
+
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/117.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/117.md) · первичные источники: [1](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Near-square-root-logarithmic-integrality-gaps-for-uniform-sparsest-cut-September-24-2026/Near-square-root-logarithmic-integrality-gaps-for-uniform-sparsest-cut-September-24-2026.pdf), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Near-square-root-logarithmic-integrality-gaps-for-uniform-sparsest-cut-September-24-2026/README.md), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/UniformSparsestCut.json)
+
+**Связи →** [OM-135](#om-135) (method_compare), [ML-004](#ml-004) (conceptual_link) · **Обратные ссылки ←** —
+
+**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; полный PDF-доказательство не проверялось, независимого Lean-прогона не было. **Ограничение:** Comparator включает integrality-gap последовательность, а не известный из общего заголовка hardness of approximation.
+
+### OM-131
+**Family 131: Графовые переключения: оценка смешивания при фиксированных степенях**
+
+В Lean scope приведена оценка mixing time ≤2n⁸ для lazy edge-switch chain всех графических степенных последовательностей в простых неориентированных графах при TV distance 1/4.
+
+**Статус:** `EXTERNAL_MANUSCRIPT_CLAIM` · **Проверка:** `source_catalog` · **Темы:** graphs, sampling, mixing
+
+**Применение:** Методический пример вероятностного восстановления структуры при жёстких комбинаторных ограничениях. **Ограничения:** Это оценка времени смешивания конкретной цепи; заявленный в общей коллекции точный равномерный sampler в эти selected Lean statements НЕ входит.
+
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/131.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/131.md) · первичные источники: [1](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Polynomial-Mixing-of-the-Switch-Chain-for-Every-Graphical-Degree-Sequence-September-25-2026/main.pdf), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Polynomial-Mixing-of-the-Switch-Chain-for-Every-Graphical-Degree-Sequence-September-25-2026/README.md), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/SwitchChain.json)
+
+**Связи →** [OM-113](#om-113) (conceptual_link), [ML-010](#ml-010) (method_compare) · **Обратные ссылки ←** —
+
+**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; полный PDF-доказательство не проверялось, независимого Lean-прогона не было. **Ограничение:** Bounded TV mixing и exact uniform sampling нельзя приравнивать.
+
+### OM-135
+**Family 135: Depth-5 схемы: нижняя и верхняя границы IMM**
+
+Selected Lean scope приводит нижнюю n^(sqrt(n)/400) и верхнюю n^(sqrt(n)+4) для синтаксически однородных схем глубины пять, вычисляющих запись произведения n матриц.
+
+**Статус:** `EXTERNAL_MANUSCRIPT_CLAIM` · **Проверка:** `source_catalog` · **Темы:** algebra, lower-bounds, complexity
+
+**Применение:** Калибровка model-restricted алгебраических lower bounds, необходимых перед поиском новизны в алгоритмических границах. **Ограничения:** Нижняя граница требует характеристику нуль и фиксированный depth-five homogeneous circuit model; не является границей для общего Rust умножения матриц.
+
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/135.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/135.md) · первичные источники: [1](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Homogeneous-depth-five-lower-bounds-for-iterated-matrix-multiplication-September-25-2026/Homogeneous-depth-five-lower-bounds-for-iterated-matrix-multiplication-September-25-2026.pdf), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Homogeneous-depth-five-lower-bounds-for-iterated-matrix-multiplication-September-25-2026/README.md), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/DepthFive.json)
+
+**Связи →** [OM-108](#om-108) (related), [DM-010](#dm-010) (method_compare) · **Обратные ссылки ←** [OM-108](#om-108) (related), [OM-117](#om-117) (method_compare)
+
+**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; полный PDF-доказательство не проверялось, независимого Lean-прогона не было. **Ограничение:** Отделять char-zero lower от all-field upper, оба имеют специальные circuit assumptions.
+
+### OM-139
+**Family 139: Лог-вогнутая выборка: число oracle queries против времени**
+
+Scope указывает верх C_epsilon d^epsilon и ниж c log d на количество точных value-and-gradient queries для нормализованного хорошо обусловленного log-concave sampling.
+
+**Статус:** `EXTERNAL_MANUSCRIPT_CLAIM` · **Проверка:** `source_catalog` · **Темы:** sampling, oracles, complexity
+
+**Применение:** Контраст для Mathlab: нижняя граница обращений к oracle не равнозначна нижней границе вычислительных тактов, памяти или I/O. **Ограничения:** Алгоритму разрешены неограниченные вычисления между запросами; из результата нельзя делать вывод о практической скорости Rust-семплера.
+
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/139.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/139.md) · первичные источники: [1](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Subpolynomial-query-complexity-for-well-conditioned-log-concave-sampling-September-26-2026/article.pdf), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Subpolynomial-query-complexity-for-well-conditioned-log-concave-sampling-September-26-2026/README.md), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/LogConcaveQuery.json)
+
+**Связи →** [ML-006](#ml-006) (conceptual_link), [DM-007](#dm-007) (method_compare) · **Обратные ссылки ←** —
+
+**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; полный PDF-доказательство не проверялось, независимого Lean-прогона не было. **Ограничение:** Query complexity только при I<=Hessian<=2I и известном минимизаторе, без RAM/bit complexity гарантий.
+
+### OM-140
+**Family 140: Memory–sample: нижняя граница по состоянию при Gaussian regression**
+
+Selected Lean scope связывает O(d²) persistent bits со строгой нижней границей Ω_A(d log(1/epsilon)) наблюдений в noiseless Gaussian regression до заданной angular accuracy.
+
+**Статус:** `EXTERNAL_MANUSCRIPT_CLAIM` · **Проверка:** `source_catalog` · **Темы:** information-theory, lower-bounds, memory
+
+**Применение:** Методический аналог для изучения точного учёта памяти и числа наблюдений, но не уже готовое доказательство для O01/ASET. **Ограничения:** Модель независимых гауссовских измерений и угловой ошибки отличается от динамических множеств и сертификатов неизменности; требуются новые редукции.
+
+**Происхождение:** [зафиксированная версия](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/140.md) · [актуальная ветка](https://github.com/openai/math/blob/main/lean/docs/140.md) · первичные источники: [1](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/paper.pdf), [2](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/README.md), [3](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/MemoryPrecision.json)
+
+**Связи →** [ML-001](#ml-001) (conceptual_link), [DM-007](#dm-007) (method_compare), [OM-119](#om-119) (related) · **Обратные ссылки ←** —
+
+**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; полный PDF-доказательство не проверялось, независимого Lean-прогона не было. **Ограничение:** Формальная постановка ограничивает persistent bits и распределение измерений; пользовательская O01 cell-probe model не покрыта.

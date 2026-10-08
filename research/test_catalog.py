@@ -17,7 +17,7 @@ class CatalogTests(unittest.TestCase):
     def test_all_four_repositories_have_curated_entries(self):
         observed = {e["repository"] for e in self.data["entries"]}
         self.assertEqual(observed, set(REPOS))
-        self.assertGreaterEqual(len(self.data["entries"]), 51)
+        self.assertGreaterEqual(len(self.data["entries"]), 61)
 
     def test_generated_readable_index_is_byte_for_byte_deterministic(self):
         self.assertEqual(render(self.data), INDEX.read_text(encoding="utf-8"))
@@ -34,7 +34,7 @@ class CatalogTests(unittest.TestCase):
         self.assertGreaterEqual(counts["MATHLAB"], 11)
         self.assertGreaterEqual(counts["DELSK"], 12)
         self.assertGreaterEqual(counts["DELTAMETER"], 14)
-        self.assertGreaterEqual(counts["OPENAI_MATH"], 14)
+        self.assertGreaterEqual(counts["OPENAI_MATH"], 24)
         self.assertEqual(
             self.data["repositories"]["MATHLAB"]["sha"],
             "c3ffc69563ac15241e67f4b6ccfe8063720590f1")
@@ -64,6 +64,42 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("RESEARCH_DECISION", topic_page)
         self.assertIn("MATHLAB", topic_page)
         self.assertIn("DELTAMETER", topic_page)
+
+    def test_author_paper_metadata_is_pinned_and_not_promoted(self):
+        audits = [e for e in self.data["entries"] if "source_audit" in e]
+        self.assertEqual(len(audits), 10)
+        self.assertEqual({e["id"] for e in audits},
+                         {f"OM-{i}" for i in
+                          (108, 113, 114, 115, 116, 117, 131, 135, 139, 140)})
+        for entry in audits:
+            self.assertEqual(entry["verification"], "source_catalog")
+            self.assertEqual(entry["status"], "EXTERNAL_MANUSCRIPT_CLAIM")
+            self.assertIs(entry["source_audit"]["full_pdf_reviewed"], False)
+            self.assertIs(entry["source_audit"]["independent_lean_run"], False)
+
+    def test_author_source_audit_missing_paper_link_is_rejected(self):
+        d = copy.deepcopy(self.data)
+        imported = next(e for e in d["entries"] if e["id"] == "OM-116")
+        paper = imported["source_audit"]["primary_papers"][0]
+        pinned = ("https://github.com/openai/math/blob/"
+                  + imported["source"]["revision"] + "/" + paper)
+        imported["primary_sources"].remove(pinned)
+        self.assertTrue(any("audited source missing" in e for e in check(d)))
+
+    def test_full_text_or_lean_reverification_cannot_be_claimed(self):
+        d = copy.deepcopy(self.data)
+        imported = next(e for e in d["entries"] if e["id"] == "OM-140")
+        imported["source_audit"]["full_pdf_reviewed"] = True
+        imported["source_audit"]["independent_lean_run"] = True
+        errors = check(d)
+        self.assertTrue(any("full PDF review may not be inferred" in e for e in errors))
+        self.assertTrue(any("not be marked independently run" in e for e in errors))
+
+    def test_new_openai_scope_mismatches_remain_visible(self):
+        for ident in ("OM-114", "OM-116", "OM-117", "OM-131"):
+            r = next(e for e in self.data["entries"] if e["id"] == ident)
+            self.assertGreater(len(r["source_audit"]["scope_mismatch_ru"]), 50)
+            self.assertIn("**Аудит первоисточника:**", render(self.data))
 
     def test_duplicate_id_is_rejected(self):
         data = copy.deepcopy(self.data)
