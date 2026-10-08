@@ -2,7 +2,7 @@
 
 ## Cross-repository evidence catalog (non-authoritative)
 
-[Research index](catalog/INDEX.md) · [metadata and maintenance](catalog/README.md) · [registry.json](catalog/registry.json).
+[Research index](catalog/INDEX.md) · [thematic navigator](catalog/THEMES.md) · [import review and cross-project discovery](catalog/IMPORT-002-REVIEW.md) · [metadata and maintenance](catalog/README.md) · [registry.json](catalog/registry.json).
 
 The catalog indexes selected, commit-pinned results from Mathlab, Shift-lab/DELSK, DeltaMeter and openai/math. It is **a navigator, not a new proof authority**: the source-specific protocols and decisions below remain canonical. External author claims are not independently validated.
 
