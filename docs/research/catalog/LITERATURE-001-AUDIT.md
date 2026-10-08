@@ -9,7 +9,7 @@ Original internal research index: [INDEX.md](INDEX.md)
 
 ## What was imported — and what was not
 
-32 unique, deduplicated **primary bibliographic works** from the paper families already cited in, or specifically model-related to, Mathlab, DELSK and DeltaMeter. Each literature entry has:
+32 unique, deduplicated **primary bibliographic works** in this historical LITERATURE-001 snapshot (expanded to 49 in [LITERATURE-002](LITERATURE-002-SOURCE-AUDIT.md)) from the paper families already cited in, or specifically model-related to, Mathlab, DELSK and DeltaMeter. Each literature entry has:
 
 - stable `LIT-XXX` ID and canonical DOI/arXiv/venue identity (only one row per work);
 - date, first-party paper or publisher/author abstract, concise original-language-independent Russian summary;
@@ -34,7 +34,7 @@ This imports **metadata, summaries and exact source pointers**, not third-party 
 
 - [LIT-001](LITERATURE.md#lit-001) **bounded-contention coding** precedes generic binary active-set identification, but its radio/communication model does not settle ASET's strict hard support of code columns.
 - [LIT-002](LITERATURE.md#lit-002) **Roth–Seroussi 1996** supplies the classical weak-Sidon upper used in G2B-B1. The implication ASET → weak Sidon is only **one-way**. This import in no way updates issue #42 or its mathematical search.
-- [LIT-003](LITERATURE.md#lit-003) **Blackburn 2015** includes t=2 separable-code context. [LIT-004](LITERATURE.md#lit-004) **Cheng et al. 2015** is a separate **t=3** separable code paper despite both sources involving length-three structures; treating them as the same 2-ID collision theorem would be wrong.
+- [LIT-003](LITERATURE.md#lit-003) **Blackburn 2015** includes t=2 separable-code context. [LIT-004](LITERATURE.md#lit-004) **Cheng et al. 2015** is a separate **barred-3 (overline{3})** separable code paper despite both sources involving length-three structures; treating them as the same 2-ID collision theorem would be wrong.
 - [LIT-005](LITERATURE.md#lit-005) **union-free hypergraphs** concern edge **unions**, not modular additive sums. Code families may overlap in restricted 0/1 settings; general GF(q) equivalence is not shown.
 - [LIT-006](LITERATURE.md#lit-006) **support-constrained parity checks** study different support orientation and minimum distance. This is a priority *model comparison*, not an ASET bound.
 - [LIT-007/008](LITERATURE.md#lit-007) **history-independent partitioning** from 2024 and extended 2026 cover large parts of O04's originally broad conjecture. Both are retained separately as distinct publisher versions, not falsely deduplicated as the *same publication*.
@@ -72,3 +72,5 @@ This imports **metadata, summaries and exact source pointers**, not third-party 
 4. **TOM O01/O04:** review memory/probe and byte-write/adaptive-adversary models against LIT-007/008/010/011/013/032 before proposing a theorem.
 
 **Decision:** `LITERATURE_IMPORT_ACCEPT` for bibliography and mathematical model mappings **only**. **NO THEOREM SELECTED / NO RUST CRATE AUTHORIZED.**
+
+> Follow-up clarification: LIT-022 was renamed from the erroneous FED label to **SEDD** and LIT-009/LIT-004 titles were corrected in LITERATURE-002; this file remains the phase-I audit, not an authoritative live count.

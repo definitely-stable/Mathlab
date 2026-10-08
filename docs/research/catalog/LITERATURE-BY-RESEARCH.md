@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**32** работ сопоставлены с **20** внутренними исследованиями.
+**49** работ сопоставлены с **21** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -10,7 +10,7 @@
 
 **[DELSK: матрица claims и первичного prior art](INDEX.md#dl-001)**
 
-- [LIT-009](LITERATURE.md#lit-009) — The Chonkers Algorithm: Content-Defined Chunking with Strict Guarantees on Size and Locality (2025; primary_abstract_checked)
+- [LIT-009](LITERATURE.md#lit-009) — The Chonkers Algorithm: Content-Defined Chunking with Provable Strict Guarantees on Size and Locality (2025; primary_abstract_checked)
 - [LIT-011](LITERATURE.md#lit-011) — Optimal Time-Space Tradeoff for Dynamic Difference-Encoded Dictionaries (2026; primary_abstract_checked)
 - [LIT-012](LITERATURE.md#lit-012) — Time-Optimal Construction of String Synchronizing Sets (2026; publisher_full_text_spotchecked)
 - [LIT-014](LITERATURE.md#lit-014) — Finesse: Fine-Grained Feature Locality based Fast Resemblance Detection for Post-Deduplication Delta Compression (2019; publisher_full_text_spotchecked)
@@ -22,6 +22,9 @@
 - [LIT-020](LITERATURE.md#lit-020) — On the Resemblance and Containment of Documents (1997; author_paper_or_bibliography_checked)
 - [LIT-021](LITERATURE.md#lit-021) — LSHBloom: Memory-efficient, Extreme-scale Document Deduplication (2024; primary_abstract_checked)
 - [LIT-030](LITERATURE.md#lit-030) — Odess: Speeding up Resemblance Detection for Redundancy Elimination by Fast Content-Defined Sampling (2021; publisher_abstract_checked)
+- [LIT-038](LITERATURE.md#lit-038) — Chunk Content is not Enough: Chunk-Context Aware Resemblance Detection for Deduplication Delta Compression (2021; primary_abstract_checked)
+- [LIT-048](LITERATURE.md#lit-048) — Binary Fuse Filters: Fast and Smaller Than Xor Filters (2022; primary_abstract_checked)
+- [LIT-049](LITERATURE.md#lit-049) — The Fuse XORier Lookup Table: Exploration, Implementation, and Revision of Probabilistic Sets and Maps (2023; primary_abstract_checked)
 
 ## DL-002
 
@@ -30,14 +33,17 @@
 - [LIT-017](LITERATURE.md#lit-017) — The Design of Fast and Lightweight Resemblance Detection for Efficient Post-Deduplication Delta Compression (2023; publisher_abstract_checked)
 - [LIT-018](LITERATURE.md#lit-018) — SpeedSketch: An Ultra-Fast Sketch Generation and Delta Encoding Framework for Delta Compression (2025; publisher_bibliography_checked)
 - [LIT-021](LITERATURE.md#lit-021) — LSHBloom: Memory-efficient, Extreme-scale Document Deduplication (2024; primary_abstract_checked)
-- [LIT-022](LITERATURE.md#lit-022) — FED: Fast and Efficient Dataset Deduplication Framework with GPU Acceleration (2025; primary_abstract_checked)
+- [LIT-022](LITERATURE.md#lit-022) — SEDD: Scalable and Efficient Dataset Deduplication with GPUs (2025; primary_abstract_checked)
 - [LIT-030](LITERATURE.md#lit-030) — Odess: Speeding up Resemblance Detection for Redundancy Elimination by Fast Content-Defined Sampling (2021; publisher_abstract_checked)
+- [LIT-038](LITERATURE.md#lit-038) — Chunk Content is not Enough: Chunk-Context Aware Resemblance Detection for Deduplication Delta Compression (2021; primary_abstract_checked)
 
 ## DL-007
 
 **[DELSK: практики воспроизводимой исследовательской лаборатории](INDEX.md#dl-007)**
 
-- [LIT-022](LITERATURE.md#lit-022) — FED: Fast and Efficient Dataset Deduplication Framework with GPU Acceleration (2025; primary_abstract_checked)
+- [LIT-022](LITERATURE.md#lit-022) — SEDD: Scalable and Efficient Dataset Deduplication with GPUs (2025; primary_abstract_checked)
+- [LIT-048](LITERATURE.md#lit-048) — Binary Fuse Filters: Fast and Smaller Than Xor Filters (2022; primary_abstract_checked)
+- [LIT-049](LITERATURE.md#lit-049) — The Fuse XORier Lookup Table: Exploration, Implementation, and Revision of Probabilistic Sets and Maps (2023; primary_abstract_checked)
 
 ## DL-009
 
@@ -53,6 +59,7 @@
 **[DeltaMeter: разделение F2 и GF(2) модели](INDEX.md#dm-001)**
 
 - [LIT-024](LITERATURE.md#lit-024) — The Space Complexity of Approximating the Frequency Moments (1996; publisher_abstract_checked)
+- [LIT-047](LITERATURE.md#lit-047) — Tight Bounds for Low-Error Frequency Moment Estimation and the Power of Multiple Passes (2025; primary_abstract_checked)
 
 ## DM-002
 
@@ -73,6 +80,9 @@
 
 - [LIT-026](LITERATURE.md#lit-026) — Simple Set Sketching (2022; primary_abstract_checked)
 - [LIT-027](LITERATURE.md#lit-027) — Practical Rateless Set Reconciliation (2024; publisher_abstract_checked)
+- [LIT-039](LITERATURE.md#lit-039) — Invertible Bloom Lookup Tables (2011; primary_abstract_checked)
+- [LIT-040](LITERATURE.md#lit-040) — Invertible Bloom Lookup Tables with Listing Guarantees (2022; primary_abstract_checked)
+- [LIT-042](LITERATURE.md#lit-042) — Toward Optimal Time-Space Tradeoffs for Set Reconciliation (2026; primary_abstract_checked)
 
 ## DM-007
 
@@ -80,6 +90,7 @@
 
 - [LIT-024](LITERATURE.md#lit-024) — The Space Complexity of Approximating the Frequency Moments (1996; publisher_abstract_checked)
 - [LIT-025](LITERATURE.md#lit-025) — Information Theoretic Limits of Cardinality Estimation: Fisher Meets Shannon (2020; primary_abstract_checked)
+- [LIT-047](LITERATURE.md#lit-047) — Tight Bounds for Low-Error Frequency Moment Estimation and the Power of Multiple Passes (2025; primary_abstract_checked)
 
 ## DM-008
 
@@ -87,12 +98,22 @@
 
 - [LIT-026](LITERATURE.md#lit-026) — Simple Set Sketching (2022; primary_abstract_checked)
 - [LIT-027](LITERATURE.md#lit-027) — Practical Rateless Set Reconciliation (2024; publisher_abstract_checked)
+- [LIT-039](LITERATURE.md#lit-039) — Invertible Bloom Lookup Tables (2011; primary_abstract_checked)
+- [LIT-040](LITERATURE.md#lit-040) — Invertible Bloom Lookup Tables with Listing Guarantees (2022; primary_abstract_checked)
+- [LIT-042](LITERATURE.md#lit-042) — Toward Optimal Time-Space Tradeoffs for Set Reconciliation (2026; primary_abstract_checked)
+
+## DM-013
+
+**[M6-D13B: системный STOP_SYSTEM_PRODUCT](INDEX.md#dm-013)**
+
+- [LIT-042](LITERATURE.md#lit-042) — Toward Optimal Time-Space Tradeoffs for Set Reconciliation (2026; primary_abstract_checked)
 
 ## ML-001
 
 **[Разреженные обновления: ограничение достижимых состояний](INDEX.md#ml-001)**
 
 - [LIT-001](LITERATURE.md#lit-001) — Bounded-Contention Coding for Wireless Networks in the High SNR Regime (2012; primary_abstract_checked)
+- [LIT-037](LITERATURE.md#lit-037) — Multi-Group Testing for Items with Real-Valued Status under Standard Arithmetic (2013; primary_abstract_checked)
 
 ## ML-002
 
@@ -103,6 +124,13 @@
 - [LIT-003](LITERATURE.md#lit-003) — Probabilistic existence results for separable codes (2015; primary_abstract_checked)
 - [LIT-006](LITERATURE.md#lit-006) — On Codes with Support-Constrained Parity Checks (2026; primary_abstract_checked)
 - [LIT-031](LITERATURE.md#lit-031) — Signature Codes for a Noisy Adder Multiple Access Channel (2022; primary_abstract_checked)
+- [LIT-033](LITERATURE.md#lit-033) — Sign-Compute-Resolve for Tree Splitting Random Access (2016; primary_abstract_checked)
+- [LIT-034](LITERATURE.md#lit-034) — Finite Field Multiple Access (2023; primary_abstract_checked)
+- [LIT-035](LITERATURE.md#lit-035) — Signature codes for weighted binary adder channel and multimedia fingerprinting (2019; primary_abstract_checked)
+- [LIT-036](LITERATURE.md#lit-036) — On Constant-Weight Binary B2-Sequences (2023; primary_abstract_checked)
+- [LIT-037](LITERATURE.md#lit-037) — Multi-Group Testing for Items with Real-Valued Status under Standard Arithmetic (2013; primary_abstract_checked)
+- [LIT-043](LITERATURE.md#lit-043) — Sparse Parity-Check Matrices over GF(q) (2005; publisher_abstract_checked)
+- [LIT-044](LITERATURE.md#lit-044) — On Parity Check (0,1)-Matrix over Z_p (2015; publisher_abstract_checked)
 
 ## ML-004
 
@@ -110,13 +138,16 @@
 
 - [LIT-007](LITERATURE.md#lit-007) — History-Independent Dynamic Partitioning: Operation-Order Privacy in Ordered Data Structures (2024; publisher_abstract_checked)
 - [LIT-008](LITERATURE.md#lit-008) — History-Independent Dynamic Partitioning with Applications to B-Trees, Skip Lists and Fusion Trees (2026; primary_abstract_checked)
-- [LIT-009](LITERATURE.md#lit-009) — The Chonkers Algorithm: Content-Defined Chunking with Strict Guarantees on Size and Locality (2025; primary_abstract_checked)
+- [LIT-009](LITERATURE.md#lit-009) — The Chonkers Algorithm: Content-Defined Chunking with Provable Strict Guarantees on Size and Locality (2025; primary_abstract_checked)
 - [LIT-010](LITERATURE.md#lit-010) — Incremental Computing by Differential Execution (2025; publisher_abstract_checked)
 - [LIT-011](LITERATURE.md#lit-011) — Optimal Time-Space Tradeoff for Dynamic Difference-Encoded Dictionaries (2026; primary_abstract_checked)
 - [LIT-012](LITERATURE.md#lit-012) — Time-Optimal Construction of String Synchronizing Sets (2026; publisher_full_text_spotchecked)
 - [LIT-013](LITERATURE.md#lit-013) — Change actions: from incremental computation to discrete derivatives (2020; primary_abstract_checked)
 - [LIT-019](LITERATURE.md#lit-019) — FastCDC: A Fast and Efficient Content-Defined Chunking Approach for Data Deduplication (2016; publisher_abstract_checked)
 - [LIT-032](LITERATURE.md#lit-032) — Bounded Incremental Computation (1993; publisher_abstract_checked)
+- [LIT-041](LITERATURE.md#lit-041) — Certificates in Data Structures (2014; primary_abstract_checked)
+- [LIT-045](LITERATURE.md#lit-045) — Complexity models for incremental computation (1994; publisher_abstract_checked)
+- [LIT-046](LITERATURE.md#lit-046) — Lower And Upper Bounds For Incremental Algorithms (1992; publisher_abstract_checked)
 
 ## ML-005
 
@@ -127,6 +158,7 @@
 - [LIT-010](LITERATURE.md#lit-010) — Incremental Computing by Differential Execution (2025; publisher_abstract_checked)
 - [LIT-013](LITERATURE.md#lit-013) — Change actions: from incremental computation to discrete derivatives (2020; primary_abstract_checked)
 - [LIT-032](LITERATURE.md#lit-032) — Bounded Incremental Computation (1993; publisher_abstract_checked)
+- [LIT-045](LITERATURE.md#lit-045) — Complexity models for incremental computation (1994; publisher_abstract_checked)
 
 ## ML-006
 
@@ -134,12 +166,17 @@
 
 - [LIT-028](LITERATURE.md#lit-028) — Memory-Sample Tradeoffs for Linear Regression with Small Error (2019; primary_abstract_checked)
 - [LIT-029](LITERATURE.md#lit-029) — Space lower bounds for linear prediction in the streaming model (2019; primary_abstract_checked)
+- [LIT-041](LITERATURE.md#lit-041) — Certificates in Data Structures (2014; primary_abstract_checked)
+- [LIT-046](LITERATURE.md#lit-046) — Lower And Upper Bounds For Incremental Algorithms (1992; publisher_abstract_checked)
 
 ## ML-007
 
 **[ASET signed relation: точный критерий коллизии](INDEX.md#ml-007)**
 
 - [LIT-006](LITERATURE.md#lit-006) — On Codes with Support-Constrained Parity Checks (2026; primary_abstract_checked)
+- [LIT-034](LITERATURE.md#lit-034) — Finite Field Multiple Access (2023; primary_abstract_checked)
+- [LIT-043](LITERATURE.md#lit-043) — Sparse Parity-Check Matrices over GF(q) (2005; publisher_abstract_checked)
+- [LIT-044](LITERATURE.md#lit-044) — On Parity Check (0,1)-Matrix over Z_p (2015; publisher_abstract_checked)
 
 ## ML-008
 
@@ -152,16 +189,21 @@
 **[HYP-001/002: двух- и трёхкоординатная ёмкость ASET](INDEX.md#ml-010)**
 
 - [LIT-003](LITERATURE.md#lit-003) — Probabilistic existence results for separable codes (2015; primary_abstract_checked)
-- [LIT-004](LITERATURE.md#lit-004) — Bounds and Constructions for 3-Separable Codes with Length 3 (2015; primary_abstract_checked)
+- [LIT-004](LITERATURE.md#lit-004) — Bounds and Constructions for overline-3-Separable Codes with Length 3 (2015; primary_abstract_checked)
 - [LIT-005](LITERATURE.md#lit-005) — Sharp bounds for uniform union-free hypergraphs (2026; primary_abstract_checked)
 - [LIT-031](LITERATURE.md#lit-031) — Signature Codes for a Noisy Adder Multiple Access Channel (2022; primary_abstract_checked)
+- [LIT-033](LITERATURE.md#lit-033) — Sign-Compute-Resolve for Tree Splitting Random Access (2016; primary_abstract_checked)
+- [LIT-035](LITERATURE.md#lit-035) — Signature codes for weighted binary adder channel and multimedia fingerprinting (2019; primary_abstract_checked)
+- [LIT-036](LITERATURE.md#lit-036) — On Constant-Weight Binary B2-Sequences (2023; primary_abstract_checked)
+- [LIT-043](LITERATURE.md#lit-043) — Sparse Parity-Check Matrices over GF(q) (2005; publisher_abstract_checked)
 
 ## ML-011
 
 **[HYP-001/002: конструктивные конечные свидетельства](INDEX.md#ml-011)**
 
-- [LIT-004](LITERATURE.md#lit-004) — Bounds and Constructions for 3-Separable Codes with Length 3 (2015; primary_abstract_checked)
+- [LIT-004](LITERATURE.md#lit-004) — Bounds and Constructions for overline-3-Separable Codes with Length 3 (2015; primary_abstract_checked)
 - [LIT-005](LITERATURE.md#lit-005) — Sharp bounds for uniform union-free hypergraphs (2026; primary_abstract_checked)
+- [LIT-040](LITERATURE.md#lit-040) — Invertible Bloom Lookup Tables with Listing Guarantees (2022; primary_abstract_checked)
 
 ## OM-140
 

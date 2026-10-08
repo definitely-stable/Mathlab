@@ -14,11 +14,11 @@ class LiteratureTests(unittest.TestCase):
     def test_real_collection_has_no_metadata_errors(self):
         self.assertEqual(valid(self.data, self.catalog), [])
 
-    def test_32_distinct_works_and_five_lanes(self):
+    def test_49_distinct_works_and_five_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 32)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 32)
-        self.assertEqual(len({e["id"] for e in entries}), 32)
+        self.assertEqual(len(entries), 49)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 49)
+        self.assertEqual(len({e["id"] for e in entries}), 49)
         self.assertEqual(len({e["track"] for e in entries}), 5)
 
     def test_forward_and_reverse_indices_are_exactly_reproducible(self):
@@ -36,6 +36,44 @@ class LiteratureTests(unittest.TestCase):
                           {"primary_abstract_checked", "publisher_abstract_checked",
                            "publisher_bibliography_checked", "publisher_full_text_spotchecked",
                            "author_paper_or_bibliography_checked"})
+
+    def test_original_sedd_arxiv_identity_is_not_misattributed(self):
+        e = next(x for x in self.data["entries"] if x["id"] == "LIT-022")
+        self.assertEqual(e["identity"], "arxiv:2501.01046")
+        self.assertTrue(e["title"].startswith("SEDD:"))
+        self.assertNotIn("FED:", e["title"])
+        d = copy.deepcopy(self.data)
+        next(x for x in d["entries"] if x["id"] == "LIT-022")["title"] = "FED: Fast Dataset Deduplication"
+        self.assertTrue(any("primary source title mismatch" in x
+                            for x in valid(d, self.catalog)))
+
+    def test_cross_identifier_alias_collision_is_rejected(self):
+        d = copy.deepcopy(self.data)
+        target = next(x for x in d["entries"] if x["id"] == "LIT-039")
+        self.assertIn("doi:10.1109/ALLERTON.2011.6120248",
+                      target["alternate_identities"])
+        wrong = next(x for x in d["entries"] if x["id"] == "LIT-040")
+        wrong["alternate_identities"] = list(target["alternate_identities"])
+        self.assertTrue(any("duplicate canonical identity" in x
+                            for x in valid(d, self.catalog)))
+
+    def test_identity_alias_is_never_reported_as_a_second_work(self):
+        d = copy.deepcopy(self.data)
+        riblt = next(x for x in d["entries"] if x["id"] == "LIT-027")
+        self.assertIn("arxiv:2402.02668", riblt["alternate_identities"])
+        self.assertEqual(sum("arxiv:2402.02668" in [e["identity"]] +
+                             e.get("alternate_identities", []) for e in
+                             d["entries"]), 1)
+
+    def test_bibliography_expansion_covers_three_projects(self):
+        entries = self.data["entries"]
+        self.assertEqual(len({e["id"] for e in entries}), 49)
+        tracks = {e["track"] for e in entries}
+        self.assertEqual(len(tracks), 5)
+        self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
+            {e["id"] for e in entries}))
+        self.assertTrue({"MATHLAB", "DELSK", "DELTAMETER"}.issubset(
+            {origin["repo"] for e in entries for origin in e["mentioned_in"]}))
 
     def test_duplicate_doi_is_rejected(self):
         d = copy.deepcopy(self.data)
@@ -68,7 +106,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_non_equivalence_boundaries_are_documented(self):
         lookup = {e["id"]: e for e in self.data["entries"]}
-        self.assertIn("t=3", lookup["LIT-004"]["limits_ru"])
+        self.assertIn("overline{3}", lookup["LIT-004"]["limits_ru"])
         self.assertIn("GF(q)", lookup["LIT-005"]["limits_ru"])
         self.assertIn("байтам", lookup["LIT-027"]["limits_ru"])
         self.assertIn("finite-sample", lookup["LIT-023"]["limits_ru"])

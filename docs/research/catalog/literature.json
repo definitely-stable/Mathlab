@@ -91,13 +91,13 @@
     },
     {
       "id": "LIT-004",
-      "title": "Bounds and Constructions for 3-Separable Codes with Length 3",
+      "title": "Bounds and Constructions for overline-3-Separable Codes with Length 3",
       "year": 2015,
       "identity": "arxiv:1507.00954",
       "primary_url": "https://arxiv.org/abs/1507.00954",
       "track": "sparse-coding",
       "summary_ru": "Границы и конструкции именно для 3-separable кодов длины 3, через partial Latin squares, perfect hashing и Steiner triple systems.",
-      "limits_ru": "ВАЖНО: статья о t=3, а не непосредственно о 2-separable/ASET d=2; пересечение методологическое.",
+      "limits_ru": "Речь о barred-3-separability (overline{3}), сильной fingerprinting-модели; нельзя без определения её отождествлять с обычным 3-separable или ASET d=2.",
       "maps_to": [
         "ML-010",
         "ML-011"
@@ -111,7 +111,14 @@
       ],
       "verification": "primary_abstract_checked",
       "full_proof_verified": false,
-      "independent_reproduction": false
+      "independent_reproduction": false,
+      "authors": [
+        "Minquan Cheng",
+        "Jing Jiang",
+        "Haiyan Li",
+        "Ying Miao",
+        "Xiaohu Tang"
+      ]
     },
     {
       "id": "LIT-005",
@@ -211,7 +218,7 @@
     },
     {
       "id": "LIT-009",
-      "title": "The Chonkers Algorithm: Content-Defined Chunking with Strict Guarantees on Size and Locality",
+      "title": "The Chonkers Algorithm: Content-Defined Chunking with Provable Strict Guarantees on Size and Locality",
       "year": 2025,
       "identity": "arxiv:2509.11121",
       "primary_url": "https://arxiv.org/abs/2509.11121",
@@ -454,7 +461,7 @@
       "title": "FastCDC: A Fast and Efficient Content-Defined Chunking Approach for Data Deduplication",
       "year": 2016,
       "identity": "usenix:atc16:xia",
-      "primary_url": "https://www.usenix.org/conference/atc16/technical-sessions",
+      "primary_url": "https://www.usenix.org/system/files/conference/atc16/atc16-paper-xia.pdf",
       "track": "delta-base-selection",
       "summary_ru": "Gear-based content-defined chunking, пропуск недопустимо коротких разрезов и нормализация длин.",
       "limits_ru": "FastCDC — chunk-boundary baseline, не новая модель оптимальной направленной delta-базы и не строгая история-независимая партиция.",
@@ -523,13 +530,13 @@
     },
     {
       "id": "LIT-022",
-      "title": "FED: Fast and Efficient Dataset Deduplication Framework with GPU Acceleration",
+      "title": "SEDD: Scalable and Efficient Dataset Deduplication with GPUs",
       "year": 2025,
       "identity": "arxiv:2501.01046",
       "primary_url": "https://arxiv.org/abs/2501.01046",
       "track": "delta-base-selection",
-      "summary_ru": "Оптимизация генерации MinHash/LSH сигнатур на GPU-кластерах с переиспользованием дешёвых хэшей.",
-      "limits_ru": "Опыт GPU-LLM текстовой дедупликации не переносится без тестов на ограниченный CPU descriptor DELSK.",
+      "summary_ru": "SEDD (Son–Kim–Lee) ускоряет потоковую крупномасштабную дедупликацию текстовых датасетов, включая MinHash/LSH GPU kernels, снижая сетевые и shuffle-затраты.",
+      "limits_ru": "Первичный arXiv:2501.01046 имеет название SEDD, а не FED. Корпус и измерения относятся к текстовым LLM-datasets/GPU, не к выбору бинарной delta-базы DELSK.",
       "maps_to": [
         "DL-002",
         "DL-007"
@@ -543,7 +550,12 @@
       ],
       "verification": "primary_abstract_checked",
       "full_proof_verified": false,
-      "independent_reproduction": false
+      "independent_reproduction": false,
+      "authors": [
+        "Youngjun Son",
+        "Chaewon Kim",
+        "Jaejin Lee"
+      ]
     },
     {
       "id": "LIT-023",
@@ -663,7 +675,10 @@
       ],
       "verification": "publisher_abstract_checked",
       "full_proof_verified": false,
-      "independent_reproduction": false
+      "independent_reproduction": false,
+      "alternate_identities": [
+        "arxiv:2402.02668"
+      ]
     },
     {
       "id": "LIT-028",
@@ -784,6 +799,466 @@
       "verification": "publisher_abstract_checked",
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "id": "LIT-033",
+      "title": "Sign-Compute-Resolve for Tree Splitting Random Access",
+      "year": 2016,
+      "identity": "arxiv:1602.02612",
+      "primary_url": "https://arxiv.org/abs/1602.02612",
+      "track": "sparse-coding",
+      "summary_ru": "Суммы сигнатур активных передатчиков в физическом канале используются для восстановления участников при известной bound K.",
+      "limits_ru": "Подпись в физическом аддер-канале и adaptive tree-splitting не являются sparse GF(q) ASET-конструкцией со строгим весом столбцов.",
+      "maps_to": [
+        "ML-002",
+        "ML-010"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/LENT-001-PRIOR-ART.md",
+          "kind": "cited"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Jasper Goseling",
+        "Cedomir Stefanovic",
+        "Petar Popovski"
+      ]
+    },
+    {
+      "id": "LIT-034",
+      "title": "Finite Field Multiple Access",
+      "year": 2023,
+      "identity": "arxiv:2303.14086",
+      "primary_url": "https://arxiv.org/abs/2303.14086",
+      "track": "sparse-coding",
+      "summary_ru": "FFMA, element-pair codes и unique sum-pattern mapping по конечным полям, обеспечивающие мультиплексирование в многопользовательском канале.",
+      "limits_ru": "Результаты о channel coding/error curves не задают автоматически максимум ASET при ограничении числа ненулевых координат.",
+      "maps_to": [
+        "ML-002",
+        "ML-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/LENT-001-PRIOR-ART.md",
+          "kind": "cited"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Qi-yue Yu",
+        "Jiang-xuan Li",
+        "Shu Lin"
+      ]
+    },
+    {
+      "id": "LIT-035",
+      "title": "Signature codes for weighted binary adder channel and multimedia fingerprinting",
+      "year": 2019,
+      "identity": "arxiv:1905.10180",
+      "primary_url": "https://arxiv.org/abs/1905.10180",
+      "track": "sparse-coding",
+      "summary_ru": "Исследуются signature-code конструкции для взвешенного аддер-канала и fingerprinting, близкие по допустимым коэффициентам к ограниченным суммам.",
+      "limits_ru": "Взвешенная сумма и реальные/целочисленные коэффициенты не тождественны полевым суммам с коэффициентами лишь 0/1.",
+      "maps_to": [
+        "ML-002",
+        "ML-010"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/LENT-001-PRIOR-ART.md",
+          "kind": "cited"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-036",
+      "title": "On Constant-Weight Binary B2-Sequences",
+      "year": 2023,
+      "identity": "arxiv:2303.12990",
+      "primary_url": "https://arxiv.org/abs/2303.12990",
+      "track": "sparse-coding",
+      "summary_ru": "Бинарные B₂-последовательности с постоянным весом — прямой формальный сосед hard-column-support ёмкости ASET.",
+      "limits_ru": "Определение B₂ допускает собственное правило для повторяющихся слагаемых и обычные целые суммы: проверять связь со строгими d<=2 GF(q) subset sums.",
+      "maps_to": [
+        "ML-002",
+        "ML-010"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/LENT-001-PRIOR-ART.md",
+          "kind": "cited"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-037",
+      "title": "Multi-Group Testing for Items with Real-Valued Status under Standard Arithmetic",
+      "year": 2013,
+      "identity": "arxiv:1303.6020",
+      "primary_url": "https://arxiv.org/abs/1303.6020",
+      "track": "sparse-coding",
+      "summary_ru": "Групповое тестирование со статусами произвольных вещественных значений и неадаптивными суммарными измерениями.",
+      "limits_ru": "Объект — реальные арифметические суммы/measurement matrices, не конечнополевые уникальные subset sums.",
+      "maps_to": [
+        "ML-002",
+        "ML-001"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/LENT-001-PRIOR-ART.md",
+          "kind": "cited"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-038",
+      "title": "Chunk Content is not Enough: Chunk-Context Aware Resemblance Detection for Deduplication Delta Compression",
+      "year": 2021,
+      "identity": "arxiv:2106.01273",
+      "primary_url": "https://arxiv.org/abs/2106.01273",
+      "track": "delta-base-selection",
+      "summary_ru": "Chunk-context features уточняют поиск похожих блоков при delta compression; соседний prior art к признакам и locality DELSK.",
+      "limits_ru": "Context-dependent retrieval не доказывает optimal byte-savings у любого codec или самостоятельную новизну направленного scorer.",
+      "maps_to": [
+        "DL-001",
+        "DL-002"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "DELSK",
+          "path": ".work/research/literature-review.md",
+          "kind": "cited"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-039",
+      "title": "Invertible Bloom Lookup Tables",
+      "year": 2011,
+      "identity": "arxiv:1101.2245",
+      "primary_url": "https://arxiv.org/abs/1101.2245",
+      "track": "streaming-reconciliation",
+      "summary_ru": "Goodrich–Mitzenmacher: probabilistic invertible table поддерживает вставки, удаления и listing содержимого ниже порога загрузки.",
+      "limits_ru": "Вероятностное full-listing не даёт строгого exact recovery при произвольной хэш-конфигурации и adversarial keys.",
+      "maps_to": [
+        "DM-006",
+        "DM-008"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "DELTAMETER",
+          "path": "docs/research/REFERENCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Michael T. Goodrich",
+        "Michael Mitzenmacher"
+      ],
+      "alternate_identities": [
+        "doi:10.1109/ALLERTON.2011.6120248"
+      ]
+    },
+    {
+      "id": "LIT-040",
+      "title": "Invertible Bloom Lookup Tables with Listing Guarantees",
+      "year": 2022,
+      "identity": "arxiv:2212.13812",
+      "primary_url": "https://arxiv.org/abs/2212.13812",
+      "track": "streaming-reconciliation",
+      "summary_ru": "Worst-case гарантии listing для ограниченного числа элементов через stopping sets, Steiner systems и covering arrays.",
+      "limits_ru": "Гарантированность зависит от конкретной детерминированной incidence-конструкции и предельной ёмкости, не любого hash-based IBLT.",
+      "maps_to": [
+        "DM-006",
+        "DM-008",
+        "ML-011"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "DELTAMETER",
+          "path": "docs/research/REFERENCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-041",
+      "title": "Certificates in Data Structures",
+      "year": 2014,
+      "identity": "arxiv:1404.5743",
+      "primary_url": "https://arxiv.org/abs/1404.5743",
+      "track": "incremental-computation",
+      "summary_ru": "Wang–Yin исследуют сертификаты ответов static cell-probe запросов и нижние границы на число прочитанных ячеек.",
+      "limits_ru": "Сертификат в недетерминированной static query модели не равен runtime-maintained zero-effect сертификату для dynamic DAG.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Yaoyu Wang",
+        "Yitong Yin"
+      ]
+    },
+    {
+      "id": "LIT-042",
+      "title": "Toward Optimal Time-Space Tradeoffs for Set Reconciliation",
+      "year": 2026,
+      "identity": "arxiv:2609.14442",
+      "primary_url": "https://arxiv.org/abs/2609.14442",
+      "track": "streaming-reconciliation",
+      "summary_ru": "XYZ-Sketch заявляет O(1) update, примерно (1+ε)d передаваемых элементов и O(d log V) decode; fixed-support extremality остаётся условной гипотезой.",
+      "limits_ru": "Это авторские гарантии в заданной модели; условная optimality не является безусловной lower bound, а payload элементов не сопоставлен с полным байтовым wire протоколом.",
+      "maps_to": [
+        "DM-006",
+        "DM-008",
+        "DM-013"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "DELTAMETER",
+          "path": "docs/research/REFERENCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-043",
+      "title": "Sparse Parity-Check Matrices over GF(q)",
+      "year": 2005,
+      "identity": "doi:10.1017/S0963548304006625",
+      "primary_url": "https://doi.org/10.1017/S0963548304006625",
+      "track": "sparse-coding",
+      "summary_ru": "Lefmann: максимальная длина разреженных parity-check матриц с заданным ограничением nonzeros/column и независимостью любого k столбцов; bounds по q,k,r.",
+      "limits_ru": "Класс всех signed linear dependences отличается от ASET ограниченных 0/1 subset-sum collisions; возможно даёт достаточные семейства, но не точное равенство capacities.",
+      "maps_to": [
+        "ML-002",
+        "ML-010",
+        "ML-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/LENT-001-PRIOR-ART.md",
+          "kind": "cited"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Hanno Lefmann"
+      ]
+    },
+    {
+      "id": "LIT-044",
+      "title": "On Parity Check (0,1)-Matrix over Z_p",
+      "year": 2015,
+      "identity": "doi:10.1137/120881129",
+      "primary_url": "https://doi.org/10.1137/120881129",
+      "track": "sparse-coding",
+      "summary_ru": "Bshouty–Mazzawi: неадаптивные additive queries и (0,1) parity-check матрицы над Z_p с независимостью любых k столбцов.",
+      "limits_ru": "Ограничено двоичностью элементов матрицы и проверкой k-wise independence; не равнозначно ASET с hard column support w.",
+      "maps_to": [
+        "ML-002",
+        "ML-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/LENT-001-PRIOR-ART.md",
+          "kind": "cited"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Nader H. Bshouty",
+        "Hanna Mazzawi"
+      ]
+    },
+    {
+      "id": "LIT-045",
+      "title": "Complexity models for incremental computation",
+      "year": 1994,
+      "identity": "doi:10.1016/0304-3975(94)90159-7",
+      "primary_url": "https://doi.org/10.1016/0304-3975(94)90159-7",
+      "track": "incremental-computation",
+      "summary_ru": "Miltersen–Subramanian–Vitter–Tamassia классифицируют incremental complexity и вводят критерии lower bounds для online re-evaluation.",
+      "limits_ru": "Это model-level фундамент, а не автоматическая теорема об update cost или bytes rewritten в TOM/O01.",
+      "maps_to": [
+        "ML-004",
+        "ML-005"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Peter Bro Miltersen",
+        "Sairam Subramanian",
+        "Jeffrey Scott Vitter",
+        "Roberto Tamassia"
+      ]
+    },
+    {
+      "id": "LIT-046",
+      "title": "Lower And Upper Bounds For Incremental Algorithms",
+      "year": 1992,
+      "identity": "doi:10.7282/T3HT2SXD",
+      "primary_url": "https://doi.org/10.7282/T3HT2SXD",
+      "track": "incremental-computation",
+      "summary_ru": "Berman: relative incremental lower bound и δ-анализ для динамических update algorithms, включая обновление transitive closure.",
+      "limits_ru": "Работа о сложностях в собственной модели; не устанавливает универсальное zero-effect certificate lower bound TOM.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "A. Michael Berman"
+      ]
+    },
+    {
+      "id": "LIT-047",
+      "title": "Tight Bounds for Low-Error Frequency Moment Estimation and the Power of Multiple Passes",
+      "year": 2025,
+      "identity": "arxiv:2509.07599",
+      "primary_url": "https://arxiv.org/abs/2509.07599",
+      "track": "streaming-reconciliation",
+      "summary_ru": "Green-Maimon–Zamir: точные по порядку битовые F₂ bounds при малой относительной ошибке и separation по числу проходов.",
+      "limits_ru": "Гарантия относится к классическому frequency moment, а не directly GF(2) set-only parity и не даёт finite-sample exact capacity.",
+      "maps_to": [
+        "DM-001",
+        "DM-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "DELTAMETER",
+          "path": "docs/research/REFERENCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Naomi Green-Maimon",
+        "Or Zamir"
+      ]
+    },
+    {
+      "id": "LIT-048",
+      "title": "Binary Fuse Filters: Fast and Smaller Than Xor Filters",
+      "year": 2022,
+      "identity": "arxiv:2201.01174",
+      "primary_url": "https://arxiv.org/abs/2201.01174",
+      "track": "delta-base-selection",
+      "summary_ru": "Graf–Lemire: approximate membership filters с меньшим overhead чем xor filters для дорогих storage lookup.",
+      "limits_ru": "Структура ускоряет membership prefilter, не является скетчем similarity и не ранжирует delta patch reference candidates.",
+      "maps_to": [
+        "DL-001",
+        "DL-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "DELSK",
+          "path": ".work/research/lab-practices.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Thomas Mueller Graf",
+        "Daniel Lemire"
+      ]
+    },
+    {
+      "id": "LIT-049",
+      "title": "The Fuse XORier Lookup Table: Exploration, Implementation, and Revision of Probabilistic Sets and Maps",
+      "year": 2023,
+      "identity": "arxiv:2312.13541",
+      "primary_url": "https://arxiv.org/abs/2312.13541",
+      "track": "delta-base-selection",
+      "summary_ru": "FXLT развивает probabilistic sets/maps и Bloomier-подобные lookup структуры на основе пространственного coupling.",
+      "limits_ru": "Вероятностный lookup не равен stable source ordering и codec-aware patch gain ranking; benchmark автора не воспроизводился.",
+      "maps_to": [
+        "DL-001",
+        "DL-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "DELSK",
+          "path": ".work/research/lab-practices.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Eric Breyer",
+        "Alan Liu"
+      ]
     }
   ]
 }
