@@ -1,6 +1,8 @@
-# LENT-001 — frozen foundation protocol
+# LENT-001 — frozen sparse-update foundation protocol
 
 Status: **FROZEN FOR G0 FOUNDATION v1**
+
+Terminology note: `LENT-001` is the stable historical ID. The former expansion "Locality–Entropy Trilemma" is deprecated for new public-facing material. This protocol's mathematical content is unchanged.
 
 Issue: #1.
 
