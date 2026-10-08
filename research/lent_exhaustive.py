@@ -24,6 +24,7 @@ Vector = tuple[int, ...]
 SignedRelationWitness = tuple[tuple[int, ...], tuple[int, ...]]
 LinearDependencyWitness = tuple[tuple[int, ...], tuple[int, ...]]
 G1A_PRIMES = (2, 3, 5)
+PRIME_ORACLE_FIELDS = (2, 3, 5, 7)
 
 
 def support_size(vector: Sequence[int]) -> int:

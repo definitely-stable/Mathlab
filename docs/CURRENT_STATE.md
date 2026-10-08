@@ -1,27 +1,27 @@
 # CURRENT_STATE
 
-Last verified HEAD: main@11d9b99ee5481e18d8eb37561a0dd0d8d75eeadb
+Last verified HEAD: main@8027bc64af5c3dcc908b90fd8ec1670526a3b39b
 
-Current milestone: LENT-001 / G1B closure — SPLIT_BY_CHARACTERISTIC
+Current milestone: LENT-001 / G2A — exact odd-characteristic extremal lab
 
-Current slice: finalize G1B decision and open G2 odd-characteristic exact extremal evidence
+Current slice: exact branch-and-bound for q={3,5,7}, d=2, hard support w={1,2}
 
-Implementation branch: research/lent-001-g1b-close
+Implementation branch: research/lent-001-g2a-extremal
 
-Open issue: #6 — LENT-001-G1B: hard-support novelty closure for A_q^set
+Open issue: #12 — LENT-001-G2A: exact odd-characteristic extremal lab
 
 Open PR: pending
 
-Last CI: research run 37728445330 — SUCCESS on Audit-03 merged head
+Last CI: post-G1B merge run 37745969955 — SUCCESS
 
-Acceptance: G0 = FOUNDATION_PASS; G1A = G1A_ORACLE_PASS; G1B decision = SPLIT_BY_CHARACTERISTIC pending merge of this closure package
+Acceptance: G0 = FOUNDATION_PASS; G1A = G1A_ORACLE_PASS; G1B = SPLIT_BY_CHARACTERISTIC; G2A requires all five G2A acceptance markers on latest head
 
-Final G1B classification: q=2 STOP; q=2^s DEPRIORITIZE block-sparse lane; q=3 CONTINUE as side-bound testbed; odd q>3 CONTINUE as primary support-sensitive lane
+Frozen Phase-A expected maxima: q3/m3/w2 ASET=5 vs linear=3 vs LENT upper=6; q5/m2/w2 ASET=5 vs linear=2 vs LENT upper=6; q7/m2/w2 ASET=7 vs linear=2 vs LENT upper=9
 
-Primary next target: exact finite evidence for odd q in {3,5,7}, d=2, w in {1,2,3}
+Additional exact baseline: for d=2,w=1, A_q^set(m,1,2)=m*A_q^set(1,1,2), giving m,2m,3m for q=3,5,7
 
-Known constraint: no publication novelty claim is authorized; G2 must first select a precise theorem and that theorem will require a fresh theorem-level prior-art audit
+Known constraint: these are exact finite results, not an asymptotic or novelty theorem
 
-Next allowed action: merge G1B closure after green CI, close issue #6, open G2 issue and begin exact extremal implementation
+Next allowed action: obtain green G2A CI, persist exact witnesses/evidence, then choose G2_SELECT_THEOREM or expand/reduce the grid
 
 Last updated from repository: 2026-10-08

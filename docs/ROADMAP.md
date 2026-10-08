@@ -33,7 +33,7 @@ hard support \(w\) essentially remains eligible.
 
 ### G2 — odd-characteristic finite extremal evidence
 
-Status: **ACTIVE**
+Status: **ACTIVE — G2A IMPLEMENTATION**
 
 Initial fields:
 
@@ -46,6 +46,8 @@ Initial capacity/support grid:
 \[
 d=2,\qquad w\in\{1,2,3\}.
 \]
+
+Phase A exact harness is frozen in issue #12.
 
 Tasks:
 

@@ -2,6 +2,7 @@ from itertools import combinations
 import unittest
 
 from lent_exact import finite_bound_holds, hamming_ball, input_count
+from lent_extremal import lent_upper_v, max_aset_d2, verify_w1_formula
 from lent_exhaustive import (
     collision_witness,
     has_small_gf2_dependency,
@@ -79,6 +80,25 @@ class ExactArithmeticTests(unittest.TestCase):
     def test_g1a_rejects_nonprime_grid_field(self) -> None:
         with self.assertRaises(ValueError):
             linear_dependency_witness([(1,), (2,)], 4, 2)
+
+    def test_g2a_tiny_exact_search(self) -> None:
+        result = max_aset_d2(3, 2, 1)
+        self.assertEqual(result["max_v"], 2)
+        self.assertTrue(is_exact_family(
+            [tuple(column) for column in result["witness"]],
+            3,
+            2,
+        ))
+
+    def test_g2a_lent_upper(self) -> None:
+        self.assertEqual(lent_upper_v(3, 3, 2, 2), 6)
+        self.assertEqual(lent_upper_v(5, 2, 2, 2), 6)
+        self.assertEqual(lent_upper_v(7, 2, 2, 2), 9)
+
+    def test_g2a_w1_formula(self) -> None:
+        self.assertEqual(verify_w1_formula(3, 4, 1)["max_v_by_proof"], 4)
+        self.assertEqual(verify_w1_formula(5, 3, 2)["max_v_by_proof"], 6)
+        self.assertEqual(verify_w1_formula(7, 3, 3)["max_v_by_proof"], 9)
 
 
 if __name__ == "__main__":
