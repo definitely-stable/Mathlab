@@ -127,7 +127,7 @@ def verify_artifacts(path:Path, drat_trim:str|None=None)->str:
             raise AssertionError("proof SHA256 mismatch")
         if report.get("proof_bytes") != len(complete_proof):
             raise AssertionError("incomplete proof byte count")
-        if report.get("proof_lines") != complete_proof.count(b"\\n"):
+        if report.get("proof_lines") != complete_proof.count(b"\n"):
             raise AssertionError("incomplete proof line count")
         executable=drat_trim or shutil.which("drat-trim")
         if not executable:
@@ -153,7 +153,7 @@ def verify_artifacts(path:Path, drat_trim:str|None=None)->str:
                 "independent_checker": "drat-trim, source pinned in workflow",
                 "solver": report["solver"],
                 "github_sha": report["github_sha"],
-            }, sort_keys=True, indent=2)+"\\n", encoding="utf-8",
+            }, sort_keys=True, indent=2)+"\n", encoding="utf-8",
         )
         print("G2BB2_PROOF_HASH_AND_LENGTH_PASS")
         print("G2BB2_INDEPENDENT_UNSAT_PROOF_ACCEPTED")
