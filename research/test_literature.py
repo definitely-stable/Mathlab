@@ -110,7 +110,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 49)
+        self.assertEqual(len({e["id"] for e in entries}), 69)
         tracks = {e["track"] for e in entries}
         self.assertEqual(len(tracks), 10)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
