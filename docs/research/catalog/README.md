@@ -11,6 +11,10 @@ This is Mathlab's **curated, cross-repository research navigator**, not a mirror
 - [Mathlab research authority](../README.md): proofs, decisions and accepted claim hierarchy remain in their original files.
 - [Catalog program](../../../research/catalog.py): deterministic offline validation and index generation.
 
+## TOM-007 targeted source reconciliation (2026-10-08)
+
+Seven original primary sources LIT-096..102 were absent from the previous 95-work canonical catalog: Nominal Adapton, Bigtable merge compaction, Competitive Data-Structure Dynamization, CPM 2026 dynamic LCE, Hardt–Woodruff adaptive linear sketches, Cohen–Singhal–Stemmer adaptive cardinality and Riker incremental builds. See [TOM-007 model/primary-source decision matrix](../TOM-007-SIX-HYPOTHESIS-AUDIT.md). The original seven paper identities, Russian model-specific summaries and citation/provenance links are in [literature.json](literature.json), the forward [literature index](LITERATURE.md) and the reverse [links by research](LITERATURE-BY-RESEARCH.md). Catalog **102 unique** identities; 40 historical known/STOP claims and 61 cross-project research records remain unchanged. New LIT entries are `model_overlap`, not fictitious citations or independently checked full mathematical proofs.
+
 ## Coverage as of 2026-10-08
 
 **RESEARCH-INDEX-002:** 61 curated records (Mathlab 11, DELSK 12, DeltaMeter 14, openai/math 24), cross-linked across 60 generated topics. Existing IDs preserved; RESEARCH-INDEX-003 adds 10 narrowly selected OpenAI families with explicitly recorded paper-package and Lean-scope checks.
