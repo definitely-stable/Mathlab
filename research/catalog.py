@@ -17,7 +17,7 @@ DATA = ROOT / "docs/research/catalog/registry.json"
 INDEX = ROOT / "docs/research/catalog/INDEX.md"
 SHA = re.compile(r"^[0-9a-f]{40}$")
 ID = re.compile(r"^(ML|DL|DM|OM)-[0-9]{3}$")
-URL = re.compile(r"^https://[^\\s<>]+$")
+URL = re.compile(r"^https://[^\s<>]+$")
 STATUSES = {
     "DERIVED_RESULT", "EXACT_NUMERICAL", "EMPIRICAL_RESULT", "OPEN_QUESTION",
     "PRIOR_ART_AUDIT", "RESEARCH_MAP", "RESEARCH_DECISION",
@@ -47,7 +47,7 @@ def check(data):
             errors.append(message)
 
     require(data.get("schema_version") == "mathlab.research-catalog.v1", "schema version")
-    require(re.fullmatch(r"20\\d\\d-\\d\\d-\\d\\d", data.get("snapshot_date", "")) is not None, "snapshot date")
+    require(re.fullmatch(r"20\d\d-\d\d-\d\d", data.get("snapshot_date", "")) is not None, "snapshot date")
     repositories = data.get("repositories", {})
     require(set(repositories) == set(REPOS), "repository keys")
     for name, info in repositories.items():
@@ -169,7 +169,7 @@ def render(data):
                 f"**Связи →** {related} · **Обратные ссылки ←** {backlinks}",
                 "",
             ]
-    return "\\n".join(output).replace("\\n", "\n").rstrip() + "\n"
+    return "\n".join(output).rstrip() + "\n"
 
 
 def main():
