@@ -29,6 +29,11 @@ TRACKS = {
     "incremental-computation": "Инкрементальные вычисления и сертификаты",
     "delta-base-selection": "DELSK: поиск delta-базы, сжатие, признаки",
     "streaming-reconciliation": "DeltaMeter: потоковые оценки и согласование множеств",
+    "compressed-indexing": "Сжатые структуры, индексация строк и нижние границы",
+    "online-optimization": "Онлайн-оптимизация, конкурентные оценки и барьеры",
+    "graph-algorithms": "Динамические графы, гиперграфы и sparsification",
+    "algebraic-algorithms": "Алгебраические алгоритмы, subset sum и разреженные матрицы",
+    "proof-certification": "Машинные доказательства, сертификаты и верификация",
 }
 VERIFICATIONS = {
     "primary_abstract_checked",
@@ -38,6 +43,9 @@ VERIFICATIONS = {
     "author_paper_or_bibliography_checked",
 }
 SOURCE_REPOS = {"MATHLAB", "DELSK", "DELTAMETER"}
+NEW_2026_IDS = {f"LIT-{i:03d}" for i in range(50, 70)}
+PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
+PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
     # Authoritative arXiv title checks: forbid a paper ID being paired with
@@ -46,6 +54,10 @@ SOURCE_TITLE_PINS = {
     "arxiv:1507.00954": "Bounds and Constructions for overline-3-Separable Codes with Length 3",
     "arxiv:2509.11121": "The Chonkers Algorithm: Content-Defined Chunking with Provable Strict Guarantees on Size and Locality",
     "arxiv:2609.14442": "Toward Optimal Time-Space Tradeoffs for Set Reconciliation",
+    "arxiv:2607.11271": "OptFSST: Optimized FSST String Compression",
+    "arxiv:2602.08692": "PBLean: Pseudo-Boolean Proof Certificates for Lean 4",
+    "arxiv:2607.00563": "Certificate-Carrying Transformation of Event-Driven Block Programs",
+    "arxiv:2606.09600": "Formal Foundations and Proof-Carrying Certificates for q-ary Covering Codes in Lean 4",
 }
 
 
@@ -109,6 +121,17 @@ def valid(data, catalog):
             check(isinstance(e.get(key), str) and len(e[key].strip()) >= 12,
                   f"{ident}: missing {key}")
         check(e.get("track") in TRACKS, f"{ident}: invalid track")
+        if ident in NEW_2026_IDS:
+            check(e.get("year") == 2026, f"{ident}: non-2026 cohort entry")
+            check(e.get("publication_stage") in PUBLICATION_STAGES,
+                  f"{ident}: unverified 2026 publication status")
+            check(e.get("selection_priority") in PRIORITIES,
+                  f"{ident}: missing 2026 selection priority")
+            if e.get("publication_stage") == "peer_reviewed_proceedings":
+                check(ref.startswith("doi:"), f"{ident}: proceedings DOI missing")
+            check(all(o.get("kind") == "model_overlap" for o in e.get("mentioned_in", [])),
+                  f"{ident}: invented existing citation; new survey must use model_overlap")
+
         check(e.get("verification") in VERIFICATIONS, f"{ident}: invalid verification")
         check(e.get("full_proof_verified") is False and
               e.get("independent_reproduction") is False,
