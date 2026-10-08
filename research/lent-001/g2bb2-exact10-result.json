@@ -1,0 +1,110 @@
+{
+  "id": "LENT-001-G2B-B2-EXACT10",
+  "version": 1,
+  "classification": "EXACT_NUMERICAL_RESULT",
+  "originality_claim": false,
+  "formalization": "NOT_LEAN_CHECKED",
+  "domain": {
+    "q": 5,
+    "m": 3,
+    "w": 2,
+    "d": 2,
+    "nonzero_distinct_columns": 60,
+    "hyperedges": 9990
+  },
+  "value": 10,
+  "lower_certificate": {
+    "type": "G1A independently verified ASET",
+    "columns": [
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        1,
+        3,
+        0
+      ],
+      [
+        2,
+        0,
+        4
+      ],
+      [
+        2,
+        4,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ]
+    ]
+  },
+  "upper_certificate": {
+    "type": "Complete DRUP refutation of globally complete anchored >=11 SAT CNF, independently checked with DRAT-trim",
+    "anchor": [
+      0,
+      1,
+      1
+    ],
+    "variables": 665,
+    "clauses": 12341,
+    "source_sha256": "d045919f0410c1272ea9a2d86196cfd0b1b8a8acbeae0040ca88a0e99cef3829",
+    "cnf_sha256": "548645e741ad29e948670608216e48bbf3ca306b42b049783c89e35569032b5a",
+    "proof_sha256": "ffbc5fabb0900acf52e72c41304572eea22f9a5d8c6bd19c2377a038d6e2f748",
+    "proof_bytes": 24388999,
+    "proof_lines": 500980,
+    "solver": "python-sat==1.9.dev15, Glucose4",
+    "independent_checker": "drat-trim@2e3b2dc0ecf938addbd779d42877b6ed69d9a985",
+    "conflict_budget": 5000000,
+    "verified_runs": [
+      37774499932,
+      37774701667
+    ],
+    "evidence_doc": "docs/research/LENT-001-G2B-B2-EXACT10-CERTIFICATE.md"
+  },
+  "coverage": {
+    "model_independent_reconstruction": true,
+    "group_orbit_size": 384,
+    "support2_orbit_size": 48,
+    "small_case_truth_tables": true,
+    "full_exact_11_query": "UNSAT_PROOF_VERIFIED",
+    "artifact_retention": "GitHub Actions, regenerated on research branch and main, finite retention"
+  },
+  "prior_art": "Roth Seroussi 1996 weak Sidon; SAT/DRUP classical tooling",
+  "disallowed": [
+    "publication novelty claim",
+    "general asymptotic theorem claim",
+    "using UNSAT solver result without independent complete proof",
+    "assuming prior local-search failure suffices",
+    "Rust crate"
+  ]
+}

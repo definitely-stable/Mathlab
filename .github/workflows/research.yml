@@ -30,11 +30,10 @@ jobs:
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
-      - name: Cross-repository research catalog validation
-        run: python research/catalog.py --check
-
       - name: External research literature identity and source validation
         run: python research/literature.py --check
+      - name: Cross-repository research catalog validation
+        run: python research/catalog.py --check
 
       - name: G2B signed-collision hypergraph and certified search
         run: python research/lent_hypergraph.py
@@ -56,3 +55,6 @@ jobs:
 
       - name: G2B-B1 frozen GF5 witness local exchange audit
         run: python research/lent_g2bb_neighborhood.py
+
+      - name: G2B-B2 anchor orbit and exact cardinality CNF foundation
+        run: python research/g2bb2_anchor_sat.py

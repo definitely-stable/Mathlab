@@ -33,7 +33,7 @@ hard support \(w\) essentially remains eligible.
 
 ### G2 — odd-characteristic finite extremal evidence
 
-Status: **ACTIVE — G2A COMPLETE / G2B-A HOSTED EVIDENCE ACCEPTED / G2B-B OPEN**
+Status: **ACTIVE — G2B-B2 GF5 EXACT NUMERICAL CERTIFICATE ACCEPTED; G2 THEOREM DECISION OPEN**
 
 Initial fields:
 
@@ -67,10 +67,29 @@ A frozen 10-witness cannot be grown to 11 by direct addition or
 one-delete/two-add local exchange (50+12,750 exact finite trials).
 This does **NOT** imply global 11-column infeasibility.
 
-G2B-B2 remains **OPEN**: find one independent exact 11-column witness,
-or prove that none exists by a globally complete and independently
-checkable mathematical/solver certificate; never use an unfinished
-SAT/MILP/branch-and-bound search as a NO verdict.
+G2B-B2-A (issue #42) implements and freezes a **globally complete
+single-anchor reduction**: any 11-vertex ASET family contains a
+support-two column, and the 384-element coordinate-monomial
+action can send it to (0,1,1). A dependency-free exact CNF
+uses all 9,990 minimal forbidden edges and a fully reified
+at-least-11 cardinality circuit. A separate verifier regenerates
+the original ASET incidence; external SAT/UNSAT output can be
+promoted only with independent witness/DRUP verification.
+See LENT-001-G2B-B2-A-ANCHORED-SAT-PROTOCOL.md.
+
+G2B-B2 is **COMPLETE** for GF5. The anchored eleven-column
+CNF was UNSAT, and the full proof was independently checked using
+pinned drat-trim on GitHub-hosted CI. Hence **A_5^set(3,2,2)=10**.
+The source proof, complete CNF/model/DRAT hashes, reproducible
+runner and independent checker are recorded in
+docs/research/LENT-001-G2B-B2-EXACT10-CERTIFICATE.md.
+This result is EXACT NUMERICAL RESULT (computer-assisted),
+NOT a new general theorem or a novelty claim. The B1 interval
+[10,11] is historical.
+
+Next G2 decision: compare this finite exact value with classical
+Sidon and sparse extremal structures before choosing
+G2_SELECT_THEOREM/G2_REDUCE_TARGET/G2_NO_SIGNAL.
 
 G2B-B is still OPEN. Shrink/close the q=5 gap through independently audited exact search or certificate. Keep the mathematical model correction: a+b+c=0 is not by itself forbidden for d=2; only collisions of admissible subsets generate forbidden hyperedges.
 

@@ -1,0 +1,57 @@
+name: g2bb2-anchored-decision
+
+on:
+  push:
+    branches:
+      - "research/g2bb2-*"
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  anchored-sat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify independent ASET source and anchor protocol (stdlib)
+        run: |
+          python research/g2bb2_anchor_sat.py
+          python -c "import sys; sys.path.insert(0,'research'); from g2bb2_verify import verify_model_source; a,b=verify_model_source(); print('G2BB2_INDEPENDENT_9990_EDGE_SOURCE_PASS',a,len(b))"
+
+      - name: Install pinned experimental SAT solver (NOT a proof verifier)
+        run: python -m pip install --disable-pip-version-check "python-sat==1.9.dev15"
+
+      - name: Bounded anchored eleven-column SAT with DRUP logging
+        run: python research/g2bb2_decide.py --conflicts 5000000 --artifact-dir "${RUNNER_TEMP}/g2bb2"
+
+      - name: Build pinned independent DRAT checker ONLY if UNSAT proof exists
+        run: |
+          if [ -s "${RUNNER_TEMP}/g2bb2/proof.drat" ]; then
+            git clone --quiet https://github.com/marijnheule/drat-trim.git "${RUNNER_TEMP}/drat-trim"
+            git -C "${RUNNER_TEMP}/drat-trim" checkout --quiet --detach 2e3b2dc0ecf938addbd779d42877b6ed69d9a985
+            make -C "${RUNNER_TEMP}/drat-trim" drat-trim
+          fi
+
+      - name: Independent model, witness or DRAT proof verification
+        run: |
+          if [ -s "${RUNNER_TEMP}/g2bb2/proof.drat" ]; then
+            python research/g2bb2_verify.py --artifact-dir "${RUNNER_TEMP}/g2bb2" --drat-trim "${RUNNER_TEMP}/drat-trim/drat-trim"
+          else
+            python research/g2bb2_verify.py --artifact-dir "${RUNNER_TEMP}/g2bb2"
+          fi
+
+      - name: Preserve exact SAT result or UNKNOWN status with reproducible inputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: g2bb2-anchored-${{ github.sha }}
+          path: ${{ runner.temp }}/g2bb2
+          if-no-files-found: warn
+          retention-days: 90

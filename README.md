@@ -68,9 +68,14 @@ This matters because:
 G1A/G1B and G2A are complete. Active task:
 [#14](https://github.com/definitely-stable/Mathlab/issues/14) — G2B
 hard-support evidence. G2B-A yields exact A_3^set(4,2,2)=7 and certified
-10<=A_5^set(3,2,2)<=11 after G2B-B1's classical odd-group weak-Sidon
-bound. [Proof/independent certificate](docs/research/LENT-001-G2B-B1-WEAK-SIDON-BOUND.md).
-The q=5 exact maximum remains UNKNOWN (10 or 11).
+**A_5^set(3,2,2)=10 EXACT**, certified in G2B-B2 by a
+[single-anchor global CNF and independent DRAT checker](docs/research/LENT-001-G2B-B2-EXACT10-CERTIFICATE.md).
+The previous [10,11] interval from the classical weak-Sidon bound is
+historical. This is a computer-assisted **finite exact result**, not
+a new asymptotic theorem or originality claim.
+[G2B-B2 anchored model and protocol](docs/research/LENT-001-G2B-B2-A-ANCHORED-SAT-PROTOCOL.md)
+prove the search is global: any 11-witness would normalize to
+include (0,1,1). The complete UNSAT proof was independently checked.
 
 Research extensions: [HYP-001 (#24)](https://github.com/definitely-stable/Mathlab/issues/24)
 provides a classical-order two-cell capacity proof; [HYP-002 (#25)](https://github.com/definitely-stable/Mathlab/issues/25)
