@@ -1,5 +1,11 @@
 # Research index and authority order
 
+## Verified external scholarly literature
+
+[Primary literature catalog](catalog/LITERATURE.md) · [papers by research record](catalog/LITERATURE-BY-RESEARCH.md) · [source/model audit](catalog/LITERATURE-001-AUDIT.md) · [literature.json](catalog/literature.json).
+
+This is a distinct DOI/arXiv-based bibliography of sources cited by or mathematically intersecting Mathlab, DELSK and DeltaMeter, not a theorem authority. LENT G2B-B2 is independently handled under issue #42 and is unchanged by these imports.
+
 ## Cross-repository evidence catalog (non-authoritative)
 
 [OM-116/OM-140 theorem transfer audit](TOM-002-OM116-OM140-THEOREM-AUDIT.md) · [Research index](catalog/INDEX.md) · [thematic navigator](catalog/THEMES.md) · [import review and cross-project discovery](catalog/IMPORT-002-REVIEW.md) · [OpenAI Math source audit](catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) · [metadata and maintenance](catalog/README.md) · [registry.json](catalog/registry.json).
