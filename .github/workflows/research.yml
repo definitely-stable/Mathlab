@@ -41,3 +41,9 @@ jobs:
 
       - name: HYP-002 sharp quadratic prefix-fiber theorem checks
         run: python research/hyp002_quadratic.py
+
+      - name: HYP-002-C affine decoder exhaustive CI oracle
+        run: python research/affine_two_id.py
+
+      - name: HYP-002-C diagnostic Python comparison (no perf gate)
+        run: python research/bench_affine_two_id.py
