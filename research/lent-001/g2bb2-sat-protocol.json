@@ -1,0 +1,69 @@
+{
+  "id": "LENT-001-G2B-B2-A",
+  "version": 1,
+  "updated": "2026-10-08",
+  "stage": "FROZEN_MODEL_AND_PROOF_GATE",
+  "source_main": "eee8e89e1d844bca9f418587d4c8ddba731c2673",
+  "model": {
+    "q": 5,
+    "m": 3,
+    "w": 2,
+    "d": 2,
+    "target_columns": 11,
+    "all_candidate_columns": 60,
+    "number_minimal_forbidden_edges": 9990,
+    "forbidden_edge_rule": "E=A symmetric_difference B where admissible distinct A,B are index subsets of size <=2 with equal modular sums; retain only inclusion-minimal E",
+    "weak_sidon_upper": 11,
+    "known_exact_lower": 10
+  },
+  "symmetry": {
+    "group": "S_3 semidirect product (F5^*)^3, order 384",
+    "actions": "coordinate permutations and independent nonzero coordinate multipliers",
+    "anchor": [
+      0,
+      1,
+      1
+    ],
+    "lemma": "A valid 11-family contains support-two: each of three one-coordinate axes supports <=2 distinct columns by 1+3+C(3,2)>5; group acts transitively on all support-two vectors.",
+    "excluded": [
+      "translation",
+      "arbitrary GL(3,5) mixing",
+      "index relabeling not induced by field monomial action"
+    ]
+  },
+  "sat": {
+    "variables": "60 original x_i plus full bi-implication DP cardinality Tseitin auxiliary variables",
+    "constraints": [
+      "(-x_i for i in each minimal forbidden edge)",
+      "unit x_anchor=true",
+      "last DP count>=11"
+    ],
+    "dp": "t[i,k] <-> t[i-1,k] OR (x_i AND t[i-1,k-1])",
+    "enumeration": "model source independently recomputed in research/g2bb2_verify.py",
+    "optional_solver": "PySAT Glucose4, conflict-limited; output 3-way SAT/UNSAT/UNKNOWN",
+    "unsat": "DRUP/DRAT proof required; verify using independent drat-trim before any exact=10 claim",
+    "sat": "11 independently verified canonical vectors immediately establish exact=11 given weak-Sidon upper",
+    "unknown": "must preserve exactness UNKNOWN and 10<=A<=11"
+  },
+  "artifacts": [
+    "decision.json",
+    "problem.cnf",
+    "witness.json only on SAT",
+    "proof.drat only on UNSAT"
+  ],
+  "gates": [
+    "symmetry orbit 384 and support-one axis cap",
+    "exhaustive small-case CNF truth tables",
+    "independent 9990 hyperedges rebuild",
+    "tampered model/witness/proof fail closed",
+    "GitHub hosted solver with deterministic conflict budget",
+    "full prior G0/G1A/G2B/HYP/TOM/catalog gates"
+  ],
+  "decision": "No exact optimum unless independent witness or checked UNSAT proof",
+  "source_audit": [
+    "Roth-Seroussi 1996 Location-correcting codes odd weak Sidon upper",
+    "PySAT Glucose4 DRUP via with_proof=True/get_proof()",
+    "drat-trim independent checker"
+  ],
+  "next": "If UNKNOWN after bounded run, do not claim progress on exact optimum; evaluate stronger clause learning/verified symmetry orbit partition or structural theorem"
+}
