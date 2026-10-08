@@ -1,6 +1,6 @@
 # LENT-001-G1B — primary-source matrix
 
-Status: **OPEN / AUDIT 02 RECORDED**
+Status: **OPEN / AUDIT 03 PASS 01 RECORDED**
 
 Issue: #6
 
