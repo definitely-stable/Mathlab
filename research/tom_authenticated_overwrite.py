@@ -121,7 +121,7 @@ class Transition:
     no_effect: bool
     proof_hashes_transmitted: int
     verifier_hash_calls: int
-    transmitted_bits_lower_bound: int
+    unframed_field_bits: int
 
 
 def authenticated_overwrite(
@@ -162,15 +162,16 @@ def authenticated_overwrite(
         raise ValueError("count out of range: setup/count is inconsistent")
     new_root, new_cost = reconstruct(n, chosen, new, helper_hashes)
     index_bits = (n - 1).bit_length()
-    # Counts index+old+new bits per changed index; key encoding/framing
-    # and initial authenticated root+count are NOT included here.
+    # Counts index+old+new bits per changed index in this fixed-field
+    # encoding, NOT a universal wire-information lower bound; framing,
+    # cache provenance, and authenticated root+count are NOT included here.
     payload_bits = len(chosen) * (index_bits + 2) + 256 * len(helper_hashes)
     return Transition(
         root=new_root, count=new_count,
         no_effect=(trusted_old_count >= threshold) == (new_count >= threshold),
         proof_hashes_transmitted=len(helper_hashes),
         verifier_hash_calls=old_cost + new_cost,
-        transmitted_bits_lower_bound=payload_bits,
+        unframed_field_bits=payload_bits,
     )
 
 
@@ -196,7 +197,7 @@ def compare_costs(n: int, indices: Sequence[int]) -> dict[str, int]:
         "batched_digest_bytes": 32 * len(helpers),
         "verifier_batch_sha256_calls_old_and_new": 2 * one_pass,
         "transmitted_index_old_new_bits_lower_bound": k * (h + 2),
-        "batched_minimum_unframed_bits": k * (h + 2) + 256 * len(helpers),
+        "batched_unframed_field_bits": k * (h + 2) + 256 * len(helpers),
     }
 
 
