@@ -1,5 +1,9 @@
 # CURRENT_STATE
 
+## HYP-101 G0 (issue #72) — incremental cryptography source boundary
+
+[HYP-101-G0-INCREMENTAL-HASH-AUDIT.md](research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md) verifies prior art of incremental cryptographic hash schemes (CRYPTO 1994, EUROCRYPT 1997) and an elementary exhaustive-cache countermodel: for any deterministic hash, all one-byte insertion digests can be precomputed with O(n) digest bits when the byte alphabet is fixed and preprocessing time/constant is uncharged. Thus **a one-shot Omega(n/1024) compression-call lower bound does not follow from O(n) extra-state alone**. Repeated arbitrary byte edits, fully charged maintenance, and exact standardized BLAKE3 output are separate open modeling questions. An independent stdlib SHA-256 oracle regression is under hosted research CI. Bibliography 108 -> **110** unique works. No novel theorem, G4, Rust or product changes; verify exact-head CI and merge before calling this accepted.
+
 ## HYP-103 G0 (issue #70) — classical certificate complexity closure
 
 [HYP-103-G0-CERTIFICATE-REDUCTION.md](research/HYP-103-G0-CERTIFICATE-REDUCTION.md) freezes the exact old-root+batch-overwrite verifier model and proves that minimum authenticated old-bit probes are the minimum hitting set of all opposite-output consistent-input difference sets, i.e. classical promise-domain certificate complexity. [Independent finite regression](../research/test_hyp103_certificates.py) exhaustively cross-checks all Boolean functions of n<=3, all inputs and overwrite batches. The **broad theorem novelty target is STOP_CLASSICAL_CERTIFICATE_REDUCTION**; scoped incomplete proposals need a new costed retained-metadata/verification-work model before reopening. Literature index expands 102 to **108** distinct records with new primary works LIT-103..108. Exact-head GitHub-hosted CI and merge must be verified separately. No Rust, new theorem, or product result.
