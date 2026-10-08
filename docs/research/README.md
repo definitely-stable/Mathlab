@@ -35,9 +35,11 @@ publication novelty.
 
 [Mathematical claim ledger, derivations, adversarial tests and prior-art map](HYP-001-002-LOCALITY-TRANSITION.md)
 tracks HYP-001 issue #24 and HYP-002 issue #25. HYP-001 has a derived
-Theta_q(m^(3/2)) proof based on classical C4-free graphs. HYP-002 has
-proved Omega(m²) and O_q(m^(5/2)) bounds, while Theta(m²) remains a
-CONJECTURE. Novelty of either theorem has NOT been established.
+Theta_q(m^(3/2)) proof based on classical C4-free graphs. HYP-002
+now has a **DERIVED sharp Theta_q(m²) theorem** via a finite prefix-fiber
+C4-free bound; see [Phase B correction](HYP-002-B-QUADRATIC-THEOREM.md).
+The old O(m^(5/2)) upper is superseded, and the quadratic CONJECTURE
+has been discharged. Novelty of either exponent has NOT been established.
 
 The finite evidence is recorded in
 [HYP-001-002-PHASE-A-EVIDENCE.md](HYP-001-002-PHASE-A-EVIDENCE.md)
