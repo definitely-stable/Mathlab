@@ -77,6 +77,8 @@ SOURCE_TITLE_PINS = {
     "publisher:eccc:tr26-206": "Certification complexity of Boolean functions",
     "arxiv:2602.01042": "On Condensation of Block Sensitivity, Certificate Complexity and the $\\mathsf{AND}$ (and $\\mathsf{OR}$) Decision Tree Complexity",
     "doi:10.1016/S0304-3975(01)00144-X": "Complexity measures and decision tree complexity: a survey",
+    "doi:10.1007/3-540-48658-5_22": "Incremental Cryptography: The Case of Hashing and Signing",
+    "doi:10.1007/3-540-69053-0_13": "A New Paradigm for Collision-Free Hashing: Incrementality at Reduced Cost",
 }
 
 

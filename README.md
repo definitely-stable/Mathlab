@@ -1,5 +1,9 @@
 # Mathlab
 
+## Current research — HYP-101 G0 incremental cryptographic hashing
+
+[Incremental cryptography prior art and exact standard-BLAKE3 one-shot lower-bound countermodel](docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md), issue [#72](https://github.com/definitely-stable/Mathlab/issues/72). Foundational crypto papers predate BLAKE3; exact BLAKE3 compatibility differs from new hash constructions. A linear-size answer table kills an overbroad *single-update*, free-preprocessing lower bound. No multi-edit theorem, originality or Rust implementation claimed. Literature catalog: **110** unique works.
+
 ## Current mathematics — HYP-103 G0 (scope-limited)
 
 [Exact minimum old-state certificate reduction, counterexamples, and six new primary papers](docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md). The minimum old-bit probe certificate for a publicly specified batch of input overwrites under an authenticated old-root promise is a **classical certificate-complexity/hitting-set problem**, not a newly discovered theorem. [TOM-007](docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) remains the prior broad scouting program. External literature index: **108** curated works; no Rust authorization.

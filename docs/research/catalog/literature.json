@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "05cd2ecb73ee4b280a8596ec37fe618a41c5360c"
+      "sha": "2103ae40c58ff321892497598adf52a897817c1d"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -3185,6 +3185,65 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-109",
+      "title": "Incremental Cryptography: The Case of Hashing and Signing",
+      "year": 1994,
+      "identity": "doi:10.1007/3-540-48658-5_22",
+      "primary_url": "https://doi.org/10.1007/3-540-48658-5_22",
+      "track": "incremental-computation",
+      "summary_ru": "CRYPTO 1994: вводится криптографическая постановка инкрементального хеширования и подписания, допускающая обновление преобразования после небольших изменений документа.",
+      "limits_ru": "Примитивы 1994 года не обязаны давать тот же результат, что стандартный BLAKE3; новая теорема должна различать безопасность нового хеша и точную совместимость хеша по байтам.",
+      "maps_to": [
+        "ML-004",
+        "ML-005",
+        "DL-001"
+      ],
+      "authors": [
+        "Mihir Bellare",
+        "Oded Goldreich",
+        "Shafi Goldwasser"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-110",
+      "title": "A New Paradigm for Collision-Free Hashing: Incrementality at Reduced Cost",
+      "year": 1997,
+      "identity": "doi:10.1007/3-540-69053-0_13",
+      "primary_url": "https://doi.org/10.1007/3-540-69053-0_13",
+      "track": "incremental-computation",
+      "summary_ru": "EUROCRYPT 1997: конкретные инкрементальные конструкции устойчивого к коллизиям хеширования MuHASH, AdHASH и LtHASH, с отдельными алгебраическими допущениями.",
+      "limits_ru": "Эти алгоритмы строят другие хеши и не вычисляют стандартный BLAKE3-256 без изменений; из их доказательств нельзя выводить границу времени вставки в BLAKE3.",
+      "maps_to": [
+        "ML-004",
+        "ML-005",
+        "DL-001"
+      ],
+      "authors": [
+        "Mihir Bellare",
+        "Daniele Micciancio"
+      ],
+      "verification": "author_paper_or_bibliography_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md",
           "kind": "model_overlap"
         }
       ],

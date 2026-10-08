@@ -19,6 +19,10 @@ Seven original primary sources LIT-096..102 were absent from the previous 95-wor
 
 Further six unique primary identities LIT-103..108 complement the previous 102 works: MFCS 2024 batch query maintenance; ESA 2020 parallel batch dynamic trees; ITCS 2020 instance/unlabeled certificates; ECCC 2026 certification complexity of Boolean functions; arXiv 2026 certificate-complexity condensation (v2); Buhrman–de Wolf 2002 decision-tree complexity survey. Source-model scope and the original elementary old-root probe reduction are recorded in [HYP-103 G0 audit](../HYP-103-G0-CERTIFICATE-REDUCTION.md). 108 unique primary records; existing 102 identities and historical research registries preserved. Full proofs not independently reverified; no new theorem or Rust claim.
 
+## HYP-101 foundational cryptography sources (2026-10-08)
+
+Added two unique papers **LIT-109** (CRYPTO 1994, Bellare–Goldreich–Goldwasser) and **LIT-110** (EUROCRYPT 1997, Bellare–Micciancio). They establish that incremental hashing as a broad research idea is classical, while exact standardized BLAKE3 digest compatibility is a different, not yet proven time–space theorem target. Russian summaries, distinct DOI identities, model boundary, author provenance and inverse research links are registered in [literature.json](literature.json) and [HYP-101 model audit](../HYP-101-G0-INCREMENTAL-HASH-AUDIT.md). Total **110** unique sources, prior 108 records unchanged, no independently checked full proofs.
+
 ## Coverage as of 2026-10-08
 
 **RESEARCH-INDEX-002:** 61 curated records (Mathlab 11, DELSK 12, DeltaMeter 14, openai/math 24), cross-linked across 60 generated topics. Existing IDs preserved; RESEARCH-INDEX-003 adds 10 narrowly selected OpenAI families with explicitly recorded paper-package and Lean-scope checks.
