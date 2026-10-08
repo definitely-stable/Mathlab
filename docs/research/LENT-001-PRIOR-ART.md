@@ -1,189 +1,139 @@
 # LENT-001 — prior-art audit
 
-Status: **G1 OPEN / G1A COMPLETE / G1B AUDIT 01 COMPLETE**.
+Status: **G1 OPEN / G1A COMPLETE / G1B AUDITS 01–02 COMPLETE**.
 
-This document records the current source-level boundary. Mathematical
-correctness and publication novelty remain separate gates.
+The key novelty correction after Audit 02 is that the broad exact subset
+identification object is established prior art. The only remaining primary
+candidate is the **hard support-constrained sharp frontier**.
 
-## 1. Sparse parity-check baseline
+## 1. Binary: BCC closes unconstrained ASET novelty
 
-Binary ASET is direct sparse parity-check territory.
+Censor-Hillel, Haeupler, Lynch and Médard define an \([M,m,a]\)
+Bounded-Contention Code as a set of binary codewords whose XORs are distinct
+for every two distinct subsets of size at most \(a\).
 
-For q>2, Lefmann (2005) studies support-bounded columns under the stronger
-condition that every short set of columns is linearly independent for
-arbitrary nonzero field coefficients.
+This is binary ASET without the hard support bound.
 
-Thus:
+Primary:
+https://arxiv.org/abs/1208.6125
+
+Thus binary ASET as an object is known. Sparse parity-check literature
+further overlaps the support-constrained binary problem.
+
+## 2. Finite-field bounded-active signatures are established
+
+Goseling, Stefanović and Popovski use signature codes over an
+\(\mathbb F_q\) adder channel so that identities of up to \(K\) active users
+are recovered from the sum of their signatures.
+
+Primary:
+https://arxiv.org/abs/1602.02612
+
+Their construction controls signature length and deliberately uses a large
+field; it does not establish the sharp hard-support frontier.
+
+Therefore broad q-ary ASET existence/identity recovery is not new, while
+support-sensitive extremality may still be.
+
+## 3. Characteristic two reduces to block-sparse binary coding
+
+For \(q=2^s\), repository proof shows:
 
 \[
-\text{small-column linear independence}
-\Longrightarrow
-\text{ASET},
+\text{ASET}_d
+\Longleftrightarrow
+\text{no nonempty GF(2) dependency among at most }2d
 \]
 
-but not conversely for q>2.
+after basis expansion.
 
-Lefmann constructions are valid ASET lower baselines. His q>2 upper bounds
-are not automatically ASET upper bounds.
+The q-ary support bound becomes at most \(w\) nonzero binary blocks of size
+\(s\).
 
-Primary:
-https://doi.org/10.1017/S0963548304006625
+Hence the correct characteristic-two prior-art target is **block-sparse
+binary BCC/parity-check coding**.
 
-## 2. Dissociated terminology corrected
+See:
+\`LENT-001-G1B-CHAR2-REDUCTION.md\`.
 
-Shkredov's \(k\)-dissociated terminology bounds coefficient magnitude
-\(|\varepsilon|\le k\), not relation order.
+## 4. Constant-weight exact signatures are also known under ordinary addition
 
-Standard dissociation (\(k=1\)) forbids every finite signed relation and is
-therefore stronger than finite-d ASET.
+Fan, Darnell and Honary show that suitable constant-weight binary codewords
+allow exact identification of any bounded set of active users in the
+ordinary binary-adder channel.
 
-Primary:
-https://arxiv.org/abs/2205.07296
+DOI:
+https://doi.org/10.1109/18.391266
 
-Do not call ASET "k-dissociated" without an explicit custom definition.
+Fan et al. later study constant-weight t-signature codes in a weighted
+binary adder model.
 
-## 3. Free / h-free / B_h^*
+Thus "sparse active-user signature" is not itself new.
 
-Nešetřil–Rödl–Sales provide unusually close terminology:
+The remaining arithmetic distinction is ordinary addition versus
+finite-field/mod-q addition.
 
-- free: all finite subset sums distinct;
-- h-free: one collision side has size ≤h, the other is unrestricted;
-- \(B_h^*\): h distinct-summand sums unique.
+## 5. Low-density signature is established engineering terminology
 
-Consequently:
+Low-density signature systems deliberately give each user only a few
+nonzero chips, but typically target noisy probabilistic multiuser detection,
+not deterministic zero-error subset injectivity.
 
-\[
-\text{h-free}\Longrightarrow\text{ASET}_h
-\]
+Example:
+Hoshyar, Wathan, Tafazolli (2008),
+DOI https://doi.org/10.1109/TSP.2007.909320
 
-and
+This literature is mandatory terminology/engineering context, but not an
+ASET theorem by itself.
 
-\[
-\text{ASET}_d\Longrightarrow B_h^*
-\quad(h\le d).
-\]
+## 6. Earlier Audit 01 boundaries remain active
 
-Neither is definitionally equal to ASET.
+Also verified:
 
-Primary:
-https://doi.org/10.1007/s00493-024-00115-1
+- Lefmann q-ary sparse parity-check matrices are stronger than odd-q ASET;
+- standard k-dissociated terminology does not mean bounded relation order;
+- free/h-free/\(B_h^*\) are close but non-equivalent;
+- standard q=3 Sidon/2-cap includes repeated summands;
+- constant-weight real-addition \(B_2\) sequences are established;
+- additive/quantitative group testing gives standard-arithmetic d-sparse
+  separability.
 
-## 4. q=3 Sidon does not close ASET
+Detailed sources:
+\`LENT-001-G1B-AUDIT-01.md\` and
+\`LENT-001-G1B-AUDIT-02.md\`.
 
-Huang–Tait–Won identify 2-caps with Sidon sets in \(\mathbb F_3^n\), but
-their Sidon property includes repeated-summand equations such as
-\(a+a=b+c\).
+## 7. Current novelty candidate
 
-ASET uses subsets and therefore forbids selecting one universe element twice.
-It also imposes all-cardinality-through-d and cross-cardinality uniqueness.
+Rejected broad claim:
 
-The standard \(3^{n/2}\) even-dimensional Sidon maximum therefore is not
-automatically an ASET d=2 maximum.
+> exact additive bounded-active set identification is new.
 
-Primary:
-https://arxiv.org/abs/1809.05117
-
-## 5. Bounded-weight additive uniqueness is established prior art
-
-Sima–Li–Shomorony–Milenkovic study binary constant-weight \(B_2\)-sequences:
-constant-weight binary vectors whose real-valued sums of distinct pairs are
-unique.
-
-Primary:
-https://arxiv.org/abs/2303.12990
-
-This invalidates any broad claim that Hamming-weight-constrained additive
-uniqueness itself is untouched.
-
-The exact ASET combination remains different because of modular arithmetic,
-all capacities through d, cross-cardinality collisions and the at-most-w
-support model.
-
-## 6. Signature/detecting/adder-code cluster added
-
-Verified neighbors now include:
-
-- Lindström detecting vectors / sum-distinct systems;
-- Jevtić sum-distinct integral-vector representatives;
-- Fan et al. constant-weight t-signature codes;
-- Erdoğan–Maringer–Polyanskii q-ary signature codes.
-
-These largely use ordinary/integer adder-channel arithmetic rather than
-finite-field modulo-q ASET.
-
-Primary anchors:
-
-- https://doi.org/10.4153/CMB-1965-034-2
-- https://doi.org/10.1137/S0895480194265623
-- https://arxiv.org/abs/1905.10180
-- https://arxiv.org/abs/2206.10735
-
-This source cluster is now mandatory in G1B.
-
-## 7. Additive / quantitative group testing is a direct comparator
-
-Chang–Chen–Guo–Huang define additive \((D,d)\)-separable matrices as exact
-measurement maps for different d-sparse vectors under standard arithmetic.
-
-For \(D=\{0,1\}\), this is the ordinary-arithmetic bounded-d analogue of
-ASET.
-
-Primary:
-https://arxiv.org/abs/1303.6020
-
-For the same matrix/input domain:
-
-\[
-\text{mod-}q\text{ ASET}
-\Longrightarrow
-\text{ordinary bounded-d additive separability}.
-\]
-
-So compatible ordinary-arithmetic upper bounds can become necessary ASET
-upper bounds.
-
-The reverse implication fails in general.
-
-This cluster, especially **bounded-column-weight quantitative group
-testing**, must be closed before ASET novelty is decided.
-
-## 8. Current novelty verdict
-
-### Closed negatives
-
-- binary sharp ASET: not a clean novelty target;
-- generic "bounded-weight additive uniqueness is new": false;
-- generic "k-dissociated = bounded-order ASET": false;
-- generic "q=3 Sidon = ASET": false.
-
-### Still alive
-
-The exact combined model
+Retained narrow candidate:
 
 \[
 \boxed{
-\text{modular finite-field addition}
-+
-|S|,|T|\le d
-+
-\text{distinct subset elements}
-+
-|\operatorname{supp}(a_i)|\le w
+\textbf{sharp support-constrained finite-field signature frontier}
 }
 \]
 
-has not been matched by a verified primary source in audit 01.
+with hard per-element update locality
 
-### G1B remains OPEN
+\[
+|\operatorname{supp}(a_i)|\le w.
+\]
 
-Next required clusters:
+A successful theorem must use \(w\) essentially and survive comparison with
+block-sparse BCC/parity-check, constant-weight adder/signature, detecting
+matrix and support-constrained additive-combinatorics results.
 
-1. bounded-column-weight quantitative/additive group testing;
-2. finite-field/mod-q bounded-active-user signature codes;
-3. q-ary bounded-support Sidon/\(B_h\)/dissociated families;
-4. two-sided h-free / both-side-bounded signed relations;
-5. q=3 distinct-summand variants;
-6. characteristic-two q>2 variants.
+## 8. G1B remains OPEN
 
-Detailed evidence:
-\`LENT-001-G1B-AUDIT-01.md\`.
+Audit 03 must close:
+
+1. block-sparse BCC/parity-check results;
+2. exact sparse/constant-weight finite-field or modulo-q signature codes;
+3. bounded-column-weight quantitative/detecting matrices;
+4. support-constrained q-ary \(B_h\)/signed-sum families;
+5. fixed-\((d,w)\) sharp asymptotic results.
+
+No manuscript novelty claim is allowed before this closure.

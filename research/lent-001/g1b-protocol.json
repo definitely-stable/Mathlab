@@ -1,39 +1,43 @@
 {
   "id": "LENT-001-G1B",
-  "version": 1,
-  "status": "FROZEN_FOR_PRIMARY_SOURCE_AUDIT",
+  "version": 2,
+  "status": "FROZEN_FOR_HARD_SUPPORT_AUDIT",
   "issue": 6,
-  "baseline_main": "e435b72fbf7b94f3f514a3f5fbbae88070876525",
+  "baseline_main": "5f168b26020de61f1b229585d143ab5d05dc4538",
   "primary_object": "A_q^set(m,w,d)",
-  "source_clusters": [
-    "sparse_parity_check",
-    "dissociated_and_k_dissociated",
-    "sidon_weak_sidon_Bh",
-    "distinct_summand_subset_sums",
-    "bounded_support_additive_families",
-    "q3_special_case"
+  "novelty_focus": "sharp support-constrained finite-field signature frontier",
+  "known_direct_prior_art": [
+    "binary_bounded_contention_codes",
+    "sum_mod2_restricted_access_codes",
+    "finite_field_K_out_of_M_signature_codes",
+    "constant_weight_ordinary_adder_codes",
+    "constant_weight_signature_codes",
+    "low_density_signature_engineering",
+    "sparse_parity_check_matrices",
+    "additive_quantitative_group_testing"
   ],
-  "required_fields": [
-    "primary_source",
-    "ambient_object",
-    "coefficient_set",
-    "repeated_summands",
-    "cardinality_scope",
-    "cross_cardinality_collisions",
-    "side_bounds",
-    "support_constraint",
-    "theorem_statement",
-    "asymptotic_regime",
-    "parameter_map",
-    "implication_direction",
-    "aset_consequence",
-    "confidence"
+  "field_regimes": [
+    "characteristic_two_block_sparse_binary",
+    "q3_side_bound",
+    "odd_q_gt_3_coefficient_and_side_bound"
+  ],
+  "required_audit_03_clusters": [
+    "block_sparse_bcc_parity_check",
+    "zero_error_sparse_finite_field_signature",
+    "bounded_column_weight_quantitative_detecting",
+    "support_constrained_qary_Bh_signed_sum",
+    "fixed_d_w_asymptotics"
   ],
   "allowed_decisions": [
+    "CONTINUE_SPARSE_ASET",
+    "REDUCE_TO_KNOWN_SPARSE_SIGNATURE",
+    "SPLIT_BY_CHARACTERISTIC",
+    "STOP_NOT_NOVEL"
+  ],
+  "deprecated_decisions": [
     "CONTINUE_ASET",
     "REDUCE_TO_KNOWN_OBJECT",
-    "SPLIT_Q3_QGT3",
-    "STOP_NOT_NOVEL"
+    "SPLIT_Q3_QGT3"
   ],
   "novelty_claimed": false,
   "preprint_promotion_allowed": false

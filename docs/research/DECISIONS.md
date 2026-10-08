@@ -172,3 +172,56 @@ literature makes a broader novelty claim unsafe.
 
 Next required audit is bounded-column-weight quantitative group testing and
 finite-field/mod-q bounded-active-user signature/separable codes.
+
+
+## 2026-10-08 — D018
+
+**STOP OBJECT-LEVEL NOVELTY CLAIM FOR ASET.**
+
+Primary-source audit now confirms that exact bounded-active subset
+identification is established prior art:
+
+- binary unconstrained ASET is definitionally Bounded-Contention Coding;
+- finite-field K-out-of-M signature codes recover active user identities
+  from sums in \(\mathbb F_q\).
+
+Therefore \(A_q^{set}\) remains useful repository notation, but the existence
+of this exact-injectivity object is not a novelty target.
+
+**RETAIN:** the hard support-constrained sharp frontier as the primary
+candidate.
+
+## 2026-10-08 — D019
+
+**REPLACE q=3-vs-q>3 SPLIT WITH CHARACTERISTIC SPLIT.**
+
+For every \(q=2^s\), ASET is exactly a binary short-dependency problem after
+\(\mathbb F_2\)-basis expansion, with q-ary support becoming binary block
+support.
+
+G1B must therefore classify separately:
+
+1. characteristic two;
+2. q=3;
+3. odd q>3.
+
+The former exit \`SPLIT_Q3_QGT3\` is deprecated.
+
+## 2026-10-08 — D020
+
+**G1B REMAINS OPEN AFTER AUDIT 02.**
+
+Known neighboring literature already covers:
+
+- unconstrained binary modular subset identification;
+- finite-field bounded-active signature identification;
+- constant-weight exact active-user signatures under ordinary addition;
+- low-density signatures in noisy multiuser systems.
+
+The unresolved novelty question is narrower:
+
+**sharp zero-error support-constrained finite-field signature coding.**
+
+Audit 03 must target block-sparse BCC/parity-check results, hard-sparse
+finite-field/mod-q signatures, bounded-column-weight quantitative/detecting
+matrices, and support-constrained q-ary additive families.

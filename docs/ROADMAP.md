@@ -6,125 +6,111 @@
 
 Status: **COMPLETE — FOUNDATION_PASS**
 
-Baseline exact model, finite Sparse-Update Hamming-Ball Bound, exact checker,
-hosted CI and verification discipline are established.
+The finite Sparse-Update Hamming-Ball Bound, exact model, arithmetic checker,
+CI discipline and formalization plan are established.
 
 ### G1 — model correction and prior-art closure
 
 Status: **IN PROGRESS**
 
-#### G1A — ASET model + exact relation oracle
+#### G1A — exact ASET model + oracle
 
 Status: **COMPLETE — G1A_ORACLE_PASS**
 
-Merged as:
-
-\[
-\texttt{e435b72fbf7b94f3f514a3f5fbbae88070876525}.
-\]
-
-Established:
-
-- exact ASET definition;
-- ASET-SIGNED equivalence;
-- q=2 equivalence to small-column GF(2) independence;
-- q=3/q=5 strict finite separation;
-- exact q={2,3,5} comparison oracle;
-- exact finite evidence;
-- no novelty claim.
+Established exact signed-relation semantics, q=2 equivalence, q=3/q=5 model
+separations and exact q={2,3,5} evidence.
 
 #### G1B — primary-source novelty closure
 
-Status: **ACTIVE — AUDIT 01 COMPLETE**
+Status: **ACTIVE — AUDIT 02 COMPLETE / AUDIT 03 REQUIRED**
 
 Issue: #6.
 
-Audit 01 verified:
+Audit 01 established the sparse parity-check, dissociated/free, Sidon/B_h,
+constant-weight B2, ordinary signature/detecting and additive group-testing
+neighborhood.
 
-1. Lefmann q-ary sparse parity-check boundary;
-2. dissociated/free/h-free terminology;
-3. Sidon / \(B_h^*\) / weak-distinct-summand conventions;
-4. q=3 Sidon/2-cap mismatch;
-5. binary constant-weight \(B_2\) literature;
-6. signature/detecting/adder-code literature;
-7. additive/quantitative group-testing separability under standard arithmetic.
+Audit 02 adds two decisive results:
 
-Audit 02 must close:
+1. **unconstrained binary ASET is already Bounded-Contention Coding**;
+2. **finite-field bounded-active identity recovery from signature sums is
+   already established signature-code prior art**.
 
-1. bounded-column-weight quantitative/additive group testing;
-2. finite-field/mod-q bounded-active-user signature codes;
-3. q-ary bounded-support Sidon/\(B_h\)/dissociated systems;
-4. two-sided h-free / both-side-bounded signed relations;
-5. q=3 distinct-summand variants;
-6. characteristic-two q>2 behavior.
+It also proves the structural reduction
 
-Allowed exit:
+\[
+q=2^s
+\quad\Longrightarrow\quad
+\text{block-sparse binary BCC/parity-check formulation}.
+\]
 
-- CONTINUE_ASET;
-- REDUCE_TO_KNOWN_OBJECT;
-- SPLIT_Q3_QGT3;
+Therefore G1B no longer asks whether ASET-like coding is new. It asks whether
+the **hard support-constrained sharp frontier** is already known.
+
+Audit 03 must close:
+
+1. block-sparse BCC/parity-check extremal results;
+2. zero-error hard-sparse finite-field/mod-q signature codes;
+3. bounded-column-weight quantitative/detecting matrices;
+4. support-constrained q-ary \(B_h\)/signed-sum families;
+5. fixed-\((d,w)\) sharp asymptotics.
+
+Allowed G1B v2 exits:
+
+- CONTINUE_SPARSE_ASET;
+- REDUCE_TO_KNOWN_SPARSE_SIGNATURE;
+- SPLIT_BY_CHARACTERISTIC;
 - STOP_NOT_NOVEL.
-
-G1B is the publication-novelty gate.
 
 #### G1C — secondary lanes
 
 Status: **BLOCKED ON G1B**
 
-Priority:
+Nested+update-locality and mixed alphabets remain secondary. Computation
+remains deferred until independently modeled.
 
-1. nested prefixes + bounded update locality;
-2. mixed/nonuniform cells;
-3. computation only after a separate cost model is frozen.
-
-### G2 — finite ASET extremal evidence
+### G2 — finite hard-support extremal evidence
 
 Status: **BLOCKED ON G1B**
 
-If G1B continues ASET:
+If G1B keeps a sparse frontier alive:
 
-- enumerate exact small \(A_q^{\mathrm{set}}\) values or intervals;
-- persist extremal witness families;
-- compare against valid sparse-linear baselines;
-- identify the smallest regimes with a provable extremal gap;
+- enumerate small exact \(A_q^{set}(m,w,d)\) values or intervals;
+- persist extremal support-constrained witness families;
+- compare against the strongest valid BCC/parity-check/signature baselines;
+- separate characteristic-two and odd-characteristic regimes;
 - use exact evidence to choose a theorem target.
 
 ### G3 — baseline formalization
 
 Status: **NOT STARTED**
 
-Lean targets include the finite Hamming-ball bound, ASET-SIGNED and the
-binary equivalence.
+Lean targets include the Hamming-ball theorem, ASET-SIGNED, binary
+equivalence, and characteristic-two block reduction.
 
 ### G4 — new-math lane
 
 Status: **BLOCKED ON G1B/G2**
 
-Primary candidate: a sharp theorem for
-
-\[
-A_q^{\mathrm{set}}(m,w,d)
-\]
-
-in a regime left open by G1B.
-
-Secondary candidates remain nested+locality and mixed alphabets.
+A future G4A theorem must be explicitly support-sensitive. A theorem about
+bounded-active identification that does not use \(w\) essentially is no
+longer a valid novelty target.
 
 ### G5 — manuscript promotion
 
 Status: **NOT STARTED**
 
-Requires a stable theorem, reviewable proof, closed novelty boundary,
-reproducible evidence and explicit formalization status.
+Requires stable theorem, reviewable proof, closed novelty boundary,
+reproducible evidence, and explicit formalization status.
 
 ## Current priority
 
 \[
 \boxed{
-\text{G1B primary-source closure}
+\text{G1B Audit 03: hard-support closure}
 \rightarrow
-\text{G2 finite extremal evidence}
+\text{G2 finite sparse extremal evidence}
 \rightarrow
-\text{G4A sharp theorem}
+\text{G4A support-sensitive theorem}
 }
 \]
