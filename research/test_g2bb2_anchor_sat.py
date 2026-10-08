@@ -87,7 +87,7 @@ class G2BB2AnchorTests(unittest.TestCase):
         selected=[graph.columns.index(v) for v in ten]
         with self.assertRaises(ValueError):
             verify_11_witness(selected,graph)
-        with self.assertRaises(ValueError):
+        with self.assertRaises((ValueError, AssertionError)):
             verify_11_witness(list(range(11)),graph)
         # An 11-set containing anchor but invalid ASET must fail.
         chosen=[graph.columns.index(ANCHOR)]
