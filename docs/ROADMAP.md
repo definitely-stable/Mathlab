@@ -58,6 +58,20 @@ G2B-A hosted evidence (run 37756386646):
 2. q=5,m=3,d=2,w=2: **certified interval 10 <= V <= 15**; node-budget exhausted, exact maximum UNKNOWN;
 3. q=7,m=3,d=2,w=2: deferred until solver review.
 
+G2B-B1 proves **10<=A_5^set(3,2,2)<=11** using a classical weak-Sidon
+odd-group inequality and the original independently checked 10-column
+witness; G2B-A's [10,15] is historical. See
+LENT-001-G2B-B1-WEAK-SIDON-BOUND.md and the machine protocol.
+
+A frozen 10-witness cannot be grown to 11 by direct addition or
+one-delete/two-add local exchange (50+12,750 exact finite trials).
+This does **NOT** imply global 11-column infeasibility.
+
+G2B-B2 remains **OPEN**: find one independent exact 11-column witness,
+or prove that none exists by a globally complete and independently
+checkable mathematical/solver certificate; never use an unfinished
+SAT/MILP/branch-and-bound search as a NO verdict.
+
 G2B-B is still OPEN. Shrink/close the q=5 gap through independently audited exact search or certificate. Keep the mathematical model correction: a+b+c=0 is not by itself forbidden for d=2; only collisions of admissible subsets generate forbidden hyperedges.
 
 Tasks:
