@@ -120,5 +120,51 @@ class QuadraticCapacityTests(unittest.TestCase):
             prefix_pair_fibers([(3, 0, 0)], 3)
 
 
+    def test_2_union_free_is_stronger_than_odd_aset_exact(self):
+        # Same union for two different edge pairs, but different
+        # coordinate-count vectors. This family is still fully ASET exact.
+        blocks = ((0, 1, 2), (0, 1, 3), (0, 1, 4), (0, 2, 3))
+        vectors = [
+            tuple(int(i in edge) for i in range(5)) for edge in blocks
+        ]
+        self.assertEqual(
+            set(blocks[0]) | set(blocks[1]),
+            set(blocks[0]) | set(blocks[3]),
+        )
+        for q in (3, 5, 7):
+            self.assertTrue(is_exact_family(vectors, q, 2))
+
+    def test_tripartite_unit_code_2_separable_equivalence(self):
+        # For a fixed tripartition of coordinates and unit incidence,
+        # coordinatewise descendants for sets of <=2 and odd-field
+        # modular counts are equivalent (multiplicities are 0,1,2).
+        from itertools import product
+        triples = tuple((x, 2+y, 4+z) for x,y,z in product(range(2), repeat=3))
+        for membership in range(1 << len(triples)):
+            blocks = tuple(
+                e for i,e in enumerate(triples) if membership & (1 << i)
+            )
+            vectors = [
+                tuple(int(i in edge) for i in range(6)) for edge in blocks
+            ]
+            seen = set()
+            descendant_exact = True
+            subsets = [()] + [(i,) for i in range(len(blocks))]
+            subsets.extend(combinations(range(len(blocks)), 2))
+            for subset in subsets:
+                descendants = tuple(
+                    tuple(sorted({blocks[j][part] for j in subset}))
+                    for part in range(3)
+                )
+                if descendants in seen:
+                    descendant_exact = False
+                    break
+                seen.add(descendants)
+            self.assertEqual(
+                is_exact_family(vectors, 3, 2), descendant_exact,
+                (membership, blocks),
+            )
+
+
 if __name__ == "__main__":
     unittest.main()
