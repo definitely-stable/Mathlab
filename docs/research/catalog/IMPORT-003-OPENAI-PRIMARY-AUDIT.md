@@ -6,6 +6,8 @@ Issue: [#30](https://github.com/definitely-stable/Mathlab/issues/30)
 Normative registry: [registry.json](registry.json)  
 Frozen external revision: [openai/math@fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb](https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb)
 
+> **2026-10-08 follow-up / correction (OM-116):** The original selected `lean/docs/116.md` is limited to the characteristic-zero hitting tuple and rational formulas, but **the same family also contains a separate 2026-10-04 author manuscript claiming a construction in every positive characteristic**. See [TOM-002 theorem-level audit](../TOM-002-OM116-OM140-THEOREM-AUDIT.md). This document's claim about the *selected Lean scope* remains correct; it must **not** be read as saying no positive-characteristic paper exists. The additional theorem has not been independently verified by Mathlab.
+
 ## Scope of source checking
 
 For each of the ten selected families the following first-party records were read or checked against the **frozen** external SHA:
