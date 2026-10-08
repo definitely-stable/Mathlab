@@ -11,7 +11,7 @@
 
 ## Verified external scholarly literature
 
-[Primary literature catalog](catalog/LITERATURE.md) · [papers by research record](catalog/LITERATURE-BY-RESEARCH.md) · [source/model audit I](catalog/LITERATURE-001-AUDIT.md) · [source corrections and expansion II](catalog/LITERATURE-002-SOURCE-AUDIT.md) · [literature.json](catalog/literature.json).
+[Primary literature catalog](catalog/LITERATURE.md) · [papers by research record](catalog/LITERATURE-BY-RESEARCH.md) · [source/model audit I](catalog/LITERATURE-001-AUDIT.md) · [source corrections and expansion II](catalog/LITERATURE-002-SOURCE-AUDIT.md) · [2026 nonsketch audit III](catalog/LITERATURE-003-2026-OPPORTUNITY-AUDIT.md) · [literature.json](catalog/literature.json).
 
 This is a distinct DOI/arXiv-based bibliography of sources cited by or mathematically intersecting Mathlab, DELSK and DeltaMeter, not a theorem authority. LENT G2B-B2 is independently handled under issue #42 and is unchanged by these imports.
 

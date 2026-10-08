@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-08** · **49** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-08** · **69** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,10 +11,15 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 14 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 5 |
-| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 6 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 6 |
+| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 8 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 13 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 11 |
+| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 5 |
+| [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 2 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 1 |
+| [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 2 |
+| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 7 |
 
 ## sparse-coding
 *Кодирование, ограниченная поддержка, экстремальные границы*
@@ -270,6 +275,19 @@ Bshouty–Mazzawi: неадаптивные additive queries и (0,1) parity-che
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-OPPORTUNITY-MAP.md) (cited)
 
+### LIT-058
+**[Dynamic Pattern Matching with Wildcards](https://doi.org/10.4230/LIPIcs.STACS.2026.68)** (2026)
+
+Полностью динамическое сопоставление текста и шаблона с k wildcard: суб-линейная сложность при малом k и условный запрет части режимов через SETH.
+
+**Ограничение:** Зависимость от количества wildcard и сильной экспоненциальной гипотезы — обязательная часть утверждения; не lower bound на обычную CDC сегментацию.
+
+**Идентичность:** `doi:10.4230/LIPIcs.STACS.2026.68` · **Авторы:** Arshia Ataee Naeini, Amir-Parsa Mobed, Masoud Seddighin, Saeed Seddighin · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [DL-001](INDEX.md#dl-001)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+
 
 ## incremental-computation
 *Инкрементальные вычисления и сертификаты*
@@ -351,6 +369,32 @@ Berman: relative incremental lower bound и δ-анализ для динами�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+
+### LIT-055
+**[DeltaSort: Incremental Sorting of Arrays with Known Updates](https://doi.org/10.4230/LIPIcs.SEA.2026.18)** (2026)
+
+Операция инкрементальной сортировки массива, когда известны k изменённых индексов; автор даёт O(n sqrt(k)) ожидаемого времени и O(k) дополнительной памяти.
+
+**Ограничение:** Оценка дана для модели случайных обновлений; не обеспечивает worst-case O(n sqrt(k)), no-effect certificate или стабильный физический порядок битов.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SEA.2026.18` · **Авторы:** Shubham Dwivedi · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+
+### LIT-056
+**[Incremental Submodular Maximization: Better Than Greedy](https://doi.org/10.4230/LIPIcs.ESA.2026.134)** (2026)
+
+Алгоритм адаптивного масштабирования улучшает конкурентное отношение всех префиксов cardinality constraint до 1.373; установлена нижняя граница 1.25 для детерминированных алгоритмов.
+
+**Ограничение:** Incremental здесь означает возрастающий бюджет оптимизации, а не поддержание произвольных изменяемых DAG и не худший случай побайтовых правок.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.134` · **Авторы:** Marcin Bienkowski, Joakim Blikstad, Jarosław Byrka, Martín Costa, Yann Disser, Annette Lutz · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-113](INDEX.md#om-113)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 
 ## delta-base-selection
@@ -671,3 +715,244 @@ Green-Maimon–Zamir: точные по порядку битовые F₂ bound
 **Связь с исследованиями →** [DM-001](INDEX.md#dm-001), [DM-007](INDEX.md#dm-007)
 
 **Происхождение цитаты / пересечения →** [DELTAMETER:docs/research/REFERENCES.md](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/REFERENCES.md) (model_overlap)
+
+
+## compressed-indexing
+*Сжатые структуры, индексация строк и нижние границы*
+
+### LIT-050
+**[Dynamic Grammar-Compressed Self-Index in δ-Optimal Space](https://doi.org/10.4230/LIPIcs.ESA.2026.6)** (2026)
+
+Динамический RR-index хранит повторяющиеся строки в сжатом виде, поддерживая вставки, удаления и поиск без полной распаковки; оценка объёма через δ-complexity.
+
+**Ограничение:** Ожидаемые и амортизированные гарантии относятся к строковому индексу и locate-запросам; не означают постоянную стоимость переписывания байтов или CDC-локальность.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.6` · **Авторы:** Takaaki Nishimoto, Yasuo Tabei · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+
+### LIT-051
+**[Hardness of Frequency-Related Queries on Compressed Strings](https://doi.org/10.4230/LIPIcs.ESA.2026.143)** (2026)
+
+Исследуются условные ограничения вычисления rank/frequency-подобных запросов по grammar/LZ-компрессированным строкам без развёртывания.
+
+**Ограничение:** Модель сжатого индекса и условные lower bounds не являются нижними границами для exact ASET или произвольной инкрементальной метрики.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.143` · **Авторы:** Rajat De, Dominik Kempa · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-119](INDEX.md#om-119)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+
+### LIT-052
+**[OptFSST: Optimized FSST String Compression](https://arxiv.org/abs/2607.11271)** (2026)
+
+Оптимальное динамическое программирование кодирования при фиксированной таблице символов FSST и NP-трудность обобщённого выбора таблицы; сохраняется независимая распаковка строк.
+
+**Ограничение:** Оптимальность доказана при фиксированном словаре, а не для совместного поиска словаря; сравнение на 92 наборах — авторский эксперимент, не бенчмарк ChunkShift.
+
+**Идентичность:** `arxiv:2607.11271` · **Авторы:** Hedi Chehaidar, Mihail Stoian, Moritz Stargalla, Andreas Kipf · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DM-014](INDEX.md#dm-014), [DL-001](INDEX.md#dl-001)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+
+### LIT-053
+**[Relative Compressed Reverse Suffix Array](https://doi.org/10.4230/LIPIcs.STACS.2026.62)** (2026)
+
+Короткое относительное кодирование суффиксного массива обращённого текста, если уже имеется FM-index исходного текста; изучается стоимость доступа.
+
+**Ограничение:** Это относительное индексирование структур и суффиксных массивов, не универсальный delta patch codec и не гарантия байтовой экономии.
+
+**Идентичность:** `doi:10.4230/LIPIcs.STACS.2026.62` · **Авторы:** Muhammed Oguzhan Kulekci, Mano Prakash Parthasarathi, Rahul Shah, Sharma V. Thankachan · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+
+### LIT-054
+**[Efficient Compression in Semigroups](https://doi.org/10.4230/LIPIcs.STACS.2026.80)** (2026)
+
+Классификация классов конечных полугрупп, допускающих эффективное представление straight-line programs, и улучшения границ длины/ширины программ.
+
+**Ограничение:** Семигрупповая algebraic compression и запросы Cayley table не эквивалентны сжатию файлов, кодекам дельт или инкрементальным сертификатам.
+
+**Идентичность:** `doi:10.4230/LIPIcs.STACS.2026.80` · **Авторы:** Alexander Thumm, Armin Weiß · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-119](INDEX.md#om-119)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) (model_overlap)
+
+
+## online-optimization
+*Онлайн-оптимизация, конкурентные оценки и барьеры*
+
+### LIT-057
+**[Online and Incremental Fractional Vertex Cover on Trees](https://doi.org/10.4230/LIPIcs.ESA.2026.158)** (2026)
+
+На деревьях получены competitive bounds 11/6 в online edge-arrival и 3/2 (с matching lower bound) для инкрементальной модели с известными обновлениями.
+
+**Ограничение:** Вторая модель допускает знание всех будущих обновлений заранее; не переносить offline bound на online или на невозрастающие/удаляемые данные.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.158` · **Авторы:** Júlia Baligács, Bartłomiej Bosek, Yann Disser, Andreas Emil Feldmann, Grzegorz Gutowski, Katarzyna Kępińska, Paweł Putra, Anna Zych-Pawlewicz · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+
+### LIT-069
+**[Lower Bounds for Ranking-Based Pivot Rules](https://doi.org/10.4230/LIPIcs.STACS.2026.31)** (2026)
+
+Единый rank-information framework даёт superpolynomial lower bounds для классов strategy-improvement rules и subexponential bounds для policy iteration.
+
+**Ограничение:** Ограничения доказаны для заданных ranking-based pivot rules и MDP/games; не доказывают невозможность всех динамических алгоритмов или произвольного Rust примитива.
+
+**Идентичность:** `doi:10.4230/LIPIcs.STACS.2026.31` · **Авторы:** Yann Disser, Georg Loho, Matthew Maat, Nils Mosis · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-137](INDEX.md#om-137)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) (model_overlap)
+
+
+## graph-algorithms
+*Динамические графы, гиперграфы и sparsification*
+
+### LIT-059
+**[Fully Dynamic Spectral Sparsification for Directed Hypergraphs](https://doi.org/10.4230/LIPIcs.STACS.2026.38)** (2026)
+
+Поддержание спектрального sparsifier ориентированного гиперграфа под вставкой/удалением ребра и batch-dynamic работе с контролируемой амортизированной сложностью.
+
+**Ограничение:** Спектральная ε-аппроксимация квадратичных форм не означает точного восстановления аддитивных множеств или ASET-коллизий.
+
+**Идентичность:** `doi:10.4230/LIPIcs.STACS.2026.38` · **Авторы:** Sebastian Forster, Gramoz Goranci, Ali Momeni · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-007](INDEX.md#ml-007), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+
+
+## algebraic-algorithms
+*Алгебраические алгоритмы, subset sum и разреженные матрицы*
+
+### LIT-060
+**[Robustifying Sparse Matrix Multiplication](https://doi.org/10.4230/LIPIcs.ESA.2026.157)** (2026)
+
+Чёрноящичная редукция robust top-k sparse matrix multiplication к обычному sparse multiplication с polylog overhead и учётом output sparsity.
+
+**Ограничение:** Робастное приближение крупнейших элементов матрицы — не точное GF(q) ASET-суммирование; knapsack-составляющая не делает алгоритм DeltaMeter backend.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.157` · **Авторы:** Karl Bringmann, Nick Fischer, Vasileios Nakos · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-007](INDEX.md#ml-007), [OM-116](INDEX.md#om-116)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) (model_overlap)
+
+### LIT-061
+**[Improving Lagarias-Odlyzko Algorithm for Average-Case Subset Sum: Modular Arithmetic Approach](https://doi.org/10.4230/LIPIcs.STACS.2026.57)** (2026)
+
+Модульная арифметика используется в улучшении алгоритмов средней сложности subset sum на базе lattice reduction.
+
+**Ограничение:** Average-case integer subset sum с распределительными условиями не эквивалентен детерминированному точному GF(q) декодированию bounded active IDs.
+
+**Идентичность:** `doi:10.4230/LIPIcs.STACS.2026.57` · **Авторы:** Antoine Joux, Karol Węgrzycki · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-007](INDEX.md#ml-007), [OM-116](INDEX.md#om-116)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
+
+
+## proof-certification
+*Машинные доказательства, сертификаты и верификация*
+
+### LIT-062
+**[Formalization of a Proof Calculus for Incremental Linearization for Satisfiability Modulo Nonlinear Arithmetic and Transcendental Functions](https://doi.org/10.1145/3779031.3779111)** (2026)
+
+CPP 2026: Lean формализация proof calculus cvc5 для инкрементальной линеаризации SMT нелинейной/трансцендентной арифметики; восстановление проверяемых доказательств.
+
+**Ограничение:** Soundness формализованного calculus не делает SMT поиск полным; к нашим GF(q) и DRAT-протоколам перенос возможен только через отдельный verified encoding.
+
+**Идентичность:** `doi:10.1145/3779031.3779111` · **Авторы:** Tomaz Mascarenhas, Harun Khan, Abdalrhman Mohamed, Andrew Reynolds, Haniel Barbosa, Clark W. Barrett, Cesare Tinelli · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006), [OM-116](INDEX.md#om-116)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+
+### LIT-063
+**[PBLean: Pseudo-Boolean Proof Certificates for Lean 4](https://arxiv.org/abs/2602.08692)** (2026)
+
+Проверяющий VeriPB proof-certificate через отражение в Lean с доказанной корректностью и проверенными переводами комбинаторных задач; поддерживает cutting planes.
+
+**Ограничение:** PB сертификаты не равны DRAT; принятие proof log без формально проверенной кодировки исходной ASET модели не даёт end-to-end теоремы.
+
+**Идентичность:** `arxiv:2602.08692` · **Авторы:** Stefan Szeider · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-003](INDEX.md#ml-003), [ML-008](INDEX.md#ml-008), [ML-011](INDEX.md#ml-011)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
+
+### LIT-064
+**[Certificate-Carrying Transformation of Event-Driven Block Programs](https://arxiv.org/abs/2607.00563)** (2026)
+
+Недоверенный оптимизатор программ Scratch выдаёт предлагаемое преобразование, а отдельный fail-closed checker пересчитывает семантические условия; ключевая лемма механизирована в Lean.
+
+**Ограничение:** Доказательство привязано к явной модели наблюдения и cooperative scheduling; не доказывает точность сертификатов произвольного кэша или DAG.
+
+**Идентичность:** `arxiv:2607.00563` · **Авторы:** Yuan Si, Jialu Zhang · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+
+### LIT-065
+**[Formal Foundations and Proof-Carrying Certificates for q-ary Covering Codes in Lean 4](https://arxiv.org/abs/2606.09600)** (2026)
+
+Формализация covering-code в Lean с проверяемыми сертификатами верхних, нижних и точных covering numbers, сферическими bound и композиционными правилами.
+
+**Ограничение:** Covering codes задают покрытие шаров Хэмминга, а не точность sparse subset sums; машинно проверенная база автора не проверена Mathlab CI.
+
+**Идентичность:** `arxiv:2606.09600` · **Авторы:** Andreas Florath · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-003](INDEX.md#ml-003), [ML-011](INDEX.md#ml-011)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
+
+### LIT-066
+**[Mechanized Dominator Tree Certification](https://doi.org/10.1145/3779031.3779107)** (2026)
+
+Проверяемый Rocq сертификат для быстрого вычисления dominator tree в CFG на базе критериев Georgiadis–Tarjan, интегрированный в CompCertSSA.
+
+**Ограничение:** Проверяется доминирование потока управления, а не целостность storage/CDC или произвольная корректность incremental recomputation; важно разделение solver/checker.
+
+**Идентичность:** `doi:10.1145/3779031.3779107` · **Авторы:** Jean-Christophe Léchenet · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+
+### LIT-067
+**[Towards Composable Proofs of Cache Coherence Protocols](https://doi.org/10.1145/3779031.3779106)** (2026)
+
+Композitional MSI verification в Lean 4 через локальные инварианты MI/SI вместо одного сложного глобального доказательства.
+
+**Ограничение:** Локальные инварианты зависят от formal model cache coherence; они не являются готовыми независимыми сертификатами immutable chunk packs или optimistic concurrency.
+
+**Идентичность:** `doi:10.1145/3779031.3779106` · **Авторы:** Martina Camaioni, Yann Herklotz, Tz-Ching Yu, Thomas Bourgeat · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+
+### LIT-068
+**[Model-Generic Incrementally Verifiable Computation from Updatable BARGs](https://doi.org/10.4230/LIPIcs.ITCS.2026.6)** (2026)
+
+Криптографическая IVC модель позволяет инкрементально обновлять проверяемое свидетельство длинных вычислений и переносит построение на distributed/online computation.
+
+**Ограничение:** Криптографическая computational soundness и допущения BARG не равны безусловным exact lower bounds для TOM или локального сертификата без криптографии.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ITCS.2026.6` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/eee8e89e1d844bca9f418587d4c8ddba731c2673/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
