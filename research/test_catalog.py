@@ -1,9 +1,9 @@
-"""RESEARCH-INDEX-001: offline index, provenance and falsification tests."""
+"""Research catalog: offline provenance, discovery and falsification checks."""
 import copy
 import json
 import unittest
 
-from catalog import DATA, INDEX, REPOS, check, render
+from catalog import DATA, INDEX, THEMES, REPOS, check, render, render_themes
 
 
 class CatalogTests(unittest.TestCase):
@@ -17,10 +17,53 @@ class CatalogTests(unittest.TestCase):
     def test_all_four_repositories_have_curated_entries(self):
         observed = {e["repository"] for e in self.data["entries"]}
         self.assertEqual(observed, set(REPOS))
-        self.assertGreaterEqual(len(self.data["entries"]), 20)
+        self.assertGreaterEqual(len(self.data["entries"]), 51)
 
     def test_generated_readable_index_is_byte_for_byte_deterministic(self):
         self.assertEqual(render(self.data), INDEX.read_text(encoding="utf-8"))
+
+    def test_generated_theme_index_is_deterministic(self):
+        self.assertEqual(render_themes(self.data),
+                         THEMES.read_text(encoding="utf-8"))
+        self.assertIn("[ML-008](INDEX.md#ml-008)", render_themes(self.data))
+        self.assertIn("[OM-132](INDEX.md#om-132)", render_themes(self.data))
+
+    def test_expanded_import_counts_and_mathlab_revision(self):
+        counts = {key: sum(e["repository"] == key for e in self.data["entries"])
+                  for key in REPOS}
+        self.assertGreaterEqual(counts["MATHLAB"], 11)
+        self.assertGreaterEqual(counts["DELSK"], 12)
+        self.assertGreaterEqual(counts["DELTAMETER"], 14)
+        self.assertGreaterEqual(counts["OPENAI_MATH"], 14)
+        self.assertEqual(
+            self.data["repositories"]["MATHLAB"]["sha"],
+            "c3ffc69563ac15241e67f4b6ccfe8063720590f1")
+
+    def test_external_imports_remain_unverified_author_claims(self):
+        for e in self.data["entries"]:
+            if e["repository"] == "OPENAI_MATH":
+                self.assertIn(e["status"],
+                              {"EXTERNAL_CATALOG", "EXTERNAL_MANUSCRIPT_CLAIM"})
+                self.assertEqual(e["verification"], "source_catalog")
+
+    def test_new_g2b_evidence_is_not_an_asymptotic_theorem(self):
+        g2b = next(e for e in self.data["entries"]
+                   if e["id"] == "ML-008")
+        self.assertEqual(g2b["status"], "EXACT_NUMERICAL")
+        self.assertIn("10–15", g2b["summary_ru"])
+
+    def test_all_source_revision_pins_match_repository_snapshots(self):
+        for e in self.data["entries"]:
+            meta = self.data["repositories"][e["repository"]]
+            self.assertEqual(e["source"]["revision"], meta["sha"])
+            self.assertIn("/blob/" + meta["sha"] + "/", e["source"]["permalink"])
+
+    def test_topic_index_contains_distinct_source_and_status(self):
+        topic_page = render_themes(self.data)
+        self.assertIn("EXTERNAL_MANUSCRIPT_CLAIM", topic_page)
+        self.assertIn("RESEARCH_DECISION", topic_page)
+        self.assertIn("MATHLAB", topic_page)
+        self.assertIn("DELTAMETER", topic_page)
 
     def test_duplicate_id_is_rejected(self):
         data = copy.deepcopy(self.data)

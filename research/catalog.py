@@ -15,6 +15,7 @@ from urllib.parse import quote, urlparse
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "docs/research/catalog/registry.json"
 INDEX = ROOT / "docs/research/catalog/INDEX.md"
+THEMES = ROOT / "docs/research/catalog/THEMES.md"
 SHA = re.compile(r"^[0-9a-f]{40}$")
 ID = re.compile(r"^(ML|DL|DM|OM)-[0-9]{3}$")
 URL = re.compile(r"^https://[^\s<>]+$")
@@ -174,6 +175,41 @@ def render(data):
     return "\n".join(output).rstrip() + "\n"
 
 
+def render_themes(data):
+    """Regenerate topical discovery navigation from the normative registry."""
+    groups = {}
+    for entry in data["entries"]:
+        for topic in entry["topics"]:
+            groups.setdefault(topic, []).append(entry)
+    topics = sorted(groups)
+    output = [
+        "# Research themes — предметный индекс",
+        "",
+        "> Generated from `registry.json` by `research/catalog.py`. Do not edit manually.",
+        "",
+        f"Snapshot: **{data['snapshot_date']}**. "
+        f"**{len(data['entries'])}** selected records; **{len(topics)}** topics.",
+        "",
+        "Статус и метод проверки не устанавливают научную новизну. "
+        "Первоисточники и ограничения см. в [INDEX.md](INDEX.md).",
+        "",
+        "| Тема | Записей |",
+        "| --- | ---: |",
+    ]
+    for topic in topics:
+        output.append(f"| [{topic}](#{topic}) | {len(groups[topic])} |")
+    for topic in topics:
+        output += ["", f"## {topic}", ""]
+        for entry in sorted(groups[topic], key=lambda e: e["id"]):
+            output.append(
+                f"- **[{entry['id']}](INDEX.md#{entry['id'].lower()})** "
+                f"({entry['repository']}; `{entry['status']}` / "
+                f"`{entry['verification']}`) — {entry['summary_ru']} "
+                f"[Источник]({entry['source']['permalink']})."
+            )
+    return "\n".join(output).rstrip() + "\n"
+
+
 def main():
     p = argparse.ArgumentParser()
     mode = p.add_mutually_exclusive_group(required=True)
@@ -187,8 +223,10 @@ def main():
             print("CATALOG_ERROR:", message)
         raise SystemExit(1)
     expected = render(data)
+    expected_themes = render_themes(data)
     if args.write:
         INDEX.write_text(expected, encoding="utf-8")
+        THEMES.write_text(expected_themes, encoding="utf-8")
         print(f"CATALOG_GENERATED entries={len(data['entries'])}")
     else:
         if not INDEX.exists() or INDEX.read_text(encoding="utf-8") != expected:
@@ -196,7 +234,11 @@ def main():
             raise SystemExit(1)
         print(f"RESEARCH_INDEX_VALIDATION_PASS entries={len(data['entries'])}")
         print("RESEARCH_INDEX_BACKLINKS_PASS")
+        if not THEMES.exists() or THEMES.read_text(encoding="utf-8") != expected_themes:
+            print("CATALOG_ERROR: THEMES.md out of sync; run python research/catalog.py --write")
+            raise SystemExit(1)
         print("RESEARCH_INDEX_GENERATED_DOC_PASS")
+        print("RESEARCH_INDEX_THEMES_PASS")
 
 
 if __name__ == "__main__":
