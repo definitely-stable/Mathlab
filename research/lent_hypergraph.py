@@ -14,6 +14,7 @@ from typing import Sequence
 
 from lent_exhaustive import Vector, is_exact_family, sparse_nonzero_vectors
 from lent_extremal import lent_upper_v
+from lent_weak_sidon import weak_sidon_upper_v
 
 
 @dataclass(frozen=True)
@@ -101,7 +102,11 @@ def solve_exact_or_certified_interval(
             incident[bit.bit_length() - 1].append(edge)
             rest ^= bit
     order = sorted(range(n), key=lambda i: (-len(incident[i]), i))
-    global_upper = lent_upper_v(graph.q, graph.m, 2, graph.w)
+    # Independent classical odd-group bound. This narrows the q5
+    # interval before the search is started, without speculative pruning.
+    hamming_upper = lent_upper_v(graph.q, graph.m, 2, graph.w)
+    sidon_upper = weak_sidon_upper_v(graph.q, graph.m)
+    global_upper = min(hamming_upper, sidon_upper)
     pending: list[tuple[int, int]] = [(0, (1 << n) - 1)]
     nodes = 0
     best_mask = 0
@@ -161,6 +166,9 @@ def solve_exact_or_certified_interval(
         "d": 2,
         "candidates": n,
         "minimal_edges": len(graph.edges),
+        "hamming_upper": hamming_upper,
+        "weak_sidon_upper": sidon_upper,
+        "global_upper": global_upper,
         "search_nodes": nodes,
         "search_exhausted": not pending,
         "exact": upper == best_size,
@@ -186,9 +194,10 @@ def run_g2b_phase_a() -> None:
     q5 = solve_exact_or_certified_interval(
         build_forbidden_hypergraph(5, 3, 2), max_nodes=25_000
     )
-    if not (9 <= q5["lower"] <= q5["upper"] <= 15):
+    if not (10 <= q5["lower"] <= q5["upper"] <= 11):
         raise AssertionError("G2B q=5 certified interval unexpected")
     print("G2B_Q5_CERTIFICATE_PASS")
+    print("G2BB_GF5_INTERVAL_10_11_PASS")
     print("G2B_WITNESS_PASS")
     print("G2B_PHASE_A_PASS")
     print("G2B_Q3_RESULT", q3)

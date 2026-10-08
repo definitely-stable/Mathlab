@@ -68,7 +68,9 @@ This matters because:
 G1A/G1B and G2A are complete. Active task:
 [#14](https://github.com/definitely-stable/Mathlab/issues/14) — G2B
 hard-support evidence. G2B-A yields exact A_3^set(4,2,2)=7 and certified
-10<=A_5^set(3,2,2)<=15. The q=5 exact maximum remains unknown.
+10<=A_5^set(3,2,2)<=11 after G2B-B1's classical odd-group weak-Sidon
+bound. [Proof/independent certificate](docs/research/LENT-001-G2B-B1-WEAK-SIDON-BOUND.md).
+The q=5 exact maximum remains UNKNOWN (10 or 11).
 
 Research extensions: [HYP-001 (#24)](https://github.com/definitely-stable/Mathlab/issues/24)
 provides a classical-order two-cell capacity proof; [HYP-002 (#25)](https://github.com/definitely-stable/Mathlab/issues/25)

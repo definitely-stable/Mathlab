@@ -70,13 +70,17 @@ class G2BHypergraphTests(unittest.TestCase):
         result = solve_exact_or_certified_interval(graph, max_nodes=25_000)
         self.assertEqual(result["search_nodes"], 25_000)
         self.assertGreaterEqual(result["lower"], 9)
-        self.assertLessEqual(result["upper"], 15)
+        self.assertLessEqual(result["upper"], 11)
+        self.assertEqual(result["weak_sidon_upper"], 11)
+        self.assertEqual(result["hamming_upper"], 15)
         self.assertLessEqual(result["lower"], result["upper"])
         self.assertTrue(is_exact_family(
             [tuple(v) for v in result["witness"]], 5, 2
         ))
-        if not result["search_exhausted"]:
-            self.assertFalse(result["exact"] or result["lower"] == result["upper"])
+        if not result["search_exhausted"] and not result["exact"]:
+            self.assertLess(result["lower"], result["upper"])
+        if result["exact"]:
+            self.assertEqual(result["lower"], result["upper"])
 
     def test_fail_closed_parameters(self):
         with self.assertRaises(ValueError):

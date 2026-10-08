@@ -29,7 +29,7 @@ FOUNDATION_PASS
 - `test_lent_g2b.py` — exhaustive independent hypergraph/ASET oracle checks, GF(7) legal +++ triple, minimality and solver regressions.
 - `lent-001/g2b-protocol.json` — frozen G2B-A search/acceptance contract.
 
-G2B-A hosted run 37756386646 confirms exact q=3,m=4,w=2 value 7 and a certified q=5,m=3,w=2 interval [10,15]. Run `python research/lent_hypergraph.py` to reproduce its five additional markers. This is finite evidence, not novelty or a proof of the q=5 optimum.
+G2B-A historical run 37756386646 established exact q=3,m=4,w=2 value 7 and a q=5,m=3,w=2 interval [10,15]. G2B-B1 tightens GF5 to **[10,11]** using a separately proved classical weak-Sidon bound, NOT a solver timeout. The q=5 optimum remains unknown.
 
 - `locality_transition.py` — HYP-001 projective incidence and HYP-002 Steiner exact-column construction witnesses, including characteristic-two counterexamples.
 - `test_locality_transition.py` — independent small-grid pair-sum checks and falsification cases.
@@ -52,6 +52,13 @@ CI checks instances only and does not establish scientific novelty.
 - `lent-001/hyp002-c-protocol.json` — frozen correctness/over-capacity/no-go criteria.
 
 Run `python research/affine_two_id.py` and `python research/bench_affine_two_id.py` to reproduce; note that Python immutable raw-update copies O(m) memory even though three coordinate values change.
+
+- `lent_weak_sidon.py` — G2B-B1 odd-group weak-Sidon integer upper, full finite pair-sum/difference-count verification and frozen GF5 witness; no invalid converse ASET mapping.
+- `test_lent_weak_sidon.py` — exhaustive tiny-field mapping, GF(3) 3-cycle, sharp GF11 weak-Sidon fixture and fail-closed tests.
+- `lent_g2bb_neighborhood.py` — exhausts direct additions (50) and one-delete/two-add choices (12,750) **only around the frozen 10-column witness**, not a global V=11 impossibility certificate.
+- `lent-001/g2bb-weak-sidon-protocol.json` — frozen status and upper-certificate acceptance gates.
+
+Run `python research/lent_weak_sidon.py` and `python research/lent_g2bb_neighborhood.py` for distinct rigorous-group-bound and local-only checks.
 
 ## Evidence semantics
 

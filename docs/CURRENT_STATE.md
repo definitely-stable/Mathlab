@@ -1,27 +1,29 @@
 # CURRENT_STATE
 
-Last verified main snapshot: 2787900cdd7259de363fd73147fa57927dd60afd (HYP-002-C PR #35 merged; always re-read live main)
+Last verified baseline main HEAD: faac82888596573d49609279f5b012fe87e5a583 (before G2B-B1 branch; re-read live main after merge)
 
-Current milestone: LENT-001 / G2B; HYP-001/002 capacity; TOM; curated cross-repo research
+Current milestone: LENT-001 / G2B sparse ASET exact finite research; HYP-001/002 and TOM remain separate
 
-Current slice: HYP-002-C index-free affine decoder Phase A ACCEPTED; narrow STOP_STANDALONE_DENSE_TWO_ID product decision. Issue #34 CLOSED/completed; G2B-B #14 separately OPEN
+Current slice: G2B-B1 verified classical weak-Sidon upper-bound integration; G2B-B2 remains open
 
-Open issues: #1 LENT parent; #14 G2B-B; #15 TOM; #24 HYP-001 prior art; #25 HYP-002 leading constant/novelty. Check live GitHub for changes
+Issue: #14 LENT-G2B ongoing; #1 parent. Do not close G2B until globally exact q5 value or a decision to stop the theorem lane
 
-Open PR: none at this checkpoint
+Open PR: verify live GitHub before continuing (B1 branch research/lent-g2bb-weak-sidon-bound)
 
-Last CI: HYP-002-C branch run 37768308956 SUCCESS (77 tests and all decoder, alias, G2B/TOM/catalog gates; registry 61); post-merge main run 37768418282 (verify live conclusion)
+Last branch CI: research run 37770881915 SUCCESS (84 tests, catalog 61 entries, all existing G0/G1A/G2B/TOM/HYP stages); repeat on final branch head / merged main
 
-Acceptance: G0/G1A/G1B/G2A/G2B-A previous gates; HYP-001 derived Theta_q(m^(3/2)); HYP-002-B derived Theta_q(m²), novelty UNVERIFIED; HYP-002-C exhaustive promised-state decoder PASS with STOP_STANDALONE_DENSE_TWO_ID; TOM A/B/C scouting only
+Mathematical result: **10<=A_5^set(3,2,2)<=11**, derived using original 10-column witness and Roth-Seroussi classical weak-Sidon inequality s(s-3)+1<=|F_5^3|=125 with s=V+1. Previous Hamming-ball upper 15 is superseded for this case. GF5 max remains **unknown: 10 or 11**.
 
-HYP-002-C exact evidence: all 2,79,6904 promised states for ranks 1,2,3; explicit 3-DISTINCT-to-2-ID alias in affine F3²; canonical index-free decoder O(m) dense scan + <=20 algebraic candidate checks; checked update O(m); Python tuple-copy raw update O(m)
+Finite result: q3,m4,w2 exact optimum 7 unaffected. q5,m3,w2 has 60 candidates, 9990 forbidden hyperedges, and a 25000-node budget-limited B&B run. Witness from G2B-A independently checked by original ASET oracle. New difference-multiplicity audit passed.
 
-Memory gate: m=27, V=117 uses 54 bits with 2-bit packed trits vs 22 bits direct canonical two IDs including occupancy; m=243, V=9801 uses 486 vs 34 bits. Theoretical payload numbers, not heap benchmarks
+Local-only research: the frozen q5 ten-column witness has no valid eleven-column extension by one addition (50 checks) or deleting one and adding two (12750 checks). This **does not prove that no other eleven-column family exists**.
 
-Authoritative docs: docs/research/HYP-002-C-AFFINE-DECODER-PROTOCOL.md and docs/research/HYP-002-C-EVIDENCE.md. Code: research/affine_two_id.py, test_affine_two_id.py, bench_affine_two_id.py
+Proof and evidence: docs/research/LENT-001-G2B-B1-WEAK-SIDON-BOUND.md; docs/research/LENT-001-G2B-B1-EVIDENCE.md; research/lent_weak_sidon.py; research/lent_g2bb_neighborhood.py; research/test_lent_weak_sidon.py
 
-Known blockers: arbitrary duplicate/overcapacity update histories not reconstructible from trit-only state; no competitive standalone two-ID product; theorem novelty still unknown; G2B GF(5) exact max still 10..15; Lean not started
+Other accepted decisions: HYP-001 derived theta(m^(3/2)), HYP-002 derived theta(m²) both no novelty claim, HYP-002-C standalone dense two-ID STOP_PRODUCT, Lean not started. Catalog of Mathlab/DELSK/DeltaMeter/openai/math retained
 
-Next allowed action: return to #14 G2B-B for tight exact proof, or open a separately scoped application-level composable-state / reliable bounds research lane with explicit comparator, not a Rust crate
+Known blockers: exact GF5 optimum still 10 or 11; G2B-B2 independent global proof or 11 witness required. No scientific novelty or Rust crate authorized
+
+Next allowed action: a separately frozen GF5 11-column existence/infeasibility search with reproducible, independently checkable global certificate; if 11 witness is found independently verify full ASET and close, otherwise do not claim exactness. Remain within GitHub-hosted CI resource constraints
 
 Last updated from repository: 2026-10-08

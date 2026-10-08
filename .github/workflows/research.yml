@@ -47,3 +47,9 @@ jobs:
 
       - name: HYP-002-C diagnostic Python comparison (no perf gate)
         run: python research/bench_affine_two_id.py
+
+      - name: G2B-B1 independent weak Sidon upper certificate
+        run: python research/lent_weak_sidon.py
+
+      - name: G2B-B1 frozen GF5 witness local exchange audit
+        run: python research/lent_g2bb_neighborhood.py
