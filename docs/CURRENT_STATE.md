@@ -1,25 +1,25 @@
 # CURRENT_STATE
 
-Last verified HEAD: main@ea4793d64ec73236b20c9a24167d870d8218587d (HYP-001/002 source/evidence merge snapshot; update the SHA from live main on each new status check)
+Last verified baseline HEAD: main@db47787db396d5952e100a003cdcd01d383d3cbf (live snapshot during HYP-002-B work; always verify latest main)
 
-Current milestone: LENT-001 exact sparse additive-set capacity; HYP-001/002 locality-transition research; independent TOM-001
+Current milestone: LENT-001 / G2B and HYP-001/002 locality-capacity; independent TOM-001
 
-Current slice: G2B-A accepted; G2B-B outstanding; HYP-001/002 Phase A merged (#26)
+Current slice: HYP-002-B sharp exponent proof and finite protocol; merge PR #32 after all CI gates; G2B-B remains open
 
-Open issues: #1 LENT parent; #14 G2B-B; #15 TOM; #24 HYP-001 theorem novelty audit; #25 HYP-002 quadratic exponent conjecture
+Open issues: #1 LENT parent; #14 G2B-B; #15 TOM; #24 HYP-001 prior-art; #25 HYP-002 theorem novelty/constants audit. Additional research-catalog issues require live search
 
-Open PR: 0 as of HYP-001/002 source merge snapshot (verify live GitHub)
+Open PR: #32 HYP-002-B at this documentation snapshot (verify live GitHub)
 
-Last CI: research run 37762657184 — SUCCESS on merged main ea4793d64ec73236b20c9a24167d870d8218587d; 49 unit tests, existing G0/G1A/G2A/G2B/TOM gates, 26-entry research catalog, five HYP-001/002 markers
+Last CI for HYP-002-B code+tests: GitHub research run 37765055502 — SUCCESS on 6e648f431c258f9cdf8f50776baab31b9f84f3c5; 64 unit tests, 51 curated research entries, G0/G1A/G2A/G2B/TOM/HYP-A gates passed
 
-Acceptance: G0 FOUNDATION_PASS; G1A G1A_ORACLE_PASS; G1B SPLIT_BY_CHARACTERISTIC; G2A G2_EXPAND_GRID; G2B-A G2B_PHASE_A_PASS; HYP-001/002 finite construction evidence PASS; TOM A/B/C scouting only
+Acceptance: existing G0/G1A/G1B/G2A/G2B-A complete; HYP-001 two-cell derived Theta_q(m^(3/2)); HYP-002 three-cell Theta_q(m²) DERIVED THEOREM, claim novelty UNVERIFIED; TOM A/B/C exploratory only
 
-Mathematical results: HYP-001 odd-prime w=2,d=2 has a self-contained derived Theta_q(m^(3/2)) argument using C4-free graph bounds and classical projective incidence; scientific novelty NOT audited. HYP-002 odd-prime w=3,d=2 has derived Omega(m²) and O_q(m^(5/2)) brackets; Theta_q(m²) is an UNPROVEN CONJECTURE.
+Mathematical correction: HYP-002 O_q(m^(5/2)) upper bound superseded. For r=q-1 and any finite field q, the explicit bound is A_q^set(m,3,2) <= r*m+r²*C(m,2)+min(r³*C(m,3),r²*C(m,2)+C(r*m,2)). Steiner triple systems give matching Omega(m²) for any fixed odd-characteristic field; quadratic conjecture DISCHARGED.
 
-Finite evidence: PG(2,2) (m14,V21), PG(2,3) (m26,V52), Fano STS(7), affine STS(9) (m9,V12), affine STS(27) (m27,V117); GF(2) Pasch and nonlinear/cycle counterexamples. See docs/research/HYP-001-002-LOCALITY-TRANSITION.md and HYP-001-002-PHASE-A-EVIDENCE.md.
+Evidence: docs/research/HYP-002-B-QUADRATIC-THEOREM.md, docs/research/HYP-002-B-EVIDENCE.md, research/hyp002_quadratic.py, research/test_hyp002_quadratic.py
 
-Known blockers: q=5 G2B-B exact optimum unresolved (certified 10..15); HYP-002 quadratic upper unproven; HYP-001/HYP-002 novelty unknown; Lean not started; no Rust crate authorized
+Known blockers: scientific novelty of broad HYP-002 exponent unlikely/unaudited; exact leading constant unknown; no decoder/resource cost; G2B GF(5) max remains certified 10..15, not exact; Lean not started; no Rust crate authorized
 
-Next allowed action: HYP-002 primary-source model-equivalence audit and sharper three-cell upper or superquadratic construction; in parallel G2B-B independent certified search under #14. Keep research gates separate.
+Next allowed action: finish HYP-002-B PR review/merge, then audit model-specific leading constants and decoder costs (or STOP_NOVELTY); independently continue G2B-B under #14
 
 Last updated from repository: 2026-10-08

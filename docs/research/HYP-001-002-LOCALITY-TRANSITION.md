@@ -1,9 +1,17 @@
-# HYP-001 / HYP-002 — two-cell theorem and three-cell capacity conjecture
+# HYP-001 / HYP-002 — two-cell theorem and three-cell quadratic theorem
 
 Program: **LENT-001 exact additive set families**, separate from TOM.
 Issues: [HYP-001 #24](https://github.com/definitely-stable/Mathlab/issues/24),
 [HYP-002 #25](https://github.com/definitely-stable/Mathlab/issues/25).
-Status: **PHASE A, falsification-first**.
+Status: **PHASE A archived; HYP-002 quadratic exponent PROVED in Phase B**.
+
+**Authoritative correction (2026-10-08):**
+[HYP-002-B-QUADRATIC-THEOREM.md](HYP-002-B-QUADRATIC-THEOREM.md)
+proves the sharp Theta_q(m²) result by a finite prefix-pair C4-free
+bound. The earlier O_q(m^(5/2)) proof below is valid but **suboptimal**.
+The HYP-002-D conjecture is DISCHARGED. Do not cite the historical
+open-question language below as the current decision; the exponent is
+not claimed original.
 Last mathematical review: 2026-10-08.
 
 ## Model and claim ledger
@@ -22,8 +30,8 @@ repeated insertions.
 | HYP-001-B | Projective-plane incidence yields two-update deterministic witnesses | CONSTRUCTION / DERIVED RESULT | CLASSICAL |
 | HYP-002-A | Every linear 3-uniform hypergraph yields an odd-q exact d=2 ASET family | DERIVED LEMMA | NOT ESTABLISHED |
 | HYP-002-B | A_q^set(m,3,2) = Omega_q(m^2) | DERIVED RESULT | CLASSICAL CONSTRUCTION |
-| HYP-002-C | A_q^set(m,3,2) = O_q(m^(5/2)) | DERIVED THEOREM (proof below) | NOT ESTABLISHED |
-| HYP-002-D | A_q^set(m,3,2) = Theta_q(m^2) | **CONJECTURE** | UNVERIFIED |
+| HYP-002-C | A_q^set(m,3,2) = O_q(m^(5/2)) | DERIVED WEAKER BOUND; SUPERSEDED by Phase B | NOT ESTABLISHED |
+| HYP-002-D | A_q^set(m,3,2) = Theta_q(m²) for fixed odd q | **DERIVED THEOREM — proved in Phase B** | NOVELTY UNVERIFIED / LIKELY CLASSICAL OVERLAP |
 
 The words "DERIVED THEOREM" mean a self-contained mathematical argument
 is supplied, **not** that Lean has verified it or novelty is established.
@@ -148,7 +156,7 @@ Every pair determines a unique third distinct point because
 q_geometry=3 (separate from q_sketch). With m=3^r, this creates
 exactly m(m-1)/6 blocks.
 
-## HYP-002-C — general O_q(m^(5/2)) upper bound
+## HYP-002-C — superseded nonsharp O_q(m^(5/2)) upper bound (historical)
 
 Support-one and support-two columns together contribute at most
 O_q(m^(3/2)) by HYP-001-A (the subsequence remains exact).
@@ -177,8 +185,9 @@ coefficient patterns, then undo the 2/9 partition fraction:
 the total number of weight-three columns is O_q(m^(5/2)).
 Adding the lower-support columns proves the claimed bound.
 
-This is **not** an O(m^2) proof. The missing exponent 1/2 is the
-specific HYP-002 research gap.
+This historical derivation is **not** an O(m²) proof. Its former
+gap is now CLOSED by the distinct prefix-pair C4-free counting argument
+in HYP-002-B-QUADRATIC-THEOREM.md. Keep this text only as provenance.
 
 ## Falsification and parameter-boundary checks
 
@@ -225,8 +234,9 @@ source-to-definition audit is mandatory before publication.
 ## Decision gates and prospective primitive
 
 HYP-001: promote proof only as a **derived classical-order baseline**.
-HYP-002: retain CONJECTURE, request improved upper or superquadratic
-construction and explicit collision oracle. Choose between
+HYP-002: conjecture DISCHARGED by Phase B; accept sharp Theta_q(m²)
+argument as DERIVED THEOREM, novelty NOT established. The former
+superquadratic construction search is STOPPED for fixed odd q. Choose between
 THEOREM_CANDIDATE / COUNTEREXAMPLE / CLASSICAL / NO_SIGNAL *after*
 definition-level prior-art review.
 

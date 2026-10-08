@@ -1,0 +1,51 @@
+{
+  "id": "HYP-002-B",
+  "version": 1,
+  "status": "FROZEN_BEFORE_HOSTED_EVIDENCE",
+  "base_main": "94a8fb621ec638841c7112f7b8317b1539dedcf8",
+  "theorem": {
+    "field": "any finite field for upper bound; fixed odd-characteristic finite field for matching lower",
+    "d": 2,
+    "w": 3,
+    "finite_bound": "r*m+r²*C(m,2)+min(r³*C(m,3),r²*C(m,2)+C(r*m,2)), r=q-1",
+    "asymptotic": "A_q^set(m,3,2)=Theta_q(m²), q fixed odd",
+    "status": "DERIVED_THEOREM",
+    "novelty": "UNVERIFIED_LIKELY_CLASSICAL"
+  },
+  "proof_obligations": [
+    "Each weight-three vector has a unique ordered prefix-pair/suffix graph edge",
+    "Any C4 gives a forbidden 2-versus-2 subset-sum equality for distinct vectors",
+    "Each unordered suffix pair occurs in at most one used prefix neighborhood",
+    "For positive degree d, d<=1+binom(d,2); sum degrees <= L+binom(R,2)",
+    "Distinct support-one/two columns are bounded by the complete candidate universe",
+    "Steiner triple systems provide m²/6-O(m) matching lower for odd field characteristic"
+  ],
+  "test_cases": [
+    "GF2/GF3/GF5/GF7 finite upper monotonic/bounded by candidate count",
+    "GF2/GF3/GF5/GF7 actual four-column prefix rectangle collision",
+    "GF5 weighted prefix rectangle collision",
+    "Nonlinear collision without prefix C4 proves necessity not sufficiency",
+    "Small-grid exhaustive ASET-oracle equivalence implication",
+    "Affine STS9 and STS27 exact witness independent original oracle",
+    "Reject nonprime q, duplicate/zero, oversupport and malformed columns"
+  ],
+  "markers": [
+    "HYP002_QUADRATIC_FINITE_BOUND_PASS",
+    "HYP002_PREFIX_FIBER_CERTIFICATE_PASS",
+    "HYP002_BOUNDARY_AND_WITNESS_PASS",
+    "HYP002_SHARP_EXPONENT_PHASE_B_PASS"
+  ],
+  "source_audit": [
+    "arxiv:1505.02597",
+    "arxiv:1507.00954",
+    "arxiv:2605.11949"
+  ],
+  "no_go": [
+    "Novelty announcement",
+    "Treat C4-free as sufficient exact ASET",
+    "Treat 2-union-free or arbitrary code models as identical without proof",
+    "New Rust crate",
+    "Lean verified claim",
+    "Exact leading constant"
+  ]
+}
