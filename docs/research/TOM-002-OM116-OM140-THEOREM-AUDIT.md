@@ -115,6 +115,12 @@ They are **counterexamples to invalid model transfers, not to either OM author's
 | Use OM-140 memory/sample theorem as O01 DAG certificate lower bound | **UNSUPPORTED** (distribution/output/operation/cost mismatch) | NO-GO without explicit reduction |
 | Reuse **research discipline** (exact model, resource counters, no-vacuity, matched lower bound) | **GO as method**, not theorem | Yes, for HYP-002 prior-art and O01 triage |
 
+### Concurrent Mathlab status check (HYP-002)
+
+The authoritative [HYP-002-B quadratic theorem](HYP-002-B-QUADRATIC-THEOREM.md) **already proves** `A_q^set(m,3,2)=Theta_q(m²)` for each fixed odd prime power q using a prefix-pair C4 argument and a Steiner-triple lower construction. The older `O_q(m^(5/2))` upper and `HYP-002-D CONJECTURE` in Phase-A material are superseded historical results. Scientific novelty and finite leading-constant improvements remain under audit in [issue #25](https://github.com/definitely-stable/Mathlab/issues/25); that issue is **not** waiting for a proof of the exponent.
+
+The separate [HYP-002-C decoder evidence](HYP-002-C-EVIDENCE.md) records **STOP_STANDALONE_DENSE_TWO_ID** for its narrow index-free two-ID use case. TOM-002's external theorems neither overturn the quadratic capacity result nor provide a Rust-product GO.
+
 **Research verdict TOM-002:** no mathematically justified direct transfer into a new Rust primitive. This is a useful negative research result and a correction of the OM-116 source catalog. **Do not open a speculative PIT crate** on the basis of a family already asserting the primitive's existence. Continue [HYP-002 #25](https://github.com/definitely-stable/Mathlab/issues/25) within a precisely stated three-cell ASET model, or close O01 if no new maintained-state memory/probe bound survives its separate prior-art audit.
 
 **No publication novelty, full paper proof recheck, or independent Lean proof verification is claimed.**
