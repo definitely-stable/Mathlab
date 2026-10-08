@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**102** работ сопоставлены с **38** внутренними исследованиями.
+**108** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -228,6 +228,12 @@
 - [LIT-098](LITERATURE.md#lit-098) — Competitive Data-Structure Dynamization (2020; primary_abstract_checked)
 - [LIT-099](LITERATURE.md#lit-099) — Longest Common Extension of a Dynamic String in Parallel Constant Time (2026; publisher_abstract_checked)
 - [LIT-102](LITERATURE.md#lit-102) — Riker: Always-Correct and Fast Incremental Builds from Simple Specifications (2022; publisher_abstract_checked)
+- [LIT-103](LITERATURE.md#lit-103) — Query Maintenance Under Batch Changes with Small-Depth Circuits (2024; publisher_abstract_checked)
+- [LIT-104](LITERATURE.md#lit-104) — Parallel Batch-Dynamic Trees via Change Propagation (2020; publisher_abstract_checked)
+- [LIT-105](LITERATURE.md#lit-105) — Instance Complexity and Unlabeled Certificates in the Decision Tree Model (2020; publisher_abstract_checked)
+- [LIT-106](LITERATURE.md#lit-106) — Certification complexity of Boolean functions (2026; publisher_abstract_checked)
+- [LIT-107](LITERATURE.md#lit-107) — On Condensation of Block Sensitivity, Certificate Complexity and the $\mathsf{AND}$ (and $\mathsf{OR}$) Decision Tree Complexity (2026; primary_abstract_checked)
+- [LIT-108](LITERATURE.md#lit-108) — Complexity measures and decision tree complexity: a survey (2002; publisher_abstract_checked)
 
 ## ML-005
 
@@ -253,6 +259,9 @@
 - [LIT-097](LITERATURE.md#lit-097) — Bigtable Merge Compaction (2014; primary_abstract_checked)
 - [LIT-098](LITERATURE.md#lit-098) — Competitive Data-Structure Dynamization (2020; primary_abstract_checked)
 - [LIT-102](LITERATURE.md#lit-102) — Riker: Always-Correct and Fast Incremental Builds from Simple Specifications (2022; publisher_abstract_checked)
+- [LIT-103](LITERATURE.md#lit-103) — Query Maintenance Under Batch Changes with Small-Depth Circuits (2024; publisher_abstract_checked)
+- [LIT-104](LITERATURE.md#lit-104) — Parallel Batch-Dynamic Trees via Change Propagation (2020; publisher_abstract_checked)
+- [LIT-105](LITERATURE.md#lit-105) — Instance Complexity and Unlabeled Certificates in the Decision Tree Model (2020; publisher_abstract_checked)
 
 ## ML-006
 
@@ -269,6 +278,11 @@
 - [LIT-067](LITERATURE.md#lit-067) — Towards Composable Proofs of Cache Coherence Protocols (2026; publisher_abstract_checked)
 - [LIT-068](LITERATURE.md#lit-068) — Model-Generic Incrementally Verifiable Computation from Updatable BARGs (2026; publisher_abstract_checked)
 - [LIT-072](LITERATURE.md#lit-072) — The Natural Proofs Barrier against Data-Structure Lower-Bounds (2026; publisher_abstract_checked)
+- [LIT-103](LITERATURE.md#lit-103) — Query Maintenance Under Batch Changes with Small-Depth Circuits (2024; publisher_abstract_checked)
+- [LIT-105](LITERATURE.md#lit-105) — Instance Complexity and Unlabeled Certificates in the Decision Tree Model (2020; publisher_abstract_checked)
+- [LIT-106](LITERATURE.md#lit-106) — Certification complexity of Boolean functions (2026; publisher_abstract_checked)
+- [LIT-107](LITERATURE.md#lit-107) — On Condensation of Block Sensitivity, Certificate Complexity and the $\mathsf{AND}$ (and $\mathsf{OR}$) Decision Tree Complexity (2026; primary_abstract_checked)
+- [LIT-108](LITERATURE.md#lit-108) — Complexity measures and decision tree complexity: a survey (2002; publisher_abstract_checked)
 
 ## ML-007
 
