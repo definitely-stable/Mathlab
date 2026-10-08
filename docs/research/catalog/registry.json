@@ -1,0 +1,930 @@
+{
+  "schema_version": "mathlab.research-catalog.v1",
+  "snapshot_date": "2026-10-08",
+  "scope": "curated, non-exhaustive; no cross-repository claim promotion",
+  "repositories": {
+    "MATHLAB": {
+      "full": "definitely-stable/Mathlab",
+      "sha": "c42670e6756c2012015e7d353068f485c5fd2b95"
+    },
+    "DELSK": {
+      "full": "definitely-stable/Shift-lab",
+      "sha": "e1ee235fe08c7cc1f6e8ec8884b65439435adf92"
+    },
+    "DELTAMETER": {
+      "full": "definitely-stable/deltameter",
+      "sha": "862579643fb44bfd3df3b65a863bfdc90b998611"
+    },
+    "OPENAI_MATH": {
+      "full": "openai/math",
+      "sha": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb"
+    }
+  },
+  "entries": [
+    {
+      "id": "ML-001",
+      "repository": "MATHLAB",
+      "title": "Разреженные обновления: ограничение достижимых состояний",
+      "summary_ru": "Базовая граница: число различных малых множеств не превосходит объёма q-ичной сферы Хэмминга радиуса dw при обновлении не более w координат.",
+      "status": "DERIVED_RESULT",
+      "verification": "repository_proof",
+      "topics": [
+        "coding",
+        "lower-bounds",
+        "locality"
+      ],
+      "application_ru": "Калибровка trade-off состояния и локальности.",
+      "limitations_ru": "Граница подсчёта сама по себе не нова; не даёт matching construction.",
+      "source": {
+        "repo": "definitely-stable/Mathlab",
+        "revision": "c42670e6756c2012015e7d353068f485c5fd2b95",
+        "path": "docs/research/LENT-001-FOUNDATION.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c42670e6756c2012015e7d353068f485c5fd2b95/docs/research/LENT-001-FOUNDATION.md",
+        "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-FOUNDATION.md"
+      },
+      "primary_sources": [],
+      "related": [
+        {
+          "id": "ML-002",
+          "relation": "constrained_by"
+        },
+        {
+          "id": "DM-001",
+          "relation": "related"
+        }
+      ]
+    },
+    {
+      "id": "ML-002",
+      "repository": "MATHLAB",
+      "title": "ASET: аудит новизны и разделение характеристик",
+      "summary_ru": "Отсекает общую новизну bounded-active signature coding; для q=2 фиксирует связь с бинарными кодами, для нечётных характеристик оставляет узкую задачу при жёсткой поддержке.",
+      "status": "PRIOR_ART_AUDIT",
+      "verification": "primary_source_review",
+      "topics": [
+        "coding",
+        "prior-art"
+      ],
+      "application_ru": "Ограничивает допустимые научные claims.",
+      "limitations_ru": "Отсутствие эквивалентного источника не доказывает новизну будущих оценок.",
+      "source": {
+        "repo": "definitely-stable/Mathlab",
+        "revision": "c42670e6756c2012015e7d353068f485c5fd2b95",
+        "path": "docs/research/LENT-001-G1B-AUDIT-03-FINAL.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c42670e6756c2012015e7d353068f485c5fd2b95/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md",
+        "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md"
+      },
+      "primary_sources": [
+        "https://arxiv.org/abs/1208.6125",
+        "https://arxiv.org/abs/2605.08644"
+      ],
+      "related": [
+        {
+          "id": "ML-001",
+          "relation": "audits"
+        },
+        {
+          "id": "ML-003",
+          "relation": "precedes"
+        }
+      ]
+    },
+    {
+      "id": "ML-003",
+      "repository": "MATHLAB",
+      "title": "ASET: конечные экстремальные значения G2A",
+      "summary_ru": "Сертифицированы малые случаи A_3(3,2,2)=5, A_5(2,2,2)=5, A_7(2,2,2)=7 и свидетели; выбран G2_EXPAND_GRID.",
+      "status": "EXACT_NUMERICAL",
+      "verification": "exact_hosted_ci",
+      "topics": [
+        "coding",
+        "finite-oracle"
+      ],
+      "application_ru": "Проверка поисковых экстремальных алгоритмов.",
+      "limitations_ru": "Два из трёх случаев имеют m=w; нет асимптотического результата.",
+      "source": {
+        "repo": "definitely-stable/Mathlab",
+        "revision": "c42670e6756c2012015e7d353068f485c5fd2b95",
+        "path": "docs/research/LENT-001-G2A-EVIDENCE.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c42670e6756c2012015e7d353068f485c5fd2b95/docs/research/LENT-001-G2A-EVIDENCE.md",
+        "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G2A-EVIDENCE.md"
+      },
+      "primary_sources": [
+        "https://github.com/definitely-stable/Mathlab/actions/runs/37746812318"
+      ],
+      "related": [
+        {
+          "id": "ML-002",
+          "relation": "extends"
+        },
+        {
+          "id": "ML-001",
+          "relation": "tests"
+        }
+      ]
+    },
+    {
+      "id": "ML-004",
+      "repository": "MATHLAB",
+      "title": "TOM-001: карта математических возможностей",
+      "summary_ru": "Карта 14 предварительных задач в инкрементальных вычислениях, канонических структурах, доказательствах и кодировании с product-операциями и критериями опровержения.",
+      "status": "RESEARCH_MAP",
+      "verification": "repository_review",
+      "topics": [
+        "methodology",
+        "theorem-search"
+      ],
+      "application_ru": "Навигация перед theorem selection.",
+      "limitations_ru": "Кандидаты не являются подтверждёнными открытыми проблемами.",
+      "source": {
+        "repo": "definitely-stable/Mathlab",
+        "revision": "c42670e6756c2012015e7d353068f485c5fd2b95",
+        "path": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c42670e6756c2012015e7d353068f485c5fd2b95/docs/research/TOM-001-OPPORTUNITY-MAP.md",
+        "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-OPPORTUNITY-MAP.md"
+      },
+      "primary_sources": [],
+      "related": [
+        {
+          "id": "ML-005",
+          "relation": "refined_by"
+        },
+        {
+          "id": "ML-006",
+          "relation": "refined_by"
+        }
+      ]
+    },
+    {
+      "id": "ML-005",
+      "repository": "MATHLAB",
+      "title": "TOM-B: контрпримеры и уточнение prior art",
+      "summary_ru": "Документирует OR/AND контрпримеры к широким сертификатным утверждениям; понижает историю-независимое разбиение до узкого исследовательского режима.",
+      "status": "RESEARCH_DECISION",
+      "verification": "exact_hosted_ci",
+      "topics": [
+        "incremental",
+        "history-independence",
+        "negative"
+      ],
+      "application_ru": "Не допустить некорректной композиции сертификатов.",
+      "limitations_ru": "Полнота аудита всех источников не заявлена.",
+      "source": {
+        "repo": "definitely-stable/Mathlab",
+        "revision": "c42670e6756c2012015e7d353068f485c5fd2b95",
+        "path": "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c42670e6756c2012015e7d353068f485c5fd2b95/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+        "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md"
+      },
+      "primary_sources": [
+        "https://doi.org/10.1145/3810240",
+        "https://doi.org/10.4230/LIPIcs.ECOOP.2025.20"
+      ],
+      "related": [
+        {
+          "id": "ML-004",
+          "relation": "corrects"
+        },
+        {
+          "id": "ML-006",
+          "relation": "precedes"
+        }
+      ]
+    },
+    {
+      "id": "ML-006",
+      "repository": "MATHLAB",
+      "title": "TOM-C: точная конечная граница метаданных",
+      "summary_ru": "Элементарная формула минимального числа меток для одношагового zero-probe verifier; полный перебор 16 двухвходовых булевых функций.",
+      "status": "DERIVED_RESULT",
+      "verification": "exact_hosted_ci",
+      "topics": [
+        "incremental",
+        "finite-oracle",
+        "proof"
+      ],
+      "application_ru": "Базовый sanity-check для будущих нижних границ.",
+      "limitations_ru": "Предвычисление метаданных бесплатно, поддержание меток при повторных изменениях не учитывается; новизна не заявлена.",
+      "source": {
+        "repo": "definitely-stable/Mathlab",
+        "revision": "c42670e6756c2012015e7d353068f485c5fd2b95",
+        "path": "docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c42670e6756c2012015e7d353068f485c5fd2b95/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md",
+        "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md"
+      },
+      "primary_sources": [
+        "https://github.com/definitely-stable/Mathlab/actions/runs/37755090131"
+      ],
+      "related": [
+        {
+          "id": "ML-005",
+          "relation": "extends"
+        },
+        {
+          "id": "DM-004",
+          "relation": "method_compare"
+        }
+      ]
+    },
+    {
+      "id": "ML-007",
+      "repository": "MATHLAB",
+      "title": "ASET signed relation: точный критерий коллизии",
+      "summary_ru": "Формализует равенство двух subset sums через ограниченные с двух сторон коэффициенты ±1; отличает поле характеристики 2 от нечётной.",
+      "status": "DERIVED_RESULT",
+      "verification": "repository_proof",
+      "topics": [
+        "coding",
+        "exact-model"
+      ],
+      "application_ru": "Сохранение точных side constraints в поиске конструкций.",
+      "limitations_ru": "Не тождествен произвольным коротким линейным зависимостям в нечётных полях.",
+      "source": {
+        "repo": "definitely-stable/Mathlab",
+        "revision": "c42670e6756c2012015e7d353068f485c5fd2b95",
+        "path": "docs/research/LENT-001-G1A-PROOF.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c42670e6756c2012015e7d353068f485c5fd2b95/docs/research/LENT-001-G1A-PROOF.md",
+        "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G1A-PROOF.md"
+      },
+      "primary_sources": [],
+      "related": [
+        {
+          "id": "ML-002",
+          "relation": "informs"
+        },
+        {
+          "id": "ML-003",
+          "relation": "foundation_for"
+        }
+      ]
+    },
+    {
+      "id": "DL-001",
+      "repository": "DELSK",
+      "title": "DELSK: матрица claims и первичного prior art",
+      "summary_ru": "Сопоставляет Finesse, DeepSketch, Odess, Argus, FastDelta и другие системы с encoder-aware scoring, бюджетами и воспроизводимостью; отделяет COVERED от PARTIAL.",
+      "status": "PRIOR_ART_AUDIT",
+      "verification": "primary_source_review",
+      "topics": [
+        "delta-compression",
+        "prior-art"
+      ],
+      "application_ru": "Проверка продуктовой и алгоритмической новизны выбора delta-base.",
+      "limitations_ru": "Часть публикаций доступна только по abstract; claim OPEN не гарантирует отсутствие prior art.",
+      "source": {
+        "repo": "definitely-stable/Shift-lab",
+        "revision": "e1ee235fe08c7cc1f6e8ec8884b65439435adf92",
+        "path": ".work/research/claim-matrix.md",
+        "permalink": "https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/research/claim-matrix.md",
+        "latest": "https://github.com/definitely-stable/Shift-lab/blob/main/.work/research/claim-matrix.md"
+      },
+      "primary_sources": [
+        "https://www.usenix.org/system/files/fast19-zhang.pdf",
+        "https://www.usenix.org/system/files/fast22-park.pdf",
+        "https://doi.org/10.1145/3747839"
+      ],
+      "related": [
+        {
+          "id": "DL-002",
+          "relation": "updated_by"
+        },
+        {
+          "id": "DL-003",
+          "relation": "background_for"
+        }
+      ]
+    },
+    {
+      "id": "DL-002",
+      "repository": "DELSK",
+      "title": "DELSK: октябрьское обновление baselines",
+      "summary_ru": "Добавлены Git name-hash/path-walk, containment, MinHash, LZJD, trial encode; рекомендации честного Pareto-сравнения по bytes/CPU/index/codec.",
+      "status": "PRIOR_ART_AUDIT",
+      "verification": "primary_source_review",
+      "topics": [
+        "delta-compression",
+        "baselines",
+        "prior-art"
+      ],
+      "application_ru": "Выбор сильных, дешёвых инженерных сравнений.",
+      "limitations_ru": "Уровни P/M/U неодинаковы; не все методы воспроизведены.",
+      "source": {
+        "repo": "definitely-stable/Shift-lab",
+        "revision": "e1ee235fe08c7cc1f6e8ec8884b65439435adf92",
+        "path": ".work/research/DELSK-PRIOR-ART-UPDATE-2026-10.md",
+        "permalink": "https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/research/DELSK-PRIOR-ART-UPDATE-2026-10.md",
+        "latest": "https://github.com/definitely-stable/Shift-lab/blob/main/.work/research/DELSK-PRIOR-ART-UPDATE-2026-10.md"
+      },
+      "primary_sources": [
+        "https://github.blog/open-source/git/highlights-from-git-2-51/",
+        "https://arxiv.org/abs/2507.10019"
+      ],
+      "related": [
+        {
+          "id": "DL-001",
+          "relation": "extends"
+        },
+        {
+          "id": "DL-004",
+          "relation": "motivates"
+        }
+      ]
+    },
+    {
+      "id": "DL-003",
+      "repository": "DELSK",
+      "title": "DELSK-X0: отрицательный screening headroom",
+      "summary_ru": "В ограниченном скрининге простые baselines почти насыщают savings; решение NO_HEADROOM_AT_256 для исследованных ячеек.",
+      "status": "EMPIRICAL_RESULT",
+      "verification": "exact_retained_measurement",
+      "topics": [
+        "delta-compression",
+        "negative",
+        "evidence"
+      ],
+      "application_ru": "Обоснование pivot от сложных descriptor-конструкций.",
+      "limitations_ru": "Exploratory: небольшие выборки и один codec; нельзя переносить на все типы данных.",
+      "source": {
+        "repo": "definitely-stable/Shift-lab",
+        "revision": "e1ee235fe08c7cc1f6e8ec8884b65439435adf92",
+        "path": ".work/corpus/x0/results.md",
+        "permalink": "https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/corpus/x0/results.md",
+        "latest": "https://github.com/definitely-stable/Shift-lab/blob/main/.work/corpus/x0/results.md"
+      },
+      "primary_sources": [
+        "https://github.com/definitely-stable/Shift-lab/actions/runs/37449333091"
+      ],
+      "related": [
+        {
+          "id": "DL-001",
+          "relation": "context"
+        },
+        {
+          "id": "DL-004",
+          "relation": "motivates"
+        }
+      ]
+    },
+    {
+      "id": "DL-004",
+      "repository": "DELSK",
+      "title": "DELSK-S2: benchmark simple selector",
+      "summary_ru": "На hosted-runner заявлены p95=16.7 мкс при 1M объектов, top-2 parity 1.000, ≈40.7 B/index entry, 499–502 MiB/s descriptor; принят локальный performance gate.",
+      "status": "EMPIRICAL_RESULT",
+      "verification": "exact_retained_measurement",
+      "topics": [
+        "delta-compression",
+        "performance"
+      ],
+      "application_ru": "Простейший bounded index как контроль для нового Rust-примитива.",
+      "limitations_ru": "Синтетическая нагрузка, один runner/run, не строгая latency guarantee.",
+      "source": {
+        "repo": "definitely-stable/Shift-lab",
+        "revision": "e1ee235fe08c7cc1f6e8ec8884b65439435adf92",
+        "path": ".work/selector/results-s2.md",
+        "permalink": "https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/selector/results-s2.md",
+        "latest": "https://github.com/definitely-stable/Shift-lab/blob/main/.work/selector/results-s2.md"
+      },
+      "primary_sources": [
+        "https://github.com/definitely-stable/Shift-lab/actions/runs/37455719130"
+      ],
+      "related": [
+        {
+          "id": "DL-003",
+          "relation": "follows"
+        },
+        {
+          "id": "DL-005",
+          "relation": "followed_by"
+        },
+        {
+          "id": "DL-006",
+          "relation": "related"
+        }
+      ]
+    },
+    {
+      "id": "DL-005",
+      "repository": "DELSK",
+      "title": "DELSK-S3: отказ от delta-encoding не принят",
+      "summary_ru": "Пороговый descriptor-abstention не проходит preregistered FN и loss thresholds; принято L=0.",
+      "status": "RESEARCH_DECISION",
+      "verification": "exact_retained_measurement",
+      "topics": [
+        "delta-compression",
+        "negative",
+        "selection"
+      ],
+      "application_ru": "Защита от ложных пропусков полезного delta.",
+      "limitations_ru": "In-sample набор, нет общего теоретического утверждения.",
+      "source": {
+        "repo": "definitely-stable/Shift-lab",
+        "revision": "e1ee235fe08c7cc1f6e8ec8884b65439435adf92",
+        "path": ".work/selector/results-s3.md",
+        "permalink": "https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/selector/results-s3.md",
+        "latest": "https://github.com/definitely-stable/Shift-lab/blob/main/.work/selector/results-s3.md"
+      },
+      "primary_sources": [
+        "https://github.com/definitely-stable/Shift-lab/actions/runs/37458783363"
+      ],
+      "related": [
+        {
+          "id": "DL-004",
+          "relation": "follows"
+        },
+        {
+          "id": "DL-006",
+          "relation": "precedes"
+        }
+      ]
+    },
+    {
+      "id": "DL-006",
+      "repository": "DELSK",
+      "title": "DELSK-S4-D: ChunkShift integration development screen",
+      "summary_ru": "При K=2 около 1.06% экономии CSP байтов относительно previous1 ценой ~1.49x encode calls; verdict OPEN_CONFIRMATION_K2.",
+      "status": "EMPIRICAL_RESULT",
+      "verification": "exact_retained_measurement",
+      "topics": [
+        "delta-compression",
+        "system-evidence"
+      ],
+      "application_ru": "Контроль системной пользы выбора кандидатов.",
+      "limitations_ru": "Development screen, не sealed holdout; не доказывает готовность отдельного crate.",
+      "source": {
+        "repo": "definitely-stable/Shift-lab",
+        "revision": "e1ee235fe08c7cc1f6e8ec8884b65439435adf92",
+        "path": ".work/results/SELECTOR-S4/README.md",
+        "permalink": "https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/results/SELECTOR-S4/README.md",
+        "latest": "https://github.com/definitely-stable/Shift-lab/blob/main/.work/results/SELECTOR-S4/README.md"
+      },
+      "primary_sources": [
+        "https://github.com/definitely-stable/Shift-lab/issues/13"
+      ],
+      "related": [
+        {
+          "id": "DL-004",
+          "relation": "system_extension"
+        },
+        {
+          "id": "DL-005",
+          "relation": "context"
+        }
+      ]
+    },
+    {
+      "id": "DM-001",
+      "repository": "DELTAMETER",
+      "title": "DeltaMeter: разделение F2 и GF(2) модели",
+      "summary_ru": "Документирует эквивалентные формулировки symmetric-difference cardinality через signed F2 и GF(2)-паритет, с различием семантики toggle и insert.",
+      "status": "RESEARCH_SYNTHESIS",
+      "verification": "repository_review",
+      "topics": [
+        "streaming",
+        "coding",
+        "models"
+      ],
+      "application_ru": "Не смешивать гарантию множества и multiset.",
+      "limitations_ru": "Модели требуют разных предпосылок к обновлениям.",
+      "source": {
+        "repo": "definitely-stable/deltameter",
+        "revision": "862579643fb44bfd3df3b65a863bfdc90b998611",
+        "path": "docs/research/FOUNDATION.md",
+        "permalink": "https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/FOUNDATION.md",
+        "latest": "https://github.com/definitely-stable/deltameter/blob/main/docs/research/FOUNDATION.md"
+      },
+      "primary_sources": [],
+      "related": [
+        {
+          "id": "DM-002",
+          "relation": "precedes"
+        },
+        {
+          "id": "ML-001",
+          "relation": "related"
+        }
+      ]
+    },
+    {
+      "id": "DM-002",
+      "repository": "DELTAMETER",
+      "title": "GF(2)-F-PCSA: воспроизведение опубликованной конструкции",
+      "summary_ru": "Реализована опубликованная схема FIELDMAP, битового XOR и row-level статистики; детерминированный псевдо-оракул не равен идеальной случайности статьи.",
+      "status": "REPRODUCTION",
+      "verification": "repository_tests",
+      "topics": [
+        "streaming",
+        "parity",
+        "reproducibility"
+      ],
+      "application_ru": "Различие теоремы об идеальной модели и reproducible code.",
+      "limitations_ru": "Нет finite-sample гарантии из одной только инженерной реализации.",
+      "source": {
+        "repo": "definitely-stable/deltameter",
+        "revision": "862579643fb44bfd3df3b65a863bfdc90b998611",
+        "path": "docs/research/M2-FPCSA-REPRODUCTION.md",
+        "permalink": "https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/M2-FPCSA-REPRODUCTION.md",
+        "latest": "https://github.com/definitely-stable/deltameter/blob/main/docs/research/M2-FPCSA-REPRODUCTION.md"
+      },
+      "primary_sources": [
+        "https://arxiv.org/abs/2310.14977"
+      ],
+      "related": [
+        {
+          "id": "DM-001",
+          "relation": "foundation"
+        },
+        {
+          "id": "DM-003",
+          "relation": "bounded_by"
+        }
+      ]
+    },
+    {
+      "id": "DM-003",
+      "repository": "DELTAMETER",
+      "title": "Post-M3: строгий Parity NO-GO и точные конечные законы",
+      "summary_ru": "Содержит Fourier full-state law, one-level PGF, truncation split и доказательство несостоятельности W как sufficient statistic; строгий опубликованный W_i backend остановлен.",
+      "status": "RESEARCH_DECISION",
+      "verification": "repository_proof",
+      "topics": [
+        "streaming",
+        "finite-sample",
+        "negative"
+      ],
+      "application_ru": "Фильтрация ошибочных strict confidence claims.",
+      "limitations_ru": "NO-GO касается текущего published W_i пути; не теорема невозможности всех GF(2) оценивателей.",
+      "source": {
+        "repo": "definitely-stable/deltameter",
+        "revision": "862579643fb44bfd3df3b65a863bfdc90b998611",
+        "path": "docs/research/STRICT-PARITY-POST-M3.md",
+        "permalink": "https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/STRICT-PARITY-POST-M3.md",
+        "latest": "https://github.com/definitely-stable/deltameter/blob/main/docs/research/STRICT-PARITY-POST-M3.md"
+      },
+      "primary_sources": [],
+      "related": [
+        {
+          "id": "DM-002",
+          "relation": "extends"
+        },
+        {
+          "id": "DM-004",
+          "relation": "counterpart"
+        }
+      ]
+    },
+    {
+      "id": "DM-004",
+      "repository": "DELTAMETER",
+      "title": "STRICT-COMPACT-002: continuous range certificate",
+      "summary_ru": "Для идеальной статистической модели представлен точный рациональный сертификат диапазона для 32 KiB state и q95 U/d<=1.5, δ=10^-6; публичная строгая гарантия псевдо-оракула не разрешена.",
+      "status": "RESEARCH_EVIDENCE",
+      "verification": "exact_hosted_ci",
+      "topics": [
+        "streaming",
+        "finite-sample",
+        "certification"
+      ],
+      "application_ru": "Шаблон строгой сертификации заявленного диапазона.",
+      "limitations_ru": "Доказательство параметров идеальной модели не автоматически распространяется на детерминированный runtime oracle.",
+      "source": {
+        "repo": "definitely-stable/deltameter",
+        "revision": "862579643fb44bfd3df3b65a863bfdc90b998611",
+        "path": "docs/research/STRICT-COMPACT-002-EVIDENCE.md",
+        "permalink": "https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/STRICT-COMPACT-002-EVIDENCE.md",
+        "latest": "https://github.com/definitely-stable/deltameter/blob/main/docs/research/STRICT-COMPACT-002-EVIDENCE.md"
+      },
+      "primary_sources": [
+        "https://github.com/definitely-stable/deltameter/issues/63"
+      ],
+      "related": [
+        {
+          "id": "DM-003",
+          "relation": "contrast"
+        },
+        {
+          "id": "DM-005",
+          "relation": "precedes"
+        },
+        {
+          "id": "ML-006",
+          "relation": "method_compare"
+        }
+      ]
+    },
+    {
+      "id": "DM-005",
+      "repository": "DELTAMETER",
+      "title": "STRICT-COMPACT: оптимизация state/range и layout",
+      "summary_ru": "После private feasibility предлагает последовательность OPT-A/B/C: параметризация уровней, maintained cache, progressive transfer, затем публичный контракт.",
+      "status": "RESEARCH_PLAN",
+      "verification": "repository_review",
+      "topics": [
+        "streaming",
+        "optimization",
+        "protocol"
+      ],
+      "application_ru": "Дисциплина performance и API gates.",
+      "limitations_ru": "Планы не являются результатами выполненных benchmark или новой теоремой.",
+      "source": {
+        "repo": "definitely-stable/deltameter",
+        "revision": "862579643fb44bfd3df3b65a863bfdc90b998611",
+        "path": "docs/research/STRICT-COMPACT-OPT-NEXT-WORK.md",
+        "permalink": "https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/STRICT-COMPACT-OPT-NEXT-WORK.md",
+        "latest": "https://github.com/definitely-stable/deltameter/blob/main/docs/research/STRICT-COMPACT-OPT-NEXT-WORK.md"
+      },
+      "primary_sources": [],
+      "related": [
+        {
+          "id": "DM-004",
+          "relation": "uses"
+        }
+      ]
+    },
+    {
+      "id": "DM-006",
+      "repository": "DELTAMETER",
+      "title": "M6-D13B: системный protocol comparator",
+      "summary_ru": "Frozen контракт сравнения direct, maintained D11, RIBLT pull и stream lower-bound с RTT/bandwidth-моделью, без принятия production ExactSmallDelta.",
+      "status": "RESEARCH_PROTOCOL",
+      "verification": "source_inspected",
+      "topics": [
+        "reconciliation",
+        "benchmark",
+        "protocol"
+      ],
+      "application_ru": "Проверка честности comparator и распределённых затрат.",
+      "limitations_ru": "JSON описывает протокол измерения, не performance verdict.",
+      "source": {
+        "repo": "definitely-stable/deltameter",
+        "revision": "862579643fb44bfd3df3b65a863bfdc90b998611",
+        "path": "research/m6d13b/contract.json",
+        "permalink": "https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/research/m6d13b/contract.json",
+        "latest": "https://github.com/definitely-stable/deltameter/blob/main/research/m6d13b/contract.json"
+      },
+      "primary_sources": [],
+      "related": [
+        {
+          "id": "DM-001",
+          "relation": "related"
+        },
+        {
+          "id": "DL-004",
+          "relation": "method_compare"
+        }
+      ]
+    },
+    {
+      "id": "DM-007",
+      "repository": "DELTAMETER",
+      "title": "DeltaMeter: открытые finite-sample вопросы",
+      "summary_ru": "Реестр оставшихся математических проблем: tails для ParityLevelCounts, fixed-d de-Poissonization, информационные границы и допущения случайности.",
+      "status": "OPEN_QUESTION",
+      "verification": "repository_review",
+      "topics": [
+        "streaming",
+        "finite-sample"
+      ],
+      "application_ru": "Очередь проверяемых математических задач.",
+      "limitations_ru": "Открытые вопросы могут быть известны вне текущего аудита; не утверждать глобальную новизну.",
+      "source": {
+        "repo": "definitely-stable/deltameter",
+        "revision": "862579643fb44bfd3df3b65a863bfdc90b998611",
+        "path": "docs/research/OPEN-QUESTIONS.md",
+        "permalink": "https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/OPEN-QUESTIONS.md",
+        "latest": "https://github.com/definitely-stable/deltameter/blob/main/docs/research/OPEN-QUESTIONS.md"
+      },
+      "primary_sources": [],
+      "related": [
+        {
+          "id": "DM-003",
+          "relation": "extends"
+        },
+        {
+          "id": "DM-004",
+          "relation": "context"
+        }
+      ]
+    },
+    {
+      "id": "OM-000",
+      "repository": "OPENAI_MATH",
+      "title": "OpenAI math: коллекция и границы проверки",
+      "summary_ru": "Официальный каталог рукописей с разной степенью Lean-формализации; предупреждает о возможных ошибках в неформализованных результатах.",
+      "status": "EXTERNAL_CATALOG",
+      "verification": "source_catalog",
+      "topics": [
+        "mathematics",
+        "formalization",
+        "provenance"
+      ],
+      "application_ru": "Навигация по семействам, proof artifacts и release history.",
+      "limitations_ru": "Количества рукописей и формализаций изменяются; это snapshot, не endorsement.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "README.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/README.md",
+        "latest": "https://github.com/openai/math/blob/main/README.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/main/CONTENTS.md",
+        "https://github.com/openai/math/blob/main/lean/formalization.yaml"
+      ],
+      "related": [
+        {
+          "id": "OM-099",
+          "relation": "contains"
+        },
+        {
+          "id": "OM-119",
+          "relation": "contains"
+        },
+        {
+          "id": "OM-121",
+          "relation": "contains"
+        },
+        {
+          "id": "OM-122",
+          "relation": "contains"
+        },
+        {
+          "id": "OM-103",
+          "relation": "contains"
+        }
+      ]
+    },
+    {
+      "id": "OM-099",
+      "repository": "OPENAI_MATH",
+      "title": "Family 099: заявленные границы искажения edit distance",
+      "summary_ru": "Каталог автора сообщает matching экспоненциальную шкалу искажения вложений edit-distance в ℓ1; привязан к manuscript и Lean-документации.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "edit-distance",
+        "geometry",
+        "lower-bounds"
+      ],
+      "application_ru": "Методологический benchmark верхних/нижних оценок.",
+      "limitations_ru": "Факт присутствия Lean-документа не равен независимой экспертизе математической публикации.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/099.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/099.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/099.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/main/CONTENTS.md"
+      ],
+      "related": [
+        {
+          "id": "OM-000",
+          "relation": "catalogued_in"
+        },
+        {
+          "id": "OM-121",
+          "relation": "related"
+        }
+      ]
+    },
+    {
+      "id": "OM-103",
+      "repository": "OPENAI_MATH",
+      "title": "Family 103: заявленная дерaндомизация logspace",
+      "summary_ru": "Коллекция содержит рукопись с утверждением L=RL=BPL и ссылку на Lean-артефакты; запись импортирует заявление автора, не подтверждает теорему.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "complexity",
+        "derandomization"
+      ],
+      "application_ru": "Пример необходимости отделять proof status от новизны и популярности.",
+      "limitations_ru": "Сильное заявление; без независимого прочтения доказательства и формализации использовать лишь как предмет аудита.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/103.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/103.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/103.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/main/CONTENTS.md"
+      ],
+      "related": [
+        {
+          "id": "OM-000",
+          "relation": "catalogued_in"
+        }
+      ]
+    },
+    {
+      "id": "OM-119",
+      "repository": "OPENAI_MATH",
+      "title": "Family 119: заявленное сжатие информации булевых функций",
+      "summary_ru": "Каталог относит к семейству Courtade–Kumar/Hellinger и заявляет sharp information contraction; есть ссылка на Lean-документацию.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "information-theory",
+        "boolean"
+      ],
+      "application_ru": "Возможный методический источник для информационных ограничений.",
+      "limitations_ru": "Модель noise/information не эквивалентна sparse-update lower bound.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/119.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/119.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/119.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/main/CONTENTS.md"
+      ],
+      "related": [
+        {
+          "id": "OM-000",
+          "relation": "catalogued_in"
+        },
+        {
+          "id": "ML-001",
+          "relation": "conceptual_link"
+        }
+      ]
+    },
+    {
+      "id": "OM-121",
+      "repository": "OPENAI_MATH",
+      "title": "Family 121: заявленная почти-линейная аппроксимация edit distance",
+      "summary_ru": "Рукопись заявляет рандомизированную (1+ε)-аппроксимацию edit-distance за N^{1+o(1)} при фиксированном ε; коллекция даёт Lean-метаданные.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "edit-distance",
+        "algorithms"
+      ],
+      "application_ru": "Поиск algorithmic primitives только после source-level audit.",
+      "limitations_ru": "Не проверялось сопоставление с актуальными внешними best-known алгоритмами; не использовать как продуктовый benchmark.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/121.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/121.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/121.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/main/CONTENTS.md"
+      ],
+      "related": [
+        {
+          "id": "OM-099",
+          "relation": "related"
+        },
+        {
+          "id": "OM-000",
+          "relation": "catalogued_in"
+        },
+        {
+          "id": "DL-006",
+          "relation": "adjacent_application"
+        }
+      ]
+    },
+    {
+      "id": "OM-122",
+      "repository": "OPENAI_MATH",
+      "title": "Family 122: заявленные оценки trace reconstruction",
+      "summary_ru": "Коллекция заявляет границы выборки и uniform decoder для реконструкции строк после удалений; документирует Lean-связку.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "edit-distance",
+        "information-theory",
+        "reconstruction"
+      ],
+      "application_ru": "Соседняя область lower bounds для работы с изменениями строк.",
+      "limitations_ru": "Не доказана применимость к dynamic state/cdc; заявленные достижения требуют независимого аудита.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/122.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/122.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/122.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/main/CONTENTS.md"
+      ],
+      "related": [
+        {
+          "id": "OM-000",
+          "relation": "catalogued_in"
+        },
+        {
+          "id": "OM-099",
+          "relation": "related"
+        }
+      ]
+    }
+  ]
+}
