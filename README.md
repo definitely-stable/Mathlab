@@ -1,5 +1,9 @@
 # Mathlab
 
+## Current mathematics — HYP-103 G0 (scope-limited)
+
+[Exact minimum old-state certificate reduction, counterexamples, and six new primary papers](docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md). The minimum old-bit probe certificate for a publicly specified batch of input overwrites under an authenticated old-root promise is a **classical certificate-complexity/hitting-set problem**, not a newly discovered theorem. [TOM-007](docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) remains the prior broad scouting program. External literature index: **108** curated works; no Rust authorization.
+
 ## New theorem scouting — TOM-007
 
 [Six cross-domain hypotheses, rigorous stop/reopen conditions and source-level overlap](docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (issue [#68](https://github.com/definitely-stable/Mathlab/issues/68)). Independent finite falsification probes three hypothesis families and the external literature index adds seven unique primary works (102 total). No novel theorem or new Rust crate claimed; avoid repeating stopped broad hypotheses from TOM-001/TOM-006 and DeltaMeter.

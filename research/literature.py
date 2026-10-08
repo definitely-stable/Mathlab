@@ -71,6 +71,12 @@ SOURCE_TITLE_PINS = {
     "arxiv:1211.1056": "How Robust are Linear Sketches to Adaptive Inputs?",
     "publisher:pmlr:cohen25c": "Breaking the Quadratic Barrier: Robust Cardinality Sketches for Adaptive Queries",
     "usenix:atc22:curtsinger": "Riker: Always-Correct and Fast Incremental Builds from Simple Specifications",
+    "doi:10.4230/LIPIcs.MFCS.2024.46": "Query Maintenance Under Batch Changes with Small-Depth Circuits",
+    "doi:10.4230/LIPIcs.ESA.2020.2": "Parallel Batch-Dynamic Trees via Change Propagation",
+    "doi:10.4230/LIPIcs.ITCS.2020.56": "Instance Complexity and Unlabeled Certificates in the Decision Tree Model",
+    "publisher:eccc:tr26-206": "Certification complexity of Boolean functions",
+    "arxiv:2602.01042": "On Condensation of Block Sensitivity, Certificate Complexity and the $\\mathsf{AND}$ (and $\\mathsf{OR}$) Decision Tree Complexity",
+    "doi:10.1016/S0304-3975(01)00144-X": "Complexity measures and decision tree complexity: a survey",
 }
 
 
