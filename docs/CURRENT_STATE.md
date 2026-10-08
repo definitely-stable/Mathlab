@@ -1,6 +1,6 @@
 # CURRENT_STATE
 
-Last verified HEAD: `main@e435b72fbf7b94f3f514a3f5fbbae88070876525`
+Last verified HEAD: `main@7e20b323c7965151a9626328adf7cb9aa433dfd0`
 
 Current milestone: LENT-001 / G1B — primary-source novelty closure
 
@@ -8,16 +8,16 @@ Current slice: build theorem-level definition/reduction maps for A_q^set against
 
 Open issue: #6 — LENT-001-G1B: primary-source novelty closure for A_q^set
 
-Implementation branch: `research/lent-001-g1b-prior-art`
+Open PR: none
 
-Open PR: pending
-
-Last CI: post-merge research run `37725038874` — SUCCESS on G1A merge commit
+Last CI: post-merge research run `37725327389` — SUCCESS on the G1B gate merge commit
 
 Acceptance: G0 = FOUNDATION_PASS; G1A = G1A_ORACLE_PASS; G1B remains OPEN and no publication novelty is claimed
 
-Known blockers: primary-source definition/theorem mapping is incomplete; the finite q=3/q=5 model gap does not establish a new asymptotic extremal result
+Exact finite result carried forward: q=3 and q=5 have ASET-exact families outside arbitrary-coefficient small-column independence in the frozen grid; this is a model separation, not an asymptotic novelty result
 
-Next allowed action: ingest primary-source/deep-research evidence into the G1B source matrix, verify every candidate theorem, then choose one G1B exit decision
+Known blockers: primary-source definition/theorem mapping is incomplete; bounded-support dissociated/Sidon/B_h literature and q=3 special cases must be closed before theorem selection
+
+Next allowed action: ingest the incoming deep-research material into `LENT-001-G1B-SOURCE-MATRIX.md`, verify each primary source, then choose exactly one G1B exit decision
 
 Last updated from repository: 2026-10-08
