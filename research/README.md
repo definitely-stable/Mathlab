@@ -25,6 +25,11 @@ FOUNDATION_PASS
 - `lent_exhaustive.py` — exhaustive tiny column-family oracle over the frozen prime-field grid.
 - `lent-001/protocol.json` — machine-readable G0 contract.
 - `test_lent.py` — regression tests, including the binary dependency mapping.
+- `lent_hypergraph.py` — G2B signed-side forbidden-hypergraph oracle and exact/bounded branch-and-bound with rigorous unresolved-frontier upper bounds.
+- `test_lent_g2b.py` — exhaustive independent hypergraph/ASET oracle checks, GF(7) legal +++ triple, minimality and solver regressions.
+- `lent-001/g2b-protocol.json` — frozen G2B-A search/acceptance contract.
+
+G2B-A hosted run 37756386646 confirms exact q=3,m=4,w=2 value 7 and a certified q=5,m=3,w=2 interval [10,15]. Run `python research/lent_hypergraph.py` to reproduce its five additional markers. This is finite evidence, not novelty or a proof of the q=5 optimum.
 
 ## Evidence semantics
 
