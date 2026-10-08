@@ -101,6 +101,22 @@ class CatalogTests(unittest.TestCase):
             self.assertGreater(len(r["source_audit"]["scope_mismatch_ru"]), 50)
             self.assertIn("**Аудит первоисточника:**", render(self.data))
 
+    def test_om116_has_positive_characteristic_paper_and_scope_barrier(self):
+        e = next(x for x in self.data["entries"] if x["id"] == "OM-116")
+        self.assertEqual(len(e["source_audit"]["primary_papers"]), 3)
+        self.assertIn("p=2", e["source_audit"]["scope_mismatch_ru"])
+        self.assertIn("GF(p)", e["summary_ru"])
+
+    def test_tom_source_statement_paths_are_pinned(self):
+        e = next(x for x in self.data["entries"] if x["id"] == "OM-140")
+        statement = e["source_audit"]["theorem_statement_sources"][0]
+        d = copy.deepcopy(self.data)
+        target = next(x for x in d["entries"] if x["id"] == "OM-140")
+        url = ("https://github.com/openai/math/blob/"
+               + target["source"]["revision"] + "/" + statement)
+        target["primary_sources"].remove(url)
+        self.assertTrue(any("audited source missing" in err for err in check(d)))
+
     def test_duplicate_id_is_rejected(self):
         data = copy.deepcopy(self.data)
         data["entries"][1]["id"] = data["entries"][0]["id"]
