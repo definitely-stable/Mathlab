@@ -109,6 +109,11 @@ def check(data):
                 audited_paths = [audit.get("manuscript_readme"), audit.get("comparator_manifest")]
                 if isinstance(papers, list):
                     audited_paths.extend(papers)
+                statement_sources = audit.get("theorem_statement_sources", [])
+                require(isinstance(statement_sources, list),
+                        f"{ident}: theorem statement paths must be a list")
+                if isinstance(statement_sources, list):
+                    audited_paths.extend(statement_sources)
                 for p in audited_paths:
                     require(isinstance(p, str) and bool(p) and p.startswith(("preprints/", "lean/")),
                             f"{ident}: invalid audited source path")
