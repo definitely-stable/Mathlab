@@ -2,7 +2,7 @@
 
 > Generated from `registry.json` by `research/catalog.py`. Edit JSON, not this file.
 
-Snapshot: **2026-10-08**. **49** selected entries; curated, not exhaustive.
+Snapshot: **2026-10-08**. **51** selected entries; curated, not exhaustive.
 
 Обозначения: `EXTERNAL_MANUSCRIPT_CLAIM` — только заявление каталога автора,
 не независимо подтверждённая теорема. `EXACT_NUMERICAL` и `EMPIRICAL_RESULT`
@@ -10,7 +10,7 @@ Snapshot: **2026-10-08**. **49** selected entries; curated, not exhaustive.
 
 | Источник | Записей | Раздел |
 | --- | ---: | --- |
-| Mathlab | 9 | [MATHLAB](#mathlab) |
+| Mathlab | 11 | [MATHLAB](#mathlab) |
 | DELSK / Shift-lab | 12 | [DELSK](#delsk) |
 | DeltaMeter | 14 | [DELTAMETER](#deltameter) |
 | openai/math | 14 | [OPENAI_MATH](#openai-math) |
@@ -26,7 +26,7 @@ Snapshot: **2026-10-08**. **49** selected entries; curated, not exhaustive.
 
 **Применение:** Калибровка trade-off состояния и локальности. **Ограничения:** Граница подсчёта сама по себе не нова; не даёт matching construction.
 
-**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-FOUNDATION.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-FOUNDATION.md) · первичные источники: —
+**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-FOUNDATION.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-FOUNDATION.md) · первичные источники: —
 
 **Связи →** [ML-002](#ml-002) (constrained_by), [DM-001](#dm-001) (related) · **Обратные ссылки ←** [DM-001](#dm-001) (related), [ML-002](#ml-002) (audits), [ML-003](#ml-003) (tests), [OM-119](#om-119) (conceptual_link)
 
@@ -39,7 +39,7 @@ Snapshot: **2026-10-08**. **49** selected entries; curated, not exhaustive.
 
 **Применение:** Ограничивает допустимые научные claims. **Ограничения:** Отсутствие эквивалентного источника не доказывает новизну будущих оценок.
 
-**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md) · первичные источники: [1](https://arxiv.org/abs/1208.6125), [2](https://arxiv.org/abs/2605.08644)
+**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md) · первичные источники: [1](https://arxiv.org/abs/1208.6125), [2](https://arxiv.org/abs/2605.08644)
 
 **Связи →** [ML-001](#ml-001) (audits), [ML-003](#ml-003) (precedes) · **Обратные ссылки ←** [ML-001](#ml-001) (constrained_by), [ML-003](#ml-003) (extends), [ML-007](#ml-007) (informs), [ML-009](#ml-009) (constrained_by)
 
@@ -52,7 +52,7 @@ Snapshot: **2026-10-08**. **49** selected entries; curated, not exhaustive.
 
 **Применение:** Проверка поисковых экстремальных алгоритмов. **Ограничения:** Два из трёх случаев имеют m=w; нет асимптотического результата.
 
-**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2A-EVIDENCE.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G2A-EVIDENCE.md) · первичные источники: [1](https://github.com/definitely-stable/Mathlab/actions/runs/37746812318)
+**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2A-EVIDENCE.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G2A-EVIDENCE.md) · первичные источники: [1](https://github.com/definitely-stable/Mathlab/actions/runs/37746812318)
 
 **Связи →** [ML-002](#ml-002) (extends), [ML-001](#ml-001) (tests) · **Обратные ссылки ←** [ML-002](#ml-002) (precedes), [ML-007](#ml-007) (foundation_for), [ML-008](#ml-008) (extends)
 
@@ -65,7 +65,7 @@ Snapshot: **2026-10-08**. **49** selected entries; curated, not exhaustive.
 
 **Применение:** Навигация перед theorem selection. **Ограничения:** Кандидаты не являются подтверждёнными открытыми проблемами.
 
-**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-OPPORTUNITY-MAP.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-OPPORTUNITY-MAP.md) · первичные источники: —
+**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-OPPORTUNITY-MAP.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-OPPORTUNITY-MAP.md) · первичные источники: —
 
 **Связи →** [ML-005](#ml-005) (refined_by), [ML-006](#ml-006) (refined_by) · **Обратные ссылки ←** [DL-007](#dl-007) (method_compare), [DL-009](#dl-009) (method_compare), [ML-005](#ml-005) (corrects), [OM-133](#om-133) (conceptual_link), [OM-137](#om-137) (conceptual_link)
 
@@ -78,7 +78,7 @@ Snapshot: **2026-10-08**. **49** selected entries; curated, not exhaustive.
 
 **Применение:** Не допустить некорректной композиции сертификатов. **Ограничения:** Полнота аудита всех источников не заявлена.
 
-**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) · первичные источники: [1](https://doi.org/10.1145/3810240), [2](https://doi.org/10.4230/LIPIcs.ECOOP.2025.20)
+**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) · первичные источники: [1](https://doi.org/10.1145/3810240), [2](https://doi.org/10.4230/LIPIcs.ECOOP.2025.20)
 
 **Связи →** [ML-004](#ml-004) (corrects), [ML-006](#ml-006) (precedes) · **Обратные ссылки ←** [ML-004](#ml-004) (refined_by), [ML-006](#ml-006) (extends), [OM-132](#om-132) (conceptual_link)
 
@@ -91,7 +91,7 @@ Snapshot: **2026-10-08**. **49** selected entries; curated, not exhaustive.
 
 **Применение:** Базовый sanity-check для будущих нижних границ. **Ограничения:** Предвычисление метаданных бесплатно, поддержание меток при повторных изменениях не учитывается; новизна не заявлена.
 
-**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md) · первичные источники: [1](https://github.com/definitely-stable/Mathlab/actions/runs/37755090131)
+**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md) · первичные источники: [1](https://github.com/definitely-stable/Mathlab/actions/runs/37755090131)
 
 **Связи →** [ML-005](#ml-005) (extends), [DM-004](#dm-004) (method_compare) · **Обратные ссылки ←** [DM-004](#dm-004) (method_compare), [ML-004](#ml-004) (refined_by), [ML-005](#ml-005) (precedes), [OM-127](#om-127) (conceptual_link), [OM-129](#om-129) (conceptual_link)
 
@@ -104,9 +104,9 @@ Snapshot: **2026-10-08**. **49** selected entries; curated, not exhaustive.
 
 **Применение:** Сохранение точных side constraints в поиске конструкций. **Ограничения:** Не тождествен произвольным коротким линейным зависимостям в нечётных полях.
 
-**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G1A-PROOF.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G1A-PROOF.md) · первичные источники: —
+**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G1A-PROOF.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G1A-PROOF.md) · первичные источники: —
 
-**Связи →** [ML-002](#ml-002) (informs), [ML-003](#ml-003) (foundation_for) · **Обратные ссылки ←** [DM-010](#dm-010) (conceptual_link)
+**Связи →** [ML-002](#ml-002) (informs), [ML-003](#ml-003) (foundation_for) · **Обратные ссылки ←** [DM-010](#dm-010) (conceptual_link), [ML-010](#ml-010) (extends)
 
 ### ML-008
 **ASET G2B-A: точное GF(3) и интервал GF(5)**
@@ -117,9 +117,9 @@ Snapshot: **2026-10-08**. **49** selected entries; curated, not exhaustive.
 
 **Применение:** Калибровка гиперграфового поиска, изучение масштабирования жёсткой поддержки. **Ограничения:** GF(5) поиск не исчерпан, интервал не точный максимум; никакой асимптотической новизны.
 
-**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-EVIDENCE.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G2B-A-EVIDENCE.md) · первичные источники: [1](https://github.com/definitely-stable/Mathlab/actions/runs/37756386646)
+**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-EVIDENCE.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G2B-A-EVIDENCE.md) · первичные источники: [1](https://github.com/definitely-stable/Mathlab/actions/runs/37756386646)
 
-**Связи →** [ML-003](#ml-003) (extends), [ML-009](#ml-009) (foundation_for), [DM-003](#dm-003) (method_compare) · **Обратные ссылки ←** [ML-009](#ml-009) (informs)
+**Связи →** [ML-003](#ml-003) (extends), [ML-009](#ml-009) (foundation_for), [DM-003](#dm-003) (method_compare) · **Обратные ссылки ←** [ML-009](#ml-009) (informs), [ML-010](#ml-010) (context), [ML-011](#ml-011) (method_compare)
 
 ### ML-009
 **ASET G2B-A: замороженный протокол гиперграфового оракула**
@@ -130,9 +130,35 @@ Snapshot: **2026-10-08**. **49** selected entries; curated, not exhaustive.
 
 **Применение:** Воспроизводимый поиск и независимая верификация найденных семейств. **Ограничения:** Замороженный протокол сам по себе не доказывает полной корректности solver или новизны.
 
-**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-PROTOCOL.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G2B-A-PROTOCOL.md) · первичные источники: —
+**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-PROTOCOL.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G2B-A-PROTOCOL.md) · первичные источники: —
 
 **Связи →** [ML-008](#ml-008) (informs), [ML-002](#ml-002) (constrained_by) · **Обратные ссылки ←** [ML-008](#ml-008) (foundation_for)
+
+### ML-010
+**HYP-001/002: двух- и трёхкоординатная ёмкость ASET**
+
+Для нечётных простых q приведено самодостаточное доказательство A_q^set(m,2,2)=Θ_q(m^{3/2}); при w=3 получены границы Ω(m²) и O_q(m^{5/2}), а Θ_q(m²) остаётся гипотезой.
+
+**Статус:** `DERIVED_RESULT` · **Проверка:** `repository_proof` · **Темы:** coding, lower-bounds, combinatorics
+
+**Применение:** Анализ разрыва между write locality w=2 и w=3; возможная математическая постановка для следующего доказательства. **Ограничения:** HYP-001 основан на классических C4-free и projective-plane методах; самостоятельная научная новизна НЕ проверена; HYP-002 sharp exponent НЕ доказан.
+
+**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-LOCALITY-TRANSITION.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/HYP-001-002-LOCALITY-TRANSITION.md) · первичные источники: —
+
+**Связи →** [ML-007](#ml-007) (extends), [ML-011](#ml-011) (foundation_for), [ML-008](#ml-008) (context) · **Обратные ссылки ←** [ML-011](#ml-011) (tests)
+
+### ML-011
+**HYP-001/002: конструктивные конечные свидетельства**
+
+GitHub CI проверил PG(2,2)/PG(2,3) incidence и Steiner triples на нечётных полях, а также GF(2) Pasch и нелинейные контрпримеры.
+
+**Статус:** `EXACT_NUMERICAL` · **Проверка:** `exact_hosted_ci` · **Темы:** coding, finite-oracle, reproducibility
+
+**Применение:** Воспроизводимые конечные проверки конструкций, уточнение характеристик и негативные регрессионные тесты. **Ограничения:** Численные примеры не формализуют асимптотические доказательства, не закрывают гипотезу w=3 и не доказывают публикационную новизну.
+
+**Происхождение:** [зафиксированная версия](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-PHASE-A-EVIDENCE.md) · [актуальная ветка](https://github.com/definitely-stable/Mathlab/blob/main/docs/research/HYP-001-002-PHASE-A-EVIDENCE.md) · первичные источники: [1](https://github.com/definitely-stable/Mathlab/actions/runs/37762380556)
+
+**Связи →** [ML-010](#ml-010) (tests), [ML-008](#ml-008) (method_compare) · **Обратные ссылки ←** [ML-010](#ml-010) (foundation_for)
 
 
 ## DELSK
