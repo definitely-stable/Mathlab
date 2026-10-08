@@ -17,7 +17,7 @@ State = tuple[int, ...]
 
 
 def size(rank: int) -> int:
-    if not isinstance(rank, int) or not 1 <= rank <= 5:
+    if type(rank) is not int or not 1 <= rank <= 5:
         raise ValueError("rank must be integer in [1,5] (bounded lab only)")
     return 3 ** rank
 
@@ -25,7 +25,7 @@ def size(rank: int) -> int:
 def third(a: int, b: int, rank: int) -> int:
     """Unique third point on affine F3^rank line, O(rank), no ID table."""
     m = size(rank)
-    if not (isinstance(a, int) and isinstance(b, int)
+    if not (type(a) is int and type(b) is int
             and 0 <= a < m and 0 <= b < m and a != b):
         raise ValueError("two distinct point indices in range required")
     answer = 0
@@ -82,7 +82,7 @@ def decode(snapshot: State, rank: int) -> tuple[CanonicalID, ...] | None:
     """
     m = size(rank)
     if len(snapshot) != m or any(
-        not isinstance(value, int) or not 0 <= value <= 2
+        type(value) is not int or not 0 <= value <= 2
         for value in snapshot
     ):
         raise ValueError("state must contain exactly m trits")
@@ -154,6 +154,8 @@ def checked_transition(
     If a raw invalid sequence has aliased a legal state, no local
     checked_transition can discover its history.
     """
+    if type(add) is not bool:
+        raise ValueError("add must be a boolean")
     line_points(identifier, rank)
     active = decode(snapshot, rank)
     if active is None:
@@ -183,7 +185,7 @@ def trusted_raw_update(snapshot: State, rank: int,
     if len(snapshot) != m or any(type(v) is not int or v not in (0, 1, 2)
                                  for v in snapshot):
         raise ValueError("invalid trit snapshot")
-    if delta not in (-1, 1):
+    if type(delta) is not int or delta not in (-1, 1):
         raise ValueError("delta must be +1 or -1")
     result = list(snapshot)
     for point in line_points(identifier, rank):
