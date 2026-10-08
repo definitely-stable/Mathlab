@@ -96,6 +96,12 @@ novelty baseline, not a crate or theorem selection.
 
 The next gate is not "prove a new theorem immediately". It is to freeze these boundaries, build the exact source-to-claim map, and only then decide whether ASET has a genuinely new sharp regime.
 
+## Next research gate: exact no-effect verification trust boundary
+
+[TOM-003: full model, classical impossibility and finite falsification oracle](docs/research/TOM-003-TRUST-BOUNDARY-PROTOCOL.md) (issue #49). User-facing summary: an unconditional exact Boolean-update certifier cannot compress essential old input bits away if it receives only new values. A compact threshold counter works under an externally verified old-bit promise, whose verification/storage cost is not included. This is a negative product gate, not a novel theorem or Rust release.
+
+**G2_REDUCE_TARGET:** the GF5 exact ASET result and HYP proofs remain valid research, but no original general theorem or superior small Rust primitive has yet been established.
+
 ## Documentation authority
 
 Read in this order:

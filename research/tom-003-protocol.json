@@ -1,0 +1,74 @@
+{
+  "id": "TOM-003-D1",
+  "version": 1,
+  "status": "FROZEN_SOURCE_AWARE_FINITE_ORACLE",
+  "date": "2026-10-08",
+  "scope": {
+    "function_model": "known Boolean f from n bits to one Boolean output",
+    "untrusted": "arbitrary overwrite(index,new), all initial states and future traces, exact current root output, deterministic persistent state, no external probes",
+    "trusted": "delta(index,old,new) with externally validated old, cost charged separately"
+  },
+  "theorem": {
+    "statement": "Minimum persistent input-dependent states for exact arbitrary overwrites equals 2^e with e essential coordinates, hence e bits",
+    "status": "CLASSICAL_MOORE_MYHILL_NERODE_COROLLARY",
+    "novelty": false
+  },
+  "counterexample": {
+    "statement": "Threshold count fits log(n+1) bits only with promised true old bits, not unconditional",
+    "n": 3,
+    "k": 2,
+    "initial_states": [
+      3,
+      5
+    ],
+    "initial_count": 2,
+    "overwrite": [
+      1,
+      0
+    ],
+    "post_roots": [
+      0,
+      1
+    ]
+  },
+  "acceptance": {
+    "truth_tables_by_n": {
+      "1": 4,
+      "2": 16,
+      "3": 256
+    },
+    "n3_essential_histogram": [
+      2,
+      6,
+      30,
+      218
+    ],
+    "checks": [
+      "full stable Moore partition",
+      "class equals essential projection",
+      "valid trusted-delta traces n<=4",
+      "false old-bit alias",
+      "external verification charged",
+      "all original CI gates"
+    ]
+  },
+  "product_decision": "STOP_STANDALONE_UNTRUSTED_NO_EFFECT",
+  "research_decision": "G2_REDUCE_TARGET_FOR_NEW_RUST_PRODUCT_O01_D2_AUDIT_ONLY",
+  "primary_sources": [
+    "https://www.microsoft.com/en-us/research/publication/bounded-incremental-computation/",
+    "https://doi.org/10.4230/LIPIcs.ECOOP.2025.20",
+    "https://arxiv.org/abs/1404.5743",
+    "https://arxiv.org/abs/2402.02668",
+    "https://arxiv.org/abs/2504.08314",
+    "https://arxiv.org/abs/2509.11121",
+    "https://doi.org/10.4230/LIPIcs.STACS.2026.36",
+    "https://intendproject.eu/resources/conference-papers/66"
+  ],
+  "non_claims": [
+    "no new theorem novelty",
+    "no distributed proof lower bound",
+    "no Rust crate authorized",
+    "no unconditional count-only updates",
+    "no cryptographic security inferred from finite information theorem"
+  ]
+}
