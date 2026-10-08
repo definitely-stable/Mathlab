@@ -30,8 +30,16 @@ G1B is closed with \`SPLIT_BY_CHARACTERISTIC\`.
 
 G2A exact evidence is accepted with decision `G2_EXPAND_GRID`.
 
-G2B must obtain genuine m>w evidence before theorem selection. No preprint
-novelty claim is authorized.
+G2B-A now has genuine m>w evidence: q=3,m=4,w=2 exact V=7 and
+q=5,m=3,w=2 certified V in [10,15] (CI 37756386646). See
+LENT-001-G2B-A-PROTOCOL.md and LENT-001-G2B-A-EVIDENCE.md.
+G2B-B remains open until the q=5 gap is audited and a theorem-selection
+decision is justified. No preprint novelty claim is authorized.
+
+The independent TOM-001 opportunity map and TOM-001-B/C audits are scouting
+and calibration artifacts; TOM-C is explicitly STOP as a novelty target.
+Read TOM-001-OPPORTUNITY-MAP.md, TOM-001-B-PRIOR-ART-AUDIT.md and
+TOM-001-C-EXACT-CERTIFICATE-BASELINE.md without merging its gates with G2B.
 
 Any theorem selected by G2 must receive a new theorem-specific prior-art
 audit before promotion.
