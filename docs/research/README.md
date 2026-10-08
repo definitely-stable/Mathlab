@@ -1,5 +1,12 @@
 # Research index and authority order
 
+## Cross-repository evidence catalog (non-authoritative)
+
+[Research index](catalog/INDEX.md) · [metadata and maintenance](catalog/README.md) · [registry.json](catalog/registry.json).
+
+The catalog indexes selected, commit-pinned results from Mathlab, Shift-lab/DELSK, DeltaMeter and openai/math. It is **a navigator, not a new proof authority**: the source-specific protocols and decisions below remain canonical. External author claims are not independently validated.
+
+
 This directory is the canonical mathematical record.
 
 Terminology: \`LENT-001\` is a stable historical ID. Public-facing work uses
@@ -36,10 +43,8 @@ LENT-001-G2B-A-PROTOCOL.md and LENT-001-G2B-A-EVIDENCE.md.
 G2B-B remains open until the q=5 gap is audited and a theorem-selection
 decision is justified. No preprint novelty claim is authorized.
 
-The independent TOM-001 opportunity map and TOM-001-B/C audits are scouting
-and calibration artifacts; TOM-C is explicitly STOP as a novelty target.
-Read TOM-001-OPPORTUNITY-MAP.md, TOM-001-B-PRIOR-ART-AUDIT.md and
-TOM-001-C-EXACT-CERTIFICATE-BASELINE.md without merging its gates with G2B.
+TOM-001-OPPORTUNITY-MAP.md and TOM-001-B/C audits remain separate
+scouting/calibration artifacts; TOM-C is STOP as a novelty target.
 
 Any theorem selected by G2 must receive a new theorem-specific prior-art
 audit before promotion.
