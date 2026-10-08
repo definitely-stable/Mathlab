@@ -137,11 +137,14 @@ def linear_dependency_witness(
 ) -> LinearDependencyWitness | None:
     """Find an arbitrary-coefficient dependency among <=max_size columns.
 
-    G1A deliberately supports prime fields q in {2,3,5}; non-prime prime powers
-    require a real finite-field representation and are outside this oracle.
+    G1A's frozen exhaustive grid remains q in {2,3,5}. The reusable prime-field
+    dependency oracle additionally supports q=7 for G2A. Non-prime prime powers
+    require a real finite-field representation and are outside this helper.
     """
-    if q not in G1A_PRIMES:
-        raise ValueError(f"G1A linear oracle supports only q in {G1A_PRIMES}")
+    if q not in PRIME_ORACLE_FIELDS:
+        raise ValueError(
+            f"linear dependency oracle supports only q in {PRIME_ORACLE_FIELDS}"
+        )
     if not columns or max_size <= 0:
         return None
 
