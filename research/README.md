@@ -29,7 +29,10 @@ FOUNDATION_PASS
 - `test_lent_g2b.py` — exhaustive independent hypergraph/ASET oracle checks, GF(7) legal +++ triple, minimality and solver regressions.
 - `lent-001/g2b-protocol.json` — frozen G2B-A search/acceptance contract.
 
-G2B-A historical run 37756386646 established exact q=3,m=4,w=2 value 7 and a q=5,m=3,w=2 interval [10,15]. G2B-B1 tightens GF5 to **[10,11]** using a separately proved classical weak-Sidon bound, NOT a solver timeout. The q=5 optimum remains unknown.
+G2B-A historical run 37756386646 established exact q=3,m=4,w=2 value 7 and a q=5,m=3,w=2 interval [10,15]. G2B-B1 historically tightened GF5 to **[10,11]** using the classical
+weak-Sidon bound. **G2B-B2 proves the exact optimum is 10** via globally
+complete symmetry-normalized CNF and independently checked DRAT proof.
+See docs/research/LENT-001-G2B-B2-EXACT10-CERTIFICATE.md.
 
 - `locality_transition.py` — HYP-001 projective incidence and HYP-002 Steiner exact-column construction witnesses, including characteristic-two counterexamples.
 - `test_locality_transition.py` — independent small-grid pair-sum checks and falsification cases.
@@ -67,8 +70,12 @@ Run `python research/lent_weak_sidon.py` and `python research/lent_g2bb_neighbor
 - `lent-001/g2bb2-sat-protocol.json` — frozen global exactness decision protocol.
 
 Run `python research/g2bb2_anchor_sat.py` for the no-extra-dependency model contract.
-Optional separate GitHub Actions G2B-B2 solver workflow may report SAT/UNSAT/UNKNOWN;
-only independently validated proof or exact witness can settle q5 max 10 versus 11.
+The separate GitHub Actions G2B-B2 workflow generated an UNSAT DRUP proof
+for the complete anchored 11-family CNF; the independently built and
+pinned drat-trim checker accepted it, yielding exact=10. The workflow
+reproduces the full CNF, proof and verification on main; individual
+timeouts still report UNKNOWN rather than spuriously overwriting the
+previously verified result.
 
 ## Evidence semantics
 
