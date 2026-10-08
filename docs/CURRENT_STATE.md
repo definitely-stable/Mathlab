@@ -1,27 +1,27 @@
 # CURRENT_STATE
 
-Last verified HEAD: `main@5f168b26020de61f1b229585d143ab5d05dc4538`
+Last verified HEAD: main@94d4d0695c26fe947a65e631f492506b2ee228e4
 
-Current milestone: LENT-001 / G1B — hard-support novelty closure
+Current milestone: LENT-001 / G1B — final hard-support novelty closure
 
-Current slice: Audit 02 — direct BCC/signature-code prior art + characteristic-two block reduction
+Current slice: Audit 03 — block-sparse BCC/parity-check, zero-error sparse finite-field signatures, bounded-column-weight additive detecting matrices, support-constrained q-ary additive families
 
-Implementation branch: `research/lent-001-g1b-audit-02`
+Implementation branch: research/lent-001-g1b-audit-03
 
-Open issue: #6 — LENT-001-G1B: primary-source novelty closure for A_q^set
+Open issue: #6 — LENT-001-G1B: hard-support novelty closure for A_q^set
 
 Open PR: pending
 
-Last CI: main research run `37726769100` — SUCCESS on Audit-01 merge commit
+Last CI: post-merge Audit-02 research run 37727682827 — SUCCESS
 
-Acceptance: G0 = FOUNDATION_PASS; G1A = G1A_ORACLE_PASS; G1B remains OPEN
+Acceptance: G0 = FOUNDATION_PASS; G1A = G1A_ORACLE_PASS; G1B remains OPEN pending Audit 03
 
-Audit-02 result: unconstrained binary ASET is BCC prior art; finite-field bounded-active signature identification is established; characteristic-two ASET reduces exactly to a block-sparse binary short-dependency problem
+Accepted Audit-02 correction: ASET existence is not novel; the only remaining primary candidate is a sharp theorem that depends essentially on hard update support w
 
-Primary novelty candidate: sharp zero-error finite-field signature coding under the hard per-signature support bound `|supp(a_i)| <= w`
+New derived baseline: for q=2^s, A_2(m,w,d) <= A_q^set(m,w,d) <= A_2(sm,sw,d)
 
-Known blockers: block-sparse BCC/parity-check asymptotics, exact sparse finite-field/mod-q signatures, bounded-column-weight detecting matrices, support-constrained q-ary B_h/signed-sum families, and fixed-(d,w) sharp results remain unclosed
+Known blockers: no primary-verified sharp block-sparse BCC theorem or exact hard-sparse finite-field signature theorem has yet closed the support-sensitive frontier; absence from search is not novelty evidence
 
-Next allowed action: merge Audit 02 after latest-head CI, then execute G1B Audit 03 over the remaining hard-support-specific source classes before choosing a v2 G1B exit
+Next allowed action: execute Audit 03 source closure, populate strongest valid bounds per field regime, then choose exactly one G1B v2 exit
 
 Last updated from repository: 2026-10-08
