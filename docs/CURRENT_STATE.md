@@ -1,25 +1,27 @@
 # CURRENT_STATE
 
-Last verified HEAD: `main@8136e4f416a76ef9e8f7923db93971e9220997a0`
+Last verified HEAD: `main@5f168b26020de61f1b229585d143ab5d05dc4538`
 
-Current milestone: LENT-001 / G1B — primary-source novelty closure
+Current milestone: LENT-001 / G1B — hard-support novelty closure
 
-Current slice: audit 01 — exact reduction map across sparse parity-check, dissociated/free, Sidon/B_h, constant-weight B2, signature/detecting codes, and additive group testing
+Current slice: Audit 02 — direct BCC/signature-code prior art + characteristic-two block reduction
 
-Implementation branch: `research/lent-001-g1b-source-audit-1`
+Implementation branch: `research/lent-001-g1b-audit-02`
 
 Open issue: #6 — LENT-001-G1B: primary-source novelty closure for A_q^set
 
 Open PR: pending
 
-Last CI: main research run `37725362443` — SUCCESS before audit-01 documentation
+Last CI: main research run `37726769100` — SUCCESS on Audit-01 merge commit
 
 Acceptance: G0 = FOUNDATION_PASS; G1A = G1A_ORACLE_PASS; G1B remains OPEN
 
-Audit-01 result: no verified primary source yet matches the full modular + both-sides-bounded + all-sizes-through-d + distinct-elements + support-at-most-w ASET model; however bounded-weight B2/signature and standard-arithmetic additive-separable literature are established and must constrain any novelty claim
+Audit-02 result: unconstrained binary ASET is BCC prior art; finite-field bounded-active signature identification is established; characteristic-two ASET reduces exactly to a block-sparse binary short-dependency problem
 
-Known blockers: bounded-column-weight quantitative group testing, finite-field/mod-q bounded-active-user signature codes, q-ary Hamming-ball B_h/dissociated systems, q=3 distinct-summand variants, and characteristic-two q>2 cases remain unclosed
+Primary novelty candidate: sharp zero-error finite-field signature coding under the hard per-signature support bound `|supp(a_i)| <= w`
 
-Next allowed action: merge audit 01 after review/CI, then execute G1B audit 02 over those remaining clusters before choosing a G1B exit
+Known blockers: block-sparse BCC/parity-check asymptotics, exact sparse finite-field/mod-q signatures, bounded-column-weight detecting matrices, support-constrained q-ary B_h/signed-sum families, and fixed-(d,w) sharp results remain unclosed
+
+Next allowed action: merge Audit 02 after latest-head CI, then execute G1B Audit 03 over the remaining hard-support-specific source classes before choosing a v2 G1B exit
 
 Last updated from repository: 2026-10-08
