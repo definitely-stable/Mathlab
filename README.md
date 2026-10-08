@@ -70,6 +70,12 @@ G1A/G1B and G2A are complete. Active task:
 hard-support evidence. G2B-A yields exact A_3^set(4,2,2)=7 and certified
 10<=A_5^set(3,2,2)<=15. The q=5 exact maximum remains unknown.
 
+Research extensions: [HYP-001 (#24)](https://github.com/definitely-stable/Mathlab/issues/24)
+provides a classical-order two-cell capacity proof; [HYP-002 (#25)](https://github.com/definitely-stable/Mathlab/issues/25)
+asks if three-cell capacity is quadratic, with only proven Omega(m²)
+and O(m^(5/2)) brackets. [Proof/claim boundaries](docs/research/HYP-001-002-LOCALITY-TRANSITION.md).
+Neither target is a publication novelty claim.
+
 Independent [TOM-001](https://github.com/definitely-stable/Mathlab/issues/15)
 continues falsification-first scouting. TOM-001-C is an elementary STOP
 novelty baseline, not a crate or theorem selection.
