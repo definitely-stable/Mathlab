@@ -84,3 +84,11 @@ The exhaustive oracle searches unordered families of distinct nonzero columns. F
 The oracle uses modular addition for q=2 and q=3 only. Those are prime fields. It does not pretend that integer-mod-q arithmetic implements every prime-power field.
 
 A successful run means the frozen finite machinery is internally consistent on the checked cases. It does not turn an asymptotic claim into a theorem and it does not close the prior-art gate.
+
+## TOM-003 trusted-old-value state accounting (issue #49)
+
+- `tom_trust_boundary.py` — independent Moore partition refinement for arbitrary overwrites and conditional trusted-old threshold counter. Claims a **classical** finite-state result, not originality.
+- `test_tom_trust_boundary.py` — exhaustive 4/16/256 Boolean truth tables, essential-coordinate classes, valid three-write traces across all n<=4, and false-old-bit counterexamples.
+- `tom-003-protocol.json` — frozen accounting and non-novelty gate.
+
+Run `python research/tom_trust_boundary.py`. Its small finite oracle cannot prove a new scientific theorem. In Model U all essential input bits must survive with no external data access; in Model T caller-supplied old bits require separately charged validation. No new Rust primitive is authorized from this simple counter baseline.
