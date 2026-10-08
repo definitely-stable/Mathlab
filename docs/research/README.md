@@ -86,6 +86,17 @@ independently checked, with **no solver-verdict promotion on timeout**.
 
 [Source-aware selection and exact finite automata proof](TOM-003-TRUST-BOUNDARY-PROTOCOL.md), issue #49. The classical e-essential-coordinate overwrite lower bound and the conditional log(n+1)-bit trusted-old counter are checked for every n<=3 Boolean function and adversarial invalid-old examples. A false old bit is not detectable from the count alone; external validation is not free. O01-D1 is **STOP as standalone Rust**, O01-D2 remains audit-only. No publication novelty is claimed.
 
+## TOM-003 D2 — authenticated old values and proof reuse cost audit
+
+[Protocol, primary-source matrix and cost accounting](TOM-003-D2-AUTHENTICATED-OVERWRITE-AUDIT.md)
+(issue #53). A Merkle root does not authenticate a separately
+provided threshold count; both require trusted setup. The standard
+SSZ batch helper frontier and recomputation of a new Merkle root
+are known. The new dependency-free finite oracle checks exact
+structural savings *against naive independent proofs*, and
+adversarial stale/corrupt proofs, **not** original mathematical
+novelty or improvement over standard SSZ.
+
 ## Current status
 
 G1B is closed with \`SPLIT_BY_CHARACTERISTIC\`.
