@@ -2009,8 +2009,8 @@
     {
       "id": "OM-116",
       "repository": "OPENAI_MATH",
-      "title": "Family 116: Некомутационная проверка тождеств: scope по характеристикам",
-      "summary_ru": "Первичная рукопись и Lean scope описывают единую рациональную матричную hitting-point конструкцию для division-free некоммутативных формул ограниченного размера в характеристике нуль.",
+      "title": "Family 116: универсальные матричные PIT-точки в нулевой и положительной характеристике",
+      "summary_ru": "Исходные рукописи заявляют две РАЗНЫЕ конструктивные теоремы: рациональная hitting tuple размерности ≤2ns² в характеристике 0 и отдельная GF(p)-конструкция размерности O(n³s⁶) для любого простого p, включая p=2. Выбранный Lean scope описывает рациональный результат и отдельные rational hitting lists.",
       "status": "EXTERNAL_MANUSCRIPT_CLAIM",
       "verification": "source_catalog",
       "topics": [
@@ -2018,8 +2018,8 @@
         "finite-field",
         "polynomial-identity"
       ],
-      "application_ru": "Компаратор для возможных ограниченных алгебраических оракулов и детерминированной проверки равенств.",
-      "limitations_ru": "Family headline обещает uniformity across characteristics, но выбранный Lean scope для одной матричной точки доказывает только характеристику нуль; прямое перенесение на GF(q) запрещено.",
+      "application_ru": "Модельный пример сравнения двух явных алгебраических конструкций по характеристике поля, матричной размерности и стоимости вывода, но не готовый ASET decoder.",
+      "limitations_ru": "Теорема 4 октября для положительной характеристики действительно присутствует в зафиксированном первоисточнике, но не перечислена как отдельный selected Lean comparator в lean/docs/116.md. PIT формул не даёт экстремальной ASET-ёмкости без явной редукции. Независимая проверка доказательств не проводилась.",
       "source": {
         "repo": "openai/math",
         "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
@@ -2031,7 +2031,13 @@
         "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026.pdf",
         "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026.pdf",
         "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/README.md",
-        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/FormulaHitting.json"
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/FormulaHitting.json",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Uniform-Matrix-Hitting-Points-in-Every-Positive-Characteristic-October-4-2026/uniform-matrix-hitting-points-positive-characteristic.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Uniform-Matrix-Hitting-Points-in-Every-Positive-Characteristic-October-4-2026/README.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Uniform-Matrix-Hitting-Points-in-Every-Positive-Characteristic-October-4-2026/build/sections/introduction.tex",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Uniform-Matrix-Hitting-Points-in-Every-Positive-Characteristic-October-4-2026/build/sections/order.tex",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/build/introduction.tex",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/build/construction.tex"
       ],
       "related": [
         {
@@ -2041,19 +2047,28 @@
         {
           "id": "DM-010",
           "relation": "method_compare"
+        },
+        {
+          "id": "ML-010",
+          "relation": "method_compare"
         }
       ],
       "source_audit": {
         "manuscript_readme": "preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/README.md",
         "primary_papers": [
           "preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026.pdf",
-          "preprints/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026.pdf"
+          "preprints/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026.pdf",
+          "preprints/Uniform-Matrix-Hitting-Points-in-Every-Positive-Characteristic-October-4-2026/uniform-matrix-hitting-points-positive-characteristic.pdf"
         ],
         "comparator_manifest": "lean/ComparatorChallenges/FormulaHitting.json",
         "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
         "full_pdf_reviewed": false,
         "independent_lean_run": false,
-        "scope_mismatch_ru": "OAI.NCHitting.universal_hitting в выбранной постановке — характеристика нуль; семейные положительные характеристики требуют отдельного первичного источника и аудита."
+        "scope_mismatch_ru": "Выбранная Lean-связь FormulaHitting относится к характеристике 0; отдельная первичная рукопись от 4 октября 2026 года прямо заявляет универсальную конструкцию над GF(p), в том числе p=2, но не была независимо формально проверена нами. На ASET границы перенос отсутствует.",
+        "theorem_statement_sources": [
+          "preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/build/introduction.tex",
+          "preprints/Uniform-Matrix-Hitting-Points-in-Every-Positive-Characteristic-October-4-2026/build/sections/introduction.tex"
+        ]
       }
     },
     {
@@ -2252,7 +2267,7 @@
       "id": "OM-140",
       "repository": "OPENAI_MATH",
       "title": "Family 140: Memory–sample: нижняя граница по состоянию при Gaussian regression",
-      "summary_ru": "Selected Lean scope связывает O(d²) persistent bits со строгой нижней границей Ω_A(d log(1/epsilon)) наблюдений в noiseless Gaussian regression до заданной angular accuracy.",
+      "summary_ru": "В первичной рукописи изучен односканирующий learner для шум-free гауссовских линейных измерений единичного сигнала, с ≤2^M состояниями. При M≤Ad² и точности угловой оценки ε заявлен lower bound T≥c_A d log(1/ε) при вероятности успеха ≥2/3.",
       "status": "EXTERNAL_MANUSCRIPT_CLAIM",
       "verification": "source_catalog",
       "topics": [
@@ -2261,7 +2276,7 @@
         "memory"
       ],
       "application_ru": "Методический аналог для изучения точного учёта памяти и числа наблюдений, но не уже готовое доказательство для O01/ASET.",
-      "limitations_ru": "Модель независимых гауссовских измерений и угловой ошибки отличается от динамических множеств и сертификатов неизменности; требуются новые редукции.",
+      "limitations_ru": "A фиксировано, вход — i.i.d. Gaussian rows, исходные real observations не сохраняются, вывод — angular approximation. Не является оценкой числа проб RAM, стоимости обновления DAG или памяти ASET по GF(q). Полный PDF-доказательный аудит и independent Lean replay не проводились.",
       "source": {
         "repo": "openai/math",
         "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
@@ -2272,7 +2287,11 @@
       "primary_sources": [
         "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/paper.pdf",
         "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/README.md",
-        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/MemoryPrecision.json"
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/MemoryPrecision.json",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/build/sections/introduction.tex",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/build/sections/blocks.tex",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/build/sections/endpoint.tex",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/NoiselessRegression.json"
       ],
       "related": [
         {
@@ -2286,6 +2305,10 @@
         {
           "id": "OM-119",
           "relation": "related"
+        },
+        {
+          "id": "ML-006",
+          "relation": "model_contrast"
         }
       ],
       "source_audit": {
@@ -2297,7 +2320,11 @@
         "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
         "full_pdf_reviewed": false,
         "independent_lean_run": false,
-        "scope_mismatch_ru": "Формальная постановка ограничивает persistent bits и распределение измерений; пользовательская O01 cell-probe model не покрыта."
+        "scope_mismatch_ru": "Подтверждена авторская теорема с fixed A, finite persistent-state bits и independent Gaussian samples; прямой вывод о cell-probe обновлениях или ASET недопустим. Прочитаны формулировка и выбранные шаги source proof, но не доказательство целиком.",
+        "theorem_statement_sources": [
+          "preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/build/sections/introduction.tex",
+          "preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/build/sections/endpoint.tex"
+        ]
       }
     }
   ]
