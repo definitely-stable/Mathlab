@@ -2,7 +2,7 @@
 
 > Generated from `registry.json` by `research/catalog.py`. Do not edit manually.
 
-Snapshot: **2026-10-08**. **49** selected records; **53** topics.
+Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 
 Статус и метод проверки не устанавливают научную новизну. Первоисточники и ограничения см. в [INDEX.md](INDEX.md).
 
@@ -17,7 +17,8 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 | [boolean](#boolean) | 3 |
 | [certification](#certification) | 1 |
 | [codec](#codec) | 1 |
-| [coding](#coding) | 7 |
+| [coding](#coding) | 9 |
+| [combinatorics](#combinatorics) | 1 |
 | [complexity](#complexity) | 5 |
 | [delta-compression](#delta-compression) | 8 |
 | [derandomization](#derandomization) | 1 |
@@ -25,7 +26,7 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 | [evidence](#evidence) | 1 |
 | [exact-model](#exact-model) | 1 |
 | [finite-field](#finite-field) | 1 |
-| [finite-oracle](#finite-oracle) | 3 |
+| [finite-oracle](#finite-oracle) | 4 |
 | [finite-sample](#finite-sample) | 3 |
 | [formalization](#formalization) | 1 |
 | [geometry](#geometry) | 1 |
@@ -37,7 +38,7 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 | [information-theory](#information-theory) | 2 |
 | [language](#language) | 1 |
 | [locality](#locality) | 1 |
-| [lower-bounds](#lower-bounds) | 6 |
+| [lower-bounds](#lower-bounds) | 7 |
 | [mathematics](#mathematics) | 1 |
 | [memory](#memory) | 1 |
 | [methodology](#methodology) | 3 |
@@ -53,7 +54,7 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 | [provenance](#provenance) | 3 |
 | [reconciliation](#reconciliation) | 5 |
 | [reconstruction](#reconstruction) | 1 |
-| [reproducibility](#reproducibility) | 7 |
+| [reproducibility](#reproducibility) | 8 |
 | [selection](#selection) | 2 |
 | [sensitivity](#sensitivity) | 2 |
 | [simulation](#simulation) | 1 |
@@ -109,12 +110,18 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 ## coding
 
 - **[DM-001](INDEX.md#dm-001)** (DELTAMETER; `RESEARCH_SYNTHESIS` / `repository_review`) — Документирует эквивалентные формулировки symmetric-difference cardinality через signed F2 и GF(2)-паритет, с различием семантики toggle и insert. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/FOUNDATION.md).
-- **[ML-001](INDEX.md#ml-001)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Базовая граница: число различных малых множеств не превосходит объёма q-ичной сферы Хэмминга радиуса dw при обновлении не более w координат. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-FOUNDATION.md).
-- **[ML-002](INDEX.md#ml-002)** (MATHLAB; `PRIOR_ART_AUDIT` / `primary_source_review`) — Отсекает общую новизну bounded-active signature coding; для q=2 фиксирует связь с бинарными кодами, для нечётных характеристик оставляет узкую задачу при жёсткой поддержке. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md).
-- **[ML-003](INDEX.md#ml-003)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — Сертифицированы малые случаи A_3(3,2,2)=5, A_5(2,2,2)=5, A_7(2,2,2)=7 и свидетели; выбран G2_EXPAND_GRID. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2A-EVIDENCE.md).
-- **[ML-007](INDEX.md#ml-007)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Формализует равенство двух subset sums через ограниченные с двух сторон коэффициенты ±1; отличает поле характеристики 2 от нечётной. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G1A-PROOF.md).
-- **[ML-008](INDEX.md#ml-008)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — В действительно разреженном режиме доказано конечное значение A_3^set(4,2,2)=7; для A_5^set(3,2,2) дано только 10–15 и проверенный свидетель. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-EVIDENCE.md).
-- **[ML-009](INDEX.md#ml-009)** (MATHLAB; `RESEARCH_PROTOCOL` / `repository_review`) — Фиксирует первичную область допустимых конечных поисков, ограничения solver и правила сертификатов до расширения сетки q=3/q=5. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-PROTOCOL.md).
+- **[ML-001](INDEX.md#ml-001)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Базовая граница: число различных малых множеств не превосходит объёма q-ичной сферы Хэмминга радиуса dw при обновлении не более w координат. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-FOUNDATION.md).
+- **[ML-002](INDEX.md#ml-002)** (MATHLAB; `PRIOR_ART_AUDIT` / `primary_source_review`) — Отсекает общую новизну bounded-active signature coding; для q=2 фиксирует связь с бинарными кодами, для нечётных характеристик оставляет узкую задачу при жёсткой поддержке. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md).
+- **[ML-003](INDEX.md#ml-003)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — Сертифицированы малые случаи A_3(3,2,2)=5, A_5(2,2,2)=5, A_7(2,2,2)=7 и свидетели; выбран G2_EXPAND_GRID. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2A-EVIDENCE.md).
+- **[ML-007](INDEX.md#ml-007)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Формализует равенство двух subset sums через ограниченные с двух сторон коэффициенты ±1; отличает поле характеристики 2 от нечётной. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G1A-PROOF.md).
+- **[ML-008](INDEX.md#ml-008)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — В действительно разреженном режиме доказано конечное значение A_3^set(4,2,2)=7; для A_5^set(3,2,2) дано только 10–15 и проверенный свидетель. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-EVIDENCE.md).
+- **[ML-009](INDEX.md#ml-009)** (MATHLAB; `RESEARCH_PROTOCOL` / `repository_review`) — Фиксирует первичную область допустимых конечных поисков, ограничения solver и правила сертификатов до расширения сетки q=3/q=5. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-PROTOCOL.md).
+- **[ML-010](INDEX.md#ml-010)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Для нечётных простых q приведено самодостаточное доказательство A_q^set(m,2,2)=Θ_q(m^{3/2}); при w=3 получены границы Ω(m²) и O_q(m^{5/2}), а Θ_q(m²) остаётся гипотезой. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-LOCALITY-TRANSITION.md).
+- **[ML-011](INDEX.md#ml-011)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — GitHub CI проверил PG(2,2)/PG(2,3) incidence и Steiner triples на нечётных полях, а также GF(2) Pasch и нелинейные контрпримеры. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-PHASE-A-EVIDENCE.md).
+
+## combinatorics
+
+- **[ML-010](INDEX.md#ml-010)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Для нечётных простых q приведено самодостаточное доказательство A_q^set(m,2,2)=Θ_q(m^{3/2}); при w=3 получены границы Ω(m²) и O_q(m^{5/2}), а Θ_q(m²) остаётся гипотезой. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-LOCALITY-TRANSITION.md).
 
 ## complexity
 
@@ -151,7 +158,7 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 
 ## exact-model
 
-- **[ML-007](INDEX.md#ml-007)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Формализует равенство двух subset sums через ограниченные с двух сторон коэффициенты ±1; отличает поле характеристики 2 от нечётной. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G1A-PROOF.md).
+- **[ML-007](INDEX.md#ml-007)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Формализует равенство двух subset sums через ограниченные с двух сторон коэффициенты ±1; отличает поле характеристики 2 от нечётной. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G1A-PROOF.md).
 
 ## finite-field
 
@@ -159,9 +166,10 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 
 ## finite-oracle
 
-- **[ML-003](INDEX.md#ml-003)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — Сертифицированы малые случаи A_3(3,2,2)=5, A_5(2,2,2)=5, A_7(2,2,2)=7 и свидетели; выбран G2_EXPAND_GRID. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2A-EVIDENCE.md).
-- **[ML-006](INDEX.md#ml-006)** (MATHLAB; `DERIVED_RESULT` / `exact_hosted_ci`) — Элементарная формула минимального числа меток для одношагового zero-probe verifier; полный перебор 16 двухвходовых булевых функций. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md).
-- **[ML-008](INDEX.md#ml-008)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — В действительно разреженном режиме доказано конечное значение A_3^set(4,2,2)=7; для A_5^set(3,2,2) дано только 10–15 и проверенный свидетель. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-EVIDENCE.md).
+- **[ML-003](INDEX.md#ml-003)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — Сертифицированы малые случаи A_3(3,2,2)=5, A_5(2,2,2)=5, A_7(2,2,2)=7 и свидетели; выбран G2_EXPAND_GRID. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2A-EVIDENCE.md).
+- **[ML-006](INDEX.md#ml-006)** (MATHLAB; `DERIVED_RESULT` / `exact_hosted_ci`) — Элементарная формула минимального числа меток для одношагового zero-probe verifier; полный перебор 16 двухвходовых булевых функций. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md).
+- **[ML-008](INDEX.md#ml-008)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — В действительно разреженном режиме доказано конечное значение A_3^set(4,2,2)=7; для A_5^set(3,2,2) дано только 10–15 и проверенный свидетель. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-EVIDENCE.md).
+- **[ML-011](INDEX.md#ml-011)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — GitHub CI проверил PG(2,2)/PG(2,3) incidence и Steiner triples на нечётных полях, а также GF(2) Pasch и нелинейные контрпримеры. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-PHASE-A-EVIDENCE.md).
 
 ## finite-sample
 
@@ -183,7 +191,7 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 
 ## history-independence
 
-- **[ML-005](INDEX.md#ml-005)** (MATHLAB; `RESEARCH_DECISION` / `exact_hosted_ci`) — Документирует OR/AND контрпримеры к широким сертификатным утверждениям; понижает историю-независимое разбиение до узкого исследовательского режима. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md).
+- **[ML-005](INDEX.md#ml-005)** (MATHLAB; `RESEARCH_DECISION` / `exact_hosted_ci`) — Документирует OR/AND контрпримеры к широким сертификатным утверждениям; понижает историю-независимое разбиение до узкого исследовательского режима. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md).
 
 ## holdout
 
@@ -196,8 +204,8 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 ## incremental
 
 - **[DM-008](INDEX.md#dm-008)** (DELTAMETER; `RESEARCH_EVIDENCE` / `exact_retained_measurement`) — Лабораторный nested-prefix PinSketch64 сохраняет ранее отправленные синдромы; измеренный протокол ступеней k=1,2,4,8 избегает повторной передачи. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D2-INCREMENTAL-PREFIX-EVIDENCE.md).
-- **[ML-005](INDEX.md#ml-005)** (MATHLAB; `RESEARCH_DECISION` / `exact_hosted_ci`) — Документирует OR/AND контрпримеры к широким сертификатным утверждениям; понижает историю-независимое разбиение до узкого исследовательского режима. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md).
-- **[ML-006](INDEX.md#ml-006)** (MATHLAB; `DERIVED_RESULT` / `exact_hosted_ci`) — Элементарная формула минимального числа меток для одношагового zero-probe verifier; полный перебор 16 двухвходовых булевых функций. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md).
+- **[ML-005](INDEX.md#ml-005)** (MATHLAB; `RESEARCH_DECISION` / `exact_hosted_ci`) — Документирует OR/AND контрпримеры к широким сертификатным утверждениям; понижает историю-независимое разбиение до узкого исследовательского режима. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md).
+- **[ML-006](INDEX.md#ml-006)** (MATHLAB; `DERIVED_RESULT` / `exact_hosted_ci`) — Элементарная формула минимального числа меток для одношагового zero-probe verifier; полный перебор 16 двухвходовых булевых функций. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md).
 
 ## information-theory
 
@@ -210,11 +218,12 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 
 ## locality
 
-- **[ML-001](INDEX.md#ml-001)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Базовая граница: число различных малых множеств не превосходит объёма q-ичной сферы Хэмминга радиуса dw при обновлении не более w координат. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-FOUNDATION.md).
+- **[ML-001](INDEX.md#ml-001)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Базовая граница: число различных малых множеств не превосходит объёма q-ичной сферы Хэмминга радиуса dw при обновлении не более w координат. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-FOUNDATION.md).
 
 ## lower-bounds
 
-- **[ML-001](INDEX.md#ml-001)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Базовая граница: число различных малых множеств не превосходит объёма q-ичной сферы Хэмминга радиуса dw при обновлении не более w координат. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-FOUNDATION.md).
+- **[ML-001](INDEX.md#ml-001)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Базовая граница: число различных малых множеств не превосходит объёма q-ичной сферы Хэмминга радиуса dw при обновлении не более w координат. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-FOUNDATION.md).
+- **[ML-010](INDEX.md#ml-010)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Для нечётных простых q приведено самодостаточное доказательство A_q^set(m,2,2)=Θ_q(m^{3/2}); при w=3 получены границы Ω(m²) и O_q(m^{5/2}), а Θ_q(m²) остаётся гипотезой. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-LOCALITY-TRANSITION.md).
 - **[OM-099](INDEX.md#om-099)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Каталог автора сообщает matching экспоненциальную шкалу искажения вложений edit-distance в ℓ1; привязан к manuscript и Lean-документации. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/099.md).
 - **[OM-127](INDEX.md#om-127)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Каталог описывает Lean-формализацию границы средней чувствительности 8d sqrt(n) для булевых polynomial threshold functions. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/127.md).
 - **[OM-129](INDEX.md#om-129)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Коллекция описывает Lean-границы для complementation и determinization двухсторонних автоматов с растущим алфавитом. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/129.md).
@@ -233,7 +242,7 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 
 - **[DL-007](INDEX.md#dl-007)** (DELSK; `RESEARCH_SYNTHESIS` / `repository_review`) — Предлагает цепочку issue→experiment→run→evidence→decision и учёт шума, допусков, копирований, памяти и отрицательных результатов. [Источник](https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/research/lab-practices.md).
 - **[DM-014](INDEX.md#dm-014)** (DELTAMETER; `PRIOR_ART_AUDIT` / `repository_review`) — Сопоставляет внешние отчёты с фактическими byte layouts/CRC32C и отвергает выводы о post-optimization CPU share без измерений. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-B-CODEC-DECODER-RESEARCH-AUDIT.md).
-- **[ML-004](INDEX.md#ml-004)** (MATHLAB; `RESEARCH_MAP` / `repository_review`) — Карта 14 предварительных задач в инкрементальных вычислениях, канонических структурах, доказательствах и кодировании с product-операциями и критериями опровержения. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-OPPORTUNITY-MAP.md).
+- **[ML-004](INDEX.md#ml-004)** (MATHLAB; `RESEARCH_MAP` / `repository_review`) — Карта 14 предварительных задач в инкрементальных вычислениях, канонических структурах, доказательствах и кодировании с product-операциями и критериями опровержения. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-OPPORTUNITY-MAP.md).
 
 ## models
 
@@ -249,8 +258,8 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 - **[DM-009](INDEX.md#dm-009)** (DELTAMETER; `RESEARCH_DECISION` / `exact_retained_measurement`) — Математически согласованное переиспользование BM-состояния подтвердило равенство свежему расчёту, но performance gate отклонил оптимизацию. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D3-INCREMENTAL-BM-EVIDENCE.md).
 - **[DM-011](INDEX.md#dm-011)** (DELTAMETER; `RESEARCH_DECISION` / `exact_retained_measurement`) — Пять независимых hosted workers не выявили устойчивой фазы декодирования, проходящей заранее установленный порог 25% общей задержки. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D12-POST-D11-PROFILE-EVIDENCE.md).
 - **[DM-013](INDEX.md#dm-013)** (DELTAMETER; `RESEARCH_DECISION` / `exact_retained_measurement`) — Пять независимых workers, 3900 наблюдений и 360 моделируемых ячеек не дали ни одной квалифицирующей ячейки для перехода к public system product. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D13B-SYSTEM-EVIDENCE.md).
-- **[ML-005](INDEX.md#ml-005)** (MATHLAB; `RESEARCH_DECISION` / `exact_hosted_ci`) — Документирует OR/AND контрпримеры к широким сертификатным утверждениям; понижает историю-независимое разбиение до узкого исследовательского режима. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md).
-- **[ML-008](INDEX.md#ml-008)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — В действительно разреженном режиме доказано конечное значение A_3^set(4,2,2)=7; для A_5^set(3,2,2) дано только 10–15 и проверенный свидетель. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-EVIDENCE.md).
+- **[ML-005](INDEX.md#ml-005)** (MATHLAB; `RESEARCH_DECISION` / `exact_hosted_ci`) — Документирует OR/AND контрпримеры к широким сертификатным утверждениям; понижает историю-независимое разбиение до узкого исследовательского режима. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md).
+- **[ML-008](INDEX.md#ml-008)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — В действительно разреженном режиме доказано конечное значение A_3^set(4,2,2)=7; для A_5^set(3,2,2) дано только 10–15 и проверенный свидетель. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-EVIDENCE.md).
 
 ## operational
 
@@ -278,11 +287,11 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 - **[DL-001](INDEX.md#dl-001)** (DELSK; `PRIOR_ART_AUDIT` / `primary_source_review`) — Сопоставляет Finesse, DeepSketch, Odess, Argus, FastDelta и другие системы с encoder-aware scoring, бюджетами и воспроизводимостью; отделяет COVERED от PARTIAL. [Источник](https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/research/claim-matrix.md).
 - **[DL-002](INDEX.md#dl-002)** (DELSK; `PRIOR_ART_AUDIT` / `primary_source_review`) — Добавлены Git name-hash/path-walk, containment, MinHash, LZJD, trial encode; рекомендации честного Pareto-сравнения по bytes/CPU/index/codec. [Источник](https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/research/DELSK-PRIOR-ART-UPDATE-2026-10.md).
 - **[DL-009](INDEX.md#dl-009)** (DELSK; `PRIOR_ART_AUDIT` / `primary_source_review`) — Разделяет уже известные Finesse/DeepSketch pipeline и проверяемые продуктовые гипотезы о budget, codec-conditioning и displacement. [Источник](https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/research/report-audit.md).
-- **[ML-002](INDEX.md#ml-002)** (MATHLAB; `PRIOR_ART_AUDIT` / `primary_source_review`) — Отсекает общую новизну bounded-active signature coding; для q=2 фиксирует связь с бинарными кодами, для нечётных характеристик оставляет узкую задачу при жёсткой поддержке. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md).
+- **[ML-002](INDEX.md#ml-002)** (MATHLAB; `PRIOR_ART_AUDIT` / `primary_source_review`) — Отсекает общую новизну bounded-active signature coding; для q=2 фиксирует связь с бинарными кодами, для нечётных характеристик оставляет узкую задачу при жёсткой поддержке. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md).
 
 ## proof
 
-- **[ML-006](INDEX.md#ml-006)** (MATHLAB; `DERIVED_RESULT` / `exact_hosted_ci`) — Элементарная формула минимального числа меток для одношагового zero-probe verifier; полный перебор 16 двухвходовых булевых функций. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md).
+- **[ML-006](INDEX.md#ml-006)** (MATHLAB; `DERIVED_RESULT` / `exact_hosted_ci`) — Элементарная формула минимального числа меток для одношагового zero-probe verifier; полный перебор 16 двухвходовых булевых функций. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md).
 
 ## protocol
 
@@ -291,7 +300,7 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 - **[DM-005](INDEX.md#dm-005)** (DELTAMETER; `RESEARCH_PLAN` / `repository_review`) — После private feasibility предлагает последовательность OPT-A/B/C: параметризация уровней, maintained cache, progressive transfer, затем публичный контракт. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/STRICT-COMPACT-OPT-NEXT-WORK.md).
 - **[DM-006](INDEX.md#dm-006)** (DELTAMETER; `RESEARCH_PROTOCOL` / `source_inspected`) — Frozen контракт сравнения direct, maintained D11, RIBLT pull и stream lower-bound с RTT/bandwidth-моделью, без принятия production ExactSmallDelta. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/research/m6d13b/contract.json).
 - **[DM-012](INDEX.md#dm-012)** (DELTAMETER; `RESEARCH_EVIDENCE` / `exact_hosted_ci`) — Заморожены исходники, границы измерений и подготовлены persistent sessions; readiness пройдена, но измеренного преимущества ещё не заявлено. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D13B0-MEASUREMENT-READINESS-EVIDENCE.md).
-- **[ML-009](INDEX.md#ml-009)** (MATHLAB; `RESEARCH_PROTOCOL` / `repository_review`) — Фиксирует первичную область допустимых конечных поисков, ограничения solver и правила сертификатов до расширения сетки q=3/q=5. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-PROTOCOL.md).
+- **[ML-009](INDEX.md#ml-009)** (MATHLAB; `RESEARCH_PROTOCOL` / `repository_review`) — Фиксирует первичную область допустимых конечных поисков, ограничения solver и правила сертификатов до расширения сетки q=3/q=5. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-PROTOCOL.md).
 
 ## provenance
 
@@ -319,7 +328,8 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 - **[DM-002](INDEX.md#dm-002)** (DELTAMETER; `REPRODUCTION` / `repository_tests`) — Реализована опубликованная схема FIELDMAP, битового XOR и row-level статистики; детерминированный псевдо-оракул не равен идеальной случайности статьи. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/M2-FPCSA-REPRODUCTION.md).
 - **[DM-011](INDEX.md#dm-011)** (DELTAMETER; `RESEARCH_DECISION` / `exact_retained_measurement`) — Пять независимых hosted workers не выявили устойчивой фазы декодирования, проходящей заранее установленный порог 25% общей задержки. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D12-POST-D11-PROFILE-EVIDENCE.md).
 - **[DM-012](INDEX.md#dm-012)** (DELTAMETER; `RESEARCH_EVIDENCE` / `exact_hosted_ci`) — Заморожены исходники, границы измерений и подготовлены persistent sessions; readiness пройдена, но измеренного преимущества ещё не заявлено. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D13B0-MEASUREMENT-READINESS-EVIDENCE.md).
-- **[ML-009](INDEX.md#ml-009)** (MATHLAB; `RESEARCH_PROTOCOL` / `repository_review`) — Фиксирует первичную область допустимых конечных поисков, ограничения solver и правила сертификатов до расширения сетки q=3/q=5. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-PROTOCOL.md).
+- **[ML-009](INDEX.md#ml-009)** (MATHLAB; `RESEARCH_PROTOCOL` / `repository_review`) — Фиксирует первичную область допустимых конечных поисков, ограничения solver и правила сертификатов до расширения сетки q=3/q=5. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-PROTOCOL.md).
+- **[ML-011](INDEX.md#ml-011)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — GitHub CI проверил PG(2,2)/PG(2,3) incidence и Steiner triples на нечётных полях, а также GF(2) Pasch и нелинейные контрпримеры. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-PHASE-A-EVIDENCE.md).
 
 ## selection
 
@@ -355,4 +365,4 @@ Snapshot: **2026-10-08**. **49** selected records; **53** topics.
 
 ## theorem-search
 
-- **[ML-004](INDEX.md#ml-004)** (MATHLAB; `RESEARCH_MAP` / `repository_review`) — Карта 14 предварительных задач в инкрементальных вычислениях, канонических структурах, доказательствах и кодировании с product-операциями и критериями опровержения. [Источник](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-OPPORTUNITY-MAP.md).
+- **[ML-004](INDEX.md#ml-004)** (MATHLAB; `RESEARCH_MAP` / `repository_review`) — Карта 14 предварительных задач в инкрементальных вычислениях, канонических структурах, доказательствах и кодировании с product-операциями и критериями опровержения. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-OPPORTUNITY-MAP.md).
