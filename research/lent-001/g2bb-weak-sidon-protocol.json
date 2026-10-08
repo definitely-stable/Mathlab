@@ -1,0 +1,72 @@
+{
+  "id": "LENT-G2B-B1",
+  "version": 1,
+  "status": "FROZEN_BEFORE_HOSTED_CI",
+  "base_main": "faac82888596573d49609279f5b012fe87e5a583",
+  "source": {
+    "authors": [
+      "Ron M. Roth",
+      "Gadiel Seroussi"
+    ],
+    "title": "Location-correcting codes",
+    "publication": "IEEE Trans. Inf. Theory 42(2):554-565 (1996)",
+    "doi": "10.1109/18.485724",
+    "result": "odd abelian weak-Sidon bound s(s-3)+1<=|G|",
+    "source_status": "original classical theorem, not Mathlab novelty"
+  },
+  "model": {
+    "d": 2,
+    "field": "odd prime Fq",
+    "collision": "subset-sum sets of sizes 0,1,2 injective; both signed side counts <=2",
+    "universe": "nonzero support<=w columns",
+    "q5_case": {
+      "q": 5,
+      "m": 3,
+      "w": 2,
+      "candidates": 60,
+      "global_group_size": 125
+    }
+  },
+  "derived": {
+    "forward_reduction": "ASET family of V -> weak Sidon S={0} union columns, s=V+1",
+    "converse": false,
+    "weak_sidon_max_s": 12,
+    "universal_upper_v": 11,
+    "known_witness_v": 10,
+    "interval": [
+      10,
+      11
+    ],
+    "exact": false,
+    "old_hamming_upper_v": 15
+  },
+  "verification": {
+    "independent_sum_oracle": "research/lent_exhaustive.py",
+    "integer_sqrt": "math.isqrt",
+    "difference_multiplicity_proof": "repeated difference-pairs accounted by <=2s centered AP orientations",
+    "char3_cycle_required": true,
+    "local_neighborhood": {
+      "direct_add": 50,
+      "remove_one_add_two": 12750,
+      "is_global_proof": false
+    }
+  },
+  "acceptance": [
+    "G2BB_WEAK_SIDON_MAPPING_PASS",
+    "G2BB_ODD_GROUP_BOUND_PASS",
+    "G2BB_GF5_INTERVAL_10_11_PASS",
+    "G2BB_INDEPENDENT_WITNESS_PASS",
+    "G2BB_SIDON_PHASE_A_PASS",
+    "G2BB_FROZEN_WITNESS_LOCAL_MAXIMALITY_PASS",
+    "G2BB_LOCAL_NEIGHBORHOOD_NON_GLOBAL_PASS"
+  ],
+  "non_go": [
+    "no exact optimum 10 or 11 asserted",
+    "no conclusion from failed local-exchange search about global 11 feasibility",
+    "no q even transfer of lemma",
+    "no arbitrary signed triple forbiddance",
+    "no original theorem claim",
+    "no Rust crate"
+  ],
+  "next_gate": "independent certified 11-column existence/infeasibility probe; global q5 optimum unresolved"
+}
