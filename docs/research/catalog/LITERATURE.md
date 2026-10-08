@@ -422,7 +422,7 @@ Berman: relative incremental lower bound и δ-анализ для динами�
 **Происхождение цитаты / пересечения →** [DELSK:.work/research/literature-review.md](https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/research/literature-review.md) (cited)
 
 ### LIT-019
-**[FastCDC: A Fast and Efficient Content-Defined Chunking Approach for Data Deduplication](https://www.usenix.org/conference/atc16/technical-sessions)** (2016)
+**[FastCDC: A Fast and Efficient Content-Defined Chunking Approach for Data Deduplication](https://www.usenix.org/system/files/conference/atc16/atc16-paper-xia.pdf)** (2016)
 
 Gear-based content-defined chunking, пропуск недопустимо коротких разрезов и нормализация длин.
 
