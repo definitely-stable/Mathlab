@@ -14,13 +14,24 @@ class KnownAndStoppedRegistryTests(unittest.TestCase):
     def modified(self):
         return deepcopy(self.original)
 
-    def test_all_33_scoped_decisions_and_readable_render(self):
+    def test_all_44_scoped_decisions_and_readable_render(self):
         entries = validate(self.original)
-        self.assertGreaterEqual(len(entries), 40)
+        self.assertGreaterEqual(len(entries), 44)
         self.assertEqual(len(set(item["id"] for item in entries)), len(entries))
         self.assertEqual(set(STATUSES), set(e["disposition"] for e in entries))
         self.assertEqual(render(self.original),
                          VIEW.read_text(encoding="utf-8"))
+
+    def test_uct_scope_decisions_keep_negative_and_classical_status(self):
+        indexed = {r["id"]: r for r in validate(self.original)}
+        self.assertEqual(indexed["KR-041"]["disposition"], "CLOSED_PROVED")
+        self.assertEqual(indexed["KR-042"]["disposition"], "PRIOR_ART")
+        self.assertEqual(indexed["KR-043"]["disposition"], "PRIOR_ART")
+        self.assertEqual(indexed["KR-044"]["disposition"], "CLOSED_PROVED")
+        self.assertIn("fixed finite", indexed["KR-044"]["title"])
+        self.assertIn("not a Merkle", indexed["KR-043"]["do_not_repeat"])
+        self.assertTrue(all(len(indexed[f"KR-{i:03d}"]["authority"]) >= 1
+                            for i in range(41, 45)))
 
     def test_all_has_authority_and_concrete_reopen_gate(self):
         for item in validate(self.original):
