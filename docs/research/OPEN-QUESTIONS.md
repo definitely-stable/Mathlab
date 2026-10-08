@@ -1,5 +1,8 @@
 # Open research questions
 
+> **TOM-005 UPDATE:** Seven broad cross-domain operations have already been audited mathematically under frozen basic models (all seven narrowly scoped theorems have human-readable proofs and adversarial finite test harnesses). See [TOM-005 seven-way theorem and source audit](TOM-005-SEVEN-THEOREM-AUDIT.md) and records KR-034 through KR-040 in the [40-entry no-repeat registry](KNOWN-AND-STOPPED-RESEARCH.md). **These are classical baselines, not seven novel open problems.** Their genuine sharper product extensions require fresh source-gap proof and cannot be marked proved by toy checks.
+
+
 > **STATUS OVERRIDE (2026-10-08):** This file is a historical question bank, **not an active authorization list**. Before investigating ANY item, consult the [33-record scoped known/closed/STOP registry](KNOWN-AND-STOPPED-RESEARCH.md) and [G2/TOM decision audit](THEOREM-GAP-004-FOUR-STAGE-AUDIT.md). In particular, the G2B q5=10 finite instance is certified CLOSED; HYP-001/002 broad exponents have Lefmann 2005 construction overlap; the HYP-002 quadratic conjecture was DISCHARGED; TOM-003 D1/D2 standalone product lanes are STOP. Nestedness-only tax is DEFER, not an original theorem. Reopen a question only under its stated new model/benefit gate.
 
 
