@@ -2,6 +2,7 @@
 
 This is Mathlab's **curated, cross-repository research navigator**, not a mirror of other projects and not a ranking of proven mathematical discoveries.
 
+- [OM-116/OM-140 mathematical transfer audit](../TOM-002-OM116-OM140-THEOREM-AUDIT.md): original theorem statements, positive-characteristic correction, transfer impossibilities and scoped model comparisons.
 - [Readable index](INDEX.md): ID-indexed Russian one-paragraph summaries, topical tags, precise source links, primary papers and bidirectional metadata relationships.
 - [Thematic navigator](THEMES.md): generated topic-to-record cross-repository discovery with source/status badges.
 - [Import decision memo](IMPORT-002-REVIEW.md): cross-repo source selection, pins and constraints.
