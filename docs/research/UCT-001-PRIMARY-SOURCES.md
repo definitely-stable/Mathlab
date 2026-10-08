@@ -34,6 +34,8 @@ Date: 2026-10-08. Parent: [#74](https://github.com/definitely-stable/Mathlab/iss
 | [DELSK](https://github.com/definitely-stable/Shift-lab) | Real best-base/patch objective and baseline separation. | Ranking oracle/selector measurements are not a theorem about optimal compression. |
 | [openai/math](https://github.com/openai/math) | Selected mathematical manuscripts as *candidate* proof techniques, preserving pinned identities and individual proof status. | Source-reported manuscript claims ≠ independently validated theorem; no blanket transfer. |
 
+Additional Mathlab finite-cost negative result: [UCT-003 fixed finite q-budget adversarial family](UCT-003-FIXED-Q-IMPOSSIBILITY.md) strictly extends the old TOM-006 q<=2 toy-model witness; it is **DERIVED_CLASSICAL**, not prior-art-cleared originality or a claim about real encoder bytes.
+
 ## Prior-art disposition for four new program lanes
 **UCT-A:** BROAD KNOWN. Dynamic time–space and update/read lower bounds established; bare binary locality-1 graph embeddings are classical **cubical graphs** (1975/1985/1988), with NP-complete recognition. A single exact compatible model could still permit a sharper joint result; none shown.
 
