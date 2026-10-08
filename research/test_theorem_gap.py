@@ -148,14 +148,12 @@ class TheoremGapTests(unittest.TestCase):
             self.assertNotEqual(obj["sha"], "main")
 
     def test_no_global_aset_upper_claim_is_attributed_to_lefmann(self):
-        for x in self.audit["records"][:2]:
-            self.assertIn("PRIOR_ART_EXPONENT_OVERLAP", x["status"])
-            self.assertIn("upper", x["counter_direction"].lower()
-                          + x["direction"].lower()
-                          + x["research_gap"].lower()
-                          + x["model"].lower()
-                          if x["id"] == "TG-002" else
-                          "upper for ASET must be separately proved")
+        checks = {x["id"]: x for x in self.audit["records"]}
+        for ident in ("TG-001", "TG-002"):
+            self.assertIn("PRIOR_ART_EXPONENT_OVERLAP",
+                          checks[ident]["status"])
+            self.assertIn("ASET", checks[ident]["counter_direction"])
+        self.assertIn("upper bound", checks["TG-002"]["counter_direction"])
 
 
 if __name__ == "__main__":
