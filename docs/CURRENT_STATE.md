@@ -1,5 +1,9 @@
 # CURRENT_STATE
 
+## HYP-103 G0 (issue #70) — classical certificate complexity closure
+
+[HYP-103-G0-CERTIFICATE-REDUCTION.md](research/HYP-103-G0-CERTIFICATE-REDUCTION.md) freezes the exact old-root+batch-overwrite verifier model and proves that minimum authenticated old-bit probes are the minimum hitting set of all opposite-output consistent-input difference sets, i.e. classical promise-domain certificate complexity. [Independent finite regression](../research/test_hyp103_certificates.py) exhaustively cross-checks all Boolean functions of n<=3, all inputs and overwrite batches. The **broad theorem novelty target is STOP_CLASSICAL_CERTIFICATE_REDUCTION**; scoped incomplete proposals need a new costed retained-metadata/verification-work model before reopening. Literature index expands 102 to **108** distinct records with new primary works LIT-103..108. Exact-head GitHub-hosted CI and merge must be verified separately. No Rust, new theorem, or product result.
+
 ## TOM-007 (issue #68) — cross-domain falsification and source import
 
 Research documentation now specifies six scoped candidate statements HYP-101..106, primary-source/model-overlap mapping, finite Boolean-DAG/GF(5)/toy-block/snapshot sharing falsifiers and no-prototype STOP/GO decisions. The normative evidence document is [TOM-007-SIX-HYPOTHESIS-AUDIT.md](research/TOM-007-SIX-HYPOTHESIS-AUDIT.md); unit tests are `research/test_tom007_hypotheses.py`. External literature metadata grows from 95 to 102 distinct citations by importing only seven previously absent primary identities. Originality: **NOT ESTABLISHED**; a verified finite witness does NOT imply asymptotic separation or algorithmic optimality. Review and exact-head GitHub-hosted CI are required before acceptance; issue #68 holds the latest CI/merge outcome. No Rust or product change.
