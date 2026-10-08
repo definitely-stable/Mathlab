@@ -18,9 +18,9 @@ INDEX = ROOT / "docs/research/catalog/LITERATURE.md"
 REVERSE = ROOT / "docs/research/catalog/LITERATURE-BY-RESEARCH.md"
 REPO_ID = re.compile(r"^LIT-[0-9]{3}$")
 SHA = re.compile(r"^[a-f0-9]{40}$")
-URL = re.compile(r"^https://[^\\s<>]+$")
+URL = re.compile(r"^https://[^\s<>]+$")
 IDENTITY = re.compile(
-    r"^(?:doi:10\\.[0-9]{4,9}/[^\\s]+|arxiv:[0-9]{4}\\.[0-9]{4,5}"
+    r"^(?:doi:10\.[0-9]{4,9}/[^\s]+|arxiv:[0-9]{4}\.[0-9]{4,5}"
     r"|usenix:[a-z0-9-]+:[a-z0-9-]+|publisher:[a-z0-9:-]+)$"
 )
 TRACKS = {
