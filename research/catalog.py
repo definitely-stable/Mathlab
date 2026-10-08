@@ -106,10 +106,10 @@ def check(data):
                 papers = audit.get("primary_papers", [])
                 require(isinstance(papers, list) and len(papers) >= 1,
                         f"{ident}: paper paths required")
-                paths = [audit.get("manuscript_readme"), audit.get("comparator_manifest")]
+                audited_paths = [audit.get("manuscript_readme"), audit.get("comparator_manifest")]
                 if isinstance(papers, list):
-                    paths.extend(papers)
-                for p in paths:
+                    audited_paths.extend(papers)
+                for p in audited_paths:
                     require(isinstance(p, str) and bool(p) and p.startswith(("preprints/", "lean/")),
                             f"{ident}: invalid audited source path")
                     if isinstance(p, str):
