@@ -474,7 +474,7 @@ Yi–Zhang исследуют динамическую принадлежнос�
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/f15cdc31bad00e7c4a15c76123a82119bbeba852/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
 ### LIT-119
-**[An $\\Omega((\\log n / \\log\\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures](https://eccc.weizmann.ac.il/report/2026/047/)** (2026)
+**[An $\Omega((\log n / \log\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures](https://eccc.weizmann.ac.il/report/2026/047/)** (2026)
 
 Young Kun Ko, ECCC TR26-047, редакция 7 октября 2026: автор заявляет нижнюю границу порядка Omega((log n/loglog n)^2) для Multiphase inner-product Boolean задачи с новым 2.5-round communication game и раундом проверки.
 
