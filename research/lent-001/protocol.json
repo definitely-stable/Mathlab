@@ -1,0 +1,29 @@
+{
+  "id": "LENT-001",
+  "version": 1,
+  "status": "FROZEN_FOR_G0_FOUNDATION",
+  "issue": 1,
+  "baseline_main": "a04999ec607d2cc4b7779d18d887c120dd56939b",
+  "claim": {
+    "input_states": "N_d(V)=sum_{i=0}^d C(V,i)",
+    "reachable_state_bound": "B_q(m,dw)=sum_{j=0}^{min(dw,m)} C(m,j)(q-1)^j",
+    "finite_theorem": "N_d(V) <= B_q(m,dw)",
+    "novelty_claimed": false
+  },
+  "labels": [
+    "THEOREM",
+    "DERIVED RESULT",
+    "EXACT NUMERICAL RESULT",
+    "ASYMPTOTIC RESULT",
+    "EMPIRICAL RESULT",
+    "CONJECTURE",
+    "PRIOR-ART"
+  ],
+  "exhaustive_cases": [
+    {"q": 2, "m": 3, "d": 1, "w": 1, "max_v": 3},
+    {"q": 2, "m": 4, "d": 2, "w": 2, "max_v": 4},
+    {"q": 3, "m": 3, "d": 1, "w": 1, "max_v": 3},
+    {"q": 3, "m": 4, "d": 2, "w": 2, "max_v": 4}
+  ],
+  "acceptance_marker": "FOUNDATION_PASS"
+}
