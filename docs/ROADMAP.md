@@ -67,6 +67,16 @@ A frozen 10-witness cannot be grown to 11 by direct addition or
 one-delete/two-add local exchange (50+12,750 exact finite trials).
 This does **NOT** imply global 11-column infeasibility.
 
+G2B-B2-A (issue #42) implements and freezes a **globally complete
+single-anchor reduction**: any 11-vertex ASET family contains a
+support-two column, and the 384-element coordinate-monomial
+action can send it to (0,1,1). A dependency-free exact CNF
+uses all 9,990 minimal forbidden edges and a fully reified
+at-least-11 cardinality circuit. A separate verifier regenerates
+the original ASET incidence; external SAT/UNSAT output can be
+promoted only with independent witness/DRUP verification.
+See LENT-001-G2B-B2-A-ANCHORED-SAT-PROTOCOL.md.
+
 G2B-B2 remains **OPEN**: find one independent exact 11-column witness,
 or prove that none exists by a globally complete and independently
 checkable mathematical/solver certificate; never use an unfinished
