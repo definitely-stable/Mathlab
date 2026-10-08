@@ -39,6 +39,13 @@ Run `python research/locality_transition.py` to produce five HYP-001/002
 construction markers. CI checks only the finite witnesses, **not** the
 asymptotic theorems or novelty claims.
 
+- `hyp002_quadratic.py` — derived finite quadratic bound and necessary C4-free prefix-graph counting certificate.
+- `test_hyp002_quadratic.py` — independent ASET-oracle checks, weighted rectangle collisions and C4-not-sufficient regression.
+
+Run `python research/hyp002_quadratic.py` for Phase-B finite markers.
+The asymptotic theorem is proved in docs/research/HYP-002-B-QUADRATIC-THEOREM.md;
+CI checks instances only and does not establish scientific novelty.
+
 ## Evidence semantics
 
 The exhaustive oracle searches unordered families of distinct nonzero columns. For the frozen grid (dge1), this loses no valid exact family: a zero column or duplicate column already violates singleton injectivity.
