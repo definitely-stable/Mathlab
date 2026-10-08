@@ -63,7 +63,8 @@ def validate(record: dict) -> list[dict]:
         if item["disposition"] not in STATUSES:
             raise ValueError("unknown disposition")
         for fld in ("area", "title", "scope", "do_not_repeat", "reopen_only_if"):
-            if not isinstance(item[fld], str) or len(item[fld]) < 10:
+            minimum = 3 if fld == "area" else 10
+            if not isinstance(item[fld], str) or len(item[fld]) < minimum:
                 raise ValueError(f"empty {fld} for {item['id']}")
             if "|" in item[fld] or "\n" in item[fld]:
                 raise ValueError(f"unsupported Markdown delimiter {fld}")
