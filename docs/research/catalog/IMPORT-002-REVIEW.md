@@ -10,11 +10,11 @@ Human index: [INDEX.md](INDEX.md) · [THEMES.md](THEMES.md)
 
 | Repository | Exact source SHA | New / total entries |
 | --- | --- | ---: |
-| Mathlab | `0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7` | 2 / 9 |
+| Mathlab | `c3ffc69563ac15241e67f4b6ccfe8063720590f1` | 4 / 11 |
 | DELSK / Shift-lab | `e1ee235fe08c7cc1f6e8ec8884b65439435adf92` | 6 / 12 |
 | DeltaMeter | `862579643fb44bfd3df3b65a863bfdc90b998611` | 7 / 14 |
 | openai/math | `fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb` | 8 / 14 |
-| **Total** | | **23 / 49** |
+| **Total** | | **25 / 51** |
 
 Existing 26 record identities were preserved. Mathlab's namespace snapshot advanced to the verified current main commit; older paths were checked against the new revision and their pinned permalinks updated consistently. The other three sources remain pinned at the exact previously cataloged commit (also verified as their current `main` at import time). Updating a revision does **not** change whether a claim is proven or original.
 
@@ -26,10 +26,12 @@ Every new entry was read from its indicated UTF-8 markdown/protocol path at the 
 
 ## Import review by lane
 
-### Mathlab — ML-008, ML-009
+### Mathlab — ML-008 through ML-011
 
-- [ML-008](INDEX.md#ml-008) imports [G2B-A finite evidence](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-EVIDENCE.md). **(A_3^{set}(4,2,2)=7) is exact** in the frozen prime-field model; **(10le A_5^{set}(3,2,2)le15) is only a certified interval**. The GF(5) search hit its budget. No asymptotic theorem is inferred.
-- [ML-009](INDEX.md#ml-009) imports the corresponding [protocol](https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-PROTOCOL.md) separately from experimental evidence.
+- [ML-008](INDEX.md#ml-008) imports [G2B-A finite evidence](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-EVIDENCE.md). **(A_3^{set}(4,2,2)=7) is exact** in the frozen prime-field model; **(10le A_5^{set}(3,2,2)le15) is only a certified interval**. The GF(5) search hit its budget. No asymptotic theorem is inferred.
+- [ML-009](INDEX.md#ml-009) imports the corresponding [protocol](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-PROTOCOL.md) separately from experimental evidence.
+- [ML-010](INDEX.md#ml-010) records the newly merged HYP-001 two-cell derived Theta exponent and HYP-002 three-cell Omega(m²)/O(m^(5/2)) interval; the quadratic sharp HYP-002 law remains **UNPROVEN** and the HYP-001 novelty status **UNAUDITED**.
+- [ML-011](INDEX.md#ml-011) indexes the finite projective/Steiner constructions and odd-characteristic and GF(2) regression evidence, not an asymptotic proof.
 - TOM-001 and LENT-001 are distinct research programs. Neither is changed by catalog ingestion.
 
 ### DELSK — DL-007 through DL-012
