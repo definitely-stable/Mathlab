@@ -2308,7 +2308,7 @@
         },
         {
           "id": "ML-006",
-          "relation": "model_contrast"
+          "relation": "contrast"
         }
       ],
       "source_audit": {
