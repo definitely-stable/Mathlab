@@ -138,3 +138,37 @@ Issue: #6.
 No sharp ASET theorem may be promoted as new until G1B chooses exactly one
 of CONTINUE_ASET, REDUCE_TO_KNOWN_OBJECT, SPLIT_Q3_QGT3, or
 STOP_NOT_NOVEL.
+
+
+## 2026-10-08 — D015
+
+**CORRECT TERMINOLOGY:** standard "k-dissociated" is not used as a synonym
+for bounded-order ASET.
+
+In Shkredov's verified definition, k bounds coefficient magnitude. Standard
+dissociation is an all-orders property and is stronger than finite-d ASET.
+
+## 2026-10-08 — D016
+
+**EXPAND G1B PRIOR ART:** signature/detecting/adder codes and
+additive/quantitative group testing are mandatory source clusters.
+
+Reason: primary sources contain all-subset or bounded-d exact
+standard-arithmetic sum-identification models, including constant-weight
+variants. They are materially closer to ASET than the initial coding-only
+map suggested.
+
+## 2026-10-08 — D017
+
+**DO NOT CLOSE G1B AFTER AUDIT 01.**
+
+Audit 01 found no verified source matching all five active ASET features
+simultaneously: modular finite-field addition, both collision sides bounded
+by d, distinct subset elements, all cardinalities through d, and
+per-generator support at most w.
+
+However established bounded-weight B2/signature and additive-separable
+literature makes a broader novelty claim unsafe.
+
+Next required audit is bounded-column-weight quantitative group testing and
+finite-field/mod-q bounded-active-user signature/separable codes.
