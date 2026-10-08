@@ -50,6 +50,9 @@ def decide(*, conflict_budget: int, artifact_dir: Path) -> dict[str, object]:
         elapsed=round(monotonic()-started,3)
         verdict="UNKNOWN"
         witness=None
+        proof_digest=None
+        proof_bytes=0
+        proof_lines=0
         if outcome is True:
             model=solver.get_model()
             if model is None:
@@ -72,9 +75,11 @@ def decide(*, conflict_budget: int, artifact_dir: Path) -> dict[str, object]:
             proof=solver.get_proof()
             if not proof:
                 raise AssertionError("solver reported UNSAT but omitted proof")
-            (artifact_dir/"proof.drat").write_text(
-                "\n".join(proof)+"\n",encoding="ascii"
-            )
+            proof_text="\n".join(proof)+"\n"
+            (artifact_dir/"proof.drat").write_text(proof_text,encoding="ascii")
+            proof_digest=sha256(proof_text.encode("ascii")).hexdigest()
+            proof_bytes=len(proof_text.encode("ascii"))
+            proof_lines=len(proof)
             verdict="UNSAT_UNVERIFIED_CERTIFICATE_REQUIRED"
         else:
             verdict="UNKNOWN_CONFLICT_BUDGET"
@@ -94,6 +99,9 @@ def decide(*, conflict_budget: int, artifact_dir: Path) -> dict[str, object]:
             "cnf_vars":cnf.var_count,
             "cnf_clauses":len(cnf.clauses),
             "witness_verified_independently":bool(witness),
+            "proof_sha256":proof_digest,
+            "proof_bytes":proof_bytes,
+            "proof_lines":proof_lines,
             "unsat_proof_verified_independently":False,
             "exact_value":11 if witness else None,
         }
