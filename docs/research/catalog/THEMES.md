@@ -2,13 +2,13 @@
 
 > Generated from `registry.json` by `research/catalog.py`. Do not edit manually.
 
-Snapshot: **2026-10-08**. **51** selected records; **54** topics.
+Snapshot: **2026-10-08**. **61** selected records; **60** topics.
 
 Статус и метод проверки не устанавливают научную новизну. Первоисточники и ограничения см. в [INDEX.md](INDEX.md).
 
 | Тема | Записей |
 | --- | ---: |
-| [algebra](#algebra) | 2 |
+| [algebra](#algebra) | 5 |
 | [algorithms](#algorithms) | 3 |
 | [approximation](#approximation) | 1 |
 | [automata](#automata) | 2 |
@@ -18,36 +18,41 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 | [certification](#certification) | 1 |
 | [codec](#codec) | 1 |
 | [coding](#coding) | 9 |
-| [combinatorics](#combinatorics) | 1 |
-| [complexity](#complexity) | 5 |
+| [combinatorics](#combinatorics) | 4 |
+| [complexity](#complexity) | 8 |
+| [counting](#counting) | 3 |
 | [delta-compression](#delta-compression) | 8 |
 | [derandomization](#derandomization) | 1 |
 | [edit-distance](#edit-distance) | 3 |
+| [entropy](#entropy) | 1 |
 | [evidence](#evidence) | 1 |
 | [exact-model](#exact-model) | 1 |
-| [finite-field](#finite-field) | 1 |
+| [finite-field](#finite-field) | 2 |
 | [finite-oracle](#finite-oracle) | 4 |
 | [finite-sample](#finite-sample) | 3 |
 | [formalization](#formalization) | 1 |
 | [geometry](#geometry) | 1 |
-| [graphs](#graphs) | 1 |
+| [graphs](#graphs) | 3 |
 | [history-independence](#history-independence) | 1 |
 | [holdout](#holdout) | 1 |
 | [hosted-ci](#hosted-ci) | 1 |
 | [incremental](#incremental) | 3 |
-| [information-theory](#information-theory) | 2 |
+| [information-theory](#information-theory) | 3 |
 | [language](#language) | 1 |
 | [locality](#locality) | 1 |
-| [lower-bounds](#lower-bounds) | 7 |
+| [lower-bounds](#lower-bounds) | 11 |
 | [mathematics](#mathematics) | 1 |
-| [memory](#memory) | 1 |
+| [memory](#memory) | 2 |
 | [methodology](#methodology) | 3 |
+| [mixing](#mixing) | 1 |
 | [models](#models) | 1 |
 | [negative](#negative) | 10 |
 | [operational](#operational) | 1 |
-| [optimization](#optimization) | 2 |
+| [optimization](#optimization) | 3 |
+| [oracles](#oracles) | 2 |
 | [parity](#parity) | 1 |
 | [performance](#performance) | 5 |
+| [polynomial-identity](#polynomial-identity) | 1 |
 | [prior-art](#prior-art) | 4 |
 | [proof](#proof) | 1 |
 | [protocol](#protocol) | 6 |
@@ -55,6 +60,7 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 | [reconciliation](#reconciliation) | 5 |
 | [reconstruction](#reconstruction) | 1 |
 | [reproducibility](#reproducibility) | 8 |
+| [sampling](#sampling) | 3 |
 | [selection](#selection) | 2 |
 | [sensitivity](#sensitivity) | 2 |
 | [simulation](#simulation) | 1 |
@@ -65,8 +71,11 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 
 ## algebra
 
+- **[OM-108](INDEX.md#om-108)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — В авторском Lean scope заявлена нижняя граница порядка m³ для точных и предельных представлений перманента m×m в виде детерминанта аффинной матрицы над C. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/108.md).
+- **[OM-116](INDEX.md#om-116)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Первичная рукопись и Lean scope описывают единую рациональную матричную hitting-point конструкцию для division-free некоммутативных формул ограниченного размера в характеристике нуль. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/116.md).
 - **[OM-130](INDEX.md#om-130)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Указан Lean scope точной DFT/свёртки со сложностью ниже n log n в модели точной комплексной арифметики и неограниченных коэффициентов. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/130.md).
 - **[OM-134](INDEX.md#om-134)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Scope документ сообщает Lean-формализацию представления регулярных языков обобщёнными регулярными выражениями с вложенностью Kleene star не более трёх. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/134.md).
+- **[OM-135](INDEX.md#om-135)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Selected Lean scope приводит нижнюю n^(sqrt(n)/400) и верхнюю n^(sqrt(n)+4) для синтаксически однородных схем глубины пять, вычисляющих запись произведения n матриц. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/135.md).
 
 ## algorithms
 
@@ -122,14 +131,26 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 ## combinatorics
 
 - **[ML-010](INDEX.md#ml-010)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Для нечётных простых q приведено самодостаточное доказательство A_q^set(m,2,2)=Θ_q(m^{3/2}); при w=3 получены границы Ω(m²) и O_q(m^{5/2}), а Θ_q(m²) остаётся гипотезой. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-LOCALITY-TRANSITION.md).
+- **[OM-113](INDEX.md#om-113)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Авторская коллекция приводит FPRAS для perfect matchings в произвольных простых графах с гарантией нулевого ответа при отсутствии совпадений и формулирует энтропийную оценку для заданных edge marginals. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/113.md).
+- **[OM-114](INDEX.md#om-114)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Lean scope формулирует FPRAS числа общих баз двух матроидов равного ранга, доступных через independence oracles; общий заголовок коллекции обещает более широкий случай целочисленных полиматроидов. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/114.md).
+- **[OM-115](INDEX.md#om-115)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Lean scope описывает точную равномерную генерацию неотрицательных целочисленных таблиц с заданными суммами строк/столбцов и отдельную FPRAS для подсчёта при индивидуальных cell bounds. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/115.md).
 
 ## complexity
 
 - **[OM-103](INDEX.md#om-103)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Коллекция содержит рукопись с утверждением L=RL=BPL и ссылку на Lean-артефакты; запись импортирует заявление автора, не подтверждает теорему. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/103.md).
+- **[OM-108](INDEX.md#om-108)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — В авторском Lean scope заявлена нижняя граница порядка m³ для точных и предельных представлений перманента m×m в виде детерминанта аффинной матрицы над C. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/108.md).
 - **[OM-129](INDEX.md#om-129)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Коллекция описывает Lean-границы для complementation и determinization двухсторонних автоматов с растущим алфавитом. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/129.md).
 - **[OM-130](INDEX.md#om-130)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Указан Lean scope точной DFT/свёртки со сложностью ниже n log n в модели точной комплексной арифметики и неограниченных коэффициентов. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/130.md).
 - **[OM-133](INDEX.md#om-133)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Коллекция формализует выбранные конструкции parity-lift и заявленные пределы распознавания графов методами Weisfeiler–Leman. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/133.md).
+- **[OM-135](INDEX.md#om-135)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Selected Lean scope приводит нижнюю n^(sqrt(n)/400) и верхнюю n^(sqrt(n)+4) для синтаксически однородных схем глубины пять, вычисляющих запись произведения n матриц. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/135.md).
 - **[OM-137](INDEX.md#om-137)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Описана Lean-формализация двух-пятых-степенной space simulation ограниченных one-tape машин, включая вариант без заранее известного time cap. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/137.md).
+- **[OM-139](INDEX.md#om-139)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Scope указывает верх C_epsilon d^epsilon и ниж c log d на количество точных value-and-gradient queries для нормализованного хорошо обусловленного log-concave sampling. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/139.md).
+
+## counting
+
+- **[OM-113](INDEX.md#om-113)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Авторская коллекция приводит FPRAS для perfect matchings в произвольных простых графах с гарантией нулевого ответа при отсутствии совпадений и формулирует энтропийную оценку для заданных edge marginals. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/113.md).
+- **[OM-114](INDEX.md#om-114)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Lean scope формулирует FPRAS числа общих баз двух матроидов равного ранга, доступных через independence oracles; общий заголовок коллекции обещает более широкий случай целочисленных полиматроидов. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/114.md).
+- **[OM-115](INDEX.md#om-115)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Lean scope описывает точную равномерную генерацию неотрицательных целочисленных таблиц с заданными суммами строк/столбцов и отдельную FPRAS для подсчёта при индивидуальных cell bounds. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/115.md).
 
 ## delta-compression
 
@@ -152,6 +173,10 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 - **[OM-121](INDEX.md#om-121)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Рукопись заявляет рандомизированную (1+ε)-аппроксимацию edit-distance за N^{1+o(1)} при фиксированном ε; коллекция даёт Lean-метаданные. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/121.md).
 - **[OM-122](INDEX.md#om-122)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Коллекция заявляет границы выборки и uniform decoder для реконструкции строк после удалений; документирует Lean-связку. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/122.md).
 
+## entropy
+
+- **[OM-113](INDEX.md#om-113)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Авторская коллекция приводит FPRAS для perfect matchings в произвольных простых графах с гарантией нулевого ответа при отсутствии совпадений и формулирует энтропийную оценку для заданных edge marginals. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/113.md).
+
 ## evidence
 
 - **[DL-003](INDEX.md#dl-003)** (DELSK; `EMPIRICAL_RESULT` / `exact_retained_measurement`) — В ограниченном скрининге простые baselines почти насыщают savings; решение NO_HEADROOM_AT_256 для исследованных ячеек. [Источник](https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/corpus/x0/results.md).
@@ -163,6 +188,7 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 ## finite-field
 
 - **[DM-010](INDEX.md#dm-010)** (DELTAMETER; `RESEARCH_EVIDENCE` / `exact_retained_measurement`) — Приватный эксперимент применил предвычисленные positional nibble tables при сокращении trace polynomials и прошёл предварительно объявленный performance gate. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D11-FIXED-REDUCTION-EVIDENCE.md).
+- **[OM-116](INDEX.md#om-116)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Первичная рукопись и Lean scope описывают единую рациональную матричную hitting-point конструкцию для division-free некоммутативных формул ограниченного размера в характеристике нуль. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/116.md).
 
 ## finite-oracle
 
@@ -187,6 +213,8 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 
 ## graphs
 
+- **[OM-117](INDEX.md#om-117)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Lean scope заявляет последовательность примеров, где интегральная стоимость uniform sparsest cut превышает Goemans–Linial SDP более чем на c sqrt(log n)/(log log n)^3. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/117.md).
+- **[OM-131](INDEX.md#om-131)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — В Lean scope приведена оценка mixing time ≤2n⁸ для lazy edge-switch chain всех графических степенных последовательностей в простых неориентированных графах при TV distance 1/4. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/131.md).
 - **[OM-133](INDEX.md#om-133)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Коллекция формализует выбранные конструкции parity-lift и заявленные пределы распознавания графов методами Weisfeiler–Leman. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/133.md).
 
 ## history-independence
@@ -211,6 +239,7 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 
 - **[OM-119](INDEX.md#om-119)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Каталог относит к семейству Courtade–Kumar/Hellinger и заявляет sharp information contraction; есть ссылка на Lean-документацию. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/119.md).
 - **[OM-122](INDEX.md#om-122)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Коллекция заявляет границы выборки и uniform decoder для реконструкции строк после удалений; документирует Lean-связку. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/122.md).
+- **[OM-140](INDEX.md#om-140)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Selected Lean scope связывает O(d²) persistent bits со строгой нижней границей Ω_A(d log(1/epsilon)) наблюдений в noiseless Gaussian regression до заданной angular accuracy. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/140.md).
 
 ## language
 
@@ -225,10 +254,14 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 - **[ML-001](INDEX.md#ml-001)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Базовая граница: число различных малых множеств не превосходит объёма q-ичной сферы Хэмминга радиуса dw при обновлении не более w координат. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-FOUNDATION.md).
 - **[ML-010](INDEX.md#ml-010)** (MATHLAB; `DERIVED_RESULT` / `repository_proof`) — Для нечётных простых q приведено самодостаточное доказательство A_q^set(m,2,2)=Θ_q(m^{3/2}); при w=3 получены границы Ω(m²) и O_q(m^{5/2}), а Θ_q(m²) остаётся гипотезой. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-LOCALITY-TRANSITION.md).
 - **[OM-099](INDEX.md#om-099)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Каталог автора сообщает matching экспоненциальную шкалу искажения вложений edit-distance в ℓ1; привязан к manuscript и Lean-документации. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/099.md).
+- **[OM-108](INDEX.md#om-108)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — В авторском Lean scope заявлена нижняя граница порядка m³ для точных и предельных представлений перманента m×m в виде детерминанта аффинной матрицы над C. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/108.md).
+- **[OM-117](INDEX.md#om-117)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Lean scope заявляет последовательность примеров, где интегральная стоимость uniform sparsest cut превышает Goemans–Linial SDP более чем на c sqrt(log n)/(log log n)^3. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/117.md).
 - **[OM-127](INDEX.md#om-127)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Каталог описывает Lean-формализацию границы средней чувствительности 8d sqrt(n) для булевых polynomial threshold functions. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/127.md).
 - **[OM-129](INDEX.md#om-129)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Коллекция описывает Lean-границы для complementation и determinization двухсторонних автоматов с растущим алфавитом. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/129.md).
 - **[OM-132](INDEX.md#om-132)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — По данным Lean scope, построены булевы функции с неограниченным отношением block sensitivity к квадрату sensitivity. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/132.md).
 - **[OM-133](INDEX.md#om-133)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Коллекция формализует выбранные конструкции parity-lift и заявленные пределы распознавания графов методами Weisfeiler–Leman. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/133.md).
+- **[OM-135](INDEX.md#om-135)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Selected Lean scope приводит нижнюю n^(sqrt(n)/400) и верхнюю n^(sqrt(n)+4) для синтаксически однородных схем глубины пять, вычисляющих запись произведения n матриц. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/135.md).
+- **[OM-140](INDEX.md#om-140)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Selected Lean scope связывает O(d²) persistent bits со строгой нижней границей Ω_A(d log(1/epsilon)) наблюдений в noiseless Gaussian regression до заданной angular accuracy. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/140.md).
 
 ## mathematics
 
@@ -237,12 +270,17 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 ## memory
 
 - **[OM-137](INDEX.md#om-137)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Описана Lean-формализация двух-пятых-степенной space simulation ограниченных one-tape машин, включая вариант без заранее известного time cap. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/137.md).
+- **[OM-140](INDEX.md#om-140)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Selected Lean scope связывает O(d²) persistent bits со строгой нижней границей Ω_A(d log(1/epsilon)) наблюдений в noiseless Gaussian regression до заданной angular accuracy. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/140.md).
 
 ## methodology
 
 - **[DL-007](INDEX.md#dl-007)** (DELSK; `RESEARCH_SYNTHESIS` / `repository_review`) — Предлагает цепочку issue→experiment→run→evidence→decision и учёт шума, допусков, копирований, памяти и отрицательных результатов. [Источник](https://github.com/definitely-stable/Shift-lab/blob/e1ee235fe08c7cc1f6e8ec8884b65439435adf92/.work/research/lab-practices.md).
 - **[DM-014](INDEX.md#dm-014)** (DELTAMETER; `PRIOR_ART_AUDIT` / `repository_review`) — Сопоставляет внешние отчёты с фактическими byte layouts/CRC32C и отвергает выводы о post-optimization CPU share без измерений. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-B-CODEC-DECODER-RESEARCH-AUDIT.md).
 - **[ML-004](INDEX.md#ml-004)** (MATHLAB; `RESEARCH_MAP` / `repository_review`) — Карта 14 предварительных задач в инкрементальных вычислениях, канонических структурах, доказательствах и кодировании с product-операциями и критериями опровержения. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-OPPORTUNITY-MAP.md).
+
+## mixing
+
+- **[OM-131](INDEX.md#om-131)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — В Lean scope приведена оценка mixing time ≤2n⁸ для lazy edge-switch chain всех графических степенных последовательностей в простых неориентированных графах при TV distance 1/4. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/131.md).
 
 ## models
 
@@ -269,6 +307,12 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 
 - **[DM-005](INDEX.md#dm-005)** (DELTAMETER; `RESEARCH_PLAN` / `repository_review`) — После private feasibility предлагает последовательность OPT-A/B/C: параметризация уровней, maintained cache, progressive transfer, затем публичный контракт. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/research/STRICT-COMPACT-OPT-NEXT-WORK.md).
 - **[DM-010](INDEX.md#dm-010)** (DELTAMETER; `RESEARCH_EVIDENCE` / `exact_retained_measurement`) — Приватный эксперимент применил предвычисленные positional nibble tables при сокращении trace polynomials и прошёл предварительно объявленный performance gate. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D11-FIXED-REDUCTION-EVIDENCE.md).
+- **[OM-117](INDEX.md#om-117)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Lean scope заявляет последовательность примеров, где интегральная стоимость uniform sparsest cut превышает Goemans–Linial SDP более чем на c sqrt(log n)/(log log n)^3. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/117.md).
+
+## oracles
+
+- **[OM-114](INDEX.md#om-114)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Lean scope формулирует FPRAS числа общих баз двух матроидов равного ранга, доступных через independence oracles; общий заголовок коллекции обещает более широкий случай целочисленных полиматроидов. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/114.md).
+- **[OM-139](INDEX.md#om-139)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Scope указывает верх C_epsilon d^epsilon и ниж c log d на количество точных value-and-gradient queries для нормализованного хорошо обусловленного log-concave sampling. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/139.md).
 
 ## parity
 
@@ -281,6 +325,10 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 - **[DM-009](INDEX.md#dm-009)** (DELTAMETER; `RESEARCH_DECISION` / `exact_retained_measurement`) — Математически согласованное переиспользование BM-состояния подтвердило равенство свежему расчёту, но performance gate отклонил оптимизацию. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D3-INCREMENTAL-BM-EVIDENCE.md).
 - **[DM-010](INDEX.md#dm-010)** (DELTAMETER; `RESEARCH_EVIDENCE` / `exact_retained_measurement`) — Приватный эксперимент применил предвычисленные positional nibble tables при сокращении trace polynomials и прошёл предварительно объявленный performance gate. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D11-FIXED-REDUCTION-EVIDENCE.md).
 - **[DM-011](INDEX.md#dm-011)** (DELTAMETER; `RESEARCH_DECISION` / `exact_retained_measurement`) — Пять независимых hosted workers не выявили устойчивой фазы декодирования, проходящей заранее установленный порог 25% общей задержки. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D12-POST-D11-PROFILE-EVIDENCE.md).
+
+## polynomial-identity
+
+- **[OM-116](INDEX.md#om-116)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Первичная рукопись и Lean scope описывают единую рациональную матричную hitting-point конструкцию для division-free некоммутативных формул ограниченного размера в характеристике нуль. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/116.md).
 
 ## prior-art
 
@@ -330,6 +378,12 @@ Snapshot: **2026-10-08**. **51** selected records; **54** topics.
 - **[DM-012](INDEX.md#dm-012)** (DELTAMETER; `RESEARCH_EVIDENCE` / `exact_hosted_ci`) — Заморожены исходники, границы измерений и подготовлены persistent sessions; readiness пройдена, но измеренного преимущества ещё не заявлено. [Источник](https://github.com/definitely-stable/deltameter/blob/862579643fb44bfd3df3b65a863bfdc90b998611/docs/M6-D13B0-MEASUREMENT-READINESS-EVIDENCE.md).
 - **[ML-009](INDEX.md#ml-009)** (MATHLAB; `RESEARCH_PROTOCOL` / `repository_review`) — Фиксирует первичную область допустимых конечных поисков, ограничения solver и правила сертификатов до расширения сетки q=3/q=5. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-PROTOCOL.md).
 - **[ML-011](INDEX.md#ml-011)** (MATHLAB; `EXACT_NUMERICAL` / `exact_hosted_ci`) — GitHub CI проверил PG(2,2)/PG(2,3) incidence и Steiner triples на нечётных полях, а также GF(2) Pasch и нелинейные контрпримеры. [Источник](https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-PHASE-A-EVIDENCE.md).
+
+## sampling
+
+- **[OM-115](INDEX.md#om-115)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Lean scope описывает точную равномерную генерацию неотрицательных целочисленных таблиц с заданными суммами строк/столбцов и отдельную FPRAS для подсчёта при индивидуальных cell bounds. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/115.md).
+- **[OM-131](INDEX.md#om-131)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — В Lean scope приведена оценка mixing time ≤2n⁸ для lazy edge-switch chain всех графических степенных последовательностей в простых неориентированных графах при TV distance 1/4. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/131.md).
+- **[OM-139](INDEX.md#om-139)** (OPENAI_MATH; `EXTERNAL_MANUSCRIPT_CLAIM` / `source_catalog`) — Scope указывает верх C_epsilon d^epsilon и ниж c log d на количество точных value-and-gradient queries для нормализованного хорошо обусловленного log-concave sampling. [Источник](https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/139.md).
 
 ## selection
 

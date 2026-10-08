@@ -1805,6 +1805,500 @@
           "relation": "method_compare"
         }
       ]
+    },
+    {
+      "id": "OM-108",
+      "repository": "OPENAI_MATH",
+      "title": "Family 108: Определительная сложность перманента: кубическая нижняя граница",
+      "summary_ru": "В авторском Lean scope заявлена нижняя граница порядка m³ для точных и предельных представлений перманента m×m в виде детерминанта аффинной матрицы над C.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "algebra",
+        "lower-bounds",
+        "complexity"
+      ],
+      "application_ru": "Образец содержательной нижней границы в строго ограниченной модели алгебраических схем.",
+      "limitations_ru": "Условие комплексного поля и модель аффинного детерминанта принципиальны; следствия для ABP из рукописи не входят в выбранную формализацию; доказательство не перепроверялось.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/108.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/108.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/108.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026/README.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/PermanentCubic.json"
+      ],
+      "related": [
+        {
+          "id": "OM-135",
+          "relation": "related"
+        },
+        {
+          "id": "ML-010",
+          "relation": "conceptual_link"
+        }
+      ],
+      "source_audit": {
+        "manuscript_readme": "preprints/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026/README.md",
+        "primary_papers": [
+          "preprints/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026.pdf"
+        ],
+        "comparator_manifest": "lean/ComparatorChallenges/PermanentCubic.json",
+        "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
+        "full_pdf_reviewed": false,
+        "independent_lean_run": false,
+        "scope_mismatch_ru": "Сomparator охватывает exact/border determinant, но не перенос ABP-свойств из статьи."
+      }
+    },
+    {
+      "id": "OM-113",
+      "repository": "OPENAI_MATH",
+      "title": "Family 113: Приближённый подсчёт perfect matchings и энтропийная граница",
+      "summary_ru": "Авторская коллекция приводит FPRAS для perfect matchings в произвольных простых графах с гарантией нулевого ответа при отсутствии совпадений и формулирует энтропийную оценку для заданных edge marginals.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "combinatorics",
+        "counting",
+        "entropy"
+      ],
+      "application_ru": "Методологический компаратор для сертифицированного случайного подсчёта и ограничений на информацию о комбинаторных объектах.",
+      "limitations_ru": "Это FPRAS, не детерминированный точный счётчик; формулировки из scope нельзя автоматически использовать как проверенные Mathlab теоремы.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/113.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/113.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/113.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-Fully-Polynomial-Randomized-Approximation-Scheme-for-Perfect-Matchings-in-General-Graphs-September-23-2026/main.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Entropy-and-Face-Dimension-of-the-Perfect-Matching-Polytope-September-23-2026/main.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/A-Fully-Polynomial-Randomized-Approximation-Scheme-for-Perfect-Matchings-in-General-Graphs-September-23-2026/README.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/MatchingFPRAS.json"
+      ],
+      "related": [
+        {
+          "id": "OM-114",
+          "relation": "related"
+        },
+        {
+          "id": "OM-115",
+          "relation": "related"
+        },
+        {
+          "id": "ML-010",
+          "relation": "conceptual_link"
+        }
+      ],
+      "source_audit": {
+        "manuscript_readme": "preprints/A-Fully-Polynomial-Randomized-Approximation-Scheme-for-Perfect-Matchings-in-General-Graphs-September-23-2026/README.md",
+        "primary_papers": [
+          "preprints/A-Fully-Polynomial-Randomized-Approximation-Scheme-for-Perfect-Matchings-in-General-Graphs-September-23-2026/main.pdf",
+          "preprints/Entropy-and-Face-Dimension-of-the-Perfect-Matching-Polytope-September-23-2026/main.pdf"
+        ],
+        "comparator_manifest": "lean/ComparatorChallenges/MatchingFPRAS.json",
+        "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
+        "full_pdf_reviewed": false,
+        "independent_lean_run": false,
+        "scope_mismatch_ru": "Отдельные selected Lean comparators для entropy и counting; не смешивать FPRAS с exact counting."
+      }
+    },
+    {
+      "id": "OM-114",
+      "repository": "OPENAI_MATH",
+      "title": "Family 114: Подсчёт общих баз: различать matroid и polymatroid",
+      "summary_ru": "Lean scope формулирует FPRAS числа общих баз двух матроидов равного ранга, доступных через independence oracles; общий заголовок коллекции обещает более широкий случай целочисленных полиматроидов.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "combinatorics",
+        "counting",
+        "oracles"
+      ],
+      "application_ru": "Оценка минимально необходимого оракула и источников неопределённости в комбинаторной оптимизации.",
+      "limitations_ru": "Проверенный scope и привязанная первичная рукопись относятся к матроидам; расширение на полиматроиды из общего каталога здесь НЕ формализовано и не подтверждено.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/114.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/114.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/114.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Approximate-counting-of-common-bases-of-two-matroids-September-23-2026/main.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Approximate-counting-of-common-bases-of-two-matroids-September-23-2026/README.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/CommonBasesFPRAS.json"
+      ],
+      "related": [
+        {
+          "id": "OM-113",
+          "relation": "related"
+        },
+        {
+          "id": "ML-004",
+          "relation": "method_compare"
+        }
+      ],
+      "source_audit": {
+        "manuscript_readme": "preprints/Approximate-counting-of-common-bases-of-two-matroids-September-23-2026/README.md",
+        "primary_papers": [
+          "preprints/Approximate-counting-of-common-bases-of-two-matroids-September-23-2026/main.pdf"
+        ],
+        "comparator_manifest": "lean/ComparatorChallenges/CommonBasesFPRAS.json",
+        "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
+        "full_pdf_reviewed": false,
+        "independent_lean_run": false,
+        "scope_mismatch_ru": "Общий семейный тезис о polymatroids шире матроидного документа Lean scope; не импортировать его как доказанный результат."
+      }
+    },
+    {
+      "id": "OM-115",
+      "repository": "OPENAI_MATH",
+      "title": "Family 115: Точные выборки contingency tables и приближённый подсчёт",
+      "summary_ru": "Lean scope описывает точную равномерную генерацию неотрицательных целочисленных таблиц с заданными суммами строк/столбцов и отдельную FPRAS для подсчёта при индивидуальных cell bounds.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "combinatorics",
+        "counting",
+        "sampling"
+      ],
+      "application_ru": "Сравнение строгого случайного семплирования, нулевых случаев и сжатого конечного доказательного состояния.",
+      "limitations_ru": "Разные режимы: exact uniform sampler имеет ожидаемую сложность, а FPRAS — вероятностную относительную погрешность; не тождественен постоянному времени.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/115.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/115.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/115.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Exact-Uniform-Sampling-of-Contingency-Tables-with-Arbitrary-Margins-September-24-2026/main.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/An-FPRAS-for-Cell-Bounded-Contingency-Tables-September-24-2026/main.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Exact-Uniform-Sampling-of-Contingency-Tables-with-Arbitrary-Margins-September-24-2026/README.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/ContingencyTables.json"
+      ],
+      "related": [
+        {
+          "id": "OM-113",
+          "relation": "related"
+        },
+        {
+          "id": "DM-004",
+          "relation": "conceptual_link"
+        }
+      ],
+      "source_audit": {
+        "manuscript_readme": "preprints/Exact-Uniform-Sampling-of-Contingency-Tables-with-Arbitrary-Margins-September-24-2026/README.md",
+        "primary_papers": [
+          "preprints/Exact-Uniform-Sampling-of-Contingency-Tables-with-Arbitrary-Margins-September-24-2026/main.pdf",
+          "preprints/An-FPRAS-for-Cell-Bounded-Contingency-Tables-September-24-2026/main.pdf"
+        ],
+        "comparator_manifest": "lean/ComparatorChallenges/ContingencyTables.json",
+        "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
+        "full_pdf_reviewed": false,
+        "independent_lean_run": false,
+        "scope_mismatch_ru": "Одинаковый comparator JSON перечисляет exactSampling, boundedSampling и counting как разные утверждения."
+      }
+    },
+    {
+      "id": "OM-116",
+      "repository": "OPENAI_MATH",
+      "title": "Family 116: Некомутационная проверка тождеств: scope по характеристикам",
+      "summary_ru": "Первичная рукопись и Lean scope описывают единую рациональную матричную hitting-point конструкцию для division-free некоммутативных формул ограниченного размера в характеристике нуль.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "algebra",
+        "finite-field",
+        "polynomial-identity"
+      ],
+      "application_ru": "Компаратор для возможных ограниченных алгебраических оракулов и детерминированной проверки равенств.",
+      "limitations_ru": "Family headline обещает uniformity across characteristics, но выбранный Lean scope для одной матричной точки доказывает только характеристику нуль; прямое перенесение на GF(q) запрещено.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/116.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/116.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/116.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/README.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/FormulaHitting.json"
+      ],
+      "related": [
+        {
+          "id": "ML-007",
+          "relation": "conceptual_link"
+        },
+        {
+          "id": "DM-010",
+          "relation": "method_compare"
+        }
+      ],
+      "source_audit": {
+        "manuscript_readme": "preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/README.md",
+        "primary_papers": [
+          "preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026.pdf",
+          "preprints/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026/Polynomial-Hitting-Lists-for-Noncommutative-Rational-Formulas-September-24-2026.pdf"
+        ],
+        "comparator_manifest": "lean/ComparatorChallenges/FormulaHitting.json",
+        "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
+        "full_pdf_reviewed": false,
+        "independent_lean_run": false,
+        "scope_mismatch_ru": "OAI.NCHitting.universal_hitting в выбранной постановке — характеристика нуль; семейные положительные характеристики требуют отдельного первичного источника и аудита."
+      }
+    },
+    {
+      "id": "OM-117",
+      "repository": "OPENAI_MATH",
+      "title": "Family 117: Sparsest cut: интегральный разрыв SDP, но не hardness theorem",
+      "summary_ru": "Lean scope заявляет последовательность примеров, где интегральная стоимость uniform sparsest cut превышает Goemans–Linial SDP более чем на c sqrt(log n)/(log log n)^3.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "graphs",
+        "lower-bounds",
+        "optimization"
+      ],
+      "application_ru": "Шаблон для доказательства отрицательных границ приближений при явно выбранной релаксации.",
+      "limitations_ru": "Существование SDP-интегрального разрыва не доказывает вычислительную NP-hardness; общая семейная формулировка шире выбранного формального утверждения.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/117.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/117.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/117.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Near-square-root-logarithmic-integrality-gaps-for-uniform-sparsest-cut-September-24-2026/Near-square-root-logarithmic-integrality-gaps-for-uniform-sparsest-cut-September-24-2026.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Near-square-root-logarithmic-integrality-gaps-for-uniform-sparsest-cut-September-24-2026/README.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/UniformSparsestCut.json"
+      ],
+      "related": [
+        {
+          "id": "OM-135",
+          "relation": "method_compare"
+        },
+        {
+          "id": "ML-004",
+          "relation": "conceptual_link"
+        }
+      ],
+      "source_audit": {
+        "manuscript_readme": "preprints/Near-square-root-logarithmic-integrality-gaps-for-uniform-sparsest-cut-September-24-2026/README.md",
+        "primary_papers": [
+          "preprints/Near-square-root-logarithmic-integrality-gaps-for-uniform-sparsest-cut-September-24-2026/Near-square-root-logarithmic-integrality-gaps-for-uniform-sparsest-cut-September-24-2026.pdf"
+        ],
+        "comparator_manifest": "lean/ComparatorChallenges/UniformSparsestCut.json",
+        "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
+        "full_pdf_reviewed": false,
+        "independent_lean_run": false,
+        "scope_mismatch_ru": "Comparator включает integrality-gap последовательность, а не известный из общего заголовка hardness of approximation."
+      }
+    },
+    {
+      "id": "OM-131",
+      "repository": "OPENAI_MATH",
+      "title": "Family 131: Графовые переключения: оценка смешивания при фиксированных степенях",
+      "summary_ru": "В Lean scope приведена оценка mixing time ≤2n⁸ для lazy edge-switch chain всех графических степенных последовательностей в простых неориентированных графах при TV distance 1/4.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "graphs",
+        "sampling",
+        "mixing"
+      ],
+      "application_ru": "Методический пример вероятностного восстановления структуры при жёстких комбинаторных ограничениях.",
+      "limitations_ru": "Это оценка времени смешивания конкретной цепи; заявленный в общей коллекции точный равномерный sampler в эти selected Lean statements НЕ входит.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/131.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/131.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/131.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Polynomial-Mixing-of-the-Switch-Chain-for-Every-Graphical-Degree-Sequence-September-25-2026/main.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Polynomial-Mixing-of-the-Switch-Chain-for-Every-Graphical-Degree-Sequence-September-25-2026/README.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/SwitchChain.json"
+      ],
+      "related": [
+        {
+          "id": "OM-113",
+          "relation": "conceptual_link"
+        },
+        {
+          "id": "ML-010",
+          "relation": "method_compare"
+        }
+      ],
+      "source_audit": {
+        "manuscript_readme": "preprints/Polynomial-Mixing-of-the-Switch-Chain-for-Every-Graphical-Degree-Sequence-September-25-2026/README.md",
+        "primary_papers": [
+          "preprints/Polynomial-Mixing-of-the-Switch-Chain-for-Every-Graphical-Degree-Sequence-September-25-2026/main.pdf"
+        ],
+        "comparator_manifest": "lean/ComparatorChallenges/SwitchChain.json",
+        "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
+        "full_pdf_reviewed": false,
+        "independent_lean_run": false,
+        "scope_mismatch_ru": "Bounded TV mixing и exact uniform sampling нельзя приравнивать."
+      }
+    },
+    {
+      "id": "OM-135",
+      "repository": "OPENAI_MATH",
+      "title": "Family 135: Depth-5 схемы: нижняя и верхняя границы IMM",
+      "summary_ru": "Selected Lean scope приводит нижнюю n^(sqrt(n)/400) и верхнюю n^(sqrt(n)+4) для синтаксически однородных схем глубины пять, вычисляющих запись произведения n матриц.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "algebra",
+        "lower-bounds",
+        "complexity"
+      ],
+      "application_ru": "Калибровка model-restricted алгебраических lower bounds, необходимых перед поиском новизны в алгоритмических границах.",
+      "limitations_ru": "Нижняя граница требует характеристику нуль и фиксированный depth-five homogeneous circuit model; не является границей для общего Rust умножения матриц.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/135.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/135.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/135.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Homogeneous-depth-five-lower-bounds-for-iterated-matrix-multiplication-September-25-2026/Homogeneous-depth-five-lower-bounds-for-iterated-matrix-multiplication-September-25-2026.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Homogeneous-depth-five-lower-bounds-for-iterated-matrix-multiplication-September-25-2026/README.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/DepthFive.json"
+      ],
+      "related": [
+        {
+          "id": "OM-108",
+          "relation": "related"
+        },
+        {
+          "id": "DM-010",
+          "relation": "method_compare"
+        }
+      ],
+      "source_audit": {
+        "manuscript_readme": "preprints/Homogeneous-depth-five-lower-bounds-for-iterated-matrix-multiplication-September-25-2026/README.md",
+        "primary_papers": [
+          "preprints/Homogeneous-depth-five-lower-bounds-for-iterated-matrix-multiplication-September-25-2026/Homogeneous-depth-five-lower-bounds-for-iterated-matrix-multiplication-September-25-2026.pdf"
+        ],
+        "comparator_manifest": "lean/ComparatorChallenges/DepthFive.json",
+        "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
+        "full_pdf_reviewed": false,
+        "independent_lean_run": false,
+        "scope_mismatch_ru": "Отделять char-zero lower от all-field upper, оба имеют специальные circuit assumptions."
+      }
+    },
+    {
+      "id": "OM-139",
+      "repository": "OPENAI_MATH",
+      "title": "Family 139: Лог-вогнутая выборка: число oracle queries против времени",
+      "summary_ru": "Scope указывает верх C_epsilon d^epsilon и ниж c log d на количество точных value-and-gradient queries для нормализованного хорошо обусловленного log-concave sampling.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "sampling",
+        "oracles",
+        "complexity"
+      ],
+      "application_ru": "Контраст для Mathlab: нижняя граница обращений к oracle не равнозначна нижней границе вычислительных тактов, памяти или I/O.",
+      "limitations_ru": "Алгоритму разрешены неограниченные вычисления между запросами; из результата нельзя делать вывод о практической скорости Rust-семплера.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/139.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/139.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/139.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Subpolynomial-query-complexity-for-well-conditioned-log-concave-sampling-September-26-2026/article.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Subpolynomial-query-complexity-for-well-conditioned-log-concave-sampling-September-26-2026/README.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/LogConcaveQuery.json"
+      ],
+      "related": [
+        {
+          "id": "ML-006",
+          "relation": "conceptual_link"
+        },
+        {
+          "id": "DM-007",
+          "relation": "method_compare"
+        }
+      ],
+      "source_audit": {
+        "manuscript_readme": "preprints/Subpolynomial-query-complexity-for-well-conditioned-log-concave-sampling-September-26-2026/README.md",
+        "primary_papers": [
+          "preprints/Subpolynomial-query-complexity-for-well-conditioned-log-concave-sampling-September-26-2026/article.pdf"
+        ],
+        "comparator_manifest": "lean/ComparatorChallenges/LogConcaveQuery.json",
+        "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
+        "full_pdf_reviewed": false,
+        "independent_lean_run": false,
+        "scope_mismatch_ru": "Query complexity только при I<=Hessian<=2I и известном минимизаторе, без RAM/bit complexity гарантий."
+      }
+    },
+    {
+      "id": "OM-140",
+      "repository": "OPENAI_MATH",
+      "title": "Family 140: Memory–sample: нижняя граница по состоянию при Gaussian regression",
+      "summary_ru": "Selected Lean scope связывает O(d²) persistent bits со строгой нижней границей Ω_A(d log(1/epsilon)) наблюдений в noiseless Gaussian regression до заданной angular accuracy.",
+      "status": "EXTERNAL_MANUSCRIPT_CLAIM",
+      "verification": "source_catalog",
+      "topics": [
+        "information-theory",
+        "lower-bounds",
+        "memory"
+      ],
+      "application_ru": "Методический аналог для изучения точного учёта памяти и числа наблюдений, но не уже готовое доказательство для O01/ASET.",
+      "limitations_ru": "Модель независимых гауссовских измерений и угловой ошибки отличается от динамических множеств и сертификатов неизменности; требуются новые редукции.",
+      "source": {
+        "repo": "openai/math",
+        "revision": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+        "path": "lean/docs/140.md",
+        "permalink": "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/docs/140.md",
+        "latest": "https://github.com/openai/math/blob/main/lean/docs/140.md"
+      },
+      "primary_sources": [
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/paper.pdf",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/README.md",
+        "https://github.com/openai/math/blob/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/ComparatorChallenges/MemoryPrecision.json"
+      ],
+      "related": [
+        {
+          "id": "ML-001",
+          "relation": "conceptual_link"
+        },
+        {
+          "id": "DM-007",
+          "relation": "method_compare"
+        },
+        {
+          "id": "OM-119",
+          "relation": "related"
+        }
+      ],
+      "source_audit": {
+        "manuscript_readme": "preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/README.md",
+        "primary_papers": [
+          "preprints/Memory-and-precision-in-noiseless-Gaussian-regression-September-27-2026/paper.pdf"
+        ],
+        "comparator_manifest": "lean/ComparatorChallenges/MemoryPrecision.json",
+        "source_status": "AUTHOR_PACKAGE_AND_LEAN_SCOPE_REVIEWED",
+        "full_pdf_reviewed": false,
+        "independent_lean_run": false,
+        "scope_mismatch_ru": "Формальная постановка ограничивает persistent bits и распределение измерений; пользовательская O01 cell-probe model не покрыта."
+      }
     }
   ]
 }
