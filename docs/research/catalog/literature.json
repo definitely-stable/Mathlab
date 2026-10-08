@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "61071c61c3493454e4c3cb09463baf4bc2dac093"
+      "sha": "05cd2ecb73ee4b280a8596ec37fe618a41c5360c"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -3008,6 +3008,188 @@
         "Charlie Curtsinger",
         "Daniel W. Barowy"
       ]
+    },
+    {
+      "id": "LIT-103",
+      "title": "Query Maintenance Under Batch Changes with Small-Depth Circuits",
+      "year": 2024,
+      "identity": "doi:10.4230/LIPIcs.MFCS.2024.46",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.MFCS.2024.46",
+      "track": "incremental-computation",
+      "summary_ru": "MFCS 2024: поддержание запросов после пакетов изменений полилогарифмического размера с помощью малоглубинных схем и итеративных first-order обновлений; прямая граница для широкой идеи batch-DAG.",
+      "limits_ru": "DynFO и глубина обновляющих схем не задают минимального количества старых битов, которые обязан прочитать проверяющий сертификат частичного входа.",
+      "maps_to": [
+        "ML-004",
+        "ML-005",
+        "ML-006"
+      ],
+      "authors": [
+        "Samir Datta",
+        "Asif Khan",
+        "Anish Mukherjee",
+        "Felix Tschirbs",
+        "Nils Vortmeier",
+        "Thomas Zeume"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-104",
+      "title": "Parallel Batch-Dynamic Trees via Change Propagation",
+      "year": 2020,
+      "identity": "doi:10.4230/LIPIcs.ESA.2020.2",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2020.2",
+      "track": "incremental-computation",
+      "summary_ru": "ESA 2020: эффективная пакетная динамика деревьев через change propagation, вычислительную дистанцию и анализ ожидаемой работы для k обновлений.",
+      "limits_ru": "Сложность пакетного обновления дерева с запросами путей/поддеревьев не равна минимальному свидетельству результата произвольного Boolean DAG при известном старом корне.",
+      "maps_to": [
+        "ML-004",
+        "ML-005"
+      ],
+      "authors": [
+        "Umut A. Acar",
+        "Daniel Anderson",
+        "Guy E. Blelloch",
+        "Laxman Dhulipala",
+        "Sam Westrick"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-105",
+      "title": "Instance Complexity and Unlabeled Certificates in the Decision Tree Model",
+      "year": 2020,
+      "identity": "doi:10.4230/LIPIcs.ITCS.2020.56",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ITCS.2020.56",
+      "track": "proof-certification",
+      "summary_ru": "ITCS 2020: instance-optimal алгоритмы сравниваются с конкурентами, знающими сертификат; отдельно изучаются немаркированные сертификаты и симметрии.",
+      "limits_ru": "Instance-optimal decision-tree модель не равна удостоверению нового значения DAG при пакете overwrites; перенесено только понятие сложности сертификата, не результаты конкретных теорем.",
+      "maps_to": [
+        "ML-004",
+        "ML-005",
+        "ML-006"
+      ],
+      "authors": [
+        "Tomer Grossman",
+        "Ilan Komargodski",
+        "Moni Naor"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-106",
+      "title": "Certification complexity of Boolean functions",
+      "year": 2026,
+      "identity": "publisher:eccc:tr26-206",
+      "primary_url": "https://eccc.weizmann.ac.il/report/2026/206/",
+      "track": "proof-complexity",
+      "summary_ru": "Сентябрь 2026, ECCC TR26-206: операционная сложность сертификации Boolean функций, характеристики классической/рандомизированной/квантовой сертификатной сложности и новые квантовые нижние границы.",
+      "limits_ru": "Авторский отчёт не утверждает оптимальное доказательство для инкрементального batch-DAG обновления; результаты по квантовой сложности нельзя автоматически переносить на old-root read-probe модель.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Chandrima Kayal",
+        "Sophie Laplante",
+        "Émile Larroque",
+        "Krisjanis Prusis",
+        "Jevgenijs Vihrovs"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-107",
+      "title": "On Condensation of Block Sensitivity, Certificate Complexity and the $\\mathsf{AND}$ (and $\\mathsf{OR}$) Decision Tree Complexity",
+      "year": 2026,
+      "identity": "arxiv:2602.01042",
+      "primary_url": "https://arxiv.org/abs/2602.01042",
+      "track": "proof-complexity",
+      "summary_ru": "Препринт 2026 v2: доказаны ограничения конденсации block sensitivity, certificate complexity и AND/OR decision trees при ограничениях переменных.",
+      "limits_ru": "Заявление касается операций restriction/condensation, а не минимального shared batch certificate; версия v2 явно исключила доказательство из первой версии — цитировать только v2.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Sai Soumya Nalli",
+        "Karthikeya Polisetty",
+        "Jayalal Sarma"
+      ],
+      "verification": "primary_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-108",
+      "title": "Complexity measures and decision tree complexity: a survey",
+      "year": 2002,
+      "identity": "doi:10.1016/S0304-3975(01)00144-X",
+      "primary_url": "https://doi.org/10.1016/S0304-3975(01)00144-X",
+      "track": "proof-complexity",
+      "summary_ru": "Классический обзор связи certificate complexity, sensitivity, block sensitivity, степени Boolean функций и decision-tree query complexity; математический прототип нового HYP-103 сертификата.",
+      "limits_ru": "Обзор не является новым доказательством специфического обещания old root + batch overwrite; позволяет классифицировать базовую модель как стандартную certificate complexity.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Harry Buhrman",
+        "Ronald de Wolf"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
     }
   ]
 }
