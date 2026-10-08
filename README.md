@@ -34,9 +34,30 @@ sum_{i=0}^d C(V,i)
 sum_{j=0}^{min(dw,m)} C(m,j) (q-1)^j.
 ```
 
-This bound is mathematically elementary and is **not claimed novel**. In the binary case the extremal problem maps directly to sparse parity-check matrices / bounded-column-weight codes, where substantial prior art already exists.
+This bound is useful as an impossibility framework but is **not claimed novel**.
 
-Likely novelty, if any, must survive a dedicated prior-art gate around q-ary restricted-coefficient dependencies, nested/prefix-optimal families, nonuniform alphabets, or joint computation/communication/locality lower bounds.
+### Active post-foundation target — ASET
+
+G1 now focuses on the exact sparse subset-sum extremal object
+
+[
+A_q^{\mathrm{set}}(m,w,d),
+]
+
+the maximum universe size for support-(w) vectors in (mathbb F_q^m) such that all subset sums of sets of size at most (d) are distinct.
+
+The exact collision relation uses coefficients in ({-1,0,1}) with separate bounds on the number of positive and negative coefficients.
+
+This matters because:
+
+- for (q=2), the model collapses to known small-column GF(2) independence and strongly overlaps sparse parity-check literature;
+- for (q>2), arbitrary-coefficient small-column independence is stronger than the exact set-sum condition and must not be treated as equivalent;
+- classical Sidon/B_h/dissociated objects require a definition-level map before importing results;
+- Mathlab locality is update/write locality, not LCC/LDC query locality.
+
+Current issue: #3 — G1A ASET model freeze.
+
+The next gate is not "prove a new theorem immediately". It is to freeze these boundaries, build the exact source-to-claim map, and only then decide whether ASET has a genuinely new sharp regime.
 
 ## Documentation authority
 
@@ -45,12 +66,14 @@ Read in this order:
 1. [docs/CURRENT_STATE.md](docs/CURRENT_STATE.md)
 2. [docs/research/README.md](docs/research/README.md)
 3. [docs/research/LENT-001-PROTOCOL.md](docs/research/LENT-001-PROTOCOL.md)
-4. [docs/research/LENT-001-CLAIMS.md](docs/research/LENT-001-CLAIMS.md)
-5. [docs/research/LENT-001-FOUNDATION.md](docs/research/LENT-001-FOUNDATION.md)
-6. [docs/research/LENT-001-PRIOR-ART.md](docs/research/LENT-001-PRIOR-ART.md)
-7. [docs/research/DECISIONS.md](docs/research/DECISIONS.md)
-8. [docs/research/OPEN-QUESTIONS.md](docs/research/OPEN-QUESTIONS.md)
-9. [docs/ROADMAP.md](docs/ROADMAP.md)
+4. [docs/research/LENT-001-G1A-PROTOCOL.md](docs/research/LENT-001-G1A-PROTOCOL.md)
+5. [docs/research/LENT-001-CLAIMS.md](docs/research/LENT-001-CLAIMS.md)
+6. [docs/research/LENT-001-G1-CORRECTIONS.md](docs/research/LENT-001-G1-CORRECTIONS.md)
+7. [docs/research/LENT-001-FOUNDATION.md](docs/research/LENT-001-FOUNDATION.md)
+8. [docs/research/LENT-001-PRIOR-ART.md](docs/research/LENT-001-PRIOR-ART.md)
+9. [docs/research/DECISIONS.md](docs/research/DECISIONS.md)
+10. [docs/research/OPEN-QUESTIONS.md](docs/research/OPEN-QUESTIONS.md)
+11. [docs/ROADMAP.md](docs/ROADMAP.md)
 
 Executable artifacts live under [research/](research/). Publication-ready material, when it exists, is promoted under [preprints/](preprints/). Formalization status is tracked under [lean/](lean/).
 
