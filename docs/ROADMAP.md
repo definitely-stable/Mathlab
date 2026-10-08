@@ -33,7 +33,7 @@ hard support \(w\) essentially remains eligible.
 
 ### G2 — odd-characteristic finite extremal evidence
 
-Status: **ACTIVE — G2B-B2 GF5 EXACT NUMERICAL CERTIFICATE ACCEPTED; G2 THEOREM DECISION OPEN**
+Status: **GF5 FINITE EXACT ACCEPTED; G2_REDUCE_TARGET FOR NEW RUST PRIMITIVE — theorem novelty NOT AUTHORIZED**
 
 Initial fields:
 
@@ -91,7 +91,7 @@ Next G2 decision: compare this finite exact value with classical
 Sidon and sparse extremal structures before choosing
 G2_SELECT_THEOREM/G2_REDUCE_TARGET/G2_NO_SIGNAL.
 
-G2B-B is still OPEN. Shrink/close the q=5 gap through independently audited exact search or certificate. Keep the mathematical model correction: a+b+c=0 is not by itself forbidden for d=2; only collisions of admissible subsets generate forbidden hyperedges.
+G2B-B **finite q=5 question is CLOSED** with exact maximum 10 and independent DRUP verification. The historical instructions above are provenance, not an active request to re-run the same search. Parent #14 remains open only for the G2 research disposition / prior-art gate. The valid signed-side model correction remains: a+b+c=0 with three positive terms is not by itself forbidden for d=2.
 
 Tasks:
 
@@ -157,6 +157,28 @@ Status: **PHASE A IMPLEMENTATION / CI-EVIDENCE GATE** (issue #34).
 
 This lane **does not supersede** G2B-B (#14), which remains open.
 
+### G2 exit decision — evidence-gated prioritization (2026-10-08)
+
+**G2_REDUCE_TARGET** for the new Rust-product/theorem-program priority.
+The finite GF(3)/GF(5) values and HYP-001/002 derived exponent bounds
+remain mathematically valid research results. This is NOT the same as
+proving there can never be a new hard-support theorem. Neither a new
+leading-constant gap nor a production small primitive is validated.
+
+- No new Rust crate or G4 preprint on known exponents, finite GF5 exact
+  search or the rejected affine dense two-ID sketch.
+- Issue #14 is a low-priority mathematical/prior-art disposition only.
+  HYP #24/#25 still require a source-level equivalence audit, but no
+  new general originality claim is allowed without that evidence.
+- Cross-domain TOM-003 issue #49 starts a strictly separate O01
+  falsification program. Its first result is a *classical* e-bit
+  arbitrary-overwrite state minimum, contrasted with a conditional
+  log(n+1)-bit externally trusted-old threshold counter. See
+  docs/research/TOM-003-TRUST-BOUNDARY-PROTOCOL.md.
+- Any future Rust GO requires an end-to-end workload, comparison with
+  maintained exact state and validation costs, and a precise mathematical
+  or performance advantage. Negative findings are first-class outcomes.
+
 ### G3 — formalization
 
 Status: **NOT STARTED**
@@ -193,14 +215,26 @@ Status: **PHASE A/B/C COMPLETE; NO NOVEL THEOREM SELECTED** (issue #15).
 - Any next O01 must charge input probes, metadata construction/maintenance,
   repeated updates, certificate size and fallback; independent from LENT G2B.
 
+### TOM-003 — exact no-effect versus externally trusted old values
+
+Status: **D1 CLASSICAL OVERWRITE LOWER BOUND; STANDALONE PRODUCT STOP**,
+issue #49. In a no-probe deterministic model receiving only new values,
+an exact f:{0,1}^n->{0,1} incremental machine needs exactly e
+input-dependent state bits, e=number of essential input variables.
+A threshold counter uses ceil(log2(n+1)) bits only with externally
+verified old bits; validation and maintained membership are not free.
+All n<=3 Boolean functions are independently tested by Moore
+partition refinement. This is a classical automata corollary, not a
+publication novelty claim or new Rust crate.
+
+Next separate opportunity O01-D2 is strictly audit-only: freeze a real
+authenticated update protocol with all verification/metadata/CPU cost
+charged; compare direct lookup, maintained counts, ordinary dynamic
+Merkle proofs and PICKLE before any implementation decision.
+
 ## Current priority
 
-\[
-\boxed{
-\text{G2 odd-characteristic exact extremal evidence}
-\rightarrow
-\text{specific theorem selection}
-\rightarrow
-\text{G4 proof}
-}
-\]
+1. Preserve exact G2B-B2 and full cryptographic proof provenance.
+2. Complete TOM-003 D1 hosted finite audit and STOP/GO gate.
+3. Continue only source-grounded, narrower Rust-product scouting;
+   no original theorem or crate has yet cleared the gate.
