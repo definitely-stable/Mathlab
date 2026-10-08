@@ -8,168 +8,172 @@ Status: **COMPLETE — FOUNDATION_PASS**
 
 Completed:
 
-- frozen deterministic exact additive-sketch model;
-- claim labels and authority order;
-- finite counting theorem recorded without novelty claim;
-- exact big-integer checker;
-- tiny exhaustive oracle for q in {2,3};
-- machine-readable protocol;
-- hosted CI;
+- deterministic exact additive-sketch model;
+- finite Sparse-Update Hamming-Ball Bound;
+- exact arithmetic checker;
+- original q={2,3} exhaustive grid;
+- claim/evidence discipline;
+- GitHub-hosted CI;
 - Lean plan.
 
-The finite theorem remains the baseline impossibility framework, not the current novelty target.
+The finite theorem is a baseline impossibility framework; publication
+novelty is not claimed.
 
-Terminology policy: `LENT-001` is retained as a stable historical ID, but **Locality–Entropy Trilemma** is deprecated as a public name. The project-level framing is **Exact Additive Sketch Locality Frontier**; the baseline theorem is the **Sparse-Update Hamming-Ball Bound**.
+Terminology policy: \`LENT-001\` is a stable historical ID. The former
+public label "Locality–Entropy Trilemma" is deprecated.
 
-### G1 — Prior-art closure and model correction
+### G1 — model correction and prior-art closure
 
 Status: **IN PROGRESS**
 
-G1 has been split because the initial broad novelty map mixed several neighboring but non-equivalent models.
+#### G1A — ASET model + exact relation oracle
 
-#### G1A — ASET model freeze
-
-Status: **ACTIVE**
+Status: **COMPLETE ON REVIEWED PR HEAD / EVIDENCE COMMIT CI PENDING**
 
 Primary object:
 
 \[
-A_q^{\mathrm{set}}(m,w,d),
+A_q^{\mathrm{set}}(m,w,d).
 \]
 
-the maximum universe size for bounded-support vectors in \(\mathbb F_q^m\) whose subset sums for all sets of size at most \(d\) are distinct.
+G1A contains:
 
-Required work:
+1. exact ASET definition;
+2. ASET-SIGNED proof with separate positive/negative side bounds;
+3. q=2 equivalence with small-column GF(2) independence;
+4. q=3 and q=5 strict model-separation witnesses;
+5. independent exact checkers for ASET, signed relations and arbitrary
+   small-column dependencies;
+6. frozen q={2,3,5} exhaustive grid;
+7. source-to-claim prior-art matrix.
 
-1. prove the signed-relation equivalence with separate positive/negative side bounds;
-2. freeze q=2 equivalence to small-column independence;
-3. prove and test the q>2 separation from arbitrary-coefficient linear independence;
-4. map Sidon / B_h / dissociated definitions exactly;
-5. map update locality to update-efficient coding rather than LCC/LDC query locality;
-6. record rate-compatible coding as a warning against a pure nestedness-tax conjecture;
-7. record mixed-alphabet counting as a baseline derived result;
-8. produce a source-to-claim matrix.
+Acceptance marker:
 
-Exit is one of:
+\`G1A_ORACLE_PASS\`
 
-- G1A_CONTINUE_ASET;
-- G1A_REDUCE_TO_KNOWN_OBJECT;
-- G1A_SPLIT_Q3_QGT3;
-- G1A_STOP_NOT_NOVEL.
+After acceptance, no asymptotic theorem is started yet.
 
 #### G1B — sharp prior-art closure
 
-Status: **BLOCKED ON G1A**
+Status: **BLOCKED ON G1A ACCEPTANCE**
 
-If G1A continues ASET, audit sharp known exponents/constructions for:
+Audit primary sources for:
 
 - sparse parity-check matrices over finite fields;
-- k-dissociated / restricted signed-sum families;
-- weak Sidon / B_h variants with distinct summands;
-- bounded-weight / Hamming-ball constrained constructions.
+- k-dissociated / bounded-order signed-relation families;
+- weak Sidon / restricted B_h families with distinct summands;
+- bounded-weight / Hamming-ball constrained constructions;
+- update-efficient coding where needed for the locality boundary.
 
-Deliverable: source-to-claim matrix with theorem-level parameter maps.
+G1B must decide exactly one:
+
+- CONTINUE_ASET;
+- REDUCE_TO_KNOWN_OBJECT;
+- SPLIT_Q3_QGT3;
+- STOP_NOT_NOVEL.
+
+This is the actual novelty gate.
 
 #### G1C — secondary lanes
 
-Status: **BLOCKED ON G1A**
+Status: **BLOCKED ON G1B**
 
 Priority order:
 
 1. nested prefixes + bounded update locality;
 2. mixed/nonuniform cells;
-3. computation only after an independent computational model is frozen.
+3. computation only after an independent cost model is frozen.
 
-Pure nestedness tax is deprioritized.
+Pure nestedness tax remains deprioritized.
 
-### G2 — ASET exact oracle and first finite lemmas
+### G2 — finite ASET extremal evidence
 
-Status: **PLANNED / BLOCKED ON G1A**
+Status: **BLOCKED ON G1B**
 
-If G1A exits with CONTINUE_ASET or SPLIT_Q3_QGT3:
+If G1B continues ASET:
 
-- extend the oracle to q in {2,3,5};
-- test ASET exactness, signed relations and full small-column independence separately;
-- pin explicit q>2 separation witnesses;
-- search a bounded q=3 box for separation/equivalence evidence;
-- enumerate exact values of \(A_q^{\mathrm{set}}(m,w,d)\) for tiny parameters;
-- compare exact values against LENT and sparse-linear baselines.
+- enumerate exact small values or lower/upper intervals for
+  \(A_q^{\mathrm{set}}(m,w,d)\);
+- record extremal witness families;
+- compare ASET counts with arbitrary-coefficient sparse-linear baselines;
+- identify the smallest parameter regimes where the extremal quantities
+  genuinely diverge;
+- use exact results to choose a plausible asymptotic theorem.
 
-This stage produces EXACT NUMERICAL RESULT evidence, not an asymptotic novelty claim.
+G2 produces EXACT NUMERICAL RESULT evidence, not a novelty claim by itself.
 
 ### G3 — baseline formalization
 
 Status: **NOT STARTED**
 
-Lean kernel target:
+Lean targets:
 
 1. support of a finite sum is contained in the union of supports;
 2. support cardinality is subadditive;
 3. injectivity gives a cardinality lower bound;
 4. Hamming-ball cardinality;
-5. finite LENT theorem;
-6. signed-relation equivalence for the ASET model.
-
-Entropy approximations remain a separate later layer.
+5. finite Sparse-Update Hamming-Ball Bound;
+6. ASET-SIGNED equivalence;
+7. binary small-dependency equivalence.
 
 ### G4 — new-math lane
 
-Status: **BLOCKED ON G1/G2**
+Status: **BLOCKED ON G1B/G2**
 
-Preferred order:
+#### G4A — sharp ASET theorem
 
-#### G4A — ASET extremal theorem
-
-Try to obtain a nontrivial bound for
+Preferred target if G1B/G2 support it:
 
 \[
-A_q^{\mathrm{set}}(m,w,d)
+A_q^{\mathrm{set}}(m,w,d).
 \]
 
-that is not a direct sparse-parity-check corollary.
-
-Strong success criteria include:
+Strong outcomes include:
 
 - a new asymptotic exponent;
-- a matching upper/lower exponent in a nontrivial regime;
-- a provable separation from arbitrary-coefficient sparse linear independence;
-- a construction exploiting the restricted signed-relation model.
+- matching upper/lower exponents in a nontrivial regime;
+- a sharp provable gap from arbitrary-coefficient sparse linear
+  independence;
+- a construction that exploits restricted signed relations.
 
 #### G4B — nested + update-locality tax
 
-Study one common prefix family that must be near-optimal at several capacities while each universe element has bounded update support.
+Study simultaneous near-optimality of one prefix family under bounded
+update support.
 
 Do not target pure nestedness tax without locality.
 
 #### G4C — mixed alphabets
 
-After prior-art closure, optimize heterogeneous coordinate alphabets under a fixed bit budget and update-locality constraint.
+Study sharp heterogeneous-cell optimization only after the mixed-alphabet
+prior-art map is closed.
 
 #### G4D — computation tradeoff
 
-Only after defining computation independently from update locality.
-
-Possible models:
-
-- decoding time;
-- incremental decoding work;
-- cell probes;
-- memory probes.
+Only after computation is defined independently from update locality.
 
 ### G5 — manuscript promotion
 
 Status: **NOT STARTED**
 
-A result enters preprints/ only when:
+Promotion requires:
 
-- theorem statement is stable;
-- proof is reviewable;
-- prior-art classification is complete enough to state novelty honestly;
-- verification instructions reproduce;
-- formalization status is declared accurately.
+- stable theorem;
+- reviewable proof;
+- closed novelty boundary;
+- reproducible verification;
+- explicit formalization status.
 
 ## Current priority
 
 \[
-\boxed{\text{G1A ASET model freeze} \rightarrow \text{G1B prior-art closure} \rightarrow \text{G2 exact oracle} \rightarrow \text{G4A sharp theorem}}
+\boxed{
+\text{G1A oracle acceptance}
+\rightarrow
+\text{G1B prior-art closure}
+\rightarrow
+\text{G2 finite extremal evidence}
+\rightarrow
+\text{G4A sharp theorem}
+}
 \]

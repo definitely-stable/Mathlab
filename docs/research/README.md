@@ -4,28 +4,33 @@ This directory is the canonical mathematical record.
 
 ## Authority order
 
+Terminology: `LENT-001` is a historical stable ID, not an acronym that
+should be expanded in new material. Public-facing work uses
+**Sparse-Update State-Space Bounds for Exact Additive Set Sketches**.
+
 For LENT-001, resolve conflicts in this order:
 
-Terminology: `LENT-001` is a historical stable ID, not an acronym that should be expanded in new material. Public-facing work uses **Sparse-Update State-Space Bounds for Exact Additive Set Sketches**.
-
-1. `LENT-001-PROTOCOL.md` — frozen G0 model and admissible claim changes;
-2. `LENT-001-G1A-PROTOCOL.md` — active G1A ASET model-freeze protocol;
+1. `LENT-001-PROTOCOL.md` — frozen G0 model;
+2. `LENT-001-G1A-PROTOCOL.md` — frozen active G1A execution protocol;
 3. `LENT-001-CLAIMS.md` — current claim/status registry;
-4. `LENT-001-G1-CORRECTIONS.md` — accepted corrections from the G1 review;
-5. `LENT-001-FOUNDATION.md` — definitions, baseline proofs, derivations and caveats;
-6. `LENT-001-PRIOR-ART.md` — novelty boundary and literature mapping;
-7. `LENT-001-G1A-SOURCE-MATRIX.md` — source-by-source equivalence/implication audit;
-8. `DECISIONS.md` — accepted research decisions;
-9. `OPEN-QUESTIONS.md` — unresolved work;
-10. older issue/discussion text.
+4. `LENT-001-G1A-PROOF.md` — model-level derived proofs;
+5. `LENT-001-G1A-EVIDENCE.md` — exact finite G1A evidence;
+6. `LENT-001-G1-CORRECTIONS.md` — accepted G1 corrections;
+7. `LENT-001-FOUNDATION.md` — baseline theorem and derivations;
+8. `LENT-001-PRIOR-ART.md` — novelty boundary;
+9. `LENT-001-G1A-SOURCE-MATRIX.md` — source-by-source mapping;
+10. `DECISIONS.md`;
+11. `OPEN-QUESTIONS.md`;
+12. older issue/discussion text.
 
-Executable artifacts under `research/` validate finite cases and arithmetic. They do not override the mathematical model.
+Executable artifacts under `research/` validate finite cases and arithmetic.
+They do not override the mathematical model.
 
 ## Evidence classes
 
-- **THEOREM**: general mathematical statement with a complete accepted proof. Lean may still be pending.
-- **DERIVED RESULT**: follows from accepted theorem(s), with side conditions stated.
-- **EXACT NUMERICAL RESULT**: exact finite computation or exhaustive enumeration.
+- **THEOREM**: general statement with a complete accepted proof.
+- **DERIVED RESULT**: follows from accepted theorem(s) with side conditions.
+- **EXACT NUMERICAL RESULT**: exact finite computation/exhaustive enumeration.
 - **ASYMPTOTIC RESULT**: asymptotic statement only.
 - **EMPIRICAL RESULT**: sampled/benchmark/simulation evidence.
 - **CONJECTURE**: open statement.
@@ -33,18 +38,14 @@ Executable artifacts under `research/` validate finite cases and arithmetic. The
 
 ## Promotion rule
 
-A result may be mathematically correct but still non-novel. Correctness and novelty are separate gates.
+Correctness and novelty are independent gates.
 
-No file under `preprints/` should present LENT-001 or ASET as new until the relevant G1 prior-art gate closes.
+No file under `preprints/` may present ASET as new until G1B prior-art
+closure authorizes a novelty target.
 
-## Active slice
+## Active transition
 
-`LENT-001-G1A` freezes the exact sparse subset-sum object
+G1A exact model/oracle work is implemented and has passed the code-head PR
+CI. The evidence commit must remain green before merge.
 
-[
-A_q^{\mathrm{set}}(m,w,d)
-]
-
-before any sharp theorem search.
-
-The active planning marker is `G1A_MODEL_PLAN_PASS`.
+The next research gate after merge is G1B primary-source novelty closure.

@@ -1,9 +1,9 @@
 {
   "id": "LENT-001-G1A",
-  "version": 1,
-  "status": "FROZEN_FOR_PLANNING",
+  "version": 2,
+  "status": "FROZEN_FOR_ORACLE_EXECUTION",
   "issue": 3,
-  "baseline_main": "f89a8db71b50a3c504643464b391f8414ebc2244",
+  "baseline_main": "15c1bf7bb47c5edb3727fd50b27c4044daf4813f",
   "primary_object": "A_q^set(m,w,d)",
   "definition": {
     "ambient": "F_q^m, q a prime power",
@@ -11,28 +11,39 @@
     "exactness": "all subset sums Phi(S)=sum_{i in S} a_i are distinct for |S|<=d",
     "signed_relation_equivalence": "no nonzero epsilon in {-1,0,1}^V with n_plus<=d, n_minus<=d, and sum_i epsilon_i a_i=0"
   },
+  "oracle_scope": {
+    "prime_fields_only": [2, 3, 5],
+    "nonprime_prime_powers": "out of scope until a finite-field implementation exists",
+    "checks": [
+      "aset_exactness",
+      "signed_relation_absence",
+      "full_small_column_independence"
+    ]
+  },
   "boundaries": {
     "q2": "equivalent to no nonempty GF(2) dependency among <=2d columns",
-    "q_gt_2": "arbitrary-coefficient small-column independence is sufficient but not generally equivalent",
+    "q3_separation": "m=1,d=1,a1=1,a2=2",
     "q5_separation": "m=1,d=1,a1=1,a2=2",
+    "q_gt_2": "arbitrary-coefficient small-column independence is sufficient but not generally equivalent",
     "sidon_bh": "definition map required before equivalence claims",
     "locality": "write/change locality; not LCC/LDC query locality",
     "nested": "pure nestedness tax deprioritized; nested+update-locality retained",
     "computation": "deferred until independent cost model is frozen",
     "mixed_alphabet": "derived counting baseline only"
   },
-  "planned_oracle_fields": [2, 3, 5],
-  "planned_oracle_checks": [
-    "aset_exactness",
-    "signed_relation_absence",
-    "full_small_column_independence"
-  ],
-  "allowed_exits": [
-    "G1A_CONTINUE_ASET",
-    "G1A_REDUCE_TO_KNOWN_OBJECT",
-    "G1A_SPLIT_Q3_QGT3",
-    "G1A_STOP_NOT_NOVEL"
+  "oracle_cases": [
+    {"q": 2, "m": 4, "d": 2, "w": 2, "max_v": 4},
+    {"q": 3, "m": 3, "d": 2, "w": 2, "max_v": 4},
+    {"q": 5, "m": 3, "d": 2, "w": 1, "max_v": 4}
   ],
   "novelty_claimed": false,
-  "acceptance_marker": "G1A_MODEL_PLAN_PASS"
+  "planning_marker": "G1A_MODEL_PLAN_PASS",
+  "acceptance_markers": [
+    "G1A_SIGNED_EQUIV_PASS",
+    "G1A_Q2_EQUIV_PASS",
+    "G1A_Q3_SEPARATION_PASS",
+    "G1A_Q5_SEPARATION_PASS",
+    "G1A_ORACLE_PASS"
+  ],
+  "next_gate": "G1B_PRIOR_ART_CLOSURE"
 }

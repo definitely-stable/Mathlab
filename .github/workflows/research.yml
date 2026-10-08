@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Frozen research harness
+      - name: Research harness (G0 + G1A)
         run: python research/run_all.py
 
       - name: Unit tests
