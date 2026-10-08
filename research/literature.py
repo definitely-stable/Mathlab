@@ -29,6 +29,11 @@ TRACKS = {
     "incremental-computation": "Инкрементальные вычисления и сертификаты",
     "delta-base-selection": "DELSK: поиск delta-базы, сжатие, признаки",
     "streaming-reconciliation": "DeltaMeter: потоковые оценки и согласование множеств",
+    "proof-complexity": "Сложность доказательств, сертификаты, PIT/IPS",
+    "algebraic-complexity": "Алгебраическая сложность и условные барьеры",
+    "fine-grained-algorithms": "Строки, edit distance и тонкая сложность",
+    "graph-algorithms": "Динамические графы, обновления и алгоритмы",
+    "randomized-sampling": "Рандомизированная выборка, подсчёт, память",
 }
 VERIFICATIONS = {
     "primary_abstract_checked",
@@ -110,6 +115,31 @@ def valid(data, catalog):
                   f"{ident}: missing {key}")
         check(e.get("track") in TRACKS, f"{ident}: invalid track")
         check(e.get("verification") in VERIFICATIONS, f"{ident}: invalid verification")
+        if ident >= "LIT-050":
+            check(e.get("year") == 2026, f"{ident}: 2026-only batch contains non-2026 work")
+            check(e.get("venue") in {"STOC 2026", "ICALP 2026", "EuroSys 2026"},
+                  f"{ident}: missing audited venue")
+            check(bool(URL.fullmatch(e.get("source_listing_url", ""))),
+                  f"{ident}: missing first-party listing URL")
+            expected = {
+                "STOC 2026": "https://acm-stoc.org/stoc2026/toc.html",
+                "ICALP 2026": "https://drops.dagstuhl.de/entities/document/" + ref[4:] if ref.startswith("doi:") else "",
+                "EuroSys 2026": "https://2026.eurosys.org/papers.html",
+            }
+            check(e.get("source_listing_url") == expected.get(e.get("venue")),
+                  f"{ident}: primary listing/DOI mismatch")
+            check(e.get("verification") in ("publisher_abstract_checked",
+                                             "publisher_bibliography_checked"),
+                  f"{ident}: ungrounded external full-proof verification")
+            check(e.get("source_access") in (
+                "official_conference_toc_abstract_linked_doi",
+                "publisher_article_abstract_and_bibliography_checked",
+                "conference_paper_list_and_delsk_fulltext_review"),
+                f"{ident}: undocumented source access")
+            check(e.get("mentioned_in") and all(
+                o.get("kind") == "model_overlap" for o in e["mentioned_in"]),
+                f"{ident}: 2026 cross-domain overlap mislabeled cited")
+
         check(e.get("full_proof_verified") is False and
               e.get("independent_reproduction") is False,
               f"{ident}: unsupported proof/reproduction promotion")
@@ -199,6 +229,10 @@ def render(data):
                 + f"**Проверка:** `{e['verification']}` · "
                 "**Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.",
                 "",
+                *([f"**Проверенный издательский реестр:** "
+                    f"[{e['venue']}]({e['source_listing_url']}) · "
+                    f"**Доступ:** \`{e['source_access']}\`", ""]
+                  if e.get("source_listing_url") else []),
                 f"**Связь с исследованиями →** {links}",
                 "",
                 f"**Происхождение цитаты / пересечения →** {sources}",
