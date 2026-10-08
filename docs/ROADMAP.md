@@ -1,7 +1,11 @@
 # Mathlab roadmap
 
-**No-repeat research gate (2026-10-08):** [33 source-linked already-known, proved, superseded and STOP entries](research/KNOWN-AND-STOPPED-RESEARCH.md) (and [JSON](research/KNOWN-AND-STOPPED-RESEARCH.json)) are normative before selecting any new theorem, reopening a paper claim or starting a Rust crate. DEFER and narrow prior-art overlap do not imply impossibility of all variants. Historical G2A/G2B descriptions below retain provenance; current G2 priority is REDUCE_TARGET, with no novel G4 claim or Rust product selected.
+**No-repeat research gate (2026-10-08):** [40 source-linked already-known, proved, superseded and STOP entries](research/KNOWN-AND-STOPPED-RESEARCH.md) (and [JSON](research/KNOWN-AND-STOPPED-RESEARCH.json)) are normative before selecting any new theorem, reopening a paper claim or starting a Rust crate. DEFER and narrow prior-art overlap do not imply impossibility of all variants. Historical G2A/G2B descriptions below retain provenance; current G2 priority is REDUCE_TARGET, with no novel G4 claim or Rust product selected.
 
+
+## TOM-005 — seven independent cross-domain proof kernels
+
+**Seven of seven narrowly frozen general claims have self-contained mathematical proofs**, with independent finite exhaustive regression models, and closest published primary sources explicitly mapped. **Novel scientific theorem claims: ZERO.** The seven include interval stopping, Pareto pruning, shortest-path patch routing, optimal fail-fast check ordering, crash-safe immutable generation publication, exact fingerprint bit capacity, and output materialization fanout. See [TOM-005 proof and counterexample audit](research/TOM-005-SEVEN-THEOREM-AUDIT.md). Status pending exact GitHub-hosted CI acceptance at branch and final main. No crate permitted from elementary known results alone.
 
 ## LENT-001 — Sparse-Update State-Space Bounds for Exact Additive Set Sketches
 

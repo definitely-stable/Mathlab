@@ -16,6 +16,10 @@ The operating pattern is adapted from the evidence discipline used in `definitel
 
 [**Known / proved / stopped research — anti-rediscovery registry**](docs/research/KNOWN-AND-STOPPED-RESEARCH.md) · [Machine-readable decisions](docs/research/KNOWN-AND-STOPPED-RESEARCH.json). Consult these scoped statuses and reopening gates **before** drafting a new hypothesis, issue, benchmark or crate. A catalogued prior-art overlap is not proof that every variant is solved.
 
+## Seven cross-domain theorem proof baselines — TOM-005
+
+[All seven proofs, closest known sources, counterexamples and product gates](docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md). This is a seven-way classical theorem/model audit, **not** seven original discoveries or a Rust release. The no-repeat registry now contains 40 records.
+
 ## Research discovery and evidence catalog
 
 [Indexed research across Mathlab, DELSK, DeltaMeter, openai/math](docs/research/catalog/INDEX.md) — curated Russian summaries, immutable source pins, related results and verification levels. [Registry and maintenance rules](docs/research/catalog/README.md).

@@ -494,6 +494,111 @@
       ],
       "reopen_only_if": "Precise probes/decoding resource, cost accounting and valid nontrivial lower bound.",
       "primary_sources": []
+    },
+    {
+      "id": "KR-034",
+      "area": "TOM",
+      "disposition": "PRIOR_ART",
+      "title": "A interval-certified codec/base trial",
+      "scope": "Interval lower bounds certify best measured candidate iff all untested lower bounds >= it.",
+      "do_not_repeat": "Independent candidate intervals and costed actual trials; textbook branch-and-bound.",
+      "authority": [
+        "docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md"
+      ],
+      "reopen_only_if": "A cheaper universally valid codec-specific lower bound with theorem-level source audit.",
+      "primary_sources": [
+        "https://www.usenix.org/conference/fast19/presentation/zhang"
+      ]
+    },
+    {
+      "id": "KR-035",
+      "area": "TOM",
+      "disposition": "PRIOR_ART",
+      "title": "B Pareto dominated complete choices",
+      "scope": "Coordinatewise dominated complete cost choices can be removed for independent monotone objectives.",
+      "do_not_repeat": "Classical Pareto frontier; cross-candidate shared setup and segment transitions break the simple argument.",
+      "authority": [
+        "docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md"
+      ],
+      "reopen_only_if": "A nonseparable objective with proved safe dominance and concrete advantage.",
+      "primary_sources": [
+        "https://doi.org/10.1145/3620665.3640353"
+      ]
+    },
+    {
+      "id": "KR-036",
+      "area": "TOM",
+      "disposition": "PRIOR_ART",
+      "title": "C optimal segment base switching",
+      "scope": "Additive per-segment costs plus constant adjacent switch penalty admit Bellman O(T K^2) dynamic programming.",
+      "do_not_repeat": "Classical dynamic shortest path/Viterbi; greedy local selection false.",
+      "authority": [
+        "docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md"
+      ],
+      "reopen_only_if": "Unsolved global shared-dictionary state with new algorithm/theorem and true cost accounting.",
+      "primary_sources": [
+        "https://doi.org/10.1090/qam/102435"
+      ]
+    },
+    {
+      "id": "KR-037",
+      "area": "TOM",
+      "disposition": "PRIOR_ART",
+      "title": "D fail-fast independent test ordering",
+      "scope": "Independent one-sided terminal reject tests should be ordered by decreasing rejection probability over cost.",
+      "do_not_repeat": "Prior optimal scheduling by Garey 1973 and later theorem; correlated rejects violate premises.",
+      "authority": [
+        "docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md"
+      ],
+      "reopen_only_if": "Precisely different conditional dependency model and theorem not in scheduling literature.",
+      "primary_sources": [
+        "https://doi.org/10.1016/0012-365X(73)90113-1"
+      ]
+    },
+    {
+      "id": "KR-038",
+      "area": "TOM",
+      "disposition": "PRIOR_ART",
+      "title": "E durable generation atomic-root commit",
+      "scope": "Immutable new data flushed before durable atomic root switch ensure every crash-prefix is old or new.",
+      "do_not_repeat": "Classical copy-on-write shadow paging, not a novel CAS durability protocol.",
+      "authority": [
+        "docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md"
+      ],
+      "reopen_only_if": "Different crash/concurrency guarantees with device-level proof and costed fault semantics.",
+      "primary_sources": [
+        "https://www.scs.stanford.edu/21sp-cs111/proj/proj_log.html"
+      ]
+    },
+    {
+      "id": "KR-039",
+      "area": "TOM",
+      "disposition": "PRIOR_ART",
+      "title": "F exact deterministic range fingerprint limit",
+      "scope": "N arbitrary states require at least ceil(log2(N)) bits to be distinguished with no other information.",
+      "do_not_repeat": "Pigeonhole counting; short range fingerprints are probabilistic/computational, not absolute injective.",
+      "authority": [
+        "docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md"
+      ],
+      "reopen_only_if": "Source-assisted interactive or workload-restricted guarantee with quantified error and cost.",
+      "primary_sources": [
+        "https://github.com/AljoschaMeyer/set-reconciliation"
+      ]
+    },
+    {
+      "id": "KR-040",
+      "area": "TOM",
+      "disposition": "PRIOR_ART",
+      "title": "G materialized DAG output fanout",
+      "scope": "Single input change may force n writes when n dependent output cells are separately materialized.",
+      "do_not_repeat": "Elementary output-size lower bound; does not transfer to lazy/shared symbolic views.",
+      "authority": [
+        "docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md"
+      ],
+      "reopen_only_if": "New lower bound in an explicitly charged query/probe/lazy evaluation model.",
+      "primary_sources": [
+        "https://www.microsoft.com/en-us/research/publication/bounded-incremental-computation/"
+      ]
     }
   ]
 }

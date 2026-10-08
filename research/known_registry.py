@@ -21,7 +21,7 @@ STATUSES = (
     "CLOSED_PROVED", "PRIOR_ART", "STOP_PRODUCT", "SUPERSEDED",
     "MODEL_MISMATCH", "DEFER",
 )
-MIN_BASELINE_RECORDS = 33
+MIN_BASELINE_RECORDS = 40
 
 
 def validate(record: dict) -> list[dict]:

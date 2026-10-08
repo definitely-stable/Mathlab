@@ -1,8 +1,12 @@
 # CURRENT_STATE
 
+## TOM-005 seven-theorem research gate
+
+Issue #59: stages 1/2/3 extended to ALL seven mathematical candidates. Seven constrained proofs and independent finite-oracle models are under a GitHub-hosted CI acceptance gate. Claimed original general theorems: zero; Rust crate: none. Canonical [mathematical audit](research/TOM-005-SEVEN-THEOREM-AUDIT.md). The known/STOP registry is extended from 33 to 40 model-scoped records. Verify current branch/PR status before citing completion.
+
 ## Anti-rediscovery research inventory (new audit slice)
 
-The [Known / proved / stopped research registry](research/KNOWN-AND-STOPPED-RESEARCH.md) indexes **33** repository-supported claims across LENT, HYP, TOM, reconciliation and DELSK. A pinned JSON record specifies per-item disposition, what not to repeat, its authority, closest public sources where available and a narrow reopening gate. It distinguishes CLOSED_PROVED, PRIOR_ART, STOP_PRODUCT, SUPERSEDED, MODEL_MISMATCH and DEFER. The separate `research/known_registry.py --check` validator audits paths, schema and deterministic human view. This documents existing decisions; it **does not create any new theorem, source proof or Rust artifact**. Baseline for this slice was live main `269aa27c7f99bc5cf2ae6821d31ad0454620c045`, with main research and independent GF5 certifier green. The research registry PR and merged-main checks are separately required before acceptance.
+The [Known / proved / stopped research registry](research/KNOWN-AND-STOPPED-RESEARCH.md) indexes **40** repository-supported claims across LENT, HYP, TOM, reconciliation and DELSK. A pinned JSON record specifies per-item disposition, what not to repeat, its authority, closest public sources where available and a narrow reopening gate. It distinguishes CLOSED_PROVED, PRIOR_ART, STOP_PRODUCT, SUPERSEDED, MODEL_MISMATCH and DEFER. The separate `research/known_registry.py --check` validator audits paths, schema and deterministic human view. This documents existing decisions; it **does not create any new theorem, source proof or Rust artifact**. Baseline for this slice was live main `269aa27c7f99bc5cf2ae6821d31ad0454620c045`, with main research and independent GF5 certifier green. The research registry PR and merged-main checks are separately required before acceptance.
 
 
 Last fully verified main checkpoint: 44d8eb0d1feed1b51f30ec16019629816d004bb7, PR #54 merged 2026-10-08. Recheck live SHA when starting a new task.

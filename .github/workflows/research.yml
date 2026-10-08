@@ -35,6 +35,9 @@ jobs:
       - name: Known/closed/stopped research anti-rediscovery index validation
         run: python research/known_registry.py --check
 
+      - name: TOM-005 seven cross-domain theorem models smoke test
+        run: python research/tom005_models.py
+
       - name: Cross-repository research catalog validation
         run: python research/catalog.py --check
 
