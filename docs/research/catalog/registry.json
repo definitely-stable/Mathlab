@@ -5,7 +5,7 @@
   "repositories": {
     "MATHLAB": {
       "full": "definitely-stable/Mathlab",
-      "sha": "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7"
+      "sha": "c3ffc69563ac15241e67f4b6ccfe8063720590f1"
     },
     "DELSK": {
       "full": "definitely-stable/Shift-lab",
@@ -37,9 +37,9 @@
       "limitations_ru": "Граница подсчёта сама по себе не нова; не даёт matching construction.",
       "source": {
         "repo": "definitely-stable/Mathlab",
-        "revision": "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7",
+        "revision": "c3ffc69563ac15241e67f4b6ccfe8063720590f1",
         "path": "docs/research/LENT-001-FOUNDATION.md",
-        "permalink": "https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-FOUNDATION.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-FOUNDATION.md",
         "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-FOUNDATION.md"
       },
       "primary_sources": [],
@@ -69,9 +69,9 @@
       "limitations_ru": "Отсутствие эквивалентного источника не доказывает новизну будущих оценок.",
       "source": {
         "repo": "definitely-stable/Mathlab",
-        "revision": "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7",
+        "revision": "c3ffc69563ac15241e67f4b6ccfe8063720590f1",
         "path": "docs/research/LENT-001-G1B-AUDIT-03-FINAL.md",
-        "permalink": "https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md",
         "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G1B-AUDIT-03-FINAL.md"
       },
       "primary_sources": [
@@ -104,9 +104,9 @@
       "limitations_ru": "Два из трёх случаев имеют m=w; нет асимптотического результата.",
       "source": {
         "repo": "definitely-stable/Mathlab",
-        "revision": "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7",
+        "revision": "c3ffc69563ac15241e67f4b6ccfe8063720590f1",
         "path": "docs/research/LENT-001-G2A-EVIDENCE.md",
-        "permalink": "https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2A-EVIDENCE.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2A-EVIDENCE.md",
         "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G2A-EVIDENCE.md"
       },
       "primary_sources": [
@@ -138,9 +138,9 @@
       "limitations_ru": "Кандидаты не являются подтверждёнными открытыми проблемами.",
       "source": {
         "repo": "definitely-stable/Mathlab",
-        "revision": "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7",
+        "revision": "c3ffc69563ac15241e67f4b6ccfe8063720590f1",
         "path": "docs/research/TOM-001-OPPORTUNITY-MAP.md",
-        "permalink": "https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-OPPORTUNITY-MAP.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-OPPORTUNITY-MAP.md",
         "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-OPPORTUNITY-MAP.md"
       },
       "primary_sources": [],
@@ -171,9 +171,9 @@
       "limitations_ru": "Полнота аудита всех источников не заявлена.",
       "source": {
         "repo": "definitely-stable/Mathlab",
-        "revision": "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7",
+        "revision": "c3ffc69563ac15241e67f4b6ccfe8063720590f1",
         "path": "docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
-        "permalink": "https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md",
         "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md"
       },
       "primary_sources": [
@@ -207,9 +207,9 @@
       "limitations_ru": "Предвычисление метаданных бесплатно, поддержание меток при повторных изменениях не учитывается; новизна не заявлена.",
       "source": {
         "repo": "definitely-stable/Mathlab",
-        "revision": "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7",
+        "revision": "c3ffc69563ac15241e67f4b6ccfe8063720590f1",
         "path": "docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md",
-        "permalink": "https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md",
         "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/TOM-001-C-EXACT-CERTIFICATE-BASELINE.md"
       },
       "primary_sources": [
@@ -241,9 +241,9 @@
       "limitations_ru": "Не тождествен произвольным коротким линейным зависимостям в нечётных полях.",
       "source": {
         "repo": "definitely-stable/Mathlab",
-        "revision": "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7",
+        "revision": "c3ffc69563ac15241e67f4b6ccfe8063720590f1",
         "path": "docs/research/LENT-001-G1A-PROOF.md",
-        "permalink": "https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G1A-PROOF.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G1A-PROOF.md",
         "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G1A-PROOF.md"
       },
       "primary_sources": [],
@@ -949,9 +949,9 @@
       "limitations_ru": "GF(5) поиск не исчерпан, интервал не точный максимум; никакой асимптотической новизны.",
       "source": {
         "repo": "definitely-stable/Mathlab",
-        "revision": "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7",
+        "revision": "c3ffc69563ac15241e67f4b6ccfe8063720590f1",
         "path": "docs/research/LENT-001-G2B-A-EVIDENCE.md",
-        "permalink": "https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-EVIDENCE.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-EVIDENCE.md",
         "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G2B-A-EVIDENCE.md"
       },
       "primary_sources": [
@@ -988,9 +988,9 @@
       "limitations_ru": "Замороженный протокол сам по себе не доказывает полной корректности solver или новизны.",
       "source": {
         "repo": "definitely-stable/Mathlab",
-        "revision": "0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7",
+        "revision": "c3ffc69563ac15241e67f4b6ccfe8063720590f1",
         "path": "docs/research/LENT-001-G2B-A-PROTOCOL.md",
-        "permalink": "https://github.com/definitely-stable/Mathlab/blob/0c41da53d39aaeecc4f736ee063cc9f8bc4ff1d7/docs/research/LENT-001-G2B-A-PROTOCOL.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/LENT-001-G2B-A-PROTOCOL.md",
         "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/LENT-001-G2B-A-PROTOCOL.md"
       },
       "primary_sources": [],
@@ -1731,6 +1731,78 @@
         {
           "id": "ML-004",
           "relation": "conceptual_link"
+        }
+      ]
+    },
+    {
+      "id": "ML-010",
+      "repository": "MATHLAB",
+      "title": "HYP-001/002: двух- и трёхкоординатная ёмкость ASET",
+      "summary_ru": "Для нечётных простых q приведено самодостаточное доказательство A_q^set(m,2,2)=Θ_q(m^{3/2}); при w=3 получены границы Ω(m²) и O_q(m^{5/2}), а Θ_q(m²) остаётся гипотезой.",
+      "status": "DERIVED_RESULT",
+      "verification": "repository_proof",
+      "topics": [
+        "coding",
+        "lower-bounds",
+        "combinatorics"
+      ],
+      "application_ru": "Анализ разрыва между write locality w=2 и w=3; возможная математическая постановка для следующего доказательства.",
+      "limitations_ru": "HYP-001 основан на классических C4-free и projective-plane методах; самостоятельная научная новизна НЕ проверена; HYP-002 sharp exponent НЕ доказан.",
+      "source": {
+        "repo": "definitely-stable/Mathlab",
+        "revision": "c3ffc69563ac15241e67f4b6ccfe8063720590f1",
+        "path": "docs/research/HYP-001-002-LOCALITY-TRANSITION.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-LOCALITY-TRANSITION.md",
+        "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/HYP-001-002-LOCALITY-TRANSITION.md"
+      },
+      "primary_sources": [],
+      "related": [
+        {
+          "id": "ML-007",
+          "relation": "extends"
+        },
+        {
+          "id": "ML-011",
+          "relation": "foundation_for"
+        },
+        {
+          "id": "ML-008",
+          "relation": "context"
+        }
+      ]
+    },
+    {
+      "id": "ML-011",
+      "repository": "MATHLAB",
+      "title": "HYP-001/002: конструктивные конечные свидетельства",
+      "summary_ru": "GitHub CI проверил PG(2,2)/PG(2,3) incidence и Steiner triples на нечётных полях, а также GF(2) Pasch и нелинейные контрпримеры.",
+      "status": "EXACT_NUMERICAL",
+      "verification": "exact_hosted_ci",
+      "topics": [
+        "coding",
+        "finite-oracle",
+        "reproducibility"
+      ],
+      "application_ru": "Воспроизводимые конечные проверки конструкций, уточнение характеристик и негативные регрессионные тесты.",
+      "limitations_ru": "Численные примеры не формализуют асимптотические доказательства, не закрывают гипотезу w=3 и не доказывают публикационную новизну.",
+      "source": {
+        "repo": "definitely-stable/Mathlab",
+        "revision": "c3ffc69563ac15241e67f4b6ccfe8063720590f1",
+        "path": "docs/research/HYP-001-002-PHASE-A-EVIDENCE.md",
+        "permalink": "https://github.com/definitely-stable/Mathlab/blob/c3ffc69563ac15241e67f4b6ccfe8063720590f1/docs/research/HYP-001-002-PHASE-A-EVIDENCE.md",
+        "latest": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/HYP-001-002-PHASE-A-EVIDENCE.md"
+      },
+      "primary_sources": [
+        "https://github.com/definitely-stable/Mathlab/actions/runs/37762380556"
+      ],
+      "related": [
+        {
+          "id": "ML-010",
+          "relation": "tests"
+        },
+        {
+          "id": "ML-008",
+          "relation": "method_compare"
         }
       ]
     }
