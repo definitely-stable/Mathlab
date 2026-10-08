@@ -1290,7 +1290,8 @@
         "Nashlen Govindasamy",
         "Jiaqi Lu",
         "Iddo Tzameret"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-051",
@@ -1322,7 +1323,8 @@
         "Svyatoslav Gryaznov",
         "Hanlin Ren",
         "Iddo Tzameret"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-052",
@@ -1354,7 +1356,8 @@
         "Bruno Loff",
         "Tulasimohan Molli",
         "Michael E. Saks"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-053",
@@ -1383,7 +1386,8 @@
       "source_access": "official_conference_toc_abstract_linked_doi",
       "authors": [
         "Gabriel Marques Domingues"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-054",
@@ -1414,7 +1418,8 @@
       "authors": [
         "Xiao Mao",
         "Aviad Rubinstein"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-055",
@@ -1446,7 +1451,8 @@
         "Jabari Hastings",
         "Chirag Pabbaraju",
         "Vatsal Sharan"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-056",
@@ -1475,7 +1481,8 @@
       "source_access": "official_conference_toc_abstract_linked_doi",
       "authors": [
         "Yang P. Liu"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-057",
@@ -1509,7 +1516,8 @@
         "Varun Ramanathan",
         "Ramprasad Saptharishi",
         "Shubhangi Saraf"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-058",
@@ -1542,7 +1550,8 @@
         "Hung Le",
         "Jason Li",
         "Tomáš Masařík"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-059",
@@ -1573,7 +1582,8 @@
         "Julia Chuzhoy",
         "Sanjeev Khanna",
         "Junkai Song"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-060",
@@ -1602,7 +1612,8 @@
       "source_access": "official_conference_toc_abstract_linked_doi",
       "authors": [
         "Joshua A. Grochow"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-061",
@@ -1637,7 +1648,8 @@
         "Frederic Koehler",
         "Anqi Li",
         "Thuy-Duong Vuong"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-062",
@@ -1668,7 +1680,8 @@
         "Jason M. Altschuler",
         "Sinho Chewi",
         "Matthew S. Zhang"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-063",
@@ -1700,7 +1713,8 @@
         "Yeyuan Chen",
         "Manik Dhar",
         "Zihan Zhang"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-064",
@@ -1731,7 +1745,8 @@
         "Yevgeniy Dodis",
         "Shachar Lovett",
         "Daniel Wichs"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-065",
@@ -1757,11 +1772,12 @@
       "full_proof_verified": false,
       "independent_reproduction": false,
       "venue": "ICALP 2026",
-      "source_access": "official_conference_toc_abstract_linked_doi",
+      "source_access": "publisher_article_abstract_and_bibliography_checked",
       "authors": [
         "Shay Solomon",
         "Amitai Uzrad"
-      ]
+      ],
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.153"
     },
     {
       "id": "LIT-066",
@@ -1787,7 +1803,20 @@
       "full_proof_verified": false,
       "independent_reproduction": false,
       "venue": "ICALP 2026",
-      "source_access": "official_conference_toc_abstract_linked_doi"
+      "source_access": "publisher_article_abstract_and_bibliography_checked",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.48",
+      "authors": [
+        "Nairen Cao",
+        "Vincent Cohen-Addad",
+        "Euiwoong Lee",
+        "Shi Li",
+        "David Rasmussen Lolck",
+        "Alantha Newman",
+        "Mikkel Thorup",
+        "Lukas Vogl",
+        "Shuyi Yan",
+        "Hanwen Zhang"
+      ]
     },
     {
       "id": "LIT-067",
@@ -1814,7 +1843,7 @@
       "full_proof_verified": false,
       "independent_reproduction": false,
       "venue": "EuroSys 2026",
-      "source_access": "official_conference_toc_abstract_linked_doi",
+      "source_access": "conference_paper_list_and_delsk_fulltext_review",
       "authors": [
         "Haoliang Tan",
         "Wenhao Ou",
@@ -1824,7 +1853,8 @@
         "Hao Huang",
         "Zhaoquan Gu",
         "Wen Xia"
-      ]
+      ],
+      "source_listing_url": "https://2026.eurosys.org/papers.html"
     },
     {
       "id": "LIT-068",
@@ -1857,7 +1887,8 @@
         "Konstantin Myasnikov",
         "Artur Riazanov",
         "Dmitry Sokolov"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-069",
@@ -1888,7 +1919,8 @@
         "Lijie Chen",
         "Avishay Tal",
         "Yichuan Wang"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-070",
@@ -1920,7 +1952,8 @@
         "Farzan Byramji",
         "Arkadev Chattopadhyay",
         "Russell Impagliazzo"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-071",
@@ -1953,7 +1986,8 @@
         "Sam Gunn",
         "Ankur Moitra",
         "Daniel Wichs"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-072",
@@ -1985,7 +2019,8 @@
         "Jackson Bibbens",
         "Levi Borevitz",
         "Samuel McCauley"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-073",
@@ -2020,7 +2055,8 @@
         "Marvin Künnemann",
         "Xiao Mao",
         "Mirza Redžić"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-074",
@@ -2049,7 +2085,8 @@
       "source_access": "official_conference_toc_abstract_linked_doi",
       "authors": [
         "Jason Li"
-      ]
+      ],
+      "source_listing_url": "https://acm-stoc.org/stoc2026/toc.html"
     },
     {
       "id": "LIT-075",
@@ -2075,11 +2112,12 @@
       "full_proof_verified": false,
       "independent_reproduction": false,
       "venue": "ICALP 2026",
-      "source_access": "official_conference_toc_abstract_linked_doi",
+      "source_access": "publisher_article_abstract_and_bibliography_checked",
       "authors": [
         "Kacper Kluk",
         "Jesper Nederlof"
-      ]
+      ],
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.130"
     }
   ]
 }
