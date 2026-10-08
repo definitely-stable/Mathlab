@@ -50,7 +50,7 @@ oracle is `research/locality_transition.py`.
 
 ## HYP-002-C — bounded two-ID affine decoder / cost audit
 
-[Affi­ne two-ID proof, overload counterexample and product gate](HYP-002-C-AFFINE-DECODER-PROTOCOL.md)
+[Affine two-ID proof, overload counterexample and product gate](HYP-002-C-AFFINE-DECODER-PROTOCOL.md)
 (issue #34) demonstrates O(m) table-free decoding under the strict
 <=2 distinct-active-ID promise, but also a 3-versus-2 exact collision
 that makes overload detection impossible from the trits alone.
