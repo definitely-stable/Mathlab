@@ -208,7 +208,7 @@ def render(data):
             if "source_audit" in x:
                 a = x["source_audit"]
                 output += [
-                    f"**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; 
+                    f"**Аудит первоисточника:** пакет рукописи + Lean scope + comparator manifest; "
                     f"полный PDF-доказательство не проверялось, независимого Lean-прогона не было. "
                     f"**Ограничение:** {a['scope_mismatch_ru']}",
                     "",
