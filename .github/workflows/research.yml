@@ -29,3 +29,6 @@ jobs:
 
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
+
+      - name: Cross-repository research catalog validation
+        run: python research/catalog.py --check
