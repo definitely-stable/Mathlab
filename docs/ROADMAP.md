@@ -6,124 +6,98 @@
 
 Status: **COMPLETE — FOUNDATION_PASS**
 
-The finite Sparse-Update Hamming-Ball Bound, exact model, arithmetic checker,
-CI discipline and formalization plan are established.
+Baseline state-space/Hamming-ball theorem and verification infrastructure are
+established.
 
-### G1 — model correction and prior-art closure
+### G1 — model and prior-art closure
 
-Status: **IN PROGRESS**
+Status: **COMPLETE**
 
 #### G1A — exact ASET model + oracle
 
 Status: **COMPLETE — G1A_ORACLE_PASS**
 
-Established exact signed-relation semantics, q=2 equivalence, q=3/q=5 model
-separations and exact q={2,3,5} evidence.
-
 #### G1B — primary-source novelty closure
 
-Status: **ACTIVE — AUDIT 03 STARTED**
+Status: **COMPLETE — SPLIT_BY_CHARACTERISTIC**
 
-Issue: #6.
+Final classification:
 
-Audit 01 established the sparse parity-check, dissociated/free, Sidon/B_h,
-constant-weight B2, ordinary signature/detecting and additive group-testing
-neighborhood.
+- q=2: stop primary novelty lane;
+- characteristic two q>2: secondary block-sparse coding lane;
+- q=3: continue as odd-characteristic side-bound testbed;
+- odd q>3: continue as primary hard-support lane.
 
-Audit 02 adds two decisive results:
+Broad ASET/signature existence is known prior art. Only a theorem that uses
+hard support \(w\) essentially remains eligible.
 
-1. **unconstrained binary ASET is already Bounded-Contention Coding**;
-2. **finite-field bounded-active identity recovery from signature sums is
-   already established signature-code prior art**.
+### G2 — odd-characteristic finite extremal evidence
 
-It also proves the structural reduction
+Status: **ACTIVE**
 
-\[
-q=2^s
-\quad\Longrightarrow\quad
-\text{block-sparse binary BCC/parity-check formulation}.
-\]
-
-Therefore G1B no longer asks whether ASET-like coding is new. It asks whether
-the **hard support-constrained sharp frontier** is already known.
-
-Audit 03 is frozen as the final source gate and must close:
-
-1. block-sparse BCC/parity-check extremal results;
-2. zero-error hard-sparse finite-field/mod-q signature codes;
-3. bounded-column-weight additive/quantitative detecting matrices;
-4. support-constrained q-ary \(B_h\)/signed-sum families;
-5. fixed-\((d,w)\) sharp asymptotics.
-
-Characteristic two carries the valid sandwich
+Initial fields:
 
 \[
-A_2(m,w,d)
-\le
-A_{2^s}^{\mathrm{set}}(m,w,d)
-\le
-A_2(sm,sw,d).
+q\in\{3,5,7\}.
 \]
 
-Any characteristic-two novelty target must therefore sharpen or exploit the
-block structure beyond ordinary binary sparse-code baselines.
+Initial capacity/support grid:
 
-Allowed G1B v2 exits:
+\[
+d=2,\qquad w\in\{1,2,3\}.
+\]
 
-- CONTINUE_SPARSE_ASET;
-- REDUCE_TO_KNOWN_SPARSE_SIGNATURE;
-- SPLIT_BY_CHARACTERISTIC;
-- STOP_NOT_NOVEL.
+Tasks:
 
-#### G1C — secondary lanes
+1. compute exact values or certified intervals for
+   \(A_q^{set}(m,w,2)\) for the largest feasible small m;
+2. persist extremal witness families;
+3. compare against the finite Hamming-ball upper bound;
+4. compare against stronger arbitrary-coefficient sparse-linear
+   constructions/bounds only in valid directions;
+5. detect whether q=3 and q≥5 show different exponent/structure;
+6. choose one precise asymptotic theorem target.
 
-Status: **BLOCKED ON G1B**
+G2 must terminate in either:
 
-Nested+update-locality and mixed alphabets remain secondary. Computation
-remains deferred until independently modeled.
+- G2_SELECT_THEOREM;
+- G2_NO_SIGNAL;
+- G2_REDUCE_TARGET;
+- G2_STOP.
 
-### G2 — finite hard-support extremal evidence
-
-Status: **BLOCKED ON G1B**
-
-If G1B keeps a sparse frontier alive:
-
-- enumerate small exact \(A_q^{set}(m,w,d)\) values or intervals;
-- persist extremal support-constrained witness families;
-- compare against the strongest valid BCC/parity-check/signature baselines;
-- separate characteristic-two and odd-characteristic regimes;
-- use exact evidence to choose a theorem target.
-
-### G3 — baseline formalization
+### G3 — formalization
 
 Status: **NOT STARTED**
 
-Lean targets include the Hamming-ball theorem, ASET-SIGNED, binary
-equivalence, and characteristic-two block reduction.
+Lean priorities:
 
-### G4 — new-math lane
+- finite Hamming-ball bound;
+- ASET-SIGNED;
+- binary equivalence;
+- characteristic-two reduction/sandwich.
 
-Status: **BLOCKED ON G1B/G2**
+### G4 — theorem lane
 
-A future G4A theorem must be explicitly support-sensitive. A theorem about
-bounded-active identification that does not use \(w\) essentially is no
-longer a valid novelty target.
+Status: **BLOCKED ON G2**
+
+Any G4 theorem must be support-sensitive and odd-characteristic unless G2
+provides compelling contrary evidence.
 
 ### G5 — manuscript promotion
 
-Status: **NOT STARTED**
+Status: **BLOCKED**
 
-Requires stable theorem, reviewable proof, closed novelty boundary,
-reproducible evidence, and explicit formalization status.
+Requires theorem proof, theorem-level novelty re-audit, reproducible evidence
+and explicit formalization status.
 
 ## Current priority
 
 \[
 \boxed{
-\text{G1B Audit 03: hard-support closure}
+\text{G2 odd-characteristic exact extremal evidence}
 \rightarrow
-\text{G2 finite sparse extremal evidence}
+\text{specific theorem selection}
 \rightarrow
-\text{G4A support-sensitive theorem}
+\text{G4 proof}
 }
 \]

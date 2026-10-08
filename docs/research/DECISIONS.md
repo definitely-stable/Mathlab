@@ -225,3 +225,48 @@ The unresolved novelty question is narrower:
 Audit 03 must target block-sparse BCC/parity-check results, hard-sparse
 finite-field/mod-q signatures, bounded-column-weight quantitative/detecting
 matrices, and support-constrained q-ary additive families.
+
+
+## 2026-10-08 — D021
+
+**CLOSE G1B WITH \`SPLIT_BY_CHARACTERISTIC\`.**
+
+After three primary-source audit passes:
+
+- exact bounded-active identification is established prior art;
+- sparse/constant-weight signatures are established in neighboring adder
+  models;
+- support-constrained parity-check coding is established as a general coding
+  problem;
+- characteristic-two ASET reduces to binary/block-sparse short-dependency
+  coding;
+- odd characteristic retains a model-specific support-sensitive gap.
+
+Classification:
+
+1. q=2: STOP as primary novelty lane.
+2. q=2^s, s>1: DEPRIORITIZE to a secondary block-aware sparse-code problem.
+3. q=3: CONTINUE to G2 as the clean side-bound testbed.
+4. odd q>3: CONTINUE to G2 as the primary coefficient-plus-side-bound lane.
+
+This is a **research authorization decision**, not a publication novelty
+claim.
+
+## 2026-10-08 — D022
+
+**REQUIRE SUPPORT-SENSITIVE THEOREM TARGET.**
+
+G2/G4 may not target "ASET existence", "finite-field signature coding", or
+"bounded-active recovery" as new.
+
+Any candidate theorem must use the hard update-support parameter \(w\)
+essentially.
+
+Preferred first regime:
+
+\[
+q\in\{3,5,7\},\qquad d=2,\qquad w\in\{1,2,3\}.
+\]
+
+The next gate is exact finite extremal evidence sufficient to choose a
+specific asymptotic statement.

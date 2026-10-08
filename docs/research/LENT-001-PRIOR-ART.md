@@ -1,172 +1,72 @@
-# LENT-001 — prior-art audit
+# LENT-001 — prior-art status after G1B
 
-Status: **G1 OPEN / G1A COMPLETE / G1B AUDIT 03 PASS 01 ACTIVE**.
+Status: **G1B CLOSED — SPLIT_BY_CHARACTERISTIC**
 
-The key novelty correction after Audit 02 is that the broad exact subset
-identification object is established prior art. The only remaining primary
-candidate is the **hard support-constrained sharp frontier**.
+The broad exact additive set-identification object is established prior art.
+The surviving research candidate is only the hard-support odd-characteristic
+extremal frontier.
 
-## 1. Binary: BCC closes unconstrained ASET novelty
+## Established direct neighbors
 
-Censor-Hillel, Haeupler, Lynch and Médard define an \([M,m,a]\)
-Bounded-Contention Code as a set of binary codewords whose XORs are distinct
-for every two distinct subsets of size at most \(a\).
+Binary bounded contention / modulo-2 multiple access:
 
-This is binary ASET without the hard support bound.
+- https://arxiv.org/abs/1208.6125
+- https://doi.org/10.1109/18.340463
+- https://doi.org/10.1109/18.382029
 
-Primary:
-https://arxiv.org/abs/1208.6125
+Finite-field / q-ary bounded-active signatures:
 
-Thus binary ASET as an object is known. Sparse parity-check literature
-further overlaps the support-constrained binary problem.
+- https://arxiv.org/abs/1602.02612
+- https://arxiv.org/abs/2303.14086
 
-## 2. Finite-field bounded-active signatures are established
+Sparse / constant-weight signatures under ordinary or weighted adder models:
 
-Goseling, Stefanović and Popovski use signature codes over an
-\(\mathbb F_q\) adder channel so that identities of up to \(K\) active users
-are recovered from the sum of their signatures.
+- https://doi.org/10.1109/18.391266
+- https://arxiv.org/abs/1905.10180
+- https://arxiv.org/abs/2303.12990
 
-Primary:
-https://arxiv.org/abs/1602.02612
+Sparse parity-check and support-mask coding:
 
-Their construction controls signature length and deliberately uses a large
-field; it does not establish the sharp hard-support frontier.
+- https://doi.org/10.1017/S0963548304006625
+- https://doi.org/10.1137/120881129
+- https://arxiv.org/abs/2605.08644
 
-Therefore broad q-ary ASET existence/identity recovery is not new, while
-support-sensitive extremality may still be.
+Additive/quantitative detecting matrices:
 
-## 3. Characteristic two reduces to block-sparse binary coding
+- https://arxiv.org/abs/1303.6020
 
-For \(q=2^s\), repository proof shows:
+## Final boundary
 
-\[
-\text{ASET}_d
-\Longleftrightarrow
-\text{no nonempty GF(2) dependency among at most }2d
-\]
+### Characteristic two
 
-after basis expansion.
+ASET is structurally a binary/block-sparse short-dependency problem.
+Binary sparse-code theory is the dominant baseline.
 
-The q-ary support bound becomes at most \(w\) nonzero binary blocks of size
-\(s\).
+### q=3
 
-Hence the correct characteristic-two prior-art target is **block-sparse
-binary BCC/parity-check coding**.
+The coefficient alphabet already equals ±1, but ASET keeps the separate
+positive/negative capacity bounds. This remains a useful support-sensitive
+testbed.
 
-See:
-\`LENT-001-G1B-CHAR2-REDUCTION.md\`.
+### Odd q>3
 
-## 4. Constant-weight exact signatures are also known under ordinary addition
+Both restricted coefficients and two-sided capacity bounds remain.
+This is the strongest surviving candidate.
 
-Fan, Darnell and Honary show that suitable constant-weight binary codewords
-allow exact identification of any bounded set of active users in the
-ordinary binary-adder channel.
+## Publication rule
 
-DOI:
-https://doi.org/10.1109/18.391266
+No statement in G1B proves that an odd-characteristic theorem will be new.
 
-Fan et al. later study constant-weight t-signature codes in a weighted
-binary adder model.
+A novelty claim is allowed only after:
 
-Thus "sparse active-user signature" is not itself new.
+1. G2 chooses a precise theorem statement;
+2. the theorem is proved;
+3. that exact theorem statement receives another primary-source audit.
 
-The remaining arithmetic distinction is ordinary addition versus
-finite-field/mod-q addition.
+Detailed audit records remain in:
 
-## 5. Low-density signature is established engineering terminology
-
-Low-density signature systems deliberately give each user only a few
-nonzero chips, but typically target noisy probabilistic multiuser detection,
-not deterministic zero-error subset injectivity.
-
-Example:
-Hoshyar, Wathan, Tafazolli (2008),
-DOI https://doi.org/10.1109/TSP.2007.909320
-
-This literature is mandatory terminology/engineering context, but not an
-ASET theorem by itself.
-
-## 6. Earlier Audit 01 boundaries remain active
-
-Also verified:
-
-- Lefmann q-ary sparse parity-check matrices are stronger than odd-q ASET;
-- standard k-dissociated terminology does not mean bounded relation order;
-- free/h-free/\(B_h^*\) are close but non-equivalent;
-- standard q=3 Sidon/2-cap includes repeated summands;
-- constant-weight real-addition \(B_2\) sequences are established;
-- additive/quantitative group testing gives standard-arithmetic d-sparse
-  separability.
-
-Detailed sources:
-\`LENT-001-G1B-AUDIT-01.md\` and
-\`LENT-001-G1B-AUDIT-02.md\`.
-
-## 7. Current novelty candidate
-
-Rejected broad claim:
-
-> exact additive bounded-active set identification is new.
-
-Retained narrow candidate:
-
-\[
-\boxed{
-\textbf{sharp support-constrained finite-field signature frontier}
-}
-\]
-
-with hard per-element update locality
-
-\[
-|\operatorname{supp}(a_i)|\le w.
-\]
-
-A successful theorem must use \(w\) essentially and survive comparison with
-block-sparse BCC/parity-check, constant-weight adder/signature, detecting
-matrix and support-constrained additive-combinatorics results.
-
-## 8. G1B remains OPEN
-
-Audit 03 must close:
-
-1. block-sparse BCC/parity-check results;
-2. exact sparse/constant-weight finite-field or modulo-q signature codes;
-3. bounded-column-weight quantitative/detecting matrices;
-4. support-constrained q-ary \(B_h\)/signed-sum families;
-5. fixed-\((d,w)\) sharp asymptotic results.
-
-No manuscript novelty claim is allowed before this closure.
-
-
-## 9. Audit 03 pass 01 — additional direct baselines
-
-### Ericson–Levenshtein modulo-2 superimposed codes
-
-Ericson and Levenshtein (1994) study bounded-active multiple-access coding in
-Hamming space where the receiver observes modulo-2 superposition. This is
-direct additional evidence that binary modular active-set identification is
-classical coding theory rather than a new Mathlab object.
-
-DOI:
-https://doi.org/10.1109/18.340463
-
-### Bshouty–Mazzawi parity-check matrices over Z_p
-
-Bshouty and Mazzawi (2015) construct nearly optimal binary-entry parity-check
-matrices over Z_p whose bounded-size column sets are linearly independent.
-
-DOI:
-https://doi.org/10.1137/120881129
-
-The property is stronger than ASET because it excludes arbitrary field
-coefficients, and it does not impose Mathlab's hard small column-support
-constraint. It is therefore a communication/signature baseline, not closure
-of the sparse-update frontier.
-
-### Current interpretation
-
-These sources further weaken any broad novelty claim but do not close the
-hard-support finite-field signature problem.
-
-Audit 03 remains open. Search failure is not treated as novelty evidence.
+- \`LENT-001-G1B-AUDIT-01.md\`
+- \`LENT-001-G1B-AUDIT-02.md\`
+- \`LENT-001-G1B-AUDIT-03-PROTOCOL.md\`
+- \`LENT-001-G1B-AUDIT-03-SOURCES-01.md\`
+- \`LENT-001-G1B-AUDIT-03-FINAL.md\`
