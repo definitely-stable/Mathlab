@@ -1,92 +1,73 @@
 # LENT-001-G1B — primary-source matrix
 
-Status: **OPEN**
+Status: **OPEN / AUDIT 01 RECORDED**
 
 Issue: #6
 
-This matrix is the operative novelty-closure artifact. Rows marked
-NEEDS_PRIMARY_CHECK cannot support a final G1B decision.
+Rows marked VERIFIED_PRIMARY have been checked against a primary paper,
+author PDF, proceedings page, or arXiv manuscript. They may still require a
+second theorem-level audit before a final asymptotic decision.
 
 ## A. Sparse parity-check / small-column independence
 
-| Source | Model | Current relation to ASET | Confidence | G1B task |
+| Source | Exact model | Relation to ASET | Transfer | Confidence |
 |---|---|---|---|---|
-| Lefmann–Pudlák–Savický (1996), *On sparse parity check matrices* | binary bounded-column-weight, short linear independence | q=2 direct overlap | VERIFIED at model level | pin exact theorem/exponent used as binary baseline |
-| Lefmann (2005), *Sparse Parity-Check Matrices over GF(q)* | bounded support, arbitrary field coefficients | stronger than ASET for q>2 | VERIFIED at definition level | pin every relevant theorem with characteristic/gcd restrictions |
-| Naor–Verstraete (2005), *Improved bounds on the size of sparse parity check matrices* | sparse parity-check extremal bounds | binary/finite-field neighboring baseline | NEEDS_PRIMARY_CHECK | map exact field and parameter scope |
+| Lefmann–Pudlák–Savický (1996), *On sparse parity check matrices* | binary bounded column weight + short linear independence | q=2 direct overlap | binary baseline | VERIFIED at model level |
+| Lefmann (2005), *Sparse Parity-Check Matrices over GF(q)* | support ≤r, every k columns independent over GF(q), arbitrary nonzero coefficients | stronger than ASET for q>2 | constructions/lower baseline transfer; upper bounds do not automatically transfer | VERIFIED_PRIMARY |
+| Naor–Verstraete (2005) | sparse parity-check extremal bounds | binary/finite-field neighbor | theorem map still needed | NEEDS_PRIMARY_CHECK |
 
-Rule: arbitrary-coefficient upper bounds are not ASET upper bounds without a
-reduction.
+## B. Dissociated / free families
 
-## B. Dissociated / bounded signed relations
-
-| Source/object | Model question | Confidence | G1B task |
+| Source/object | Exact definition found | Relation to ASET | Confidence |
 |---|---|---|---|
-| dissociated sets | forbids all finite \(\{-1,0,1\}\) relations? | NEEDS_PRIMARY_CHECK | pin standard definition and ambient-group assumptions |
-| k-dissociated / bounded-order dissociated | total relation support bound vs separate \(n_+,n_-\) bounds | NEEDS_PRIMARY_CHECK | determine exact implication to/from ASET |
-| finite-group/vector-space dissociated variants | torsion/characteristic effects | NEEDS_PRIMARY_CHECK | locate sharp finite-field results |
-| bounded-support dissociated families | generator Hamming-weight constraint | NEEDS_PRIMARY_CHECK | highest-priority novelty check |
-
-Critical question:
-
-\[
-n_+\le d,\quad n_-\le d
-\]
-
-versus only
-
-\[
-n_++n_-\le2d.
-\]
+| Shkredov, arXiv:2205.07296 | k-dissociated means coefficient magnitude \(|\varepsilon_\lambda|\le k\), not relation length | k=1/full dissociation is stronger than every finite-d ASET; "k-dissociated" is not our bounded-order term | VERIFIED_PRIMARY |
+| Nešetřil–Rödl–Sales (2024), free | all distinct finite subsets have distinct sums | stronger than every finite-d ASET | VERIFIED_PRIMARY |
+| Nešetřil–Rödl–Sales (2024), h-free | collision excluded when one side has size ≤h, other side unrestricted | stronger than ASET_h | VERIFIED_PRIMARY |
+| bounded-support finite-field dissociated families | unknown | highest-priority remaining gap | NEEDS_PRIMARY_CHECK |
+| two-sided h-free / both-side-bounded signed systems | unknown | potentially definitionally closest | NEEDS_PRIMARY_CHECK |
 
 ## C. Sidon / B_h / restricted-sum families
 
-| Object | Definition point to verify | Confidence |
-|---|---|---|
-| Sidon / B_2 | repeated summands? equal-cardinality only? | NEEDS_PRIMARY_CHECK |
-| weak Sidon | distinct summands only? | NEEDS_PRIMARY_CHECK |
-| B_h | repetitions and exactly h | NEEDS_PRIMARY_CHECK |
-| restricted B_h / distinct-summand variants | closest fixed-cardinality analogue | NEEDS_PRIMARY_CHECK |
-| all-orders-through-d systems | controls cross-cardinality collisions? | NEEDS_PRIMARY_CHECK |
-| bounded-support/Hamming-ball versions | preserves \(w\) | NEEDS_PRIMARY_CHECK |
+| Source/object | Exact model | Relation to ASET | Confidence |
+|---|---|---|---|
+| Nešetřil–Rödl–Sales \(B_h^*\) | sums of h distinct elements unique | ASET_d implies \(B_h^*\) for every h≤d; converse absent | VERIFIED_PRIMARY |
+| Kiss–Sándor, arXiv:2006.02783 | explicitly distinguishes distinct-term and repetition-allowed h-sum representation functions | confirms convention split; fixed-cardinality only | VERIFIED_PRIMARY |
+| Huang–Tait–Won, arXiv:1809.05117 | Sidon/2-cap in \(\mathbb F_3^n\); includes repeated-summand equations | not equivalent to ASET d=2; neither blanket upper-bound transfer nor converse established | VERIFIED_PRIMARY |
+| Sima–Li–Shomorony–Milenkovic, arXiv:2303.12990 | binary constant-weight vectors, real-valued sums of distinct pairs unique | weight-constrained equal-cardinality neighbor; not modular/all≤d | VERIFIED_PRIMARY |
+| q-ary bounded-support \(B_h\) inside Hamming balls | unknown | critical remaining source class | NEEDS_PRIMARY_CHECK |
 
-No "ASET = Sidon/B_h" statement is currently accepted.
+## D. Signature / detecting / adder codes
 
-## D. q=3 special case
+| Source | Exact model | Relation to ASET | Confidence |
+|---|---|---|---|
+| Lindström (1965), detecting/sum-distinct vectors | ordinary integer/rational sum detection | all-pattern ordinary-addition neighbor | VERIFIED_PRIMARY |
+| Jevtić (1995), sum-distinct integral vectors | all representative sums distinct; \(\{0,x_i\}\) gives subset-sum uniqueness | ordinary-integer all-subset neighbor | VERIFIED_PRIMARY |
+| Fan–Gu–Hachimori–Miao, arXiv:1905.10180 / TIT 2021 | t-signature and constant-weight t-signature codes for weighted binary adder channel | close extremal constant-weight neighbor; arithmetic/model differ | VERIFIED_PRIMARY |
+| Erdoğan–Maringer–Polyanskii, arXiv:2206.10735 | q-ary codewords; any active subset identifiable from **integer** sum | all-subset integer-addition neighbor, not modular ASET | VERIFIED_PRIMARY |
+| bounded-active-user finite-field/mod-q signature codes | not closed | potentially direct ASET overlap | NEEDS_PRIMARY_CHECK |
 
-Known G1A fact:
+## E. Additive / quantitative group testing
 
-\[
-q=3,\ m=1,\ d=1,\ \{1,2\}
-\]
+| Source/object | Exact model | Relation to ASET | Confidence |
+|---|---|---|---|
+| Chang–Chen–Guo–Huang, arXiv:1303.6020 / TIT 2015 | additive \((D,d)\)-separability for d-sparse vectors under standard arithmetic | for \(D=\{0,1\}\), ordinary-arithmetic bounded-d analogue; modular ASET implies ordinary separability | VERIFIED_PRIMARY |
+| quantitative group testing with bounded column weight | integer/count measurements, sparse binary source | potentially a valid ASET super-class upper-bound source when support conventions match | NEEDS_PRIMARY_CHECK |
+| modulo-q quantitative/group-testing separability | unknown | potentially definitionally direct | NEEDS_PRIMARY_CHECK |
 
-is ASET-exact but linearly dependent.
+## F. q=3 special case
 
-Nontrivial frozen-grid evidence also gives q=3, d=2 ASET-exact families with
-ordinary short dependencies.
+Verified facts:
 
-G1B task:
+- G1A: q=3 ASET is strictly weaker than ordinary short linear independence.
+- Huang–Tait–Won Sidon/2-cap includes repeated-summand equations.
+- Hence standard q=3 Sidon maxima cannot be imported as ASET maxima without a reduction.
 
-- locate any literature whose relation model uses \(\pm1\) together with
-  side bounds or an equivalent distinct-subset-sum condition;
-- do not substitute ordinary linear independence.
+Remaining:
 
-## E. Bounded-support additive families
+- q=3 distinct-summand/all≤d systems;
+- q=3 bounded-support two-sided signed relations.
 
-This is the most novelty-sensitive cluster.
-
-Questions:
-
-1. Are there sharp \(B_h\)/dissociated bounds when every generator lies in a
-   q-ary Hamming ball of radius \(w\)?
-2. Are supports exactly w or at most w?
-3. Are coefficients fixed, signed, or arbitrary?
-4. Are upper and lower exponents known for fixed \(d,w\)?
-5. Are constructions algebraic, probabilistic, or code-derived?
-
-Status: NEEDS_PRIMARY_CHECK.
-
-## F. Secondary boundary sources
+## G. Secondary locality/nested/mixed sources
 
 These do not decide ASET novelty unless a direct reduction appears.
 
@@ -94,20 +75,40 @@ These do not decide ASET novelty unless a direct reduction appears.
 |---|---|
 | Mazumdar–Chandar–Wornell (2014) | update/write locality comparator |
 | Mehrabi / LRC update complexity | update-complexity comparator |
-| Huang et al. (2020) | warning against pure nestedness-tax claims |
+| Huang et al. (2020) | warning against pure nestedness-tax |
 | mixed-alphabet coding literature | secondary mixed-cell lane |
-| Minisketch / PinSketch | practical algebraic reconciliation comparator |
+| Minisketch / PinSketch | algebraic reconciliation comparator |
 | Stuffed IBLT | randomized/high-probability comparator |
 
-## Final decision table
+## H. Arithmetic transfer rules
 
-To be filled only after primary-source verification:
+For the same columns/input domain, after choosing integer representatives:
 
-| Regime | Known construction/lower baseline | Valid upper baseline | Unclosed gap | Decision |
-|---|---|---|---|---|
-| q=2 | TBD | TBD | expected known territory | TBD |
-| q=3 | TBD | TBD | side-bounded signed gap | TBD |
-| odd q>3 | TBD | TBD | coefficient + side-bound gap | TBD |
-| char 2, q>2 | TBD | TBD | field-specific gap | TBD |
+\[
+\text{mod-}q\text{ ASET}
+\Longrightarrow
+\text{ordinary-integer bounded-d separability}.
+\]
 
-Final status remains **OPEN**.
+Reason: integer equality implies equality modulo \(q\).
+
+Therefore a compatible **upper bound** for ordinary bounded-d separability can
+upper-bound modular ASET.
+
+An ordinary-addition construction does not automatically give a modular
+ASET construction, because distinct integer sums may coincide modulo \(q\).
+
+All-subset integer signature codes and bounded-d modular ASET are generally
+incomparable in strength because one changes both arithmetic and cardinality
+scope.
+
+## I. Final decision table
+
+| Regime | Valid baseline known now | Remaining unclosed gap | Decision |
+|---|---|---|---|
+| q=2 | sparse parity-check; integer constant-weight B2/signature neighbors | novelty already poor | STOP as primary target |
+| q=3 | Lefmann lower baseline; standard Sidon/2-cap neighbor; exact ASET separation | two-sided signed + bounded support | OPEN |
+| odd q>3 | Lefmann lower baseline; integer signature/additive-separable neighbors | coefficient restriction + bounded sides + bounded support | OPEN |
+| char 2, q>2 | arbitrary-coefficient sparse-linear baseline | field-specific signed relation behavior | OPEN |
+
+Final G1B status remains **OPEN**.

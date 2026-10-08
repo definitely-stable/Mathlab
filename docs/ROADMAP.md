@@ -35,18 +35,28 @@ Established:
 
 #### G1B — primary-source novelty closure
 
-Status: **ACTIVE**
+Status: **ACTIVE — AUDIT 01 COMPLETE**
 
 Issue: #6.
 
-Required audit:
+Audit 01 verified:
 
-1. sparse parity-check matrices;
-2. k-dissociated / bounded-order signed relations;
-3. Sidon / weak Sidon / restricted \(B_h\);
-4. distinct-summand subset-sum systems;
-5. bounded-support/Hamming-ball additive families;
-6. q=3 specializations.
+1. Lefmann q-ary sparse parity-check boundary;
+2. dissociated/free/h-free terminology;
+3. Sidon / \(B_h^*\) / weak-distinct-summand conventions;
+4. q=3 Sidon/2-cap mismatch;
+5. binary constant-weight \(B_2\) literature;
+6. signature/detecting/adder-code literature;
+7. additive/quantitative group-testing separability under standard arithmetic.
+
+Audit 02 must close:
+
+1. bounded-column-weight quantitative/additive group testing;
+2. finite-field/mod-q bounded-active-user signature codes;
+3. q-ary bounded-support Sidon/\(B_h\)/dissociated systems;
+4. two-sided h-free / both-side-bounded signed relations;
+5. q=3 distinct-summand variants;
+6. characteristic-two q>2 behavior.
 
 Allowed exit:
 
