@@ -31,6 +31,18 @@ Terminology: \`LENT-001\` is a stable historical ID. Public-facing work uses
 Executable artifacts verify finite mathematics; they do not establish
 publication novelty.
 
+## HYP-001/002 locality-capacity research (independent G2 lane)
+
+[Mathematical claim ledger, derivations, adversarial tests and prior-art map](HYP-001-002-LOCALITY-TRANSITION.md)
+tracks HYP-001 issue #24 and HYP-002 issue #25. HYP-001 has a derived
+Theta_q(m^(3/2)) proof based on classical C4-free graphs. HYP-002 has
+proved Omega(m²) and O_q(m^(5/2)) bounds, while Theta(m²) remains a
+CONJECTURE. Novelty of either theorem has NOT been established.
+
+The machine-frozen finite test protocol is
+`research/lent-001/hyp001-002-protocol.json`. The finite construction
+oracle is `research/locality_transition.py`.
+
 ## Current status
 
 G1B is closed with \`SPLIT_BY_CHARACTERISTIC\`.
