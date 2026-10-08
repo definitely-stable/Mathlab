@@ -101,6 +101,27 @@ Status: **PHASE B / HYP-002 SHARP QUADRATIC EXPONENT DERIVED; NOVELTY NOT AUDITE
   leading constants, compact decoder tradeoffs, or higher w separately.
   No original discovery, Lean completion, or Rust crate claimed.
 
+### HYP-002-C — index-free affine two-ID decoder / product gate
+
+Status: **PHASE A IMPLEMENTATION / CI-EVIDENCE GATE** (issue #34).
+
+- The affine F3^r Steiner system yields a deterministic table-free
+  decoder for <=2 DISTINCT active IDs, with O(m) dense scan and <=20
+  candidate triple checks. This is a restricted correctness theorem.
+- A fully explicit 3-distinct-line versus 2-line collision proves
+  over-capacity cannot always be detected from a modulo-3 snapshot;
+  naive raw arithmetic has NO unconditional membership safety.
+- Storage: dense m trits is Theta(m) bits versus two canonical
+  IDs needing O(log m) bits and no V-entry lookup.
+- Compare Python checked transitions and direct-ID operations with
+  non-gating diagnostic benchmarks on GitHub CI.
+- Preliminary product decision: **STOP_STANDALONE_DENSE_TWO_ID**
+  unless a different use case proves an end-to-end merge/algebraic
+  workload advantage including additional metadata.
+- Protocol/proof: docs/research/HYP-002-C-AFFINE-DECODER-PROTOCOL.md.
+  Tests: research/test_affine_two_id.py; benchmark:
+  research/bench_affine_two_id.py.
+
 This lane **does not supersede** G2B-B (#14), which remains open.
 
 ### G3 — formalization
