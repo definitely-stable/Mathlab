@@ -85,6 +85,31 @@ class Uct001FiniteTests(unittest.TestCase):
             self.assertEqual(len(reachable(triangle, center, 1)), 3)
         self.assertEqual(sum(comb(2, j) for j in range(2)), 3)
 
+    def test_bipartite_k23_is_not_hypercube_subgraph(self):
+        # Complete bipartite K(2,3) satisfies all radius counts at m=3,
+        # but is not a cubical graph (any pair shares <=2 neighbors).
+        from itertools import permutations
+        graph = [{2, 3, 4}, {2, 3, 4}, {0, 1}, {0, 1}, {0, 1}]
+        for x in range(5):
+            for d in range(4):
+                radius = min(d, 3)
+                ball = sum(comb(3, j) for j in range(radius + 1))
+                self.assertLessEqual(len(reachable(graph, x, d)), ball)
+        self.assertFalse(any(
+            encodes(graph, words, tuple(range(5)), 1)
+            for words in permutations(range(8), 5)
+        ))
+        for m in range(1, 6):
+            words = range(1 << m)
+            for a in words:
+                for b in words:
+                    if a == b:
+                        continue
+                    self.assertLessEqual(sum(
+                        (a ^ z).bit_count() == 1 and (b ^ z).bit_count() == 1
+                        for z in words
+                    ), 2)
+
     def test_current_observation_does_not_define_dynamic_state(self):
         # Exhaustive truth tables / all state pairs / common overwrites.
         witnesses = []
