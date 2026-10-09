@@ -104,6 +104,12 @@
       "tier": "DERIVED_CLASSICAL",
       "source": "docs/research/UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md",
       "summary": "Adaptive query paths intersect changed code cells; tight one-bit-probe read/write characterization"
+    },
+    {
+      "id": "UCT004-SOUND-PACKING",
+      "tier": "DERIVED_CLASSICAL",
+      "source": "docs/research/UCT-004-G2-A-SOUND-WITNESS-PACKING.md",
+      "summary": "Randomized verifier private-coin completeness/soundness forces probes of sensitive code-change supports; fractional packing lower bound, tight unit-write parity sampling"
     }
   ],
   "edges": [
@@ -220,6 +226,30 @@
       "to": "UCT003-INFLUENCE",
       "kind": "OPEN_REDUCTION",
       "condition": "Global encoding-capacity proof observes the whole maintained code; bit-probe access limitation is a distinct extra model."
+    },
+    {
+      "from": "UCT003-INFLUENCE",
+      "to": "UCT004-SOUND-PACKING",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Replace deterministic output mismatch by accepting witness false-claim soundness with fixed private coins and paired adaptive read traces."
+    },
+    {
+      "from": "HYP103",
+      "to": "UCT004-SOUND-PACKING",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Classical promise certificate and hitting set intuition with explicit soundness for every dishonest claim; not equal theorem costs."
+    },
+    {
+      "from": "UCT004-SOUND-PACKING",
+      "to": "FRONTIER-C",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Needed operational verification charge, but this classical fractional packing does not establish a new fully priced online theorem."
+    },
+    {
+      "from": "ANNOTATED",
+      "to": "UCT004-SOUND-PACKING",
+      "kind": "PRIOR_ART_BARRIER",
+      "condition": "Online proof publication and verifier work are additional resources; private-coin bit probes alone do not establish online Merlin-Arthur bounds."
     }
   ]
 }
