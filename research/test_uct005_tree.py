@@ -84,6 +84,18 @@ class Uct005TreeTests(unittest.TestCase):
                       self.data["edges"])
         self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
 
+    def test_g3b2c1_does_not_promote_gc_to_original_uct(self):
+        nodes = {node["id"]: node for node in self.data["nodes"]}
+        node = nodes["UCT005G3B2C1"]
+        self.assertEqual(node["kind"], "research_input")
+        self.assertIn("REJECTED_FALSE_JOINT_LOWER_BOUND", node["status"])
+        self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
+        self.assertIn(
+            {"parent": "UCT005G3B2C0", "child": "UCT005G3B2C1",
+             "relation": "RETENTION_COST_AND_FALSE_CONJECTURE_NOT_ROOT_PROOF"},
+            self.data["edges"],
+        )
+
     def test_no_unsound_logical_arrows(self):
         relations = {e["relation"] for e in self.data["edges"]}
         self.assertIn("THREAT_MODEL_NONTRANSFER", relations)
