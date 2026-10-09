@@ -23,3 +23,7 @@
 **Higher-value G3 frontier:** explicit fully costed online witness maintenance, program description length, honest prover complexity, persistent authenticated state, network bytes, multiple/adaptive queries, meaningful δ≤1/3 and randomized key/security contracts. Check exact original 2026 source theorem overlap first; pursue only if a measurable mathematical separation remains.
 
 **CI gate:** `research/test_uct004_nonlinear_cover.py` independently tests all nonempty honest-state subsets up to n=5, projection separability for all opposite states, inclusion-maximal candidate covers, exact set-cover minima, both parities and the n4 nonlinear falsifier. This is finite computational evidence, not peer-reviewed theorem novelty or a general-n proof.
+
+## Post-G2-D PPZ theorem closure (2026-10-09)
+
+The later [all-n nonlinear private-coin witness-bit theorem](UCT-004-G2-D-ALL-N-PPZ-PROOF-BITS.md) proves b_min(n,p)=ceil(n/p)-1 via classic [PPZ 1999](https://doi.org/10.4086/cjtcs.1999.011), beyond the restricted linear tests. This solves **b**, not exact integer κ. [Primary scope audit](UCT-004-G2-D-PPZ-PRIMARY-SOURCE-AUDIT.md) distinguishes [MFCS 2022 parity CNF auxiliary-variable width](https://doi.org/10.4230/LIPIcs.MFCS.2022.47) from input-coordinate probe width. Prior G2-C novelty assessment remains STOP for worldwide foundational discovery; full end-to-end online proof costs still OPEN.
