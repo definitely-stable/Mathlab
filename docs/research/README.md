@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## DAG-002 × ALG-001 G1-B — conditional adaptive-probe/write frontier and maintained GF(2) syndrome (2026-10-09)
+
+[**Conditional joint H/B+G, P, W, c, N bound and its known coding limits**](DAG-002-ALG-001-G1-B-ADAPTIVE-DECISION-TREES.md) · [G1 #140](https://github.com/definitely-stable/Mathlab/issues/140) · [G1-B #157](https://github.com/definitely-stable/Mathlab/issues/157) · [independent exhaustive oracles](../../research/test_dag002_g1b_adaptive.py). Fixed prior physical history and K distinct successor answer vectors require `K ≤ 2^H V_c(M,W)`, `M=min(N,n Σ_{d=0}^{P−1}2^{cd})`; **elementary classical-style decision-tree counting**, NOT new UCT-005 proof. P=1 impossible in n=2,H=0,N=3,W=1, while classical Hamming parity-check syndrome admits P=2, one remote update read and one write per nonzero DELTA, all online histories. Target updates require additional charged reads. No cryptography, physical page bytes, novelty or Rust; G1-C remains OPEN.
+
+
 ## INDEX-001 G2-B3-A — two-slot snapshot/manifest crash-boundary research (2026-10-09)
 
 [**Frozen two-generation manifest/LSN WAL checkpoint ordering, explicit fail-closed boundary and primary literature**](INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) · [issue #146](https://github.com/definitely-stable/Mathlab/issues/146) · [two-slot stdlib POSIX reference](../../research/index001_generations.py) · [crash/GC/dense-oracle tests](../../research/test_index001_generations.py) · [deterministic comparative audit](../../research/index001_generation_audit.py). Includes three source identities LIT-206..208 (PoWER OSDI 2025, Ferrite ASPLOS 2016, DIFFuzzer ISP RAS 2026); primary abstracts/identities checked, proofs NOT independently verified. **One writer; process-stop failpoint testing is NOT real power-loss proof**. Corrupt selected generation fails closed, prior snapshot is not automatically a valid fallback after WAL truncate. Hardware crash theorem and Rust API remain NO-GO.
