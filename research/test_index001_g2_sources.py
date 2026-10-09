@@ -26,7 +26,7 @@ class G2ASources(unittest.TestCase):
         cls.by = {e["id"]: e for e in cls.data["entries"]}
 
     def test_four_new_canonical_primary_identities_and_committed_note(self):
-        self.assertEqual(len(self.by), 205)
+        self.assertEqual(len(self.by), 207)
         for key, (ident, title) in EXPECTED.items():
             e = self.by[key]
             self.assertEqual(e["identity"], ident)
@@ -48,7 +48,7 @@ class G2ASources(unittest.TestCase):
         self.assertIn("arxiv:2405.15088", self.by["LIT-183"]["alternate_identities"])
         self.assertEqual(self.by["LIT-175"]["identity"], "usenix:fast26:zhao")
         self.assertEqual(self.by["LIT-098"]["identity"], "arxiv:2011.02615")
-        self.assertEqual(len({e["identity"] for e in self.by.values()}), 205)
+        self.assertEqual(len({e["identity"] for e in self.by.values()}), 207)
 
     def test_page_model_explicitly_avoids_physical_proof_claim(self):
         audit = AUDIT.read_text(encoding="utf-8")
