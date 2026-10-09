@@ -8,6 +8,7 @@ from hyp105_g5e2b3b1_critical_flows import (
     _automorphisms, two_factors, critical_orbits,
     critical_supports, exact_nowherezero_signed_flow,
     critical_flow_census, proved_matching_r3_lower,
+    connected_contracted_column_graph,
 )
 from hyp105_g5e2b1_energy import single_signed_trade_mitm
 from hyp105_g5e1_motifs import topology_gate
@@ -88,6 +89,18 @@ class CriticalSixFlowTests(unittest.TestCase):
     def test_full_finite_signed_core_scope(self):
         report = critical_flow_census()
         self.assertEqual(report["total_labeled_signed_cases"], 49000)
+        self.assertEqual(report["colored_signed_isomorphism_orbits"], 110)
+        self.assertEqual(report["zero_flow_labeled_cases"], 100)
+        self.assertEqual(report["positive_flow_labeled_cases"], 48900)
+        self.assertEqual(report["orbits_by_kind_and_sign"]["2C3/2C3/zero"], 2)
+        self.assertEqual(report["labeled_cases_by_kind_and_sign"]["2C3/2C3/zero"], 100)
+        self.assertEqual(report["min_positive_flow_count"], 4806)
+        self.assertEqual(report["max_flow_count"], 5643)
+        self.assertTrue(report["proved_critical_flow_iff_connected"])
+        self.assertFalse(connected_contracted_column_graph(TRIANGLES, TRIANGLES))
+        self.assertTrue(connected_contracted_column_graph(CYCLE, TRIANGLES))
+        self.assertTrue(connected_contracted_column_graph(CYCLE, CYCLE))
+
         self.assertEqual(report["left_right_2_factors"], 4900)
         self.assertEqual(sum(report["labeled_cases_by_kind_and_sign"].values()),
                          49000)
