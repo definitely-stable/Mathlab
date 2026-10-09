@@ -98,12 +98,6 @@
       "tier": "EXTERNAL_SOURCE",
       "source": "docs/research/UCT-001-G1-2026-DYNAMIC-LOWER-BOUND-AUDIT.md",
       "summary": "2026 cell-probe Multiphase result and communication proof technique"
-    },
-    {
-      "id": "UCT003-INFLUENCE",
-      "tier": "DERIVED_CLASSICAL",
-      "source": "docs/research/UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md",
-      "summary": "Adaptive query paths intersect changed code cells; tight one-bit-probe read/write characterization"
     }
   ],
   "edges": [
@@ -202,24 +196,6 @@
       "to": "FRONTIER-C",
       "kind": "PROOF_INGREDIENT",
       "condition": "Only a well-typed error/adversary model may justify statistical relaxation."
-    },
-    {
-      "from": "UCT003-INFLUENCE",
-      "to": "FRONTIER-C",
-      "kind": "PROOF_INGREDIENT",
-      "condition": "A new same-model joint theorem must charge actual read paths, writes, trusted helpers and proof generation, not just entropy."
-    },
-    {
-      "from": "HYP103",
-      "to": "UCT003-INFLUENCE",
-      "kind": "ANALOGY_ONLY",
-      "condition": "Both use hitting sets on different objects; old-bit certificate probes are not stored cell read/write footprints."
-    },
-    {
-      "from": "MASTER-A",
-      "to": "UCT003-INFLUENCE",
-      "kind": "OPEN_REDUCTION",
-      "condition": "Global encoding-capacity proof observes the whole maintained code; bit-probe access limitation is a distinct extra model."
     }
   ]
 }

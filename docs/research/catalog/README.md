@@ -1,8 +1,12 @@
 # Research catalog — provenance-first index
 
-## UCT-003 G1 — static bit-probe prior-art source (2026-10-09)
+## UCT-003 G1 — static bit-probe primary prior art (2026-10-09)
 
-Canonical bibliography expanded from **136** to **137** unique identities: **LIT-137** is [Viola (2012), *Bit-Probe Lower Bounds for Succinct Data Structures*](https://doi.org/10.1137/090766619), with original DOI metadata, Russian model-specific abstract, source-provenance link, title-identity pin, regenerated [forward index](LITERATURE.md) and [reverse index](LITERATURE-BY-RESEARCH.md). This work provides strong *static* succinct bit-probe query lower bounds including adaptive reads; it does **not** directly prove the dynamic write-locality or fully authenticated certificate theorem. Full primary proof is not independently verified. See [UCT-003 source audit](../UCT-003-G1-SOURCE-AND-GAP-AUDIT.md).
+Original [Viola (2012), *Bit-Probe Lower Bounds for Succinct Data Structures*](https://doi.org/10.1137/090766619) is imported as **LIT-141** with DOI identity, Russian abstract/model boundary, `full_proof_verified=false`, regenerated [forward](LITERATURE.md) and [inverse](LITERATURE-BY-RESEARCH.md) indexes and a title pin. Canonical bibliography grows from 140 to **141**, preserving the parallel HYP-105 G2 sources LIT-137..140. Static succinct bit-probe redundancy theory does **not** automatically imply our dynamic read/write or authenticated proof results. [UCT-003 source audit](../UCT-003-G1-SOURCE-AND-GAP-AUDIT.md).
+
+## HYP-105 G2 grid-trade / sparse-code prior art (2026-10-09)
+
+Four unique original publication identities **LIT-137..140** imported, without disturbing 136 existing records: 2022 AMS dense grid-free linear 3-graphs (the crucial Omega(m²) construction), Naor–Verstraëte 2005 ISIT sparse linear-dependence bounds, Santos–Tyomkyn 2025 Brown–Erdős–Sós high-density partial result, and Frankl–Füredi–Goorevitch–Holzman–Simonyi 2026 triple-system extremal study. Exact source-to-claim scope, provenance and false model-transfer warnings in [HYP-105 G2 audit](../HYP-105-G2-GRID-FREE-QUADRATIC.md). Authors/publisher abstracts checked; entire cited source proofs not independently checked. **140 unique works** with generated forward/reverse indices.
 
 ## HYP-105 G1 classical graph-source import (2026-10-09)
 

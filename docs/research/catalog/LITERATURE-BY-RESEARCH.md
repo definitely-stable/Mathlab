@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**137** работ сопоставлены с **38** внутренними исследованиями.
+**141** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -193,6 +193,10 @@
 - [LIT-133](LITERATURE.md#lit-133) — Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes (2019; publisher_abstract_checked)
 - [LIT-135](LITERATURE.md#lit-135) — Extremal graphs with no C4's, C6's, or C10's (1991; publisher_abstract_checked)
 - [LIT-136](LITERATURE.md#lit-136) — An explicit formula for obtaining (q+1,8)-cages and others small regular graphs of girth 8 (2011; primary_abstract_checked)
+- [LIT-137](LITERATURE.md#lit-137) — Constructing dense grid-free linear 3-graphs (2022; publisher_abstract_checked)
+- [LIT-138](LITERATURE.md#lit-138) — Improved bounds on the size of sparse parity check matrices (2005; publisher_abstract_checked)
+- [LIT-139](LITERATURE.md#lit-139) — The Brown-Erdős-Sós conjecture in dense triple systems (2025; primary_abstract_checked)
+- [LIT-140](LITERATURE.md#lit-140) — Triangle-Free Triple Systems (2026; publisher_abstract_checked)
 
 ## ML-003
 
@@ -281,7 +285,11 @@
 - [LIT-134](LITERATURE.md#lit-134) — Equivalent Comparisons of Experiments (1953; publisher_bibliography_checked)
 - [LIT-135](LITERATURE.md#lit-135) — Extremal graphs with no C4's, C6's, or C10's (1991; publisher_abstract_checked)
 - [LIT-136](LITERATURE.md#lit-136) — An explicit formula for obtaining (q+1,8)-cages and others small regular graphs of girth 8 (2011; primary_abstract_checked)
-- [LIT-137](LITERATURE.md#lit-137) — Bit-Probe Lower Bounds for Succinct Data Structures (2012; publisher_abstract_checked)
+- [LIT-137](LITERATURE.md#lit-137) — Constructing dense grid-free linear 3-graphs (2022; publisher_abstract_checked)
+- [LIT-138](LITERATURE.md#lit-138) — Improved bounds on the size of sparse parity check matrices (2005; publisher_abstract_checked)
+- [LIT-139](LITERATURE.md#lit-139) — The Brown-Erdős-Sós conjecture in dense triple systems (2025; primary_abstract_checked)
+- [LIT-140](LITERATURE.md#lit-140) — Triangle-Free Triple Systems (2026; publisher_abstract_checked)
+- [LIT-141](LITERATURE.md#lit-141) — Bit-Probe Lower Bounds for Succinct Data Structures (2012; publisher_abstract_checked)
 
 ## ML-005
 
@@ -346,7 +354,7 @@
 - [LIT-130](LITERATURE.md#lit-130) — Annotations for Sparse Data Streams (2013; publisher_abstract_checked)
 - [LIT-131](LITERATURE.md#lit-131) — New Lower Bounds in Merlin-Arthur Communication and Graph Streaming Verification (2024; publisher_abstract_checked)
 - [LIT-132](LITERATURE.md#lit-132) — Arthur–Merlin streaming complexity (2015; publisher_abstract_checked)
-- [LIT-137](LITERATURE.md#lit-137) — Bit-Probe Lower Bounds for Succinct Data Structures (2012; publisher_abstract_checked)
+- [LIT-141](LITERATURE.md#lit-141) — Bit-Probe Lower Bounds for Succinct Data Structures (2012; publisher_abstract_checked)
 
 ## ML-007
 
@@ -363,6 +371,10 @@
 - [LIT-090](LITERATURE.md#lit-090) — Lower Bounds for Near-Quadratic-Depth Resolution over Parities (2026; publisher_abstract_checked)
 - [LIT-135](LITERATURE.md#lit-135) — Extremal graphs with no C4's, C6's, or C10's (1991; publisher_abstract_checked)
 - [LIT-136](LITERATURE.md#lit-136) — An explicit formula for obtaining (q+1,8)-cages and others small regular graphs of girth 8 (2011; primary_abstract_checked)
+- [LIT-137](LITERATURE.md#lit-137) — Constructing dense grid-free linear 3-graphs (2022; publisher_abstract_checked)
+- [LIT-138](LITERATURE.md#lit-138) — Improved bounds on the size of sparse parity check matrices (2005; publisher_abstract_checked)
+- [LIT-139](LITERATURE.md#lit-139) — The Brown-Erdős-Sós conjecture in dense triple systems (2025; primary_abstract_checked)
+- [LIT-140](LITERATURE.md#lit-140) — Triangle-Free Triple Systems (2026; publisher_abstract_checked)
 
 ## ML-008
 

@@ -49,7 +49,3 @@
 
 ### Stop/reopen
 **Baseline (A/B in master theorem) PROVED_DERIVED_CLASSICAL;** **novel nonfactorizing theorem OPEN.** No blanket combination of heterogeneous models, no claim that many proofs + new terminology = original theorem, and no Rust authorization. Publication claims require exact theorem-level reading of the closest sources, proof, independent finite falsification, and an improvement/separation beyond them.
-
-## UCT-003 G1 exact bit-probe influence transfer (2026-10-09)
-
-[Derived-classical adaptive read/write intersection theorem and one-bit-probe exact characterization](UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md) clarify that global access to all code bits in UCT-002 is weaker than a real per-query probe budget. A changed-query response must intersect an update's physical changed-cell set along its old-state adaptive query trace. For all n prefix parity queries and p=1, write locality >=n is sharp, whereas a Fenwick tree avoids a false w*p>=n bound for p>1. Existing Fredman–Saks, Pătraşcu–Demaine, Pătraşcu–Tarniţă bit-probe and local-update-code work prevents broad novelty. [Model/source audit and new p>=2+soundness gap](UCT-003-G1-SOURCE-AND-GAP-AUDIT.md). Proof is classical, not a newly discovered general lower-bound theory.
