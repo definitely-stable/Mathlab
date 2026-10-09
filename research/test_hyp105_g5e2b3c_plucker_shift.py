@@ -77,9 +77,13 @@ class PluckerShiftTests(unittest.TestCase):
                 self.assertEqual(len(set(model["supports"])),model["N"])
                 self.assertEqual(model["N"],model["v"]*(model["s"]+1))
                 if scheme.endswith("-mincollision"):
+                    self.assertTrue(model["all_h_nonalignment_theorem_proved"])
                     self.assertTrue(model["no_incidence_aligned_perfect_matching"])
                     self.assertLessEqual(exact,model["s"]+1)
                     self.assertLess(exact,model["v"])
+                else:
+                    self.assertFalse(model["all_h_nonalignment_theorem_proved"])
+                    self.assertTrue(model["no_incidence_aligned_perfect_matching"])
                 self.assertFalse(model["all_h_R2_bound_proved"])
                 self.assertFalse(model["all_h_R3_upper_bound_proved"])
 
