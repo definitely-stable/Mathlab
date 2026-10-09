@@ -1,5 +1,9 @@
 # CURRENT_STATE
 
+## UCT-005 literature reconciliation (2026-10-09) — ten works promoted, 218 total
+
+[Canonical LIT-209..218](research/catalog/LITERATURE.md#lit-209) · [source provenance test](../research/test_uct005_lit_normalization.py) · [issue #154](https://github.com/definitely-stable/Mathlab/issues/154). Preserve LIT-205 HYP-105 and LIT-206..208 INDEX-001 primary publications; publisher/author versions remain one work. **RESEARCH_SOURCE_IMPORT_COMPLETE / UCT-005_ROOT_NOVELTY_OPEN_UNPROVED / NO_RUST.**
+
 ## HYP-105 G5-C3-B0 (2026-10-09) — dual doily geometry, full-duad transfer no-go, signed-trade cost
 
 [Exact classical geometry reconstruction and scoped theorem](research/HYP-105-G5-C3-B0-DUAD-SYNTHEME-GEOMETRY.md) · [symplectic/duad/syntheme finite reconstruction](../research/hyp105_g5c3b0_doily_geometry.py) · [independent unit/weighted field tests](../research/test_hyp105_g5c3b0_doily_geometry.py) · [merged PR #130](https://github.com/definitely-stable/Mathlab/pull/130) commit `6bb09f282f63b8e77bafebe68a1b910e76e02751` · [exact head Research #1138 SUCCESS](https://github.com/definitely-stable/Mathlab/actions/runs/37897751024), 26/26 hosted CI steps. **CLASSICAL_FINITE_GEOMETRY / ELEMENTARY_FULL_DUAD_MODEL_NO_GO / NO_NEW_ASET_EXPONENT / NO_RUST.**
