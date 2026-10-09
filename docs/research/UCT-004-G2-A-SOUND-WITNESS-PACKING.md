@@ -69,6 +69,38 @@ Store M(x)=(x_1,...,x_n, ⊕_i x_i). Every original input toggle flips **two** c
 
 Likewise, an uncharged authenticated root or trusted external memo can store that global parity independently of M, rendering (G2-1) inapplicable. This is a model mismatch, not a counterexample to its proof.
 
+
+## 5B. Theorem G2-5 — a sharp PROOF-LENGTH × PROBE frontier for linear local tests
+
+**This result is stronger but has an additional restrictive hypothesis.** The stored encoding must be the injective complete n-bit-toggle **unit-write** representation (hence fixed input-coordinate permutation by UCT-003). For a *single full-parity claim* a=⊕x_i, an honest witness π is chosen before the private coins. The verifier is a **linear local-test verifier**: for each fixed a,π it has a publicly determined finite collection of parity constraints
+
+    XOR_{i∈S_t} x_i = z_t(a,π),  |S_t|≤p,
+
+and chooses a check t with strictly positive probability before reading the data, accepts iff that check holds. The read-set S_t and target bit z_t are determined by a,π and randomness, **not by source bits**; the verifier does not perform nonlinear/adaptive bit-query tests or obtain extra trusted state. It has perfect completeness (α=0) and **nontrivial** soundness δ<1 against all wrong claims and all proofs.
+
+Write g=ceil(n/p), 1≤p≤n, and let b bound the length of the prover message, excluding the separate one-bit claimed answer a.
+
+**THEOREM (DERIVED_CLASSICAL, SHARP IN THIS MODEL):**
+
+    b ≥ ceil(n/p)−1 = g−1.                                    (G2-5)
+
+**Proof.** Fix a claimed parity a and one proof π that is accepted with probability one on at least one x. Let A(a,π) be the affine set of all bit strings satisfying *every* parity constraint that the private coins can select with nonzero probability. Since x∈A, the system is consistent. Soundness δ<1 implies **every** y∈A has full parity a; otherwise (a,π) would be a false claim accepted with probability one. In GF(2) linear algebra, this entails that the full all-ones row u=(1,...,1) lies in the row span of the coefficient vectors 1_{S_t}: otherwise a kernel vector v with u·v=1 exists, and x⊕v∈A has opposite parity, contradiction.
+
+Let r be the row rank. Select r of the parity-check rows as a basis; the all-ones row is a sum of some of these r rows. Its nonzero coordinates cover **all n input bits**. Each selected row has at most p nonzero coordinates, hence n≤rp and r≥g. Thus |A(a,π)|=2^(n−r)≤2^(n−g). Honest inputs covered by π form a subset of A and cannot exceed that size.
+
+Each of the 2^(n−1) strings with parity a must have some honest π. At least 2^(g−1) distinct witness strings are necessary. If all witnesses are padded to b bits, at most 2^b are available, so b≥g−1. If variable lengths up to b are allowed, only 2^(b+1)−1 distinct binary strings exist, which is smaller than 2^(g−1) for b≤g−2; the same integer bound follows. QED.
+
+**Exact upper construction (all n,p, including non-divisible n).** Partition the n input coordinates into g=ceil(n/p) nonempty blocks of size ≤p. Honest prover transmits the parity of the first g−1 blocks (**b=g−1 bits**); given the publicly claimed total parity a, the verifier reconstructs the expected last-block parity. It samples one of the g blocks **uniformly with private coins**, reads at most p stored input bits in the sampled block, and accepts iff the observed block parity matches the claimed one. For the true a, the honest π gives completeness 1. For any false a and any π, an odd positive number of the g block parities must disagree with reality; acceptance probability≤1−1/g, and a malicious π can make exactly one block wrong. Hence the exact protocol parameters are
+
+    m=n, w=1, b=g−1, p≤block size cap,
+    α=0, δ=1−1/g.                                            (G2-6)
+
+The lower bound on b and this worst-case soundness value are simultaneously attained by the construction in the stated **linear block-test verifier class**. The proof requires no cryptographic assumption. The protocol reads **b witness bits** and performs O(g+p) local work if the proof is materialized; prover generation is O(n) without incremental extra state, and is not free end-to-end. For p=1 this improves the earlier redundant n-bit claimed-string witness to **b=n−1** (the separate public claim supplies the missing parity bit).
+
+**Non-equivalence/novelty warning:** (G2-5) is a classical GF(2) rank/certificate-cover argument for the restricted linear one-check verifier. It has NOT been shown for arbitrary nonlinear/adaptive verifiers, communication with reused randomness, cryptographic succinct proofs, arbitrary q-ary encodings, or the complete joint prefix-query suite with all answers restricted to p bit probes. It does NOT improve the 2007 dynamic bit-probe or 2021 fractional adversary theorem in their own models, and no publication-originality claim follows.
+
+Independent exact finite oracles and adversarial block witnesses: `research/test_uct004_linear_proof_length.py`. This is a more meaningful **joint resource brick** than UCT-002's uncharged advice counting, but the genuinely novel fully priced original frontier remains OPEN.
+
 ## 6. Remaining genuinely original frontier — still OPEN
 
 G2-A closes a necessary proof/certificate connection; it **does NOT** establish a strong new multi-resource theorem. Next mathematical challenge under [UCT-004 issue #87](https://github.com/definitely-stable/Mathlab/issues/87):
