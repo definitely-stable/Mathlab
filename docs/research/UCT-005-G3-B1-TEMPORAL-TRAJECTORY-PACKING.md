@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-09 · [UCT-005 root #105](https://github.com/definitely-stable/Mathlab/issues/105) · [G3 #164](https://github.com/definitely-stable/Mathlab/issues/164) · [this slice #175](https://github.com/definitely-stable/Mathlab/issues/175).
 
-**Scientific status:** \`RESTRICTED_CLASSICAL_TEMPORAL_PACKING_PROVED / INDEPENDENT_FINITE_ORACLES / STRICT_FINITE_COMPARISON / NO_NEW_ASYMPTOTIC_LOWER_BOUND / CRYPTO_AND_PHYSICAL_UPDATE_PROBES_NOT_PROVED / ROOT_OPEN_UNPROVED\`. This result strengthens some deliberately separate application of G3-A's individual-epoch sphere volumes, but is not claimed to be a novel cryptographic memory-checking or cell-probe lower bound. Every resource symbol is scoped.
+**Scientific status:** `RESTRICTED_CLASSICAL_TEMPORAL_PACKING_PROVED / INDEPENDENT_FINITE_ORACLES / STRICT_FINITE_COMPARISON / NO_NEW_ASYMPTOTIC_LOWER_BOUND / CRYPTO_AND_PHYSICAL_UPDATE_PROBES_NOT_PROVED / ROOT_OPEN_UNPROVED`. This result strengthens some deliberately separate application of G3-A's individual-epoch sphere volumes, but is not claimed to be a novel cryptographic memory-checking or cell-probe lower bound. Every resource symbol is scoped.
 
 ## 1. Frozen trajectory task and what is actually charged
 
