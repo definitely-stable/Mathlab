@@ -304,6 +304,7 @@ def report():
             "no_ssd_nand_or_os_measurement":True,
             "working_memory_unbounded":True,
             "zero_reset":z,
+            "fragmented_reset":reset_certificate(n=64,block=32,group=4),
             "adaptive_policy_example":optimize_trace(
                 (0,1,0,1,0),[(0,5,0),(2,3,1),(0,1,1)],
                 32,(1,2,3,4,5),Limits(alpha_n=8,beta=4,query_cap=3))}
