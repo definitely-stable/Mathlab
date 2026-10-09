@@ -1,5 +1,7 @@
 """UCT-002 finite independent oracles: classical capacity, not general proof."""
 from itertools import product
+import json
+from pathlib import Path
 from math import comb, log2
 import unittest
 
@@ -77,6 +79,33 @@ class Uct002JointCapacityTests(unittest.TestCase):
             e = 1-1/k
             coarse_rhs = 1 + e*log2(k)
             self.assertLessEqual(log2(k), coarse_rhs + 1e-10)
+
+    def test_typed_theorem_bricks_do_not_turn_analogies_into_proofs(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs/research/UCT-002-THEOREM-BRICKS.json"
+        d = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(d["schema"], "mathlab.uct002.theorem-bricks.v1")
+        nodes = {n["id"]: n for n in d["nodes"]}
+        self.assertEqual(len(nodes), len(d["nodes"]))
+        self.assertEqual(nodes["MASTER-A"]["tier"], "DERIVED_CLASSICAL")
+        self.assertEqual(nodes["MASTER-B"]["tier"], "DERIVED_CLASSICAL")
+        self.assertEqual(nodes["FRONTIER-C"]["tier"], "CONJECTURE")
+        valid_kinds = {"SPECIAL_CASE", "PROOF_INGREDIENT",
+                       "PRIOR_ART_BARRIER", "ANALOGY_ONLY",
+                       "FALSIFIER", "OPEN_REDUCTION"}
+        for n in d["nodes"]:
+            if n["source"].startswith("docs/"):
+                self.assertTrue((root / n["source"]).is_file(), n["id"])
+        for e in d["edges"]:
+            self.assertIn(e["from"], nodes)
+            self.assertIn(e["to"], nodes)
+            self.assertIn(e["kind"], valid_kinds)
+            self.assertGreater(len(e["condition"]), 18)
+        self.assertTrue(any(e["kind"] == "SPECIAL_CASE" and
+                            e["from"] == "MASTER-A" and e["to"] == "LENT"
+                            for e in d["edges"]))
+        self.assertTrue(all(e["kind"] != "SPECIAL_CASE"
+                            for e in d["edges"] if e["from"] == "DELTAMETER"))
 
     def test_no_unpaid_state_dependent_old_root(self):
         # If any externally supplied perfect current ID is free,
