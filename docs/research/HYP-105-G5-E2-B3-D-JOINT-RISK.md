@@ -15,12 +15,19 @@ F4 = number of 4*4 all-nonzero GF5 checksum-4 coefficient assignments
      solving the alternating signed C4/C4 trade.
 ```
 
-The executable constant `F4` is obtained by E2-B1's **exact** 51²-side GF5 additive-sum histogram and cross-checked by E0's **different** 2^16 prescribed-boundary nowhere-zero flow inclusion/exclusion. Both count the same nonnegative integer, not a synthetic surrogate. In particular F4>0 by setting all coefficients to 1.
+**Exact coefficient and independent closed-form proof: F4=531.** Regard the two physical coordinate edges (one in each color) corresponding to each edge of the shared abstract 4-column C4 as an **ordered pair** of nonzero GF5 weights, with sum `t_i in GF5`. The alternating 2vs2 sign makes opposite-side weights equal for every physical coordinate. The required checksum of each column is `t_(i-1)+t_i=4 mod5`, so around the even cycle `t_0=t_2=t` and `t_1=t_3=4-t`. A given GF5 sum has `c(0)=4` nonzero ordered representations and `c(u)=3` when `u!=0`. Therefore
+
+```text
+F4 = sum_{t in GF5} c(t)^2 * c(4-t)^2
+   = 2*(4^2)*(3^2) + 3*(3^4) = 531.
+```
+
+This closed form counts *exactly* all admissible weight assignments and is independently verified by E2-B1's full **51²-side GF5 additive-sum histogram** and E0's **2^16-edge prescribed-boundary nowhere-zero flow inclusion/exclusion**. The three derivations agree. It is a four-column template coefficient, not a new general flow theorem.
 
 **Theorem D1 — all-h fixed-label necessary obstruction**:
 
 ```text
-R2(B_s(f,g)) >= F4 * Q4(f,g) / 51^4.
+R2(B_s(f,g)) >= 531 * Q4(f,g) / 51^4.
 ```
 
 Proof: each Q4 matching gives exactly one unordered alternating 2-vs-2 signed trade; its support incidence is isomorphic to the C4/C4 template and therefore admits exactly F4 of the 51^4 independent allowed full-nonzero checksum4 coefficient assignments. Distinct four-factor-matchings define distinct signed collision events, and R2 sums all their nonnegative probabilities. No other GF5 events are subtracted. This proof does NOT imply any lower bound on Q4 for arbitrary f,g, or any full R2 upper.
@@ -48,7 +55,7 @@ M4(G_s) >= (1/24) * product_{j=0}^{3} (N-2j Δ).
 Indeed each already selected factor matching edge forbids at most two vertex stars of ≤Δ edges. Here N=Θ(s^4), a=Θ(s^(3/2)), K=Θ(s^3); hence the factor lower is Θ(s^16) and P4(a)^2=Θ(s^-12). Consequently
 
 ```text
-E_uniform_labels[R2] >= F4*3*M4*P4^2 /51^4
+E_uniform_labels[R2] >= 531*3*M4*P4^2 /51^4
                     = Omega(s^4).
 ```
 
@@ -74,6 +81,6 @@ Sample R2 and R3 are **exact finite** values for those seven named columns, not 
 ## 5. Falsifiers, evidence gates and next step
 
 - **Proof scope:** D1 and exact E[Q4] identity hold for ALL h (algebraic counting). Full Q4, unit T4 and exact selected 7-column GF5 R2/R3 are only GF2/GF4 (frozen control). No external geometric symmetry is used.
-- **Independent checks:** E0 16-edge inclusion/exclusion vs 51²-side MITM for F4; direct subset brute oracle for Q4; direct coordinate-by-coordinate unit T4; direct balanced 2vs2 single-event summation vs energy on four selected supports; true GF5 3v3 event numerator >=5643.
+- **Independent checks:** analytic 531 coefficient vs E0 16-edge inclusion/exclusion vs 51²-side MITM for F4; direct subset brute oracle for Q4; direct coordinate-by-coordinate unit T4; direct balanced 2vs2 single-event summation vs energy on four selected supports; true GF5 3v3 event numerator >=5643.
 - **Prior art:** classical alternating/signed graph flow and counting matchings in regular bipartite graphs, published Fu–Ren–Wang (2025) as previously indexed. Do not assert a new general flow theorem or original combinatorial lower exponent without external priority audit.
 - **NO-GO gate:** no all-h Plücker or reverse-line **upper** proved, no new ASET exponent. No finite estimate may be fit to uniform asymptotics. B3.1-B (other positive six-flow motif multiplicities), B3.2-E (all-h bounded R2/R3 for same geometry-aware map) remain OPEN.
