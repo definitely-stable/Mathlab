@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## INDEX-001 G2-B2-A — reproducible application-byte comparisons (2026-10-09)
+
+[**Exact snapshot-vs-WAL frame-count equations, four deterministic range workloads and compaction thresholds 1/4/16**](INDEX-001-G2-B2-A-APPLICATION-IO.md) · [issue #137](https://github.com/definitely-stable/Mathlab/issues/137) · [stdlib reporter](../../research/index001_workload_io.py) · [independent tests](../../research/test_index001_workload_io.py). Counts actual returned `os.write` bytes + application `read_bytes` with exact restart-state oracle, NOT device physical NAND writes or a new general algorithmic theorem. Prior art LIT-098/175/176/182/184..186 reused without new source identity. G2-B2-A measured-model only / PHYSICAL_LOWER_BOUND_OPEN / NO_RUST.
+
+
 ## UCT-005 G2-B — 2D authenticated XOR: frozen model, adversarial replay and source STOP (2026-10-09)
 
 [**Fully priced authenticated 2D parity model, explicit update/query transcript, finite adversarial oracle and quantitative non-novelty checks**](UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md) · [five original 2016–2026 source identities](UCT-005-G2-B-SOURCES.json) · [tests](../../research/test_uct005_g2b_auth_tree.py) · [issue #131](https://github.com/definitely-stable/Mathlab/issues/131). Published dynamic multidimensional query authentication and aggregate ADS defeat generic novelty claims. **G2-B evidence only; full-source proofs not reproduced, cryptographic security not proven, central UCT-005 theorem OPEN_UNPROVED.** Pending canonical LIT numbering while parallel HYP-105 PR #132 owns LIT-205.
