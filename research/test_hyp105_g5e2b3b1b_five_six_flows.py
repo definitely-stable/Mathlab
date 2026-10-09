@@ -126,6 +126,13 @@ class GF5FiveSixClassificationTests(unittest.TestCase):
         self.assertEqual(result["universal_per_event_GF5_flow_lower"],10950)
         self.assertEqual(result["per_matched_six_set_risk_numerator_lower"],
                          109500)
+        # Exact 5x6 matching-class coefficient already established by #214
+        # using a completely different GF5 half-block convolution.
+        self.assertEqual(result["independent_full_matching_C_5_6"],
+                         4578391800)
+        self.assertEqual(result["independent_full_matching_5_6_signed_mass"],
+                         357000)
+        self.assertTrue(result["independent_fourier_cross_certificate"])
         self.assertEqual(
             [x["minimum_exact_GF5_flow"] for x in result["by_type"]],
             [14400,10950,11685])
