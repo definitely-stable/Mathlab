@@ -96,6 +96,30 @@ class G5C3B0ExactDoilyTests(unittest.TestCase):
         self.assertGreaterEqual(one["geometry_aset"], 1)
         self.assertGreaterEqual(one["bounded_improved_aset"], 1)
 
+    def test_frozen_hosted_geometry_tradeoff_and_unchanged_finite_scope(self):
+        # Hosted Research #1125, code HEAD before the all-s transfer gate:
+        # this geometric labeling removes all T4 collisions, but leaves
+        # more minimal T6 trades, reducing the extracted ASET count.
+        report = certified_doily_report(rounds=4, probes=8)
+        self.assertEqual(
+            (report["ovoid_count"], report["spread_count"],
+             report["syntheme_count"], report["incidences"]),
+            (6, 6, 15, 45))
+        self.assertEqual(
+            (report["geometry_T4"], report["geometry_T6"],
+             report["geometry_aset"]), (0, 2100, 18))
+        self.assertEqual(
+            (report["bounded_improved_T4"], report["bounded_improved_T6"],
+             report["bounded_improved_aset"]), (0, 2100, 18))
+        self.assertEqual((report["bounded_swaps"],
+                          report["bounded_evaluations"]), (0, 33))
+        self.assertEqual(
+            report["point_pairs"],
+            [0, 9, 14, 3, 7, 8, 4, 11, 12, 13, 10, 6, 2, 5, 1])
+        self.assertEqual(
+            report["line_pairs"],
+            [0, 9, 14, 3, 8, 4, 7, 11, 6, 12, 1, 13, 5, 10, 2])
+
     def test_full_duad_disjointness_transfer_has_parameter_obstruction(self):
         # Fully labeled K_a-duad disjointness graph models W(3,2), but
         # cannot model GQ(s,s) for any other prime-power order s>=3.
