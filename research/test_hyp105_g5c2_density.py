@@ -1,7 +1,7 @@
 """Independent finite falsification for the G5-C2 trade-density evidence gate."""
 import itertools
 import random
-from math import comb
+from math import comb, prod
 import unittest
 from fractions import Fraction
 
@@ -149,8 +149,7 @@ class G5C2TradeDensityTests(unittest.TestCase):
         self.assertGreaterEqual(len(images), 720 // 12)
         lower = six_cycle_pair_probability_lower(a)
         self.assertGreaterEqual(Fraction(len(images),
-                                         int(__import__("math").prod(
-                                             comb(a, 2) - i for i in range(6)))),
+                                         prod(comb(a, 2) - i for i in range(6))),
                                 lower)
 
     def test_gq_random_pair_labeling_expected_six_trade_lower(self):
