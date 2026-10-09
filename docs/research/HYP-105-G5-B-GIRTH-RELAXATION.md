@@ -10,7 +10,7 @@ For a fixed finite field GF(q), \(A_q^{set}(m,4,3)\) counts the largest set of d
 
 Mathlab's [G4 proof](HYP-105-G4-CHARACTERISTIC-W4.md) established the necessary condition that the **canonical weighted 2+2 factor graph** of the support-exactly-four columns in any ASET family has **no C4 or C6**. This and the classical girth-eight graph extremal bound give
 
-    Ω_q(m^(12/5)) ≤ A_q^lin(m,4,6)
+    Ω_q(m^(12/5) (log m)^(1/5)) ≤ A_q^lin(m,4,6)
                   ≤ A_q^set(m,4,3) ≤ O_q(m^(8/3)).
 
 The upper bound is a theorem about ASET. The hypothesis that its graph-only relaxation is sufficient to construct ASET families is **FALSE**, as proved in [G5-A](HYP-105-G5-A-TRADE-INTERSECTION.md). G5-B quantifies how misleading that relaxation can be.
@@ -74,13 +74,31 @@ over **every** field. The columns all occur in the deterministically defined W(3
 
 This witness strengthens [G5-A](HYP-105-G5-A-TRADE-INTERSECTION.md): graph-girth incompleteness appears **inside a canonical exponent-matching dense girth-eight family**, not only a six-edge matching.
 
-## 5. Research decision, remaining gap, and source novelty
+## 5. Primary-source correction: Lefmann's *logarithmic* lower factor
+
+The original publisher abstract of **Lefmann (2005), existing LIT-043** ([Cambridge original](https://doi.org/10.1017/S0963548304006625)) contains a stronger lower construction than the bare exponent repeatedly quoted in the historical G4 and early G5 notes. For even k≥4 with gcd(k−1,r)=1, the abstract states
+
+    A_q^lin(m,r,k) = Ω_q(m^(kr/[2(k-1)]) (log m)^(1/(k-1))).
+
+Substituting k=6 and r=4 gives gcd(5,4)=1, kr/[2(k−1)]=24/10=12/5 and exponent 1/(k−1)=1/5. Thus for every fixed field q,
+
+    A_q^lin(m,4,6) = Ω_q(m^(12/5) (log m)^(1/5)).
+
+Since ASET contains every such six-wise independent family, the **currently strongest *source-verified* lower** is
+
+    Ω_q(m^(12/5) (log m)^(1/5))
+       ≤ A_q^lin(m,4,6) ≤ A_q^set(m,4,3)
+       ≤ O_q(m^(8/3)).
+
+The old weaker Ω_q(m^(12/5)) bound remains true but incomplete as a best-known summary. This logarithmic correction is **published 2005 prior art**, not a Mathlab discovery, and does not affect the exponent interval [12/5,8/3] or establish a superconstant ASET/linear *ratio*.
+
+## 6. Research decision, remaining gap, and source novelty
 
 **G5-B accepted scope:** An unrestricted *bipartite graph on pair signatures*, including large-girth extremal graphs, is structurally realizable in the canonical sorted 2+2 column factorization. The graph-only relaxation has exactly order \(\Theta_q(m^{8/3})\). It is **not** a correct substitute for genuine exact three-sum distinctness.
 
 The mathematical target of parent **[#95](https://github.com/definitely-stable/Mathlab/issues/95)** remains the real interval:
 
-    Ω_q(m^(12/5)) ≤ A_q^lin(m,4,6)
+    Ω_q(m^(12/5) (log m)^(1/5)) ≤ A_q^lin(m,4,6)
                   ≤ A_q^set(m,4,3) ≤ O_q(m^(8/3)),
 
 with **no new exponent, no proven growing ratio**. Further work must use **signed-coordinate-trade avoidance** or another structural property not implied by ordinary factor-graph girth. Proposed G5-C order:
