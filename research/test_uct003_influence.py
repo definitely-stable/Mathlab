@@ -2,7 +2,7 @@
 
 No proof of novelty, probabilistic security, or multi-probe asymptotic lower bounds.
 """
-from itertools import product
+from itertools import product, permutations, combinations
 from math import log2
 import unittest
 
@@ -142,6 +142,57 @@ class Uct003InfluenceTests(unittest.TestCase):
                     any(table == rep or table == (all_one ^ rep)
                         for rep in representatives)
                 )
+
+    def test_all_small_unit_write_embeddings_are_permuted_input_bits(self):
+        # Brute-force EVERY injective embedding of Q_2 into Q_m
+        # for m=2,3 and Q_3 into Q_3; NOT merely linear encodings.
+        accepted = 0
+        for n, m in ((2, 2), (2, 3), (3, 3)):
+            for encoding in permutations(range(1 << m), 1 << n):
+                # Map from source state x directly to m-bit word encoding[x].
+                if any((encoding[x] ^ encoding[x ^ (1 << i)]).bit_count() != 1
+                       for x in range(1 << n) for i in range(n)):
+                    continue
+                accepted += 1
+                # Derive direction coordinates from edges at zero,
+                # then independently check the formula for every x.
+                coordinate_masks = tuple(encoding[0] ^ encoding[1 << i]
+                                         for i in range(n))
+                self.assertEqual(len(set(coordinate_masks)), n)
+                self.assertTrue(all(mask.bit_count() == 1
+                                    for mask in coordinate_masks))
+                for x in range(1 << n):
+                    expected = encoding[0]
+                    for i, mask in enumerate(coordinate_masks):
+                        if x & (1 << i):
+                            expected ^= mask
+                    self.assertEqual(encoding[x], expected)
+        self.assertGreater(accepted, 0)
+
+    def test_full_prefix_parity_needs_n_input_probes_under_unit_write(self):
+        # For any proper set of revealed original bits S, there are two
+        # complete inputs matching on S but with distinct full parity.
+        # This refutes every deterministic decision-tree leaf with <n reads,
+        # even where query addresses were selected adaptively.
+        for n in range(1, 8):
+            for observed_count in range(n):
+                for observed in combinations(range(n), observed_count):
+                    unseen = next(i for i in range(n) if i not in observed)
+                    x = 0
+                    y = x ^ (1 << unseen)
+                    self.assertEqual([bit(x, i) for i in observed],
+                                     [bit(y, i) for i in observed])
+                    self.assertNotEqual(prefix(x, n), prefix(y, n))
+            # Tight identity representation with w=1 and n reads
+            # has complete n-query semantics.
+            for x in states(n):
+                stored = direct_mem(x, n)
+                self.assertEqual(tuple(
+                    sum(stored[:k]) & 1 for k in range(1, n+1)
+                ), prefix_mem(x, n))
+                for i in range(n):
+                    newer = direct_mem(x ^ (1 << i), n)
+                    self.assertEqual(len(hamming_support(stored, newer)), 1)
 
     def test_prefix_parity_one_probe_exact_n_write_barrier(self):
         for n in range(1, 8):
