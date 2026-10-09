@@ -94,8 +94,11 @@ class CompleteMatchingFlowTests(unittest.TestCase):
 
     def test_two_independent_full_GF5_oracles_across_all_core_sizes(self):
         reps=matching_signed_orbit_representatives()
-        pairs={(len(left),len(right)):(left,right)
-               for left,right,_ in reversed(reps)}
+        pairs={}
+        for left,right,_ in reps:
+            shape=(len(left),len(right))
+            if shape not in pairs and exact_pair_GF5_flow(left,right)>0:
+                pairs[shape]=(left,right)
         for shape in ((4,4),(4,5),(4,6),(5,4),(5,5),(5,6),
                       (6,4),(6,5),(6,6)):
             left,right=pairs[shape]
