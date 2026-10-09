@@ -54,6 +54,9 @@ jobs:
       - name: HYP-105 G5-E0 exact prescribed-boundary GF5 flow proofs
         run: python -m unittest discover -s research -p 'test_hyp105_g5e0_boundary_flows.py'
 
+      - name: HYP-105 G5-E1 provable GF5 signed-flow motif filters and risk floor
+        run: python research/hyp105_g5e1_motifs.py
+
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
