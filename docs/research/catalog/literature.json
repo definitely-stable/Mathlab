@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "c85c4c0f7986039e4f4f8751ea02729f4f5f07fa"
+      "sha": "92851452f26023023944f58a74223a8727fbf98c"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -4171,6 +4171,119 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-145",
+      "title": "Grid-free linear hypergraphs via Cayley-Bacharach",
+      "year": 2026,
+      "identity": "arxiv:2602.14716",
+      "primary_url": "https://arxiv.org/abs/2602.14716",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Pohoata (февраль 2026) строит для каждого r≥3 линейные r-однородные гиперграфы с Θ_r(m²) рёбрами без r×r grid, используя Cayley–Bacharach. Этот первоисточник закрывает широкое заявление об оригинальности dense grid-free конструкций для r≥4.",
+      "limits_ru": "При r=4 запрещённый grid состоит из 8 рёбер, тогда как d=3 допускает коллизии уже среди максимум 6 рёбер. Линейная r-однородная модель имеет лишь O_r(m²) рёбер и не даёт актуальной полной ASET lower Ω(m^(12/5)). Препринт не является автоматически рецензируемой статьёй.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Cosmin Pohoata"
+      ],
+      "verification": "primary_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G4-CHARACTERISTIC-W4.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-146",
+      "title": "The linear Turán number of small triple systems or why is the wicket interesting?",
+      "year": 2022,
+      "identity": "doi:10.1016/j.disc.2022.113025",
+      "primary_url": "https://doi.org/10.1016/j.disc.2022.113025",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Gyárfás–Sárközy (Discrete Mathematics, 2022) анализируют линейные Turán-числа небольших 3-однородных конфигураций и особую роль 5-рёберного wicket.",
+      "limits_ru": "Wicket состоит из пяти рёбер на девяти вершинах; GF(3) локальный signed-set obstruction имеет пять рёбер на семи вершинах. Приписывать wicket-free o(m²) результат иной конфигурации без доказанного содержания неправомерно.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "András Gyárfás",
+        "Gábor N. Sárközy"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G4-CHARACTERISTIC-W4.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-147",
+      "title": "Wickets in 3-uniform hypergraphs",
+      "year": 2024,
+      "identity": "doi:10.1016/j.disc.2024.114029",
+      "primary_url": "https://doi.org/10.1016/j.disc.2024.114029",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Solymosi (Discrete Mathematics, 2024) доказывает, что линейные 3-гиперграфы без wicket имеют o(m²) рёбер, разрешая вопрос Gyárfás–Sárközy о разреженности такой запрещённой конфигурации.",
+      "limits_ru": "Не переносить результат об отсутствии wicket на 7-вершинную 5-рёберную характеристика-3 зависимость, и тем более на произвольные взвешенные q-арные ASET-семейства. Содержательная редукция между запретами отсутствует.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "József Solymosi"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G4-CHARACTERISTIC-W4.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-148",
+      "title": "The Size of Bipartite Graphs with a Given Girth",
+      "year": 2002,
+      "identity": "doi:10.1006/jctb.2002.2123",
+      "primary_url": "https://doi.org/10.1006/jctb.2002.2123",
+      "track": "graph-algorithms",
+      "summary_ru": "Hoory (Journal of Combinatorial Theory B, 2002) обобщает экстремальные оценки числа рёбер двудольных графов заданного обхвата с разными размерами долей. При girth≥8 следствие O(V^(4/3)) обосновывает улучшенную границу ASET с четырёхразреженными столбцами и активностью d=3.",
+      "limits_ru": "Статья доказывает графовую границу, но не автоматически новое ASET-утверждение: необходима отдельная корректная редукция от взвешенных векторов к 2+2 фактор-графу и анализ коллизий на C4/C6; нижняя конструкция и декодирование ASET этим источником не решены.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Shlomo Hoory"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G4-CHARACTERISTIC-W4.md",
           "kind": "model_overlap"
         }
       ],
