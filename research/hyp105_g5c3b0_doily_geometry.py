@@ -21,6 +21,9 @@ def adjacency_from_triples(triples, count=15):
     """Pairs sharing one line/one point in a 15_3 incidence geometry."""
     neighbours = [set() for _ in range(count)]
     for triple in triples:
+        if len(triple) != 3 or len(set(triple)) != 3 or any(
+                not isinstance(v, int) or not 0 <= v < count for v in triple):
+            raise ValueError("invalid three-vertex incidence")
         for a, b in combinations(triple, 2):
             neighbours[a].add(b)
             neighbours[b].add(a)
