@@ -1,5 +1,10 @@
 # Research catalog — provenance-first index
 
+## INDEX-001 G2-A — four previously missing current compaction/bitvector studies
+
+[Publisher-source audit and nontransfer boundaries](../INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) and [issue #121](https://github.com/definitely-stable/Mathlab/issues/121). LIT-183 Navarro's distinct 2025 worst-case optimality, LIT-184 C2LSM 2026, LIT-185 ArceKV 2026, LIT-186 RangeReduce 2026. The SPIRE 2024 preliminary bitvector identity is attached to practical LIT-180 instead of creating duplicate scientific claims; journal 2025 worst-case has its own model. Full corpus **186**, primary abstracts checked not full proofs; earlier 182 exact IDs retained.
+
+
 ## INDEX-001 G0/G1 — interval indexing, buffered I/O and dynamic succinct barriers (2026-10-09)
 
 [Six publisher/author identity-audited new works, scoped conditions and original mathematical setup](../INDEX-001-G0-RANGE-MAP-FOUNDATION.md) · [issue #117](https://github.com/definitely-stable/Mathlab/issues/117). Imported **LIT-177..182** into canonical 182-source library, regenerated forward/reverse links, validated all 176 historical records retained. Sources: Arge–Vitter 2003, Verbin–Zhang 2013, Li–Liang–Yu–Zhou FOCS 2023, Navarro 2025, Blelloch et al. 2026, Moose/Smoose 2024. Distinguish latest-write-wins range updates from interval stabbing, cell probes from physical writes, and original publisher abstracts from independently checked proofs. **No new original theorem, lower bound, Rust engine or reproducible published performance claim.**
