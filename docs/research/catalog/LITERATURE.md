@@ -1673,7 +1673,7 @@ ITCS 2026: prior-independent и subgame-optimal критерии для онла
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md](https://github.com/definitely-stable/Mathlab/blob/5c2cb67689a6821955b58f6358b7914679d090d3/docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md](https://github.com/definitely-stable/Mathlab/blob/7e62436374adc9e8cc15c98b68bf9d4a3a06644e/docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md) (model_overlap)
 
 ### LIT-210
 **[Robust and Consistent Ski Rental with Distributional Advice](https://arxiv.org/abs/2603.29233)** (2026)
@@ -1686,7 +1686,7 @@ ICML 2026, PMLR 306: алгоритмы детерминированного и 
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md](https://github.com/definitely-stable/Mathlab/blob/5c2cb67689a6821955b58f6358b7914679d090d3/docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md](https://github.com/definitely-stable/Mathlab/blob/7e62436374adc9e8cc15c98b68bf9d4a3a06644e/docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md) (model_overlap)
 
 ### LIT-211
 **[A new performance metric for the ski rental problem](https://doi.org/10.1016/j.orl.2025.107382)** (2026)
@@ -1699,7 +1699,7 @@ Operations Research Letters 2026 (DOI 2025): комбинированная ст
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md](https://github.com/definitely-stable/Mathlab/blob/5c2cb67689a6821955b58f6358b7914679d090d3/docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md](https://github.com/definitely-stable/Mathlab/blob/7e62436374adc9e8cc15c98b68bf9d4a3a06644e/docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md) (model_overlap)
 
 
 ## caching
