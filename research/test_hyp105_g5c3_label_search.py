@@ -122,6 +122,25 @@ class G5C3StructuredPairLabelTests(unittest.TestCase):
         self.assertEqual(len(one["left_labels"]), LABEL_COUNT)
         self.assertEqual(len(one["right_labels"]), LABEL_COUNT)
 
+    def test_frozen_hosted_structured_w32_result_not_an_exponent(self):
+        # Exact hosted Research #1052, m=12 only. Never extrapolate to s>2.
+        proof = report(seed=1, rounds=6, probes=12)
+        self.assertEqual(proof["before"], [46, 1722])
+        self.assertEqual(proof["after"], [42, 1580])
+        self.assertEqual(
+            (proof["before_objective"], proof["after_objective"]),
+            (2458, 2252))
+        self.assertEqual(proof["accepted_swap_count"], 4)
+        self.assertEqual(proof["evaluations"], 69)
+        self.assertEqual(proof["actual_aset_subfamily"]["extracted_aset"], 20)
+        self.assertEqual(proof["actual_aset_subfamily"]["grid_p"], "43/128")
+        self.assertEqual(
+            proof["left_labels"],
+            [14, 13, 0, 10, 6, 5, 3, 8, 7, 9, 4, 1, 12, 11, 2])
+        self.assertEqual(
+            proof["right_labels"],
+            [6, 3, 11, 12, 8, 1, 5, 4, 7, 14, 9, 10, 2, 13, 0])
+
     def test_bad_injections_and_unsafe_weighted_transfer_are_rejected(self):
         bad = (0,) * 15
         for left, right in ((bad, IDENTITY), (IDENTITY, bad),
