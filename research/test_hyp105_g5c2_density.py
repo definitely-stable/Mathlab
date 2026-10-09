@@ -111,6 +111,21 @@ class G5C2TradeDensityTests(unittest.TestCase):
             self.assertEqual(density_report(seed)["minimal_t4"], len(c4))
             self.assertEqual(density_report(seed)["minimal_t6"], len(c6))
 
+    def test_frozen_w32_hosted_conflict_counts_and_exact_witness_sizes(self):
+        # Pinned values from hosted Research #972, initial implementation HEAD.
+        expected = {
+            None: (69, 1940, 19),
+            0: (53, 1874, 20),
+            1: (46, 1722, 20),
+            2: (50, 1750, 19),
+        }
+        for seed, (t4, t6, size) in expected.items():
+            report = density_report(seed)
+            self.assertEqual(
+                (report["minimal_t4"], report["minimal_t6"],
+                 report["certified_aset_columns"]),
+                (t4, t6, size), seed)
+
     def test_unit_scope_rejects_weighted_and_repeated_input(self):
         with self.assertRaises(ValueError):
             gf5_unit_four(((1, 2, 1, 1),))
