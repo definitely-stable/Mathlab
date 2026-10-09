@@ -31,6 +31,7 @@ TRACKS = {
     "streaming-reconciliation": "DeltaMeter: потоковые оценки и согласование множеств",
     "compressed-indexing": "Сжатые структуры, индексация строк и нижние границы",
     "online-optimization": "Онлайн-оптимизация, конкурентные оценки и барьеры",
+    "caching": "Кэширование, online paging, консистентность и память",
     "graph-algorithms": "Динамические графы, гиперграфы и sparsification",
     "algebraic-algorithms": "Алгебраические алгоритмы, subset sum и разреженные матрицы",
     "proof-certification": "Машинные доказательства, сертификаты и верификация",
@@ -54,6 +55,24 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-004: official source/title pins 2025–2026.
+    "doi:10.4230/LIPIcs.ICALP.2025.123": "New and Improved Bounds for Markov Paging",
+    "doi:10.1145/3717823.3718217": "Tight Results for Online Convex Paging",
+    "doi:10.1145/3717823.3718131": "The Cost of Consistency: Submodular Maximization with Constant Recourse",
+    "doi:10.4230/LIPIcs.ICALP.2025.111": "A Simple Dynamic Spanner via APSP",
+    "doi:10.4230/LIPIcs.ICALP.2025.92": "Fully Dynamic Algorithms for Transitive Reduction",
+    "doi:10.4230/LIPIcs.ICALP.2025.77": "Minimizing Recourse in an Adaptive Balls and Bins Game",
+    "doi:10.1145/3717823.3718168": "Bounded Edit Distance: Optimal Static and Dynamic Algorithms for Small Integer Weights",
+    "usenix:fast25:zhou-wenbin": "3L-Cache: Low Overhead and Precise Learning-based Eviction Policy for Caches",
+    "usenix:osdi25:lyerly": "Skybridge: Bounded Staleness for Distributed Caches",
+    "usenix:osdi25:park-sujin": "Principles and Methodologies for Serial Performance Optimization",
+    "usenix:osdi26:li-liujia": "Merlin: An Efficient Adaptive Cache Eviction Algorithm via Fine-Grained Characterization",
+    "usenix:osdi26:xia": "Learning-Augmented Heuristics: Simple Yet Smart, Robust and Interpretable Cache Eviction",
+    "usenix:osdi26:mao-ziming-writeguards": "WriteGuards: Distributed Storage Support for Strongly Consistent Caches",
+    "usenix:osdi26:xie-yizheng": "Incr: Faster Re-Execution via Bolt-On Incrementalization",
+    "usenix:osdi26:yang-zhijun": "FORGE: Mitigating Synchronization Amplification for Memory-Disaggregated Caching Systems",
+    "usenix:fast26:zhao": "\"Range as a Key\" is the Key! Fast and Compact Cloud Block Store Index with RASK",
+    "usenix:fast26:ren": "Holistic and Automated Task Scheduling for Distributed LSM-tree-based Storage",
     "doi:10.1109/SFCS.1991.185352": "Checking the Correctness of Memories",
     "doi:10.1145/3618260.3649686": "Memory Checking Requires Logarithmic Overhead",
     "doi:10.1007/978-3-031-91092-0_11": "The Complexity of Memory Checking with Covert Security",

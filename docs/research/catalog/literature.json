@@ -4628,6 +4628,622 @@
       "verification": "publisher_full_text_spotchecked",
       "summary_ru": "AFT 2023, Definition 4 и Theorem 5: для динамических proof-binding vector commitments если обновление отдельного доказательства имеет стоимость O(k^{1-nu}), вспомогательные обновляющие данные требуют Omega(k^nu); конструкции достигают близкого асимптотического компромисса.",
       "limits_ru": "Не переносить на произвольные position-binding сертификаты или иные параметры угрозы. Публичные изменения элементов/индексов НЕ входят в размер U; полная сетевая стоимость больше. Доказательство теоремы вынесено в полную версию и здесь не воспроизведено."
+    },
+    {
+      "id": "LIT-160",
+      "title": "New and Improved Bounds for Markov Paging",
+      "year": 2025,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2025.123",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2025.123",
+      "track": "online-optimization",
+      "summary_ru": "Уточнена конкурентная оценка dominating-distribution для Markov paging: 2 относительно онлайн-оптимума заданной цепи, со специальной нижней оценкой 1.5907 для этого алгоритма.",
+      "limits_ru": "Запросы исходят из марковской цепи. Перенос на адаптивного противника, объекты переменной длины и реальную задержку кэша без редукции недопустим.",
+      "maps_to": [
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "ICALP 2025",
+      "authors": [
+        "Chirag Pabbaraju",
+        "Ali Vakilian"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.123",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-161",
+      "title": "Tight Results for Online Convex Paging",
+      "year": 2025,
+      "identity": "doi:10.1145/3717823.3718217",
+      "primary_url": "https://doi.org/10.1145/3717823.3718217",
+      "track": "online-optimization",
+      "summary_ru": "Точные по порядку конкурентные границы для convex paging с нелинейной стоимостью вытеснений, включая ограничения качества выпуклых релаксаций.",
+      "limits_ru": "Норма вектора вытеснений и comparator определены в исходной модели; это не обычное количество cache misses и не готовый алгоритм ускорения.",
+      "maps_to": [
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2025",
+      "authors": [
+        "Anupam Gupta",
+        "Amit Kumar",
+        "Debmalya Panigrahi"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://acm-stoc.org/stoc2025/toc.html",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-162",
+      "title": "The Cost of Consistency: Submodular Maximization with Constant Recourse",
+      "year": 2025,
+      "identity": "doi:10.1145/3717823.3718131",
+      "primary_url": "https://doi.org/10.1145/3717823.3718131",
+      "track": "online-optimization",
+      "summary_ru": "Для monotone submodular online максимизации с константным recourse на шаг получены tight границы 2/3 в общем случае и 3/4 для coverage; отдельно обсуждается 0.51 randomized polytime.",
+      "limits_ru": "Recourse меняет элементы комбинаторного решения, а не физические ячейки, байты кэша или проверяемые доказательства; функции и приближения различны.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2025",
+      "authors": [
+        "Paul Dütting",
+        "Federico Fusco",
+        "Silvio Lattanzi",
+        "Ashkan Norouzi-Fard",
+        "Ola Svensson",
+        "Morteza Zadimoghaddam"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://acm-stoc.org/stoc2025/toc.html",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-163",
+      "title": "A Simple Dynamic Spanner via APSP",
+      "year": 2025,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2025.111",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2025.111",
+      "track": "graph-algorithms",
+      "summary_ru": "Динамический spanner с контролем приближения расстояний, операций обновления и total recourse при заданных последовательностях вставок и удалений.",
+      "limits_ru": "Spanner приближает расстояния; он не сохраняет точно достижимость, не гарантирует отсутствие signed trades и не обеспечивает криптографическую верификацию.",
+      "maps_to": [
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "ICALP 2025",
+      "authors": [
+        "Rasmus Kyng",
+        "Simon Meierhans",
+        "Gernot Zöcklein"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.111",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-164",
+      "title": "Fully Dynamic Algorithms for Transitive Reduction",
+      "year": 2025,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2025.92",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2025.92",
+      "track": "graph-algorithms",
+      "summary_ru": "Поддержка минимального сохраняющего reachability подграфа ориентированного графа при вставках и удалениях; один алгоритм O(m+n log n) амортизированно на обновление.",
+      "limits_ru": "Время обновления зависит от m,n и модели операций; reachability-preserving reduction не является доказательством нижней границы для DAG или доверенного сервера.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "ICALP 2025",
+      "authors": [
+        "Gramoz Goranci",
+        "Adam Karczmarz",
+        "Ali Momeni",
+        "Nikos Parotsidis"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.92",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-165",
+      "title": "Minimizing Recourse in an Adaptive Balls and Bins Game",
+      "year": 2025,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2025.77",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2025.77",
+      "track": "graph-algorithms",
+      "summary_ru": "Случайное размещение задач по живым корзинам даёт O(n log n) recourse против адаптивного противника в определённой модели удалений корзин; следствие для spanner.",
+      "limits_ru": "Модель adversary наблюдает назначения и выводит из строя bins; не заменяет доказательство стойкости cache/LSM к произвольным сбоям и rollback.",
+      "maps_to": [
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "ICALP 2025",
+      "authors": [
+        "Adi Fine",
+        "Haim Kaplan",
+        "Uri Stemmer"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.77",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-166",
+      "title": "Bounded Edit Distance: Optimal Static and Dynamic Algorithms for Small Integer Weights",
+      "year": 2025,
+      "identity": "doi:10.1145/3717823.3718168",
+      "primary_url": "https://doi.org/10.1145/3717823.3718168",
+      "track": "fine-grained-algorithms",
+      "summary_ru": "Авторы показывают ~O(k) worst-case стоимость изменения точного динамического unweighted edit distance в параметризованной модели; для bounded малых целых весов другая граница.",
+      "limits_ru": "Не даёт аналогичной гарантии для произвольных весов, общего вычислительного DAG, delta patch bytes и компрессионной стоимости.",
+      "maps_to": [
+        "ML-004",
+        "DL-001"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "STOC 2025",
+      "authors": [
+        "Egor Gorbachev",
+        "Tomasz Kociumaka"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://acm-stoc.org/stoc2025/toc.html",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-167",
+      "title": "3L-Cache: Low Overhead and Precise Learning-based Eviction Policy for Caches",
+      "year": 2025,
+      "identity": "usenix:fast25:zhou-wenbin",
+      "primary_url": "https://www.usenix.org/conference/fast25/presentation/zhou-wenbin",
+      "track": "caching",
+      "summary_ru": "Объектно-ориентированное обучение политики вытеснения, учёт byte/object miss ratio и снижение CPU накладных расходов при обучении; авторские эксперименты на 4855 traces.",
+      "limits_ru": "Это измеренные результаты для конкретных workloads и baselines, а не конкурентная нижняя граница или универсальная гарантия hit rate.",
+      "maps_to": [
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "FAST 2025",
+      "authors": [
+        "Wenbin Zhou",
+        "Zhixiong Niu",
+        "Yongqiang Xiong",
+        "Juan Fang",
+        "Qian Wang"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://www.usenix.org/conference/fast25/presentation/zhou-wenbin",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-168",
+      "title": "Skybridge: Bounded Staleness for Distributed Caches",
+      "year": 2025,
+      "identity": "usenix:osdi25:lyerly",
+      "primary_url": "https://www.usenix.org/conference/osdi25/presentation/lyerly",
+      "track": "caching",
+      "summary_ru": "Отдельный поток репликации обновляет сведения о свежести распределённых кэшей с измеренными распределениями lag и малым объёмом дополнительной инфраструктуры.",
+      "limits_ru": "Эмпирическая доля записей, удовлетворяющих 2-секундной свежести, не является строгой детерминированной верхней границей и не равна linearizability.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "OSDI 2025",
+      "authors": [
+        "Robert Lyerly",
+        "Scott Pruett",
+        "Kevin Doherty",
+        "Greg Rogers",
+        "Nathan Bronson",
+        "John Hugg"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://www.usenix.org/conference/osdi25/presentation/lyerly",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-169",
+      "title": "Principles and Methodologies for Serial Performance Optimization",
+      "year": 2025,
+      "identity": "usenix:osdi25:park-sujin",
+      "primary_url": "https://www.usenix.org/conference/osdi25/presentation/park-sujin",
+      "track": "incremental-computation",
+      "summary_ru": "Методика remove/replace/reorder и восемь вариантов оптимизации последовательной работы: batching, caching, precomputation, deferring, relaxation, contextualization, hardware specialization, layering.",
+      "limits_ru": "Таксономия производительности и системные кейсы не образуют универсальную нижнюю границу по CPU, памяти или стоимости изменения состояния.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "OSDI 2025",
+      "authors": [
+        "Sujin Park",
+        "Mingyu Guan",
+        "Xiang Cheng",
+        "Taesoo Kim"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://www.usenix.org/conference/osdi25/presentation/park-sujin",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-170",
+      "title": "Merlin: An Efficient Adaptive Cache Eviction Algorithm via Fine-Grained Characterization",
+      "year": 2026,
+      "identity": "usenix:osdi26:li-liujia",
+      "primary_url": "https://www.usenix.org/conference/osdi26/presentation/li-liujia",
+      "track": "caching",
+      "summary_ru": "MERLIN адаптирует вытеснение на уровне отдельных объектов и характеристик обращений, отделяя компоненты политики, с авторской трассовой оценкой.",
+      "limits_ru": "Авторские throughput/hit-rate результаты не дают гарантии для адаптивного противника или всякого будущего распределения обращений.",
+      "maps_to": [
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "OSDI 2026",
+      "authors": [
+        "Liujia Li",
+        "Jinhao Guo",
+        "Yi Fan",
+        "Jianyu Wu",
+        "Zhenlin Wang",
+        "Jie Zhang",
+        "Yuval Tamir",
+        "Xiaolin Wang",
+        "Yingwei Luo",
+        "Diyu Zhou"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://www.usenix.org/conference/osdi26/presentation/li-liujia",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-171",
+      "title": "Learning-Augmented Heuristics: Simple Yet Smart, Robust and Interpretable Cache Eviction",
+      "year": 2026,
+      "identity": "usenix:osdi26:xia",
+      "primary_url": "https://www.usenix.org/conference/osdi26/presentation/xia",
+      "track": "caching",
+      "summary_ru": "LAH/S4-FIFO обучает параметры эвристики по агрегированным сигналам вне горячего пути, чтобы уменьшить стоимость принятия решения в cache dataplane.",
+      "limits_ru": "Результаты на production traces с предобученной моделью и наблюдаемая устойчивость не являются формальным worst-case competitive ratio.",
+      "maps_to": [
+        "ML-004"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "OSDI 2026",
+      "authors": [
+        "Haocheng Xia",
+        "William Nixon",
+        "Bintang Dwi Marthen",
+        "Pranav Bhandari",
+        "Juncheng Yang"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://www.usenix.org/conference/osdi26/presentation/xia",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-172",
+      "title": "WriteGuards: Distributed Storage Support for Strongly Consistent Caches",
+      "year": 2026,
+      "identity": "usenix:osdi26:mao-ziming-writeguards",
+      "primary_url": "https://www.usenix.org/conference/osdi26/presentation/mao-ziming-writeguards",
+      "track": "caching",
+      "summary_ru": "WriteGuards вводит fencing для записи на уровне диапазонов ключей, исключая delayed writes в заданной архитектуре владения и обеспечивая авторскую реализацию линерализуемых cache reads.",
+      "limits_ru": "Требуются конкретные предпосылки о хранилище, fencing и владельцах; это не бесплатное доказательство аутентичности, rollback безопасности или криптографический commitment.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "OSDI 2026",
+      "authors": [
+        "Ziming Mao",
+        "Atul Adya",
+        "Jonathan Ellithorpe",
+        "Rishabh Iyer",
+        "Matei Zaharia",
+        "Scott Shenker",
+        "Ion Stoica"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://www.usenix.org/conference/osdi26/presentation/mao-ziming-writeguards",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-173",
+      "title": "Incr: Faster Re-Execution via Bolt-On Incrementalization",
+      "year": 2026,
+      "identity": "usenix:osdi26:xie-yizheng",
+      "primary_url": "https://www.usenix.org/conference/osdi26/presentation/xie-yizheng",
+      "track": "incremental-computation",
+      "summary_ru": "Incr автоматически выявляет зависимости и эффекты и сохраняет промежуточные результаты для повторного исполнения shell-программ, включая неидемпотентные операции.",
+      "limits_ru": "Экспериментальные ускорения не являются нижней границей вычислений; накладные расходы на отслеживание зависимостей, side effects и обновление кэша нельзя считать нулевыми.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "OSDI 2026",
+      "authors": [
+        "Yizheng Xie",
+        "Evangelos Lamprou",
+        "Jerry Xia",
+        "Nikos Vasilakis"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://www.usenix.org/conference/osdi26/presentation/xie-yizheng",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-174",
+      "title": "FORGE: Mitigating Synchronization Amplification for Memory-Disaggregated Caching Systems",
+      "year": 2026,
+      "identity": "usenix:osdi26:yang-zhijun",
+      "primary_url": "https://www.usenix.org/conference/osdi26/presentation/yang-zhijun",
+      "track": "caching",
+      "summary_ru": "Кэш с disaggregated memory сокращает synchronization amplification за счёт группировки объектов, ленивого обновления hotness-метаданных и FIFO обработки групп.",
+      "limits_ru": "Зависит от RDMA NIC, модели распределённой памяти и тестовых нагрузок; не следует универсальной оптимальности online paging.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "OSDI 2026",
+      "authors": [
+        "Zhijun Yang",
+        "Yu Hua",
+        "Ming Zhang",
+        "Menglei Chen",
+        "Yixiao Wang"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://www.usenix.org/conference/osdi26/presentation/yang-zhijun",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-175",
+      "title": "\"Range as a Key\" is the Key! Fast and Compact Cloud Block Store Index with RASK",
+      "year": 2026,
+      "identity": "usenix:fast26:zhao",
+      "primary_url": "https://www.usenix.org/conference/fast26/presentation/zhao",
+      "track": "dynamic-data-structures",
+      "summary_ru": "RASK индексирует непрерывные диапазоны блоков в лог-структурированных листьях, реализует range-aware split/merge, исследует RAM/IO tradeoff по производственным трассам.",
+      "limits_ru": "Эффективность зависит от непрерывности операций записи; результаты не доказывают сокращение памяти на произвольных перестановочных updates и не являются cell-probe lower bound.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "FAST 2026",
+      "authors": [
+        "Haoru Zhao",
+        "Mingkai Dong",
+        "Erci Xu",
+        "Zhongyu Wang",
+        "Haibo Chen"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://www.usenix.org/conference/fast26/presentation/zhao",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-176",
+      "title": "Holistic and Automated Task Scheduling for Distributed LSM-tree-based Storage",
+      "year": 2026,
+      "identity": "usenix:fast26:ren",
+      "primary_url": "https://www.usenix.org/conference/fast26/presentation/ren",
+      "track": "caching",
+      "summary_ru": "HATS координирует foreground чтения и background compaction с adaptive rate control/replica selection в распределённом LSM-хранилище.",
+      "limits_ru": "Системные результаты Cassandra/LSM касаются конкретной нагрузки и планировщика, не доказательства универсального оптимума по recourse или времени.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "cce55aa0eb28e369eef3e032e01d3fce79304c1d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "venue": "FAST 2026",
+      "authors": [
+        "Yuanming Ren",
+        "Siyuan Sheng",
+        "Zhang Cao",
+        "Yongkun Li",
+        "Patrick P. C. Lee"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://www.usenix.org/conference/fast26/presentation/ren",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
     }
   ]
 }
