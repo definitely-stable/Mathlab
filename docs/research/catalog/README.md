@@ -2,7 +2,7 @@
 
 ## HYP-105 G4 primary literature (2026-10-09)
 
-Imported three **non-duplicate** primary works, now 144 unique identities: LIT-142 Pohoata 2026 author preprint on r-uniform dense grid-free Cayley–Bacharach constructions; LIT-143 Gyárfás–Sárközy 2022 on small linear triple-system Turán numbers and wickets; LIT-144 Solymosi 2024 on sparse wicket-free hypergraphs. The precise **r×r grid has 2r edges**, so for r=4 the published construction does not settle six-edge ASET d=3 collisions. The wicket (five edges, nine vertices) is **not** the GF(3) signed-set five-edge seven-vertex obstruction. See [G4 model and exact counterexamples](../HYP-105-G4-CHARACTERISTIC-W4.md). Full source proofs not independently reproduced; all previous 141 canonical identities retained.
+Imported four **non-duplicate** primary works, now 145 unique identities: LIT-142 Pohoata 2026 author preprint on r-uniform dense grid-free Cayley–Bacharach constructions; LIT-143 Gyárfás–Sárközy 2022 on small linear triple-system Turán numbers and wickets; LIT-144 Solymosi 2024 on sparse wicket-free hypergraphs; LIT-145 Hoory 2002 on the sharp bipartite girth-eight graph upper bound underpinning the derived exponent 8/3. The precise **r×r grid has 2r edges**, so for r=4 the published construction does not settle six-edge ASET d=3 collisions. The wicket (five edges, nine vertices) is **not** the GF(3) signed-set five-edge seven-vertex obstruction. See [G4 model and exact counterexamples](../HYP-105-G4-CHARACTERISTIC-W4.md). Full source proofs not independently reproduced; all previous 141 canonical identities retained.
 
 ## UCT-003 G1 — static bit-probe primary prior art (2026-10-09)
 
