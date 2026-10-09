@@ -7,6 +7,7 @@ It does NOT prove a new asymptotic bound for ASET.
 from collections import defaultdict
 from fractions import Fraction
 from itertools import combinations
+from math import comb, prod
 import json
 import random
 
@@ -170,6 +171,57 @@ def validate_cleaned(columns, cleaned_mask, conflicts):
     chosen = tuple(c for i, c in enumerate(columns)
                    if cleaned_mask >> i & 1)
     return direct_aset_collision(chosen, 5, 3) is None
+
+
+def falling_factorial(n, k):
+    return prod(n - i for i in range(k))
+
+
+def six_cycle_pair_probability_lower(coords):
+    """Rigorous random-injection probability lower for six named pair labels.
+
+    Fix 3 red and 3 blue edge slots; an alternating length-six cycle in
+    distinct coordinate vertices gives a column-minimal projected trade.
+    Each assignment is counted at most 12 times, conservatively.
+    """
+    if coords < 6:
+        return Fraction(0)
+    pair_capacity = comb(coords, 2)
+    return Fraction(falling_factorial(coords, 6),
+                    12 * falling_factorial(pair_capacity, 6))
+
+
+def expected_minimal_six_trades_lower(edges, max_degree, left_coords, right_coords):
+    """All-parameter expectation lower under independent random pair injections.
+
+    Every unordered six-edge matching produces a minimal GF5 3-vs-3 trade
+    when both its endpoint-label projections form simple alternating C6.
+    Number of matchings >= product_j(E-2*j*Delta)/6!, when E>10Delta.
+    """
+    if not (isinstance(edges, int) and isinstance(max_degree, int)
+            and edges >= 0 and max_degree >= 0):
+        raise ValueError("integer graph size/degree required")
+    if max_degree == 0 or edges <= 10 * max_degree:
+        return Fraction(0)
+    ordered_matchings_bound = prod(edges - 2 * j * max_degree
+                                   for j in range(6))
+    return (Fraction(ordered_matchings_bound, 720)
+            * six_cycle_pair_probability_lower(left_coords)
+            * six_cycle_pair_probability_lower(right_coords))
+
+
+def generalized_quadrangle_expectation_lower(order):
+    """Published GQ(s,s) parameter specialization; existence cited, not run."""
+    if order < 2 or order & (order - 1):
+        raise ValueError("restrict to binary prime-power GQ order s=2^h")
+    part_vertices = (order + 1) * (order**2 + 1)
+    side = 2
+    while comb(side, 2) < part_vertices:
+        side += 1
+    edges = (order + 1)**2 * (order**2 + 1)
+    degree = order + 1
+    return 2 * side, expected_minimal_six_trades_lower(
+        edges, degree, side, side)
 
 
 def w32_columns(seed=None):
