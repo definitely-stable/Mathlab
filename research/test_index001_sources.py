@@ -26,7 +26,7 @@ class Index001SourceTests(unittest.TestCase):
         data = json.loads(CATALOG.read_text(encoding="utf-8"))
         self.assertGreaterEqual(len(data["entries"]), 204)
         by_id = {x["id"]: x for x in data["entries"]}
-        self.assertEqual(len(by_id), 204)
+        self.assertEqual(len(by_id), len(data["entries"]))
         ids = {x for e in data["entries"] for x in
                [e["identity"], *e.get("alternate_identities", [])]}
         self.assertEqual(len(ids), sum(1 + len(e.get("alternate_identities", []))
