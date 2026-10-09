@@ -1,0 +1,37 @@
+name: uct005-c2b2a-fast
+
+on:
+  push:
+    branches:
+      - research/uct005-g3b2c2b2a-fenced-disk-gc
+    paths:
+      - "research/uct005_g3b2c2b2a_fenced_disk_gc.py"
+      - "research/test_uct005_g3b2c2b2a_fenced_disk_gc.py"
+      - "research/uct005_g3b2c2a_disk_gc.py"
+      - "research/uct005_g3b2c2b1_pin_generation.py"
+      - ".github/workflows/uct005-c2b2a-fast.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "research/uct005_g3b2c2b2a_fenced_disk_gc.py"
+      - "research/test_uct005_g3b2c2b2a_fenced_disk_gc.py"
+      - ".github/workflows/uct005-c2b2a-fast.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  fused-gc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Focused crash-prefix and retention oracle
+        run: python -m unittest discover -s research -p 'test_uct005_g3b2c2b2a_fenced_disk_gc.py' -v
+      - name: Streaming disk-fenced GC diagnostic
+        run: python research/uct005_g3b2c2b2a_fenced_disk_gc.py
+      - name: UCT research tree anti-promotion tests
+        run: python -m unittest discover -s research -p 'test_uct005_tree.py'
