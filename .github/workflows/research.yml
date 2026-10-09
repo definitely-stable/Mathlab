@@ -30,6 +30,9 @@ jobs:
       - name: HYP-105 G5-C2 deterministic signed-trade density report
         run: python research/hyp105_g5c2_density.py
 
+      - name: HYP-105 G5-C3 bounded deterministic pair-label improvement report
+        run: python research/hyp105_g5c3_label_search.py --seed 1 --rounds 6 --probes 12
+
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
