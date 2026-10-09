@@ -69,6 +69,7 @@ class Counters:
         self.pin_publications = 0
         self.gc_publications = 0
         self.trim_commands = 0
+        self.truncate_calls = 0
 
     def as_dict(self, page_size):
         return {**vars(self), "read_bytes": self.page_reads*page_size,
@@ -205,6 +206,7 @@ class PinJournal:
     def crash_recover(self):
         """Idealized discard of data not behind an fsync barrier."""
         self.file.truncate(self.durable_pages*self.page_bytes)
+        self.c.truncate_calls += 1
         state = self.replay()
         return state
 
@@ -358,6 +360,7 @@ class GenerationalGC:
         if fail_at not in (None, "trim"):
             raise ValueError("unknown recovery cut before any mutation")
         self.metadata.truncate(self.metadata_durable_bytes)
+        self.c.truncate_calls += 1
         self.journal.crash_recover()
         live,pins = self._read_committed()
         if pins is None:
