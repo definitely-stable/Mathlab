@@ -181,7 +181,9 @@ def w32_columns(seed=None):
         rng.shuffle(left)
         rng.shuffle(right)
         edges = tuple((left[i], right[j]) for i, j in edges)
-    return canonical_pair_embedding(edges, 15, 15, 6, 6)
+    supports = canonical_pair_embedding(edges, 15, 15, 6, 6)
+    return tuple(tuple(1 if j in support else 0 for j in range(12))
+                 for support in supports)
 
 
 def density_report(seed=None, granularity=128):
