@@ -15,12 +15,12 @@ class LiteratureTests(unittest.TestCase):
     def test_real_collection_has_no_metadata_errors(self):
         self.assertEqual(valid(self.data, self.catalog), [])
 
-    def test_140_distinct_works_and_fourteen_lanes(self):
+    def test_141_distinct_works_and_fourteen_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 140)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 140)
-        self.assertEqual(len({e["id"] for e in entries}), 140)
-        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 141)},
+        self.assertEqual(len(entries), 141)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 141)
+        self.assertEqual(len({e["id"] for e in entries}), 141)
+        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 142)},
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 14)
 
@@ -55,6 +55,14 @@ class LiteratureTests(unittest.TestCase):
             self.assertFalse(lookup[k]["full_proof_verified"])
             self.assertFalse(lookup[k]["independent_reproduction"])
             self.assertEqual(lookup[k]["mentioned_in"][0]["kind"], "model_overlap")
+
+    def test_uct003_viola_source_dedup_and_proof_boundaries(self):
+        paper = next(e for e in self.data["entries"] if e["id"] == "LIT-141")
+        self.assertEqual(paper["identity"], "doi:10.1137/090766619")
+        self.assertEqual(paper["title"], "Bit-Probe Lower Bounds for Succinct Data Structures")
+        self.assertFalse(paper["full_proof_verified"])
+        self.assertFalse(paper["independent_reproduction"])
+        self.assertEqual(paper["mentioned_in"][0]["kind"], "model_overlap")
 
     def test_2026_report_links_match_bibliographic_identities(self):
         """Check real publisher URLs (part A) and internal anchors (part B)."""
@@ -178,7 +186,7 @@ class LiteratureTests(unittest.TestCase):
         original = {e["id"] for e in self.data["entries"]}
         self.assertTrue({f"LIT-{i:03d}" for i in range(50, 96)} <= original)
         self.assertTrue({f"LIT-{i:03d}" for i in range(1, 96)} <= original)
-        self.assertEqual(len(self.data["entries"]), 140)
+        self.assertEqual(len(self.data["entries"]), 141)
         all_ids = [e["identity"].lower() for e in self.data["entries"]]
         self.assertEqual(len(all_ids), len(set(all_ids)))
 
@@ -422,7 +430,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 140)
+        self.assertEqual(len({e["id"] for e in entries}), 141)
         tracks = {e["track"] for e in entries}
         self.assertEqual(len(tracks), 14)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(

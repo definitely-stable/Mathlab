@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## UCT-003 G1 — adaptive influence transversal and both sharp one-unit endpoints (2026-10-09)
+
+[Deductive proof](UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md) · [prior-art barrier / G2 directions](UCT-003-G1-SOURCE-AND-GAP-AUDIT.md) · [issue #82](https://github.com/definitely-stable/Mathlab/issues/82). For exact deterministic bit-probe queries, affected old-state read paths must intersect changed stored cells. Theorem B completely characterizes p=1 Boolean function classes and writes; Theorem C proves complete hypercube unit-write rigidity and minimum deterministic decision-tree read depth, giving sharp opposite prefix-parity extremes (p=1 -> w>=n, w=1 -> p>=n). **DERIVED_CLASSICAL, NO worldwide novelty claim.** Fenwick falsifies w*p>=n for general p. Exhaustive finite tests `research/test_uct003_influence.py`, known/STOP **47** records (KR-045..047), newly imported static bit-probe original **LIT-141** (total bibliography **141**). Strong p>=2+fully priced sound-proof theorem remains OPEN.
+
 ## HYP-105 G2 — quadratic capacity of exact three-sums (2026-10-09)
 
 [Self-contained **grid-free ⇔ subset-sum injection** proof for linear 3-uniform unit-incidence systems over char≥5, and derived (A_q^{set}(m,3,3)=\Theta_q(m^2))](HYP-105-G2-GRID-FREE-QUADRATIC.md) · [all 4096 AG(2,3) subfamilies with independent grid/sum oracles and characteristic-three counterexample](../../research/test_hyp105_grid.py) · [issue #84](https://github.com/definitely-stable/Mathlab/issues/84). Dense **grid-free** linear triple systems already existed in Gishboliner–Shapira (2022): mathematical consequence is DERIVED_CLASSICAL, **not original**. Six-wise-linear-independence denominator remains unresolved: `Omega(m^9/5) <= A_lin(m,3,6) <= O(m²)`; no unbounded ratio proved. External catalogue 136 -> **140**, LIT-137..140.

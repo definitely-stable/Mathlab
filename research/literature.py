@@ -111,6 +111,7 @@ SOURCE_TITLE_PINS = {
     "doi:10.1109/ISIT.2005.1523645": "Improved bounds on the size of sparse parity check matrices",
     "arxiv:2508.09841": "The Brown-Erdős-Sós conjecture in dense triple systems",
     "doi:10.37236/14115": "Triangle-Free Triple Systems",
+    "doi:10.1137/090766619": "Bit-Probe Lower Bounds for Succinct Data Structures",
 }
 
 

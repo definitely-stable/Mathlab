@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**140** работ сопоставлены с **38** внутренними исследованиями.
+**141** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -289,6 +289,7 @@
 - [LIT-138](LITERATURE.md#lit-138) — Improved bounds on the size of sparse parity check matrices (2005; publisher_abstract_checked)
 - [LIT-139](LITERATURE.md#lit-139) — The Brown-Erdős-Sós conjecture in dense triple systems (2025; primary_abstract_checked)
 - [LIT-140](LITERATURE.md#lit-140) — Triangle-Free Triple Systems (2026; publisher_abstract_checked)
+- [LIT-141](LITERATURE.md#lit-141) — Bit-Probe Lower Bounds for Succinct Data Structures (2012; publisher_abstract_checked)
 
 ## ML-005
 
@@ -353,6 +354,7 @@
 - [LIT-130](LITERATURE.md#lit-130) — Annotations for Sparse Data Streams (2013; publisher_abstract_checked)
 - [LIT-131](LITERATURE.md#lit-131) — New Lower Bounds in Merlin-Arthur Communication and Graph Streaming Verification (2024; publisher_abstract_checked)
 - [LIT-132](LITERATURE.md#lit-132) — Arthur–Merlin streaming complexity (2015; publisher_abstract_checked)
+- [LIT-141](LITERATURE.md#lit-141) — Bit-Probe Lower Bounds for Succinct Data Structures (2012; publisher_abstract_checked)
 
 ## ML-007
 
