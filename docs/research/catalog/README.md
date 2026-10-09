@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## UCT-003 G1 — static bit-probe prior-art source (2026-10-09)
+
+Canonical bibliography expanded from **136** to **137** unique identities: **LIT-137** is [Viola (2012), *Bit-Probe Lower Bounds for Succinct Data Structures*](https://doi.org/10.1137/090766619), with original DOI metadata, Russian model-specific abstract, source-provenance link, title-identity pin, regenerated [forward index](LITERATURE.md) and [reverse index](LITERATURE-BY-RESEARCH.md). This work provides strong *static* succinct bit-probe query lower bounds including adaptive reads; it does **not** directly prove the dynamic write-locality or fully authenticated certificate theorem. Full primary proof is not independently verified. See [UCT-003 source audit](../UCT-003-G1-SOURCE-AND-GAP-AUDIT.md).
+
 ## HYP-105 G1 classical graph-source import (2026-10-09)
 
 LIT-135 Wenger 1991 graph constructions avoiding C4/C6/C10 (JCTB original) and LIT-136 Abreu et al. 2011 explicit girth-8 cages (author arXiv preprint) are separately verified canonical identities. Links, Russian summaries, scope and false-novelty constraints are in [the self-contained w=2,d=3 proof](../HYP-105-G1-W2D3-GIRTH8.md), `literature.json`, and generated forward/reverse indices. **136** unique sources (previous 134 unchanged). Finite oracle verifies a 30-node graph only; external infinite-family existence is attributed to known literature, not independently formalized by CI.
