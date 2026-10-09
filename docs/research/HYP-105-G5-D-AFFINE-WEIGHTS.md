@@ -50,6 +50,8 @@ The fixed W32 incidence graph has 45 edges, each representing a distinct 2+2 sup
 
 If the GitHub-hosted independent direct full GF5 oracle confirms this, the finite witness is real: the actual ASET cardinality for THIS support universe increases from the previous 20-column *extracted subfamily* to 45. **It does not establish that maximum ASET size at m=12 is 45 or that the maximum over the full ambient GF5^12 is anything in particular.** Previous 20 was an algorithmic output, NOT a proved maximum. A larger witness also does not establish a growing ASET/linear gap or a new asymptotic lower bound.
 
+**Frozen explicit witness:** [45-row W(3,2) GF5 support-and-coefficient certificate](../../research/hyp105_g5d_w32_45_witness.json) stores every physical support, four nonzero GF5 coefficients, checksum and cardinality constraints in a standalone JSON file. An independent regression reconstructs all 45 length-12 vectors **without using the random search**, compares supports against the symplectic reference fixture and proves exact injectivity of all 15,226 real GF5 subset sums. This isolates the mathematical witness from RNG or search-implementation changes.
+
 The exact full verification checks
 
     1 + 45 + C(45,2) + C(45,3) = 15,226
