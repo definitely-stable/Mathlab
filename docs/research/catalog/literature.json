@@ -6397,6 +6397,790 @@
       ],
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "id": "LIT-214",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "arxiv:2609.14066",
+      "title": "GraMRAG: Orchestrating Multi-Agent Multi-Step Reasoning via Graph Memory with Reinforcement Learning",
+      "summary_ru": "Динамический мультимодальный DAG действий и наблюдений; топологическая оптимизация политики поиска.",
+      "limits_ru": "Авторский preprint, результаты не воспроизведены; DAG рассуждений не теорема о reachability.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2609.14066",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-215",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "arxiv:2609.18317",
+      "title": "Knowledge-Graph Based Augmentation versus Retrieval Augmented Generation for Cultural-Related Question Answering",
+      "summary_ru": "Сопоставление автоматически извлечённого KG и текстового RAG на культурных вопросах.",
+      "limits_ru": "Контекст LatamQA и создание графа зависят от задачи; выводы не универсальны.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2609.18317",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-216",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "arxiv:2607.11464",
+      "title": "FAIR GraphRAG: A Retrieval-Augmented Generation Approach for Semantic Data Analysis",
+      "summary_ru": "Интеграция FAIR Digital Objects, метаданных и семантических связей в GraphRAG.",
+      "limits_ru": "Биомедицинская демонстрация, а не доказанная общая эффективность или масштабируемость.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2607.11464",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-217",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "arxiv:2606.26458",
+      "title": "MKG-RAG-Bench: Benchmarking Retrieval in Multimodal Knowledge Graph-Augmented Generation",
+      "summary_ru": "Бенчмарк отдельно измеряет retrieval и генерацию на мультимодальных KG.",
+      "limits_ru": "Бенчмарк не задаёт нижнюю оценку графового поиска и не покрывает все модальности.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2606.26458",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-218",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "arxiv:2606.25656",
+      "title": "Is GraphRAG Needed? From Basic RAG to Graph-/Agentic Solutions with Context Optimization",
+      "summary_ru": "Сравнение девяти сценариев RAG, GraphRAG и agentic RAG с учётом стоимости контекста.",
+      "limits_ru": "Выборка и бюджет конкретны; улучшение retrieval не гарантирует улучшение ответов.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2606.25656",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-219",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "arxiv:2606.00610",
+      "title": "MemGraphRAG: Memory-based Multi-Agent System for Graph Retrieval-Augmented Generation",
+      "summary_ru": "Совместное извлечение знаний несколькими агентами с общей памятью и иерархическим графовым поиском.",
+      "limits_ru": "Принятие KDD 2026 не эквивалентно воспроизведению авторских результатов.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2606.00610",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-220",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.1609/aaai.v40i36.40278",
+      "title": "You Don’t Need Pre-Built Graphs for RAG: Retrieval Augmented Generation with Adaptive Reasoning Structures",
+      "summary_ru": "LogicRAG строит DAG подзадач по запросу, выполняет топосортировку и отсечение ветвей.",
+      "limits_ru": "DAG reasoning не заменяет persistent KG во всех задачах; данные и cost model отдельные.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.1609/aaai.v40i36.40278",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-221",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "arxiv:2506.05690",
+      "title": "When to use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation",
+      "summary_ru": "GraphRAG-Bench проверяет условия, когда графы помогают и когда уступают обычному RAG.",
+      "limits_ru": "Публикация ICLR 2026, первичная рукопись 2025; нет универсального превосходства.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2506.05690",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-222",
+      "year": 2025,
+      "track": "graph-rag",
+      "identity": "arxiv:2510.10114",
+      "title": "LinearRAG: Linear Graph Retrieval Augmented Generation on Large-scale Corpora",
+      "summary_ru": "Relation-free Tri-Graph уменьшает зависимость от дорогой и шумной экстракции рёбер.",
+      "limits_ru": "Линейность относится к заявленной модели index construction, не ко всем query costs.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2510.10114",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "B"
+    },
+    {
+      "id": "LIT-223",
+      "year": 2025,
+      "track": "graph-rag",
+      "identity": "doi:10.18653/v1/2025.findings-emnlp.568",
+      "title": "LightRAG: Simple and Fast Retrieval-Augmented Generation",
+      "summary_ru": "Двухуровневый графово-векторный retrieval с инкрементальным обновлением.",
+      "limits_ru": "Опубликованное ускорение не доказательство независимого преимущественного performance.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.18653/v1/2025.findings-emnlp.568",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "alternate_identities": [
+        "arxiv:2410.05779"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B"
+    },
+    {
+      "id": "LIT-224",
+      "year": 2025,
+      "track": "graph-rag",
+      "identity": "arxiv:2501.00309",
+      "title": "Retrieval-Augmented Generation with Graphs (GraphRAG)",
+      "summary_ru": "Систематика query processor, retriever, organizer, generator и graph data sources.",
+      "limits_ru": "Обзор методов, а не отдельная доказанная теория retrieval.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2501.00309",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "B"
+    },
+    {
+      "id": "LIT-225",
+      "year": 2025,
+      "track": "graph-rag",
+      "identity": "arxiv:2501.13958",
+      "title": "A Survey of Graph Retrieval-Augmented Generation for Customized Large Language Models",
+      "summary_ru": "Обзор построения графов, многошагового поиска и domain-specific GraphRAG.",
+      "limits_ru": "Вторичный обзор; идентичность не объединять с иными GraphRAG survey.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2501.13958",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "B"
+    },
+    {
+      "id": "LIT-226",
+      "year": 2024,
+      "track": "graph-rag",
+      "identity": "arxiv:2408.08921",
+      "title": "Graph Retrieval-Augmented Generation: A Survey",
+      "summary_ru": "Разделяет graph-based indexing, graph-guided retrieval и graph-enhanced generation.",
+      "limits_ru": "Обзор 2024 не утверждает качество новых систем 2026.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2408.08921",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint"
+    },
+    {
+      "id": "LIT-227",
+      "year": 2024,
+      "track": "graph-rag",
+      "identity": "arxiv:2404.16130",
+      "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+      "summary_ru": "Microsoft GraphRAG: граф сущностей и community summaries для глобальных запросов.",
+      "limits_ru": "Глобальная суммаризация и фактологический поиск имеют разные целевые функции.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2404.16130",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint"
+    },
+    {
+      "id": "LIT-228",
+      "year": 2024,
+      "track": "graph-rag",
+      "identity": "arxiv:2402.07630",
+      "title": "G-Retriever: Retrieval-Augmented Generation for Textual Graph Understanding and Question Answering",
+      "summary_ru": "Отбор подграфа для GraphQA через Prize-Collecting Steiner Tree.",
+      "limits_ru": "Оптимизация подграфа и качество LLM не являются доказательством оптимальности ответа.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2402.07630",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint"
+    },
+    {
+      "id": "LIT-229",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2602.05665",
+      "title": "Graph-based Agent Memory: Taxonomy, Techniques, and Applications",
+      "summary_ru": "Обзор жизненного цикла памяти: extraction, storage, retrieval, evolution; типология знаний и опыта.",
+      "limits_ru": "Обзор, не проверенная на данных универсальная модель памяти.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2602.05665",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-230",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2606.06036",
+      "title": "Memory is Reconstructed, Not Retrieved: Graph Memory for LLM Agents",
+      "summary_ru": "MRAgent: граф cue-tag-content и активная реконструкция связанной памяти.",
+      "limits_ru": "Улучшения LoCoMo и LongMemEval авторские и зависят от token budget.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2606.06036",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-231",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2601.03236",
+      "title": "MAGMA: A Multi-Graph based Agentic Memory Architecture for AI Agents",
+      "summary_ru": "Параллельные семантический, временной, причинный и entity-графы; policy-guided retrieval.",
+      "limits_ru": "Ортогональность графов и улучшения не дают математической нижней границы.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2601.03236",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-232",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "doi:10.18653/v1/2026.acl-demo.27",
+      "title": "Hindsight: Structured Agent Memory that Retains, Recalls, and Reflects",
+      "summary_ru": "Четыре сети памяти, разделение фактов и мнений, гибридный retrieval и временная фильтрация.",
+      "limits_ru": "Показатели демонстрации ACL нельзя переносить без одинаковых данных и моделей.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.18653/v1/2026.acl-demo.27",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-233",
+      "year": 2025,
+      "track": "agent-memory",
+      "identity": "arxiv:2511.07800",
+      "title": "From Experience to Strategy: Empowering LLM Agents with Trainable Graph Memory",
+      "summary_ru": "Многослойная графовая память траекторий и стратегии с настройкой utility по reward.",
+      "limits_ru": "Зависимость от RL feedback и среды; не доказательство универсальной сходимости.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2511.07800",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "B"
+    },
+    {
+      "id": "LIT-234",
+      "year": 2025,
+      "track": "agent-memory",
+      "identity": "arxiv:2511.15715",
+      "title": "Graph-Memoized Reasoning: Foundations Structured Workflow Reuse in Intelligent Systems",
+      "summary_ru": "Концепция кэширования DAG-подграфов рассуждений с регуляризацией несогласованности.",
+      "limits_ru": "Концептуальная работа с протоколом оценки; не принятие измеренной экономии или новой теоремы.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2511.15715",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "B"
+    },
+    {
+      "id": "LIT-235",
+      "year": 2025,
+      "track": "agent-memory",
+      "identity": "arxiv:2501.13956",
+      "title": "Zep: A Temporal Knowledge Graph Architecture for Agent Memory",
+      "summary_ru": "Graphiti: временные знания и поддержка исторических отношений между сущностями.",
+      "limits_ru": "Заявленные enterprise метрики поставщика требуют независимой репликации.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2501.13956",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "B"
+    },
+    {
+      "id": "LIT-236",
+      "year": 2025,
+      "track": "agent-memory",
+      "identity": "arxiv:2502.12110",
+      "title": "A-MEM: Agentic Memory for LLM Agents",
+      "summary_ru": "Агентное создание и обновление ссылок между заметками по модели Zettelkasten.",
+      "limits_ru": "Эвристики семантических связей могут порождать ложные переходы и рост графа.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2502.12110",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "B"
+    },
+    {
+      "id": "LIT-237",
+      "year": 2025,
+      "track": "agent-memory",
+      "identity": "arxiv:2502.14802",
+      "title": "From RAG to Memory: Non-Parametric Continual Learning for Large Language Models",
+      "summary_ru": "HippoRAG 2: персонализированный PageRank, семантические связи и passage retrieval.",
+      "limits_ru": "PageRank не гарантирует актуальность фактов или отсутствие hallucination.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2502.14802",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "B"
+    },
+    {
+      "id": "LIT-238",
+      "year": 2024,
+      "track": "graph-reasoning",
+      "identity": "doi:10.1609/aaai.v38i16.29720",
+      "title": "Graph of Thoughts: Solving Elaborate Problems with Large Language Models",
+      "summary_ru": "Граф зависимостей мыслительных шагов допускает повторное использование и объединение.",
+      "limits_ru": "Thought graph допускает циклы; не равен DAG и не доказывает корректность reasoning.",
+      "maps_to": [
+        "OM-133",
+        "ML-004"
+      ],
+      "primary_url": "https://doi.org/10.1609/aaai.v38i16.29720",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "alternate_identities": [
+        "arxiv:2308.09687"
+      ],
+      "publication_stage": "peer_reviewed_proceedings"
+    },
+    {
+      "id": "LIT-239",
+      "year": 2010,
+      "track": "graph-algorithms",
+      "identity": "doi:10.14778/1920841.1920879",
+      "title": "GRAIL: Scalable Reachability Index for Large Graphs",
+      "summary_ru": "Рандомизированные интервальные метки обеспечивают компактный prefilter reachability.",
+      "limits_ru": "В худшем случае запрос после фильтра остаётся линейным; не exact O(1) oracle.",
+      "maps_to": [
+        "ML-006",
+        "ML-004"
+      ],
+      "primary_url": "https://doi.org/10.14778/1920841.1920879",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint"
+    },
+    {
+      "id": "LIT-240",
+      "year": 2025,
+      "track": "agent-memory",
+      "identity": "arxiv:2504.19413",
+      "title": "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory",
+      "summary_ru": "Динамический отбор фактов, консолидация, retrieval и отдельный graph-memory вариант.",
+      "limits_ru": "Авторские latency и LLM-as-a-Judge оценки не подтверждены независимым CI.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2504.19413",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "B"
+    },
+    {
+      "id": "LIT-241",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.18653/v1/2026.acl-long.252",
+      "title": "LogicPoison: Logical Attacks on Graph Retrieval-Augmented Generation",
+      "summary_ru": "Топологические атаки на reasoning-мосты и hubs графа без явного текстового подлога.",
+      "limits_ru": "Уязвимости зависят от механизма graph construction и выбранных атак.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.18653/v1/2026.acl-long.252",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-242",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.18653/v1/2026.acl-long.1738",
+      "title": "LegalGraphRAG: Multi-Agent Graph Retrieval-Augmented Generation for Reliable Legal Reasoning",
+      "summary_ru": "Многоагентный GraphRAG для юрзадач с графовыми связями нормативных фактов.",
+      "limits_ru": "Юридическая предметная область не эквивалентна общей точной логической проверке.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.18653/v1/2026.acl-long.1738",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "72ec2a72c0a47cefbbb2c36275080f2d433f304c"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
     }
   ]
 }

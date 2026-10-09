@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## IMPORT-006 — Graphs, immutable DAG, GraphRAG and agent memory (2026-10-09)
+
+[Primary-source audit of 29 papers including 2026/09](../RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) · [issue #184](https://github.com/definitely-stable/Mathlab/issues/184). LIT-214..242 add graph-RAG, graph-reasoning and agent-memory tracks, with historical GRAIL baseline and negative GraphRAG-Bench control. Library **241** canonical publications; bibliography-only, no imported third-party fulltexts or independent theorem/benchmark verification.
+
 ## IMPORT-005 — dynamic algebra, immutable DAG and online theory 2025–2026
 
 [12 publisher-checked sources, exact mathematical models and five falsification lanes](../RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) · [issue #124](https://github.com/definitely-stable/Mathlab/issues/124). **LIT-187..198** allocated after INDEX-001 G2-A LIT-183..186. Original lower bounds/constructions are treated as prior art, not Mathlab theorem discoveries; no paper full-proof replication.

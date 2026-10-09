@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **212** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **241** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -18,7 +18,10 @@
 | [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 12 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 19 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 20 |
+| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 17 |
+| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 10 |
+| [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 23 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
@@ -2114,6 +2117,395 @@ Hoory (Journal of Combinatorial Theory B, 2002) обобщает экстрем�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-239
+**[GRAIL: Scalable Reachability Index for Large Graphs](https://doi.org/10.14778/1920841.1920879)** (2010)
+
+Рандомизированные интервальные метки обеспечивают компактный prefilter reachability.
+
+**Ограничение:** В худшем случае запрос после фильтра остаётся линейным; не exact O(1) oracle.
+
+**Идентичность:** `doi:10.14778/1920841.1920879` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-006](INDEX.md#ml-006), [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+
+## graph-rag
+*GraphRAG, knowledge-graph retrieval, системное сравнение с RAG*
+
+### LIT-214
+**[GraMRAG: Orchestrating Multi-Agent Multi-Step Reasoning via Graph Memory with Reinforcement Learning](https://arxiv.org/abs/2609.14066)** (2026)
+
+Динамический мультимодальный DAG действий и наблюдений; топологическая оптимизация политики поиска.
+
+**Ограничение:** Авторский preprint, результаты не воспроизведены; DAG рассуждений не теорема о reachability.
+
+**Идентичность:** `arxiv:2609.14066` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-215
+**[Knowledge-Graph Based Augmentation versus Retrieval Augmented Generation for Cultural-Related Question Answering](https://arxiv.org/abs/2609.18317)** (2026)
+
+Сопоставление автоматически извлечённого KG и текстового RAG на культурных вопросах.
+
+**Ограничение:** Контекст LatamQA и создание графа зависят от задачи; выводы не универсальны.
+
+**Идентичность:** `arxiv:2609.18317` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-216
+**[FAIR GraphRAG: A Retrieval-Augmented Generation Approach for Semantic Data Analysis](https://arxiv.org/abs/2607.11464)** (2026)
+
+Интеграция FAIR Digital Objects, метаданных и семантических связей в GraphRAG.
+
+**Ограничение:** Биомедицинская демонстрация, а не доказанная общая эффективность или масштабируемость.
+
+**Идентичность:** `arxiv:2607.11464` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-217
+**[MKG-RAG-Bench: Benchmarking Retrieval in Multimodal Knowledge Graph-Augmented Generation](https://arxiv.org/abs/2606.26458)** (2026)
+
+Бенчмарк отдельно измеряет retrieval и генерацию на мультимодальных KG.
+
+**Ограничение:** Бенчмарк не задаёт нижнюю оценку графового поиска и не покрывает все модальности.
+
+**Идентичность:** `arxiv:2606.26458` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-218
+**[Is GraphRAG Needed? From Basic RAG to Graph-/Agentic Solutions with Context Optimization](https://arxiv.org/abs/2606.25656)** (2026)
+
+Сравнение девяти сценариев RAG, GraphRAG и agentic RAG с учётом стоимости контекста.
+
+**Ограничение:** Выборка и бюджет конкретны; улучшение retrieval не гарантирует улучшение ответов.
+
+**Идентичность:** `arxiv:2606.25656` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-219
+**[MemGraphRAG: Memory-based Multi-Agent System for Graph Retrieval-Augmented Generation](https://arxiv.org/abs/2606.00610)** (2026)
+
+Совместное извлечение знаний несколькими агентами с общей памятью и иерархическим графовым поиском.
+
+**Ограничение:** Принятие KDD 2026 не эквивалентно воспроизведению авторских результатов.
+
+**Идентичность:** `arxiv:2606.00610` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-220
+**[You Don’t Need Pre-Built Graphs for RAG: Retrieval Augmented Generation with Adaptive Reasoning Structures](https://doi.org/10.1609/aaai.v40i36.40278)** (2026)
+
+LogicRAG строит DAG подзадач по запросу, выполняет топосортировку и отсечение ветвей.
+
+**Ограничение:** DAG reasoning не заменяет persistent KG во всех задачах; данные и cost model отдельные.
+
+**Идентичность:** `doi:10.1609/aaai.v40i36.40278` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-221
+**[When to use Graphs in RAG: A Comprehensive Analysis for Graph Retrieval-Augmented Generation](https://arxiv.org/abs/2506.05690)** (2026)
+
+GraphRAG-Bench проверяет условия, когда графы помогают и когда уступают обычному RAG.
+
+**Ограничение:** Публикация ICLR 2026, первичная рукопись 2025; нет универсального превосходства.
+
+**Идентичность:** `arxiv:2506.05690` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-222
+**[LinearRAG: Linear Graph Retrieval Augmented Generation on Large-scale Corpora](https://arxiv.org/abs/2510.10114)** (2025)
+
+Relation-free Tri-Graph уменьшает зависимость от дорогой и шумной экстракции рёбер.
+
+**Ограничение:** Линейность относится к заявленной модели index construction, не ко всем query costs.
+
+**Идентичность:** `arxiv:2510.10114` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-223
+**[LightRAG: Simple and Fast Retrieval-Augmented Generation](https://doi.org/10.18653/v1/2025.findings-emnlp.568)** (2025)
+
+Двухуровневый графово-векторный retrieval с инкрементальным обновлением.
+
+**Ограничение:** Опубликованное ускорение не доказательство независимого преимущественного performance.
+
+**Идентичность:** `doi:10.18653/v1/2025.findings-emnlp.568` · **Также:** arxiv:2410.05779 · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-224
+**[Retrieval-Augmented Generation with Graphs (GraphRAG)](https://arxiv.org/abs/2501.00309)** (2025)
+
+Систематика query processor, retriever, organizer, generator и graph data sources.
+
+**Ограничение:** Обзор методов, а не отдельная доказанная теория retrieval.
+
+**Идентичность:** `arxiv:2501.00309` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-225
+**[A Survey of Graph Retrieval-Augmented Generation for Customized Large Language Models](https://arxiv.org/abs/2501.13958)** (2025)
+
+Обзор построения графов, многошагового поиска и domain-specific GraphRAG.
+
+**Ограничение:** Вторичный обзор; идентичность не объединять с иными GraphRAG survey.
+
+**Идентичность:** `arxiv:2501.13958` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-226
+**[Graph Retrieval-Augmented Generation: A Survey](https://arxiv.org/abs/2408.08921)** (2024)
+
+Разделяет graph-based indexing, graph-guided retrieval и graph-enhanced generation.
+
+**Ограничение:** Обзор 2024 не утверждает качество новых систем 2026.
+
+**Идентичность:** `arxiv:2408.08921` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-227
+**[From Local to Global: A Graph RAG Approach to Query-Focused Summarization](https://arxiv.org/abs/2404.16130)** (2024)
+
+Microsoft GraphRAG: граф сущностей и community summaries для глобальных запросов.
+
+**Ограничение:** Глобальная суммаризация и фактологический поиск имеют разные целевые функции.
+
+**Идентичность:** `arxiv:2404.16130` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-228
+**[G-Retriever: Retrieval-Augmented Generation for Textual Graph Understanding and Question Answering](https://arxiv.org/abs/2402.07630)** (2024)
+
+Отбор подграфа для GraphQA через Prize-Collecting Steiner Tree.
+
+**Ограничение:** Оптимизация подграфа и качество LLM не являются доказательством оптимальности ответа.
+
+**Идентичность:** `arxiv:2402.07630` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-241
+**[LogicPoison: Logical Attacks on Graph Retrieval-Augmented Generation](https://doi.org/10.18653/v1/2026.acl-long.252)** (2026)
+
+Топологические атаки на reasoning-мосты и hubs графа без явного текстового подлога.
+
+**Ограничение:** Уязвимости зависят от механизма graph construction и выбранных атак.
+
+**Идентичность:** `doi:10.18653/v1/2026.acl-long.252` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-242
+**[LegalGraphRAG: Multi-Agent Graph Retrieval-Augmented Generation for Reliable Legal Reasoning](https://doi.org/10.18653/v1/2026.acl-long.1738)** (2026)
+
+Многоагентный GraphRAG для юрзадач с графовыми связями нормативных фактов.
+
+**Ограничение:** Юридическая предметная область не эквивалентна общей точной логической проверке.
+
+**Идентичность:** `doi:10.18653/v1/2026.acl-long.1738` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+
+## agent-memory
+*Графовая память агентов, темпоральность и эволюция знаний*
+
+### LIT-229
+**[Graph-based Agent Memory: Taxonomy, Techniques, and Applications](https://arxiv.org/abs/2602.05665)** (2026)
+
+Обзор жизненного цикла памяти: extraction, storage, retrieval, evolution; типология знаний и опыта.
+
+**Ограничение:** Обзор, не проверенная на данных универсальная модель памяти.
+
+**Идентичность:** `arxiv:2602.05665` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-230
+**[Memory is Reconstructed, Not Retrieved: Graph Memory for LLM Agents](https://arxiv.org/abs/2606.06036)** (2026)
+
+MRAgent: граф cue-tag-content и активная реконструкция связанной памяти.
+
+**Ограничение:** Улучшения LoCoMo и LongMemEval авторские и зависят от token budget.
+
+**Идентичность:** `arxiv:2606.06036` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-231
+**[MAGMA: A Multi-Graph based Agentic Memory Architecture for AI Agents](https://arxiv.org/abs/2601.03236)** (2026)
+
+Параллельные семантический, временной, причинный и entity-графы; policy-guided retrieval.
+
+**Ограничение:** Ортогональность графов и улучшения не дают математической нижней границы.
+
+**Идентичность:** `arxiv:2601.03236` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-232
+**[Hindsight: Structured Agent Memory that Retains, Recalls, and Reflects](https://doi.org/10.18653/v1/2026.acl-demo.27)** (2026)
+
+Четыре сети памяти, разделение фактов и мнений, гибридный retrieval и временная фильтрация.
+
+**Ограничение:** Показатели демонстрации ACL нельзя переносить без одинаковых данных и моделей.
+
+**Идентичность:** `doi:10.18653/v1/2026.acl-demo.27` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-233
+**[From Experience to Strategy: Empowering LLM Agents with Trainable Graph Memory](https://arxiv.org/abs/2511.07800)** (2025)
+
+Многослойная графовая память траекторий и стратегии с настройкой utility по reward.
+
+**Ограничение:** Зависимость от RL feedback и среды; не доказательство универсальной сходимости.
+
+**Идентичность:** `arxiv:2511.07800` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-234
+**[Graph-Memoized Reasoning: Foundations Structured Workflow Reuse in Intelligent Systems](https://arxiv.org/abs/2511.15715)** (2025)
+
+Концепция кэширования DAG-подграфов рассуждений с регуляризацией несогласованности.
+
+**Ограничение:** Концептуальная работа с протоколом оценки; не принятие измеренной экономии или новой теоремы.
+
+**Идентичность:** `arxiv:2511.15715` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-235
+**[Zep: A Temporal Knowledge Graph Architecture for Agent Memory](https://arxiv.org/abs/2501.13956)** (2025)
+
+Graphiti: временные знания и поддержка исторических отношений между сущностями.
+
+**Ограничение:** Заявленные enterprise метрики поставщика требуют независимой репликации.
+
+**Идентичность:** `arxiv:2501.13956` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-236
+**[A-MEM: Agentic Memory for LLM Agents](https://arxiv.org/abs/2502.12110)** (2025)
+
+Агентное создание и обновление ссылок между заметками по модели Zettelkasten.
+
+**Ограничение:** Эвристики семантических связей могут порождать ложные переходы и рост графа.
+
+**Идентичность:** `arxiv:2502.12110` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-237
+**[From RAG to Memory: Non-Parametric Continual Learning for Large Language Models](https://arxiv.org/abs/2502.14802)** (2025)
+
+HippoRAG 2: персонализированный PageRank, семантические связи и passage retrieval.
+
+**Ограничение:** PageRank не гарантирует актуальность фактов или отсутствие hallucination.
+
+**Идентичность:** `arxiv:2502.14802` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-240
+**[Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory](https://arxiv.org/abs/2504.19413)** (2025)
+
+Динамический отбор фактов, консолидация, retrieval и отдельный graph-memory вариант.
+
+**Ограничение:** Авторские latency и LLM-as-a-Judge оценки не подтверждены независимым CI.
+
+**Идентичность:** `arxiv:2504.19413` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+
+## graph-reasoning
+*Графовые зависимости шагов рассуждения, DAG-планирование*
+
+### LIT-238
+**[Graph of Thoughts: Solving Elaborate Problems with Large Language Models](https://doi.org/10.1609/aaai.v38i16.29720)** (2024)
+
+Граф зависимостей мыслительных шагов допускает повторное использование и объединение.
+
+**Ограничение:** Thought graph допускает циклы; не равен DAG и не доказывает корректность reasoning.
+
+**Идентичность:** `doi:10.1609/aaai.v38i16.29720` · **Также:** arxiv:2308.09687 · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [OM-133](INDEX.md#om-133), [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
 
 
 ## algebraic-algorithms
