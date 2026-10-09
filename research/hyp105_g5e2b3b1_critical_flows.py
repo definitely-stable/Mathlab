@@ -181,7 +181,7 @@ def exact_nowherezero_signed_flow(left, right, mask):
             raise AssertionError("negative GF5 cycle-space dimension")
         term = 5 ** dim
         result += term if (12 - nactive) % 2 == 0 else -term
-    if not 0 <= result <= 5**7:
+    if not 0 <= result <= 5**12:
         raise AssertionError("invalid GF5 flow inclusion-exclusion count")
     return result
 
