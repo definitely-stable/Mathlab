@@ -15,12 +15,12 @@ class LiteratureTests(unittest.TestCase):
     def test_real_collection_has_no_metadata_errors(self):
         self.assertEqual(valid(self.data, self.catalog), [])
 
-    def test_148_distinct_works_and_fourteen_lanes(self):
+    def test_150_distinct_works_and_fourteen_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 148)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 148)
-        self.assertEqual(len({e["id"] for e in entries}), 148)
-        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 149)},
+        self.assertEqual(len(entries), 150)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 150)
+        self.assertEqual(len({e["id"] for e in entries}), 150)
+        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 151)},
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 14)
 
@@ -77,6 +77,17 @@ class LiteratureTests(unittest.TestCase):
                              "model_overlap")
             self.assertEqual(lookup[code]["mentioned_in"][0]["path"],
                              "docs/research/UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md")
+
+    def test_uct004_g2c_operational_certification_and_pcpp_scope(self):
+        lookup = {e["id"]: e for e in self.data["entries"]}
+        self.assertEqual(lookup["LIT-149"]["identity"], "arxiv:2609.26757")
+        self.assertEqual(lookup["LIT-150"]["identity"],
+                         "doi:10.1145/1595391.1595394")
+        for key in ("LIT-149", "LIT-150"):
+            self.assertFalse(lookup[key]["full_proof_verified"])
+            self.assertFalse(lookup[key]["independent_reproduction"])
+            self.assertEqual(lookup[key]["mentioned_in"][0]["path"],
+                             "docs/research/UCT-004-G2-C-SOURCE-NOVELTY-AUDIT.md")
 
     def test_2026_report_links_match_bibliographic_identities(self):
         """Check real publisher URLs (part A) and internal anchors (part B)."""
@@ -200,7 +211,7 @@ class LiteratureTests(unittest.TestCase):
         original = {e["id"] for e in self.data["entries"]}
         self.assertTrue({f"LIT-{i:03d}" for i in range(50, 96)} <= original)
         self.assertTrue({f"LIT-{i:03d}" for i in range(1, 96)} <= original)
-        self.assertEqual(len(self.data["entries"]), 148)
+        self.assertEqual(len(self.data["entries"]), 150)
         all_ids = [e["identity"].lower() for e in self.data["entries"]]
         self.assertEqual(len(all_ids), len(set(all_ids)))
 
@@ -469,7 +480,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 148)
+        self.assertEqual(len({e["id"] for e in entries}), 150)
         tracks = {e["track"] for e in entries}
         self.assertEqual(len(tracks), 14)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
