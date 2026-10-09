@@ -55,13 +55,31 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
-    # UCT-005 G2-A: six canonical new works; STOC 2026 retained as LIT-072.
+    # UCT-005 G2-A new LIT-199..204 pins (STOC 2026 LIT-072 already present).
     "doi:10.1007/978-3-032-01878-6_6": "Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators",
     "doi:10.1007/978-3-032-25330-9_7": "Lower Bounding Update Frequency in Short Accumulators and Vector Commitments",
     "doi:10.4230/LIPIcs.ITCS.2026.71": "Lower Bounds on FSS from Dynamic Data Structures",
     "doi:10.1007/978-3-642-00457-5_30": "How Efficient Can Memory Checking Be?",
     "publisher:iacr:2025-110": "Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams",
     "doi:10.1007/978-3-642-14712-8_11": "On the Impossibility of Batch Update for Cryptographic Accumulators",
+    # IMPORT-005 exact primary publisher DOI and title pin cohort.
+    "doi:10.4230/LIPIcs.SEA.2025.9": "Incremental Reachability Index",
+    "doi:10.4230/LIPIcs.ESA.2025.92": "Incremental Maximization for a Broad Class of Objectives",
+    "doi:10.4230/LIPIcs.ESA.2025.93": "Recognizing and Realizing Temporal Reachability Graphs",
+    "doi:10.4230/LIPIcs.ICALP.2025.93": "On Incremental Approximate Shortest Paths in Directed Graphs",
+    "doi:10.4230/LIPIcs.STACS.2025.18": "Online Disjoint Set Covers: Randomization Is Not Necessary",
+    "doi:10.4230/LIPIcs.ICALP.2026.16": "Fully Dynamic Algorithms for Coloring Triangle-Free Graphs",
+    "doi:10.4230/LIPIcs.ICALP.2026.26": "Fast Decremental Tree Sums in Forests",
+    "doi:10.4230/LIPIcs.ICALP.2026.44": "Multiplicative Error Set System Sparsification: A Simpler Proof via Chain Length Contraction",
+    "doi:10.4230/LIPIcs.ICALP.2026.45": "Dynamic Rank, Basis, and Matching",
+    "doi:10.4230/LIPIcs.ICALP.2026.157": "Fully Dynamic Spectral and Cut Sparsifiers for Directed Graphs",
+    "doi:10.4230/LIPIcs.ESA.2026.125": "Incongruity-Sensitive Access to Highly Compressed Strings",
+    "doi:10.4230/LIPIcs.SWAT.2026.21": "Dynamic MIS Revisited: Incremental, Fault Tolerant and Fully Dynamic",
+    # INDEX-001 G2-A: separately verified compaction and adaptive bitvector identities.
+    "doi:10.1007/s00224-025-10229-8": "(Worst-case) Optimal Adaptive Dynamic Bitvectors",
+    "doi:10.1016/j.future.2026.108425": "C2LSM: A configuration paradigm for efficient compaction in LSM-tree-based key-value stores",
+    "doi:10.14778/3796195.3796208": "ArceKV: Towards Workload-driven LSM-compactions for Key-Value Store Under Dynamic Workloads",
+    "doi:10.1109/ICDE65706.2026.00194": "RangeReduce: Query-Driven LSM Compactions",
     # INDEX-001 G0: original source identity pins (six new works; no aliases duplicated).
     "doi:10.1137/S009753970240481X": "Optimal External Memory Interval Management",
     "doi:10.1137/110842211": "The Limits of Buffering: A Tight Lower Bound for Dynamic Membership in the External Memory Model",
