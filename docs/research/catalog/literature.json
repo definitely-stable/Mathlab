@@ -7424,6 +7424,156 @@
       "independent_reproduction": false,
       "publication_stage": "peer_reviewed_proceedings",
       "selection_priority": "A"
+    },
+    {
+      "id": "LIT-252",
+      "title": "Provenance semirings.",
+      "year": 2007,
+      "identity": "doi:10.1145/1265530.1265535",
+      "track": "incremental-computation",
+      "summary_ru": "Семиринговая алгебра происхождения: сумма альтернативных цепочек и произведение совместно используемых источников; классическая основа provenance-выражений.",
+      "limits_ru": "Не даёт криптографической проверки, физической стоимости обновления или гарантии актуальности.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1145/1265530.1265535",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md",
+          "kind": "model_overlap",
+          "source_sha": "e34d725bb17e39e144d5d2d4b857bf205a574d59"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-253",
+      "title": "Incremental Knowledge Graph Construction from Heterogeneous Data Sources",
+      "year": 2026,
+      "identity": "doi:10.1177/22104968251412270",
+      "track": "graph-rag",
+      "summary_ru": "Инкрементальное построение графов знаний из обновляемых неоднородных источников с отслеживанием изменений и истории.",
+      "limits_ru": "Практическая схема KG не доказывает постоянной стоимости записи страниц или корректности всех извлечённых утверждений.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1177/22104968251412270",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md",
+          "kind": "model_overlap",
+          "source_sha": "e34d725bb17e39e144d5d2d4b857bf205a574d59"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-254",
+      "title": "Correct-by-Construction Dynamic Reachability: A Galois-Connected Approach to Bidirected Dyck Languages",
+      "year": 2026,
+      "identity": "doi:10.1007/978-3-032-26220-2_18",
+      "track": "graph-algorithms",
+      "summary_ru": "FM 2026: инкрементальная Dyck-CFL достижимость через счётчики поддерживающих выводов и гиперграф происхождения для корректного удаления.",
+      "limits_ru": "Dyck-CFL специальная модель, не универсальная физическая нижняя граница и не новизна простого DAG.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1007/978-3-032-26220-2_18",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md",
+          "kind": "model_overlap",
+          "source_sha": "e34d725bb17e39e144d5d2d4b857bf205a574d59"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-255",
+      "title": "In-memory Incremental Maintenance of Provenance Sketches",
+      "year": 2026,
+      "identity": "doi:10.48786/EDBT.2026.05",
+      "track": "incremental-computation",
+      "summary_ru": "EDBT 2026: инкрементальная поддержка набросков происхождения данных в оперативной памяти.",
+      "limits_ru": "Provenance sketch не равен полному безошибочному перечислению всех цепочек доказательств и их цифровых подписей.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.48786/EDBT.2026.05",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md",
+          "kind": "model_overlap",
+          "source_sha": "e34d725bb17e39e144d5d2d4b857bf205a574d59"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-256",
+      "title": "RAG Meets Temporal Graphs: Time-Sensitive Modeling and Retrieval for Evolving Knowledge",
+      "year": 2025,
+      "identity": "arxiv:2510.13590",
+      "track": "graph-rag",
+      "summary_ru": "TG-RAG: многоуровневое временное представление KG, инкрементальные обновления и temporal QA оценка.",
+      "limits_ru": "Исследование качества RAG не доказывает latest freshness, полную достоверность источника или худшую стоимость.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2510.13590",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md",
+          "kind": "model_overlap",
+          "source_sha": "e34d725bb17e39e144d5d2d4b857bf205a574d59"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-257",
+      "title": "Evolving Beyond Snapshots: Harmonizing Structure and Sequence via Entity State Tuning for Temporal Knowledge Graph Forecasting",
+      "year": 2026,
+      "identity": "doi:10.18653/v1/2026.acl-long.1776",
+      "track": "agent-memory",
+      "summary_ru": "ACL 2026: накопительное состояние сущностей для прогнозирования эволюции временных графов знаний.",
+      "limits_ru": "Предсказание будущего не тождественно точному as-of историческому поиску и логическому доказательству.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.18653/v1/2026.acl-long.1776",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md",
+          "kind": "model_overlap",
+          "source_sha": "e34d725bb17e39e144d5d2d4b857bf205a574d59"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
     }
   ]
 }

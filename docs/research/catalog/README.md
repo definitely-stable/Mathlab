@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## TKG-001 G0 — temporal provenance and 2026 dynamic KG originals
+
+[Formal model and proof audit](../TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) · [issue #190](https://github.com/definitely-stable/Mathlab/issues/190). Six unique canonical first-party metadata sources LIT-252..257 extend 250→256 works: PODS 2007 provenance semirings, 2026 SAGE incremental KG, FM 2026 dynamic reachability, EDBT 2026 provenance maintenance, TG-RAG 2025 and ACL 2026 temporal entity states. Original proofs and benchmarks not independently reproduced.
+
 ## IMPORT-006B — latest Sep 2026 graph memory + ACL/TACL graph retrieval
 
 [September 2026 TAGGRAPH/ReCAP and 2026 ACL/TACL primary-source cohort](../RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md). Nine extra unique papers LIT-243..251, now **250** corpus works, of which 112 from 2026. Explicit negative BM25 memory retrieval control and poisoning defense included; no full proof/benchmark reproduction.
