@@ -86,17 +86,45 @@ class TrajectoryCapacityTests(unittest.TestCase):
                         expected = all(hamming(x, y) <= 2 * e for x, y in zip(a, b))
                         self.assertEqual(common, expected)
 
-    def test_temporal_tube_strict_finite_gain_over_independent_epochs(self):
-        args = dict(q=2, cells=6, epochs=3, changed=1,
-                    errors=1, trusted_bits=0, query_count=6, probes=1)
+    def test_temporal_tube_strict_gain_with_real_one_error_correcting_protocol(self):
+        args = dict(q=2, cells=7, epochs=3, changed=3,
+                    errors=1, trusted_bits=0, query_count=1, probes=3)
         report = trajectory_capacity_bound(**args)
-        self.assertEqual(report["accessible_symbols"], 6)
-        self.assertEqual(report["bound"], 113)
+        self.assertEqual(report["accessible_symbols"], 7)
+        self.assertEqual(report["bound"], 2784)
         self.assertEqual(independent_epoch_capacity_product(
-            2, 6, 3, 1, 1, 0), 144)
-        self.assertLess(report["bound"], 144)
-        self.assertEqual(report["per_support"][-1]["walks"], 343)
-        self.assertEqual(report["per_support"][-1]["tube"], 113)
+            2, 7, 3, 3, 1, 0), 3072)
+        self.assertLess(report["bound"], 3072)
+        self.assertEqual(report["per_support"][-1]["walks"], 262144)
+        self.assertEqual(report["per_support"][-1]["tube"], 2784)
+
+        # Real, rather than vacuous, information-theoretic e=1 protocol:
+        # remote codeword (bit,bit,bit,0,0,0,0); authorized per-epoch
+        # NOOP / FLIP changes either 0 or 3 remote bits.
+        transcripts = set()
+        for toggles in product((0, 1), repeat=3):
+            bit = 0
+            output = []
+            for toggle in toggles:
+                bit ^= toggle
+                remote = (bit, bit, bit, 0, 0, 0, 0)
+                output.append(bit)
+                for pos in range(7):
+                    damaged = list(remote)
+                    damaged[pos] ^= 1
+                    self.assertEqual(
+                        int(sum(damaged[:3]) >= 2), bit)
+            transcripts.add(tuple(output))
+        self.assertEqual(len(transcripts), 8)
+        self.assertLessEqual(len(transcripts), report["bound"])
+
+        # For the actual protocol all potential queries read only the
+        # first 3 addresses; the exact-s=3 temporal bound is sharp.
+        restricted = trajectory_capacity_bound(
+            q=2, cells=3, epochs=3, changed=3,
+            errors=1, trusted_bits=0, query_count=1, probes=3)
+        self.assertEqual(restricted["bound"], 8)
+        self.assertEqual(len(transcripts), restricted["bound"])
 
     def test_zero_probes_and_zero_writes_cannot_hide_information(self):
         for h in range(3):
