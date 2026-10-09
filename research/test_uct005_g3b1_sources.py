@@ -39,7 +39,7 @@ class G3B1PriorArtAndProofScope(unittest.TestCase):
             json.loads(CATALOG.read_text(encoding="utf-8"))["entries"]}
         self.assertTrue(lits.issubset(available))
         doc = DOC.read_text(encoding="utf-8")
-        for term in ("G3B1-T1", "113", "144", "343", "2^{Hd}",
+        for term in ("G3B1-T1", "2784", "3072", "262144", "2^{Hd}",
                      "OPEN_UNPROVED", "Prefix Hamming",
                      "CRYPTO_AND_PHYSICAL_UPDATE_PROBES_NOT_PROVED",
                      "Reinhart", "SNARK", "2026", "LIT-127"):
