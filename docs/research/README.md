@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## HYP-105 G5-C3-A — exact coordinate-gauge invariant and deterministic W32 label search (2026-10-09)
+
+[Mathematical proofs and all-scale limitations](HYP-105-G5-C3-A-STRUCTURED-LABEL-SEARCH.md) · [certified bounded search code](../../research/hyp105_g5c3_label_search.py) · [independent regression](../../research/test_hyp105_g5c3_label_search.py) · [merged #122](https://github.com/definitely-stable/Mathlab/pull/122) · [hosted exact PR-head Research #1077 SUCCESS](https://github.com/definitely-stable/Mathlab/actions/runs/37896067333). Elementary all-field coordinate-gauge invariance, explicit S6×S6 class count (15!/6!)² for split K6 pair bijections; reproducible finite m12 W32 minimal T4:46→42 and T6:1722→1580, with 20 independently validated ASET columns before AND after. **No all-m density theorem, no exponent improvement, no original theorem novelty, no Rust.** Further work on [G5-C3 #119](https://github.com/definitely-stable/Mathlab/issues/119), [#106](https://github.com/definitely-stable/Mathlab/issues/106), [#95](https://github.com/definitely-stable/Mathlab/issues/95) remains OPEN: demand uniform algebraic pair label design and proved T4/T6 estimates.
+
+
 ## INDEX-001 G2-A — synthetic page-cost comparator and 2026 compaction novelty closure (2026-10-09)
 
 [**Range overlay vs direct materialization: precise simulated cold page reads, journal/compaction writes, original 2025/26 prior-art audit**](INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) · [issue #121](https://github.com/definitely-stable/Mathlab/issues/121) · [simulation module](../../research/index001_page_cost.py) · [independent finite tests](../../research/test_index001_page_cost.py). **LIT-183..186**, 182→186 canonical sources, attached SPIRE'24 preliminary identity to theoretical LIT-183, kept practical LIT-180 separate (no duplicate). G2-A MODEL_ONLY / physical lower bound OPEN / generic H2 adaptation novelty STOP / no Rust. No actual disk I/O or crash recovery implied.
