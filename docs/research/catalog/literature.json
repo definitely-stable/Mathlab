@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "8d09d01b507c65e95e6a050845b39fd156eebcc1"
+      "sha": "34f75344ab08608c86a61b8d381fe0a3845e2c29"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -4353,6 +4353,92 @@
     },
     {
       "id": "LIT-151",
+      "title": "New Turán Exponents for Two Extremal Hypergraph Problems",
+      "year": 2021,
+      "identity": "doi:10.1137/20M1325769",
+      "primary_url": "https://doi.org/10.1137/20M1325769",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Shangguan и Tamo (SIAM J. Discrete Math., 2021) устанавливают нижнюю Ω(n^{r/(t-1)}) для t-union-free r-однородных гиперграфов. Совместно с классической cover-free верхней O(n^ceil(r/(t-1))) в случае (t,r)=(3,4) получается U_3(n,4)=Θ(n²).",
+      "limits_ru": "Это нижняя оценка для уникальных объединений, а не для произвольных сумм с полевыми коэффициентами. Константа U_3(n,4) не следует из новой статьи Liu–Shangguan–Zhang (LIT-005) версии v3: она явно исключает (3,4). Не переносить меньший показатель union-free на всю ASET.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Chong Shangguan",
+        "Itzhak Tamo"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G5-A-TRADE-INTERSECTION.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-152",
+      "title": "Parity check matrices and product representations of squares",
+      "year": 2008,
+      "identity": "doi:10.1007/s00493-008-2195-2",
+      "primary_url": "https://doi.org/10.1007/s00493-008-2195-2",
+      "track": "sparse-coding",
+      "summary_ru": "Naor и Verstraëte (Combinatorica 2008) исследуют верхние оценки числа разреженных k-wise независимых столбцов и связи с циклами в графах; полный журнальный текст развивает работу ISIT 2005.",
+      "limits_ru": "Произвольные коэффициенты линейной зависимости существенно отличаются от ограниченных ±1 трёх-сумм. Формулы в абстрактах форматируются неоднозначно; не утверждать улучшения показателя для k=6,r=4 без проверки математического оригинала.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Assaf Naor",
+        "Jacques Verstraëte"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G5-A-TRADE-INTERSECTION.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-153",
+      "title": "Additive codes arising from hypergraphs",
+      "year": 2026,
+      "identity": "arxiv:2609.39680",
+      "primary_url": "https://arxiv.org/abs/2609.39680",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Alfarano (30 сентября 2026) изучает критический показатель аддитивных кодов посредством гиперграфических полиматроидов, Berge-girth и слабой хроматичности, а также аналоги границ Singleton/Griesmer.",
+      "limits_ru": "Критический показатель аддитивного кода и folded Hamming distance не равны экстремальному числу отличимых сумм не более трёх разреженных столбцов. Это смежная работа, не прямой доказанный перенос ASET.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Gianira N. Alfarano"
+      ],
+      "verification": "primary_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G5-A-TRADE-INTERSECTION.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-154",
       "title": "Satisfiability Coding Lemma",
       "year": 1999,
       "identity": "doi:10.4086/cjtcs.1999.011",
@@ -4381,7 +4467,7 @@
       "independent_reproduction": false
     },
     {
-      "id": "LIT-152",
+      "id": "LIT-155",
       "title": "CNF Encodings of Parity",
       "year": 2022,
       "identity": "doi:10.4230/LIPIcs.MFCS.2022.47",
