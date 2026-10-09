@@ -551,7 +551,6 @@ TCS 2026: FeST — упрощённая структура динамическ�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md](https://github.com/definitely-stable/Mathlab/blob/897ab0812133cf96d2d83082dc408acd990b4ec5/docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md) (model_overlap)
 
-
 ### LIT-137
 **[Bit-Probe Lower Bounds for Succinct Data Structures](https://doi.org/10.1137/090766619)** (2012)
 
