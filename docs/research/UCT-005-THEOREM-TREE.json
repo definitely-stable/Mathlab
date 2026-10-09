@@ -197,6 +197,12 @@
       "kind": "research_input",
       "status": "PROVED_CLASSICAL_FRESHNESS_INDISTINGUISHABILITY_ROOT_OPEN",
       "source": "docs/research/UCT-005-G3-B2-A-FRESHNESS-INDISTINGUISHABILITY.md"
+    },
+    {
+      "id": "UCT005G3B2B",
+      "kind": "research_input",
+      "status": "CONDITIONAL_THREE_F1_UPPER_CONSTRUCTIONS_NO_NEW_LOWER_BOUND_ROOT_OPEN",
+      "source": "docs/research/UCT-005-G3-B2-B-UPPER-FRONTIER.md"
     }
   ],
   "edges": [
@@ -349,6 +355,11 @@
       "parent": "UCT005G3B",
       "child": "UCT005G3B2A",
       "relation": "FALSIFICATION_CLASSICAL_NOT_ROOT_PROOF"
+    },
+    {
+      "parent": "UCT005G3B",
+      "child": "UCT005G3B2B",
+      "relation": "UPPER_CONSTRUCTIONS_NOT_LOWER_BOUND"
     }
   ]
 }
