@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## HYP-105 G4 source import after concurrent UCT-004 (2026-10-09)
+
+Four new exact-identity primary works LIT-145..148, respecting historical **144** pre-existing records including UCT-004 LIT-142..144: [Pohoata 2026](https://arxiv.org/abs/2602.14716) dense general grid-free linear r-graphs; [Gyárfás–Sárközy 2022](https://doi.org/10.1016/j.disc.2022.113025) small linear triple-system Turán numbers; [Solymosi 2024](https://doi.org/10.1016/j.disc.2024.114029) wicket-free sparsity; [Hoory 2002](https://doi.org/10.1006/jctb.2002.2123) girth extremal graph upper. All source-to-model mismatches specified in [G4 mathematical audit](../HYP-105-G4-CHARACTERISTIC-W4.md): r=4 grid has 8 edges, not six; wicket has 9 vertices vs GF3 signed five-edge/7-vertex obstruction; graph bounds are not ASET decoder constructions. **148** unique indexed works; bibliography metadata and model overlap checked, external full proofs not independently rerun.
+
 ## UCT-004 G2-A — original randomized-certificate and 2026 source imports (2026-10-09)
 
 Three new deduplicated canonical identities **LIT-142..144** raise the [forward](LITERATURE.md) and [reverse](LITERATURE-BY-RESEARCH.md) literature index from 141 to **144**. LIT-142 Aaronson JCSS 2008 randomized certificate complexity; LIT-143 Ambainis et al. ACM TOCT 2021 total-function fractional adversary equivalence; LIT-144 Ben-David and Kothari September 2026 author preprint separating randomized queries and deterministic certificate complexity. Each has exact DOI/arXiv identity, pinned title, Russian model limits, `full_proof_verified=false` and [G2 source-model boundary audit](../UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md). No claim these original papers independently prove our dynamic theorem, or that the 2026 preprint has been peer-reviewed.
