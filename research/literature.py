@@ -55,8 +55,12 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
-    # HYP-105 G5-C3-B0: verified primary publisher title / classical doily.
+    # HYP-105: classical doily publisher title pin.
     "doi:10.3390/sym12060963": "Magic Three-Qubit Veldkamp Line and Veldkamp Space of the Doily",
+    # INDEX-001 G2-B3-A verified primary identities; LIT-205 reserved by parallel PR #132.
+    "usenix:osdi25:leblanc": "PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection",
+    "doi:10.1145/2872362.2872406": "Specifying and Checking File System Crash-Consistency Models",
+    "doi:10.15514/ISPRAS-2026-38(1)-7": "Lightweight file system crash-consistency checking with differential fuzzing",
     # UCT-005 G2-A new LIT-199..204 pins (STOC 2026 LIT-072 already present).
     "doi:10.1007/978-3-032-01878-6_6": "Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators",
     "doi:10.1007/978-3-032-25330-9_7": "Lower Bounding Update Frequency in Short Accumulators and Vector Commitments",
