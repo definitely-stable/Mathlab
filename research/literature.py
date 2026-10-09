@@ -55,6 +55,8 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # HYP-105 G5-C3-B0: verified primary publisher title / classical doily.
+    "doi:10.3390/sym12060963": "Magic Three-Qubit Veldkamp Line and Veldkamp Space of the Doily",
     # UCT-005 G2-A new LIT-199..204 pins (STOC 2026 LIT-072 already present).
     "doi:10.1007/978-3-032-01878-6_6": "Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators",
     "doi:10.1007/978-3-032-25330-9_7": "Lower Bounding Update Frequency in Short Accumulators and Vector Commitments",
