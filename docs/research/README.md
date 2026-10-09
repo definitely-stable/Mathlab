@@ -1,5 +1,12 @@
 # Research index and authority order
 
+## UCT-005 G3-B2-C2-B1 — ideal-barrier authenticated PIN and generation GC (2026-10-10)
+
+[**Authenticated PIN/UNPIN page-image journal, externally trusted tips, generation-fenced logical TRIM, crash-cut and Byzantine-file oracles**](UCT-005-G3-B2-C2-B1-PIN-JOURNAL-GENERATIONS.md) · [reference model](../../research/uct005_g3b2c2b1_pin_generation.py) · [independent tests](../../research/test_uct005_g3b2c2b1_pin_generation.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). This is a conditional ideal-fsync/CAS *control-plane* result, NOT a power-loss-safe implementation or an end-to-end bounded-memory GC. Original UCT novelty and lower bound remain OPEN.
+
+
+
+
 ## TKG-001 G1-A — DAG lower-bound model transfer firewall (2026-10-10)
 
 [Exact classical model theorem, 1024 independent old-old stability controls, 3 charged source-oracle layouts](TKG-001-G1-A-TRANSFER-FIREWALL.md) · [oracle](../../research/tkg001_g1a_transfer.py) · [tests](../../research/test_tkg001_g1a_transfer.py) · [#210](https://github.com/definitely-stable/Mathlab/issues/210) · [parent G1 #195](https://github.com/definitely-stable/Mathlab/issues/195). Larsen–Yu dynamic edge insertions **do not transfer without reduction** to immutable-label new-sink DAG; paid remote one-bit bitmap falsifies unpriced transfer b+g+q*w>=n. No joint lower bound, no signed freshness, no physical SSD measurements.

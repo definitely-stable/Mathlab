@@ -108,6 +108,19 @@ class Uct005TreeTests(unittest.TestCase):
         )
         self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
 
+    def test_g3b2c2b1_is_ideal_fence_only_no_real_crash_proof(self):
+        nodes = {n["id"]: n for n in self.data["nodes"]}
+        node = nodes["UCT005G3B2C2B1"]
+        self.assertEqual(node["kind"], "research_input")
+        self.assertIn("NO_POWERLOSS_PROOF", node["status"])
+        self.assertIn("NO_NEW_LOWER_BOUND", node["status"])
+        self.assertIn(
+            {"parent": "UCT005G3B2C2A", "child": "UCT005G3B2C2B1",
+             "relation": "IDEAL_FENCE_MODEL_NOT_END_TO_END_GC_PROOF"},
+            self.data["edges"],
+        )
+        self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
+
     def test_no_unsound_logical_arrows(self):
         relations = {e["relation"] for e in self.data["edges"]}
         self.assertIn("THREAT_MODEL_NONTRANSFER", relations)
