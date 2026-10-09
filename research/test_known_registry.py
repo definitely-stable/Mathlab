@@ -14,9 +14,9 @@ class KnownAndStoppedRegistryTests(unittest.TestCase):
     def modified(self):
         return deepcopy(self.original)
 
-    def test_all_51_scoped_decisions_and_readable_render(self):
+    def test_all_52_scoped_decisions_and_readable_render(self):
         entries = validate(self.original)
-        self.assertGreaterEqual(len(entries), 51)
+        self.assertGreaterEqual(len(entries), 52)
         self.assertEqual(len(set(item["id"] for item in entries)), len(entries))
         self.assertEqual(set(STATUSES), set(e["disposition"] for e in entries))
         self.assertEqual(render(self.original),
@@ -42,7 +42,7 @@ class KnownAndStoppedRegistryTests(unittest.TestCase):
         self.assertIn("Fenwick", indexed["KR-046"]["do_not_repeat"])
         self.assertEqual(indexed["KR-047"]["disposition"], "CLOSED_PROVED")
         self.assertIn("hypercube", indexed["KR-047"]["title"])
-        self.assertEqual(len(self.original["entries"]), 51)
+        self.assertEqual(len(self.original["entries"]), 52)
 
     def test_uct004_fractional_soundness_and_classical_novelty_stop(self):
         lookup = {e["id"]: e for e in validate(self.original)}
@@ -50,11 +50,13 @@ class KnownAndStoppedRegistryTests(unittest.TestCase):
         self.assertEqual(lookup["KR-049"]["disposition"], "PRIOR_ART")
         self.assertEqual(lookup["KR-050"]["disposition"], "CLOSED_PROVED")
         self.assertEqual(lookup["KR-051"]["disposition"], "MODEL_MISMATCH")
+        self.assertEqual(lookup["KR-052"]["disposition"], "CLOSED_PROVED")
+        self.assertIn("proof-cover", lookup["KR-052"]["title"])
         self.assertIn("Nonlinear", lookup["KR-051"]["title"])
         self.assertIn("Linear local parity", lookup["KR-050"]["title"])
         self.assertIn("private", lookup["KR-048"]["scope"].lower())
         self.assertIn("2026", lookup["KR-049"]["scope"])
-        self.assertEqual(len(self.original["entries"]), 51)
+        self.assertEqual(len(self.original["entries"]), 52)
 
     def test_all_has_authority_and_concrete_reopen_gate(self):
         for item in validate(self.original):
