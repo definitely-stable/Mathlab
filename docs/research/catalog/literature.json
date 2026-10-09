@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "de6f120c7a2982efd39213a5cd8de47e6b8a6088"
+      "sha": "6ec7542a59a857d8e3a942894a35732c3fde72e5"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -4164,6 +4164,34 @@
       ],
       "authors": [
         "József Solymosi"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G4-CHARACTERISTIC-W4.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-145",
+      "title": "The Size of Bipartite Graphs with a Given Girth",
+      "year": 2002,
+      "identity": "doi:10.1006/jctb.2002.2123",
+      "primary_url": "https://doi.org/10.1006/jctb.2002.2123",
+      "track": "graph-algorithms",
+      "summary_ru": "Hoory (Journal of Combinatorial Theory B, 2002) обобщает экстремальные оценки числа рёбер двудольных графов заданного обхвата с разными размерами долей. При girth≥8 следствие O(V^(4/3)) обосновывает улучшенную границу ASET с четырёхразреженными столбцами и активностью d=3.",
+      "limits_ru": "Статья доказывает графовую границу, но не автоматически новое ASET-утверждение: необходима отдельная корректная редукция от взвешенных векторов к 2+2 фактор-графу и анализ коллизий на C4/C6; нижняя конструкция и декодирование ASET этим источником не решены.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Shlomo Hoory"
       ],
       "verification": "publisher_abstract_checked",
       "mentioned_in": [
