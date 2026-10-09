@@ -195,6 +195,7 @@ def matching_signed_orbit_representatives():
     return tuple(result)
 
 
+@lru_cache(maxsize=1)
 def exhaustive_matching_census():
     """Complete, model-scoped finite certificate for all matching six-sets.
 
