@@ -101,6 +101,21 @@ The lower bound on b and this worst-case soundness value are simultaneously atta
 
 Independent exact finite oracles and adversarial block witnesses: `research/test_uct004_linear_proof_length.py`. This is a more meaningful **joint resource brick** than UCT-002's uncharged advice counting, but the genuinely novel fully priced original frontier remains OPEN.
 
+
+## 5C. Exact nonlinear countermodel: affine witness-fiber counting does not transfer
+
+For n=4,p=3 with raw-input storage w=1, consider the six **even-parity, Hamming-weight-two** inputs
+
+    H={0011,0101,0110,1001,1010,1100}.
+
+For a claimed even-parity answer a=0 and prover witness π=0, sample an omitted bit coordinate i uniformly in {1,2,3,4}, read the other three bits, and accept iff those three observed bits have Hamming weight **1 or 2**. Every x∈H is accepted on all four private-coin branches (perfect completeness). Any odd-parity y has Hamming weight 1 or 3; precisely one omission leaves a triple of weight 0 or 3, so the verifier rejects with probability 1/4 and false-claim acceptance is 3/4.
+
+The same witness π=0 thus honestly covers **six** inputs, whereas the *linear parity-check* rank argument for g=ceil(4/3)=2 would bound an affine proof fiber by 2^(4−2)=**four**. This is a rigorous finite **COUNTEREXAMPLE TO TRANSFERRING THE AFFINE FIBER CAP TO GENERAL NONLINEAR VERIFICATION**. It does **not** contradict the actual G2-5 theorem, which explicitly assumes linear parity constraints, and does **not** by itself refute the inequality b>=g−1 for general nonlinear verifiers.
+
+A complete α=0,δ=3/4,p≤3,b=1 parity-claim protocol for **all 16 inputs and both claimed answers** is obtained as follows. For a=0 use π=0 for weight-two inputs and the above test, or π=1 for weights 0/4 and accept only if the sampled triple has weight 0 or 3. For a=1 use the standard two-block linear witness on the first three input bits versus the last bit: π claims first-block parity and the last is fixed by a, with uniform sample of the two blocks. Soundness for each dishonest proof is at most 3/4 and both truth labels have perfect completeness. The implementation and all 16×2×2 exact acceptance fractions are checked by `research/test_uct004_nonlinear_scope.py`.
+
+**Scientific implication:** the original next-proof frontier requires genuinely nonlinear/adaptive witness-cover arguments (or stronger resource accounting), not repackaging affine rank as a universal theorem. This test is a scoped finite falsifier, not asymptotic evidence of a new scientific discovery.
+
 ## 6. Remaining genuinely original frontier — still OPEN
 
 G2-A closes a necessary proof/certificate connection; it **does NOT** establish a strong new multi-resource theorem. Next mathematical challenge under [UCT-004 issue #87](https://github.com/definitely-stable/Mathlab/issues/87):
