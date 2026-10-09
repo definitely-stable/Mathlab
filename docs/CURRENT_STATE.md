@@ -1,5 +1,9 @@
 # CURRENT_STATE
 
+## HYP-105 G3 — grid-free iff six-wise independent (2026-10-09)
+
+[HYP-105-G3-SIX-COLUMN-MINORS.md](research/HYP-105-G3-SIX-COLUMN-MINORS.md) records a **computer-assisted universal finite-core classification** for unit incidence matrices of linear 3-uniform hypergraphs: every ≤6 edge-column relation has a core among 531 row-unlabeled masks; their integer maximal-minor gcds are Δ∈{0,1,2,3,4}, with zero Δ only for 3×3 grids. Over characteristic p≥5, absence of grid is therefore equivalent to six-wise independence. Combining 2022 published grid-free Ω(m²) constructions with HYP-002-B O(m²), we obtain A_lin(q,m,3,6)=A_set(q,m,3,3)=Theta_q(m²), **bounded capacity ratio**, not an original scientific discovery. Historical G2 open-denominator statement is superseded. See `research/hyp105_minor.py` and `research/test_hyp105_minor.py` for exact arithmetic and independent modular checks. Verify exact-head CI and merge before acceptance; do not claim Lean verification or Rust GO.
+
 ## HYP-105 G2 — classical quadratic numerator, denominator still open (2026-10-09)
 
 [HYP-105-G2-GRID-FREE-QUADRATIC.md](research/HYP-105-G2-GRID-FREE-QUADRATIC.md) gives a self-contained equivalence: a **linear 3-uniform** hypergraph's unit-incidence vectors have exact subset sums through 3 over a field of **characteristic≥5** iff it has no 3×3 grid. Gishboliner–Shapira (2022) already constructed grid-free linear 3-graphs with Omega(m²) edges, so for such fields `A_set(q,m,3,3)=Theta_q(m²)` by the older HYP-002-B upper. GF(3) counterexample prevents unrestricted field transfer. Independent `research/test_hyp105_grid.py` checks all 4096 subfamilies of AG(2,3), grid signatures, characteristic-three wrap. The **six-wise-independent denominator remains open**: no superconstant ratio proof and no new originality claim. New LIT-137..140 raise source index to **140 unique**. Merge only after exact-head hosted CI and review; no Rust/production.
