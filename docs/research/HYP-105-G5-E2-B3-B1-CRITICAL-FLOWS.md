@@ -69,24 +69,32 @@ M6(s) >= (1/6!) * product_{j=0}^5 (E - 2*j*Delta).
 
 Indeed after j vertex-disjoint selected edges, at most 2j*Delta of all E edges meet used endpoints. At s>=2 every term is positive. To avoid double counting, divide ordered sequences by 6!.
 
-For each matching fix **one** prescribed unordered 3-vs-3 event by an arbitrary, deterministic ordering of its six column IDs with alternating signs. Since the factor endpoints are all distinct, independently uniform injective labeling makes the six corresponding physical pair labels uniformly injective into the K unordered physical pairs on each side. The probability that one side realizes the **specified** C6 column-adjacency graph (on some six distinct coordinate symbols) is EXACT
+For each matching fix the six column IDs in any deterministic order. Since the factor endpoints are all distinct, independently uniform injective labeling makes the six corresponding physical pair labels uniformly injective into the K unordered physical pairs on each side. The probability that one side realizes a **specified** C6 column-adjacency graph (on some six distinct coordinate symbols) is EXACT
 
 ```text
 P_C6(s) = (a)_6/(K)_6.
 ```
 
-To see this, assign distinct physical symbols to the six abstract adjacency edges of C6 in (a)_6 ways; this uniquely determines all six named pair labels. There is no extra 6! or 12 automorphism division: the column IDs and abstract adjacency edge slots were fixed. Left and right label injections are independent, giving probability P_C6(s)^2. Conditional on this outcome, the concrete all-one GF5 coefficient assignment occurs with probability 51^-6 and causes the selected forbidden 3-vs-3 trade.
+To see this, assign distinct physical symbols to the six abstract adjacency edges of C6 in (a)_6 ways; this uniquely determines all six named pair labels. There is no extra 6! or 12 automorphism division for ONE fixed cycle because the column IDs and abstract adjacency edge slots were fixed. There are 6!/12=60 distinct C6 adjacency graphs on the six named columns; the sixty outcomes that **both** projections realize the **same** C6 are disjoint. Thus the probability of a COINCIDENT C6 on both sides is exactly **60*P_C6(s)^2**. Its unique unordered alternating sign bipartition is balanced (3+3). Under those signs the concrete all-one GF5 coefficient assignment occurs with probability 51^-6 and causes the selected forbidden 3-vs-3 trade.
 
 Since each **different six-edge factor matching** yields a different six-column event in R3, positivity of every term proves the **explicit all-s** bound
 
 ```text
 E_pair_labels[R3(B_s)] >=
   [ product_{j=0}^5 (E-2*j*Delta) / 720 ]
-  * [(a)_6/(K)_6]^2 * (1/51^6)
+  * 60 * [(a)_6/(K)_6]^2 * (1/51^6)
   = Omega(s^6).
 ```
 
 Here E=Theta(s^4), Delta=Theta(s), a=Theta(s^(3/2)), and K=Theta(s^3), so six-factor matching count scales as Theta(s^24), the two physical cycle-placement probabilities together as Theta(s^-18). The proof holds for every s=2^h (positive finite bound) and yields a uniform Omega(s^6) asymptotic constant. It is an independently specified alternative to the earlier C2-D lower route via unit-trade counts. Together with the accepted E2-B3.0 matching-independent upper E[R3]=O(s^6), the random-label expected risk is Theta(s^6).
+
+**Deterministic obstruction for the next correlated-label experiment:** define D_s(B) to be the NUMBER of unordered six-column factor matchings for which the left and right column-adjacency pair graphs are the **same** six-cycle C6. Each such matching has exactly one alternating unordered 3-vs-3 sign partition and a concrete all-one GF5 collision. Hence for EVERY fixed injective pair labeling, without ANY randomness,
+
+```text
+R3(B_s) >= D_s(B_s)/51^6.
+```
+
+Consequently, the desired strict R3(B_s)=O(s^(6-epsilon)) **requires** D_s(B_s)=O(s^(6-epsilon)) for the SAME correlated all-h labeling. This is a necessary, not sufficient, structural condition: other positive-flow configurations can still dominate. The new B3.2 admissibility gate must measure/prove D_s alongside R2, with a derivation rather than expensive all-425 choose-6 enumeration.
 
 **Critical logical scope:** this proves a lower bound on EXPECTATION for independently random injective pair labels. It says absolutely nothing about a universal per-labeling lower bound, the existence/nonexistence of a correlated good labeling, or an improved ASET exponent. The exact C6 positive-flow subfamily still has to be counted for a **fixed explicit** label construction before any such inference.
 
