@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## INDEX-001 G2-B2-B — exact offline checkpoint policy, recovery and tempfile lifecycle (2026-10-09)
+
+[**Frozen fully-priced (write/recovery/storage byte-steps/peak) reference model, offline DP proof and adversarial controls**](INDEX-001-G2-B2-B-CHECKPOINT-POLICY.md) · [issue #143](https://github.com/definitely-stable/Mathlab/issues/143) · [policy, POSIX oracle and reporter](../../research/index001_checkpoint_policy.py) · [independent exhaustive policy+fault tests](../../research/test_index001_checkpoint_policy.py). **Mathlab research only**: DP has advance knowledge of restart events, solves a restricted fixed-image WAL protocol (not a new general theorem or online-competitive index); counts application byte lengths and on-disk file `stat()`, not physical SSD/NAND writes. Checks temporary snapshot orphan at interrupted checkpoint. G2-B parent #126 and stronger crash/online-theorem gates remain OPEN.
+
+
 ## INDEX-001 G2-B2-A — reproducible application-byte comparisons (2026-10-09)
 
 [**Exact snapshot-vs-WAL frame-count equations, four deterministic range workloads and compaction thresholds 1/4/16**](INDEX-001-G2-B2-A-APPLICATION-IO.md) · [issue #137](https://github.com/definitely-stable/Mathlab/issues/137) · [stdlib reporter](../../research/index001_workload_io.py) · [independent tests](../../research/test_index001_workload_io.py). Counts actual returned `os.write` bytes + application `read_bytes` with exact restart-state oracle, NOT device physical NAND writes or a new general algorithmic theorem. Prior art LIT-098/175/176/182/184..186 reused without new source identity. G2-B2-A measured-model only / PHYSICAL_LOWER_BOUND_OPEN / NO_RUST.
