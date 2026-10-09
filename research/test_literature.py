@@ -46,7 +46,7 @@ class LiteratureTests(unittest.TestCase):
         for i in uct:
             self.assertEqual(records[i]["mentioned_in"][0]["path"],
                              "docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md")
-        self.assertEqual(sum(e["year"] == 2025 for e in records.values()), 17)
+        self.assertEqual(sum(e["year"] == 2025 for e in records.values()), 18)
         self.assertEqual(sum(e["year"] == 2026 for e in records.values()), 70)
         bad = copy.deepcopy(self.data)
         next(e for e in bad["entries"] if e["id"] == "LIT-160")["title"] = "Incorrect paging paper"

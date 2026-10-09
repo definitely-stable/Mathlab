@@ -1,6 +1,6 @@
 # IMPORT-004 — 2025–2026: caching, online algorithms, dynamic graphs and incremental computation
 
-**Snapshot:** 2026-10-09; **issue:** [#111](https://github.com/definitely-stable/Mathlab/issues/111); **scope:** source/model audit, not scientific discovery or deployment. **Historical baseline**: 155 canonical external works, of which 7 from 2025 and 63 from 2026, 14 external tracks at the first audit. **Current merge-base**: 159 works after UCT-005 G1 imports LIT-156..159; this IMPORT-004 adds exactly 17 different works as LIT-160..176 (176 in total). Recompute on later revisions. The publication selection below is **not** ranked by worldwide citation/impact and does **not** claim independent reproduction, full source proof verification or that paper measurements are universal.
+**Snapshot:** 2026-10-09; **issue:** [#111](https://github.com/definitely-stable/Mathlab/issues/111); **scope:** source/model audit, not scientific discovery or deployment. **Historical baseline**: 155 canonical external works, of which 7 from 2025 and 63 from 2026, 14 external tracks at the first audit. **Current merge-base**: 159 works after UCT-005 G1 imports LIT-156..159 (including a 2025 publication); this IMPORT-004 adds exactly 17 different works as LIT-160..176 (**176 total: 18 dated 2025; 70 dated 2026**). Recompute on later revisions. The publication selection below is **not** ranked by worldwide citation/impact and does **not** claim independent reproduction, full source proof verification or that paper measurements are universal.
 
 ## Research decision
 
