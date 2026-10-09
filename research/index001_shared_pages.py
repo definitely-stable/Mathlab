@@ -108,14 +108,14 @@ def decode_shared(image,B):
 
 
 class PageReader:
-    """One-page buffer, no saved prior-page cache. Tracks *unique* read pages."""
+    """One page of scratch; directory and frame readers advance monotonically."""
     def __init__(self,data,B,backing="disk"):
         self.data=data  # backing store, NOT charged resident emulator memory
         self.B=B
         self.backing=backing
         self.index=-1
         self.scratch=b""
-        self.pages=set()
+        self.read_pages=0  # fixed-width transfer counter, no growing page-set
 
     def byte(self,off):
         if off<0 or off>=len(self.data):
@@ -125,7 +125,7 @@ class PageReader:
             self.scratch=self.data[p*self.B:(p+1)*self.B]
             self.index=p
             if self.backing=="disk":
-                self.pages.add(p)
+                self.read_pages+=1
         return self.scratch[off-p*self.B]
 
 
@@ -216,10 +216,10 @@ def lookup_shared(view,point,mode="disk",Rmax=None):
         reached+=ln;previous=v
     if value is None or segment.at-start>segment_size:
         raise ValueError("segment prefix invalid")
-    read_pages=len(directory_reader.pages | segment.reader.pages)
-    # They address disjoint byte regions and thus count additively.
-    return {"value":value,"Q":read_pages,"Q_directory":len(directory_reader.pages),
-            "Q_payload":len(segment.reader.pages),"working_RAM_bytes":resident,
+    read_pages=directory_reader.read_pages+segment.reader.read_pages
+    # Sequential probes are nonrepeating and the two regions disjoint.
+    return {"value":value,"Q":read_pages,"Q_directory":directory_reader.read_pages,
+            "Q_payload":segment.reader.read_pages,"working_RAM_bytes":resident,
             "mirrored_directory_bits":8*view["directory_bytes"] if mode=="mirror" else 0,
             "prefix_crc_verified":False}
 
@@ -232,7 +232,7 @@ def lookup_bitmap(view,point,Rmax=None):
         raise MemoryError("bounded scratch")
     reader=PageReader(view["image"],view["B"])
     bit=(reader.byte(point//8)>>(point%8))&1
-    return {"value":bit,"Q":len(reader.pages),"working_RAM_bytes":resident}
+    return {"value":bit,"Q":reader.read_pages,"working_RAM_bytes":resident}
 
 
 def page_transition(old,new):
