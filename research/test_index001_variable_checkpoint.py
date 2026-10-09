@@ -12,7 +12,8 @@ from index001_oracle import ExactRangeMap, count_maps_with_k_runs
 from index001_variable_checkpoint import (
     WITNESS, build_report, compare, decode_snapshot, decode_wal,
     encode_snapshot, encode_wal, offline_bruteforce, offline_dp,
-    online_threshold, score, trace_sizes, uvarint,
+    online_threshold, scaling_bad_family, scaling_bound_instance,
+    score, trace_sizes, uvarint,
 )
 
 
@@ -132,6 +133,23 @@ class VariableCheckpointTests(unittest.TestCase):
                     self.assertLessEqual(Fraction(*result["ratio"]), 2 * kappa)
                     self.assertLessEqual(result["online"]["written_bytes"],
                                          2 * result["offline"]["written_bytes"])
+
+    def test_unbounded_threshold_specific_family(self):
+        previous_ratio = None
+        for n in (3, 5, 31, 129, 511):
+            ops, high_checkpoint = scaling_bad_family(n)
+            self.assertEqual(online_threshold(n, ops)[-1], high_checkpoint)
+            self.assertEqual(ops[-1], (0, n, 0))
+            self.assertEqual(ops[(n - 1) // 2:high_checkpoint],
+                             ((0, 1, 0),) * (high_checkpoint - (n - 1) // 2))
+            row = scaling_bound_instance(n)
+            width = len(uvarint(n))
+            exact = Fraction(16 + 3 * width + 2 * n, 10 + 2 * width)
+            self.assertEqual(Fraction(*row["ratio"]), exact)
+            self.assertGreater(exact, 2)
+            if previous_ratio is not None:
+                self.assertGreater(exact, previous_ratio)
+            previous_ratio = exact
 
     def test_reveal_order_and_reproducible_witness(self):
         self.assertEqual(online_threshold(6, WITNESS),
