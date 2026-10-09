@@ -196,7 +196,10 @@ def read_signed_state(reader, presented, issuer, left, right,
     if not issuer.verify_checkpoint(reader.checkpoint):
         raise ValueError("reader checkpoint not authentic")
     n = reader.n
-    parity(reader.checkpoint.bits, left, right)
+    if (not isinstance(left, int) or isinstance(left, bool)
+            or not isinstance(right, int) or isinstance(right, bool)
+            or not 0 <= left <= right < n):
+        raise ValueError("invalid inclusive range")
     anchored = anchor is not None
     expected = anchor.read(available=anchor_available) if anchored else None
     costs = profile.account(n, anchored=anchored,
