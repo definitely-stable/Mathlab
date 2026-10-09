@@ -75,6 +75,8 @@ A cycle of length 2h for h=2 or 3 splits into two disjoint alternating h-edge ma
 
 The resulting bipartite graph has girth at least eight and at most 2U=O_q(m²) vertices. The elementary girth-eight Moore/BFS upper bound used in [HYP-105 G1](HYP-105-G1-W2D3-GIRTH8.md) gives at most `O_q((m²)^(4/3))=O_q(m^(8/3))` edges, hence that many support-four columns. Columns of support≤3 themselves form an ASET subfamily through d=2, so [HYP-002-B](HYP-002-B-QUADRATIC-THEOREM.md) bounds their number by O_q(m²). Sum these counts. QED.
 
+The graph estimate is pinned to **LIT-145**, [Shlomo Hoory, *The Size of Bipartite Graphs with a Given Girth* (JCTB 2002)](https://doi.org/10.1006/jctb.2002.2123): bipartite girth extremal bounds apply to the two-pair factor graph. This is preexisting graph theory, not original to HYP-105.
+
 The C6 exclusion is **essential**: using only C4 would produce merely O_q(m³). The upper bound holds in **every characteristic**, because alternating endpoint sums cancel in any abelian additive group. This is an application of classical girth extremal estimates, **not** a claimed new graph theorem.
 
 Therefore the precise source-backed **full-capacity sandwich**, sharper than the previous m³ note, is
