@@ -123,7 +123,8 @@ class HybridStreamingTest(unittest.TestCase):
                         self.assertEqual(ledger["D"],len(img))
                         self.assertEqual(ledger["writer_pages"],len(img)//B)
                         self.assertGreater(ledger["total_source_read_pages"],0)
-                        self.assertEqual(ledger["source_passes"],3)
+                        self.assertEqual(ledger["source_passes"],
+                                         2 if mode.startswith("U") else 3)
                         self.assertEqual(ledger["model_RAM_bytes"],2*B+REGISTER_BYTES)
                         verified+=1
                         changed.close()
