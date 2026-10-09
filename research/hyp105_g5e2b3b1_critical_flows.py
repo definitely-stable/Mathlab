@@ -123,6 +123,22 @@ def critical_orbits():
     return cases
 
 
+def connected_contracted_column_graph(left, right):
+    """Independent O(E+V) component oracle on the contracted 6-vertex graph."""
+    adjacency = {i: set() for i in VERTICES}
+    for u, v in tuple(left) + tuple(right):
+        adjacency[u].add(v)
+        adjacency[v].add(u)
+    reached = {0}
+    todo = [0]
+    while todo:
+        for j in adjacency[todo.pop()]:
+            if j not in reached:
+                reached.add(j)
+                todo.append(j)
+    return len(reached) == N
+
+
 def critical_supports(left, right):
     """Recover actual GF5 support4 columns from physical degree-two slots."""
     result = [[] for _ in VERTICES]
@@ -250,6 +266,8 @@ def critical_flow_census():
     count_labeled_events = 0
     for (left, right, mask), weight in orbits.items():
         value = exact_nowherezero_signed_flow(left, right, mask)
+        if (value > 0) != connected_contracted_column_graph(left, right):
+            raise AssertionError("finite GF5 positivity iff contracted connectivity fails")
         status = "positive" if value > 0 else "zero"
         kind = ("%s/%s" % ("C6" if _factor_type(left) == (6,) else "2C3",
                            "C6" if _factor_type(right) == (6,) else "2C3"))
@@ -268,6 +286,12 @@ def critical_flow_census():
         raise AssertionError("loss of normalized signed potential events")
     if sum(weighted.values()) != count_labeled_events:
         raise AssertionError("weighted event counts inconsistent")
+    if (len(orbits) != 110 or classes.get(("2C3/2C3", "zero")) != 2 or
+            weighted.get(("2C3/2C3", "zero")) != 100 or
+            sum(v for (kind, status), v in weighted.items()
+                if status == "zero") != 100):
+        raise AssertionError("exact six-core positive-flow census changed")
+
     return {
         "model": "all-distinct factor endpoints / v_left=v_right=6 / split 2+2",
         "coordinate_degree_in_each_projection": 2,
@@ -285,6 +309,10 @@ def critical_flow_census():
         "positive_example": positive_example,
         "zero_example": zero_example,
         "exact_GF5_computation": "prescribed-boundary component-balanced inclusion-exclusion on 12 edges",
+        "proved_critical_flow_iff_connected": True,
+        "zero_flow_labeled_cases": 100,
+        "positive_flow_labeled_cases": 48900,
+        "zero_cases_sole_obstruction": "same 3+3 partition on both two-triangle factors",
         "all_11663_leafless_forest_shapes_classified": False,
         "actual_W3s_event_multiplicities_bounded": False,
         "strict_R3_power_proved": False,
