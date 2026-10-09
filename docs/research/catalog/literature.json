@@ -6340,6 +6340,63 @@
       ],
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "id": "LIT-212",
+      "title": "Compressing Dynamic Fully Indexable Dictionaries in Word-RAM",
+      "year": 2026,
+      "identity": "arxiv:2603.23119",
+      "primary_url": "https://arxiv.org/abs/2603.23119",
+      "authors": [
+        "Gabriel Marques Domingues"
+      ],
+      "verification": "primary_abstract_checked",
+      "summary_ru": "Динамический fully indexable dictionary в word-RAM: параметрический компромисс близкого к информационному минимуму объёма, rank/select и worst-case одноэлементного обновления; arXiv отмечает предстоящую публикацию в STOC 2026.",
+      "limits_ru": "Модель word-RAM и отдельные битовые изменения не задают долговечность checkpoint, range overwrite, WAL, физические страницы или байты compaction. Утверждения статьи не воспроизведены независимо.",
+      "track": "dynamic-data-structures",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md",
+          "kind": "model_overlap",
+          "source_sha": "e161b04e5e3d3e634745be31e89c236e75c773a7"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-213",
+      "title": "Dynamic Grammar-Compressed Self-Index in δ-Optimal Space",
+      "year": 2026,
+      "identity": "arxiv:2604.24080",
+      "primary_url": "https://arxiv.org/abs/2604.24080",
+      "authors": [
+        "Takaaki Nishimoto",
+        "Yasuo Tabei"
+      ],
+      "verification": "primary_abstract_checked",
+      "summary_ru": "Динамический грамматически сжатый self-index RR-index, стремящийся к δ-оптимальному объёму, поддерживает locate, вставки и удаления в модели сжатых текстов (arXiv v3 от июля 2026).",
+      "limits_ru": "Подстрочные insert/delete и locate с ожидаемыми/амортизированными оценками не означают оптимальный WAL или физический recourse для latest-write-wins диапазонных присваиваний; доказательства и бенчмарки не воспроизведены.",
+      "track": "compressed-indexing",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md",
+          "kind": "model_overlap",
+          "source_sha": "e161b04e5e3d3e634745be31e89c236e75c773a7"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
     }
   ]
 }

@@ -55,6 +55,9 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # INDEX-001 G2-B4-A 2026 author abstracts, audited in primary arXiv.
+    "arxiv:2603.23119": "Compressing Dynamic Fully Indexable Dictionaries in Word-RAM",
+    "arxiv:2604.24080": "Dynamic Grammar-Compressed Self-Index in δ-Optimal Space",
     # INDEX-001 G2-B3-B publisher/author primary venue identities (2026).
     "doi:10.4230/LIPIcs.ITCS.2026.75": "Prior-Independent and Subgame Optimal Online Algorithms",
     "arxiv:2603.29233": "Robust and Consistent Ski Rental with Distributional Advice",

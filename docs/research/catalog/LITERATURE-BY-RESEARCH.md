@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**210** работ сопоставлены с **38** внутренними исследованиями.
+**212** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -368,6 +368,8 @@
 - [LIT-209](LITERATURE.md#lit-209) — Prior-Independent and Subgame Optimal Online Algorithms (2026; publisher_abstract_checked)
 - [LIT-210](LITERATURE.md#lit-210) — Robust and Consistent Ski Rental with Distributional Advice (2026; publisher_abstract_checked)
 - [LIT-211](LITERATURE.md#lit-211) — A new performance metric for the ski rental problem (2026; publisher_abstract_checked)
+- [LIT-212](LITERATURE.md#lit-212) — Compressing Dynamic Fully Indexable Dictionaries in Word-RAM (2026; primary_abstract_checked)
+- [LIT-213](LITERATURE.md#lit-213) — Dynamic Grammar-Compressed Self-Index in δ-Optimal Space (2026; primary_abstract_checked)
 
 ## ML-005
 
@@ -483,6 +485,8 @@
 - [LIT-209](LITERATURE.md#lit-209) — Prior-Independent and Subgame Optimal Online Algorithms (2026; publisher_abstract_checked)
 - [LIT-210](LITERATURE.md#lit-210) — Robust and Consistent Ski Rental with Distributional Advice (2026; publisher_abstract_checked)
 - [LIT-211](LITERATURE.md#lit-211) — A new performance metric for the ski rental problem (2026; publisher_abstract_checked)
+- [LIT-212](LITERATURE.md#lit-212) — Compressing Dynamic Fully Indexable Dictionaries in Word-RAM (2026; primary_abstract_checked)
+- [LIT-213](LITERATURE.md#lit-213) — Dynamic Grammar-Compressed Self-Index in δ-Optimal Space (2026; primary_abstract_checked)
 
 ## ML-007
 
