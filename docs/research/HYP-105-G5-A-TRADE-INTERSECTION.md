@@ -69,7 +69,7 @@ For a 4-uniform **unit-incidence** hypergraph H, say H is 3-union-free when the 
 
     3-union-free 4-uniform unit H  =>  H satisfies ASET d=3 over GF(q), char p>3.
 
-The reverse implication is FALSE. A triangle on three vertices, with unit 2-sparse columns \(a=e_0+e_1\), \(b=e_1+e_2\), \(c=e_0+e_2\), has distinct all eight 0..3-subset sums over GF(5), yet the unions of any two different 2-edge subsets all equal {0,1,2}. This gives a finite direct model-separation witness. (This triangle is 2-uniform, showing failure of the *general* union-vs-sum converse. Do not silently quote it as an r=4 converse witness.)
+The reverse implication is FALSE **even for 4-uniform unit columns**. On coordinates {0,1,2,3,4} take three distinct 4-edges \(a=\{0,1,3,4\}\), \(b=\{1,2,3,4\}\), \(c=\{0,2,3,4\}\). These are a triangle of two-coordinate edges with two common hub vertices added to every edge. All eight subset sums through three edges are distinct over GF(5): the hub multiplicity identifies cardinality (0..3), and within each fixed cardinality the original triangle-coordinate counts separate subsets. But the unions of all different 2-edge subsets equal {0,1,2,3,4}. Thus **ASET does not imply 3-union-free even in the relevant r=4 submodel**. This source-model distinction is independently tested.
 
 **2026 primary literature (LIT-151):** Liu–Shangguan–Zhang, *Sharp asymptotic bounds for uniform union-free hypergraphs*, arXiv:2605.11949v3 (revised July 2026). Theorem 1.1 explicitly **EXCEPTS** (t,r)=(3,4) from the new leading-constant asymptotic; it must NOT be cited as providing a sharp constant for U_3(m,4). The earlier Shangguan–Tamo 2020/21 source (LIT-152) already yields the correct exponent:
 
@@ -96,6 +96,6 @@ Neither a new exponent nor a growing ratio has been proved in G5-A. The new **fi
 1. Six length-12 4-sparse all-one columns with disjoint weighted-pair graph edges; direct zero-C4/C6 graph oracle.
 2. Independently enumerated all GF(2), GF(3), GF(5), GF(7), GF(11) subset-sum signatures through three, exhibiting the expected 3-vs-3 collision.
 3. The exact separated-projection trade intersection equivalence on many bounded families, independently comparing direct subcube sums vs bounded signed kernel intersection.
-4. A 3-edge triangle that is ASET over GF(5) but not union-free.
+4. A three-edge **4-uniform** doubled-hub triangle that is ASET over GF(5) but not union-free.
 
 **Gate:** STOP_GRAPH_GIRTH_SUFFICIENCY / STOP_UNION_FREE_SUBSTITUTE / OPEN_FULL_WEIGHT4_EXPONENT_AND_DENOMINATOR. Scientific originality unverified. G5 parent #95 remains OPEN for the genuine asymptotic theorem search. No changes to other repos, no Rust implementation, no claim about memory/decode optimality, no full published-paper proof reproduction.
