@@ -44,6 +44,10 @@ def flat_update(before, operation, block, group, layout):
     new = image_for(layout, after, group, block)
     diff = page_difference(old, new, block)
     d0, d1 = pages(len(old), block) * block, pages(len(new), block) * block
+    lo, hi, _ = operation
+    read_pages = (pages(len(old), block) if layout == "packed" else
+                  ((hi - 1) // group - lo // group + 1) *
+                  pages(slot_capacity(group, block), block))
     return {
         "layout": layout, "state": after, "disk_bytes_before": d0,
         "disk_bytes_after": d1, "peak_bytes": max(d0, d1),
@@ -52,6 +56,7 @@ def flat_update(before, operation, block, group, layout):
         "allocated_pages": diff["pages_added"],
         "retired_pages": diff["pages_removed"],
         "materialized_checkpoint_payload": 0, "persistent_aux_ram_bits": 0,
+        "read_update_pages": read_pages,
         "max_point_query_pages": max(
             len(lookup_page_probe(layout, after, p, group, block)["page_indices"])
             for p in range(len(after))),
@@ -112,6 +117,8 @@ def wal_step(state, operation, block=32, threshold=3):
                    pages(sum(map(len, state.frames)), block))
         moved = new_base_bytes
         mode = "checkpoint"
+        read_pages = 1 + pages(len(packed_image(state.base)), block) + pages(
+            sum(map(len, state.frames)), block)
         xchanged = 0  # not comparable to same-offset page-difference X
     else:
         frame = encode_wal(len(state.base), *operation)
@@ -128,6 +135,7 @@ def wal_step(state, operation, block=32, threshold=3):
         retired = 0
         moved = 0
         mode = "wal_append"
+        read_pages = 1 + int(bool(len(old_log) and len(old_log) % block))
         xchanged = diff["changed_page_positions"]
     new_d = wal_disk_bytes(result, block)
     max_q = max(wal_lookup(result, p, block)[1] for p in range(len(updated)))
@@ -138,7 +146,8 @@ def wal_step(state, operation, block=32, threshold=3):
         "written_model_bytes": written, "changed_page_images": xchanged,
         "allocated_pages": allocated, "retired_pages": retired,
         "materialized_checkpoint_payload": moved,
-        "persistent_aux_ram_bits": 0, "max_point_query_pages": max_q,
+        "persistent_aux_ram_bits": 0, "read_update_pages": read_pages,
+        "max_point_query_pages": max_q,
         "wal_frames_after": len(result.frames),
         "log_payload_bytes_after": sum(map(len, result.frames)),
     }
@@ -210,6 +219,7 @@ if __name__ == "__main__":
                                "D": s["disk_bytes_after"],
                                "P": s["peak_bytes"],
                                "Q": s["max_point_query_pages"],
+                               "R_update": s["read_update_pages"],
                                "steady_ok": s["within_steady_budget"],
                                "peak_ok": s["within_peak_budget"],
                                "mode": s["operation"]}
