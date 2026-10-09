@@ -48,6 +48,9 @@ jobs:
       - name: HYP-105 B1.0 exact symplectic GF2/GF4 generalized quadrangle construction
         run: python research/hyp105_b1_symplectic.py
 
+      - name: HYP-105 G5-D checksum-weighted GF5 full subset-sum exact certificate
+        run: python research/hyp105_g5d_affine_weights.py
+
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
