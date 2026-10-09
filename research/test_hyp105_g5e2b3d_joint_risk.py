@@ -11,6 +11,7 @@ from hyp105_g5e2b1_energy import single_signed_trade_mitm
 from hyp105_g5e2b3b2_coincident_cycles import _physical_dual_column_edges
 from hyp105_g5e2b3d_joint_risk import (
     C4_FOUR_SUPPORTS,C4_SIGNS,exact_c4_GF5_flow_weight,
+    closed_form_c4_GF5_flow_weight,
     physical_four_cycles,exact_coincident_c4,exact_unit_T4,
     selected_c6_witness_sample,exact_weighted_sample,
     all_h_expected_Q4_lower,
@@ -81,7 +82,8 @@ def small_model(model,ids):
 class JointGF5RiskTests(unittest.TestCase):
     def test_C4_exact_GF5_independent_nonzero_flow_oracle(self):
         exact=exact_c4_GF5_flow_weight()
-        self.assertGreater(exact,0)
+        self.assertEqual(exact,531)
+        self.assertEqual(closed_form_c4_GF5_flow_weight(),531)
         independent=exact_nonzero_trade_flow(
             C4_FOUR_SUPPORTS,C4_SIGNS,max_edges=16)
         self.assertEqual(exact,independent[
