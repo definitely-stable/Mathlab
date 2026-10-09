@@ -45,6 +45,9 @@ jobs:
       - name: UCT-005 G3-B2-C0 independent physical-countermodel tests
         run: python -m unittest discover -s research -p 'test_uct005_g3b2c0_pages.py'
 
+      - name: INDEX-001 G2-B4-C4 paid hybrid two-pass temp-file streaming and mode-choice falsifier
+        run: python research/index001_hybrid_streaming.py
+
       - name: INDEX-001 G2-B4-C3 shared-page streaming RAM and bitmap countermodel
         run: python research/index001_shared_pages.py
 
