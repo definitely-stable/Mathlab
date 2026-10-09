@@ -120,10 +120,13 @@ SOURCE_TITLE_PINS = {
     "doi:10.1016/j.disc.2022.113025": "The linear Turán number of small triple systems or why is the wicket interesting?",
     "doi:10.1016/j.disc.2024.114029": "Wickets in 3-uniform hypergraphs",
     "doi:10.1006/jctb.2002.2123": "The Size of Bipartite Graphs with a Given Girth",
+    "doi:10.1137/20M1325769": "New Turán Exponents for Two Extremal Hypergraph Problems",
+    "doi:10.1007/s00493-008-2195-2": "Parity check matrices and product representations of squares",
+    "arxiv:2609.39680": "Additive codes arising from hypergraphs",
     # G2-C original certification and PCPP source identities.
     "arxiv:2609.26757": "Certification complexity of Boolean functions",
     "doi:10.1145/1595391.1595394": "Sound 3-Query PCPPs Are Long",
-    # UCT-004 G2-D source-theorem provenance 1999/2022.
+    # G2-D source statement spotchecks (classical PPZ/MFCS).
     "doi:10.4086/cjtcs.1999.011": "Satisfiability Coding Lemma",
     "doi:10.4230/LIPIcs.MFCS.2022.47": "CNF Encodings of Parity",
 }
