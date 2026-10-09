@@ -18,7 +18,7 @@ This audit counts only whether a cached **canonical leaf computation may be reus
 
     key_i(S) := (i, S[i*b : min((i+1)*b, |S|)]),
 
-where i runs over all nonempty canonical chunks. For the exactly empty message BLAKE3 has an exceptional empty root chunk that is deliberately OUTSIDE this toy definition. The key records index *and the exact bytes*, and is sufficient to identify the corresponding **leaf input parameters** for a non-root chunk: chunk counter, fixed length/CHUNK_START/CHUNK_END pattern and byte blocks under a fixed hash mode/key.
+where i runs over all nonempty canonical chunks. For the exactly empty message BLAKE3 has an exceptional empty root chunk that is deliberately OUTSIDE this toy definition. The key records index *and the exact bytes*, and is sufficient to identify the corresponding **leaf input parameters** for a non-root chunk: chunk counter, fixed length/CHUNK_START/CHUNK_END pattern and byte blocks under a fixed hash mode/key. **For a single-chunk message, BLAKE3 uses a distinct ROOT-flagged final compression, so these signatures by themselves do NOT imply full root-output reuse.** Our cache equivalence represents separately available non-ROOT leaf CVs when there are at least two chunks; small-length test cases below check signature equality only and do not assert a valid BLAKE3 root reuse.
 
 Let \`K(S)\` be the set of all canonical leaf keys of S. If the cache holds only full canonical leaf results from a previous S, the **number of new leaf-input keys** for a new T is
 
@@ -28,7 +28,7 @@ This is an exact identity for *canonical leaf-input-key misses*, not a lower bou
 
 ## G1-A: aligned whole-chunk insertion, exact restricted-cache count
 
-Let S consist of m>=1 full length-b chunks \`C_0,...,C_(m-1)\`. Suppose \`C_j != C_(j+1)\` for all adjacent old chunks, and insert an entire new full chunk \`X\` at canonical boundary k (0<=k<=m), with \`X != C_k\` when k<m.
+Let S consist of m>=2 full length-b chunks \`C_0,...,C_(m-1)\`. Suppose \`C_j != C_(j+1)\` for all adjacent old chunks, and insert an entire new full chunk \`X\` at canonical boundary k (0<=k<=m), with \`X != C_k\` when k<m.
 
 Then
 
