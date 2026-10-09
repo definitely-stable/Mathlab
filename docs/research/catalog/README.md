@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## HYP-105 G5-A no-duplicate 2026 source update (2026-10-09)
+
+[Liu–Shangguan–Zhang arXiv:2605.11949](https://arxiv.org/abs/2605.11949) was **already LIT-005** under its first-version title: the **v3 (2026-07-30)** exception for (t,r)=(3,4) is cited in [G5-A audit](../HYP-105-G5-A-TRADE-INTERSECTION.md), with no duplicate identifier. Three genuinely absent primary studies are indexed as LIT-151 Shangguan–Tamo 2021 SIAM (original Turán-exponent lower), LIT-152 Naor–Verstraëte 2008 Combinatorica (full sparse parity-check study), LIT-153 Alfarano Sep 2026 additive hypergraphic codes. Total **153 unique sources**, all earlier 150 (including concurrent UCT-004) preserved. Cross-domain theorem transfer NOT automatic: union-free implies ASET only for appropriate unit/characteristic model and is much more restrictive; additive hypergraph folded distance is different from ASET sum capacity.
+
 ## UCT-004 G2-C — certification/PCPP primary sources (2026-10-09)
 
 Deduplicated **LIT-149..150** expand canonical original bibliography from 148 to **150**: Kayal–Laplante–Larroque–Prūsis–Vihrovs [*Certification complexity of Boolean functions*](https://arxiv.org/abs/2609.26757) (ECCC TR26-206, September 2026), and Ben-Sasson–Harsha–Lachish–Matsliah [*Sound 3-Query PCPPs Are Long*](https://doi.org/10.1145/1595391.1595394) (2009). Source titles are identity-pinned, forward/reverse generated indexes revalidated, full independent source proofs FALSE, and [G2-C source/novelty boundaries](../UCT-004-G2-C-SOURCE-NOVELTY-AUDIT.md) distinguish **exact parity soundness** from **proximity soundness** and operational certification prior art.
