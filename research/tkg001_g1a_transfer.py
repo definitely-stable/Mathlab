@@ -122,6 +122,8 @@ def append_parent_log(n, parents, page_bytes):
     """
     p = _check_parent_set(n, parents)
     _pages(n, page_bytes)
+    if n > (1 << (8 * page_bytes)):
+        raise ValueError("a parent vertex ID must fit in one declared page")
     d = len(p)
     return PageCost(0, 0, (d + 1) * 8 * page_bytes, d + 1, d + 1)
 

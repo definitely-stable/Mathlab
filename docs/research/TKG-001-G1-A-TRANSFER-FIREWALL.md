@@ -41,6 +41,8 @@
 | Remote parent bitmap | 0 | n bits | ceil(n/(8P)) | 1 | Адрес старого u публичен; no auth/freshness |
 | Header + one-parent-per-page append log | 0 | (d+1)P bytes | d+1 | d+1 (скан всех, включая отсутствие) | 1 платный header, отсутствие уплотнения, no index |
 
+Каждый `parent ID` в log занимает не более одной страницы, поэтому вариант намеренно **отклоняет n>2^(8P)**, когда ID не помещается в запись; это не заявленный универсальный оптимальный журнал.
+
 Для каждой scheme exact bit membership эквивалентен \`u∈S\`. Определение \`b,g,q,w,P\` не склеивает word-RAM operations, cell-probe and physical device I/O. Материализованный update-all-reachability baseline, page-accurate GC, timestamps и negative-certificate не выполнены в G1-A: **G1 #195 остаётся открытой**. Нулевой remote Q для локальной метки — **не нулевой полный системный I/O**.
 
 ## 3. Bitemporal история и граница сертификатов
