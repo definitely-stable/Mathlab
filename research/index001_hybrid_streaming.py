@@ -378,6 +378,67 @@ def recourse(a,b,B):
             "modeled_page_write_bytes":result["modeled_page_image_bytes"]}
 
 
+
+def all_mode_images(bits,B):
+    """EXHAUSTIVE policy oracle only, not memory-bounded updating."""
+    source=from_bits(bits,B,"B")
+    options={}
+    op=(0,1,bits[0])  # semantically idempotent, to preserve target bits
+    info=check(source,B)
+    stats=characteristics(source,B,info,op)
+    for mode in stats["payload"]:
+        candidate,ledger=update(source,B,op,mode)
+        options[mode]=view_image(candidate)
+        candidate.close()
+    source.close()
+    return options
+
+
+def mode_policy_dp(initial,ops,B,initial_mode="B",alpha=4,beta=2,
+                   Qcap=4,Rcap=None):
+    """Finite offline mode-selection oracle, FULL CRC lookup equal for modes.
+
+    All images materialized by the oracle: this is *not* the streaming updater.
+    Query Q is all pages read during full checksum verification, rather than a
+    misleading prefix/unchecked read comparison.
+    """
+    if Rcap is None:
+        Rcap=2*B+REGISTER_BYTES
+    if Rcap<2*B+REGISTER_BYTES:
+        raise MemoryError("bounded updater cannot participate")
+    states=[tuple(initial)]
+    for op in ops:
+        states.append(assign(states[-1],op))
+    images=[all_mode_images(bits,B) for bits in states]
+    if initial_mode not in images[0]:
+        raise ValueError("invalid initial mode")
+    def admitted(bits,image):
+        return len(image)<=alpha*len(encode_snapshot(bits))+beta*B and len(image)//B<=Qcap
+    if not admitted(states[0],images[0][initial_mode]):
+        raise ValueError("initial image violates budget")
+    dp={initial_mode:(0,())}
+    history=[]
+    for i in range(1,len(states)):
+        next_step={}
+        for source_mode,(cost,path) in dp.items():
+            old=images[i-1][source_mode]
+            for mode,new in images[i].items():
+                if not admitted(states[i],new):
+                    continue
+                # Independent same-offset byte-page comparison is in the tests.
+                diff=page_difference(old,new,B)
+                weight=diff["changed_page_positions"]+diff["pages_removed"]
+                value=(cost+weight,path+(mode,))
+                if mode not in next_step or value<next_step[mode]:
+                    next_step[mode]=value
+        dp=next_step
+        history.append(len(dp))
+    best=min(dp.values(),default=None)
+    return {"feasible":best is not None,
+            "cost_page_images_plus_retirement":None if best is None else best[0],
+            "mode_sequence":None if best is None else list(best[1]),
+            "reachable_modes_by_step":history}
+
 def reset_witness(n=257,B=32):
     initial=(1,)+(0,)*(n-1)
     src=from_bits(initial,B,"B")
