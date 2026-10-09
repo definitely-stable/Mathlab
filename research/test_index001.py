@@ -24,7 +24,7 @@ def load_independent_snapshot(bits):
     actual = ExactRangeMap(len(bits), bits[0])
     for j, x in enumerate(bits[1:], 1):
         if x != bits[j - 1]:
-            actual.assign(j, j + 1, x)
+            actual.assign(j, len(bits), x)
     return actual
 
 
@@ -68,6 +68,13 @@ class Index001Tests(unittest.TestCase):
                                 for q_hi in range(q_lo, n + 1):
                                     self.assertEqual(run_map.scan(q_lo, q_hi),
                                                      dense_runs(expected[q_lo:q_hi], q_lo))
+
+    def test_snapshot_fixture_tail_run_regression(self):
+        # Dense 0,1,1 must become two maximal runs, not 0,1,0.
+        self.assertEqual(load_independent_snapshot((0, 1, 1)).runs,
+                         ((0, 1, 0), (1, 3, 1)))
+        self.assertEqual(load_independent_snapshot((1, 1, 0, 0)).runs,
+                         ((0, 2, 1), (2, 4, 0)))
 
     def test_adversarial_sequences_and_idempotence(self):
         for n in (3, 5, 9):
