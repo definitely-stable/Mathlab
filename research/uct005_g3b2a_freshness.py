@@ -159,11 +159,12 @@ class SymbolicCostProfile:
         if min(self.signature_bits, self.root_bits, self.epoch_bits) < 1:
             raise ValueError("positive fixed accounting widths required")
 
-    def account(self, n, anchored=False, supplied=True):
+    def account(self, n, anchored=False, supplied=True, anchor_returned=True):
         # Full signed snapshot carries n bits, signed root and parent root.
         # The seal is abstract: these widths are ASSUMPTIONS, not key lengths.
         full = n + self.signature_bits + self.root_bits + 2 * self.epoch_bits
-        anchor = self.signature_bits + self.epoch_bits if anchored else 0
+        anchor = (self.signature_bits + self.epoch_bits
+                  if anchored and anchor_returned else 0)
         return Accounting(
             issuer_full_snapshot_bits=full if supplied else 0,
             verifier_received_bits=full if supplied else 0,
@@ -196,8 +197,10 @@ def read_signed_state(reader, presented, issuer, left, right,
     n = reader.n
     parity(reader.checkpoint.bits, left, right)
     anchored = anchor is not None
-    costs = profile.account(n, anchored=anchored)
     expected = anchor.read(available=anchor_available) if anchored else None
+    costs = profile.account(n, anchored=anchored,
+                            supplied=(not anchored or expected is not None),
+                            anchor_returned=(expected is not None))
     if anchored and expected is None:
         return Answer("NO_TRUSTED_ANCHOR", None, None, costs)
     if not issuer.verify(presented):
