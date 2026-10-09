@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**188** работ сопоставлены с **38** внутренними исследованиями.
+**204** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -41,6 +41,7 @@
 - [LIT-125](LITERATURE.md#lit-125) — The BLAKE3 Hashing Framework (C2SP v1.0.0) (2024; publisher_full_text_spotchecked)
 - [LIT-126](LITERATURE.md#lit-126) — Logarithmic-Time Internal Pattern Matching Queries in Compressed and Dynamic Texts (2026; publisher_full_text_spotchecked)
 - [LIT-166](LITERATURE.md#lit-166) — Bounded Edit Distance: Optimal Static and Dynamic Algorithms for Small Integer Weights (2025; publisher_abstract_checked)
+- [LIT-197](LITERATURE.md#lit-197) — Incongruity-Sensitive Access to Highly Compressed Strings (2026; publisher_abstract_checked)
 
 ## DL-002
 
@@ -339,12 +340,28 @@
 - [LIT-180](LITERATURE.md#lit-180) — Practical Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
 - [LIT-181](LITERATURE.md#lit-181) — Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space (2026; primary_abstract_checked)
 - [LIT-182](LITERATURE.md#lit-182) — Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space (2024; publisher_abstract_checked)
-- [LIT-183](LITERATURE.md#lit-183) — Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators (2025; publisher_abstract_checked)
-- [LIT-184](LITERATURE.md#lit-184) — Lower Bounding Update Frequency in Short Accumulators and Vector Commitments (2026; publisher_abstract_checked)
-- [LIT-185](LITERATURE.md#lit-185) — Lower Bounds on FSS from Dynamic Data Structures (2026; publisher_full_text_spotchecked)
-- [LIT-186](LITERATURE.md#lit-186) — How Efficient Can Memory Checking Be? (2009; publisher_abstract_checked)
-- [LIT-187](LITERATURE.md#lit-187) — Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams (2025; primary_abstract_checked)
-- [LIT-188](LITERATURE.md#lit-188) — On the Impossibility of Batch Update for Cryptographic Accumulators (2010; publisher_abstract_checked)
+- [LIT-183](LITERATURE.md#lit-183) — (Worst-case) Optimal Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
+- [LIT-184](LITERATURE.md#lit-184) — C2LSM: A configuration paradigm for efficient compaction in LSM-tree-based key-value stores (2026; publisher_abstract_checked)
+- [LIT-185](LITERATURE.md#lit-185) — ArceKV: Towards Workload-driven LSM-compactions for Key-Value Store Under Dynamic Workloads (2026; publisher_abstract_checked)
+- [LIT-186](LITERATURE.md#lit-186) — RangeReduce: Query-Driven LSM Compactions (2026; publisher_abstract_checked)
+- [LIT-187](LITERATURE.md#lit-187) — Incremental Reachability Index (2025; publisher_abstract_checked)
+- [LIT-188](LITERATURE.md#lit-188) — Incremental Maximization for a Broad Class of Objectives (2025; publisher_abstract_checked)
+- [LIT-189](LITERATURE.md#lit-189) — Recognizing and Realizing Temporal Reachability Graphs (2025; publisher_abstract_checked)
+- [LIT-190](LITERATURE.md#lit-190) — On Incremental Approximate Shortest Paths in Directed Graphs (2025; publisher_abstract_checked)
+- [LIT-191](LITERATURE.md#lit-191) — Online Disjoint Set Covers: Randomization Is Not Necessary (2025; publisher_abstract_checked)
+- [LIT-192](LITERATURE.md#lit-192) — Fully Dynamic Algorithms for Coloring Triangle-Free Graphs (2026; publisher_abstract_checked)
+- [LIT-193](LITERATURE.md#lit-193) — Fast Decremental Tree Sums in Forests (2026; publisher_abstract_checked)
+- [LIT-194](LITERATURE.md#lit-194) — Multiplicative Error Set System Sparsification: A Simpler Proof via Chain Length Contraction (2026; publisher_abstract_checked)
+- [LIT-195](LITERATURE.md#lit-195) — Dynamic Rank, Basis, and Matching (2026; publisher_abstract_checked)
+- [LIT-196](LITERATURE.md#lit-196) — Fully Dynamic Spectral and Cut Sparsifiers for Directed Graphs (2026; publisher_abstract_checked)
+- [LIT-197](LITERATURE.md#lit-197) — Incongruity-Sensitive Access to Highly Compressed Strings (2026; publisher_abstract_checked)
+- [LIT-198](LITERATURE.md#lit-198) — Dynamic MIS Revisited: Incremental, Fault Tolerant and Fully Dynamic (2026; publisher_abstract_checked)
+- [LIT-199](LITERATURE.md#lit-199) — Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators (2025; publisher_abstract_checked)
+- [LIT-200](LITERATURE.md#lit-200) — Lower Bounding Update Frequency in Short Accumulators and Vector Commitments (2026; publisher_abstract_checked)
+- [LIT-201](LITERATURE.md#lit-201) — Lower Bounds on FSS from Dynamic Data Structures (2026; publisher_full_text_spotchecked)
+- [LIT-202](LITERATURE.md#lit-202) — How Efficient Can Memory Checking Be? (2009; publisher_abstract_checked)
+- [LIT-203](LITERATURE.md#lit-203) — Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams (2025; primary_abstract_checked)
+- [LIT-204](LITERATURE.md#lit-204) — On the Impossibility of Batch Update for Cryptographic Accumulators (2010; publisher_abstract_checked)
 
 ## ML-005
 
@@ -436,12 +453,24 @@
 - [LIT-180](LITERATURE.md#lit-180) — Practical Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
 - [LIT-181](LITERATURE.md#lit-181) — Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space (2026; primary_abstract_checked)
 - [LIT-182](LITERATURE.md#lit-182) — Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space (2024; publisher_abstract_checked)
-- [LIT-183](LITERATURE.md#lit-183) — Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators (2025; publisher_abstract_checked)
-- [LIT-184](LITERATURE.md#lit-184) — Lower Bounding Update Frequency in Short Accumulators and Vector Commitments (2026; publisher_abstract_checked)
-- [LIT-185](LITERATURE.md#lit-185) — Lower Bounds on FSS from Dynamic Data Structures (2026; publisher_full_text_spotchecked)
-- [LIT-186](LITERATURE.md#lit-186) — How Efficient Can Memory Checking Be? (2009; publisher_abstract_checked)
-- [LIT-187](LITERATURE.md#lit-187) — Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams (2025; primary_abstract_checked)
-- [LIT-188](LITERATURE.md#lit-188) — On the Impossibility of Batch Update for Cryptographic Accumulators (2010; publisher_abstract_checked)
+- [LIT-183](LITERATURE.md#lit-183) — (Worst-case) Optimal Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
+- [LIT-184](LITERATURE.md#lit-184) — C2LSM: A configuration paradigm for efficient compaction in LSM-tree-based key-value stores (2026; publisher_abstract_checked)
+- [LIT-185](LITERATURE.md#lit-185) — ArceKV: Towards Workload-driven LSM-compactions for Key-Value Store Under Dynamic Workloads (2026; publisher_abstract_checked)
+- [LIT-186](LITERATURE.md#lit-186) — RangeReduce: Query-Driven LSM Compactions (2026; publisher_abstract_checked)
+- [LIT-187](LITERATURE.md#lit-187) — Incremental Reachability Index (2025; publisher_abstract_checked)
+- [LIT-188](LITERATURE.md#lit-188) — Incremental Maximization for a Broad Class of Objectives (2025; publisher_abstract_checked)
+- [LIT-189](LITERATURE.md#lit-189) — Recognizing and Realizing Temporal Reachability Graphs (2025; publisher_abstract_checked)
+- [LIT-190](LITERATURE.md#lit-190) — On Incremental Approximate Shortest Paths in Directed Graphs (2025; publisher_abstract_checked)
+- [LIT-191](LITERATURE.md#lit-191) — Online Disjoint Set Covers: Randomization Is Not Necessary (2025; publisher_abstract_checked)
+- [LIT-193](LITERATURE.md#lit-193) — Fast Decremental Tree Sums in Forests (2026; publisher_abstract_checked)
+- [LIT-195](LITERATURE.md#lit-195) — Dynamic Rank, Basis, and Matching (2026; publisher_abstract_checked)
+- [LIT-198](LITERATURE.md#lit-198) — Dynamic MIS Revisited: Incremental, Fault Tolerant and Fully Dynamic (2026; publisher_abstract_checked)
+- [LIT-199](LITERATURE.md#lit-199) — Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators (2025; publisher_abstract_checked)
+- [LIT-200](LITERATURE.md#lit-200) — Lower Bounding Update Frequency in Short Accumulators and Vector Commitments (2026; publisher_abstract_checked)
+- [LIT-201](LITERATURE.md#lit-201) — Lower Bounds on FSS from Dynamic Data Structures (2026; publisher_full_text_spotchecked)
+- [LIT-202](LITERATURE.md#lit-202) — How Efficient Can Memory Checking Be? (2009; publisher_abstract_checked)
+- [LIT-203](LITERATURE.md#lit-203) — Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams (2025; primary_abstract_checked)
+- [LIT-204](LITERATURE.md#lit-204) — On the Impossibility of Batch Update for Cryptographic Accumulators (2010; publisher_abstract_checked)
 
 ## ML-007
 
@@ -469,6 +498,9 @@
 - [LIT-151](LITERATURE.md#lit-151) — New Turán Exponents for Two Extremal Hypergraph Problems (2021; publisher_abstract_checked)
 - [LIT-152](LITERATURE.md#lit-152) — Parity check matrices and product representations of squares (2008; publisher_abstract_checked)
 - [LIT-153](LITERATURE.md#lit-153) — Additive codes arising from hypergraphs (2026; primary_abstract_checked)
+- [LIT-192](LITERATURE.md#lit-192) — Fully Dynamic Algorithms for Coloring Triangle-Free Graphs (2026; publisher_abstract_checked)
+- [LIT-194](LITERATURE.md#lit-194) — Multiplicative Error Set System Sparsification: A Simpler Proof via Chain Length Contraction (2026; publisher_abstract_checked)
+- [LIT-196](LITERATURE.md#lit-196) — Fully Dynamic Spectral and Cut Sparsifiers for Directed Graphs (2026; publisher_abstract_checked)
 
 ## ML-008
 
