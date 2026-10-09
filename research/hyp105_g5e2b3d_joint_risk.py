@@ -35,12 +35,35 @@ C4_FOUR_SUPPORTS=tuple(tuple(C4_LEFT[i] +
 C4_SIGNS=(1,-1,1,-1)
 
 
+def closed_form_c4_GF5_flow_weight():
+    """Pure algebraic identity: 531 valid nowhere-zero checksum4 flows.
+
+    For each of four adjacent C4 column-vertex pairs there are TWO
+    colored physical coordinate edges. Let t_i be their GF5 sum.
+    Each column checksum imposes t_(i-1)+t_i=4 mod 5, hence along
+    C4 we have t0=t2=t, t1=t3=4-t. For each t in GF5, its
+    2-coordinate nonzero representations number 4 if t=0,
+    otherwise 3 (all 5 minus the zero first/zero second cases).
+    Sum_{t in GF5} c(t)^2 * c(4-t)^2 = 2*4^2*3^2 + 3*3^4 = 531.
+    This is a FOUR-column GF5 template count, not all family R2.
+    """
+    counts=tuple(sum(1 for x in range(1,5)
+                     for y in range(1,5) if (x+y)%5==t)
+                 for t in range(5))
+    if counts != (4,3,3,3,3):
+        raise AssertionError("GF5 nonzero two-coordinate count wrong")
+    result=sum(counts[t]**2*counts[(4-t)%5]**2 for t in range(5))
+    if result!=531:
+        raise AssertionError("closed-form GF5 four-cycle weight changed")
+    return result
+
+
 def exact_c4_GF5_flow_weight():
     """Independently implemented 51^2-side GF5 additive-energy oracle."""
     w=single_signed_trade_mitm(C4_FOUR_SUPPORTS,C4_SIGNS,8)
     f=w["weighted_flow_count"]
-    if not 0 < f <= 51**4:
-        raise AssertionError("four-cycle GF5 flow weight invalid")
+    if f != closed_form_c4_GF5_flow_weight():
+        raise AssertionError("independent exact GF5 C4 MITM vs closed form mismatch")
     return f
 
 
