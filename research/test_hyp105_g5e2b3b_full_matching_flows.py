@@ -142,6 +142,8 @@ class CompleteMatchingFlowTests(unittest.TestCase):
         self.assertEqual(by_key["6/6/zero"],100)
         self.assertEqual(by_key["5/5/positive"],2601000)
         self.assertEqual(by_key["4/4/positive"],9000)
+        self.assertEqual(set(k for k in by_key if k.endswith("/zero")),
+                         {"6/6/zero"})
         self.assertEqual(results["full_GF5_weighted_numerator_by_vleft_vright"],{
             "4/4":1212700680, "4/5":9814303080, "4/6":552904560,
             "5/4":9814303080, "5/5":80573932980,
@@ -171,8 +173,6 @@ class CompleteMatchingFlowTests(unittest.TestCase):
             self.assertFalse(x["full_family_R3_mathematical_identity"])
         with self.assertRaises(ValueError):
             all_h_random_matching_r3(3)
-        self.assertEqual(set(k for k in by_key if k.endswith("/zero")),
-                         {"6/6/zero"})
 
 
 if __name__=="__main__":
