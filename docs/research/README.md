@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## UCT-005 G2-B1 — semantic vs structural influence and online proof barriers (2026-10-09)
+
+[**Exact odd-path influence in mutable XOR DAGs, proof/certificate structural dirty-set comparison and unbounded cancellation family**](UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md) · [two new original primary publications plus LIT-068 and LIT-187 without duplication](UCT-005-G2-B1-SOURCES.json) · [exhaustive DAG and independent path-count tests](../../research/test_uct005_g2b1_dag_influence.py) · [issue #148](https://github.com/definitely-stable/Mathlab/issues/148). Restricted classical GF(2) lemma + conditional hash representation; **not original root theorem**, no computational security proof. Extra primary source identities pending canonical LIT numbering until issue #142/PR #132 resolution.
+
 ## DAG-002 × ALG-001 G1-A — priced remote probes, cells and sparse updates (2026-10-09)
 
 [**Formal G1-A single-append write-state counting, exact covering-code prior-art barrier and falsifiers**](DAG-002-ALG-001-G1-A-PRICED-PROBE-WRITE-FRONTIER.md) · [issue #140](https://github.com/definitely-stable/Mathlab/issues/140) · [finite stdlib oracle](../../research/test_dag002_g1a_frontier.py). Fix input-independent old prefix and remote snapshot, local B+G bits, N c-bit remote cells, W final changed cells, P reads/query. Elementary necessary bound `2^(B+G) V_c(N,W)>=2^n`, independently proved but **NOT novel**; restricted XOR-delta one-bit-probe family is **known covering-code K(n,W)**, not a universal probe lower bound. The 2026 Young Kun Ko Multiphase paper and Cohen et al. 1986 covering code bound explicitly prohibit premature uniqueness claims. **G1-A MODEL_ONLY+FINITE EXACT / G1-B NONFACTORIZING OPEN / no Rust.**
