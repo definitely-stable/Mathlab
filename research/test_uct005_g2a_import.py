@@ -11,7 +11,7 @@ class Uct005G2AImportTests(unittest.TestCase):
         entries = json.loads(
             (ROOT / "docs/research/catalog/literature.json").read_text(encoding="utf-8")
         )["entries"]
-        self.assertEqual(len(entries), 205)
+        self.assertEqual(len(entries), 215
         by = {e["id"]: e for e in entries}
         expected = {
             "LIT-199": "doi:10.1007/978-3-032-01878-6_6",
