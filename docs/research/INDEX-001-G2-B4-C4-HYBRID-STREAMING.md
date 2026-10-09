@@ -12,7 +12,7 @@ All mode-policy comparisons use the SAME full-CRC verified query service, priced
 
 ## G1: Streaming implementation and its limits
 
-The file-backed updater performs a source CRC/padding preflight, then an exact first semantic pass computing every eligible output format's encoded length, then a second semantic pass producing the chosen target representation. It uses a B-byte reader buffer, a B-byte writer buffer and an explicitly declared 128-byte register allowance; modeled update working buffers R=2B+128. CRC, page-read requests from all three passes, output page-write requests, final file bytes and discarded tail pages are accounted. Source and output reside in separate temporary files throughout the operation.
+The file-backed updater performs a source CRC/padding preflight, then an exact semantic pass computing every eligible output format's encoded length, then a further semantic pass producing any nonuniform target representation. Uniform output is determined by the counting pass and omits the third source scan. It uses a B-byte reader buffer, a B-byte writer buffer and an explicitly declared 128-byte register allowance; modeled update working buffers R=2B+128. CRC, page-read requests from all three passes, output page-write requests, final file bytes and discarded tail pages are accounted. Source and output reside in separate temporary files throughout the operation.
 
 IMPORTANT: the Python interpreter heap, tempfile internals and OS cache are NOT bounded by the abstract buffer claim. The independent testing oracle and the finite policy selector allocate entire images in RAM. This is not evidence of an end-to-end physically bounded-RSS updater. A two-file update peaks at least at Dold+Dnew bytes, rather than the idealized in-place max(Dold,Dnew). Filesystem directory entries, allocation metadata, fsync, atomic rename, torn-write recovery, dead generations and crash durability are not priced or proven; the model is not admissible under a peak constraint smaller than this sum.
 
@@ -28,7 +28,7 @@ The two-pass mode-selection construction also defeats the naive assertion that a
 
 Independent exhaustive small binary maps N<=7 test all admitted formats and complete serialized images against a separate encoder, all CRC and payload canonicality rules, and page-transfer accounting. Range-overwrite cases through N<=5 test each source mode and multiple destination modes. A 6^U independent Cartesian policy oracle checks a dynamic-programming optimum for N<=4 and U=3. The N=257 counterexample is pinned. Exact GitHub-hosted Research CI is the acceptance gate.
 
-Prior art already indexed: LIT-008 history-independent dynamic partitioning, LIT-175 RASK, LIT-183 adaptive dynamic bitvectors, LIT-281 Lazy B-Trees and LIT-282 space-efficient B-Trees. No duplicate imports or unjustified novelty promotion.
+Prior art already indexed: LIT-008 history-independent dynamic partitioning, LIT-175 RASK, LIT-183 adaptive dynamic bitvectors, LIT-281 Lazy B-Trees and LIT-282 space-efficient B-Trees. Crucial additional audit: the authors of Lazy B-Trees publish an erratum at https://www.wild-inter.net/publications/rysgaard-wild-2025 indicating that pointer-maintenance I/O for some external-memory priority-queue/decrease-key claims was not fully accounted for; those favorable bounds must NOT be imported as unconditional established comparators. The exact erratum has been checked against the author publication page as of 2026-10-10. No duplicate imports or unjustified novelty promotion.
 
 ## STOP / C5 boundary
 
