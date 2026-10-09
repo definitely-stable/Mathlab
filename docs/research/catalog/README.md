@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## HYP-105 G2 grid-trade / sparse-code prior art (2026-10-09)
+
+Four unique original publication identities **LIT-137..140** imported, without disturbing 136 existing records: 2022 AMS dense grid-free linear 3-graphs (the crucial Omega(m²) construction), Naor–Verstraëte 2005 ISIT sparse linear-dependence bounds, Santos–Tyomkyn 2025 Brown–Erdős–Sós high-density partial result, and Frankl–Füredi–Goorevitch–Holzman–Simonyi 2026 triple-system extremal study. Exact source-to-claim scope, provenance and false model-transfer warnings in [HYP-105 G2 audit](../HYP-105-G2-GRID-FREE-QUADRATIC.md). Authors/publisher abstracts checked; entire cited source proofs not independently checked. **140 unique works** with generated forward/reverse indices.
+
 ## HYP-105 G1 classical graph-source import (2026-10-09)
 
 LIT-135 Wenger 1991 graph constructions avoiding C4/C6/C10 (JCTB original) and LIT-136 Abreu et al. 2011 explicit girth-8 cages (author arXiv preprint) are separately verified canonical identities. Links, Russian summaries, scope and false-novelty constraints are in [the self-contained w=2,d=3 proof](../HYP-105-G1-W2D3-GIRTH8.md), `literature.json`, and generated forward/reverse indices. **136** unique sources (previous 134 unchanged). Finite oracle verifies a 30-node graph only; external infinite-family existence is attributed to known literature, not independently formalized by CI.
