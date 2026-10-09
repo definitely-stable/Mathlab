@@ -55,6 +55,8 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # HYP-105: classical doily publisher title pin.
+    "doi:10.3390/sym12060963": "Magic Three-Qubit Veldkamp Line and Veldkamp Space of the Doily",
     # INDEX-001 G2-B3-A verified primary identities; LIT-205 reserved by parallel PR #132.
     "usenix:osdi25:leblanc": "PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection",
     "doi:10.1145/2872362.2872406": "Specifying and Checking File System Crash-Consistency Models",

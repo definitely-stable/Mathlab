@@ -6153,6 +6153,34 @@
       "limits_ru": "Нельзя обобщать на все возможные cryptographic accumulator или VC; число инвалидированных свидетелей не равно цене одного witness-refresh."
     },
     {
+      "id": "LIT-205",
+      "title": "Magic Three-Qubit Veldkamp Line and Veldkamp Space of the Doily",
+      "year": 2020,
+      "identity": "doi:10.3390/sym12060963",
+      "primary_url": "https://doi.org/10.3390/sym12060963",
+      "track": "sparse-coding",
+      "summary_ru": "Статья Saniga и Szabó (Symmetry, 2020), §2–3: классическая дуадно-синтемная модель W(3,2) на 15 парах шести символов и 15 разбиениях на три непересекающиеся пары, а также шесть овоидов; используется для независимой проверки геометрической разметки координат HYP-105 G5-C3-B0.",
+      "limits_ru": "Опубликована конечная геометрия порядка s=2, а не конструкция для всех s или теорема о границах ASET. Прямой перенос полного графа непересекающихся дуадов на GQ(s,s), s>=3, невозможен по степени и числу вершин; документируемое точное воспроизведение конечного случая не означает проверки всего доказательства статьи.",
+      "maps_to": [
+        "ML-002"
+      ],
+      "authors": [
+        "Metod Saniga",
+        "Zsolt Szabó"
+      ],
+      "verification": "publisher_full_text_spotchecked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G5-C3-B0-DUAD-SYNTHEME-GEOMETRY.md",
+          "kind": "cited",
+          "source_sha": "6bb09f282f63b8e77bafebe68a1b910e76e02751"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
       "id": "LIT-206",
       "title": "PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection",
       "year": 2025,
