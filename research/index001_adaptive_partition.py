@@ -143,7 +143,11 @@ def lookup_cost(view, pos, mode="disk"):
         raise ValueError("invalid query")
     pages_total=view["directory_pages"]+view["payload_pages"]
     B=view["disk_bytes"]//pages_total
-    directory=read_directory(view["image"],B)
+    # Warm mirror is a paid RAM copy; do NOT simulate a free directory disk
+    # read. A cold lookup instead validates the persisted IDR1 pages.
+    directory_raw = (view["directory"].ljust(view["directory_pages"]*B,b"\x00")
+                     if mode=="mirrored" else view["image"])
+    directory=read_directory(directory_raw,B)
     if not 0<=pos<directory["n"]:
         raise ValueError("point out of bounds")
     cellstart=0
