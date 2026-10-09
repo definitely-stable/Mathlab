@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## UCT-005 G3-B2-C2-B2-A — authenticated PIN-fenced file-GC generation (2026-10-10)
+
+[**Live bitmap staging, six-buffer C2-A queue/mark collector, B1 authenticated PIN snapshot, streamed generation and fail-closed publication/recovery**](UCT-005-G3-B2-C2-B2-A-FENCED-DISK-GC.md) · [implementation](../../research/uct005_g3b2c2b2a_fenced_disk_gc.py) · [independent oracle tests](../../research/test_uct005_g3b2c2b2a_fenced_disk_gc.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). GC *data-plane only* uses file-resident queue/bitmap, not generation-wide Python reachability sets. B1 root catalog and B2-B author/exporter still use unbounded RAM, trusted CAS and ideal fsync. No real power-loss claim, no original UCT lower bound.
+
+
 ## UCT-005 G3-B2-C2-B1 — ideal-barrier authenticated PIN and generation GC (2026-10-10)
 
 [**Authenticated PIN/UNPIN page-image journal, externally trusted tips, generation-fenced logical TRIM, crash-cut and Byzantine-file oracles**](UCT-005-G3-B2-C2-B1-PIN-JOURNAL-GENERATIONS.md) · [reference model](../../research/uct005_g3b2c2b1_pin_generation.py) · [independent tests](../../research/test_uct005_g3b2c2b1_pin_generation.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). This is a conditional ideal-fsync/CAS *control-plane* result, NOT a power-loss-safe implementation or an end-to-end bounded-memory GC. Original UCT novelty and lower bound remain OPEN.

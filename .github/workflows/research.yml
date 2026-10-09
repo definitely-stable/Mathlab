@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: UCT-005 G3-B2-C2-B2-A disk PIN-fenced generation diagnostic
+        run: python research/uct005_g3b2c2b2a_fenced_disk_gc.py
+
+      - name: UCT-005 G3-B2-C2-B2-A independent bitmap, crash and retention tests
+        run: python -m unittest discover -s research -p 'test_uct005_g3b2c2b2a_fenced_disk_gc.py'
+
       - name: UCT-005 G3-B2-C2-B1 authenticated journal and generation GC diagnostic
         run: python research/uct005_g3b2c2b1_pin_generation.py
 

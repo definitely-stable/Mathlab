@@ -227,6 +227,12 @@
       "kind": "research_input",
       "status": "IDEAL_FSYNC_CAS_JOURNAL_AND_GENERATION_INVARIANT_NO_POWERLOSS_PROOF_NO_NEW_LOWER_BOUND",
       "source": "docs/research/UCT-005-G3-B2-C2-B1-PIN-JOURNAL-GENERATIONS.md"
+    },
+    {
+      "id": "UCT005G3B2C2B2A",
+      "kind": "research_input",
+      "status": "FENCED_DISK_DATA_PLANE_CLASSICAL_UPPER_NO_END_TO_END_DURABILITY_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-C2-B2-A-FENCED-DISK-GC.md"
     }
   ],
   "edges": [
@@ -404,6 +410,11 @@
       "parent": "UCT005G3B2C2A",
       "child": "UCT005G3B2C2B1",
       "relation": "IDEAL_FENCE_MODEL_NOT_END_TO_END_GC_PROOF"
+    },
+    {
+      "parent": "UCT005G3B2C2B1",
+      "child": "UCT005G3B2C2B2A",
+      "relation": "FILE_BUFFERED_CONTROL_JOIN_NOT_ORIGINAL_THEOREM"
     }
   ]
 }
