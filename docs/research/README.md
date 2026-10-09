@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## IMPORT-007 — temporal/dynamic graph prior art (2026-10-09)
+
+[Original DOI/arXiv, 22-paper exact corpus and model-transfer barriers](RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) · [issue #197](https://github.com/definitely-stable/Mathlab/issues/197). SAND point vs interval reachability, temporal connectivity, timed cuts, interval-algebra GraphRAG and active agent memory. Bibliographic import only; TKG-001 G1 remains a separate theorem program.
+
 ## UCT-005 G3-B2-B — paid authenticated range frontier (2026-10-09)
 
 [**Same-task F1 upper frontier, conditional proofs, accounting and novelty STOP gate**](UCT-005-G3-B2-B-UPPER-FRONTIER.md) · [tree](../../research/uct005_g3b2b_range_tree.py) · [replica/full snapshot](../../research/uct005_g3b2b_baselines.py) · [independent exhaustive tests](../../research/test_uct005_g3b2b_upper.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). Three honest upper models for sequential SET/RANGE_PARITY with an explicitly paid monotone trusted epoch/root anchor. SHA-256 assumptions only, no computational-security reduction; byte counts apply only to frozen canonical JSON/reference anchor payloads, not physical I/O. G3-B2-C must prove a **genuinely new same-model nonfactorizing lower bound** or STOP_NOVELTY; UCT root remains OPEN.
