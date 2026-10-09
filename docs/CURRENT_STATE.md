@@ -1,5 +1,12 @@
 # CURRENT_STATE
 
+## UCT-005 G3-B2-C1 — pin-aware GC и проверка нижней границы (2026-10-09)
+
+[Доказательство, строгие оговорки и ложная кандидатная граница](research/UCT-005-G3-B2-C1-GC-AND-NOVELTY-GATE.md) · [платный mark/sweep и false-bound oracle](../research/uct005_g3b2c1_gc_frontier.py) · [независимые тесты](../research/test_uct005_g3b2c1_gc_frontier.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). **MODEL_SCOPED_GC_REACHABILITY_PROVED / AS_OF_PINS_EXPLICIT / FALSE_JOINT_BOUND_REJECTED / FULL_RAM_AND_DURABILITY_MODEL_INCOMPLETE / ORIGINAL_ROOT_OPEN.** Для SET/RANGE_PARITY отделены latest-only readers от закреплённых исторических AS_OF roots; освобождение только недостижимых целых 4-КиБ страниц, платная bitmap read/write и TRIM-команды. В частной схеме n=4096, 40-byte trusted root: W_pages=2, Q_pages(полный диапазон)=2, поэтому неверно универсальное для каждого запроса W*Q>=ceil(log2(n))=12. Это **не опровержение worst-case partial sums теорем**. Следующий C2: truly bounded-workspace GC, durable pins, crash recovery и строгое novel-vs-prior-art решение. UCT-005 #105 OPEN.
+
+
+
+
 ## IMPORT-008 — original graph/DAG and temporal memory source wave (2026-10-09)
 
 [15-source DOI/arXiv literature review](research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) · [issue #202](https://github.com/definitely-stable/Mathlab/issues/202). Canonical LIT-283..297 extend 281→296 distinct works, including new DAG ReachDiam and certifiable shortcut literature and evidence-backed temporal graph memory. Retains original IDs, metadata-only independent scope, explicit offline/online, directed/undirected, valid-vs-transaction time and source-vs-root trust limitations. Research original theorem novelty **NOT claimed**; PR-head and post-merge hosted CI are acceptance gates.

@@ -209,6 +209,12 @@
       "kind": "research_input",
       "status": "CLASSICAL_PAGE_LAYOUT_AND_FALSIFIERS_NO_ORIGINAL_LOWER_BOUND_ROOT_OPEN",
       "source": "docs/research/UCT-005-G3-B2-C0-PAGE-IMAGE-FRONTIER.md"
+    },
+    {
+      "id": "UCT005G3B2C1",
+      "kind": "research_input",
+      "status": "MODEL_SCOPED_GC_AND_REJECTED_FALSE_JOINT_LOWER_BOUND_ROOT_OPEN",
+      "source": "docs/research/UCT-005-G3-B2-C1-GC-AND-NOVELTY-GATE.md"
     }
   ],
   "edges": [
@@ -371,6 +377,11 @@
       "parent": "UCT005G3B2B",
       "child": "UCT005G3B2C0",
       "relation": "COST_MODEL_AND_COUNTEREXAMPLES_NOT_ROOT_PROOF"
+    },
+    {
+      "parent": "UCT005G3B2C0",
+      "child": "UCT005G3B2C1",
+      "relation": "RETENTION_COST_AND_FALSE_CONJECTURE_NOT_ROOT_PROOF"
     }
   ]
 }

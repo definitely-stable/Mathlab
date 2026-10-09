@@ -1,5 +1,12 @@
 # Research index and authority order
 
+## UCT-005 G3-B2-C1 — retention and charged GC countermodels (2026-10-09)
+
+[**LATEST vs pinned AS_OF, classical exact reachability proof, charged disk-bitmap/mark/trim costs and falsified universal product candidate**](UCT-005-G3-B2-C1-GC-AND-NOVELTY-GATE.md) · [reference model](../../research/uct005_g3b2c1_gc_frontier.py) · [independent oracles](../../research/test_uct005_g3b2c1_gc_frontier.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). Single-honest-writer F1 with paid monotone anchor only. GC uses a logical disk bitmap priced in full pages, but Python's reachability set is not a bounded-RAM implementation; no crypto/durable/novel root theorem. C2 must close physical and memory-model gaps or honestly STOP_NOVELTY.
+
+
+
+
 ## IMPORT-008 — reachability-DAG width, compression and evidence-grounded memory (2026-10-09)
 
 [ITCS/ESA/ICALP/SWAT 2026 theory and 2025–26 temporal agent memory source audit](RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) · [issue #202](https://github.com/definitely-stable/Mathlab/issues/202) · [source catalog](catalog/LITERATURE.md). New paper records LIT-283..297 include ReachDiam, certified DAG shortcutting, k-antichain coverage and temporal evidence memory; keep UCT-005/TKG-001 novelty and physical write models separate.
