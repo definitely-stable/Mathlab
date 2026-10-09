@@ -149,6 +149,12 @@
       "kind": "research_input",
       "status": "SEPARATE_OPEN",
       "source": "docs/research/UCT-004-G2-C-NONLINEAR-PROOF-COVER.md"
+    },
+    {
+      "id": "UCT005G2A",
+      "kind": "research_input",
+      "status": "SOURCE_FOUNDATION_AND_HONEST_ORACLE",
+      "source": "docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md"
     }
   ],
   "edges": [
@@ -261,6 +267,11 @@
       "parent": "EXTREMAL",
       "child": "KAPPA",
       "relation": "INDEPENDENT_OPEN"
+    },
+    {
+      "parent": "CERTIFICATION",
+      "child": "UCT005G2A",
+      "relation": "PROOF_INGREDIENT_ONLY"
     }
   ]
 }

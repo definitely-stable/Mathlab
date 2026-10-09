@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **198** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **204** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,7 +11,7 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 23 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 27 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 28 |
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 21 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
@@ -20,7 +20,7 @@
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
 | [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 19 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
-| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 15 |
+| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 20 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
 | [Алгебраические схемы, математика и нижние границы](#algebraic-complexity) | 4 |
 | [Edit distance, строки и тонкая сложность](#fine-grained-algorithms) | 3 |
@@ -698,6 +698,19 @@ RangeReduce (ICDE 2026) направляет LSM compaction с учётом ст
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-201
+**[Lower Bounds on FSS from Dynamic Data Structures](https://doi.org/10.4230/LIPIcs.ITCS.2026.71)** (2026)
+
+ITCS 2026: соответствие black-box PRF/OWF Function Secret Sharing с динамическими range-query структурами. Источник различает cell-probe и write-probe с бесплатными чтениями во время update.
+
+**Ограничение:** FSS privacy не является authenticated soundness. Параметр n обозначает длину аргумента функции, а не число элементов RAM. Lower bound переносится лишь при правильной модели.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ITCS.2026.71` · **Авторы:** Niv Gilboa, Daniel Weber · **Проверка:** `publisher_full_text_spotchecked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md](https://github.com/definitely-stable/Mathlab/blob/cd5a7ec2b0ed442d03bac0b03e091421ab5446ef/docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) (model_overlap)
 
 
 ## incremental-computation
@@ -2425,6 +2438,71 @@ AFT 2023, Definition 4 и Theorem 5: для динамических proof-bindi
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/536fd3aab5aedcc89ca80c24333162991e51ec4b/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
+
+### LIT-199
+**[Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators](https://doi.org/10.1007/978-3-032-01878-6_6)** (2025)
+
+CRYPTO 2025: ω(n) совокупных witness updates за n append-only добавлений, и Ω(n log n/log log n) в отдельном режиме; Merkle mountain ranges близки к оптимальности.
+
+**Ограничение:** Частота изменений witness в append-only set accumulator, а не CPU или байты сети. Параметры случайного множества и длина digest обязательны; без них не переносить на UCT.
+
+**Идентичность:** `doi:10.1007/978-3-032-01878-6_6` · **Также:** publisher:iacr:2025-234 · **Авторы:** Joseph Bonneau, Jessica Chen, Miranda Christ, Ioanna Karantaidou · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md](https://github.com/definitely-stable/Mathlab/blob/cd5a7ec2b0ed442d03bac0b03e091421ab5446ef/docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) (model_overlap)
+
+### LIT-200
+**[Lower Bounding Update Frequency in Short Accumulators and Vector Commitments](https://doi.org/10.1007/978-3-032-25330-9_7)** (2026)
+
+EUROCRYPT 2026: нижние границы ожидаемого количества инвалидированных proofs — почти n при коротком digest для exponential или superpolynomial universes.
+
+**Ограничение:** Нужно фиксировать аддитивный аккумулятор / updatable VC, security/digest и размер универсума. Witness invalidation не равно стоимости обновления или коммуникации.
+
+**Идентичность:** `doi:10.1007/978-3-032-25330-9_7` · **Также:** publisher:iacr:2025-1558 · **Авторы:** Hamza Abusalah, Gaspard Anthoine, Gennaro Avitabile, Emanuele Giunta · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md](https://github.com/definitely-stable/Mathlab/blob/cd5a7ec2b0ed442d03bac0b03e091421ab5446ef/docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) (model_overlap)
+
+### LIT-202
+**[How Efficient Can Memory Checking Be?](https://doi.org/10.1007/978-3-642-00457-5_30)** (2009)
+
+TCC 2009: lower bound deterministic non-adaptive online memory checker и конструкции асимметричного read/write checker, включая offline амортизацию.
+
+**Ограничение:** Не переносить deterministic nonadaptive lower bound на произвольный randomized adaptive memory checker; offline и online различны по гарантии обнаружения ошибки.
+
+**Идентичность:** `doi:10.1007/978-3-642-00457-5_30` · **Авторы:** Cynthia Dwork, Moni Naor, Guy N. Rothblum, Vinod Vaikuntanathan · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md](https://github.com/definitely-stable/Mathlab/blob/cd5a7ec2b0ed442d03bac0b03e091421ab5446ef/docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) (model_overlap)
+
+### LIT-203
+**[Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams](https://eprint.iacr.org/2025/110)** (2025)
+
+IACR ePrint 2025/110, FC 2025: новые linearly homomorphic signatures и verifier-efficient HSNP для вычислений по потокам, включая скользящие статистики.
+
+**Ограничение:** Конструктивная верхняя оценка криптографической верификации с signed inputs, а не информационная lower bound. Отсутствует подтверждённый DOI конференционной версии.
+
+**Идентичность:** `publisher:iacr:2025-110` · **Авторы:** Gaspard Anthoine, Daniele Cozzo, Dario Fiore · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md](https://github.com/definitely-stable/Mathlab/blob/cd5a7ec2b0ed442d03bac0b03e091421ab5446ef/docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) (model_overlap)
+
+### LIT-204
+**[On the Impossibility of Batch Update for Cryptographic Accumulators](https://doi.org/10.1007/978-3-642-14712-8_11)** (2010)
+
+LATINCRYPT 2010: атака на небезопасный batch-update accumulator и Ω(m) worst-case на обновление отдельного witness после m изменений в изученной модели.
+
+**Ограничение:** Нельзя обобщать на все возможные cryptographic accumulator или VC; число инвалидированных свидетелей не равно цене одного witness-refresh.
+
+**Идентичность:** `doi:10.1007/978-3-642-14712-8_11` · **Авторы:** Philippe Camacho, Alejandro Hevia · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md](https://github.com/definitely-stable/Mathlab/blob/cd5a7ec2b0ed442d03bac0b03e091421ab5446ef/docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) (model_overlap)
 
 
 ## proof-complexity

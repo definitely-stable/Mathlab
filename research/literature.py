@@ -55,6 +55,13 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # UCT-005 G2-A new LIT-199..204 pins (STOC 2026 LIT-072 already present).
+    "doi:10.1007/978-3-032-01878-6_6": "Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators",
+    "doi:10.1007/978-3-032-25330-9_7": "Lower Bounding Update Frequency in Short Accumulators and Vector Commitments",
+    "doi:10.4230/LIPIcs.ITCS.2026.71": "Lower Bounds on FSS from Dynamic Data Structures",
+    "doi:10.1007/978-3-642-00457-5_30": "How Efficient Can Memory Checking Be?",
+    "publisher:iacr:2025-110": "Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams",
+    "doi:10.1007/978-3-642-14712-8_11": "On the Impossibility of Batch Update for Cryptographic Accumulators",
     # IMPORT-005 exact primary publisher DOI and title pin cohort.
     "doi:10.4230/LIPIcs.SEA.2025.9": "Incremental Reachability Index",
     "doi:10.4230/LIPIcs.ESA.2025.92": "Incremental Maximization for a Broad Class of Objectives",

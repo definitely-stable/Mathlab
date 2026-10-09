@@ -1,0 +1,62 @@
+# UCT-005 G2-A — fundamental primary literature and honest online countermodels
+
+**As of:** 2026-10-09; [root #105](https://github.com/definitely-stable/Mathlab/issues/105), [slice #125](https://github.com/definitely-stable/Mathlab/issues/125). **Research state:** SOURCE_BARRIERS_AUDITED / HONEST_1D_PROTOTYPE / ROOT_ORIGINALITY_OPEN_UNPROVED. The bibliography does not constitute independent checking of entire published proofs.
+
+## 1. What changed relative to G1
+
+G1 closed generic memory checking and generic proof-binding-VC update-broadcast novelty. G2-A adds **seven independent audited publications, of which six are new and one (STOC 2026) was already indexed as LIT-072** whose application destroys three more overly broad claims:
+
+1. **2025/2026 accumulator witness-change laws are already published**: there is no general novelty in the idea that succinct commitments force proof maintenance.
+2. **Dynamic data structures ↔ function secret sharing is already a theorem-level correspondence** in ITCS 2026; we cannot rename a similarly scoped construction an original cross-disciplinary "grand unification".
+3. **Cell-probe natural-proofs barriers are published in STOC 2026**; a difficult bound needs a technique credible against the exact proof-method obstacle, although their paper does NOT prove no stronger lower bound can exist.
+
+There is no correct inference that all dynamic multi-query proof maintenance is impossible, that all trusted-state reductions transfer without assumptions, or that a product of unrelated published bounds is a new joint theorem.
+
+## 2. Seven distinct primary-source publications (six new LIT-199..204; STOC 2026 already LIT-072)
+
+| ID | Publication and author/publisher evidence | Actual technical result or construction | Scope and nontransfer |
+|---|---|---|---|
+| LIT-199 | Bonneau–Chen–Christ–Karantaidou, CRYPTO 2025, [Springer DOI](https://doi.org/10.1007/978-3-032-01878-6_6), [IACR full version 2025/234](https://eprint.iacr.org/2025/234) | For an **append-only accumulator** with succinct digest O(lambda polylog n), cumulative witness changes across n sequential additions exceed linear: omega(n); in an additional parameter regime Omega(n log n / log log n). With high probability under randomly chosen inserted set. | Count **number of existing witnesses that change**, NOT total CPU/hash work, trusted-memory reads or arbitrary updates of dynamic range parity. **STOP** "first witness-change-frequency bound". |
+| LIT-200 | Abusalah–Anthoine–Avitabile–Giunta, EUROCRYPT 2026 [Springer DOI](https://doi.org/10.1007/978-3-032-25330-9_7), [institutional publication](https://openresearch.surrey.ac.uk/esploro/outputs/conferenceProceeding/Lower-Bounding-Update-Frequency-in-Short/991129195402346); same author version IACR 2025/1558 | For **additive accumulators / updatable VCs with constant-size digest** close to security parameter, near all of n individual membership proofs need refreshing in expectation after certain additions: n−negl(lambda) (exponential universes) or n−o(n) (superpolynomial universes), according to publisher abstract. | Depends on universe growth, digest parameter, and precise primitive/security model; **not** a lower bound for arbitrary Merkle-prefix proofs or update communication bytes. This improves the known barrier for selected schemes, not all VC. |
+| LIT-201 | Gilboa–Weber, ITCS 2026, [Dagstuhl DOI](https://doi.org/10.4230/LIPIcs.ITCS.2026.71), [22-page proceedings PDF](https://drops.dagstuhl.de/storage/00lipics/lipics-vol362-itcs2026/LIPIcs.ITCS.2026.71/LIPIcs.ITCS.2026.71.pdf) | Two-way transformation of **two-party FSS black-box reducible to OWF/PRF** and dynamic group-valued range-query structures. Paper uses a **write-probe model** for a direction of reduction (updates charge writes while reads are free); 2D binary box-function evaluation lower bound Omega(n^(3/2)/log^3 n) with polynomial-time Gen and source-specific model assumptions. | Original n refers to **bit length of point/query domain**, not physical universe cardinality; its write-probe/read-free reduction is not our full read/write-cost tuple. Secure FSS does not imply authenticated soundness, and vice versa. **STOP** generic "first dynamic DS ↔ crypto cross-model theorem". |
+| LIT-072 (existing) | Koucký–Loff–Molli–Saks, STOC 2026, [ACM DOI](https://doi.org/10.1145/3798129.3800843), [official conference contents](https://acm-stoc.org/stoc2026/toc.html) | Transfers Razborov–Rudich style **natural-proofs barriers** to cell-probe lower-bound techniques. Abstract describes the polylogarithmic dynamic lower-bound frontier. | **Meta-theoretical proof-method barrier**, NOT a mathematical impossibility theorem that forbids super-polylogarithmic lower bounds. Any applicability to a restricted online crypto proof model needs a proof. |
+| LIT-202 | Dwork–Naor–Rothblum–Vaikuntanathan, TCC 2009, [Springer DOI](https://doi.org/10.1007/978-3-642-00457-5_30), [Microsoft Research abstract](https://www.microsoft.com/en-us/research/publication/how-efficient-can-memory-checking-be/) | Explicit read-vs-write checker cost asymmetry; deterministic nonadaptive online memory-checker lower bound and online checker constructions balancing cheap logical reads vs writes, plus inexpensive **offline** checker amortization. | Nonadaptive/deterministic lower-bound premise cannot become a universal adaptive/randomized result. Online and offline checking have different guarantee horizons. **STOP** "first checker read/write cost asymmetry". |
+| LIT-203 | Anthoine–Cozzo–Fiore, FC 2025 / [IACR ePrint 2025/110](https://eprint.iacr.org/2025/110) | Improved linearly homomorphic signatures and NP homomorphic-signature construction for **verifiable stream computation**, particularly consecutive/sliding-window statistics; optimizes **verification cost**. | Cryptographic assumptions and signed stream values are indispensable. Verification improvement is an **upper construction**, not an information-theoretic lower bound for arbitrary online client. Canonical identity uses publisher archive, conference DOI not claimed. |
+| LIT-204 | Camacho–Hevia, LATINCRYPT 2010, [Springer DOI](https://doi.org/10.1007/978-3-642-14712-8_11), [author institution](https://upapers.dcc.uchile.cl/index/publications/view/316407) | Shows attacks against previously proposed secure batch-update accumulator, plus worst-case Omega(m) witness-update work after m updates **in its defined setting**. | Do not generalize to all vector commitments; distinguishes *batch deletion witness work* from *number of invalidated witnesses*. **STOP** generic constant-cost batch witness refresh claim. |
+
+**Audit strength:** LIT-201 original proceedings introduction, abstract and model definition spotchecked. Others: original publisher/institutional/IACR abstract spotchecked. No full independent reproduction of all primary proofs; metadata and mathematical claims MUST reflect that tier. Do not equate a preprint, proceedings version and later journal expansion to three independent discoveries.
+
+## 3. G2-A fully specified *honest* dynamic prefix-XOR countermodel
+
+Define `T_n^{1D}`: a mutable bit vector `a in GF(2)^n`, initial all zero; public operations `FLIP(i)` for 1≤i≤n and `PREFIX(t)=a_1 xor ... xor a_t` for 0≤t≤n; adversary may choose operations adaptively **but currently the store is honest and no verification is provided**. CPU work and memory cells are binary, not word-packed, and no external crypto, setup oracle or constant-time magical parity instructions. A logical probe means a **read or write of one stored bit**; separate `U_reads, U_writes`; `U_changed` counts unique coordinates whose stored value flips. The cost ledger below excludes one-time initialization, which is O(n) for each baseline and must be added to a full amortized model.
+
+| Implementation | Untrusted working state bits | FLIP reads | FLIP writes / changed | PREFIX(t) reads | Notes |
+|---|---:|---:|---:|---:|---|
+| raw array | n | 1 | 1 | t | Point update optimal, slow long prefix |
+| materialized prefix array | n | n−i+1 | n−i+1 | 1 for t>0, else 0 | Updates flip every suffix prefix bit |
+| blocked array, block width b | n+ceil(n/b) | 2 | 2 | floor(t/b)+(t mod b) | Store original bits and parity per block; complete blocks first |
+| Fenwick parity | n | number of Fenwick update ancestors | same | popcount(t) | All reads/writes O(log n), no authentication |
+
+The Fenwick scheme is **not** an authenticated proof system. Indeed, for n=2^k the maximum number of changed bits in an update is at most k+1 and maximum prefix probes is k. Thus `max_changed * max_query_probes <= (k+1)k < 2^k` for k≥7: any claimed **universal** `w*p>=n` for dynamic parity is *falsified* by an honest standard data structure. This does not refute the separately frozen `UCT-004` PPZ static proof-cover model or a cryptographically authenticated checker. Tests must demonstrate it without assuming all data is revealed to the client.
+
+**Complete finite oracle:** `research/test_uct005_g2a_models.py` independently enumerates small vector states and all single-flip transitions against the four algorithms, testing returned prefixes and *physical* counters; also checks 2D Fenwick for small grids. Counts are deterministic, no cryptographic proof and no random benchmark claimed.
+
+## 4. Stronger upper construction — 2D honest range parity as a scout, not a theorem
+
+Define `T_N^{2D}`: mutable N×N binary grid, public `FLIP(i,j)`, `RECT(r1,c1,r2,c2)` returns XOR over the half-open grid rectangle. Basic baselines:
+- raw grid: n=N² bits, update one touched cell, query rectangle reads its area.
+- 2D prefix grid: n bits, up to (N−i)(N−j) prefix states changed on one bit update; rectangle XOR from **four** prefix cells where nonempty.
+- 2D Fenwick: N² parity bits, both update and prefix query at most O(log² N) cell probes, rectangle via four prefixes at most 4 O(log² N); no soundness.
+- Merkle authenticated segment/range structures **only under an explicit collision-resistance assumption**, with trusted root, charged update witness, consistency freshness and prover hashing/communication. Any claimed O(log n) proof must demonstrate a concrete range proof encoding rather than treating Merkle proofs as free.
+
+**Source kill gates:** The ITCS 2026 FSS lower bounds concern two-party privacy and specific write-probe transformations, not automatically verified adversarial queries. The BKV memory-checker bounds concern remote RAM probes, not witness changes. The EUROCRYPT/CRYPTO witness-frequency results concern append-only / additive accumulator and short digest regimes, not arbitrary range query certificates. These differences mean naive multiplication of their equations is **mathematically unjustified**.
+
+## 5. Research direction, evidence and STOP / GO
+
+- **G2-A result:** precise honest countermodels and publication-grounded novelty STOP. `ROOT_NEW_THEOREM_UNPROVED`.
+- **STOP 1D-as-root**: dynamic prefix parity itself has classic raw/prefix/blocked/Fenwick upper constructions and classical partial-sums lower-bound literature; attaching hash authentication with separately-paid Merkle paths is a known construction. No justified new asymptotic frontier yet.
+- **G2-B candidate:** dynamic 2D **multi-query, transcript-adaptively authenticated range parity**, with a client that cannot fetch the full raw grid on every query. Explicitly account for `S_trusted`, physical `U_r,U_w`, remote `Q_r,Q_w`, per-witness update touches `H`, total broadcast bytes `C_total`, prover maintenance `G`, verifier CPU `V`, program/setup and security parameters. Quantify repeated adversarial query horizon and proof-reuse costs.
+- **G2-B prerequisite:** pin primary *authenticated 2D range proofs*, FSS/online annotated streams/memory checking comparison under same input/word units, then specify a concrete numerical **candidate inequality** and three competing upper protocols. `T_N^{2D}` is still a SCOUT, not a novel root theorem formulation.
+- **Alternative if G2-B fails:** authenticated incremental bounded-fanout DAG transformations (also needs prior art). Never switch to sketches merely because they are familiar.
+
+**Status matrix:** G2-A source imports + honest simulation/test acceptance = `SOURCE_AND_UPPER_CONSTRUCTION_ACCEPT`; formal `B_known` same-model complete transfer and *strict asymptotic nonfactorizing gap* = **NOT DEMONSTRATED**. No Rust/product gate permitted.

@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## UCT-005 G2-A — новые математические барьеры (2026-10-09)
+
+[**Аудит семи источников, из которых шесть новых, и точные онлайн-контрмодели**](UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) · [issue #125](https://github.com/definitely-stable/Mathlab/issues/125) · [1D/2D oracle](../../research/test_uct005_g2a_models.py). В библиографии теперь **204 уникальных публикации** (новые LIT-199..204); STOC 2026 уже учтён как LIT-072. **G2-A: STOP простой 1D-корень; G2-B: 2D authenticated multi-query SCOUT; root novelty OPEN.**
+
 ## HYP-105 G5-C3-A — exact coordinate-gauge invariant and deterministic W32 label search (2026-10-09)
 
 [Mathematical proofs and all-scale limitations](HYP-105-G5-C3-A-STRUCTURED-LABEL-SEARCH.md) · [certified bounded search code](../../research/hyp105_g5c3_label_search.py) · [independent regression](../../research/test_hyp105_g5c3_label_search.py) · [merged #122](https://github.com/definitely-stable/Mathlab/pull/122) · [hosted exact PR-head Research #1077 SUCCESS](https://github.com/definitely-stable/Mathlab/actions/runs/37896067333). Elementary all-field coordinate-gauge invariance, explicit S6×S6 class count (15!/6!)² for split K6 pair bijections; reproducible finite m12 W32 minimal T4:46→42 and T6:1722→1580, with 20 independently validated ASET columns before AND after. **No all-m density theorem, no exponent improvement, no original theorem novelty, no Rust.** Further work on [G5-C3 #119](https://github.com/definitely-stable/Mathlab/issues/119), [#106](https://github.com/definitely-stable/Mathlab/issues/106), [#95](https://github.com/definitely-stable/Mathlab/issues/95) remains OPEN: demand uniform algebraic pair label design and proved T4/T6 estimates.

@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**198** работ сопоставлены с **38** внутренними исследованиями.
+**204** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -356,6 +356,12 @@
 - [LIT-196](LITERATURE.md#lit-196) — Fully Dynamic Spectral and Cut Sparsifiers for Directed Graphs (2026; publisher_abstract_checked)
 - [LIT-197](LITERATURE.md#lit-197) — Incongruity-Sensitive Access to Highly Compressed Strings (2026; publisher_abstract_checked)
 - [LIT-198](LITERATURE.md#lit-198) — Dynamic MIS Revisited: Incremental, Fault Tolerant and Fully Dynamic (2026; publisher_abstract_checked)
+- [LIT-199](LITERATURE.md#lit-199) — Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators (2025; publisher_abstract_checked)
+- [LIT-200](LITERATURE.md#lit-200) — Lower Bounding Update Frequency in Short Accumulators and Vector Commitments (2026; publisher_abstract_checked)
+- [LIT-201](LITERATURE.md#lit-201) — Lower Bounds on FSS from Dynamic Data Structures (2026; publisher_full_text_spotchecked)
+- [LIT-202](LITERATURE.md#lit-202) — How Efficient Can Memory Checking Be? (2009; publisher_abstract_checked)
+- [LIT-203](LITERATURE.md#lit-203) — Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams (2025; primary_abstract_checked)
+- [LIT-204](LITERATURE.md#lit-204) — On the Impossibility of Batch Update for Cryptographic Accumulators (2010; publisher_abstract_checked)
 
 ## ML-005
 
@@ -459,6 +465,12 @@
 - [LIT-193](LITERATURE.md#lit-193) — Fast Decremental Tree Sums in Forests (2026; publisher_abstract_checked)
 - [LIT-195](LITERATURE.md#lit-195) — Dynamic Rank, Basis, and Matching (2026; publisher_abstract_checked)
 - [LIT-198](LITERATURE.md#lit-198) — Dynamic MIS Revisited: Incremental, Fault Tolerant and Fully Dynamic (2026; publisher_abstract_checked)
+- [LIT-199](LITERATURE.md#lit-199) — Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators (2025; publisher_abstract_checked)
+- [LIT-200](LITERATURE.md#lit-200) — Lower Bounding Update Frequency in Short Accumulators and Vector Commitments (2026; publisher_abstract_checked)
+- [LIT-201](LITERATURE.md#lit-201) — Lower Bounds on FSS from Dynamic Data Structures (2026; publisher_full_text_spotchecked)
+- [LIT-202](LITERATURE.md#lit-202) — How Efficient Can Memory Checking Be? (2009; publisher_abstract_checked)
+- [LIT-203](LITERATURE.md#lit-203) — Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams (2025; primary_abstract_checked)
+- [LIT-204](LITERATURE.md#lit-204) — On the Impossibility of Batch Update for Cryptographic Accumulators (2010; publisher_abstract_checked)
 
 ## ML-007
 
