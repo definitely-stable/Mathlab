@@ -4,8 +4,8 @@ Source-level audit: **2026-10-09**. Parent graph-library work [#184](https://git
 
 ## Two previously considered works deliberately NOT re-imported
 
-- `doi:10.4230/LIPIcs.ESA.2026.6` (dynamic δ-optimal grammar self-index) is already in Mathlab `LIT-281` (or current canonical ID); adding a second independent LIT record would duplicate one publication.
-- `doi:10.4230/LIPIcs.ICALP.2026.26` (fast decremental tree sums) is already in Mathlab `LIT-282` (or current canonical ID). Relevant to decreasing forest sums and online recourse, but already catalogued.
+- `doi:10.4230/LIPIcs.ESA.2026.6` (dynamic δ-optimal grammar self-index) is already in Mathlab `LIT-050`; adding a second independent LIT record would duplicate one publication.
+- `doi:10.4230/LIPIcs.ICALP.2026.26` (fast decremental tree sums) is already in Mathlab `LIT-193`. Relevant to decreasing forest sums and online recourse, but already catalogued.
 
 ## Source level manifest: 15 distinct works
 

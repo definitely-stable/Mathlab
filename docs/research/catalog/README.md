@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## IMPORT-008 — 2026 original dynamic DAG algorithms and evidence-grounded graph memory
+
+[15 verified DOI/arXiv metadata sources with explicit novelty barriers](../RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) · [issue #202](https://github.com/definitely-stable/Mathlab/issues/202). 281→296 corpus records LIT-283..297, 2026 ITCS/ESA/ICALP/SWAT graph theory and temporal evidence agent memory. Existing LIT-050 (dynamic compressed index) and LIT-193 (decremental tree sums) explicitly deduplicated. Source publications are not independently proof audited; empirical scores not reproduced.
+
 ## IMPORT-007 — original 2025–2026 temporal and dynamic graph research
 
 [22 verified source metadata records, formal time-model distinctions and 2026 publication links](../RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) · [issue #197](https://github.com/definitely-stable/Mathlab/issues/197). LIT-259..280 extend **257→279** works with SAND 2026 / ESA 2026 / LICS 2026, point-vs-interval reachability, temporal cuts, query-time KG, agent memory and succinct graphs. Original proofs and benchmark scores not independently validated; no theorem novelty claimed.
