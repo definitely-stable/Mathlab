@@ -656,7 +656,7 @@ C2LSM (FGCS 2026) формализует модель времени compaction 
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/d25024d7985452cfb20b6c6a2c0b1ace4a563b76/docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/c04acfe345d941eeaf1f9aa447f65c8eca2bb4cb/docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) (model_overlap)
 
 ### LIT-185
 **[ArceKV: Towards Workload-driven LSM-compactions for Key-Value Store Under Dynamic Workloads](https://doi.org/10.14778/3796195.3796208)** (2026)
@@ -669,7 +669,7 @@ ArceKV в PVLDB 2026 развивает ElasticLSM и адаптивный Arce-
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/d25024d7985452cfb20b6c6a2c0b1ace4a563b76/docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/c04acfe345d941eeaf1f9aa447f65c8eca2bb4cb/docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) (model_overlap)
 
 ### LIT-186
 **[RangeReduce: Query-Driven LSM Compactions](https://doi.org/10.1109/ICDE65706.2026.00194)** (2026)
@@ -682,7 +682,7 @@ RangeReduce (ICDE 2026) направляет LSM compaction с учётом ст
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/d25024d7985452cfb20b6c6a2c0b1ace4a563b76/docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/c04acfe345d941eeaf1f9aa447f65c8eca2bb4cb/docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) (model_overlap)
 
 
 ## incremental-computation
@@ -1441,7 +1441,7 @@ Navarro изучает практические адаптивные bitvectors 
 
 **Ограничение:** Речь о rank/select и одиночных bitvector-операциях; ratio q и стоимость в статье не означают гарантированную оптимальность LSM compaction/range writes.
 
-**Идентичность:** `doi:10.1002/spe.3433` · **Также:** doi:10.1007/978-3-031-72200-4_16 · **Авторы:** Gonzalo Navarro · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+**Идентичность:** `doi:10.1002/spe.3433` · **Авторы:** Gonzalo Navarro · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
@@ -1467,11 +1467,11 @@ Navarro доказал специальную worst-case оптимальнос�
 
 **Ограничение:** Ячеечная lower bound касается rank/select/точечных update и фиксированного отношения q; не является оценкой физического compaction для диапазонного overwrite.
 
-**Идентичность:** `doi:10.1007/s00224-025-10229-8` · **Также:** arxiv:2405.15088 · **Авторы:** Gonzalo Navarro · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+**Идентичность:** `doi:10.1007/s00224-025-10229-8` · **Также:** arxiv:2405.15088, doi:10.1007/978-3-031-72200-4_16 · **Авторы:** Gonzalo Navarro · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/d25024d7985452cfb20b6c6a2c0b1ace4a563b76/docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/c04acfe345d941eeaf1f9aa447f65c8eca2bb4cb/docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) (model_overlap)
 
 
 ## online-optimization
