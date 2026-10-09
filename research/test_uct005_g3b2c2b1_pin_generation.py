@@ -55,6 +55,7 @@ class PinJournalTests(unittest.TestCase):
                     with self.assertRaises(Crash):
                         j.event("PIN",0,w.epochs[0],fail_at=cut)
                 self.assertEqual(j.crash_recover(),expected)
+                self.assertEqual(j.c.truncate_calls,1)
                 self.assertEqual(j.tip.seq,1 if expected else 0)
                 if not expected:
                     self.assertEqual(j.event("PIN",0,w.epochs[0]).seq,1)
@@ -227,6 +228,8 @@ class GenerationalPublishTests(unittest.TestCase):
         try:
             no_pin=g.stage()
             self.assertGreater(g.publish(no_pin),0)
+            self.assertGreaterEqual(g.c.truncate_calls,1)
+            self.assertGreaterEqual(j.c.truncate_calls,1)
             with self.assertRaises(ValueError):
                 j.event("PIN",0,w.epochs[0])
             self.assertEqual(j.event("PIN",0,w.epochs[2]).seq,1)
