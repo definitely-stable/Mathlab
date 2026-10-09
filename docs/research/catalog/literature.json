@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "7427a549cd11e6dfb3c95db5fc9766390c60423d"
+      "sha": "76ae411113ee9bab4ae5fd78e1b34a1bcd44190a"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -3880,6 +3880,65 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-135",
+      "title": "Extremal graphs with no C4's, C6's, or C10's",
+      "year": 1991,
+      "identity": "doi:10.1016/0095-8956(91)90097-4",
+      "primary_url": "https://doi.org/10.1016/0095-8956(91)90097-4",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Wenger (JCTB 1991) строит плотные графы с запрещёнными циклами C4, C6 и C10; классическая экстремальная основа для оценки числа вес-2 столбцов с различимыми трёхэлементными суммами.",
+      "limits_ru": "Из графа без коротких циклов следует хорошая матрица инцидентности только после определения ориентированных весов, поля и интерпретации циклических зависимостей; общая новая теорема ASET не заявляется.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Rephael Wenger"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G1-W2D3-GIRTH8.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-136",
+      "title": "An explicit formula for obtaining (q+1,8)-cages and others small regular graphs of girth 8",
+      "year": 2011,
+      "identity": "arxiv:1111.3279",
+      "primary_url": "https://arxiv.org/abs/1111.3279",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Abreu, Araujo-Pardo, Balbuena, Labbate (2011) дают явные формулы для (s+1,8)-клеток, графов инцидентности обобщённых четырёхугольников. Их число рёбер Θ(m^{4/3}) обеспечивает известную нижнюю конструкцию шестикратно независимых двухразреженных столбцов.",
+      "limits_ru": "Геометрический порядок s и размер конечного поля q коэффициентов различны; конечные графы не доказывают без дополнительных доводов всю асимптотику, а теорема с d=3 является производным классическим следствием.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Marién Abreu",
+        "Gabriela Araujo-Pardo",
+        "Camino Balbuena",
+        "Domenico Labbate"
+      ],
+      "verification": "primary_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G1-W2D3-GIRTH8.md",
           "kind": "model_overlap"
         }
       ],
