@@ -794,6 +794,56 @@
         "https://arxiv.org/abs/2609.26757",
         "https://doi.org/10.1016/j.jcss.2007.06.020"
       ]
+    },
+    {
+      "id": "KR-053",
+      "area": "UCT",
+      "disposition": "PRIOR_ART",
+      "title": "PPZ 1999 isolated-satisfying-assignments upper bound for bounded-width CNF",
+      "scope": "Any n-variable CNF whose clauses have width at most p and whose satisfying assignments are all isolated has no more than two to the power n minus n divided by p satisfying assignments. Paturi, Pudlak and Zane proved this using the satisfiability coding lemma and critical clauses, a result reused for parity CNF in 2022.",
+      "do_not_repeat": "Do not announce the PPZ isolated-solution exponent, parity depth-three circuit lower bound or shortest-critical-clause random-permutation method as a new Mathlab discovery.",
+      "authority": [
+        "docs/research/UCT-004-G2-D-ALL-N-PPZ-PROOF-BITS.md",
+        "docs/research/UCT-004-G2-D-PPZ-PRIMARY-SOURCE-AUDIT.md"
+      ],
+      "reopen_only_if": "A theorem with a genuinely new quantified resource, model, or improvement beyond PPZ and MFCS-2022 when reductions use exact same definitions and costs.",
+      "primary_sources": [
+        "https://doi.org/10.4086/cjtcs.1999.011",
+        "https://doi.org/10.4230/LIPIcs.MFCS.2022.47"
+      ]
+    },
+    {
+      "id": "KR-054",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "All-n exact untrusted proof length for nonlinear adaptive parity verifier",
+      "scope": "Under raw n-bit input or complete bit-toggle unit-write code, private verifier randomness, fixed witness chosen before coins, perfect completeness, worst p adaptive data-bit probes, universal soundness strictly below one and unpriced verifier program work, minimum fixed proof length is exactly ceil(n/p) minus one for all n at least one and p in one through n. Proof reduces each witness fiber to isolated p-CNF and applies PPZ with a sharp block protocol.",
+      "do_not_repeat": "This solves the internal all-n witness-bit question using published PPZ prior art and is DERIVED_CLASSICAL. Do not treat as an original information-theoretic online authenticated theorem, or as proof of exact minimum cover count kappa when n is not divisible by p.",
+      "authority": [
+        "docs/research/UCT-004-G2-D-ALL-N-PPZ-PROOF-BITS.md",
+        "docs/research/UCT-004-G2-D-PPZ-PRIMARY-SOURCE-AUDIT.md"
+      ],
+      "reopen_only_if": "Change the soundness threshold to a fixed constant independent of n, or fully price online proof generation, bytes read, state update access, program size and authenticated roots with a nonredundant theorem.",
+      "primary_sources": [
+        "https://doi.org/10.4086/cjtcs.1999.011",
+        "https://doi.org/10.4230/LIPIcs.MFCS.2022.47"
+      ]
+    },
+    {
+      "id": "KR-055",
+      "area": "UCT",
+      "disposition": "DEFER",
+      "title": "Exact nonlinear proof-cover number kappa for non-divisible n over p",
+      "scope": "The all-n proof-bit length is exact but the exact minimum count kappa of p-separable sets remains undecided in general when p does not divide n. PPZ yields ceiling of two to the power n divided by p minus one as lower bound and the block construction yields two to the power ceil(n/p) minus one as upper bound. For n seven p two the allowed integer interval is six through eight.",
+      "do_not_repeat": "Do not infer exact kappa from the rounded logarithm of kappa or claim all-n kappa is a power of two; the earlier n<=5 finite evidence proves no global equality.",
+      "authority": [
+        "docs/research/UCT-004-G2-D-ALL-N-PPZ-PROOF-BITS.md",
+        "docs/research/UCT-004-G2-C-NONLINEAR-PROOF-COVER.md"
+      ],
+      "reopen_only_if": "A source-audited exact construction or nontrivial lower bound for nondivisible n and p, preferably a confirmed difference from power-of-two kappa conjecture with independently checked finite certificates.",
+      "primary_sources": [
+        "https://doi.org/10.4086/cjtcs.1999.011"
+      ]
     }
   ]
 }
