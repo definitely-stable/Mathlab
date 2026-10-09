@@ -72,6 +72,21 @@ A real ASET witness extracted from a dense **invalid** graph-only family is a us
 
 The existing research CI unittest discovery picks up the new test automatically. For publication or a new exponent, demand **exact-head GitHub-hosted SUCCESS**, inspect failures and evidence, and expand from W32 to a mathematically proved all-m family.
 
+### 4.1 Exact GitHub-hosted W(3,2) data (m=12 only)
+
+[Research workflow #972 on PR #116](https://github.com/definitely-stable/Mathlab/actions/runs/37893366030) completed **SUCCESS**, including full test discovery and the dedicated deterministic density report. Exact code head for that run: 8673ded4aebef6618121a693a345753c0bb1fb55. These are numbers of **distinct inclusion-minimal forbidden column-ID supports**, not signed-relation multiplicities. Base W32 has 45 columns for each row.
+
+| L/R coordinate-pair labeling | T4 | T6 | Extracted exact GF5 ASET columns |
+| --- | ---: | ---: | ---: |
+| Original fixed labels | 69 | 1940 | 19 |
+| Permuted, seed 0 | 53 | 1874 | 20 |
+| Permuted, seed 1 | 46 | 1722 | 20 |
+| Permuted, seed 2 | 50 | 1750 | 19 |
+
+These graphs are isomorphic as **pair-signature** bipartite factor graphs (girth 8), but have different coordinate-level signed-trade counts under legal injective pair labelings. Thus graph isomorphism and girth **do not determine signed-trade density** even in this 45-edge example. The extracted subfamilies independently pass actual complete GF5 subset-sum checks through cardinality three; **not** claimed maximal at m=12.
+
+**Finite-only boundary:** fitting a growth exponent from these four samples, which all have the same ambient m=12, would be invalid. No proved upper b4/b6, improved ASET asymptotic bound or growing ratio follows. This section pins numerical CI evidence; future implementation changes must reverify counts.
+
 ## 5. Prior art, novelty limitations and stopping rule
 
 - [Naor–Verstraëte, Combinatorica 2008, author-hosted full paper](https://web.math.princeton.edu/~naor/homepage%20files/PARITY.pdf), Theorem 2.2: already proves a collision of equal three-element signed subsets at density above O_q(m^(8/3)). Its theorem is **not** the six-wise arbitrary-coefficient independence converse.
