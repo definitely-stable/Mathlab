@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "76ae411113ee9bab4ae5fd78e1b34a1bcd44190a"
+      "sha": "c731260dc7a9c8076ac9f1c9fcfa54da46907314"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -3939,6 +3939,125 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/HYP-105-G1-W2D3-GIRTH8.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-137",
+      "title": "Constructing dense grid-free linear 3-graphs",
+      "year": 2022,
+      "identity": "doi:10.1090/proc/15673",
+      "primary_url": "https://doi.org/10.1090/proc/15673",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Gishboliner и Shapira (Proc. AMS 2022) доказывают существование линейных 3-однородных гиперграфов с Ω(m²) рёбрами без конфигурации 3×3 grid. Через точную эквивалентность unit-incidence ASET для характеристики поля ≥5 получается A_set(q,m,3,3)=Θ_q(m²).",
+      "limits_ru": "Графы без grid не обязательно имеют линейную независимость любых шести столбцов; квадратичная ёмкость ASET не подтверждает неограниченный разрыв A_set/A_lin и не применима автоматически в характеристиках 2 или 3.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Lior Gishboliner",
+        "Asaf Shapira"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G2-GRID-FREE-QUADRATIC.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-138",
+      "title": "Improved bounds on the size of sparse parity check matrices",
+      "year": 2005,
+      "identity": "doi:10.1109/ISIT.2005.1523645",
+      "primary_url": "https://doi.org/10.1109/ISIT.2005.1523645",
+      "track": "sparse-coding",
+      "summary_ru": "Naor и Verstraëte (IEEE ISIT 2005) исследуют экстремальное число разреженных столбцов, когда любые k из них линейно независимы, и выводят верхние границы редукцией к графам с запрещёнными циклами.",
+      "limits_ru": "Результаты относятся к произвольным коэффициентам линейных зависимостей, а не к двум ограниченным по размеру подписанным суммам ASET. Точная формула показателя в HTML библиографическом abstract и авторском PDF форматируется различно; без проверки полного оригинала конкретную новую оценку при k=6,r=3 не утверждаем.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Assaf Naor",
+        "Jacques Verstraëte"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G2-GRID-FREE-QUADRATIC.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-139",
+      "title": "The Brown-Erdős-Sós conjecture in dense triple systems",
+      "year": 2025,
+      "identity": "arxiv:2508.09841",
+      "primary_url": "https://arxiv.org/abs/2508.09841",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Santos и Tyomkyn (авторский препринт 2025) устанавливают заявленный частный случай Brown–Erdős–Sós для линейных тройных систем высокой плотности δ>4/5; исследование сопряжено с (9,6)-конфигурациями.",
+      "limits_ru": "Экстремальные (9,6) конфигурации не тождественны grid и не гарантируют ненулевую линейную зависимость произвольных шести столбцов. Предположение о пороге высокой плотности не является общим o(m²) верхним пределом при каждом δ>0.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Giovanne Santos",
+        "Mykhaylo Tyomkyn"
+      ],
+      "verification": "primary_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G2-GRID-FREE-QUADRATIC.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-140",
+      "title": "Triangle-Free Triple Systems",
+      "year": 2026,
+      "identity": "doi:10.37236/14115",
+      "primary_url": "https://doi.org/10.37236/14115",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Frankl, Füredi, Goorevitch, Holzman и Simonyi (Electronic Journal of Combinatorics, май 2026) классифицируют экстремальные ограничения комбинаций четырёх типов треугольников в 3-однородных гиперграфах, включая точные/асимптотические случаи.",
+      "limits_ru": "Ограничения треугольников гиперграфов не равнозначны запрету двух трёхэлементных аддитивных сумм или шестикратной линейной зависимости; не переносить показатели без структурного доказательства.",
+      "maps_to": [
+        "ML-002",
+        "ML-004",
+        "ML-007"
+      ],
+      "authors": [
+        "Peter Frankl",
+        "Zoltán Füredi",
+        "Ido Goorevitch",
+        "Ron Holzman",
+        "Gábor Simonyi"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-105-G2-GRID-FREE-QUADRATIC.md",
           "kind": "model_overlap"
         }
       ],

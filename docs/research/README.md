@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## HYP-105 G2 — quadratic capacity of exact three-sums (2026-10-09)
+
+[Self-contained **grid-free ⇔ subset-sum injection** proof for linear 3-uniform unit-incidence systems over char≥5, and derived (A_q^{set}(m,3,3)=\Theta_q(m^2))](HYP-105-G2-GRID-FREE-QUADRATIC.md) · [all 4096 AG(2,3) subfamilies with independent grid/sum oracles and characteristic-three counterexample](../../research/test_hyp105_grid.py) · [issue #84](https://github.com/definitely-stable/Mathlab/issues/84). Dense **grid-free** linear triple systems already existed in Gishboliner–Shapira (2022): mathematical consequence is DERIVED_CLASSICAL, **not original**. Six-wise-linear-independence denominator remains unresolved: `Omega(m^9/5) <= A_lin(m,3,6) <= O(m²)`; no unbounded ratio proved. External catalogue 136 -> **140**, LIT-137..140.
+
 ## HYP-105 G1 — weight-two d=3 asymptotic non-separation (2026-10-09)
 
 [Self-contained graph girth proof with exact parameter scope](HYP-105-G1-W2D3-GIRTH8.md), [finite 30-vertex/45-edge symplectic quadrangle oracle](../../research/test_hyp105_girth.py), [issue #80](https://github.com/definitely-stable/Mathlab/issues/80). For **every fixed finite field** q, both A_set(q,m,2,3) and A_lin(q,m,2,6) are Theta_q(m^(4/3)). Hence proposed **unbounded** asymptotic ratio is refuted for w=2,d=3; original existential HYP-105 with other w/d is unresolved. The result derives from classical extremal girth/geometry, **NOT new scientific novelty**. Primary-source catalog expanded 134 -> **136** with Wenger 1991 and Abreu et al. 2011.
