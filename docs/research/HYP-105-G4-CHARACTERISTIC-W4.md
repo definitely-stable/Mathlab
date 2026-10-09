@@ -75,7 +75,7 @@ A cycle of length 2h for h=2 or 3 splits into two disjoint alternating h-edge ma
 
 The resulting bipartite graph has girth at least eight and at most 2U=O_q(m²) vertices. The elementary girth-eight Moore/BFS upper bound used in [HYP-105 G1](HYP-105-G1-W2D3-GIRTH8.md) gives at most `O_q((m²)^(4/3))=O_q(m^(8/3))` edges, hence that many support-four columns. Columns of support≤3 themselves form an ASET subfamily through d=2, so [HYP-002-B](HYP-002-B-QUADRATIC-THEOREM.md) bounds their number by O_q(m²). Sum these counts. QED.
 
-The graph estimate is pinned to **LIT-145**, [Shlomo Hoory, *The Size of Bipartite Graphs with a Given Girth* (JCTB 2002)](https://doi.org/10.1006/jctb.2002.2123): bipartite girth extremal bounds apply to the two-pair factor graph. This is preexisting graph theory, not original to HYP-105.
+The graph estimate is pinned to **LIT-148**, [Shlomo Hoory, *The Size of Bipartite Graphs with a Given Girth* (JCTB 2002)](https://doi.org/10.1006/jctb.2002.2123): bipartite girth extremal bounds apply to the two-pair factor graph. This is preexisting graph theory, not original to HYP-105.
 
 The C6 exclusion is **essential**: using only C4 would produce merely O_q(m³). The upper bound holds in **every characteristic**, because alternating endpoint sums cancel in any abelian additive group. This is an application of classical girth extremal estimates, **not** a claimed new graph theorem.
 
@@ -90,9 +90,9 @@ Neither the r=4 grid-free hypergraph theorem nor the elementary G4-A lemma close
 
 ## Primary literature and model-transfer audit
 
-- **LIT-142**: [Pohoata 2026, *Grid-free linear hypergraphs via Cayley-Bacharach*](https://arxiv.org/abs/2602.14716) gives Θ_r(m²) edge constructions for r-uniform linear hypergraphs with no *r×r* grid, for all r≥3. **For r=4 that grid uses 8 hyperedges (4+4)**. It does not characterize six-edge three-sum collisions, nor provide the superquadratic full ASET rate Ω(m^(12/5)).
-- **LIT-143**: [Gyárfás–Sárközy 2022, *The linear Turán number of small triple systems or why is the wicket interesting?*](https://doi.org/10.1016/j.disc.2022.113025) covers small linear 3-graph forbidden configurations, relevant to the characteristic-three obstruction audit. A **wicket** has five edges on **nine** grid vertices; our 5-edge GF(3) obstruction has **seven** vertices and is NOT the wicket.
-- **LIT-144**: [Solymosi 2024, *Wickets in 3-uniform hypergraphs*](https://doi.org/10.1016/j.disc.2024.114029) proves a wicket-free linear triple system has o(m²) edges. **This result cannot be transferred** to forbidding our different 7-vertex five-edge obstruction without a proved containment/reduction.
+- **LIT-145**: [Pohoata 2026, *Grid-free linear hypergraphs via Cayley-Bacharach*](https://arxiv.org/abs/2602.14716) gives Θ_r(m²) edge constructions for r-uniform linear hypergraphs with no *r×r* grid, for all r≥3. **For r=4 that grid uses 8 hyperedges (4+4)**. It does not characterize six-edge three-sum collisions, nor provide the superquadratic full ASET rate Ω(m^(12/5)).
+- **LIT-146**: [Gyárfás–Sárközy 2022, *The linear Turán number of small triple systems or why is the wicket interesting?*](https://doi.org/10.1016/j.disc.2022.113025) covers small linear 3-graph forbidden configurations, relevant to the characteristic-three obstruction audit. A **wicket** has five edges on **nine** grid vertices; our 5-edge GF(3) obstruction has **seven** vertices and is NOT the wicket.
+- **LIT-147**: [Solymosi 2024, *Wickets in 3-uniform hypergraphs*](https://doi.org/10.1016/j.disc.2024.114029) proves a wicket-free linear triple system has o(m²) edges. **This result cannot be transferred** to forbidding our different 7-vertex five-edge obstruction without a proved containment/reduction.
 - **LIT-043** Lefmann 2005 and **LIT-138** Naor–Verstraëte 2005 already work directly with weighted sparse k-wise field-linear independence; their results are not automatically new ASET theorems.
 
 **Source checks:** official abstracts/publisher pages/author manuscripts checked for model identities, not full reproduction of each paper's proof. No new original theorem or practical decoding guarantee asserted. Further research only after avoiding these model mismatches.
