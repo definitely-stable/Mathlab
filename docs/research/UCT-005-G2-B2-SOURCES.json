@@ -1,0 +1,70 @@
+{
+  "schema": "mathlab.uct005.g2b2.source-inventory.v1",
+  "as_of": "2026-10-09",
+  "catalog_state": "TYPED_IMPORT_PINNED; CANONICAL_LIT_PENDING_OPEN_PR132_LIT205_AND_ISSUE142",
+  "source_doc": "docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md",
+  "canonical_notice": "The three exact DOI identities are absent in the baseline canonical 204-work literature; never reuse LIT-205 while parallel PR #132 reserves it. No claim of full primary proofs independently reproduced.",
+  "already_indexed": [
+    {
+      "lit": "LIT-068",
+      "identity": "doi:10.4230/LIPIcs.ITCS.2026.6",
+      "role": "generic_incrementally_verifiable_proofs_prior_art"
+    },
+    {
+      "lit": "LIT-201",
+      "identity": "doi:10.4230/LIPIcs.ITCS.2026.71",
+      "role": "FSS_range_dynamic_structure_prior_art"
+    }
+  ],
+  "new_sources": [
+    {
+      "id": "G2B2-SRC-01",
+      "identity": "doi:10.1016/j.tcs.2022.05.006",
+      "title": "Proof-labeling schemes: Broadcast, unicast and in between",
+      "authors": [
+        "Boaz Patt-Shamir",
+        "Mor Perry"
+      ],
+      "year": 2022,
+      "venue": "Theoretical Computer Science",
+      "primary_url": "https://doi.org/10.1016/j.tcs.2022.05.006",
+      "alternate_identities": [
+        "arxiv:1708.06947"
+      ],
+      "verification": "publisher_abstract_checked",
+      "relevant_result": "Parameter r limits distinct neighbor messages; broadcast/unicast and label size tradeoffs for distributed proof labeling; includes b-bit edge agreement and lower bounds in source models.",
+      "nontransfer": "PLS is LOCAL graph message verification, not trusted-publisher synchronous data-delta streaming, and no malicious online server proof soundness follows."
+    },
+    {
+      "id": "G2B2-SRC-02",
+      "identity": "doi:10.4230/LIPIcs.DISC.2018.25",
+      "title": "Local Verification of Global Proofs",
+      "authors": [
+        "Laurent Feuilloley",
+        "Juho Hirvonen"
+      ],
+      "year": 2018,
+      "venue": "DISC 2018",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.DISC.2018.25",
+      "verification": "publisher_abstract_checked",
+      "relevant_result": "Separates shared global proof and per-node local certificates for distributed property verification; connects nondeterministic communication and distributed proof complexity.",
+      "nontransfer": "Non-deterministic local graph proof for global predicates does not equal zero-error state-update broadcast or proof freshness under server adversary."
+    },
+    {
+      "id": "G2B2-SRC-03",
+      "identity": "doi:10.4230/LIPIcs.OPODIS.2021.21",
+      "title": "Explicit Space-Time Tradeoffs for Proof Labeling Schemes in Graphs with Small Separators",
+      "authors": [
+        "Orr Fischer",
+        "Rotem Oshman",
+        "Dana Shamir"
+      ],
+      "year": 2021,
+      "venue": "OPODIS 2021, proceedings published 2022-02-28",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.OPODIS.2021.21",
+      "verification": "publisher_abstract_checked",
+      "relevant_result": "Separator-based PLS label size vs verification rounds constructions, e.g. O-tilde(ell*s(n)/t), not an information broadcast theorem.",
+      "nontransfer": "Graph-local multi-round label verification with a separator assumption differs from centralized authenticated source update distribution, and a single tick decoder may use a large program table."
+    }
+  ]
+}

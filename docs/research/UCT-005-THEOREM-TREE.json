@@ -155,6 +155,24 @@
       "kind": "research_input",
       "status": "SOURCE_FOUNDATION_AND_HONEST_ORACLE",
       "source": "docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md"
+    },
+    {
+      "id": "UCT005G2B",
+      "kind": "research_input",
+      "status": "FROZEN_MODEL_FINITE_TESTS_NEW_THEOREM_OPEN",
+      "source": "docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md"
+    },
+    {
+      "id": "UCT005G2B1",
+      "kind": "research_input",
+      "status": "RESTRICTED_CLASSICAL_PROOF_AND_FALSIFIER_ROOT_OPEN",
+      "source": "docs/research/UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md"
+    },
+    {
+      "id": "UCT005G2B2",
+      "kind": "research_input",
+      "status": "ELEMENTARY_EXACT_RESTRICTED_CLASSICAL_NOT_ROOT",
+      "source": "docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md"
     }
   ],
   "edges": [
@@ -272,6 +290,21 @@
       "parent": "CERTIFICATION",
       "child": "UCT005G2A",
       "relation": "PROOF_INGREDIENT_ONLY"
+    },
+    {
+      "parent": "UCT005G2A",
+      "child": "UCT005G2B",
+      "relation": "RESEARCH_EXTENDS_NOT_IMPLICATION"
+    },
+    {
+      "parent": "UCT005G2B",
+      "child": "UCT005G2B1",
+      "relation": "FALSIFICATION_NOT_IMPLICATION"
+    },
+    {
+      "parent": "UCT005G2B1",
+      "child": "UCT005G2B2",
+      "relation": "RESTRICTED_LEMMA_NOT_ROOT_PROOF"
     }
   ]
 }
