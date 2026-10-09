@@ -120,6 +120,9 @@ jobs:
       - name: HYP-105 E2-B3.1-A all-six GF5 critical 2-factor flow census
         run: python research/hyp105_g5e2b3b1_critical_flows.py
 
+      - name: HYP-105 E2-B3.1-B full six-matching 4-6 coordinate GF5 flow census
+        run: python research/hyp105_g5e2b3b_full_matching_flows.py
+
       - name: HYP-105 E2-B3.2 exact coincident six-cycle D_s for GF2/GF4 controls
         run: python research/hyp105_g5e2b3b2_coincident_cycles.py
 
