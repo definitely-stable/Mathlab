@@ -296,6 +296,7 @@ class DiskGcArena:
             latest = counts.read(self.roots, self.latest, size,
                                  "root_pin_pages_read")
             newest_node, newest_digest = ROOT.unpack_from(latest)
+            del latest
             if (self.latest_trusted_checkpoint.epoch != self.latest
                     or newest_digest != self.latest_trusted_checkpoint.digest):
                 raise ValueError("untrusted latest root conflicts with trusted anchor")
@@ -303,43 +304,53 @@ class DiskGcArena:
                                       "node_pages_read")
             if NODE.unpack_from(latest_node)[-1] != newest_digest:
                 raise ValueError("latest pointer does not match trusted root")
+            del latest_node
             append(newest_node)
             for i in range(self.clients):
                 pin = counts.read(self.pins, i, size, "root_pin_pages_read")
                 epoch, node, digest = PIN.unpack_from(pin)
+                del pin
                 if digest != bytes(32):
                     expected = counts.read(self.roots, epoch, size,
                                            "root_pin_pages_read")
                     rid, authentic = ROOT.unpack_from(expected)
+                    del expected
                     if node != rid or digest != authentic:
                         raise ValueError("pin does not match stored epoch root")
                     pinned_node = counts.read(self.nodes, node, size,
                                               "node_pages_read")
                     if NODE.unpack_from(pinned_node)[-1] != digest:
                         raise ValueError("pinned node does not match checkpoint")
+                    del pinned_node
                     append(node)
             # Queue lives entirely on a FILE, not a Python list/deque.
             hash_calls = 0
             while popped < appended:
                 entry = counts.read(queue, popped, size, "queue_pages_read")
                 page_id, = struct.unpack_from("<Q", entry)
+                del entry
                 popped += 1
                 if page_id >= self.count:
                     raise ValueError("child references invalid page")
                 block, offset = divmod(page_id, size)
                 image = counts.read(mark, block, size, "bitmap_pages_read")
                 if image[offset]:
+                    del image
                     continue
                 changed = bytearray(image)
+                del image
                 changed[offset] = 1
                 counts.write(mark, block, changed, size, "bitmap_pages_written")
+                del changed
                 live = counts.read(self.alive, block, size,
                                    "bitmap_pages_read")
                 if not live[offset]:
                     raise ValueError("required retained node already freed")
+                del live
                 node_image = counts.read(self.nodes, page_id, size,
                                          "node_pages_read")
                 a, b, span, bit, payload, digest = NODE.unpack_from(node_image)
+                del node_image
                 if (a == NULL) != (b == NULL):
                     raise ValueError("invalid child pair")
                 if a == NULL:
@@ -355,7 +366,9 @@ class DiskGcArena:
                     child_l = counts.read(self.nodes, a, size, "node_pages_read")
                     child_r = counts.read(self.nodes, b, size, "node_pages_read")
                     _, _, la, lp, _, ld = NODE.unpack_from(child_l)
+                    del child_l
                     _, _, ra, rp, _, rd = NODE.unpack_from(child_r)
+                    del child_r
                     expected_payload = _hash(b"UCT005-G3B2B/PAIR\0" + ld + rd)
                     expected_digest = _commit(span, bit, expected_payload)
                     hash_calls += 2
@@ -372,14 +385,18 @@ class DiskGcArena:
                 marked = counts.read(mark, block, size, "bitmap_pages_read")
                 exists = counts.read(self.alive, block, size, "bitmap_pages_read")
                 if not exists[off]:
+                    del marked, exists
                     continue
                 if marked[off]:
                     living += 1
+                    del marked, exists
                     continue
                 changed = bytearray(exists)
+                del marked, exists
                 changed[off] = 0
                 counts.write(self.alive, block, changed, size,
                              "bitmap_pages_written")
+                del changed
                 freed += 1
                 self._has_reclaimed = True
                 counts.count("logical_trim_commands")
