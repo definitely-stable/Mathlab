@@ -1,5 +1,12 @@
 # CURRENT_STATE
 
+## UCT-005 G3-B2-C2-B1 — журнальные PIN и публикация поколений GC (2026-10-10)
+
+[Формальная ограниченная модель PIN/UNPIN, поколения GC, аварийные переходы и научные ограничения](research/UCT-005-G3-B2-C2-B1-PIN-JOURNAL-GENERATIONS.md) · [протокол](../research/uct005_g3b2c2b1_pin_generation.py) · [независимые тесты](../research/test_uct005_g3b2c2b1_pin_generation.py) · [issue #178](https://github.com/definitely-stable/Mathlab/issues/178). **IDEAL_TRUSTED_CAS_AND_FSYNC / AUTHENTICATED_APPEND_ONLY_PIN_HISTORY / GENERATION_FENCE_BEFORE_LOGICAL_TRIM / FULL_PAGE_FILE_IO_COUNTS / NO_REAL_POWER_LOSS_PROOF / NOT_END_TO_END_BOUNDED_RAM / NO_NEW_UCT_LOWER_BOUND.** Отдельно учитываются полный I/O журнальных страниц и bitmap, барьеры записи, HMAC/SHA и публикации доверенных указателей. Добавлены проверки неизвестных crash-cut значений до побочных эффектов, torn pages, replay/rollback, двух исторических читателей, гонки PIN-vs-GC и независимого оракула достижимости C2-A. Сам сборщик поколений использует **неограниченные** множества Python и не наследует доказанный предел шести буферов C2-A. Следующий этап C2-B2: объединение дискового GC с доверенным journal без неограниченного RAM, онлайн SET и строгая проверка новизны. UCT root #105 OPEN.
+
+
+
+
 ## TKG-001 G1-A — проверка переноса нижних границ и page-oracle (2026-10-10)
 
 [Строгая граница моделей DAG-002 vs dynamic edge insertion](research/TKG-001-G1-A-TRANSFER-FIREWALL.md) · [reference oracle](../research/tkg001_g1a_transfer.py) · [independent tests](../research/test_tkg001_g1a_transfer.py) · [issue #210](https://github.com/definitely-stable/Mathlab/issues/210) / G1 [#195](https://github.com/definitely-stable/Mathlab/issues/195). `CLASSICAL_SCOPE_PROOF / 64×16 OLD-OLD APPEND CHECKS / CHARGED_FINITE_LOGICAL_PAGE_IMAGES / NO_NEW_COMBINED_BOUND / NO_REAL_SSD / NO_SIGNED_LATEST`. Separate 2025 cell-probe lower bound, append-new-sink immutable labels, two-clock retractable evidence, physical block rewrites. G1-B still open: exact RAM/GC/negative-proof/trusted-root joint physical model.

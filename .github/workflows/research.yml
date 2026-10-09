@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: UCT-005 G3-B2-C2-B1 authenticated journal and generation GC diagnostic
+        run: python research/uct005_g3b2c2b1_pin_generation.py
+
+      - name: UCT-005 G3-B2-C2-B1 independent crash-prefix pin and metadata tests
+        run: python -m unittest discover -s research -p 'test_uct005_g3b2c2b1_pin_generation.py'
+
       - name: UCT-005 G3-B2-C2-A actual temp-file bounded-page GC report
         run: python research/uct005_g3b2c2a_disk_gc.py
 
