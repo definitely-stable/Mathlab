@@ -2,7 +2,7 @@
 
 ## INDEX-001 G2-A — four previously missing current compaction/bitvector studies
 
-[Publisher-source audit and nontransfer boundaries](../INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) and [issue #121](https://github.com/definitely-stable/Mathlab/issues/121). LIT-183 Navarro's distinct 2025 worst-case optimality, LIT-184 C2LSM 2026, LIT-185 ArceKV 2026, LIT-186 RangeReduce 2026. The SPIRE 2024 preliminary bitvector identity is attached to practical LIT-180 instead of creating duplicate scientific claims; journal 2025 worst-case has its own model. Full corpus **186**, primary abstracts checked not full proofs; earlier 182 exact IDs retained.
+[Publisher-source audit and nontransfer boundaries](../INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) and [issue #121](https://github.com/definitely-stable/Mathlab/issues/121). LIT-183 Navarro's distinct 2025 worst-case optimality, LIT-184 C2LSM 2026, LIT-185 ArceKV 2026, LIT-186 RangeReduce 2026. SPIRE 2024 is a preliminary version of theoretical LIT-183 (not practical LIT-180), so its DOI is an alternate identity of LIT-183; both 2025 journal studies retain separate canonical IDs. Full corpus **186**, primary abstracts checked not full proofs; earlier 182 exact IDs retained.
 
 
 ## INDEX-001 G0/G1 — interval indexing, buffered I/O and dynamic succinct barriers (2026-10-09)
