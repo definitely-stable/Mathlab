@@ -1,0 +1,34 @@
+# INDEX-001 G2-B4-C0 — bounded-space three-layout comparison (research only)
+
+Frozen on 2026-10-09 after merged G2-B4-B PR #182 at main dd90dd634e4e600cea0d14e302b215b698758ec5. Parent issues #183, #173 and #126 remain open. **This is a G0/G1 comparator, not acceptance of the original joint theorem.**
+
+## G0: common adversarial contract
+
+- State: exact finite binary latest-write-wins map f:[0,N)->{0,1}; updates assign(l,r,v), 0<=l<r<=N, including no-op writes (costed as writes); exact point lookup. Maximal-run scan is NOT covered. No crashes, concurrency, partial writes, NAND or timing.
+- Physical units: B>=4 bytes per page; three independent persistent *files/regions* cannot share a partial page. Disk charges all live file pages (including alignment and free-slot padding), and, at checkpoint, old and new generations simultaneously until reclamation. Freed pages are reported as GC, not counted as writes. RAM auxiliary cache/directory M=0 bits for these concrete strategies; N, B, slot width g and WAL threshold H are service parameters, and transient CPU counters/working bytes for frame decoding are unbounded and deliberately not charged. This **cannot** establish RAM-sensitive general lower bounds.
+- Define S(f) as full canonical IXR1 CRC32 snapshot bytes, D as page-aligned live footprint, P as the peak including a transient new generation, W as modeled B-byte page writes under an explicitly chosen update schedule (NOT measured syscalls), X as same-offset changed page images (not the same as W), A as newly allocated pages, G as retired pages, R as unique pages read in one point lookup, and C as bytes of freshly materialized checkpoint payload. No hardware NAND/FTL claim.
+- Bounded-slack *admission predicate*: D <= alpha*S(f)+beta*B+gamma*ceil(M/8), with alpha,beta,gamma fixed nonnegative integers independent of N and update sequence. A separate stricter predicate requires P satisfy the same budget. These are filters on strategies, not a theorem that all states admit a representation.
+- Q is worst-case number of page reads over positions at a fixed current state, without warm cache. For packed and segmented, prefix parser does not validate CRC; WAL query reads full CRC-framed log and then the same unchecked base prefix only if no log hit. Charge a persistent control page on every WAL lookup (version/length), but do not charge it for the other two formats whose IXR1 or fixed-slot headers already encode size. These query classes do not prove verified-access bounds.
+
+## Three precisely priced schedules
+
+1. MONOLITH: canonical IXR1 one-file image; page writes W=B*same-offset page-image differences, including newly allocated positions. Steady D=B*ceil(S/B). No crash atomicity. Truncation is GC pages. This is an *in-place idealization*, not copy-on-write.
+2. FIXED SLOTS: ceil(N/g) independently CRC-encoded IXR1 frames, each padded to C(g,B), as specified in B4-B. Arithmetic slot addressing; W=B*changed slot page images, D=ceil(N/g)*C. Missing directory is legitimate only because fixed offsets and g are known; for C=B a single-cell write has W<=B and Q<=1, but a long range write can touch many slots.
+3. ONE-LEVEL WAL: immutable canonical IXR1 base, an append-only WAL region of complete IXW1 CRC frames (same encoder as B4-A), plus one B-byte persistent control page. WAL pages occupy ceil(total_frame_bytes/B). Each append writes the changed last/new WAL pages plus a control page (worst-case B bytes); each lookup scans all WAL pages forward to implement latest-write-wins, then reads base prefix on a miss. At threshold H (counting attempted writes) checkpoint directly to a new canonical IXR1 base: write ceil(S(f')/B) new pages and the control page, compute C=S(f'), charge peak=old live bytes + new-base pages; then retire old base and WAL pages. The checkpoint choice is fixed before the run. No durability is inferred from this scheduling convention. Not a multilevel LSM tree.
+
+All architectures have exact dense reference state and image-level independent checks. Per-operation writes to a logical bit do not imply one SSD page write; W is the declared model's page-sized transfer proxy.
+
+## G1: restricted proofs and finite counterexample gates
+
+**Proposition (fixed-slot bounded-slack separation, elementary, model-scoped).** For any fixed B, g, alpha, beta and persistent M=o(N), the fixed-slot scheme with C(g,B)>=B cannot satisfy D<=alpha*S(f_zero)+beta B+gamma ceil(M/8) for every N: D >= B*ceil(N/g)=Omega(N), whereas S(f_zero)=9+2|uvar(N)|+|uvar(1)|=O(log N). In particular N=64, B=32, g=8, alpha=4, beta=2, gamma=0 gives D_slots=256 bytes, S_zero=12 bytes, budget=112 bytes, so the fixed-slot countermodel from B4-B is inadmissible. This does **not** imply a universal query/write tradeoff: packed and WAL may remain admissible.
+
+**Counterexample to unpriced append claims.** On a compressible state, the one-level WAL's live D includes control and log pages, including obsolete updates. For a fixed budget it eventually violates the predicate unless compacted or updates are elided. Even with unchanged logical state, appended no-op records consume bytes under the declared 'append all acknowledged writes' policy. This statement does NOT bind algorithms that suppress no-ops, coalesce updates or use another index.
+
+**Remaining proof gap:** no unrestricted statement coupling Q, M, D and physical page writes is established. Earlier B4-B Omega(N/B) is for a same-offset canonical monolith only; fixed slots and dynamic succinct structures defeat its universal extension. This phase seeks a correct comparator and falsifications, NOT a novel information-theoretic bound.
+
+## Verification
+
+- Independently decode canonical snapshots and every CRC32 WAL record; compare latest-write-wins lookup with a dense reference after each update. Check exact padded footprint, page-diff ledger, per-layout read sets, fresh checkpoint bytes, retirement and peak.
+- Enumerate all states N<=4 and all nonempty one-step assignments; include paired alternating/hot/zero traces and WAL threshold compaction transitions. Assert upper/lower witnesses under fixed alpha/beta budgets; reject accidental free metadata or dead-space omissions.
+- Cross-check a second independent page-difference implementation, all slot decoder frames and WAL replay; unit tests and standalone report are required in hosted Research CI. No source import if the canonical library already includes verified identities (LIT-098,175,177,179-186).
+- GitHub exact branch-head checks and human diff review before any merge. Parent issues stay OPEN. No broader novel theorem, production implementation or hardware claims.
