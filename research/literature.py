@@ -92,6 +92,15 @@ SOURCE_TITLE_PINS = {
     "doi:10.1016/0095-8956(75)90067-2": "On cubical graphs",
     "doi:10.1016/S0019-9958(85)80012-7": "The complexity of cubical graphs",
     "doi:10.1016/0895-7177(88)90486-4": "Embeddings in hypercubes",
+    # UCT-002 fundamental cross-domain source title identities (not proof promotion).
+    "doi:10.1007/978-3-642-54242-8_21": "Locally Updatable and Locally Decodable Codes",
+    "arxiv:1305.3224": "Update-Efficiency and Local Repairability Limits for Capacity Approaching Codes",
+    "doi:10.1145/2636924": "Annotations in Data Streams",
+    "arxiv:1304.3816": "Annotations for Sparse Data Streams",
+    "doi:10.4230/LIPIcs.ITCS.2024.53": "New Lower Bounds in Merlin-Arthur Communication and Graph Streaming Verification",
+    "doi:10.1016/j.ic.2014.12.011": "Arthur–Merlin streaming complexity",
+    "doi:10.1016/j.ic.2019.05.001": "Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes",
+    "doi:10.1214/aoms/1177729032": "Equivalent Comparisons of Experiments",
 }
 
 
