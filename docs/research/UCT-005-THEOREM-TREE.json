@@ -1,0 +1,266 @@
+{
+  "schema": "mathlab.uct005.theorem-tree.v1",
+  "as_of": "2026-10-09",
+  "root": "UCT005",
+  "root_novelty": "OPEN_UNPROVED",
+  "edge_semantics": "Parent/child is research organization, not a proof implication. Use assumption-preserving reductions before transfer. OPEN_REDUCTION, THREAT_MODEL_NONTRANSFER and APPLICATION_ONLY do NOT imply theorem corollaries.",
+  "do_not_claim": [
+    "original universal theorem proved",
+    "cryptographic security from counting",
+    "Rust primitive authorized",
+    "general w*p>=n",
+    "delta<1 equivalent to constant soundness"
+  ],
+  "nodes": [
+    {
+      "id": "UCT005",
+      "kind": "root",
+      "status": "OPEN_UNPROVED",
+      "source": "docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md"
+    },
+    {
+      "id": "GEOMETRY",
+      "kind": "branch",
+      "status": "FOUNDATION",
+      "source": "docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md"
+    },
+    {
+      "id": "OPERATIONS",
+      "kind": "branch",
+      "status": "FOUNDATION",
+      "source": "docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md"
+    },
+    {
+      "id": "CERTIFICATION",
+      "kind": "branch",
+      "status": "FOUNDATION",
+      "source": "docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md"
+    },
+    {
+      "id": "RELIABILITY",
+      "kind": "branch",
+      "status": "OPEN_REDUCTION",
+      "source": "docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md"
+    },
+    {
+      "id": "TRANSFORMS",
+      "kind": "branch",
+      "status": "OPEN_REDUCTION",
+      "source": "docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md"
+    },
+    {
+      "id": "EXTREMAL",
+      "kind": "branch",
+      "status": "SEPARATE_OPEN",
+      "source": "docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md"
+    },
+    {
+      "id": "LENT001",
+      "kind": "theorem_brick",
+      "status": "DERIVED_CLASSICAL",
+      "source": "docs/research/LENT-001-FOUNDATION.md"
+    },
+    {
+      "id": "HYP001",
+      "kind": "theorem_brick",
+      "status": "DERIVED_CLASSICAL",
+      "source": "docs/research/HYP-001-002-LOCALITY-TRANSITION.md"
+    },
+    {
+      "id": "HYP002",
+      "kind": "theorem_brick",
+      "status": "DERIVED_CLASSICAL",
+      "source": "docs/research/HYP-002-B-QUADRATIC-THEOREM.md"
+    },
+    {
+      "id": "UCT001",
+      "kind": "theorem_brick",
+      "status": "DERIVED_CLASSICAL",
+      "source": "docs/research/UCT-001-MODEL-AND-BASELINE.md"
+    },
+    {
+      "id": "UCT002",
+      "kind": "theorem_brick",
+      "status": "DERIVED_CLASSICAL",
+      "source": "docs/research/UCT-002-MASTER-THEOREM.md"
+    },
+    {
+      "id": "TOM003",
+      "kind": "theorem_brick",
+      "status": "DERIVED_CLASSICAL",
+      "source": "docs/research/TOM-003-TRUST-BOUNDARY-PROTOCOL.md"
+    },
+    {
+      "id": "UCT003",
+      "kind": "theorem_brick",
+      "status": "DERIVED_CLASSICAL",
+      "source": "docs/research/UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md"
+    },
+    {
+      "id": "HYP103",
+      "kind": "theorem_brick",
+      "status": "DERIVED_CLASSICAL",
+      "source": "docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md"
+    },
+    {
+      "id": "TOM003D2",
+      "kind": "theorem_brick",
+      "status": "DERIVED_CLASSICAL",
+      "source": "docs/research/TOM-003-D2-AUTHENTICATED-OVERWRITE-AUDIT.md"
+    },
+    {
+      "id": "UCT004",
+      "kind": "theorem_brick",
+      "status": "DERIVED_CLASSICAL",
+      "source": "docs/research/UCT-004-G2-D-ALL-N-PPZ-PROOF-BITS.md"
+    },
+    {
+      "id": "DELTAMETER",
+      "kind": "research_input",
+      "status": "MODEL_SPECIFIC",
+      "source": "https://github.com/definitely-stable/deltameter"
+    },
+    {
+      "id": "TOM005",
+      "kind": "theorem_brick",
+      "status": "DERIVED_CLASSICAL",
+      "source": "docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md"
+    },
+    {
+      "id": "TOM006",
+      "kind": "research_input",
+      "status": "SCOPED_STOP",
+      "source": "docs/research/TOM-006-EARLY-KILL-GATE.md"
+    },
+    {
+      "id": "HYP101",
+      "kind": "research_input",
+      "status": "SCOPED_AUDIT",
+      "source": "docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md"
+    },
+    {
+      "id": "HYP105G5",
+      "kind": "research_input",
+      "status": "SEPARATE_OPEN",
+      "source": "docs/research/HYP-105-G5-A-TRADE-INTERSECTION.md"
+    },
+    {
+      "id": "KAPPA",
+      "kind": "research_input",
+      "status": "SEPARATE_OPEN",
+      "source": "docs/research/UCT-004-G2-C-NONLINEAR-PROOF-COVER.md"
+    }
+  ],
+  "edges": [
+    {
+      "parent": "UCT005",
+      "child": "GEOMETRY",
+      "relation": "FOUNDATION_BRANCH"
+    },
+    {
+      "parent": "UCT005",
+      "child": "OPERATIONS",
+      "relation": "FOUNDATION_BRANCH"
+    },
+    {
+      "parent": "UCT005",
+      "child": "CERTIFICATION",
+      "relation": "FOUNDATION_BRANCH"
+    },
+    {
+      "parent": "UCT005",
+      "child": "RELIABILITY",
+      "relation": "OPEN_REDUCTION_BRANCH"
+    },
+    {
+      "parent": "UCT005",
+      "child": "TRANSFORMS",
+      "relation": "APPLICATION_BRANCH"
+    },
+    {
+      "parent": "UCT005",
+      "child": "EXTREMAL",
+      "relation": "INDEPENDENT_BRANCH"
+    },
+    {
+      "parent": "GEOMETRY",
+      "child": "LENT001",
+      "relation": "RESTRICTED_SPECIAL_CASE_OR_BRICK"
+    },
+    {
+      "parent": "GEOMETRY",
+      "child": "HYP001",
+      "relation": "RESTRICTED_SPECIAL_CASE_OR_BRICK"
+    },
+    {
+      "parent": "GEOMETRY",
+      "child": "HYP002",
+      "relation": "RESTRICTED_SPECIAL_CASE_OR_BRICK"
+    },
+    {
+      "parent": "GEOMETRY",
+      "child": "UCT001",
+      "relation": "RESTRICTED_SPECIAL_CASE_OR_BRICK"
+    },
+    {
+      "parent": "GEOMETRY",
+      "child": "UCT002",
+      "relation": "RESTRICTED_SPECIAL_CASE_OR_BRICK"
+    },
+    {
+      "parent": "OPERATIONS",
+      "child": "TOM003",
+      "relation": "PROOF_INGREDIENT"
+    },
+    {
+      "parent": "OPERATIONS",
+      "child": "UCT003",
+      "relation": "PROOF_INGREDIENT"
+    },
+    {
+      "parent": "CERTIFICATION",
+      "child": "HYP103",
+      "relation": "STATIC_CERTIFICATION_BRICK"
+    },
+    {
+      "parent": "CERTIFICATION",
+      "child": "TOM003D2",
+      "relation": "STATIC_CERTIFICATION_BRICK"
+    },
+    {
+      "parent": "CERTIFICATION",
+      "child": "UCT004",
+      "relation": "STATIC_CERTIFICATION_BRICK"
+    },
+    {
+      "parent": "RELIABILITY",
+      "child": "DELTAMETER",
+      "relation": "THREAT_MODEL_NONTRANSFER"
+    },
+    {
+      "parent": "TRANSFORMS",
+      "child": "TOM005",
+      "relation": "APPLICATION_ONLY"
+    },
+    {
+      "parent": "TRANSFORMS",
+      "child": "TOM006",
+      "relation": "APPLICATION_ONLY"
+    },
+    {
+      "parent": "TRANSFORMS",
+      "child": "HYP101",
+      "relation": "APPLICATION_ONLY"
+    },
+    {
+      "parent": "EXTREMAL",
+      "child": "HYP105G5",
+      "relation": "INDEPENDENT_OPEN"
+    },
+    {
+      "parent": "EXTREMAL",
+      "child": "KAPPA",
+      "relation": "INDEPENDENT_OPEN"
+    }
+  ]
+}
