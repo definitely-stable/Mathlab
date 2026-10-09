@@ -25,7 +25,11 @@ R=(S_trusted, S_untrusted, U_read, U_write, Q_probe,
 
 Precise unit (bit/word), worst-case or amortized semantics, charged setup, update-prover timing, query suite vs individual query, first vs repeated use, public/private coins, fresh/reused secret randomness, crash/rollback model, honest completeness, and untrusted-prover soundness must be fixed **before** inequalities.
 
-The desired root result should be a proved constraint `F_{T_n}(R) >= g(n)` (or an exactly characterized feasible Pareto region) **not implied by taking the conjunction** of all relevant published lower bounds after normalizing their assumptions to `T_n`. A strictly diverging quantitative separation is a preferred, not automatic, target. **This is a theorem search specification, NOT a proved theorem or currently formulated true conjecture.**
+Let `Ach(T_n)` denote the **feasible resource region**: every tuple R for which an online protocol exists meeting *all* of the above semantics. For each published applicable theorem i, let `B_i(T_n)` be the allowed tuples after an explicit assumption- and unit-preserving transfer. The comparison region is `B_known(T_n) = intersection_i B_i(T_n)`. Always `Ach(T_n) subseteq B_known(T_n)` if the published bounds and transfers are valid.
+
+**Central nonfactorization target:** prove a quantified family of tuples `R_n in B_known(T_n) \ Ach(T_n)` for one natural task family T_n, ideally with an **unbounded quantitative margin** in a fixed scalar resource while all other costs are explicitly bounded; or characterize `Ach(T_n)` sharply with matching constructive protocols. This distinguishes a genuinely new joint constraint from a mere juxtaposition of existing inequalities. Importantly `B_known` is limited to *audited* transferable bounds and changes when prior art is imported: no claims of global completeness. Proving the strict inclusion for just a finite toy task does not itself make a fundamental asymptotic theorem.
+
+An equivalent eventual theorem may state an explicit `F_{T_n}(R) >= g(n)`, but **F and g must be specified and tested rather than inserted as placeholders and announced as results**. This is a theorem search specification, NOT a proved theorem or currently formulated true conjecture.
 
 For each proposed result freeze a concrete numerical expression `F`, an explicit `T_n`, and a named adversarial experiment. Publish simple competing upper constructions and exact small countermodels BEFORE investing in an asymptotic proof.
 
