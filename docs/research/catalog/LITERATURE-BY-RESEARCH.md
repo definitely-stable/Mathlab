@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**182** работ сопоставлены с **38** внутренними исследованиями.
+**188** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -339,6 +339,12 @@
 - [LIT-180](LITERATURE.md#lit-180) — Practical Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
 - [LIT-181](LITERATURE.md#lit-181) — Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space (2026; primary_abstract_checked)
 - [LIT-182](LITERATURE.md#lit-182) — Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space (2024; publisher_abstract_checked)
+- [LIT-183](LITERATURE.md#lit-183) — Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators (2025; publisher_abstract_checked)
+- [LIT-184](LITERATURE.md#lit-184) — Lower Bounding Update Frequency in Short Accumulators and Vector Commitments (2026; publisher_abstract_checked)
+- [LIT-185](LITERATURE.md#lit-185) — Lower Bounds on FSS from Dynamic Data Structures (2026; publisher_full_text_spotchecked)
+- [LIT-186](LITERATURE.md#lit-186) — How Efficient Can Memory Checking Be? (2009; publisher_abstract_checked)
+- [LIT-187](LITERATURE.md#lit-187) — Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams (2025; primary_abstract_checked)
+- [LIT-188](LITERATURE.md#lit-188) — On the Impossibility of Batch Update for Cryptographic Accumulators (2010; publisher_abstract_checked)
 
 ## ML-005
 
@@ -430,6 +436,12 @@
 - [LIT-180](LITERATURE.md#lit-180) — Practical Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
 - [LIT-181](LITERATURE.md#lit-181) — Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space (2026; primary_abstract_checked)
 - [LIT-182](LITERATURE.md#lit-182) — Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space (2024; publisher_abstract_checked)
+- [LIT-183](LITERATURE.md#lit-183) — Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators (2025; publisher_abstract_checked)
+- [LIT-184](LITERATURE.md#lit-184) — Lower Bounding Update Frequency in Short Accumulators and Vector Commitments (2026; publisher_abstract_checked)
+- [LIT-185](LITERATURE.md#lit-185) — Lower Bounds on FSS from Dynamic Data Structures (2026; publisher_full_text_spotchecked)
+- [LIT-186](LITERATURE.md#lit-186) — How Efficient Can Memory Checking Be? (2009; publisher_abstract_checked)
+- [LIT-187](LITERATURE.md#lit-187) — Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams (2025; primary_abstract_checked)
+- [LIT-188](LITERATURE.md#lit-188) — On the Impossibility of Batch Update for Cryptographic Accumulators (2010; publisher_abstract_checked)
 
 ## ML-007
 
