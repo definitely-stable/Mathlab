@@ -666,7 +666,7 @@
       "area": "UCT",
       "disposition": "CLOSED_PROVED",
       "title": "Deterministic adaptive query influence implies read-write transversal",
-      "scope": "For exact deterministic bit-probe queries over a charged code, changed observable answers on edge (x,y) imply a changed code cell on each old-state adaptive read path; |W|>=tau(paths).",
+      "scope": "For exact deterministic bit-probe queries over a charged code, changed observable answers on edge (x,y) imply a changed code cell on each old-state adaptive read path; write support has size at least the read-path transversal number.",
       "do_not_repeat": "Elementary indistinguishable-transcript and hitting-set lemma. Not a new cryptographic soundness theorem or an original general cell-probe lower bound.",
       "authority": [
         "docs/research/UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md",
