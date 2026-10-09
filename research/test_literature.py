@@ -18,8 +18,8 @@ class LiteratureTests(unittest.TestCase):
     def test_159_distinct_works_and_fourteen_lanes(self):
         entries = self.data["entries"]
         self.assertEqual(len(entries), 159)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 155)
-        self.assertEqual(len({e["id"] for e in entries}), 155)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 159)
+        self.assertEqual(len({e["id"] for e in entries}), 159)
         self.assertEqual({f"LIT-{i:03d}" for i in range(1, 160)},
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 14)
@@ -226,7 +226,7 @@ class LiteratureTests(unittest.TestCase):
         original = {e["id"] for e in self.data["entries"]}
         self.assertTrue({f"LIT-{i:03d}" for i in range(50, 96)} <= original)
         self.assertTrue({f"LIT-{i:03d}" for i in range(1, 96)} <= original)
-        self.assertEqual(len(self.data["entries"]), 155)
+        self.assertEqual(len(self.data["entries"]), 159)
         all_ids = [e["identity"].lower() for e in self.data["entries"]]
         self.assertEqual(len(all_ids), len(set(all_ids)))
 
@@ -526,7 +526,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 155)
+        self.assertEqual(len({e["id"] for e in entries}), 159)
         tracks = {e["track"] for e in entries}
         self.assertEqual(len(tracks), 14)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
