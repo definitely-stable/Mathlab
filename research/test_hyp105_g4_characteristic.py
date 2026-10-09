@@ -147,6 +147,30 @@ class UniformityAndCharacteristicTests(unittest.TestCase):
         self.assertIsNotNone(colliding_subsets(edges, 3, 3, 7))
         self.assertIsNone(colliding_subsets(edges, 5, 3, 7))
 
+    def test_c4_and_c6_prefix_suffix_factor_graph_collisions(self):
+        # Unique 2+2 weighted first/last pair decomposition, representing
+        # a bipartite C_(2h). Distinct columns have support exactly four,
+        # but are generally NOT linear hyperedges (which is the point).
+        for h in (2, 3):
+            left = [(2 * i, 2 * i + 1) for i in range(h)]
+            right = [(2 * h + 2 * i, 2 * h + 2 * i + 1)
+                     for i in range(h)]
+            vectors = []
+            for i in range(h):
+                vectors.append(left[i] + right[i])
+                vectors.append(left[(i + 1) % h] + right[i])
+            self.assertEqual(len(vectors), 2 * h)
+            self.assertEqual(len(set(vectors)), 2 * h)
+            self.assertTrue(all(len(set(v)) == 4 for v in vectors))
+            even = tuple(range(0, 2*h, 2))
+            odd = tuple(range(1, 2*h, 2))
+            for prime in (2, 3, 5, 7):
+                self.assertEqual(
+                    unit_sum(vectors, even, prime, 4*h),
+                    unit_sum(vectors, odd, prime, 4*h))
+                self.assertIsNotNone(
+                    colliding_subsets(vectors, prime, h, 4*h))
+
     def test_complete_gf3_signed_core_census_and_independent_direct_oracle(self):
         hist = {}
         grids = 0
