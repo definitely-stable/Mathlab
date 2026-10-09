@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **210** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **212** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,11 +11,11 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 23 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 28 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 29 |
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 21 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
-| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 11 |
+| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 12 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
 | [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 19 |
@@ -711,6 +711,19 @@ ITCS 2026: соответствие black-box PRF/OWF Function Secret Sharing с
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md](https://github.com/definitely-stable/Mathlab/blob/cd5a7ec2b0ed442d03bac0b03e091421ab5446ef/docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) (model_overlap)
+
+### LIT-212
+**[Compressing Dynamic Fully Indexable Dictionaries in Word-RAM](https://arxiv.org/abs/2603.23119)** (2026)
+
+Динамический fully indexable dictionary в word-RAM: параметрический компромисс близкого к информационному минимуму объёма, rank/select и worst-case одноэлементного обновления; arXiv отмечает предстоящую публикацию в STOC 2026.
+
+**Ограничение:** Модель word-RAM и отдельные битовые изменения не задают долговечность checkpoint, range overwrite, WAL, физические страницы или байты compaction. Утверждения статьи не воспроизведены независимо.
+
+**Идентичность:** `arxiv:2603.23119` · **Авторы:** Gabriel Marques Domingues · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md](https://github.com/definitely-stable/Mathlab/blob/e161b04e5e3d3e634745be31e89c236e75c773a7/docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md) (model_overlap)
 
 
 ## incremental-computation
@@ -1530,6 +1543,19 @@ Navarro доказал специальную worst-case оптимальнос�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-213
+**[Dynamic Grammar-Compressed Self-Index in δ-Optimal Space](https://arxiv.org/abs/2604.24080)** (2026)
+
+Динамический грамматически сжатый self-index RR-index, стремящийся к δ-оптимальному объёму, поддерживает locate, вставки и удаления в модели сжатых текстов (arXiv v3 от июля 2026).
+
+**Ограничение:** Подстрочные insert/delete и locate с ожидаемыми/амортизированными оценками не означают оптимальный WAL или физический recourse для latest-write-wins диапазонных присваиваний; доказательства и бенчмарки не воспроизведены.
+
+**Идентичность:** `arxiv:2604.24080` · **Авторы:** Takaaki Nishimoto, Yasuo Tabei · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md](https://github.com/definitely-stable/Mathlab/blob/e161b04e5e3d3e634745be31e89c236e75c773a7/docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md) (model_overlap)
 
 
 ## online-optimization
