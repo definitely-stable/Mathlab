@@ -75,6 +75,9 @@ jobs:
       - name: HYP-105 G5-E2-B3.0 six-factor-forest projection polynomial and exponent audit
         run: python research/hyp105_g5e2b3_forests.py
 
+      - name: HYP-105 E2-B3.1-A all-six GF5 critical 2-factor flow census
+        run: python research/hyp105_g5e2b3b1_critical_flows.py
+
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
