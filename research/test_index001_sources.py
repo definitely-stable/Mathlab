@@ -41,7 +41,7 @@ class Index001SourceTests(unittest.TestCase):
                 "repo": "MATHLAB",
                 "path": "docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md",
                 "kind": "model_overlap",
-                "source_sha": "492d4bbd0d3574e2204f401213453a6c26ad261e"
+                "source_sha": "a5a9b347940579650cdb8c8164f59911cb2602cb"
             }])
 
     def test_existing_sources_not_reidentified(self):
