@@ -5,7 +5,7 @@ import unittest
 from index001_page_recourse import image_for, packed_image, page_difference
 from index001_variable_checkpoint import encode_wal, decode_snapshot
 from index001_priced_wal import (
-    assign, budget, compare_trace, flat_update, initial_wal, pages, report,
+    assign, budget, bounded_epoch_limit, compare_trace, flat_update, initial_wal, pages, report,
     wal_disk_bytes, wal_lookup, wal_step,
 )
 
@@ -116,6 +116,31 @@ class PricedWalTest(unittest.TestCase):
         info = report()
         self.assertEqual(info["zero64"]["slots_bytes"], 256)
         self.assertEqual(len(info["trace"]), 6)
+
+    def test_bounded_epoch_certificate_and_fourth_effective_toggle(self):
+        state = (0,) * 64
+        frame_size = len(encode_wal(64, 0, 1, 1))
+        self.assertEqual(frame_size, 9)
+        cap = bounded_epoch_limit(state, 32, 14, frame_size)
+        self.assertEqual(cap["max_log_pages"], 1)
+        self.assertEqual(cap["max_uncheckpointed_appends"], 3)
+        wal = initial_wal(state)
+        for value in (1, 0, 1):
+            wal, ledger = wal_step(wal, (0, 1, value), 32, threshold=10)
+            self.assertEqual(ledger["operation"], "wal_append")
+            self.assertTrue(ledger["disk_bytes_after"] <= budget(wal.latest, 32))
+        wal, fourth = wal_step(wal, (0, 1, 0), 32, threshold=10)
+        self.assertEqual(fourth["operation"], "wal_append")
+        self.assertEqual(fourth["disk_bytes_after"], 128)
+        self.assertGreater(fourth["disk_bytes_after"], budget(wal.latest, 32))
+        # A checkpoint-enabled policy avoids this steady violation at t=4,
+        # while necessarily charging materialization and generation overlap.
+        policy = initial_wal(state)
+        for value in (1, 0, 1, 0):
+            policy, action = wal_step(policy, (0, 1, value), 32, threshold=4)
+        self.assertEqual(action["operation"], "checkpoint")
+        self.assertLessEqual(action["disk_bytes_after"], budget(policy.latest, 32))
+        self.assertGreater(action["peak_bytes"], action["disk_bytes_after"])
 
     def test_point_vs_range_segmentation_and_wal_amplification(self):
         bits = (0,) * 64
