@@ -27,6 +27,9 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: INDEX-001 G2-B2-B offline checkpoint policy and recovery oracle
+        run: python research/index001_checkpoint_policy.py
+
       - name: INDEX-001 G2-B2 exact filesystem application-byte report
         run: python research/index001_workload_io.py
 
