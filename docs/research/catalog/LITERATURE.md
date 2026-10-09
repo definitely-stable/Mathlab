@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **204** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **207** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -20,7 +20,7 @@
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
 | [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 19 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
-| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 20 |
+| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 23 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
 | [Алгебраические схемы, математика и нижние границы](#algebraic-complexity) | 4 |
 | [Edit distance, строки и тонкая сложность](#fine-grained-algorithms) | 3 |
@@ -2503,6 +2503,45 @@ LATINCRYPT 2010: атака на небезопасный batch-update accumulat
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md](https://github.com/definitely-stable/Mathlab/blob/cd5a7ec2b0ed442d03bac0b03e091421ab5446ef/docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) (model_overlap)
+
+### LIT-206
+**[PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection](https://www.usenix.org/conference/osdi25/presentation/leblanc)** (2025)
+
+OSDI 2025: метод PoWER задаёт предусловия записей, обеспечивающие восстановимость, и модель обнаружения повреждений носителя; представлены верифицированные CapybaraKV (Verus) и CapybaraNS (Dafny).
+
+**Ограничение:** Техника и результаты относятся к формально моделируемым storage API и persistent memory; исключения на GitHub-hosted POSIX не являются переносом доказательства crash consistency или проверкой физического SSD.
+
+**Идентичность:** `usenix:osdi25:leblanc` · **Авторы:** Hayley LeBlanc, Jacob R. Lorch, Chris Hawblitzel, Cheng Huang, Yiheng Tao, Nickolai Zeldovich, Vijay Chidambaram · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md](https://github.com/definitely-stable/Mathlab/blob/a742beec6fca8aeb83ab57e4d4b9375a7873346e/docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) (model_overlap)
+
+### LIT-207
+**[Specifying and Checking File System Crash-Consistency Models](https://doi.org/10.1145/2872362.2872406)** (2016)
+
+ASPLOS 2016 Ferrite: формальные модели допустимых последствий сбоя файловых систем, litmus-тесты и проверка реального ext4. Модель API POSIX сама по себе не задаёт полный порядок сохранения после crash.
+
+**Ограничение:** Работа не доказывает инварианты конкретной двухслотовой схемы Mathlab; для гарантий реального power loss необходима модель конкретной файловой системы и барьеров записи.
+
+**Идентичность:** `doi:10.1145/2872362.2872406` · **Авторы:** James Bornholt, Antoine Kaufmann, Jialin Li, Arvind Krishnamurthy, Emina Torlak, Xi Wang · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md](https://github.com/definitely-stable/Mathlab/blob/a742beec6fca8aeb83ab57e4d4b9375a7873346e/docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) (model_overlap)
+
+### LIT-208
+**[Lightweight file system crash-consistency checking with differential fuzzing](https://doi.org/10.15514/ISPRAS-2026-38(1)-7)** (2026)
+
+Proceedings of ISP RAS 2026: расширение DIFFuzzer на моделирование аварийных остановов файловой системы и дифференциальное выявление несогласованностей; сообщено об ошибках, подтверждённых авторами файловых систем.
+
+**Ограничение:** Результаты тестирования файловых систем не доказывают устойчивость нашего протокола WAL/manifest. Для сильной гарантии требуется самостоятельная модель crash states и проверка реального устройства.
+
+**Идентичность:** `doi:10.15514/ISPRAS-2026-38(1)-7` · **Авторы:** V. M. Kovalevsky, V. V. Kechin, A. S. Yanin, V. M. Itsykson · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md](https://github.com/definitely-stable/Mathlab/blob/a742beec6fca8aeb83ab57e4d4b9375a7873346e/docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) (model_overlap)
 
 
 ## proof-complexity
