@@ -5546,6 +5546,424 @@
         "Manos Athanassoulis",
         "Subhadeep Sarkar"
       ]
+    },
+    {
+      "id": "LIT-187",
+      "title": "Incremental Reachability Index",
+      "year": 2025,
+      "identity": "doi:10.4230/LIPIcs.SEA.2025.9",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SEA.2025.9",
+      "track": "incremental-computation",
+      "summary_ru": "Индекс достижимости для append-only ориентированного ациклического графа; сохраняет неизменность ранее опубликованных index-меток; предусмотрены O(1) и O(log n) запросы в зависимости от памяти.",
+      "limits_ru": "Добавление только новых DAG узлов в топологическом порядке; не распространять на общие удаления ребер, нелинейные обновления, аутентификацию или изменяемый глобальный transitive closure.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Laurent Bulteau",
+        "Pierre-Yves David",
+        "Florian Horn",
+        "Euxane Tran-Girard"
+      ],
+      "venue": "SEA 2025",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SEA.2025.9",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-188",
+      "title": "Incremental Maximization for a Broad Class of Objectives",
+      "year": 2025,
+      "identity": "doi:10.4230/LIPIcs.ESA.2025.92",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2025.92",
+      "track": "online-optimization",
+      "summary_ru": "Для монотонных beta-accountable целей построен scaling-алгоритм, конкурентный на каждом префиксе размера решения; охватывает монотонные субаддитивные функции.",
+      "limits_ru": "Рассматривается рост решения за счет добавления элементов, а не произвольный инкрементальный перерасчёт с удалениями; beta-accountability является существенным условием.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Yann Disser",
+        "David Weckbecker"
+      ],
+      "venue": "ESA 2025",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2025.92",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-189",
+      "title": "Recognizing and Realizing Temporal Reachability Graphs",
+      "year": 2025,
+      "identity": "doi:10.4230/LIPIcs.ESA.2025.93",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2025.93",
+      "track": "graph-algorithms",
+      "summary_ru": "Распознавание графов достижимости по временному графу: почти все уточнённые варианты NP-полны; для недиректированных solid graphs дан FPT по feedback-edge-set параметру.",
+      "limits_ru": "Temporal reachability требует возрастающего времени рёбер и зависит от strict/non-strict temporal path. Результат не является сложностью обычного динамического транзитивного замыкания.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Thomas Erlebach",
+        "Othon Michail",
+        "Nils Morawietz"
+      ],
+      "venue": "ESA 2025",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2025.93",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-190",
+      "title": "On Incremental Approximate Shortest Paths in Directed Graphs",
+      "year": 2025,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2025.93",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2025.93",
+      "track": "graph-algorithms",
+      "summary_ru": "Инкрементальные структуры (1+ε)-приближённых кратчайших путей в разреженных ориентированных графах с неотрицательными полиномиально ограниченными весами против адаптивного противника.",
+      "limits_ru": "Только вставки рёбер и приближённые расстояния. Суммарная стоимость update не выражает физические write bytes, полную точную достижимость или проверку сертификата.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Adam Górkiewicz",
+        "Adam Karczmarz"
+      ],
+      "venue": "ICALP 2025",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.93",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-191",
+      "title": "Online Disjoint Set Covers: Randomization Is Not Necessary",
+      "year": 2025,
+      "identity": "doi:10.4230/LIPIcs.STACS.2025.18",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.STACS.2025.18",
+      "track": "online-optimization",
+      "summary_ru": "Детерминированный O(log² n)-конкурентный онлайн алгоритм раскраски поступающих гиперрёбер в непересекающиеся покрытия; derandomization via potential function.",
+      "limits_ru": "Задача максимизации количества полных цветовых покрытий не равна стандартному offline set cover и не является кэш-замещением или ASET ограниченных сумм.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Marcin Bienkowski",
+        "Jarosław Byrka",
+        "Łukasz Jeż"
+      ],
+      "venue": "STACS 2025",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.STACS.2025.18",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-192",
+      "title": "Fully Dynamic Algorithms for Coloring Triangle-Free Graphs",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2026.16",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.16",
+      "track": "graph-algorithms",
+      "summary_ru": "Рандомизированная динамическая O(Δ/ln Δ) раскраска безтреугольных графов с амортизированным временем обновления Δ^{o(1)}log n и большой вероятностью против адаптивного противника; метод entropy compression.",
+      "limits_ru": "Инвариант отсутствия треугольников, верхняя степень Δ, вероятностная гарантия и адаптивность обязательны; entropy compression здесь приём доказательства, а не сжатие файлов.",
+      "maps_to": [
+        "ML-004",
+        "ML-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Sepehr Assadi",
+        "Helia Yazdanyar"
+      ],
+      "venue": "ICALP 2026",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.16",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-193",
+      "title": "Fast Decremental Tree Sums in Forests",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2026.26",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.26",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Алгоритмы динамических агрегированных групповых сумм в лесах при удалении рёбер и запросах компонент/путей с обсуждением универсальной оптимальности относительно модели операций.",
+      "limits_ru": "Деревья/леса и group operation, только decremental режим. Не переносить на произвольные графы, хранилища с crash recovery или безусловные cell-probe нижние границы.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Benjamin Aram Berendsohn",
+        "Marek Sokołowski"
+      ],
+      "venue": "ICALP 2026",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.26",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-194",
+      "title": "Multiplicative Error Set System Sparsification: A Simpler Proof via Chain Length Contraction",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2026.44",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.44",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Точная по модели связь максимальной длины включающих цепочек в union-closure семейства множеств с размером мультипликативно аппроксимирующего reweighted sparsifier; приложения к weighted CSP.",
+      "limits_ru": "Мультипликативное сохранение весов множества не равнозначно точной инъективности subset-sum ASET или ограничению на signed trade в конечном поле.",
+      "maps_to": [
+        "ML-004",
+        "ML-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Joshua Brakensiek",
+        "Venkatesan Guruswami",
+        "Aaron Putterman"
+      ],
+      "venue": "ICALP 2026",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.44",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-195",
+      "title": "Dynamic Rank, Basis, and Matching",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2026.45",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.45",
+      "track": "algebraic-algorithms",
+      "summary_ru": "Поддержка матричного ранга, базиса и максимальной matching-структуры; при point entry-update заявлена стоимость Õ(r^{1.405}), где r — ранг матрицы, и отдельно стоимость column-update.",
+      "limits_ru": "Арифметика над полем, стоимость матричной операции, вид обновления и materialization определяют bound; не переименовывать в битовые пробы, байты записи или гарантию для произвольного кольца.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Jan van den Brand",
+        "Vishal Kumar",
+        "Daniel J. Zhang"
+      ],
+      "venue": "ICALP 2026",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.45",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-196",
+      "title": "Fully Dynamic Spectral and Cut Sparsifiers for Directed Graphs",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ICALP.2026.157",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.157",
+      "track": "graph-algorithms",
+      "summary_ru": "Динамические направленные cut/spectral sparsifiers, включая degree-balance preservation; для β-balanced классов обновление за polylog при ограничениях на ε, β и противника.",
+      "limits_ru": "Направленная спектральная аппроксимация, cut approximation, точная достижимость и сертификаты подлинности различны. Не терять ε, β, degree balance и тип adversary.",
+      "maps_to": [
+        "ML-004",
+        "ML-007"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Yibin Zhao"
+      ],
+      "venue": "ICALP 2026",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.157",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-197",
+      "title": "Incongruity-Sensitive Access to Highly Compressed Strings",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.125",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.125",
+      "track": "compressed-indexing",
+      "summary_ru": "Сжатые RLSLP и block-tree индексы с доступом к символам, время которого зависит от максимальной повторяющейся подстроки вокруг позиции при O(g_rl) или O(L) метаданных.",
+      "limits_ru": "Представление статической сжатой строки и локальная повторяемость — не общий динамический индекс, не обоснование сокращения CPU/GC в LSM, не произвольная compressed-memory bound.",
+      "maps_to": [
+        "ML-004",
+        "DL-001"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Ferdinando Cicalese",
+        "Travis Gagie",
+        "Zsuzsanna Lipták",
+        "Gonzalo Navarro",
+        "Nicola Prezza",
+        "Cristian Urbina"
+      ],
+      "venue": "ESA 2026",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2026.125",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-198",
+      "title": "Dynamic MIS Revisited: Incremental, Fault Tolerant and Fully Dynamic",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.SWAT.2026.21",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SWAT.2026.21",
+      "track": "graph-algorithms",
+      "summary_ru": "Инкрементальный maximal independent set за O(√m) амортизированно, fault-sensitive вариант после k удалений и полностью динамический O(m^{2/3}) режим.",
+      "limits_ru": "Maximal не означает maximum; lower bound для adaptive adversary или отдельного incremental режима нельзя переносить на oblivious fully dynamic режим и все оптимизационные задачи.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "399e1db43a1b1847de1855261b1da9c145068e4a"
+        }
+      ],
+      "authors": [
+        "Manoj Gupta",
+        "Shahbaz Khan",
+        "Madhu Surendra"
+      ],
+      "venue": "SWAT 2026",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "B",
+      "source_listing_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SWAT.2026.21",
+      "source_access": "publisher_article_abstract_and_bibliography_checked"
     }
   ]
 }

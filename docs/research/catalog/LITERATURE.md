@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **186** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **198** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,15 +11,15 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 23 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 26 |
-| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 20 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 27 |
+| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 21 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
-| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 10 |
-| [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 7 |
+| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 11 |
+| [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 9 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 14 |
-| [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 12 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 19 |
+| [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 15 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
 | [Алгебраические схемы, математика и нижние границы](#algebraic-complexity) | 4 |
@@ -684,6 +684,21 @@ RangeReduce (ICDE 2026) направляет LSM compaction с учётом ст
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/c04acfe345d941eeaf1f9aa447f65c8eca2bb4cb/docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) (model_overlap)
 
+### LIT-193
+**[Fast Decremental Tree Sums in Forests](https://doi.org/10.4230/LIPIcs.ICALP.2026.26)** (2026)
+
+Алгоритмы динамических агрегированных групповых сумм в лесах при удалении рёбер и запросах компонент/путей с обсуждением универсальной оптимальности относительно модели операций.
+
+**Ограничение:** Деревья/леса и group operation, только decremental режим. Не переносить на произвольные графы, хранилища с crash recovery или безусловные cell-probe нижние границы.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2026.26` · **Авторы:** Benjamin Aram Berendsohn, Marek Sokołowski · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ICALP 2026](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.26) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
 
 ## incremental-computation
 *Инкрементальные вычисления и сертификаты*
@@ -951,6 +966,21 @@ Incr автоматически выявляет зависимости и эф�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-187
+**[Incremental Reachability Index](https://doi.org/10.4230/LIPIcs.SEA.2025.9)** (2025)
+
+Индекс достижимости для append-only ориентированного ациклического графа; сохраняет неизменность ранее опубликованных index-меток; предусмотрены O(1) и O(log n) запросы в зависимости от памяти.
+
+**Ограничение:** Добавление только новых DAG узлов в топологическом порядке; не распространять на общие удаления ребер, нелинейные обновления, аутентификацию или изменяемый глобальный transitive closure.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SEA.2025.9` · **Авторы:** Laurent Bulteau, Pierre-Yves David, Florian Horn, Euxane Tran-Girard · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [SEA 2025](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SEA.2025.9) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
 
 
 ## delta-base-selection
@@ -1473,6 +1503,21 @@ Navarro доказал специальную worst-case оптимальнос�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/c04acfe345d941eeaf1f9aa447f65c8eca2bb4cb/docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) (model_overlap)
 
+### LIT-197
+**[Incongruity-Sensitive Access to Highly Compressed Strings](https://doi.org/10.4230/LIPIcs.ESA.2026.125)** (2026)
+
+Сжатые RLSLP и block-tree индексы с доступом к символам, время которого зависит от максимальной повторяющейся подстроки вокруг позиции при O(g_rl) или O(L) метаданных.
+
+**Ограничение:** Представление статической сжатой строки и локальная повторяемость — не общий динамический индекс, не обоснование сокращения CPU/GC в LSM, не произвольная compressed-memory bound.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.125` · **Авторы:** Ferdinando Cicalese, Travis Gagie, Zsuzsanna Lipták, Gonzalo Navarro, Nicola Prezza, Cristian Urbina · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ESA 2026](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2026.125) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
 
 ## online-optimization
 *Онлайн-оптимизация, конкурентные оценки и барьеры*
@@ -1573,6 +1618,36 @@ Navarro доказал специальную worst-case оптимальнос�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-188
+**[Incremental Maximization for a Broad Class of Objectives](https://doi.org/10.4230/LIPIcs.ESA.2025.92)** (2025)
+
+Для монотонных beta-accountable целей построен scaling-алгоритм, конкурентный на каждом префиксе размера решения; охватывает монотонные субаддитивные функции.
+
+**Ограничение:** Рассматривается рост решения за счет добавления элементов, а не произвольный инкрементальный перерасчёт с удалениями; beta-accountability является существенным условием.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2025.92` · **Авторы:** Yann Disser, David Weckbecker · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ESA 2025](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2025.92) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-191
+**[Online Disjoint Set Covers: Randomization Is Not Necessary](https://doi.org/10.4230/LIPIcs.STACS.2025.18)** (2025)
+
+Детерминированный O(log² n)-конкурентный онлайн алгоритм раскраски поступающих гиперрёбер в непересекающиеся покрытия; derandomization via potential function.
+
+**Ограничение:** Задача максимизации количества полных цветовых покрытий не равна стандартному offline set cover и не является кэш-замещением или ASET ограниченных сумм.
+
+**Идентичность:** `doi:10.4230/LIPIcs.STACS.2025.18` · **Авторы:** Marcin Bienkowski, Jarosław Byrka, Łukasz Jeż · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [STACS 2025](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.STACS.2025.18) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
 
 
 ## caching
@@ -1887,6 +1962,81 @@ Hoory (Journal of Combinatorial Theory B, 2002) обобщает экстрем�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
 
+### LIT-189
+**[Recognizing and Realizing Temporal Reachability Graphs](https://doi.org/10.4230/LIPIcs.ESA.2025.93)** (2025)
+
+Распознавание графов достижимости по временному графу: почти все уточнённые варианты NP-полны; для недиректированных solid graphs дан FPT по feedback-edge-set параметру.
+
+**Ограничение:** Temporal reachability требует возрастающего времени рёбер и зависит от strict/non-strict temporal path. Результат не является сложностью обычного динамического транзитивного замыкания.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2025.93` · **Авторы:** Thomas Erlebach, Othon Michail, Nils Morawietz · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ESA 2025](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2025.93) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-190
+**[On Incremental Approximate Shortest Paths in Directed Graphs](https://doi.org/10.4230/LIPIcs.ICALP.2025.93)** (2025)
+
+Инкрементальные структуры (1+ε)-приближённых кратчайших путей в разреженных ориентированных графах с неотрицательными полиномиально ограниченными весами против адаптивного противника.
+
+**Ограничение:** Только вставки рёбер и приближённые расстояния. Суммарная стоимость update не выражает физические write bytes, полную точную достижимость или проверку сертификата.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2025.93` · **Авторы:** Adam Górkiewicz, Adam Karczmarz · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ICALP 2025](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.93) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-192
+**[Fully Dynamic Algorithms for Coloring Triangle-Free Graphs](https://doi.org/10.4230/LIPIcs.ICALP.2026.16)** (2026)
+
+Рандомизированная динамическая O(Δ/ln Δ) раскраска безтреугольных графов с амортизированным временем обновления Δ^{o(1)}log n и большой вероятностью против адаптивного противника; метод entropy compression.
+
+**Ограничение:** Инвариант отсутствия треугольников, верхняя степень Δ, вероятностная гарантия и адаптивность обязательны; entropy compression здесь приём доказательства, а не сжатие файлов.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2026.16` · **Авторы:** Sepehr Assadi, Helia Yazdanyar · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ICALP 2026](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.16) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-007](INDEX.md#ml-007)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-196
+**[Fully Dynamic Spectral and Cut Sparsifiers for Directed Graphs](https://doi.org/10.4230/LIPIcs.ICALP.2026.157)** (2026)
+
+Динамические направленные cut/spectral sparsifiers, включая degree-balance preservation; для β-balanced классов обновление за polylog при ограничениях на ε, β и противника.
+
+**Ограничение:** Направленная спектральная аппроксимация, cut approximation, точная достижимость и сертификаты подлинности различны. Не терять ε, β, degree balance и тип adversary.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2026.157` · **Авторы:** Yibin Zhao · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ICALP 2026](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.157) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-007](INDEX.md#ml-007)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-198
+**[Dynamic MIS Revisited: Incremental, Fault Tolerant and Fully Dynamic](https://doi.org/10.4230/LIPIcs.SWAT.2026.21)** (2026)
+
+Инкрементальный maximal independent set за O(√m) амортизированно, fault-sensitive вариант после k удалений и полностью динамический O(m^{2/3}) режим.
+
+**Ограничение:** Maximal не означает maximum; lower bound для adaptive adversary или отдельного incremental режима нельзя переносить на oblivious fully dynamic режим и все оптимизационные задачи.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SWAT.2026.21` · **Авторы:** Manoj Gupta, Shahbaz Khan, Madhu Surendra · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [SWAT 2026](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SWAT.2026.21) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
 
 ## algebraic-algorithms
 *Алгебраические алгоритмы, subset sum и разреженные матрицы*
@@ -2046,6 +2196,36 @@ Alfarano (30 сентября 2026) изучает критический пок
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-004](INDEX.md#ml-004), [ML-007](INDEX.md#ml-007)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-105-G5-A-TRADE-INTERSECTION.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/HYP-105-G5-A-TRADE-INTERSECTION.md) (model_overlap)
+
+### LIT-194
+**[Multiplicative Error Set System Sparsification: A Simpler Proof via Chain Length Contraction](https://doi.org/10.4230/LIPIcs.ICALP.2026.44)** (2026)
+
+Точная по модели связь максимальной длины включающих цепочек в union-closure семейства множеств с размером мультипликативно аппроксимирующего reweighted sparsifier; приложения к weighted CSP.
+
+**Ограничение:** Мультипликативное сохранение весов множества не равнозначно точной инъективности subset-sum ASET или ограничению на signed trade в конечном поле.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2026.44` · **Авторы:** Joshua Brakensiek, Venkatesan Guruswami, Aaron Putterman · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ICALP 2026](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.44) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-007](INDEX.md#ml-007)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-195
+**[Dynamic Rank, Basis, and Matching](https://doi.org/10.4230/LIPIcs.ICALP.2026.45)** (2026)
+
+Поддержка матричного ранга, базиса и максимальной matching-структуры; при point entry-update заявлена стоимость Õ(r^{1.405}), где r — ранг матрицы, и отдельно стоимость column-update.
+
+**Ограничение:** Арифметика над полем, стоимость матричной операции, вид обновления и materialization определяют bound; не переименовывать в битовые пробы, байты записи или гарантию для произвольного кольца.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2026.45` · **Авторы:** Jan van den Brand, Vishal Kumar, Daniel J. Zhang · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ICALP 2026](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2026.45) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
 
 
 ## proof-certification
