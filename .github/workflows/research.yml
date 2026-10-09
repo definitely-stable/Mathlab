@@ -27,6 +27,9 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: INDEX-001 G2-B4-C0 exact priced WAL and budgeted architecture report
+        run: python research/index001_priced_wal.py
+
       - name: INDEX-001 G2-B4-B restricted page-image recourse lower-bound report
         run: python research/index001_page_recourse.py
 
