@@ -146,11 +146,9 @@ class HybridStreamingTest(unittest.TestCase):
                                     independent=independent_image(new_bits,B,target_mode)
                                     self.assertEqual(view_image(new),independent)
                                     self.assertEqual(read_all(new,B),new_bits)
+                                    payload=independent_payload(new_bits,target_mode)
                                     self.assertEqual(ledger["raw_bytes"],
-                                        len(independent.rstrip(b"\0")) if False else
-                                        len(header(n,target_mode,
-                                            len(independent_payload(new_bits,target_mode))))+
-                                        len(independent_payload(new_bits,target_mode))+4)
+                                        len(header(n,target_mode,len(payload)))+len(payload)+4)
                                     new.close()
                     source.close()
 
@@ -178,10 +176,10 @@ class HybridStreamingTest(unittest.TestCase):
         source.close()
         bitmap=from_bits((1,0,1),16,"B")
         image=bytearray(view_image(bitmap))
-        image[8]|=0x80  # bitmap high unused tail bit
+        image[7]|=0x80  # bitmap high unused tail bit at payload offset 7
         frame=image[:]
-        crc_at=7+1  # HYB4 + n + mode + payload-size, then payload
-        frame[crc_at+1:crc_at+5]=zlib.crc32(frame[:crc_at+1]).to_bytes(4,"little")
+        crc_at=8  # HYB4 + n + mode + payload-size + 1 payload byte
+        frame[crc_at:crc_at+4]=zlib.crc32(frame[:crc_at]).to_bytes(4,"little")
         with tempfile.TemporaryFile(mode="w+b") as f:
             f.write(frame);f.seek(0)
             with self.assertRaises(ValueError):
