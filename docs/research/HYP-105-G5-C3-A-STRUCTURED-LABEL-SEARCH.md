@@ -54,6 +54,24 @@ One command:
 
 The hosted workflow runs the same command; its exact output should be recorded in this document **after** CI and pinned by regression tests only if the final code head is unchanged.
 
+### 4.1 Frozen exact-head hosted finite evidence (W32; m=12)
+
+The bounded search completed successfully on exact-head [GitHub-hosted Research #1052](https://github.com/definitely-stable/Mathlab/actions/runs/37895760910), running initial code HEAD `f584d97e6e36b0ffc352cd9843b50bcde2422070`. This was followed by a separate full-CI run after adding the coordinate-gauge orbit count (verify later SHA separately); numbers below are pinned in deterministic unit regression for reproducibility. Finite seed=1, 6 rounds, 12 proposed swaps per round, heuristic T6+16*T4:
+
+| Exact model | Before | After |
+| --- | ---: | ---: |
+| Minimal forbidden t=4 supports | 46 | 42 |
+| Minimal forbidden t=6 supports | 1722 | 1580 |
+| Heuristic score | 2458 | 2252 |
+| Extracted real GF5 ASET subfamily | 20 | 20 |
+
+From 69 total trade-census evaluations (including the initial assignment), exactly **four strictly improving swaps** were accepted. The final 15-label maps, in original graph vertex order, are:
+
+    L=(14,13,0,10,6,5,3,8,7,9,4,1,12,11,2)
+    R=(6,3,11,12,8,1,5,4,7,14,9,10,2,13,0)
+
+All 45 columns still have four ones and the same abstract W32 factor graph girth eight; the 20-column selected subfamily is independently certified ASET for all cardinalities 0..3 in GF5. **This is not an increase in proven maximum ASET cardinality**: the previous seed=1 construction already extracted 20 columns. Only the two finite *minimal trade support counts* and the chosen finite heuristic decreased. Neither an optimal permutation nor m-dependent improvement follows. The exact rational first-moment lower score is deliberately distinguished from the actual extracted 20; an alteration bound is not automatically tight.
+
 ## 5. Source/model mapping and missing theorems
 
 | Literature (canonical ID) | Material relevance | Non-transfer condition |
