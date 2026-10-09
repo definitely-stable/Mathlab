@@ -36,6 +36,27 @@ Set r_1=r_2=r_3=0, r_4=1, weights (w_W,w_R,w_F)=(0,1,0). Immediately after t=4, 
 
 The gap can also persist with strictly positive write and read weights if r_4 is large enough. This falsifies *only* the proposed naive S_t threshold policy under this exact serialized-variable model; it does not prove that **every** online algorithm exceeds factor 2.
 
+## G1-B. Asymptotically unbounded ratio for this particular threshold policy
+
+There is a **constructive family for every odd N>=3** showing that the ratio of this **specific** naive current-S threshold is not bounded by any universal constant as N grows. This does **not** establish any lower bound for all possible online policies.
+
+Let L=len(uvar(N)), initialize zeros, and assign value one to every odd singleton in increasing order. The resulting state is fully alternating with N runs of length one. If the online threshold has not just checkpointed this state, append acknowledged nonempty idempotent assignments (0,1,0) until it does. Each padding frame costs 9 bytes, while the state and snapshot size stay unchanged, so after finitely many frames its accumulated WAL must reach the fixed large snapshot size and force a checkpoint. Such semantic no-op updates are explicitly allowed by the frozen nonempty-range event model.
+
+At this high-state checkpoint:
+
+- S_high = 8 + 2L + 2N, from N alternating length-one runs.
+- Assign (0,N,0) in one final acknowledged update. It produces S_low = 10 + 2L, and its WAL frame E_reset = 8 + L < S_low for every L>=1.
+- Consequently the naive online policy does *not* checkpoint after the reset; it still has S_high + E_reset bytes to read. Give exactly one clean read after this final update and no earlier reads. Choose weights (w_W,w_R,w_F)=(0,1,0).
+- Offline knows the sequence and may checkpoint after the final reset at zero write weight, so it reads exactly S_low bytes. Any clean-restart snapshot must be at least S_low for this trace.
+
+Therefore the exact ratio is
+
+**(S_high + E_reset)/S_low = (16 + 3L + 2N)/(10 + 2L) = Omega(N/log N)**,
+
+since L grows logarithmically in N. The ratio diverges. Also kappa=S_max/S_min=(8+2L+2N)/(10+2L)=Theta(N/log N) on this family. Hence the separately proved **2*kappa** upper bound has the correct **order of growth in kappa** for this policy, though its leading constant is not tight.
+
+This family is tested in the GitHub-hosted oracle for N=3,5,31,129,511, including varint-width transition. It uses free writes only to isolate the adversarial read behavior; if a positive write weight is required, increasing the last restart multiplicity drives the weighted ratio toward the same expression. **STOP boundary:** this result depends on the specified adaptive current-S threshold, exact source format, allowed semantically redundant but acknowledged WAL frames, and unconstrained restarts; it is not a universal compressed-index lower bound.
+
 ## Restricted theorem: a valid coarse parameter-dependent upper bound
 
 Let S_min=min_{0<=t<=U} S_t>0, S_max=max_{0<=t<=U} S_t, kappa=S_max/S_min>=1. For this online policy, without caps, and **any** update sequence, nonnegative r_t and resource weights,
