@@ -115,6 +115,7 @@ SOURCE_TITLE_PINS = {
     "arxiv:2602.14716": "Grid-free linear hypergraphs via Cayley-Bacharach",
     "doi:10.1016/j.disc.2022.113025": "The linear Turán number of small triple systems or why is the wicket interesting?",
     "doi:10.1016/j.disc.2024.114029": "Wickets in 3-uniform hypergraphs",
+    "doi:10.1006/jctb.2002.2123": "The Size of Bipartite Graphs with a Given Girth",
 }
 
 
