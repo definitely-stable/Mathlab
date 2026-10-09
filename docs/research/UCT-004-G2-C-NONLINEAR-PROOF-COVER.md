@@ -43,7 +43,7 @@ The construction is finite, permits adaptive verifiers (but uses **nonadaptive**
 
     κ(n,p) <= 2^(ceil(n/p)-1),  b_min(n,p)<=ceil(n/p)-1.                 (C5)
 
-It remains **CONJECTURE, NOT A THEOREM**, that equality holds for *arbitrary nonlinear/adaptive* protocols. G2-A proves equality only for **linear one-check GF(2) tests**.
+**HISTORICAL G2-C LIMITATION, NOW PARTIALLY RESOLVED BY G2-D (2026-10-09):** the all-n equality for **witness bits** b_min=ceil(n/p)−1 is now PROVED even for nonlinear/adaptive verification by reducing every p-separable fiber to isolated p-CNF and applying PPZ's classical coding lemma. See [G2-D](UCT-004-G2-D-ALL-N-PPZ-PROOF-BITS.md). **The stronger exact integer covering equality κ(n,p)=2^(ceil(n/p)−1) for nondivisible n/p remains CONJECTURE.** G2-A was previously restricted to linear one-check GF(2) tests.
 
 For n=4,p=3, the six even-weight-two strings form one p-separable H, whereas every affine GF(2) linear-check fiber of rank ≥ceil(4/3)=2 has size≤4. Thus the rank proof **cannot be transplanted** to arbitrary H even though the eventual κ(4,3) equals 2. This falsifier is checked separately by `research/test_uct004_nonlinear_scope.py`.
 
@@ -76,3 +76,7 @@ The maximum one-proof fiber **is not** generally 2^(n-ceil(n/p)): for n=4,p=3 it
 - PCPP/proximity proof literature studies rejection on **far** incorrect inputs; a one-bit parity flip is distance 1/n and requires our exact adversarial model.
 
 **Decision:** G2-C1 is a useful **DERIVED_CLASSICAL exact characterization** of a restricted proof game. Exact κ values n≤5 are FINITE_EXACT once CI passes. **No claim of a new worldwide strong theorem**, no original general closed form, no Rust/crate/public API. The next actually hard theorem must either prove κ(n,p)'s closed form with nonclassical methods and a strict overlap audit, or more promisingly introduce **fully priced** program/witness maintenance/time, authenticated state and repeated adaptive queries to escape the free-table protocol (C4).
+
+## 7. G2-D cross-reference — what was actually resolved later (2026-10-09)
+
+The later [ALL-n nonlinear verifier PPZ proof](UCT-004-G2-D-ALL-N-PPZ-PROOF-BITS.md) shows that the **minimum b-bit proof length** from (C3) equals **ceil(n/p)−1 for every n,p**, by an independent reconstruction of the classical 1999 isolated-CNF coding lemma. It provides bounds **ceil(2^(n/p−1))≤κ(n,p)≤2^(ceil(n/p)−1)**. These establish the exact b even though they may NOT determine κ itself; when p|n the bounds on κ also coincide, but for nondivisible ratios a gap can remain. Prior G2-C finite κ table still stands. The genuinely original fully priced online verification theorem and general exact κ remain OPEN.

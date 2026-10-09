@@ -126,6 +126,9 @@ SOURCE_TITLE_PINS = {
     # G2-C original certification and PCPP source identities.
     "arxiv:2609.26757": "Certification complexity of Boolean functions",
     "doi:10.1145/1595391.1595394": "Sound 3-Query PCPPs Are Long",
+    # G2-D source statement spotchecks (classical PPZ/MFCS).
+    "doi:10.4086/cjtcs.1999.011": "Satisfiability Coding Lemma",
+    "doi:10.4230/LIPIcs.MFCS.2022.47": "CNF Encodings of Parity",
 }
 
 

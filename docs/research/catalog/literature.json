@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "4daa78a995387acf24684e2097dbfc4f3fbc3cb6"
+      "sha": "9beb9721ba7213a9a2701fc92a41d539bcc75b79"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -4431,6 +4431,65 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/HYP-105-G5-A-TRADE-INTERSECTION.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-154",
+      "title": "Satisfiability Coding Lemma",
+      "year": 1999,
+      "identity": "doi:10.4086/cjtcs.1999.011",
+      "primary_url": "https://doi.org/10.4086/cjtcs.1999.011",
+      "track": "proof-complexity",
+      "authors": [
+        "Ramamohan Paturi",
+        "Pavel Pudlák",
+        "Francis Zane"
+      ],
+      "verification": "publisher_full_text_spotchecked",
+      "summary_ru": "Первоисточник PPZ: upper bound 2^(n-n/k) на количество изолированных удовлетворяющих присваиваний k-CNF, доказательство через критические дизъюнкты и случайную перестановку переменных. На этом основана ограниченная нелинейная теорема G2-D о длине свидетельства.",
+      "limits_ru": "Уже известная лемма 1999 года. Mathlab независимо выводит только используемый конкретный случай для изолированных решений, не весь исходный набор теорем. Не переносить на полностью оплаченные онлайн-доказательства, фиксированную малую ошибку, стоимость prover/verifier.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-004-G2-D-PPZ-PRIMARY-SOURCE-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-155",
+      "title": "CNF Encodings of Parity",
+      "year": 2022,
+      "identity": "doi:10.4230/LIPIcs.MFCS.2022.47",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.MFCS.2022.47",
+      "track": "proof-complexity",
+      "authors": [
+        "Gregory Emdin",
+        "Alexander S. Kulikov",
+        "Ivan Mihajlin",
+        "Nikita Slezkin"
+      ],
+      "verification": "publisher_full_text_spotchecked",
+      "summary_ru": "MFCS 2022 устанавливает нижние границы для кодирования parity в CNF со вспомогательными nondeterministic variables, в том числе ширину k>=n/(s+1), используя PPZ и OR-of-CNF/depth-three circuits. Это ключевой prior art к G2-D.",
+      "limits_ru": "Ширина CNF в оригинальной теореме включает вхождения дополнительных переменных; она не идентична числу проб данных p. Для G2-D применяется отдельная per-witness p-CNF без этих переменных, плюс PPZ. Не выдавать result за новый или за полную модель онлайн MA.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-004-G2-D-PPZ-PRIMARY-SOURCE-AUDIT.md",
           "kind": "model_overlap"
         }
       ],

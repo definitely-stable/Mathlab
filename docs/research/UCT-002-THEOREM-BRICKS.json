@@ -116,6 +116,12 @@
       "tier": "DERIVED_CLASSICAL",
       "source": "docs/research/UCT-004-G2-C-NONLINEAR-PROOF-COVER.md",
       "summary": "Exact noninteractive untrusted private-coin alpha-zero delta-less-than-one parity proof existence iff finite p-projection-separable set cover; novel asymptotic closed form open"
+    },
+    {
+      "id": "UCT004-PPZ-ALL-N",
+      "tier": "DERIVED_CLASSICAL",
+      "source": "docs/research/UCT-004-G2-D-ALL-N-PPZ-PROOF-BITS.md",
+      "summary": "For private-coin perfect-completeness parity, every nonlinear adaptive p-probe proof fiber induces isolated p-CNF; PPZ gives exact all-n fixed witness length ceil(n/p)-1; exact nondivisible kappa still open"
     }
   ],
   "edges": [
@@ -274,6 +280,30 @@
       "to": "UCT004-NONLINEAR-COVER",
       "kind": "PRIOR_ART_BARRIER",
       "condition": "Noninteractive fixed-witness certification and online annotated streaming differ in transcript publication time and communication costs; theorem transfer requires source audit."
+    },
+    {
+      "from": "UCT004-NONLINEAR-COVER",
+      "to": "UCT004-PPZ-ALL-N",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Operational equivalence converts all honest witness fibers into p-separable sets, allowing width-p CNF construction with no auxiliary witness literals."
+    },
+    {
+      "from": "UCT004-SOUND-PACKING",
+      "to": "UCT004-PPZ-ALL-N",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Same private-coin and malicious-proof experiment is retained, but witness length uses isolated satisfying assignment count rather than packing."
+    },
+    {
+      "from": "UCT004-PPZ-ALL-N",
+      "to": "FRONTIER-C",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Exact unpriced witness bits are now a classical solved brick; genuinely nonfactorizing end-to-end online authenticated costs remain open."
+    },
+    {
+      "from": "HYP103",
+      "to": "UCT004-PPZ-ALL-N",
+      "kind": "ANALOGY_ONLY",
+      "condition": "Classic critical clauses and certificate widths motivate the transfer but no equality of HYP-103 old-state promise certificate cost follows."
     }
   ]
 }

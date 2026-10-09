@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**153** работ сопоставлены с **38** внутренними исследованиями.
+**155** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -309,6 +309,8 @@
 - [LIT-151](LITERATURE.md#lit-151) — New Turán Exponents for Two Extremal Hypergraph Problems (2021; publisher_abstract_checked)
 - [LIT-152](LITERATURE.md#lit-152) — Parity check matrices and product representations of squares (2008; publisher_abstract_checked)
 - [LIT-153](LITERATURE.md#lit-153) — Additive codes arising from hypergraphs (2026; primary_abstract_checked)
+- [LIT-154](LITERATURE.md#lit-154) — Satisfiability Coding Lemma (1999; publisher_full_text_spotchecked)
+- [LIT-155](LITERATURE.md#lit-155) — CNF Encodings of Parity (2022; publisher_full_text_spotchecked)
 
 ## ML-005
 
@@ -379,6 +381,8 @@
 - [LIT-144](LITERATURE.md#lit-144) — Randomized Query Complexity Can Beat Certificate Complexity (2026; primary_abstract_checked)
 - [LIT-149](LITERATURE.md#lit-149) — Certification complexity of Boolean functions (2026; primary_abstract_checked)
 - [LIT-150](LITERATURE.md#lit-150) — Sound 3-Query PCPPs Are Long (2009; publisher_abstract_checked)
+- [LIT-154](LITERATURE.md#lit-154) — Satisfiability Coding Lemma (1999; publisher_full_text_spotchecked)
+- [LIT-155](LITERATURE.md#lit-155) — CNF Encodings of Parity (2022; publisher_full_text_spotchecked)
 
 ## ML-007
 
