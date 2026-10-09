@@ -58,6 +58,26 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-009: DAG lower bound, graph indexes, temporal provenance and memory originals.
+    "doi:10.1137/24M1638215": "Super-Logarithmic Lower Bounds for Dynamic Graph Problems",
+    "doi:10.7155/jgaa.v30i1.3148": "Parameterized Linear Time Transitive Closure",
+    "doi:10.1007/s44443-025-00310-0": "MLRQ: an efficient labeling scheme for reachability queries on reduced DAGs",
+    "doi:10.1145/3776737": "Indexing Techniques for Graph Reachability Queries",
+    "arxiv:2607.21390": "Reachability in Directed Acyclic Graphs with Near-Linear Cut Queries",
+    "arxiv:2604.28096": "Succinct Graph Representations and Algorithmic Applications",
+    "arxiv:2506.21436": "Succinct Preferential Attachment Graphs",
+    "arxiv:2402.11028": "Incremental Topological Ordering and Cycle Detection with Predictions",
+    "arxiv:0803.0792": "Incremental Topological Ordering and Strong Component Maintenance",
+    "doi:10.1109/ICDE65706.2026.00177": "Lightweight 2-Hop Labels for Reachability Queries on Large-Scale Graphs",
+    "doi:10.1109/ICDE65706.2026.00179": "Clue-RAG: Towards Accurate and Cost-Efficient Graph-Based RAG Via Multi-Partite Graph-Based Index",
+    "arxiv:2607.18368": "Neuro-Symbolic Meta-Policies for Temporal Knowledge-Graph Memory under Partial Observability",
+    "arxiv:2605.07121": "AdaTKG: Adaptive Memory for Temporal Knowledge Graph Reasoning",
+    "arxiv:2604.17114": "The Provenance Gap in Clinical AI: Evidence-Traceable Temporal Knowledge Graphs for Rare Disease Reasoning",
+    "doi:10.1038/s41598-026-51488-w": "Temporal knowledge graph reasoning using global and recent history information",
+    "doi:10.1145/3183713.3183724": "Incremental View Maintenance for Property Graph Queries",
+    "doi:10.1609/aaai.v40i19.38619": "ArchRAG: Attributed Community-based Hierarchical Retrieval-Augmented Generation",
+    "doi:10.1007/s00778-026-00977-5": "Efficiently querying connected components in large temporal graphs via scalable and maintainable indices",
+    "doi:10.14778/3819518.3819556": "BookRAG: A Hierarchical Structure-aware Index-based Approach for Retrieval-Augmented Generation on Complex Documents",
     # IMPORT-008: DAG shortcutting, graph compression, memory cost and temporal evidence.
     "doi:10.4230/LIPIcs.ITCS.2026.102": "Smoothed Analysis of Dynamic Graph Algorithms",
     "doi:10.4230/LIPIcs.ESA.2026.7": "Symmetry-Preserving Graph Compression",

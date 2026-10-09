@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## IMPORT-009 — dynamic DAG lower bounds and historical graph evidence (2026-10-10)
+
+[19 papers, original publisher/arXiv audits and exact model boundaries](RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) · [issue #206](https://github.com/definitely-stable/Mathlab/issues/206) · [canonical LIT](catalog/LITERATURE.md). Includes Larsen–Yu tilde-Omega(log^(3/2)n) cell-probe DAG bound (first SIAM online 2025), 2026 near-linear cut-query DAG reachability, succinct graph representations, ICDE Clue-RAG, 2026 temporal evidence memory and graph indexes. No novel Mathlab theorem or claim of benchmark reproduction; keep G1 TKG-001 and DAG-002 model distinctions.
+
 ## UCT-005 G3-B2-C1 — retention and charged GC countermodels (2026-10-09)
 
 [**LATEST vs pinned AS_OF, classical exact reachability proof, charged disk-bitmap/mark/trim costs and falsified universal product candidate**](UCT-005-G3-B2-C1-GC-AND-NOVELTY-GATE.md) · [reference model](../../research/uct005_g3b2c1_gc_frontier.py) · [independent oracles](../../research/test_uct005_g3b2c1_gc_frontier.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). Single-honest-writer F1 with paid monotone anchor only. GC uses a logical disk bitmap priced in full pages, but Python's reachability set is not a bounded-RAM implementation; no crypto/durable/novel root theorem. C2 must close physical and memory-model gaps or honestly STOP_NOVELTY.
