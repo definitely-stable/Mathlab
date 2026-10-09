@@ -7608,6 +7608,556 @@
     },
     {
       "id": "LIT-259",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SAND.2026.4",
+      "title": "Families of Tractable Problems with Respect to Vertex-Interval-Membership Width and Its Generalisations",
+      "summary_ru": "Параметры VIM/TIM ширины интервальной активности, метаалгоритмы FPT для семейств задач на временных графах.",
+      "limits_ru": "Параметризованная разрешимость не даёт постоянного времени обновления произвольного KG и не покрывает произвольные DAG.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SAND.2026.4",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-260",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SAND.2026.5",
+      "title": "Complexity Gaps Between Point and Interval Temporal Graphs for Some Reachability Problems",
+      "summary_ru": "Разделяет сложность достижимости для точечных и интервальных временных рёбер; важно для временной модели TKG-001.",
+      "limits_ru": "Конкретные варианты temporal paths нельзя автоматически переносить на одновременную bitemporal as-of достижимость.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SAND.2026.5",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-261",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SAND.2026.6",
+      "title": "Broadcasts in Anonymous, Dynamic Networks: A New Algorithm and Impossibility Results",
+      "summary_ru": "Ограниченная память и рандомизированная рассылка в анонимных динамических сетях, а также невозможности других вариантов.",
+      "limits_ru": "Синхронная распределённая сеть с 1-interval-connectivity не равна динамическому индексу достижимости.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SAND.2026.6",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-262",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SAND.2026.7",
+      "title": "Extending Ghouila-Houri’s Characterization of Comparability Graphs to Temporal Graphs",
+      "summary_ru": "Структурная характеристика сравнимости при времени; связь между статической транзитивной ориентацией и временными путями.",
+      "limits_ru": "Temporal comparability не доказывает наличие малых canonical reachability labels для произвольных DAG.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SAND.2026.7",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-263",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SAND.2026.9",
+      "title": "FO and MSO Model Checking on Temporal Graphs",
+      "summary_ru": "Параметры vertex/tree interval membership width и метатеоремы FO/MSO для временных графов.",
+      "limits_ru": "Model-checking при ограниченных параметрах не даёт универсальной линейной сложности произвольного GraphRAG.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SAND.2026.9",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-264",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SAND.2026.10",
+      "title": "Asymptotic Subspace Consensus in Dynamic Networks",
+      "summary_ru": "Характеризация достижимости консенсуса по подпространствам при ослабленных предположениях о динамической сети.",
+      "limits_ru": "Асимптотическая сходимость процесса не является гарантией консистентной и авторизованной памяти агента.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SAND.2026.10",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-265",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SAND.2026.14",
+      "title": "Robust Temporal Cut",
+      "summary_ru": "Робастная временная s-z отсечка при противнике, который может ограниченно менять временные метки рёбер.",
+      "limits_ru": "Это задача оптимизации удаления временных рёбер, не криптографическое доказательство отсутствия пути.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SAND.2026.14",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-266",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SAND.2026.15",
+      "title": "Designing Sparse Temporal Graphs Satisfying Connectivity Requirements",
+      "summary_ru": "Конструирование разреженных временных графов с заданной матрицей запросов достижимости, связь с DFVS.",
+      "limits_ru": "Минимальное число временных рёбер не измеряет стоимость динамического обслуживания или исторических снимков.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SAND.2026.15",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-267",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SAND.2026.16",
+      "title": "On Sufficient Conditions for Short Journeys in Temporal Graphs",
+      "summary_ru": "Условия существования коротких journeys во временных сетях; структурные предпосылки для ограниченного temporal routing.",
+      "limits_ru": "Гарантии относятся к определению временного пути и сильным структурным условиям; не общий DAG lookup.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SAND.2026.16",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-268",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SAND.2026.17",
+      "title": "Label Correcting Algorithms for the Multiobjective Temporal Shortest Path Problem",
+      "summary_ru": "Алгоритмы меточной коррекции для недоминируемых временных путей без стандартных условий монотонности.",
+      "limits_ru": "Достижимость и multiobjective shortest-path — разные типы запросов; нулевая длительность создаёт циклы.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SAND.2026.17",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-269",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SAND.2026.19",
+      "title": "Minimize the Sum of Waiting Times in Periodic Temporal Trees",
+      "summary_ru": "Оптимизация суммарного ожидания в периодических временных деревьях при расписании появления рёбер.",
+      "limits_ru": "Периодическое дерево не эквивалентно произвольному изменяемому графу знаний.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SAND.2026.19",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-270",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.122",
+      "title": "Maximizing Reachability via Shifting of Temporal Paths",
+      "summary_ru": "FPT/XP и границы сложности повышения temporal reachability разрешёнными сдвигами временных меток путей.",
+      "limits_ru": "Доказательство относится к ограниченному числу paths/budget; не обновление arbitrary DAG за O(1).",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.122",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-271",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.LICS.2026.36",
+      "title": "Dynamic Planar Graph Isomorphism Is in DynFO",
+      "summary_ru": "Динамическая логическая сложность изоморфизма плоских графов при изменениях входной структуры.",
+      "limits_ru": "DynFO характеризует логическую поддерживаемость, а не физические SSD page writes или динамический canonical KG.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.LICS.2026.36",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-272",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "arxiv:2606.06044",
+      "title": "IA-RAG: Interval-Algebra-Driven Temporal Reasoning for Dynamic Knowledge Retrieval",
+      "summary_ru": "Allen interval algebra, тематический лес и уточнение неполных временных границ для интервалов событий.",
+      "limits_ru": "Интервальная логика может различаться с timestamp-only GraphRAG; авторская QA-метрика не гарантирует truth/provenance.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2606.06044",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-273",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2606.15778",
+      "title": "DYNA : Dynamic Episodic Memory Networks for Augmenting Large Language Models with Temporal Knowledge Graphs in Continuous Learning",
+      "summary_ru": "Внешняя эпизодическая память на временном KG без переобучения LLM; random walks и centrality для retrieval.",
+      "limits_ru": "Ограниченные авторские задачи и результаты не свидетельствуют о гарантированном предотвращении forgetting.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2606.15778",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-274",
+      "year": 2025,
+      "track": "graph-rag",
+      "identity": "arxiv:2508.01680",
+      "title": "T-GRAG: A Dynamic GraphRAG Framework for Resolving Temporal Conflicts and Redundancy in Knowledge Retrieval",
+      "summary_ru": "Temporal KG + декомпозиция временных запросов и поиск источника; Time-LongQA для текстов с меняющимися фактами.",
+      "limits_ru": "Нет гарантии, что LLM-ответ отражает глобально последний факт; авторские метрики требуют независимого сравнения.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2508.01680",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-275",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "arxiv:2601.16462",
+      "title": "Graph-Anchored Knowledge Indexing for Retrieval-Augmented Generation",
+      "summary_ru": "GraphAnchor инкрементально строит query-time граф знаний как рабочий индекс по ходу итеративного извлечения.",
+      "limits_ru": "Граф поиска на конкретный запрос — не долговечная bitemporal KB; performance не воспроизведён.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2601.16462",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-276",
+      "year": 2025,
+      "track": "graph-rag",
+      "identity": "arxiv:2510.16582",
+      "title": "Can Knowledge-Graph-based Retrieval Augmented Generation Really Retrieve What You Need?",
+      "summary_ru": "GraphFlow: reward-guided flow matching для поиска разнообразных подграфов в текстово-богатых KG.",
+      "limits_ru": "Обучаемый retriever не даёт exact reachability oracles или гарантий полноты доказательств.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2510.16582",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-277",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2603.00026",
+      "title": "ActMem: Bridging the Gap Between Memory Retrieval and Reasoning in LLM Agents",
+      "summary_ru": "Семантический и причинный граф памяти, контрфактическое рассуждение и ActMemEval для конфликтов между фактами.",
+      "limits_ru": "Извлечённые причинные связи — гипотезы LLM, не сертифицированные причинно-следственные доказательства.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2603.00026",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-278",
+      "year": 2025,
+      "track": "compressed-indexing",
+      "identity": "doi:10.1007/978-981-96-0668-9_19",
+      "title": "Succinct Representations of Graphs",
+      "summary_ru": "Обзор компактных представлений графов, доступных запросов и разделения классов графов по compressibility.",
+      "limits_ru": "Обзор не содержит одной универсальной структуры с оптимальной ценой insert/delete/lookup.",
+      "maps_to": [
+        "ML-006",
+        "ML-004"
+      ],
+      "primary_url": "https://doi.org/10.1007/978-981-96-0668-9_19",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-279",
+      "year": 2022,
+      "track": "compressed-indexing",
+      "identity": "doi:10.1016/j.ic.2021.104862",
+      "title": "A practical succinct dynamic graph representation",
+      "summary_ru": "Практическая динамическая k²-tree структура на компактных статических компонентах и динамических обновлениях.",
+      "limits_ru": "Наблюдения на реализации не доказывают универсальной нижней/верхней физической границы I/O.",
+      "maps_to": [
+        "ML-006",
+        "ML-004"
+      ],
+      "primary_url": "https://doi.org/10.1016/j.ic.2021.104862",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-280",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.1016/j.neunet.2025.108056",
+      "title": "Dynamic graph representation learning with disentangled information bottleneck",
+      "summary_ru": "Representation learning временных графов с разложением динамических и устойчивых признаков.",
+      "limits_ru": "Обученная модель эмбеддингов не является exact индексом и не заменяет доказательство reachability.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.1016/j.neunet.2025.108056",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "732dcc116d02ee2639eafe4580f009f6a6b9aefc"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-281",
       "year": 2025,
       "track": "dynamic-data-structures",
       "identity": "doi:10.4230/LIPIcs.MFCS.2025.87",
@@ -7638,7 +8188,7 @@
       "selection_priority": "A"
     },
     {
-      "id": "LIT-260",
+      "id": "LIT-282",
       "year": 2025,
       "track": "dynamic-data-structures",
       "identity": "doi:10.1007/s00224-025-10238-7",

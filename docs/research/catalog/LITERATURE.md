@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **259** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **281** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -15,12 +15,12 @@
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 23 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
-| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 13 |
+| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 15 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 21 |
-| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 25 |
-| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 14 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 35 |
+| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 29 |
+| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 16 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 23 |
@@ -728,7 +728,7 @@ ITCS 2026: соответствие black-box PRF/OWF Function Secret Sharing с
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md](https://github.com/definitely-stable/Mathlab/blob/e161b04e5e3d3e634745be31e89c236e75c773a7/docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md) (model_overlap)
 
-### LIT-259
+### LIT-281
 **[Lazy B-Trees](https://doi.org/10.4230/LIPIcs.MFCS.2025.87)** (2025)
 
 Rysgaard и Wild (MFCS 2025): адаптивные lazy B-деревья для внешней памяти, с доказанными в оригинальной работе оценками операций доступа и обновления в зависимости от запросов.
@@ -741,7 +741,7 @@ Rysgaard и Wild (MFCS 2025): адаптивные lazy B-деревья для 
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-C3-SHARED-PAGES.md](https://github.com/definitely-stable/Mathlab/blob/9077e9ee52b1ec5fab50fc8f40004759184a6949/docs/research/INDEX-001-G2-B4-C3-SHARED-PAGES.md) (model_overlap)
 
-### LIT-260
+### LIT-282
 **[Space-Efficient B Trees via Load-Balancing](https://doi.org/10.1007/s00224-025-10238-7)** (2025)
 
 I, Köppl, Sakamoto и Yamaguchi (Theory of Computing Systems 2025): компактные B-деревья с балансировкой нагрузки, битовыми оценками хранения и динамическими поиском/вставкой/удалением.
@@ -1625,6 +1625,32 @@ Kempa–Kociumaka (SODA 2026) устанавливают нижние грани
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-C2-ADAPTIVE-PARTITIONS.md](https://github.com/definitely-stable/Mathlab/blob/cb9dc19e328154977914fba167191d01fe92ebde/docs/research/INDEX-001-G2-B4-C2-ADAPTIVE-PARTITIONS.md) (model_overlap)
 
+### LIT-278
+**[Succinct Representations of Graphs](https://doi.org/10.1007/978-981-96-0668-9_19)** (2025)
+
+Обзор компактных представлений графов, доступных запросов и разделения классов графов по compressibility.
+
+**Ограничение:** Обзор не содержит одной универсальной структуры с оптимальной ценой insert/delete/lookup.
+
+**Идентичность:** `doi:10.1007/978-981-96-0668-9_19` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-006](INDEX.md#ml-006), [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-279
+**[A practical succinct dynamic graph representation](https://doi.org/10.1016/j.ic.2021.104862)** (2022)
+
+Практическая динамическая k²-tree структура на компактных статических компонентах и динамических обновлениях.
+
+**Ограничение:** Наблюдения на реализации не доказывают универсальной нижней/верхней физической границы I/O.
+
+**Идентичность:** `doi:10.1016/j.ic.2021.104862` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-006](INDEX.md#ml-006), [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
 
 ## online-optimization
 *Онлайн-оптимизация, конкурентные оценки и барьеры*
@@ -2209,6 +2235,188 @@ FM 2026: инкрементальная Dyck-CFL достижимость чер
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md](https://github.com/definitely-stable/Mathlab/blob/e34d725bb17e39e144d5d2d4b857bf205a574d59/docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) (model_overlap)
 
+### LIT-259
+**[Families of Tractable Problems with Respect to Vertex-Interval-Membership Width and Its Generalisations](https://doi.org/10.4230/LIPIcs.SAND.2026.4)** (2026)
+
+Параметры VIM/TIM ширины интервальной активности, метаалгоритмы FPT для семейств задач на временных графах.
+
+**Ограничение:** Параметризованная разрешимость не даёт постоянного времени обновления произвольного KG и не покрывает произвольные DAG.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SAND.2026.4` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-260
+**[Complexity Gaps Between Point and Interval Temporal Graphs for Some Reachability Problems](https://doi.org/10.4230/LIPIcs.SAND.2026.5)** (2026)
+
+Разделяет сложность достижимости для точечных и интервальных временных рёбер; важно для временной модели TKG-001.
+
+**Ограничение:** Конкретные варианты temporal paths нельзя автоматически переносить на одновременную bitemporal as-of достижимость.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SAND.2026.5` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-261
+**[Broadcasts in Anonymous, Dynamic Networks: A New Algorithm and Impossibility Results](https://doi.org/10.4230/LIPIcs.SAND.2026.6)** (2026)
+
+Ограниченная память и рандомизированная рассылка в анонимных динамических сетях, а также невозможности других вариантов.
+
+**Ограничение:** Синхронная распределённая сеть с 1-interval-connectivity не равна динамическому индексу достижимости.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SAND.2026.6` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-262
+**[Extending Ghouila-Houri’s Characterization of Comparability Graphs to Temporal Graphs](https://doi.org/10.4230/LIPIcs.SAND.2026.7)** (2026)
+
+Структурная характеристика сравнимости при времени; связь между статической транзитивной ориентацией и временными путями.
+
+**Ограничение:** Temporal comparability не доказывает наличие малых canonical reachability labels для произвольных DAG.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SAND.2026.7` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-263
+**[FO and MSO Model Checking on Temporal Graphs](https://doi.org/10.4230/LIPIcs.SAND.2026.9)** (2026)
+
+Параметры vertex/tree interval membership width и метатеоремы FO/MSO для временных графов.
+
+**Ограничение:** Model-checking при ограниченных параметрах не даёт универсальной линейной сложности произвольного GraphRAG.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SAND.2026.9` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-264
+**[Asymptotic Subspace Consensus in Dynamic Networks](https://doi.org/10.4230/LIPIcs.SAND.2026.10)** (2026)
+
+Характеризация достижимости консенсуса по подпространствам при ослабленных предположениях о динамической сети.
+
+**Ограничение:** Асимптотическая сходимость процесса не является гарантией консистентной и авторизованной памяти агента.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SAND.2026.10` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-265
+**[Robust Temporal Cut](https://doi.org/10.4230/LIPIcs.SAND.2026.14)** (2026)
+
+Робастная временная s-z отсечка при противнике, который может ограниченно менять временные метки рёбер.
+
+**Ограничение:** Это задача оптимизации удаления временных рёбер, не криптографическое доказательство отсутствия пути.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SAND.2026.14` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-266
+**[Designing Sparse Temporal Graphs Satisfying Connectivity Requirements](https://doi.org/10.4230/LIPIcs.SAND.2026.15)** (2026)
+
+Конструирование разреженных временных графов с заданной матрицей запросов достижимости, связь с DFVS.
+
+**Ограничение:** Минимальное число временных рёбер не измеряет стоимость динамического обслуживания или исторических снимков.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SAND.2026.15` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-267
+**[On Sufficient Conditions for Short Journeys in Temporal Graphs](https://doi.org/10.4230/LIPIcs.SAND.2026.16)** (2026)
+
+Условия существования коротких journeys во временных сетях; структурные предпосылки для ограниченного temporal routing.
+
+**Ограничение:** Гарантии относятся к определению временного пути и сильным структурным условиям; не общий DAG lookup.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SAND.2026.16` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-268
+**[Label Correcting Algorithms for the Multiobjective Temporal Shortest Path Problem](https://doi.org/10.4230/LIPIcs.SAND.2026.17)** (2026)
+
+Алгоритмы меточной коррекции для недоминируемых временных путей без стандартных условий монотонности.
+
+**Ограничение:** Достижимость и multiobjective shortest-path — разные типы запросов; нулевая длительность создаёт циклы.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SAND.2026.17` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-269
+**[Minimize the Sum of Waiting Times in Periodic Temporal Trees](https://doi.org/10.4230/LIPIcs.SAND.2026.19)** (2026)
+
+Оптимизация суммарного ожидания в периодических временных деревьях при расписании появления рёбер.
+
+**Ограничение:** Периодическое дерево не эквивалентно произвольному изменяемому графу знаний.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SAND.2026.19` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-270
+**[Maximizing Reachability via Shifting of Temporal Paths](https://doi.org/10.4230/LIPIcs.ESA.2026.122)** (2026)
+
+FPT/XP и границы сложности повышения temporal reachability разрешёнными сдвигами временных меток путей.
+
+**Ограничение:** Доказательство относится к ограниченному числу paths/budget; не обновление arbitrary DAG за O(1).
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.122` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-271
+**[Dynamic Planar Graph Isomorphism Is in DynFO](https://doi.org/10.4230/LIPIcs.LICS.2026.36)** (2026)
+
+Динамическая логическая сложность изоморфизма плоских графов при изменениях входной структуры.
+
+**Ограничение:** DynFO характеризует логическую поддерживаемость, а не физические SSD page writes или динамический canonical KG.
+
+**Идентичность:** `doi:10.4230/LIPIcs.LICS.2026.36` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-280
+**[Dynamic graph representation learning with disentangled information bottleneck](https://doi.org/10.1016/j.neunet.2025.108056)** (2026)
+
+Representation learning временных графов с разложением динамических и устойчивых признаков.
+
+**Ограничение:** Обученная модель эмбеддингов не является exact индексом и не заменяет доказательство reachability.
+
+**Идентичность:** `doi:10.1016/j.neunet.2025.108056` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
 
 ## graph-rag
 *GraphRAG, knowledge-graph retrieval, системное сравнение с RAG*
@@ -2538,6 +2746,58 @@ TG-RAG: многоуровневое временное представлени
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md](https://github.com/definitely-stable/Mathlab/blob/e34d725bb17e39e144d5d2d4b857bf205a574d59/docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) (model_overlap)
 
+### LIT-272
+**[IA-RAG: Interval-Algebra-Driven Temporal Reasoning for Dynamic Knowledge Retrieval](https://arxiv.org/abs/2606.06044)** (2026)
+
+Allen interval algebra, тематический лес и уточнение неполных временных границ для интервалов событий.
+
+**Ограничение:** Интервальная логика может различаться с timestamp-only GraphRAG; авторская QA-метрика не гарантирует truth/provenance.
+
+**Идентичность:** `arxiv:2606.06044` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-274
+**[T-GRAG: A Dynamic GraphRAG Framework for Resolving Temporal Conflicts and Redundancy in Knowledge Retrieval](https://arxiv.org/abs/2508.01680)** (2025)
+
+Temporal KG + декомпозиция временных запросов и поиск источника; Time-LongQA для текстов с меняющимися фактами.
+
+**Ограничение:** Нет гарантии, что LLM-ответ отражает глобально последний факт; авторские метрики требуют независимого сравнения.
+
+**Идентичность:** `arxiv:2508.01680` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-275
+**[Graph-Anchored Knowledge Indexing for Retrieval-Augmented Generation](https://arxiv.org/abs/2601.16462)** (2026)
+
+GraphAnchor инкрементально строит query-time граф знаний как рабочий индекс по ходу итеративного извлечения.
+
+**Ограничение:** Граф поиска на конкретный запрос — не долговечная bitemporal KB; performance не воспроизведён.
+
+**Идентичность:** `arxiv:2601.16462` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-276
+**[Can Knowledge-Graph-based Retrieval Augmented Generation Really Retrieve What You Need?](https://arxiv.org/abs/2510.16582)** (2025)
+
+GraphFlow: reward-guided flow matching для поиска разнообразных подграфов в текстово-богатых KG.
+
+**Ограничение:** Обучаемый retriever не даёт exact reachability oracles или гарантий полноты доказательств.
+
+**Идентичность:** `arxiv:2510.16582` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
 
 ## agent-memory
 *Графовая память агентов, темпоральность и эволюция знаний*
@@ -2723,6 +2983,32 @@ ACL 2026: накопительное состояние сущностей дл�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md](https://github.com/definitely-stable/Mathlab/blob/e34d725bb17e39e144d5d2d4b857bf205a574d59/docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) (model_overlap)
+
+### LIT-273
+**[DYNA : Dynamic Episodic Memory Networks for Augmenting Large Language Models with Temporal Knowledge Graphs in Continuous Learning](https://arxiv.org/abs/2606.15778)** (2026)
+
+Внешняя эпизодическая память на временном KG без переобучения LLM; random walks и centrality для retrieval.
+
+**Ограничение:** Ограниченные авторские задачи и результаты не свидетельствуют о гарантированном предотвращении forgetting.
+
+**Идентичность:** `arxiv:2606.15778` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-277
+**[ActMem: Bridging the Gap Between Memory Retrieval and Reasoning in LLM Agents](https://arxiv.org/abs/2603.00026)** (2026)
+
+Семантический и причинный граф памяти, контрфактическое рассуждение и ActMemEval для конфликтов между фактами.
+
+**Ограничение:** Извлечённые причинные связи — гипотезы LLM, не сертифицированные причинно-следственные доказательства.
+
+**Идентичность:** `arxiv:2603.00026` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
 
 
 ## graph-reasoning

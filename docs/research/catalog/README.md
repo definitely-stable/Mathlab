@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## IMPORT-007 — original 2025–2026 temporal and dynamic graph research
+
+[22 verified source metadata records, formal time-model distinctions and 2026 publication links](../RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) · [issue #197](https://github.com/definitely-stable/Mathlab/issues/197). LIT-259..280 extend **257→279** works with SAND 2026 / ESA 2026 / LICS 2026, point-vs-interval reachability, temporal cuts, query-time KG, agent memory and succinct graphs. Original proofs and benchmark scores not independently validated; no theorem novelty claimed.
+
 ## TKG-001 G0 — temporal provenance and 2026 dynamic KG originals
 
 [Formal model and proof audit](../TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) · [issue #190](https://github.com/definitely-stable/Mathlab/issues/190). Six unique canonical first-party metadata sources LIT-252..257 extend 250→256 works: PODS 2007 provenance semirings, 2026 SAGE incremental KG, FM 2026 dynamic reachability, EDBT 2026 provenance maintenance, TG-RAG 2025 and ACL 2026 temporal entity states. Original proofs and benchmarks not independently reproduced.

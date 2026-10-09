@@ -58,6 +58,29 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-007: source-verified temporal/dynamic graphs and graph RAG primary titles.
+    "doi:10.4230/LIPIcs.SAND.2026.4": "Families of Tractable Problems with Respect to Vertex-Interval-Membership Width and Its Generalisations",
+    "doi:10.4230/LIPIcs.SAND.2026.5": "Complexity Gaps Between Point and Interval Temporal Graphs for Some Reachability Problems",
+    "doi:10.4230/LIPIcs.SAND.2026.6": "Broadcasts in Anonymous, Dynamic Networks: A New Algorithm and Impossibility Results",
+    "doi:10.4230/LIPIcs.SAND.2026.7": "Extending Ghouila-Houri’s Characterization of Comparability Graphs to Temporal Graphs",
+    "doi:10.4230/LIPIcs.SAND.2026.9": "FO and MSO Model Checking on Temporal Graphs",
+    "doi:10.4230/LIPIcs.SAND.2026.10": "Asymptotic Subspace Consensus in Dynamic Networks",
+    "doi:10.4230/LIPIcs.SAND.2026.14": "Robust Temporal Cut",
+    "doi:10.4230/LIPIcs.SAND.2026.15": "Designing Sparse Temporal Graphs Satisfying Connectivity Requirements",
+    "doi:10.4230/LIPIcs.SAND.2026.16": "On Sufficient Conditions for Short Journeys in Temporal Graphs",
+    "doi:10.4230/LIPIcs.SAND.2026.17": "Label Correcting Algorithms for the Multiobjective Temporal Shortest Path Problem",
+    "doi:10.4230/LIPIcs.SAND.2026.19": "Minimize the Sum of Waiting Times in Periodic Temporal Trees",
+    "doi:10.4230/LIPIcs.ESA.2026.122": "Maximizing Reachability via Shifting of Temporal Paths",
+    "doi:10.4230/LIPIcs.LICS.2026.36": "Dynamic Planar Graph Isomorphism Is in DynFO",
+    "arxiv:2606.06044": "IA-RAG: Interval-Algebra-Driven Temporal Reasoning for Dynamic Knowledge Retrieval",
+    "arxiv:2606.15778": "DYNA : Dynamic Episodic Memory Networks for Augmenting Large Language Models with Temporal Knowledge Graphs in Continuous Learning",
+    "arxiv:2508.01680": "T-GRAG: A Dynamic GraphRAG Framework for Resolving Temporal Conflicts and Redundancy in Knowledge Retrieval",
+    "arxiv:2601.16462": "Graph-Anchored Knowledge Indexing for Retrieval-Augmented Generation",
+    "arxiv:2510.16582": "Can Knowledge-Graph-based Retrieval Augmented Generation Really Retrieve What You Need?",
+    "arxiv:2603.00026": "ActMem: Bridging the Gap Between Memory Retrieval and Reasoning in LLM Agents",
+    "doi:10.1007/978-981-96-0668-9_19": "Succinct Representations of Graphs",
+    "doi:10.1016/j.ic.2021.104862": "A practical succinct dynamic graph representation",
+    "doi:10.1016/j.neunet.2025.108056": "Dynamic graph representation learning with disentangled information bottleneck",
     # TKG-001: exact 2026 KG maintenance, provenance and original semiring baselines.
     "doi:10.1145/1265530.1265535": "Provenance semirings.",
     "doi:10.1177/22104968251412270": "Incremental Knowledge Graph Construction from Heterogeneous Data Sources",
@@ -105,7 +128,7 @@ SOURCE_TITLE_PINS = {
     "arxiv:2504.19413": "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory",
     "doi:10.18653/v1/2026.acl-long.252": "LogicPoison: Logical Attacks on Graph Retrieval-Augmented Generation",
     "doi:10.18653/v1/2026.acl-long.1738": "LegalGraphRAG: Multi-Agent Graph Retrieval-Augmented Generation for Reliable Legal Reasoning",
-    # INDEX-001 G2-B4-C3 published external-memory/succinct B-tree barriers.
+    # INDEX-001 G2-B4-C3 MFCS25 and 2025 succinct B-tree primary pins.
     "doi:10.4230/LIPIcs.MFCS.2025.87": "Lazy B-Trees",
     "doi:10.1007/s00224-025-10238-7": "Space-Efficient B Trees via Load-Balancing",
     # INDEX-001 G2-B4-C2 SIAM SODA 2026 primary title pin.

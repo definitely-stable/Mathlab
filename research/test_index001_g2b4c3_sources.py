@@ -11,8 +11,8 @@ class C3SourceTests(unittest.TestCase):
         data=json.loads(DATA.read_text(encoding="utf-8"))
         all_ident=[x["identity"].lower() for x in data["entries"]]
         self.assertEqual(len(all_ident),len(set(all_ident)))
-        desired={"LIT-259":"doi:10.4230/LIPIcs.MFCS.2025.87",
-                 "LIT-260":"doi:10.1007/s00224-025-10238-7"}
+        desired={"LIT-281":"doi:10.4230/LIPIcs.MFCS.2025.87",
+                 "LIT-282":"doi:10.1007/s00224-025-10238-7"}
         for key,identity in desired.items():
             group=[x for x in data["entries"] if x["id"]==key]
             self.assertEqual(len(group),1)
