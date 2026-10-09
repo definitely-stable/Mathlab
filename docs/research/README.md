@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## HYP-105 G5-C2 — exact trade density and random-labeling obstruction (2026-10-09)
+
+[Conditional classical alteration frontier, exact finite W32 trade spectrum, proved expected six-trade Omega(m^4) random-label barrier](HYP-105-G5-C2-DENSITY-GATE.md) · [code](../../research/hyp105_g5c2_density.py) · [independent tests](../../research/test_hyp105_g5c2_density.py) · [merged PR #116](https://github.com/definitely-stable/Mathlab/pull/116) · [GitHub Research #989 SUCCESS](https://github.com/definitely-stable/Mathlab/actions/runs/37893926865). Correctly separates *conditional sufficient* trade count thresholds b4<52/15, b6<4 for GQ-style N~m^(8/3) alteration from *proved* expectation lower E_random_label[T6]=Omega(m^4). Exact m12 GQ 45-column subfamilies yield 19-20 independently verified ASET columns, with labels altering T4/T6 despite factor graph girth8; no finite exponent claim. **DERIVED_CLASSICAL / MODEL_SCOPED_NO_GO / NO_NEW_ASET_BOUND / NO_RUST.** G5-C [#106](https://github.com/definitely-stable/Mathlab/issues/106), parent [#95](https://github.com/definitely-stable/Mathlab/issues/95) remain OPEN. Next G5-C3: nonuniform/deterministic coordinate label designs or bounded STOP of random-first-moment track.
+
+
 ## UCT-005 G1 — первоисточники memory checking и vector commitments (2026-10-09)
 
 [**Проверка условий классических теорем и границ переноса на UCT**](UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) · [issue #113](https://github.com/definitely-stable/Mathlab/issues/113). **LIT-156..159**, всего **159** отдельных работ (журнальные/препринт версии не дублируются). Источники устанавливают существующие trade-offs доверенной памяти/удалённых обращений, covert soundness и динамических доказательств. **STOP** общая новизна таких комбинаций; строгая модель центральной теоремы и новая совместная граница пока **OPEN**. Проверки машинного каталога не означают независимого воспроизведения опубликованных доказательств.
