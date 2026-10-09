@@ -617,7 +617,7 @@ Arge–Vitter дают оптимальное внешнепамятное де�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/492d4bbd0d3574e2204f401213453a6c26ad261e/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
 
 ### LIT-178
 **[The Limits of Buffering: A Tight Lower Bound for Dynamic Membership in the External Memory Model](https://doi.org/10.1137/110842211)** (2013)
@@ -630,7 +630,7 @@ Verbin–Zhang устанавливают пороговый компромис�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/492d4bbd0d3574e2204f401213453a6c26ad261e/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
 
 ### LIT-182
 **[Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space](https://doi.org/10.1145/3654978)** (2024)
@@ -643,7 +643,7 @@ Moose/Smoose предлагают гибкие LSM-настройки числа
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/492d4bbd0d3574e2204f401213453a6c26ad261e/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
 
 
 ## incremental-computation
@@ -1393,7 +1393,7 @@ Li–Liang–Yu–Zhou доказывают нижние оценки cell-probe
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/492d4bbd0d3574e2204f401213453a6c26ad261e/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
 
 ### LIT-180
 **[Practical Adaptive Dynamic Bitvectors](https://doi.org/10.1002/spe.3433)** (2025)
@@ -1406,7 +1406,7 @@ Navarro изучает практические адаптивные bitvectors 
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/492d4bbd0d3574e2204f401213453a6c26ad261e/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
 
 ### LIT-181
 **[Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space](https://arxiv.org/abs/2608.06066)** (2026)
@@ -1419,7 +1419,7 @@ Blelloch и соавторы дают близкое к энтропийному
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/492d4bbd0d3574e2204f401213453a6c26ad261e/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
 
 
 ## online-optimization
