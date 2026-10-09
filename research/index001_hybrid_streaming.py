@@ -399,8 +399,10 @@ def mode_policy_dp(initial,ops,B,initial_mode="B",alpha=4,beta=2,
     """Finite offline mode-selection oracle, FULL CRC lookup equal for modes.
 
     All images materialized by the oracle: this is *not* the streaming updater.
-    Query Q is all pages read during full checksum verification, rather than a
-    misleading prefix/unchecked read comparison.
+    Q=D/B represents a *single-pass abstract full-CRC-and-decode scanner*,
+    possible with B-sized sequential page reads and fixed counters. The actual
+    test helpers call check() followed by scan() and can make more read calls;
+    DO NOT quote Q as observed tempfile reads or hardware I/O.
     """
     if Rcap is None:
         Rcap=2*B+REGISTER_BYTES
