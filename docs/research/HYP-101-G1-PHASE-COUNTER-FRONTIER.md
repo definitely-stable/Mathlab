@@ -46,7 +46,25 @@ For a non-b-aligned insertion the canonical leaf payloads may be reshuffled acro
 
 Even for b-aligned whole-chunk insertion, the content of old suffix chunks can remain intact while their new canonical indices differ. A content-only cache with signatures of the form \`digest(chunk_payload)\` cannot, by itself, substitute for the exact BLAKE3 leaf inputs because the compression *also includes the chunk counter*. It is **not** sound to accept such a substitute without recomputation or a proved transformation of the counter-dependent compression.
 
-## G1-C: source-to-claim comparator matrix (new literature)
+## G1-C: exact expected strict-cache misses under IID uniform bytes
+
+A separate **average-case / source-distribution** statement is possible, without a cryptographic idealization.
+
+Let S contain m>=2 full b-byte chunks, with each byte independently uniform over an alphabet of size q>=2. Fix any one-byte value c and insert it **at the start** of S. Then the new message has m full canonical chunks plus one final one-byte chunk. In the above position-indexed leaf-input cache model:
+
+    E[miss_b(S, c || S)] = (m+1) - m*q^(-b).
+
+Moreover, the probability that **all m existing full same-index leaf inputs are invalidated** is at least:
+
+    Pr[miss_b(S,c||S)=m+1] >= max(0,1 - m*q^(-b)).
+
+**Proof.** For index j=0, its new full b-byte chunk equals the old one iff all b original bytes equal c. This event has probability q^-b. For each 1<=j<m, the new full chunk is the b-byte window shifted backward by exactly one byte; equality with the old window iff the b+1 bytes spanning those adjacent windows are identical. Under IID uniform symbols, that has probability q^-b. The fresh final one-byte index j=m is always missing. Linearity of expectation therefore gives one mandatory miss plus m*(1-q^-b) expected misses. The probability at least one old full index remains a cache hit is at most m*q^-b by union bound; complement gives the stated inequality. Independence **between individual hit events is not assumed**. QED.
+
+For standard b=1024, q=256, the per-position old-leaf hit probability is 256^-1024 under this *artificially uniform independent-byte distribution*. This quantifies why a strict old-leaf CV cache can be weak on high-entropy data; it is **not** a realistic workload assumption, not an unrestricted lower bound on compression calls, and not a theorem about BLAKE3 collision probabilities.
+
+The result is elementary expectation + union bound, so **NOT scientific novelty**. Its utility is a falsification/calibration gate. Independent exhaustive enumeration of tiny finite alphabets in \`research/test_hyp101_phase_counter.py\` compares the exact rational expectation with this formula.
+
+## G1-D: source-to-claim comparator matrix (new literature)
 
 | Source | Actual established result | Cannot transfer as exact BLAKE3 theorem |
 | --- | --- | --- |
