@@ -109,6 +109,9 @@ class PluckerShiftTests(unittest.TestCase):
         model=plucker_shift_model(2,SCHEMES[0])
         result=exact_coincident_c6(model)
         self.assertEqual(result["left_physical_C6_cycles_examined"],121320)
+        self.assertEqual(result["exact_coincident_C6_factor_matchings_D"],9190)
+        self.assertEqual(model["plucker_shift"],29)
+        self.assertEqual(model["actual_incidence_pair_equalities"],1)
         for witness in result["witness_column_ids_in_canonical_left_cycle_order"]:
             self.assertEqual(len(set(witness)),6)
             coord=[0]*model["m"]
@@ -120,6 +123,26 @@ class PluckerShiftTests(unittest.TestCase):
                     coord[model["a"]+x] += 1 if j%2==0 else -1
             self.assertTrue(all(v%5==0 for v in coord))
         self.assertFalse(result["new_ASET_exponent_proved"])
+
+    def test_exact_Gf4_plucker_controls_falsify_incidence_as_risk_proxy(self):
+        frob=plucker_shift_model(2,"plucker-frobenius-mincollision")
+        zero=plucker_shift_model(2,"plucker-lex-zero")
+        self.assertEqual((frob["plucker_shift"],
+                          frob["actual_incidence_pair_equalities"]),(15,1))
+        self.assertEqual((zero["plucker_shift"],
+                          zero["actual_incidence_pair_equalities"]),(0,9))
+        frob_D=exact_coincident_c6(frob)[
+            "exact_coincident_C6_factor_matchings_D"]
+        zero_D=exact_coincident_c6(zero)[
+            "exact_coincident_C6_factor_matchings_D"]
+        self.assertEqual(frob_D,9109)
+        self.assertEqual(zero_D,9103)
+        # First scheme proved (min E=1, D=9190) in the GF4 witness test:
+        # fewer aligned factor incidences can have MORE forbidden cycles.
+        self.assertLess(1,zero["actual_incidence_pair_equalities"])
+        self.assertLess(zero_D,9190)
+        self.assertFalse(zero["all_h_R3_upper_bound_proved"])
+        self.assertFalse(frob["all_h_R2_bound_proved"])
 
     def test_fail_closed_power_invalid_scheme(self):
         with self.assertRaises(ValueError):
