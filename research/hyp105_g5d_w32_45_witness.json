@@ -1,0 +1,650 @@
+{
+  "schema": "mathlab.hyp105.gf5.aset-w32-checksum.v1",
+  "field": "GF(5)",
+  "dimension": 12,
+  "support_weight": 4,
+  "affine_checksum": 4,
+  "construction": "symplectic W(3,2) point/line incidence; 45 distinct 2+2 supports",
+  "subset_cardinalities": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "expected_subset_sum_signatures": 15226,
+  "seed": 20261009,
+  "scientific_novelty_claim": false,
+  "new_asymptotic_exponent_claim": false,
+  "columns": [
+    {
+      "support": [
+        0,
+        1,
+        6,
+        7
+      ],
+      "coefficients": [
+        3,
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "support": [
+        2,
+        3,
+        6,
+        7
+      ],
+      "coefficients": [
+        4,
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "support": [
+        2,
+        4,
+        6,
+        7
+      ],
+      "coefficients": [
+        4,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "support": [
+        0,
+        1,
+        6,
+        8
+      ],
+      "coefficients": [
+        1,
+        3,
+        1,
+        4
+      ]
+    },
+    {
+      "support": [
+        0,
+        2,
+        6,
+        8
+      ],
+      "coefficients": [
+        3,
+        4,
+        3,
+        4
+      ]
+    },
+    {
+      "support": [
+        0,
+        3,
+        6,
+        8
+      ],
+      "coefficients": [
+        4,
+        3,
+        1,
+        1
+      ]
+    },
+    {
+      "support": [
+        0,
+        1,
+        6,
+        9
+      ],
+      "coefficients": [
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "support": [
+        1,
+        4,
+        6,
+        9
+      ],
+      "coefficients": [
+        1,
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "support": [
+        1,
+        5,
+        6,
+        9
+      ],
+      "coefficients": [
+        4,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "support": [
+        0,
+        2,
+        6,
+        10
+      ],
+      "coefficients": [
+        4,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "support": [
+        0,
+        4,
+        6,
+        10
+      ],
+      "coefficients": [
+        1,
+        3,
+        4,
+        1
+      ]
+    },
+    {
+      "support": [
+        1,
+        2,
+        6,
+        10
+      ],
+      "coefficients": [
+        1,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "support": [
+        0,
+        2,
+        6,
+        11
+      ],
+      "coefficients": [
+        2,
+        3,
+        3,
+        1
+      ]
+    },
+    {
+      "support": [
+        0,
+        5,
+        6,
+        11
+      ],
+      "coefficients": [
+        2,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "support": [
+        1,
+        3,
+        6,
+        11
+      ],
+      "coefficients": [
+        3,
+        4,
+        4,
+        3
+      ]
+    },
+    {
+      "support": [
+        0,
+        3,
+        7,
+        8
+      ],
+      "coefficients": [
+        1,
+        2,
+        4,
+        2
+      ]
+    },
+    {
+      "support": [
+        2,
+        5,
+        7,
+        8
+      ],
+      "coefficients": [
+        3,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "support": [
+        4,
+        5,
+        7,
+        8
+      ],
+      "coefficients": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "support": [
+        0,
+        3,
+        7,
+        9
+      ],
+      "coefficients": [
+        4,
+        4,
+        4,
+        2
+      ]
+    },
+    {
+      "support": [
+        3,
+        4,
+        7,
+        9
+      ],
+      "coefficients": [
+        2,
+        1,
+        3,
+        3
+      ]
+    },
+    {
+      "support": [
+        3,
+        5,
+        7,
+        9
+      ],
+      "coefficients": [
+        2,
+        2,
+        3,
+        2
+      ]
+    },
+    {
+      "support": [
+        0,
+        4,
+        7,
+        10
+      ],
+      "coefficients": [
+        3,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "support": [
+        2,
+        3,
+        7,
+        10
+      ],
+      "coefficients": [
+        2,
+        4,
+        1,
+        2
+      ]
+    },
+    {
+      "support": [
+        3,
+        5,
+        7,
+        10
+      ],
+      "coefficients": [
+        1,
+        4,
+        3,
+        1
+      ]
+    },
+    {
+      "support": [
+        0,
+        4,
+        7,
+        11
+      ],
+      "coefficients": [
+        3,
+        2,
+        3,
+        1
+      ]
+    },
+    {
+      "support": [
+        1,
+        4,
+        7,
+        11
+      ],
+      "coefficients": [
+        3,
+        4,
+        3,
+        4
+      ]
+    },
+    {
+      "support": [
+        2,
+        5,
+        7,
+        11
+      ],
+      "coefficients": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "support": [
+        0,
+        5,
+        8,
+        9
+      ],
+      "coefficients": [
+        4,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "support": [
+        2,
+        3,
+        8,
+        9
+      ],
+      "coefficients": [
+        2,
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "support": [
+        4,
+        5,
+        8,
+        9
+      ],
+      "coefficients": [
+        3,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "support": [
+        0,
+        5,
+        8,
+        10
+      ],
+      "coefficients": [
+        2,
+        4,
+        1,
+        2
+      ]
+    },
+    {
+      "support": [
+        1,
+        4,
+        8,
+        10
+      ],
+      "coefficients": [
+        4,
+        3,
+        4,
+        3
+      ]
+    },
+    {
+      "support": [
+        3,
+        4,
+        8,
+        10
+      ],
+      "coefficients": [
+        1,
+        3,
+        1,
+        4
+      ]
+    },
+    {
+      "support": [
+        1,
+        2,
+        8,
+        11
+      ],
+      "coefficients": [
+        1,
+        2,
+        4,
+        2
+      ]
+    },
+    {
+      "support": [
+        2,
+        4,
+        8,
+        11
+      ],
+      "coefficients": [
+        1,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "support": [
+        3,
+        4,
+        8,
+        11
+      ],
+      "coefficients": [
+        3,
+        4,
+        3,
+        4
+      ]
+    },
+    {
+      "support": [
+        1,
+        2,
+        9,
+        10
+      ],
+      "coefficients": [
+        2,
+        4,
+        1,
+        2
+      ]
+    },
+    {
+      "support": [
+        1,
+        5,
+        9,
+        10
+      ],
+      "coefficients": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "support": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "coefficients": [
+        1,
+        4,
+        1,
+        3
+      ]
+    },
+    {
+      "support": [
+        1,
+        3,
+        9,
+        11
+      ],
+      "coefficients": [
+        1,
+        3,
+        2,
+        3
+      ]
+    },
+    {
+      "support": [
+        2,
+        4,
+        9,
+        11
+      ],
+      "coefficients": [
+        2,
+        4,
+        2,
+        1
+      ]
+    },
+    {
+      "support": [
+        2,
+        5,
+        9,
+        11
+      ],
+      "coefficients": [
+        2,
+        2,
+        4,
+        1
+      ]
+    },
+    {
+      "support": [
+        1,
+        3,
+        10,
+        11
+      ],
+      "coefficients": [
+        1,
+        3,
+        1,
+        4
+      ]
+    },
+    {
+      "support": [
+        1,
+        5,
+        10,
+        11
+      ],
+      "coefficients": [
+        4,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "support": [
+        3,
+        5,
+        10,
+        11
+      ],
+      "coefficients": [
+        4,
+        2,
+        2,
+        1
+      ]
+    }
+  ]
+}
