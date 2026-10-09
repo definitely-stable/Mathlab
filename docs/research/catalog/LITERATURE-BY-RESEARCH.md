@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**155** работ сопоставлены с **38** внутренними исследованиями.
+**159** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -311,6 +311,10 @@
 - [LIT-153](LITERATURE.md#lit-153) — Additive codes arising from hypergraphs (2026; primary_abstract_checked)
 - [LIT-154](LITERATURE.md#lit-154) — Satisfiability Coding Lemma (1999; publisher_full_text_spotchecked)
 - [LIT-155](LITERATURE.md#lit-155) — CNF Encodings of Parity (2022; publisher_full_text_spotchecked)
+- [LIT-156](LITERATURE.md#lit-156) — Checking the Correctness of Memories (1991; publisher_abstract_checked)
+- [LIT-157](LITERATURE.md#lit-157) — Memory Checking Requires Logarithmic Overhead (2024; publisher_full_text_spotchecked)
+- [LIT-158](LITERATURE.md#lit-158) — The Complexity of Memory Checking with Covert Security (2025; publisher_abstract_checked)
+- [LIT-159](LITERATURE.md#lit-159) — Vector Commitments with Efficient Updates (2023; publisher_full_text_spotchecked)
 
 ## ML-005
 
@@ -383,6 +387,10 @@
 - [LIT-150](LITERATURE.md#lit-150) — Sound 3-Query PCPPs Are Long (2009; publisher_abstract_checked)
 - [LIT-154](LITERATURE.md#lit-154) — Satisfiability Coding Lemma (1999; publisher_full_text_spotchecked)
 - [LIT-155](LITERATURE.md#lit-155) — CNF Encodings of Parity (2022; publisher_full_text_spotchecked)
+- [LIT-156](LITERATURE.md#lit-156) — Checking the Correctness of Memories (1991; publisher_abstract_checked)
+- [LIT-157](LITERATURE.md#lit-157) — Memory Checking Requires Logarithmic Overhead (2024; publisher_full_text_spotchecked)
+- [LIT-158](LITERATURE.md#lit-158) — The Complexity of Memory Checking with Covert Security (2025; publisher_abstract_checked)
+- [LIT-159](LITERATURE.md#lit-159) — Vector Commitments with Efficient Updates (2023; publisher_full_text_spotchecked)
 
 ## ML-007
 

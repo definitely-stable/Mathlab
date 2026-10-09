@@ -4495,6 +4495,139 @@
       ],
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md",
+          "kind": "model_overlap",
+          "source_sha": "536fd3aab5aedcc89ca80c24333162991e51ec4b"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "id": "LIT-156",
+      "title": "Checking the Correctness of Memories",
+      "year": 1991,
+      "identity": "doi:10.1109/SFCS.1991.185352",
+      "alternate_identities": [
+        "doi:10.1007/BF01185212"
+      ],
+      "primary_url": "https://doi.org/10.1109/SFCS.1991.185352",
+      "authors": [
+        "Manuel Blum",
+        "William S. Evans",
+        "Peter Gemmell",
+        "Sampath Kannan",
+        "Moni Naor"
+      ],
+      "verification": "publisher_abstract_checked",
+      "summary_ru": "FOCS 1991 и журнальная версия Algorithmica 1994 уже рассматривают онлайн-чтение/запись недоверенной памяти при малом надежном локальном состоянии, вероятностную проверку, информационно-теоретические ограничения надежной памяти и time-space компромиссы.",
+      "limits_ru": "Полные гипотезы каждой теоремы первого источника не проверены независимо; утверждение log n не переносится безусловно на все коды/запросы UCT. Оригинальная конференционная статья и журнальное расширение — одна работа."
+    },
+    {
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md",
+          "kind": "model_overlap",
+          "source_sha": "536fd3aab5aedcc89ca80c24333162991e51ec4b"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "id": "LIT-157",
+      "title": "Memory Checking Requires Logarithmic Overhead",
+      "year": 2024,
+      "identity": "doi:10.1145/3618260.3649686",
+      "alternate_identities": [
+        "doi:10.1145/3707202"
+      ],
+      "primary_url": "https://doi.org/10.1145/3618260.3649686",
+      "authors": [
+        "Elette Boyle",
+        "Ilan Komargodski",
+        "Neekon Vafa"
+      ],
+      "verification": "publisher_full_text_spotchecked",
+      "summary_ru": "STOC 2024: p >= n/(log n)^{O(q)} для memory checking c надежной памятью p и удаленными пробами q. В отдельном несимметричном режиме p >= n/(q_r q_w log n)^{O(q_r)}, что исключает константные чтения при субполиномиальных записях и малом доверенном состоянии.",
+      "limits_ru": "Рассматриваются удаленные пробы для логических RAM-операций, а не число реально измененных координат; полнота 2/3, soundness обратно-полиномиальная, не covert. Теорема 5 оригинального PDF изучена по постановке и вводным формулировкам, полный источник доказательства независимо не воспроизведен. JACM 2025 — версия той же статьи."
+    },
+    {
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md",
+          "kind": "model_overlap",
+          "source_sha": "536fd3aab5aedcc89ca80c24333162991e51ec4b"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "id": "LIT-158",
+      "title": "The Complexity of Memory Checking with Covert Security",
+      "year": 2025,
+      "identity": "doi:10.1007/978-3-031-91092-0_11",
+      "alternate_identities": [
+        "publisher:iacr:2025-358"
+      ],
+      "primary_url": "https://doi.org/10.1007/978-3-031-91092-0_11",
+      "authors": [
+        "Elette Boyle",
+        "Ilan Komargodski",
+        "Neekon Vafa"
+      ],
+      "verification": "publisher_abstract_checked",
+      "summary_ru": "EUROCRYPT 2025 продолжает memory checking при covert-безопасности: нарушитель может рискнуть обнаружением с постоянной вероятностью, но при read-only reads сохраняется известное нижнее ограничение порядка log n/loglog n для допустимых параметров.",
+      "limits_ru": "Read-only reads запрещает менять удаленное и локальное состояние во время логического чтения; требуется точно учитывать физические размер и слово. Подробный полный PDF и доказательство Theorem 3 независимо не проверены, в этой записи проверены издательский и IACR abstracts."
+    },
+    {
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md",
+          "kind": "model_overlap",
+          "source_sha": "536fd3aab5aedcc89ca80c24333162991e51ec4b"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "id": "LIT-159",
+      "title": "Vector Commitments with Efficient Updates",
+      "year": 2023,
+      "identity": "doi:10.4230/LIPIcs.AFT.2023.29",
+      "alternate_identities": [
+        "arxiv:2307.04085"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.AFT.2023.29",
+      "authors": [
+        "Ertem Nusret Tas",
+        "Dan Boneh"
+      ],
+      "verification": "publisher_full_text_spotchecked",
+      "summary_ru": "AFT 2023, Definition 4 и Theorem 5: для динамических proof-binding vector commitments если обновление отдельного доказательства имеет стоимость O(k^{1-nu}), вспомогательные обновляющие данные требуют Omega(k^nu); конструкции достигают близкого асимптотического компромисса.",
+      "limits_ru": "Не переносить на произвольные position-binding сертификаты или иные параметры угрозы. Публичные изменения элементов/индексов НЕ входят в размер U; полная сетевая стоимость больше. Доказательство теоремы вынесено в полную версию и здесь не воспроизведено."
     }
   ]
 }

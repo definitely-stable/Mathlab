@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **155** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **159** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -19,7 +19,7 @@
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 4 |
 | [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 11 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 12 |
-| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 11 |
+| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 15 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
 | [Алгебраические схемы, математика и нижние границы](#algebraic-complexity) | 4 |
 | [Edit distance, строки и тонкая сложность](#fine-grained-algorithms) | 2 |
@@ -1818,6 +1818,58 @@ Ben-Sasson, Harsha, Lachish и Matsliah исследуют компромисс 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-004-G2-C-SOURCE-NOVELTY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/UCT-004-G2-C-SOURCE-NOVELTY-AUDIT.md) (model_overlap)
+
+### LIT-156
+**[Checking the Correctness of Memories](https://doi.org/10.1109/SFCS.1991.185352)** (1991)
+
+FOCS 1991 и журнальная версия Algorithmica 1994 уже рассматривают онлайн-чтение/запись недоверенной памяти при малом надежном локальном состоянии, вероятностную проверку, информационно-теоретические ограничения надежной памяти и time-space компромиссы.
+
+**Ограничение:** Полные гипотезы каждой теоремы первого источника не проверены независимо; утверждение log n не переносится безусловно на все коды/запросы UCT. Оригинальная конференционная статья и журнальное расширение — одна работа.
+
+**Идентичность:** `doi:10.1109/SFCS.1991.185352` · **Также:** doi:10.1007/BF01185212 · **Авторы:** Manuel Blum, William S. Evans, Peter Gemmell, Sampath Kannan, Moni Naor · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/536fd3aab5aedcc89ca80c24333162991e51ec4b/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
+
+### LIT-157
+**[Memory Checking Requires Logarithmic Overhead](https://doi.org/10.1145/3618260.3649686)** (2024)
+
+STOC 2024: p >= n/(log n)^{O(q)} для memory checking c надежной памятью p и удаленными пробами q. В отдельном несимметричном режиме p >= n/(q_r q_w log n)^{O(q_r)}, что исключает константные чтения при субполиномиальных записях и малом доверенном состоянии.
+
+**Ограничение:** Рассматриваются удаленные пробы для логических RAM-операций, а не число реально измененных координат; полнота 2/3, soundness обратно-полиномиальная, не covert. Теорема 5 оригинального PDF изучена по постановке и вводным формулировкам, полный источник доказательства независимо не воспроизведен. JACM 2025 — версия той же статьи.
+
+**Идентичность:** `doi:10.1145/3618260.3649686` · **Также:** doi:10.1145/3707202 · **Авторы:** Elette Boyle, Ilan Komargodski, Neekon Vafa · **Проверка:** `publisher_full_text_spotchecked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/536fd3aab5aedcc89ca80c24333162991e51ec4b/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
+
+### LIT-158
+**[The Complexity of Memory Checking with Covert Security](https://doi.org/10.1007/978-3-031-91092-0_11)** (2025)
+
+EUROCRYPT 2025 продолжает memory checking при covert-безопасности: нарушитель может рискнуть обнаружением с постоянной вероятностью, но при read-only reads сохраняется известное нижнее ограничение порядка log n/loglog n для допустимых параметров.
+
+**Ограничение:** Read-only reads запрещает менять удаленное и локальное состояние во время логического чтения; требуется точно учитывать физические размер и слово. Подробный полный PDF и доказательство Theorem 3 независимо не проверены, в этой записи проверены издательский и IACR abstracts.
+
+**Идентичность:** `doi:10.1007/978-3-031-91092-0_11` · **Также:** publisher:iacr:2025-358 · **Авторы:** Elette Boyle, Ilan Komargodski, Neekon Vafa · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/536fd3aab5aedcc89ca80c24333162991e51ec4b/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
+
+### LIT-159
+**[Vector Commitments with Efficient Updates](https://doi.org/10.4230/LIPIcs.AFT.2023.29)** (2023)
+
+AFT 2023, Definition 4 и Theorem 5: для динамических proof-binding vector commitments если обновление отдельного доказательства имеет стоимость O(k^{1-nu}), вспомогательные обновляющие данные требуют Omega(k^nu); конструкции достигают близкого асимптотического компромисса.
+
+**Ограничение:** Не переносить на произвольные position-binding сертификаты или иные параметры угрозы. Публичные изменения элементов/индексов НЕ входят в размер U; полная сетевая стоимость больше. Доказательство теоремы вынесено в полную версию и здесь не воспроизведено.
+
+**Идентичность:** `doi:10.4230/LIPIcs.AFT.2023.29` · **Также:** arxiv:2307.04085 · **Авторы:** Ertem Nusret Tas, Dan Boneh · **Проверка:** `publisher_full_text_spotchecked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/536fd3aab5aedcc89ca80c24333162991e51ec4b/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
 
 
 ## proof-complexity

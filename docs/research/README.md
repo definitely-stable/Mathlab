@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## UCT-005 G1 — первоисточники memory checking и vector commitments (2026-10-09)
+
+[**Проверка условий классических теорем и границ переноса на UCT**](UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) · [issue #113](https://github.com/definitely-stable/Mathlab/issues/113). **LIT-156..159**, всего **159** отдельных работ (журнальные/препринт версии не дублируются). Источники устанавливают существующие trade-offs доверенной памяти/удалённых обращений, covert soundness и динамических доказательств. **STOP** общая новизна таких комбинаций; строгая модель центральной теоремы и новая совместная граница пока **OPEN**. Проверки машинного каталога не означают независимого воспроизведения опубликованных доказательств.
+
 ## ROOT RESEARCH OBJECTIVE — UCT-005 (2026-10-09)
 
 **[UCT-005 fundamental-root theorem program and typed research tree](UCT-005-ROOT-THEOREM-PROGRAM.md)** · [root issue #105](https://github.com/definitely-stable/Mathlab/issues/105). **OPEN / THEOREM NOT PROVED / NOVELTY NOT ESTABLISHED.** All earlier LENT/HYP/TOM/UCT work is classified as a proven foundation, proof ingredient, special case, adversarial countermodel or explicitly unreduced application; never invent theorem implications between different models. The target is ONE new, strictly nonfactorizing result for a fully priced online dynamic/verification task. Four urgent missing source-level barriers: online memory checking (1991), tight memory checking (2024), covert-secure checker (2025), and dynamic vector-commitment proof-refresh tradeoffs (2023). The historical UCT-002 capacity theorem is classical and **is not** the new root theorem.
