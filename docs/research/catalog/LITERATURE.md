@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **207** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **210** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -16,7 +16,7 @@
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
 | [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 11 |
-| [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 9 |
+| [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
 | [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 19 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
@@ -1661,6 +1661,45 @@ Navarro доказал специальную worst-case оптимальнос�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-209
+**[Prior-Independent and Subgame Optimal Online Algorithms](https://doi.org/10.4230/LIPIcs.ITCS.2026.75)** (2026)
+
+ITCS 2026: prior-independent и subgame-optimal критерии для онлайн-алгоритмов; конечногоризонтный ski-rental служит эталоном для проектирования стратегий с неизвестным будущим и сильным противником.
+
+**Ограничение:** Выводы относятся к иным критериям и игровым моделям; нельзя переносить конкурентные отношения на WAL/checkpoint без совпадения времени раскрытия r_t и ресурсного J.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ITCS.2026.75` · **Авторы:** Jason Hartline, Aleck Johnsen, Anant Shah · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md](https://github.com/definitely-stable/Mathlab/blob/5c2cb67689a6821955b58f6358b7914679d090d3/docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md) (model_overlap)
+
+### LIT-210
+**[Robust and Consistent Ski Rental with Distributional Advice](https://arxiv.org/abs/2603.29233)** (2026)
+
+ICML 2026, PMLR 306: алгоритмы детерминированного и рандомизированного ski-rental c distributional advice, робастностью при ошибках прогноза и оптимизацией порогов покупки.
+
+**Ограничение:** Алгоритмы требуют явной модели вероятностных предсказаний, отсутствующей в G2-B3-B; PMLR 2026 и arXiv относятся к одной работе и учтены одной идентичностью.
+
+**Идентичность:** `arxiv:2603.29233` · **Также:** publisher:pmlr:v306:kim26l · **Авторы:** Jihwan Kim, Chenglin Fan · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md](https://github.com/definitely-stable/Mathlab/blob/5c2cb67689a6821955b58f6358b7914679d090d3/docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md) (model_overlap)
+
+### LIT-211
+**[A new performance metric for the ski rental problem](https://doi.org/10.1016/j.orl.2025.107382)** (2026)
+
+Operations Research Letters 2026 (DOI 2025): комбинированная стохастическая мера ski-rental EoR/RoE с улучшенной оценкой в иной целевой функции.
+
+**Ограничение:** Оценки смешанной статистической метрики не являются худшим детерминированным ratio ALG/OPT для нашего checkpoint; DOI содержит 2025, но publication year — 2026.
+
+**Идентичность:** `doi:10.1016/j.orl.2025.107382` · **Авторы:** Jonathan Chen, Jiawei Zhang · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md](https://github.com/definitely-stable/Mathlab/blob/5c2cb67689a6821955b58f6358b7914679d090d3/docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md) (model_overlap)
 
 
 ## caching

@@ -6249,6 +6249,97 @@
       ],
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "id": "LIT-209",
+      "title": "Prior-Independent and Subgame Optimal Online Algorithms",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ITCS.2026.75",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ITCS.2026.75",
+      "authors": [
+        "Jason Hartline",
+        "Aleck Johnsen",
+        "Anant Shah"
+      ],
+      "verification": "publisher_abstract_checked",
+      "summary_ru": "ITCS 2026: prior-independent и subgame-optimal критерии для онлайн-алгоритмов; конечногоризонтный ski-rental служит эталоном для проектирования стратегий с неизвестным будущим и сильным противником.",
+      "limits_ru": "Выводы относятся к иным критериям и игровым моделям; нельзя переносить конкурентные отношения на WAL/checkpoint без совпадения времени раскрытия r_t и ресурсного J.",
+      "track": "online-optimization",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md",
+          "kind": "model_overlap",
+          "source_sha": "5c2cb67689a6821955b58f6358b7914679d090d3"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-210",
+      "title": "Robust and Consistent Ski Rental with Distributional Advice",
+      "year": 2026,
+      "identity": "arxiv:2603.29233",
+      "alternate_identities": [
+        "publisher:pmlr:v306:kim26l"
+      ],
+      "primary_url": "https://arxiv.org/abs/2603.29233",
+      "authors": [
+        "Jihwan Kim",
+        "Chenglin Fan"
+      ],
+      "verification": "publisher_abstract_checked",
+      "summary_ru": "ICML 2026, PMLR 306: алгоритмы детерминированного и рандомизированного ski-rental c distributional advice, робастностью при ошибках прогноза и оптимизацией порогов покупки.",
+      "limits_ru": "Алгоритмы требуют явной модели вероятностных предсказаний, отсутствующей в G2-B3-B; PMLR 2026 и arXiv относятся к одной работе и учтены одной идентичностью.",
+      "track": "online-optimization",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md",
+          "kind": "model_overlap",
+          "source_sha": "5c2cb67689a6821955b58f6358b7914679d090d3"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-211",
+      "title": "A new performance metric for the ski rental problem",
+      "year": 2026,
+      "identity": "doi:10.1016/j.orl.2025.107382",
+      "primary_url": "https://doi.org/10.1016/j.orl.2025.107382",
+      "authors": [
+        "Jonathan Chen",
+        "Jiawei Zhang"
+      ],
+      "verification": "publisher_abstract_checked",
+      "summary_ru": "Operations Research Letters 2026 (DOI 2025): комбинированная стохастическая мера ski-rental EoR/RoE с улучшенной оценкой в иной целевой функции.",
+      "limits_ru": "Оценки смешанной статистической метрики не являются худшим детерминированным ratio ALG/OPT для нашего checkpoint; DOI содержит 2025, но publication year — 2026.",
+      "track": "online-optimization",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md",
+          "kind": "model_overlap",
+          "source_sha": "5c2cb67689a6821955b58f6358b7914679d090d3"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
     }
   ]
 }

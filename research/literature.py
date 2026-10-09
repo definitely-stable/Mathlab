@@ -55,6 +55,10 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # INDEX-001 G2-B3-B publisher/author primary venue identities (2026).
+    "doi:10.4230/LIPIcs.ITCS.2026.75": "Prior-Independent and Subgame Optimal Online Algorithms",
+    "arxiv:2603.29233": "Robust and Consistent Ski Rental with Distributional Advice",
+    "doi:10.1016/j.orl.2025.107382": "A new performance metric for the ski rental problem",
     # INDEX-001 G2-B3-A verified primary identities; LIT-205 reserved by parallel PR #132.
     "usenix:osdi25:leblanc": "PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection",
     "doi:10.1145/2872362.2872406": "Specifying and Checking File System Crash-Consistency Models",
