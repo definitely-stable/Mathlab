@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**144** работ сопоставлены с **38** внутренними исследованиями.
+**146** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -293,6 +293,8 @@
 - [LIT-142](LITERATURE.md#lit-142) — Quantum Certificate Complexity (2008; publisher_abstract_checked)
 - [LIT-143](LITERATURE.md#lit-143) — All Classical Adversary Methods Are Equivalent for Total Functions (2021; publisher_abstract_checked)
 - [LIT-144](LITERATURE.md#lit-144) — Randomized Query Complexity Can Beat Certificate Complexity (2026; primary_abstract_checked)
+- [LIT-145](LITERATURE.md#lit-145) — Certification complexity of Boolean functions (2026; primary_abstract_checked)
+- [LIT-146](LITERATURE.md#lit-146) — Sound 3-Query PCPPs Are Long (2009; publisher_abstract_checked)
 
 ## ML-005
 
@@ -361,6 +363,8 @@
 - [LIT-142](LITERATURE.md#lit-142) — Quantum Certificate Complexity (2008; publisher_abstract_checked)
 - [LIT-143](LITERATURE.md#lit-143) — All Classical Adversary Methods Are Equivalent for Total Functions (2021; publisher_abstract_checked)
 - [LIT-144](LITERATURE.md#lit-144) — Randomized Query Complexity Can Beat Certificate Complexity (2026; primary_abstract_checked)
+- [LIT-145](LITERATURE.md#lit-145) — Certification complexity of Boolean functions (2026; primary_abstract_checked)
+- [LIT-146](LITERATURE.md#lit-146) — Sound 3-Query PCPPs Are Long (2009; publisher_abstract_checked)
 
 ## ML-007
 
