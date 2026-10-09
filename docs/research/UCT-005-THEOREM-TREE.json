@@ -215,6 +215,12 @@
       "kind": "research_input",
       "status": "MODEL_SCOPED_GC_AND_REJECTED_FALSE_JOINT_LOWER_BOUND_ROOT_OPEN",
       "source": "docs/research/UCT-005-G3-B2-C1-GC-AND-NOVELTY-GATE.md"
+    },
+    {
+      "id": "UCT005G3B2C2A",
+      "kind": "research_input",
+      "status": "DISK_BUFFER_BOUNDED_GC_CLASSICAL_NO_DURABLE_PINS_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-C2-A-DISK-WORKSPACE-GC.md"
     }
   ],
   "edges": [
@@ -382,6 +388,11 @@
       "parent": "UCT005G3B2C0",
       "child": "UCT005G3B2C1",
       "relation": "RETENTION_COST_AND_FALSE_CONJECTURE_NOT_ROOT_PROOF"
+    },
+    {
+      "parent": "UCT005G3B2C1",
+      "child": "UCT005G3B2C2A",
+      "relation": "BOUNDED_PAGE_BUFFER_MODEL_NOT_ORIGINAL_THEOREM"
     }
   ]
 }
