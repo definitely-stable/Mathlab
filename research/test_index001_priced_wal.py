@@ -169,6 +169,8 @@ class PricedWalTest(unittest.TestCase):
             assign((0, 1), (1, 1, 0))
         with self.assertRaises(ValueError):
             budget((0,), 32, alpha=-1)
+        self.assertEqual(budget((0,), 32, gamma=3, m_bits=0), budget((0,), 32))
+        self.assertEqual(budget((0,), 32, gamma=3, m_bits=9), budget((0,), 32) + 6)
         with self.assertRaises(ValueError):
             compare_trace((0, 1), [(0, 1, 1)], group=3)
 
