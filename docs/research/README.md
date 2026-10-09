@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## UCT-005 G3-B1 — temporal trajectory packing theorem (2026-10-09)
+
+[Full restricted proof and temporal novelty check](UCT-005-G3-B1-TEMPORAL-TRAJECTORY-PACKING.md) · [2026 published authenticated-state paper](UCT-005-G3-B1-SOURCES.json) · [issue #175](https://github.com/definitely-stable/Mathlab/issues/175) · [finite oracle](../../research/test_uct005_g3b1_trajectory.py). Realizable e=1, p=3 trajectory model: q=2, m=7, d=3, w=3 gives **2784 vs 3072** independent epoch bounds; a threefold repetition code actually attains 8 histories on three accessed cells. PROVED RESTRICTED CLASSICAL, **original UCT-005 root OPEN**; no authenticated freshness or physical updater read bound.
+
 ## INDEX-001 G2-B3-B — deterministic online checkpoint and finite adversary (2026-10-09)
 
 [**Frozen reveal-before-recovery model, elementary ≤2 upper-bound proof and explicit rent-or-buy novelty STOP**](INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md) · [issue #156](https://github.com/definitely-stable/Mathlab/issues/156) · [algorithm and bounded adversary](../../research/index001_online_checkpoint.py) · [independent adversarial tests](../../research/test_index001_online_checkpoint.py). The age threshold `ceil(S/E)` has an elementary component-wise ≤2 bound relative to the exact *clairvoyant* G2-B2-B oracle for **fixed-frame, no-hard-cap** accounting; this is NOT a novel universal lower bound, randomized/optimal online proof, device-NAND measurement or Rust engine. Finite restart-alphabet tests and exact POSIX write/read byte counter crosschecks; existing LIT-098 and current 2026 ski-rental source research explicitly mark prior art.
