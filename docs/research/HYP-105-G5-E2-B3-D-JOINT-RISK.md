@@ -93,6 +93,16 @@ On exactly those seven columns, compute **exact** full checksum4, all-nonzero 51
 
 Sample R2 and R3 are **exact finite** values for those seven named columns, not upper bounds for the full N=45/425 factor family. Even a direct favorable Q4 or sample R2 does not certify `R2(B_s)=O(s^(26/5-eps_2))` or `R3(B_s)=O(s^(6-eps_3))` uniformly in h. Positive six-motif families outside selected seven remain entirely open.
 
+### 4.1 Hosted exact seven-column weighted result (deliberately selected witness)
+
+For EACH of the four GF2/GF4 map controls, select the FIRST exact coincident C6 matching with its six named columns and append the smallest unused seventh factor incidence. Exact independently weighted calculations then give:
+
+- **R2 on the seven columns = 0** under the full 51-pattern checksum4 GF5 model.
+- **R3 on those seven columns = 54,162/51^6 = 54,162/17,596,287,801** under the same model and fixed labeling.
+- Exactly **10** unordered 3v3 signed events are genuinely positive, each obtained by full GF5 meet-in-middle; an explicit alternating one has **5643** solutions.
+
+The same result across four controls is NOT evidence that their full-family GF5 risk is equal: the selection rule explicitly chooses a C6/C6 witness in each, and the seventh column makes no extra signed event in this particular finite probe. Such biased seven-column `R2=0` in no way contradicts full family unit T4=57/66/1388/1380, which reside in other four-column sets. This distinction between an **exact enriched subfamily** and the **entire GQ geometry** is a hard reporting boundary.
+
 ## 5. Falsifiers, evidence gates and next step
 
 - **Proof scope:** D1 and exact E[Q4] identity hold for ALL h (algebraic counting). Full Q4, unit T4 and exact selected 7-column GF5 R2/R3 are only GF2/GF4 (frozen control). No external geometric symmetry is used.
