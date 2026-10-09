@@ -27,6 +27,9 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: HYP-105 G5-C2 deterministic signed-trade density report
+        run: python research/hyp105_g5c2_density.py
+
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
