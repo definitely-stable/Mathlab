@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## INDEX-001 G2-B2-A — reproducible application-byte comparisons (2026-10-09)
+
+[**Exact snapshot-vs-WAL frame-count equations, four deterministic range workloads and compaction thresholds 1/4/16**](INDEX-001-G2-B2-A-APPLICATION-IO.md) · [issue #137](https://github.com/definitely-stable/Mathlab/issues/137) · [stdlib reporter](../../research/index001_workload_io.py) · [independent tests](../../research/test_index001_workload_io.py). Counts actual returned `os.write` bytes + application `read_bytes` with exact restart-state oracle, NOT device physical NAND writes or a new general algorithmic theorem. Prior art LIT-098/175/176/182/184..186 reused without new source identity. G2-B2-A measured-model only / PHYSICAL_LOWER_BOUND_OPEN / NO_RUST.
+
+
 ## DAG-002 / ALG-001 G0 — immutable reachability and rank-sensitive output separation (2026-10-09)
 
 [DAG-002 model, known SEA chain-top baseline and no-remote-probe information bound](DAG-002-G0-IMMUTABLE-REACHABILITY.md) · [ALG-001 rank-one coordinate-observation barrier, precise field/update types](ALG-001-G0-RANK-OBSERVATION.md) · issues [#133](https://github.com/definitely-stable/Mathlab/issues/133) and [#134](https://github.com/definitely-stable/Mathlab/issues/134). **RESTRICTED_ELEMENTARY_PROOF, KNOWN_PRIOR_ART, FINITE_EXACT_CHECKS, NO_NEW_ROOT_THEOREM, NO_RUST.** Canonical studies LIT-187/LIT-195 already indexed; no re-import and no modification of other research status.
