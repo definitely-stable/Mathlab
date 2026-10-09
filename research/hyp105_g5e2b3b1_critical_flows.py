@@ -210,18 +210,20 @@ def proved_matching_r3_lower(s):
     least prod_{j=0..5}(E-2*j*Delta)/6! unordered such six-sets:
     after j selected edges, <=2*j*Delta graph edges meet an endpoint.
 
-    For each six-set fix its edge enumeration once and choose a fixed
-    alternating 3+3 sign partition along the six-cycle 0-1-2-3-4-5.
-    Under UNIFORM independent pair injections, the probability that
-    EACH projected column adjacency graph equals this designated C6
-    is exactly [(a)_6/(binom(a,2))_6]^2.
+    For each six-set use the UNIQUE alternating balanced 3+3 partition
+    whenever the two physical column-adjacency graphs coincide as a C6.
+    There are 6!/12=60 labeled C6 on the six named columns. Their
+    simultaneous two-block outcomes are mutually exclusive.
+    Under independent uniform pair injections, each fixed C6 graph
+    appears in one physical half with probability (a)_6/(K)_6.
 
     All-one coefficients (one of 51 patterns independently per column)
-    realize a signed trade: each coordinate occurs exactly once with
-    each sign. Hence risk per such chosen event >=51^-6 conditional on
-    these physical label outcomes. All the events from distinct six-sets
-    are distinct in the definition of R3. This is a genuine all-h
-    Omega(s^6) result and uses NO assumed flow positivity census.
+    realize a signed trade: each coordinate occurs once with each
+    sign. Thus a matching contributes >=60*P_C6^2/51^6 in expectation.
+    The deterministic necessary condition is R3(B_s)>=D_s/51^6,
+    where D_s counts six-factor matchings whose two colored C6
+    column-adjacency edge sets COINCIDE (one event per six-set).
+    This all-h result uses NO assumed flow positivity census.
     """
     if not isinstance(s, int) or s < 2 or (s & (s - 1)):
         raise ValueError("classical theorem requires s=2^h, h>=1")
@@ -243,11 +245,15 @@ def proved_matching_r3_lower(s):
         numerator *= a - j
         denominator *= k - j
     probability_one_projection = Fraction(numerator, denominator)
-    risk_floor = matching_lower * probability_one_projection**2 / (51**6)
+    risk_floor = matching_lower * 60 * probability_one_projection**2 / (51**6)
     return {
         "s": s, "m": 2*a, "N": e, "factor_matchings_lower": matching_lower,
         "designated_C6_probability_each_half": probability_one_projection,
+        "coincident_labeled_C6_types": 60,
+        "expected_coincident_C6_matching_lower":
+            matching_lower * 60 * probability_one_projection**2,
         "proved_expected_R3_lower": risk_floor,
+        "fixed_label_obstruction": "R3(B_s) >= D_s/51^6 for coincident alternating C6 factor-matching six-sets",
         "scale":"Omega(s^6) for uniform independent injections",
         "universal_individual_label_lower": False,
         "improved_ASET_bound": False,
