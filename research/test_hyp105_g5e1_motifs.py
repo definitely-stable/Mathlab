@@ -84,7 +84,7 @@ class G5E1MotifProofTests(unittest.TestCase):
             map_coord.update({6+i:6+right[i] for i in range(6)})
             ren = tuple(tuple(map_coord[c] for c in row) for row in selected)
             order = [0,1,2,3,4,5]
-            rng.shuffle(order[:3])  # additional actual permutations below
+            # Deterministic reordering preserves both sign classes.
             order = [2,0,1,5,3,4]
             changed = tuple(ren[i] for i in order)
             self.assertEqual(canonical_split_motif(
@@ -121,9 +121,15 @@ class G5E1MotifProofTests(unittest.TestCase):
         self.assertGreater(floor6, 0)
         # Finite certified lower floor is mathematically nonzero, but
         # carries NO exponent statement from a fixed m=12 example.
-        self.assertEqual(topology_bound_check(
-            ((0,1,6,7),(0,1,6,7)),(1,-1),6),
-            Fraction(1) if False else Fraction(1,1)) if False else None
+        # Exact GF5 full affine-rank bound remains >0 on repeated
+        # support with opposite signs; no coordinate singleton or
+        # balanced bridge rules it out.
+        repeated = ((0,1,6,7),(0,1,6,7))
+        bound = topology_bound_check(repeated, (1,-1), 6)
+        self.assertGreater(bound, 0)
+        self.assertEqual(
+            bound,
+            exact_nonzero_trade_flow(repeated, (1,-1))["rank_upper"])
         with self.assertRaises(ValueError):
             unit_conflict_risk_floor((3,3), 4)
         with self.assertRaises(ValueError):
