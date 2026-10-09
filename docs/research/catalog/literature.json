@@ -6151,6 +6151,104 @@
       "verification": "publisher_abstract_checked",
       "summary_ru": "LATINCRYPT 2010: атака на небезопасный batch-update accumulator и Ω(m) worst-case на обновление отдельного witness после m изменений в изученной модели.",
       "limits_ru": "Нельзя обобщать на все возможные cryptographic accumulator или VC; число инвалидированных свидетелей не равно цене одного witness-refresh."
+    },
+    {
+      "id": "LIT-206",
+      "title": "PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection",
+      "year": 2025,
+      "identity": "usenix:osdi25:leblanc",
+      "primary_url": "https://www.usenix.org/conference/osdi25/presentation/leblanc",
+      "authors": [
+        "Hayley LeBlanc",
+        "Jacob R. Lorch",
+        "Chris Hawblitzel",
+        "Cheng Huang",
+        "Yiheng Tao",
+        "Nickolai Zeldovich",
+        "Vijay Chidambaram"
+      ],
+      "verification": "primary_abstract_checked",
+      "summary_ru": "OSDI 2025: метод PoWER задаёт предусловия записей, обеспечивающие восстановимость, и модель обнаружения повреждений носителя; представлены верифицированные CapybaraKV (Verus) и CapybaraNS (Dafny).",
+      "limits_ru": "Техника и результаты относятся к формально моделируемым storage API и persistent memory; исключения на GitHub-hosted POSIX не являются переносом доказательства crash consistency или проверкой физического SSD.",
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md",
+          "kind": "model_overlap",
+          "source_sha": "43252d143b78cf09858e9af044abf34f89cc5cf4"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-207",
+      "title": "Specifying and Checking File System Crash-Consistency Models",
+      "year": 2016,
+      "identity": "doi:10.1145/2872362.2872406",
+      "primary_url": "https://doi.org/10.1145/2872362.2872406",
+      "authors": [
+        "James Bornholt",
+        "Antoine Kaufmann",
+        "Jialin Li",
+        "Arvind Krishnamurthy",
+        "Emina Torlak",
+        "Xi Wang"
+      ],
+      "verification": "publisher_abstract_checked",
+      "summary_ru": "ASPLOS 2016 Ferrite: формальные модели допустимых последствий сбоя файловых систем, litmus-тесты и проверка реального ext4. Модель API POSIX сама по себе не задаёт полный порядок сохранения после crash.",
+      "limits_ru": "Работа не доказывает инварианты конкретной двухслотовой схемы Mathlab; для гарантий реального power loss необходима модель конкретной файловой системы и барьеров записи.",
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md",
+          "kind": "model_overlap",
+          "source_sha": "43252d143b78cf09858e9af044abf34f89cc5cf4"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-208",
+      "title": "Lightweight file system crash-consistency checking with differential fuzzing",
+      "year": 2026,
+      "identity": "doi:10.15514/ISPRAS-2026-38(1)-7",
+      "primary_url": "https://doi.org/10.15514/ISPRAS-2026-38(1)-7",
+      "authors": [
+        "V. M. Kovalevsky",
+        "V. V. Kechin",
+        "A. S. Yanin",
+        "V. M. Itsykson"
+      ],
+      "verification": "publisher_abstract_checked",
+      "summary_ru": "Proceedings of ISP RAS 2026: расширение DIFFuzzer на моделирование аварийных остановов файловой системы и дифференциальное выявление несогласованностей; сообщено об ошибках, подтверждённых авторами файловых систем.",
+      "limits_ru": "Результаты тестирования файловых систем не доказывают устойчивость нашего протокола WAL/manifest. Для сильной гарантии требуется самостоятельная модель crash states и проверка реального устройства.",
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md",
+          "kind": "model_overlap",
+          "source_sha": "43252d143b78cf09858e9af044abf34f89cc5cf4"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
     }
   ]
 }

@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## INDEX-001 G2-B3-A — two-slot snapshot/manifest crash-boundary research (2026-10-09)
+
+[**Frozen two-generation manifest/LSN WAL checkpoint ordering, explicit fail-closed boundary and primary literature**](INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) · [issue #146](https://github.com/definitely-stable/Mathlab/issues/146) · [two-slot stdlib POSIX reference](../../research/index001_generations.py) · [crash/GC/dense-oracle tests](../../research/test_index001_generations.py) · [deterministic comparative audit](../../research/index001_generation_audit.py). Includes three source identities LIT-206..208 (PoWER OSDI 2025, Ferrite ASPLOS 2016, DIFFuzzer ISP RAS 2026); primary abstracts/identities checked, proofs NOT independently verified. **One writer; process-stop failpoint testing is NOT real power-loss proof**. Corrupt selected generation fails closed, prior snapshot is not automatically a valid fallback after WAL truncate. Hardware crash theorem and Rust API remain NO-GO.
+
+
 ## UCT-005 G2-B2 — exact multi-subscriber information broadcast (2026-10-09)
 
 [**Restricted quotient theorem, rank-vs-one-hot falsifiers and finite independent coloring oracle**](UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md) · [three original proof-labeling sources](UCT-005-G2-B2-SOURCES.json) · [executables](../../research/test_uct005_g2b2_broadcast.py) · [issue #151](https://github.com/definitely-stable/Mathlab/issues/151). Exact `b*=ceil(log2 |{A d : d in D}|)` for **deterministic synchronous zero-error shared messages without uncharged update side information**. Classical elementary communication result, **NOT a new cryptographic theorem or universal UCT-005 root**. Three papers indexed in typed source inventory; canonical numbering deferred behind PR #132 / issue #142.
