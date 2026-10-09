@@ -1,12 +1,15 @@
 """Independent finite falsification for the G5-C2 trade-density evidence gate."""
 import itertools
 import random
+from math import comb
 import unittest
 from fractions import Fraction
 
 from hyp105_g5c2_density import (
     bitset, collision_spectrum, conditional_expectation_extract, density_report,
     gf5_unit_four, has_forbidden_core, optimize_first_moment, w32_columns,
+    six_cycle_pair_probability_lower, expected_minimal_six_trades_lower,
+    generalized_quadrangle_expectation_lower,
     validate_cleaned
 )
 from test_hyp105_g5c_signed_oracles import direct_aset_collision, signed_trade
@@ -125,6 +128,45 @@ class G5C2TradeDensityTests(unittest.TestCase):
                 (report["minimal_t4"], report["minimal_t6"],
                  report["certified_aset_columns"]),
                 (t4, t6, size), seed)
+
+    def test_six_cycle_probability_certified_by_independent_enumeration(self):
+        # Independently enumerate all six distinct coordinate vertices.
+        a = 6
+        images = set()
+        for x in itertools.permutations(range(a), 6):
+            ordered_pairs = (
+                (x[0], x[1]), (x[2], x[3]), (x[4], x[5]),
+                (x[1], x[2]), (x[3], x[4]), (x[5], x[0]))
+            labels = tuple(tuple(sorted(pair)) for pair in ordered_pairs)
+            self.assertEqual(len(set(labels)), 6)
+            images.add(labels)
+            degree_delta = [0] * a
+            for index, pair in enumerate(labels):
+                sign = 1 if index < 3 else -1
+                for coord in pair:
+                    degree_delta[coord] += sign
+            self.assertEqual(degree_delta, [0] * a)
+        self.assertGreaterEqual(len(images), 720 // 12)
+        lower = six_cycle_pair_probability_lower(a)
+        self.assertGreaterEqual(Fraction(len(images),
+                                         int(__import__("math").prod(
+                                             comb(a, 2) - i for i in range(6)))),
+                                lower)
+
+    def test_gq_random_pair_labeling_expected_six_trade_lower(self):
+        # This proves an EXPECTATION obstacle for uniformly random labels,
+        # not a universal lower on every deterministic labeling.
+        for order in (2, 4, 8, 16, 32):
+            m, expected_lower = generalized_quadrangle_expectation_lower(order)
+            self.assertGreaterEqual(m, 12)
+            self.assertGreater(expected_lower, 0)
+            self.assertGreater(expected_lower / m**4, 0)
+        with self.assertRaises(ValueError):
+            generalized_quadrangle_expectation_lower(3)
+        self.assertEqual(expected_minimal_six_trades_lower(20, 3, 6, 6),
+                         Fraction(0))
+        self.assertGreater(expected_minimal_six_trades_lower(
+            45, 3, 6, 6), 0)
 
     def test_unit_scope_rejects_weighted_and_repeated_input(self):
         with self.assertRaises(ValueError):
