@@ -334,3 +334,7 @@ scouting/calibration artifacts; TOM-C is STOP as a novelty target.
 
 Any theorem selected by G2 must receive a new theorem-specific prior-art
 audit before promotion.
+
+## HYP-105 G5-E2-B3.2 — exact D_s coincident-cycle obstruction (2026-10-09)
+
+[Theorem, finite results and next research gate](HYP-105-G5-E2-B3-B2-COINCIDENT-CYCLES.md) · [Python physical C6 join](../../research/hyp105_g5e2b3b2_coincident_cycles.py) · [independent oracle](../../research/test_hyp105_g5e2b3b2_coincident_cycles.py) · [issue #176](https://github.com/definitely-stable/Mathlab/issues/176). For EVERY fixed injective W(3,s) pair labeling R3>=**5643 D_s/51^6**; under uniform independent pair maps exact E[D_s]=60 M6 [(a)_6/(K)_6]^2. GF2 D=15/3/3; GF4 D=8481/8417/10602 in E2-A lex/reverse-line/coordinate-flag controls. Complete matching-C6 counting without C(N,6), NOT complete positive GF5 motif R3 upper, not a new ASET exponent. B3.2-B/B3.1-B pending.
