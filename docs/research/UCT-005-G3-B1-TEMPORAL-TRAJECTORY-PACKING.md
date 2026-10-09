@@ -64,17 +64,19 @@ q-ary corrupted trajectories. Since the group tubes are disjoint, its count time
 
 **Correct boundary reductions:** \(d=1\) reduces to the single-epoch radius-\(w\) G3-A Hamming-volume capacity for the same models and includes an optional walk-cardinality minimum. \(e=0\) gives the exact remote walk-count bound \(2^{Hd}\max_{s\le M}V_q(s,w)^d\); with full coordinate reads (\(t=s,p=1\)), no trusted labels and all transitions of radius \(w\) permitted, it is achieved by representing the current remote word itself. \(p=0\) yields \(M=0\), hence \(K_{\rm traj}\le 2^{Hd}\); \(w=0\) likewise gives no state-dependent remote history. This establishes a proof **brick**, not originality relative to classical time-expanded Hamming sphere packing.
 
-### Exact integer example — joint bound versus separate G3-A epochs
+### Exact finite improvement in a NONTRIVIAL corruption-correcting model
 
-Take binary \(q=2\), \(m=6\), \(t=6\), \(p=1\) (read six named coordinates), \(d=3\), \(w=1\), \(e=1\), \(H=0\). Hence \(M=6\), and \(V_2(6,1)=7\), \(V_2(6,2)=22\), \(V_2(6,3)=42\), \(V_2(6,4)=57\).
+Take binary \(q=2\), \(m=7\), \(t=1\), \(p=3\), \(d=3\), \(w=3\), \(e=1\), \(H=0\). Each decoder can probe three cells (enough for a majority-vote one-error-correcting read). The general potential adaptive address budget is \(M=\min(7,3(1+2+4))=7\). We have \(V_2(7,1)=8\), \(V_2(7,3)=64\), \(V_2(7,4)=99\), \(V_2(7,5)=120\), and \(V_2(7,7)=128\).
 
 | Distinct observed histories, same parameters | Necessary upper bound |
 |---|---:|
-| All remote walks, ignoring error correction | \(7^3=343\) |
-| Independent per-epoch G3-A volume bounds \( \lfloor22/7\rfloor\lfloor42/7\rfloor\lfloor57/7\rfloor\) | \(3\cdot6\cdot8=144\) |
-| **G3B1-T1 time-coupled corrupted tubes** | \(\lfloor22\cdot42^2/7^3\rfloor=\mathbf{113}\) |
+| All remote walks, no error correction | \(64^3=262144\) |
+| Independent per-epoch G3-A volume bounds with full potential \(7\)-address support | \(\lfloor99/8\rfloor\lfloor128/8\rfloor^2=12\cdot16^2=\mathbf{3072}\) |
+| **G3B1-T1 time-coupled fresh-error tubes** | \(\lfloor99\cdot120^2/8^3\rfloor=\mathbf{2784}\) |
 
-Thus \(113<144<343\), a concrete strict gain over *those* two baselines in one frozen model, NOT a demonstrated new asymptotic lower bound, not an optimal number of feasible output trajectories, and not proof that \(K_{\rm traj}=113\) is achievable. Applying stronger classical temporal coding bounds could improve it.
+Hence \(2784<3072<262144\). Unlike an uninformative \(p=1,e=1\) setting, this comparison has an **explicit feasible nonconstant** one-error-correcting service: encode one mutable source bit \(b\) as \((b,b,b,0,0,0,0)\); allow at each epoch either NOOP or authorized FLIP(b). The flip changes exactly \(w=3\) remote cells, and READ(b) queries the first three cells (nonadaptive \(p=3\)) and outputs their majority, tolerating any one corrupted remote cell. With initial \(b=0\), the three independent choices of NOOP/FLIP yield \(K_{\rm traj}=2^3=8\) **distinct output histories**, proving the model is nonvacuous. This example does **not** achieve the 2784 general-support upper bound: for this particular implementation the exact potential address union has \(s=3\), yielding **G3B1-T1 = 8**, attained by its eight output histories. The larger \(M=7\) is only the generic worst-case support of arbitrary \(p=3\) adaptive programs over all three epochs.
+
+**Counterexample to a bad numerical illustration:** For any stateless deterministic exact query with only \(p=1\) remote probe, \(H=0\), and \(e=1\) corruptible q-ary cells, the adversary can corrupt its probed cell, so no nonconstant output can be certified. A formal inequality can be mathematically true yet an illustration scientifically vacuous. Do not use \(q=2,m=6,d=3,w=1,e=1,p=1\) as the main demonstration. Stronger temporal coding bounds could improve our 2784 general estimate; **no novel asymptotic theorem** or optimum capacity is claimed.
 
 ## 3. Three important same-task upper points and adversarial falsifiers
 
