@@ -1,5 +1,14 @@
 # CURRENT_STATE
 
+## UCT-005 G3-B2-C0 — физическая стоимость страниц и проверка контрпримеров (2026-10-09)
+
+[Точная ограниченная модель I/O и доказательство границ](research/UCT-005-G3-B2-C0-PAGE-IMAGE-FRONTIER.md) · [страницы/LRU/COW/crash oracle](../research/uct005_g3b2c0_pages.py) · [независимые тесты](../research/test_uct005_g3b2c0_pages.py) · [issue #178](https://github.com/definitely-stable/Mathlab/issues/178). **RESTRICTED_PAGE_IMAGE_FOUNDATION / CLASSICAL_EXACT_COW_PAGE_COUNT / THREE_CANDIDATE_FALSIFIERS / NO_NEW_ASYMPTOTIC_LOWER_BOUND / ROOT_OPEN.** Для одинакового SET/RANGE_PARITY описаны полный учёт page-image (4096B/160B node/25 nodes per page), серверный холодный LRU с платной RAM, отдельный корневой каталог эпох, COW, число прочитанных и переписанных страниц, байты и SHA, якорь. Доказано в указанной модели: физические записи при копировании k узлов равны ceil(k/F)+1 page image. Проверены опасные перестановки FLUSH/PUBLISH и отсутствие бесплатного GC. Это **симулятор раскладки, не измерения SSD** и не настоящая crash-safe реализация. Три чрезмерные универсальные нижние границы отвергнуты конкретными верхними конструкциями. **G3-B2-C1 NEXT:** общая модель реалистичной durability/physical I/O, полный prior-art transfer и попытка оригинальной nonfactorizing inequality либо STOP_NOVELTY. #105 остаётся OPEN.
+
+
+
+
+
+
 ## IMPORT-007 — temporal / dynamic graph original studies (2026-10-09)
 
 [Source-by-model audit](research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) · [issue #197](https://github.com/definitely-stable/Mathlab/issues/197). Twenty-two original works LIT-259..280 with canonical author/publisher URLs and Russian model limits, extending bibliography 257→279. Temporal point-contact, interval availability, as-of valid+transaction clocks, partial order, source evidence and adaptive graph memory kept separate. NO_NEW_THEOREM, NO_BENCHMARK_REPRODUCTION; host CI acceptance gate.

@@ -1,5 +1,14 @@
 # Research index and authority order
 
+## UCT-005 G3-B2-C0 — explicit physical page-image accounting (2026-10-09)
+
+[**Frozen page layout, exact COW image lemma, LRU budget, ideal crash-cut proof, three strict countermodels and limitations**](UCT-005-G3-B2-C0-PAGE-IMAGE-FRONTIER.md) · [reference page oracle](../../research/uct005_g3b2c0_pages.py) · [independent physical tests](../../research/test_uct005_g3b2c0_pages.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). Page cost is counted in full 4096-byte images with a fixed 160-byte tree record, 64-byte page header, 1-page cold LRU and a separate paid epoch-root directory. Exact restricted COW packing yields ceil(k/F)+1 image writes for k logical changed nodes; no generic lower bound follows. Source/server RAM, author SHA, proof response bytes and 40-byte trusted anchor traffic are distinguished. No real SSD, filesystem, crypto or new UCT lower theorem; C1 remains open.
+
+
+
+
+
+
 ## IMPORT-007 — temporal/dynamic graph prior art (2026-10-09)
 
 [Original DOI/arXiv, 22-paper exact corpus and model-transfer barriers](RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) · [issue #197](https://github.com/definitely-stable/Mathlab/issues/197). SAND point vs interval reachability, temporal connectivity, timed cuts, interval-algebra GraphRAG and active agent memory. Bibliographic import only; TKG-001 G1 remains a separate theorem program.
