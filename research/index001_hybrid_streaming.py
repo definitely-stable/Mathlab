@@ -440,10 +440,10 @@ def mode_policy_dp(initial,ops,B,initial_mode="B",alpha=4,beta=2,
             "reachable_modes_by_step":history}
 
 def reset_witness(n=257,B=32):
-    initial=(1,)+(0,)*(n-1)
+    initial=(0,)*(n-1)+(1,)
     src=from_bits(initial,B,"B")
-    sticky,sticky_ledger=update(src,B,(0,1,0),"B")
-    smallest,min_ledger=update(src,B,(0,1,0),"min")
+    sticky,sticky_ledger=update(src,B,(n-1,n,0),"B")
+    smallest,min_ledger=update(src,B,(n-1,n,0),"min")
     before=read_all(src,B)
     if before!=initial or read_all(sticky,B)!=(0,)*n or read_all(smallest,B)!=(0,)*n:
         raise AssertionError("reset truth")
@@ -455,7 +455,7 @@ def reset_witness(n=257,B=32):
             "min_mode":min_ledger["mode"],"min_D":min_ledger["D"],
             "min_recourse":switch,
             "source_mode_not_globally_smallest":True,
-            "source_bits_have_one_hot_bit":True,
+            "source_bits_have_one_last_bit":True,
             "all_zero_canonical_ixr1_bytes":len(encode_snapshot((0,)*n)),
             "page_oracle_not_hardware":True}
     src.close();sticky.close();smallest.close()
