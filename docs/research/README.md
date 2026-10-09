@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## INDEX-001 G2-B0/B1 — durable WAL/checkpoint exact range-map reference (2026-10-09)
+
+[**Frozen binary WAL/snapshot contract, CRC and linearization/fsync assumptions, explicit fault matrix**](INDEX-001-G2-B0-DURABILITY-PROTOCOL.md) · [issue #126](https://github.com/definitely-stable/Mathlab/issues/126) · [Python stdlib reference](../../research/index001_durable.py) · [independent dense/recovery tests](../../research/test_index001_durable.py). A deliberately inefficient one-writer full-snapshot baseline and append-WAL/checkpoint reference distinguish *application-level* returned read bytes and `os.write` bytes from physical disk/NAND bytes. G2-B1 is **POSIX RESEARCH REFERENCE ONLY**; no concurrent writers, fault-tolerant hardware proof, new asymptotic lower bound or Rust API. G2-B2 and physical proof gates OPEN; exact-head hosted CI required.
+
+
 ## UCT-005 G2-A — новые математические барьеры (2026-10-09)
 
 [**Аудит семи источников, из которых шесть новых, и точные онлайн-контрмодели**](UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) · [issue #125](https://github.com/definitely-stable/Mathlab/issues/125) · [1D/2D oracle](../../research/test_uct005_g2a_models.py). В библиографии теперь **204 уникальных публикации** (новые LIT-199..204); STOC 2026 уже учтён как LIT-072. **G2-A: STOP простой 1D-корень; G2-B: 2D authenticated multi-query SCOUT; root novelty OPEN.**
