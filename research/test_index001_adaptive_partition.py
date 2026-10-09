@@ -225,6 +225,27 @@ class AdaptivePartitionTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             layout((1,0),(2,),3)
 
+    def test_query_parses_stored_bytes_and_directory_crc_not_dense_truth(self):
+        view=layout((0,1,0,1),(2,4),16)
+        # Flip a run symbol in the FIRST persisted segment without fixing CRC:
+        # unchecked prefix lookup observes persisted corruption, dense truth
+        # remains unchanged, and full segment validation must reject it.
+        dirty=bytearray(view["image"])
+        first_segment=view["directory_pages"]*16
+        # IXR1, n=2, k=2, length=1, first symbol byte:
+        dirty[first_segment+7]^=1
+        changed=dict(view,image=bytes(dirty))
+        self.assertNotEqual(lookup_cost(changed,0,"disk")["value"],view["state"][0])
+        with self.assertRaises(ValueError):
+            decode_image(changed["image"],16)
+        # A changed on-disk directory must be rejected on every cold lookup.
+        directory_corrupt=bytearray(view["image"])
+        directory_corrupt[6]^=1
+        with self.assertRaises(ValueError):
+            lookup_cost(dict(view,image=bytes(directory_corrupt)),0,"disk")
+        with self.assertRaises(ValueError):
+            lookup_cost(dict(view,image=bytes(directory_corrupt)),0,"mirrored")
+
     def test_result_is_reproducible(self):
         row=report()
         self.assertEqual(row,report())
