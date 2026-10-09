@@ -64,7 +64,7 @@ ROOT UCT-005: online, fully priced, verifiable dynamic observability [OPEN]
     └── κ(n,p) exact integer cover for nondivisible n/p [SEPARATE OPEN]
 ```
 
-The tree's arrows are *typed*: SPECIAL_CASE, PROOF_INGREDIENT, COUNTERMODEL, THREAT_MODEL, APPLICATION, OPEN_REDUCTION or NONTRANSFER. These are **not all logical implications**. Do not force HYP-105, source delta or a DeltaMeter estimator into a theorem if the reduction loses the operational assumptions. Existing [machine-readable 20-node UCT-002 DAG](UCT-002-THEOREM-BRICKS.json) remains valid as historical typed bricks; this document identifies the research root above it.
+The **[UCT-005 machine-readable theorem tree](UCT-005-THEOREM-TREE.json)** freezes 23 uniquely identified nodes and 22 parent-child edges, with source paths, status, edge roles, and strict single-parent acyclic organization; [metadata integrity tests](../../research/test_uct005_tree.py) run in the GitHub-hosted research workflow. They certify the catalog topology only, **not the truth or novelty of any mathematical claim**. The tree's arrows are *typed*: SPECIAL_CASE, PROOF_INGREDIENT, COUNTERMODEL, THREAT_MODEL, APPLICATION, OPEN_REDUCTION or NONTRANSFER. These are **not all logical implications**. Do not force HYP-105, source delta or a DeltaMeter estimator into a theorem if the reduction loses the operational assumptions. Existing [machine-readable 20-node UCT-002 DAG](UCT-002-THEOREM-BRICKS.json) remains valid as historical typed bricks; this document identifies the research root above it.
 
 ## 4. One leading candidate, one explicitly allowed alternative
 
