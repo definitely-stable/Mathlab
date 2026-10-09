@@ -11,6 +11,7 @@ Only the top-degree 6+6 leafless subcase is proved here. Other E2-B3
 profiles, actual W(3,s) motif multiplicities and new ASET power stay OPEN.
 """
 from collections import Counter, defaultdict
+from fractions import Fraction
 from itertools import combinations, permutations
 from math import comb
 import json
@@ -184,6 +185,57 @@ def exact_nowherezero_signed_flow(left, right, mask):
     if not 0 <= result <= 5**12:
         raise AssertionError("invalid GF5 flow inclusion-exclusion count")
     return result
+
+
+def proved_matching_r3_lower(s):
+    """Uniform-in-s unconditional expected R3 FLOOR from actual factor matchings.
+
+    Choose six DISTINCT, vertex-disjoint GQ incidence edges. There are at
+    least prod_{j=0..5}(E-2*j*Delta)/6! unordered such six-sets:
+    after j selected edges, <=2*j*Delta graph edges meet an endpoint.
+
+    For each six-set fix its edge enumeration once and choose a fixed
+    alternating 3+3 sign partition along the six-cycle 0-1-2-3-4-5.
+    Under UNIFORM independent pair injections, the probability that
+    EACH projected column adjacency graph equals this designated C6
+    is exactly [(a)_6/(binom(a,2))_6]^2.
+
+    All-one coefficients (one of 51 patterns independently per column)
+    realize a signed trade: each coordinate occurs exactly once with
+    each sign. Hence risk per such chosen event >=51^-6 conditional on
+    these physical label outcomes. All the events from distinct six-sets
+    are distinct in the definition of R3. This is a genuine all-h
+    Omega(s^6) result and uses NO assumed flow positivity census.
+    """
+    if not isinstance(s, int) or s < 2 or (s & (s - 1)):
+        raise ValueError("classical theorem requires s=2^h, h>=1")
+    v = (s + 1) * (s * s + 1)
+    e = (s + 1) ** 2 * (s * s + 1)
+    delta = s + 1
+    a = 2
+    while comb(a, 2) < v:
+        a += 1
+    k = comb(a, 2)
+    matching_lower = Fraction(1)
+    for j in range(6):
+        matching_lower *= Fraction(e - 2 * j * delta, j + 1)
+    if matching_lower <= 0:
+        raise AssertionError("six-factor matching lower not positive")
+    numerator = 1
+    denominator = 1
+    for j in range(6):
+        numerator *= a - j
+        denominator *= k - j
+    probability_one_projection = Fraction(numerator, denominator)
+    risk_floor = matching_lower * probability_one_projection**2 / (51**6)
+    return {
+        "s": s, "m": 2*a, "N": e, "factor_matchings_lower": matching_lower,
+        "designated_C6_probability_each_half": probability_one_projection,
+        "proved_expected_R3_lower": risk_floor,
+        "scale":"Omega(s^6) for uniform independent injections",
+        "universal_individual_label_lower": False,
+        "improved_ASET_bound": False,
+    }
 
 
 def critical_flow_census():
