@@ -148,12 +148,16 @@ class DiskFencedGC:
                 raise Crash("candidate clone cut, active pages unmodified")
             original_live = self.arena.alive
             original_flag = self.arena._has_reclaimed
+            history_len = len(self.arena.history)
             try:
                 self.arena.alive = candidate
                 gc_cost = self.arena.collect(self.arena.latest)
             finally:
                 self.arena.alive = original_live
                 self.arena._has_reclaimed = original_flag
+                # C2-A's debug history otherwise grows with the number of
+                # generations. The caller receives the exact Cost explicitly.
+                del self.arena.history[history_len:]
             if fail_at == "mark":
                 raise Crash("candidate completed but uncommitted")
             # Stage a generation as [authenticated header][bitmap page images].
