@@ -15,12 +15,12 @@ class LiteratureTests(unittest.TestCase):
     def test_real_collection_has_no_metadata_errors(self):
         self.assertEqual(valid(self.data, self.catalog), [])
 
-    def test_150_distinct_works_and_fourteen_lanes(self):
+    def test_152_distinct_works_and_fourteen_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 150)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 150)
-        self.assertEqual(len({e["id"] for e in entries}), 150)
-        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 151)},
+        self.assertEqual(len(entries), 152)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 152)
+        self.assertEqual(len({e["id"] for e in entries}), 152)
+        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 153)},
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 14)
 
@@ -88,6 +88,22 @@ class LiteratureTests(unittest.TestCase):
             self.assertFalse(lookup[key]["independent_reproduction"])
             self.assertEqual(lookup[key]["mentioned_in"][0]["path"],
                              "docs/research/UCT-004-G2-C-SOURCE-NOVELTY-AUDIT.md")
+
+    def test_ppz_coding_and_2022_parity_cnf_sources_pinned(self):
+        by_id = {e["id"]: e for e in self.data["entries"]}
+        expected = {"LIT-151": ("doi:10.4086/cjtcs.1999.011",
+                               "Satisfiability Coding Lemma"),
+                    "LIT-152": ("doi:10.4230/LIPIcs.MFCS.2022.47",
+                               "CNF Encodings of Parity")}
+        for id_, (identity, title) in expected.items():
+            e = by_id[id_]
+            self.assertEqual(e["identity"], identity)
+            self.assertEqual(e["title"], title)
+            self.assertEqual(e["verification"], "publisher_full_text_spotchecked")
+            self.assertFalse(e["full_proof_verified"])
+            self.assertFalse(e["independent_reproduction"])
+            self.assertEqual(e["mentioned_in"][0]["path"],
+                             "docs/research/UCT-004-G2-D-PPZ-PRIMARY-SOURCE-AUDIT.md")
 
     def test_2026_report_links_match_bibliographic_identities(self):
         """Check real publisher URLs (part A) and internal anchors (part B)."""
@@ -211,7 +227,7 @@ class LiteratureTests(unittest.TestCase):
         original = {e["id"] for e in self.data["entries"]}
         self.assertTrue({f"LIT-{i:03d}" for i in range(50, 96)} <= original)
         self.assertTrue({f"LIT-{i:03d}" for i in range(1, 96)} <= original)
-        self.assertEqual(len(self.data["entries"]), 150)
+        self.assertEqual(len(self.data["entries"]), 152)
         all_ids = [e["identity"].lower() for e in self.data["entries"]]
         self.assertEqual(len(all_ids), len(set(all_ids)))
 
@@ -480,7 +496,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 150)
+        self.assertEqual(len({e["id"] for e in entries}), 152)
         tracks = {e["track"] for e in entries}
         self.assertEqual(len(tracks), 14)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
