@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## IMPORT-009 — original DAG lower bounds, cut-query and graph memory indexing
+
+[19 primary source records, 2025/2026 bibliographic dating correction, and model transfer audit](../RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) · [issue #206](https://github.com/definitely-stable/Mathlab/issues/206). LIT-298..316 extend 296→315 works. Core: Larsen–Yu cell-probe DAG lower bound, 2026 cut-query oracle and transitive closure, ICDE 2026 2-hop and Clue-RAG, 2026 verified temporal-source trace studies, AAAI ArchRAG and PVLDB BookRAG. First online date retained for 2025 SIAM and ACM survey, not mislabeled as new 2026 discovery. Full proofs and benchmarks not independently reproduced.
+
 ## IMPORT-008 — 2026 original dynamic DAG algorithms and evidence-grounded graph memory
 
 [15 verified DOI/arXiv metadata sources with explicit novelty barriers](../RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) · [issue #202](https://github.com/definitely-stable/Mathlab/issues/202). 281→296 corpus records LIT-283..297, 2026 ITCS/ESA/ICALP/SWAT graph theory and temporal evidence agent memory. Existing LIT-050 (dynamic compressed index) and LIT-193 (decremental tree sums) explicitly deduplicated. Source publications are not independently proof audited; empirical scores not reproduced.

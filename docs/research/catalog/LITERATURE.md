@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **296** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **315** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,16 +11,16 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 23 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 31 |
-| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 23 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 32 |
+| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 24 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
-| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 16 |
+| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 18 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 45 |
-| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 29 |
-| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 20 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 53 |
+| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 33 |
+| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 23 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 23 |
@@ -754,6 +754,19 @@ I, Köppl, Sakamoto и Yamaguchi (Theory of Computing Systems 2025): компа�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-C3-SHARED-PAGES.md](https://github.com/definitely-stable/Mathlab/blob/9077e9ee52b1ec5fab50fc8f40004759184a6949/docs/research/INDEX-001-G2-B4-C3-SHARED-PAGES.md) (model_overlap)
 
+### LIT-298
+**[Super-Logarithmic Lower Bounds for Dynamic Graph Problems](https://doi.org/10.1137/24M1638215)** (2025)
+
+Larsen–Yu: безусловная нижняя граница tilde-Omega(log^(3/2) n) на максимум update/query в cell-probe модели DAG с вставками рёбер.
+
+**Ограничение:** FOCS 2023 предшественник; статья online 2025-02-13 и помещена в том SIAM 2026. Не распространять на append-only sink DAG, физические SSD-байты или model-changing metadata.
+
+**Идентичность:** `doi:10.1137/24M1638215` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
 
 ## incremental-computation
 *Инкрементальные вычисления и сертификаты*
@@ -1062,6 +1075,19 @@ EDBT 2026: инкрементальная поддержка набросков 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md](https://github.com/definitely-stable/Mathlab/blob/e34d725bb17e39e144d5d2d4b857bf205a574d59/docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) (model_overlap)
+
+### LIT-313
+**[Incremental View Maintenance for Property Graph Queries](https://doi.org/10.1145/3183713.3183724)** (2018)
+
+SIGMOD 2018: инкрементальное обслуживание property-graph queries через вложенную реляционную алгебру вместо полного пересчёта.
+
+**Ограничение:** Изменяемые материализованные представления и графовый query algebra не равны immutable DAG labels или bounded physical page rewriting.
+
+**Идентичность:** `doi:10.1145/3183713.3183724` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
 
 
 ## delta-base-selection
@@ -1663,6 +1689,32 @@ Kempa–Kociumaka (SODA 2026) устанавливают нижние грани
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-303
+**[Succinct Graph Representations and Algorithmic Applications](https://arxiv.org/abs/2604.28096)** (2026)
+
+Dual clique cover с incidence dual позволяет BFS/DFS, компоненты и matching на сжатом представлении по размеру покрытия, а не списку всех рёбер.
+
+**Ограничение:** DCC рассматривает неориентированный граф, структурное сжатие и авторские тесты; динамическая мутация и physical compaction не гарантируются.
+
+**Идентичность:** `arxiv:2604.28096` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-304
+**[Succinct Preferential Attachment Graphs](https://arxiv.org/abs/2506.21436)** (2025)
+
+Instance-sensitive сжатие preferential-attachment графов с поддержкой навигации и асимптотической гарантией относительно entropy-coded edge list.
+
+**Ограничение:** Генеративная модель Barabasi–Albert и произвольные DAG различаются; затраты на ребалансировку индекса не установлены.
+
+**Идентичность:** `arxiv:2506.21436` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
 
 
 ## online-optimization
@@ -2560,6 +2612,110 @@ Smoothed-модель динамических графов: отделяет х
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
 
+### LIT-299
+**[Parameterized Linear Time Transitive Closure](https://doi.org/10.7155/jgaa.v30i1.3148)** (2026)
+
+Практический разбор DAG на непересекающиеся цепи и width-зависимые методы вычисления транзитивного замыкания и меток достижимости.
+
+**Ограничение:** Параметризованная статическая предварительная обработка не равна immutable online labels или требованию обновлений без переиндексации.
+
+**Идентичность:** `doi:10.7155/jgaa.v30i1.3148` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-300
+**[MLRQ: an efficient labeling scheme for reachability queries on reduced DAGs](https://doi.org/10.1007/s44443-025-00310-0)** (2025)
+
+MLRQ комбинирует топологические границы, partial 2-hop labels и интервалы дерева на уменьшенном DAG для быстрого отказа и точного positive.
+
+**Ограничение:** Редукция DAG и построение индекса могут быть дорогими; авторские эксперименты не доказывают быстрое обновление исторического графа.
+
+**Идентичность:** `doi:10.1007/s44443-025-00310-0` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-301
+**[Indexing Techniques for Graph Reachability Queries](https://doi.org/10.1145/3776737)** (2025)
+
+ACM Computing Surveys: обзор 33 схем индексов достижимости для plain и edge-labeled graphs; систематизация моделей и индексного обслуживания.
+
+**Ограничение:** Опубликован online 2025-12-08, номер тома 2026; обзор не является новой теоремой или единым бенчмарком.
+
+**Идентичность:** `doi:10.1145/3776737` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-302
+**[Reachability in Directed Acyclic Graphs with Near-Linear Cut Queries](https://arxiv.org/abs/2607.21390)** (2026)
+
+Khanna–Putterman–Song: single-source DAG reachability, topological sorting и обнаружение циклов через O(n log^3 n) запросов к графовым разрезам.
+
+**Ограничение:** Cut-query oracle мощнее отдельного probe на ячейку памяти; его число обращений нельзя напрямую подставить в cell-probe ограничение.
+
+**Идентичность:** `arxiv:2607.21390` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-305
+**[Incremental Topological Ordering and Cycle Detection with Predictions](https://arxiv.org/abs/2402.11028)** (2024)
+
+Алгоритмы инкрементального topological sort/cycle-detection с предсказаниями, устойчивые к ошибкам прогнозов.
+
+**Ограничение:** Обновление порядка после произвольной вставки ребра не соответствует append-only sink модели DAG-002; обучение и cost предсказаний не бесплатны.
+
+**Идентичность:** `arxiv:2402.11028` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-306
+**[Incremental Topological Ordering and Strong Component Maintenance](https://arxiv.org/abs/0803.0792)** (2008)
+
+Классический онлайн алгоритм топологической сортировки и поддержания SCC при последовательных вставках рёбер; amortized O(sqrt(m)) на вставку.
+
+**Ограничение:** Классический prior art, не новая работа 2026; старые vertex labels изменяются, поэтому не достижимый без оговорок baseline DAG-002.
+
+**Идентичность:** `arxiv:0803.0792` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-307
+**[Lightweight 2-Hop Labels for Reachability Queries on Large-Scale Graphs](https://doi.org/10.1109/ICDE65706.2026.00177)** (2026)
+
+ICDE 2026: индексация по 2-hop меткам с contraction-aware порядком и pruning, чтобы сократить объём индекса точной достижимости.
+
+**Ограничение:** Построение офлайн и сжатие графа не доказывают update/compaction recourse при непрерывных изменениях.
+
+**Идентичность:** `doi:10.1109/ICDE65706.2026.00177` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-315
+**[Efficiently querying connected components in large temporal graphs via scalable and maintainable indices](https://doi.org/10.1007/s00778-026-00977-5)** (2026)
+
+VLDBJ 2026: поддерживаемые temporal window-CC индексы связности, включая ориентированные и неориентированные случаи.
+
+**Ограничение:** Window-CC и time-respecting reachability используют различные semantics; author latency/space не оценены на устройстве Mathlab.
+
+**Идентичность:** `doi:10.1007/s00778-026-00977-5` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
 
 ## graph-rag
 *GraphRAG, knowledge-graph retrieval, системное сравнение с RAG*
@@ -2941,6 +3097,58 @@ GraphFlow: reward-guided flow matching для поиска разнообраз�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
 
+### LIT-308
+**[Clue-RAG: Towards Accurate and Cost-Efficient Graph-Based RAG Via Multi-Partite Graph-Based Index](https://doi.org/10.1109/ICDE65706.2026.00179)** (2026)
+
+ICDE 2026: multi-partite индекс chunk–knowledge–entity, гибридное извлечение и Q-Iter итеративный retrieval.
+
+**Ограничение:** Авторское качество на QA не устанавливает достоверности неотмеченных источников, динамической актуальности и физической I/O стоимости.
+
+**Идентичность:** `doi:10.1109/ICDE65706.2026.00179` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-311
+**[The Provenance Gap in Clinical AI: Evidence-Traceable Temporal Knowledge Graphs for Rare Disease Reasoning](https://arxiv.org/abs/2604.17114)** (2026)
+
+HEG-TKG связывает временные сведения с PMID/citation-level provenance и сравнивает evidence verification против общего RAG.
+
+**Ограничение:** Клиническая выборка узкая; author claims о достоверности ссылок и robustness не заменяют криптоаутентификацию или независимую валидацию.
+
+**Идентичность:** `arxiv:2604.17114` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-314
+**[ArchRAG: Attributed Community-based Hierarchical Retrieval-Augmented Generation](https://doi.org/10.1609/aaai.v40i19.38619)** (2026)
+
+AAAI 2026: иерархический индекс атрибутированных сообществ, query augmentation и online retrieval для снижения стоимости токенов.
+
+**Ограничение:** Сообщества и качество генерации зависят от extraction и baseline; не доказана универсальная точность GraphRAG или корректность отрицательных ответов.
+
+**Идентичность:** `doi:10.1609/aaai.v40i19.38619` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-316
+**[BookRAG: A Hierarchical Structure-aware Index-based Approach for Retrieval-Augmented Generation on Complex Documents](https://doi.org/10.14778/3819518.3819556)** (2026)
+
+PVLDB 2026: дерево оглавления, entity relation graph и адаптивный workflow извлечения по иерархическим документам.
+
+**Ограничение:** Фиксированная иерархия книг не равна динамическому DAG доказательств; полнота исходных источников и честное сравнение с BM25 требуют проверки.
+
+**Идентичность:** `doi:10.14778/3819518.3819556` · **Также:** arxiv:2512.03413 · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
 
 ## agent-memory
 *Графовая память агентов, темпоральность и эволюция знаний*
@@ -3204,6 +3412,45 @@ Tree of Time и сохраняемые reasoning traces для multi-entity temp
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-309
+**[Neuro-Symbolic Meta-Policies for Temporal Knowledge-Graph Memory under Partial Observability](https://arxiv.org/abs/2607.18368)** (2026)
+
+Гибридный метаконтроллер выбирает символическую эвристику сохранения и извлечения RDF temporal KG-памяти в частично наблюдаемой среде.
+
+**Ограничение:** RoomKG и частичная наблюдаемость не эквивалентны verified latest historical KG; интерпретируемость решений не доказывает truthfulness фактов.
+
+**Идентичность:** `arxiv:2607.18368` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-310
+**[AdaTKG: Adaptive Memory for Temporal Knowledge Graph Reasoning](https://arxiv.org/abs/2605.07121)** (2026)
+
+Per-entity онлайн память обновляется при каждом взаимодействии, с общей EMA и способностью обрабатывать ранее неизвестные сущности.
+
+**Ограничение:** Прогноз будущих связей отличается от exact as-of причинных доказательств; это экспериментальная learned memory, не сертификат.
+
+**Идентичность:** `arxiv:2605.07121` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-312
+**[Temporal knowledge graph reasoning using global and recent history information](https://doi.org/10.1038/s41598-026-51488-w)** (2026)
+
+Scientific Reports 2026: совместное использование глобальной и свежей истории для построения временного состояния KG и temporal reasoning.
+
+**Ограничение:** Зависимость от истории и эмбеддингов не обеспечивает фактологическую истинность, детерминированное восстановление или актуальный signed root.
+
+**Идентичность:** `doi:10.1038/s41598-026-51488-w` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
 
 
 ## graph-reasoning

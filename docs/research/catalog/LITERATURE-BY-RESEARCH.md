@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**296** работ сопоставлены с **38** внутренними исследованиями.
+**315** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -454,6 +454,25 @@
 - [LIT-295](LITERATURE.md#lit-295) — SodaMem: Evidence-Grounded Temporal Graph Memory for LLM Agents (2026; primary_abstract_checked)
 - [LIT-296](LITERATURE.md#lit-296) — VL-MemKnG: Hybrid Memory with a Spatio-Temporal Knowledge Graph for Question Answering over Long Egocentric Navigation Trajectories (2026; primary_abstract_checked)
 - [LIT-297](LITERATURE.md#lit-297) — MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning (2025; primary_abstract_checked)
+- [LIT-298](LITERATURE.md#lit-298) — Super-Logarithmic Lower Bounds for Dynamic Graph Problems (2025; publisher_abstract_checked)
+- [LIT-299](LITERATURE.md#lit-299) — Parameterized Linear Time Transitive Closure (2026; publisher_abstract_checked)
+- [LIT-300](LITERATURE.md#lit-300) — MLRQ: an efficient labeling scheme for reachability queries on reduced DAGs (2025; publisher_abstract_checked)
+- [LIT-301](LITERATURE.md#lit-301) — Indexing Techniques for Graph Reachability Queries (2025; publisher_abstract_checked)
+- [LIT-302](LITERATURE.md#lit-302) — Reachability in Directed Acyclic Graphs with Near-Linear Cut Queries (2026; primary_abstract_checked)
+- [LIT-303](LITERATURE.md#lit-303) — Succinct Graph Representations and Algorithmic Applications (2026; primary_abstract_checked)
+- [LIT-304](LITERATURE.md#lit-304) — Succinct Preferential Attachment Graphs (2025; primary_abstract_checked)
+- [LIT-305](LITERATURE.md#lit-305) — Incremental Topological Ordering and Cycle Detection with Predictions (2024; primary_abstract_checked)
+- [LIT-306](LITERATURE.md#lit-306) — Incremental Topological Ordering and Strong Component Maintenance (2008; primary_abstract_checked)
+- [LIT-307](LITERATURE.md#lit-307) — Lightweight 2-Hop Labels for Reachability Queries on Large-Scale Graphs (2026; publisher_abstract_checked)
+- [LIT-308](LITERATURE.md#lit-308) — Clue-RAG: Towards Accurate and Cost-Efficient Graph-Based RAG Via Multi-Partite Graph-Based Index (2026; publisher_abstract_checked)
+- [LIT-309](LITERATURE.md#lit-309) — Neuro-Symbolic Meta-Policies for Temporal Knowledge-Graph Memory under Partial Observability (2026; primary_abstract_checked)
+- [LIT-310](LITERATURE.md#lit-310) — AdaTKG: Adaptive Memory for Temporal Knowledge Graph Reasoning (2026; primary_abstract_checked)
+- [LIT-311](LITERATURE.md#lit-311) — The Provenance Gap in Clinical AI: Evidence-Traceable Temporal Knowledge Graphs for Rare Disease Reasoning (2026; primary_abstract_checked)
+- [LIT-312](LITERATURE.md#lit-312) — Temporal knowledge graph reasoning using global and recent history information (2026; publisher_abstract_checked)
+- [LIT-313](LITERATURE.md#lit-313) — Incremental View Maintenance for Property Graph Queries (2018; publisher_abstract_checked)
+- [LIT-314](LITERATURE.md#lit-314) — ArchRAG: Attributed Community-based Hierarchical Retrieval-Augmented Generation (2026; publisher_abstract_checked)
+- [LIT-315](LITERATURE.md#lit-315) — Efficiently querying connected components in large temporal graphs via scalable and maintainable indices (2026; publisher_abstract_checked)
+- [LIT-316](LITERATURE.md#lit-316) — BookRAG: A Hierarchical Structure-aware Index-based Approach for Retrieval-Augmented Generation on Complex Documents (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -603,6 +622,18 @@
 - [LIT-291](LITERATURE.md#lit-291) — Incremental (k, z)-Clustering on Graphs (2026; publisher_abstract_checked)
 - [LIT-292](LITERATURE.md#lit-292) — Better Diameter Bounds for Efficient Shortcuts and a Structural Criterion for Constructiveness (2026; publisher_abstract_checked)
 - [LIT-293](LITERATURE.md#lit-293) — Strategy Repair in Reachability Games via a Graph Quotientation (2026; publisher_abstract_checked)
+- [LIT-298](LITERATURE.md#lit-298) — Super-Logarithmic Lower Bounds for Dynamic Graph Problems (2025; publisher_abstract_checked)
+- [LIT-299](LITERATURE.md#lit-299) — Parameterized Linear Time Transitive Closure (2026; publisher_abstract_checked)
+- [LIT-300](LITERATURE.md#lit-300) — MLRQ: an efficient labeling scheme for reachability queries on reduced DAGs (2025; publisher_abstract_checked)
+- [LIT-301](LITERATURE.md#lit-301) — Indexing Techniques for Graph Reachability Queries (2025; publisher_abstract_checked)
+- [LIT-302](LITERATURE.md#lit-302) — Reachability in Directed Acyclic Graphs with Near-Linear Cut Queries (2026; primary_abstract_checked)
+- [LIT-303](LITERATURE.md#lit-303) — Succinct Graph Representations and Algorithmic Applications (2026; primary_abstract_checked)
+- [LIT-304](LITERATURE.md#lit-304) — Succinct Preferential Attachment Graphs (2025; primary_abstract_checked)
+- [LIT-305](LITERATURE.md#lit-305) — Incremental Topological Ordering and Cycle Detection with Predictions (2024; primary_abstract_checked)
+- [LIT-306](LITERATURE.md#lit-306) — Incremental Topological Ordering and Strong Component Maintenance (2008; primary_abstract_checked)
+- [LIT-307](LITERATURE.md#lit-307) — Lightweight 2-Hop Labels for Reachability Queries on Large-Scale Graphs (2026; publisher_abstract_checked)
+- [LIT-313](LITERATURE.md#lit-313) — Incremental View Maintenance for Property Graph Queries (2018; publisher_abstract_checked)
+- [LIT-315](LITERATURE.md#lit-315) — Efficiently querying connected components in large temporal graphs via scalable and maintainable indices (2026; publisher_abstract_checked)
 
 ## ML-007
 
@@ -793,6 +824,13 @@
 - [LIT-295](LITERATURE.md#lit-295) — SodaMem: Evidence-Grounded Temporal Graph Memory for LLM Agents (2026; primary_abstract_checked)
 - [LIT-296](LITERATURE.md#lit-296) — VL-MemKnG: Hybrid Memory with a Spatio-Temporal Knowledge Graph for Question Answering over Long Egocentric Navigation Trajectories (2026; primary_abstract_checked)
 - [LIT-297](LITERATURE.md#lit-297) — MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning (2025; primary_abstract_checked)
+- [LIT-308](LITERATURE.md#lit-308) — Clue-RAG: Towards Accurate and Cost-Efficient Graph-Based RAG Via Multi-Partite Graph-Based Index (2026; publisher_abstract_checked)
+- [LIT-309](LITERATURE.md#lit-309) — Neuro-Symbolic Meta-Policies for Temporal Knowledge-Graph Memory under Partial Observability (2026; primary_abstract_checked)
+- [LIT-310](LITERATURE.md#lit-310) — AdaTKG: Adaptive Memory for Temporal Knowledge Graph Reasoning (2026; primary_abstract_checked)
+- [LIT-311](LITERATURE.md#lit-311) — The Provenance Gap in Clinical AI: Evidence-Traceable Temporal Knowledge Graphs for Rare Disease Reasoning (2026; primary_abstract_checked)
+- [LIT-312](LITERATURE.md#lit-312) — Temporal knowledge graph reasoning using global and recent history information (2026; publisher_abstract_checked)
+- [LIT-314](LITERATURE.md#lit-314) — ArchRAG: Attributed Community-based Hierarchical Retrieval-Augmented Generation (2026; publisher_abstract_checked)
+- [LIT-316](LITERATURE.md#lit-316) — BookRAG: A Hierarchical Structure-aware Index-based Approach for Retrieval-Augmented Generation on Complex Documents (2026; publisher_abstract_checked)
 
 ## OM-135
 

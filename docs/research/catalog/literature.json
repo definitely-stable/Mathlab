@@ -8594,6 +8594,484 @@
       "verification": "primary_abstract_checked",
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "id": "LIT-298",
+      "year": 2025,
+      "track": "dynamic-data-structures",
+      "identity": "doi:10.1137/24M1638215",
+      "title": "Super-Logarithmic Lower Bounds for Dynamic Graph Problems",
+      "summary_ru": "Larsen–Yu: безусловная нижняя граница tilde-Omega(log^(3/2) n) на максимум update/query в cell-probe модели DAG с вставками рёбер.",
+      "limits_ru": "FOCS 2023 предшественник; статья online 2025-02-13 и помещена в том SIAM 2026. Не распространять на append-only sink DAG, физические SSD-байты или model-changing metadata.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1137/24M1638215",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-299",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.7155/jgaa.v30i1.3148",
+      "title": "Parameterized Linear Time Transitive Closure",
+      "summary_ru": "Практический разбор DAG на непересекающиеся цепи и width-зависимые методы вычисления транзитивного замыкания и меток достижимости.",
+      "limits_ru": "Параметризованная статическая предварительная обработка не равна immutable online labels или требованию обновлений без переиндексации.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.7155/jgaa.v30i1.3148",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-300",
+      "year": 2025,
+      "track": "graph-algorithms",
+      "identity": "doi:10.1007/s44443-025-00310-0",
+      "title": "MLRQ: an efficient labeling scheme for reachability queries on reduced DAGs",
+      "summary_ru": "MLRQ комбинирует топологические границы, partial 2-hop labels и интервалы дерева на уменьшенном DAG для быстрого отказа и точного positive.",
+      "limits_ru": "Редукция DAG и построение индекса могут быть дорогими; авторские эксперименты не доказывают быстрое обновление исторического графа.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1007/s44443-025-00310-0",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-301",
+      "year": 2025,
+      "track": "graph-algorithms",
+      "identity": "doi:10.1145/3776737",
+      "title": "Indexing Techniques for Graph Reachability Queries",
+      "summary_ru": "ACM Computing Surveys: обзор 33 схем индексов достижимости для plain и edge-labeled graphs; систематизация моделей и индексного обслуживания.",
+      "limits_ru": "Опубликован online 2025-12-08, номер тома 2026; обзор не является новой теоремой или единым бенчмарком.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1145/3776737",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-302",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "arxiv:2607.21390",
+      "title": "Reachability in Directed Acyclic Graphs with Near-Linear Cut Queries",
+      "summary_ru": "Khanna–Putterman–Song: single-source DAG reachability, topological sorting и обнаружение циклов через O(n log^3 n) запросов к графовым разрезам.",
+      "limits_ru": "Cut-query oracle мощнее отдельного probe на ячейку памяти; его число обращений нельзя напрямую подставить в cell-probe ограничение.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://arxiv.org/abs/2607.21390",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-303",
+      "year": 2026,
+      "track": "compressed-indexing",
+      "identity": "arxiv:2604.28096",
+      "title": "Succinct Graph Representations and Algorithmic Applications",
+      "summary_ru": "Dual clique cover с incidence dual позволяет BFS/DFS, компоненты и matching на сжатом представлении по размеру покрытия, а не списку всех рёбер.",
+      "limits_ru": "DCC рассматривает неориентированный граф, структурное сжатие и авторские тесты; динамическая мутация и physical compaction не гарантируются.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://arxiv.org/abs/2604.28096",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-304",
+      "year": 2025,
+      "track": "compressed-indexing",
+      "identity": "arxiv:2506.21436",
+      "title": "Succinct Preferential Attachment Graphs",
+      "summary_ru": "Instance-sensitive сжатие preferential-attachment графов с поддержкой навигации и асимптотической гарантией относительно entropy-coded edge list.",
+      "limits_ru": "Генеративная модель Barabasi–Albert и произвольные DAG различаются; затраты на ребалансировку индекса не установлены.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://arxiv.org/abs/2506.21436",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-305",
+      "year": 2024,
+      "track": "graph-algorithms",
+      "identity": "arxiv:2402.11028",
+      "title": "Incremental Topological Ordering and Cycle Detection with Predictions",
+      "summary_ru": "Алгоритмы инкрементального topological sort/cycle-detection с предсказаниями, устойчивые к ошибкам прогнозов.",
+      "limits_ru": "Обновление порядка после произвольной вставки ребра не соответствует append-only sink модели DAG-002; обучение и cost предсказаний не бесплатны.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://arxiv.org/abs/2402.11028",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-306",
+      "year": 2008,
+      "track": "graph-algorithms",
+      "identity": "arxiv:0803.0792",
+      "title": "Incremental Topological Ordering and Strong Component Maintenance",
+      "summary_ru": "Классический онлайн алгоритм топологической сортировки и поддержания SCC при последовательных вставках рёбер; amortized O(sqrt(m)) на вставку.",
+      "limits_ru": "Классический prior art, не новая работа 2026; старые vertex labels изменяются, поэтому не достижимый без оговорок baseline DAG-002.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://arxiv.org/abs/0803.0792",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-307",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.1109/ICDE65706.2026.00177",
+      "title": "Lightweight 2-Hop Labels for Reachability Queries on Large-Scale Graphs",
+      "summary_ru": "ICDE 2026: индексация по 2-hop меткам с contraction-aware порядком и pruning, чтобы сократить объём индекса точной достижимости.",
+      "limits_ru": "Построение офлайн и сжатие графа не доказывают update/compaction recourse при непрерывных изменениях.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1109/ICDE65706.2026.00177",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-308",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.1109/ICDE65706.2026.00179",
+      "title": "Clue-RAG: Towards Accurate and Cost-Efficient Graph-Based RAG Via Multi-Partite Graph-Based Index",
+      "summary_ru": "ICDE 2026: multi-partite индекс chunk–knowledge–entity, гибридное извлечение и Q-Iter итеративный retrieval.",
+      "limits_ru": "Авторское качество на QA не устанавливает достоверности неотмеченных источников, динамической актуальности и физической I/O стоимости.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.1109/ICDE65706.2026.00179",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-309",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2607.18368",
+      "title": "Neuro-Symbolic Meta-Policies for Temporal Knowledge-Graph Memory under Partial Observability",
+      "summary_ru": "Гибридный метаконтроллер выбирает символическую эвристику сохранения и извлечения RDF temporal KG-памяти в частично наблюдаемой среде.",
+      "limits_ru": "RoomKG и частичная наблюдаемость не эквивалентны verified latest historical KG; интерпретируемость решений не доказывает truthfulness фактов.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2607.18368",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-310",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2605.07121",
+      "title": "AdaTKG: Adaptive Memory for Temporal Knowledge Graph Reasoning",
+      "summary_ru": "Per-entity онлайн память обновляется при каждом взаимодействии, с общей EMA и способностью обрабатывать ранее неизвестные сущности.",
+      "limits_ru": "Прогноз будущих связей отличается от exact as-of причинных доказательств; это экспериментальная learned memory, не сертификат.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2605.07121",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-311",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "arxiv:2604.17114",
+      "title": "The Provenance Gap in Clinical AI: Evidence-Traceable Temporal Knowledge Graphs for Rare Disease Reasoning",
+      "summary_ru": "HEG-TKG связывает временные сведения с PMID/citation-level provenance и сравнивает evidence verification против общего RAG.",
+      "limits_ru": "Клиническая выборка узкая; author claims о достоверности ссылок и robustness не заменяют криптоаутентификацию или независимую валидацию.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2604.17114",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-312",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "doi:10.1038/s41598-026-51488-w",
+      "title": "Temporal knowledge graph reasoning using global and recent history information",
+      "summary_ru": "Scientific Reports 2026: совместное использование глобальной и свежей истории для построения временного состояния KG и temporal reasoning.",
+      "limits_ru": "Зависимость от истории и эмбеддингов не обеспечивает фактологическую истинность, детерминированное восстановление или актуальный signed root.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41598-026-51488-w",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-313",
+      "year": 2018,
+      "track": "incremental-computation",
+      "identity": "doi:10.1145/3183713.3183724",
+      "title": "Incremental View Maintenance for Property Graph Queries",
+      "summary_ru": "SIGMOD 2018: инкрементальное обслуживание property-graph queries через вложенную реляционную алгебру вместо полного пересчёта.",
+      "limits_ru": "Изменяемые материализованные представления и графовый query algebra не равны immutable DAG labels или bounded physical page rewriting.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1145/3183713.3183724",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-314",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.1609/aaai.v40i19.38619",
+      "title": "ArchRAG: Attributed Community-based Hierarchical Retrieval-Augmented Generation",
+      "summary_ru": "AAAI 2026: иерархический индекс атрибутированных сообществ, query augmentation и online retrieval для снижения стоимости токенов.",
+      "limits_ru": "Сообщества и качество генерации зависят от extraction и baseline; не доказана универсальная точность GraphRAG или корректность отрицательных ответов.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.1609/aaai.v40i19.38619",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-315",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.1007/s00778-026-00977-5",
+      "title": "Efficiently querying connected components in large temporal graphs via scalable and maintainable indices",
+      "summary_ru": "VLDBJ 2026: поддерживаемые temporal window-CC индексы связности, включая ориентированные и неориентированные случаи.",
+      "limits_ru": "Window-CC и time-respecting reachability используют различные semantics; author latency/space не оценены на устройстве Mathlab.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1007/s00778-026-00977-5",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-316",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.14778/3819518.3819556",
+      "title": "BookRAG: A Hierarchical Structure-aware Index-based Approach for Retrieval-Augmented Generation on Complex Documents",
+      "summary_ru": "PVLDB 2026: дерево оглавления, entity relation graph и адаптивный workflow извлечения по иерархическим документам.",
+      "limits_ru": "Фиксированная иерархия книг не равна динамическому DAG доказательств; полнота исходных источников и честное сравнение с BM25 требуют проверки.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.14778/3819518.3819556",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "1503899bfba204ed5e0bfc6d245440b20c92db3d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "alternate_identities": [
+        "arxiv:2512.03413"
+      ]
     }
   ]
 }
