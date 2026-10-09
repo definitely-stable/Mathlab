@@ -114,6 +114,7 @@ class GF2SyndromeDynamic:
     outputs: int
     memory: int = 0
     actual_writes: int = 0
+    actual_update_reads: int = 0
 
     def __post_init__(self):
         if (not isinstance(self.outputs, int) or isinstance(self.outputs, bool)
@@ -146,19 +147,39 @@ class GF2SyndromeDynamic:
     def observe(self):
         return sum(self.query(i)[0] << i for i in range(self.outputs))
 
+    def apply_delta(self, delta):
+        """Public typed DELTA update: one remote READ then one WRITE if nonzero.
+
+        The n-bit command is supplied to the *updater*, never to queries.
+        This is bit-cell accounting, not measured page or WAL traffic.
+        """
+        if (not isinstance(delta, int) or isinstance(delta, bool)
+                or not 0 <= delta < (1 << self.outputs)):
+            raise ValueError("delta out of range")
+        if not delta:
+            return 0
+        address = delta - 1
+        previous_bit = (self.memory >> address) & 1
+        self.actual_update_reads += 1
+        new_bit = previous_bit ^ 1
+        self.memory = ((self.memory & ~(1 << address)) |
+                       (new_bit << address))
+        self.actual_writes += 1
+        return 1
+
     def update(self, target):
+        """Alternative TARGET update: remote query reads must be charged too.
+
+        Recompute old logical syndrome by n queries; do NOT assume updater
+        knows it for free. This conservative protocol reads n*2^(n-1)
+        physical bits to discover delta, plus the toggle read if needed.
+        """
         if (not isinstance(target, int) or isinstance(target, bool)
                 or not 0 <= target < (1 << self.outputs)):
             raise ValueError("target out of range")
         previous = self.observe()
-        delta = previous ^ target
-        if delta:
-            # The column with value delta is at *fixed public address* delta-1.
-            self.memory ^= 1 << (delta - 1)
-            self.actual_writes += 1
-        if self.observe() != target:
-            raise AssertionError("syndrome update failure")
-        return int(bool(delta))
+        self.actual_update_reads += self.outputs * self.parity_read_count
+        return self.apply_delta(previous ^ target)
 
 
 def independent_parity_syndrome(memory, outputs):

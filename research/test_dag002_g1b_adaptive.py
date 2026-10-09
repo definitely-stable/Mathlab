@@ -69,19 +69,22 @@ class G1BFiniteTests(unittest.TestCase):
             for targets in itertools.product(range(1 << n), repeat=history):
                 store = GF2SyndromeDynamic(n)
                 writes = 0
+                previous = 0
                 for target in targets:
                     before = store.memory
-                    cost = store.update(target)
+                    cost = store.apply_delta(previous ^ target)
                     writes += cost
                     self.assertLessEqual(cost, 1)
                     self.assertEqual((before ^ store.memory).bit_count(), cost)
                     self.assertEqual(independent_parity_syndrome(store.memory, n),
                                      target)
+                    previous = target
                     self.assertEqual(tuple(store.query(i)[0] for i in range(n)),
                                      tuple((target >> i) & 1 for i in range(n)))
                     self.assertTrue(all(store.query(i)[1] == 1 << (n - 1)
                                         for i in range(n)))
                 self.assertEqual(store.actual_writes, writes)
+                self.assertEqual(store.actual_update_reads, writes)
 
     def test_linear_single_flip_necessary_nonzero_columns_and_row_support(self):
         for n in range(1, 6):
@@ -111,18 +114,34 @@ class G1BFiniteTests(unittest.TestCase):
             store = GF2SyndromeDynamic(2, remote)
             for desired in range(4):
                 copy = GF2SyndromeDynamic(2, store.memory)
-                self.assertLessEqual(copy.update(desired), 1)
+                self.assertLessEqual(copy.apply_delta(store.observe() ^ desired), 1)
                 self.assertEqual(copy.observe(), desired)
                 self.assertEqual(independent_parity_syndrome(copy.memory, 2), desired)
+
+    def test_target_operation_recharges_reads_to_discover_previous_state(self):
+        s = GF2SyndromeDynamic(2)
+        # Using TARGET is more expensive than DELTA: no hidden current
+        # output cache or free known prior vector.
+        self.assertEqual(s.update(3), 1)
+        self.assertEqual(s.actual_update_reads, 2 * 2 + 1)
+        self.assertEqual(s.actual_writes, 1)
+        self.assertEqual(s.update(3), 0)
+        self.assertEqual(s.actual_update_reads, 2 * (2 * 2) + 1)
+        self.assertEqual(s.actual_writes, 1)
 
     def test_no_claim_of_general_amortized_physical_write_complexity(self):
         # Each update performs no more than one logical cell toggle; this
         # says nothing about page rewrites, WAL, crashes or metadata layout.
         s = GF2SyndromeDynamic(2)
         seq = (3, 2, 1, 0, 0, 3, 1, 3)
-        costs = [s.update(v) for v in seq]
+        previous = 0
+        costs = []
+        for target in seq:
+            costs.append(s.apply_delta(previous ^ target))
+            previous = target
         self.assertEqual(costs, [1, 1, 1, 1, 0, 1, 1, 1])
         self.assertEqual(s.actual_writes, 7)
+        self.assertEqual(s.actual_update_reads, 7)
 
 
 if __name__ == "__main__":
