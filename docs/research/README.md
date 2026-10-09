@@ -4,6 +4,16 @@
 
 [**Fully priced authenticated 2D parity model, explicit update/query transcript, finite adversarial oracle and quantitative non-novelty checks**](UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md) · [five original 2016–2026 source identities](UCT-005-G2-B-SOURCES.json) · [tests](../../research/test_uct005_g2b_auth_tree.py) · [issue #131](https://github.com/definitely-stable/Mathlab/issues/131). Published dynamic multidimensional query authentication and aggregate ADS defeat generic novelty claims. **G2-B evidence only; full-source proofs not reproduced, cryptographic security not proven, central UCT-005 theorem OPEN_UNPROVED.** Pending canonical LIT numbering while parallel HYP-105 PR #132 owns LIT-205.
 
+## DAG-002 / ALG-001 G0 — immutable reachability and rank-sensitive output separation (2026-10-09)
+
+[DAG-002 model, known SEA chain-top baseline and no-remote-probe information bound](DAG-002-G0-IMMUTABLE-REACHABILITY.md) · [ALG-001 rank-one coordinate-observation barrier, precise field/update types](ALG-001-G0-RANK-OBSERVATION.md) · issues [#133](https://github.com/definitely-stable/Mathlab/issues/133) and [#134](https://github.com/definitely-stable/Mathlab/issues/134). **RESTRICTED_ELEMENTARY_PROOF, KNOWN_PRIOR_ART, FINITE_EXACT_CHECKS, NO_NEW_ROOT_THEOREM, NO_RUST.** Canonical studies LIT-187/LIT-195 already indexed; no re-import and no modification of other research status.
+
+
+## INDEX-001 G2-B0/B1 — durable WAL/checkpoint exact range-map reference (2026-10-09)
+
+[**Frozen binary WAL/snapshot contract, CRC and linearization/fsync assumptions, explicit fault matrix**](INDEX-001-G2-B0-DURABILITY-PROTOCOL.md) · [issue #126](https://github.com/definitely-stable/Mathlab/issues/126) · [Python stdlib reference](../../research/index001_durable.py) · [independent dense/recovery tests](../../research/test_index001_durable.py). A deliberately inefficient one-writer full-snapshot baseline and append-WAL/checkpoint reference distinguish *application-level* returned read bytes and `os.write` bytes from physical disk/NAND bytes. G2-B1 is **POSIX RESEARCH REFERENCE ONLY**; no concurrent writers, fault-tolerant hardware proof, new asymptotic lower bound or Rust API. G2-B2 and physical proof gates OPEN; exact-head hosted CI required.
+
+
 ## UCT-005 G2-A — новые математические барьеры (2026-10-09)
 
 [**Аудит семи источников, из которых шесть новых, и точные онлайн-контрмодели**](UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) · [issue #125](https://github.com/definitely-stable/Mathlab/issues/125) · [1D/2D oracle](../../research/test_uct005_g2a_models.py). В библиографии теперь **204 уникальных публикации** (новые LIT-199..204); STOC 2026 уже учтён как LIT-072. **G2-A: STOP простой 1D-корень; G2-B: 2D authenticated multi-query SCOUT; root novelty OPEN.**

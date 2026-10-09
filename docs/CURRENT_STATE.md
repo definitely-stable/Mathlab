@@ -1,5 +1,10 @@
 # CURRENT_STATE
 
+## DAG-002 / ALG-001 G0 (2026-10-09) — model-scoped finite research foundation
+
+[DAG-002 proof and prior-art barrier](research/DAG-002-G0-IMMUTABLE-REACHABILITY.md) · [ALG-001 rank/coordinate separation](research/ALG-001-G0-RANK-OBSERVATION.md) · [DAG-002 issue #133](https://github.com/definitely-stable/Mathlab/issues/133) · [ALG-001 issue #134](https://github.com/definitely-stable/Mathlab/issues/134). **G0 LIMITED_ELEMENTARY_COUNTING / SOURCE_CHAIN_TOP_ALREADY_KNOWN / EXACT_GF_ORACLE_REQUIRED / G1_UNPROVED / NO_NEW_SCIENTIFIC_NOVELTY / NO_RUST.** Existing 2025 SEA and 2026 ICALP literature provide chain-top and rank-update upper-bound prior art; the G0 bound is limited to fixed old labels, no source probes and priced new label+manifest bits. No changes to HYP-105, INDEX-001 or UCT-005 mathematics.
+
+
 ## HYP-105 G5-C3-A (2026-10-09) — structured pair-label search, gauge invariance ACCEPTED
 
 [Proof, critical all-m boundary and exact numerical evidence](research/HYP-105-G5-C3-A-STRUCTURED-LABEL-SEARCH.md) · [independent GF5 pair-label search](../research/hyp105_g5c3_label_search.py) · [held-out, gauge and arithmetic regression tests](../research/test_hyp105_g5c3_label_search.py) · [PR #122 MERGED](https://github.com/definitely-stable/Mathlab/pull/122) into main `796f10da3dacdfe87ec063221b356c10786683b4` · [exact PR-head hosted Research #1077 SUCCESS](https://github.com/definitely-stable/Mathlab/actions/runs/37896067333) (25 workflow steps). **PROVED_ELEMENTARY_COORDINATE_GAUGE / FINITE_EXACT_W32_IMPROVEMENT / NO_NEW_EXPONENT / NO_ASYMPTOTIC_T4_OR_T6_ESTIMATE / NO_RUST.** Every ambient coordinate permutation preserves the *entire* signed-trade hypergraph even for arbitrary GF(q) weights; on the split K6 pair labels, the action of S6×S6 is faithful and free on bijections, yielding exactly (15!/6!)² label classes before factoring W32 graph automorphisms. This only removes duplicate finite search points, not an ASET exponent.
