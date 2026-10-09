@@ -180,6 +180,44 @@ def restricted_witness(n=129, block=32, budget=Budget(7,4,2),
     raise ValueError("finite horizon did not force an impossible step")
 
 
+
+def compulsory_checkpoint_bound(n, block, query_cap, total_updates):
+    """Necessary checkpoint/write lower bound for the restricted hot-toggle WAL.
+
+    Every immutable base is one of the two alternating states; the *same*
+    untouched last-cell query requires the same number of prefix pages in
+    either base. This does NOT apply to an indexed/coalesced or non-WAL reader.
+    """
+    initial=alternating(n)
+    other=assign(initial,hot_op(1))
+    if (type(total_updates) is not int or total_updates<0 or
+        type(query_cap) is not int or query_cap<1):
+        raise ValueError("invalid horizon or Q")
+    prefix=[
+        len(lookup_page_probe("packed",bits,n-1,min(n,8),block)["page_indices"])
+        for bits in (initial,other)]
+    if prefix[0]!=prefix[1]:
+        raise ValueError("prefix read costs differ across checkpoint bases")
+    q0=1+prefix[0]
+    if query_cap<q0:
+        return {"admissible":False,"reason":"even checkpoint baseline exceeds Q"}
+    e=len(encode_wal(n,*hot_op(1)))
+    if len(encode_wal(n,*hot_op(2)))!=e:
+        raise ValueError("variable log-frame width")
+    epoch_cap=((query_cap-q0)*block)//e
+    # At most epoch_cap consecutive append actions after the last checkpoint.
+    # Each block of epoch_cap+1 updates must contain a checkpoint.
+    minimum_checkpoints=total_updates//(epoch_cap+1)
+    minimum_new_pages=min(
+        pages(len(packed_image(initial)),block),
+        pages(len(packed_image(other)),block))
+    return {"admissible":True,"max_consecutive_appends":epoch_cap,
+            "min_checkpoints":minimum_checkpoints,
+            "min_checkpoint_model_bytes":
+                minimum_checkpoints*(minimum_new_pages+1)*block,
+            "scope":"append-all forward-scan WAL and two-generation direct checkpoint"}
+
+
 def report():
     b=Budget(7,4,2)
     read=restricted_witness(129,32,b,12)
