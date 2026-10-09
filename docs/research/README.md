@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## DAG-002 / ALG-001 G0 — immutable reachability and rank-sensitive output separation (2026-10-09)
+
+[DAG-002 model, known SEA chain-top baseline and no-remote-probe information bound](DAG-002-G0-IMMUTABLE-REACHABILITY.md) · [ALG-001 rank-one coordinate-observation barrier, precise field/update types](ALG-001-G0-RANK-OBSERVATION.md) · issues [#133](https://github.com/definitely-stable/Mathlab/issues/133) and [#134](https://github.com/definitely-stable/Mathlab/issues/134). **RESTRICTED_ELEMENTARY_PROOF, KNOWN_PRIOR_ART, FINITE_EXACT_CHECKS, NO_NEW_ROOT_THEOREM, NO_RUST.** Canonical studies LIT-187/LIT-195 already indexed; no re-import and no modification of other research status.
+
+
 ## INDEX-001 G2-B0/B1 — durable WAL/checkpoint exact range-map reference (2026-10-09)
 
 [**Frozen binary WAL/snapshot contract, CRC and linearization/fsync assumptions, explicit fault matrix**](INDEX-001-G2-B0-DURABILITY-PROTOCOL.md) · [issue #126](https://github.com/definitely-stable/Mathlab/issues/126) · [Python stdlib reference](../../research/index001_durable.py) · [independent dense/recovery tests](../../research/test_index001_durable.py). A deliberately inefficient one-writer full-snapshot baseline and append-WAL/checkpoint reference distinguish *application-level* returned read bytes and `os.write` bytes from physical disk/NAND bytes. G2-B1 is **POSIX RESEARCH REFERENCE ONLY**; no concurrent writers, fault-tolerant hardware proof, new asymptotic lower bound or Rust API. G2-B2 and physical proof gates OPEN; exact-head hosted CI required.
