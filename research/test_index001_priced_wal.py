@@ -55,6 +55,10 @@ class PricedWalTest(unittest.TestCase):
                                 expected = independent_page_changes(old, new, 32)
                                 row = next(x for x in rows if x["layout"] == layout)
                                 self.assertEqual(row["written_model_bytes"], expected*32)
+                                expected_reads = (pages(len(old), 32) if layout == "packed"
+                                                  else ((hi - 1)//group - lo//group + 1) *
+                                                       pages(len(image_for("segmented", before[:group], group, 32)), 32))
+                                self.assertEqual(row["read_update_pages"], expected_reads)
                                 self.assertEqual(row["disk_bytes_after"], pages(len(new), 32)*32)
                                 self.assertEqual(row["peak_bytes"],
                                                  max(pages(len(old), 32),
@@ -67,6 +71,7 @@ class PricedWalTest(unittest.TestCase):
                             self.assertEqual(appended["operation"], "wal_append")
                             self.assertEqual(appended["written_model_bytes"], 64)
                             self.assertEqual(appended["allocated_pages"], 1)
+                            self.assertEqual(appended["read_update_pages"], 1)
                             self.assertEqual(appended["disk_bytes_after"], 96)
                             self.assertEqual(appended["retired_pages"], 0)
                             seen += 1
@@ -89,6 +94,7 @@ class PricedWalTest(unittest.TestCase):
                         self.assertEqual(len(s2.frames), 0)
                         self.assertEqual(r2["retired_pages"],
                                          pages(len(packed_image(before)), 32) + 1)
+                        self.assertEqual(r2["read_update_pages"], 3)
                         self.assertEqual(r2["allocated_pages"],
                                          pages(len(packed_image(s2.latest)), 32))
                         self.assertEqual(r2["materialized_checkpoint_payload"],
@@ -123,6 +129,7 @@ class PricedWalTest(unittest.TestCase):
             wal, rec = wal_step(wal, (0, 1, 0), 32, 3)
             self.assertEqual(rec["operation"], "wal_append")
         self.assertEqual(len(wal.frames), 2)
+        self.assertEqual(rec["read_update_pages"], 2)
         self.assertEqual(wal.latest, bits)  # semantically idempotent, physically charged
         self.assertGreaterEqual(wal_disk_bytes(wal, 32), 96)
         wal, rec = wal_step(wal, (0, 1, 0), 32, 3)
