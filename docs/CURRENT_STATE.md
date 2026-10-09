@@ -1,5 +1,12 @@
 # CURRENT_STATE
 
+## UCT-005 G3-B2-B — три проверяемые F1 верхние конструкции (2026-10-09)
+
+[Строгая модель, условные доказательства, граница новизны](research/UCT-005-G3-B2-B-UPPER-FRONTIER.md) · [дерево диапазонов](../research/uct005_g3b2b_range_tree.py) · [replica/snapshot](../research/uct005_g3b2b_baselines.py) · [независимые adversarial тесты](../research/test_uct005_g3b2b_upper.py) · [issue #178](https://github.com/definitely-stable/Mathlab/issues/178). **THREE_F1_CONDITIONAL_UPPER_CONSTRUCTIONS / BYTE_EXACT_REFERENCE_WIRE / LOGICAL_NODE_COUNTERS_NOT_PHYSICAL_IO / ORIGINAL_LOWER_BOUND_OPEN / NO_RUST.** Для единого SET/RANGE_PARITY сервиса построены и проверяются (R) доверенная локальная копия плюс аутентифицированный SET-log, (S) полный snapshot и (T) SHA-256 range-aggregate tree, каждый с явно платным монотонным авторским якорем (40 B на публикацию и ответ). Доказывается только условная корректность; SHA-256 стойкость и глобальный якорь являются допущениями. Тестовый контрпример: для малых n Merkle-ответ может быть больше полного snapshot. **G3-B2-C NEXT:** фактические physical I/O, crypto/verification/prover стоимость и строгая проверка оригинальной совместной нижней границы; при отсутствии разделения — STOP_NOVELTY. Корень #105 ОТКРЫТ.
+
+
+
+
 ## TKG-001 G0 — bitemporal provenance DAG (2026-10-09)
 
 [Mathematical scope, three elementary proofs and falsifiers](research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) · [source-checked catalogue](research/catalog/README.md) · [issue #190](https://github.com/definitely-stable/Mathlab/issues/190). Exact model/independent finite oracles; classical 2^k provenance expansion and explicit answer-table recourse countermodel. No source signing, latest freshness, hardware I/O theorem or original root claim; acceptance from exact-hosted CI and PR.

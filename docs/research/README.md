@@ -1,5 +1,12 @@
 # Research index and authority order
 
+## UCT-005 G3-B2-B — paid authenticated range frontier (2026-10-09)
+
+[**Same-task F1 upper frontier, conditional proofs, accounting and novelty STOP gate**](UCT-005-G3-B2-B-UPPER-FRONTIER.md) · [tree](../../research/uct005_g3b2b_range_tree.py) · [replica/full snapshot](../../research/uct005_g3b2b_baselines.py) · [independent exhaustive tests](../../research/test_uct005_g3b2b_upper.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). Three honest upper models for sequential SET/RANGE_PARITY with an explicitly paid monotone trusted epoch/root anchor. SHA-256 assumptions only, no computational-security reduction; byte counts apply only to frozen canonical JSON/reference anchor payloads, not physical I/O. G3-B2-C must prove a **genuinely new same-model nonfactorizing lower bound** or STOP_NOVELTY; UCT root remains OPEN.
+
+
+
+
 ## TKG-001 G0 — bitemporal fact/provenance DAG (2026-10-09)
 
 [Exact as-of, 2^k witness expansion, recourse countermodels and prior-art barrier](TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) · [issue #190](https://github.com/definitely-stable/Mathlab/issues/190) · [independent exhaustive test](../../research/test_tkg001_bitemporal.py). Distinct valid time and transaction epoch, alternative evidence, no uncharged freshness channel. **No new universal theorem or production code.**

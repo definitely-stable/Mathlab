@@ -65,6 +65,15 @@ class Uct005TreeTests(unittest.TestCase):
                        "relation": "NOVELTY_PROBLEM_NOT_PROOF_IMPLICATION"},
                       d["edges"])
 
+    def test_g3b2b_stays_upper_only_and_root_open(self):
+        nodes = {n["id"]: n for n in self.data["nodes"]}
+        self.assertEqual(nodes["UCT005G3B2B"]["kind"], "research_input")
+        self.assertIn("NO_NEW_LOWER_BOUND", nodes["UCT005G3B2B"]["status"])
+        self.assertIn({"parent": "UCT005G3B", "child": "UCT005G3B2B",
+                       "relation": "UPPER_CONSTRUCTIONS_NOT_LOWER_BOUND"},
+                      self.data["edges"])
+        self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
+
     def test_no_unsound_logical_arrows(self):
         relations = {e["relation"] for e in self.data["edges"]}
         self.assertIn("THREAT_MODEL_NONTRANSFER", relations)
