@@ -5244,6 +5244,183 @@
       "selection_priority": "B",
       "source_listing_url": "https://www.usenix.org/conference/fast26/presentation/ren",
       "source_access": "publisher_article_abstract_and_bibliography_checked"
+    },
+    {
+      "id": "LIT-177",
+      "title": "Optimal External Memory Interval Management",
+      "year": 2003,
+      "identity": "doi:10.1137/S009753970240481X",
+      "primary_url": "https://doi.org/10.1137/S009753970240481X",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Arge–Vitter дают оптимальное внешнепамятное дерево для точного поиска всех интервалов, покрывающих точку, с динамическими вставками/удалениями.",
+      "limits_ru": "Операция stabbing reports all covering intervals; здесь не задана latest-write-wins overwrite-карта, физический WAL и compaction. Автоматический перенос нижних оценок запрещён.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md",
+          "kind": "model_overlap",
+          "source_sha": "492d4bbd0d3574e2204f401213453a6c26ad261e"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Lars Arge",
+        "Jeffrey Scott Vitter"
+      ]
+    },
+    {
+      "id": "LIT-178",
+      "title": "The Limits of Buffering: A Tight Lower Bound for Dynamic Membership in the External Memory Model",
+      "year": 2013,
+      "identity": "doi:10.1137/110842211",
+      "primary_url": "https://doi.org/10.1137/110842211",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Verbin–Zhang устанавливают пороговый компромисс: при амортизированной стоимости update ниже единицы внешнепамятный membership требует существенных затрат на query в заданных b,m,n.",
+      "limits_ru": "Модель внешнепамятного membership и число I/O не тождественны физическим байтам переписывания или range assign; единицы и условия должны сохраняться.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md",
+          "kind": "model_overlap",
+          "source_sha": "492d4bbd0d3574e2204f401213453a6c26ad261e"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Elad Verbin",
+        "Qin Zhang"
+      ]
+    },
+    {
+      "id": "LIT-179",
+      "title": "Tight Cell-Probe Lower Bounds for Dynamic Succinct Dictionaries",
+      "year": 2023,
+      "identity": "doi:10.1109/FOCS57990.2023.00112",
+      "primary_url": "https://doi.org/10.1109/FOCS57990.2023.00112",
+      "track": "compressed-indexing",
+      "summary_ru": "Li–Liang–Yu–Zhou доказывают нижние оценки cell-probe для динамического succinct-словаря по избыточным битам на ключ и времени операций при заданном размере слова.",
+      "limits_ru": "Это модель членства/значений ключей и ячеечных обращений; не доказательство lower bound физических байтов для overwritten interval index.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md",
+          "kind": "model_overlap",
+          "source_sha": "492d4bbd0d3574e2204f401213453a6c26ad261e"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Tianxiao Li",
+        "Jingxun Liang",
+        "Huacheng Yu",
+        "Renfei Zhou"
+      ],
+      "alternate_identities": [
+        "arxiv:2306.02253"
+      ]
+    },
+    {
+      "id": "LIT-180",
+      "title": "Practical Adaptive Dynamic Bitvectors",
+      "year": 2025,
+      "identity": "doi:10.1002/spe.3433",
+      "primary_url": "https://doi.org/10.1002/spe.3433",
+      "track": "compressed-indexing",
+      "summary_ru": "Navarro изучает практические адаптивные bitvectors с (1+epsilon)n бит и амортизированной O(log(n/q)) стоимостью при q запросах на обновление.",
+      "limits_ru": "Речь о rank/select и одиночных bitvector-операциях; ratio q и стоимость в статье не означают гарантированную оптимальность LSM compaction/range writes.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md",
+          "kind": "model_overlap",
+          "source_sha": "492d4bbd0d3574e2204f401213453a6c26ad261e"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Gonzalo Navarro"
+      ]
+    },
+    {
+      "id": "LIT-181",
+      "title": "Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space",
+      "year": 2026,
+      "identity": "arxiv:2608.06066",
+      "primary_url": "https://arxiv.org/abs/2608.06066",
+      "track": "compressed-indexing",
+      "summary_ru": "Blelloch и соавторы дают близкое к энтропийному пространство для динамических массивов фиксированного алфавита с O(1) операциями в конкретной word-RAM модели и доказывают специальную нижнюю границу.",
+      "limits_ru": "Авторский препринт 2026; ограничены алфавит, entropy regime и модель вычисления; не установлена цена durable pages, WAL или физической compaction.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md",
+          "kind": "model_overlap",
+          "source_sha": "492d4bbd0d3574e2204f401213453a6c26ad261e"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Guy E. Blelloch",
+        "Yang Hu",
+        "William Kuszmaul",
+        "Tianxiao Li",
+        "Renfei Zhou"
+      ]
+    },
+    {
+      "id": "LIT-182",
+      "title": "Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space",
+      "year": 2024,
+      "identity": "doi:10.1145/3654978",
+      "primary_url": "https://doi.org/10.1145/3654978",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Moose/Smoose предлагают гибкие LSM-настройки числа runs на уровне, size ratio и Bloom фильтров, оптимизируют point/range lookup и updates; авторы оценивают RocksDB.",
+      "limits_ru": "Экспериментальный и аналитический результат для выбранного семейства LSM-конфигураций; не универсальная конкурентная или cell-probe граница для range-overwrite сервиса.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md",
+          "kind": "model_overlap",
+          "source_sha": "492d4bbd0d3574e2204f401213453a6c26ad261e"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
     }
   ]
 }
