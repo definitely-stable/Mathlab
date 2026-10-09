@@ -660,6 +660,39 @@
       ],
       "reopen_only_if": "A structural or growing-scale certificate with honestly charged preprocessing, new tightness theorem and source-specific prior-art comparison.",
       "primary_sources": []
+    },
+    {
+      "id": "KR-045",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Deterministic adaptive query influence implies read-write transversal",
+      "scope": "For exact deterministic bit-probe queries over a charged code, changed observable answers on edge (x,y) imply a changed code cell on each old-state adaptive read path; |W|>=tau(paths).",
+      "do_not_repeat": "Elementary indistinguishable-transcript and hitting-set lemma. Not a new cryptographic soundness theorem or an original general cell-probe lower bound.",
+      "authority": [
+        "docs/research/UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md",
+        "docs/research/UCT-003-G1-SOURCE-AND-GAP-AUDIT.md"
+      ],
+      "reopen_only_if": "A stronger quantified multi-probe update/proof bound in a fully charged natural task that surpasses Fredman-Saks and other same-model source results.",
+      "primary_sources": [
+        "https://doi.org/10.1145/73007.73040",
+        "https://doi.org/10.1016/j.tcs.2007.02.058"
+      ]
+    },
+    {
+      "id": "KR-046",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Exact single-bit-probe Boolean read-write frontier for prefix parity",
+      "scope": "For c distinct nonconstant Boolean query functions modulo complement, exact one-bit probe needs at least c stored cells and each update rewrites >=changed function classes; for n prefix XOR queries, m>=n,w>=n, both sharp.",
+      "do_not_repeat": "Elementary one-probe representation-class argument; does not imply a new p>=2 lower bound, signed certificate theorem or universal w*p>=n; Fenwick refutes the last claim.",
+      "authority": [
+        "docs/research/UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md"
+      ],
+      "reopen_only_if": "Prove a nontrivial same-model multi-probe plus sound-annotation frontier beyond classical partial sums bounds with finite adversarial oracle and construction.",
+      "primary_sources": [
+        "https://doi.org/10.1137/S0097539705447256",
+        "https://doi.org/10.1016/j.tcs.2007.02.058"
+      ]
     }
   ]
 }
