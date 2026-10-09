@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## DAG-002 × ALG-001 G1-A — priced remote probes, cells and sparse updates (2026-10-09)
+
+[**Formal G1-A single-append write-state counting, exact covering-code prior-art barrier and falsifiers**](DAG-002-ALG-001-G1-A-PRICED-PROBE-WRITE-FRONTIER.md) · [issue #140](https://github.com/definitely-stable/Mathlab/issues/140) · [finite stdlib oracle](../../research/test_dag002_g1a_frontier.py). Fix input-independent old prefix and remote snapshot, local B+G bits, N c-bit remote cells, W final changed cells, P reads/query. Elementary necessary bound `2^(B+G) V_c(N,W)>=2^n`, independently proved but **NOT novel**; restricted XOR-delta one-bit-probe family is **known covering-code K(n,W)**, not a universal probe lower bound. The 2026 Young Kun Ko Multiphase paper and Cohen et al. 1986 covering code bound explicitly prohibit premature uniqueness claims. **G1-A MODEL_ONLY+FINITE EXACT / G1-B NONFACTORIZING OPEN / no Rust.**
+
+
 ## INDEX-001 G2-B2-B — exact offline checkpoint policy, recovery and tempfile lifecycle (2026-10-09)
 
 [**Frozen fully-priced (write/recovery/storage byte-steps/peak) reference model, offline DP proof and adversarial controls**](INDEX-001-G2-B2-B-CHECKPOINT-POLICY.md) · [issue #143](https://github.com/definitely-stable/Mathlab/issues/143) · [policy, POSIX oracle and reporter](../../research/index001_checkpoint_policy.py) · [independent exhaustive policy+fault tests](../../research/test_index001_checkpoint_policy.py). **Mathlab research only**: DP has advance knowledge of restart events, solves a restricted fixed-image WAL protocol (not a new general theorem or online-competitive index); counts application byte lengths and on-disk file `stat()`, not physical SSD/NAND writes. Checks temporary snapshot orphan at interrupted checkpoint. G2-B parent #126 and stronger crash/online-theorem gates remain OPEN.
