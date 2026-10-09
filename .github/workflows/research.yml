@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: UCT-005 G3-B2-C2-A actual temp-file bounded-page GC report
+        run: python research/uct005_g3b2c2a_disk_gc.py
+
+      - name: UCT-005 G3-B2-C2-A independent queue bitmap pin and corruption tests
+        run: python -m unittest discover -s research -p 'test_uct005_g3b2c2a_disk_gc.py'
+
       - name: UCT-005 G3-B2-C1 charged GC and quantified false lower-bound report
         run: python research/uct005_g3b2c1_gc_frontier.py
 

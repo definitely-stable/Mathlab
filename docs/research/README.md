@@ -1,5 +1,12 @@
 # Research index and authority order
 
+## UCT-005 G3-B2-C2-A — disk page-buffer-bounded GC oracle (2026-10-10)
+
+[**Immutable forest on real temporary files, disk FIFO/bitmap, page-buffer bound, independent pins and interrupted-sweep proof limits**](UCT-005-G3-B2-C2-A-DISK-WORKSPACE-GC.md) · [reference implementation](../../research/uct005_g3b2c2a_disk_gc.py) · [independent tests](../../research/test_uct005_g3b2c2a_disk_gc.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). The collector (not writer/setup/query/RSS) holds <=6 explicitly modeled page buffers; full image file reads/writes accounted, not media I/O or crash safety. Separate one-node-per-page construction, not C0 packed page cost. Root lower theorem remains OPEN.
+
+
+
+
 ## IMPORT-009 — dynamic DAG lower bounds and historical graph evidence (2026-10-10)
 
 [19 papers, original publisher/arXiv audits and exact model boundaries](RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) · [issue #206](https://github.com/definitely-stable/Mathlab/issues/206) · [canonical LIT](catalog/LITERATURE.md). Includes Larsen–Yu tilde-Omega(log^(3/2)n) cell-probe DAG bound (first SIAM online 2025), 2026 near-linear cut-query DAG reachability, succinct graph representations, ICDE Clue-RAG, 2026 temporal evidence memory and graph indexes. No novel Mathlab theorem or claim of benchmark reproduction; keep G1 TKG-001 and DAG-002 model distinctions.

@@ -96,6 +96,18 @@ class Uct005TreeTests(unittest.TestCase):
             self.data["edges"],
         )
 
+    def test_g3b2c2a_is_bounded_gc_not_new_uct_theorem(self):
+        nodes = {n["id"]: n for n in self.data["nodes"]}
+        node = nodes["UCT005G3B2C2A"]
+        self.assertEqual(node["kind"], "research_input")
+        self.assertIn("NO_NEW_LOWER_BOUND", node["status"])
+        self.assertIn(
+            {"parent": "UCT005G3B2C1", "child": "UCT005G3B2C2A",
+             "relation": "BOUNDED_PAGE_BUFFER_MODEL_NOT_ORIGINAL_THEOREM"},
+            self.data["edges"],
+        )
+        self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
+
     def test_no_unsound_logical_arrows(self):
         relations = {e["relation"] for e in self.data["edges"]}
         self.assertIn("THREAT_MODEL_NONTRANSFER", relations)

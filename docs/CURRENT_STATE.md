@@ -1,5 +1,12 @@
 # CURRENT_STATE
 
+## UCT-005 G3-B2-C2-A — дисковый GC с ограниченными page-buffer (2026-10-10)
+
+[Строгая ограниченная модель GC, учёт I/O, работа с клиентскими PIN и границы корректности](research/UCT-005-G3-B2-C2-A-DISK-WORKSPACE-GC.md) · [реализация в файлах](../research/uct005_g3b2c2a_disk_gc.py) · [независимые проверки](../research/test_uct005_g3b2c2a_disk_gc.py) · [issue #178](https://github.com/definitely-stable/Mathlab/issues/178). **CLASSICAL_BOUND_PAGE_BUFFER_MARK_SWEEP / SIX_PAGE_BUFFERS / REAL_TEMPFILE_SYSCALL_COUNTS_NOT_SSD_IO / UNBOUNDED_SETUP_AND_QUERY_RSS / NO_DURABLE_PINS / NO_NEW_UCT_LOWER_BOUND.** Дисковые FIFO, mark+live bitmap, корневые каталоги и закрепления двух читателей; отдельный счёт полных страниц и logical TRIM. Сохранность достижимых узлов доказана лишь при замороженных корнях/закреплениях и отсутствии torn writes. В отличие от C0, каждый узел здесь занимает целую страницу, поэтому стоимости разных раскладок нельзя смешивать. Далее C2-B: журнал PIN/UNPIN, crash-safe поколения bitmap, авторские SET и полная bounded-workspace модель либо STOP_NOVELTY. Корень #105 OPEN.
+
+
+
+
 ## IMPORT-009 — DAG/graph provenance primary corpus (2026-10-10)
 
 [19 original metadata identities and model-scope audit](research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) · [issue #206](https://github.com/definitely-stable/Mathlab/issues/206). Adds LIT-298..316, canonical bibliography 296→315 (2026=161, 2025=49), including strict cell-probe DAG reachability prior art and 2026 temporal graph indexing and agent memory. 2025 online date of SIAM lower-bound and ACM survey respected. Pure bibliography; **NO NEW MATHLAB THEOREM / NO CRYPTOGRAPHIC FRESHNESS / NO REPRODUCED BENCHMARKS / NO RUST**. Exact GitHub-hosted PR-head and merged main CI acceptance gates.
