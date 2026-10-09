@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **256** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **257** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -15,7 +15,7 @@
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 23 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
-| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 12 |
+| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 13 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
 | [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 21 |
@@ -1585,6 +1585,19 @@ Navarro доказал специальную worst-case оптимальнос�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md](https://github.com/definitely-stable/Mathlab/blob/e161b04e5e3d3e634745be31e89c236e75c773a7/docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md) (model_overlap)
+
+### LIT-258
+**[Tight Lower Bounds for Central String Queries in Compressed Space](https://doi.org/10.1137/1.9781611978971.65)** (2026)
+
+Kempa–Kociumaka (SODA 2026) устанавливают нижние границы времени SA, inverse SA, LCP/LCE и иных центральных строковых запросов в сжатом пространстве относительно substring complexity delta(T); результаты включают бинарные строки.
+
+**Ограничение:** Статические запросы к сжатым строкам не дают автоматически нижнюю границу динамических range overwrite, размещения страниц, WAL или physical recourse. Полные доказательства независимо не перепроверены.
+
+**Идентичность:** `doi:10.1137/1.9781611978971.65` · **Авторы:** Dominik Kempa, Tomasz Kociumaka · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-C2-ADAPTIVE-PARTITIONS.md](https://github.com/definitely-stable/Mathlab/blob/cb9dc19e328154977914fba167191d01fe92ebde/docs/research/INDEX-001-G2-B4-C2-ADAPTIVE-PARTITIONS.md) (model_overlap)
 
 
 ## online-optimization

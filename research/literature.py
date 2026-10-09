@@ -105,6 +105,8 @@ SOURCE_TITLE_PINS = {
     "arxiv:2504.19413": "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory",
     "doi:10.18653/v1/2026.acl-long.252": "LogicPoison: Logical Attacks on Graph Retrieval-Augmented Generation",
     "doi:10.18653/v1/2026.acl-long.1738": "LegalGraphRAG: Multi-Agent Graph Retrieval-Augmented Generation for Reliable Legal Reasoning",
+    # INDEX-001 G2-B4-C2 SIAM SODA 2026 primary title pin.
+    "doi:10.1137/1.9781611978971.65": "Tight Lower Bounds for Central String Queries in Compressed Space",
     # INDEX-001 G2-B4-A 2026 author abstracts, audited in primary arXiv.
     "arxiv:2603.23119": "Compressing Dynamic Fully Indexable Dictionaries in Word-RAM",
     "arxiv:2604.24080": "Dynamic Grammar-Compressed Self-Index in δ-Optimal Space",

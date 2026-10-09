@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**256** работ сопоставлены с **38** внутренними исследованиями.
+**257** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -414,6 +414,7 @@
 - [LIT-255](LITERATURE.md#lit-255) — In-memory Incremental Maintenance of Provenance Sketches (2026; publisher_abstract_checked)
 - [LIT-256](LITERATURE.md#lit-256) — RAG Meets Temporal Graphs: Time-Sensitive Modeling and Retrieval for Evolving Knowledge (2025; primary_abstract_checked)
 - [LIT-257](LITERATURE.md#lit-257) — Evolving Beyond Snapshots: Harmonizing Structure and Sequence via Entity State Tuning for Temporal Knowledge Graph Forecasting (2026; publisher_abstract_checked)
+- [LIT-258](LITERATURE.md#lit-258) — Tight Lower Bounds for Central String Queries in Compressed Space (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -536,6 +537,7 @@
 - [LIT-253](LITERATURE.md#lit-253) — Incremental Knowledge Graph Construction from Heterogeneous Data Sources (2026; publisher_abstract_checked)
 - [LIT-254](LITERATURE.md#lit-254) — Correct-by-Construction Dynamic Reachability: A Galois-Connected Approach to Bidirected Dyck Languages (2026; publisher_abstract_checked)
 - [LIT-255](LITERATURE.md#lit-255) — In-memory Incremental Maintenance of Provenance Sketches (2026; publisher_abstract_checked)
+- [LIT-258](LITERATURE.md#lit-258) — Tight Lower Bounds for Central String Queries in Compressed Space (2026; publisher_abstract_checked)
 
 ## ML-007
 
