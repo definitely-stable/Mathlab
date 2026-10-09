@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## UCT-004 G2-D — two primary foundations of nonlinear proof-bit frontier (2026-10-09)
+
+The canonical bibliography adds **LIT-151** [Paturi–Pudlák–Zane, *Satisfiability Coding Lemma* (CJTCS 1999)](https://doi.org/10.4086/cjtcs.1999.011) and **LIT-152** [Emdin et al., *CNF Encodings of Parity* (MFCS 2022)](https://doi.org/10.4230/LIPIcs.MFCS.2022.47), raising 150→**152** unique DOI/arXiv identities. Both original PDFs had *theorem-scope spotchecks*, no claim that Mathlab reverified all source proofs. [G2-D source audit](../UCT-004-G2-D-PPZ-PRIMARY-SOURCE-AUDIT.md) pins width accounting and avoids equating witness auxiliary variables with p stored bit probes. [Forward](LITERATURE.md)/[reverse](LITERATURE-BY-RESEARCH.md) indexes regenerated from canonical JSON; source-title pins guard metadata drift.
+
 ## UCT-004 G2-C — certification/PCPP primary sources (2026-10-09)
 
 Deduplicated **LIT-149..150** expand canonical original bibliography from 148 to **150**: Kayal–Laplante–Larroque–Prūsis–Vihrovs [*Certification complexity of Boolean functions*](https://arxiv.org/abs/2609.26757) (ECCC TR26-206, September 2026), and Ben-Sasson–Harsha–Lachish–Matsliah [*Sound 3-Query PCPPs Are Long*](https://doi.org/10.1145/1595391.1595394) (2009). Source titles are identity-pinned, forward/reverse generated indexes revalidated, full independent source proofs FALSE, and [G2-C source/novelty boundaries](../UCT-004-G2-C-SOURCE-NOVELTY-AUDIT.md) distinguish **exact parity soundness** from **proximity soundness** and operational certification prior art.
