@@ -65,16 +65,24 @@ Over a fixed finite field (in particular q odd), existing **Lefmann 2005 LIT-043
 
 Since six-wise independence implies exact three-set sums, this **already exceeds the quadratic exponent** of any *linear* 4-uniform hyperedge family. Therefore the simple linear-unit construction, even dense with Θ(m²) edges, is **not** an asymptotically competitive lower construction for the full ASET optimization at w=4!
 
-A basic upper bound from C4-free prefix/suffix pairs gives
+**Sharpened derived upper bound via forbidden four- and six-cycles.**
 
-    A_q^{set}(m,4,3) ≤ A_q^{set}(m,4,2) = O_q(m³),
+    A_q^{set}(m,4,3) = O_q(m^{8/3}).
 
-for fixed q, by representing each support-four column as one bipartite edge between a canonical weighted 2-coordinate prefix and weighted 2-coordinate suffix. There are O_q(m²) possible left and right endpoints, and a 4-cycle would give two different equal two-column sums. The Kővári–Sós–Turán/Zarankiewicz elementary C4 bound yields O_q(m³) edges; support≤3 columns already contribute only O_q(m²) under the proven [HYP-002-B d=2 upper](HYP-002-B-QUADRATIC-THEOREM.md). The cut at exactly two weighted coordinates is canonical and uses no claimed new graph theory.
+**Proof.** Consider the support-exactly-four columns. Each has a unique decomposition `v=L+R`: L contains the first two nonzero (coordinate, coefficient) pairs, and R contains the last two. There are at most `U=(q-1)^2*binom(m,2)=O_q(m²)` possible distinct weighted pairs on the left, and the same on the right. Treat the two sets of signatures as **disjoint bipartite vertex classes**, and represent each support-four column by its unique graph edge (L,R). The graph is simple.
 
-Consequently the **genuine full-capacity gap still open** is
+A cycle of length 2h for h=2 or 3 splits into two disjoint alternating h-edge matchings. Each left and right endpoint contributes the **same weighted pair vector once** to each alternating matching. Hence the two different sets of h original columns have identical sums. Exact ASET injectivity up to d=3 forbids both C4 and C6.
+
+The resulting bipartite graph has girth at least eight and at most 2U=O_q(m²) vertices. The elementary girth-eight Moore/BFS upper bound used in [HYP-105 G1](HYP-105-G1-W2D3-GIRTH8.md) gives at most `O_q((m²)^(4/3))=O_q(m^(8/3))` edges, hence that many support-four columns. Columns of support≤3 themselves form an ASET subfamily through d=2, so [HYP-002-B](HYP-002-B-QUADRATIC-THEOREM.md) bounds their number by O_q(m²). Sum these counts. QED.
+
+The C6 exclusion is **essential**: using only C4 would produce merely O_q(m³). The upper bound holds in **every characteristic**, because alternating endpoint sums cancel in any abelian additive group. This is an application of classical girth extremal estimates, **not** a claimed new graph theorem.
+
+Therefore the precise source-backed **full-capacity sandwich**, sharper than the previous m³ note, is
 
     Ω_q(m^{12/5}) ≤ A_q^{lin}(m,4,6)
-                  ≤ A_q^{set}(m,4,3) ≤ O_q(m³).
+                  ≤ A_q^{set}(m,4,3) ≤ O_q(m^{8/3}).
+
+The remaining exponent interval is **8/3−12/5=4/15**; it is an open interval in known upper/lower bounds, **not** evidence of an actual growing capacity ratio.
 
 Neither the r=4 grid-free hypergraph theorem nor the elementary G4-A lemma closes this gap. A strict exponent gap in currently *known bounds* is NOT evidence of a true asymptotic separation. A genuine next theorem needs a better exponent for either side, or an explicit constructed family with provably unequal optimal growth.
 
