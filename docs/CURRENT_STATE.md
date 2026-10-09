@@ -1,5 +1,14 @@
 # CURRENT_STATE
 
+## UCT-005 G3-B2-C0 — физическая стоимость страниц и проверка контрпримеров (2026-10-09)
+
+[Точная ограниченная модель I/O и доказательство границ](research/UCT-005-G3-B2-C0-PAGE-IMAGE-FRONTIER.md) · [страницы/LRU/COW/crash oracle](../research/uct005_g3b2c0_pages.py) · [независимые тесты](../research/test_uct005_g3b2c0_pages.py) · [issue #178](https://github.com/definitely-stable/Mathlab/issues/178). **RESTRICTED_PAGE_IMAGE_FOUNDATION / CLASSICAL_EXACT_COW_PAGE_COUNT / THREE_CANDIDATE_FALSIFIERS / NO_NEW_ASYMPTOTIC_LOWER_BOUND / ROOT_OPEN.** Для одинакового SET/RANGE_PARITY описаны полный учёт page-image (4096B/160B node/25 nodes per page), серверный холодный LRU с платной RAM, отдельный корневой каталог эпох, COW, число прочитанных и переписанных страниц, байты и SHA, якорь. Доказано в указанной модели: физические записи при копировании k узлов равны ceil(k/F)+1 page image. Проверены опасные перестановки FLUSH/PUBLISH и отсутствие бесплатного GC. Это **симулятор раскладки, не измерения SSD** и не настоящая crash-safe реализация. Три чрезмерные универсальные нижние границы отвергнуты конкретными верхними конструкциями. **G3-B2-C1 NEXT:** общая модель реалистичной durability/physical I/O, полный prior-art transfer и попытка оригинальной nonfactorizing inequality либо STOP_NOVELTY. #105 остаётся OPEN.
+
+
+
+
+
+
 ## IMPORT-007 — temporal / dynamic graph original studies (2026-10-09)
 
 [Source-by-model audit](research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) · [issue #197](https://github.com/definitely-stable/Mathlab/issues/197). Twenty-two original works LIT-259..280 with canonical author/publisher URLs and Russian model limits, extending bibliography 257→279. Temporal point-contact, interval availability, as-of valid+transaction clocks, partial order, source evidence and adaptive graph memory kept separate. NO_NEW_THEOREM, NO_BENCHMARK_REPRODUCTION; host CI acceptance gate.
@@ -199,3 +208,6 @@ Last updated: 2026-10-08.
 
 [Restricted theorem and evidence](research/HYP-105-G5-E2-B3-B3-INCIDENCE-MATCHING-NOGO.md) · [Hall perfect-matching and C6 source](../research/hyp105_g5e2b3b3_incidence_nogo.py) · [GF2/GF4 oracles](../research/test_hyp105_g5e2b3b3_incidence_nogo.py) · [issue #176](https://github.com/definitely-stable/Mathlab/issues/176). **ALL-h_RESTRICTED_NO_GO / NOT_UNIVERSAL_CORRELATED_NO_GO / NO_ASET_EXPONENT / ROOT_OPEN.** For ANY injective f:points→pairs and ANY perfect incidence matching pi:lines→points, synchronized right map g(l)=f(pi(l)) forces D_s>=C6(f(P)) >= (a)_6/12-(binom(a,2)-V)*(a-2)_4 = Omega(s^9); hence exact GF5 weighted R3>=5643*D_s/51^6=Omega(s^9). Since such coupling violates desired R3=O(s^(6-epsilon)), STOP this class only. Hall gives all-h perfect matching existence; exact GF2/GF4 certified, no Sp-equivariance or global ASET impossibility asserted. Pursue nonaligned genuinely geometric maps and additional positive GF5 motifs.
 
+## HYP-105 G5-E2-B3.2-C — Plücker min-collision nonaligned pair maps (2026-10-09)
+
+[All-h injectivity/nonalignment theorem and finite controls](research/HYP-105-G5-E2-B3-C-PLUCKER-NONALIGNED.md) · [Klein/Plücker finite-field implementation](../research/hyp105_g5e2b3c_plucker_shift.py) · [independent basis and GF5 witnesses](../research/test_hyp105_g5e2b3c_plucker_shift.py) · [issue #176](https://github.com/definitely-stable/Mathlab/issues/176). **ALL-h_INJECTION+NONALIGNMENT_PROVED / FINITE_EXACT_D_s / NO_ALL-h_R2_R3_BOUNDS / NO_NEW_ASET_EXPONENT.** Plücker 6-minor ranks give a canonical order of isotropic lines; two rank bijections and a cyclic shift min_t E_t of incident equal coordinate-pair assignments obey Σ_t E_t=N, hence E_min≤s+1 for every s=2^h. This rules out earlier B3.3 incidence-perfect-matching physical-pair alignment (which forces at least V>s+1), but does not bound coincident C6 D_s or total R3. Exact GF2 D_s: 2/2/6 for Plücker lex-min/Frobenius-min/lex-zero; GF4 D_s: 9190/9109/9103, versus older lex/reverse-line 8481/8417. **COUNTEREXAMPLE:** at GF4 reducing incidence coincidences from 9 to 1 raises D_s from 9103 to 9190; STOP using equality count as an R3 risk surrogate. More general positive motifs and simultaneous R2/R3 remain OPEN.

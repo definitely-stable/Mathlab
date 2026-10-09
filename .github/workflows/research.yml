@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: UCT-005 G3-B2-C0 exact page-image and crash-prefix oracle
+        run: python research/uct005_g3b2c0_pages.py 256
+
+      - name: UCT-005 G3-B2-C0 independent physical-countermodel tests
+        run: python -m unittest discover -s research -p 'test_uct005_g3b2c0_pages.py'
+
       - name: INDEX-001 G2-B4-C3 shared-page streaming RAM and bitmap countermodel
         run: python research/index001_shared_pages.py
 
@@ -98,6 +104,9 @@ jobs:
 
       - name: HYP-105 E2-B3.3 incidence-matched aligned-label no-go exact report
         run: python research/hyp105_g5e2b3b3_incidence_nogo.py
+
+      - name: HYP-105 E2-B3.2-C Pluecker nonaligned labels and exact GF2/GF4 D_s
+        run: python research/hyp105_g5e2b3c_plucker_shift.py
 
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py

@@ -1,5 +1,14 @@
 # Research index and authority order
 
+## UCT-005 G3-B2-C0 — explicit physical page-image accounting (2026-10-09)
+
+[**Frozen page layout, exact COW image lemma, LRU budget, ideal crash-cut proof, three strict countermodels and limitations**](UCT-005-G3-B2-C0-PAGE-IMAGE-FRONTIER.md) · [reference page oracle](../../research/uct005_g3b2c0_pages.py) · [independent physical tests](../../research/test_uct005_g3b2c0_pages.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). Page cost is counted in full 4096-byte images with a fixed 160-byte tree record, 64-byte page header, 1-page cold LRU and a separate paid epoch-root directory. Exact restricted COW packing yields ceil(k/F)+1 image writes for k logical changed nodes; no generic lower bound follows. Source/server RAM, author SHA, proof response bytes and 40-byte trusted anchor traffic are distinguished. No real SSD, filesystem, crypto or new UCT lower theorem; C1 remains open.
+
+
+
+
+
+
 ## IMPORT-007 — temporal/dynamic graph prior art (2026-10-09)
 
 [Original DOI/arXiv, 22-paper exact corpus and model-transfer barriers](RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) · [issue #197](https://github.com/definitely-stable/Mathlab/issues/197). SAND point vs interval reachability, temporal connectivity, timed cuts, interval-algebra GraphRAG and active agent memory. Bibliographic import only; TKG-001 G1 remains a separate theorem program.
@@ -347,3 +356,6 @@ audit before promotion.
 
 [All-h restricted Omega(s^9) theorem](HYP-105-G5-E2-B3-B3-INCIDENCE-MATCHING-NOGO.md) · [finite exact verifier](../../research/hyp105_g5e2b3b3_incidence_nogo.py) · [independent GF2/GF4 tests](../../research/test_hyp105_g5e2b3b3_incidence_nogo.py) · [#176](https://github.com/definitely-stable/Mathlab/issues/176). Aligned map g(l)=f(pi(l)) with perfect incidence Hall matching pi forces D_s>=C6(f(P))=Omega(s^9), and R3>=5643 D_s/51^6=Omega(s^9). A **restricted method no-go only**; other correlated maps, ASET theorem and simultaneous risk targets remain open.
 
+## HYP-105 G5-E2-B3.2-C — Plücker exterior geometry and nonaligned shifts (2026-10-09)
+
+[All-h Plücker rank injection/nonalignment and finite controls](HYP-105-G5-E2-B3-C-PLUCKER-NONALIGNED.md) · [canonical bivectors, shift histograms, finite D_s](../../research/hyp105_g5e2b3c_plucker_shift.py) · [independent basis/Frobenius/brute oracles](../../research/test_hyp105_g5e2b3c_plucker_shift.py) · [#176](https://github.com/definitely-stable/Mathlab/issues/176). Proves Σ_t E_t=N and min_t E_t≤s+1, plus complete injectivity of classical Plücker exterior line ranks and physical pair rank map for all h; this exits only the restricted B3.3 incidence-perfect-aligned no-go. Exact GF2 D_s=2/2/6; GF4=9190/9109/9103 across min-lex/min-Frobenius/zero-lex arms. A **fixed GF4 falsifier** shows E_t=1 yields D_s=9190 versus E_t=9 yielding D_s=9103, so E_t cannot be used as a monotone D_s/R3 optimization proxy. No common R2 or strict all-h R3 upper. Classical Klein embedding source credited and no new ASET theorem.
