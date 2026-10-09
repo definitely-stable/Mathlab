@@ -178,10 +178,11 @@ class CheckpointPolicyTests(unittest.TestCase):
                                 <= p["weighted_cost"] for p in row["periodic"].values()))
 
     def test_invalid_inputs_and_infeasible_caps(self):
+        self.assertEqual(score(4, (0, 1), (2,))["checkpoints"], [2])
         for restarts in ((-1,), (1.0,)):
             with self.assertRaises(ValueError):
                 score(4, restarts)
-        for checkpoints in ((2,), (1, 1), (2, 1), (0,)):
+        for checkpoints in ((3,), (1, 1), (2, 1), (0,)):
             with self.assertRaises(ValueError):
                 score(4, (0, 1), checkpoints)
         with self.assertRaises(ValueError):
