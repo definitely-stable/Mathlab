@@ -33,6 +33,9 @@ jobs:
       - name: HYP-105 G5-C3 bounded deterministic pair-label improvement report
         run: python research/hyp105_g5c3_label_search.py --seed 1 --rounds 6 --probes 12
 
+      - name: HYP-105 G5-C3-B0 exact dual doily geometry and signed-trade report
+        run: python research/hyp105_g5c3b0_doily_geometry.py --rounds 4 --probes 8
+
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
