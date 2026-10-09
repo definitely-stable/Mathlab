@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-08** · **130** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **134** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,11 +11,11 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 21 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 16 |
-| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 17 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 18 |
+| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 18 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
-| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 5 |
+| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 6 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 4 |
 | [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 10 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 2 |
@@ -39,7 +39,7 @@
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-001](INDEX.md#ml-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/LENT-001-PRIOR-ART.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/LENT-001-PRIOR-ART.md) (cited)
 
 ### LIT-002
 **[Location-correcting codes](https://doi.org/10.1109/18.485724)** (1996)
@@ -52,7 +52,7 @@
 
 **Связь с исследованиями →** [ML-008](INDEX.md#ml-008), [ML-002](INDEX.md#ml-002)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-G2B-B1-WEAK-SIDON-BOUND.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/LENT-001-G2B-B1-WEAK-SIDON-BOUND.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-G2B-B1-WEAK-SIDON-BOUND.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/LENT-001-G2B-B1-WEAK-SIDON-BOUND.md) (cited)
 
 ### LIT-003
 **[Probabilistic existence results for separable codes](https://arxiv.org/abs/1505.02597)** (2015)
@@ -65,7 +65,7 @@ Blackburn сопоставляет frameproof и t-separable коды и уст�
 
 **Связь с исследованиями →** [ML-010](INDEX.md#ml-010), [ML-002](INDEX.md#ml-002)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (cited)
 
 ### LIT-004
 **[Bounds and Constructions for overline-3-Separable Codes with Length 3](https://arxiv.org/abs/1507.00954)** (2015)
@@ -78,7 +78,7 @@ Blackburn сопоставляет frameproof и t-separable коды и уст�
 
 **Связь с исследованиями →** [ML-010](INDEX.md#ml-010), [ML-011](INDEX.md#ml-011)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (cited)
 
 ### LIT-005
 **[Sharp bounds for uniform union-free hypergraphs](https://arxiv.org/abs/2605.11949)** (2026)
@@ -91,7 +91,7 @@ Blackburn сопоставляет frameproof и t-separable коды и уст�
 
 **Связь с исследованиями →** [ML-010](INDEX.md#ml-010), [ML-011](INDEX.md#ml-011)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (cited)
 
 ### LIT-006
 **[On Codes with Support-Constrained Parity Checks](https://arxiv.org/abs/2605.08644)** (2026)
@@ -104,7 +104,7 @@ Blackburn сопоставляет frameproof и t-separable коды и уст�
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-007](INDEX.md#ml-007)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/LENT-001-PRIOR-ART.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/LENT-001-PRIOR-ART.md) (cited)
 
 ### LIT-031
 **[Signature Codes for a Noisy Adder Multiple Access Channel](https://arxiv.org/abs/2206.10735)** (2022)
@@ -117,7 +117,7 @@ q-арные signature codes для noisier integer-adder multiple access, вк�
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-010](INDEX.md#ml-010)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/LENT-001-PRIOR-ART.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/LENT-001-PRIOR-ART.md) (model_overlap)
 
 ### LIT-033
 **[Sign-Compute-Resolve for Tree Splitting Random Access](https://arxiv.org/abs/1602.02612)** (2016)
@@ -130,7 +130,7 @@ q-арные signature codes для noisier integer-adder multiple access, вк�
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-010](INDEX.md#ml-010)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/LENT-001-PRIOR-ART.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/LENT-001-PRIOR-ART.md) (cited)
 
 ### LIT-034
 **[Finite Field Multiple Access](https://arxiv.org/abs/2303.14086)** (2023)
@@ -143,7 +143,7 @@ FFMA, element-pair codes и unique sum-pattern mapping по конечным п�
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-007](INDEX.md#ml-007)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/LENT-001-PRIOR-ART.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/LENT-001-PRIOR-ART.md) (cited)
 
 ### LIT-035
 **[Signature codes for weighted binary adder channel and multimedia fingerprinting](https://arxiv.org/abs/1905.10180)** (2019)
@@ -156,7 +156,7 @@ FFMA, element-pair codes и unique sum-pattern mapping по конечным п�
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-010](INDEX.md#ml-010)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/LENT-001-PRIOR-ART.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/LENT-001-PRIOR-ART.md) (cited)
 
 ### LIT-036
 **[On Constant-Weight Binary B2-Sequences](https://arxiv.org/abs/2303.12990)** (2023)
@@ -169,7 +169,7 @@ FFMA, element-pair codes и unique sum-pattern mapping по конечным п�
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-010](INDEX.md#ml-010)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/LENT-001-PRIOR-ART.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/LENT-001-PRIOR-ART.md) (cited)
 
 ### LIT-037
 **[Multi-Group Testing for Items with Real-Valued Status under Standard Arithmetic](https://arxiv.org/abs/1303.6020)** (2013)
@@ -182,7 +182,7 @@ FFMA, element-pair codes и unique sum-pattern mapping по конечным п�
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-001](INDEX.md#ml-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/LENT-001-PRIOR-ART.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/LENT-001-PRIOR-ART.md) (cited)
 
 ### LIT-043
 **[Sparse Parity-Check Matrices over GF(q)](https://doi.org/10.1017/S0963548304006625)** (2005)
@@ -195,7 +195,7 @@ Lefmann: максимальная длина разреженных parity-check
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-010](INDEX.md#ml-010), [ML-007](INDEX.md#ml-007)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/LENT-001-PRIOR-ART.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/LENT-001-PRIOR-ART.md) (cited)
 
 ### LIT-044
 **[On Parity Check (0,1)-Matrix over Z_p](https://doi.org/10.1137/120881129)** (2015)
@@ -208,7 +208,7 @@ Bshouty–Mazzawi: неадаптивные additive queries и (0,1) parity-che
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-007](INDEX.md#ml-007)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/LENT-001-PRIOR-ART.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/LENT-001-PRIOR-ART.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/LENT-001-PRIOR-ART.md) (cited)
 
 ### LIT-083
 **[Combinatorial Bounds for List Recovery via Discrete Brascamp-Lieb Inequalities](https://doi.org/10.1145/3798129.3800756)** (2026)
@@ -223,7 +223,7 @@ Bshouty–Mazzawi: неадаптивные additive queries и (0,1) parity-che
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-010](INDEX.md#ml-010)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
 
 ### LIT-084
 **[Locally Computable High Independence Hashing](https://doi.org/10.1145/3798129.3800855)** (2026)
@@ -238,7 +238,7 @@ Dodis–Lovett–Wichs: локально вычисляемые k-wise independe
 
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
 
 ### LIT-091
 **[Improved Pseudorandom Codes from Permuted Puzzles](https://doi.org/10.1145/3798129.3800916)** (2026)
@@ -253,7 +253,7 @@ Dodis–Lovett–Wichs: локально вычисляемые k-wise independe
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [OM-122](INDEX.md#om-122)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-118
 **[Lower bounds for adaptive locally decodable codes](https://doi.org/10.1002/rsa.20069)** (2005)
@@ -266,9 +266,9 @@ Dodis–Lovett–Wichs: локально вычисляемые k-wise independe
 
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
-### LIT-123
+### LIT-127
 **[Locally Updatable and Locally Decodable Codes](https://doi.org/10.1007/978-3-642-54242-8_21)** (2014)
 
 Chandran–Kanukurthi–Ostrovsky строят локально обновляемые и локально декодируемые коды в модели Prefix Hamming metric и исследуют приложения к динамическому доказательству хранения.
@@ -279,9 +279,9 @@ Chandran–Kanukurthi–Ostrovsky строят локально обновляе
 
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
 
-### LIT-124
+### LIT-128
 **[Update-Efficiency and Local Repairability Limits for Capacity Approaching Codes](https://arxiv.org/abs/1305.3224)** (2013)
 
 Mazumdar–Chandar–Wornell изучают компромисс скорости кода, локального восстановления и стоимости обновления при приближении к пропускной способности зашумленного канала.
@@ -292,9 +292,9 @@ Mazumdar–Chandar–Wornell изучают компромисс скорост�
 
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
 
-### LIT-129
+### LIT-133
 **[Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes](https://doi.org/10.1016/j.ic.2019.05.001)** (2019)
 
 Работа доказывает нижние и верхние ограничения локального декодирования/обновления криптографических кодов при недоверенном изменении и утечке информации.
@@ -305,7 +305,7 @@ Mazumdar–Chandar–Wornell изучают компромисс скорост�
 
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
 
 
 ## dynamic-data-structures
@@ -322,7 +322,7 @@ Mazumdar–Chandar–Wornell изучают компромисс скорост�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (cited)
 
 ### LIT-008
 **[History-Independent Dynamic Partitioning with Applications to B-Trees, Skip Lists and Fusion Trees](https://doi.org/10.1145/3810240)** (2026)
@@ -335,7 +335,7 @@ Mazumdar–Chandar–Wornell изучают компромисс скорост�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (cited)
 
 ### LIT-009
 **[The Chonkers Algorithm: Content-Defined Chunking with Provable Strict Guarantees on Size and Locality](https://arxiv.org/abs/2509.11121)** (2025)
@@ -348,7 +348,7 @@ Mazumdar–Chandar–Wornell изучают компромисс скорост�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (cited)
 
 ### LIT-011
 **[Optimal Time-Space Tradeoff for Dynamic Difference-Encoded Dictionaries](https://arxiv.org/abs/2608.06077)** (2026)
@@ -361,7 +361,7 @@ Mazumdar–Chandar–Wornell изучают компромисс скорост�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (cited)
 
 ### LIT-012
 **[Time-Optimal Construction of String Synchronizing Sets](https://doi.org/10.4230/LIPIcs.STACS.2026.36)** (2026)
@@ -374,7 +374,7 @@ Mazumdar–Chandar–Wornell изучают компромисс скорост�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (cited)
 
 ### LIT-058
 **[Dynamic Pattern Matching with Wildcards](https://doi.org/10.4230/LIPIcs.STACS.2026.68)** (2026)
@@ -387,7 +387,7 @@ Mazumdar–Chandar–Wornell изучают компромисс скорост�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-072
 **[The Natural Proofs Barrier against Data-Structure Lower-Bounds](https://doi.org/10.1145/3798129.3800843)** (2026)
@@ -402,7 +402,7 @@ Mazumdar–Chandar–Wornell изучают компромисс скорост�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-073
 **[Compressing Dynamic Fully Indexable Dictionaries in Word-RAM](https://doi.org/10.1145/3798129.3800839)** (2026)
@@ -417,7 +417,7 @@ Domingues строит динамический rank/select словарь с ne
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-088
 **[Sampling Permutations with Cell Probes Is Hard](https://doi.org/10.1145/3798129.3800743)** (2026)
@@ -432,7 +432,7 @@ Domingues строит динамический rank/select словарь с ne
 
 **Связь с исследованиями →** [OM-139](INDEX.md#om-139), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-099
 **[Longest Common Extension of a Dynamic String in Parallel Constant Time](https://doi.org/10.4230/LIPIcs.CPM.2026.20)** (2026)
@@ -445,7 +445,7 @@ CPM 2026 строит динамическую иерархию string synchroni
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
 
 ### LIT-111
 **[The cell probe complexity of dynamic data structures](https://doi.org/10.1145/73007.73040)** (1989)
@@ -458,7 +458,7 @@ Fredman–Saks вводят динамические cell-probe нижние г�
 
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
 ### LIT-112
 **[Logarithmic Lower Bounds in the Cell-Probe Model](https://doi.org/10.1137/S0097539705447256)** (2006)
@@ -471,7 +471,7 @@ Pătraşcu–Demaine доказывают амортизированные ра�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
 ### LIT-113
 **[On the Cell Probe Complexity of Dynamic Membership](https://doi.org/10.1137/1.9781611973075.12)** (2010)
@@ -484,7 +484,7 @@ Yi–Zhang исследуют динамическую принадлежнос�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
 ### LIT-114
 **[On dynamic bit-probe complexity](https://doi.org/10.1016/j.tcs.2007.02.058)** (2007)
@@ -497,7 +497,7 @@ Yi–Zhang исследуют динамическую принадлежнос�
 
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
 ### LIT-115
 **[New amortized cell-probe lower bounds for dynamic problems](https://doi.org/10.1016/j.tcs.2019.01.043)** (2019)
@@ -510,7 +510,7 @@ Yi–Zhang исследуют динамическую принадлежнос�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
 ### LIT-119
 **[An $\Omega((\log n / \log\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures](https://eccc.weizmann.ac.il/report/2026/047/)** (2026)
@@ -523,7 +523,33 @@ Young Kun Ko, ECCC TR26-047, редакция 7 октября 2026: основ�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+
+### LIT-123
+**[Optimal Dynamic Strings](https://doi.org/10.1137/1.9781611975031.99)** (2018)
+
+SODA 2018: поддержка операций make_string, concat, split, сравнения строк и LCP с логарифмическим временем обновления с высокой вероятностью; доказана нижняя граница на сумму динамических затрат в модели сравнения равенства строк.
+
+**Ограничение:** Структура сравнивает/представляет редактируемые строки, но не обязана выдавать тождественно стандартный BLAKE3-256; её Omega(log n) не является BLAKE3 compression-oracle lower bound.
+
+**Идентичность:** `doi:10.1137/1.9781611975031.99` · **Авторы:** Paweł Gawrychowski, Adam Karczmarz, Tomasz Kociumaka, Jakub Łącki, Piotr Sankowski · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [DL-001](INDEX.md#dl-001)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md) (model_overlap)
+
+### LIT-124
+**[A textbook solution for dynamic strings](https://doi.org/10.1016/j.tcs.2026.115746)** (2026)
+
+TCS 2026: FeST — упрощённая структура динамических строк на улучшенных splay trees с амортизированными логарифмическими обновлениями, сравнениями подстрок и расширениями операций.
+
+**Ограничение:** Строковые отпечатки используются с вероятностной корректностью; они не являются каноническим BLAKE3 и не решают точную задачу позиционного счётчика чанков.
+
+**Идентичность:** `doi:10.1016/j.tcs.2026.115746` · **Авторы:** Zsuzsanna Lipták, Francesco Masillo, Gonzalo Navarro · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [DL-001](INDEX.md#dl-001)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md) (model_overlap)
 
 
 ## incremental-computation
@@ -540,7 +566,7 @@ Young Kun Ko, ECCC TR26-047, редакция 7 октября 2026: основ�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (cited)
 
 ### LIT-013
 **[Change actions: from incremental computation to discrete derivatives](https://arxiv.org/abs/2002.05256)** (2020)
@@ -553,7 +579,7 @@ Young Kun Ko, ECCC TR26-047, редакция 7 октября 2026: основ�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (cited)
 
 ### LIT-032
 **[Bounded Incremental Computation](https://www.microsoft.com/en-us/research/publication/bounded-incremental-computation/)** (1993)
@@ -566,7 +592,7 @@ Ramalingam исследует сложность инкрементальног�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (cited)
 
 ### LIT-041
 **[Certificates in Data Structures](https://arxiv.org/abs/1404.5743)** (2014)
@@ -579,7 +605,7 @@ Wang–Yin исследуют сертификаты ответов static cell-
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
 
 ### LIT-045
 **[Complexity models for incremental computation](https://doi.org/10.1016/0304-3975(94)90159-7)** (1994)
@@ -592,7 +618,7 @@ Miltersen–Subramanian–Vitter–Tamassia классифицируют increme
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
 
 ### LIT-046
 **[Lower And Upper Bounds For Incremental Algorithms](https://doi.org/10.7282/T3HT2SXD)** (1992)
@@ -605,7 +631,7 @@ Berman: relative incremental lower bound и δ-анализ для динами�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
 
 ### LIT-055
 **[DeltaSort: Incremental Sorting of Arrays with Known Updates](https://doi.org/10.4230/LIPIcs.SEA.2026.18)** (2026)
@@ -618,7 +644,7 @@ Berman: relative incremental lower bound и δ-анализ для динами�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-056
 **[Incremental Submodular Maximization: Better Than Greedy](https://doi.org/10.4230/LIPIcs.ESA.2026.134)** (2026)
@@ -631,7 +657,7 @@ Berman: relative incremental lower bound и δ-анализ для динами�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-113](INDEX.md#om-113)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-096
 **[Incremental Computation with Names](https://arxiv.org/abs/1503.07792)** (2015)
@@ -644,7 +670,7 @@ Nominal Adapton использует именованные вычислител
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
 
 ### LIT-102
 **[Riker: Always-Correct and Fast Incremental Builds from Simple Specifications](https://www.usenix.org/conference/atc22/presentation/curtsinger)** (2022)
@@ -657,7 +683,7 @@ USENIX ATC 2022 автоматически отслеживает файловы
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
 
 ### LIT-103
 **[Query Maintenance Under Batch Changes with Small-Depth Circuits](https://doi.org/10.4230/LIPIcs.MFCS.2024.46)** (2024)
@@ -670,7 +696,7 @@ MFCS 2024: поддержание запросов после пакетов и�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
 
 ### LIT-104
 **[Parallel Batch-Dynamic Trees via Change Propagation](https://doi.org/10.4230/LIPIcs.ESA.2020.2)** (2020)
@@ -683,7 +709,7 @@ ESA 2020: эффективная пакетная динамика деревь�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
 
 ### LIT-109
 **[Incremental Cryptography: The Case of Hashing and Signing](https://doi.org/10.1007/3-540-48658-5_22)** (1994)
@@ -696,7 +722,7 @@ CRYPTO 1994: вводится криптографическая постано�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md) (model_overlap)
 
 ### LIT-110
 **[A New Paradigm for Collision-Free Hashing: Incrementality at Reduced Cost](https://doi.org/10.1007/3-540-69053-0_13)** (1997)
@@ -709,7 +735,7 @@ EUROCRYPT 1997: конкретные инкрементальные констр
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md) (model_overlap)
 
 ### LIT-117
 **[A Library for Self-Adjusting Computation](https://doi.org/10.1016/j.entcs.2005.11.043)** (2006)
@@ -722,9 +748,22 @@ EUROCRYPT 1997: конкретные инкрементальные констр
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
 ### LIT-125
+**[The BLAKE3 Hashing Framework (C2SP v1.0.0)](https://c2sp.org/BLAKE3@v1.0.0)** (2024)
+
+Нормативная криптографическая спецификация C2SP: BLAKE3 разбивает вход на 1024-байтовые чанки; каждый блок листа получает счётчик, равный индексу чанка, а родительские узлы используют нулевой счётчик и отдельные флаги.
+
+**Ограничение:** Это техническая спецификация, НЕ новая рецензируемая научная статья и НЕ нижняя граница сложности инкрементального хеширования; особый ROOT-флаг требует отдельной модели переиспользования.
+
+**Идентичность:** `publisher:c2sp:blake3-v1-0-0` · **Авторы:** Jean-Philippe Aumasson, Samuel Neves, Jack O'Connor, Zooko Wilcox-O'Hearn · **Проверка:** `publisher_full_text_spotchecked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [DL-001](INDEX.md#dl-001)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md) (model_overlap)
+
+### LIT-129
 **[Annotations in Data Streams](https://doi.org/10.1145/2636924)** (2014)
 
 Chakrabarti–Cormode–McGregor–Thaler вводят схемы аннотированных потоков: недоверенный доказатель сообщает вспомогательную информацию, а ограниченный по памяти верификатор обязан проверить ответ.
@@ -735,9 +774,9 @@ Chakrabarti–Cormode–McGregor–Thaler вводят схемы аннотир
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
 
-### LIT-126
+### LIT-130
 **[Annotations for Sparse Data Streams](https://arxiv.org/abs/1304.3816)** (2013)
 
 Chakrabarti–Cormode–Goyal–Thaler исследуют online Merlin–Arthur/annotated streaming с малым числом действительных обновлений и показывают границы между вариантами моделей доказателя.
@@ -748,7 +787,7 @@ Chakrabarti–Cormode–Goyal–Thaler исследуют online Merlin–Arthur
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
 
 
 ## delta-base-selection
@@ -949,7 +988,7 @@ Slepian–Wolf — классическая теоретико-информац�
 
 **Связь с исследованиями →** [DL-001](INDEX.md#dl-001), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
 
 ## streaming-reconciliation
@@ -1031,7 +1070,7 @@ Sharan–Sidford–Valiant: нижняя граница числа noisy Gaussia
 
 **Связь с исследованиями →** [OM-140](INDEX.md#om-140), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-002-OM116-OM140-THEOREM-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-002-OM116-OM140-THEOREM-AUDIT.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-002-OM116-OM140-THEOREM-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-002-OM116-OM140-THEOREM-AUDIT.md) (cited)
 
 ### LIT-029
 **[Space lower bounds for linear prediction in the streaming model](https://arxiv.org/abs/1902.03498)** (2019)
@@ -1044,7 +1083,7 @@ Dagan–Kur–Shamir: квадратичная по размерности по�
 
 **Связь с исследованиями →** [OM-140](INDEX.md#om-140), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-002-OM116-OM140-THEOREM-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-002-OM116-OM140-THEOREM-AUDIT.md) (cited)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-002-OM116-OM140-THEOREM-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-002-OM116-OM140-THEOREM-AUDIT.md) (cited)
 
 ### LIT-039
 **[Invertible Bloom Lookup Tables](https://arxiv.org/abs/1101.2245)** (2011)
@@ -1109,7 +1148,7 @@ Hardt и Woodruff показывают уязвимость классическ
 
 **Связь с исследованиями →** [DM-003](INDEX.md#dm-003), [DM-007](INDEX.md#dm-007)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
 
 ### LIT-101
 **[Breaking the Quadratic Barrier: Robust Cardinality Sketches for Adaptive Queries](https://proceedings.mlr.press/v267/cohen25c.html)** (2025)
@@ -1122,9 +1161,9 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [DM-003](INDEX.md#dm-003), [DM-007](INDEX.md#dm-007), [DM-004](INDEX.md#dm-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
 
-### LIT-128
+### LIT-132
 **[Arthur–Merlin streaming complexity](https://doi.org/10.1016/j.ic.2014.12.011)** (2015)
 
 Исследование моделей Arthur–Merlin для потоковой проверки, включая компромиссы длины доказательства и оперативной памяти и ограничения для Distinct Elements.
@@ -1135,7 +1174,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [DM-001](INDEX.md#dm-001), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
 
 
 ## compressed-indexing
@@ -1152,7 +1191,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-051
 **[Hardness of Frequency-Related Queries on Compressed Strings](https://doi.org/10.4230/LIPIcs.ESA.2026.143)** (2026)
@@ -1165,7 +1204,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-119](INDEX.md#om-119)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-052
 **[OptFSST: Optimized FSST String Compression](https://arxiv.org/abs/2607.11271)** (2026)
@@ -1178,7 +1217,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DM-014](INDEX.md#dm-014), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-053
 **[Relative Compressed Reverse Suffix Array](https://doi.org/10.4230/LIPIcs.STACS.2026.62)** (2026)
@@ -1191,7 +1230,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-054
 **[Efficient Compression in Semigroups](https://doi.org/10.4230/LIPIcs.STACS.2026.80)** (2026)
@@ -1204,7 +1243,20 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-119](INDEX.md#om-119)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) (model_overlap)
+
+### LIT-126
+**[Logarithmic-Time Internal Pattern Matching Queries in Compressed and Dynamic Texts](https://doi.org/10.1007/s00224-026-10266-x)** (2026)
+
+Theory of Computing Systems 2026: алгоритм IPM-запросов на грамматически сжатых и динамических строках за O(log n), применимый к fully persistent динамическим структурам; опубликован proof-of-concept Rust.
+
+**Ограничение:** IPM-запросы и структурные представления подстрок не тождественны вычислению стандартного BLAKE3 digest после каждого редактирования, и нижние границы IPM не переносятся автоматически.
+
+**Идентичность:** `doi:10.1007/s00224-026-10266-x` · **Авторы:** Anouk Duyster, Tomasz Kociumaka · **Проверка:** `publisher_full_text_spotchecked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [DL-001](INDEX.md#dl-001)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md) (model_overlap)
 
 
 ## online-optimization
@@ -1221,7 +1273,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-069
 **[Lower Bounds for Ranking-Based Pivot Rules](https://doi.org/10.4230/LIPIcs.STACS.2026.31)** (2026)
@@ -1234,7 +1286,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-137](INDEX.md#om-137)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) (model_overlap)
 
 ### LIT-097
 **[Bigtable Merge Compaction](https://arxiv.org/abs/1407.3008)** (2014)
@@ -1247,7 +1299,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
 
 ### LIT-098
 **[Competitive Data-Structure Dynamization](https://arxiv.org/abs/2011.02615)** (2020)
@@ -1260,7 +1312,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
 
 
 ## graph-algorithms
@@ -1277,7 +1329,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-007](INDEX.md#ml-007), [OM-133](INDEX.md#om-133)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-076
 **[Incremental Shortest Paths in Almost Linear Time via a Modified Interior Point Method](https://doi.org/10.1145/3798129.3800733)** (2026)
@@ -1292,7 +1344,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-078
 **[Separator Theorem for Minor-Free Graphs in Linear Time](https://doi.org/10.1145/3798129.3800727)** (2026)
@@ -1307,7 +1359,7 @@ ICML 2025 даёт устойчивые оценки cardinality при адап
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-079
 **[A Faster Deterministic Algorithm for Fully Dynamic Maximal Matching](https://doi.org/10.1145/3798129.3800868)** (2026)
@@ -1322,7 +1374,7 @@ Chuzhoy–Khanna–Song: детерминированное поддержани
 
 **Связь с исследованиями →** [OM-131](INDEX.md#om-131), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-085
 **[Dynamic Set Cover with Worst-Case Recourse](https://doi.org/10.4230/LIPIcs.ICALP.2026.153)** (2026)
@@ -1337,7 +1389,7 @@ Solomon–Uzrad изучают динамическое покрытие мно�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-086
 **[Static to Dynamic Correlation Clustering](https://doi.org/10.4230/LIPIcs.ICALP.2026.48)** (2026)
@@ -1352,7 +1404,7 @@ Solomon–Uzrad изучают динамическое покрытие мно�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-094
 **[Deterministic Padded Decompositions and Negative-Weight Shortest Paths](https://doi.org/10.1145/3798129.3800722)** (2026)
@@ -1367,7 +1419,7 @@ Jason Li строит детерминированные padded decompositions �
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-OPPORTUNITY-MAP.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-OPPORTUNITY-MAP.md) (model_overlap)
 
 ### LIT-120
 **[On cubical graphs](https://doi.org/10.1016/0095-8956(75)90067-2)** (1975)
@@ -1380,7 +1432,7 @@ Garey–Graham исследуют графы, представимые подг�
 
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
 ### LIT-121
 **[The complexity of cubical graphs](https://doi.org/10.1016/S0019-9958(85)80012-7)** (1985)
@@ -1393,7 +1445,7 @@ Garey–Graham исследуют графы, представимые подг�
 
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
 ### LIT-122
 **[Embeddings in hypercubes](https://doi.org/10.1016/0895-7177(88)90486-4)** (1988)
@@ -1406,7 +1458,7 @@ Livingston–Stout систематизируют результаты о вло
 
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-001-PRIMARY-SOURCES.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-001-PRIMARY-SOURCES.md) (model_overlap)
 
 
 ## algebraic-algorithms
@@ -1423,7 +1475,7 @@ Livingston–Stout систематизируют результаты о вло
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-007](INDEX.md#ml-007), [OM-116](INDEX.md#om-116)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/THEOREM-GAP-004-FOUR-STAGE-AUDIT.md) (model_overlap)
 
 ### LIT-061
 **[Improving Lagarias-Odlyzko Algorithm for Average-Case Subset Sum: Modular Arithmetic Approach](https://doi.org/10.4230/LIPIcs.STACS.2026.57)** (2026)
@@ -1436,7 +1488,7 @@ Livingston–Stout систематизируют результаты о вло
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-007](INDEX.md#ml-007), [OM-116](INDEX.md#om-116)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
 
 
 ## proof-certification
@@ -1453,7 +1505,7 @@ CPP 2026: Lean формализация proof calculus cvc5 для инкрем�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006), [OM-116](INDEX.md#om-116)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
 
 ### LIT-063
 **[PBLean: Pseudo-Boolean Proof Certificates for Lean 4](https://arxiv.org/abs/2602.08692)** (2026)
@@ -1466,7 +1518,7 @@ CPP 2026: Lean формализация proof calculus cvc5 для инкрем�
 
 **Связь с исследованиями →** [ML-003](INDEX.md#ml-003), [ML-008](INDEX.md#ml-008), [ML-011](INDEX.md#ml-011)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
 
 ### LIT-064
 **[Certificate-Carrying Transformation of Event-Driven Block Programs](https://arxiv.org/abs/2607.00563)** (2026)
@@ -1479,7 +1531,7 @@ CPP 2026: Lean формализация proof calculus cvc5 для инкрем�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
 
 ### LIT-065
 **[Formal Foundations and Proof-Carrying Certificates for q-ary Covering Codes in Lean 4](https://arxiv.org/abs/2606.09600)** (2026)
@@ -1492,7 +1544,7 @@ CPP 2026: Lean формализация proof calculus cvc5 для инкрем�
 
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-003](INDEX.md#ml-003), [ML-011](INDEX.md#ml-011)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-002-B-QUADRATIC-THEOREM.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-002-B-QUADRATIC-THEOREM.md) (model_overlap)
 
 ### LIT-066
 **[Mechanized Dominator Tree Certification](https://doi.org/10.1145/3779031.3779107)** (2026)
@@ -1505,7 +1557,7 @@ CPP 2026: Lean формализация proof calculus cvc5 для инкрем�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
 
 ### LIT-067
 **[Towards Composable Proofs of Cache Coherence Protocols](https://doi.org/10.1145/3779031.3779106)** (2026)
@@ -1518,7 +1570,7 @@ CPP 2026: Lean формализация proof calculus cvc5 для инкрем�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
 
 ### LIT-068
 **[Model-Generic Incrementally Verifiable Computation from Updatable BARGs](https://doi.org/10.4230/LIPIcs.ITCS.2026.6)** (2026)
@@ -1531,7 +1583,7 @@ CPP 2026: Lean формализация proof calculus cvc5 для инкрем�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-001-B-PRIOR-ART-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/TOM-001-B-PRIOR-ART-AUDIT.md) (model_overlap)
 
 ### LIT-105
 **[Instance Complexity and Unlabeled Certificates in the Decision Tree Model](https://doi.org/10.4230/LIPIcs.ITCS.2020.56)** (2020)
@@ -1544,9 +1596,9 @@ ITCS 2020: instance-optimal алгоритмы сравниваются с ко�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
 
-### LIT-127
+### LIT-131
 **[New Lower Bounds in Merlin-Arthur Communication and Graph Streaming Verification](https://doi.org/10.4230/LIPIcs.ITCS.2024.53)** (2024)
 
 Ghosh–Shah доказывают сильные границы и разделения для нетривиальных online Merlin–Arthur коммуникационных протоколов и аннотированных потоковых графовых задач.
@@ -1557,7 +1609,7 @@ Ghosh–Shah доказывают сильные границы и раздел�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
 
 
 ## proof-complexity
@@ -1576,7 +1628,7 @@ Elbaz и соавторы доказывают нижние границы дл�
 
 **Связь с исследованиями →** [OM-116](INDEX.md#om-116), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-071
 **[The Weak Rank Principle: Lower Bounds and Applications](https://doi.org/10.1145/3798129.3800735)** (2026)
@@ -1591,7 +1643,7 @@ Elbaz и соавторы доказывают нижние границы дл�
 
 **Связь с исследованиями →** [OM-116](INDEX.md#om-116), [ML-007](INDEX.md#ml-007)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-080
 **[Polynomial Identity Testing and the Ideal Proof System: PIT Is in NP If and Only If IPS Can Be p-Simulated by a Cook-Reckhow Proof System](https://doi.org/10.1145/3798129.3800865)** (2026)
@@ -1606,7 +1658,7 @@ Grochow показывает эквивалентность эффективно
 
 **Связь с исследованиями →** [OM-116](INDEX.md#om-116), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-090
 **[Lower Bounds for Near-Quadratic-Depth Resolution over Parities](https://doi.org/10.1145/3798129.3800809)** (2026)
@@ -1621,7 +1673,7 @@ Grochow показывает эквивалентность эффективно
 
 **Связь с исследованиями →** [OM-116](INDEX.md#om-116), [ML-007](INDEX.md#ml-007)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-106
 **[Certification complexity of Boolean functions](https://eccc.weizmann.ac.il/report/2026/206/)** (2026)
@@ -1634,7 +1686,7 @@ Grochow показывает эквивалентность эффективно
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
 
 ### LIT-107
 **[On Condensation of Block Sensitivity, Certificate Complexity and the $\mathsf{AND}$ (and $\mathsf{OR}$) Decision Tree Complexity](https://arxiv.org/abs/2602.01042)** (2026)
@@ -1647,7 +1699,7 @@ Grochow показывает эквивалентность эффективно
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
 
 ### LIT-108
 **[Complexity measures and decision tree complexity: a survey](https://doi.org/10.1016/S0304-3975(01)00144-X)** (2002)
@@ -1660,7 +1712,7 @@ Grochow показывает эквивалентность эффективно
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md) (model_overlap)
 
 
 ## algebraic-complexity
@@ -1679,7 +1731,7 @@ Grochow показывает эквивалентность эффективно
 
 **Связь с исследованиями →** [OM-116](INDEX.md#om-116), [OM-135](INDEX.md#om-135)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-089
 **[Superquadratic Lower Bounds for Depth-2 Linear Threshold Circuits](https://doi.org/10.1145/3798129.3800802)** (2026)
@@ -1694,7 +1746,7 @@ Chen–Tal–Wang устанавливают сверхквадратичные 
 
 **Связь с исследованиями →** [OM-130](INDEX.md#om-130), [OM-132](INDEX.md#om-132)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-093
 **[Classifying Identities: Subcubic Distributivity Checking and Hardness from Arithmetic Progression Detection](https://doi.org/10.1145/3798129.3800854)** (2026)
@@ -1709,7 +1761,7 @@ Chen–Tal–Wang устанавливают сверхквадратичные 
 
 **Связь с исследованиями →** [OM-116](INDEX.md#om-116), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-095
 **[Lower Bounds on Pure Dynamic Programming for Connectivity Problems on Graphs of Bounded Path-Width](https://doi.org/10.4230/LIPIcs.ICALP.2026.130)** (2026)
@@ -1724,7 +1776,7 @@ Kluk–Nederlof: нижние границы 2^Ω(k log log k) для tropical-c
 
 **Связь с исследованиями →** [OM-133](INDEX.md#om-133), [ML-004](INDEX.md#ml-004)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 
 ## fine-grained-algorithms
@@ -1743,7 +1795,7 @@ Mao–Rubinstein: рандомизированные (1+ε)-ED и (1−ε)-LCS �
 
 **Связь с исследованиями →** [OM-099](INDEX.md#om-099), [OM-121](INDEX.md#om-121), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-092
 **[Space-Efficient Text Indexing with Mismatches using Function Inversion](https://doi.org/10.1145/3798129.3800818)** (2026)
@@ -1758,7 +1810,7 @@ Bibbens–Borevitz–McCauley строят линейно-пространств
 
 **Связь с исследованиями →** [OM-099](INDEX.md#om-099), [OM-121](INDEX.md#om-121), [DL-001](INDEX.md#dl-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 
 ## randomized-sampling
@@ -1777,7 +1829,7 @@ Bibbens–Borevitz–McCauley строят линейно-пространств
 
 **Связь с исследованиями →** [OM-140](INDEX.md#om-140), [DM-007](INDEX.md#dm-007)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-081
 **[Parallel Sampling via Autospeculation](https://doi.org/10.1145/3798129.3800828)** (2026)
@@ -1792,7 +1844,7 @@ Bibbens–Borevitz–McCauley строят линейно-пространств
 
 **Связь с исследованиями →** [OM-113](INDEX.md#om-113), [OM-139](INDEX.md#om-139)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-082
 **[Shifted Composition IV: Toward Ballistic Acceleration for Log-Concave Sampling](https://doi.org/10.1145/3798129.3800881)** (2026)
@@ -1807,9 +1859,9 @@ Altschuler–Chewi–Zhang исследуют недодемпфированну
 
 **Связь с исследованиями →** [OM-139](INDEX.md#om-139), [OM-113](INDEX.md#om-113)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
 
-### LIT-130
+### LIT-134
 **[Equivalent Comparisons of Experiments](https://doi.org/10.1214/aoms/1177729032)** (1953)
 
 Blackwell формализует сравнение статистических экспериментов и относительную информативность наблюдений для задач принятия решений.
@@ -1820,4 +1872,4 @@ Blackwell формализует сравнение статистических
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DM-001](INDEX.md#dm-001)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b64b772510e5f124e8ef1b1a3e76d978a572d148/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/b16c07a8d575b928f05ef3a42bc856df1fe66c8a/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
