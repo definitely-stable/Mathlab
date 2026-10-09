@@ -138,3 +138,52 @@ def signed_trade_rank_report(supports, signs):
         "nonzero_palette_upper": nonzero_probability_upper,
         "has_singleton_coordinate": any(d == 1 for d in degrees.values()),
     }
+
+
+def weighted_alteration_risk(supports, keep_probability):
+    """Exact rational all-m D5 union-bound functional, bounded FINITE oracle.
+
+    Candidate supports must be distinct 4-subsets: distinct resulting GF5
+    columns are guaranteed regardless of selected nonzero weights.
+    Each signed collision event is considered ONCE up to exchanging sides.
+    This function deliberately caps n<=9: general U3 enumeration is O(n^6).
+    Its mathematically proved formula itself applies for arbitrary n.
+    """
+    from itertools import combinations
+    if not isinstance(keep_probability, Fraction) or not (
+            0 <= keep_probability <= 1):
+        raise ValueError("exact rational probability in [0,1] required")
+    n = len(supports)
+    if n > 9:
+        raise ValueError("O(n^6) direct oracle restricted to <=9 columns")
+    if any(len(row) != 4 or len(set(row)) != 4 for row in supports):
+        raise ValueError("expected support-exact-four tuples")
+    if len({tuple(sorted(row)) for row in supports}) != n:
+        raise ValueError("pairwise distinct supports required")
+    sums = {2: Fraction(0), 3: Fraction(0)}
+    counted = {2: 0, 3: 0}
+    for k in (2, 3):
+        for left in combinations(range(n), k):
+            remainder = [i for i in range(n) if i not in left]
+            for right in combinations(remainder, k):
+                if left >= right:
+                    continue
+                chosen = tuple(supports[i] for i in left + right)
+                weights = (1,)*k + (-1,)*k
+                risk = signed_trade_rank_report(
+                    chosen, weights)["nonzero_palette_upper"]
+                sums[k] += risk
+                counted[k] += 1
+    lower = (keep_probability*n - sums[2]*keep_probability**4
+             - sums[3]*keep_probability**6)
+    return {
+        "n": n,
+        "U2": sums[2],
+        "U3": sums[3],
+        "pair_event_candidates": counted[2],
+        "triple_event_candidates": counted[3],
+        "alteration_lower": lower,
+        "p": keep_probability,
+        "formula": "pN - p^4 U2 - p^6 U3",
+        "scope": "exact finite risk sum, general theorem but no exponent"
+    }
