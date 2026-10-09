@@ -67,7 +67,7 @@ def flat_update(before, operation, block, group, layout):
 @dataclass(frozen=True)
 class WalState:
     base: tuple
-    frames: tuple  # Tuple[bytes] (exact IXW1 CRC frames)
+    frames: tuple  # Tuple[bytes] (exact RW CRC frames)
     latest: tuple
 
 
@@ -186,6 +186,24 @@ def compare_trace(initial, operations, block=32, group=8, threshold=3,
     return rows
 
 
+
+def bounded_epoch_limit(base, block, max_snapshot_bytes, min_frame_bytes,
+                        alpha=4, beta=2, m_bits=0, gamma=0):
+    """Exact upper bound on append count for THIS unindexed WAL policy.
+
+    This is a necessary inequality only, not a sufficient schedule or a
+    generic lower bound for competing dynamic structures.
+    """
+    if min_frame_bytes < 1 or max_snapshot_bytes < 0:
+        raise ValueError("positive frame and nonnegative snapshot size needed")
+    ceiling_budget = (alpha * max_snapshot_bytes + beta * block +
+                      gamma * ((m_bits + 7) // 8))
+    h = ceiling_budget // block - 1 - pages(len(packed_image(base)), block)
+    return {"max_log_pages": h,
+            "max_uncheckpointed_appends": max(-1, (h * block) // min_frame_bytes),
+            "budget_upper_bytes": ceiling_budget}
+
+
 def report():
     z = (0,) * 64
     observed = compare_trace(z, [(0, 1, 1), (0, 1, 0), (0, 1, 1),
@@ -196,13 +214,15 @@ def report():
     assert zero_s == 12 and slots == 256 and budget(z, 32) == 112
     assert not slots <= budget(z, 32)
     assert decode_snapshot(packed_image(z)) == z
+    cap = bounded_epoch_limit(z, 32, 14, len(encode_wal(64, 0, 1, 1)))
+    assert cap["max_log_pages"] == 1 and cap["max_uncheckpointed_appends"] == 3
     return {
         "schema": "mathlab.index001.g2b4c0.priced-wal.v1",
         "classification": "FINITE_COUNTERMODEL_RESTRICTED_FIXED_SLOT_SPACE_BOUND",
         "main_parent": "dd90dd634e4e600cea0d14e302b215b698758ec5",
         "no_nand_or_syscall_measurement": True,
         "zero64": {"packed_bytes": zero_s, "slots_bytes": slots,
-                   "budget_bytes": budget(z, 32)},
+                   "budget_bytes": budget(z, 32), "effective_hot_toggle_epoch_bound": cap},
         "trace": observed,
     }
 
