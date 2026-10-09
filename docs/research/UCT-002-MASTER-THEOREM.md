@@ -29,7 +29,7 @@ Define the q-ary ball volume:
 
 **Proof.** Along each length<=d transition path from x0, triangle inequality gives d_H(phi(x0),phi(y))<=d*w. Hence phi(F) lies in a ball of V_q(m,r) possible words. For any fixed pair (phi(y),h(y)), a deterministic adaptive probe algorithm of depth at most P is a decision tree with s-ary branches. It has at most s^P terminal paths (by the prefix-free leaf bound; early termination does not increase the maximum). Addresses and query choices cannot create further branches because they are determined by the protocol and previously seen symbols. For an exact joint verifier, two representatives with different joint signatures cannot share a complete observation tuple (code, annotation, read-response leaf); if they did, the verifier would follow the same branches and return the same answers. Therefore F injects into at most V_q(m,r)*2^b*s^P observable transcripts, proving (A). QED.
 
-**THEOREM UCT-002/B (randomized average-error converse):** Let Y be uniform on F and R independent public verifier coins. Let e be the average probability of producing at least one wrong answer in the **full joint suite** (one common experiment). Then
+**THEOREM UCT-002/B (randomized average-error converse):** Let Y be uniform on F and R independent public verifier coins. Let e be the average probability of producing at least one wrong answer in the **full joint suite** (one common experiment), and assume **0<=e<=1-1/K**. Then
 
     log2 K <= log2 V_q(m,r) + b + P*log2 s
               + h2(e) + e*log2(K-1).                             (B)
