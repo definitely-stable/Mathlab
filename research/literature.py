@@ -116,9 +116,10 @@ SOURCE_TITLE_PINS = {
     "doi:10.1016/j.jcss.2007.06.020": "Quantum Certificate Complexity",
     "doi:10.1145/3442357": "All Classical Adversary Methods Are Equivalent for Total Functions",
     "arxiv:2609.15063": "Randomized Query Complexity Can Beat Certificate Complexity",
-    # UCT-004 G2-C: September 2026 certification and classical PCPP source identities.
-    "arxiv:2609.26757": "Certification complexity of Boolean functions",
-    "doi:10.1145/1595391.1595394": "Sound 3-Query PCPPs Are Long",
+    "arxiv:2602.14716": "Grid-free linear hypergraphs via Cayley-Bacharach",
+    "doi:10.1016/j.disc.2022.113025": "The linear Turán number of small triple systems or why is the wicket interesting?",
+    "doi:10.1016/j.disc.2024.114029": "Wickets in 3-uniform hypergraphs",
+    "doi:10.1006/jctb.2002.2123": "The Size of Bipartite Graphs with a Given Girth",
 }
 
 

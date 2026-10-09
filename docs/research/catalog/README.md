@@ -1,8 +1,8 @@
 # Research catalog — provenance-first index
 
-## UCT-004 G2-C — certification/PCPP primary sources (2026-10-09)
+## HYP-105 G4 source import after concurrent UCT-004 (2026-10-09)
 
-Deduplicated **LIT-145..146** expand canonical original bibliography from 144 to **146**: Kayal–Laplante–Larroque–Prūsis–Vihrovs [*Certification complexity of Boolean functions*](https://arxiv.org/abs/2609.26757) (ECCC TR26-206, September 2026), and Ben-Sasson–Harsha–Lachish–Matsliah [*Sound 3-Query PCPPs Are Long*](https://doi.org/10.1145/1595391.1595394) (2009). Source titles are identity-pinned, forward/reverse generated indexes revalidated, full independent source proofs FALSE, and [G2-C source/novelty boundaries](../UCT-004-G2-C-SOURCE-NOVELTY-AUDIT.md) distinguish **exact parity soundness** from **proximity soundness** and operational certification prior art.
+Four new exact-identity primary works LIT-145..148, respecting historical **144** pre-existing records including UCT-004 LIT-142..144: [Pohoata 2026](https://arxiv.org/abs/2602.14716) dense general grid-free linear r-graphs; [Gyárfás–Sárközy 2022](https://doi.org/10.1016/j.disc.2022.113025) small linear triple-system Turán numbers; [Solymosi 2024](https://doi.org/10.1016/j.disc.2024.114029) wicket-free sparsity; [Hoory 2002](https://doi.org/10.1006/jctb.2002.2123) girth extremal graph upper. All source-to-model mismatches specified in [G4 mathematical audit](../HYP-105-G4-CHARACTERISTIC-W4.md): r=4 grid has 8 edges, not six; wicket has 9 vertices vs GF3 signed five-edge/7-vertex obstruction; graph bounds are not ASET decoder constructions. **148** unique indexed works; bibliography metadata and model overlap checked, external full proofs not independently rerun.
 
 ## UCT-004 G2-A — original randomized-certificate and 2026 source imports (2026-10-09)
 

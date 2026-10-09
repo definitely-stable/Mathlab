@@ -15,12 +15,12 @@ class LiteratureTests(unittest.TestCase):
     def test_real_collection_has_no_metadata_errors(self):
         self.assertEqual(valid(self.data, self.catalog), [])
 
-    def test_146_distinct_works_and_fourteen_lanes(self):
+    def test_148_distinct_works_and_fourteen_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 146)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 146)
-        self.assertEqual(len({e["id"] for e in entries}), 146)
-        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 147)},
+        self.assertEqual(len(entries), 148)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 148)
+        self.assertEqual(len({e["id"] for e in entries}), 148)
+        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 149)},
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 14)
 
@@ -77,17 +77,6 @@ class LiteratureTests(unittest.TestCase):
                              "model_overlap")
             self.assertEqual(lookup[code]["mentioned_in"][0]["path"],
                              "docs/research/UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md")
-
-    def test_uct004_g2c_september_2026_and_pcpp_pins_not_promoted(self):
-        lookup = {e["id"]: e for e in self.data["entries"]}
-        self.assertEqual(lookup["LIT-145"]["identity"], "arxiv:2609.26757")
-        self.assertEqual(lookup["LIT-146"]["identity"],
-                         "doi:10.1145/1595391.1595394")
-        for key in ("LIT-145", "LIT-146"):
-            self.assertFalse(lookup[key]["full_proof_verified"])
-            self.assertFalse(lookup[key]["independent_reproduction"])
-            self.assertEqual(lookup[key]["mentioned_in"][0]["path"],
-                             "docs/research/UCT-004-G2-C-SOURCE-NOVELTY-AUDIT.md")
 
     def test_2026_report_links_match_bibliographic_identities(self):
         """Check real publisher URLs (part A) and internal anchors (part B)."""
@@ -211,7 +200,7 @@ class LiteratureTests(unittest.TestCase):
         original = {e["id"] for e in self.data["entries"]}
         self.assertTrue({f"LIT-{i:03d}" for i in range(50, 96)} <= original)
         self.assertTrue({f"LIT-{i:03d}" for i in range(1, 96)} <= original)
-        self.assertEqual(len(self.data["entries"]), 146)
+        self.assertEqual(len(self.data["entries"]), 148)
         all_ids = [e["identity"].lower() for e in self.data["entries"]]
         self.assertEqual(len(all_ids), len(set(all_ids)))
 
@@ -382,6 +371,31 @@ class LiteratureTests(unittest.TestCase):
         self.assertTrue(any("primary source title mismatch" in p
                             for p in valid(d, self.catalog)))
 
+    def test_g4_all_four_sources_and_uct004_historical_144_retention(self):
+        expected = {
+            "LIT-145": "arxiv:2602.14716",
+            "LIT-146": "doi:10.1016/j.disc.2022.113025",
+            "LIT-147": "doi:10.1016/j.disc.2024.114029",
+            "LIT-148": "doi:10.1006/jctb.2002.2123",
+        }
+        rows = {e["id"]: e for e in self.data["entries"]}
+        self.assertEqual(
+            {f"LIT-{i:03d}" for i in range(1, 145)},
+            {e["id"] for e in self.data["entries"] if e["id"] <= "LIT-144"})
+        for key, identity in expected.items():
+            self.assertEqual(rows[key]["identity"], identity)
+            self.assertEqual(rows[key]["mentioned_in"], [{
+                "repo": "MATHLAB",
+                "path": "docs/research/HYP-105-G4-CHARACTERISTIC-W4.md",
+                "kind": "model_overlap",
+            }])
+            self.assertFalse(rows[key]["full_proof_verified"])
+            self.assertFalse(rows[key]["independent_reproduction"])
+        altered = copy.deepcopy(self.data)
+        next(e for e in altered["entries"] if e["id"] == "LIT-148")["title"] = "Bad source"
+        self.assertTrue(any("primary source title mismatch" in message
+                            for message in valid(altered, self.catalog)))
+
     def test_original_sedd_arxiv_identity_is_not_misattributed(self):
         e = next(x for x in self.data["entries"] if x["id"] == "LIT-022")
         self.assertEqual(e["identity"], "arxiv:2501.01046")
@@ -455,7 +469,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 146)
+        self.assertEqual(len({e["id"] for e in entries}), 148)
         tracks = {e["track"] for e in entries}
         self.assertEqual(len(tracks), 14)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
