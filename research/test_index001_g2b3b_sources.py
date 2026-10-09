@@ -4,7 +4,7 @@ import unittest
 
 from literature import DATA, INTERNAL, SOURCE_TITLE_PINS, valid
 
-SOURCE_SHA = "5c2cb67689a6821955b58f6358b7914679d090d3"
+SOURCE_SHA = "7e62436374adc9e8cc15c98b68bf9d4a3a06644e"
 ORIGIN = "docs/research/INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md"
 SOURCES = {
     "LIT-209": ("doi:10.4230/LIPIcs.ITCS.2026.75",
