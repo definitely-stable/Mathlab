@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "f15cdc31bad00e7c4a15c76123a82119bbeba852"
+      "sha": "89c96130408e812ada72df44e9848cf3c38b60eb"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -3566,6 +3566,128 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/UCT-001-PRIMARY-SOURCES.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-123",
+      "title": "Optimal Dynamic Strings",
+      "year": 2018,
+      "identity": "doi:10.1137/1.9781611975031.99",
+      "primary_url": "https://doi.org/10.1137/1.9781611975031.99",
+      "track": "dynamic-data-structures",
+      "summary_ru": "SODA 2018: поддержка операций make_string, concat, split, сравнения строк и LCP с логарифмическим временем обновления с высокой вероятностью; доказана нижняя граница на сумму динамических затрат в модели сравнения равенства строк.",
+      "limits_ru": "Структура сравнивает/представляет редактируемые строки, но не обязана выдавать тождественно стандартный BLAKE3-256; её Omega(log n) не является BLAKE3 compression-oracle lower bound.",
+      "maps_to": [
+        "ML-004",
+        "ML-005",
+        "DL-001"
+      ],
+      "authors": [
+        "Paweł Gawrychowski",
+        "Adam Karczmarz",
+        "Tomasz Kociumaka",
+        "Jakub Łącki",
+        "Piotr Sankowski"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-124",
+      "title": "A textbook solution for dynamic strings",
+      "year": 2026,
+      "identity": "doi:10.1016/j.tcs.2026.115746",
+      "primary_url": "https://doi.org/10.1016/j.tcs.2026.115746",
+      "track": "dynamic-data-structures",
+      "summary_ru": "TCS 2026: FeST — упрощённая структура динамических строк на улучшенных splay trees с амортизированными логарифмическими обновлениями, сравнениями подстрок и расширениями операций.",
+      "limits_ru": "Строковые отпечатки используются с вероятностной корректностью; они не являются каноническим BLAKE3 и не решают точную задачу позиционного счётчика чанков.",
+      "maps_to": [
+        "ML-004",
+        "ML-005",
+        "DL-001"
+      ],
+      "authors": [
+        "Zsuzsanna Lipták",
+        "Francesco Masillo",
+        "Gonzalo Navarro"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-125",
+      "title": "The BLAKE3 Hashing Framework (C2SP v1.0.0)",
+      "year": 2024,
+      "identity": "publisher:c2sp:blake3-v1-0-0",
+      "primary_url": "https://c2sp.org/BLAKE3@v1.0.0",
+      "track": "incremental-computation",
+      "summary_ru": "Нормативная криптографическая спецификация C2SP: BLAKE3 разбивает вход на 1024-байтовые чанки; каждый блок листа получает счётчик, равный индексу чанка, а родительские узлы используют нулевой счётчик и отдельные флаги.",
+      "limits_ru": "Это техническая спецификация, НЕ новая рецензируемая научная статья и НЕ нижняя граница сложности инкрементального хеширования; особый ROOT-флаг требует отдельной модели переиспользования.",
+      "maps_to": [
+        "ML-004",
+        "ML-005",
+        "DL-001"
+      ],
+      "authors": [
+        "Jean-Philippe Aumasson",
+        "Samuel Neves",
+        "Jack O'Connor",
+        "Zooko Wilcox-O'Hearn"
+      ],
+      "verification": "publisher_full_text_spotchecked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-126",
+      "title": "Logarithmic-Time Internal Pattern Matching Queries in Compressed and Dynamic Texts",
+      "year": 2026,
+      "identity": "doi:10.1007/s00224-026-10266-x",
+      "primary_url": "https://doi.org/10.1007/s00224-026-10266-x",
+      "track": "compressed-indexing",
+      "summary_ru": "Theory of Computing Systems 2026: алгоритм IPM-запросов на грамматически сжатых и динамических строках за O(log n), применимый к fully persistent динамическим структурам; опубликован proof-of-concept Rust.",
+      "limits_ru": "IPM-запросы и структурные представления подстрок не тождественны вычислению стандартного BLAKE3 digest после каждого редактирования, и нижние границы IPM не переносятся автоматически.",
+      "maps_to": [
+        "ML-004",
+        "ML-005",
+        "DL-001"
+      ],
+      "authors": [
+        "Anouk Duyster",
+        "Tomasz Kociumaka"
+      ],
+      "verification": "publisher_full_text_spotchecked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md",
           "kind": "model_overlap"
         }
       ],
