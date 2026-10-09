@@ -338,3 +338,8 @@ audit before promotion.
 ## HYP-105 G5-E2-B3.2 — exact D_s coincident-cycle obstruction (2026-10-09)
 
 [Theorem, finite results and next research gate](HYP-105-G5-E2-B3-B2-COINCIDENT-CYCLES.md) · [Python physical C6 join](../../research/hyp105_g5e2b3b2_coincident_cycles.py) · [independent oracle](../../research/test_hyp105_g5e2b3b2_coincident_cycles.py) · [issue #176](https://github.com/definitely-stable/Mathlab/issues/176). For EVERY fixed injective W(3,s) pair labeling R3>=**5643 D_s/51^6**; under uniform independent pair maps exact E[D_s]=60 M6 [(a)_6/(K)_6]^2. GF2 D=15/3/3; GF4 D=8481/8417/10602 in E2-A lex/reverse-line/coordinate-flag controls. Complete matching-C6 counting without C(N,6), NOT complete positive GF5 motif R3 upper, not a new ASET exponent. B3.2-B/B3.1-B pending.
+
+## HYP-105 G5-E2-B3.3 — Hall-matched correlated label failure (2026-10-09)
+
+[All-h restricted Omega(s^9) theorem](HYP-105-G5-E2-B3-B3-INCIDENCE-MATCHING-NOGO.md) · [finite exact verifier](../../research/hyp105_g5e2b3b3_incidence_nogo.py) · [independent GF2/GF4 tests](../../research/test_hyp105_g5e2b3b3_incidence_nogo.py) · [#176](https://github.com/definitely-stable/Mathlab/issues/176). Aligned map g(l)=f(pi(l)) with perfect incidence Hall matching pi forces D_s>=C6(f(P))=Omega(s^9), and R3>=5643 D_s/51^6=Omega(s^9). A **restricted method no-go only**; other correlated maps, ASET theorem and simultaneous risk targets remain open.
+
