@@ -70,6 +70,21 @@ The reference [exact finite four/six audit](../../research/hyp105_g5e2b3d_joint_
 - Record Q4, T4_UNIT and the E2-B3.2-B **full exact D_s** six-cycle count on **the same labeling**. This provides simultaneously grounded necessary R2/R3 risk contributions, not upper bounds.
 - Independent oracle for Q4 enumerates all four-column incidence subsets on a deliberately small capped factor subgraph and recomputes both physical dual column-adjacency graphs. Independent oracle for unit T4 directly enumerates every four-column subset and all three 2vs2 choices on a small sampled column set, with equality checked coordinate by coordinate; direct full GF5 E0 flow verifies F4.
 
+### 3.1 Exact hosted full finite model counts and model-method falsifier
+
+GitHub-hosted Research completed a full earlier HEAD run with **628 passing unit tests** and an exact, exhaustive-with-respect-to-defined-count finite report. The following counts are NOT asymptotic and NOT estimated from sampled six-sets:
+
+| Field / full N | Same-label map | Exact Q4 (matching C4) | All unit signed 2v2 events T4 | Distinct unit four-column sets | Exact D6 (matching C6) |
+| --- | --- | ---: | ---: | ---: | ---: |
+| GF(2), N=45 | Plücker lex-mincollision | **25** | **57** | 57 | **2** |
+| GF(2), N=45 | Prior reverse-line control | **32** | **66** | 66 | **3** |
+| GF(4), N=425 | Plücker lex-mincollision | **608** | **1,388** | 1,388 | **9,190** |
+| GF(4), N=425 | Prior reverse-line control | **573** | **1,380** | 1,380 | **8,417** |
+
+All four T4 signed event counts happen to equal the distinct T4 support-set counts in THESE data; the implementation keeps the quantities separate and does **not** claim equality as a general theorem.
+
+**Concrete method limitation:** Q4 is strictly weaker than full unit T4: at GF4 Plücker, `Q4=608` while `T4_unit=1388`. Even the full exact count of UNIT conflicts is only a lower-risk diagnostic, because each event can admit many of the full 51-pattern GF5 assignments and nonunit events may also be positive. Therefore a bound on the coincident-C4 family **does not** establish upper control of total R2. The Plücker GF4 map is also worse than old reverse-line on BOTH Q4 (608>573), unit T4 (1388>1380), and D6 (9190>8417). No experimental Plücker improvement should be claimed.
+
 ## 4. Exact full-palette GF5 R2/R3 — only one explicit seven-column subfamily per model
 
 The report **intentionally** chooses a 7-column subset of the SAME full GQ labeling: the six ordered columns of the FIRST canonical positive exact D_s coincident C6 matching witness, plus the **smallest unused real factor incidence column ID**. This is deliberately **witness-enriched**, not uniform sampling and not representative of whole GQ risk. It is guaranteed to include a genuine GF5 3-vs-3 positive trade and therefore prevents a vacuous zero-R3 sample.
