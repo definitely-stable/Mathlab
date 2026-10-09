@@ -314,10 +314,10 @@ def scaling_bound_instance(n):
     expected = Fraction(large + collapse_frame, small)
     actual = Fraction(*row["ratio"])
     if (actual != expected or row["online"]["checkpoints"][-1] != high_checkpoint
-            or high_checkpoint in row["offline"]["checkpoints"]
+            or row["offline"]["checkpoints"][-1] != len(operations)
             or row["offline"]["recovery_read_bytes"] != small):
-        # Offline may checkpoint before high; only last is important. The
-        # asserted exclusion tests the canonical lexicographic tie policy.
+        # With free writes, earlier checkpoints may also appear in the
+        # lexicographic tie-break; the final checkpoint is what matters.
         raise AssertionError("variable-size scaling family oracle mismatch")
     return {
         "n": n,
