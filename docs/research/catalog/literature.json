@@ -5421,6 +5421,193 @@
       "verification": "publisher_abstract_checked",
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md",
+          "kind": "model_overlap",
+          "source_sha": "d589e7d3d68966e5674be50127e6aeff237917c1"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "id": "LIT-183",
+      "title": "Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators",
+      "year": 2025,
+      "identity": "doi:10.1007/978-3-032-01878-6_6",
+      "alternate_identities": [
+        "publisher:iacr:2025-234"
+      ],
+      "primary_url": "https://doi.org/10.1007/978-3-032-01878-6_6",
+      "authors": [
+        "Joseph Bonneau",
+        "Jessica Chen",
+        "Miranda Christ",
+        "Ioanna Karantaidou"
+      ],
+      "verification": "publisher_abstract_checked",
+      "summary_ru": "CRYPTO 2025: ω(n) совокупных witness updates за n append-only добавлений, и Ω(n log n/log log n) в отдельном режиме; Merkle mountain ranges близки к оптимальности.",
+      "limits_ru": "Частота изменений witness в append-only set accumulator, а не CPU или байты сети. Параметры случайного множества и длина digest обязательны; без них не переносить на UCT."
+    },
+    {
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md",
+          "kind": "model_overlap",
+          "source_sha": "d589e7d3d68966e5674be50127e6aeff237917c1"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "id": "LIT-184",
+      "title": "Lower Bounding Update Frequency in Short Accumulators and Vector Commitments",
+      "year": 2026,
+      "identity": "doi:10.1007/978-3-032-25330-9_7",
+      "alternate_identities": [
+        "publisher:iacr:2025-1558"
+      ],
+      "primary_url": "https://doi.org/10.1007/978-3-032-25330-9_7",
+      "authors": [
+        "Hamza Abusalah",
+        "Gaspard Anthoine",
+        "Gennaro Avitabile",
+        "Emanuele Giunta"
+      ],
+      "verification": "publisher_abstract_checked",
+      "summary_ru": "EUROCRYPT 2026: нижние границы ожидаемого количества инвалидированных proofs — почти n при коротком digest для exponential или superpolynomial universes.",
+      "limits_ru": "Нужно фиксировать аддитивный аккумулятор / updatable VC, security/digest и размер универсума. Witness invalidation не равно стоимости обновления или коммуникации."
+    },
+    {
+      "track": "dynamic-data-structures",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md",
+          "kind": "model_overlap",
+          "source_sha": "d589e7d3d68966e5674be50127e6aeff237917c1"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "id": "LIT-185",
+      "title": "Lower Bounds on FSS from Dynamic Data Structures",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.ITCS.2026.71",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ITCS.2026.71",
+      "authors": [
+        "Niv Gilboa",
+        "Daniel Weber"
+      ],
+      "verification": "publisher_full_text_spotchecked",
+      "summary_ru": "ITCS 2026: соответствие black-box PRF/OWF Function Secret Sharing с динамическими range-query структурами. Источник различает cell-probe и write-probe с бесплатными чтениями во время update.",
+      "limits_ru": "FSS privacy не является authenticated soundness. Параметр n обозначает длину аргумента функции, а не число элементов RAM. Lower bound переносится лишь при правильной модели."
+    },
+    {
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md",
+          "kind": "model_overlap",
+          "source_sha": "d589e7d3d68966e5674be50127e6aeff237917c1"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "id": "LIT-186",
+      "title": "How Efficient Can Memory Checking Be?",
+      "year": 2009,
+      "identity": "doi:10.1007/978-3-642-00457-5_30",
+      "primary_url": "https://doi.org/10.1007/978-3-642-00457-5_30",
+      "authors": [
+        "Cynthia Dwork",
+        "Moni Naor",
+        "Guy N. Rothblum",
+        "Vinod Vaikuntanathan"
+      ],
+      "verification": "publisher_abstract_checked",
+      "summary_ru": "TCC 2009: lower bound deterministic non-adaptive online memory checker и конструкции асимметричного read/write checker, включая offline амортизацию.",
+      "limits_ru": "Не переносить deterministic nonadaptive lower bound на произвольный randomized adaptive memory checker; offline и online различны по гарантии обнаружения ошибки."
+    },
+    {
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md",
+          "kind": "model_overlap",
+          "source_sha": "d589e7d3d68966e5674be50127e6aeff237917c1"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "id": "LIT-187",
+      "title": "Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams",
+      "year": 2025,
+      "identity": "publisher:iacr:2025-110",
+      "primary_url": "https://eprint.iacr.org/2025/110",
+      "authors": [
+        "Gaspard Anthoine",
+        "Daniele Cozzo",
+        "Dario Fiore"
+      ],
+      "verification": "primary_abstract_checked",
+      "summary_ru": "IACR ePrint 2025/110, FC 2025: новые linearly homomorphic signatures и verifier-efficient HSNP для вычислений по потокам, включая скользящие статистики.",
+      "limits_ru": "Конструктивная верхняя оценка криптографической верификации с signed inputs, а не информационная lower bound. Отсутствует подтверждённый DOI конференционной версии."
+    },
+    {
+      "track": "proof-certification",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md",
+          "kind": "model_overlap",
+          "source_sha": "d589e7d3d68966e5674be50127e6aeff237917c1"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "id": "LIT-188",
+      "title": "On the Impossibility of Batch Update for Cryptographic Accumulators",
+      "year": 2010,
+      "identity": "doi:10.1007/978-3-642-14712-8_11",
+      "primary_url": "https://doi.org/10.1007/978-3-642-14712-8_11",
+      "authors": [
+        "Philippe Camacho",
+        "Alejandro Hevia"
+      ],
+      "verification": "publisher_abstract_checked",
+      "summary_ru": "LATINCRYPT 2010: атака на небезопасный batch-update accumulator и Ω(m) worst-case на обновление отдельного witness после m изменений в изученной модели.",
+      "limits_ru": "Нельзя обобщать на все возможные cryptographic accumulator или VC; число инвалидированных свидетелей не равно цене одного witness-refresh."
     }
   ]
 }
