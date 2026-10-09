@@ -77,7 +77,8 @@ class TrustedAnchor:
     def __init__(self, genesis, issuer):
         if not issuer.verify(genesis) or genesis.epoch != 0:
             raise ValueError("genesis must be authorized")
-        self.current = genesis
+        # Trust only epoch + seal; never store a hidden full n-bit replica.
+        self.current = Checkpoint(genesis.epoch, genesis.seal)
         self.publications = 0
 
     def publish(self, next_receipt, issuer):
@@ -85,7 +86,7 @@ class TrustedAnchor:
                 or next_receipt.epoch != self.current.epoch + 1
                 or next_receipt.parent_seal != self.current.seal):
             raise ValueError("nonmonotone/unauthorized anchor publication")
-        self.current = next_receipt
+        self.current = Checkpoint(next_receipt.epoch, next_receipt.seal)
         self.publications += 1
 
     def read(self, available=True):

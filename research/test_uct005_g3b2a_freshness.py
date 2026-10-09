@@ -170,12 +170,16 @@ class G3B2AFreshnessTests(unittest.TestCase):
 
     def test_trusted_reader_really_stores_only_epoch_and_token(self):
         w = SingleWriter((0, 1, 0, 1))
+        self.assertIsInstance(w.anchor.current, Checkpoint)
+        self.assertFalse(hasattr(w.anchor.current, "bits"))
         c = Reader(w.history[0])
         self.assertIsInstance(c.checkpoint, Checkpoint)
         self.assertEqual(c.n, 4)
         self.assertFalse(hasattr(c.checkpoint, "bits"))
         self.assertEqual(c.clone().checkpoint, c.checkpoint)
         final = w.set(0, 1)
+        self.assertIsInstance(w.anchor.current, Checkpoint)
+        self.assertFalse(hasattr(w.anchor.current, "bits"))
         self.assertEqual(read_signed_state(c, final, w.issuer, 0, 3,
                                             anchor=w.anchor).status, "ACCEPT")
         self.assertFalse(hasattr(c.checkpoint, "bits"))
