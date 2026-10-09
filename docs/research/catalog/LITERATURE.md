@@ -2515,7 +2515,7 @@ OSDI 2025: метод PoWER задаёт предусловия записей, 
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md](https://github.com/definitely-stable/Mathlab/blob/a742beec6fca8aeb83ab57e4d4b9375a7873346e/docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md](https://github.com/definitely-stable/Mathlab/blob/43252d143b78cf09858e9af044abf34f89cc5cf4/docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) (model_overlap)
 
 ### LIT-207
 **[Specifying and Checking File System Crash-Consistency Models](https://doi.org/10.1145/2872362.2872406)** (2016)
@@ -2528,7 +2528,7 @@ ASPLOS 2016 Ferrite: формальные модели допустимых по
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md](https://github.com/definitely-stable/Mathlab/blob/a742beec6fca8aeb83ab57e4d4b9375a7873346e/docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md](https://github.com/definitely-stable/Mathlab/blob/43252d143b78cf09858e9af044abf34f89cc5cf4/docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) (model_overlap)
 
 ### LIT-208
 **[Lightweight file system crash-consistency checking with differential fuzzing](https://doi.org/10.15514/ISPRAS-2026-38(1)-7)** (2026)
@@ -2541,7 +2541,7 @@ Proceedings of ISP RAS 2026: расширение DIFFuzzer на моделир�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md](https://github.com/definitely-stable/Mathlab/blob/a742beec6fca8aeb83ab57e4d4b9375a7873346e/docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md](https://github.com/definitely-stable/Mathlab/blob/43252d143b78cf09858e9af044abf34f89cc5cf4/docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) (model_overlap)
 
 
 ## proof-complexity
