@@ -61,6 +61,28 @@ class SixEdgeForestProjectionTests(unittest.TestCase):
         self.assertEqual(six_projection_coefficients((5, 1)), ())
         self.assertEqual(dict(six_projection_coefficients((1,)*6)),
                          {4: Fraction(30), 5: Fraction(510), 6: Fraction(70)})
+        # Separate elementary K6 degree-two classification:
+        # six simple unweighted edges on six used vertices form one
+        # C6 (60 labeled possibilities) or two triangles (10), giving 70.
+        # Three double edges cover six vertices iff they are a perfect
+        # matching (15 choices), then order the named triples (3!):
+        # 15*6/6! = 1/8.
+        # One double edge and four singles cover six vertices iff the
+        # double edge is disjoint from a C4 on the other four:
+        # 15*3*4!/6! = 3/2.
+        self.assertEqual(dict(six_projection_coefficients((2,2,2)))[6],
+                         Fraction(1,8))
+        self.assertEqual(dict(six_projection_coefficients((2,1,1,1,1)))[6],
+                         Fraction(3,2))
+        self.assertEqual(
+            {p: dict(six_projection_coefficients(p)).get(6, Fraction())
+             for p in integer_partitions(6)},
+            {(6,):Fraction(), (5,1):Fraction(),
+             (4,2):Fraction(), (4,1,1):Fraction(),
+             (3,3):Fraction(), (3,2,1):Fraction(),
+             (3,1,1,1):Fraction(), (2,2,2):Fraction(1,8),
+             (2,2,1,1):Fraction(), (2,1,1,1,1):Fraction(3,2),
+             (1,1,1,1,1,1):Fraction(70)})
         self.assertEqual(projection_power_loss((1,)*6), 9)
         self.assertIsNone(projection_power_loss((5,1)))
         self.assertEqual(leafless_projection_probability(6, (6,)), 1)
