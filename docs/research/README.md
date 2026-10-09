@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## HYP-101 G1 — exact BLAKE3 leaf input phase/counter reuse audit (2026-10-09)
+
+[Position-dependent leaf-input cache lemma, periodic counterexample, rigorous scope of applicability, source-to-theorem comparison](HYP-101-G1-PHASE-COUNTER-FRONTIER.md) · [independent exhaustive structural tests](../../research/test_hyp101_phase_counter.py), issue [#72](https://github.com/definitely-stable/Mathlab/issues/72). This is **PROVED_CLASSICAL_CACHE_COUNT / STOP_BROAD_UNCONDITIONAL / G2_MAINTAINED_MODEL_OPEN**, not an unconditional compression-oracle or BLAKE3 update-time lower bound. Imported LIT-123..126 (SODA 2018 dynamic strings; TCS 2026 FeST; normative C2SP BLAKE3 v1 spec; 2026 dynamic IPM) into the **126-work** source-index; historical UCT LIT-111..122 preserved. No Rust/G4 claim.
+
 ## UCT-001 — unified dynamic-information / distinguishability research (2026-10-08)
 
 [UCT research program and four STOP/GO gates](UCT-001-PROGRAM.md) · [formal finite-state/observation baseline, self-contained Hamming-ball proof and triangle embedding counterexample](UCT-001-MODEL-AND-BASELINE.md) · [primary-source overlap and 12-work canonical LIT-111..122 import](UCT-001-PRIMARY-SOURCES.md), [issue #74](https://github.com/definitely-stable/Mathlab/issues/74). [2026 dynamic Boolean cell-probe Theorem 1.1/model-transfer audit](UCT-001-G1-2026-DYNAMIC-LOWER-BOUND-AUDIT.md). [Fixed-q TOM-006 generalization and exact small parse oracle](UCT-003-FIXED-Q-IMPOSSIBILITY.md) · Independent finite exhaustive oracle: `research/test_uct001_baseline.py`. **44-item known/STOP registry with UCT KR-041..044**; **DERIVED_CLASSICAL baseline; no original general theorem, no claim of source-proof verification, no Rust.**
