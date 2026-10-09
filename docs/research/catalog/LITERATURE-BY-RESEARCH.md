@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**250** работ сопоставлены с **38** внутренними исследованиями.
+**251** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -408,6 +408,7 @@
 - [LIT-249](LITERATURE.md#lit-249) — Breaking the Static Graph: Context-Aware Traversal for Graph-Based RAG (2026; publisher_abstract_checked)
 - [LIT-250](LITERATURE.md#lit-250) — TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation (2026; publisher_abstract_checked)
 - [LIT-251](LITERATURE.md#lit-251) — Injecting Structured Biomedical Knowledge into Language Models:Continual Pretraining vs. GraphRAG (2026; publisher_abstract_checked)
+- [LIT-252](LITERATURE.md#lit-252) — Tight Lower Bounds for Central String Queries in Compressed Space (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -526,6 +527,7 @@
 - [LIT-212](LITERATURE.md#lit-212) — Compressing Dynamic Fully Indexable Dictionaries in Word-RAM (2026; primary_abstract_checked)
 - [LIT-213](LITERATURE.md#lit-213) — Dynamic Grammar-Compressed Self-Index in δ-Optimal Space (2026; primary_abstract_checked)
 - [LIT-239](LITERATURE.md#lit-239) — GRAIL: Scalable Reachability Index for Large Graphs (2010; publisher_abstract_checked)
+- [LIT-252](LITERATURE.md#lit-252) — Tight Lower Bounds for Central String Queries in Compressed Space (2026; publisher_abstract_checked)
 
 ## ML-007
 

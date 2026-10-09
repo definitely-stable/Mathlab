@@ -7424,6 +7424,37 @@
       "independent_reproduction": false,
       "publication_stage": "peer_reviewed_proceedings",
       "selection_priority": "A"
+    },
+    {
+      "id": "LIT-252",
+      "title": "Tight Lower Bounds for Central String Queries in Compressed Space",
+      "year": 2026,
+      "identity": "doi:10.1137/1.9781611978971.65",
+      "primary_url": "https://doi.org/10.1137/1.9781611978971.65",
+      "track": "compressed-indexing",
+      "summary_ru": "Kempa–Kociumaka (SODA 2026) устанавливают нижние границы времени SA, inverse SA, LCP/LCE и иных центральных строковых запросов в сжатом пространстве относительно substring complexity delta(T); результаты включают бинарные строки.",
+      "limits_ru": "Статические запросы к сжатым строкам не дают автоматически нижнюю границу динамических range overwrite, размещения страниц, WAL или physical recourse. Полные доказательства независимо не перепроверены.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-B4-C2-ADAPTIVE-PARTITIONS.md",
+          "kind": "model_overlap",
+          "source_sha": "cb9dc19e328154977914fba167191d01fe92ebde"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Dominik Kempa",
+        "Tomasz Kociumaka"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
     }
   ]
 }
