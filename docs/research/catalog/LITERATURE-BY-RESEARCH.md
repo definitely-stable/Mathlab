@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**122** работ сопоставлены с **38** внутренними исследованиями.
+**126** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -36,6 +36,10 @@
 - [LIT-109](LITERATURE.md#lit-109) — Incremental Cryptography: The Case of Hashing and Signing (1994; publisher_abstract_checked)
 - [LIT-110](LITERATURE.md#lit-110) — A New Paradigm for Collision-Free Hashing: Incrementality at Reduced Cost (1997; author_paper_or_bibliography_checked)
 - [LIT-116](LITERATURE.md#lit-116) — Noiseless coding of correlated information sources (1973; publisher_bibliography_checked)
+- [LIT-123](LITERATURE.md#lit-123) — Optimal Dynamic Strings (2018; publisher_abstract_checked)
+- [LIT-124](LITERATURE.md#lit-124) — A textbook solution for dynamic strings (2026; publisher_abstract_checked)
+- [LIT-125](LITERATURE.md#lit-125) — The BLAKE3 Hashing Framework (C2SP v1.0.0) (2024; publisher_full_text_spotchecked)
+- [LIT-126](LITERATURE.md#lit-126) — Logarithmic-Time Internal Pattern Matching Queries in Compressed and Dynamic Texts (2026; publisher_full_text_spotchecked)
 
 ## DL-002
 
@@ -257,6 +261,10 @@
 - [LIT-120](LITERATURE.md#lit-120) — On cubical graphs (1975; publisher_abstract_checked)
 - [LIT-121](LITERATURE.md#lit-121) — The complexity of cubical graphs (1985; publisher_abstract_checked)
 - [LIT-122](LITERATURE.md#lit-122) — Embeddings in hypercubes (1988; publisher_abstract_checked)
+- [LIT-123](LITERATURE.md#lit-123) — Optimal Dynamic Strings (2018; publisher_abstract_checked)
+- [LIT-124](LITERATURE.md#lit-124) — A textbook solution for dynamic strings (2026; publisher_abstract_checked)
+- [LIT-125](LITERATURE.md#lit-125) — The BLAKE3 Hashing Framework (C2SP v1.0.0) (2024; publisher_full_text_spotchecked)
+- [LIT-126](LITERATURE.md#lit-126) — Logarithmic-Time Internal Pattern Matching Queries in Compressed and Dynamic Texts (2026; publisher_full_text_spotchecked)
 
 ## ML-005
 
@@ -288,6 +296,10 @@
 - [LIT-109](LITERATURE.md#lit-109) — Incremental Cryptography: The Case of Hashing and Signing (1994; publisher_abstract_checked)
 - [LIT-110](LITERATURE.md#lit-110) — A New Paradigm for Collision-Free Hashing: Incrementality at Reduced Cost (1997; author_paper_or_bibliography_checked)
 - [LIT-117](LITERATURE.md#lit-117) — A Library for Self-Adjusting Computation (2006; publisher_abstract_checked)
+- [LIT-123](LITERATURE.md#lit-123) — Optimal Dynamic Strings (2018; publisher_abstract_checked)
+- [LIT-124](LITERATURE.md#lit-124) — A textbook solution for dynamic strings (2026; publisher_abstract_checked)
+- [LIT-125](LITERATURE.md#lit-125) — The BLAKE3 Hashing Framework (C2SP v1.0.0) (2024; publisher_full_text_spotchecked)
+- [LIT-126](LITERATURE.md#lit-126) — Logarithmic-Time Internal Pattern Matching Queries in Compressed and Dynamic Texts (2026; publisher_full_text_spotchecked)
 
 ## ML-006
 
