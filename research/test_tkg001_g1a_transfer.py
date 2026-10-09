@@ -85,6 +85,7 @@ class DAGTransferTests(unittest.TestCase):
             lambda: public_parent_label(4, (4,), 1),
             lambda: append_parent_log(4, (0,), 0),
             lambda: append_parent_log(257, (256,), 1),
+            lambda: append_parent_log(256, range(256), 1),
             lambda: public_decode(3, {0}, 3),
             lambda: SinkAppendDAG(3, ((2, 1),)),
         ):
