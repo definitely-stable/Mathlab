@@ -35,7 +35,7 @@ class G2ASources(unittest.TestCase):
                 "repo": "MATHLAB",
                 "path": "docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md",
                 "kind": "model_overlap",
-                "source_sha": "d25024d7985452cfb20b6c6a2c0b1ace4a563b76"
+                "source_sha": "c04acfe345d941eeaf1f9aa447f65c8eca2bb4cb"
             }])
             self.assertFalse(e["full_proof_verified"])
             self.assertFalse(e["independent_reproduction"])
