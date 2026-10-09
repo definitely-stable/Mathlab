@@ -11,15 +11,15 @@ class Uct005G2AImportTests(unittest.TestCase):
         entries = json.loads(
             (ROOT / "docs/research/catalog/literature.json").read_text(encoding="utf-8")
         )["entries"]
-        self.assertEqual(len(entries), 188)
+        self.assertEqual(len(entries), 204)
         by = {e["id"]: e for e in entries}
         expected = {
-            "LIT-183": "doi:10.1007/978-3-032-01878-6_6",
-            "LIT-184": "doi:10.1007/978-3-032-25330-9_7",
-            "LIT-185": "doi:10.4230/LIPIcs.ITCS.2026.71",
-            "LIT-186": "doi:10.1007/978-3-642-00457-5_30",
-            "LIT-187": "publisher:iacr:2025-110",
-            "LIT-188": "doi:10.1007/978-3-642-14712-8_11",
+            "LIT-199": "doi:10.1007/978-3-032-01878-6_6",
+            "LIT-200": "doi:10.1007/978-3-032-25330-9_7",
+            "LIT-201": "doi:10.4230/LIPIcs.ITCS.2026.71",
+            "LIT-202": "doi:10.1007/978-3-642-00457-5_30",
+            "LIT-203": "publisher:iacr:2025-110",
+            "LIT-204": "doi:10.1007/978-3-642-14712-8_11",
         }
         canonical_plus_alias = [
             identity.lower()
@@ -33,17 +33,17 @@ class Uct005G2AImportTests(unittest.TestCase):
             self.assertEqual(paper["identity"], identity)
             self.assertEqual(paper["mentioned_in"][0]["kind"], "model_overlap")
             self.assertEqual(paper["mentioned_in"][0]["source_sha"],
-                             "d589e7d3d68966e5674be50127e6aeff237917c1")
+                             "cd5a7ec2b0ed442d03bac0b03e091421ab5446ef")
             self.assertEqual(paper["mentioned_in"][0]["path"],
                              "docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md")
             self.assertFalse(paper["full_proof_verified"])
             self.assertFalse(paper["independent_reproduction"])
-        self.assertEqual(by["LIT-185"]["verification"],
+        self.assertEqual(by["LIT-201"]["verification"],
                          "publisher_full_text_spotchecked")
         self.assertIn("publisher:iacr:2025-234",
-                      by["LIT-183"]["alternate_identities"])
+                      by["LIT-199"]["alternate_identities"])
         self.assertIn("publisher:iacr:2025-1558",
-                      by["LIT-184"]["alternate_identities"])
+                      by["LIT-200"]["alternate_identities"])
 
     def test_g2a_is_assumption_guard_not_new_root_proof(self):
         text = (ROOT / "docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md"
