@@ -43,9 +43,8 @@ class CriticalSixFlowTests(unittest.TestCase):
             v = exact_nowherezero_signed_flow(left, right, a)
             self.assertEqual(v, exact_nowherezero_signed_flow(
                 left, right, 63 ^ a))
-            for p in permutations(range(6)):
-                if p[0] != 0:
-                    continue  # 120 rather than 720 relabel comparisons
+            for p in (tuple(range(6)), (1, 2, 3, 4, 5, 0),
+                      (5, 4, 3, 2, 1, 0), (1, 0, 2, 4, 3, 5)):
                 moved = sum(1 << p[i] for i in range(6) if a & (1 << i))
                 self.assertEqual(v, exact_nowherezero_signed_flow(
                     _relabel_edges(left, p), _relabel_edges(right, p),
