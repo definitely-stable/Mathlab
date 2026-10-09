@@ -243,8 +243,14 @@ class AdaptivePartitionTest(unittest.TestCase):
         directory_corrupt[6]^=1
         with self.assertRaises(ValueError):
             lookup_cost(dict(view,image=bytes(directory_corrupt)),0,"disk")
+        # Warm mirror must use cached validated directory, not corrupt disk.
+        self.assertEqual(lookup_cost(dict(view,image=bytes(directory_corrupt)),0,
+                                     "mirrored")["value"],view["state"][0])
+        # Corrupt cached directory, fail closed on its own CRC.
+        cached_corrupt=bytearray(view["directory"])
+        cached_corrupt[6]^=1
         with self.assertRaises(ValueError):
-            lookup_cost(dict(view,image=bytes(directory_corrupt)),0,"mirrored")
+            lookup_cost(dict(view,directory=bytes(cached_corrupt)),0,"mirrored")
 
     def test_result_is_reproducible(self):
         row=report()
