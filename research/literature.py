@@ -55,6 +55,19 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-005 exact primary publisher DOI and title pin cohort.
+    "doi:10.4230/LIPIcs.SEA.2025.9": "Incremental Reachability Index",
+    "doi:10.4230/LIPIcs.ESA.2025.92": "Incremental Maximization for a Broad Class of Objectives",
+    "doi:10.4230/LIPIcs.ESA.2025.93": "Recognizing and Realizing Temporal Reachability Graphs",
+    "doi:10.4230/LIPIcs.ICALP.2025.93": "On Incremental Approximate Shortest Paths in Directed Graphs",
+    "doi:10.4230/LIPIcs.STACS.2025.18": "Online Disjoint Set Covers: Randomization Is Not Necessary",
+    "doi:10.4230/LIPIcs.ICALP.2026.16": "Fully Dynamic Algorithms for Coloring Triangle-Free Graphs",
+    "doi:10.4230/LIPIcs.ICALP.2026.26": "Fast Decremental Tree Sums in Forests",
+    "doi:10.4230/LIPIcs.ICALP.2026.44": "Multiplicative Error Set System Sparsification: A Simpler Proof via Chain Length Contraction",
+    "doi:10.4230/LIPIcs.ICALP.2026.45": "Dynamic Rank, Basis, and Matching",
+    "doi:10.4230/LIPIcs.ICALP.2026.157": "Fully Dynamic Spectral and Cut Sparsifiers for Directed Graphs",
+    "doi:10.4230/LIPIcs.ESA.2026.125": "Incongruity-Sensitive Access to Highly Compressed Strings",
+    "doi:10.4230/LIPIcs.SWAT.2026.21": "Dynamic MIS Revisited: Incremental, Fault Tolerant and Fully Dynamic",
     # INDEX-001 G2-A: separately verified compaction and adaptive bitvector identities.
     "doi:10.1007/s00224-025-10229-8": "(Worst-case) Optimal Adaptive Dynamic Bitvectors",
     "doi:10.1016/j.future.2026.108425": "C2LSM: A configuration paradigm for efficient compaction in LSM-tree-based key-value stores",

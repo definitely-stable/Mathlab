@@ -24,9 +24,9 @@ EXPECTED = {
 class Index001SourceTests(unittest.TestCase):
     def test_exact_six_new_identities_and_source_provenance(self):
         data = json.loads(CATALOG.read_text(encoding="utf-8"))
-        self.assertEqual(len(data["entries"]), 186)
+        self.assertEqual(len(data["entries"]), 198)
         by_id = {x["id"]: x for x in data["entries"]}
-        self.assertEqual(len(by_id), 186)
+        self.assertEqual(len(by_id), 198)
         ids = {x for e in data["entries"] for x in
                [e["identity"], *e.get("alternate_identities", [])]}
         self.assertEqual(len(ids), sum(1 + len(e.get("alternate_identities", []))
