@@ -112,6 +112,10 @@ SOURCE_TITLE_PINS = {
     "arxiv:2508.09841": "The Brown-Erdős-Sós conjecture in dense triple systems",
     "doi:10.37236/14115": "Triangle-Free Triple Systems",
     "doi:10.1137/090766619": "Bit-Probe Lower Bounds for Succinct Data Structures",
+    # UCT-004 G2-A: certificate, adversary and 2026 R-vs-C original identities.
+    "doi:10.1016/j.jcss.2007.06.020": "Quantum Certificate Complexity",
+    "doi:10.1145/3442357": "All Classical Adversary Methods Are Equivalent for Total Functions",
+    "arxiv:2609.15063": "Randomized Query Complexity Can Beat Certificate Complexity",
 }
 
 

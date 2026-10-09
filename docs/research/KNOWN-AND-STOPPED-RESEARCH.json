@@ -1,6 +1,6 @@
 {
   "schema": "mathlab.known-and-stopped-research.v1",
-  "as_of": "2026-10-08",
+  "as_of": "2026-10-09",
   "purpose": "Anti-rediscovery guardrail: already proved finite claims, closest primary prior art, stopped product ideas, invalid model transfers, superseded formulations and deferred broad claims. NOT a global literature completeness claim.",
   "policy": {
     "CLOSED_PROVED": "Do not rerun same mathematical target unless independent validation or formalization changes.",
@@ -709,6 +709,73 @@
       "primary_sources": [
         "https://doi.org/10.1016/0095-8956(75)90067-2",
         "https://doi.org/10.1016/j.tcs.2007.02.058"
+      ]
+    },
+    {
+      "id": "KR-048",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Private-coin sound-witness read/update support packing with sharp unit-write parity bound",
+      "scope": "In a deterministic stored bit representation with private verifier coins, completeness at least one minus alpha for a fixed honest witness and soundness at most delta for every false claim and witness, every sensitive update support is hit with probability at least one minus alpha minus delta. Weighted fractional support packing gives a data probe lower bound; when full n-bit toggle representation has write-locality one, parity requires at least n times one minus alpha minus delta reads. A sample-p-data-bits with n-bit witness protocol is sharp for zero completeness error.",
+      "do_not_repeat": "Combines classical coupling, fractional certificate and adversary packing, cubical embedding and random sampling. NOT a new information-theoretic impossibility for charged online MA, not a claim of cryptographic soundness, not a lower bound on p when w is two or a hash cache exists.",
+      "authority": [
+        "docs/research/UCT-004-G2-A-SOUND-WITNESS-PACKING.md",
+        "docs/research/UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md"
+      ],
+      "reopen_only_if": "An original fully priced dynamic state plus proof-bits plus verifier-work plus access theorem strictly separating from the 2007 bit-probe, 2021 fractional adversary and online annotated stream literature.",
+      "primary_sources": [
+        "https://doi.org/10.1016/j.jcss.2007.06.020",
+        "https://doi.org/10.1145/3442357"
+      ]
+    },
+    {
+      "id": "KR-049",
+      "area": "UCT",
+      "disposition": "PRIOR_ART",
+      "title": "Fractional block sensitivity and randomized certificate adversary are established prior art",
+      "scope": "Randomized certificate complexity and fractional block sensitivity are classical query complexity measures. The 2021 ACM TOCT theorem states equivalence of known classical adversary methods for total Boolean functions, while Ben-David and Kothari 2026 construct randomized query complexity below deterministic certificate complexity.",
+      "do_not_repeat": "Do not relabel an ordinary fractional hitting-set LP as a new general lower bound and do not transfer deterministic certificate complexity directly to bounded-error randomized decision trees. The 2026 statement is source-abstract level and full proof was not independently audited.",
+      "authority": [
+        "docs/research/UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md"
+      ],
+      "reopen_only_if": "A quantifiably nonredundant theorem with paid online updates, untrusted proof generation, authenticated persistent state, and matched old/new adversarial transcript assumptions.",
+      "primary_sources": [
+        "https://doi.org/10.1145/3442357",
+        "https://arxiv.org/abs/2609.15063"
+      ]
+    },
+    {
+      "id": "KR-050",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Linear local parity proof rank forces sharp witness length versus bit probes",
+      "scope": "For unit-write injective n-bit toggle representations and one exact full-parity claimed answer, a one-check private-coin verifier testing GF(2) parity on at most p stored bits with perfect completeness and soundness strictly below one must receive at least ceil(n/p) minus one untrusted witness bits. A block-parity prover with ceil(n/p) groups reaches equality in witness length and has soundness error one minus reciprocal number of groups.",
+      "do_not_repeat": "Classical affine rank and witness-cover proof, not a theorem for arbitrary nonlinear adaptive verification, cryptographic succinct proofs, zero-knowledge, word probes or completely priced online authentication. The witness verifier reads the message and does local work that are outside p.",
+      "authority": [
+        "docs/research/UCT-004-G2-A-SOUND-WITNESS-PACKING.md",
+        "docs/research/UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md"
+      ],
+      "reopen_only_if": "A genuinely new same-model nonlinear or end-to-end dynamic transcript lower bound with quantified proof generation, state maintenance and verifier work, strictly beyond annotated streams and PCP of proximity prior art.",
+      "primary_sources": [
+        "https://doi.org/10.1145/1595391.1595394",
+        "https://doi.org/10.1145/3442357"
+      ]
+    },
+    {
+      "id": "KR-051",
+      "area": "UCT",
+      "disposition": "MODEL_MISMATCH",
+      "title": "Nonlinear p-local sound witness fibers need not obey affine GF2 rank cap",
+      "scope": "For n=4 input bits and p=3, one nonadaptive nonlinear local verifier witness with perfect completeness can certify the six even strings of Hamming weight two; the GF(2) affine parity-check rank fiber bound for n=4 p=3 would permit at most four states per linear witness. A complete one-bit-witness protocol has soundness three quarters for both claimed parity labels.",
+      "do_not_repeat": "Do not apply the linear rank fiber argument from G2-5 to arbitrary nonlinear/adaptive witnesses. This finite counterexample does not refute the global witness length inequality or establish an asymptotic lower bound.",
+      "authority": [
+        "docs/research/UCT-004-G2-A-SOUND-WITNESS-PACKING.md",
+        "docs/research/UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md"
+      ],
+      "reopen_only_if": "A separate nonlinear/adaptive proof with new structural invariant or a finite counterexample to the actual general b versus p inequality, with soundness quantified over all malicious witnesses.",
+      "primary_sources": [
+        "https://doi.org/10.1145/3442357",
+        "https://doi.org/10.1145/1595391.1595394"
       ]
     }
   ]

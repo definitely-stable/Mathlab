@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## UCT-004 G2-A — original randomized-certificate and 2026 source imports (2026-10-09)
+
+Three new deduplicated canonical identities **LIT-142..144** raise the [forward](LITERATURE.md) and [reverse](LITERATURE-BY-RESEARCH.md) literature index from 141 to **144**. LIT-142 Aaronson JCSS 2008 randomized certificate complexity; LIT-143 Ambainis et al. ACM TOCT 2021 total-function fractional adversary equivalence; LIT-144 Ben-David and Kothari September 2026 author preprint separating randomized queries and deterministic certificate complexity. Each has exact DOI/arXiv identity, pinned title, Russian model limits, `full_proof_verified=false` and [G2 source-model boundary audit](../UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md). No claim these original papers independently prove our dynamic theorem, or that the 2026 preprint has been peer-reviewed.
+
 ## UCT-003 G1 — static bit-probe primary prior art (2026-10-09)
 
 Original [Viola (2012), *Bit-Probe Lower Bounds for Succinct Data Structures*](https://doi.org/10.1137/090766619) is imported as **LIT-141** with DOI identity, Russian abstract/model boundary, `full_proof_verified=false`, regenerated [forward](LITERATURE.md) and [inverse](LITERATURE-BY-RESEARCH.md) indexes and a title pin. Canonical bibliography grows from 140 to **141**, preserving the parallel HYP-105 G2 sources LIT-137..140. Static succinct bit-probe redundancy theory does **not** automatically imply our dynamic read/write or authenticated proof results. [UCT-003 source audit](../UCT-003-G1-SOURCE-AND-GAP-AUDIT.md).
