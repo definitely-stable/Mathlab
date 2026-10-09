@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## HYP-105 G4 — sharp characteristic threshold and the real w=4 gap (2026-10-09)
+
+[Universal elementary linear-r-uniform r>d subset-sum theorem over characteristic p>d; coned-grid char=p and GF(2) countermodels; complete GF(3) signed core census; honest full w=4,d=3 gap](HYP-105-G4-CHARACTERISTIC-W4.md) · [independent exact tests](../../research/test_hyp105_g4_characteristic.py) · [issue #90](https://github.com/definitely-stable/Mathlab/issues/90). For r=4,d=3, every linear 4-graph has exact three-sums in char≥5, but not necessarily char3/2. This **does not** show full A_set(q,m,4,3)=Theta(m²): actual current source-backed range is `Omega(m^(12/5)) <= A_lin <= A_set <= O(m³)`. GF(3) unit-linear triples: 10 five-edge and 70 six-edge signed collision core types, separate from arbitrary 6-wise field independence. Three new primary identities LIT-142..144 bring bibliography to **144**. No scientific novelty/Rust claimed.
+
 ## HYP-105 G3 — six-column integer minor theorem and no-gap classification (2026-10-09)
 
 [Complete core-model reduction and exact determinantal-divisor proof](HYP-105-G3-SIX-COLUMN-MINORS.md) · [exhaustive 531-core enumerator](../../research/hyp105_minor.py) · [modular and exact-arithmetic tests](../../research/test_hyp105_minor.py) · [issue #86](https://github.com/definitely-stable/Mathlab/issues/86). For a linear 3-uniform hypergraph with unit 0/1 incidence columns, **six-wise independence over every field of characteristic p≥5 iff no 3×3 grid**. All maximal-minor gcds of 531 complete incidence-core types are 0,1,2,3,4, with all ten singular types grids. Thus published dense grid-free graphs give A_lin(q,m,3,6)=A_set(q,m,3,3)=Theta_q(m²), **bounded ratio**, superseding G2's open denominator. Computer-assisted, originality unverified, no Rust/product claim. Source catalog LIT-137 (published 2022) reused, not duplicated.
