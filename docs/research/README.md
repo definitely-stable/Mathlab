@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## ROOT RESEARCH OBJECTIVE — UCT-005 (2026-10-09)
+
+**[UCT-005 fundamental-root theorem program and typed research tree](UCT-005-ROOT-THEOREM-PROGRAM.md)** · [root issue #105](https://github.com/definitely-stable/Mathlab/issues/105). **OPEN / THEOREM NOT PROVED / NOVELTY NOT ESTABLISHED.** All earlier LENT/HYP/TOM/UCT work is classified as a proven foundation, proof ingredient, special case, adversarial countermodel or explicitly unreduced application; never invent theorem implications between different models. The target is ONE new, strictly nonfactorizing result for a fully priced online dynamic/verification task. Four urgent missing source-level barriers: online memory checking (1991), tight memory checking (2024), covert-secure checker (2025), and dynamic vector-commitment proof-refresh tradeoffs (2023). The historical UCT-002 capacity theorem is classical and **is not** the new root theorem.
+
 ## UCT-004 G2-D — all-n nonlinear/adaptive proof bits, not exact κ (2026-10-09)
 
 [Self-contained theorem and independent reconstruction of PPZ isolated-CNF lemma](UCT-004-G2-D-ALL-N-PPZ-PROOF-BITS.md) · [primary 1999/2022 source-model audit](UCT-004-G2-D-PPZ-PRIMARY-SOURCE-AUDIT.md) · [issue #98](https://github.com/definitely-stable/Mathlab/issues/98). **For every n,p** in the frozen G2-C game, `b_min(n,p)=ceil(n/p)-1` holds for *arbitrary nonlinear/adaptive*, private-coin sound proof verifiers with perfect completeness and any delta<1, independently of linear tests. Proof reduces each witness fiber to isolated width-p CNF and applies a self-contained derivation of the **classical PPZ 1999** lemma; matching block-parity construction. General exact κ remains OPEN when n/p is noninteger; do not infer κ power of two from b. Test `research/test_uct004_ppz_all_n.py`; 155 canonical sources (new LIT-154/155), 55 known/STOP records, 20 typed theorem nodes. **DERIVED_CLASSICAL, not an original global theorem; no Rust.**
