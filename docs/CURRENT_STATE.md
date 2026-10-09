@@ -1,5 +1,10 @@
 # CURRENT_STATE
 
+## DAG-002 × ALG-001 G1-A (2026-10-09) — complete remote-memory resource ledger and oracle
+
+[Full proof and negative-evidence matrix](research/DAG-002-ALG-001-G1-A-PRICED-PROBE-WRITE-FRONTIER.md) · [independent source/delta/covering tests](../research/test_dag002_g1a_frontier.py) · [parent issue #140](https://github.com/definitely-stable/Mathlab/issues/140). **PROVED_RESTRICTED_SINGLE_BATCH_COUNTING / CLASSICAL_K(n,W)_COVERING / NO_UNIVERSAL_READ_WRITE_BOUND / NOVELTY_NOT_ESTABLISHED**. Arbitrary target parent masks after fixed antichain prefix require `2^(B+G)Σ_{j≤W}binom(N,j)(2^c-1)^j>=2^n` when all input-dependent accessible bits are priced. `P=1` can read a remote n-bit source row and local B+G=0; a single shared remote cell can change all coordinate responses, disproving the transfer of the strict coordinate XOR covering code beyond its model. No amortized update, authenticated verification, physical I/O or rank-only theorem is asserted. Compared with [Young Kun Ko ECCC TR26-047 (2026)](https://eccc.weizmann.ac.il/report/2026/047/), classical covering codes and existing Mathlab LIT-187/LIT-195. **G1-B next: only a genuinely nonfactorizing resource theorem preserving all dimensions, else STOP.**
+
+
 ## DAG-002 / ALG-001 G0 (2026-10-09) — model-scoped finite research foundation
 
 [DAG-002 proof and prior-art barrier](research/DAG-002-G0-IMMUTABLE-REACHABILITY.md) · [ALG-001 rank/coordinate separation](research/ALG-001-G0-RANK-OBSERVATION.md) · [DAG-002 issue #133](https://github.com/definitely-stable/Mathlab/issues/133) · [ALG-001 issue #134](https://github.com/definitely-stable/Mathlab/issues/134). **G0 LIMITED_ELEMENTARY_COUNTING / SOURCE_CHAIN_TOP_ALREADY_KNOWN / EXACT_GF_ORACLE_REQUIRED / G1_UNPROVED / NO_NEW_SCIENTIFIC_NOVELTY / NO_RUST.** Existing 2025 SEA and 2026 ICALP literature provide chain-top and rank-update upper-bound prior art; the G0 bound is limited to fixed old labels, no source probes and priced new label+manifest bits. No changes to HYP-105, INDEX-001 or UCT-005 mathematics.
