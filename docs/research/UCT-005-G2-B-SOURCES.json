@@ -1,7 +1,7 @@
 {
   "schema": "mathlab.uct005.g2b.source-inventory.v1",
   "as_of": "2026-10-09",
-  "canonical_import_status": "PENDING_LIT205_COLLISION_WITH_OPEN_PR132",
+  "canonical_import_status": "PROMOTED_TO_CANONICAL_LIT_206_TO_210",
   "explanation": "Sources are indexed with exact primary DOI/arXiv IDs and pinned research document now. The main catalog LIT-205 is concurrently reserved by HYP-105 PR #132; do not overwrite/reassign that identity. After that PR merges, append these distinct works using the next free contiguous LIT IDs and regenerate the catalog.",
   "sources": [
     {
@@ -17,7 +17,8 @@
       "primary_url": "https://doi.org/10.1049/iet-ifs.2014.0408",
       "verification": "publisher_full_text_spotchecked",
       "role": "AUTHENTICATED_MULTIDIMENSIONAL_RANGE_PRIOR_ART",
-      "limits": "k-dimensional authenticated skip lists with RSA-signature and hash assumptions; not a universal update/verification tradeoff"
+      "limits": "k-dimensional authenticated skip lists with RSA-signature and hash assumptions; not a universal update/verification tradeoff",
+      "canonical_lit_id": "LIT-209"
     },
     {
       "id": "G2B-SRC-02",
@@ -35,7 +36,8 @@
       "primary_url": "https://doi.org/10.1109/ACCESS.2019.2957346",
       "verification": "publisher_abstract_checked",
       "role": "AUTHENTICATED_RANGE_AGGREGATES_PRIOR_ART",
-      "limits": "DB-tree in database model; not a bit-probe lower bound or all distributed cryptographic settings"
+      "limits": "DB-tree in database model; not a bit-probe lower bound or all distributed cryptographic settings",
+      "canonical_lit_id": "LIT-210"
     },
     {
       "id": "G2B-SRC-03",
@@ -53,7 +55,8 @@
       "primary_url": "https://doi.org/10.14778/3748191.3748219",
       "verification": "publisher_abstract_checked",
       "role": "AUTHENTICATED_AGGREGATES_UPPER_CONSTRUCTION",
-      "limits": "MBFT blockchain keyword/range aggregate evaluation; false positives and cost under specific dataset; not universal parity lower bound"
+      "limits": "MBFT blockchain keyword/range aggregate evaluation; false positives and cost under specific dataset; not universal parity lower bound",
+      "canonical_lit_id": "LIT-211"
     },
     {
       "id": "G2B-SRC-04",
@@ -68,7 +71,8 @@
       "primary_url": "https://arxiv.org/abs/2608.25206",
       "verification": "author_paper_or_bibliography_checked",
       "role": "ACCESS_ADAPTIVE_ADS_UPPER_CONSTRUCTION",
-      "limits": "August 2026 author preprint, no peer-reviewed venue verified; membership proofs with changing access frequencies, not 2D XOR aggregates"
+      "limits": "August 2026 author preprint, no peer-reviewed venue verified; membership proofs with changing access frequencies, not 2D XOR aggregates",
+      "canonical_lit_id": "LIT-212"
     },
     {
       "id": "G2B-SRC-05",
@@ -83,7 +87,8 @@
       "primary_url": "https://doi.org/10.1016/j.is.2018.06.009",
       "verification": "publisher_abstract_checked",
       "role": "HONEST_MULTIDIMENSIONAL_UPDATE_QUERY_UPPER_BOUND",
-      "limits": "Sparsity and block assumptions, correction to arbitrary dimensional update cost; no malicious authentication"
+      "limits": "Sparsity and block assumptions, correction to arbitrary dimensional update cost; no malicious authentication",
+      "canonical_lit_id": "LIT-213"
     }
   ]
 }
