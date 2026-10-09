@@ -114,6 +114,9 @@ jobs:
       - name: HYP-105 E2-B3.2-C Pluecker nonaligned labels and exact GF2/GF4 D_s
         run: python research/hyp105_g5e2b3c_plucker_shift.py
 
+      - name: HYP-105 E2-B3.2-D full four-motif and joint GF5 seven-column certificate
+        run: python research/hyp105_g5e2b3d_joint_risk.py
+
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
