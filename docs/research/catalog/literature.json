@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "d9e2fa6aaaffb7a5108a62699b1aadc11f5a33c8"
+      "sha": "c85c4c0f7986039e4f4f8751ea02729f4f5f07fa"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -4085,6 +4085,92 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/UCT-003-G1-SOURCE-AND-GAP-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "title": "Quantum Certificate Complexity",
+      "year": 2008,
+      "identity": "doi:10.1016/j.jcss.2007.06.020",
+      "primary_url": "https://doi.org/10.1016/j.jcss.2007.06.020",
+      "track": "proof-certification",
+      "authors": [
+        "Scott Aaronson"
+      ],
+      "summary_ru": "Aaronson вводит randomized certificate complexity и quantum certificate complexity, устанавливает связи с adversary-методами и показывает разделения между мерами сложности проверки функций.",
+      "limits_ru": "Рандомизированная проверка битового утверждения и сертификаты давно известны; работа не доказывает динамическую стоимость физически изменённых ячеек, authenticated root и online-MA proof maintenance.",
+      "id": "LIT-142",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "title": "All Classical Adversary Methods Are Equivalent for Total Functions",
+      "year": 2021,
+      "identity": "doi:10.1145/3442357",
+      "primary_url": "https://doi.org/10.1145/3442357",
+      "track": "proof-complexity",
+      "authors": [
+        "Andris Ambainis",
+        "Mārtiņš Kokainis",
+        "Krišjānis Prūsis",
+        "Jevgēnijs Vihrovs",
+        "Aleksejs Zajakins"
+      ],
+      "summary_ru": "Для полных булевых функций авторы доказывают эквивалентность классических adversary-методов оценки рандомизированной query complexity и их связь с fractional block sensitivity.",
+      "limits_ru": "Дробная упаковка и randomized certificate adversary уже являются первоисточником prior art; частичные функции, физическая локальность обновления, недоверенное онлайн-доказательство и его стоимость требуют отдельных предпосылок.",
+      "id": "LIT-143",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "title": "Randomized Query Complexity Can Beat Certificate Complexity",
+      "year": 2026,
+      "identity": "arxiv:2609.15063",
+      "primary_url": "https://arxiv.org/abs/2609.15063",
+      "track": "proof-complexity",
+      "authors": [
+        "Shalev Ben-David",
+        "Robin Kothari"
+      ],
+      "summary_ru": "Авторы препринта сентября 2026 построили полную булеву функцию с рандомизированной сложностью запросов существенно ниже детерминированной сертификатной сложности: R(f)=O-тильда(sqrt(C(f))).",
+      "limits_ru": "Результат заявлен в авторском abstract, доказательство не перепроверено; нельзя переносить C(f) на bounded-error R(f). Модель не является динамическим онлайн-доказательством с учётом локальных записей, секретных монет верификатора и поддержки свидетельств.",
+      "id": "LIT-144",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "author_preprint_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md",
           "kind": "model_overlap"
         }
       ],
