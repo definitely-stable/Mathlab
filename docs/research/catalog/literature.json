@@ -6277,6 +6277,314 @@
       ],
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "id": "LIT-209",
+      "title": "Authenticating multi-dimensional query results in outsourced database",
+      "year": 2016,
+      "identity": "doi:10.1049/iet-ifs.2014.0408",
+      "primary_url": "https://doi.org/10.1049/iet-ifs.2014.0408",
+      "track": "proof-certification",
+      "summary_ru": "IET Information Security 2016: схема проверки целостности и полноты многомерных запросов в сторонней базе данных; опубликованные многомерные authenticated queries предшествуют UCT-005.",
+      "limits_ru": "В модели авторов используется криптографическая аутентификация query result; нельзя переносить её на точный GF(2) XOR или на произвольную адаптивную update-стоимость без отдельной редукции.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Wang Xiaoming",
+        "Lin Yanchun",
+        "Yu Fang"
+      ],
+      "verification": "publisher_full_text_spotchecked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md",
+          "kind": "model_overlap",
+          "source_sha": "b4fb744d8b4329dfd7fd4fc29e9b3c7991736e4c"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-210",
+      "title": "Overlay Indexes: Efficiently Supporting Aggregate Range Queries and Authenticated Data Structures in Off-the-Shelf Databases",
+      "year": 2019,
+      "identity": "doi:10.1109/ACCESS.2019.2957346",
+      "alternate_identities": [
+        "arxiv:1910.11754"
+      ],
+      "primary_url": "https://doi.org/10.1109/ACCESS.2019.2957346",
+      "track": "proof-certification",
+      "summary_ru": "IEEE Access 2019: Overlay Indexes/DB-tree объединяет агрегатные range queries и authenticated data structures поверх стандартных СУБД.",
+      "limits_ru": "Конструкция даёт модельно-зависимую верхнюю оценку и доступ к БД, а не универсальную нижнюю границу доказательства или пофизических bit-probes.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Diego Pennino",
+        "Maurizio Pizzonia",
+        "Alessio Papi"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md",
+          "kind": "model_overlap",
+          "source_sha": "b4fb744d8b4329dfd7fd4fc29e9b3c7991736e4c"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-211",
+      "title": "Authenticated Aggregate Queries with Boolean Range Predicates on Blockchains",
+      "year": 2025,
+      "identity": "doi:10.14778/3748191.3748219",
+      "primary_url": "https://doi.org/10.14778/3748191.3748219",
+      "track": "proof-certification",
+      "summary_ru": "PVLDB 2025: Merkle Bloom Filter Tree проверяет aggregate queries с булевыми range predicates в блокчейн-среде.",
+      "limits_ru": "Допущения MBFT, селективность и false-positive Bloom необходимы; доказательство не переносится на arbitrary parity и не создаёт универсальную lower bound.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Weijie Sun",
+        "Zihuan Xu",
+        "Wangze Ni",
+        "Lei Chen",
+        "Peng Cheng",
+        "Chen Jason Zhang"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md",
+          "kind": "model_overlap",
+          "source_sha": "b4fb744d8b4329dfd7fd4fc29e9b3c7991736e4c"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-212",
+      "title": "Authenticated Data Structures for Dynamic Workloads",
+      "year": 2026,
+      "identity": "arxiv:2608.25206",
+      "primary_url": "https://arxiv.org/abs/2608.25206",
+      "track": "proof-certification",
+      "summary_ru": "Авторский препринт 2026 о Dynamic Huffman-Merkle Tree: адаптивная к частоте обращений ADS-конструкция для динамических нагрузок.",
+      "limits_ru": "Это arXiv author preprint 2608.25206, без подтверждённого peer-reviewed статуса; membership/hash-path workload не является многоабонентной прямоугольной XOR верификацией.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Ziheng Shangguan",
+        "Aviv Yaish",
+        "Dahlia Malkhi"
+      ],
+      "verification": "author_paper_or_bibliography_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md",
+          "kind": "model_overlap",
+          "source_sha": "b4fb744d8b4329dfd7fd4fc29e9b3c7991736e4c"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-213",
+      "title": "Sparse prefix sums: Constant-time range sum queries over sparse multidimensional data cubes",
+      "year": 2019,
+      "identity": "doi:10.1016/j.is.2018.06.009",
+      "primary_url": "https://doi.org/10.1016/j.is.2018.06.009",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Information Systems 2019: Sparse prefix sums позволяет многомерные агрегатные запросы на разреженных кубах с зависящей от схемы стоимостью.",
+      "limits_ru": "Структуры используют sparsity/модель данных; это честная агрегатная верхняя конструкция, НЕ Byzantine authentication или universal update bound.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Michael Shekelyan",
+        "Anton Dignös",
+        "Johann Gamper"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md",
+          "kind": "model_overlap",
+          "source_sha": "b4fb744d8b4329dfd7fd4fc29e9b3c7991736e4c"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-214",
+      "title": "Super-Logarithmic Lower Bounds for Dynamic Graph Problems",
+      "year": 2025,
+      "identity": "doi:10.1137/24M1638215",
+      "alternate_identities": [
+        "arxiv:2304.08745"
+      ],
+      "primary_url": "https://doi.org/10.1137/24M1638215",
+      "track": "graph-algorithms",
+      "summary_ru": "Larsen–Yu, опубликована онлайн в SIAM Journal on Computing в 2025 и в выпуске 2026: сверхлогарифмическая ~Ω(log^(3/2) n) lower bound для динамической ориентированной достижимости с добавлением рёбер.",
+      "limits_ru": "FOCS 2023 и SIAM 2025/2026 являются версиями одной работы. Динамическая достижимость при добавлении рёбер не совпадает с FLIP исходного бита в неизменном XOR-DAG.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Kasper Green Larsen",
+        "Huacheng Yu"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md",
+          "kind": "model_overlap",
+          "source_sha": "d7fecfbcaaea21629ebf968c30122a3ba0b9236a"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-215",
+      "title": "Verifiable Streaming Computation and Step-by-Step Zero-Knowledge",
+      "year": 2025,
+      "identity": "publisher:iacr:2025-251",
+      "primary_url": "https://eprint.iacr.org/2025/251",
+      "track": "proof-certification",
+      "summary_ru": "IACR ePrint 2025/251: конструкция incremental verifiable streaming computation и step-by-step zero knowledge для потокового RAM.",
+      "limits_ru": "IACR классифицирует материал как препринт. Криптографические предпосылки обязательны; отсутствует общее доказательство fork/replay безопасности многоклиентных подписок.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Abtin Afshar",
+        "Rishab Goyal"
+      ],
+      "verification": "primary_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md",
+          "kind": "model_overlap",
+          "source_sha": "d7fecfbcaaea21629ebf968c30122a3ba0b9236a"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-216",
+      "title": "Proof-labeling schemes: Broadcast, unicast and in between",
+      "year": 2022,
+      "identity": "doi:10.1016/j.tcs.2022.05.006",
+      "alternate_identities": [
+        "arxiv:1708.06947"
+      ],
+      "primary_url": "https://doi.org/10.1016/j.tcs.2022.05.006",
+      "track": "proof-certification",
+      "summary_ru": "Patt-Shamir–Perry, Theoretical Computer Science 2022: точные различия broadcast/unicast proof-labeling схем с ограниченным числом исходящих типов сообщений.",
+      "limits_ru": "PLS проверяет распределённые конфигурации локальными раундами; это не идентично сообщению доверенного owner о приватно выбранном GF(2)-обновлении.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Boaz Patt-Shamir",
+        "Mor Perry"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md",
+          "kind": "model_overlap",
+          "source_sha": "b7e9027cf15cc8b6756dc3b67474524e64751105"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-217",
+      "title": "Local Verification of Global Proofs",
+      "year": 2018,
+      "identity": "doi:10.4230/LIPIcs.DISC.2018.25",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.DISC.2018.25",
+      "track": "proof-certification",
+      "summary_ru": "Feuilloley–Hirvonen, DISC 2018: сравнение общего глобального доказательства и распределённых локальных меток, разделения и нижние оценки.",
+      "limits_ru": "Недетерминированные локальные proofs не являются аутентифицированной онлайн-рассылкой или байтовой lower bound для delta parity.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Laurent Feuilloley",
+        "Juho Hirvonen"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md",
+          "kind": "model_overlap",
+          "source_sha": "b7e9027cf15cc8b6756dc3b67474524e64751105"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-218",
+      "title": "Explicit Space-Time Tradeoffs for Proof Labeling Schemes in Graphs with Small Separators",
+      "year": 2021,
+      "identity": "doi:10.4230/LIPIcs.OPODIS.2021.21",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.OPODIS.2021.21",
+      "track": "proof-certification",
+      "summary_ru": "Fischer–Oshman–Shamir, OPODIS 2021: конструкции компромисса числа раундов и длины proof labels в графах с небольшими разделителями.",
+      "limits_ru": "Сепараторы, число LOCAL-раундов и proof-label size являются условиями этой модели; OPODIS 2021 был опубликован 2022-02-28, но работа не переносится на owner-client криптографическую свежесть.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Orr Fischer",
+        "Rotem Oshman",
+        "Dana Shamir"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md",
+          "kind": "model_overlap",
+          "source_sha": "b7e9027cf15cc8b6756dc3b67474524e64751105"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
     }
   ]
 }
