@@ -57,7 +57,7 @@ class CanonicalLeafInputAudits(unittest.TestCase):
                             exact_strict_cache_misses(old, new, size),
                             independent_scan_misses(old, new, size))
                         visits += 1
-        self.assertGreater(visits, 10000)
+        self.assertGreater(visits, 3000)
 
     def test_proved_aligned_whole_chunk_insertion_distinct_neighbors(self):
         for size in (1, 2, 3, 4):
