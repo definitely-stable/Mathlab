@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "76ae411113ee9bab4ae5fd78e1b34a1bcd44190a"
+      "sha": "897ab0812133cf96d2d83082dc408acd990b4ec5"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -3939,6 +3939,33 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/HYP-105-G1-W2D3-GIRTH8.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-137",
+      "title": "Bit-Probe Lower Bounds for Succinct Data Structures",
+      "year": 2012,
+      "identity": "doi:10.1137/090766619",
+      "primary_url": "https://doi.org/10.1137/090766619",
+      "track": "dynamic-data-structures",
+      "summary_ru": "Viola доказывает дополнительные к информационно-теоретическому минимуму биты памяти для статического компактного представления троичных массивов и множеств при малом числе bit probes, включая адаптивное чтение.",
+      "limits_ru": "Статическая схема доступа и избыточности не даёт автоматически динамическую границу на число переписанных ячеек или на совместную стоимость обновлений, сертификатов и внешнего оракула.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "authors": [
+        "Emanuele Viola"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-003-G1-SOURCE-AND-GAP-AUDIT.md",
           "kind": "model_overlap"
         }
       ],
