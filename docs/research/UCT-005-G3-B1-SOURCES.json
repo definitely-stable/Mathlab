@@ -1,0 +1,61 @@
+{
+  "schema": "mathlab.uct005.g3b1.prior-art.v1",
+  "as_of": "2026-10-09",
+  "canonical_state": "NEW_2026_SOURCE_PINNED_PENDING_ID_COLLISION_PR132_ISSUE142",
+  "already_indexed": [
+    {
+      "id": "LIT-127",
+      "identity": "doi:10.1007/978-3-642-54242-8_21",
+      "title": "Locally Updatable and Locally Decodable Codes",
+      "role": "classical_dynamic_error_locality",
+      "transfer": "Different Prefix Hamming corruption; cannot assume arbitrary e-symbol adversary equals it."
+    },
+    {
+      "id": "LIT-118",
+      "identity": "doi:10.1002/rsa.20069",
+      "title": "Lower bounds for adaptive locally decodable codes",
+      "role": "randomized_decoder_lower_bound",
+      "transfer": "Single codeword LDC lower bound not temporal path packing."
+    },
+    {
+      "id": "LIT-133",
+      "identity": "doi:10.1016/j.ic.2019.05.001",
+      "title": "Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes",
+      "role": "dynamic_nonmalleability",
+      "transfer": "Specific cryptographic tamper model and bounded locality; not equivalent to deterministic remote per-epoch errors."
+    },
+    {
+      "id": "LIT-072",
+      "role": "2026_natural_proofs_barrier",
+      "transfer": "Barrier only for particular lower-bound methods, not an unconditional impossibility."
+    },
+    {
+      "id": "LIT-157",
+      "role": "2024_memory_checking",
+      "transfer": "Explicit local-memory and remote probe complexity plus soundness; not implied by trajectory packing."
+    }
+  ],
+  "new_sources": [
+    {
+      "id": "G3B1-SRC-01",
+      "identity": "doi:10.1016/j.jisa.2026.104444",
+      "alternate_identities": [
+        "publisher:iacr:2025-404"
+      ],
+      "title": "SNARKs for stateful computations on authenticated data",
+      "authors": [
+        "Johannes Reinhart",
+        "Erik-Oliver Blass",
+        "Bjoern Annighoefer"
+      ],
+      "year": 2026,
+      "venue": "Journal of Information Security and Applications 99, article 104444",
+      "primary_url": "https://doi.org/10.1016/j.jisa.2026.104444",
+      "preprint_url": "https://eprint.iacr.org/2025/404",
+      "verification": "journal_abstract_and_author_affiliation_bibliography_checked",
+      "source_tier": "peer_reviewed_journal",
+      "role": "state_consistency_authenticated_input_SNARK_prior_art",
+      "limits": "Publisher abstract addresses authenticated input and state consistency across iterations with pairing-based SNARK; not a lower bound, no proof that the full paper's security model matches a forkable client or temporal q-ary error-correction model; full formal proof not independently reproduced."
+    }
+  ]
+}
