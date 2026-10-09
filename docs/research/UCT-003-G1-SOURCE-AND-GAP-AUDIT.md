@@ -45,3 +45,7 @@ Related original Mathlab anchors: [UCT-002](UCT-002-MASTER-THEOREM.md), [LENT-00
 
 ## E. Mandatory reproducibility
 `research/test_uct003_influence.py` covers 256 binary memory encodings x 128 depth-two decision trees, exhaustive 3-query one-probe Boolean families on two-state bits, independently computed hitting sets, exact prefix-XOR updates, Fenwick construction and the uncharged external helper countermodel. Success is not evidence of originality.
+
+## F. Additional complete unit-write rigidity result (G1-A)
+
+[Theorem C](UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md#4b-theorem-c--exact-unit-write-hypercube-embedding-rigidity-second-sharp-frontier) proves that any injective embedding of the FULL n-dimensional labeled bit-toggle hypercube into a binary maintained code with at most one changed bit per toggle must be a fixed coordinate injection plus a constant offset. Consequently every deterministic query requires at least D(f) reads; for full prefix parity, p>=n when w<=1. This is the **opposite sharp endpoint** to the w>=n barrier when p<=1. A fully exhaustive small-hypercube embedding oracle was added. This remains **DERIVED_CLASSICAL**, overlapping cubical-graph embedding theory (Mathlab LIT-120..122) and dynamic bit-probe partial-sum prior art (LIT-114), NOT a new n-parameter general theorem at p>=2. The Fenwick middle prevents false broad interpolations.
