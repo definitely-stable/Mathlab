@@ -42,8 +42,9 @@ class G2ASources(unittest.TestCase):
 
     def test_no_version_splitting_or_rask_duplication(self):
         self.assertEqual(self.by["LIT-180"]["identity"], "doi:10.1002/spe.3433")
+        self.assertNotIn("alternate_identities", self.by["LIT-180"])
         self.assertIn("doi:10.1007/978-3-031-72200-4_16",
-                      self.by["LIT-180"]["alternate_identities"])
+                      self.by["LIT-183"]["alternate_identities"])
         self.assertIn("arxiv:2405.15088", self.by["LIT-183"]["alternate_identities"])
         self.assertEqual(self.by["LIT-175"]["identity"], "usenix:fast26:zhao")
         self.assertEqual(self.by["LIT-098"]["identity"], "arxiv:2011.02615")
