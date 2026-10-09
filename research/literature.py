@@ -55,6 +55,17 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # UCT-005 G2-B/B1/B2 primary works; downstream all publication versions canonical.
+    "doi:10.1049/iet-ifs.2014.0408": "Authenticating multi-dimensional query results in outsourced database",
+    "doi:10.1109/ACCESS.2019.2957346": "Overlay Indexes: Efficiently Supporting Aggregate Range Queries and Authenticated Data Structures in Off-the-Shelf Databases",
+    "doi:10.14778/3748191.3748219": "Authenticated Aggregate Queries with Boolean Range Predicates on Blockchains",
+    "arxiv:2608.25206": "Authenticated Data Structures for Dynamic Workloads",
+    "doi:10.1016/j.is.2018.06.009": "Sparse prefix sums: Constant-time range sum queries over sparse multidimensional data cubes",
+    "doi:10.1137/24M1638215": "Super-Logarithmic Lower Bounds for Dynamic Graph Problems",
+    "publisher:iacr:2025-251": "Verifiable Streaming Computation and Step-by-Step Zero-Knowledge",
+    "doi:10.1016/j.tcs.2022.05.006": "Proof-labeling schemes: Broadcast, unicast and in between",
+    "doi:10.4230/LIPIcs.DISC.2018.25": "Local Verification of Global Proofs",
+    "doi:10.4230/LIPIcs.OPODIS.2021.21": "Explicit Space-Time Tradeoffs for Proof Labeling Schemes in Graphs with Small Separators",
     # HYP-105: classical doily publisher title pin.
     "doi:10.3390/sym12060963": "Magic Three-Qubit Veldkamp Line and Veldkamp Space of the Doily",
     # INDEX-001 G2-B3-A verified primary identities; LIT-205 reserved by parallel PR #132.
