@@ -34,7 +34,7 @@ Run on GitHub-hosted CI:
 
     python research/hyp105_g5c3b0_doily_geometry.py --rounds 4 --probes 8
 
-Independent executable checks: [research/test_hyp105_g5c3b0_doily_geometry.py](../../research/test_hyp105_g5c3b0_doily_geometry.py). The reference enumerates all 15 K6 perfect matchings independently from the W32 graph, verifies all 225 incidence truth-values, both six-family reconstructions, unit support/field arithmetic and the actual absence of signed +/-1 collisions in the extracted subfamily. Exact original source geometry and code provenance remain separate assertions.
+Independent executable checks: [research/test_hyp105_g5c3b0_doily_geometry.py](../../research/test_hyp105_g5c3b0_doily_geometry.py). The reference enumerates all 15 K6 perfect matchings independently from the W32 graph, verifies all 225 incidence truth-values, both six-family reconstructions, unit support/field arithmetic and complete direct GF5 subset sums of sizes 0..3 for the full extracted subfamily, plus independently enumerated signed +/-1 kernels only on bounded held-out six-column selections (avoiding the 3^N blow-up). Exact original source geometry and code provenance remain separate assertions.
 
 ## 4. All-s gate, competing approaches, and stop condition
 
