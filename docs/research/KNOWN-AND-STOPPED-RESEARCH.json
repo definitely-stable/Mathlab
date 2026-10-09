@@ -693,6 +693,23 @@
         "https://doi.org/10.1137/S0097539705447256",
         "https://doi.org/10.1016/j.tcs.2007.02.058"
       ]
+    },
+    {
+      "id": "KR-047",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Unit-write rigidity of complete hypercube encodings and deterministic query depth",
+      "scope": "Any injective exact binary encoding of all n-bit coordinate-toggle states with at most one changed memory coordinate per toggle is a fixed coordinate injection plus offset; bit-query depth at least original decision-tree depth; for full prefix parity p>=n.",
+      "do_not_repeat": "Classical full-hypercube graph embedding rigidity. Do not claim that every local-write code is systematic or that p>=n when w>1; Fenwick avoids the one-write assumption.",
+      "authority": [
+        "docs/research/UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md",
+        "docs/research/UCT-003-G1-SOURCE-AND-GAP-AUDIT.md"
+      ],
+      "reopen_only_if": "A verified nontrivial upper/lower multi-probe joint tradeoff with fully charged history and sound proofs that is not a special case of published dynamic partial sums bounds.",
+      "primary_sources": [
+        "https://doi.org/10.1016/0095-8956(75)90067-2",
+        "https://doi.org/10.1016/j.tcs.2007.02.058"
+      ]
     }
   ]
 }
