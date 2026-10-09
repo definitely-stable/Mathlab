@@ -180,7 +180,7 @@ def plucker_shift_model(power,scheme="plucker-lex-mincollision"):
         "scheme":scheme, "points":points,"lines":lines,
         "incidences":incidences,
         "left_labels":left,"right_labels":right,
-        "supports":tuple(tuple(left[p]+(a+x for x in right[l]))
+        "supports":tuple(left[p]+tuple(a+x for x in right[l])
                          for p,l in incidences),
         "plucker_shift":ranked["shift"],
         "actual_incidence_pair_equalities":
