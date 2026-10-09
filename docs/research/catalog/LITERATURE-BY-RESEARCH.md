@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**281** работ сопоставлены с **38** внутренними исследованиями.
+**296** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -439,6 +439,21 @@
 - [LIT-280](LITERATURE.md#lit-280) — Dynamic graph representation learning with disentangled information bottleneck (2026; publisher_abstract_checked)
 - [LIT-281](LITERATURE.md#lit-281) — Lazy B-Trees (2025; publisher_abstract_checked)
 - [LIT-282](LITERATURE.md#lit-282) — Space-Efficient B Trees via Load-Balancing (2025; publisher_abstract_checked)
+- [LIT-283](LITERATURE.md#lit-283) — Smoothed Analysis of Dynamic Graph Algorithms (2026; publisher_abstract_checked)
+- [LIT-284](LITERATURE.md#lit-284) — Symmetry-Preserving Graph Compression (2026; publisher_abstract_checked)
+- [LIT-285](LITERATURE.md#lit-285) — Dynamic Detours (2026; publisher_abstract_checked)
+- [LIT-286](LITERATURE.md#lit-286) — Dynamic Matroids: Base Packing and Covering (2026; publisher_abstract_checked)
+- [LIT-287](LITERATURE.md#lit-287) — Revisiting Diameter in Directed Graphs (2026; publisher_abstract_checked)
+- [LIT-288](LITERATURE.md#lit-288) — Maximum Coverage k-Antichains and Chains: A Greedy Approach (2026; publisher_abstract_checked)
+- [LIT-289](LITERATURE.md#lit-289) — Dynamic Dominating Set in Uniformly Sparse Graphs (2026; publisher_abstract_checked)
+- [LIT-290](LITERATURE.md#lit-290) — Parallel Reachability and Shortest Paths on Non-Sparse Digraphs: Near-Linear Work and Sub-Square-Root Depth (2026; publisher_abstract_checked)
+- [LIT-291](LITERATURE.md#lit-291) — Incremental (k, z)-Clustering on Graphs (2026; publisher_abstract_checked)
+- [LIT-292](LITERATURE.md#lit-292) — Better Diameter Bounds for Efficient Shortcuts and a Structural Criterion for Constructiveness (2026; publisher_abstract_checked)
+- [LIT-293](LITERATURE.md#lit-293) — Strategy Repair in Reachability Games via a Graph Quotientation (2026; publisher_abstract_checked)
+- [LIT-294](LITERATURE.md#lit-294) — Graph Memory for LLM Agents: At What Cost? A Comparative Evaluation of Query, Ingest, and Update Performance Across Graph Database Engines (2026; primary_abstract_checked)
+- [LIT-295](LITERATURE.md#lit-295) — SodaMem: Evidence-Grounded Temporal Graph Memory for LLM Agents (2026; primary_abstract_checked)
+- [LIT-296](LITERATURE.md#lit-296) — VL-MemKnG: Hybrid Memory with a Spatio-Temporal Knowledge Graph for Question Answering over Long Egocentric Navigation Trajectories (2026; primary_abstract_checked)
+- [LIT-297](LITERATURE.md#lit-297) — MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning (2025; primary_abstract_checked)
 
 ## ML-005
 
@@ -577,6 +592,17 @@
 - [LIT-279](LITERATURE.md#lit-279) — A practical succinct dynamic graph representation (2022; publisher_abstract_checked)
 - [LIT-281](LITERATURE.md#lit-281) — Lazy B-Trees (2025; publisher_abstract_checked)
 - [LIT-282](LITERATURE.md#lit-282) — Space-Efficient B Trees via Load-Balancing (2025; publisher_abstract_checked)
+- [LIT-283](LITERATURE.md#lit-283) — Smoothed Analysis of Dynamic Graph Algorithms (2026; publisher_abstract_checked)
+- [LIT-284](LITERATURE.md#lit-284) — Symmetry-Preserving Graph Compression (2026; publisher_abstract_checked)
+- [LIT-285](LITERATURE.md#lit-285) — Dynamic Detours (2026; publisher_abstract_checked)
+- [LIT-286](LITERATURE.md#lit-286) — Dynamic Matroids: Base Packing and Covering (2026; publisher_abstract_checked)
+- [LIT-287](LITERATURE.md#lit-287) — Revisiting Diameter in Directed Graphs (2026; publisher_abstract_checked)
+- [LIT-288](LITERATURE.md#lit-288) — Maximum Coverage k-Antichains and Chains: A Greedy Approach (2026; publisher_abstract_checked)
+- [LIT-289](LITERATURE.md#lit-289) — Dynamic Dominating Set in Uniformly Sparse Graphs (2026; publisher_abstract_checked)
+- [LIT-290](LITERATURE.md#lit-290) — Parallel Reachability and Shortest Paths on Non-Sparse Digraphs: Near-Linear Work and Sub-Square-Root Depth (2026; publisher_abstract_checked)
+- [LIT-291](LITERATURE.md#lit-291) — Incremental (k, z)-Clustering on Graphs (2026; publisher_abstract_checked)
+- [LIT-292](LITERATURE.md#lit-292) — Better Diameter Bounds for Efficient Shortcuts and a Structural Criterion for Constructiveness (2026; publisher_abstract_checked)
+- [LIT-293](LITERATURE.md#lit-293) — Strategy Repair in Reachability Games via a Graph Quotientation (2026; publisher_abstract_checked)
 
 ## ML-007
 
@@ -763,6 +789,10 @@
 - [LIT-276](LITERATURE.md#lit-276) — Can Knowledge-Graph-based Retrieval Augmented Generation Really Retrieve What You Need? (2025; primary_abstract_checked)
 - [LIT-277](LITERATURE.md#lit-277) — ActMem: Bridging the Gap Between Memory Retrieval and Reasoning in LLM Agents (2026; primary_abstract_checked)
 - [LIT-280](LITERATURE.md#lit-280) — Dynamic graph representation learning with disentangled information bottleneck (2026; publisher_abstract_checked)
+- [LIT-294](LITERATURE.md#lit-294) — Graph Memory for LLM Agents: At What Cost? A Comparative Evaluation of Query, Ingest, and Update Performance Across Graph Database Engines (2026; primary_abstract_checked)
+- [LIT-295](LITERATURE.md#lit-295) — SodaMem: Evidence-Grounded Temporal Graph Memory for LLM Agents (2026; primary_abstract_checked)
+- [LIT-296](LITERATURE.md#lit-296) — VL-MemKnG: Hybrid Memory with a Spatio-Temporal Knowledge Graph for Question Answering over Long Egocentric Navigation Trajectories (2026; primary_abstract_checked)
+- [LIT-297](LITERATURE.md#lit-297) — MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning (2025; primary_abstract_checked)
 
 ## OM-135
 

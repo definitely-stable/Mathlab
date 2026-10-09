@@ -8219,6 +8219,381 @@
       ],
       "publication_stage": "peer_reviewed_proceedings",
       "selection_priority": "A"
+    },
+    {
+      "id": "LIT-283",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.ITCS.2026.102",
+      "title": "Smoothed Analysis of Dynamic Graph Algorithms",
+      "summary_ru": "Smoothed-модель динамических графов: отделяет худшие противодействующие последовательности обновлений от сглаженных распределений и сопоставляет нижние границы.",
+      "limits_ru": "Smoothed гарантия не переносится на worst-case противника и не является I/O-bound для физического DAG индекса.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ITCS.2026.102",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-284",
+      "year": 2026,
+      "track": "compressed-indexing",
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.7",
+      "title": "Symmetry-Preserving Graph Compression",
+      "summary_ru": "Структурное сжатие графов со строгим сохранением симметрий и условиями восстановимости; сложность оптимального сжатия и практическая линейная эвристика.",
+      "limits_ru": "Сохранение автоморфизмов не гарантирует сохранения всех ответов по путям после update и не оценивает байты compaction.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.7",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-285",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.35",
+      "title": "Dynamic Detours",
+      "summary_ru": "Полностью динамические неориентированные графы: длинные пути, длинные обходы и чётность пути, параметризованные алгоритмы и границы.",
+      "limits_ru": "Длинный undirected path, directed temporal reachability и маршрут в DAG — несовпадающие контракты запросов.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.35",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-286",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.57",
+      "title": "Dynamic Matroids: Base Packing and Covering",
+      "summary_ru": "Алгоритмы поддержки матроидного базиса, packing/covering при insert/delete, обобщение задач arboricity и графовых упаковок.",
+      "limits_ru": "Результаты в модели запросов к матроиду не устанавливают стоимости page-write или exact DAG reachability.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.57",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-287",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.59",
+      "title": "Revisiting Diameter in Directed Graphs",
+      "summary_ru": "Определение reachability diameter для ориентированных графов и DAG; нижние и верхние оценки приближённого диаметра, включая bounded width.",
+      "limits_ru": "Статическое вычисление approximate ReachDiam не является онлайн-индексом arbitrary pair reachability.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.59",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-288",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.108",
+      "title": "Maximum Coverage k-Antichains and Chains: A Greedy Approach",
+      "summary_ru": "Покрытие DAG через k антицепей и цепей, сильнее прежних приближений и контрпримеры жадным стратегиям.",
+      "limits_ru": "Вычисление optimal antichain coverage не доказывает оптимальности инкрементального chain-top label или write recourse.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.108",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-289",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.ESA.2026.109",
+      "title": "Dynamic Dominating Set in Uniformly Sparse Graphs",
+      "summary_ru": "Динамический dominating set с параметром arboricity вместо максимальной степени; разреженные классы графов.",
+      "limits_ru": "Domination на undirected sparse graph не решает signed evidence, reachability или отказоустойчивую графовую память.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ESA.2026.109",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-290",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.ICALP.2026.15",
+      "title": "Parallel Reachability and Shortest Paths on Non-Sparse Digraphs: Near-Linear Work and Sub-Square-Root Depth",
+      "summary_ru": "Параллельные алгоритмы single-source reachability/shortest paths в плотных ориентированных графах с почти линейной работой и малой глубиной.",
+      "limits_ru": "Параллельная статическая глубина не измеряет стоимость online insert/delete или число физических чтений/записей.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.15",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-291",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.ICALP.2026.70",
+      "title": "Incremental (k, z)-Clustering on Graphs",
+      "summary_ru": "Инкрементальная аппроксимация k-median/k-means в кратчайшей-путевой метрике графа при добавлении рёбер.",
+      "limits_ru": "Только edge insertions, вероятностные approximation guarantees; не exact удаляемый DAG индекс.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.70",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-292",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.ICALP.2026.105",
+      "title": "Better Diameter Bounds for Efficient Shortcuts and a Structural Criterion for Constructiveness",
+      "summary_ru": "Сертифицируемые shortcut-пути, структурные границы диаметра DAG и проверка корректности добавленных shortcut edges.",
+      "limits_ru": "Сертификат существования пути не подтверждает истинность исходного факта, freshness или отсутствие пути.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.105",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-293",
+      "year": 2026,
+      "track": "graph-algorithms",
+      "identity": "doi:10.4230/LIPIcs.SWAT.2026.12",
+      "title": "Strategy Repair in Reachability Games via a Graph Quotientation",
+      "summary_ru": "Факторизация графа в играх достижимости для сокращения количества изменений испорченной стратегии.",
+      "limits_ru": "Strategy repair игровой задачи не эквивалентен изменению хранимых фактов, доказательств и страниц DAG.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SWAT.2026.12",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-294",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2609.23315",
+      "title": "Graph Memory for LLM Agents: At What Cost? A Comparative Evaluation of Query, Ingest, and Update Performance Across Graph Database Engines",
+      "summary_ru": "Сравнение стоимости подготовки, ingestion, query/update, нескольких графовых и табличных движков в общей synthetic biomedical нагрузке.",
+      "limits_ru": "Авторский движок входит в сравнение; fairness, real data, hardware, полнота расходов и воспроизводимость требуют независимой проверки.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2609.23315",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-295",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2608.08055",
+      "title": "SodaMem: Evidence-Grounded Temporal Graph Memory for LLM Agents",
+      "summary_ru": "Временные графовые FactEvents с происхождением, отдельным mention/occurrence/validity временем и явными contradiction/supersede рёбрами.",
+      "limits_ru": "Авторский результат LongMemEval-S использует self-grading; расходы не учитывают ingest и judge, внешние сравнения не единый harness.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2608.08055",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-296",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2606.17183",
+      "title": "VL-MemKnG: Hybrid Memory with a Spatio-Temporal Knowledge Graph for Question Answering over Long Egocentric Navigation Trajectories",
+      "summary_ru": "Гибрид графа пространственно-временных отношений и сегментной памяти для разбросанных по времени видео-свидетельств.",
+      "limits_ru": "Навигационный мультимодальный benchmark не тождествен text-only GraphRAG, нельзя переносить точность на произвольные KG.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2606.17183",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-297",
+      "year": 2025,
+      "track": "agent-memory",
+      "identity": "arxiv:2510.13614",
+      "title": "MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning",
+      "summary_ru": "Tree of Time и сохраняемые reasoning traces для multi-entity temporal QA и временной синхронизации.",
+      "limits_ru": "Монотонные timestamp и повторное использование ответов не гарантируют проверяемого происхождения и глобальной актуальности.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2510.13614",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "200bc81a779cd0bb1f766e9168e794964c103e0d"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
     }
   ]
 }

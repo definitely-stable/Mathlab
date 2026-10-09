@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## IMPORT-008 — reachability-DAG width, compression and evidence-grounded memory (2026-10-09)
+
+[ITCS/ESA/ICALP/SWAT 2026 theory and 2025–26 temporal agent memory source audit](RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) · [issue #202](https://github.com/definitely-stable/Mathlab/issues/202) · [source catalog](catalog/LITERATURE.md). New paper records LIT-283..297 include ReachDiam, certified DAG shortcutting, k-antichain coverage and temporal evidence memory; keep UCT-005/TKG-001 novelty and physical write models separate.
+
 ## UCT-005 G3-B2-C0 — explicit physical page-image accounting (2026-10-09)
 
 [**Frozen page layout, exact COW image lemma, LRU budget, ideal crash-cut proof, three strict countermodels and limitations**](UCT-005-G3-B2-C0-PAGE-IMAGE-FRONTIER.md) · [reference page oracle](../../research/uct005_g3b2c0_pages.py) · [independent physical tests](../../research/test_uct005_g3b2c0_pages.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). Page cost is counted in full 4096-byte images with a fixed 160-byte tree record, 64-byte page header, 1-page cold LRU and a separate paid epoch-root directory. Exact restricted COW packing yields ceil(k/F)+1 image writes for k logical changed nodes; no generic lower bound follows. Source/server RAM, author SHA, proof response bytes and 40-byte trusted anchor traffic are distinguished. No real SSD, filesystem, crypto or new UCT lower theorem; C1 remains open.

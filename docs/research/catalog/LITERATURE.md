@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **281** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **296** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -15,12 +15,12 @@
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 23 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
-| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 15 |
+| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 16 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 35 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 45 |
 | [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 29 |
-| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 16 |
+| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 20 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 23 |
@@ -1651,6 +1651,19 @@ Kempa–Kociumaka (SODA 2026) устанавливают нижние грани
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
 
+### LIT-284
+**[Symmetry-Preserving Graph Compression](https://doi.org/10.4230/LIPIcs.ESA.2026.7)** (2026)
+
+Структурное сжатие графов со строгим сохранением симметрий и условиями восстановимости; сложность оптимального сжатия и практическая линейная эвристика.
+
+**Ограничение:** Сохранение автоморфизмов не гарантирует сохранения всех ответов по путям после update и не оценивает байты compaction.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.7` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
 
 ## online-optimization
 *Онлайн-оптимизация, конкурентные оценки и барьеры*
@@ -2417,6 +2430,136 @@ Representation learning временных графов с разложение�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
 
+### LIT-283
+**[Smoothed Analysis of Dynamic Graph Algorithms](https://doi.org/10.4230/LIPIcs.ITCS.2026.102)** (2026)
+
+Smoothed-модель динамических графов: отделяет худшие противодействующие последовательности обновлений от сглаженных распределений и сопоставляет нижние границы.
+
+**Ограничение:** Smoothed гарантия не переносится на worst-case противника и не является I/O-bound для физического DAG индекса.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ITCS.2026.102` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-285
+**[Dynamic Detours](https://doi.org/10.4230/LIPIcs.ESA.2026.35)** (2026)
+
+Полностью динамические неориентированные графы: длинные пути, длинные обходы и чётность пути, параметризованные алгоритмы и границы.
+
+**Ограничение:** Длинный undirected path, directed temporal reachability и маршрут в DAG — несовпадающие контракты запросов.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.35` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-286
+**[Dynamic Matroids: Base Packing and Covering](https://doi.org/10.4230/LIPIcs.ESA.2026.57)** (2026)
+
+Алгоритмы поддержки матроидного базиса, packing/covering при insert/delete, обобщение задач arboricity и графовых упаковок.
+
+**Ограничение:** Результаты в модели запросов к матроиду не устанавливают стоимости page-write или exact DAG reachability.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.57` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-287
+**[Revisiting Diameter in Directed Graphs](https://doi.org/10.4230/LIPIcs.ESA.2026.59)** (2026)
+
+Определение reachability diameter для ориентированных графов и DAG; нижние и верхние оценки приближённого диаметра, включая bounded width.
+
+**Ограничение:** Статическое вычисление approximate ReachDiam не является онлайн-индексом arbitrary pair reachability.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.59` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-288
+**[Maximum Coverage k-Antichains and Chains: A Greedy Approach](https://doi.org/10.4230/LIPIcs.ESA.2026.108)** (2026)
+
+Покрытие DAG через k антицепей и цепей, сильнее прежних приближений и контрпримеры жадным стратегиям.
+
+**Ограничение:** Вычисление optimal antichain coverage не доказывает оптимальности инкрементального chain-top label или write recourse.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.108` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-289
+**[Dynamic Dominating Set in Uniformly Sparse Graphs](https://doi.org/10.4230/LIPIcs.ESA.2026.109)** (2026)
+
+Динамический dominating set с параметром arboricity вместо максимальной степени; разреженные классы графов.
+
+**Ограничение:** Domination на undirected sparse graph не решает signed evidence, reachability или отказоустойчивую графовую память.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ESA.2026.109` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-290
+**[Parallel Reachability and Shortest Paths on Non-Sparse Digraphs: Near-Linear Work and Sub-Square-Root Depth](https://doi.org/10.4230/LIPIcs.ICALP.2026.15)** (2026)
+
+Параллельные алгоритмы single-source reachability/shortest paths в плотных ориентированных графах с почти линейной работой и малой глубиной.
+
+**Ограничение:** Параллельная статическая глубина не измеряет стоимость online insert/delete или число физических чтений/записей.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2026.15` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-291
+**[Incremental (k, z)-Clustering on Graphs](https://doi.org/10.4230/LIPIcs.ICALP.2026.70)** (2026)
+
+Инкрементальная аппроксимация k-median/k-means в кратчайшей-путевой метрике графа при добавлении рёбер.
+
+**Ограничение:** Только edge insertions, вероятностные approximation guarantees; не exact удаляемый DAG индекс.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2026.70` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-292
+**[Better Diameter Bounds for Efficient Shortcuts and a Structural Criterion for Constructiveness](https://doi.org/10.4230/LIPIcs.ICALP.2026.105)** (2026)
+
+Сертифицируемые shortcut-пути, структурные границы диаметра DAG и проверка корректности добавленных shortcut edges.
+
+**Ограничение:** Сертификат существования пути не подтверждает истинность исходного факта, freshness или отсутствие пути.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2026.105` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-293
+**[Strategy Repair in Reachability Games via a Graph Quotientation](https://doi.org/10.4230/LIPIcs.SWAT.2026.12)** (2026)
+
+Факторизация графа в играх достижимости для сокращения количества изменений испорченной стратегии.
+
+**Ограничение:** Strategy repair игровой задачи не эквивалентен изменению хранимых фактов, доказательств и страниц DAG.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SWAT.2026.12` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
 
 ## graph-rag
 *GraphRAG, knowledge-graph retrieval, системное сравнение с RAG*
@@ -3009,6 +3152,58 @@ ACL 2026: накопительное состояние сущностей дл�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md](https://github.com/definitely-stable/Mathlab/blob/732dcc116d02ee2639eafe4580f009f6a6b9aefc/docs/research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) (model_overlap)
+
+### LIT-294
+**[Graph Memory for LLM Agents: At What Cost? A Comparative Evaluation of Query, Ingest, and Update Performance Across Graph Database Engines](https://arxiv.org/abs/2609.23315)** (2026)
+
+Сравнение стоимости подготовки, ingestion, query/update, нескольких графовых и табличных движков в общей synthetic biomedical нагрузке.
+
+**Ограничение:** Авторский движок входит в сравнение; fairness, real data, hardware, полнота расходов и воспроизводимость требуют независимой проверки.
+
+**Идентичность:** `arxiv:2609.23315` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-295
+**[SodaMem: Evidence-Grounded Temporal Graph Memory for LLM Agents](https://arxiv.org/abs/2608.08055)** (2026)
+
+Временные графовые FactEvents с происхождением, отдельным mention/occurrence/validity временем и явными contradiction/supersede рёбрами.
+
+**Ограничение:** Авторский результат LongMemEval-S использует self-grading; расходы не учитывают ingest и judge, внешние сравнения не единый harness.
+
+**Идентичность:** `arxiv:2608.08055` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-296
+**[VL-MemKnG: Hybrid Memory with a Spatio-Temporal Knowledge Graph for Question Answering over Long Egocentric Navigation Trajectories](https://arxiv.org/abs/2606.17183)** (2026)
+
+Гибрид графа пространственно-временных отношений и сегментной памяти для разбросанных по времени видео-свидетельств.
+
+**Ограничение:** Навигационный мультимодальный benchmark не тождествен text-only GraphRAG, нельзя переносить точность на произвольные KG.
+
+**Идентичность:** `arxiv:2606.17183` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
+
+### LIT-297
+**[MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning](https://arxiv.org/abs/2510.13614)** (2025)
+
+Tree of Time и сохраняемые reasoning traces для multi-entity temporal QA и временной синхронизации.
+
+**Ограничение:** Монотонные timestamp и повторное использование ответов не гарантируют проверяемого происхождения и глобальной актуальности.
+
+**Идентичность:** `arxiv:2510.13614` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/200bc81a779cd0bb1f766e9168e794964c103e0d/docs/research/RESEARCH-LITERATURE-008-GRAPH-DAG-MEMORY-2026.md) (model_overlap)
 
 
 ## graph-reasoning

@@ -58,6 +58,22 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-008: DAG shortcutting, graph compression, memory cost and temporal evidence.
+    "doi:10.4230/LIPIcs.ITCS.2026.102": "Smoothed Analysis of Dynamic Graph Algorithms",
+    "doi:10.4230/LIPIcs.ESA.2026.7": "Symmetry-Preserving Graph Compression",
+    "doi:10.4230/LIPIcs.ESA.2026.35": "Dynamic Detours",
+    "doi:10.4230/LIPIcs.ESA.2026.57": "Dynamic Matroids: Base Packing and Covering",
+    "doi:10.4230/LIPIcs.ESA.2026.59": "Revisiting Diameter in Directed Graphs",
+    "doi:10.4230/LIPIcs.ESA.2026.108": "Maximum Coverage k-Antichains and Chains: A Greedy Approach",
+    "doi:10.4230/LIPIcs.ESA.2026.109": "Dynamic Dominating Set in Uniformly Sparse Graphs",
+    "doi:10.4230/LIPIcs.ICALP.2026.15": "Parallel Reachability and Shortest Paths on Non-Sparse Digraphs: Near-Linear Work and Sub-Square-Root Depth",
+    "doi:10.4230/LIPIcs.ICALP.2026.70": "Incremental (k, z)-Clustering on Graphs",
+    "doi:10.4230/LIPIcs.ICALP.2026.105": "Better Diameter Bounds for Efficient Shortcuts and a Structural Criterion for Constructiveness",
+    "doi:10.4230/LIPIcs.SWAT.2026.12": "Strategy Repair in Reachability Games via a Graph Quotientation",
+    "arxiv:2609.23315": "Graph Memory for LLM Agents: At What Cost? A Comparative Evaluation of Query, Ingest, and Update Performance Across Graph Database Engines",
+    "arxiv:2608.08055": "SodaMem: Evidence-Grounded Temporal Graph Memory for LLM Agents",
+    "arxiv:2606.17183": "VL-MemKnG: Hybrid Memory with a Spatio-Temporal Knowledge Graph for Question Answering over Long Egocentric Navigation Trajectories",
+    "arxiv:2510.13614": "MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning",
     # IMPORT-007: source-verified temporal/dynamic graphs and graph RAG primary titles.
     "doi:10.4230/LIPIcs.SAND.2026.4": "Families of Tractable Problems with Respect to Vertex-Interval-Membership Width and Its Generalisations",
     "doi:10.4230/LIPIcs.SAND.2026.5": "Complexity Gaps Between Point and Interval Temporal Graphs for Some Reachability Problems",
