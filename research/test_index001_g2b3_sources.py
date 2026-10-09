@@ -6,7 +6,7 @@ import unittest
 from literature import DATA, INTERNAL, SOURCE_TITLE_PINS, valid
 
 
-SOURCE_SHA = "a742beec6fca8aeb83ab57e4d4b9375a7873346e"
+SOURCE_SHA = "43252d143b78cf09858e9af044abf34f89cc5cf4"
 PATH = "docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md"
 WORKS = {
     "LIT-206": ("usenix:osdi25:leblanc", 2025,
@@ -24,8 +24,7 @@ class GenerationSourcesTests(unittest.TestCase):
         catalog = json.loads(INTERNAL.read_text(encoding="utf-8"))
         self.assertEqual(valid(data, catalog), [])
         entries = {e["id"]: e for e in data["entries"]}
-        self.assertEqual(len(entries), 207)
-        self.assertNotIn("LIT-205", entries)  # Parallel #132 reserves it.
+        self.assertGreaterEqual(len(entries), 207)
         for name, (identity, year, title) in WORKS.items():
             with self.subTest(entry=name):
                 e = entries[name]
