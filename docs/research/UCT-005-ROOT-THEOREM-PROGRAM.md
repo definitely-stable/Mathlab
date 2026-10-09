@@ -113,3 +113,7 @@ Threat-model kill gates: wrong-state prover may adapt to prior accept/reject out
 ## 8. G1 source-barrier discovery and import (2026-10-09)
 
 [Four-source formal-statement/mismatch audit](UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) · [issue #113](https://github.com/definitely-stable/Mathlab/issues/113) catalogs canonical **LIT-156..159** without duplicate conference/journal identities. Early G0 source gaps in section 5 are now **cataloged and partially theorem-statement checked** (BKV24 and Tas–Boneh PDFs), but not independently proof-reproduced; BEGKN91 and covert BKV25 formal theorem proof hypotheses need further full-text inspection. This closes the **generic-memory-checker** and **generic-proof-update-broadcast** novelty headlines, NOT the UCT-005 program. G2 must seek an explicit natural task and novel same-model quantitative separation. Root remains **OPEN_UNPROVED**.
+
+## 9. G2-A: new fundamental primary-source barriers and exact honest countermodels (2026-10-09)
+
+[Seven-source audit with six new canonical publications](UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) · [issue #125](https://github.com/definitely-stable/Mathlab/issues/125) · [oracle](../../research/test_uct005_g2a_models.py). LIT-183..188 imported; STOC natural-proofs paper already LIT-072. Honest 1D Fenwick disproves universal unscoped `w*p >= n` for dynamic parity; this is NOT a counterexample to UCT-004 weak-soundness certificate theorem. Dynamic 2D transcript-adaptive authenticated range parity remains a nonfrozen G2-B candidate. All theorem novelty **OPEN_UNPROVED**.
