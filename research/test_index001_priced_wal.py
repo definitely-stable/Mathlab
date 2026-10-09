@@ -70,7 +70,7 @@ class PricedWalTest(unittest.TestCase):
                             self.assertEqual(appended["disk_bytes_after"], 96)
                             self.assertEqual(appended["retired_pages"], 0)
                             seen += 1
-        self.assertEqual(seen, 2 + 12 + 48 + 160)
+        self.assertEqual(seen, 4 + 24 + 96 + 320)
 
     def test_paired_wal_rollback_and_checkpoint_oracles(self):
         for n in range(1, 4):
