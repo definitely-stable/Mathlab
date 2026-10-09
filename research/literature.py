@@ -105,6 +105,8 @@ SOURCE_TITLE_PINS = {
     "doi:10.1016/j.ic.2014.12.011": "Arthur–Merlin streaming complexity",
     "doi:10.1016/j.ic.2019.05.001": "Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes",
     "doi:10.1214/aoms/1177729032": "Equivalent Comparisons of Experiments",
+    "doi:10.1016/0095-8956(91)90097-4": "Extremal graphs with no C4\'s, C6\'s, or C10\'s",
+    "arxiv:1111.3279": "An explicit formula for obtaining (q+1,8)-cages and others small regular graphs of girth 8",
 }
 
 
