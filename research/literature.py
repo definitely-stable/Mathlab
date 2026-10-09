@@ -54,6 +54,10 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    "doi:10.1109/SFCS.1991.185352": "Checking the Correctness of Memories",
+    "doi:10.1145/3618260.3649686": "Memory Checking Requires Logarithmic Overhead",
+    "doi:10.1007/978-3-031-91092-0_11": "The Complexity of Memory Checking with Covert Security",
+    "doi:10.4230/LIPIcs.AFT.2023.29": "Vector Commitments with Efficient Updates",
     # Authoritative arXiv title checks: forbid a paper ID being paired with
     # a hallucinated or different publication title.
     "arxiv:2501.01046": "SEDD: Scalable and Efficient Dataset Deduplication with GPUs",

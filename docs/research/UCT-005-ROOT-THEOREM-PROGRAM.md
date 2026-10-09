@@ -109,3 +109,7 @@ Threat-model kill gates: wrong-state prover may adapt to prior accept/reject out
 - Do not release a Rust crate, claim publication novelty or merge an unreviewed speculative theorem.
 
 **Next allowed action:** G1 original-publication theorem/model import, then fully costed task selection. This file constitutes governance/model planning, **not G1 scientific acceptance**.
+
+## 8. G1 source-barrier discovery and import (2026-10-09)
+
+[Four-source formal-statement/mismatch audit](UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) · [issue #113](https://github.com/definitely-stable/Mathlab/issues/113) catalogs canonical **LIT-156..159** without duplicate conference/journal identities. Early G0 source gaps in section 5 are now **cataloged and partially theorem-statement checked** (BKV24 and Tas–Boneh PDFs), but not independently proof-reproduced; BEGKN91 and covert BKV25 formal theorem proof hypotheses need further full-text inspection. This closes the **generic-memory-checker** and **generic-proof-update-broadcast** novelty headlines, NOT the UCT-005 program. G2 must seek an explicit natural task and novel same-model quantitative separation. Root remains **OPEN_UNPROVED**.
