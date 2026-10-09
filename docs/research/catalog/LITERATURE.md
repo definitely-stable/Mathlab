@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **208** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **218** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,16 +11,16 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 24 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 28 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 29 |
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 21 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
 | [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 11 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 9 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 19 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 20 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
-| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 23 |
+| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 31 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
 | [Алгебраические схемы, математика и нижние границы](#algebraic-complexity) | 4 |
 | [Edit distance, строки и тонкая сложность](#fine-grained-algorithms) | 3 |
@@ -724,6 +724,19 @@ ITCS 2026: соответствие black-box PRF/OWF Function Secret Sharing с
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md](https://github.com/definitely-stable/Mathlab/blob/cd5a7ec2b0ed442d03bac0b03e091421ab5446ef/docs/research/UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) (model_overlap)
+
+### LIT-213
+**[Sparse prefix sums: Constant-time range sum queries over sparse multidimensional data cubes](https://doi.org/10.1016/j.is.2018.06.009)** (2019)
+
+Information Systems 2019: Sparse prefix sums позволяет многомерные агрегатные запросы на разреженных кубах с зависящей от схемы стоимостью.
+
+**Ограничение:** Структуры используют sparsity/модель данных; это честная агрегатная верхняя конструкция, НЕ Byzantine authentication или universal update bound.
+
+**Идентичность:** `doi:10.1016/j.is.2018.06.009` · **Авторы:** Michael Shekelyan, Anton Dignös, Johann Gamper · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md](https://github.com/definitely-stable/Mathlab/blob/b4fb744d8b4329dfd7fd4fc29e9b3c7991736e4c/docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md) (model_overlap)
 
 
 ## incremental-computation
@@ -2063,6 +2076,19 @@ Hoory (Journal of Combinatorial Theory B, 2002) обобщает экстрем�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
 
+### LIT-214
+**[Super-Logarithmic Lower Bounds for Dynamic Graph Problems](https://doi.org/10.1137/24M1638215)** (2025)
+
+Larsen–Yu, опубликована онлайн в SIAM Journal on Computing в 2025 и в выпуске 2026: сверхлогарифмическая ~Ω(log^(3/2) n) lower bound для динамической ориентированной достижимости с добавлением рёбер.
+
+**Ограничение:** FOCS 2023 и SIAM 2025/2026 являются версиями одной работы. Динамическая достижимость при добавлении рёбер не совпадает с FLIP исходного бита в неизменном XOR-DAG.
+
+**Идентичность:** `doi:10.1137/24M1638215` · **Также:** arxiv:2304.08745 · **Авторы:** Kasper Green Larsen, Huacheng Yu · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md](https://github.com/definitely-stable/Mathlab/blob/d7fecfbcaaea21629ebf968c30122a3ba0b9236a/docs/research/UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md) (model_overlap)
+
 
 ## algebraic-algorithms
 *Алгебраические алгоритмы, subset sum и разреженные матрицы*
@@ -2555,6 +2581,110 @@ Proceedings of ISP RAS 2026: расширение DIFFuzzer на моделир�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md](https://github.com/definitely-stable/Mathlab/blob/6cc1496bf68a1909e1bccb4def731a3b7d5e99ad/docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) (model_overlap)
+
+### LIT-209
+**[Authenticating multi-dimensional query results in outsourced database](https://doi.org/10.1049/iet-ifs.2014.0408)** (2016)
+
+IET Information Security 2016: схема проверки целостности и полноты многомерных запросов в сторонней базе данных; опубликованные многомерные authenticated queries предшествуют UCT-005.
+
+**Ограничение:** В модели авторов используется криптографическая аутентификация query result; нельзя переносить её на точный GF(2) XOR или на произвольную адаптивную update-стоимость без отдельной редукции.
+
+**Идентичность:** `doi:10.1049/iet-ifs.2014.0408` · **Авторы:** Wang Xiaoming, Lin Yanchun, Yu Fang · **Проверка:** `publisher_full_text_spotchecked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md](https://github.com/definitely-stable/Mathlab/blob/b4fb744d8b4329dfd7fd4fc29e9b3c7991736e4c/docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md) (model_overlap)
+
+### LIT-210
+**[Overlay Indexes: Efficiently Supporting Aggregate Range Queries and Authenticated Data Structures in Off-the-Shelf Databases](https://doi.org/10.1109/ACCESS.2019.2957346)** (2019)
+
+IEEE Access 2019: Overlay Indexes/DB-tree объединяет агрегатные range queries и authenticated data structures поверх стандартных СУБД.
+
+**Ограничение:** Конструкция даёт модельно-зависимую верхнюю оценку и доступ к БД, а не универсальную нижнюю границу доказательства или пофизических bit-probes.
+
+**Идентичность:** `doi:10.1109/ACCESS.2019.2957346` · **Также:** arxiv:1910.11754 · **Авторы:** Diego Pennino, Maurizio Pizzonia, Alessio Papi · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md](https://github.com/definitely-stable/Mathlab/blob/b4fb744d8b4329dfd7fd4fc29e9b3c7991736e4c/docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md) (model_overlap)
+
+### LIT-211
+**[Authenticated Aggregate Queries with Boolean Range Predicates on Blockchains](https://doi.org/10.14778/3748191.3748219)** (2025)
+
+PVLDB 2025: Merkle Bloom Filter Tree проверяет aggregate queries с булевыми range predicates в блокчейн-среде.
+
+**Ограничение:** Допущения MBFT, селективность и false-positive Bloom необходимы; доказательство не переносится на arbitrary parity и не создаёт универсальную lower bound.
+
+**Идентичность:** `doi:10.14778/3748191.3748219` · **Авторы:** Weijie Sun, Zihuan Xu, Wangze Ni, Lei Chen, Peng Cheng, Chen Jason Zhang · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md](https://github.com/definitely-stable/Mathlab/blob/b4fb744d8b4329dfd7fd4fc29e9b3c7991736e4c/docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md) (model_overlap)
+
+### LIT-212
+**[Authenticated Data Structures for Dynamic Workloads](https://arxiv.org/abs/2608.25206)** (2026)
+
+Авторский препринт 2026 о Dynamic Huffman-Merkle Tree: адаптивная к частоте обращений ADS-конструкция для динамических нагрузок.
+
+**Ограничение:** Это arXiv author preprint 2608.25206, без подтверждённого peer-reviewed статуса; membership/hash-path workload не является многоабонентной прямоугольной XOR верификацией.
+
+**Идентичность:** `arxiv:2608.25206` · **Авторы:** Ziheng Shangguan, Aviv Yaish, Dahlia Malkhi · **Проверка:** `author_paper_or_bibliography_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md](https://github.com/definitely-stable/Mathlab/blob/b4fb744d8b4329dfd7fd4fc29e9b3c7991736e4c/docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md) (model_overlap)
+
+### LIT-215
+**[Verifiable Streaming Computation and Step-by-Step Zero-Knowledge](https://eprint.iacr.org/2025/251)** (2025)
+
+IACR ePrint 2025/251: конструкция incremental verifiable streaming computation и step-by-step zero knowledge для потокового RAM.
+
+**Ограничение:** IACR классифицирует материал как препринт. Криптографические предпосылки обязательны; отсутствует общее доказательство fork/replay безопасности многоклиентных подписок.
+
+**Идентичность:** `publisher:iacr:2025-251` · **Авторы:** Abtin Afshar, Rishab Goyal · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md](https://github.com/definitely-stable/Mathlab/blob/d7fecfbcaaea21629ebf968c30122a3ba0b9236a/docs/research/UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md) (model_overlap)
+
+### LIT-216
+**[Proof-labeling schemes: Broadcast, unicast and in between](https://doi.org/10.1016/j.tcs.2022.05.006)** (2022)
+
+Patt-Shamir–Perry, Theoretical Computer Science 2022: точные различия broadcast/unicast proof-labeling схем с ограниченным числом исходящих типов сообщений.
+
+**Ограничение:** PLS проверяет распределённые конфигурации локальными раундами; это не идентично сообщению доверенного owner о приватно выбранном GF(2)-обновлении.
+
+**Идентичность:** `doi:10.1016/j.tcs.2022.05.006` · **Также:** arxiv:1708.06947 · **Авторы:** Boaz Patt-Shamir, Mor Perry · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md](https://github.com/definitely-stable/Mathlab/blob/b7e9027cf15cc8b6756dc3b67474524e64751105/docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md) (model_overlap)
+
+### LIT-217
+**[Local Verification of Global Proofs](https://doi.org/10.4230/LIPIcs.DISC.2018.25)** (2018)
+
+Feuilloley–Hirvonen, DISC 2018: сравнение общего глобального доказательства и распределённых локальных меток, разделения и нижние оценки.
+
+**Ограничение:** Недетерминированные локальные proofs не являются аутентифицированной онлайн-рассылкой или байтовой lower bound для delta parity.
+
+**Идентичность:** `doi:10.4230/LIPIcs.DISC.2018.25` · **Авторы:** Laurent Feuilloley, Juho Hirvonen · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md](https://github.com/definitely-stable/Mathlab/blob/b7e9027cf15cc8b6756dc3b67474524e64751105/docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md) (model_overlap)
+
+### LIT-218
+**[Explicit Space-Time Tradeoffs for Proof Labeling Schemes in Graphs with Small Separators](https://doi.org/10.4230/LIPIcs.OPODIS.2021.21)** (2021)
+
+Fischer–Oshman–Shamir, OPODIS 2021: конструкции компромисса числа раундов и длины proof labels в графах с небольшими разделителями.
+
+**Ограничение:** Сепараторы, число LOCAL-раундов и proof-label size являются условиями этой модели; OPODIS 2021 был опубликован 2022-02-28, но работа не переносится на owner-client криптографическую свежесть.
+
+**Идентичность:** `doi:10.4230/LIPIcs.OPODIS.2021.21` · **Авторы:** Orr Fischer, Rotem Oshman, Dana Shamir · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md](https://github.com/definitely-stable/Mathlab/blob/b7e9027cf15cc8b6756dc3b67474524e64751105/docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md) (model_overlap)
 
 
 ## proof-complexity
