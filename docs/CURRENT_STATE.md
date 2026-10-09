@@ -1,5 +1,9 @@
 # CURRENT_STATE
 
+## IMPORT-007 — temporal / dynamic graph original studies (2026-10-09)
+
+[Source-by-model audit](research/RESEARCH-LITERATURE-007-TEMPORAL-DYNAMIC-GRAPHS-2026.md) · [issue #197](https://github.com/definitely-stable/Mathlab/issues/197). Twenty-two original works LIT-259..280 with canonical author/publisher URLs and Russian model limits, extending bibliography 257→279. Temporal point-contact, interval availability, as-of valid+transaction clocks, partial order, source evidence and adaptive graph memory kept separate. NO_NEW_THEOREM, NO_BENCHMARK_REPRODUCTION; host CI acceptance gate.
+
 ## UCT-005 G3-B2-B — три проверяемые F1 верхние конструкции (2026-10-09)
 
 [Строгая модель, условные доказательства, граница новизны](research/UCT-005-G3-B2-B-UPPER-FRONTIER.md) · [дерево диапазонов](../research/uct005_g3b2b_range_tree.py) · [replica/snapshot](../research/uct005_g3b2b_baselines.py) · [независимые adversarial тесты](../research/test_uct005_g3b2b_upper.py) · [issue #178](https://github.com/definitely-stable/Mathlab/issues/178). **THREE_F1_CONDITIONAL_UPPER_CONSTRUCTIONS / BYTE_EXACT_REFERENCE_WIRE / LOGICAL_NODE_COUNTERS_NOT_PHYSICAL_IO / ORIGINAL_LOWER_BOUND_OPEN / NO_RUST.** Для единого SET/RANGE_PARITY сервиса построены и проверяются (R) доверенная локальная копия плюс аутентифицированный SET-log, (S) полный snapshot и (T) SHA-256 range-aggregate tree, каждый с явно платным монотонным авторским якорем (40 B на публикацию и ответ). Доказывается только условная корректность; SHA-256 стойкость и глобальный якорь являются допущениями. Тестовый контрпример: для малых n Merkle-ответ может быть больше полного snapshot. **G3-B2-C NEXT:** фактические physical I/O, crypto/verification/prover стоимость и строгая проверка оригинальной совместной нижней границы; при отсутствии разделения — STOP_NOVELTY. Корень #105 ОТКРЫТ.

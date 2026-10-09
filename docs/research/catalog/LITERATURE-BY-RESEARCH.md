@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**257** работ сопоставлены с **38** внутренними исследованиями.
+**279** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -415,6 +415,28 @@
 - [LIT-256](LITERATURE.md#lit-256) — RAG Meets Temporal Graphs: Time-Sensitive Modeling and Retrieval for Evolving Knowledge (2025; primary_abstract_checked)
 - [LIT-257](LITERATURE.md#lit-257) — Evolving Beyond Snapshots: Harmonizing Structure and Sequence via Entity State Tuning for Temporal Knowledge Graph Forecasting (2026; publisher_abstract_checked)
 - [LIT-258](LITERATURE.md#lit-258) — Tight Lower Bounds for Central String Queries in Compressed Space (2026; publisher_abstract_checked)
+- [LIT-259](LITERATURE.md#lit-259) — Families of Tractable Problems with Respect to Vertex-Interval-Membership Width and Its Generalisations (2026; publisher_abstract_checked)
+- [LIT-260](LITERATURE.md#lit-260) — Complexity Gaps Between Point and Interval Temporal Graphs for Some Reachability Problems (2026; publisher_abstract_checked)
+- [LIT-261](LITERATURE.md#lit-261) — Broadcasts in Anonymous, Dynamic Networks: A New Algorithm and Impossibility Results (2026; publisher_abstract_checked)
+- [LIT-262](LITERATURE.md#lit-262) — Extending Ghouila-Houri’s Characterization of Comparability Graphs to Temporal Graphs (2026; publisher_abstract_checked)
+- [LIT-263](LITERATURE.md#lit-263) — FO and MSO Model Checking on Temporal Graphs (2026; publisher_abstract_checked)
+- [LIT-264](LITERATURE.md#lit-264) — Asymptotic Subspace Consensus in Dynamic Networks (2026; publisher_abstract_checked)
+- [LIT-265](LITERATURE.md#lit-265) — Robust Temporal Cut (2026; publisher_abstract_checked)
+- [LIT-266](LITERATURE.md#lit-266) — Designing Sparse Temporal Graphs Satisfying Connectivity Requirements (2026; publisher_abstract_checked)
+- [LIT-267](LITERATURE.md#lit-267) — On Sufficient Conditions for Short Journeys in Temporal Graphs (2026; publisher_abstract_checked)
+- [LIT-268](LITERATURE.md#lit-268) — Label Correcting Algorithms for the Multiobjective Temporal Shortest Path Problem (2026; publisher_abstract_checked)
+- [LIT-269](LITERATURE.md#lit-269) — Minimize the Sum of Waiting Times in Periodic Temporal Trees (2026; publisher_abstract_checked)
+- [LIT-270](LITERATURE.md#lit-270) — Maximizing Reachability via Shifting of Temporal Paths (2026; publisher_abstract_checked)
+- [LIT-271](LITERATURE.md#lit-271) — Dynamic Planar Graph Isomorphism Is in DynFO (2026; publisher_abstract_checked)
+- [LIT-272](LITERATURE.md#lit-272) — IA-RAG: Interval-Algebra-Driven Temporal Reasoning for Dynamic Knowledge Retrieval (2026; primary_abstract_checked)
+- [LIT-273](LITERATURE.md#lit-273) — DYNA : Dynamic Episodic Memory Networks for Augmenting Large Language Models with Temporal Knowledge Graphs in Continuous Learning (2026; primary_abstract_checked)
+- [LIT-274](LITERATURE.md#lit-274) — T-GRAG: A Dynamic GraphRAG Framework for Resolving Temporal Conflicts and Redundancy in Knowledge Retrieval (2025; primary_abstract_checked)
+- [LIT-275](LITERATURE.md#lit-275) — Graph-Anchored Knowledge Indexing for Retrieval-Augmented Generation (2026; primary_abstract_checked)
+- [LIT-276](LITERATURE.md#lit-276) — Can Knowledge-Graph-based Retrieval Augmented Generation Really Retrieve What You Need? (2025; primary_abstract_checked)
+- [LIT-277](LITERATURE.md#lit-277) — ActMem: Bridging the Gap Between Memory Retrieval and Reasoning in LLM Agents (2026; primary_abstract_checked)
+- [LIT-278](LITERATURE.md#lit-278) — Succinct Representations of Graphs (2025; publisher_abstract_checked)
+- [LIT-279](LITERATURE.md#lit-279) — A practical succinct dynamic graph representation (2022; publisher_abstract_checked)
+- [LIT-280](LITERATURE.md#lit-280) — Dynamic graph representation learning with disentangled information bottleneck (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -538,6 +560,19 @@
 - [LIT-254](LITERATURE.md#lit-254) — Correct-by-Construction Dynamic Reachability: A Galois-Connected Approach to Bidirected Dyck Languages (2026; publisher_abstract_checked)
 - [LIT-255](LITERATURE.md#lit-255) — In-memory Incremental Maintenance of Provenance Sketches (2026; publisher_abstract_checked)
 - [LIT-258](LITERATURE.md#lit-258) — Tight Lower Bounds for Central String Queries in Compressed Space (2026; publisher_abstract_checked)
+- [LIT-259](LITERATURE.md#lit-259) — Families of Tractable Problems with Respect to Vertex-Interval-Membership Width and Its Generalisations (2026; publisher_abstract_checked)
+- [LIT-260](LITERATURE.md#lit-260) — Complexity Gaps Between Point and Interval Temporal Graphs for Some Reachability Problems (2026; publisher_abstract_checked)
+- [LIT-261](LITERATURE.md#lit-261) — Broadcasts in Anonymous, Dynamic Networks: A New Algorithm and Impossibility Results (2026; publisher_abstract_checked)
+- [LIT-262](LITERATURE.md#lit-262) — Extending Ghouila-Houri’s Characterization of Comparability Graphs to Temporal Graphs (2026; publisher_abstract_checked)
+- [LIT-264](LITERATURE.md#lit-264) — Asymptotic Subspace Consensus in Dynamic Networks (2026; publisher_abstract_checked)
+- [LIT-265](LITERATURE.md#lit-265) — Robust Temporal Cut (2026; publisher_abstract_checked)
+- [LIT-266](LITERATURE.md#lit-266) — Designing Sparse Temporal Graphs Satisfying Connectivity Requirements (2026; publisher_abstract_checked)
+- [LIT-267](LITERATURE.md#lit-267) — On Sufficient Conditions for Short Journeys in Temporal Graphs (2026; publisher_abstract_checked)
+- [LIT-268](LITERATURE.md#lit-268) — Label Correcting Algorithms for the Multiobjective Temporal Shortest Path Problem (2026; publisher_abstract_checked)
+- [LIT-269](LITERATURE.md#lit-269) — Minimize the Sum of Waiting Times in Periodic Temporal Trees (2026; publisher_abstract_checked)
+- [LIT-270](LITERATURE.md#lit-270) — Maximizing Reachability via Shifting of Temporal Paths (2026; publisher_abstract_checked)
+- [LIT-278](LITERATURE.md#lit-278) — Succinct Representations of Graphs (2025; publisher_abstract_checked)
+- [LIT-279](LITERATURE.md#lit-279) — A practical succinct dynamic graph representation (2022; publisher_abstract_checked)
 
 ## ML-007
 
@@ -715,6 +750,15 @@
 - [LIT-251](LITERATURE.md#lit-251) — Injecting Structured Biomedical Knowledge into Language Models:Continual Pretraining vs. GraphRAG (2026; publisher_abstract_checked)
 - [LIT-256](LITERATURE.md#lit-256) — RAG Meets Temporal Graphs: Time-Sensitive Modeling and Retrieval for Evolving Knowledge (2025; primary_abstract_checked)
 - [LIT-257](LITERATURE.md#lit-257) — Evolving Beyond Snapshots: Harmonizing Structure and Sequence via Entity State Tuning for Temporal Knowledge Graph Forecasting (2026; publisher_abstract_checked)
+- [LIT-263](LITERATURE.md#lit-263) — FO and MSO Model Checking on Temporal Graphs (2026; publisher_abstract_checked)
+- [LIT-271](LITERATURE.md#lit-271) — Dynamic Planar Graph Isomorphism Is in DynFO (2026; publisher_abstract_checked)
+- [LIT-272](LITERATURE.md#lit-272) — IA-RAG: Interval-Algebra-Driven Temporal Reasoning for Dynamic Knowledge Retrieval (2026; primary_abstract_checked)
+- [LIT-273](LITERATURE.md#lit-273) — DYNA : Dynamic Episodic Memory Networks for Augmenting Large Language Models with Temporal Knowledge Graphs in Continuous Learning (2026; primary_abstract_checked)
+- [LIT-274](LITERATURE.md#lit-274) — T-GRAG: A Dynamic GraphRAG Framework for Resolving Temporal Conflicts and Redundancy in Knowledge Retrieval (2025; primary_abstract_checked)
+- [LIT-275](LITERATURE.md#lit-275) — Graph-Anchored Knowledge Indexing for Retrieval-Augmented Generation (2026; primary_abstract_checked)
+- [LIT-276](LITERATURE.md#lit-276) — Can Knowledge-Graph-based Retrieval Augmented Generation Really Retrieve What You Need? (2025; primary_abstract_checked)
+- [LIT-277](LITERATURE.md#lit-277) — ActMem: Bridging the Gap Between Memory Retrieval and Reasoning in LLM Agents (2026; primary_abstract_checked)
+- [LIT-280](LITERATURE.md#lit-280) — Dynamic graph representation learning with disentangled information bottleneck (2026; publisher_abstract_checked)
 
 ## OM-135
 
