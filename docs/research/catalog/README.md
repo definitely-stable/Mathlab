@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## UCT-002 eight new fundamental cross-domain source identities (2026-10-09)
+
+Eight deduplicated original papers **LIT-123..130** have been added to [canonical literature.json](literature.json), [forward](LITERATURE.md) and [reverse](LITERATURE-BY-RESEARCH.md) indexes. The canonical external corpus now contains **130** source identities. New fields cover 2014 locally-updatable codes, 2013 update-efficient coding, 2013/2014 annotated data streams, 2024 online Merlin–Arthur bounds, 2015 AM streaming, 2019 leakage-resilient non-malleable codes and Blackwell 1953. [Source/claim audit](../UCT-002-PRIMARY-SOURCE-AND-BRICKS.md), [master theorem](../UCT-002-MASTER-THEOREM.md), [issue #77](https://github.com/definitely-stable/Mathlab/issues/77). All new external evidence remains abstract/bibliography-level; `full_proof_verified=false` and `independent_reproduction=false`. Source-title pins and generated-index checks required in exact-head CI.
+
 ## UCT-001 cross-domain primary-source import (2026-10-08)
 
 Twelve new, deduplicated original publication identities **LIT-111..122** are imported with exact DOI/ECCC URLs, Russian model-level summaries, limitation statements, source-provenance paths, reverse links and explicit `full_proof_verified=false` into [canonical literature.json](literature.json), [forward](LITERATURE.md) and [reverse](LITERATURE-BY-RESEARCH.md) generated indexes. Source and model/novelty separation: [UCT-001 primary-source audit](../UCT-001-PRIMARY-SOURCES.md); [program](../UCT-001-PROGRAM.md), [issue #74](https://github.com/definitely-stable/Mathlab/issues/74). The corpus grows from 110 to **122** unique identities, but this is **not** twelve independently verified theorems. LIT-041 and LIT-100 already existed and are not duplicated. Exact-head GitHub-hosted CI acceptance remains mandatory.
