@@ -2,7 +2,7 @@
 
 ## UCT-005 G3-B1 — temporal trajectory packing theorem (2026-10-09)
 
-[Full restricted proof and temporal novelty check](UCT-005-G3-B1-TEMPORAL-TRAJECTORY-PACKING.md) · [2026 published authenticated-state paper](UCT-005-G3-B1-SOURCES.json) · [issue #175](https://github.com/definitely-stable/Mathlab/issues/175) · [finite oracle](../../research/test_uct005_g3b1_trajectory.py). Full-history error-correcting capacity: q=2, m=6, d=3, w=1, e=1 gives **113 vs 144** independent epoch bounds. PROVED RESTRICTED CLASSICAL, **original UCT-005 root OPEN**; no authenticated freshness or physical updater read bound.
+[Full restricted proof and temporal novelty check](UCT-005-G3-B1-TEMPORAL-TRAJECTORY-PACKING.md) · [2026 published authenticated-state paper](UCT-005-G3-B1-SOURCES.json) · [issue #175](https://github.com/definitely-stable/Mathlab/issues/175) · [finite oracle](../../research/test_uct005_g3b1_trajectory.py). Realizable e=1, p=3 trajectory model: q=2, m=7, d=3, w=3 gives **2784 vs 3072** independent epoch bounds; a threefold repetition code actually attains 8 histories on three accessed cells. PROVED RESTRICTED CLASSICAL, **original UCT-005 root OPEN**; no authenticated freshness or physical updater read bound.
 
 ## INDEX-001 G2-B3-B — deterministic online checkpoint and finite adversary (2026-10-09)
 
