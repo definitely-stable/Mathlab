@@ -1,0 +1,201 @@
+{
+  "schema": "mathlab.uct002.theorem-bricks.v1",
+  "as_of": "2026-10-09",
+  "policy": "An edge is a typed mathematical relationship, never an assertion that the target publication is new. SPECIAL_CASE and PROOF_INGREDIENT require explicitly scoped proof; OPEN_REDUCTION is unresolved; ANALOGY_ONLY is never used as a theorem implication.",
+  "nodes": [
+    {
+      "id": "MASTER-A",
+      "tier": "DERIVED_CLASSICAL",
+      "source": "docs/research/UCT-002-MASTER-THEOREM.md",
+      "summary": "Exact multiresource observation capacity V_q*2^b*s^P"
+    },
+    {
+      "id": "MASTER-B",
+      "tier": "DERIVED_CLASSICAL",
+      "source": "docs/research/UCT-002-MASTER-THEOREM.md",
+      "summary": "Uniform-representative randomized Fano converse under fixed query suite"
+    },
+    {
+      "id": "FRONTIER-C",
+      "tier": "CONJECTURE",
+      "source": "docs/research/UCT-002-MASTER-THEOREM.md",
+      "summary": "Nonfactorizing resource theorem for named online dynamic task"
+    },
+    {
+      "id": "UCT001",
+      "tier": "DERIVED_CLASSICAL",
+      "source": "docs/research/UCT-001-MODEL-AND-BASELINE.md",
+      "summary": "Reachable Hamming ball graph bound and embedding obstruction"
+    },
+    {
+      "id": "LENT",
+      "tier": "DERIVED_CLASSICAL",
+      "source": "docs/research/LENT-001-FOUNDATION.md",
+      "summary": "Sparse additive exact set sketch capacity"
+    },
+    {
+      "id": "TOM003",
+      "tier": "DERIVED_CLASSICAL",
+      "source": "docs/research/TOM-003-TRUST-BOUNDARY-PROTOCOL.md",
+      "summary": "Future-trace distinguishability and untrusted old-state boundary"
+    },
+    {
+      "id": "HYP103",
+      "tier": "DERIVED_CLASSICAL",
+      "source": "docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md",
+      "summary": "Exact pointwise probe certificate as hitting set"
+    },
+    {
+      "id": "TOM005",
+      "tier": "DERIVED_CLASSICAL",
+      "source": "docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md",
+      "summary": "Seven frozen cost and consistency lemmas"
+    },
+    {
+      "id": "UCT003",
+      "tier": "DERIVED_CLASSICAL",
+      "source": "docs/research/UCT-003-FIXED-Q-IMPOSSIBILITY.md",
+      "summary": "Fixed finite qgram summaries give arbitrarily weak patch-cost floors"
+    },
+    {
+      "id": "DELTAMETER",
+      "tier": "MODEL_SPECIFIC",
+      "source": "https://github.com/definitely-stable/deltameter",
+      "summary": "Finite-sample exact vs asymptotic and adaptivity guarantees"
+    },
+    {
+      "id": "LULDC",
+      "tier": "EXTERNAL_SOURCE",
+      "source": "https://doi.org/10.1007/978-3-642-54242-8_21",
+      "summary": "Local writes and noisy local reads already studied"
+    },
+    {
+      "id": "ANNOTATED",
+      "tier": "EXTERNAL_SOURCE",
+      "source": "https://doi.org/10.1145/2636924",
+      "summary": "Untrusted streamed annotation and verifier-space tradeoffs"
+    },
+    {
+      "id": "OMA2024",
+      "tier": "EXTERNAL_SOURCE",
+      "source": "https://doi.org/10.4230/LIPIcs.ITCS.2024.53",
+      "summary": "Merlin-Arthur streaming lower bounds; non-trivial annotation can hurt"
+    },
+    {
+      "id": "FANO",
+      "tier": "CLASSICAL_INFORMATION_THEORY",
+      "source": "https://ocw.mit.edu/courses/6-441-information-theory-spring-2010/pages/lecture-notes/",
+      "summary": "Mutual information vs average decoding error"
+    },
+    {
+      "id": "BLACKWELL",
+      "tier": "CLASSICAL_INFORMATION_THEORY",
+      "source": "https://doi.org/10.1214/aoms/1177729032",
+      "summary": "Relative informativeness of statistical experiments"
+    },
+    {
+      "id": "KO2026",
+      "tier": "EXTERNAL_SOURCE",
+      "source": "docs/research/UCT-001-G1-2026-DYNAMIC-LOWER-BOUND-AUDIT.md",
+      "summary": "2026 cell-probe Multiphase result and communication proof technique"
+    }
+  ],
+  "edges": [
+    {
+      "from": "UCT001",
+      "to": "MASTER-A",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Use same directed G and q-ary code, with external transcript accounting separately."
+    },
+    {
+      "from": "MASTER-A",
+      "to": "LENT",
+      "kind": "SPECIAL_CASE",
+      "condition": "Set b=P=0, O=identity, x0=empty subset, insertion paths, sparse additive phi."
+    },
+    {
+      "from": "MASTER-A",
+      "to": "MASTER-B",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Bound outcome entropy, condition independent public decoder coins, apply Fano."
+    },
+    {
+      "from": "FANO",
+      "to": "MASTER-B",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Uniform representative in fixed distinguishable query-suite; finite joint error."
+    },
+    {
+      "from": "TOM003",
+      "to": "FRONTIER-C",
+      "kind": "OPEN_REDUCTION",
+      "condition": "Future-trace equivalence must be an honest service observable and old-state reads charged."
+    },
+    {
+      "from": "HYP103",
+      "to": "FRONTIER-C",
+      "kind": "OPEN_REDUCTION",
+      "condition": "Pointwise certificate/hitting-set beyond shared transcript cardinality; full prover and verifier costs."
+    },
+    {
+      "from": "TOM005",
+      "to": "FRONTIER-C",
+      "kind": "OPEN_REDUCTION",
+      "condition": "Map independent cost lemmas to exact same objective without double-counting."
+    },
+    {
+      "from": "UCT003",
+      "to": "FRONTIER-C",
+      "kind": "FALSIFIER",
+      "condition": "No uniform patch-cost sharpness follows from bounded qgram presence alone."
+    },
+    {
+      "from": "DELTAMETER",
+      "to": "MASTER-B",
+      "kind": "ANALOGY_ONLY",
+      "condition": "Estimator risk, one-sided finite sample, adaptive attacks differ from uniform-message decoding."
+    },
+    {
+      "from": "LULDC",
+      "to": "FRONTIER-C",
+      "kind": "PRIOR_ART_BARRIER",
+      "condition": "Any novelty must be stronger than known simultaneous read/write local coding bounds."
+    },
+    {
+      "from": "ANNOTATED",
+      "to": "FRONTIER-C",
+      "kind": "PRIOR_ART_BARRIER",
+      "condition": "Untrusted helper requires MA soundness, streaming order, and verification-space constraints."
+    },
+    {
+      "from": "OMA2024",
+      "to": "FRONTIER-C",
+      "kind": "PRIOR_ART_BARRIER",
+      "condition": "Non-trivial online MA proofs can be far worse than trivial protocols."
+    },
+    {
+      "from": "BLACKWELL",
+      "to": "FRONTIER-C",
+      "kind": "OPEN_REDUCTION",
+      "condition": "Establish information garbling kernel; do not assume oracle/probe cost monotonicity."
+    },
+    {
+      "from": "KO2026",
+      "to": "FRONTIER-C",
+      "kind": "PRIOR_ART_BARRIER",
+      "condition": "Multiphase update/query joint lower bounds already known; communication verification is not a Merkle proof."
+    },
+    {
+      "from": "MASTER-A",
+      "to": "FRONTIER-C",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Must strengthen product bound by an unbounded nonfactorizing deficit on a named task family."
+    },
+    {
+      "from": "MASTER-B",
+      "to": "FRONTIER-C",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Only a well-typed error/adversary model may justify statistical relaxation."
+    }
+  ]
+}
