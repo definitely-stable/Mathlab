@@ -8,7 +8,7 @@ Binary map f on N cells, 1 <= N < 2^63, last-write-wins nonempty range assignmen
 
 Six modes: U0/U1 represent constant vectors with zero payload; S0/S1 store a default bit, an encoded count and strictly increasing positions of exceptions; R stores maximal alternating-value runs using positive varint lengths; B stores N raw bits in ceil(N/8) bytes. Each candidate pays full metadata, CRC, physical page alignment and unused tail. D=B*ceil((header+payload+CRC)/B). The comparison against canonical full IXR1 uses D(f)<=floor(alpha*S_IXR1(f))+beta*B.
 
-All mode-policy comparisons use the SAME full-CRC verified query service, priced at Q=D/B page reads, not unsafe prefix reading for one option. Finite offline mode selection minimizes changed same-offset page images plus retired trailing pages; all added pages are already counted among changed images.
+All mode-policy comparisons use the SAME *abstract one-pass full-CRC-and-decode* query service, priced at Q=D/B page reads; such a cursor can stream bytes, retain the requested value in fixed registers and return it only after CRC validation. The Python test reference currently performs check() and scan() separately and may transfer a page twice, so Q=D/B is NOT the measured read count of that helper. It is a declared attainable scanner benchmark, not observed hardware I/O. Finite offline mode selection minimizes changed same-offset page images plus retired trailing pages; all added pages are already counted among changed images.
 
 ## G1: Streaming implementation and its limits
 
