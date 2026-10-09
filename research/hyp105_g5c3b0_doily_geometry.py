@@ -127,6 +127,36 @@ def enumerate_synthemes_directly():
     return tuple(sorted(matches))
 
 
+def full_duad_disjointness_parameter_gate(order):
+    """Necessary invariants for a FULL K_a-duad disjointness representation.
+
+    If all V points of GQ(s,s) are exactly all C(a,2) duads and point
+    collinearity iff their duads are disjoint, require BOTH
+      C(a,2) = (s+1)(s^2+1)
+      C(a-2,2) = s(s+1).
+    Subtracting gives 2*a-3 = s^3+1, so 2*a=s^3+4.
+    This is an elementary obstruction to this EXACT model only, not to
+    embedding into a SUBSET of duads or arbitrary pair-label schemes.
+    """
+    if not isinstance(order, int) or order < 2:
+        raise ValueError("integer generalized-quadrangle order >=2")
+    s = order
+    points = (s + 1) * (s*s + 1)
+    degree = s * (s + 1)
+    twice_a = s**3 + 4
+    if twice_a & 1:
+        return {"s": s, "points": points, "degree": degree,
+                "implied_a": None, "exact_full_duad_model": False}
+    a = twice_a // 2
+    duads = a * (a - 1) // 2
+    disjoint_degree = (a - 2) * (a - 3) // 2
+    return {"s": s, "points": points, "degree": degree,
+            "implied_a": a, "duads": duads,
+            "duad_disjoint_degree": disjoint_degree,
+            "exact_full_duad_model": (duads == points
+                                       and disjoint_degree == degree)}
+
+
 def certified_doily_report(rounds=4, probes=8):
     obj = doily_dual_recovery()
     point_labels, line_labels = obj["point_labels"], obj["line_labels"]
