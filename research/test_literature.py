@@ -20,7 +20,7 @@ class LiteratureTests(unittest.TestCase):
         self.assertEqual(len(entries), 205)
         self.assertEqual(len({e["identity"].lower() for e in entries}), 205)
         self.assertEqual(len({e["id"] for e in entries}), 205)
-        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 205)},
+        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 206)},
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 15)
 
