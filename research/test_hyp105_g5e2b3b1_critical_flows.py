@@ -79,6 +79,10 @@ class CriticalSixFlowTests(unittest.TestCase):
         for q in (2, 4, 8, 16):
             result = proved_matching_r3_lower(q)
             self.assertGreater(result["factor_matchings_lower"], 0)
+            self.assertEqual(result["coincident_labeled_C6_types"], 60)
+            self.assertEqual(result["proved_expected_R3_lower"] * 51**6,
+                             result["expected_coincident_C6_matching_lower"])
+            self.assertIn("D_s/51^6", result["fixed_label_obstruction"])
             self.assertGreater(result["proved_expected_R3_lower"], 0)
             self.assertLessEqual(result["designated_C6_probability_each_half"], 1)
             self.assertFalse(result["universal_individual_label_lower"])
