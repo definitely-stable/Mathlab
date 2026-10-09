@@ -660,6 +660,56 @@
       ],
       "reopen_only_if": "A structural or growing-scale certificate with honestly charged preprocessing, new tightness theorem and source-specific prior-art comparison.",
       "primary_sources": []
+    },
+    {
+      "id": "KR-045",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Deterministic adaptive query influence implies read-write transversal",
+      "scope": "For exact deterministic bit-probe queries over a charged code, changed observable answers on edge (x,y) imply a changed code cell on each old-state adaptive read path; write support has size at least the read-path transversal number.",
+      "do_not_repeat": "Elementary indistinguishable-transcript and hitting-set lemma. Not a new cryptographic soundness theorem or an original general cell-probe lower bound.",
+      "authority": [
+        "docs/research/UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md",
+        "docs/research/UCT-003-G1-SOURCE-AND-GAP-AUDIT.md"
+      ],
+      "reopen_only_if": "A stronger quantified multi-probe update/proof bound in a fully charged natural task that surpasses Fredman-Saks and other same-model source results.",
+      "primary_sources": [
+        "https://doi.org/10.1145/73007.73040",
+        "https://doi.org/10.1016/j.tcs.2007.02.058"
+      ]
+    },
+    {
+      "id": "KR-046",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Exact single-bit-probe Boolean read-write frontier for prefix parity",
+      "scope": "For c distinct nonconstant Boolean query functions modulo complement, exact one-bit probe needs at least c stored cells and each update rewrites >=changed function classes; for n prefix XOR queries, m>=n,w>=n, both sharp.",
+      "do_not_repeat": "Elementary one-probe representation-class argument; does not imply a new p>=2 lower bound, signed certificate theorem or universal w*p>=n; Fenwick refutes the last claim.",
+      "authority": [
+        "docs/research/UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md"
+      ],
+      "reopen_only_if": "Prove a nontrivial same-model multi-probe plus sound-annotation frontier beyond classical partial sums bounds with finite adversarial oracle and construction.",
+      "primary_sources": [
+        "https://doi.org/10.1137/S0097539705447256",
+        "https://doi.org/10.1016/j.tcs.2007.02.058"
+      ]
+    },
+    {
+      "id": "KR-047",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Unit-write rigidity of complete hypercube encodings and deterministic query depth",
+      "scope": "Any injective exact binary encoding of all n-bit coordinate-toggle states with at most one changed memory coordinate per toggle is a fixed coordinate injection plus offset; bit-query depth at least original decision-tree depth; for full prefix parity p>=n.",
+      "do_not_repeat": "Classical full-hypercube graph embedding rigidity. Do not claim that every local-write code is systematic or that p>=n when w>1; Fenwick avoids the one-write assumption.",
+      "authority": [
+        "docs/research/UCT-003-G1-ADAPTIVE-INFLUENCE-THEOREM.md",
+        "docs/research/UCT-003-G1-SOURCE-AND-GAP-AUDIT.md"
+      ],
+      "reopen_only_if": "A verified nontrivial upper/lower multi-probe joint tradeoff with fully charged history and sound proofs that is not a special case of published dynamic partial sums bounds.",
+      "primary_sources": [
+        "https://doi.org/10.1016/0095-8956(75)90067-2",
+        "https://doi.org/10.1016/j.tcs.2007.02.058"
+      ]
     }
   ]
 }
