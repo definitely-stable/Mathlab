@@ -1,5 +1,15 @@
 # Research catalog — provenance-first index
 
+## IMPORT-005 — dynamic algebra, immutable DAG and online theory 2025–2026
+
+[12 publisher-checked sources, exact mathematical models and five falsification lanes](../RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) · [issue #124](https://github.com/definitely-stable/Mathlab/issues/124). **LIT-187..198** allocated after INDEX-001 G2-A LIT-183..186. Original lower bounds/constructions are treated as prior art, not Mathlab theorem discoveries; no paper full-proof replication.
+
+
+## INDEX-001 G2-A — four previously missing current compaction/bitvector studies
+
+[Publisher-source audit and nontransfer boundaries](../INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) and [issue #121](https://github.com/definitely-stable/Mathlab/issues/121). LIT-183 Navarro's distinct 2025 worst-case optimality, LIT-184 C2LSM 2026, LIT-185 ArceKV 2026, LIT-186 RangeReduce 2026. SPIRE 2024 is a preliminary version of theoretical LIT-183 (not practical LIT-180), so its DOI is an alternate identity of LIT-183; both 2025 journal studies retain separate canonical IDs. Full corpus **186**, primary abstracts checked not full proofs; earlier 182 exact IDs retained.
+
+
 ## INDEX-001 G0/G1 — interval indexing, buffered I/O and dynamic succinct barriers (2026-10-09)
 
 [Six publisher/author identity-audited new works, scoped conditions and original mathematical setup](../INDEX-001-G0-RANGE-MAP-FOUNDATION.md) · [issue #117](https://github.com/definitely-stable/Mathlab/issues/117). Imported **LIT-177..182** into canonical 182-source library, regenerated forward/reverse links, validated all 176 historical records retained. Sources: Arge–Vitter 2003, Verbin–Zhang 2013, Li–Liang–Yu–Zhou FOCS 2023, Navarro 2025, Blelloch et al. 2026, Moose/Smoose 2024. Distinguish latest-write-wins range updates from interval stabbing, cell probes from physical writes, and original publisher abstracts from independently checked proofs. **No new original theorem, lower bound, Rust engine or reproducible published performance claim.**
@@ -141,7 +151,7 @@ Maintenance: [RESEARCH-INDEX-003 issue #30](https://github.com/definitely-stable
 
 ## External primary literature (RESEARCH-LITERATURE-001/002/003/003B)
 
-- [LITERATURE.md](LITERATURE.md): 176 curated DOI/arXiv/official publisher primary works with summaries, model restrictions, research relationships and commit-pinned citation provenance.
+- [LITERATURE.md](LITERATURE.md): 198 curated DOI/arXiv/official publisher primary works with summaries, model restrictions, research relationships and commit-pinned citation provenance.
 - [LITERATURE-BY-RESEARCH.md](LITERATURE-BY-RESEARCH.md): reverse navigation from existing ML/DL/DM/OM research IDs to papers.
 - [LITERATURE-001-AUDIT.md](LITERATURE-001-AUDIT.md): selection, direct prior-art impact, mismatched models and decisions.
 - [LITERATURE-002-SOURCE-AUDIT.md](LITERATURE-002-SOURCE-AUDIT.md): verified source corrections, 17 new papers, citation-model barriers and next targets.
@@ -149,5 +159,5 @@ Maintenance: [RESEARCH-INDEX-003 issue #30](https://github.com/definitely-stable
 - [RESEARCH-LITERATURE-003B addendum](../RESEARCH-LITERATURE-003B-2026-STOC-ICALP-EUROSYS.md): 26 additional STOC, ICALP and EuroSys publications, no duplicates with LIT-050–069, full provenance scope and priorities.
 - [literature.json](literature.json): normative external-work IDs. Run `python research/literature.py --write`, then `--check` before merging.
 
-This bibliography is a **separate work-entity type**: internal research registry entries stay 61, external literature adds 176 works and no novel theorem/benchmark is asserted.
+This bibliography is a **separate work-entity type**: internal research registry entries stay 61, external literature adds 198 works and no novel theorem/benchmark is asserted.
 
