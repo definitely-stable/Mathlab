@@ -190,8 +190,9 @@ def plucker_shift_model(power,scheme="plucker-lex-mincollision"):
         "maximum_proved_minshift_pair_equalities":
             ranked["maximum_all_h_minimizer_equalities"],
         "no_incidence_aligned_perfect_matching":
-            ranked["proves_no_incidence_perfect_pair_alignment"]
-            if scheme.endswith("-mincollision") else False,
+            ranked["proves_no_incidence_perfect_pair_alignment"],
+        "all_h_nonalignment_theorem_proved":
+            scheme.endswith("-mincollision"),
         "all_h_injection_definition_proved":True,
         "all_h_R2_bound_proved":False,
         "all_h_R3_upper_bound_proved":False,
