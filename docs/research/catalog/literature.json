@@ -4166,7 +4166,7 @@
         "ML-004",
         "ML-006"
       ],
-      "verification": "author_preprint_abstract_checked",
+      "verification": "primary_abstract_checked",
       "mentioned_in": [
         {
           "repo": "MATHLAB",
