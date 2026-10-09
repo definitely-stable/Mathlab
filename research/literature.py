@@ -92,6 +92,10 @@ SOURCE_TITLE_PINS = {
     "doi:10.1016/0095-8956(75)90067-2": "On cubical graphs",
     "doi:10.1016/S0019-9958(85)80012-7": "The complexity of cubical graphs",
     "doi:10.1016/0895-7177(88)90486-4": "Embeddings in hypercubes",
+    "doi:10.1137/1.9781611975031.99": "Optimal Dynamic Strings",
+    "doi:10.1016/j.tcs.2026.115746": "A textbook solution for dynamic strings",
+    "publisher:c2sp:blake3-v1-0-0": "The BLAKE3 Hashing Framework (C2SP v1.0.0)",
+    "doi:10.1007/s00224-026-10266-x": "Logarithmic-Time Internal Pattern Matching Queries in Compressed and Dynamic Texts",
 }
 
 
