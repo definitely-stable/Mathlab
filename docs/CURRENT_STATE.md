@@ -1,5 +1,9 @@
 # CURRENT_STATE
 
+## HYP-105 G2 — classical quadratic numerator, denominator still open (2026-10-09)
+
+[HYP-105-G2-GRID-FREE-QUADRATIC.md](research/HYP-105-G2-GRID-FREE-QUADRATIC.md) gives a self-contained equivalence: a **linear 3-uniform** hypergraph's unit-incidence vectors have exact subset sums through 3 over a field of **characteristic≥5** iff it has no 3×3 grid. Gishboliner–Shapira (2022) already constructed grid-free linear 3-graphs with Omega(m²) edges, so for such fields `A_set(q,m,3,3)=Theta_q(m²)` by the older HYP-002-B upper. GF(3) counterexample prevents unrestricted field transfer. Independent `research/test_hyp105_grid.py` checks all 4096 subfamilies of AG(2,3), grid signatures, characteristic-three wrap. The **six-wise-independent denominator remains open**: no superconstant ratio proof and no new originality claim. New LIT-137..140 raise source index to **140 unique**. Merge only after exact-head hosted CI and review; no Rust/production.
+
 ## HYP-105 G1 — graph-girth asymptotic closure (2026-10-09)
 
 [HYP-105-G1-W2D3-GIRTH8.md](research/HYP-105-G1-W2D3-GIRTH8.md) proves A_set(q,m,2,d)=O_{q,d}(m^(1+1/d)) by finite-coefficient bipartite colored reduction and Moore girth counting, and A_set(q,m,2,3)=A_lin(q,m,2,6)=Theta_q(m^(4/3)) from generalized-quadrangle girth-8 incidence graphs for **all fixed fields q**. This is a **DERIVED_CLASSICAL** result, not a newly discovered exponent or proof of overall HYP-105. [Finite tests](../research/test_hyp105_girth.py) independently build 30-vertex/45-edge W(3,2), girth 8, and check every subset of ≤3 edges modulo GF(2)/GF(5). Old 134 papers retained; new LIT-135..136 total **136**. Issue [#80](https://github.com/definitely-stable/Mathlab/issues/80); branch acceptance awaits exact-head CI and review.
