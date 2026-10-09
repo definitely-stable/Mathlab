@@ -4,7 +4,8 @@ from itertools import combinations
 
 from hyp105_g5c3b0_doily_geometry import (
     adjacency_from_triples, certified_doily_report, doily_dual_recovery,
-    enumerate_synthemes_directly, recover_duads
+    enumerate_synthemes_directly, recover_duads,
+    full_duad_disjointness_parameter_gate
 )
 from hyp105_g5c3_label_search import (
     PAIRS, fast_minimal_conflicts, vectors_for_labels, certified_result
@@ -94,6 +95,25 @@ class G5C3B0ExactDoilyTests(unittest.TestCase):
         self.assertLessEqual(final_score, initial_score)
         self.assertGreaterEqual(one["geometry_aset"], 1)
         self.assertGreaterEqual(one["bounded_improved_aset"], 1)
+
+    def test_full_duad_disjointness_transfer_has_parameter_obstruction(self):
+        # Fully labeled K_a-duad disjointness graph models W(3,2), but
+        # cannot model GQ(s,s) for any other prime-power order s>=3.
+        example = full_duad_disjointness_parameter_gate(2)
+        self.assertEqual((example["points"], example["degree"],
+                          example["implied_a"], example["duads"],
+                          example["duad_disjoint_degree"]),
+                         (15, 6, 6, 15, 6))
+        self.assertTrue(example["exact_full_duad_model"])
+        for order in (3, 4, 5, 8, 16, 32, 64):
+            result = full_duad_disjointness_parameter_gate(order)
+            self.assertFalse(result["exact_full_duad_model"], order)
+            if order & 1:
+                self.assertIsNone(result["implied_a"])
+            else:
+                self.assertGreater(result["duads"], result["points"])
+        with self.assertRaises(ValueError):
+            full_duad_disjointness_parameter_gate(1)
 
     def test_corruption_rejected_not_a_generic_graph_coding_model(self):
         with self.assertRaises(ValueError):
