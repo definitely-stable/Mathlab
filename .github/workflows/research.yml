@@ -96,6 +96,9 @@ jobs:
       - name: HYP-105 E2-B3.3 incidence-matched aligned-label no-go exact report
         run: python research/hyp105_g5e2b3b3_incidence_nogo.py
 
+      - name: HYP-105 E2-B3.2-C Pluecker nonaligned labels and exact GF2/GF4 D_s
+        run: python research/hyp105_g5e2b3c_plucker_shift.py
+
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
