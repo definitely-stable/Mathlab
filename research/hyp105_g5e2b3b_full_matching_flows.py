@@ -204,6 +204,7 @@ def exhaustive_matching_census():
     exponent. Algebraic checksum solution counts are integers.
     """
     signed=Counter()
+    weighted=Counter()
     representatives=Counter()
     representative_examples={}
     minpositive=None
@@ -213,6 +214,7 @@ def exhaustive_matching_census():
         status="positive" if flow>0 else "zero"
         key=(len(left),len(right),status)
         signed[key]+=mass
+        weighted[(len(left),len(right))]+=flow*mass
         representatives[key]+=1
         if key not in representative_examples:
             representative_examples[key]=(left,right,flow)
@@ -227,6 +229,8 @@ def exhaustive_matching_census():
         raise AssertionError("zero-flow cases must all be known 6+6")
     if minpositive!=4806 or maxpositive!=135001:
         raise AssertionError("GF5 flow coefficient extremum regression")
+    if weighted[(6,6)]!=259890480 or weighted[(5,5)]!=80573932980:
+        raise AssertionError("matching expectation leading coefficients")
     return {
         "model":"six factor-disjoint GQ incidences, two injective pair labels, full GF5 checksum4",
         "projection_types_total":len(projection_types()),
@@ -237,6 +241,8 @@ def exhaustive_matching_census():
         "signed_color_preserving_orbits":sum(representatives.values()),
         "labeled_signed_by_vleft_vright_status":{
             f"{a}/{b}/{status}":n for (a,b,status),n in sorted(signed.items())},
+        "full_GF5_weighted_numerator_by_vleft_vright":{
+            f"{a}/{b}":n for (a,b),n in sorted(weighted.items())},
         "orbit_count_by_vleft_vright_status":{
             f"{a}/{b}/{status}":n for (a,b,status),n in sorted(representatives.items())},
         "positive_labeled_signed_templates":sum(
@@ -253,6 +259,62 @@ def exhaustive_matching_census():
         "all_6_factor_matching_leafless_cases_classified":True,
         "all_11663_factor_forest_shapes_classified":False,
         "fixed_label_full_R3_upper_proved":False,
+        "new_ASET_exponent_proved":False,
+    }
+
+
+def all_h_random_matching_r3(s):
+    """Exact expectation = M6(G_s) times EXPLICIT full-coefficient polynomial.
+
+    Let M6(G_s) be the TRUE number of unordered original six-edge
+    matchings, not the greedy lower. For EACH named matching, an ordered
+    injection of six factor-side endpoints into K distinct physical
+    pairs is uniform across (K)_6. A canonical v-coordinate profile
+    has exactly (a)_v realizations: its distinct coordinate masks
+    uniquely label each physical coordinate, so no v! divisor.
+    Therefore for ANY s=2^h:
+      E[R3_matching] = M6(G_s)/(51^6*(K)_6^2)
+         * sum_{v,w=4..6} C_vw*(a)_v*(a)_w.
+    This is an identity for independent uniform factor-side injections,
+    NOT the whole R3 and NOT a deterministic bound on any particular
+    labeling. Upper/lower greedy M6 bounds only bracket the identity.
+    """
+    from fractions import Fraction
+    from math import comb
+    from hyp105_g5e2b3_forests import falling
+    if not isinstance(s,int) or s<2 or s&(s-1):
+        raise ValueError("only orders s=2^h,h>=1")
+    V=(s+1)*(s*s+1)
+    N=V*(s+1)
+    degree=s+1
+    a=2
+    while comb(a,2)<V:
+        a+=1
+    K=comb(a,2)
+    coef=exhaustive_matching_census()[
+        "full_GF5_weighted_numerator_by_vleft_vright"]
+    polynomial=sum(value*falling(a,int(key.split("/")[0]))*
+                   falling(a,int(key.split("/")[1]))
+                   for key,value in coef.items())
+    den=51**6*falling(K,6)**2
+    lower=Fraction(1)
+    for j in range(6):
+        lower*=Fraction(N-2*j*degree,j+1)
+    upper=Fraction(falling(N,6),720)
+    if lower<=0 or lower>upper:
+        raise AssertionError("invalid GQ matching bounds")
+    value=Fraction(polynomial,den)
+    return {
+        "s":s,"a":a,"K":K,"N":N,
+        "full_GF5_matching_polynomial":polynomial,
+        "per_factor_matching_exact_expected_R3":str(value),
+        "exact_expected_R3_matching":"M6(W(3,s)) * polynomial/(51^6*(K)_6^2)",
+        "M6_factor_matchings_greedy_lower":str(lower),
+        "M6_factor_matchings_trivial_upper":str(upper),
+        "expected_R3_matching_lower":str(lower*value),
+        "expected_R3_matching_upper":str(upper*value),
+        "asymptotic":"Theta(s^6) for THIS matching contribution under independent uniform injections",
+        "full_family_R3_mathematical_identity":False,
         "new_ASET_exponent_proved":False,
     }
 
