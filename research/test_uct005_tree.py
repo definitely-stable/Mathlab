@@ -51,6 +51,20 @@ class Uct005TreeTests(unittest.TestCase):
                 self.assertTrue((REPO / source).is_file(), f"missing source: {source}")
         self.assertEqual(next(n for n in nodes if n["id"] == "UCT005")["status"], "OPEN_UNPROVED")
 
+    def test_g3a_is_foundational_not_promoted_to_original_root(self):
+        d = self.data
+        nodes = {n["id"]: n for n in d["nodes"]}
+        self.assertEqual(nodes["UCT005G3A"]["kind"], "theorem_brick")
+        self.assertIn("CLASSICAL", nodes["UCT005G3A"]["status"])
+        self.assertIn("OPEN", nodes["UCT005G3B"]["status"])
+        self.assertEqual(d["root_novelty"], "OPEN_UNPROVED")
+        self.assertIn({"parent": "GEOMETRY", "child": "UCT005G3A",
+                       "relation": "RESTRICTED_CLASSICAL_SPECIALIZATION_NOT_ROOT_PROOF"},
+                      d["edges"])
+        self.assertIn({"parent": "UCT005G3A", "child": "UCT005G3B",
+                       "relation": "NOVELTY_PROBLEM_NOT_PROOF_IMPLICATION"},
+                      d["edges"])
+
     def test_no_unsound_logical_arrows(self):
         relations = {e["relation"] for e in self.data["edges"]}
         self.assertIn("THREAT_MODEL_NONTRANSFER", relations)

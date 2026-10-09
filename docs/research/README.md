@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## UCT-005 G3-A — одна общая математическая конструкция (2026-10-09)
+
+[**Robust Observable-State Reachability: формальная общая теорема, 3 точные специализации и проверяемая карта связей Mathlab**](UCT-005-G3-A-ROBUST-OBSERVABLE-STATE-THEOREM.md) · [корневая UCT-005 #105](https://github.com/definitely-stable/Mathlab/issues/105) · [G3 #164](https://github.com/definitely-stable/Mathlab/issues/164) · [независимые тесты](../../research/test_uct005_g3_robust.py). Joint dynamic state/update graph, trusted label H, remote q-ary Hamming locality d*w, t adaptive p-probe exact queries and e corrupted symbols: **K ≤ 2^H max_{s≤M} floor(V_q(s,dw+e)/V_q(s,e))**, **M=min(m,tΣ_{i<p}q^i)**. Sparse GF(q) counterpart = exclusion of signed *near trades* of syndrome weight ≤2e; temporal influence adds typed UCT-003 transversal. **SELF-CONTAINED_PROVED_CLASSICAL / ROOT ORIGINAL NOVELTY OPEN / NO RUST**; remote adversarial corruption ≠ cryptographic proof soundness.
+
+
 ## DAG-002 × ALG-001 G1-B — conditional adaptive-probe/write frontier and maintained GF(2) syndrome (2026-10-09)
 
 [**Conditional joint H/B+G, P, W, c, N bound and its known coding limits**](DAG-002-ALG-001-G1-B-ADAPTIVE-DECISION-TREES.md) · [G1 #140](https://github.com/definitely-stable/Mathlab/issues/140) · [G1-B #157](https://github.com/definitely-stable/Mathlab/issues/157) · [independent exhaustive oracles](../../research/test_dag002_g1b_adaptive.py). Fixed prior physical history and K distinct successor answer vectors require `K ≤ 2^H V_c(M,W)`, `M=min(N,n Σ_{d=0}^{P−1}2^{cd})`; **elementary classical-style decision-tree counting**, NOT new UCT-005 proof. P=1 impossible in n=2,H=0,N=3,W=1, while classical Hamming parity-check syndrome admits P=2, one remote update read and one write per nonzero DELTA, all online histories. Target updates require additional charged reads. No cryptography, physical page bytes, novelty or Rust; G1-C remains OPEN.
