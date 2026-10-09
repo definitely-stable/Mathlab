@@ -12,7 +12,7 @@ import zlib
 from index001_variable_checkpoint import (
     encode_snapshot, decode_snapshot, parse_uvarint, uvarint,
 )
-from index001_page_recourse import page_difference, lookup_page_probe
+from index001_page_recourse import page_difference, _prefix_lookup
 from index001_priced_wal import assign, pages
 
 
@@ -134,24 +134,33 @@ def decode_image(image, block=32):
 
 
 def lookup_cost(view, pos, mode="disk"):
-    values=view["state"];n=len(values)
-    if type(pos) is not int or not 0<=pos<n or mode not in ("disk","mirrored"):
+    """Parse the *persisted bytes*, not the dense oracle state.
+
+    Mirrored mode models a full exact directory cached in RAM after preload,
+    but no pre-decoded RAM index is assumed. The segment prefix is unverified.
+    """
+    if mode not in ("disk","mirrored") or type(pos) is not int:
         raise ValueError("invalid query")
-    lo=0
-    for hi in view["ends"]:
-        if pos<hi:
-            part=values[lo:hi]
-            probe=lookup_page_probe("packed",part,pos-lo,min(8,len(part)),
-                                    view["disk_bytes"]//(view["directory_pages"]+
-                                    view["payload_pages"]))
-            prefix=len(probe["page_indices"])
-            return {"value":probe["value"],"warm_pages":prefix if mode=="mirrored" else
-                    view["directory_pages"]+prefix,
-                    "cold_pages":view["directory_pages"]+prefix,
-                    "crc_verified_pages":view["directory_pages"]+
-                       view["segment_pages"][view["ends"].index(hi)]}
-        lo=hi
-    raise AssertionError("unreachable")
+    pages_total=view["directory_pages"]+view["payload_pages"]
+    B=view["disk_bytes"]//pages_total
+    directory=read_directory(view["image"],B)
+    if not 0<=pos<directory["n"]:
+        raise ValueError("point out of bounds")
+    cellstart=0
+    offset=directory["pages"]*B
+    for ln,pc in zip(directory["lengths"],directory["pagecounts"]):
+        if pos<cellstart+ln:
+            raw=view["image"][offset:offset+pc*B]
+            value,consumed=_prefix_lookup(raw,pos-cellstart)
+            prefixpages=pages(consumed,B)
+            return {"value":value,
+                    "warm_pages":prefixpages if mode=="mirrored" else
+                        directory["pages"]+prefixpages,
+                    "cold_pages":directory["pages"]+prefixpages,
+                    "crc_verified_pages":directory["pages"]+pc}
+        offset+=pc*B
+        cellstart+=ln
+    raise AssertionError("directory missed valid point")
 
 
 def max_query(view, mode):
