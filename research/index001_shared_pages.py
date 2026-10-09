@@ -246,6 +246,70 @@ def page_transition(old,new):
             "Dold":old["D"],"Dnew":new["D"]}
 
 
+@dataclass(frozen=True)
+class SpaceReadLimits:
+    """Space relative to canonical GLOBAL IXR1 (not to the packed bitset)."""
+    alpha_n: int=4
+    alpha_d: int=1
+    beta: int=2
+    Q: int=4
+    R: int=128
+    mode: str="disk"
+
+    def __post_init__(self):
+        if (any(type(x) is not int for x in
+                (self.alpha_n,self.alpha_d,self.beta,self.Q,self.R))
+            or self.alpha_n<0 or self.alpha_d<1 or self.beta<0
+            or self.Q<1 or self.R<0 or self.mode not in ("disk","mirror")):
+            raise ValueError("bad limits")
+
+    def cap(self,state,B):
+        return self.alpha_n*len(encode_snapshot(state))//self.alpha_d+self.beta*B
+
+
+def admissible(view,limits):
+    if view["D"]>limits.cap(view["state"],view["B"]):
+        return False
+    resident=view["B"]+COUNTER_BYTES + (
+        view["directory_bytes"] if limits.mode=="mirror" else 0)
+    if resident>limits.R:
+        return False
+    return max(lookup_shared(view,i,limits.mode)["Q"]
+               for i in range(view["N"]))<=limits.Q
+
+
+def partition_dp(initial,ops,B,start_ends,limits):
+    """Exact finite *offline* policy optimization, not a competitive theorem."""
+    first=shared_layout(initial,start_ends,B)
+    if not admissible(first,limits):
+        raise ValueError("initial partition violates common budget")
+    n=len(initial)
+    before=tuple(initial)
+    frontier={start_ends:(0,())}
+    reachable=[]
+    for op in ops:
+        after=assign(before,op)
+        views={end:shared_layout(after,end,B) for end in partitions(n)}
+        valid={end:v for end,v in views.items() if admissible(v,limits)}
+        next_states={}
+        for old_ends,(cost,path) in frontier.items():
+            old=shared_layout(before,old_ends,B)
+            for ends,new in valid.items():
+                step=page_transition(old,new)
+                price=step["changed_pages"]+step["removed_pages"]
+                candidate=(cost+price,path+(ends,))
+                if ends not in next_states or candidate<next_states[ends]:
+                    next_states[ends]=candidate
+        frontier=next_states
+        reachable.append(len(frontier))
+        before=after
+    best=min(frontier.values(),default=None)
+    return {"feasible":best is not None,
+            "min_page_image_plus_retirement":None if best is None else best[0],
+            "optimal_partitions":None if best is None else [list(x) for x in best[1]],
+            "reachable":reachable}
+
+
 def zero_reset(n=64,B=32,g=4):
     if type(n) is not int or type(g) is not int or n<1 or g<1 or n%g:
         raise ValueError("requires integral split")
