@@ -54,3 +54,7 @@ UCT cannot sum or compose lower bounds proved for incompatible computational mod
 ## G2-A operational verification brick (UCT-004, 2026-10-09)
 
 [Sharp but classical fractional witness-influence and linear proof-length theorem](UCT-004-G2-A-SOUND-WITNESS-PACKING.md) with exact independent finite oracles; model/source scope [here](UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md). Physical locality, local query reads, private-coin soundness and bounded witness bytes are now linked under **precisely restricted** assumptions. Original fully costed nonlinear dynamic/MA theorem is NOT proved. [Issue #87](https://github.com/definitely-stable/Mathlab/issues/87). No Rust.
+
+## G2-C nonlinear sound-proof cover extension (2026-10-09)
+
+[Exact combinatorial proof-cover iff and finite κ(n,p) oracles](UCT-004-G2-C-NONLINEAR-PROOF-COVER.md) under private coins, perfect completeness and delta<1 only. Original stronger theorem remains open; 2026 source/novelty scope [here](UCT-004-G2-C-SOURCE-NOVELTY-AUDIT.md). Separate [issue #93](https://github.com/definitely-stable/Mathlab/issues/93), no Rust.

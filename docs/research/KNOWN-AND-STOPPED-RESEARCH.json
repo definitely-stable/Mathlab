@@ -777,6 +777,23 @@
         "https://doi.org/10.1145/3442357",
         "https://doi.org/10.1145/1595391.1595394"
       ]
+    },
+    {
+      "id": "KR-052",
+      "area": "UCT",
+      "disposition": "CLOSED_PROVED",
+      "title": "Exact nonlinear private-coin proof-cover characterization via p-coordinate separation",
+      "scope": "For n-bit raw parity, fixed-length b-bit witness, perfect completeness, private coins independent of witness and any soundness strictly below one, an at-most-p adaptive bit-probe proof protocol exists iff each parity class admits a cover by at most 2 to the b p-projection-separable sets. Minimal b equals ceil log2 of the exact minimum set-cover number kappa. The converse constructs potentially enormous publicly hard-coded test tables and only ensures soundness at most one minus 2 to the power one minus n.",
+      "do_not_repeat": "An exact finite-model operational equivalence based on old-transcript indistinguishability and set cover, NOT an efficient dynamic authenticated verifier or known-original new query complexity theorem. The observed formula kappa equal to 2 raised to ceil(n/p) minus one has only been checked for n up to five, not proved in general.",
+      "authority": [
+        "docs/research/UCT-004-G2-C-NONLINEAR-PROOF-COVER.md",
+        "docs/research/UCT-004-G2-C-SOURCE-NOVELTY-AUDIT.md"
+      ],
+      "reopen_only_if": "Find an original asymptotic lower bound with proof against 2026 operational certification complexity and nondeterministic query cover literature, or fully price program description, proof bytes, prover computation, adaptive repetitions and authenticated state.",
+      "primary_sources": [
+        "https://arxiv.org/abs/2609.26757",
+        "https://doi.org/10.1016/j.jcss.2007.06.020"
+      ]
     }
   ]
 }
