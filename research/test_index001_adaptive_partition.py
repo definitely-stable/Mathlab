@@ -150,6 +150,15 @@ class AdaptivePartitionTest(unittest.TestCase):
         self.assertEqual(z["disk_only_worst_lookup_before"],2)
         self.assertEqual(z["mirrored_warm_worst_lookup_before"],1)
         self.assertEqual(z["mirror_ram_bits_before"],208)
+        fine=reset_certificate(n=64,block=32,group=4)
+        self.assertEqual(fine["old_segments"],16)
+        self.assertEqual(fine["old_directory_bytes"],42)
+        self.assertEqual(fine["old_disk_bytes"],576)
+        self.assertEqual(fine["minimum_segment_eliminations"],14)
+        self.assertEqual(fine["minimum_retired_page_positions"],15)
+        self.assertEqual(fine["actual_retired_page_positions"],16)
+        self.assertEqual(fine["disk_only_worst_lookup_before"],3)
+        self.assertEqual(fine["mirror_ram_bits_before"],336)
         with self.assertRaises(ValueError):
             reset_certificate(limits=Limits(max_gc_pages=5))
         with self.assertRaises(ValueError):
@@ -258,6 +267,7 @@ class AdaptivePartitionTest(unittest.TestCase):
         self.assertTrue(row["no_ssd_nand_or_os_measurement"])
         self.assertTrue(row["working_memory_unbounded"])
         self.assertEqual(row["zero_reset"]["minimum_retired_page_positions"],6)
+        self.assertEqual(row["fragmented_reset"]["minimum_retired_page_positions"],15)
 
 
 if __name__=="__main__":
