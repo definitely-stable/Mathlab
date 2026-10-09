@@ -6,7 +6,7 @@ import unittest
 from literature import DATA, INTERNAL, SOURCE_TITLE_PINS, valid
 
 
-SOURCE_SHA = "43252d143b78cf09858e9af044abf34f89cc5cf4"
+SOURCE_SHA = "6cc1496bf68a1909e1bccb4def731a3b7d5e99ad"
 PATH = "docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md"
 WORKS = {
     "LIT-206": ("usenix:osdi25:leblanc", 2025,
