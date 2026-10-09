@@ -7181,6 +7181,249 @@
       "independent_reproduction": false,
       "publication_stage": "peer_reviewed_proceedings",
       "selection_priority": "A"
+    },
+    {
+      "id": "LIT-243",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2609.38353",
+      "title": "TAGGRAPH: Tag-Augmented Graphs for Graph Retrieval of Agent Persistent Histories",
+      "summary_ru": "Сравнение графовой памяти на общей базе извлечённых эпизодов: локальные обходы, PPR и BM25.",
+      "limits_ru": "На LongMemEval-S BM25 превосходит графовые варианты по MRR; результаты зависят от dataset и extraction.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2609.38353",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "f8f17c77fb2556f518feafe3f7c2a0372c8127f1"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-244",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2609.40118",
+      "title": "Persistent Context Graphs for Efficient Memory Compaction in LLM Agents",
+      "summary_ru": "ReCAP хранит attention-derived зависимости и веса как граф контекста и выбирает релевантную историю.",
+      "limits_ru": "Авторские latency оценки и качество не воспроизведены; context graph не равен knowledge graph фактов.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2609.40118",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "f8f17c77fb2556f518feafe3f7c2a0372c8127f1"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-245",
+      "year": 2026,
+      "track": "agent-memory",
+      "identity": "arxiv:2609.08599",
+      "title": "Graph-Based Personalized Memory for LLM Agents: Representation, Evolution, Retrieval, and Evaluation",
+      "summary_ru": "Обзор персональной графовой памяти по представлению, изменению, retrieval и оценке.",
+      "limits_ru": "Обзор без единого стандартизированного benchmark; ссылки на здоровье/личные сведения требуют privacy анализа.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://arxiv.org/abs/2609.08599",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "f8f17c77fb2556f518feafe3f7c2a0372c8127f1"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "author_preprint",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-246",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.1162/tacl.a.615",
+      "title": "Dissecting GraphRAG: A Modular Analysis of Knowledge Structuring for Factoid Question Answering",
+      "summary_ru": "Модульная проверка triple extraction, community clustering и reporting; отчёт шаблонами может быть точнее LLM.",
+      "limits_ru": "Выводы TACL о factoid QA не доказывают превосходства GraphRAG над dense RAG на иных корпусах.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.1162/tacl.a.615",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "f8f17c77fb2556f518feafe3f7c2a0372c8127f1"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-247",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.18653/v1/2026.findings-acl.679",
+      "title": "WildGraphBench: Benchmarking GraphRAG with Wild-Source Corpora",
+      "summary_ru": "Бенчмарк 1100 вопросов с длительными разнородными документами и citation-linked ground truth.",
+      "limits_ru": "На суммаризации GraphRAG может терять детали; 1100 вопросов не репрезентируют все реальные workloads.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.18653/v1/2026.findings-acl.679",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "f8f17c77fb2556f518feafe3f7c2a0372c8127f1"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-248",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.18653/v1/2026.acl-short.47",
+      "title": "Defense Against Knowledge Poisoning Attack on GraphRAG",
+      "summary_ru": "Hop-wise Guard восстанавливает граф доказательств после внесения ложных сущностей и рёбер.",
+      "limits_ru": "Эффект защиты зависит от threat model; нет формальной абсолютной гарантии отсутствия poisoning.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.18653/v1/2026.acl-short.47",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "f8f17c77fb2556f518feafe3f7c2a0372c8127f1"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-249",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.18653/v1/2026.findings-acl.290",
+      "title": "Breaking the Static Graph: Context-Aware Traversal for Graph-Based RAG",
+      "summary_ru": "CatRAG задаёт query-dependent edge weights и symbolic anchors против hub-induced semantic drift.",
+      "limits_ru": "Статический PPR и адаптивный поиск должны сравниваться при одинаковых вычислительных бюджетах.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.18653/v1/2026.findings-acl.290",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "f8f17c77fb2556f518feafe3f7c2a0372c8127f1"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-250",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.18653/v1/2026.findings-acl.321",
+      "title": "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation",
+      "summary_ru": "Иерархические теги и domain chains уменьшают стоимость конструирования и обновления графа.",
+      "limits_ru": "Авторские acceleration/win-rate показатели не являются независимо подтверждёнными или универсальными.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.18653/v1/2026.findings-acl.321",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "f8f17c77fb2556f518feafe3f7c2a0372c8127f1"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-251",
+      "year": 2026,
+      "track": "graph-rag",
+      "identity": "doi:10.63317/35ddm5i6bjyd",
+      "title": "Injecting Structured Biomedical Knowledge into Language Models:Continual Pretraining vs. GraphRAG",
+      "summary_ru": "Сравнение хранения UMLS-графа при inference и переноса структурированных знаний в веса модели.",
+      "limits_ru": "Биомедицинские PubMedQA/BioASQ результаты не масштабируются автоматически на общий RAG.",
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "primary_url": "https://doi.org/10.63317/35ddm5i6bjyd",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md",
+          "kind": "model_overlap",
+          "source_sha": "f8f17c77fb2556f518feafe3f7c2a0372c8127f1"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
     }
   ]
 }

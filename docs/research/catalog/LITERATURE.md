@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **241** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **250** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -19,8 +19,8 @@
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
 | [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 20 |
-| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 17 |
-| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 10 |
+| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 23 |
+| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 13 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 23 |
@@ -2356,6 +2356,84 @@ Microsoft GraphRAG: граф сущностей и community summaries для г
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
 
+### LIT-246
+**[Dissecting GraphRAG: A Modular Analysis of Knowledge Structuring for Factoid Question Answering](https://doi.org/10.1162/tacl.a.615)** (2026)
+
+Модульная проверка triple extraction, community clustering и reporting; отчёт шаблонами может быть точнее LLM.
+
+**Ограничение:** Выводы TACL о factoid QA не доказывают превосходства GraphRAG над dense RAG на иных корпусах.
+
+**Идентичность:** `doi:10.1162/tacl.a.615` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/f8f17c77fb2556f518feafe3f7c2a0372c8127f1/docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md) (model_overlap)
+
+### LIT-247
+**[WildGraphBench: Benchmarking GraphRAG with Wild-Source Corpora](https://doi.org/10.18653/v1/2026.findings-acl.679)** (2026)
+
+Бенчмарк 1100 вопросов с длительными разнородными документами и citation-linked ground truth.
+
+**Ограничение:** На суммаризации GraphRAG может терять детали; 1100 вопросов не репрезентируют все реальные workloads.
+
+**Идентичность:** `doi:10.18653/v1/2026.findings-acl.679` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/f8f17c77fb2556f518feafe3f7c2a0372c8127f1/docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md) (model_overlap)
+
+### LIT-248
+**[Defense Against Knowledge Poisoning Attack on GraphRAG](https://doi.org/10.18653/v1/2026.acl-short.47)** (2026)
+
+Hop-wise Guard восстанавливает граф доказательств после внесения ложных сущностей и рёбер.
+
+**Ограничение:** Эффект защиты зависит от threat model; нет формальной абсолютной гарантии отсутствия poisoning.
+
+**Идентичность:** `doi:10.18653/v1/2026.acl-short.47` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/f8f17c77fb2556f518feafe3f7c2a0372c8127f1/docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md) (model_overlap)
+
+### LIT-249
+**[Breaking the Static Graph: Context-Aware Traversal for Graph-Based RAG](https://doi.org/10.18653/v1/2026.findings-acl.290)** (2026)
+
+CatRAG задаёт query-dependent edge weights и symbolic anchors против hub-induced semantic drift.
+
+**Ограничение:** Статический PPR и адаптивный поиск должны сравниваться при одинаковых вычислительных бюджетах.
+
+**Идентичность:** `doi:10.18653/v1/2026.findings-acl.290` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/f8f17c77fb2556f518feafe3f7c2a0372c8127f1/docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md) (model_overlap)
+
+### LIT-250
+**[TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation](https://doi.org/10.18653/v1/2026.findings-acl.321)** (2026)
+
+Иерархические теги и domain chains уменьшают стоимость конструирования и обновления графа.
+
+**Ограничение:** Авторские acceleration/win-rate показатели не являются независимо подтверждёнными или универсальными.
+
+**Идентичность:** `doi:10.18653/v1/2026.findings-acl.321` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/f8f17c77fb2556f518feafe3f7c2a0372c8127f1/docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md) (model_overlap)
+
+### LIT-251
+**[Injecting Structured Biomedical Knowledge into Language Models:Continual Pretraining vs. GraphRAG](https://doi.org/10.63317/35ddm5i6bjyd)** (2026)
+
+Сравнение хранения UMLS-графа при inference и переноса структурированных знаний в веса модели.
+
+**Ограничение:** Биомедицинские PubMedQA/BioASQ результаты не масштабируются автоматически на общий RAG.
+
+**Идентичность:** `doi:10.63317/35ddm5i6bjyd` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/f8f17c77fb2556f518feafe3f7c2a0372c8127f1/docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md) (model_overlap)
+
 
 ## agent-memory
 *Графовая память агентов, темпоральность и эволюция знаний*
@@ -2489,6 +2567,45 @@ HippoRAG 2: персонализированный PageRank, семантиче�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-243
+**[TAGGRAPH: Tag-Augmented Graphs for Graph Retrieval of Agent Persistent Histories](https://arxiv.org/abs/2609.38353)** (2026)
+
+Сравнение графовой памяти на общей базе извлечённых эпизодов: локальные обходы, PPR и BM25.
+
+**Ограничение:** На LongMemEval-S BM25 превосходит графовые варианты по MRR; результаты зависят от dataset и extraction.
+
+**Идентичность:** `arxiv:2609.38353` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/f8f17c77fb2556f518feafe3f7c2a0372c8127f1/docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md) (model_overlap)
+
+### LIT-244
+**[Persistent Context Graphs for Efficient Memory Compaction in LLM Agents](https://arxiv.org/abs/2609.40118)** (2026)
+
+ReCAP хранит attention-derived зависимости и веса как граф контекста и выбирает релевантную историю.
+
+**Ограничение:** Авторские latency оценки и качество не воспроизведены; context graph не равен knowledge graph фактов.
+
+**Идентичность:** `arxiv:2609.40118` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/f8f17c77fb2556f518feafe3f7c2a0372c8127f1/docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md) (model_overlap)
+
+### LIT-245
+**[Graph-Based Personalized Memory for LLM Agents: Representation, Evolution, Retrieval, and Evaluation](https://arxiv.org/abs/2609.08599)** (2026)
+
+Обзор персональной графовой памяти по представлению, изменению, retrieval и оценке.
+
+**Ограничение:** Обзор без единого стандартизированного benchmark; ссылки на здоровье/личные сведения требуют privacy анализа.
+
+**Идентичность:** `arxiv:2609.08599` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/f8f17c77fb2556f518feafe3f7c2a0372c8127f1/docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md) (model_overlap)
 
 
 ## graph-reasoning

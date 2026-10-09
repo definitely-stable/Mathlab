@@ -58,6 +58,16 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-006B: late 2026 fresh primary references.
+    "arxiv:2609.38353": "TAGGRAPH: Tag-Augmented Graphs for Graph Retrieval of Agent Persistent Histories",
+    "arxiv:2609.40118": "Persistent Context Graphs for Efficient Memory Compaction in LLM Agents",
+    "arxiv:2609.08599": "Graph-Based Personalized Memory for LLM Agents: Representation, Evolution, Retrieval, and Evaluation",
+    "doi:10.1162/tacl.a.615": "Dissecting GraphRAG: A Modular Analysis of Knowledge Structuring for Factoid Question Answering",
+    "doi:10.18653/v1/2026.findings-acl.679": "WildGraphBench: Benchmarking GraphRAG with Wild-Source Corpora",
+    "doi:10.18653/v1/2026.acl-short.47": "Defense Against Knowledge Poisoning Attack on GraphRAG",
+    "doi:10.18653/v1/2026.findings-acl.290": "Breaking the Static Graph: Context-Aware Traversal for Graph-Based RAG",
+    "doi:10.18653/v1/2026.findings-acl.321": "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation",
+    "doi:10.63317/35ddm5i6bjyd": "Injecting Structured Biomedical Knowledge into Language Models:Continual Pretraining vs. GraphRAG",
     # IMPORT-006: graph/DAG/GraphRAG/agent memory: first-party title pins.
     "arxiv:2609.14066": "GraMRAG: Orchestrating Multi-Agent Multi-Step Reasoning via Graph Memory with Reinforcement Learning",
     "arxiv:2609.18317": "Knowledge-Graph Based Augmentation versus Retrieval Augmented Generation for Cultural-Related Question Answering",

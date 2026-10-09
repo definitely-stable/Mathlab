@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**241** работ сопоставлены с **38** внутренними исследованиями.
+**250** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -399,6 +399,15 @@
 - [LIT-240](LITERATURE.md#lit-240) — Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory (2025; primary_abstract_checked)
 - [LIT-241](LITERATURE.md#lit-241) — LogicPoison: Logical Attacks on Graph Retrieval-Augmented Generation (2026; publisher_abstract_checked)
 - [LIT-242](LITERATURE.md#lit-242) — LegalGraphRAG: Multi-Agent Graph Retrieval-Augmented Generation for Reliable Legal Reasoning (2026; publisher_abstract_checked)
+- [LIT-243](LITERATURE.md#lit-243) — TAGGRAPH: Tag-Augmented Graphs for Graph Retrieval of Agent Persistent Histories (2026; primary_abstract_checked)
+- [LIT-244](LITERATURE.md#lit-244) — Persistent Context Graphs for Efficient Memory Compaction in LLM Agents (2026; primary_abstract_checked)
+- [LIT-245](LITERATURE.md#lit-245) — Graph-Based Personalized Memory for LLM Agents: Representation, Evolution, Retrieval, and Evaluation (2026; primary_abstract_checked)
+- [LIT-246](LITERATURE.md#lit-246) — Dissecting GraphRAG: A Modular Analysis of Knowledge Structuring for Factoid Question Answering (2026; publisher_abstract_checked)
+- [LIT-247](LITERATURE.md#lit-247) — WildGraphBench: Benchmarking GraphRAG with Wild-Source Corpora (2026; publisher_abstract_checked)
+- [LIT-248](LITERATURE.md#lit-248) — Defense Against Knowledge Poisoning Attack on GraphRAG (2026; publisher_abstract_checked)
+- [LIT-249](LITERATURE.md#lit-249) — Breaking the Static Graph: Context-Aware Traversal for Graph-Based RAG (2026; publisher_abstract_checked)
+- [LIT-250](LITERATURE.md#lit-250) — TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation (2026; publisher_abstract_checked)
+- [LIT-251](LITERATURE.md#lit-251) — Injecting Structured Biomedical Knowledge into Language Models:Continual Pretraining vs. GraphRAG (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -683,6 +692,15 @@
 - [LIT-240](LITERATURE.md#lit-240) — Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory (2025; primary_abstract_checked)
 - [LIT-241](LITERATURE.md#lit-241) — LogicPoison: Logical Attacks on Graph Retrieval-Augmented Generation (2026; publisher_abstract_checked)
 - [LIT-242](LITERATURE.md#lit-242) — LegalGraphRAG: Multi-Agent Graph Retrieval-Augmented Generation for Reliable Legal Reasoning (2026; publisher_abstract_checked)
+- [LIT-243](LITERATURE.md#lit-243) — TAGGRAPH: Tag-Augmented Graphs for Graph Retrieval of Agent Persistent Histories (2026; primary_abstract_checked)
+- [LIT-244](LITERATURE.md#lit-244) — Persistent Context Graphs for Efficient Memory Compaction in LLM Agents (2026; primary_abstract_checked)
+- [LIT-245](LITERATURE.md#lit-245) — Graph-Based Personalized Memory for LLM Agents: Representation, Evolution, Retrieval, and Evaluation (2026; primary_abstract_checked)
+- [LIT-246](LITERATURE.md#lit-246) — Dissecting GraphRAG: A Modular Analysis of Knowledge Structuring for Factoid Question Answering (2026; publisher_abstract_checked)
+- [LIT-247](LITERATURE.md#lit-247) — WildGraphBench: Benchmarking GraphRAG with Wild-Source Corpora (2026; publisher_abstract_checked)
+- [LIT-248](LITERATURE.md#lit-248) — Defense Against Knowledge Poisoning Attack on GraphRAG (2026; publisher_abstract_checked)
+- [LIT-249](LITERATURE.md#lit-249) — Breaking the Static Graph: Context-Aware Traversal for Graph-Based RAG (2026; publisher_abstract_checked)
+- [LIT-250](LITERATURE.md#lit-250) — TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation (2026; publisher_abstract_checked)
+- [LIT-251](LITERATURE.md#lit-251) — Injecting Structured Biomedical Knowledge into Language Models:Continual Pretraining vs. GraphRAG (2026; publisher_abstract_checked)
 
 ## OM-135
 

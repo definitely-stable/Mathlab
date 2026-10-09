@@ -1,8 +1,12 @@
 # Research catalog — provenance-first index
 
+## IMPORT-006B — latest Sep 2026 graph memory + ACL/TACL graph retrieval
+
+[September 2026 TAGGRAPH/ReCAP and 2026 ACL/TACL primary-source cohort](../RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md). Nine extra unique papers LIT-243..251, now **250** corpus works, of which 112 from 2026. Explicit negative BM25 memory retrieval control and poisoning defense included; no full proof/benchmark reproduction.
+
 ## IMPORT-006 — Graphs, immutable DAG, GraphRAG and agent memory (2026-10-09)
 
-[Primary-source audit of 29 papers including 2026/09](../RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) · [issue #184](https://github.com/definitely-stable/Mathlab/issues/184). LIT-214..242 add graph-RAG, graph-reasoning and agent-memory tracks, with historical GRAIL baseline and negative GraphRAG-Bench control. Library **241** canonical publications; bibliography-only, no imported third-party fulltexts or independent theorem/benchmark verification.
+[Primary-source audit of 29 papers including 2026/09](../RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) · [issue #184](https://github.com/definitely-stable/Mathlab/issues/184). LIT-214..242 add graph-RAG, graph-reasoning and agent-memory tracks, with historical GRAIL baseline and negative GraphRAG-Bench control. Library **250** canonical publications; bibliography-only, no imported third-party fulltexts or independent theorem/benchmark verification.
 
 ## IMPORT-005 — dynamic algebra, immutable DAG and online theory 2025–2026
 
