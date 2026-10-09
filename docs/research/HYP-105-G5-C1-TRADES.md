@@ -26,6 +26,7 @@ The converse (connected plus each degree>=2 implies a field trade) is FALSE with
 **Sharp witnesses with exact support four:**
 
 - t=3, |V|=6, GF5, *unbalanced* 1-versus-2: a=(1,1,1,1,0,0), b=(1,1,0,0,1,1), c=(0,0,1,1,4,4). Then a=b+c, all six coordinates have support degree two, and none of the three proper column subfamilies collide. The weighted unrestricted model cannot ignore 1-versus-2.
+- t=5, truly **column-minimal 3-versus-2** over GF5 (weighted, all columns support exactly four, m=4): a=(3,1,1,1), b=(1,3,1,1), c=(1,1,3,1), d=(1,1,1,4), e=(4,4,4,4). Their only nonzero linear relation up to field scaling is a+b+c=d+e. Indeed a,b,c,d are linearly independent: their first three coordinates have the first-three-column rank-two subspace of coordinate sum zero, the combination a+b+c=(0,0,0,3) contributes an independent fourth-coordinate direction, and d has first-three coordinate sum 3, separating it from their span. Thus rank=4 for these four and rank=4 for all five, with unique dependency vector (1,1,1,-1,-1) up to a scalar. In GF5, among that one-dimensional kernel, the only vectors with all five nonzero coefficients in {+1,-1} are the two orientations shown. No proper subset admits *any* linear dependence, hence no smaller ASET trade. This proves that checking 2-versus-2 or 3-versus-3 alone misses a genuinely minimal 3-versus-2 obstruction in the unrestricted weighted model.
 - t=4, |V|=8, all-one GF5, 2-versus-2: for i mod 4 use a_i=e_i+e_(i+1)+e_(4+i)+e_(4+i+1) (indices reduced modulo 4 separately in each half). Alternating columns a_0+a_2=a_1+a_3; all eight coordinates have degree two. No proper GF5 trade exists.
 - t=6, |V|=12, all-one GF5, 3-versus-3: use the same construction for i mod 6 with the second cycle shifted by 6. Alternating triples coincide, each of 12 coordinates has degree two, and in GF5 the incidence kernel of each 6-cycle has exactly its complete alternating relation. It has no proper trade.
 
@@ -54,7 +55,7 @@ Then the columns make a signed trade iff BOTH H_L and H_R admit covers of their 
 - Direct disjoint-subset signed-oracle checks true GF5 sums (including unequal cardinalities) independently of C0's ternary pattern evaluation.
 - An independent coordinate-degree and connected-component oracle checks localization and minimality against every proper participating column subfamily in bounded fixtures.
 - An edge-port pairing/circuit-cover oracle checks the split-unit theorem against direct integer vertex-degree sums, including false positives if only one of L/R is checked.
-- Sharp t=3,4,6 weighted/unit fixtures and a full deterministic collection of four-column candidates validate exact arithmetic; finite tests are NOT asymptotic proofs.
+- Sharp t=3,4,6 weighted/unit fixtures, a rank-certified minimal GF5 t=5 (3-versus-2) fixture and a full deterministic collection of four-column candidates validate exact arithmetic; finite tests are NOT asymptotic proofs.
 - GitHub-hosted research workflow at the *exact PR head* must complete before acceptance. No Lean proof is claimed.
 
 ## 6. Original 2008 full manuscript on the author's site: source priority confirmed
