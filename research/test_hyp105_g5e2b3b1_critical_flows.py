@@ -7,7 +7,7 @@ from hyp105_g5e2b3b1_critical_flows import (
     _normalized_edges, _relabel_edges, _relabel_mask,
     _automorphisms, two_factors, critical_orbits,
     critical_supports, exact_nowherezero_signed_flow,
-    critical_flow_census,
+    critical_flow_census, proved_matching_r3_lower,
 )
 from hyp105_g5e2b1_energy import single_signed_trade_mitm
 from hyp105_g5e1_motifs import topology_gate
@@ -68,6 +68,22 @@ class CriticalSixFlowTests(unittest.TestCase):
                     "right_all_degrees_at_least_two"])
                 if exact > 0:
                     self.assertTrue(gate["potential_nonzero_flow"])
+
+    def test_all_h_C6_matching_risk_floor_and_explicit_unit_flow(self):
+        alternate = (1 << 0) | (1 << 2) | (1 << 4)
+        # Purely algebraic construction, not a finite fitted exponent.
+        flow = exact_nowherezero_signed_flow(CYCLE, CYCLE, alternate)
+        self.assertGreaterEqual(flow, 1)
+        self.assertEqual(flow, direct_full_GF5_event(CYCLE, CYCLE, alternate))
+        for q in (2, 4, 8, 16):
+            result = proved_matching_r3_lower(q)
+            self.assertGreater(result["factor_matchings_lower"], 0)
+            self.assertGreater(result["proved_expected_R3_lower"], 0)
+            self.assertLessEqual(result["designated_C6_probability_each_half"], 1)
+            self.assertFalse(result["universal_individual_label_lower"])
+            self.assertFalse(result["improved_ASET_bound"])
+        with self.assertRaises(ValueError):
+            proved_matching_r3_lower(3)
 
     def test_full_finite_signed_core_scope(self):
         report = critical_flow_census()
