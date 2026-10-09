@@ -15,12 +15,12 @@ class LiteratureTests(unittest.TestCase):
     def test_real_collection_has_no_metadata_errors(self):
         self.assertEqual(valid(self.data, self.catalog), [])
 
-    def test_182_distinct_works_and_fifteen_lanes(self):
+    def test_188_distinct_works_and_fifteen_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 182)
+        self.assertEqual(len(entries), 188)
         self.assertEqual(len({e["identity"].lower() for e in entries}), 182)
         self.assertEqual(len({e["id"] for e in entries}), 182)
-        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 183)},
+        self.assertEqual({f"LIT-{i:03d}" for i in range(1, 189)},
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 15)
 
@@ -254,7 +254,7 @@ class LiteratureTests(unittest.TestCase):
         original = {e["id"] for e in self.data["entries"]}
         self.assertTrue({f"LIT-{i:03d}" for i in range(50, 96)} <= original)
         self.assertTrue({f"LIT-{i:03d}" for i in range(1, 96)} <= original)
-        self.assertEqual(len(self.data["entries"]), 182)
+        self.assertEqual(len(self.data["entries"]), 188)
         all_ids = [e["identity"].lower() for e in self.data["entries"]]
         self.assertEqual(len(all_ids), len(set(all_ids)))
 
