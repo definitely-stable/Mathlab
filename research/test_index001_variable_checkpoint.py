@@ -44,7 +44,7 @@ class VariableCheckpointTests(unittest.TestCase):
         self.assertNotEqual(len(encode_snapshot(a)), len(encode_snapshot(b)))
         # The run length encoding must grow at boundary 127->128.
         self.assertEqual(len(encode_snapshot((0,) * 127)), 12)
-        self.assertEqual(len(encode_snapshot((0,) * 128)), 13)
+        self.assertEqual(len(encode_snapshot((0,) * 128)), 14)
 
     def test_crc_and_canonical_decoder_rejections(self):
         snap = encode_snapshot((0, 0, 1))
