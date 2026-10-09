@@ -112,7 +112,7 @@ class CanonicalLeafInputAudits(unittest.TestCase):
                     all_miss = 0
                     for src in itertools.product(alphabet, repeat=n):
                         base = bytes(src)
-                        edited = b"\\x00" + base
+                        edited = bytes((0,)) + base
                         miss = exact_strict_cache_misses(base, edited, chunk_size)
                         values.append(miss)
                         all_miss += int(miss == chunks + 1)
