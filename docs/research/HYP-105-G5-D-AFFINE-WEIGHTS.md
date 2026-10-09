@@ -56,6 +56,33 @@ The exact full verification checks
 
 **pairwise distinct GF5^12 signatures**, with 12 explicit field coordinates, not truncated hashes or approximate fingerprints. Mutation tests revert weights to the known invalid unit baseline, duplicate a vector or break its checksum, and require the independent oracle to fail. Multiple deterministic held-out RNG seeds are checked to rule out incidental dependence on one successful order.
 
+## 3.1 D4 — Exact collision probability = bipartite incidence rank
+
+This is a **fully proved all-size theorem for fixed signed trade patterns**, not a new asymptotic bound on the aggregate number of trades. It is a direct application of classical graph-incidence linear algebra, with exact model-specific GF5 probability and a nonzero-weight restriction.
+
+Fix t original four-support columns with specified supports S_i (four distinct coordinates each) and prescribed trade signs ε_i∈{+1,-1}. Let U=union(S_i), v=|U|, and construct the bipartite incidence graph G whose left vertices are t columns, whose right vertices are v coordinate positions, and whose 4t edges are the occurrences (i,j) for j∈S_i. Let C be the number of connected components of G (including no isolated vertices, since all columns have exactly four support coordinates).
+
+Independently choose each column's four coefficients **uniformly in the FULL GF5 affine checksum fiber**, i.e. all 5³=125 coefficient quadruples with sum 4. This sampling ALLOWS zero coefficients and is **not yet** the admissible support-exact-four model.
+
+**Theorem D4 (exact unconditioned affine signed-trade probability).** Let E be the event that the chosen t vectors satisfy sum_i ε_i a_i=0 in GF5^m. Then:
+
+- If some connected component K of G has sum_{i∈K} ε_i ≠0 (mod 5), then Pr[E]=0.
+- Otherwise **Pr[E]=5^(C-v)** exactly.
+
+**Proof.** Introduce one unknown w_{ij} per incidence edge. There are 4t unknowns. For each column i impose ∑_{j∈S_i} w_{ij}=4; for each touched coordinate j impose ∑_{i:j∈S_i} ε_i w_{ij}=0. Set z_{ij}=ε_i w_{ij}; the column equations become ∑ z_{ij}=4 ε_i, while coordinate equations become ∑ z_{ij}=0. The coefficient matrix is the *unsigned* incidence matrix of the bipartite graph G. Negating every coordinate-node row gives the usual oriented vertex-edge incidence matrix, which has rank t+v-C over **any** field (choose a spanning forest: every component has exactly one row dependency; forest edge columns establish rank t+v-C). The affine right-hand side is consistent precisely when its signed column-checksum sum vanishes in every component: 4∑_{i∈K} ε_i=0 in GF5. If consistent, the solution affine space has dimension 4t-(t+v-C)=3t-v+C, hence 5^(3t-v+C) points. All independent per-column affine choices total 5^(3t), giving Pr[E]=5^(C-v). QED.
+
+For our t≤6, at most three signed columns per side, component balance mod5 is equivalent to **equal numbers of positive and negative columns in EACH component**. Thus even when the whole trade is balanced, a disconnected component with unbalanced sides makes it impossible. This strengthens the usable *component-local* obstruction while preserving the unrestricted weight model distinction.
+
+**Corollary D4.1 (all-nonzero admissible palette).** Independently choose each column uniformly from its **51** four-nonzero coefficient tuples with checksum4. Let E_nonzero be the same collision. Then
+
+    Pr[E_nonzero] <= min(1, (125/51)^t * 5^(C-v))
+
+when every component is signed-balanced; otherwise it is 0. Moreover if **any touched coordinate has incidence degree exactly one**, the probability is precisely 0, since its sole coefficient would need to vanish, forbidden by the nonzero support restriction. The stated upper bound simply conditions an affine random event on all 4t coefficients being nonzero: Pr[E | all-nonzero] ≤ Pr[E]/Pr[all-nonzero], with Pr[all-nonzero]=(51/125)^t; no independence of the event and the conditioning is assumed.
+
+**Independent exact tests:** [GF5 rank/probability oracle](../../research/hyp105_g5d_trade_rank.py), [tests](../../research/test_hyp105_g5d_trade_rank.py). The oracle builds the full (t+v)×4t *signed* coefficient matrix and checks its modular Gaussian rank AND augmented rank independently of union-find component counts. A two-column opposite-signed **identical support** example has t=2,v=4,C=1; the full affine collision probability is exactly 1/125 and the all-nonzero collision probability is exactly 1/51 (independently enumerated over all 125² and 51² assignments). Two disjoint mismatched-sign components are inconsistent. Cases with one-coordinate incidence degree one are filtered. Eighty held-out arbitrary signed support configurations test rank t+v-C.
+
+**Research value and limitation:** We now have an *exact formula* for **each** potential local trade probability, and a transparent bridge from geometry/support incidence to weight-selection risk. This is a meaningful all-m quantitative lemma, but at fixed q=5 and t≤6 each local probability is constant with respect to ambient m. It is **not** by itself a new ASET power improvement: one must count configurations jointly as m grows, prove useful bounds on dependency/codegrees, or build weights with deterministic algebraic cancellation avoidance. Claiming an exponent merely from 5^(C-v) would be false. The use of incidence-matrix rank is classical; global scientific novelty remains unverified.
+
 ## 4. WHY this does not yet solve the infinite problem
 
 With GQ(s,s), N_s~s^4 and ambient dimension m~s^(3/2), the number of k-sum signatures that the greedy extension must avoid grows polynomially in N_s. Yet a fixed support-four pattern has **only 51** checksum-compatible choices over GF5, independent of m. The naive pigeonhole argument for availability of one of these 51 eventually fails: no theorem ensures one candidate survives all prior constraints.
