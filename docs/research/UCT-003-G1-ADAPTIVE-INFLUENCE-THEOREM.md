@@ -56,6 +56,31 @@ These bounds are **sharp** in this model: store all n prefix parities in n bits.
 
 This is **strictly stronger than the UCT-002 Hamming-ball capacity bound on this named operational task**: using the raw input bits M(x)=x with m=n and write locality w=1, the global observation-capacity bound holds (take d=n from 0^n, V₂(n,n)=2^n), but each f_k query requires up to k input probes. Thus UCT-002 alone cannot derive w≥n at p=1. Conversely UCT-003 exploits which query needs which codeword reads. It does **not** imply a new worldwide lower bound for dynamic partial sums: Fredman–Saks 1989, Pătraşcu–Demaine 2006, Pătraşcu–Tarniţă 2007 and dynamic coding already address much harder multi-probe regimes.
 
+
+## 4B. Theorem C — exact unit-write hypercube embedding rigidity (second sharp frontier)
+
+Let X=F₂^n admit **all** labeled coordinate toggles x→x⊕e_i. Suppose a bit encoding M:X→F₂^m is injective, and every allowed edge changes **at most one** memory bit. Exactness plus injectivity imply exactly one memory-bit difference on each edge.
+
+**THEOREM C (DERIVED_CLASSICAL).** There exist distinct fixed coordinates c_1,...,c_n in [m] and a fixed offset v∈F₂^m such that, for *all* x,
+
+    M(x) = v ⊕ Σ_{i=1}^n x_i e_{c_i}.                           (4)
+
+In particular m≥n, and every deterministic exact query f:X→{0,1} using only the maintained representation and at most p bit probes must obey
+
+    p ≥ D(f),                                                    (5)
+
+where D(f) is the **worst-case deterministic decision-tree complexity** of f when querying original input bits. Both statements are sharp: the systematic identity code and an optimal decision tree attain them.
+
+**Proof of rigidity.** Denote by c_i(x) the unique stored-bit coordinate changed along the image of edge (x,x⊕e_i). Distinct input edges incident to the same x cannot map to the same coordinate, since this would identify M(x⊕e_i) and M(x⊕e_j). For i≠j, the four original vertices x,x⊕e_i,x⊕e_i⊕e_j,x⊕e_j are distinct and map injectively to a simple 4-cycle whose every image edge has Hamming length one. Every simple 4-cycle in a hypercube flips two distinct coordinates alternately, so its *opposite* edges have the same label: c_i(x)=c_i(x⊕e_j). The undirected subcube obtained by varying all coordinates except i is connected, hence c_i(x) is a fixed c_i independent of the other n−1 input bits; equality c_i(x)=c_i(x⊕e_i) also holds by reversing the same edge. Thus c_i is constant over all x, and the labels c_1,...,c_n are pairwise distinct. Walking from zero to x by toggling each support bit gives (4).
+
+**Proof of query complexity.** Under (4), probing a code coordinate either reads a public constant (if not in {c_i}) or reads precisely one original input bit x_i, possibly complemented by the public fixed offset. Simulate any adaptive code-query algorithm by a decision tree probing the corresponding original bits; it has no more probes than the code algorithm. Therefore the latter's worst-case p is at least the minimum deterministic decision-tree depth D(f). Identity storage plus a minimum-depth decision tree attains equality. QED.
+
+**Specialization: prefix XOR.** For f_k=⊕_{i≤k}x_i, every original bit among the first k must be probed on every correct deterministic decision-tree path: if some i≤k is omitted, toggling x_i preserves the full observed transcript but changes parity. Thus D(f_k)=k. For all n prefix queries and w≤1, the full service must have p≥n; identity storage gives m=n,w=1,p=n, all simultaneously sharp.
+
+Together with Theorem B (p≤1 forces w≥n), the two endpoints of the full exact deterministic prefix-parity write/read frontier are characterized. They are not a global w*p≥n law: Fenwick gives w,p=O(log n) in between.
+
+**Scope.** This is classical hypercube embedding rigidity for the **complete** labeled bit-toggle graph, not a new general theorem about sparse graphs, noisy LULDC, randomized error, lazy/uncharged proof bits or target-dependent update labels. Without injectivity (e.g. one parity observable only) the statement is false, since many toggles can share the same stored bit. If the stored code is allowed one *additional* state-dependent side channel, it must be charged, or the conclusion is not justified.
+
 ## 5. Contrast: two sharp extremes and the Fenwick middle
 
 Three exact F₂^n representations are a falsification check against claiming `w*p ≥ n` universally:
