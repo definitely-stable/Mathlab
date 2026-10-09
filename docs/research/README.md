@@ -5,6 +5,43 @@
 [Exact symplectic/ovoid/spread → duad/syntheme model, GF5 signed-trade evidence and full-duad nontransfer theorem](HYP-105-G5-C3-B0-DUAD-SYNTHEME-GEOMETRY.md) · [implementation](../../research/hyp105_g5c3b0_doily_geometry.py) · [tests](../../research/test_hyp105_g5c3b0_doily_geometry.py) · [merged #130](https://github.com/definitely-stable/Mathlab/pull/130) · [exact-head Research #1138 SUCCESS](https://github.com/definitely-stable/Mathlab/actions/runs/37897751024). Classical publisher primary [LIT-205](catalog/LITERATURE.md#lit-205) (2020 Saniga–Szabó, Symmetry) now canonical, not an original new math result. The natural finite W32 m12 GF5 unit coordinate-pair labels have **T4=0, T6=2100 and only 18 verified ASET columns**, versus other labels T4=42,T6=1580, ASET20: proof that removing all 2-vs-2 collisions does not eliminate 3-vs-3 collisions. Exact full-duad representation forces s=2 from degree/vertex constraints; NOT a universal GQ(s,s) or full weighted-ASET obstruction. **G5-C3-B1 remains open** in [#119](https://github.com/definitely-stable/Mathlab/issues/119), parents [#106](https://github.com/definitely-stable/Mathlab/issues/106)/[#95](https://github.com/definitely-stable/Mathlab/issues/95); need genuine uniform-in-s density estimates before exponent claim. No Rust.
 
 
+## UCT-005 G2-B2 — exact multi-subscriber information broadcast (2026-10-09)
+
+[**Restricted quotient theorem, rank-vs-one-hot falsifiers and finite independent coloring oracle**](UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md) · [three original proof-labeling sources](UCT-005-G2-B2-SOURCES.json) · [executables](../../research/test_uct005_g2b2_broadcast.py) · [issue #151](https://github.com/definitely-stable/Mathlab/issues/151). Exact `b*=ceil(log2 |{A d : d in D}|)` for **deterministic synchronous zero-error shared messages without uncharged update side information**. Classical elementary communication result, **NOT a new cryptographic theorem or universal UCT-005 root**. Three papers indexed in typed source inventory; canonical numbering deferred behind PR #132 / issue #142.
+
+## UCT-005 G2-B1 — semantic vs structural influence and online proof barriers (2026-10-09)
+
+[**Exact odd-path influence in mutable XOR DAGs, proof/certificate structural dirty-set comparison and unbounded cancellation family**](UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md) · [two new original primary publications plus LIT-068 and LIT-187 without duplication](UCT-005-G2-B1-SOURCES.json) · [exhaustive DAG and independent path-count tests](../../research/test_uct005_g2b1_dag_influence.py) · [issue #148](https://github.com/definitely-stable/Mathlab/issues/148). Restricted classical GF(2) lemma + conditional hash representation; **not original root theorem**, no computational security proof. Extra primary source identities pending canonical LIT numbering until issue #142/PR #132 resolution.
+
+## DAG-002 × ALG-001 G1-A — priced remote probes, cells and sparse updates (2026-10-09)
+
+[**Formal G1-A single-append write-state counting, exact covering-code prior-art barrier and falsifiers**](DAG-002-ALG-001-G1-A-PRICED-PROBE-WRITE-FRONTIER.md) · [issue #140](https://github.com/definitely-stable/Mathlab/issues/140) · [finite stdlib oracle](../../research/test_dag002_g1a_frontier.py). Fix input-independent old prefix and remote snapshot, local B+G bits, N c-bit remote cells, W final changed cells, P reads/query. Elementary necessary bound `2^(B+G) V_c(N,W)>=2^n`, independently proved but **NOT novel**; restricted XOR-delta one-bit-probe family is **known covering-code K(n,W)**, not a universal probe lower bound. The 2026 Young Kun Ko Multiphase paper and Cohen et al. 1986 covering code bound explicitly prohibit premature uniqueness claims. **G1-A MODEL_ONLY+FINITE EXACT / G1-B NONFACTORIZING OPEN / no Rust.**
+
+
+## INDEX-001 G2-B2-B — exact offline checkpoint policy, recovery and tempfile lifecycle (2026-10-09)
+
+[**Frozen fully-priced (write/recovery/storage byte-steps/peak) reference model, offline DP proof and adversarial controls**](INDEX-001-G2-B2-B-CHECKPOINT-POLICY.md) · [issue #143](https://github.com/definitely-stable/Mathlab/issues/143) · [policy, POSIX oracle and reporter](../../research/index001_checkpoint_policy.py) · [independent exhaustive policy+fault tests](../../research/test_index001_checkpoint_policy.py). **Mathlab research only**: DP has advance knowledge of restart events, solves a restricted fixed-image WAL protocol (not a new general theorem or online-competitive index); counts application byte lengths and on-disk file `stat()`, not physical SSD/NAND writes. Checks temporary snapshot orphan at interrupted checkpoint. G2-B parent #126 and stronger crash/online-theorem gates remain OPEN.
+
+
+## INDEX-001 G2-B2-A — reproducible application-byte comparisons (2026-10-09)
+
+[**Exact snapshot-vs-WAL frame-count equations, four deterministic range workloads and compaction thresholds 1/4/16**](INDEX-001-G2-B2-A-APPLICATION-IO.md) · [issue #137](https://github.com/definitely-stable/Mathlab/issues/137) · [stdlib reporter](../../research/index001_workload_io.py) · [independent tests](../../research/test_index001_workload_io.py). Counts actual returned `os.write` bytes + application `read_bytes` with exact restart-state oracle, NOT device physical NAND writes or a new general algorithmic theorem. Prior art LIT-098/175/176/182/184..186 reused without new source identity. G2-B2-A measured-model only / PHYSICAL_LOWER_BOUND_OPEN / NO_RUST.
+
+
+## UCT-005 G2-B — 2D authenticated XOR: frozen model, adversarial replay and source STOP (2026-10-09)
+
+[**Fully priced authenticated 2D parity model, explicit update/query transcript, finite adversarial oracle and quantitative non-novelty checks**](UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md) · [five original 2016–2026 source identities](UCT-005-G2-B-SOURCES.json) · [tests](../../research/test_uct005_g2b_auth_tree.py) · [issue #131](https://github.com/definitely-stable/Mathlab/issues/131). Published dynamic multidimensional query authentication and aggregate ADS defeat generic novelty claims. **G2-B evidence only; full-source proofs not reproduced, cryptographic security not proven, central UCT-005 theorem OPEN_UNPROVED.** Pending canonical LIT numbering while parallel HYP-105 PR #132 owns LIT-205.
+
+## DAG-002 / ALG-001 G0 — immutable reachability and rank-sensitive output separation (2026-10-09)
+
+[DAG-002 model, known SEA chain-top baseline and no-remote-probe information bound](DAG-002-G0-IMMUTABLE-REACHABILITY.md) · [ALG-001 rank-one coordinate-observation barrier, precise field/update types](ALG-001-G0-RANK-OBSERVATION.md) · issues [#133](https://github.com/definitely-stable/Mathlab/issues/133) and [#134](https://github.com/definitely-stable/Mathlab/issues/134). **RESTRICTED_ELEMENTARY_PROOF, KNOWN_PRIOR_ART, FINITE_EXACT_CHECKS, NO_NEW_ROOT_THEOREM, NO_RUST.** Canonical studies LIT-187/LIT-195 already indexed; no re-import and no modification of other research status.
+
+
+## INDEX-001 G2-B0/B1 — durable WAL/checkpoint exact range-map reference (2026-10-09)
+
+[**Frozen binary WAL/snapshot contract, CRC and linearization/fsync assumptions, explicit fault matrix**](INDEX-001-G2-B0-DURABILITY-PROTOCOL.md) · [issue #126](https://github.com/definitely-stable/Mathlab/issues/126) · [Python stdlib reference](../../research/index001_durable.py) · [independent dense/recovery tests](../../research/test_index001_durable.py). A deliberately inefficient one-writer full-snapshot baseline and append-WAL/checkpoint reference distinguish *application-level* returned read bytes and `os.write` bytes from physical disk/NAND bytes. G2-B1 is **POSIX RESEARCH REFERENCE ONLY**; no concurrent writers, fault-tolerant hardware proof, new asymptotic lower bound or Rust API. G2-B2 and physical proof gates OPEN; exact-head hosted CI required.
+
+
 ## UCT-005 G2-A — новые математические барьеры (2026-10-09)
 
 [**Аудит семи источников, из которых шесть новых, и точные онлайн-контрмодели**](UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) · [issue #125](https://github.com/definitely-stable/Mathlab/issues/125) · [1D/2D oracle](../../research/test_uct005_g2a_models.py). В библиографии теперь **204 уникальных публикации** (новые LIT-199..204); STOC 2026 уже учтён как LIT-072. **G2-A: STOP простой 1D-корень; G2-B: 2D authenticated multi-query SCOUT; root novelty OPEN.**
