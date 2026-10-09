@@ -44,6 +44,25 @@ Run on GitHub-hosted CI:
 
 Independent executable checks: [research/test_hyp105_g5c3b0_doily_geometry.py](../../research/test_hyp105_g5c3b0_doily_geometry.py). The reference enumerates all 15 K6 perfect matchings independently from the W32 graph, verifies all 225 incidence truth-values, both six-family reconstructions, unit support/field arithmetic and complete direct GF5 subset sums of sizes 0..3 for the full extracted subfamily, plus independently enumerated signed +/-1 kernels only on bounded held-out six-column selections (avoiding the 3^N blow-up). Exact original source geometry and code provenance remain separate assertions.
 
+### 3.1 Frozen exact finite W32 geometric evidence and non-monotone tradeoff
+
+[GitHub Research #1125](https://github.com/definitely-stable/Mathlab/actions/runs/37897378969) completed **SUCCESS** (26 workflow steps) after scoping the exponential signed kernel check to six-column held-out selections; full-family ASET subset sums remain directly checked exhaustively. For the reproducible geometry-derived left/right bijections, ambient m=12 with 45 original distinct GF5 unit four-support columns:
+
+| Finite signed-sum quantity | C3-A optimized arbitrary pair labels (m=12) | B0 canonical doily-derived labels (m=12) |
+| --- | ---: | ---: |
+| Inclusion-minimal four-column supports T4 | 42 | **0** |
+| Inclusion-minimal six-column supports T6 | 1580 | **2100** |
+| GF5 ASET subfamily extracted and independently certified | 20 | **18** |
+
+The doily geometry yields an **exact absence of four-column signed trades** in the fixed W32 labeling: T4=0 by exhaustive complete finite oracle. It **does not imply ASET** because 2100 minimal three-vs-three six-column supports remain. The no-swap bounded four-round/eight-probe descent returned the same values (33 total census evaluations, zero strictly accepted swaps under heuristic T6+16*T4); this is not proof of local optimality, especially not across all 210 possible vertex-pair swaps or the enormous full pair-label quotient.
+
+The two explicit geometry-derived pair-label bijections are frozen as follows:
+
+    L=(0,9,14,3,7,8,4,11,12,13,10,6,2,5,1)
+    R=(0,9,14,3,8,4,7,11,6,12,1,13,5,10,2)
+
+**Central falsification:** eliminating **all** T4 supports can INCREASE T6 and DECREASE the actually extracted ASET cardinality. A conjecture that minimizing T4 is sufficient to improve the ASET bound is invalid; any all-s construction must jointly control T4 and T6, and ultimately all weighted imbalance trade types if transferred to unrestricted ASET. These numbers are only m=12; no general growth exponent or new 12/5 comparison is proved. Regression tests pin T4/T6/valid subset size and the exact label maps.
+
 ## 4. All-s gate, competing approaches, and stop condition
 
 What follows mathematically from B0:
