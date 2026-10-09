@@ -332,7 +332,7 @@ def update(fd,B,operation,mode="min",Rcap=None):
                    "emit_source_read_pages":payload_io["pages"],
                    "total_source_read_pages":info["check_read_pages"]+stats["analysis_read_pages"]+payload_io["pages"],
                    "writer_pages":writer.writes,
-                   "model_RAM_bytes":R,"source_passes":3,
+                   "model_RAM_bytes":R,"source_passes":2 if mode.startswith("U") else 3,
                    "all_mode_bytes":{k:v["D"] for k,v in opts.items()}}
 
 
