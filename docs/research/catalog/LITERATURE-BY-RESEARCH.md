@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**182** работ сопоставлены с **38** внутренними исследованиями.
+**186** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -339,6 +339,10 @@
 - [LIT-180](LITERATURE.md#lit-180) — Practical Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
 - [LIT-181](LITERATURE.md#lit-181) — Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space (2026; primary_abstract_checked)
 - [LIT-182](LITERATURE.md#lit-182) — Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space (2024; publisher_abstract_checked)
+- [LIT-183](LITERATURE.md#lit-183) — (Worst-case) Optimal Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
+- [LIT-184](LITERATURE.md#lit-184) — C2LSM: A configuration paradigm for efficient compaction in LSM-tree-based key-value stores (2026; publisher_abstract_checked)
+- [LIT-185](LITERATURE.md#lit-185) — ArceKV: Towards Workload-driven LSM-compactions for Key-Value Store Under Dynamic Workloads (2026; publisher_abstract_checked)
+- [LIT-186](LITERATURE.md#lit-186) — RangeReduce: Query-Driven LSM Compactions (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -430,6 +434,10 @@
 - [LIT-180](LITERATURE.md#lit-180) — Practical Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
 - [LIT-181](LITERATURE.md#lit-181) — Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space (2026; primary_abstract_checked)
 - [LIT-182](LITERATURE.md#lit-182) — Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space (2024; publisher_abstract_checked)
+- [LIT-183](LITERATURE.md#lit-183) — (Worst-case) Optimal Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
+- [LIT-184](LITERATURE.md#lit-184) — C2LSM: A configuration paradigm for efficient compaction in LSM-tree-based key-value stores (2026; publisher_abstract_checked)
+- [LIT-185](LITERATURE.md#lit-185) — ArceKV: Towards Workload-driven LSM-compactions for Key-Value Store Under Dynamic Workloads (2026; publisher_abstract_checked)
+- [LIT-186](LITERATURE.md#lit-186) — RangeReduce: Query-Driven LSM Compactions (2026; publisher_abstract_checked)
 
 ## ML-007
 
