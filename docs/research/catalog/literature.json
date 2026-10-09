@@ -8155,6 +8155,70 @@
       "verification": "publisher_abstract_checked",
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "id": "LIT-281",
+      "year": 2025,
+      "track": "dynamic-data-structures",
+      "identity": "doi:10.4230/LIPIcs.MFCS.2025.87",
+      "title": "Lazy B-Trees",
+      "summary_ru": "Rysgaard и Wild (MFCS 2025): адаптивные lazy B-деревья для внешней памяти, с доказанными в оригинальной работе оценками операций доступа и обновления в зависимости от запросов.",
+      "limits_ru": "Операции динамического сортированного множества и I/O-модель не совпадают с бинарными range-overwrite, CRC-упаковкой общих страниц и тарифом на живые/удалённые поколения; авторские доказательства здесь независимо не воспроизведены.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.MFCS.2025.87",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-B4-C3-SHARED-PAGES.md",
+          "kind": "model_overlap",
+          "source_sha": "9077e9ee52b1ec5fab50fc8f40004759184a6949"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Casper Moldrup Rysgaard",
+        "Sebastian Wild"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
+    },
+    {
+      "id": "LIT-282",
+      "year": 2025,
+      "track": "dynamic-data-structures",
+      "identity": "doi:10.1007/s00224-025-10238-7",
+      "title": "Space-Efficient B Trees via Load-Balancing",
+      "summary_ru": "I, Köppl, Sakamoto и Yamaguchi (Theory of Computing Systems 2025): компактные B-деревья с балансировкой нагрузки, битовыми оценками хранения и динамическими поиском/вставкой/удалением.",
+      "limits_ru": "Модель word-RAM, предположения о стоимости указателей и данные об операциях B-tree нельзя автоматически переносить на page-image recourse или CRC-сегменты; полные доказательства и измерения независимо не воспроизведены.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1007/s00224-025-10238-7",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-B4-C3-SHARED-PAGES.md",
+          "kind": "model_overlap",
+          "source_sha": "9077e9ee52b1ec5fab50fc8f40004759184a6949"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Tomohiro I",
+        "Dominik Köppl",
+        "Hiroshi Sakamoto",
+        "Sohei Yamaguchi"
+      ],
+      "publication_stage": "peer_reviewed_proceedings",
+      "selection_priority": "A"
     }
   ]
 }

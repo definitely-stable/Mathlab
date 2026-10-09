@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**279** работ сопоставлены с **38** внутренними исследованиями.
+**281** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -437,6 +437,8 @@
 - [LIT-278](LITERATURE.md#lit-278) — Succinct Representations of Graphs (2025; publisher_abstract_checked)
 - [LIT-279](LITERATURE.md#lit-279) — A practical succinct dynamic graph representation (2022; publisher_abstract_checked)
 - [LIT-280](LITERATURE.md#lit-280) — Dynamic graph representation learning with disentangled information bottleneck (2026; publisher_abstract_checked)
+- [LIT-281](LITERATURE.md#lit-281) — Lazy B-Trees (2025; publisher_abstract_checked)
+- [LIT-282](LITERATURE.md#lit-282) — Space-Efficient B Trees via Load-Balancing (2025; publisher_abstract_checked)
 
 ## ML-005
 
@@ -573,6 +575,8 @@
 - [LIT-270](LITERATURE.md#lit-270) — Maximizing Reachability via Shifting of Temporal Paths (2026; publisher_abstract_checked)
 - [LIT-278](LITERATURE.md#lit-278) — Succinct Representations of Graphs (2025; publisher_abstract_checked)
 - [LIT-279](LITERATURE.md#lit-279) — A practical succinct dynamic graph representation (2022; publisher_abstract_checked)
+- [LIT-281](LITERATURE.md#lit-281) — Lazy B-Trees (2025; publisher_abstract_checked)
+- [LIT-282](LITERATURE.md#lit-282) — Space-Efficient B Trees via Load-Balancing (2025; publisher_abstract_checked)
 
 ## ML-007
 
