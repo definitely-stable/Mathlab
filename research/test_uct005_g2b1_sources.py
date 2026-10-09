@@ -45,7 +45,7 @@ class Uct005G2B1SourceTests(unittest.TestCase):
         text=NOTE.read_text(encoding="utf8")
         for marker in ("LIT-068","LIT-187","LIT-205","G2B1-L1",
                        "G2B1-L2","collision-free", "K+3",
-                       "NO", "OPEN_UNPROVED", "B_known", "G2B1-SRC"):
+                       "NO", "NOVEL_NONFACTORIZING_THEOREM_UNPROVED", "B_known", "G2B1-SRC"):
             self.assertIn(marker,text)
         self.assertNotIn("ROOT_THEOREM_PROVED",text)
         tree=json.loads(TREE.read_text(encoding="utf8"))
