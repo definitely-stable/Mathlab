@@ -1,0 +1,54 @@
+{
+  "schema": "mathlab.uct005.g2b1.source-inventory.v1",
+  "date": "2026-10-09",
+  "canonical_state": "RESEARCH_INVENTORY_PINNED_LIT_PROMOTION_BLOCKED_BY_132_AND_142",
+  "source_doc": "docs/research/UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md",
+  "source_sha": "d7fecfbcaaea21629ebf968c30122a3ba0b9236a",
+  "already_cataloged": [
+    {
+      "lit": "LIT-068",
+      "identity": "doi:10.4230/LIPIcs.ITCS.2026.6",
+      "role": "model_generic_IVC_UpBARG_published"
+    },
+    {
+      "lit": "LIT-187",
+      "identity": "doi:10.4230/LIPIcs.SEA.2025.9",
+      "role": "incremental_immutable_DAG_reachability_published"
+    }
+  ],
+  "new_sources": [
+    {
+      "id": "G2B1-SRC-01",
+      "identity": "doi:10.1137/24M1638215",
+      "alternate_identities": [
+        "arxiv:2304.08745"
+      ],
+      "title": "Super-Logarithmic Lower Bounds for Dynamic Graph Problems",
+      "authors": [
+        "Kasper Green Larsen",
+        "Huacheng Yu"
+      ],
+      "year": 2025,
+      "publication_note": "SIAM J. Comput. article available online 2025-02-13; Volume 55(3) journal issue June 2026; earlier FOCS 2023 conference version is not a second independent work.",
+      "primary_url": "https://epubs.siam.org/doi/abs/10.1137/24M1638215",
+      "verification": "publisher_abstract_checked",
+      "relevant_bound": "~Omega(log^(3/2) n) max(update/query) cell-probe cost for dynamic DAG reachability with edge insertions",
+      "limits": "Does not concern immutable XOR DAG under source-bit FLIP, cryptographic proof lengths, or unrestricted server CPU. Cannot multiply with IVC certificate size absent a same-model reduction."
+    },
+    {
+      "id": "G2B1-SRC-02",
+      "identity": "publisher:iacr:2025-251",
+      "title": "Verifiable Streaming Computation and Step-by-Step Zero-Knowledge",
+      "authors": [
+        "Abtin Afshar",
+        "Rishab Goyal"
+      ],
+      "year": 2025,
+      "primary_url": "https://eprint.iacr.org/2025/251",
+      "verification": "publisher_author_abstract_checked",
+      "publication_note": "IACR Cryptology ePrint Archive states Preprint; no peer-reviewed venue asserted.",
+      "relevant_bound": "IVsC framework supports incremental verifiable streaming RAM computations and step-by-step ZK under cryptographic assumptions",
+      "limits": "Construction not an unconditional lower bound; does not imply malicious fork/rollback freshness against multiple independently stateful clients."
+    }
+  ]
+}

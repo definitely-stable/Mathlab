@@ -161,6 +161,12 @@
       "kind": "research_input",
       "status": "FROZEN_MODEL_FINITE_TESTS_NEW_THEOREM_OPEN",
       "source": "docs/research/UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md"
+    },
+    {
+      "id": "UCT005G2B1",
+      "kind": "research_input",
+      "status": "RESTRICTED_CLASSICAL_PROOF_AND_FALSIFIER_ROOT_OPEN",
+      "source": "docs/research/UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md"
     }
   ],
   "edges": [
@@ -283,6 +289,11 @@
       "parent": "UCT005G2A",
       "child": "UCT005G2B",
       "relation": "RESEARCH_EXTENDS_NOT_IMPLICATION"
+    },
+    {
+      "parent": "UCT005G2B",
+      "child": "UCT005G2B1",
+      "relation": "FALSIFICATION_NOT_IMPLICATION"
     }
   ]
 }
