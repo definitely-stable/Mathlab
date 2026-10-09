@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## HYP-105 G3 — complete finite-core six-wise independence theorem (2026-10-09)
+
+[**Computer-assisted exact theorem and reproducible determinant-gcd certificate**](HYP-105-G3-SIX-COLUMN-MINORS.md) · [exhaustive 531-core generator](../../research/hyp105_minor.py) · [independent modular-rank and Bareiss tests](../../research/test_hyp105_minor.py) · [issue #86](https://github.com/definitely-stable/Mathlab/issues/86). For unit columns of a *linear* 3-uniform hypergraph over characteristic **p≥5**, every ≤6 columns are linearly independent **iff** its 3×3 grid is absent. Exact integer maximal-minor gcd histogram (all 531 core configurations) is {0,1,2,3,4}, with all 10 singular six-edge cores grids; all nonzero divisors are coprime to every p≥5. Using already-published 2022 Gishboliner–Shapira grid-free density, this **closes HYP-105 at w=3,d=3:** both capacities Theta_q(m²), bounded ratio. **Novel scientific contribution NOT claimed**; source existence old, finite proof computer-assisted, no Lean or Rust.
+
 ## HYP-105 G2 — quadratic capacity of exact three-sums (2026-10-09)
 
 [Self-contained **grid-free ⇔ subset-sum injection** proof for linear 3-uniform unit-incidence systems over char≥5, and derived (A_q^{set}(m,3,3)=\Theta_q(m^2))](HYP-105-G2-GRID-FREE-QUADRATIC.md) · [all 4096 AG(2,3) subfamilies with independent grid/sum oracles and characteristic-three counterexample](../../research/test_hyp105_grid.py) · [issue #84](https://github.com/definitely-stable/Mathlab/issues/84). Dense **grid-free** linear triple systems already existed in Gishboliner–Shapira (2022): mathematical consequence is DERIVED_CLASSICAL, **not original**. Six-wise-linear-independence denominator remains unresolved: `Omega(m^9/5) <= A_lin(m,3,6) <= O(m²)`; no unbounded ratio proved. External catalogue 136 -> **140**, LIT-137..140.
