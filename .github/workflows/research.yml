@@ -57,6 +57,9 @@ jobs:
       - name: HYP-105 G5-E1 provable GF5 signed-flow motif filters and risk floor
         run: python research/hyp105_g5e1_motifs.py
 
+      - name: HYP-105 G5-E2-A exact GF2/GF4 symplectic pair-embedding and bounded motif probe
+        run: python research/hyp105_g5e2a_pair_embeddings.py
+
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
