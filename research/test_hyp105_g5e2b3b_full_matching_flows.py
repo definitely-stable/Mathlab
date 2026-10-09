@@ -9,6 +9,7 @@ from hyp105_g5e2b3b_full_matching_flows import (
     nonzero_coordinate_options, half_checksum_histogram,
     matching_signed_orbit_representatives, exact_pair_GF5_flow,
     supports_for_profiles, exhaustive_matching_census,
+    all_h_random_matching_r3,
 )
 from hyp105_g5e2b3b1_critical_flows import (
     exact_nowherezero_signed_flow, connected_contracted_column_graph,
@@ -138,6 +139,35 @@ class CompleteMatchingFlowTests(unittest.TestCase):
         self.assertEqual(by_key["6/6/zero"],100)
         self.assertEqual(by_key["5/5/positive"],2601000)
         self.assertEqual(by_key["4/4/positive"],9000)
+        self.assertEqual(results["full_GF5_weighted_numerator_by_vleft_vright"],{
+            "4/4":1212700680, "4/5":9814303080, "4/6":552904560,
+            "5/4":9814303080, "5/5":80573932980,
+            "5/6":4578391800, "6/4":552904560,
+            "6/5":4578391800, "6/6":259890480,
+        })
+
+    def test_all_h_random_matching_exact_coefficient_mass(self):
+        from math import factorial
+        from fractions import Fraction
+        for s in (2,4,8,16):
+            x=all_h_random_matching_r3(s)
+            a=x["a"]
+            K=x["K"]
+            # Independent mass normalization of the 610 leafless
+            # physical projections among ALL (K)_6 injective tuples.
+            expected=sum(n * factorial(a)//factorial(a-v)
+                         for v,n in ((4,30),(5,510),(6,70)))
+            denom=factorial(K)//factorial(K-6)
+            self.assertLessEqual(expected,denom)
+            self.assertGreater(x["full_GF5_matching_polynomial"],0)
+            self.assertLess(Fraction(x["per_factor_matching_exact_expected_R3"]),10)
+            self.assertGreater(Fraction(x["expected_R3_matching_lower"]),0)
+            self.assertGreaterEqual(
+                Fraction(x["expected_R3_matching_upper"]),
+                Fraction(x["expected_R3_matching_lower"]))
+            self.assertFalse(x["full_family_R3_mathematical_identity"])
+        with self.assertRaises(ValueError):
+            all_h_random_matching_r3(3)
         self.assertEqual(set(k for k in by_key if k.endswith("/zero")),
                          {"6/6/zero"})
 
