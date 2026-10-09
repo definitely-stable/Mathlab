@@ -33,7 +33,7 @@ def assign(values, operation):
 def budget(values, block, alpha=4, beta=2, m_bits=0, gamma=0):
     if any(type(z) is not int or z < 0 for z in (alpha, beta, m_bits, gamma)):
         raise ValueError("nonnegative integer budgets required")
-    return alpha * len(packed_image(values)) + beta * block + gamma * (m_bits + 7) // 8
+    return alpha * len(packed_image(values)) + beta * block + gamma * ((m_bits + 7) // 8)
 
 
 def flat_update(before, operation, block, group, layout):
