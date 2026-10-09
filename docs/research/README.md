@@ -7,7 +7,7 @@
 
 ## HYP-105 G5-E2-B3.1-A — exact critical signed six-flow motifs (2026-10-09)
 
-[Exact color-preserving signed GF5 2-factor census, all-h matching-risk floor](HYP-105-G5-E2-B3-B1-CRITICAL-FLOWS.md) · [stdlib finite graph oracle](../../research/hyp105_g5e2b3b1_critical_flows.py) · [independent GF5 MITM tests](../../research/test_hyp105_g5e2b3b1_critical_flows.py) · [issue #176](https://github.com/definitely-stable/Mathlab/issues/176). Full 70² × 10 leading **matching+6+6** colored signed configurations, reduced by true column-label stabilizers, tested by exact GF5 prescribed-boundary flow IE and independent MITM. Explicit alternating C6 witness gives E_random-pair-label[R3]>=Omega(s^6) from the factor-matchings branch alone. No proof of a fixed-label or strict R3 power bound; no ASET promotion.
+[Exact color-preserving signed GF5 2-factor census, all-h matching-risk floor](HYP-105-G5-E2-B3-B1-CRITICAL-FLOWS.md) · [stdlib finite graph oracle](../../research/hyp105_g5e2b3b1_critical_flows.py) · [independent GF5 MITM tests](../../research/test_hyp105_g5e2b3b1_critical_flows.py) · [issue #176](https://github.com/definitely-stable/Mathlab/issues/176). Full 70² × 10 leading **matching+6+6** colored signed configurations, reduced to 110 true colored-signed orbits by column-label stabilizers: 108 positive (48,900 labeled cases) and two zero (100 labeled cases); F>0 iff the six-column contracted graph is connected. Verified by exact prescribed-boundary flow IE and independent MITM. Explicit alternating C6 witness gives E_random-pair-label[R3]>=Omega(s^6) from the factor-matchings branch alone. No proof of a fixed-label or strict R3 power bound; no ASET promotion.
 
 ## UCT-005 G3-B1 — temporal trajectory packing theorem (2026-10-09)
 
