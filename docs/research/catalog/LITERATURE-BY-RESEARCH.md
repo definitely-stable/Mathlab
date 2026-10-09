@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**144** работ сопоставлены с **38** внутренними исследованиями.
+**145** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -200,6 +200,7 @@
 - [LIT-142](LITERATURE.md#lit-142) — Grid-free linear hypergraphs via Cayley-Bacharach (2026; primary_abstract_checked)
 - [LIT-143](LITERATURE.md#lit-143) — The linear Turán number of small triple systems or why is the wicket interesting? (2022; publisher_abstract_checked)
 - [LIT-144](LITERATURE.md#lit-144) — Wickets in 3-uniform hypergraphs (2024; publisher_abstract_checked)
+- [LIT-145](LITERATURE.md#lit-145) — The Size of Bipartite Graphs with a Given Girth (2002; publisher_abstract_checked)
 
 ## ML-003
 
@@ -296,6 +297,7 @@
 - [LIT-142](LITERATURE.md#lit-142) — Grid-free linear hypergraphs via Cayley-Bacharach (2026; primary_abstract_checked)
 - [LIT-143](LITERATURE.md#lit-143) — The linear Turán number of small triple systems or why is the wicket interesting? (2022; publisher_abstract_checked)
 - [LIT-144](LITERATURE.md#lit-144) — Wickets in 3-uniform hypergraphs (2024; publisher_abstract_checked)
+- [LIT-145](LITERATURE.md#lit-145) — The Size of Bipartite Graphs with a Given Girth (2002; publisher_abstract_checked)
 
 ## ML-005
 
@@ -384,6 +386,7 @@
 - [LIT-142](LITERATURE.md#lit-142) — Grid-free linear hypergraphs via Cayley-Bacharach (2026; primary_abstract_checked)
 - [LIT-143](LITERATURE.md#lit-143) — The linear Turán number of small triple systems or why is the wicket interesting? (2022; publisher_abstract_checked)
 - [LIT-144](LITERATURE.md#lit-144) — Wickets in 3-uniform hypergraphs (2024; publisher_abstract_checked)
+- [LIT-145](LITERATURE.md#lit-145) — The Size of Bipartite Graphs with a Given Girth (2002; publisher_abstract_checked)
 
 ## ML-008
 
