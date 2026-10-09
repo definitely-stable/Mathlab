@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## UCT-002 — wider original source imports (2026-10-09)
+
+Eight additional unique original identities **LIT-127..134** cover local update/decoding codes, dynamic repair, annotated streams, Merlin–Arthur verification, leakage-resilient codes and Blackwell decision theory, expanding the canonical bibliography to **134**. [Source-model audit](../UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) and [master theorem](../UCT-002-MASTER-THEOREM.md); all new records have `full_proof_verified=false`, provenance and generated forward/reverse links. Concurrent HYP-101 G1 LIT-123..126 are retained.
+
 ## HYP-101 G1 dynamic-string and BLAKE3 specification sources (2026-10-09)
 
 Four unique primary source identities **LIT-123..126** extend the UCT-001 bibliography from 122 to **126**: 2018 SODA *Optimal Dynamic Strings*, 2026 TCS FeST, official [C2SP BLAKE3 v1.0.0](https://c2sp.org/BLAKE3@v1.0.0) (**normative technical specification, not a peer-reviewed paper**), and Duyster–Kociumaka 2026 dynamic internal pattern matching. Each is cross-mapped to [the HYP-101 phase/counter audit](../HYP-101-G1-PHASE-COUNTER-FRONTIER.md), with original Russian summaries and explicit non-transfer to unrestricted standard BLAKE3 edit-time lower bounds. Their metadata and historical source identities are validated offline by `research/literature.py --check`; verification of full external proofs is not claimed.

@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## UCT-002 — unified operational observation capacity (2026-10-09)
+
+[Cross-domain master theorem](UCT-002-MASTER-THEOREM.md) · [16-node typed theorem-brick DAG](UCT-002-THEOREM-BRICKS.json) · [primary-source and model-transfer audit](UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) · [issue #77](https://github.com/definitely-stable/Mathlab/issues/77). Joint q-ary update locality, maintained memory, annotated verifier communication, total adaptive source reads and finite-error Fano bound: **DERIVED_CLASSICAL, not an original unified scientific theorem**. Stronger nonfactorizing frontier remains OPEN. Eight additional deduplicated sources **LIT-127..134**, now **134** unique external identities; independent stdlib finite tests `research/test_uct002_joint_capacity.py`. The concurrent HYP-101 G1 source cohort LIT-123..126 is preserved.
+
 ## HYP-101 G1 — exact BLAKE3 leaf input phase/counter reuse audit (2026-10-09)
 
 [Position-dependent leaf-input cache lemma, periodic counterexample, rigorous scope of applicability, source-to-theorem comparison](HYP-101-G1-PHASE-COUNTER-FRONTIER.md) · [independent exhaustive structural tests](../../research/test_hyp101_phase_counter.py), issue [#72](https://github.com/definitely-stable/Mathlab/issues/72). This is **PROVED_CLASSICAL_CACHE_COUNT / STOP_BROAD_UNCONDITIONAL / G2_MAINTAINED_MODEL_OPEN**, not an unconditional compression-oracle or BLAKE3 update-time lower bound. Imported LIT-123..126 (SODA 2018 dynamic strings; TCS 2026 FeST; normative C2SP BLAKE3 v1 spec; 2026 dynamic IPM) into the **126-work** source-index; historical UCT LIT-111..122 preserved. No Rust/G4 claim.

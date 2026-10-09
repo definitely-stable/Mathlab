@@ -46,3 +46,7 @@ Anti-rediscovery closure: four scoped decisions **KR-041..044** have been append
 
 ## The unification is a lens, not a claimed universal formula
 UCT cannot sum or compose lower bounds proved for incompatible computational models. A map preserving valid operations, observable outputs, the adversary and all *charged* resources is a prerequisite for a sound theorem transfer. A proof of a weaker bound or a rename is NOT publication novelty.
+
+## UCT-002 broader unified program (2026-10-09)
+
+[Operational master theorem](UCT-002-MASTER-THEOREM.md) uses prior LENT/TOM/HYP and DeltaMeter as **typed bricks**; [JSON DAG](UCT-002-THEOREM-BRICKS.json) prohibits transfers not justified by an assumption-preserving map. The master bound is CLASSICAL, original nonfactorizing stronger theorem remains OPEN. Eight canonical new primary sources LIT-127..134 (catalog total 134), [issue #77](https://github.com/definitely-stable/Mathlab/issues/77), G1 gate [#76](https://github.com/definitely-stable/Mathlab/issues/76). No Rust.

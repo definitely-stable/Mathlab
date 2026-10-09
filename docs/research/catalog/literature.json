@@ -5,7 +5,7 @@
   "source_snapshots": {
     "MATHLAB": {
       "repo": "definitely-stable/Mathlab",
-      "sha": "89c96130408e812ada72df44e9848cf3c38b60eb"
+      "sha": "7427a549cd11e6dfb3c95db5fc9766390c60423d"
     },
     "DELSK": {
       "repo": "definitely-stable/Shift-lab",
@@ -3688,6 +3688,198 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-127",
+      "title": "Locally Updatable and Locally Decodable Codes",
+      "year": 2014,
+      "identity": "doi:10.1007/978-3-642-54242-8_21",
+      "primary_url": "https://doi.org/10.1007/978-3-642-54242-8_21",
+      "track": "sparse-coding",
+      "summary_ru": "Chandran–Kanukurthi–Ostrovsky строят локально обновляемые и локально декодируемые коды в модели Prefix Hamming metric и исследуют приложения к динамическому доказательству хранения.",
+      "limits_ru": "Одновременное ограничение числа записываемых/читаемых символов давно известно; ошибка декодирования, модель атакующего и условие префиксной метрики не совпадают с чистой Hamming-ball моделью UCT.",
+      "maps_to": [
+        "ML-001",
+        "ML-002"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-128",
+      "title": "Update-Efficiency and Local Repairability Limits for Capacity Approaching Codes",
+      "year": 2013,
+      "identity": "arxiv:1305.3224",
+      "primary_url": "https://arxiv.org/abs/1305.3224",
+      "track": "sparse-coding",
+      "summary_ru": "Mazumdar–Chandar–Wornell изучают компромисс скорости кода, локального восстановления и стоимости обновления при приближении к пропускной способности зашумленного канала.",
+      "limits_ru": "Канальная capacity с шумом и требования восстановления не определяются одной безошибочной моделью графа изменений. Нужна явная редукция при переносе границ.",
+      "maps_to": [
+        "ML-001",
+        "ML-002"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-129",
+      "title": "Annotations in Data Streams",
+      "year": 2014,
+      "identity": "doi:10.1145/2636924",
+      "primary_url": "https://doi.org/10.1145/2636924",
+      "track": "incremental-computation",
+      "summary_ru": "Chakrabarti–Cormode–McGregor–Thaler вводят схемы аннотированных потоков: недоверенный доказатель сообщает вспомогательную информацию, а ограниченный по памяти верификатор обязан проверить ответ.",
+      "limits_ru": "Длина честной аннотации — необходимый информационный ресурс, но сама по себе она не обеспечивает soundness. Известные нелинейные компромиссы annotation/verification-space не следуют из простого произведения размеров кодов.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-130",
+      "title": "Annotations for Sparse Data Streams",
+      "year": 2013,
+      "identity": "arxiv:1304.3816",
+      "primary_url": "https://arxiv.org/abs/1304.3816",
+      "track": "incremental-computation",
+      "summary_ru": "Chakrabarti–Cormode–Goyal–Thaler исследуют online Merlin–Arthur/annotated streaming с малым числом действительных обновлений и показывают границы между вариантами моделей доказателя.",
+      "limits_ru": "Сохранённое состояние, момент публикации свидетельства, адаптивность и сообщение недоверенного доказателя должны иметь отдельные контракты и оценки.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-131",
+      "title": "New Lower Bounds in Merlin-Arthur Communication and Graph Streaming Verification",
+      "year": 2024,
+      "identity": "doi:10.4230/LIPIcs.ITCS.2024.53",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ITCS.2024.53",
+      "track": "proof-certification",
+      "summary_ru": "Ghosh–Shah доказывают сильные границы и разделения для нетривиальных online Merlin–Arthur коммуникационных протоколов и аннотированных потоковых графовых задач.",
+      "limits_ru": "Наличие доказателя не гарантирует выигрыш относительно прямой передачи: некоторые нетривиальные протоколы значительно дороже простых. Дополнительная проверка soundness обязательна.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-132",
+      "title": "Arthur–Merlin streaming complexity",
+      "year": 2015,
+      "identity": "doi:10.1016/j.ic.2014.12.011",
+      "primary_url": "https://doi.org/10.1016/j.ic.2014.12.011",
+      "track": "streaming-reconciliation",
+      "summary_ru": "Исследование моделей Arthur–Merlin для потоковой проверки, включая компромиссы длины доказательства и оперативной памяти и ограничения для Distinct Elements.",
+      "limits_ru": "Статистическая полнота/корректность интерактивного доказательства отличается от финитной гарантии точной оценки множества; нельзя подменять одно другим.",
+      "maps_to": [
+        "DM-001",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-133",
+      "title": "Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes",
+      "year": 2019,
+      "identity": "doi:10.1016/j.ic.2019.05.001",
+      "primary_url": "https://doi.org/10.1016/j.ic.2019.05.001",
+      "track": "sparse-coding",
+      "summary_ru": "Работа доказывает нижние и верхние ограничения локального декодирования/обновления криптографических кодов при недоверенном изменении и утечке информации.",
+      "limits_ru": "Криптографическая немодифицируемость и leakage-resilience требуют другой adversary/security модели и не сводятся к доказательству безошибочной вместимости шаров Хэмминга.",
+      "maps_to": [
+        "ML-001",
+        "ML-002"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md",
+          "kind": "model_overlap"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-134",
+      "title": "Equivalent Comparisons of Experiments",
+      "year": 1953,
+      "identity": "doi:10.1214/aoms/1177729032",
+      "primary_url": "https://doi.org/10.1214/aoms/1177729032",
+      "track": "randomized-sampling",
+      "summary_ru": "Blackwell формализует сравнение статистических экспериментов и относительную информативность наблюдений для задач принятия решений.",
+      "limits_ru": "Порядок информативности не даёт автоматических cell-probe или patch-byte границ; требуется конкретный канал наблюдений и допустимое преобразование статистического эксперимента.",
+      "maps_to": [
+        "ML-004",
+        "DM-001"
+      ],
+      "verification": "publisher_bibliography_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md",
           "kind": "model_overlap"
         }
       ],

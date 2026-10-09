@@ -96,6 +96,15 @@ SOURCE_TITLE_PINS = {
     "doi:10.1016/j.tcs.2026.115746": "A textbook solution for dynamic strings",
     "publisher:c2sp:blake3-v1-0-0": "The BLAKE3 Hashing Framework (C2SP v1.0.0)",
     "doi:10.1007/s00224-026-10266-x": "Logarithmic-Time Internal Pattern Matching Queries in Compressed and Dynamic Texts",
+    # UCT-002 sourced identities, NOT full theorem proofs.
+    "doi:10.1007/978-3-642-54242-8_21": "Locally Updatable and Locally Decodable Codes",
+    "arxiv:1305.3224": "Update-Efficiency and Local Repairability Limits for Capacity Approaching Codes",
+    "doi:10.1145/2636924": "Annotations in Data Streams",
+    "arxiv:1304.3816": "Annotations for Sparse Data Streams",
+    "doi:10.4230/LIPIcs.ITCS.2024.53": "New Lower Bounds in Merlin-Arthur Communication and Graph Streaming Verification",
+    "doi:10.1016/j.ic.2014.12.011": "Arthur–Merlin streaming complexity",
+    "doi:10.1016/j.ic.2019.05.001": "Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes",
+    "doi:10.1214/aoms/1177729032": "Equivalent Comparisons of Experiments",
 }
 
 

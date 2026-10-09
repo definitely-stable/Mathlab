@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**126** работ сопоставлены с **38** внутренними исследованиями.
+**134** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -82,6 +82,8 @@
 
 - [LIT-024](LITERATURE.md#lit-024) — The Space Complexity of Approximating the Frequency Moments (1996; publisher_abstract_checked)
 - [LIT-047](LITERATURE.md#lit-047) — Tight Bounds for Low-Error Frequency Moment Estimation and the Power of Multiple Passes (2025; primary_abstract_checked)
+- [LIT-132](LITERATURE.md#lit-132) — Arthur–Merlin streaming complexity (2015; publisher_abstract_checked)
+- [LIT-134](LITERATURE.md#lit-134) — Equivalent Comparisons of Experiments (1953; publisher_bibliography_checked)
 
 ## DM-002
 
@@ -160,6 +162,9 @@
 - [LIT-120](LITERATURE.md#lit-120) — On cubical graphs (1975; publisher_abstract_checked)
 - [LIT-121](LITERATURE.md#lit-121) — The complexity of cubical graphs (1985; publisher_abstract_checked)
 - [LIT-122](LITERATURE.md#lit-122) — Embeddings in hypercubes (1988; publisher_abstract_checked)
+- [LIT-127](LITERATURE.md#lit-127) — Locally Updatable and Locally Decodable Codes (2014; publisher_abstract_checked)
+- [LIT-128](LITERATURE.md#lit-128) — Update-Efficiency and Local Repairability Limits for Capacity Approaching Codes (2013; publisher_abstract_checked)
+- [LIT-133](LITERATURE.md#lit-133) — Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes (2019; publisher_abstract_checked)
 
 ## ML-002
 
@@ -183,6 +188,9 @@
 - [LIT-084](LITERATURE.md#lit-084) — Locally Computable High Independence Hashing (2026; publisher_abstract_checked)
 - [LIT-091](LITERATURE.md#lit-091) — Improved Pseudorandom Codes from Permuted Puzzles (2026; publisher_abstract_checked)
 - [LIT-118](LITERATURE.md#lit-118) — Lower bounds for adaptive locally decodable codes (2005; publisher_abstract_checked)
+- [LIT-127](LITERATURE.md#lit-127) — Locally Updatable and Locally Decodable Codes (2014; publisher_abstract_checked)
+- [LIT-128](LITERATURE.md#lit-128) — Update-Efficiency and Local Repairability Limits for Capacity Approaching Codes (2013; publisher_abstract_checked)
+- [LIT-133](LITERATURE.md#lit-133) — Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes (2019; publisher_abstract_checked)
 
 ## ML-003
 
@@ -265,6 +273,10 @@
 - [LIT-124](LITERATURE.md#lit-124) — A textbook solution for dynamic strings (2026; publisher_abstract_checked)
 - [LIT-125](LITERATURE.md#lit-125) — The BLAKE3 Hashing Framework (C2SP v1.0.0) (2024; publisher_full_text_spotchecked)
 - [LIT-126](LITERATURE.md#lit-126) — Logarithmic-Time Internal Pattern Matching Queries in Compressed and Dynamic Texts (2026; publisher_full_text_spotchecked)
+- [LIT-129](LITERATURE.md#lit-129) — Annotations in Data Streams (2014; publisher_abstract_checked)
+- [LIT-130](LITERATURE.md#lit-130) — Annotations for Sparse Data Streams (2013; publisher_abstract_checked)
+- [LIT-131](LITERATURE.md#lit-131) — New Lower Bounds in Merlin-Arthur Communication and Graph Streaming Verification (2024; publisher_abstract_checked)
+- [LIT-134](LITERATURE.md#lit-134) — Equivalent Comparisons of Experiments (1953; publisher_bibliography_checked)
 
 ## ML-005
 
@@ -325,6 +337,10 @@
 - [LIT-113](LITERATURE.md#lit-113) — On the Cell Probe Complexity of Dynamic Membership (2010; publisher_abstract_checked)
 - [LIT-115](LITERATURE.md#lit-115) — New amortized cell-probe lower bounds for dynamic problems (2019; publisher_abstract_checked)
 - [LIT-119](LITERATURE.md#lit-119) — An $\Omega((\log n / \log\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures (2026; publisher_full_text_spotchecked)
+- [LIT-129](LITERATURE.md#lit-129) — Annotations in Data Streams (2014; publisher_abstract_checked)
+- [LIT-130](LITERATURE.md#lit-130) — Annotations for Sparse Data Streams (2013; publisher_abstract_checked)
+- [LIT-131](LITERATURE.md#lit-131) — New Lower Bounds in Merlin-Arthur Communication and Graph Streaming Verification (2024; publisher_abstract_checked)
+- [LIT-132](LITERATURE.md#lit-132) — Arthur–Merlin streaming complexity (2015; publisher_abstract_checked)
 
 ## ML-007
 
