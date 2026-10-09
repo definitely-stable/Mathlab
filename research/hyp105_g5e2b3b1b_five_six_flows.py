@@ -14,8 +14,10 @@ variable and quotients multiplicative GF5* scaling. It evaluates only
 782 integer dual assignments per six-column template; no complex
 arithmetic, 51^6 brute force or assumed nowherezero positivity.
 
-This is a restricted CLASSICAL finite template lemma, not a complete
-six-flow classification nor an ASET exponent improvement.
+The complete FACTOR-MATCHING six-flow classification was ALREADY accepted
+in PR #214. This is a genuinely INDEPENDENT verifier of its v=5,w=6
+coefficient and a sharper fixed-label U56 quantitative corollary.
+Nonmatching factor-forest motifs remain OPEN. No ASET exponent.
 """
 from collections import Counter, defaultdict
 from functools import lru_cache
@@ -224,6 +226,24 @@ def five_six_complete_census():
             "sum_exact_flows_over_representatives":sum_flow,
             "witness":positive_sample,
         })
+    # Independent cross-certificate against the ALREADY ACCEPTED complete
+    # 610x610 matching-census coefficient (PR #214). Each K5 coordinate
+    # graph represents 6 * orbit_size distinct canonical named-column
+    # projections: orbit_size labeled K5 edge sets, 6! named edge orders,
+    # and divide by 5! relabelings of physical symbols.
+    # The 70 right two-factors and 10 sign partitions sum is invariant
+    # under relabeling six named columns, so it is enough to compute it
+    # once per K5 graph isomorphism type.
+    coefficient_56=6*sum(
+        entry["unlabeled_graph_orbit_size_on_K5"] *
+        entry["sum_exact_flows_over_representatives"]
+        for entry in by_type)
+    labeled_signed_56=6*sum(
+        entry["unlabeled_graph_orbit_size_on_K5"]*700
+        for entry in by_type)
+    if coefficient_56!=4578391800 or labeled_signed_56!=357000:
+        raise AssertionError("independent 782-state Fourier sum disagrees with "
+                             "accepted 5486-orbit full matching coefficient")
     if len(by_type)!=3 or total_positive+total_zero!=2100:
         raise AssertionError("five/six motif census incomplete")
     if (total_zero or total_positive!=2100 or all_min!=10950 or
@@ -238,6 +258,10 @@ def five_six_complete_census():
             "positive_representative_signed_cases":total_positive,
             "zero_representative_signed_cases":total_zero,
             "universal_per_event_GF5_flow_lower":all_min,
+            "independent_full_matching_C_5_6":coefficient_56,
+            "independent_full_matching_5_6_signed_mass":labeled_signed_56,
+            "accepted_full_matching_prior":"HYP-105 E2-B3.1-B1 PR #214",
+            "independent_fourier_cross_certificate":True,
             "per_matched_six_set_risk_numerator_lower":10*all_min,
             "by_type":by_type,
             "complete_other_six_motifs":False,
