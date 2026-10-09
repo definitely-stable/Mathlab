@@ -234,3 +234,35 @@ def topology_bound_check(supports, signs, block_size):
         return Fraction(0)
     return signed_trade_rank_report(supports, signs)[
         "nonzero_palette_upper"]
+
+
+def finite_w32_motif_report():
+    """Reproducible order-two probe only; all-s theorem stays symbolic."""
+    from hyp105_g5d_affine_weights import w32_supports
+    from hyp105_g5c2_density import collision_spectrum, w32_columns
+    supports = w32_supports()
+    t4, t6 = collision_spectrum(w32_columns())
+    c2 = classify_small_split_risk(supports[:8], 6, k=2)
+    c3 = classify_small_split_risk(supports[:8], 6, k=3)
+    return {
+        "model": "GF5 all-nonzero weighted risk, globally split 2+2 W32 m12",
+        "original_support_count": len(supports),
+        "exact_unit_minimal_T4": len(t4),
+        "exact_unit_minimal_T6": len(t6),
+        "weighted_exact_R2_floor": str(unit_conflict_risk_floor(t4, 4)),
+        "weighted_exact_R3_floor": str(unit_conflict_risk_floor(t6, 6)),
+        "capped_first_eight_2v2": {
+            k: v for k, v in c2.items() if k != "motif_counts"
+        },
+        "capped_first_eight_3v3": {
+            k: v for k, v in c3.items() if k != "motif_counts"
+        },
+        "asymptotic_bound_proven": False,
+        "uniform_random_expected_certificate_power_no_go": "12/5",
+        "no_all_labeling_lower_claim": True,
+    }
+
+
+if __name__ == "__main__":
+    import json
+    print(json.dumps(finite_w32_motif_report(), indent=2, sort_keys=True))
