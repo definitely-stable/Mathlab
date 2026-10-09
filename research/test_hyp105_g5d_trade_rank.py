@@ -4,9 +4,10 @@ from itertools import product
 from fractions import Fraction
 from random import Random
 from hyp105_g5d_trade_rank import (
-    gf5_rank, signed_trade_rank_report, trade_linear_system
+    gf5_rank, signed_trade_rank_report, trade_linear_system,
+    weighted_alteration_risk
 )
-from hyp105_g5d_affine_weights import checksum_pattern_palette
+from hyp105_g5d_affine_weights import checksum_pattern_palette, w32_supports
 
 
 class G5DAffineRankTests(unittest.TestCase):
@@ -57,6 +58,26 @@ class G5DAffineRankTests(unittest.TestCase):
         bad=signed_trade_rank_report((a,a,b,b), (1,1,-1,-1))
         self.assertFalse(bad["affine_consistent"])
         self.assertNotEqual(bad["rank"],bad["augmented_rank"])
+
+    def test_weighted_alteration_event_accounting_and_safe_computation_cap(self):
+        supports = tuple(w32_supports()[:7])
+        report = weighted_alteration_risk(supports, Fraction(1, 2))
+        self.assertEqual(report["pair_event_candidates"], 105)
+        self.assertEqual(report["triple_event_candidates"], 70)
+        self.assertGreaterEqual(report["U2"], 0)
+        self.assertGreaterEqual(report["U3"], 0)
+        self.assertEqual(
+            report["alteration_lower"],
+            Fraction(7, 2) - report["U2"] / 16 - report["U3"] / 64)
+        # Even if the lower bound is weak, there exists a real ASET
+        # family of size at least max(0, this rational expression).
+        self.assertLessEqual(report["alteration_lower"], 7)
+        with self.assertRaises(ValueError):
+            weighted_alteration_risk(w32_supports()[:10], Fraction(1,2))
+        with self.assertRaises(ValueError):
+            weighted_alteration_risk((supports[0], supports[0]), Fraction(1,2))
+        with self.assertRaises(ValueError):
+            weighted_alteration_risk(supports, 0.5)
 
     def test_full_incidence_rank_falsification_on_held_out_supports(self):
         rng=Random(119590)
