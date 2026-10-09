@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## HYP-105 G1 classical graph-source import (2026-10-09)
+
+LIT-135 Wenger 1991 graph constructions avoiding C4/C6/C10 (JCTB original) and LIT-136 Abreu et al. 2011 explicit girth-8 cages (author arXiv preprint) are separately verified canonical identities. Links, Russian summaries, scope and false-novelty constraints are in [the self-contained w=2,d=3 proof](../HYP-105-G1-W2D3-GIRTH8.md), `literature.json`, and generated forward/reverse indices. **136** unique sources (previous 134 unchanged). Finite oracle verifies a 30-node graph only; external infinite-family existence is attributed to known literature, not independently formalized by CI.
+
 ## UCT-002 — wider original source imports (2026-10-09)
 
 Eight additional unique original identities **LIT-127..134** cover local update/decoding codes, dynamic repair, annotated streams, Merlin–Arthur verification, leakage-resilient codes and Blackwell decision theory, expanding the canonical bibliography to **134**. [Source-model audit](../UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) and [master theorem](../UCT-002-MASTER-THEOREM.md); all new records have `full_proof_verified=false`, provenance and generated forward/reverse links. Concurrent HYP-101 G1 LIT-123..126 are retained.

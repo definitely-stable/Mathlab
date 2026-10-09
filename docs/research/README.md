@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## HYP-105 G1 — weight-two d=3 asymptotic non-separation (2026-10-09)
+
+[Self-contained graph girth proof with exact parameter scope](HYP-105-G1-W2D3-GIRTH8.md), [finite 30-vertex/45-edge symplectic quadrangle oracle](../../research/test_hyp105_girth.py), [issue #80](https://github.com/definitely-stable/Mathlab/issues/80). For **every fixed finite field** q, both A_set(q,m,2,3) and A_lin(q,m,2,6) are Theta_q(m^(4/3)). Hence proposed **unbounded** asymptotic ratio is refuted for w=2,d=3; original existential HYP-105 with other w/d is unresolved. The result derives from classical extremal girth/geometry, **NOT new scientific novelty**. Primary-source catalog expanded 134 -> **136** with Wenger 1991 and Abreu et al. 2011.
+
 ## UCT-002 — unified operational observation capacity (2026-10-09)
 
 [Cross-domain master theorem](UCT-002-MASTER-THEOREM.md) · [16-node typed theorem-brick DAG](UCT-002-THEOREM-BRICKS.json) · [primary-source and model-transfer audit](UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) · [issue #77](https://github.com/definitely-stable/Mathlab/issues/77). Joint q-ary update locality, maintained memory, annotated verifier communication, total adaptive source reads and finite-error Fano bound: **DERIVED_CLASSICAL, not an original unified scientific theorem**. Stronger nonfactorizing frontier remains OPEN. Eight additional deduplicated sources **LIT-127..134**, now **134** unique external identities; independent stdlib finite tests `research/test_uct002_joint_capacity.py`. The concurrent HYP-101 G1 source cohort LIT-123..126 is preserved.
