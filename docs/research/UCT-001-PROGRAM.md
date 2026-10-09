@@ -50,3 +50,7 @@ UCT cannot sum or compose lower bounds proved for incompatible computational mod
 ## UCT-002 broader unified program (2026-10-09)
 
 [Operational master theorem](UCT-002-MASTER-THEOREM.md) uses prior LENT/TOM/HYP and DeltaMeter as **typed bricks**; [JSON DAG](UCT-002-THEOREM-BRICKS.json) prohibits transfers not justified by an assumption-preserving map. The master bound is CLASSICAL, original nonfactorizing stronger theorem remains OPEN. Eight canonical new primary sources LIT-127..134 (catalog total 134), [issue #77](https://github.com/definitely-stable/Mathlab/issues/77), G1 gate [#76](https://github.com/definitely-stable/Mathlab/issues/76). No Rust.
+
+## G2-A operational verification brick (UCT-004, 2026-10-09)
+
+[Sharp but classical fractional witness-influence and linear proof-length theorem](UCT-004-G2-A-SOUND-WITNESS-PACKING.md) with exact independent finite oracles; model/source scope [here](UCT-004-G2-A-PRIMARY-SOURCE-AUDIT.md). Physical locality, local query reads, private-coin soundness and bounded witness bytes are now linked under **precisely restricted** assumptions. Original fully costed nonlinear dynamic/MA theorem is NOT proved. [Issue #87](https://github.com/definitely-stable/Mathlab/issues/87). No Rust.
