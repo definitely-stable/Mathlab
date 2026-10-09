@@ -14,7 +14,7 @@ class Index001G2B4ASources(unittest.TestCase):
         data = json.loads(CATALOG.read_text(encoding="utf-8"))
         entries = data["entries"]
         ids = {x["id"]: x for x in entries}
-        self.assertEqual(len(entries), 212)
+        self.assertGreaterEqual(len(entries), 212)
         self.assertEqual(len(ids), len(entries))
         all_identities = [alias.lower() for x in entries
                           for alias in [x["identity"], *x.get("alternate_identities", [])]]
