@@ -112,6 +112,9 @@ SOURCE_TITLE_PINS = {
     "arxiv:2508.09841": "The Brown-Erdős-Sós conjecture in dense triple systems",
     "doi:10.37236/14115": "Triangle-Free Triple Systems",
     "doi:10.1137/090766619": "Bit-Probe Lower Bounds for Succinct Data Structures",
+    "arxiv:2602.14716": "Grid-free linear hypergraphs via Cayley-Bacharach",
+    "doi:10.1016/j.disc.2022.113025": "The linear Turán number of small triple systems or why is the wicket interesting?",
+    "doi:10.1016/j.disc.2024.114029": "Wickets in 3-uniform hypergraphs",
 }
 
 
