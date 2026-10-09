@@ -1,6 +1,8 @@
 """Independent finite, model/quantifier-safe checks for HYP-105 G5-C3-A."""
 import random
 import unittest
+import itertools
+import math
 
 from hyp105_g5c2_density import collision_spectrum, w32_columns
 from hyp105_g5c3_label_search import (
@@ -56,6 +58,21 @@ class G5C3StructuredPairLabelTests(unittest.TestCase):
                     baseline)
         self.assertEqual(len(PAIRS), 15)
         self.assertEqual(induced_pair_relabeling(tuple(range(6))), IDENTITY)
+
+    def test_coordinate_gauge_action_is_faithful_and_orbit_count_exact(self):
+        # The full 15-edge K6 pair action determines an S6 permutation
+        # uniquely. Every labeling uses every pair, hence stabilizer is
+        # trivial. For two independent coordinate blocks, all orbits have
+        # size (6!)^2 and there are (15!/6!)^2 quotient classes.
+        induced = {
+            induced_pair_relabeling(pi)
+            for pi in itertools.permutations(range(6))
+        }
+        self.assertEqual(len(induced), math.factorial(6))
+        self.assertEqual(math.factorial(15) % math.factorial(6), 0)
+        orbit_classes_one_half = math.factorial(15) // math.factorial(6)
+        self.assertEqual(orbit_classes_one_half, 1816214400)
+        self.assertGreater(orbit_classes_one_half**2, 10**18)
 
     def test_structured_descent_preserves_bijections_girth_and_monotonicity(self):
         graph = quadrangle_w32()[1]
