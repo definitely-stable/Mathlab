@@ -55,8 +55,8 @@ This holds for **EVERY** all-h sequence of injective f and incidence-perfect-mat
 The reference constructs a lexicographically deterministic perfect incidence matching in the accepted GF(2)/GF(4) symplectic incidence graph. It creates the physically two-block correlated map g(l)=f(pi(l)) and evaluates exact D_s via B3.2's non-C(N,6) cycle-incidence join.
 
 Elementary all-injection lower floors:
-- s=2: V=15, a=6, r=0; C6(K6)=60; necessarily D_s>=60.
-- s=4: V=85, a=14, r=6; C6(K14)=180,180, each omitted physical edge participates in 11,880 cycles, so D_s>=180,180−6*11,880=**108,900**. The actual left pair palette in accepted E2-A controls has 121,320 cycles, so the stronger finite D_s>=121,320 holds for this particular f. Neither value is an extrapolated asymptotic power.
+- s=2: V=15, a=6, r=0; C6(K6)=60; necessarily D_s>=60. The exact incidence-matched verifier found **D_2=69**.
+- s=4: V=85, a=14, r=6; C6(K14)=180,180, each omitted physical edge participates in 11,880 cycles, so D_s>=180,180−6*11,880=**108,900**. The actual left pair palette in accepted E2-A controls has 121,320 cycles, so the stronger finite D_s>=121,320 holds for this particular f. The exact incidence-matched verifier found **D_4=157,251**. Neither value is an extrapolated asymptotic power.
 
 Independent hosted regression checks: Hall matching incident and bijective for real GF2/GF4 geometry; all-h integer lower algebra for s=2,4,8,16,32; complete GF2 / GF4 exact D_s and physical six-cycle lower; direct all-one GF5 signed cancellation for selected witness; direct brute on a small true factor-incidence subset. No claim that the finite enumeration itself proves the infinite lower — the proof is the Hall + missing-edge cycle union bound above.
 
