@@ -141,7 +141,7 @@ def check(fd,B):
             "D":file_size,"crc_ok":True,"check_read_pages":r.reads}
 
 
-def scan(fd,B,info):
+def scan(fd,B,info,telemetry=None):
     """Read exactly N cells in O(B+fixed registers), canonical validation."""
     n=info["n"];mode=info["mode"];start=info["payload_at"]
     end=start+info["payload_len"]
@@ -195,14 +195,16 @@ def scan(fd,B,info):
             raise ValueError("run coverage error")
     if c.pos!=end:
         raise ValueError("noncanonical payload/undecoded bytes")
+    if telemetry is not None:
+        telemetry["pages"]+=r.reads
 
 
-def modified(fd,B,info,operation):
+def modified(fd,B,info,operation,telemetry=None):
     lo,hi,val=operation
     if not (type(lo) is int and type(hi) is int and
             type(val) is int and 0<=lo<hi<=info["n"] and val in (0,1)):
         raise ValueError("bad update")
-    for i,old in enumerate(scan(fd,B,info)):
+    for i,old in enumerate(scan(fd,B,info,telemetry)):
         yield val if lo<=i<hi else old
 
 
@@ -210,7 +212,8 @@ def characteristics(fd,B,info,op):
     n=info["n"]
     ones=0;zeros=0;length0=0;length1=0
     nruns=0;runbytes=0;last=None;runlen=0
-    for i,x in enumerate(modified(fd,B,info,op)):
+    telemetry={"pages":0}
+    for i,x in enumerate(modified(fd,B,info,op,telemetry)):
         if x:
             ones+=1;length1+=len(uvarint(i))
         else:
@@ -229,7 +232,8 @@ def characteristics(fd,B,info,op):
              "S1":len(uvarint(zeros))+length0}
     if zeros==n:lengths["U0"]=0
     if ones==n:lengths["U1"]=0
-    return {"n":n,"ones":ones,"zeros":zeros,"runs":nruns,"payload":lengths}
+    return {"n":n,"ones":ones,"zeros":zeros,"runs":nruns,
+            "payload":lengths,"analysis_read_pages":telemetry["pages"]}
 
 
 def candidates(stats,B):
@@ -245,13 +249,13 @@ def chosen_modes(stats,B):
     return sorted(v,key=lambda m:(v[m]["D"],v[m]["raw_bytes"],MODENUM[m]))
 
 
-def payload_bytes(fd,B,info,op,mode,stats):
+def payload_bytes(fd,B,info,op,mode,stats,telemetry=None):
     n=stats["n"]
     if mode.startswith("U"):
         return
     if mode=="B":
         pending=0
-        for i,v in enumerate(modified(fd,B,info,op)):
+        for i,v in enumerate(modified(fd,B,info,op,telemetry)):
             pending|=v<<(i%8)
             if i%8==7:
                 yield pending;pending=0
@@ -267,7 +271,7 @@ def payload_bytes(fd,B,info,op,mode,stats):
     elif mode=="R":
         yield from uvarint(stats["runs"])
         last=None;runlen=0
-        for v in modified(fd,B,info,op):
+        for v in modified(fd,B,info,op,telemetry):
             if last is None:
                 last=v;runlen=1
             elif v==last:
@@ -306,7 +310,8 @@ def update(fd,B,operation,mode="min",Rcap=None):
     writer=Writer(output,B)
     writer.data(header(info["n"],mode,size))
     produced=0
-    for byte in payload_bytes(fd,B,info,operation,mode,stats):
+    payload_io={"pages":0}
+    for byte in payload_bytes(fd,B,info,operation,mode,stats,payload_io):
         writer.put(byte);produced+=1
     if produced!=size:
         output.close()
@@ -323,6 +328,9 @@ def update(fd,B,operation,mode="min",Rcap=None):
     return output,{"mode":mode,"n":info["n"],"old_D":info["D"],
                    "D":opts[mode]["D"],"raw_bytes":raw,
                    "preflight_read_pages":info["check_read_pages"],
+                   "analysis_read_pages":stats["analysis_read_pages"],
+                   "emit_source_read_pages":payload_io["pages"],
+                   "total_source_read_pages":info["check_read_pages"]+stats["analysis_read_pages"]+payload_io["pages"],
                    "writer_pages":writer.writes,
                    "model_RAM_bytes":R,"source_passes":3,
                    "all_mode_bytes":{k:v["D"] for k,v in opts.items()}}
