@@ -1,112 +1,119 @@
-# HYP-105 G5-E2-B3.1-B1 — complete five-versus-six physical-coordinate GF(5) flow class
+# HYP-105 E2-B3.1-B1-A — independent GF(5) Fourier verification of accepted 5×6 matching flows
 
-Date: 2026-10-10. Parents [#176](https://github.com/definitely-stable/Mathlab/issues/176), [#169](https://github.com/definitely-stable/Mathlab/issues/169). The preceding [B3.1-A](HYP-105-G5-E2-B3-B1-CRITICAL-FLOWS.md) classified only **6+6** two-factor physical-coordinate projections. [B3.2-D](HYP-105-G5-E2-B3-D-JOINT-RISK.md) gives distinct four-column (Q_4) risks and exact seven-column weighted checks. This slice classifies a genuinely **different, 5+6 / 6+5 coordinate** six-column family.
+Date: 2026-10-10. Parents [#176](https://github.com/definitely-stable/Mathlab/issues/176), [#169](https://github.com/definitely-stable/Mathlab/issues/169), [#162](https://github.com/definitely-stable/Mathlab/issues/162).
 
-**ALL-h FIXED-LABEL NECESSARY R3 FLOOR FOR RESTRICTED FACTOR-MATCHED 5×6/6×5 / EXACT 2100 FINITE TEMPLATE EVALUATIONS / THREE K5 GRAPH TYPES / INDEPENDENT FULL-GF5 51³ MITM / CLASSICAL CHARACTER ORTHOGONALITY / NO OTHER DEGREE PROFILE COMPLETENESS / NO ALL-h FULL-R3 UPPER / NO NEW ASET POWER.**
+**IMPORTANT PRE-EXISTING RESULT / NO DUPLICATION CLAIM.** [HYP-105 E2-B3.1-B1, merged PR #214](HYP-105-G5-E2-B3-B-FULL-MATCHING-FLOWS.md) **ALREADY COMPLETED** the exhaustive GF(5) classification of **all simple six-factor-matching 4–6 coordinate physical profiles** on both sides: 610 projected profiles, 5,486 signed color-preserving orbits, 3,721,000 named signed cases, 100 zero cases confined to 6×6, and the exact matching weighted coefficient \(C_{5,6}=4,578,391,800\). The present slice is **NOT** the first complete 5×6 classification. It supplies an algorithmically independent **782-state integer Fourier exact-flow oracle**, reproduces the accepted **5×6 coefficient and event mass**, and isolates a sharper fixed-label 5×6/6×5 necessary-risk constant.
 
-## 1. Precisely frozen mathematical setting
+**ACCEPTANCE SCOPE:** INDEPENDENT_CROSS_CERTIFICATE_OF_PR214 / EXACT_2100_5×6_SIGNED_REPRESENTATIVES / ALL_POSITIVE / MIN_GF5_WEIGHT=10950 / NEW_RESTRICTED_FIXED_LABEL_R3_COROLLARY / NONMATCHING_FACTOR_FORESTS_OPEN / NO_FIXED_LABEL_R3_UPPER / NO_NEW_ASET_EXPONENT / NO_CLAIM_OF_GENERAL_CHARACTER_SUM_NOVELTY.
 
-Let (s=2^h), (h\ge1), and let (G_s=W(3,s)) be the classical symplectic generalized-quadrangle incidence graph, with (V=(s+1)(s^2+1)) point and (V) line vertices, (N=V(s+1)) factor edges and degree \(\Delta=s+1\). Independently of how the two injective physical pair label maps \(f:P\to\binom{[a]}2\) and \(g:L\to\binom{[a]}2\) were chosen, select six factor-incidence edges **forming a factor matching**, i.e. all six point and six line endpoints are distinct. Then each physical coordinate half has six *distinct* unordered pair-edges, one per selected column, each local physical column has two coordinates from each half, and every column uses independent uniformly chosen full-nonzero checksum4 weights in GF(5) from its 51-pattern palette.
+## 1. Precisely bounded mathematical model
 
-For a selected six-factor-matching define \(U_{5,6}(f,g)\) as the number of unordered six-edge sets with:
-- exactly five touched **left** physical coordinates and minimum touched degree at least two;
-- exactly six touched **right** physical coordinates and minimum touched degree two.
+Let \(s=2^h\), \(h\ge1\), and \(G_s=W(3,s)\) be the classical point-line symplectic GQ incidence graph with \(V=(s+1)(s^2+1)\) vertices **per factor side**, \(N=(s+1)V\) incidences and degree \(\Delta=s+1\). Fix injective maps of point vertices and line vertices into distinct unordered physical pairs of \(K_a\), where \(a\) is minimal with \(K=\binom a2\ge V\). The coordinate halves are physically disjoint.
 
-Define \(U_{6,5}\) by swapping the coordinate blocks, and \(U_{56}=U_{5,6}+U_{6,5}\). The two conditions are mutually exclusive on a given six-edge set. In each class **every** one of the ten unordered balanced 3-versus-3 sign partitions has a strictly positive exact GF(5) flow count. The values of \(U_{56}\) for arbitrary real GQ labelings have NOT been computed, bounded from below uniformly, or claimed to be nonzero.
+Take an unordered set of **six factor incidences forming a matching**: six different point endpoints and six different line endpoints. Their physical coordinate-pair labels are then **six distinct simple edges per half**. Restrict to templates where the left physical pair graph has exactly **five touched coordinates** with minimum degree two, and the right has exactly **six touched coordinates** with minimum degree two. Let \(U_{5,6}(f,g)\) count these actual original factor six-matchings. Define \(U_{6,5}\) symmetrically and \(U_{56}=U_{5,6}+U_{6,5}\). The two cases are disjoint **as six-column set types**.
 
-## 2. Complete combinatorial reduction for this class
-
-Six distinct pair-edges on *five* touched physical coordinate vertices of minimum degree two must form one of **three** graph isomorphism types. Exhaustively enumerate all \(\binom{\binom52}{6}=210\) edge sets in \(K_5\), reject sets not touching all five vertices with all degrees \(\ge2\), then quotient by all \(5!=120\) physical vertex permutations. Exactly **85** edge sets remain, and their three unlabeled types have **15, 60 and 10** labeled physical-coordinate images. Their degree multisets are one (4,2,2,2,2) type and two (3,3,2,2,2) types.
-
-On the other side six distinct pair-edges occupying exactly six touched physical vertices, each degree two, necessarily form a simple two-factor \(C_6\) or \(C_3\sqcup C_3\). On the six **named column vertices**, physical coordinates are dual edges between the two columns touching each coordinate. There are exactly **70** two-factors: 60 labeled \(C_6\) and 10 labeled two-triangle graphs. Balanced signed 3v3 partitions modulo global sign reversal have **10** types.
-
-Fix the lex-sorted physical edge order of ONE representative of each of the three left \(K_5\) graph types as column names 0..5. For each of 70 labeled right two-factors on these column names and each of ten normalized balanced sign masks (column0 positive), reconstruct the true six physical split-2+2 supports and count the exact GF5 flows. This gives **3×70×10 = 2,100 complete covering representative configurations**. They are **not** claimed to be 2,100 pairwise nonisomorphic sign/color orbits; redundancies under automorphisms of the fixed left graph are harmless for proving minimum positivity. An arbitrary physical 5x6 image is mapped to one such template by independently relabeling the physical coordinate symbols within each half and permuting the six column IDs. Swapping the two color blocks covers 6x5.
-
-This exhaustiveness concerns **only** the five-versus-six profile with all six factor endpoints distinct on each side and physical minimum degree two. It does NOT exhaust 5x5, 4x6, repeated factor endpoint, or other six-column motifs, or the 11,663 abstract factor-forest shapes.
-
-## 3. Exact GF5 integer Fourier dual formula, independent of 51³ meet-in-middle
-
-For each of six columns \(i\), four coefficient incidences \(w_{ic}\in\mathbb F_5^*\) satisfy
+For each of the ten unordered balanced sign partitions (3 versus 3), count the exact number of assignments of all 24 weights \(w_{ic}\in\mathbb F_5^*\) satisfying:
 
 \[
- \sum_{c\in S_i}w_{ic}=4\quad(\mathrm{mod}\ 5).
+  \sum_{c\in S_i}w_{ic}=4\pmod5,\qquad
+  \sum_{i:c\in S_i}\varepsilon_i w_{ic}=0\pmod5,
+  \quad\varepsilon_i\in\{+1,-1\},\quad\sum_i\varepsilon_i=0.
 \]
 
-For a balanced choice of signs \(\varepsilon_i\in\{+1,-1\}\) with \(\sum_i\varepsilon_i=0\), every physical coordinate \(c\) must satisfy \(\sum_{i:c\in S_i}\varepsilon_iw_{ic}=0\). The desired count \(F(S,\varepsilon)\) counts all \(51^6\) potential local weight choices satisfying these equations. Let \(C\) be the number of touched physical coordinates, and let \(\zeta=e^{2\pi i/5}\). By orthogonality of the five additive characters,
+Each column has 51 admissible nonzero checksum-4 weight tuples. The risk \(R_3\) is the **sum of probabilities of distinct unsigned 3v3 signed events**. It is **not** their union probability; different sign events may share actual weight assignments.
+
+## 2. Independent 782-state integer GF(5) formula
+
+The accepted PR #214 calculates half-block GF(5) sum histograms and convolves the two halves, so a verification based on that same routine would not be independent. This slice instead uses the **classical orthogonality of additive characters** on all 24 coefficient incidences and six checksum constraints.
+
+For each column dual variable \(\lambda_i\in\mathbb F_5\), coordinate dual \(\mu_c\in\mathbb F_5\), and primitive fifth root of unity \(\zeta\), the nonzero-incidence character factor is \(\psi(z)=4\) when \(z=0\), and \(-1\) otherwise. Thus
 
 \[
- F=5^{-(6+C)}\sum_{\lambda\in\mathbb F_5^6,\,\mu\in\mathbb F_5^C}
- \zeta^{-4\sum_i\lambda_i}
- \prod_{(i,c)}\left(4\,\mathbf1_{\lambda_i+\varepsilon_i\mu_c=0}
-                   -\mathbf1_{\lambda_i+\varepsilon_i\mu_c\ne0}\right).
+ F=5^{-(6+C)}
+  \sum_{\lambda\in\mathbb F_5^6}
+  \sum_{\mu\in\mathbb F_5^C}
+   \zeta^{-4\sum_i\lambda_i}
+   \prod_{(i,c)}\psi(\lambda_i+\varepsilon_i\mu_c).
 \]
 
-Sum first over each \(\mu_c\). Writing \(r_i=-\varepsilon_i\lambda_i\), and \(n_t=\#\{i:c\in S_i,\,r_i=t\}\) for \(t\in\mathbb F_5\), the exact integer local factor is
+For each physical coordinate \(c\) let \(d_c=\#\{i:c\in S_i\}\), and \(n_t(c)=\#\{i:c\in S_i,\ -\varepsilon_i\lambda_i=t\}\). Eliminating \(\mu_c\) analytically yields the exact integer
 
 \[
- \Phi_c(\lambda)=\sum_{t\in\mathbb F_5}4^{n_t}(-1)^{d_c-n_t},
- \qquad d_c=\#\{i:c\in S_i\}.
+ \Phi_c(\lambda)=\sum_{t=0}^4 4^{n_t(c)}(-1)^{d_c-n_t(c)}.
 \]
 
-Because \(\sum_i\varepsilon_i=0\), shifting \(\lambda_i\mapsto\lambda_i+u\varepsilon_i\) leaves every local factor and \(\sum_i\lambda_i\) invariant. Fix \(\lambda_0=0\), gaining exactly a factor 5. Scaling all remaining \(\lambda_i\) by a common nonzero scalar preserves all \(\Phi_c\). The nonzero scalar orbit sums over the additive characters to **4 if \(\sum\lambda_i=0\)** and **−1 otherwise**, while the zero orbit contributes **1**. Therefore
+Because signs balance, the gauge change \(\lambda_i\mapsto\lambda_i+\varepsilon_i u\), \(\mu_c\mapsto\mu_c-u\) fixes the integrand and leaves \(\sum_i\lambda_i\) unchanged; choose the unique representative with \(\lambda_0=0\). Under nonzero common multiplication \(\lambda\mapsto\alpha\lambda\), all \(\Phi_c\) are unchanged and the four fifth roots sum to \(4\) if \(\sum_i\lambda_i=0\), otherwise \(-1\). The zero vector contributes \(1\). Therefore the complex character sums cancel **exactly**, yielding the **integer-only** identity
 
 \[
- \boxed{F(S,\varepsilon)=5^{-(5+C)}
-  \left[\prod_c\Phi_c(0)+
-  \sum_{\substack{\lambda_0=0,\,\lambda\ne0\\
-                    \text{one representative of each }\mathbb F_5^*\text{ orbit}}}
-     \big(4\mathbf1_{\sum\lambda_i=0}-\mathbf1_{\sum\lambda_i\ne0}\big)
-     \prod_c\Phi_c(\lambda)\right].}
+ \boxed{\displaystyle
+ F=\frac{1}{5^{5+C}}\!
+   \sum_{\substack{\lambda_0=0\\
+                    \lambda\ /\ \mathbb F_5^*}}
+   \omega(\lambda)\prod_c\Phi_c(\lambda),\quad
+ \omega(0)=1,\quad
+ \omega(\lambda\ne0)=
+ \begin{cases}
+  4,&\sum_i\lambda_i=0,\\
+  -1,&\sum_i\lambda_i\ne0.
+ \end{cases}}
 \]
 
-There are exactly \(1+(5^5-1)/4=\mathbf{782}\) integer-only evaluations per signed template. The program checks **integer divisibility** by \(5^{5+C}\) and the absolute probability bound \(0\le F\le51^6\); it never uses floating-point complex arithmetic or infers positive flow from an incomplete graph topology gate. This finite-field character computation is a classical orthogonality technique specialized to the six-column checksum model, not a newly claimed general theorem.
+Exactly \(1+(5^5-1)/4=\mathbf{782}\) representatives are evaluated per full six-column GF5 event. The program uses no floating point and fails unless the numerator is divisible by \(5^{5+C}\) and \(0\le F\le51^6\). This is an exact specialized finite-field identity, not a new universal theorem or an all-h \(R_3\) bound.
 
-The existing, algorithmically independent \(51^3\)-per-side GF5 meet-in-middle oracle cross-checks multiple genuine 5x6 signed representatives, the prior twelve-edge C6/C6 prescribed-boundary inclusion-exclusion cross-checks the older class, and permutation/sign/half-swap tests check equivalence.
+Independent oracles: the **previously accepted 51³-side meet-in-middle GF5 histogram** checks real 5×6 witnesses; **B3.1-A 2¹²-edge flow inclusion/exclusion** checks C6/C6; physical coordinate permutation, column permutation and sign reversal preserve counts; a new singleton coordinate forces exactly zero.
 
-## 4. Exact finite classification and all-h consequence
+## 3. Complete 5×6 re-enumeration and equality to the accepted coefficient
 
-The independent 2,100 representative computations return **positive flow in every case**, with the following fixed minimum and maximum numbers of admissible GF5 coefficient assignments:
+Enumerating six simple \(K_5\) edges touching all five physical coordinates with minimum degree two gives **85** labeled physical graph sets. Quotienting by \(S_5\) yields **three** unlabeled graph types, with respective labeled physical-graph multiplicities \(g=(15,60,10)\). The other six-coordinate projection is a 2-factor on the six named columns (60 C6 types and 10 disjoint \(C_3\sqcup C_3\) types). There are ten unordered balanced sign masks. Fix each representative left graph and take its six lex-ordered edges as column IDs. Exactly **3 × 70 × 10 = 2,100 covering representative** templates are evaluated. These 2,100 are **not claimed to be 2,100 distinct signed graph-isomorphism orbits**.
 
-| K5 physical graph type (lex canonical edge representation) | K5 labeled images | Signed template cases | Minimum F | Maximum F |
+All 2,100 exact GF5 events are positive, with the following values:
+
+| Five-coordinate graph class | \(S_5\) edge-set multiplicity | Cases | Minimum \(F\) | Maximum \(F\) |
 | --- | ---: | ---: | ---: | ---: |
-| Four-degree center with two attached triangles | 15 | 700 | **14,400** | **17,955** |
-| First nonisomorphic (3,3,2,2,2) graph | 60 | 700 | **10,950** | **12,357** |
-| Second nonisomorphic (3,3,2,2,2) graph | 10 | 700 | **11,685** | **12,405** |
+| Degree profile (4,2,2,2,2) | 15 | 700 | **14,400** | **17,955** |
+| First (3,3,2,2,2) type | 60 | 700 | **10,950** | **12,357** |
+| Second (3,3,2,2,2) type | 10 | 700 | **11,685** | **12,405** |
 
-Thus the complete 5x6/6x5 class has an **exact universal minimum \(F\ge10,950\)** for every one of ten balanced sign partitions. This is an exact *finite-template lemma* holding for the physical 5+6 pattern embedded in **ANY \(W(3,2^h)\)**, every \(h\ge1\), and every injective point/line pair labeling. Distinct six-factor-matchings and balanced sign partitions index **distinct summands** of the accepted \(R_3\) risk (expected NUMBER of signed events). Their individual probabilities are nonnegative, so summing these contributions gives a valid lower bound. **The underlying sets of checksum assignments for different sign events need not be disjoint**; this statement does not bound the probability of a union of collision events. The all-h necessary bound is
-
-\[
- \boxed{R_3(B_s(f,g))\ \ge\ \frac{109{,}500}{51^6}\,
-             U_{56}(f,g).}
-\]
-
-The lower bound is useful **only if** \(U_{56}\) can itself be controlled from below for a particular fixed labeling, which is not known. It is not an upper bound on \(R_3\) and does not close HYP-105.
-
-## 5. Exactly what the independent random model predicts
-
-For each six-factor matching, independent uniformly random injections of left and right factor vertices into the same abstract pair palette \(K=\binom a2\) give exact probabilities
+The accepted PR #214 already established every 5×6 matching flow is positive. The **independent reproduction** here is independently tested against its *complete weighted signed coefficient*. Let \(S_j\) be the sum of the 700 full-GF5 weights for fixed left type \(j\). Each \(K_5\) graph shape contributes \(g_j 6!/5!=6g_j\) distinct column-named canonical five-coordinate profiles. Summing over the full right-factor/sign space is invariant under a simultaneous column relabeling. Consequently, the completely independent Fourier calculation must satisfy
 
 \[
- p_5=\frac{510(a)_5}{(K)_6},\qquad
- p_6=\frac{70(a)_6}{(K)_6}.
+ \boxed{C_{5,6}=6\sum_{j=1}^{3}g_j S_j
+         =4,578,391,800},
+ \qquad
+ \boxed{\#\text{ labeled signed 5×6 templates}
+       =6\sum_{j=1}^{3}g_j(70)(10)=357,000}.
 \]
 
-The **510** and **70** coefficients coincide exactly with the previously accepted [B3.0 leafless six-edge projection polynomial](HYP-105-G5-E2-B3-FOREST-PROJECTION.md) for multiplicity profile \((1,1,1,1,1,1)\), providing an independent provenance cross-check. Let \(M_6(G_s)\) denote the exact number of factor six-matchings. The left/right projections are independent, and swapping their sizes gives disjoint events:
+Both equalities are **hard runtime assertions** against PR #214, which obtained the same results using a different algorithm and 5,486 color/sign orbit classification. This is the principal new validation value of PR #216.
+
+## 4. Restricted all-h quantitative corollary, not a new full matching classification
+
+Because every tested 5×6 signed representative has **at least \(10,950\)** GF5 weight solutions, every real six-factor-matching in \(U_{56}(f,g)\), for **every h** and **every fixed injective labeling**, contributes at least ten distinct balanced signed-event probabilities of \(10,950/51^6\) each. Therefore:
 
 \[
- \mathbb E[U_{56}]
-  =2M_6(G_s) p_5p_6.
+  \boxed{\displaystyle
+     R_3(B_s(f,g))\ge
+      \frac{109,500}{51^6}U_{56}(f,g)
+     \qquad(s=2^h,\ h\ge1).}
 \]
 
-The known greedy bound \(M_6\ge\prod_{j=0}^{5}(N-2j\Delta)/6!\) gives
-\(\mathbb E[R_3]\ge (109500/51^6)\mathbb E[U_{56}]
-   =\Omega(s^{9/2})\) **for random independent labels only**. This is **subleading** to the already accepted \(\Omega(s^6)\) random-label lower obstruction from the 6+6 matching core. No improvement or conflict with the accepted random upper \(O(s^6)\) is claimed.
+This corollary is **restricted**: no nonzero universal per-label lower bound on \(U_{56}\) is known. It is an explicit improvement over the broad 4,806 coefficient lower **only for this subfamily**; the accepted complete matching result remains authoritative.
 
-## 6. Explicit evidence and remaining gates
+Under independent uniform pair injections, for one original six-factor matching the exact projection probabilities are
 
-[Source/oracle](../../research/hyp105_g5e2b3b1b_five_six_flows.py) · [independent tests](../../research/test_hyp105_g5e2b3b1b_five_six_flows.py).
+\[
+   p_5=\frac{510(a)_5}{(K)_6},\qquad
+   p_6=\frac{70(a)_6}{(K)_6}.
+\]
 
-This is **B3.1-B1**, not a false claim of completing **B3.1-B**:
-- Still open: **5×5**, **4×6**, **4×5**, smaller leafless coordinate profiles, repeated original factor endpoints, and their exact GF5 signed-flow positivity/counts. The 631 top-degree **random projection exponent** shapes from B3.0 need separate matching to actual GF5 motifs; this slice does not classify them.
-- Still open: number of such positive motifs on the **same specific geometry-aware labeling** as HYP-105 B3.2-D, and a deterministic all-h upper for total \(R_2\) **and** total \(R_3\).
-- All-h impact: a new restricted fixed-label *lower* obstruction, not an improved ASET lower exponent, not an original general Fourier counting identity, no use of Rust. Keep root issues OPEN. Next **B3.1-B2**: analyze 5×5 by color-symmetric graph pair orbits and/or factor-endpoint repetitions, then B3.2-E common-label upper gate.
+The 510 and 70 independently equal coefficients of the previously accepted [B3.0 projection polynomial](HYP-105-G5-E2-B3-FOREST-PROJECTION.md) for profile \((1,1,1,1,1,1)\). Let \(M_6(G_s)\) be the **actual number** of original six-edge factor matchings. Then \(\mathbb E[U_{56}]=2M_6(G_s)p_5p_6\), and the greedy bound \(M_6\ge\prod_{j=0}^5(N-2j\Delta)/6!\) yields a matching-class lower contribution \(\mathbb E[R_3]=\Omega(s^{9/2})\) **under independent random labels only**. This is **subleading** to the already known \(\Theta(s^6)\) complete matching-class random expectation of PR #214, not a competing or improved exponent.
+
+## 5. Remaining problems and strict novelty boundary
+
+**Already closed by accepted PR #214:** all factor-disjoint original six-edge *matching* cases, including physical 4×4, 4×5, 4×6, 5×5, 5×6 and 6×6. They must NOT be reopened or presented as a new discovery.
+
+**OPEN B3.1-B2:** six-edge **original factor forests with repeated point or line endpoints**, which lead to repeated physical pair labels even under injective endpoint maps. Those are outside simple six-edge matching projections. The 11,663 abstract B3.0 factor-forest shape cases are not fully classified by exact GF5 flow.
+
+**OPEN B3.2-E:** joint all-h *upper* bounds on \(R_2\) and \(R_3\) on the SAME fixed geometry-aware injection, including positive motifs with repeated factor endpoints. The new Fourier certificate supplies a lower-bound diagnostic and independent finite verification, **not** an upper bound, new ASET exponent, or novel general additive character identity. Keep #176/#169/#162 roots OPEN. No Rust or unrelated repository changes.
+
+[Implementation](../../research/hyp105_g5e2b3b1b_five_six_flows.py) · [independent tests](../../research/test_hyp105_g5e2b3b1b_five_six_flows.py) · [accepted full-matching classification](HYP-105-G5-E2-B3-B-FULL-MATCHING-FLOWS.md).
