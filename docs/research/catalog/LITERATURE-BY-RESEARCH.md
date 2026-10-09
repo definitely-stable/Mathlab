@@ -292,7 +292,7 @@
 - [LIT-141](LITERATURE.md#lit-141) — Bit-Probe Lower Bounds for Succinct Data Structures (2012; publisher_abstract_checked)
 - [LIT-142](LITERATURE.md#lit-142) — Quantum Certificate Complexity (2008; publisher_abstract_checked)
 - [LIT-143](LITERATURE.md#lit-143) — All Classical Adversary Methods Are Equivalent for Total Functions (2021; publisher_abstract_checked)
-- [LIT-144](LITERATURE.md#lit-144) — Randomized Query Complexity Can Beat Certificate Complexity (2026; author_preprint_abstract_checked)
+- [LIT-144](LITERATURE.md#lit-144) — Randomized Query Complexity Can Beat Certificate Complexity (2026; primary_abstract_checked)
 
 ## ML-005
 
@@ -360,7 +360,7 @@
 - [LIT-141](LITERATURE.md#lit-141) — Bit-Probe Lower Bounds for Succinct Data Structures (2012; publisher_abstract_checked)
 - [LIT-142](LITERATURE.md#lit-142) — Quantum Certificate Complexity (2008; publisher_abstract_checked)
 - [LIT-143](LITERATURE.md#lit-143) — All Classical Adversary Methods Are Equivalent for Total Functions (2021; publisher_abstract_checked)
-- [LIT-144](LITERATURE.md#lit-144) — Randomized Query Complexity Can Beat Certificate Complexity (2026; author_preprint_abstract_checked)
+- [LIT-144](LITERATURE.md#lit-144) — Randomized Query Complexity Can Beat Certificate Complexity (2026; primary_abstract_checked)
 
 ## ML-007
 
