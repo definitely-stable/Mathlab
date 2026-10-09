@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## HYP-105 G5-C3-B0 — doily dual geometry, signed-trade tradeoff and s=2-only duad no-go (2026-10-09)
+
+[Exact symplectic/ovoid/spread → duad/syntheme model, GF5 signed-trade evidence and full-duad nontransfer theorem](HYP-105-G5-C3-B0-DUAD-SYNTHEME-GEOMETRY.md) · [implementation](../../research/hyp105_g5c3b0_doily_geometry.py) · [tests](../../research/test_hyp105_g5c3b0_doily_geometry.py) · [merged #130](https://github.com/definitely-stable/Mathlab/pull/130) · [exact-head Research #1138 SUCCESS](https://github.com/definitely-stable/Mathlab/actions/runs/37897751024). Classical publisher primary [LIT-205](catalog/LITERATURE.md#lit-205) (2020 Saniga–Szabó, Symmetry) now canonical, not an original new math result. The natural finite W32 m12 GF5 unit coordinate-pair labels have **T4=0, T6=2100 and only 18 verified ASET columns**, versus other labels T4=42,T6=1580, ASET20: proof that removing all 2-vs-2 collisions does not eliminate 3-vs-3 collisions. Exact full-duad representation forces s=2 from degree/vertex constraints; NOT a universal GQ(s,s) or full weighted-ASET obstruction. **G5-C3-B1 remains open** in [#119](https://github.com/definitely-stable/Mathlab/issues/119), parents [#106](https://github.com/definitely-stable/Mathlab/issues/106)/[#95](https://github.com/definitely-stable/Mathlab/issues/95); need genuine uniform-in-s density estimates before exponent claim. No Rust.
+
+
 ## UCT-005 G2-A — новые математические барьеры (2026-10-09)
 
 [**Аудит семи источников, из которых шесть новых, и точные онлайн-контрмодели**](UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) · [issue #125](https://github.com/definitely-stable/Mathlab/issues/125) · [1D/2D oracle](../../research/test_uct005_g2a_models.py). В библиографии теперь **204 уникальных публикации** (новые LIT-199..204); STOC 2026 уже учтён как LIT-072. **G2-A: STOP простой 1D-корень; G2-B: 2D authenticated multi-query SCOUT; root novelty OPEN.**
