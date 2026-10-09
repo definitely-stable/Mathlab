@@ -18,8 +18,8 @@ class LiteratureTests(unittest.TestCase):
     def test_204_distinct_works_and_fifteen_lanes(self):
         entries = self.data["entries"]
         self.assertEqual(len(entries), 204)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 198)
-        self.assertEqual(len({e["id"] for e in entries}), 198)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 204)
+        self.assertEqual(len({e["id"] for e in entries}), 204)
         self.assertEqual({f"LIT-{i:03d}" for i in range(1, 205)},
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 15)
@@ -582,7 +582,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 198)
+        self.assertEqual(len({e["id"] for e in entries}), 204)
         tracks = {e["track"] for e in entries}
         self.assertEqual(len(tracks), 15)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
