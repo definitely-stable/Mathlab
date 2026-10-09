@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## UCT-005 G3-B2-A — independent-reader freshness versus paid trusted root (2026-10-09)
+
+[**Model, classical F0 indistinguishability proof, conditional F1 upper point and novelty barriers**](UCT-005-G3-B2-A-FRESHNESS-INDISTINGUISHABILITY.md) · [source identities](UCT-005-G3-B2-A-SOURCES.json) · [standalone exhaustive F0/F1 tests](../../research/test_uct005_g3b2a_freshness.py) · [G3-B2 #178](https://github.com/definitely-stable/Mathlab/issues/178). For signed full n-bit snapshots, two equal delivered historical transcripts can hide different latest range parities (F0): authentic past != globally latest. F1 adds independently trusted monotone epoch+seal publication, **bills every writer publication and reader trusted call**, and aborts if unavailable. Client persists only epoch+seal. Fork with conflicting signed siblings requires **author equivocation**; server-only forked views can be different authentic prefixes. CLASSICAL/NO NOVEL ROOT, symbolic signatures, not production crypto or byte-accurate I/O. Next G3-B2-B.
+
+
 
 ## HYP-105 G5-E2-B3.0 — six-edge factor forests / pair 2-core (2026-10-09)
 

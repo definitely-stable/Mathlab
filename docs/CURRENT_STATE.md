@@ -1,5 +1,10 @@
 # CURRENT_STATE
 
+## UCT-005 G3-B2-A — paid freshness and two-reader model (2026-10-09)
+
+[Exact F0/F1 proof and source-priority STOP](research/UCT-005-G3-B2-A-FRESHNESS-INDISTINGUISHABILITY.md) · [bounded independent transcript oracle](../research/test_uct005_g3b2a_freshness.py) · [source identity audit](research/UCT-005-G3-B2-A-SOURCES.json) · [issue #178](https://github.com/definitely-stable/Mathlab/issues/178). **PROVED_CLASSICAL_NO_ANCHOR_INDISTINGUISHABILITY / SYMBOLIC_ANCHORED_FULL_SNAPSHOT_MODEL / UCT_ROOT_OPEN_UNPROVED.** An old valid receipt is observationally identical in no-update and withheld-update worlds, ruling out guaranteed LATEST correctness+termination for both. Explicitly paid trusted epoch+seal anchor allows fail-closed latest verification under ideal single-writer authenticity. Real client checkpoint holds ONLY epoch+seal; full n-bit receipts and trusted anchor traffic are billed, not hidden as free metadata. Two signed fork branches require compromised writer, not server alone. SUNDR, COP 2018 and ADSC-SNARK 2026 establish pre-existing research scope. No real crypto, physical bytes, original nonfactorizing theorem or Rust. Next G3-B2-B: same-task upper models and strict novelty gate.
+
+
 
 ## HYP-105 G5-E2-B3.0 — six-factor-forest exact pair-projection theorem (2026-10-09)
 
