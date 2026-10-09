@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**204** работ сопоставлены с **38** внутренними исследованиями.
+**205** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -206,6 +206,7 @@
 - [LIT-151](LITERATURE.md#lit-151) — New Turán Exponents for Two Extremal Hypergraph Problems (2021; publisher_abstract_checked)
 - [LIT-152](LITERATURE.md#lit-152) — Parity check matrices and product representations of squares (2008; publisher_abstract_checked)
 - [LIT-153](LITERATURE.md#lit-153) — Additive codes arising from hypergraphs (2026; primary_abstract_checked)
+- [LIT-205](LITERATURE.md#lit-205) — Magic Three-Qubit Veldkamp Line and Veldkamp Space of the Doily (2020; publisher_full_text_spotchecked)
 
 ## ML-003
 
