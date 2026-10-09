@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**176** работ сопоставлены с **38** внутренними исследованиями.
+**182** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -333,6 +333,12 @@
 - [LIT-174](LITERATURE.md#lit-174) — FORGE: Mitigating Synchronization Amplification for Memory-Disaggregated Caching Systems (2026; publisher_abstract_checked)
 - [LIT-175](LITERATURE.md#lit-175) — "Range as a Key" is the Key! Fast and Compact Cloud Block Store Index with RASK (2026; publisher_abstract_checked)
 - [LIT-176](LITERATURE.md#lit-176) — Holistic and Automated Task Scheduling for Distributed LSM-tree-based Storage (2026; publisher_abstract_checked)
+- [LIT-177](LITERATURE.md#lit-177) — Optimal External Memory Interval Management (2003; publisher_abstract_checked)
+- [LIT-178](LITERATURE.md#lit-178) — The Limits of Buffering: A Tight Lower Bound for Dynamic Membership in the External Memory Model (2013; publisher_abstract_checked)
+- [LIT-179](LITERATURE.md#lit-179) — Tight Cell-Probe Lower Bounds for Dynamic Succinct Dictionaries (2023; publisher_abstract_checked)
+- [LIT-180](LITERATURE.md#lit-180) — Practical Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
+- [LIT-181](LITERATURE.md#lit-181) — Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space (2026; primary_abstract_checked)
+- [LIT-182](LITERATURE.md#lit-182) — Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space (2024; publisher_abstract_checked)
 
 ## ML-005
 
@@ -418,6 +424,12 @@
 - [LIT-174](LITERATURE.md#lit-174) — FORGE: Mitigating Synchronization Amplification for Memory-Disaggregated Caching Systems (2026; publisher_abstract_checked)
 - [LIT-175](LITERATURE.md#lit-175) — "Range as a Key" is the Key! Fast and Compact Cloud Block Store Index with RASK (2026; publisher_abstract_checked)
 - [LIT-176](LITERATURE.md#lit-176) — Holistic and Automated Task Scheduling for Distributed LSM-tree-based Storage (2026; publisher_abstract_checked)
+- [LIT-177](LITERATURE.md#lit-177) — Optimal External Memory Interval Management (2003; publisher_abstract_checked)
+- [LIT-178](LITERATURE.md#lit-178) — The Limits of Buffering: A Tight Lower Bound for Dynamic Membership in the External Memory Model (2013; publisher_abstract_checked)
+- [LIT-179](LITERATURE.md#lit-179) — Tight Cell-Probe Lower Bounds for Dynamic Succinct Dictionaries (2023; publisher_abstract_checked)
+- [LIT-180](LITERATURE.md#lit-180) — Practical Adaptive Dynamic Bitvectors (2025; publisher_abstract_checked)
+- [LIT-181](LITERATURE.md#lit-181) — Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space (2026; primary_abstract_checked)
+- [LIT-182](LITERATURE.md#lit-182) — Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space (2024; publisher_abstract_checked)
 
 ## ML-007
 

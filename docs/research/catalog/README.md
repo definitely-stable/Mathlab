@@ -1,5 +1,10 @@
 # Research catalog — provenance-first index
 
+## INDEX-001 G0/G1 — interval indexing, buffered I/O and dynamic succinct barriers (2026-10-09)
+
+[Six publisher/author identity-audited new works, scoped conditions and original mathematical setup](../INDEX-001-G0-RANGE-MAP-FOUNDATION.md) · [issue #117](https://github.com/definitely-stable/Mathlab/issues/117). Imported **LIT-177..182** into canonical 182-source library, regenerated forward/reverse links, validated all 176 historical records retained. Sources: Arge–Vitter 2003, Verbin–Zhang 2013, Li–Liang–Yu–Zhou FOCS 2023, Navarro 2025, Blelloch et al. 2026, Moose/Smoose 2024. Distinguish latest-write-wins range updates from interval stabbing, cell probes from physical writes, and original publisher abstracts from independently checked proofs. **No new original theorem, lower bound, Rust engine or reproducible published performance claim.**
+
+
 ## IMPORT-004 — caching, online algorithms and dynamic graphs 2025–2026
 
 [Source/model audit](../RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) and [issue #111](https://github.com/definitely-stable/Mathlab/issues/111) import 17 new primary 2025–2026 works as **LIT-160..176**, following UCT-005 G1 **LIT-156..159**. The modern literature selection is not a proof of an original theorem or a reproduced benchmark. New `caching` thematic track; open CACHE-001/DAG-001/GRAPH-001/INDEX-001. The catalog supports per-origin source SHA, preserving historical source pins.

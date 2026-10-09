@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **176** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **182** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,11 +11,11 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 23 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 20 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 23 |
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 20 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
-| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 6 |
+| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 9 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 7 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
 | [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 14 |
@@ -605,6 +605,45 @@ RASK индексирует непрерывные диапазоны блоко
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-177
+**[Optimal External Memory Interval Management](https://doi.org/10.1137/S009753970240481X)** (2003)
+
+Arge–Vitter дают оптимальное внешнепамятное дерево для точного поиска всех интервалов, покрывающих точку, с динамическими вставками/удалениями.
+
+**Ограничение:** Операция stabbing reports all covering intervals; здесь не задана latest-write-wins overwrite-карта, физический WAL и compaction. Автоматический перенос нижних оценок запрещён.
+
+**Идентичность:** `doi:10.1137/S009753970240481X` · **Авторы:** Lars Arge, Jeffrey Scott Vitter · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
+
+### LIT-178
+**[The Limits of Buffering: A Tight Lower Bound for Dynamic Membership in the External Memory Model](https://doi.org/10.1137/110842211)** (2013)
+
+Verbin–Zhang устанавливают пороговый компромисс: при амортизированной стоимости update ниже единицы внешнепамятный membership требует существенных затрат на query в заданных b,m,n.
+
+**Ограничение:** Модель внешнепамятного membership и число I/O не тождественны физическим байтам переписывания или range assign; единицы и условия должны сохраняться.
+
+**Идентичность:** `doi:10.1137/110842211` · **Авторы:** Elad Verbin, Qin Zhang · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
+
+### LIT-182
+**[Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space](https://doi.org/10.1145/3654978)** (2024)
+
+Moose/Smoose предлагают гибкие LSM-настройки числа runs на уровне, size ratio и Bloom фильтров, оптимизируют point/range lookup и updates; авторы оценивают RocksDB.
+
+**Ограничение:** Экспериментальный и аналитический результат для выбранного семейства LSM-конфигураций; не универсальная конкурентная или cell-probe граница для range-overwrite сервиса.
+
+**Идентичность:** `doi:10.1145/3654978` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
 
 
 ## incremental-computation
@@ -1342,6 +1381,45 @@ Theory of Computing Systems 2026: алгоритм IPM-запросов на г�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005), [DL-001](INDEX.md#dl-001)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md) (model_overlap)
+
+### LIT-179
+**[Tight Cell-Probe Lower Bounds for Dynamic Succinct Dictionaries](https://doi.org/10.1109/FOCS57990.2023.00112)** (2023)
+
+Li–Liang–Yu–Zhou доказывают нижние оценки cell-probe для динамического succinct-словаря по избыточным битам на ключ и времени операций при заданном размере слова.
+
+**Ограничение:** Это модель членства/значений ключей и ячеечных обращений; не доказательство lower bound физических байтов для overwritten interval index.
+
+**Идентичность:** `doi:10.1109/FOCS57990.2023.00112` · **Также:** arxiv:2306.02253 · **Авторы:** Tianxiao Li, Jingxun Liang, Huacheng Yu, Renfei Zhou · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
+
+### LIT-180
+**[Practical Adaptive Dynamic Bitvectors](https://doi.org/10.1002/spe.3433)** (2025)
+
+Navarro изучает практические адаптивные bitvectors с (1+epsilon)n бит и амортизированной O(log(n/q)) стоимостью при q запросах на обновление.
+
+**Ограничение:** Речь о rank/select и одиночных bitvector-операциях; ratio q и стоимость в статье не означают гарантированную оптимальность LSM compaction/range writes.
+
+**Идентичность:** `doi:10.1002/spe.3433` · **Авторы:** Gonzalo Navarro · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
+
+### LIT-181
+**[Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space](https://arxiv.org/abs/2608.06066)** (2026)
+
+Blelloch и соавторы дают близкое к энтропийному пространство для динамических массивов фиксированного алфавита с O(1) операциями в конкретной word-RAM модели и доказывают специальную нижнюю границу.
+
+**Ограничение:** Авторский препринт 2026; ограничены алфавит, entropy regime и модель вычисления; не установлена цена durable pages, WAL или физической compaction.
+
+**Идентичность:** `arxiv:2608.06066` · **Авторы:** Guy E. Blelloch, Yang Hu, William Kuszmaul, Tianxiao Li, Renfei Zhou · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md](https://github.com/definitely-stable/Mathlab/blob/a5a9b347940579650cdb8c8164f59911cb2602cb/docs/research/INDEX-001-G0-RANGE-MAP-FOUNDATION.md) (model_overlap)
 
 
 ## online-optimization

@@ -55,6 +55,13 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # INDEX-001 G0: original source identity pins (six new works; no aliases duplicated).
+    "doi:10.1137/S009753970240481X": "Optimal External Memory Interval Management",
+    "doi:10.1137/110842211": "The Limits of Buffering: A Tight Lower Bound for Dynamic Membership in the External Memory Model",
+    "doi:10.1109/FOCS57990.2023.00112": "Tight Cell-Probe Lower Bounds for Dynamic Succinct Dictionaries",
+    "doi:10.1002/spe.3433": "Practical Adaptive Dynamic Bitvectors",
+    "arxiv:2608.06066": "Dynamic Entropy-Encoded Arrays in O(1) Time with Nearly Optimal Space",
+    "doi:10.1145/3654978": "Structural Designs Meet Optimality: Exploring Optimized LSM-tree Structures in a Colossal Configuration Space",
     # IMPORT-004: official source/title pins 2025–2026.
     "doi:10.4230/LIPIcs.ICALP.2025.123": "New and Improved Bounds for Markov Paging",
     "doi:10.1145/3717823.3718217": "Tight Results for Online Convex Paging",
