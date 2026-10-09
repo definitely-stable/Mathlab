@@ -63,6 +63,9 @@ jobs:
       - name: HYP-105 G5-E2-A exact GF2/GF4 symplectic pair-embedding and bounded motif probe
         run: python research/hyp105_g5e2a_pair_embeddings.py
 
+      - name: HYP-105 E2-B1 exact weighted GF5 additive-energy and signed-flow oracles
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b1_energy.py'
+
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
