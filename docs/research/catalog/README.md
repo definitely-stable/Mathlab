@@ -1,5 +1,10 @@
 # Research catalog — provenance-first index
 
+## IMPORT-004 — caching, online algorithms and dynamic graphs 2025–2026
+
+[Source/model audit](../RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) and [issue #111](https://github.com/definitely-stable/Mathlab/issues/111) import 17 new primary 2025–2026 works as **LIT-160..176**, following UCT-005 G1 **LIT-156..159**. The modern literature selection is not a proof of an original theorem or a reproduced benchmark. New `caching` thematic track; open CACHE-001/DAG-001/GRAPH-001/INDEX-001. The catalog supports per-origin source SHA, preserving historical source pins.
+
+
 ## UCT-004 G2-D — two primary foundations of nonlinear proof-bit frontier (2026-10-09)
 
 The canonical bibliography adds **LIT-154** [Paturi–Pudlák–Zane, *Satisfiability Coding Lemma* (CJTCS 1999)](https://doi.org/10.4086/cjtcs.1999.011) and **LIT-155** [Emdin et al., *CNF Encodings of Parity* (MFCS 2022)](https://doi.org/10.4230/LIPIcs.MFCS.2022.47), raising 153→**155** unique DOI/arXiv identities. Both original PDFs had *theorem-scope spotchecks*, no claim that Mathlab reverified all source proofs. [G2-D source audit](../UCT-004-G2-D-PPZ-PRIMARY-SOURCE-AUDIT.md) pins width accounting and avoids equating witness auxiliary variables with p stored bit probes. [Forward](LITERATURE.md)/[reverse](LITERATURE-BY-RESEARCH.md) indexes regenerated from canonical JSON; source-title pins guard metadata drift.
@@ -131,7 +136,7 @@ Maintenance: [RESEARCH-INDEX-003 issue #30](https://github.com/definitely-stable
 
 ## External primary literature (RESEARCH-LITERATURE-001/002/003/003B)
 
-- [LITERATURE.md](LITERATURE.md): 95 curated DOI/arXiv/official publisher primary works with summaries, model restrictions, research relationships and commit-pinned citation provenance.
+- [LITERATURE.md](LITERATURE.md): 176 curated DOI/arXiv/official publisher primary works with summaries, model restrictions, research relationships and commit-pinned citation provenance.
 - [LITERATURE-BY-RESEARCH.md](LITERATURE-BY-RESEARCH.md): reverse navigation from existing ML/DL/DM/OM research IDs to papers.
 - [LITERATURE-001-AUDIT.md](LITERATURE-001-AUDIT.md): selection, direct prior-art impact, mismatched models and decisions.
 - [LITERATURE-002-SOURCE-AUDIT.md](LITERATURE-002-SOURCE-AUDIT.md): verified source corrections, 17 new papers, citation-model barriers and next targets.
@@ -139,5 +144,5 @@ Maintenance: [RESEARCH-INDEX-003 issue #30](https://github.com/definitely-stable
 - [RESEARCH-LITERATURE-003B addendum](../RESEARCH-LITERATURE-003B-2026-STOC-ICALP-EUROSYS.md): 26 additional STOC, ICALP and EuroSys publications, no duplicates with LIT-050–069, full provenance scope and priorities.
 - [literature.json](literature.json): normative external-work IDs. Run `python research/literature.py --write`, then `--check` before merging.
 
-This bibliography is a **separate work-entity type**: internal research registry entries stay 61, external literature adds 95 works and no novel theorem/benchmark is asserted.
+This bibliography is a **separate work-entity type**: internal research registry entries stay 61, external literature adds 176 works and no novel theorem/benchmark is asserted.
 

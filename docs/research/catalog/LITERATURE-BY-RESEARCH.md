@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**159** работ сопоставлены с **38** внутренними исследованиями.
+**176** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -40,6 +40,7 @@
 - [LIT-124](LITERATURE.md#lit-124) — A textbook solution for dynamic strings (2026; publisher_abstract_checked)
 - [LIT-125](LITERATURE.md#lit-125) — The BLAKE3 Hashing Framework (C2SP v1.0.0) (2024; publisher_full_text_spotchecked)
 - [LIT-126](LITERATURE.md#lit-126) — Logarithmic-Time Internal Pattern Matching Queries in Compressed and Dynamic Texts (2026; publisher_full_text_spotchecked)
+- [LIT-166](LITERATURE.md#lit-166) — Bounded Edit Distance: Optimal Static and Dynamic Algorithms for Small Integer Weights (2025; publisher_abstract_checked)
 
 ## DL-002
 
@@ -315,6 +316,23 @@
 - [LIT-157](LITERATURE.md#lit-157) — Memory Checking Requires Logarithmic Overhead (2024; publisher_full_text_spotchecked)
 - [LIT-158](LITERATURE.md#lit-158) — The Complexity of Memory Checking with Covert Security (2025; publisher_abstract_checked)
 - [LIT-159](LITERATURE.md#lit-159) — Vector Commitments with Efficient Updates (2023; publisher_full_text_spotchecked)
+- [LIT-160](LITERATURE.md#lit-160) — New and Improved Bounds for Markov Paging (2025; publisher_abstract_checked)
+- [LIT-161](LITERATURE.md#lit-161) — Tight Results for Online Convex Paging (2025; publisher_abstract_checked)
+- [LIT-162](LITERATURE.md#lit-162) — The Cost of Consistency: Submodular Maximization with Constant Recourse (2025; publisher_abstract_checked)
+- [LIT-163](LITERATURE.md#lit-163) — A Simple Dynamic Spanner via APSP (2025; publisher_abstract_checked)
+- [LIT-164](LITERATURE.md#lit-164) — Fully Dynamic Algorithms for Transitive Reduction (2025; publisher_abstract_checked)
+- [LIT-165](LITERATURE.md#lit-165) — Minimizing Recourse in an Adaptive Balls and Bins Game (2025; publisher_abstract_checked)
+- [LIT-166](LITERATURE.md#lit-166) — Bounded Edit Distance: Optimal Static and Dynamic Algorithms for Small Integer Weights (2025; publisher_abstract_checked)
+- [LIT-167](LITERATURE.md#lit-167) — 3L-Cache: Low Overhead and Precise Learning-based Eviction Policy for Caches (2025; publisher_abstract_checked)
+- [LIT-168](LITERATURE.md#lit-168) — Skybridge: Bounded Staleness for Distributed Caches (2025; publisher_abstract_checked)
+- [LIT-169](LITERATURE.md#lit-169) — Principles and Methodologies for Serial Performance Optimization (2025; publisher_abstract_checked)
+- [LIT-170](LITERATURE.md#lit-170) — Merlin: An Efficient Adaptive Cache Eviction Algorithm via Fine-Grained Characterization (2026; publisher_abstract_checked)
+- [LIT-171](LITERATURE.md#lit-171) — Learning-Augmented Heuristics: Simple Yet Smart, Robust and Interpretable Cache Eviction (2026; publisher_abstract_checked)
+- [LIT-172](LITERATURE.md#lit-172) — WriteGuards: Distributed Storage Support for Strongly Consistent Caches (2026; publisher_abstract_checked)
+- [LIT-173](LITERATURE.md#lit-173) — Incr: Faster Re-Execution via Bolt-On Incrementalization (2026; publisher_abstract_checked)
+- [LIT-174](LITERATURE.md#lit-174) — FORGE: Mitigating Synchronization Amplification for Memory-Disaggregated Caching Systems (2026; publisher_abstract_checked)
+- [LIT-175](LITERATURE.md#lit-175) — "Range as a Key" is the Key! Fast and Compact Cloud Block Store Index with RASK (2026; publisher_abstract_checked)
+- [LIT-176](LITERATURE.md#lit-176) — Holistic and Automated Task Scheduling for Distributed LSM-tree-based Storage (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -391,6 +409,15 @@
 - [LIT-157](LITERATURE.md#lit-157) — Memory Checking Requires Logarithmic Overhead (2024; publisher_full_text_spotchecked)
 - [LIT-158](LITERATURE.md#lit-158) — The Complexity of Memory Checking with Covert Security (2025; publisher_abstract_checked)
 - [LIT-159](LITERATURE.md#lit-159) — Vector Commitments with Efficient Updates (2023; publisher_full_text_spotchecked)
+- [LIT-162](LITERATURE.md#lit-162) — The Cost of Consistency: Submodular Maximization with Constant Recourse (2025; publisher_abstract_checked)
+- [LIT-164](LITERATURE.md#lit-164) — Fully Dynamic Algorithms for Transitive Reduction (2025; publisher_abstract_checked)
+- [LIT-168](LITERATURE.md#lit-168) — Skybridge: Bounded Staleness for Distributed Caches (2025; publisher_abstract_checked)
+- [LIT-169](LITERATURE.md#lit-169) — Principles and Methodologies for Serial Performance Optimization (2025; publisher_abstract_checked)
+- [LIT-172](LITERATURE.md#lit-172) — WriteGuards: Distributed Storage Support for Strongly Consistent Caches (2026; publisher_abstract_checked)
+- [LIT-173](LITERATURE.md#lit-173) — Incr: Faster Re-Execution via Bolt-On Incrementalization (2026; publisher_abstract_checked)
+- [LIT-174](LITERATURE.md#lit-174) — FORGE: Mitigating Synchronization Amplification for Memory-Disaggregated Caching Systems (2026; publisher_abstract_checked)
+- [LIT-175](LITERATURE.md#lit-175) — "Range as a Key" is the Key! Fast and Compact Cloud Block Store Index with RASK (2026; publisher_abstract_checked)
+- [LIT-176](LITERATURE.md#lit-176) — Holistic and Automated Task Scheduling for Distributed LSM-tree-based Storage (2026; publisher_abstract_checked)
 
 ## ML-007
 

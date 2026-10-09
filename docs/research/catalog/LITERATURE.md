@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **159** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **176** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,18 +11,19 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 23 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 19 |
-| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 18 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 20 |
+| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 20 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
 | [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 6 |
-| [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 4 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 11 |
+| [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 7 |
+| [Кэширование, online paging, консистентность и память](#caching) | 7 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 14 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 12 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 15 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
 | [Алгебраические схемы, математика и нижние границы](#algebraic-complexity) | 4 |
-| [Edit distance, строки и тонкая сложность](#fine-grained-algorithms) | 2 |
+| [Edit distance, строки и тонкая сложность](#fine-grained-algorithms) | 3 |
 | [Рандомизированная выборка, подсчёт и memory-sample](#randomized-sampling) | 4 |
 
 ## sparse-coding
@@ -590,6 +591,21 @@ Viola доказывает дополнительные к информацио�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-003-G1-SOURCE-AND-GAP-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/UCT-003-G1-SOURCE-AND-GAP-AUDIT.md) (model_overlap)
 
+### LIT-175
+**["Range as a Key" is the Key! Fast and Compact Cloud Block Store Index with RASK](https://www.usenix.org/conference/fast26/presentation/zhao)** (2026)
+
+RASK индексирует непрерывные диапазоны блоков в лог-структурированных листьях, реализует range-aware split/merge, исследует RAM/IO tradeoff по производственным трассам.
+
+**Ограничение:** Эффективность зависит от непрерывности операций записи; результаты не доказывают сокращение памяти на произвольных перестановочных updates и не являются cell-probe lower bound.
+
+**Идентичность:** `usenix:fast26:zhao` · **Авторы:** Haoru Zhao, Mingkai Dong, Erci Xu, Zhongyu Wang, Haibo Chen · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [FAST 2026](https://www.usenix.org/conference/fast26/presentation/zhao) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
 
 ## incremental-computation
 *Инкрементальные вычисления и сертификаты*
@@ -827,6 +843,36 @@ Chakrabarti–Cormode–Goyal–Thaler исследуют online Merlin–Arthur
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) (model_overlap)
+
+### LIT-169
+**[Principles and Methodologies for Serial Performance Optimization](https://www.usenix.org/conference/osdi25/presentation/park-sujin)** (2025)
+
+Методика remove/replace/reorder и восемь вариантов оптимизации последовательной работы: batching, caching, precomputation, deferring, relaxation, contextualization, hardware specialization, layering.
+
+**Ограничение:** Таксономия производительности и системные кейсы не образуют универсальную нижнюю границу по CPU, памяти или стоимости изменения состояния.
+
+**Идентичность:** `usenix:osdi25:park-sujin` · **Авторы:** Sujin Park, Mingyu Guan, Xiang Cheng, Taesoo Kim · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [OSDI 2025](https://www.usenix.org/conference/osdi25/presentation/park-sujin) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-173
+**[Incr: Faster Re-Execution via Bolt-On Incrementalization](https://www.usenix.org/conference/osdi26/presentation/xie-yizheng)** (2026)
+
+Incr автоматически выявляет зависимости и эффекты и сохраняет промежуточные результаты для повторного исполнения shell-программ, включая неидемпотентные операции.
+
+**Ограничение:** Экспериментальные ускорения не являются нижней границей вычислений; накладные расходы на отслеживание зависимостей, side effects и обновление кэша нельзя считать нулевыми.
+
+**Идентичность:** `usenix:osdi26:xie-yizheng` · **Авторы:** Yizheng Xie, Evangelos Lamprou, Jerry Xia, Nikos Vasilakis · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [OSDI 2026](https://www.usenix.org/conference/osdi26/presentation/xie-yizheng) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
 
 
 ## delta-base-selection
@@ -1353,6 +1399,160 @@ Theory of Computing Systems 2026: алгоритм IPM-запросов на г�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (model_overlap)
 
+### LIT-160
+**[New and Improved Bounds for Markov Paging](https://doi.org/10.4230/LIPIcs.ICALP.2025.123)** (2025)
+
+Уточнена конкурентная оценка dominating-distribution для Markov paging: 2 относительно онлайн-оптимума заданной цепи, со специальной нижней оценкой 1.5907 для этого алгоритма.
+
+**Ограничение:** Запросы исходят из марковской цепи. Перенос на адаптивного противника, объекты переменной длины и реальную задержку кэша без редукции недопустим.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2025.123` · **Авторы:** Chirag Pabbaraju, Ali Vakilian · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ICALP 2025](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.123) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-161
+**[Tight Results for Online Convex Paging](https://doi.org/10.1145/3717823.3718217)** (2025)
+
+Точные по порядку конкурентные границы для convex paging с нелинейной стоимостью вытеснений, включая ограничения качества выпуклых релаксаций.
+
+**Ограничение:** Норма вектора вытеснений и comparator определены в исходной модели; это не обычное количество cache misses и не готовый алгоритм ускорения.
+
+**Идентичность:** `doi:10.1145/3717823.3718217` · **Авторы:** Anupam Gupta, Amit Kumar, Debmalya Panigrahi · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [STOC 2025](https://acm-stoc.org/stoc2025/toc.html) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-162
+**[The Cost of Consistency: Submodular Maximization with Constant Recourse](https://doi.org/10.1145/3717823.3718131)** (2025)
+
+Для monotone submodular online максимизации с константным recourse на шаг получены tight границы 2/3 в общем случае и 3/4 для coverage; отдельно обсуждается 0.51 randomized polytime.
+
+**Ограничение:** Recourse меняет элементы комбинаторного решения, а не физические ячейки, байты кэша или проверяемые доказательства; функции и приближения различны.
+
+**Идентичность:** `doi:10.1145/3717823.3718131` · **Авторы:** Paul Dütting, Federico Fusco, Silvio Lattanzi, Ashkan Norouzi-Fard, Ola Svensson, Morteza Zadimoghaddam · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [STOC 2025](https://acm-stoc.org/stoc2025/toc.html) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+
+## caching
+*Кэширование, online paging, консистентность и память*
+
+### LIT-167
+**[3L-Cache: Low Overhead and Precise Learning-based Eviction Policy for Caches](https://www.usenix.org/conference/fast25/presentation/zhou-wenbin)** (2025)
+
+Объектно-ориентированное обучение политики вытеснения, учёт byte/object miss ratio и снижение CPU накладных расходов при обучении; авторские эксперименты на 4855 traces.
+
+**Ограничение:** Это измеренные результаты для конкретных workloads и baselines, а не конкурентная нижняя граница или универсальная гарантия hit rate.
+
+**Идентичность:** `usenix:fast25:zhou-wenbin` · **Авторы:** Wenbin Zhou, Zhixiong Niu, Yongqiang Xiong, Juan Fang, Qian Wang · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [FAST 2025](https://www.usenix.org/conference/fast25/presentation/zhou-wenbin) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-168
+**[Skybridge: Bounded Staleness for Distributed Caches](https://www.usenix.org/conference/osdi25/presentation/lyerly)** (2025)
+
+Отдельный поток репликации обновляет сведения о свежести распределённых кэшей с измеренными распределениями lag и малым объёмом дополнительной инфраструктуры.
+
+**Ограничение:** Эмпирическая доля записей, удовлетворяющих 2-секундной свежести, не является строгой детерминированной верхней границей и не равна linearizability.
+
+**Идентичность:** `usenix:osdi25:lyerly` · **Авторы:** Robert Lyerly, Scott Pruett, Kevin Doherty, Greg Rogers, Nathan Bronson, John Hugg · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [OSDI 2025](https://www.usenix.org/conference/osdi25/presentation/lyerly) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-170
+**[Merlin: An Efficient Adaptive Cache Eviction Algorithm via Fine-Grained Characterization](https://www.usenix.org/conference/osdi26/presentation/li-liujia)** (2026)
+
+MERLIN адаптирует вытеснение на уровне отдельных объектов и характеристик обращений, отделяя компоненты политики, с авторской трассовой оценкой.
+
+**Ограничение:** Авторские throughput/hit-rate результаты не дают гарантии для адаптивного противника или всякого будущего распределения обращений.
+
+**Идентичность:** `usenix:osdi26:li-liujia` · **Авторы:** Liujia Li, Jinhao Guo, Yi Fan, Jianyu Wu, Zhenlin Wang, Jie Zhang, Yuval Tamir, Xiaolin Wang, Yingwei Luo, Diyu Zhou · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [OSDI 2026](https://www.usenix.org/conference/osdi26/presentation/li-liujia) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-171
+**[Learning-Augmented Heuristics: Simple Yet Smart, Robust and Interpretable Cache Eviction](https://www.usenix.org/conference/osdi26/presentation/xia)** (2026)
+
+LAH/S4-FIFO обучает параметры эвристики по агрегированным сигналам вне горячего пути, чтобы уменьшить стоимость принятия решения в cache dataplane.
+
+**Ограничение:** Результаты на production traces с предобученной моделью и наблюдаемая устойчивость не являются формальным worst-case competitive ratio.
+
+**Идентичность:** `usenix:osdi26:xia` · **Авторы:** Haocheng Xia, William Nixon, Bintang Dwi Marthen, Pranav Bhandari, Juncheng Yang · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [OSDI 2026](https://www.usenix.org/conference/osdi26/presentation/xia) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-172
+**[WriteGuards: Distributed Storage Support for Strongly Consistent Caches](https://www.usenix.org/conference/osdi26/presentation/mao-ziming-writeguards)** (2026)
+
+WriteGuards вводит fencing для записи на уровне диапазонов ключей, исключая delayed writes в заданной архитектуре владения и обеспечивая авторскую реализацию линерализуемых cache reads.
+
+**Ограничение:** Требуются конкретные предпосылки о хранилище, fencing и владельцах; это не бесплатное доказательство аутентичности, rollback безопасности или криптографический commitment.
+
+**Идентичность:** `usenix:osdi26:mao-ziming-writeguards` · **Авторы:** Ziming Mao, Atul Adya, Jonathan Ellithorpe, Rishabh Iyer, Matei Zaharia, Scott Shenker, Ion Stoica · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [OSDI 2026](https://www.usenix.org/conference/osdi26/presentation/mao-ziming-writeguards) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-174
+**[FORGE: Mitigating Synchronization Amplification for Memory-Disaggregated Caching Systems](https://www.usenix.org/conference/osdi26/presentation/yang-zhijun)** (2026)
+
+Кэш с disaggregated memory сокращает synchronization amplification за счёт группировки объектов, ленивого обновления hotness-метаданных и FIFO обработки групп.
+
+**Ограничение:** Зависит от RDMA NIC, модели распределённой памяти и тестовых нагрузок; не следует универсальной оптимальности online paging.
+
+**Идентичность:** `usenix:osdi26:yang-zhijun` · **Авторы:** Zhijun Yang, Yu Hua, Ming Zhang, Menglei Chen, Yixiao Wang · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [OSDI 2026](https://www.usenix.org/conference/osdi26/presentation/yang-zhijun) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-176
+**[Holistic and Automated Task Scheduling for Distributed LSM-tree-based Storage](https://www.usenix.org/conference/fast26/presentation/ren)** (2026)
+
+HATS координирует foreground чтения и background compaction с adaptive rate control/replica selection в распределённом LSM-хранилище.
+
+**Ограничение:** Системные результаты Cassandra/LSM касаются конкретной нагрузки и планировщика, не доказательства универсального оптимума по recourse или времени.
+
+**Идентичность:** `usenix:fast26:ren` · **Авторы:** Yuanming Ren, Siyuan Sheng, Zhang Cao, Yongkun Li, Patrick P. C. Lee · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [FAST 2026](https://www.usenix.org/conference/fast26/presentation/ren) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
 
 ## graph-algorithms
 *Динамические графы, гиперграфы и sparsification*
@@ -1511,6 +1711,51 @@ Hoory (Journal of Combinatorial Theory B, 2002) обобщает экстрем�
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-004](INDEX.md#ml-004), [ML-007](INDEX.md#ml-007)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-105-G4-CHARACTERISTIC-W4.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/HYP-105-G4-CHARACTERISTIC-W4.md) (model_overlap)
+
+### LIT-163
+**[A Simple Dynamic Spanner via APSP](https://doi.org/10.4230/LIPIcs.ICALP.2025.111)** (2025)
+
+Динамический spanner с контролем приближения расстояний, операций обновления и total recourse при заданных последовательностях вставок и удалений.
+
+**Ограничение:** Spanner приближает расстояния; он не сохраняет точно достижимость, не гарантирует отсутствие signed trades и не обеспечивает криптографическую верификацию.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2025.111` · **Авторы:** Rasmus Kyng, Simon Meierhans, Gernot Zöcklein · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ICALP 2025](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.111) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-164
+**[Fully Dynamic Algorithms for Transitive Reduction](https://doi.org/10.4230/LIPIcs.ICALP.2025.92)** (2025)
+
+Поддержка минимального сохраняющего reachability подграфа ориентированного графа при вставках и удалениях; один алгоритм O(m+n log n) амортизированно на обновление.
+
+**Ограничение:** Время обновления зависит от m,n и модели операций; reachability-preserving reduction не является доказательством нижней границы для DAG или доверенного сервера.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2025.92` · **Авторы:** Gramoz Goranci, Adam Karczmarz, Ali Momeni, Nikos Parotsidis · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ICALP 2025](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.92) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-165
+**[Minimizing Recourse in an Adaptive Balls and Bins Game](https://doi.org/10.4230/LIPIcs.ICALP.2025.77)** (2025)
+
+Случайное размещение задач по живым корзинам даёт O(n log n) recourse против адаптивного противника в определённой модели удалений корзин; следствие для spanner.
+
+**Ограничение:** Модель adversary наблюдает назначения и выводит из строя bins; не заменяет доказательство стойкости cache/LSM к произвольным сбоям и rollback.
+
+**Идентичность:** `doi:10.4230/LIPIcs.ICALP.2025.77` · **Авторы:** Adi Fine, Haim Kaplan, Uri Stemmer · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [ICALP 2025](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2025.77) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
 
 
 ## algebraic-algorithms
@@ -2136,6 +2381,21 @@ Bibbens–Borevitz–McCauley строят линейно-пространств
 **Связь с исследованиями →** [OM-099](INDEX.md#om-099), [OM-121](INDEX.md#om-121), [DL-001](INDEX.md#dl-001)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/catalog/IMPORT-003-OPENAI-PRIMARY-AUDIT.md) (model_overlap)
+
+### LIT-166
+**[Bounded Edit Distance: Optimal Static and Dynamic Algorithms for Small Integer Weights](https://doi.org/10.1145/3717823.3718168)** (2025)
+
+Авторы показывают ~O(k) worst-case стоимость изменения точного динамического unweighted edit distance в параметризованной модели; для bounded малых целых весов другая граница.
+
+**Ограничение:** Не даёт аналогичной гарантии для произвольных весов, общего вычислительного DAG, delta patch bytes и компрессионной стоимости.
+
+**Идентичность:** `doi:10.1145/3717823.3718168` · **Авторы:** Egor Gorbachev, Tomasz Kociumaka · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Первоисточник / издательский список:** [STOC 2025](https://acm-stoc.org/stoc2025/toc.html) · **Доступ:** `publisher_article_abstract_and_bibliography_checked`
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
 
 
 ## randomized-sampling
