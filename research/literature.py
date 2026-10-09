@@ -55,6 +55,11 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # INDEX-001 G2-A: separately verified compaction and adaptive bitvector identities.
+    "doi:10.1007/s00224-025-10229-8": "(Worst-case) Optimal Adaptive Dynamic Bitvectors",
+    "doi:10.1016/j.future.2026.108425": "C2LSM: A configuration paradigm for efficient compaction in LSM-tree-based key-value stores",
+    "doi:10.14778/3796195.3796208": "ArceKV: Towards Workload-driven LSM-compactions for Key-Value Store Under Dynamic Workloads",
+    "doi:10.1109/ICDE65706.2026.00194": "RangeReduce: Query-Driven LSM Compactions",
     # INDEX-001 G0: original source identity pins (six new works; no aliases duplicated).
     "doi:10.1137/S009753970240481X": "Optimal External Memory Interval Management",
     "doi:10.1137/110842211": "The Limits of Buffering: A Tight Lower Bound for Dynamic Membership in the External Memory Model",
