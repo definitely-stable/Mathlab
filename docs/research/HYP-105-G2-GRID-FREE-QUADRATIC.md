@@ -1,5 +1,7 @@
 # HYP-105 G2 — quadratic three-sum capacity via grid-free linear triple systems
 
+**G3 supersession (2026-10-09):** The denominator-open verdict in this historical G2 document has been superseded by the [HYP-105 G3 complete minor classification](HYP-105-G3-SIX-COLUMN-MINORS.md), which proves six-wise independence iff grid-free for unit linear triples over characteristic p≥5. Hence both capacities have order Theta_q(m²) and the unbounded ratio is STOP for w=3,d=3 in this characteristic range. Earlier G2 exploration is retained as the audit trail.
+
 Date: **2026-10-09** · [issue #84](https://github.com/definitely-stable/Mathlab/issues/84) · G1 [weight-two theorem](HYP-105-G1-W2D3-GIRTH8.md).
 **RESULT: DERIVED_CLASSICAL, A_set quadratic for w=3,d=3 and characteristic≥5; UNBOUNDED RATIO STILL UNPROVED.**
 This is a new deduction in the Mathlab research record, **not** a claim of an original scientific discovery. External grid-free existence is pinned to the Gishboliner–Shapira 2022 theorem. No Rust library or product GO.
