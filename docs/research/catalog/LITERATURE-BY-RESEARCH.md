@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**141** работ сопоставлены с **38** внутренними исследованиями.
+**144** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -197,6 +197,9 @@
 - [LIT-138](LITERATURE.md#lit-138) — Improved bounds on the size of sparse parity check matrices (2005; publisher_abstract_checked)
 - [LIT-139](LITERATURE.md#lit-139) — The Brown-Erdős-Sós conjecture in dense triple systems (2025; primary_abstract_checked)
 - [LIT-140](LITERATURE.md#lit-140) — Triangle-Free Triple Systems (2026; publisher_abstract_checked)
+- [LIT-142](LITERATURE.md#lit-142) — Grid-free linear hypergraphs via Cayley-Bacharach (2026; primary_abstract_checked)
+- [LIT-143](LITERATURE.md#lit-143) — The linear Turán number of small triple systems or why is the wicket interesting? (2022; publisher_abstract_checked)
+- [LIT-144](LITERATURE.md#lit-144) — Wickets in 3-uniform hypergraphs (2024; publisher_abstract_checked)
 
 ## ML-003
 
@@ -290,6 +293,9 @@
 - [LIT-139](LITERATURE.md#lit-139) — The Brown-Erdős-Sós conjecture in dense triple systems (2025; primary_abstract_checked)
 - [LIT-140](LITERATURE.md#lit-140) — Triangle-Free Triple Systems (2026; publisher_abstract_checked)
 - [LIT-141](LITERATURE.md#lit-141) — Bit-Probe Lower Bounds for Succinct Data Structures (2012; publisher_abstract_checked)
+- [LIT-142](LITERATURE.md#lit-142) — Grid-free linear hypergraphs via Cayley-Bacharach (2026; primary_abstract_checked)
+- [LIT-143](LITERATURE.md#lit-143) — The linear Turán number of small triple systems or why is the wicket interesting? (2022; publisher_abstract_checked)
+- [LIT-144](LITERATURE.md#lit-144) — Wickets in 3-uniform hypergraphs (2024; publisher_abstract_checked)
 
 ## ML-005
 
@@ -375,6 +381,9 @@
 - [LIT-138](LITERATURE.md#lit-138) — Improved bounds on the size of sparse parity check matrices (2005; publisher_abstract_checked)
 - [LIT-139](LITERATURE.md#lit-139) — The Brown-Erdős-Sós conjecture in dense triple systems (2025; primary_abstract_checked)
 - [LIT-140](LITERATURE.md#lit-140) — Triangle-Free Triple Systems (2026; publisher_abstract_checked)
+- [LIT-142](LITERATURE.md#lit-142) — Grid-free linear hypergraphs via Cayley-Bacharach (2026; primary_abstract_checked)
+- [LIT-143](LITERATURE.md#lit-143) — The linear Turán number of small triple systems or why is the wicket interesting? (2022; publisher_abstract_checked)
+- [LIT-144](LITERATURE.md#lit-144) — Wickets in 3-uniform hypergraphs (2024; publisher_abstract_checked)
 
 ## ML-008
 
