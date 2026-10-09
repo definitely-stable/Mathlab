@@ -1,6 +1,8 @@
 """Independent adversarial GF5 checks for affine-checksum sparse ASET."""
 from itertools import combinations
 import unittest
+import json
+from pathlib import Path
 
 from hyp105_g5d_affine_weights import (
     P, M, CHECKSUM, add_field_encoded, checksum_pattern_palette,
@@ -57,6 +59,38 @@ class AffineChecksumGF5Tests(unittest.TestCase):
         self.assertEqual((1 + 45 + 990 + 14190), 15226)
         self.assertEqual(summary(20261009)["accepted"], 45)
         self.assertEqual(summary(20261009)["seed"], 20261009)
+
+    def test_frozen_explicit_45_column_w32_certificate_independently(self):
+        # No RNG or greedy code used to reconstruct the public proof witness.
+        fixture = Path(__file__).with_name("hyp105_g5d_w32_45_witness.json")
+        payload = json.loads(fixture.read_text(encoding="utf-8"))
+        self.assertEqual(payload["schema"],
+                         "mathlab.hyp105.gf5.aset-w32-checksum.v1")
+        self.assertEqual((payload["dimension"], payload["affine_checksum"],
+                          payload["expected_subset_sum_signatures"]),
+                         (12, 4, 15226))
+        self.assertEqual(len(payload["columns"]), 45)
+        pinned_supports = tuple(tuple(item["support"])
+                                for item in payload["columns"])
+        self.assertEqual(pinned_supports, w32_supports())
+        vectors = []
+        for item in payload["columns"]:
+            support, coefficients = item["support"], item["coefficients"]
+            self.assertEqual(len(support), 4)
+            self.assertEqual(len(set(support)), 4)
+            self.assertEqual(sum(coefficients) % 5, 4)
+            self.assertTrue(all(1 <= x <= 4 for x in coefficients))
+            row = [0] * 12
+            for j, x in zip(support, coefficients):
+                row[j] = x
+            vectors.append(tuple(row))
+        self.assertTrue(verify_independent_full_sums(tuple(vectors)))
+        self.assertIsNone(direct_aset_collision(tuple(vectors), 5, 3))
+        # Strong reproducibility: witness has the same assignment as the
+        # separate seeded greedy implementation, but verification above
+        # requires neither its RNG nor its internal sum tables.
+        greedy = finite_weighted_greedy(seed=20261009, max_attempts=4)
+        self.assertEqual(tuple(vectors), greedy["vectors"])
 
     def test_held_out_greedy_seeds_and_independent_replay(self):
         for seed in (0, 3, 17):
