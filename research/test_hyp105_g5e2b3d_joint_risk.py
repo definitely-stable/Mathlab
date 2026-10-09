@@ -142,6 +142,27 @@ class JointGF5RiskTests(unittest.TestCase):
             from hyp105_g5e2b1_energy import risk_from_pair_energy
             self.assertEqual(risk,risk_from_pair_energy(four,model["m"])["R2"])
 
+    def test_full_geometries_pinned_same_label_exact_Q4_T4_and_D6(self):
+        expected=(
+            (1,"plucker",25,57,2),
+            (1,"reverse-line",32,66,3),
+            (2,"plucker",608,1388,9190),
+            (2,"reverse-line",573,1380,8417),
+        )
+        for h,scheme,q4,t4,d6 in expected:
+            with self.subTest(s=1<<h,scheme=scheme):
+                model=(plucker_shift_model(h,"plucker-lex-mincollision")
+                       if scheme=="plucker"
+                       else pair_labeled_symplectic(h,"reverse-line"))
+                report=exact_coincident_c4(model)
+                full_unit=exact_unit_T4(model["supports"],model["m"])
+                self.assertEqual(report["Q4"],q4)
+                self.assertEqual(full_unit["unit_signed_four_events"],t4)
+                self.assertEqual(full_unit["unit_four_subsets"],t4)
+                self.assertLessEqual(q4,t4)
+                self.assertEqual(
+                    selected_c6_witness_sample(model)[1],d6)
+
     def test_GF4_physical_full_Q4_T4_and_positive_GF5_witness(self):
         model=plucker_shift_model(2,"plucker-lex-mincollision")
         q=exact_coincident_c4(model)
