@@ -46,3 +46,8 @@ Anti-rediscovery closure: four scoped decisions **KR-041..044** have been append
 
 ## The unification is a lens, not a claimed universal formula
 UCT cannot sum or compose lower bounds proved for incompatible computational models. A map preserving valid operations, observable outputs, the adversary and all *charged* resources is a prerequisite for a sound theorem transfer. A proof of a weaker bound or a rename is NOT publication novelty.
+
+
+## Broad unified program extension — UCT-002 (2026-10-09)
+
+The four UCT-A/B/C/D workstreams now serve as **bricks**, not independent competing theorem projects, within [UCT-002 master operational observation-capacity theorem](UCT-002-MASTER-THEOREM.md). Its finite joint memory/locality/annotation/read/error bound is proved as **DERIVED_CLASSICAL**. [Theorem-brick DAG](UCT-002-THEOREM-BRICKS.json) explicitly prevents faulty inference from unrelated models; [expanded primary sources](UCT-002-PRIMARY-SOURCE-AND-BRICKS.md) add eight unique canonical works. The **primary mathematical frontier is a stronger nonfactorizing theorem for a named dynamic online task**, not a broader rebranding of existing sketches/patches. [UCT-002 issue #77](https://github.com/definitely-stable/Mathlab/issues/77), G1 gate [#76](https://github.com/definitely-stable/Mathlab/issues/76).
