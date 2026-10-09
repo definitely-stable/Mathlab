@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## TKG-001 G1-A — DAG lower-bound model transfer firewall (2026-10-10)
+
+[Exact classical model theorem, 1024 independent old-old stability controls, 3 charged source-oracle layouts](TKG-001-G1-A-TRANSFER-FIREWALL.md) · [oracle](../../research/tkg001_g1a_transfer.py) · [tests](../../research/test_tkg001_g1a_transfer.py) · [#210](https://github.com/definitely-stable/Mathlab/issues/210) · [parent G1 #195](https://github.com/definitely-stable/Mathlab/issues/195). Larsen–Yu dynamic edge insertions **do not transfer without reduction** to immutable-label new-sink DAG; paid remote one-bit bitmap falsifies unpriced transfer b+g+q*w>=n. No joint lower bound, no signed freshness, no physical SSD measurements.
+
 ## UCT-005 G3-B2-C2-A — disk page-buffer-bounded GC oracle (2026-10-10)
 
 [**Immutable forest on real temporary files, disk FIFO/bitmap, page-buffer bound, independent pins and interrupted-sweep proof limits**](UCT-005-G3-B2-C2-A-DISK-WORKSPACE-GC.md) · [reference implementation](../../research/uct005_g3b2c2a_disk_gc.py) · [independent tests](../../research/test_uct005_g3b2c2a_disk_gc.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). The collector (not writer/setup/query/RSS) holds <=6 explicitly modeled page buffers; full image file reads/writes accounted, not media I/O or crash safety. Separate one-node-per-page construction, not C0 packed page cost. Root lower theorem remains OPEN.
