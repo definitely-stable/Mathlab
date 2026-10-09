@@ -283,6 +283,52 @@ def compare(n, operations, restarts, weights=Weights(1, 6, 0)):
     }
 
 
+def scaling_bad_family(n):
+    """For every odd N>=3: force checkpoint of alternating data, then collapse.
+
+    Padding uses acknowledged nonempty range assignments that preserve data.
+    Exposes an unbounded lower-bound ratio for THIS threshold policy, not all
+    online algorithms. The construction is deterministic and finite.
+    """
+    if type(n) is not int or n < 3 or n % 2 != 1:
+        raise ValueError("odd universe >=3 required")
+    operations = [(i, i + 1, 1) for i in range(1, n, 2)]
+    while True:
+        checkpoints = online_threshold(n, operations)
+        if checkpoints and checkpoints[-1] == len(operations):
+            break
+        operations.append((0, 1, 0))  # semantic no-op, nonempty WAL
+    high_checkpoint = len(operations)
+    operations.append((0, n, 0))
+    return tuple(operations), high_checkpoint
+
+
+def scaling_bound_instance(n):
+    operations, high_checkpoint = scaling_bad_family(n)
+    r = (0,) * (len(operations) - 1) + (1,)
+    row = compare(n, operations, r, Weights(0, 1, 0))
+    width = len(uvarint(n))
+    large = 8 + 2 * width + 2 * n
+    small = 10 + 2 * width
+    collapse_frame = 8 + width
+    expected = Fraction(large + collapse_frame, small)
+    actual = Fraction(*row["ratio"])
+    if (actual != expected or row["online"]["checkpoints"][-1] != high_checkpoint
+            or high_checkpoint in row["offline"]["checkpoints"]
+            or row["offline"]["recovery_read_bytes"] != small):
+        # Offline may checkpoint before high; only last is important. The
+        # asserted exclusion tests the canonical lexicographic tie policy.
+        raise AssertionError("variable-size scaling family oracle mismatch")
+    return {
+        "n": n,
+        "padding_updates": high_checkpoint - (n - 1) // 2,
+        "high_snapshot_bytes": large,
+        "small_snapshot_bytes": small,
+        "final_wal_frame_bytes": collapse_frame,
+        "ratio": [actual.numerator, actual.denominator],
+    }
+
+
 WITNESS = ((1, 2, 1), (3, 4, 1), (5, 6, 1), (0, 6, 0))
 
 
@@ -302,6 +348,7 @@ def build_report():
             "restarts": [0, 0, 0, 1], **result,
         },
         "safe_coarse_upper_bound": "J_online <= 2*(Smax/Smin)*J_offline",
+        "scaling_lower_bound_family": [scaling_bound_instance(n) for n in (3, 31, 129)],
         "novel_general_theorem": "NOT_ESTABLISHED",
         "nand_bytes": "NOT_MEASURED",
     }
