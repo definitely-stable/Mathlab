@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**134** работ сопоставлены с **38** внутренними исследованиями.
+**136** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -191,6 +191,8 @@
 - [LIT-127](LITERATURE.md#lit-127) — Locally Updatable and Locally Decodable Codes (2014; publisher_abstract_checked)
 - [LIT-128](LITERATURE.md#lit-128) — Update-Efficiency and Local Repairability Limits for Capacity Approaching Codes (2013; publisher_abstract_checked)
 - [LIT-133](LITERATURE.md#lit-133) — Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes (2019; publisher_abstract_checked)
+- [LIT-135](LITERATURE.md#lit-135) — Extremal graphs with no C4's, C6's, or C10's (1991; publisher_abstract_checked)
+- [LIT-136](LITERATURE.md#lit-136) — An explicit formula for obtaining (q+1,8)-cages and others small regular graphs of girth 8 (2011; primary_abstract_checked)
 
 ## ML-003
 
@@ -277,6 +279,8 @@
 - [LIT-130](LITERATURE.md#lit-130) — Annotations for Sparse Data Streams (2013; publisher_abstract_checked)
 - [LIT-131](LITERATURE.md#lit-131) — New Lower Bounds in Merlin-Arthur Communication and Graph Streaming Verification (2024; publisher_abstract_checked)
 - [LIT-134](LITERATURE.md#lit-134) — Equivalent Comparisons of Experiments (1953; publisher_bibliography_checked)
+- [LIT-135](LITERATURE.md#lit-135) — Extremal graphs with no C4's, C6's, or C10's (1991; publisher_abstract_checked)
+- [LIT-136](LITERATURE.md#lit-136) — An explicit formula for obtaining (q+1,8)-cages and others small regular graphs of girth 8 (2011; primary_abstract_checked)
 
 ## ML-005
 
@@ -355,6 +359,8 @@
 - [LIT-061](LITERATURE.md#lit-061) — Improving Lagarias-Odlyzko Algorithm for Average-Case Subset Sum: Modular Arithmetic Approach (2026; publisher_abstract_checked)
 - [LIT-071](LITERATURE.md#lit-071) — The Weak Rank Principle: Lower Bounds and Applications (2026; publisher_abstract_checked)
 - [LIT-090](LITERATURE.md#lit-090) — Lower Bounds for Near-Quadratic-Depth Resolution over Parities (2026; publisher_abstract_checked)
+- [LIT-135](LITERATURE.md#lit-135) — Extremal graphs with no C4's, C6's, or C10's (1991; publisher_abstract_checked)
+- [LIT-136](LITERATURE.md#lit-136) — An explicit formula for obtaining (q+1,8)-cages and others small regular graphs of girth 8 (2011; primary_abstract_checked)
 
 ## ML-008
 
