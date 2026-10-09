@@ -107,6 +107,7 @@ SOURCE_TITLE_PINS = {
     "doi:10.1214/aoms/1177729032": "Equivalent Comparisons of Experiments",
     "doi:10.1016/0095-8956(91)90097-4": "Extremal graphs with no C4\'s, C6\'s, or C10\'s",
     "arxiv:1111.3279": "An explicit formula for obtaining (q+1,8)-cages and others small regular graphs of girth 8",
+    "doi:10.1137/090766619": "Bit-Probe Lower Bounds for Succinct Data Structures",
 }
 
 
