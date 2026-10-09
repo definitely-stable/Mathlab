@@ -34,7 +34,9 @@ The independent slow reference oracle [G5-C2 collision_spectrum](../../research/
 
 For the global 2+2 split, S6 separately permutes coordinate positions within the left and right block. An S6 action induces a permutation of the 15 pair labels. Hence left/right label bijections differing solely by these actions belong to the same invariant trade-spectrum orbit. **An S6 x S6 coordinate-gauge orbit cannot improve exact trade counts**; it is mathematically false to present such transformed labelings as different algorithmic improvements. A coordinate-pair permutation outside the image of the S6 action generally *can* change the trade hypergraph, because it is not induced by a coordinate permutation.
 
-This exact invariant is exhaustively validated over held-out random bijections and randomly selected S6 x S6 actions. W(3,2) automorphisms might give further quotient reduction, but are not assumed or proved in this slice.
+**Exact orbit count (elementary finite corollary).** The action of S6 on the 15 edges of K6 is faithful: if a permutation fixes every unordered pair, it fixes every vertex. A bijection between 15 graph vertices and all 15 pairs uses every pair, so its S6 stabilizer is trivial. Therefore every one-half labeling orbit under coordinate permutations has size exactly 6!=720. As there are 15! possible bijections, the number of one-half equivalence classes is exactly 15!/6!=1,816,214,400, and the number of two-half labelings modulo independent coordinate-permutation gauge transformations is exactly (15!/6!)^2. This is **not** the number of classes modulo abstract graph automorphisms, which may identify more labelings. The huge finite search quotient explains why a bounded heuristic cannot prove optimality.
+
+This exact invariant is validated over held-out random bijections and randomly selected S6 x S6 actions; the 720 induced distinct K6 pair actions and exact factorial divisibility are also checked independently. W(3,2) automorphisms might give further quotient reduction, but are not assumed or proved in this slice.
 
 ## 4. Deterministic bounded descent (finite only)
 
