@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## UCT-005 G2-B — 2D authenticated XOR: frozen model, adversarial replay and source STOP (2026-10-09)
+
+[**Fully priced authenticated 2D parity model, explicit update/query transcript, finite adversarial oracle and quantitative non-novelty checks**](UCT-005-G2-B-VERIFIED-2D-PARITY-AND-NOVELTY-GATE.md) · [five original 2016–2026 source identities](UCT-005-G2-B-SOURCES.json) · [tests](../../research/test_uct005_g2b_auth_tree.py) · [issue #131](https://github.com/definitely-stable/Mathlab/issues/131). Published dynamic multidimensional query authentication and aggregate ADS defeat generic novelty claims. **G2-B evidence only; full-source proofs not reproduced, cryptographic security not proven, central UCT-005 theorem OPEN_UNPROVED.** Pending canonical LIT numbering while parallel HYP-105 PR #132 owns LIT-205.
+
 ## DAG-002 / ALG-001 G0 — immutable reachability and rank-sensitive output separation (2026-10-09)
 
 [DAG-002 model, known SEA chain-top baseline and no-remote-probe information bound](DAG-002-G0-IMMUTABLE-REACHABILITY.md) · [ALG-001 rank-one coordinate-observation barrier, precise field/update types](ALG-001-G0-RANK-OBSERVATION.md) · issues [#133](https://github.com/definitely-stable/Mathlab/issues/133) and [#134](https://github.com/definitely-stable/Mathlab/issues/134). **RESTRICTED_ELEMENTARY_PROOF, KNOWN_PRIOR_ART, FINITE_EXACT_CHECKS, NO_NEW_ROOT_THEOREM, NO_RUST.** Canonical studies LIT-187/LIT-195 already indexed; no re-import and no modification of other research status.
