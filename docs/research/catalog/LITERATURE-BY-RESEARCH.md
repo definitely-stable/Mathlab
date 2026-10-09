@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**204** работ сопоставлены с **38** внутренними исследованиями.
+**207** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -362,6 +362,9 @@
 - [LIT-202](LITERATURE.md#lit-202) — How Efficient Can Memory Checking Be? (2009; publisher_abstract_checked)
 - [LIT-203](LITERATURE.md#lit-203) — Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams (2025; primary_abstract_checked)
 - [LIT-204](LITERATURE.md#lit-204) — On the Impossibility of Batch Update for Cryptographic Accumulators (2010; publisher_abstract_checked)
+- [LIT-206](LITERATURE.md#lit-206) — PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection (2025; primary_abstract_checked)
+- [LIT-207](LITERATURE.md#lit-207) — Specifying and Checking File System Crash-Consistency Models (2016; publisher_abstract_checked)
+- [LIT-208](LITERATURE.md#lit-208) — Lightweight file system crash-consistency checking with differential fuzzing (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -471,6 +474,9 @@
 - [LIT-202](LITERATURE.md#lit-202) — How Efficient Can Memory Checking Be? (2009; publisher_abstract_checked)
 - [LIT-203](LITERATURE.md#lit-203) — Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams (2025; primary_abstract_checked)
 - [LIT-204](LITERATURE.md#lit-204) — On the Impossibility of Batch Update for Cryptographic Accumulators (2010; publisher_abstract_checked)
+- [LIT-206](LITERATURE.md#lit-206) — PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection (2025; primary_abstract_checked)
+- [LIT-207](LITERATURE.md#lit-207) — Specifying and Checking File System Crash-Consistency Models (2016; publisher_abstract_checked)
+- [LIT-208](LITERATURE.md#lit-208) — Lightweight file system crash-consistency checking with differential fuzzing (2026; publisher_abstract_checked)
 
 ## ML-007
 
