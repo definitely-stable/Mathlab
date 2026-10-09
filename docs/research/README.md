@@ -2,7 +2,7 @@
 
 ## INDEX-001 G2-A — synthetic page-cost comparator and 2026 compaction novelty closure (2026-10-09)
 
-[**Range overlay vs direct materialization: precise simulated cold page reads, journal/compaction writes, original 2025/26 prior-art audit**](INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) · [issue #121](https://github.com/definitely-stable/Mathlab/issues/121) · [simulation module](../../research/index001_page_cost.py) · [independent finite tests](../../research/test_index001_page_cost.py). **LIT-183..186**, 182→186 canonical sources, preserved LIT-180 with SPIRE'24 preliminary identity (no duplicate). G2-A MODEL_ONLY / physical lower bound OPEN / generic H2 adaptation novelty STOP / no Rust. No actual disk I/O or crash recovery implied.
+[**Range overlay vs direct materialization: precise simulated cold page reads, journal/compaction writes, original 2025/26 prior-art audit**](INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md) · [issue #121](https://github.com/definitely-stable/Mathlab/issues/121) · [simulation module](../../research/index001_page_cost.py) · [independent finite tests](../../research/test_index001_page_cost.py). **LIT-183..186**, 182→186 canonical sources, attached SPIRE'24 preliminary identity to theoretical LIT-183, kept practical LIT-180 separate (no duplicate). G2-A MODEL_ONLY / physical lower bound OPEN / generic H2 adaptation novelty STOP / no Rust. No actual disk I/O or crash recovery implied.
 
 
 ## INDEX-001 G0/G1 (2026-10-09) — exact range-map elementary lemmas and original source barriers
