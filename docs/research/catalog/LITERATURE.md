@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **251** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **257** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -12,15 +12,15 @@
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 23 |
 | [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 29 |
-| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 21 |
+| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 23 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
 | [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 13 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 20 |
-| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 23 |
-| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 13 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 21 |
+| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 25 |
+| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 14 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 23 |
@@ -1011,6 +1011,32 @@ Incr автоматически выявляет зависимости и эф�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
 
+### LIT-252
+**[Provenance semirings.](https://doi.org/10.1145/1265530.1265535)** (2007)
+
+Семиринговая алгебра происхождения: сумма альтернативных цепочек и произведение совместно используемых источников; классическая основа provenance-выражений.
+
+**Ограничение:** Не даёт криптографической проверки, физической стоимости обновления или гарантии актуальности.
+
+**Идентичность:** `doi:10.1145/1265530.1265535` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md](https://github.com/definitely-stable/Mathlab/blob/e34d725bb17e39e144d5d2d4b857bf205a574d59/docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) (model_overlap)
+
+### LIT-255
+**[In-memory Incremental Maintenance of Provenance Sketches](https://doi.org/10.48786/EDBT.2026.05)** (2026)
+
+EDBT 2026: инкрементальная поддержка набросков происхождения данных в оперативной памяти.
+
+**Ограничение:** Provenance sketch не равен полному безошибочному перечислению всех цепочек доказательств и их цифровых подписей.
+
+**Идентичность:** `doi:10.48786/EDBT.2026.05` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md](https://github.com/definitely-stable/Mathlab/blob/e34d725bb17e39e144d5d2d4b857bf205a574d59/docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) (model_overlap)
+
 
 ## delta-base-selection
 *DELSK: поиск delta-базы, сжатие, признаки*
@@ -1560,7 +1586,7 @@ Navarro доказал специальную worst-case оптимальнос�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md](https://github.com/definitely-stable/Mathlab/blob/e161b04e5e3d3e634745be31e89c236e75c773a7/docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md) (model_overlap)
 
-### LIT-252
+### LIT-258
 **[Tight Lower Bounds for Central String Queries in Compressed Space](https://doi.org/10.1137/1.9781611978971.65)** (2026)
 
 Kempa–Kociumaka (SODA 2026) устанавливают нижние границы времени SA, inverse SA, LCP/LCE и иных центральных строковых запросов в сжатом пространстве относительно substring complexity delta(T); результаты включают бинарные строки.
@@ -2144,6 +2170,19 @@ Hoory (Journal of Combinatorial Theory B, 2002) обобщает экстрем�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
 
+### LIT-254
+**[Correct-by-Construction Dynamic Reachability: A Galois-Connected Approach to Bidirected Dyck Languages](https://doi.org/10.1007/978-3-032-26220-2_18)** (2026)
+
+FM 2026: инкрементальная Dyck-CFL достижимость через счётчики поддерживающих выводов и гиперграф происхождения для корректного удаления.
+
+**Ограничение:** Dyck-CFL специальная модель, не универсальная физическая нижняя граница и не новизна простого DAG.
+
+**Идентичность:** `doi:10.1007/978-3-032-26220-2_18` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md](https://github.com/definitely-stable/Mathlab/blob/e34d725bb17e39e144d5d2d4b857bf205a574d59/docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) (model_overlap)
+
 
 ## graph-rag
 *GraphRAG, knowledge-graph retrieval, системное сравнение с RAG*
@@ -2447,6 +2486,32 @@ CatRAG задаёт query-dependent edge weights и symbolic anchors проти�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/f8f17c77fb2556f518feafe3f7c2a0372c8127f1/docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md) (model_overlap)
 
+### LIT-253
+**[Incremental Knowledge Graph Construction from Heterogeneous Data Sources](https://doi.org/10.1177/22104968251412270)** (2026)
+
+Инкрементальное построение графов знаний из обновляемых неоднородных источников с отслеживанием изменений и истории.
+
+**Ограничение:** Практическая схема KG не доказывает постоянной стоимости записи страниц или корректности всех извлечённых утверждений.
+
+**Идентичность:** `doi:10.1177/22104968251412270` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md](https://github.com/definitely-stable/Mathlab/blob/e34d725bb17e39e144d5d2d4b857bf205a574d59/docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) (model_overlap)
+
+### LIT-256
+**[RAG Meets Temporal Graphs: Time-Sensitive Modeling and Retrieval for Evolving Knowledge](https://arxiv.org/abs/2510.13590)** (2025)
+
+TG-RAG: многоуровневое временное представление KG, инкрементальные обновления и temporal QA оценка.
+
+**Ограничение:** Исследование качества RAG не доказывает latest freshness, полную достоверность источника или худшую стоимость.
+
+**Идентичность:** `arxiv:2510.13590` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md](https://github.com/definitely-stable/Mathlab/blob/e34d725bb17e39e144d5d2d4b857bf205a574d59/docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) (model_overlap)
+
 
 ## agent-memory
 *Графовая память агентов, темпоральность и эволюция знаний*
@@ -2619,6 +2684,19 @@ ReCAP хранит attention-derived зависимости и веса как �
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md](https://github.com/definitely-stable/Mathlab/blob/f8f17c77fb2556f518feafe3f7c2a0372c8127f1/docs/research/RESEARCH-LITERATURE-006B-FRESH-GRAPHRAG-AGENT-MEMORY-2026.md) (model_overlap)
+
+### LIT-257
+**[Evolving Beyond Snapshots: Harmonizing Structure and Sequence via Entity State Tuning for Temporal Knowledge Graph Forecasting](https://doi.org/10.18653/v1/2026.acl-long.1776)** (2026)
+
+ACL 2026: накопительное состояние сущностей для прогнозирования эволюции временных графов знаний.
+
+**Ограничение:** Предсказание будущего не тождественно точному as-of историческому поиску и логическому доказательству.
+
+**Идентичность:** `doi:10.18653/v1/2026.acl-long.1776` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md](https://github.com/definitely-stable/Mathlab/blob/e34d725bb17e39e144d5d2d4b857bf205a574d59/docs/research/TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md) (model_overlap)
 
 
 ## graph-reasoning

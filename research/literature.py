@@ -58,6 +58,13 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # TKG-001: exact 2026 KG maintenance, provenance and original semiring baselines.
+    "doi:10.1145/1265530.1265535": "Provenance semirings.",
+    "doi:10.1177/22104968251412270": "Incremental Knowledge Graph Construction from Heterogeneous Data Sources",
+    "doi:10.1007/978-3-032-26220-2_18": "Correct-by-Construction Dynamic Reachability: A Galois-Connected Approach to Bidirected Dyck Languages",
+    "doi:10.48786/EDBT.2026.05": "In-memory Incremental Maintenance of Provenance Sketches",
+    "arxiv:2510.13590": "RAG Meets Temporal Graphs: Time-Sensitive Modeling and Retrieval for Evolving Knowledge",
+    "doi:10.18653/v1/2026.acl-long.1776": "Evolving Beyond Snapshots: Harmonizing Structure and Sequence via Entity State Tuning for Temporal Knowledge Graph Forecasting",
     # IMPORT-006B: late 2026 fresh primary references.
     "arxiv:2609.38353": "TAGGRAPH: Tag-Augmented Graphs for Graph Retrieval of Agent Persistent Histories",
     "arxiv:2609.40118": "Persistent Context Graphs for Efficient Memory Compaction in LLM Agents",
@@ -98,7 +105,7 @@ SOURCE_TITLE_PINS = {
     "arxiv:2504.19413": "Mem0: Building Production-Ready AI Agents with Scalable Long-Term Memory",
     "doi:10.18653/v1/2026.acl-long.252": "LogicPoison: Logical Attacks on Graph Retrieval-Augmented Generation",
     "doi:10.18653/v1/2026.acl-long.1738": "LegalGraphRAG: Multi-Agent Graph Retrieval-Augmented Generation for Reliable Legal Reasoning",
-    # INDEX-001 G2-B4-C2 SODA 2026 compressed-query novelty barrier.
+    # INDEX-001 G2-B4-C2 SIAM SODA 2026 primary title pin.
     "doi:10.1137/1.9781611978971.65": "Tight Lower Bounds for Central String Queries in Compressed Space",
     # INDEX-001 G2-B4-A 2026 author abstracts, audited in primary arXiv.
     "arxiv:2603.23119": "Compressing Dynamic Fully Indexable Dictionaries in Word-RAM",

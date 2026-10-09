@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**251** работ сопоставлены с **38** внутренними исследованиями.
+**257** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -408,7 +408,13 @@
 - [LIT-249](LITERATURE.md#lit-249) — Breaking the Static Graph: Context-Aware Traversal for Graph-Based RAG (2026; publisher_abstract_checked)
 - [LIT-250](LITERATURE.md#lit-250) — TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation (2026; publisher_abstract_checked)
 - [LIT-251](LITERATURE.md#lit-251) — Injecting Structured Biomedical Knowledge into Language Models:Continual Pretraining vs. GraphRAG (2026; publisher_abstract_checked)
-- [LIT-252](LITERATURE.md#lit-252) — Tight Lower Bounds for Central String Queries in Compressed Space (2026; publisher_abstract_checked)
+- [LIT-252](LITERATURE.md#lit-252) — Provenance semirings. (2007; publisher_abstract_checked)
+- [LIT-253](LITERATURE.md#lit-253) — Incremental Knowledge Graph Construction from Heterogeneous Data Sources (2026; publisher_abstract_checked)
+- [LIT-254](LITERATURE.md#lit-254) — Correct-by-Construction Dynamic Reachability: A Galois-Connected Approach to Bidirected Dyck Languages (2026; publisher_abstract_checked)
+- [LIT-255](LITERATURE.md#lit-255) — In-memory Incremental Maintenance of Provenance Sketches (2026; publisher_abstract_checked)
+- [LIT-256](LITERATURE.md#lit-256) — RAG Meets Temporal Graphs: Time-Sensitive Modeling and Retrieval for Evolving Knowledge (2025; primary_abstract_checked)
+- [LIT-257](LITERATURE.md#lit-257) — Evolving Beyond Snapshots: Harmonizing Structure and Sequence via Entity State Tuning for Temporal Knowledge Graph Forecasting (2026; publisher_abstract_checked)
+- [LIT-258](LITERATURE.md#lit-258) — Tight Lower Bounds for Central String Queries in Compressed Space (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -527,7 +533,11 @@
 - [LIT-212](LITERATURE.md#lit-212) — Compressing Dynamic Fully Indexable Dictionaries in Word-RAM (2026; primary_abstract_checked)
 - [LIT-213](LITERATURE.md#lit-213) — Dynamic Grammar-Compressed Self-Index in δ-Optimal Space (2026; primary_abstract_checked)
 - [LIT-239](LITERATURE.md#lit-239) — GRAIL: Scalable Reachability Index for Large Graphs (2010; publisher_abstract_checked)
-- [LIT-252](LITERATURE.md#lit-252) — Tight Lower Bounds for Central String Queries in Compressed Space (2026; publisher_abstract_checked)
+- [LIT-252](LITERATURE.md#lit-252) — Provenance semirings. (2007; publisher_abstract_checked)
+- [LIT-253](LITERATURE.md#lit-253) — Incremental Knowledge Graph Construction from Heterogeneous Data Sources (2026; publisher_abstract_checked)
+- [LIT-254](LITERATURE.md#lit-254) — Correct-by-Construction Dynamic Reachability: A Galois-Connected Approach to Bidirected Dyck Languages (2026; publisher_abstract_checked)
+- [LIT-255](LITERATURE.md#lit-255) — In-memory Incremental Maintenance of Provenance Sketches (2026; publisher_abstract_checked)
+- [LIT-258](LITERATURE.md#lit-258) — Tight Lower Bounds for Central String Queries in Compressed Space (2026; publisher_abstract_checked)
 
 ## ML-007
 
@@ -703,6 +713,8 @@
 - [LIT-249](LITERATURE.md#lit-249) — Breaking the Static Graph: Context-Aware Traversal for Graph-Based RAG (2026; publisher_abstract_checked)
 - [LIT-250](LITERATURE.md#lit-250) — TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation (2026; publisher_abstract_checked)
 - [LIT-251](LITERATURE.md#lit-251) — Injecting Structured Biomedical Knowledge into Language Models:Continual Pretraining vs. GraphRAG (2026; publisher_abstract_checked)
+- [LIT-256](LITERATURE.md#lit-256) — RAG Meets Temporal Graphs: Time-Sensitive Modeling and Retrieval for Evolving Knowledge (2025; primary_abstract_checked)
+- [LIT-257](LITERATURE.md#lit-257) — Evolving Beyond Snapshots: Harmonizing Structure and Sequence via Entity State Tuning for Temporal Knowledge Graph Forecasting (2026; publisher_abstract_checked)
 
 ## OM-135
 

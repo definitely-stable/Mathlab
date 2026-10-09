@@ -11,7 +11,7 @@ class AdaptiveSourceTest(unittest.TestCase):
         group=[e for e in data["entries"] if e["identity"]=="doi:10.1137/1.9781611978971.65"]
         self.assertEqual(len(group),1)
         e=group[0]
-        self.assertEqual(e["id"],"LIT-252")
+        self.assertEqual(e["id"],"LIT-258")
         self.assertEqual(e["title"],SOURCE_TITLE_PINS[e["identity"]])
         self.assertEqual(e["authors"],["Dominik Kempa","Tomasz Kociumaka"])
         self.assertEqual(e["verification"],"publisher_abstract_checked")
