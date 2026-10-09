@@ -173,6 +173,18 @@
       "kind": "research_input",
       "status": "ELEMENTARY_EXACT_RESTRICTED_CLASSICAL_NOT_ROOT",
       "source": "docs/research/UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md"
+    },
+    {
+      "id": "UCT005G3A",
+      "kind": "theorem_brick",
+      "status": "PROVED_CLASSICAL_ROBUST_STATE_PACKING_ROOT_OPEN",
+      "source": "docs/research/UCT-005-G3-A-ROBUST-OBSERVABLE-STATE-THEOREM.md"
+    },
+    {
+      "id": "UCT005G3B",
+      "kind": "research_input",
+      "status": "OPEN_NONFACTORIZING_MULTI_EPOCH_NOVELTY",
+      "source": "docs/research/UCT-005-G3-A-ROBUST-OBSERVABLE-STATE-THEOREM.md"
     }
   ],
   "edges": [
@@ -305,6 +317,16 @@
       "parent": "UCT005G2B1",
       "child": "UCT005G2B2",
       "relation": "RESTRICTED_LEMMA_NOT_ROOT_PROOF"
+    },
+    {
+      "parent": "GEOMETRY",
+      "child": "UCT005G3A",
+      "relation": "RESTRICTED_CLASSICAL_SPECIALIZATION_NOT_ROOT_PROOF"
+    },
+    {
+      "parent": "UCT005G3A",
+      "child": "UCT005G3B",
+      "relation": "NOVELTY_PROBLEM_NOT_PROOF_IMPLICATION"
     }
   ]
 }
