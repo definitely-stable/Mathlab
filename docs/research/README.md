@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## UCT-005 G2-A — новые математические барьеры (2026-10-09)
+
+[**Аудит семи источников, из которых шесть новых, и точные онлайн-контрмодели**](UCT-005-G2-A-NEW-FUNDAMENTAL-BARRIERS.md) · [issue #125](https://github.com/definitely-stable/Mathlab/issues/125) · [1D/2D oracle](../../research/test_uct005_g2a_models.py). В библиографии теперь **188 уникальных публикаций** (новые LIT-183..188); STOC 2026 уже учтён как LIT-072. **G2-A: STOP простой 1D-корень; G2-B: 2D authenticated multi-query SCOUT; root novelty OPEN.**
+
 ## INDEX-001 G0/G1 (2026-10-09) — exact range-map elementary lemmas and original source barriers
 
 [**Formal half-open latest-write-wins range-map model, elementary counting/boundary results, fully priced physical-cost roadmap and six new original publications**](INDEX-001-G0-RANGE-MAP-FOUNDATION.md) · [issue #117](https://github.com/definitely-stable/Mathlab/issues/117) · [independent finite oracle](../../research/test_index001.py) · [source provenance tests](../../research/test_index001_sources.py). LIT-177..182 expand imported corpus 176→**182**, without duplicating RASK LIT-175, competitive dynamization LIT-098, or UCT-005 sources. **L1/L2 elementary logical results only; PHYSICAL_LOWER_BOUND_OPEN, NOVELTY_UNPROVED, NO_RUST.** Research suite and source-index checks must pass on exact PR head; no false implication from interval stabbing or dictionary cell probes to write amplification.
