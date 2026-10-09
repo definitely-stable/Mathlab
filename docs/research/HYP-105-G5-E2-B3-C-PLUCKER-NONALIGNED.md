@@ -73,6 +73,22 @@ For each case, the previous B3.2 **exact** C6-incidence join counts D_s without 
 
 **Crucial STOP gate:** even if the minshift maps show a lower D_s at GF2/GF4, this does not imply a uniform-in-h bound; and even an all-h `D_s=O(q^(6−eps))` would NOT imply full R3 control without classifying and counting all other positive six-flow motifs. Also the necessary simultaneous GF5 R2 target `R2=O(q^(26/5−eps_2))` remains unproved for this same map. Do NOT promote ASET exponent.
 
+### 3.1 Exact GF2/GF4 results and a falsified risk proxy
+
+The first hosted complete finite run checks **596 unit tests** and reports the following exact D_s on the three frozen Plücker arms (all N actual factor incidences; no six-subset sampling):
+
+| Labeling | GF(2), s=2: selected shift / E_t / D_s | GF(4), s=4: selected shift / E_t / D_s |
+| --- | --- | --- |
+| Plücker lex, min-incidence-collision | 1 / 2 / **2** | 29 / 1 / **9,190** |
+| Frobenius-Plücker, min-incidence-collision | 1 / 2 / **2** | 15 / 1 / **9,109** |
+| Plücker lex, zero shift (control) | 0 / 5 / **6** | 0 / 9 / **9,103** |
+
+The left physical pair graph contains exactly 60 C6 at s=2 and 121,320 C6 at s=4, because point ranks cover V different K_a coordinate pairs in ALL arms.
+
+For scale comparison, the accepted E2-A controls at s=4 have `D_s=8,481` (lex), `8,417` (reverse-line), `10,602` (coordinate-flag). Thus the present Plücker min-incidence-collision candidates **do not improve** the best tested s=4 obstruction control. This comparison is only a finite observation.
+
+**Concrete finite counterexample to a tempting but invalid surrogate:** At GF(4), the Plücker lex zero-shift has `E_0=9 > E_{29}=1` but `D_0=9,103 < D_{29}=9,190`. Hence minimizing point-line physical pair equality does **NOT** monotonically minimize coincident six-cycle obstruction D_s, even for the same original point and line ranks. The all-h nonalignment guarantee E_t≤s+1 remains valid; one cannot promote it to a strict R3 bound. **STOP using E_t as a quantitative proxy for D_s** without independent new structure.
+
 ## 4. Source-priority / novelty boundary
 
 The Plücker/Klein line embedding, projective minors, isotropy and finite symplectic generalized quadrangles are classical mathematics:
