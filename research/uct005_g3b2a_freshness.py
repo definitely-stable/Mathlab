@@ -47,9 +47,13 @@ class SymbolicIssuer:
         return (isinstance(receipt, SignedSnapshot)
                 and self._issued.get(receipt.seal) == receipt)
 
+    def verify_checkpoint(self, checkpoint):
+        issued = self._issued.get(checkpoint.seal)
+        return issued is not None and issued.epoch == checkpoint.epoch
+
     def extends(self, later, earlier):
         """Signature/path membership; DOES NOT disclose the actual latest epoch."""
-        if not self.verify(later) or not self.verify(earlier):
+        if not self.verify(later) or not self.verify_checkpoint(earlier):
             return False
         cursor = later
         seen = set()
@@ -61,7 +65,7 @@ class SymbolicIssuer:
             if parent is None or parent.epoch != cursor.epoch - 1:
                 return False
             cursor = parent
-        return cursor == earlier
+        return cursor.epoch == earlier.epoch and cursor.seal == earlier.seal
 
     def adversarial_double_sign(self, parent, index, bit):
         """COMPROMISED AUTHOR only. The server cannot call issue in real model."""
@@ -101,13 +105,28 @@ class SingleWriter:
         return receipt
 
 
+@dataclass(frozen=True)
+class Checkpoint:
+    epoch: int
+    seal: str
+
+
 @dataclass
 class Reader:
-    """Trusted durable checkpoint: seal + epoch; no implicit full local replica."""
-    checkpoint: SignedSnapshot
+    """Only the tiny durable checkpoint is stored, NEVER the full bit vector."""
+    checkpoint: Checkpoint | SignedSnapshot
+    n: int = 0
+
+    def __post_init__(self):
+        if isinstance(self.checkpoint, SignedSnapshot):
+            supplied = self.checkpoint
+            self.n = len(supplied.bits)
+            self.checkpoint = Checkpoint(supplied.epoch, supplied.seal)
+        if not isinstance(self.checkpoint, Checkpoint) or self.n < 1:
+            raise ValueError("valid, nonempty client checkpoint required")
 
     def clone(self):
-        return Reader(self.checkpoint)
+        return Reader(self.checkpoint, self.n)
 
 
 @dataclass(frozen=True)
@@ -172,9 +191,9 @@ def read_signed_state(reader, presented, issuer, left, right,
     certify latest-state freshness. With anchor, client first reads a trusted
     current (epoch, seal) pair and fails closed if not reachable.
     """
-    if not issuer.verify(reader.checkpoint):
+    if not issuer.verify_checkpoint(reader.checkpoint):
         raise ValueError("reader checkpoint not authentic")
-    n = len(reader.checkpoint.bits)
+    n = reader.n
     parity(reader.checkpoint.bits, left, right)
     anchored = anchor is not None
     costs = profile.account(n, anchored=anchored)
@@ -188,7 +207,7 @@ def read_signed_state(reader, presented, issuer, left, right,
     if anchored and (presented.epoch != expected.epoch or
                      presented.seal != expected.seal):
         return Answer("STALE_OR_EQUIVOCATING_ROOT", None, None, costs)
-    reader.checkpoint = presented
+    reader.checkpoint = Checkpoint(presented.epoch, presented.seal)
     return Answer("ACCEPT", parity(presented.bits, left, right),
                   presented.epoch, costs)
 

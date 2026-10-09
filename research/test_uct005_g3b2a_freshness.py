@@ -3,7 +3,7 @@ import itertools
 import unittest
 
 from uct005_g3b2a_freshness import (
-    SignedSnapshot, SingleWriter, Reader, SymbolicCostProfile,
+    SignedSnapshot, SingleWriter, Reader, Checkpoint, SymbolicCostProfile,
     read_signed_state, indistinguishable_without_anchor,
 )
 
@@ -163,6 +163,18 @@ class G3B2AFreshnessTests(unittest.TestCase):
              writer.issuer, 0, 0).status, "ROLLBACK_OR_FORK_FROM_CHECKPOINT")
         with self.assertRaises(ValueError):
             writer.anchor.publish(alternative, writer.issuer)
+
+    def test_trusted_reader_really_stores_only_epoch_and_token(self):
+        w = SingleWriter((0, 1, 0, 1))
+        c = Reader(w.history[0])
+        self.assertIsInstance(c.checkpoint, Checkpoint)
+        self.assertEqual(c.n, 4)
+        self.assertFalse(hasattr(c.checkpoint, "bits"))
+        self.assertEqual(c.clone().checkpoint, c.checkpoint)
+        final = w.set(0, 1)
+        self.assertEqual(read_signed_state(c, final, w.issuer, 0, 3,
+                                            anchor=w.anchor).status, "ACCEPT")
+        self.assertFalse(hasattr(c.checkpoint, "bits"))
 
     def test_exact_logical_cost_ledger_and_no_false_free_anchor(self):
         writer = SingleWriter((0, 0, 0, 0))
