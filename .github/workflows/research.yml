@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: UCT-005 G3-B2-C0 exact page-image and crash-prefix oracle
+        run: python research/uct005_g3b2c0_pages.py 256
+
+      - name: UCT-005 G3-B2-C0 independent physical-countermodel tests
+        run: python -m unittest discover -s research -p 'test_uct005_g3b2c0_pages.py'
+
       - name: INDEX-001 G2-B4-C2 exact adaptive directory and page reclamation report
         run: python research/index001_adaptive_partition.py
 

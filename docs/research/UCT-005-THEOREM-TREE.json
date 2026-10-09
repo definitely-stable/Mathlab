@@ -203,6 +203,12 @@
       "kind": "research_input",
       "status": "CONDITIONAL_THREE_F1_UPPER_CONSTRUCTIONS_NO_NEW_LOWER_BOUND_ROOT_OPEN",
       "source": "docs/research/UCT-005-G3-B2-B-UPPER-FRONTIER.md"
+    },
+    {
+      "id": "UCT005G3B2C0",
+      "kind": "research_input",
+      "status": "CLASSICAL_PAGE_LAYOUT_AND_FALSIFIERS_NO_ORIGINAL_LOWER_BOUND_ROOT_OPEN",
+      "source": "docs/research/UCT-005-G3-B2-C0-PAGE-IMAGE-FRONTIER.md"
     }
   ],
   "edges": [
@@ -360,6 +366,11 @@
       "parent": "UCT005G3B",
       "child": "UCT005G3B2B",
       "relation": "UPPER_CONSTRUCTIONS_NOT_LOWER_BOUND"
+    },
+    {
+      "parent": "UCT005G3B2B",
+      "child": "UCT005G3B2C0",
+      "relation": "COST_MODEL_AND_COUNTEREXAMPLES_NOT_ROOT_PROOF"
     }
   ]
 }

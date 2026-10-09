@@ -74,6 +74,16 @@ class Uct005TreeTests(unittest.TestCase):
                       self.data["edges"])
         self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
 
+    def test_g3b2c0_is_restricted_cost_model_not_root_proof(self):
+        nodes = {n["id"]: n for n in self.data["nodes"]}
+        self.assertEqual(nodes["UCT005G3B2C0"]["kind"], "research_input")
+        self.assertIn("NO_ORIGINAL_LOWER_BOUND",
+                      nodes["UCT005G3B2C0"]["status"])
+        self.assertIn({"parent": "UCT005G3B2B", "child": "UCT005G3B2C0",
+                       "relation": "COST_MODEL_AND_COUNTEREXAMPLES_NOT_ROOT_PROOF"},
+                      self.data["edges"])
+        self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
+
     def test_no_unsound_logical_arrows(self):
         relations = {e["relation"] for e in self.data["edges"]}
         self.assertIn("THREAT_MODEL_NONTRANSFER", relations)
