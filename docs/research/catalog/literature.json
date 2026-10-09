@@ -5363,9 +5363,6 @@
       "independent_reproduction": false,
       "authors": [
         "Gonzalo Navarro"
-      ],
-      "alternate_identities": [
-        "doi:10.1007/978-3-031-72200-4_16"
       ]
     },
     {
@@ -5453,7 +5450,8 @@
         "Gonzalo Navarro"
       ],
       "alternate_identities": [
-        "arxiv:2405.15088"
+        "arxiv:2405.15088",
+        "doi:10.1007/978-3-031-72200-4_16"
       ]
     },
     {
