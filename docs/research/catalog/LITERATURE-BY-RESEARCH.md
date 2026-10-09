@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**208** работ сопоставлены с **38** внутренними исследованиями.
+**218** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -366,6 +366,16 @@
 - [LIT-206](LITERATURE.md#lit-206) — PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection (2025; primary_abstract_checked)
 - [LIT-207](LITERATURE.md#lit-207) — Specifying and Checking File System Crash-Consistency Models (2016; publisher_abstract_checked)
 - [LIT-208](LITERATURE.md#lit-208) — Lightweight file system crash-consistency checking with differential fuzzing (2026; publisher_abstract_checked)
+- [LIT-209](LITERATURE.md#lit-209) — Authenticating multi-dimensional query results in outsourced database (2016; publisher_full_text_spotchecked)
+- [LIT-210](LITERATURE.md#lit-210) — Overlay Indexes: Efficiently Supporting Aggregate Range Queries and Authenticated Data Structures in Off-the-Shelf Databases (2019; publisher_abstract_checked)
+- [LIT-211](LITERATURE.md#lit-211) — Authenticated Aggregate Queries with Boolean Range Predicates on Blockchains (2025; publisher_abstract_checked)
+- [LIT-212](LITERATURE.md#lit-212) — Authenticated Data Structures for Dynamic Workloads (2026; author_paper_or_bibliography_checked)
+- [LIT-213](LITERATURE.md#lit-213) — Sparse prefix sums: Constant-time range sum queries over sparse multidimensional data cubes (2019; publisher_abstract_checked)
+- [LIT-214](LITERATURE.md#lit-214) — Super-Logarithmic Lower Bounds for Dynamic Graph Problems (2025; publisher_abstract_checked)
+- [LIT-215](LITERATURE.md#lit-215) — Verifiable Streaming Computation and Step-by-Step Zero-Knowledge (2025; primary_abstract_checked)
+- [LIT-216](LITERATURE.md#lit-216) — Proof-labeling schemes: Broadcast, unicast and in between (2022; publisher_abstract_checked)
+- [LIT-217](LITERATURE.md#lit-217) — Local Verification of Global Proofs (2018; publisher_abstract_checked)
+- [LIT-218](LITERATURE.md#lit-218) — Explicit Space-Time Tradeoffs for Proof Labeling Schemes in Graphs with Small Separators (2021; publisher_abstract_checked)
 
 ## ML-005
 
@@ -478,6 +488,16 @@
 - [LIT-206](LITERATURE.md#lit-206) — PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection (2025; primary_abstract_checked)
 - [LIT-207](LITERATURE.md#lit-207) — Specifying and Checking File System Crash-Consistency Models (2016; publisher_abstract_checked)
 - [LIT-208](LITERATURE.md#lit-208) — Lightweight file system crash-consistency checking with differential fuzzing (2026; publisher_abstract_checked)
+- [LIT-209](LITERATURE.md#lit-209) — Authenticating multi-dimensional query results in outsourced database (2016; publisher_full_text_spotchecked)
+- [LIT-210](LITERATURE.md#lit-210) — Overlay Indexes: Efficiently Supporting Aggregate Range Queries and Authenticated Data Structures in Off-the-Shelf Databases (2019; publisher_abstract_checked)
+- [LIT-211](LITERATURE.md#lit-211) — Authenticated Aggregate Queries with Boolean Range Predicates on Blockchains (2025; publisher_abstract_checked)
+- [LIT-212](LITERATURE.md#lit-212) — Authenticated Data Structures for Dynamic Workloads (2026; author_paper_or_bibliography_checked)
+- [LIT-213](LITERATURE.md#lit-213) — Sparse prefix sums: Constant-time range sum queries over sparse multidimensional data cubes (2019; publisher_abstract_checked)
+- [LIT-214](LITERATURE.md#lit-214) — Super-Logarithmic Lower Bounds for Dynamic Graph Problems (2025; publisher_abstract_checked)
+- [LIT-215](LITERATURE.md#lit-215) — Verifiable Streaming Computation and Step-by-Step Zero-Knowledge (2025; primary_abstract_checked)
+- [LIT-216](LITERATURE.md#lit-216) — Proof-labeling schemes: Broadcast, unicast and in between (2022; publisher_abstract_checked)
+- [LIT-217](LITERATURE.md#lit-217) — Local Verification of Global Proofs (2018; publisher_abstract_checked)
+- [LIT-218](LITERATURE.md#lit-218) — Explicit Space-Time Tradeoffs for Proof Labeling Schemes in Graphs with Small Separators (2021; publisher_abstract_checked)
 
 ## ML-007
 
