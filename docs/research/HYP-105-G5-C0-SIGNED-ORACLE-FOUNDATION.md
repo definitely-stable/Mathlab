@@ -2,7 +2,7 @@
 
 Date: 2026-10-09. Parent [HYP-105 #95](https://github.com/definitely-stable/Mathlab/issues/95); active [G5-C #106](https://github.com/definitely-stable/Mathlab/issues/106). Earlier [G5-A](HYP-105-G5-A-TRADE-INTERSECTION.md) and [G5-B](HYP-105-G5-B-GIRTH-RELAXATION.md).
 
-**Status: MODEL_SEPARATION_PROVED / ORACLE_FOUNDATION / NO_EXPONENT_IMPROVEMENT / NO_NOVELTY_CLAIM.** This is the *first bounded, evidence-gated G5-C slice*, not completion of #106 or #95. A 2026 literature audit at theorem/model level remains open. Do not start a Rust library, promote a finite observation into a density theorem, or modify other repositories.
+**Status: MODEL_SEPARATION_PROVED / ORACLE_FOUNDATION / NO_EXPONENT_IMPROVEMENT / NO_NOVELTY_CLAIM.** This is the *first bounded, evidence-gated G5-C slice*, not completion of #106 or #95. A 2026 literature audit at theorem/model level remains open; a key direct 2008 ASET upper-bound prior-art collision has now been identified. Do not start a Rust library, promote a finite observation into a density theorem, or modify other repositories.
 
 ## 1. Exact objects, without graph-relaxation leakage
 
@@ -66,13 +66,36 @@ Existing canonical sources are reused without adding duplicate bibliographic rec
 | Registry | Source and verified scope | Non-transfer condition |
 |---|---|---|
 | LIT-043 | [Lefmann, *Sparse Parity-Check Matrices over GF(q)* (2005)](https://doi.org/10.1017/S0963548304006625), original publisher abstract explicitly gives an extra log^(1/(k-1)) lower for even k>=4, gcd(k-1,r)=1 | At k=6,r=4: A_lin=Omega_q(m^(12/5)(log m)^(1/5)); no matching upper or ASET/lin ratio proof |
-| LIT-152 | [Naor–Verstraëte, *Parity check matrices and product representations of squares* (2008)](https://doi.org/10.1007/s00493-008-2195-2), author/publisher bibliographic description: sparse arbitrary-coefficient independence and short graph cycles | Publisher abstract has a typographically ambiguous displayed comparison sign and an asymptotic c for large k. The exact strongest *k=6,r=4* numerical theorem has **NOT** been verified from full text; it may not be inserted as a precise denominator exponent or transferred to ASET |
+| LIT-152 | [Naor–Verstraëte, *Parity check matrices and product representations of squares* (2008)](https://doi.org/10.1007/s00493-008-2195-2), **Theorem 2.2** and proof in [accessible full-manuscript transcription](https://www.scribd.com/document/515018209/Parity-Principle) | Theorem 2.2 is explicitly about **equal sums of disjoint k-element subsets**, not just arbitrary scalar dependence. Set original theorem k=3 and r=4 to obtain an existing **O_q(m^(8/3)) ASET upper**. Its main Theorem 1.1 has a k>=8 condition and must NOT be substituted at k=6. Transcription is a secondary host; compare eventual publisher full text before publication-level source certification |
 | LIT-148 | Hoory (2002), classical bipartite girth extremal bound | Bounds the necessary graph relaxation, not all possible signed coordinate trades |
 | LIT-136 | Generalized-quadrangle incidence girth-eight examples | G5-B proves graph-only sharpness, and exhibits a true ASET collision inside the finite model |
 | LIT-151 | Shangguan–Tamo (2020), uniform union-free hypergraphs | Unit union-free is a stricter condition in the relevant odd characteristic; it cannot replace weighted ASET |
 | LIT-005 | [Liu–Shangguan–Zhang, arXiv:2605.11949 v3](https://arxiv.org/abs/2605.11949), 2026 sharp union-free bounds | Explicit exceptional pair (t,r)=(3,4); no automatic sharp leading constant for our case |
 
 Full 2025–2026 signed-additive hypergraph and separable-code source census is **not claimed complete**. In particular, an absent search hit is not evidence of scientific originality. Before any exponent theorem: exact original theorem statements, parameter substitution, publication priority and competing constructions must be pinned.
+
+
+### 5.1 Exact prior-art reduction: Naor–Verstraëte Theorem 2.2 already implies the G4 exponent
+
+**Source-discovery correction (2026-10-09):** The accessible complete-manuscript transcription of Naor and Verstraëte (2008), **Theorem 2.2** ([text, Section 2.1](https://www.scribd.com/document/515018209/Parity-Principle)), was inspected at its actual quantified statement and its cycle/telescoping proof; do not use its ambiguous publisher abstract as a numerical substitution. The original theorem uses an integer t (here renamed to avoid confusion with the independent-column count) and a finite field F, and says: for vectors of weight at most r, if
+
+    |X| > 2t * [ M^(1/2) N^(1/2+1/t) + M + N ],
+
+where M and N count weighted vectors of support at most floor(r/2), ceil(r/2), respectively, then there are **disjoint sets A,B of size t with equal sums**. With **r=4 and t=3**, both capacities are
+
+    M=N=1+(q-1)m+(q-1)^2 * binom(m,2) = Theta_q(m^2).
+
+The theorem's threshold is therefore
+
+    6 * [ M^(4/3) + 2M ] = O_q(m^(8/3)).
+
+Any family satisfying ASET for all subset sizes 0..3 forbids the conclusion (disjoint equal three-sums); hence:
+
+    A_set(q,m,4,3) = O_q(m^(8/3)).
+
+This is **already a published 2008 implication for the signed-sum model**, not merely a sparse *linear-independence upper* and not an original G4 or G5-C theorem. Its graph-cycle proof can be reconstructed independently from the G4 weighted pair graph. The denominator also satisfies A_lin<=A_set, but this **does not** produce a stronger denominator exponent, a matching lower, or a growing ASET/lin ratio. Source provenance caveat: the theorem text was checked in a publicly mirrored author-paper transcription; publisher-hosted full text was not accessible in this slice. Preserve the primary DOI metadata LIT-152 and do not add a duplicate source.
+
+The separate 2008 **Theorem 1.1** advertises k>=8; applying that theorem with k=6 would be a parameter error. The valid route for six-column restrictions is **Theorem 2.2 with t=3**, whose consequence directly forbids an ASET three-vs-three collision.
 
 ## 6. Current bound, stopping rule and next actual proof attempt
 
