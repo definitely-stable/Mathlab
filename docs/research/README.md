@@ -1,5 +1,10 @@
 # Research index and authority order
 
+## INDEX-001 G2-B3-B — deterministic online checkpoint and finite adversary (2026-10-09)
+
+[**Frozen reveal-before-recovery model, elementary ≤2 upper-bound proof and explicit rent-or-buy novelty STOP**](INDEX-001-G2-B3-B-ONLINE-ADVERSARY.md) · [issue #156](https://github.com/definitely-stable/Mathlab/issues/156) · [algorithm and bounded adversary](../../research/index001_online_checkpoint.py) · [independent adversarial tests](../../research/test_index001_online_checkpoint.py). The age threshold `ceil(S/E)` has an elementary component-wise ≤2 bound relative to the exact *clairvoyant* G2-B2-B oracle for **fixed-frame, no-hard-cap** accounting; this is NOT a novel universal lower bound, randomized/optimal online proof, device-NAND measurement or Rust engine. Finite restart-alphabet tests and exact POSIX write/read byte counter crosschecks; existing LIT-098 and current 2026 ski-rental source research explicitly mark prior art.
+
+
 ## UCT-005 G3-A — одна общая математическая конструкция (2026-10-09)
 
 [**Robust Observable-State Reachability: формальная общая теорема, 3 точные специализации и проверяемая карта связей Mathlab**](UCT-005-G3-A-ROBUST-OBSERVABLE-STATE-THEOREM.md) · [корневая UCT-005 #105](https://github.com/definitely-stable/Mathlab/issues/105) · [G3 #164](https://github.com/definitely-stable/Mathlab/issues/164) · [независимые тесты](../../research/test_uct005_g3_robust.py). Joint dynamic state/update graph, trusted label H, remote q-ary Hamming locality d*w, t adaptive p-probe exact queries and e corrupted symbols: **K ≤ 2^H max_{s≤M} floor(V_q(s,dw+e)/V_q(s,e))**, **M=min(m,tΣ_{i<p}q^i)**. Sparse GF(q) counterpart = exclusion of signed *near trades* of syndrome weight ≤2e; temporal influence adds typed UCT-003 transversal. **SELF-CONTAINED_PROVED_CLASSICAL / ROOT ORIGINAL NOVELTY OPEN / NO RUST**; remote adversarial corruption ≠ cryptographic proof soundness.
