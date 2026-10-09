@@ -1,5 +1,10 @@
 # Research index and authority order
 
+
+## HYP-105 G5-E2-B3.0 — six-edge factor forests / pair 2-core (2026-10-09)
+
+[Proof and all-h bound](HYP-105-G5-E2-B3-FOREST-PROJECTION.md) · [finite exact checker](../../research/hyp105_g5e2b3_forests.py) · [independent tests](../../research/test_hyp105_g5e2b3_forests.py) · [issue #176](https://github.com/definitely-stable/Mathlab/issues/176). Classical finite weighted-simple-graph polynomial counts all 11 six-column projection profiles; 41,209 factor endpoint shapes, 11,663 surviving leafless factor-forest patterns; all-h **E_uniform-pair-label[R3]=O(s^6)** combined with previously established Omega(s^6) gives Theta(s^6) for independent random labels **only**. Does NOT yield R3=o(s^6), any individual-label lower, actual GF5 six-flow positivity, or new ASET power. B3.1/B3.2 remain open.
+
 ## UCT-005 G3-B1 — temporal trajectory packing theorem (2026-10-09)
 
 [Full restricted proof and temporal novelty check](UCT-005-G3-B1-TEMPORAL-TRAJECTORY-PACKING.md) · [2026 published authenticated-state paper](UCT-005-G3-B1-SOURCES.json) · [issue #175](https://github.com/definitely-stable/Mathlab/issues/175) · [finite oracle](../../research/test_uct005_g3b1_trajectory.py). Realizable e=1, p=3 trajectory model: q=2, m=7, d=3, w=3 gives **2784 vs 3072** independent epoch bounds; a threefold repetition code actually attains 8 histories on three accessed cells. PROVED RESTRICTED CLASSICAL, **original UCT-005 root OPEN**; no authenticated freshness or physical updater read bound.
