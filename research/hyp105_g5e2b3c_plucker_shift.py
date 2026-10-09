@@ -216,6 +216,8 @@ def bounded_report():
                 "equal_incidence_pairs":model["actual_incidence_pair_equalities"],
                 "no_incidence_perfect_matching":
                     model["no_incidence_aligned_perfect_matching"],
+                "all_h_nonalignment_theorem":
+                    model["all_h_nonalignment_theorem_proved"],
                 "exact_D_s":risk["exact_coincident_C6_factor_matchings_D"],
                 "physical_left_C6":risk["left_physical_C6_cycles_examined"],
                 "R3_obstruction_lower_numerator":
