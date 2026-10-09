@@ -110,6 +110,12 @@
       "tier": "DERIVED_CLASSICAL",
       "source": "docs/research/UCT-004-G2-A-SOUND-WITNESS-PACKING.md",
       "summary": "Randomized verifier private-coin completeness/soundness forces probes of sensitive code-change supports; fractional packing lower bound, tight unit-write parity sampling"
+    },
+    {
+      "id": "UCT004-NONLINEAR-COVER",
+      "tier": "DERIVED_CLASSICAL",
+      "source": "docs/research/UCT-004-G2-C-NONLINEAR-PROOF-COVER.md",
+      "summary": "Exact noninteractive untrusted private-coin alpha-zero delta-less-than-one parity proof existence iff finite p-projection-separable set cover; novel asymptotic closed form open"
     }
   ],
   "edges": [
@@ -250,6 +256,24 @@
       "to": "UCT004-SOUND-PACKING",
       "kind": "PRIOR_ART_BARRIER",
       "condition": "Online proof publication and verifier work are additional resources; private-coin bit probes alone do not establish online Merlin-Arthur bounds."
+    },
+    {
+      "from": "UCT004-SOUND-PACKING",
+      "to": "UCT004-NONLINEAR-COVER",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "The nonlinear cover characterizes possibility under perfect completeness and some positive rejection, without imposing a fixed soundness delta or fully paid verifier work."
+    },
+    {
+      "from": "UCT004-NONLINEAR-COVER",
+      "to": "FRONTIER-C",
+      "kind": "PROOF_INGREDIENT",
+      "condition": "Exact finite set-cover characterization is not an efficient or novel general dynamic-proof lower bound; explicit asymptotic theorem and resource costs remain open."
+    },
+    {
+      "from": "ANNOTATED",
+      "to": "UCT004-NONLINEAR-COVER",
+      "kind": "PRIOR_ART_BARRIER",
+      "condition": "Noninteractive fixed-witness certification and online annotated streaming differ in transcript publication time and communication costs; theorem transfer requires source audit."
     }
   ]
 }
