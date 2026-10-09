@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**207** работ сопоставлены с **38** внутренними исследованиями.
+**210** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -365,6 +365,9 @@
 - [LIT-206](LITERATURE.md#lit-206) — PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection (2025; primary_abstract_checked)
 - [LIT-207](LITERATURE.md#lit-207) — Specifying and Checking File System Crash-Consistency Models (2016; publisher_abstract_checked)
 - [LIT-208](LITERATURE.md#lit-208) — Lightweight file system crash-consistency checking with differential fuzzing (2026; publisher_abstract_checked)
+- [LIT-209](LITERATURE.md#lit-209) — Prior-Independent and Subgame Optimal Online Algorithms (2026; publisher_abstract_checked)
+- [LIT-210](LITERATURE.md#lit-210) — Robust and Consistent Ski Rental with Distributional Advice (2026; publisher_abstract_checked)
+- [LIT-211](LITERATURE.md#lit-211) — A new performance metric for the ski rental problem (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -477,6 +480,9 @@
 - [LIT-206](LITERATURE.md#lit-206) — PoWER Never Corrupts: Tool-Agnostic Verification of Crash Consistency and Corruption Detection (2025; primary_abstract_checked)
 - [LIT-207](LITERATURE.md#lit-207) — Specifying and Checking File System Crash-Consistency Models (2016; publisher_abstract_checked)
 - [LIT-208](LITERATURE.md#lit-208) — Lightweight file system crash-consistency checking with differential fuzzing (2026; publisher_abstract_checked)
+- [LIT-209](LITERATURE.md#lit-209) — Prior-Independent and Subgame Optimal Online Algorithms (2026; publisher_abstract_checked)
+- [LIT-210](LITERATURE.md#lit-210) — Robust and Consistent Ski Rental with Distributional Advice (2026; publisher_abstract_checked)
+- [LIT-211](LITERATURE.md#lit-211) — A new performance metric for the ski rental problem (2026; publisher_abstract_checked)
 
 ## ML-007
 
