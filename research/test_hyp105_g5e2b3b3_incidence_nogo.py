@@ -62,6 +62,7 @@ class IncidencePerfectMatchingNoGoTests(unittest.TestCase):
         left_cycle_count=sum(1 for _ in physical_six_cycles(
             base["left_labels"],base["a"]))
         self.assertEqual(left_cycle_count,60)
+        self.assertEqual(actual["exact_coincident_C6_factor_matchings_D"],69)
         self.assertGreaterEqual(
             actual["exact_coincident_C6_factor_matchings_D"],left_cycle_count)
         for witness in actual["witness_column_ids_in_canonical_left_cycle_order"]:
@@ -88,6 +89,7 @@ class IncidencePerfectMatchingNoGoTests(unittest.TestCase):
         actual=exact_coincident_c6(aligned)
         bound=forced_sixcycles_lower(4)
         self.assertEqual(actual["left_physical_C6_cycles_examined"],121320)
+        self.assertEqual(actual["exact_coincident_C6_factor_matchings_D"],157251)
         self.assertGreaterEqual(actual["exact_coincident_C6_factor_matchings_D"],
                                 121320)
         self.assertGreaterEqual(
