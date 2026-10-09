@@ -5363,6 +5363,9 @@
       "independent_reproduction": false,
       "authors": [
         "Gonzalo Navarro"
+      ],
+      "alternate_identities": [
+        "doi:10.1007/978-3-031-72200-4_16"
       ]
     },
     {
@@ -5421,6 +5424,130 @@
       "verification": "publisher_abstract_checked",
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "id": "LIT-183",
+      "title": "(Worst-case) Optimal Adaptive Dynamic Bitvectors",
+      "year": 2025,
+      "identity": "doi:10.1007/s00224-025-10229-8",
+      "primary_url": "https://doi.org/10.1007/s00224-025-10229-8",
+      "track": "compressed-indexing",
+      "summary_ru": "Navarro доказал специальную worst-case оптимальность адаптивной динамической битовой строки при разреженных обновлениях: n+o(n) бит и амортизированная сложность O(log(n/q)/log log n) при q запросах на изменение.",
+      "limits_ru": "Ячеечная lower bound касается rank/select/точечных update и фиксированного отношения q; не является оценкой физического compaction для диапазонного overwrite.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md",
+          "kind": "model_overlap",
+          "source_sha": "d25024d7985452cfb20b6c6a2c0b1ace4a563b76"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Gonzalo Navarro"
+      ],
+      "alternate_identities": [
+        "arxiv:2405.15088"
+      ]
+    },
+    {
+      "id": "LIT-184",
+      "title": "C2LSM: A configuration paradigm for efficient compaction in LSM-tree-based key-value stores",
+      "year": 2026,
+      "identity": "doi:10.1016/j.future.2026.108425",
+      "primary_url": "https://doi.org/10.1016/j.future.2026.108425",
+      "track": "dynamic-data-structures",
+      "summary_ru": "C2LSM (FGCS 2026) формализует модель времени compaction и регулирует per-level ёмкости и размеры SSTable при заданных стоимостях диска.",
+      "limits_ru": "Оптимизация исследована в пределах конкретного LSM family; экспериментальные проценты ускорений не универсальны и не доказывают нижних оценок SSD bytes.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md",
+          "kind": "model_overlap",
+          "source_sha": "d25024d7985452cfb20b6c6a2c0b1ace4a563b76"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Jinkang Lu",
+        "Peixuan Li",
+        "Cheng Zhang",
+        "Yukun Huang",
+        "Qiang Cao",
+        "Ping Xie"
+      ]
+    },
+    {
+      "id": "LIT-185",
+      "title": "ArceKV: Towards Workload-driven LSM-compactions for Key-Value Store Under Dynamic Workloads",
+      "year": 2026,
+      "identity": "doi:10.14778/3796195.3796208",
+      "primary_url": "https://doi.org/10.14778/3796195.3796208",
+      "track": "dynamic-data-structures",
+      "summary_ru": "ArceKV в PVLDB 2026 развивает ElasticLSM и адаптивный Arce-контроллер compaction для непостоянных рабочих нагрузок с измерением накладных расходов переключения.",
+      "limits_ru": "Адаптивная политика LSM не является новым универсальным онлайн-конкурентным доказательством для произвольных точных перезаписываемых диапазонов.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md",
+          "kind": "model_overlap",
+          "source_sha": "d25024d7985452cfb20b6c6a2c0b1ace4a563b76"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Junfeng Liu",
+        "Haoxuan Xie",
+        "Siqiang Luo"
+      ]
+    },
+    {
+      "id": "LIT-186",
+      "title": "RangeReduce: Query-Driven LSM Compactions",
+      "year": 2026,
+      "identity": "doi:10.1109/ICDE65706.2026.00194",
+      "primary_url": "https://doi.org/10.1109/ICDE65706.2026.00194",
+      "track": "dynamic-data-structures",
+      "summary_ru": "RangeReduce (ICDE 2026) направляет LSM compaction с учётом стоимости сканирования диапазонных запросов и множества пересекающихся SSTable runs.",
+      "limits_ru": "Диапазон чтения через runs и range-as-key записываемые интервалы — разные API; результаты нельзя переносить на overwrite-фрагментацию без редукции.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md",
+          "kind": "model_overlap",
+          "source_sha": "d25024d7985452cfb20b6c6a2c0b1ace4a563b76"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "authors": [
+        "Shubham Kaushik",
+        "Manos Athanassoulis",
+        "Subhadeep Sarkar"
+      ]
     }
   ]
 }
