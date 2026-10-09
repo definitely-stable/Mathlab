@@ -126,3 +126,7 @@ G2-A closes a necessary proof/certificate connection; it **does NOT** establish 
 - G2 finite independent checks are in `research/test_uct004_sound_witness.py`; exhaustive tests do not certify asymptotic novelty.
 
 **Status decision:** G2-A DERIVED_CLASSICAL PROVED; universal original G2 theorem OPEN; no release, Rust crate or security claim.
+
+## 7. G2-C nonlinear proof-cover extension and strict STOP (2026-10-09)
+
+A separate [UCT-004 G2-C](UCT-004-G2-C-NONLINEAR-PROOF-COVER.md) now proves **under perfect completeness and some delta<1** a general nonlinear/adaptive bit-probe proof existence iff each parity class is covered by finitely many p-coordinate-separable honest-proof subsets. This extends *the model classification*, NOT the linear rank bound G2-5 to nonlinear codeword acceptance. Exact κ(n,p) data n≤5 and the n4 six-state nonlinear fiber demonstrate why arbitrary rank arguments cannot be imported; all-n κ formula remains conjectural. [New September 2026 operational certification and PCPP sources](UCT-004-G2-C-SOURCE-NOVELTY-AUDIT.md) are necessary novelty barriers. Real protocol costs and meaningful soundness error remain OPEN.
