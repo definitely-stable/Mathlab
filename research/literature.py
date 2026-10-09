@@ -55,6 +55,13 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # UCT-005 G2-A: six canonical new works; STOC 2026 retained as LIT-072.
+    "doi:10.1007/978-3-032-01878-6_6": "Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators",
+    "doi:10.1007/978-3-032-25330-9_7": "Lower Bounding Update Frequency in Short Accumulators and Vector Commitments",
+    "doi:10.4230/LIPIcs.ITCS.2026.71": "Lower Bounds on FSS from Dynamic Data Structures",
+    "doi:10.1007/978-3-642-00457-5_30": "How Efficient Can Memory Checking Be?",
+    "publisher:iacr:2025-110": "Verification-efficient Homomorphic Signatures for Verifiable Computation over Data Streams",
+    "doi:10.1007/978-3-642-14712-8_11": "On the Impossibility of Batch Update for Cryptographic Accumulators",
     # INDEX-001 G0: original source identity pins (six new works; no aliases duplicated).
     "doi:10.1137/S009753970240481X": "Optimal External Memory Interval Management",
     "doi:10.1137/110842211": "The Limits of Buffering: A Tight Lower Bound for Dynamic Membership in the External Memory Model",
