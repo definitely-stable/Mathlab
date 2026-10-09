@@ -73,7 +73,7 @@ The independent 2,100 representative computations return **positive flow in ever
 | First nonisomorphic (3,3,2,2,2) graph | 60 | 700 | **10,950** | **12,357** |
 | Second nonisomorphic (3,3,2,2,2) graph | 10 | 700 | **11,685** | **12,405** |
 
-Thus the complete 5x6/6x5 class has an **exact universal minimum \(F\ge10,950\)** for every one of ten balanced sign partitions. This is an exact *finite-template lemma* holding for the physical 5+6 pattern embedded in **ANY \(W(3,2^h)\)**, every \(h\ge1\), and every injective point/line pair labeling. Since distinct six-factor-matchings define distinct unordered signed risk events, all corresponding GF5 terms are nonnegative and disjoint in the sum defining \(R_3\). The all-h necessary bound is
+Thus the complete 5x6/6x5 class has an **exact universal minimum \(F\ge10,950\)** for every one of ten balanced sign partitions. This is an exact *finite-template lemma* holding for the physical 5+6 pattern embedded in **ANY \(W(3,2^h)\)**, every \(h\ge1\), and every injective point/line pair labeling. Distinct six-factor-matchings and balanced sign partitions index **distinct summands** of the accepted \(R_3\) risk (expected NUMBER of signed events). Their individual probabilities are nonnegative, so summing these contributions gives a valid lower bound. **The underlying sets of checksum assignments for different sign events need not be disjoint**; this statement does not bound the probability of a union of collision events. The all-h necessary bound is
 
 \[
  \boxed{R_3(B_s(f,g))\ \ge\ \frac{109{,}500}{51^6}\,
