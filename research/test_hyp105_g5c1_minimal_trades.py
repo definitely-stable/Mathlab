@@ -7,7 +7,7 @@ Only prime fields are used in this stdlib harness.
 import itertools
 import unittest
 
-from test_hyp105_g5c_signed_oracles import direct_aset_collision, signed_trade
+from test_hyp105_g5c_signed_oracles import (direct_aset_collision, signed_trade, rank_mod_q)
 
 
 def all_signed_relations(columns, prime=5, activity=3):
@@ -192,6 +192,34 @@ class HYP105G5C1TradeLocality(unittest.TestCase):
         self.assertEqual(len(incidence_components(columns, range(3))), 1)
         self.assertIsNotNone(direct_aset_collision(columns, 5))
         self.assertIsNotNone(signed_trade(columns, 5))
+
+    def test_gf5_minimal_three_vs_two_full_weight_four(self):
+        # The four initial columns span F5^4. The fifth column creates
+        # the unique (up to scalar) 5-column linear circuit a+b+c-d-e=0.
+        # Thus this is a truly MINIMAL 3-vs-2 weighted obstruction,
+        # not a 3-vs-2 superposition of a smaller 1-vs-2 trade.
+        columns = (
+            (3, 1, 1, 1),
+            (1, 3, 1, 1),
+            (1, 1, 3, 1),
+            (1, 1, 1, 4),
+            (4, 4, 4, 4),
+        )
+        self.assertEqual(rank_mod_q(columns[:4], 5), 4)
+        self.assertEqual(rank_mod_q(columns, 5), 4)
+        self.assertEqual(len(set(columns)), 5)
+        self.assertTrue(all(all(x for x in row) for row in columns))
+        self.assertEqual(
+            tuple(sum(columns[i][j] for i in range(3)) % 5 for j in range(4)),
+            tuple(sum(columns[i][j] for i in (3, 4)) % 5 for j in range(4)))
+        self.assertTrue(is_minimal_trade(columns, (0, 1, 2), (3, 4)))
+        self.assertEqual(incidence_components(columns, range(5)),
+                         (tuple(range(5)),))
+        self.assertIsNotNone(direct_aset_collision(columns, 5))
+        self.assertIsNotNone(signed_trade(columns, 5))
+        relations = set(all_signed_relations(columns, 5))
+        self.assertEqual(relations,
+                         {((0, 1, 2), (3, 4)), ((3, 4), (0, 1, 2))})
 
     def test_exact_minimal_2v2_and_3v3_sharp_localization(self):
         for length in (4, 6):
