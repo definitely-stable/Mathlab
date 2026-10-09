@@ -37,6 +37,26 @@ Fix representative L=C6 or L=C3+C3. The stabilizer of C6 has size 12, and that o
 
 The hosted report returns: number of orbits, split by left/right type, counts of positive-flow and zero-flow orbits and their exact labeled masses, extrema of nonzero GF5 flow counts, and examples. Numerical positivity is **not** inferred from passing only the E1 topology gate: it is calculated exactly. This census is COMPLETE for the stated matching+6+6 branch, NOT all 631 exponent-six E2-B3.0 abstract forest shapes or all 11,663 leafless forest shapes.
 
+### Exact completed classification (hosted independent checks)
+
+The full 49,000-case census has **110** genuine color-preserving signed isomorphism classes (not 110 physical embeddings). The exact GF5 nowhere-zero flow count is positive for 108 classes, representing **48,900** labeled signed cases, and zero for the other 2 classes, representing **100** labeled cases. Among positive classes the exact flow count ranges from **4,806** to **5,643**; these are counts of admissible coefficient assignments per fixed signed event, not numbers of events.
+
+| Left / right two-factor | Positive classes | Zero classes | Positive labeled cases | Zero labeled cases |
+| --- | ---: | ---: | ---: | ---: |
+| C6 / C6 | 74 | 0 | 36,000 | 0 |
+| C6 / (C3+C3) | 15 | 0 | 6,000 | 0 |
+| (C3+C3) / C6 | 15 | 0 | 6,000 | 0 |
+| (C3+C3) / (C3+C3) | 4 | 2 | 900 | 100 |
+| **Total** | **108** | **2** | **48,900** | **100** |
+
+**Finite theorem (complete for this branch):** for EVERY ordered pair of simple six-column two-factors L,R and EVERY balanced unordered 3-vs-3 sign partition, the number of valid GF5 nonzero checksum4 coefficient solutions is strictly positive **if and only if** the 4-regular contracted column multigraph H=L union R is connected.
+
+The zero direction has a short structural proof: a disconnected union of two six-column 2-factors can occur only when BOTH are the same partition into two disjoint triangles. Each 3-vertex component has three column demands 4*sign_i; their sum is never zero in GF5 because a sum of three +/-1 belongs to {-3,-1,+1,+3}. Therefore no prescribed-boundary GF5 flow exists. There are 10 choices of a 3+3 vertex partition, 10 unordered 3v3 sign partitions, hence exactly **100** labeled zero cases.
+
+The positive direction is a **complete finite proof**, not a general graph-connectivity theorem: each of the remaining 108 canonical colored/signed classes is enumerated exhaustively under the rigorously proven group action; its exact inclusion-exclusion count from the formula above is positive. Six independently selected types are verified using the separate GF5 MITM weight-sum oracle, together with held-out positive/zero examples. A machine-checkable finite proof does not imply the result for arbitrary larger 4-regular graphs, nor a nontrivial all-h fixed-label risk bound. All exact counts and the iff invariant are regression assertions in the Research workflow.
+
+**Method consequence:** positivity filtering discards only 100/49,000 = 1/490 of the labeled matching+6+6 signed templates. Thus attempting to save an exponent by treating most of this physical 2-core as GF5-impossible is disproved for this subcase. It does not exclude a strong *geometry-specific* reduction of their realization counts under a special all-h labeling.
+
 ## 4. NEW explicit lower proof for the matching / 6+6 contribution
 
 A positive type exists for every h: choose the same abstract C6 as BOTH colored column-adjacency graphs and choose alternating signs (+,-,+,-,+,-) around it. Set all four GF5 coefficients of each column equal to 1. Each physical coordinate occurs in exactly two columns of opposite sign, so cancellation holds, and each column checksum is 4 mod5. This produces at least one genuine nonzero GF5 flow for that exact signed motif; in particular no need to infer positivity from a necessary core filter.
