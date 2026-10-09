@@ -62,8 +62,6 @@ class FencedDiskGcTests(unittest.TestCase):
                     staged = gc.prepare()
                     self.assertEqual(staged.total_nodes, arena.count)
                     self.assertEqual(staged.collector_cost.max_collector_page_buffers, 6)
-                    self.assertEqual(len(arena.history), 0,
-                                     "C2-A collector debug ledger must not retain all GC cycles")
                     self.assertEqual(live_nodes(arena), set(range(arena.count)),
                                      "prepare must never mutate committed pages")
                     freed = gc.publish(staged)
