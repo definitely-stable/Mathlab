@@ -1,7 +1,7 @@
 {
   "schema": "mathlab.uct005.g2b1.source-inventory.v1",
   "date": "2026-10-09",
-  "canonical_state": "RESEARCH_INVENTORY_PINNED_LIT_PROMOTION_BLOCKED_BY_132_AND_142",
+  "canonical_state": "PROMOTED_TO_CANONICAL_LIT_211_TO_212",
   "source_doc": "docs/research/UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md",
   "source_sha": "d7fecfbcaaea21629ebf968c30122a3ba0b9236a",
   "already_cataloged": [
@@ -33,7 +33,8 @@
       "primary_url": "https://epubs.siam.org/doi/abs/10.1137/24M1638215",
       "verification": "publisher_abstract_checked",
       "relevant_bound": "~Omega(log^(3/2) n) max(update/query) cell-probe cost for dynamic DAG reachability with edge insertions",
-      "limits": "Does not concern immutable XOR DAG under source-bit FLIP, cryptographic proof lengths, or unrestricted server CPU. Cannot multiply with IVC certificate size absent a same-model reduction."
+      "limits": "Does not concern immutable XOR DAG under source-bit FLIP, cryptographic proof lengths, or unrestricted server CPU. Cannot multiply with IVC certificate size absent a same-model reduction.",
+      "canonical_lit_id": "LIT-211"
     },
     {
       "id": "G2B1-SRC-02",
@@ -48,7 +49,8 @@
       "verification": "publisher_author_abstract_checked",
       "publication_note": "IACR Cryptology ePrint Archive states Preprint; no peer-reviewed venue asserted.",
       "relevant_bound": "IVsC framework supports incremental verifiable streaming RAM computations and step-by-step ZK under cryptographic assumptions",
-      "limits": "Construction not an unconditional lower bound; does not imply malicious fork/rollback freshness against multiple independently stateful clients."
+      "limits": "Construction not an unconditional lower bound; does not imply malicious fork/rollback freshness against multiple independently stateful clients.",
+      "canonical_lit_id": "LIT-212"
     }
   ]
 }
