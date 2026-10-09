@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **257** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-09** · **259** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,7 +11,7 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 23 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 29 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 31 |
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 23 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
@@ -727,6 +727,32 @@ ITCS 2026: соответствие black-box PRF/OWF Function Secret Sharing с
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md](https://github.com/definitely-stable/Mathlab/blob/e161b04e5e3d3e634745be31e89c236e75c773a7/docs/research/INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md) (model_overlap)
+
+### LIT-259
+**[Lazy B-Trees](https://doi.org/10.4230/LIPIcs.MFCS.2025.87)** (2025)
+
+Rysgaard и Wild (MFCS 2025): адаптивные lazy B-деревья для внешней памяти, с доказанными в оригинальной работе оценками операций доступа и обновления в зависимости от запросов.
+
+**Ограничение:** Операции динамического сортированного множества и I/O-модель не совпадают с бинарными range-overwrite, CRC-упаковкой общих страниц и тарифом на живые/удалённые поколения; авторские доказательства здесь независимо не воспроизведены.
+
+**Идентичность:** `doi:10.4230/LIPIcs.MFCS.2025.87` · **Авторы:** Casper Moldrup Rysgaard, Sebastian Wild · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-C3-SHARED-PAGES.md](https://github.com/definitely-stable/Mathlab/blob/9077e9ee52b1ec5fab50fc8f40004759184a6949/docs/research/INDEX-001-G2-B4-C3-SHARED-PAGES.md) (model_overlap)
+
+### LIT-260
+**[Space-Efficient B Trees via Load-Balancing](https://doi.org/10.1007/s00224-025-10238-7)** (2025)
+
+I, Köppl, Sakamoto и Yamaguchi (Theory of Computing Systems 2025): компактные B-деревья с балансировкой нагрузки, битовыми оценками хранения и динамическими поиском/вставкой/удалением.
+
+**Ограничение:** Модель word-RAM, предположения о стоимости указателей и данные об операциях B-tree нельзя автоматически переносить на page-image recourse или CRC-сегменты; полные доказательства и измерения независимо не воспроизведены.
+
+**Идентичность:** `doi:10.1007/s00224-025-10238-7` · **Авторы:** Tomohiro I, Dominik Köppl, Hiroshi Sakamoto, Sohei Yamaguchi · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B4-C3-SHARED-PAGES.md](https://github.com/definitely-stable/Mathlab/blob/9077e9ee52b1ec5fab50fc8f40004759184a6949/docs/research/INDEX-001-G2-B4-C3-SHARED-PAGES.md) (model_overlap)
 
 
 ## incremental-computation

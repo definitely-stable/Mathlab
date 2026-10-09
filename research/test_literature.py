@@ -17,11 +17,11 @@ class LiteratureTests(unittest.TestCase):
 
     def test_import006_distinct_works_and_eighteen_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 257)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 257)
-        self.assertEqual(len({e["id"] for e in entries}), 257)
+        self.assertEqual(len(entries), 259)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 259)
+        self.assertEqual(len({e["id"] for e in entries}), 259)
         self.assertEqual(({f"LIT-{i:03d}" for i in range(1, 205)} |
-                          {"LIT-206", "LIT-207", "LIT-208", "LIT-209", "LIT-210", "LIT-211", "LIT-212", "LIT-213"} | {f"LIT-{i:03d}" for i in range(214, 259)}),
+                          {"LIT-206", "LIT-207", "LIT-208", "LIT-209", "LIT-210", "LIT-211", "LIT-212", "LIT-213"} | {f"LIT-{i:03d}" for i in range(214, 261)}),
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 18)
 
@@ -116,7 +116,7 @@ class LiteratureTests(unittest.TestCase):
         for i in uct:
             self.assertEqual(records[i]["mentioned_in"][0]["path"],
                              "docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md")
-        self.assertEqual(sum(e["year"] == 2025 for e in records.values()), 39)
+        self.assertEqual(sum(e["year"] == 2025 for e in records.values()), 41)
         self.assertEqual(sum(e["year"] == 2026 for e in records.values()), 117)
         bad = copy.deepcopy(self.data)
         next(e for e in bad["entries"] if e["id"] == "LIT-160")["title"] = "Incorrect paging paper"
@@ -147,7 +147,7 @@ class LiteratureTests(unittest.TestCase):
         bad = copy.deepcopy(self.data)
         next(p for p in bad["entries"] if p["id"] == "LIT-195")["title"] = "Wrong dynamic rank paper"
         self.assertTrue(any("primary source title mismatch" in e for e in valid(bad, self.catalog)))
-        self.assertEqual(sum(p["year"] == 2025 for p in refs.values()), 39)
+        self.assertEqual(sum(p["year"] == 2025 for p in refs.values()), 41)
         self.assertEqual(sum(p["year"] == 2026 for p in refs.values()), 117)
 
     def test_uct_2026_primary_import_is_deduplicated_and_not_proof_promoted(self):
@@ -352,7 +352,7 @@ class LiteratureTests(unittest.TestCase):
         original = {e["id"] for e in self.data["entries"]}
         self.assertTrue({f"LIT-{i:03d}" for i in range(50, 96)} <= original)
         self.assertTrue({f"LIT-{i:03d}" for i in range(1, 96)} <= original)
-        self.assertEqual(len(self.data["entries"]), 257)
+        self.assertEqual(len(self.data["entries"]), 259)
         all_ids = [e["identity"].lower() for e in self.data["entries"]]
         self.assertEqual(len(all_ids), len(set(all_ids)))
 
@@ -652,7 +652,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 257)
+        self.assertEqual(len({e["id"] for e in entries}), 259)
         tracks = {e["track"] for e in entries}
         self.assertEqual(len(tracks), 18)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
