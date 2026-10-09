@@ -1,5 +1,9 @@
 # CURRENT_STATE
 
+## HYP-101 G1 (2026-10-09) — canonical leaf cache reuse vs real standard BLAKE3
+
+[HYP-101-G1-PHASE-COUNTER-FRONTIER.md](research/HYP-101-G1-PHASE-COUNTER-FRONTIER.md) freezes indexed full-chunk input signatures, proves a restricted exact leaf-cache miss count m-k+1 for aligned whole-chunk insertion with adjacent distinct chunks, and refutes universal suffix misses with periodic all-equal input. Structural signatures *are not* actual BLAKE3 digest or compression-oracle lower bounds; one-chunk ROOT exception and retained-state/preprocessing charges are explicit. Independent binary exhaustive tests: `research/test_hyp101_phase_counter.py`. Research-only bibliographic source audit adds LIT-123..126 with full source/model mismatch and forward/reverse links, raising canonical bibliography 122 -> **126** (as of 2026-10-09). Verify exact-head CI + PR merge separately; never mark accepted before green CI.
+
 ## UCT-001 — unified dynamic-information research, source closure and fixed-q STOP (2026-10-08)
 
 [UCT-001 research program](research/UCT-001-PROGRAM.md) ([issue #74](https://github.com/definitely-stable/Mathlab/issues/74), [PR #75](https://github.com/definitely-stable/Mathlab/pull/75)) freezes four different model families: A exact/dynamic state and access; B fully priced authenticated batch certificates; C source-only transformation/cost lower bounds; D statistical/computational/adaptive guarantee composition. This is **a research program, NOT an accepted original unified mathematical theory**. Existing shared state/graph Hamming-ball statement and its star, triangle, K(2,3) examples are **DERIVED_CLASSICAL**, and cubical graph embedding is established prior art. [Detailed model and proof](research/UCT-001-MODEL-AND-BASELINE.md).

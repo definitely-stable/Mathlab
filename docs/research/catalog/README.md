@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## HYP-101 G1 dynamic-string and BLAKE3 specification sources (2026-10-09)
+
+Four unique primary source identities **LIT-123..126** extend the UCT-001 bibliography from 122 to **126**: 2018 SODA *Optimal Dynamic Strings*, 2026 TCS FeST, official [C2SP BLAKE3 v1.0.0](https://c2sp.org/BLAKE3@v1.0.0) (**normative technical specification, not a peer-reviewed paper**), and Duyster–Kociumaka 2026 dynamic internal pattern matching. Each is cross-mapped to [the HYP-101 phase/counter audit](../HYP-101-G1-PHASE-COUNTER-FRONTIER.md), with original Russian summaries and explicit non-transfer to unrestricted standard BLAKE3 edit-time lower bounds. Their metadata and historical source identities are validated offline by `research/literature.py --check`; verification of full external proofs is not claimed.
+
 ## UCT-001 cross-domain primary-source import (2026-10-08)
 
 Twelve new, deduplicated original publication identities **LIT-111..122** are imported with exact DOI/ECCC URLs, Russian model-level summaries, limitation statements, source-provenance paths, reverse links and explicit `full_proof_verified=false` into [canonical literature.json](literature.json), [forward](LITERATURE.md) and [reverse](LITERATURE-BY-RESEARCH.md) generated indexes. Source and model/novelty separation: [UCT-001 primary-source audit](../UCT-001-PRIMARY-SOURCES.md); [program](../UCT-001-PROGRAM.md), [issue #74](https://github.com/definitely-stable/Mathlab/issues/74). The corpus grows from 110 to **122** unique identities, but this is **not** twelve independently verified theorems. LIT-041 and LIT-100 already existed and are not duplicated. Exact-head GitHub-hosted CI acceptance remains mandatory.
