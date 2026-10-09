@@ -121,6 +121,19 @@ class Uct005TreeTests(unittest.TestCase):
         )
         self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
 
+    def test_g3b2c2b2a_is_fenced_upper_not_root_lower_bound(self):
+        nodes = {n["id"]: n for n in self.data["nodes"]}
+        node = nodes["UCT005G3B2C2B2A"]
+        self.assertEqual(node["kind"], "research_input")
+        self.assertIn("NO_NEW_LOWER_BOUND", node["status"])
+        self.assertIn("NO_END_TO_END_DURABILITY", node["status"])
+        self.assertIn(
+            {"parent": "UCT005G3B2C2B1", "child": "UCT005G3B2C2B2A",
+             "relation": "FILE_BUFFERED_CONTROL_JOIN_NOT_ORIGINAL_THEOREM"},
+            self.data["edges"],
+        )
+        self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
+
     def test_no_unsound_logical_arrows(self):
         relations = {e["relation"] for e in self.data["edges"]}
         self.assertIn("THREAT_MODEL_NONTRANSFER", relations)
