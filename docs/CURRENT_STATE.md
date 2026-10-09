@@ -186,3 +186,7 @@ Issue #15 TOM-001 remains open as research opportunity map. G2 parent #14, HYP #
 The post-merge status checkpoint itself is docs-only; its GitHub CI may create a later main SHA while leaving the cited research/certificate evidence at commit 44d8eb0d unchanged.
 
 Last updated: 2026-10-08.
+
+## HYP-105 G5-E2-B3.2 — exact fixed-label coincident C6 obstruction (2026-10-09)
+
+[All-h theorem and finite GF2/GF4 audits](research/HYP-105-G5-E2-B3-B2-COINCIDENT-CYCLES.md) · [cycle-incidence join checker](../research/hyp105_g5e2b3b2_coincident_cycles.py) · [independent brute/GF5 oracles](../research/test_hyp105_g5e2b3b2_coincident_cycles.py) · [#176](https://github.com/definitely-stable/Mathlab/issues/176). **PROVED_ALL-h_FIXED_LABEL_NECESSARY_BOUND / FINITE_EXACT_D_s / NO_ALL-h_STRICT_R3_UPPER / NO_ASET_POWER / NO_RUST**. For every fixed injective GQ pair labeling, R3(B_s)>=**5643*D_s/51^6**, using exact GF5 count for coincident alternating C6/C6 motifs (independent MITM checked). For independently uniform pair injections, E[D_s]=60*M6(G_s)*((a)_6/(binom(a,2))_6)^2, M6=#factor six-edge matchings. Exact physical-cycle + right incidence join avoids binom(N,6). Controls (lex/reverse-line/coordinate-flag): at GF2 D=15/3/3, at GF4 D=8481/8417/10602, 121320 left physical cycles. Finite controls cannot prove strict R3 exponent or simultaneous R2. B3.2-B correlated all-h construction and B3.1-B additional GF5 motifs remain OPEN.
