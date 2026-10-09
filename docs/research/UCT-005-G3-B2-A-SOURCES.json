@@ -1,0 +1,58 @@
+{
+  "schema": "mathlab.uct005.g3b2a.sources.v1",
+  "as_of": "2026-10-09",
+  "status": "TYPED_SOURCE_INVENTORY_NOT_PROOF_REPRODUCTION",
+  "records": [
+    {
+      "id": "G3B2A-SRC-01",
+      "identity": "usenix:osdi04:li",
+      "title": "Secure Untrusted Data Repository (SUNDR)",
+      "year": 2004,
+      "original_url": "https://www.usenix.org/conference/osdi-04/secure-untrusted-data-repository-sundr",
+      "model_overlap": "Fork consistency, client visibility of each other's operations",
+      "canonical_lit_id": null,
+      "verification_tier": "original_publisher_abstract",
+      "full_proof_verified": false
+    },
+    {
+      "id": "G3B2A-SRC-02",
+      "identity": "doi:10.1016/j.ic.2018.03.004",
+      "alias": "arxiv:1302.4808",
+      "title": "Verifying the consistency of remote untrusted services with conflict-free operations",
+      "year": 2018,
+      "original_url": "https://doi.org/10.1016/j.ic.2018.03.004",
+      "model_overlap": "COP fork-linearizability, noncommunicating trusted clients, honest server linearizability",
+      "canonical_lit_id": null,
+      "verification_tier": "publisher_and_institutional_abstract",
+      "full_proof_verified": false
+    },
+    {
+      "id": "G3B2A-SRC-03",
+      "identity": "doi:10.1016/j.jisa.2026.104444",
+      "alias": "iacr:2025/404",
+      "title": "SNARKs for stateful computations on authenticated data",
+      "year": 2026,
+      "original_url": "https://doi.org/10.1016/j.jisa.2026.104444",
+      "model_overlap": "Authenticated state-consistent execution, NOT free independent-reader freshness",
+      "canonical_lit_id": null,
+      "verification_tier": "original_publisher_abstract",
+      "full_proof_verified": false
+    },
+    {
+      "id": "G3B2A-EXISTING-127",
+      "identity": "doi:10.1007/978-3-642-54242-8_21",
+      "title": "Locally Updatable and Locally Decodable Codes",
+      "year": 2014,
+      "canonical_lit_id": "LIT-127",
+      "model_overlap": "Pre-existing joint read/write locality"
+    },
+    {
+      "id": "G3B2A-EXISTING-157",
+      "identity": "doi:10.1145/3618260.3649686",
+      "title": "Memory Checking Requires Logarithmic Overhead",
+      "year": 2024,
+      "canonical_lit_id": "LIT-157",
+      "model_overlap": "Memory-checking lower bounds"
+    }
+  ]
+}
