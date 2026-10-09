@@ -63,7 +63,7 @@ class LiteratureTests(unittest.TestCase):
         self.assertEqual(sum(refs[i]["year"] == 2026 for i in cohort), 7)
         for key in original:
             self.assertEqual(refs[key]["mentioned_in"][0]["path"],
-                             "docs/research/INDEX-001-G2-A-DECISION-PROTOCOL.md")
+                             "docs/research/INDEX-001-G2-A-PAGE-COST-AND-PRIOR-ART.md")
         for key in cohort:
             paper = refs[key]
             self.assertFalse(paper["full_proof_verified"])
