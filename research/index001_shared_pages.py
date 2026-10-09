@@ -101,8 +101,8 @@ def decode_shared(image,B):
         reached+=length
         ends.append(reached)
         offset+=byte_count
-    if offset>len(image) or any(image[offset:]) or
-            len(image)!= (dpages+pages(sum(byte_counts),B))*B:
+    if (offset>len(image) or any(image[offset:]) or
+            len(image)!=(dpages+pages(sum(byte_counts),B))*B):
         raise ValueError("payload padding/length mismatch")
     return tuple(answer),tuple(ends)
 
@@ -163,8 +163,8 @@ def lookup_shared(view,point,mode="disk",Rmax=None):
     exact paid mirrored directory bytes in warm mode. No unpriced directory
     list, decoded state, or persistent page cache is consulted.
     """
-    if view["kind"]!="shared" or mode not in ("disk","mirror") or
-            type(point) is not int or not 0<=point<view["N"]:
+    if (view["kind"]!="shared" or mode not in ("disk","mirror") or
+            type(point) is not int or not 0<=point<view["N"]):
         raise ValueError("invalid point/mode")
     B=view["B"]
     resident=B+COUNTER_BYTES+(len(view["directory"]) if mode=="mirror" else 0)
