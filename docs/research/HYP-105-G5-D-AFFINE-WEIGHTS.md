@@ -83,6 +83,31 @@ when every component is signed-balanced; otherwise it is 0. Moreover if **any to
 
 **Research value and limitation:** We now have an *exact formula* for **each** potential local trade probability, and a transparent bridge from geometry/support incidence to weight-selection risk. This is a meaningful all-m quantitative lemma, but at fixed q=5 and t≤6 each local probability is constant with respect to ambient m. It is **not** by itself a new ASET power improvement: one must count configurations jointly as m grows, prove useful bounds on dependency/codegrees, or build weights with deterministic algebraic cancellation avoidance. Claiming an exponent merely from 5^(C-v) would be false. The use of incidence-matrix rank is classical; global scientific novelty remains unverified.
 
+## 3.2 D5 — An explicit all-m weighted alteration existence theorem
+
+The exact D4 local rank formula can now be combined with **random weighting and subset sampling** to obtain a genuine all-m constructive-existence bound. This is a classical probabilistic alteration proof applied to a newly specified GF5 trade-risk functional; not a claimed improvement of Lefmann's exponent.
+
+Let B be ANY N pairwise distinct size-four **supports** in [m]. For k=2,3, enumerate every unordered pair {P,Q} of disjoint k-element subsets of support indices, each pair **only once** (P,Q and Q,P represent the same event). Form the signed 2k-column incidence graph for the assigned supports, count its touched coordinate vertices v_{P,Q} and connected components C_{P,Q}. Define its local risk bound b(P,Q):
+- b=0 if the signed checksum fails to balance separately in any component;
+- b=0 if any touched coordinate occurs in only one of those 2k column supports;
+- otherwise b = min(1, (125/51)^(2k) * 5^(C_{P,Q}-v_{P,Q})).
+
+Let U_k(B)=sum_{unordered disjoint P,Q, |P|=|Q|=k} b(P,Q).
+
+**Theorem D5 (weighted support-risk alteration).** For every p∈[0,1] there exists a choice of four **nonzero** GF5 coefficients on some subset of the supports in B, each column having checksum 4, such that ALL subset sums of cardinalities 0..3 are distinct, and the number of retained supports is at least
+
+    p*N - p^4 U_2(B) - p^6 U_3(B).
+
+In particular optimize this bound over p and clamp to zero. The existence statement is mathematically valid for every m,N (with B having distinct supports); no all-m asymptotic improvement is implied until U_2,U_3 are actually estimated uniformly for a specified support family.
+
+**Proof.** Independently assign to each candidate support one of its 51 admissible nonzero checksum4 patterns uniformly. Independently retain each column with probability p. Distinct supports ensure different vectors even after weighting. By D1 all unequal-cardinality sum equalities are impossible. A 1-vs-1 equality is also impossible because supports differ. For every disjoint equal-size P,Q of size k=2 or 3, let X_{P,Q} indicate that (i) all 2k columns survive sampling and (ii) their chosen weighted sums are equal. The two sources of randomness are independent; by D4.1, E[X_{P,Q}]≤p^(2k)b(P,Q). The expected number of retained columns is pN and the expected number of forbidden collision events is at most p^4 U_2+p^6 U_3. Thus some realization has |S| minus the number of its actual forbidden events at least the displayed expression. Delete one currently retained column from each remaining forbidden event. No deletion creates an event; at most the original number of forbidden events are removed, so at least the indicated many columns remain. Their sums of sizes 0..3 are all distinct by construction. QED.
+
+**Critical difference from the unit T4/T6 accounting:** weighted patterns may introduce equal-size collisions that **did not exist** with all-one coefficients. Therefore U_2 and U_3 sum over ALL **potential** disjoint signed patterns, not only the previously counted unit-model minimal collision supports T4 and T6. Substituting the old small T4/T6 values into D5 is UNSOUND. D4's component balance and singleton exclusions are the exact filters that make U_k potentially manageable.
+
+Exact *bounded* verifier [weighted_alteration_risk](../../research/hyp105_g5d_trade_rank.py) enumerates all unordered P/Q for at most 9 columns and evaluates each b as an exact Fraction; independent tests check combinatorial event counts (for n=7: 105 pair events and 70 triple events), rational score equality and a strict n>9 computation cap. The **theorem** is all-m, whereas this direct computation is intentionally finite and small. For large W(3,s) candidates we need exact combinatorial formulas/DP/spectral bounds on U_k rather than evaluating O(N^6) events directly.
+
+**A real asymptotic GO from D5:** identify an all-s family B_m with N_m=Omega(m^(8/3)) and prove upper exponents U_2(B_m)=O(m^b4), U_3(B_m)=O(m^b6) such that b4<52/15 and b6<4, respectively. The same optimization used in C2 then implies an actual new GF5 ASET lower power >12/5. Conversely, if B_m has many dangerous low-rank supports, the risk sum may exceed the old unit trade counts and D5 need not help. That is an open quantitative mathematical question, not a solved bound.
+
 ## 4. WHY this does not yet solve the infinite problem
 
 With GQ(s,s), N_s~s^4 and ambient dimension m~s^(3/2), the number of k-sum signatures that the greedy extension must avoid grows polynomially in N_s. Yet a fixed support-four pattern has **only 51** checksum-compatible choices over GF5, independent of m. The naive pigeonhole argument for availability of one of these 51 eventually fails: no theorem ensures one candidate survives all prior constraints.
