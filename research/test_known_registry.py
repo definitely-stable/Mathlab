@@ -14,9 +14,9 @@ class KnownAndStoppedRegistryTests(unittest.TestCase):
     def modified(self):
         return deepcopy(self.original)
 
-    def test_all_44_scoped_decisions_and_readable_render(self):
+    def test_all_46_scoped_decisions_and_readable_render(self):
         entries = validate(self.original)
-        self.assertGreaterEqual(len(entries), 44)
+        self.assertGreaterEqual(len(entries), 46)
         self.assertEqual(len(set(item["id"] for item in entries)), len(entries))
         self.assertEqual(set(STATUSES), set(e["disposition"] for e in entries))
         self.assertEqual(render(self.original),
@@ -32,6 +32,15 @@ class KnownAndStoppedRegistryTests(unittest.TestCase):
         self.assertIn("not a Merkle", indexed["KR-043"]["do_not_repeat"])
         self.assertTrue(all(len(indexed[f"KR-{i:03d}"]["authority"]) >= 1
                             for i in range(41, 45)))
+
+    def test_uct_g1_influence_and_one_probe_decisions(self):
+        indexed = {r["id"]: r for r in validate(self.original)}
+        self.assertEqual(indexed["KR-045"]["disposition"], "CLOSED_PROVED")
+        self.assertEqual(indexed["KR-046"]["disposition"], "CLOSED_PROVED")
+        self.assertIn("transversal", indexed["KR-045"]["title"])
+        self.assertIn("prefix parity", indexed["KR-046"]["title"])
+        self.assertIn("Fenwick", indexed["KR-046"]["do_not_repeat"])
+        self.assertEqual(len(self.original["entries"]), 46)
 
     def test_all_has_authority_and_concrete_reopen_gate(self):
         for item in validate(self.original):
