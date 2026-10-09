@@ -1,5 +1,9 @@
 # Research index and authority order
 
+## UCT-005 G2-B2 — exact multi-subscriber information broadcast (2026-10-09)
+
+[**Restricted quotient theorem, rank-vs-one-hot falsifiers and finite independent coloring oracle**](UCT-005-G2-B2-EXACT-BROADCAST-QUOTIENT-AND-STOP.md) · [three original proof-labeling sources](UCT-005-G2-B2-SOURCES.json) · [executables](../../research/test_uct005_g2b2_broadcast.py) · [issue #151](https://github.com/definitely-stable/Mathlab/issues/151). Exact `b*=ceil(log2 |{A d : d in D}|)` for **deterministic synchronous zero-error shared messages without uncharged update side information**. Classical elementary communication result, **NOT a new cryptographic theorem or universal UCT-005 root**. Three papers indexed in typed source inventory; canonical numbering deferred behind PR #132 / issue #142.
+
 ## UCT-005 G2-B1 — semantic vs structural influence and online proof barriers (2026-10-09)
 
 [**Exact odd-path influence in mutable XOR DAGs, proof/certificate structural dirty-set comparison and unbounded cancellation family**](UCT-005-G2-B1-DAG-SEMANTIC-STRUCTURAL-COUNTERMODELS.md) · [two new original primary publications plus LIT-068 and LIT-187 without duplication](UCT-005-G2-B1-SOURCES.json) · [exhaustive DAG and independent path-count tests](../../research/test_uct005_g2b1_dag_influence.py) · [issue #148](https://github.com/definitely-stable/Mathlab/issues/148). Restricted classical GF(2) lemma + conditional hash representation; **not original root theorem**, no computational security proof. Extra primary source identities pending canonical LIT numbering until issue #142/PR #132 resolution.
