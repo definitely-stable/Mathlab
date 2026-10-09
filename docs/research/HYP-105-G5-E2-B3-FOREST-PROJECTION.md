@@ -1,6 +1,6 @@
 # HYP-105 G5-E2-B3.0 — Six-edge factor forests and exact leafless pair-projection polynomials
 
-Date: 2026-10-09. Parent [issue #176](https://github.com/definitely-stable/Mathlab/issues/176), [#169](https://github.com/definitely-stable/Mathlab/issues/169), [#162](https://github.com/definitely-stable/Mathlab/issues/162). Builds on [E2-B2](HYP-105-G5-E2-B2-RANDOM-R2.md), [E1 signed-flow topology](HYP-105-G5-E1-FLOW-MOTIFS-AND-NEXT-PROOF.md), and [E0 GF5 prescribed-boundary flows](HYP-105-G5-E0-BOUNDARY-FLOWS.md).
+Date: 2026-10-09. Parent [issue #176](https://github.com/definitely-stable/Mathlab/issues/176), [#169](https://github.com/definitely-stable/Mathlab/issues/169), [#162](https://github.com/definitely-stable/Mathlab/issues/162). Builds on [E2-B2](HYP-105-G5-E2-B2-RANDOM-R2-BOUND.md), [E1 signed-flow topology](HYP-105-G5-E1-FLOW-MOTIFS-AND-NEXT-PROOF.md), and [E0 GF5 prescribed-boundary flows](HYP-105-G5-E0-BOUNDARY-FLOWS.md).
 
 **SCOPE: PROVED CLASSICAL-STRUCTURAL / EXACT FINITE PROJECTION FORMULA / ALL-h EXPECTED R3 UPPER O(s^6) / NO STRICT R3 POWER / NO GF5 SIX-FLOW CLASSIFICATION / NO CORRELATED LABELING / NO IMPROVED ASET EXPONENT / PRIORITY UNVERIFIED.**
 
