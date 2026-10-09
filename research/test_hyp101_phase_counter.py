@@ -100,6 +100,32 @@ class CanonicalLeafInputAudits(unittest.TestCase):
         # A payload-only lookup would misleadingly re-use old b'ab'
         # for new counter 1; the canonical input is (counter, bytes).
 
+    def test_exact_iid_expected_miss_formula_and_union_bound(self):
+        for alphabet_size in (2, 3):
+            alphabet = tuple(range(alphabet_size))
+            for chunk_size in (1, 2, 3):
+                for chunks in (2, 3):
+                    n = chunk_size * chunks
+                    if n > 6:
+                        continue
+                    values = []
+                    all_miss = 0
+                    for src in itertools.product(alphabet, repeat=n):
+                        base = bytes(src)
+                        edited = b"\\x00" + base
+                        miss = exact_strict_cache_misses(base, edited, chunk_size)
+                        values.append(miss)
+                        all_miss += int(miss == chunks + 1)
+                    denom = alphabet_size ** chunk_size
+                    # Exact expectation: m+1 - m/q^b, multiply to avoid floats.
+                    self.assertEqual(
+                        sum(values) * denom,
+                        len(values) * ((chunks + 1) * denom - chunks))
+                    # Union bound: P(all miss) >= 1 - m/q^b.
+                    self.assertGreaterEqual(
+                        all_miss * denom,
+                        len(values) * (denom - chunks))
+
     def test_no_hash_collision_or_unrestricted_lower_bound_claim(self):
         self.assertEqual(exact_strict_cache_misses(b"abc", b"abc", 2), 0)
         with self.assertRaises(ValueError):
