@@ -87,6 +87,30 @@ These graphs are isomorphic as **pair-signature** bipartite factor graphs (girth
 
 **Finite-only boundary:** fitting a growth exponent from these four samples, which all have the same ambient m=12, would be invalid. No proved upper b4/b6, improved ASET asymptotic bound or growing ratio follows. This section pins numerical CI evidence; future implementation changes must reverify counts.
 
+## 4.2 C2-D — a proved random-labeling expectation barrier at exponent four
+
+**New rigorously derived restriction on a proposed METHOD (not on all ASET families).** Consider ANY simple bipartite graph G with E edges, maximum degree Delta, two part sizes fitting into binom(a,2) and binom(b,2). Independently choose uniform injective assignments of the left and right graph vertices to all-one **coordinate-pair** signatures on a and b distinct coordinate blocks. Every graph edge then gives a distinct 2+2 unit column. Let T6 be the number of inclusion-minimal six-column forbidden signed-trade supports over GF5.
+
+**Theorem C2-D1 (finite quantified lower on the EXPECTATION).** If a,b>=6 and E>10*Delta, then
+
+    E_label[T6] >= [product_{j=0}^5 (E-2*j*Delta) / 6!]
+                    * [(a)_6 / (12*(binom(a,2))_6)]
+                    * [(b)_6 / (12*(binom(b,2))_6)],
+
+where (z)_6=z(z-1)...(z-5), and expectation is over the independent uniform injective coordinate-pair labelings. The expression is a rigorously valid **lower** bound, not an exact expectation or a concentration statement.
+
+**Proof.** Construct an unordered six-edge matching by sequentially choosing its six edges. After j chosen edges, at most 2*j*Delta edges touch an endpoint already chosen. Therefore there are at least product_{j=0}^5(E-2*j*Delta)/6! distinct six-edge matchings. Fix any such matching and designate three edges red (+) and the remaining three blue (-) in a deterministic order. For the left projection choose six pair labels making a *simple alternating six-cycle* on six distinct coordinates: with ordered distinct coordinates x1,...,x6, the named red edges have pairs (x1,x2), (x3,x4), (x5,x6) and named blue edges (x2,x3), (x4,x5), (x6,x1). Each assignment satisfies coordinatewise equality of red and blue incidence counts. There are (a)_6 ordered choices of distinct coordinates; any resulting six-tuple of **named** pair labels is counted at most 12 times (at most the dihedral tours of the underlying labelled cycle). Among all (binom(a,2))_6 equally likely ordered distinct pair labels, the favorable probability is therefore at least (a)_6/[12*(binom(a,2))_6]. The right projection has the same independent lower with b. If both events occur, the full four-sparse columns have a three-versus-three trade. It is **column-minimal**: the simple left projection six-cycle has no proper nonzero bounded signed kernel pattern, since every coordinate has precisely two participating incident edges and any selected signed edge forces the other incident edge with opposite sign, propagating around all six. In GF5 this argument has no modular wraparound, as both side multiplicities are at most three (more strongly, each coordinate has degree two). Thus every matching that realizes both events contributes a distinct minimal forbidden size-six column support. Sum event indicators and apply linearity of expectation. QED.
+
+**Corollary C2-D2 (unbounded published GQ graph family).** For the published generalized quadrangle incidence graphs of order (s,s) with s=2^h, let a_s=b_s be the minimum integer such that binom(a_s,2)>=(s+1)(s^2+1). G5-B established E_s=(s+1)^2(s^2+1)=Theta(s^4), Delta_s=s+1, and m_s=2*a_s=Theta(s^(3/2)). In the displayed finite bound, the number of edge matchings is Omega(E_s^6)=Omega(s^24); each independent favorable coordinate-pair event has probability Omega(a_s^(-6))=Omega(s^(-9)), and there are two such independent events. Consequently
+
+    E_random_labels[T6(m_s)] = Omega(s^6) = Omega(m_s^4).
+
+The constants are positive and the statement holds on an unbounded sequence of m_s; padding to larger coordinate dimensions without changing random labeling requires a separate model statement and is NOT automatically performed here.
+
+**Interpretation and essential limitations.** This is a real ALL-SCALE asymptotic obstruction **to bounding the EXPECTATION of T6 by O(m^(4-epsilon)) for uniformly random injective pair labels of GQ factor graphs**. It explains why naive random labeling plus only first-moment trade deletion is unlikely to beat the 12/5 power. Crucially, E[T6]>=Omega(m^4) does **NOT** imply every labeling has T6>=Omega(m^4), does **NOT** exclude specially designed deterministic labelings, and does **NOT** upper-bound unrestricted weighted ASET. It also does not prove concentration, a lower bound on the minimum T6 over labelings or a new exponent result. This proof uses elementary matching counting and random injection; worldwide scientific novelty is UNVERIFIED, and no original theorem claim is made.
+
+**Exact arithmetic verification:** the auxiliary functions six_cycle_pair_probability_lower, expected_minimal_six_trades_lower, generalized_quadrangle_expectation_lower compute the explicit finite rational bounds from GQ parameters s=2,4,8,16,32. An independent six-coordinate permutation enumerator in the tests verifies the alternating-cycle pair-label event. These checks cannot prove the infinite-family existence (that is inherited from classical GQ literature), but separately exercise the derived formulas.
+
 ## 5. Prior art, novelty limitations and stopping rule
 
 - [Naor–Verstraëte, Combinatorica 2008, author-hosted full paper](https://web.math.princeton.edu/~naor/homepage%20files/PARITY.pdf), Theorem 2.2: already proves a collision of equal three-element signed subsets at density above O_q(m^(8/3)). Its theorem is **not** the six-wise arbitrary-coefficient independence converse.
