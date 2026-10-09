@@ -110,7 +110,7 @@ class G5E1MotifProofTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             classify_small_split_risk(supports[:10], 6, k=3)
         with self.assertRaises(ValueError):
-            topology_gate((supports[0],)*2, (1,-1), 5)
+            topology_gate((supports[0],)*2, (1,-1), 3)
 
     def test_proved_unit_trade_floor_on_weighted_exact_risk(self):
         t4, t6 = collision_spectrum(w32_columns())
