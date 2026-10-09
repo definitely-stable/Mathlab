@@ -116,6 +116,9 @@ SOURCE_TITLE_PINS = {
     "doi:10.1016/j.jcss.2007.06.020": "Quantum Certificate Complexity",
     "doi:10.1145/3442357": "All Classical Adversary Methods Are Equivalent for Total Functions",
     "arxiv:2609.15063": "Randomized Query Complexity Can Beat Certificate Complexity",
+    # UCT-004 G2-C: September 2026 certification and classical PCPP source identities.
+    "arxiv:2609.26757": "Certification complexity of Boolean functions",
+    "doi:10.1145/1595391.1595394": "Sound 3-Query PCPPs Are Long",
 }
 
 
