@@ -34,6 +34,7 @@ class Uct005G1SourceTests(unittest.TestCase):
             self.assertFalse(e["full_proof_verified"])
             self.assertFalse(e["independent_reproduction"])
             self.assertEqual(e["mentioned_in"][0]["kind"], "model_overlap")
+            self.assertEqual(e["mentioned_in"][0]["source_sha"], "536fd3aab5aedcc89ca80c24333162991e51ec4b")
             self.assertEqual(e["mentioned_in"][0]["path"], "docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md")
         self.assertIn("doi:10.1145/3707202", by["LIT-157"]["alternate_identities"])
         self.assertIn("arxiv:2307.04085", by["LIT-159"]["alternate_identities"])

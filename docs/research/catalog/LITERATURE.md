@@ -1830,7 +1830,7 @@ FOCS 1991 и журнальная версия Algorithmica 1994 уже расс
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/536fd3aab5aedcc89ca80c24333162991e51ec4b/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-157
 **[Memory Checking Requires Logarithmic Overhead](https://doi.org/10.1145/3618260.3649686)** (2024)
@@ -1843,7 +1843,7 @@ STOC 2024: p >= n/(log n)^{O(q)} для memory checking c надежной па�
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/536fd3aab5aedcc89ca80c24333162991e51ec4b/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-158
 **[The Complexity of Memory Checking with Covert Security](https://doi.org/10.1007/978-3-031-91092-0_11)** (2025)
@@ -1856,7 +1856,7 @@ EUROCRYPT 2025 продолжает memory checking при covert-безопас
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/536fd3aab5aedcc89ca80c24333162991e51ec4b/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
 
 ### LIT-159
 **[Vector Commitments with Efficient Updates](https://doi.org/10.4230/LIPIcs.AFT.2023.29)** (2023)
@@ -1869,7 +1869,7 @@ AFT 2023, Definition 4 и Theorem 5: для динамических proof-bindi
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/536fd3aab5aedcc89ca80c24333162991e51ec4b/docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md) (model_overlap)
 
 
 ## proof-complexity

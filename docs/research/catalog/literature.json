@@ -4506,7 +4506,8 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md",
-          "kind": "model_overlap"
+          "kind": "model_overlap",
+          "source_sha": "536fd3aab5aedcc89ca80c24333162991e51ec4b"
         }
       ],
       "full_proof_verified": false,
@@ -4540,7 +4541,8 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md",
-          "kind": "model_overlap"
+          "kind": "model_overlap",
+          "source_sha": "536fd3aab5aedcc89ca80c24333162991e51ec4b"
         }
       ],
       "full_proof_verified": false,
@@ -4572,7 +4574,8 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md",
-          "kind": "model_overlap"
+          "kind": "model_overlap",
+          "source_sha": "536fd3aab5aedcc89ca80c24333162991e51ec4b"
         }
       ],
       "full_proof_verified": false,
@@ -4604,7 +4607,8 @@
         {
           "repo": "MATHLAB",
           "path": "docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md",
-          "kind": "model_overlap"
+          "kind": "model_overlap",
+          "source_sha": "536fd3aab5aedcc89ca80c24333162991e51ec4b"
         }
       ],
       "full_proof_verified": false,

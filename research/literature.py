@@ -257,6 +257,9 @@ def valid(data, catalog):
             check(r in SOURCE_REPOS, f"{ident}: origin repository invalid")
             check(origin.get("kind") in ("cited", "model_overlap"),
                   f"{ident}: origin kind invalid")
+            if "source_sha" in origin:
+                check(bool(SHA.fullmatch(origin["source_sha"])),
+                      f"{ident}: origin pin SHA malformed")
             check(bool(path) and not path.startswith("/") and
                   ".." not in Path(path).parts and path.endswith(".md"),
                   f"{ident}: origin path unsafe")
@@ -273,7 +276,7 @@ def source_link(snapshot, origin):
     source = snapshot[origin["repo"]]
     path = origin["path"]
     return (f"[{origin['repo']}:{path}]("
-            f"https://github.com/{source['repo']}/blob/{source['sha']}/{path})")
+            f"https://github.com/{source['repo']}/blob/{origin.get('source_sha', source['sha'])}/{path})")
 
 
 def render(data):
