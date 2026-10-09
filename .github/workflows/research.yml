@@ -66,6 +66,9 @@ jobs:
       - name: HYP-105 E2-B1 exact weighted GF5 additive-energy and signed-flow oracles
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b1_energy.py'
 
+      - name: HYP-105 G5-E2-B2 all-s random-label R2 forest/cycle theorem audit
+        run: python research/hyp105_g5e2b2_random_r2.py
+
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
 
