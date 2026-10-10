@@ -23,9 +23,9 @@
 | [Когнитивные карты, гиппокамп, engram и биологическая память](#biological-memory) | 10 |
 | [Молекулярная запись в DNA, кодирование и графовая реконструкция](#molecular-dna-storage) | 5 |
 | [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 36 |
-| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 31 |
+| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 30 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 3 |
-| [Теория обучения графовым алгоритмам, перенос GFM и устойчивость представлений](#graph-learning-theory) | 6 |
+| [Теория обучения графовым алгоритмам, перенос GFM и устойчивость представлений](#graph-learning-theory) | 7 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 16 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 30 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
@@ -4261,19 +4261,6 @@ NeurIPS 2025 Datasets & Benchmarks: авторы сформировали 38 522
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
-### LIT-395
-**[Adaptive Memory Retention in Dynamic Graphs](https://proceedings.mlr.press/v306/de-castelli26a.html)** (2026)
-
-ICML 2026: LAMP сочетает импульсные neural ODE, антисимметричную консервативную динамику и адаптивную диссипацию для стабильных представлений snapshot-based динамических графов; представлены анализ устойчивости, выразительности и авторские эмпирические результаты.
-
-**Ограничение:** Стабильность learned graph embeddings не является lossless retention истории, bitemporal provenance, replay exact state, authenticated freshness, write amplification или независимым измерением скорости; архитектура ограничена snapshot-oriented model.
-
-**Идентичность:** `publisher:pmlr-v306-de-castelli26a` · **Авторы:** Fabrizio De Castelli, Alessio Gravina, Moshe Eliasof, Carola-Bibiane Schönlieb, Davide Bacciu · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
-
-**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
-
-**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md](https://github.com/definitely-stable/Mathlab/blob/38d5dc52464d2c54fe00de22f2a3ea1025072f7b/docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md) (model_overlap)
-
 
 ## graph-reasoning
 *Графовые зависимости шагов рассуждения, DAG-планирование*
@@ -4396,6 +4383,19 @@ ICML 2026: задача выбрать ровно k размечаемых ве�
 **Идентичность:** `publisher:pmlr-v306-john26a` · **Авторы:** Josia John, Simon Meierhans, Maximilian Probst Gutenberg · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md](https://github.com/definitely-stable/Mathlab/blob/38d5dc52464d2c54fe00de22f2a3ea1025072f7b/docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md) (model_overlap)
+
+### LIT-395
+**[Adaptive Memory Retention in Dynamic Graphs](https://proceedings.mlr.press/v306/de-castelli26a.html)** (2026)
+
+ICML 2026: LAMP сочетает импульсные neural ODE, антисимметричную консервативную динамику и адаптивную диссипацию для стабильных представлений snapshot-based динамических графов; представлены анализ устойчивости, выразительности и авторские эмпирические результаты.
+
+**Ограничение:** Стабильность learned graph embeddings не является lossless retention истории, bitemporal provenance, replay exact state, authenticated freshness, write amplification или независимым измерением скорости; архитектура ограничена snapshot-oriented model.
+
+**Идентичность:** `publisher:pmlr-v306-de-castelli26a` · **Авторы:** Fabrizio De Castelli, Alessio Gravina, Moshe Eliasof, Carola-Bibiane Schönlieb, Davide Bacciu · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md](https://github.com/definitely-stable/Mathlab/blob/38d5dc52464d2c54fe00de22f2a3ea1025072f7b/docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md) (model_overlap)
 

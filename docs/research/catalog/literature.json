@@ -11365,7 +11365,7 @@
       "identity": "publisher:pmlr-v306-de-castelli26a",
       "year": 2026,
       "title": "Adaptive Memory Retention in Dynamic Graphs",
-      "track": "agent-memory",
+      "track": "graph-learning-theory",
       "authors": [
         "Fabrizio De Castelli",
         "Alessio Gravina",

@@ -40,7 +40,7 @@ class Import014Tests(unittest.TestCase):
             next(z for z in tampered["entries"] if z["id"]==ident)["title"]="Forged author paper title"
             self.assertTrue(any("primary source title mismatch" in z for z in valid(tampered,self.catalog)))
         self.assertEqual([self.entries[x]["track"] for x in IDS],
-            ["graph-learning-theory","graph-learning-theory","agent-memory","graph-reasoning","graph-rag"])
+            ["graph-learning-theory","graph-learning-theory","graph-learning-theory","graph-reasoning","graph-rag"])
 
     def test_existing_mragent_is_not_reimported(self):
         existing=self.entries["LIT-230"]
