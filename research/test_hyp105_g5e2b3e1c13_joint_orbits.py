@@ -104,6 +104,14 @@ class C13JointGQDoubleOrbitTests(unittest.TestCase):
         wrong[0],wrong[1]=wrong[1],wrong[0]
         with self.assertRaises(ValueError):
             joint_transport_W32(self.model,(tuple(wrong),ident),ident,ident)
+        # A single arbitrary swap of occupied PAIR-EDGE IDs is NOT a
+        # physical-coordinate S6 action and must fail the symmetry gate.
+        fake=list(ident)
+        fake[0],fake[1]=fake[1],fake[0]
+        with self.assertRaises(ValueError):
+            joint_transport_W32(self.model,(ident,ident),tuple(fake),ident)
+        with self.assertRaises(ValueError):
+            canonical_joint_pair_key_W32(self.model,self.A,self.H[:-1])
         with self.assertRaises(ValueError):
             canonical_joint_pair_key_W32(
                 self.model,self.A,self.H,max_physical_normalizations=1036799)
