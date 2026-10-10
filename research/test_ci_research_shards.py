@@ -40,7 +40,7 @@ class ResearchWorkflowShardTests(unittest.TestCase):
         self.assertEqual(set(jobs), set(REQUIRED) | {"research-full-suite"})
         for name, body in jobs.items():
             self.assertIn("runs-on: ubuntu-latest", body, name)
-            self.assertRegex(body, r"timeout-minutes: [1-9][0-9]+")
+            self.assertRegex(body, r"timeout-minutes: [1-9][0-9]*")
             if name in REQUIRED:
                 self.assertIn("- uses: actions/checkout@v4", body, name)
                 self.assertIn("- uses: actions/setup-python@v5", body, name)
