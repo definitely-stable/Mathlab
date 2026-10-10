@@ -10,11 +10,13 @@ Fix H independent binary PIN-membership choices at distinct historical epochs: b
 
 Assume a deterministic exact **full-vector audit** whose task is to return all H membership bits in one run. All input-dependent persistent trusted states (author, both clients, authority, setup advice) are charged within s bits. The **entire** honest-server remote reply transcript, including all state-bearing responses/status/lengths/timing if used, has at most b bits. There are no uncharged independent source-state bits, client oracles, author logs, or hidden state-dependent advice. Adaptive addresses determined by already known trusted/reply bits cannot independently encode additional new state. The protocol must answer exactly on honest remote inputs; always ABORT is not an exact auditor.
 
-Different membership vectors must induce distinct pairs (trusted encoding, remote response transcript), otherwise identical verifier input could not produce different entire H-bit answers. Thus
+Different membership vectors must induce distinct pairs (trusted encoding, remote response transcript), otherwise identical verifier input could not produce different entire H-bit answers. **Variable-length reply subtlety:** if responses can be arbitrary binary strings of length up to b with their lengths available for free, they have at most \(\sum_{j=0}^{b}2^j=2^{b+1}-1\) values, not merely \(2^b\). Nevertheless
 
 \[
-2^H \le 2^s 2^b,\quad \boxed{H\le s+b}.
+2^H\le 2^s(2^{b+1}-1)<2^{s+b+1}.
 \]
+
+Since H, s and b are integers, **\(\boxed{H\le s+b}\)** still follows. For canonical fixed-length b-bit reply encodings the simpler direct estimate \(2^H\le2^{s+b}\) holds. Any extra state-bearing side channel beyond the enumerated replies is additional charged input.
 
 This is a **classical pigeonhole bound**, tight for the simplified channel by storing s prefix membership bits in trusted state and returning the remaining H-s bits directly. For H<=8 an independent brute-force oracle enumerates all words and verifies signature cardinality, full-audit injectivity and explicit collision witnesses when s+b<H. This is NOT a new information frontier or novel theorem.
 
