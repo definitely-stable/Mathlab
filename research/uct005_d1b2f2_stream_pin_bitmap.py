@@ -83,6 +83,12 @@ class StreamedRemotePinBitmapF1(RemotePinBitmapF1):
         # Staged bitmap is the UNTRUSTED remote storage object. The trusted
         # authority never constructs a full-size updated bitmap.
         remote_staging = bytearray(self.bitmap_payload_bytes)
+        # Physical untrusted staging allocation is a separate charged remote
+        # page API resource, even if publication later fails and leaves a
+        # staged orphan for separately modeled cleanup.
+        self.ledger["stream_staging_page_reservations"] += self.bitmap_pages
+        self.ledger["stream_staging_padded_reserved_bytes"] += (
+            self.bitmap_pages * self.page_bytes)
         # The old source is NOT cached after pass 1: fetch each page from
         # the live untrusted server in pass 2, so mid-pass substitution is
         # detected by independently recomputing the old-image digest.
@@ -255,6 +261,10 @@ def compare(bits: tuple[int, ...], page_bytes: int, epoch_capacity: int) -> dict
         "stream_second_pass_extra_bitmap_page_reads":4*M,
         "stream_remote_staging_peak_additional_pages":
             streamed.ledger["stream_peak_extra_remote_bitmap_pages"],
+        "stream_staging_page_reservations":
+            streamed.ledger["stream_staging_page_reservations"],
+        "stream_staging_reserved_wire_bytes":
+            streamed.ledger["stream_staging_padded_reserved_bytes"],
         "bulk_bitmap_page_reads":bulk.ledger["bitmap_remote_page_read_attempts"],
         "stream_bitmap_page_reads":streamed.ledger["bitmap_remote_page_read_attempts"],
         "stream_bitmap_page_writes":streamed.ledger["bitmap_remote_page_writes"],
