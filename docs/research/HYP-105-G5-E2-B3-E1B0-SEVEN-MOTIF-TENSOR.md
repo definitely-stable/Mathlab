@@ -87,6 +87,26 @@ Independent tests also check:
 
 Two fixed schemes `lex` and `reverse-line` are reported on the **same** factor incidence order and exact finite physical bijections. Differences in the counts are not evidence of an all-h exponent or of a smaller COMPLETE R2/R3.
 
+### 3.1 Pinned complete W(3,2) seven-family structural counts (hosted CI)
+
+The first accepted hosted exact-construction/independent-test workflow [#38027947586](https://github.com/definitely-stable/Mathlab/actions/runs/38027947586) reported the following COMPLETE original six-incidence counts for the selected seven leading subfamilies. These values are pinned in the current regression tests.
+
+| Same original W32 factor host, fixed pair labels | Lex | Reverse-line |
+|---|---:|---:|
+| Coincident C6 matching D6 | 15 | 3 |
+| B-left / A-right one-cherry | 98 | 77 |
+| A-left / B-right one-cherry | 110 | 74 |
+| C/A | 13 | 1 |
+| C/B | 1 | 1 |
+| B/B overlapping repeated pairs | 8 | 7 |
+| B/B disjoint repeated pairs | 14 | 6 |
+| **Total S_seven** | **259** | **169** |
+| Four-column coincident Q4 | 50 | 32 |
+| **Accepted minimum-based R3 numerator (denominator 51^6)** | **11,225,795** | **7,627,209** |
+| **Accepted minimum-based R2 numerator (denominator 51^4)** | **26,550** | **16,992** |
+
+These are NOT the fully weighted risk numerators from the later all-ten-signed-event oracle; those must be reported separately and must be >= their minimum-based values. The same fixed factor incidence and the same complete physical pair injections are used for BOTH Q4 and S_seven. The reverse-line control is lower on these NECESSARY selected floors; neither full positive R3 nor an all-h statement is implied.
+
 ## 3A. Exact FULL 51-palette GF5 signed risk of this selected seven-family subset
 
 Beyond the accepted universal lower based on positive minima, the [same-label oracle](../../research/hyp105_g5e2b3e1b0_seven_signature.py) now evaluates the **exact restricted seven-family GF5 3v3 contribution** for finite W(3,2). After collecting each qualifying ORIGINAL six-incidence set once, it independently evaluates **all ten unordered balanced signed partitions** of that set with the accepted 782-state exact GF5 dual Fourier oracle on its actual twelve physical coordinates:
