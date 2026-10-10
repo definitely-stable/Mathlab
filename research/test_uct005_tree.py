@@ -161,6 +161,22 @@ class Uct005TreeTests(unittest.TestCase):
         )
         self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
 
+    def test_d1b0_b1_are_analytical_barriers_not_root_theorems(self):
+        nodes = {n["id"]: n for n in self.data["nodes"]}
+        self.assertIn("NO_NEW_LOWER_BOUND", nodes["UCT005G3B2D1B0"]["status"])
+        self.assertIn("NO_ORIGINAL_LOWER_BOUND", nodes["UCT005G3B2D1B1"]["status"])
+        self.assertEqual(nodes["UCT005G3B2D1B0"]["kind"], "research_input")
+        self.assertEqual(nodes["UCT005G3B2D1B1"]["kind"], "research_input")
+        self.assertIn(
+            {"parent": "UCT005G3B2D1A", "child": "UCT005G3B2D1B0",
+             "relation": "CHARGED_AUTHENTICATED_F1_UPPER_NOT_LOWER"},
+            self.data["edges"])
+        self.assertIn(
+            {"parent": "UCT005G3B2D1B0", "child": "UCT005G3B2D1B1",
+             "relation": "SOURCE_TRANSFER_BARRIER_NOT_THEOREM_IMPLICATION"},
+            self.data["edges"])
+        self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
+
     def test_no_unsound_logical_arrows(self):
         relations = {e["relation"] for e in self.data["edges"]}
         self.assertIn("THREAT_MODEL_NONTRANSFER", relations)

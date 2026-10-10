@@ -1,3 +1,11 @@
+## UCT-005 D1-B1 — 20-source theorem transfer matrix and GF2 query-interface barrier (2026-10-10)
+
+[Proof-scope and hard limits](UCT-005-G3-B2-D1B1-PRIMARY-TRANSFER-AND-MASK-OBSTRUCTION.md) · [typed canonical matrix](UCT-005-G3-B2-D1B1-TRANSFER-MATRIX.json) · [finite oracle](../../research/uct005_d1b1_source_gate.py) · [D1 #223](https://github.com/definitely-stable/Mathlab/issues/223). Three primary theorem statements inspected, not full proofs; 20 canonical records classified. **NO_NEW_NONFACTORIZING_LOWER_BOUND / ROOT_OPEN_UNPROVED**.
+
+## UCT-005 D1-B0 — paid two-reader F1 latest, PIN and GC (2026-10-10)
+
+[Formal model and cost firewall](UCT-005-G3-B2-D1B0-F1-COST-AND-PIN-FREEZE.md) · [machine contract](UCT-005-G3-B2-D1B0-F1-MODEL.json) · [independent reference tests](../../research/test_uct005_d1b0_f1_reference.py). **FINITE_CLASSICAL_UPPER / IDEAL_TRUSTED_ANCHOR / NO_NEW_LOWER_BOUND**; not real page-durability security.
+
 ## HYP-105 B3.2-E1-B0 — seven-motif same-label tensor reduction
 
 [Exact polynomial coefficient identity, seven family GF5 floors and limits](HYP-105-G5-E2-B3-E1B0-SEVEN-MOTIF-TENSOR.md) · [reference](../../research/hyp105_g5e2b3e1b0_seven_signature.py) · [independent tests](../../research/test_hyp105_g5e2b3e1b0_seven_signature.py). Same W(3,2) fixed pair injection yields exact positive seven-family U/D6 counts plus independent Q4, but NO all-h Omega(s^6), strict R3 upper or ASET exponent improvement. Pending PR-head hosted CI.
