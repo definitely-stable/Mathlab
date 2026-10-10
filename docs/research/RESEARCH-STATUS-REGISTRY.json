@@ -91,27 +91,26 @@
       "owner_issue": 244,
       "parent": "UCT-005-F1",
       "scientific_status": "MODEL_ONLY",
-      "workflow_status": "OPEN_PR_UNVERIFIED",
+      "workflow_status": "OPEN_ISSUE",
       "proof_grade": "NONE",
       "novelty_status": "NOT_ESTABLISHED",
       "source_audit_grade": "NOT_CHECKED",
       "model_id": "mathlab.uct005.d1b0.f1.v1",
       "artifact_paths": [
         "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json",
-        "docs/research/UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md"
+        "docs/research/UCT-005-G3-B2-D1B2B-PAGE-COW-TREE.md"
       ],
       "evidence": [
-        "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json",
-        "docs/research/UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md"
+        "docs/research/UCT-005-G3-B2-D1B2B-PAGE-COW-TREE.md"
       ],
-      "last_verified_sha": "2b5942d1b48070509d4125c67ecdef5b68dd0541",
+      "last_verified_sha": "a9444cec78aa0228018037c5d37ce760af173d69",
       "ci": {
         "status": "NOT_CHECKED",
         "head_sha": null,
         "run_url": null
       },
-      "next_falsifier": "Check open PR #248 finite tests and exact-head focused plus full Research CI before recognizing a COW implementation evidence grade.",
-      "reopen_rule": "Require merged implementation, independent review and post-merge CI before declaring this model slice accepted."
+      "next_falsifier": "PR #248 is MERGED; independently inspect exact post-merge main CI, charged page and GC counters, two independent PIN readers and real-crash nonclaims.",
+      "reopen_rule": "Issue #244 remains OPEN despite merged reference PR #248; require source-scoped review and independently verified post-merge evidence before closing this issue."
     },
     {
       "id": "UCT-005-PIN-BITMAP",
@@ -145,26 +144,26 @@
       "owner_issue": 254,
       "parent": "UCT-005-COW",
       "scientific_status": "MODEL_ONLY",
-      "workflow_status": "OPEN_ISSUE",
+      "workflow_status": "CLOSED_ISSUE",
       "proof_grade": "NONE",
       "novelty_status": "NOT_ESTABLISHED",
       "source_audit_grade": "NOT_CHECKED",
       "model_id": "mathlab.uct005.d1b0.f1.v1",
       "artifact_paths": [
         "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json",
-        "docs/research/UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md"
+        "docs/research/UCT-005-G3-B2-D1B2B1-SEGMENTED-BITMAP.md"
       ],
       "evidence": [
-        "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json"
+        "docs/research/UCT-005-G3-B2-D1B2B1-SEGMENTED-BITMAP.md"
       ],
-      "last_verified_sha": "7bf96f77e3841ebbe33d35beb002c893446f84e8",
+      "last_verified_sha": "a9444cec78aa0228018037c5d37ce760af173d69",
       "ci": {
         "status": "NOT_CHECKED",
         "head_sha": null,
         "run_url": null
       },
-      "next_falsifier": "Falsify global bitmap SET rewrite at n=257, P=1; test segmented paid allocation against same-F1 page and GC ledger.",
-      "reopen_rule": "Do not promote a segmented bitmap optimization to full Pareto dominance or physical NAND theorem without exact-head tests."
+      "next_falsifier": "PR #258 MERGED and issue #254 CLOSED; verify scoped segmented bitmap page-write inequality and post-merge CI, then test full-F1 non-Pareto counters under issue #262.",
+      "reopen_rule": "Closed engineering issue #254 does not settle F1 Pareto or root lower bound; reopen only for a reproducible regression in its scoped allocator model."
     },
     {
       "id": "UCT-005-PIN-TRUST",
