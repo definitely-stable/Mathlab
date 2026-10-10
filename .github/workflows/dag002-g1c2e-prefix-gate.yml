@@ -1,0 +1,33 @@
+name: dag002-g1c2e-prefix-gate
+
+on:
+  push:
+    branches: [main, 'research/**']
+    paths:
+      - 'research/dag002_g1c2e_prefix_gate.py'
+      - 'research/test_dag002_g1c2e_prefix_gate.py'
+      - 'docs/research/DAG-002-ALG-001-G1-C2-E-PREFIX-GATE.md'
+      - '.github/workflows/dag002-g1c2e-prefix-gate.yml'
+  pull_request:
+    paths:
+      - 'research/dag002_g1c2e_prefix_gate.py'
+      - 'research/test_dag002_g1c2e_prefix_gate.py'
+      - 'docs/research/DAG-002-ALG-001-G1-C2-E-PREFIX-GATE.md'
+      - '.github/workflows/dag002-g1c2e-prefix-gate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  exact-cross-history-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact cross-history fiber and zero-read escape report
+        run: python research/dag002_g1c2e_prefix_gate.py
+      - name: Independent exhaustive source-prefix oracles
+        run: python -m unittest discover -s research -p 'test_dag002_g1c2e_prefix_gate.py' -v
