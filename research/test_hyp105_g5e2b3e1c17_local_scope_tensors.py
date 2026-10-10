@@ -45,6 +45,12 @@ class C17LocalScopeTensorTests(unittest.TestCase):
             local["C17_local_two_sided_signature_GF5_numerator_lower"],
             global_cert["C16_exact_joint_box_lower_GF5_numerator"])
         self.assertFalse(local["full_joint_completion_score_matrix_allocated"])
+        self.assertLessEqual(
+            local["C17_all_signature_local_S_lower"],
+            local["C17_local_two_sided_signature_S_lower"])
+        self.assertLessEqual(
+            local["C17_all_signature_local_GF5_numerator_lower"],
+            local["C17_local_two_sided_signature_GF5_numerator_lower"])
         return local
 
     def test_actual_original_W32_36_map_same_motif_signature_lower(self):
