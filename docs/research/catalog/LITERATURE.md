@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-10** · **364** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-10** · **386** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,21 +11,21 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 24 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 35 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 38 |
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 24 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
-| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 18 |
+| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 19 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 55 |
-| [DNA, пангеномы, de Bruijn и sequence graph индексы](#genomic-graphs) | 16 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 62 |
+| [DNA, пангеномы, de Bruijn и sequence graph индексы](#genomic-graphs) | 19 |
 | [Когнитивные карты, гиппокамп, engram и биологическая память](#biological-memory) | 10 |
 | [Молекулярная запись в DNA, кодирование и графовая реконструкция](#molecular-dna-storage) | 5 |
-| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 33 |
-| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 26 |
+| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 35 |
+| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 30 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
-| [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
+| [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 16 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 30 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
 | [Алгебраические схемы, математика и нижние границы](#algebraic-complexity) | 4 |
@@ -821,6 +821,45 @@ STOC 2016: новая коммуникационная игра и информ�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md](https://github.com/definitely-stable/Mathlab/blob/f7986a438aef85376c7973049dc75ea1d3c63ecf/docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) (model_overlap)
+
+### LIT-370
+**[A Logarithmic Lower Bound for Oblivious RAM (For All Parameters)](https://doi.org/10.1137/21M1428431)** (2021)
+
+Для специальной конфигурации размеров слов и памяти доказана онлайн нижняя граница Omega(log N/log log N) амортизированных ORAM-проб при офлайн o(1); CRYPTO 2021, журнал 2025.
+
+**Ограничение:** ORAM скрывает паттерн доступа; не утверждает универсальную стоимость доверенного provenance, физической перезаписи страницы либо UCT-005.
+
+**Идентичность:** `doi:10.1137/21M1428431` · **Также:** doi:10.1007/978-3-030-84259-8_20 · **Авторы:** Ilan Komargodski, Wei-Kai Lin · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-371
+**[Cell-Probe Lower Bounds from Online Communication Complexity](https://arxiv.org/abs/1704.06185)** (2017)
+
+Введён online communication model и получены tight cell-probe границы для group range и dynamic forest connectivity; конференционная версия STOC 2018.
+
+**Ограничение:** Специальная задача и онлайн модель не равны произвольному динамическому authenticated history или F1 root freshness.
+
+**Идентичность:** `arxiv:1704.06185` · **Авторы:** Josh Alman, Joshua R. Wang, Huacheng Yu · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-373
+**[Systematic Data Structure Lower Bounds via the Query-With-Sketch Model](https://doi.org/10.4230/LIPIcs.CCC.2026.41)** (2026)
+
+CCC 2026: min-entropy query-with-sketch подход для lower bounds на static systematic approximate matrix powering с ценой redundancy и проб исходной матрицы.
+
+**Ограничение:** Официальный DOI .41; .42 другой автор. Static approximate matrix query не есть dynamic authenticated RANGE или freshness.
+
+**Идентичность:** `doi:10.4230/LIPIcs.CCC.2026.41` · **Также:** arxiv:2609.18024 · **Авторы:** Sumegha Garg, Songhua He, Yuanzhi Li, Periklis A. Papakonstantinou, Xin Yang · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
 
 ## incremental-computation
@@ -1770,6 +1809,19 @@ Instance-sensitive сжатие preferential-attachment графов с подд
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-372
+**[Cell-Probe Lower Bounds and Complexity-Preserving Reductions for Suffix Array Queries](https://arxiv.org/abs/2608.19172)** (2026)
+
+Нетривиальные static suffix-array cell-probe bounds и prefix-select/prefix-special-rank редукции, сохраняющие четыре вычислительных ресурса.
+
+**Ограничение:** Статический индекс не учитывает WAL, bounded-RAM compaction, online updates, физический SSD recourse и persistent proofs.
+
+**Идентичность:** `arxiv:2608.19172` · **Авторы:** Dominik Kempa, Tomasz Kociumaka · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
 
 ## online-optimization
@@ -2797,6 +2849,97 @@ VLDBJ 2026: поддерживаемые temporal window-CC индексы св�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
 
+### LIT-366
+**[Hypergraph containers](https://doi.org/10.1007/s00222-014-0562-8)** (2015)
+
+Исходная контейнерная лемма: малое семейство контейнеров накрывает независимые множества r-равномерных гиперграфов при структурных степенных предпосылках; применения к экстремальным задачам.
+
+**Ограничение:** Смешанный размер 4/6 и знаковые конфликты HYP-105 требуют собственной codegree и balanced supersaturation леммы.
+
+**Идентичность:** `doi:10.1007/s00222-014-0562-8` · **Авторы:** David Saxton, Andrew Thomason · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-367
+**[Independent sets in hypergraphs](https://doi.org/10.1090/S0894-0347-2014-00816-X)** (2014)
+
+Независимая фундаментальная контейнерная теорема о структуре и подсчёте независимых множеств uniform hypergraphs; первое электронное издание 2014, том JAMS 2015.
+
+**Ограничение:** Источник не покрывает без отдельной редукции unrestricted GF(5) signed trades, unequal 3-vs-2 relations и требования HYP-105.
+
+**Идентичность:** `doi:10.1090/S0894-0347-2014-00816-X` · **Также:** arxiv:1204.6530 · **Авторы:** József Balogh, Robert Morris, Wojciech Samotij · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-368
+**[Towards an Optimal Hypergraph Container Lemma](https://doi.org/10.1007/s00493-026-00214-1)** (2024)
+
+Новые версии контейнерной леммы с улучшенной зависимостью размера семейства от uniformity и иным понятием почти-независимости; arXiv 2024, журнал 2026.
+
+**Ограничение:** Имеется second-moment барьер в постановках статьи; не следует применять к mixed 4/6 GF(5) forbidden trades без новых доказательств.
+
+**Идентичность:** `doi:10.1007/s00493-026-00214-1` · **Также:** arxiv:2408.06617 · **Авторы:** Marcelo Campos, Wojciech Samotij · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-369
+**[The method of hypergraph containers](https://arxiv.org/abs/1801.04584)** (2018)
+
+Обзор и методологический мост: независимые множества гиперграфов, разреженные запретные конфигурации, экстремальная аддитивная комбинаторика и геометрия.
+
+**Ограничение:** Обзор не является новой контейнерной теоремой и не доказывает асимптотический показатель ASET.
+
+**Идентичность:** `arxiv:1801.04584` · **Авторы:** József Balogh, Robert Morris, Wojciech Samotij · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-374
+**[Regular sets of lines in rank 3 polar spaces](https://doi.org/10.1016/j.ffa.2024.102569)** (2023)
+
+Классифицированы минимальные регулярные множества линий в семействе rank-3 polar spaces через ассоциативные схемы; arXiv 2023, журнал 2025.
+
+**Ограничение:** Нет эквивалентности регулярности линий и GF(5) знакового запрета на малые комбинации столбцов.
+
+**Идентичность:** `doi:10.1016/j.ffa.2024.102569` · **Также:** arxiv:2312.02397 · **Авторы:** Ferdinand Ihringer, Morgan Rodgers · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-377
+**[Fractional clique decompositions of dense hypergraphs](https://doi.org/10.1112/blms.70382)** (2025)
+
+Улучшенные достаточные условия minimum codegree для дробного clique decomposition плотных униформных гиперграфов; авторский препринт 2025, журнал 2026.
+
+**Ограничение:** Дробная декомпозиция клики не доказывает bounds для sparse forbidden signed-trade hypergraph.
+
+**Идентичность:** `doi:10.1112/blms.70382` · **Также:** arxiv:2510.07225 · **Авторы:** Michelle Delcourt, Thomas Lesgourgues, Luke Postle · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-385
+**[Dynamic Meta-Kernelization](https://doi.org/10.1145/3798129.3800774)** (2026)
+
+STOC 2026 динамическая параметризованная meta-kernelization для графовых задач и инкрементальных задач ограниченного ядра.
+
+**Ограничение:** Не относится напрямую к arbitrary DAG reachability, GF(5) signed trades или authenticated range queries.
+
+**Идентичность:** `doi:10.1145/3798129.3800774` · **Авторы:** Christian Bertram, Deborah Haun, Mads Vestergaard Jensen, Tuukka Korhonen · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
 
 ## genomic-graphs
 *DNA, пангеномы, de Bruijn и sequence graph индексы*
@@ -3008,6 +3151,45 @@ Multi-context seeds для компромисса точности и скоро
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-378
+**[Lossless indexing with counting de Bruijn graphs](https://doi.org/10.1101/gr.276607.122)** (2022)
+
+Введены counting de Bruijn graphs с k-mer abundance и positional annotations; представлены авторские результаты компрессии больших геномных коллекций.
+
+**Ограничение:** Нельзя переносить экспериментальный коэффициент сжатия или queries по k-mer путям на arbitrary DAG reachability/SSD rewrite theorem.
+
+**Идентичность:** `doi:10.1101/gr.276607.122` · **Авторы:** Mikhail Karasikov, Harun Mustafa, Gunnar Rätsch, Andre Kahles · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-379
+**[Beyond single references: pangenome graphs and the future of genomic medicine](https://doi.org/10.3389/fgene.2025.1679660)** (2025)
+
+Издательский обзор пангеномных графов и haplotype paths, преимуществ перед единичным линейным reference и проблем интерпретируемости.
+
+**Ограничение:** Это обзор биомедицинского применения, а не математическая нижняя граница для графовых индексов.
+
+**Идентичность:** `doi:10.3389/fgene.2025.1679660` · **Авторы:** Denis M. Nyaga, Roan E. Zaied, Olin K. Silander, Michael A. Black, Justin M. O'Sullivan · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-387
+**[A run-length-compressed skiplist data structure for dynamic GBWTs supports time and space efficient pangenome operations over syncmers](https://doi.org/10.64898/2026.03.26.714584)** (2026)
+
+Авторский bioRxiv-препринт 2026: динамический run-length-compressed BWT с skiplist и представлением syncmer-indexed haplotype paths; авторы сообщают rank/access O(log N) и insert O(log N+S) в собственной модели.
+
+**Ограничение:** Не подтверждена рецензируемая версия; алгоритмические границы для заданных путей не означают произвольную DAG reachability, fsync/WAL/GC, paid SSD page recourse или Byzantine proof freshness.
+
+**Идентичность:** `doi:10.64898/2026.03.26.714584` · **Авторы:** Richard Durbin · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
 
 ## biological-memory
@@ -3249,7 +3431,7 @@ PNAS 2020: код HEDGES исправляет вставки, удаления �
 
 **Ограничение:** Биомедицинская демонстрация, а не доказанная общая эффективность или масштабируемость.
 
-**Идентичность:** `arxiv:2607.11464` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+**Идентичность:** `arxiv:2607.11464` · **Также:** doi:10.1109/ICKG66886.2025.00019 · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 
@@ -3645,6 +3827,32 @@ PVLDB 2026: дерево оглавления, entity relation graph и адап
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
 
+### LIT-383
+**[GraphRAG-R1: Graph Retrieval-Augmented Generation with Process-Constrained Reinforcement Learning](https://arxiv.org/abs/2507.23581)** (2025)
+
+Process-constrained RL и cost-aware graph-text retrieval; авторы сообщают улучшение по multi-hop retrieval бенчмаркам.
+
+**Ограничение:** Экспериментальные показатели не перепроверены; не гарантируют completeness, provenance, timeliness или causal correctness.
+
+**Идентичность:** `arxiv:2507.23581` · **Авторы:** Chuanyue Yu, Kuo Zhao, Yuhan Li, Heng Chang, Mingjian Feng, Xiangzhe Jiang, Yufei Sun, Jia Li, Yuzhi Zhang, Jianxin Li, Ziwei Zhang · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-384
+**[Comparing RAG and GraphRAG for Page-Level Retrieval Question Answering on a Math Textbook](https://doi.org/10.5281/zenodo.21039806)** (2025)
+
+EDM 2026: 477 QA примеров из одного учебника; авторы находят преимущество RAG/BM25 по page-level retrieval и более низкий шум контекста относительно GraphRAG.
+
+**Ограничение:** Частный эксперимент не является общей теоремой о преимуществе RAG; первый авторский препринт 2025 отличается метаданными версий.
+
+**Идентичность:** `doi:10.5281/zenodo.21039806` · **Также:** arxiv:2509.16780 · **Авторы:** Eason Chen, Chuangji Li, Shizhuo Li, Zimo Xiao, Jionghao Lin, Ken Koedinger · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
 
 ## agent-memory
 *Графовая память агентов, темпоральность и эволюция знаний*
@@ -3987,6 +4195,58 @@ Scientific Reports 2026: совместное использование гло�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
 
+### LIT-380
+**[A Unified Temporal Knowledge Graph Reasoning Model Towards Interpolation and Extrapolation](https://doi.org/10.18653/v1/2024.acl-long.8)** (2024)
+
+ACL 2024 TPAR: temporal path reasoning, объединяющий interpolation и extrapolation при построении прогнозов TKG; авторские benchmark результаты.
+
+**Ограничение:** Нет доказательства источниковой истины, bitemporal достоверности или криптографической freshness.
+
+**Идентичность:** `doi:10.18653/v1/2024.acl-long.8` · **Авторы:** Kai Chen, Ye Wang, Yitong Li, Aiping Li, Han Yu, Xin Song · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-381
+**[Natural Evolution-based Dual-Level Aggregation for Temporal Knowledge Graph Reasoning](https://doi.org/10.18653/v1/2024.findings-emnlp.543)** (2024)
+
+EMNLP 2024 NEDA: асинхронные event patches и dual-level aggregation для temporal knowledge-graph link prediction.
+
+**Ограничение:** Ни причинная идентификация, ни проверяемость исторических PIN, ни полный provenance не доказаны.
+
+**Идентичность:** `doi:10.18653/v1/2024.findings-emnlp.543` · **Авторы:** Bin Chen, Chunjing Xiao, Fan Zhou · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-382
+**[CEGRL-TKGR: A Causal Enhanced Graph Representation Learning Framework for Temporal Knowledge Graph Reasoning](https://aclanthology.org/2025.neusymbridge-1.2/)** (2025)
+
+COLING NeusymBridge 2025: disentangling causal и confounding representations, интервенционные идеи в обучении TKG embeddings и авторские эксперименты.
+
+**Ограничение:** Работа использует каузальный язык в ML, но не гарантирует корректную структурную каузальную модель или доказательство подлинности факта.
+
+**Идентичность:** `publisher:aclanthology:2025-neusymbridge-1-2` · **Авторы:** Jinze Sun, Yongpan Sheng, Lirong He, Yongbin Qin, Ming Liu, Tao Jia · **Проверка:** `publisher_bibliography_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-386
+**[TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios](https://arxiv.org/abs/2505.12891)** (2025)
+
+NeurIPS 2025 Datasets & Benchmarks: авторы сформировали 38 522 пары temporal QA из Wiki/News/Dialog, 3 уровня и 11 подзадач; источник для отрицательных и положительных экспериментальных тестов временных моделей.
+
+**Ограничение:** Benchmark LLM temporal QA не доказывает cryptographic freshness, causal ground truth, надежность bitemporal provenance или lower bounds; исходные результаты не воспроизведены.
+
+**Идентичность:** `arxiv:2505.12891` · **Авторы:** Shaohang Wei, Wei Li, Feifan Song, Wen Luo, Tianyi Zhuang, Haochen Tan, Zhijiang Guo, Houfeng Wang · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
 
 ## graph-reasoning
 *Графовые зависимости шагов рассуждения, DAG-планирование*
@@ -4193,6 +4453,32 @@ Alfarano (30 сентября 2026) изучает критический пок
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/399e1db43a1b1847de1855261b1da9c145068e4a/docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-375
+**[A common generalization of hypercube partitions and ovoids in polar spaces](https://doi.org/10.1007/s10623-024-01489-5)** (2024)
+
+Обобщены q-аналог ovoids и разбиения гиперкуба, доказаны ограничения существования в больших рангах.
+
+**Ограничение:** Теорема относится к polar spaces, не к HYP-105 signed support-4 collision-free семействам.
+
+**Идентичность:** `doi:10.1007/s10623-024-01489-5` · **Также:** arxiv:2401.10523 · **Авторы:** Jozefien D'haeseleer, Ferdinand Ihringer, Kai-Uwe Schmidt · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-376
+**[The Erdős-Rado sunflower problem for vector spaces](https://doi.org/10.1016/j.ffa.2025.102746)** (2025)
+
+q-аналог sunflower-free подпространств с конструкциями из lifted MRD-кодов; авторский препринт 2025, журнал 2026.
+
+**Ограничение:** Не доказана редукция к GF(5) ASET и ограниченным знаковым суммам.
+
+**Идентичность:** `doi:10.1016/j.ffa.2025.102746` · **Также:** arxiv:2505.03671 · **Авторы:** Ferdinand Ihringer, Andrey Kupavskii · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
 
 ## proof-certification
