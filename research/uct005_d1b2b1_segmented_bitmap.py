@@ -230,9 +230,9 @@ def report():
         machine.set(1, 1)  # identical no-op, independent epoch
         machine.pin_current(1)
         machine.set(4, 0)
-        if (machine.query(0, 0, 5, as_of=0) != 0
-                or machine.query(1, 0, 5, as_of=2) != 1
-                or machine.query(0, 0, 5) != 0):
+        if (machine.query(0, 0, 5, as_of=0) != 1
+                or machine.query(1, 0, 5, as_of=2) != 0
+                or machine.query(0, 0, 5) != 1):
             raise AssertionError("parity history mismatch")
         machine.gc()
         if not set(machine.roots) == {0, 2, 3}:
