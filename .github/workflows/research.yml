@@ -280,3 +280,30 @@ jobs:
 
       - name: TOM-003-D2 authenticated overwrite and multiproof cost gate
         run: python research/tom_authenticated_overwrite.py
+
+  research-full-suite:
+    # A single explicit verdict: foundation-only SUCCESS is not full CI.
+    if: ${{ always() }}
+    needs:
+      - lent-001-foundation
+      - research-hyp105-foundation
+      - research-hyp105-exact-census
+      - research-catalog-and-primitives
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require all four research shards to pass
+        env:
+          FOUNDATION: ${{ needs.lent-001-foundation.result }}
+          HYP_FOUNDATION: ${{ needs.research-hyp105-foundation.result }}
+          HYP_CENSUS: ${{ needs.research-hyp105-exact-census.result }}
+          CATALOG: ${{ needs.research-catalog-and-primitives.result }}
+        run: |
+          set -euo pipefail
+          for result in "$FOUNDATION" "$HYP_FOUNDATION" "$HYP_CENSUS" "$CATALOG"; do
+            if [ "$result" != "success" ]; then
+              echo "Research suite incomplete: shard result=$result" >&2
+              exit 1
+            fi
+          done
+          echo "All four research shards succeeded."
