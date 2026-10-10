@@ -80,6 +80,36 @@ class RemotePinBitmapTests(unittest.TestCase):
             m.assert_live_invariant()
             self.assertEqual(set(m.remote), {1})
 
+    def test_n33_p2_exact_three_epoch_remote_and_trusted_trade(self):
+        # Same PAGE-001 immutable snapshots, but one public PIN bitmap page.
+        from uct005_d1b2c_eager_pin_reclaim import EagerPinReclaim
+        r = RemotePinBitmapF1((0,) * 33, 2, epoch_capacity=8)
+        e = EagerPinReclaim((0,) * 33, 2)
+        for model in (r, e):
+            self.assertEqual(model.pin_current(0), 0)
+            model.set(0, 1)
+            model.set(0, 1)  # mandatory fresh no-op epoch
+            self.assertEqual(model.pin_current(1), 2)
+            model.set(32, 1)
+        self.assertEqual(set(r.remote), {0, 2, 3})
+        self.assertEqual(set(e.remote), {0, 2, 3})
+        self.assertEqual(r.bitmap_pages, 1)  # ceil(16 pin bits/8)/2
+        self.assertEqual(r.remote_pages, 3 * 27 + 1)
+        self.assertEqual(e.remote_pages, 3 * 27)
+        # n writer bits + 40B latest root + 80B reader PIN tokens,
+        # plus respectively 40B trusted bitmap root or 82B trusted records.
+        self.assertEqual(r.trusted_bits, 33 + 8 * (40 + 80 + 40))
+        self.assertEqual(e.trusted_bits, 33 + 8 * (40 + 80 + 82))
+        self.assertEqual(e.trusted_bits - r.trusted_bits, 42 * 8)
+        self.assertEqual(r.ledger["bitmap_remote_page_writes"], 2)
+        self.assertEqual(r.ledger["bitmap_trusted_root_publication_bytes"], 80)
+        self.assertGreater(r.ledger["bitmap_remote_page_read_attempts"], 0)
+        self.assertEqual(r.ledger["bitmap_remote_drop_page_calls"], 27)
+        self.assertEqual(r.latest(0, 0, 33), e.latest(0, 0, 33))
+        self.assertEqual(r.as_of(0, 0, 0, 33), e.as_of(0, 0, 0, 33))
+        self.assertEqual(r.as_of(1, 2, 0, 33), e.as_of(1, 2, 0, 33))
+        r.assert_live_invariant()
+
     def test_bitmap_tamper_replay_and_withholding_abort_before_author_change(self):
         for p in (1, 2, 64):
             m = RemotePinBitmapF1((0, 1, 1), p, 8)
