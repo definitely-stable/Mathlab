@@ -132,6 +132,12 @@ jobs:
       - name: HYP-105 G5-E2-B3.0 six-factor-forest projection polynomial and exponent audit
         run: python research/hyp105_g5e2b3_forests.py
 
+      - name: HYP-105 B3.2-E1-A full W32 fixed-map 62370-candidate GF5 lower census
+        run: python research/hyp105_g5e2b3e1a_fixed_leading.py
+
+      - name: HYP-105 B3.2-E1-A independent 10-column brute, bijection gauge and GF5 tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1a_fixed_leading.py'
+
       - name: HYP-105 B3.1-B2-B complete leading nonmatching forest GF5 certificate
         run: python research/hyp105_g5e2b3b2b_leading_forests.py
 
