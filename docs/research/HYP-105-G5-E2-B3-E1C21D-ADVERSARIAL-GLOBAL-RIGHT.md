@@ -34,6 +34,24 @@ Consequently also min_{f,g} D6(f,g)=0 at **s=2 only**. The exact one-common-rand
 
 This is a concrete original-GQ counterexample to *inferring a positive fixed-g D6 minimum from a positive global-g mean at s=2*. It is NOT a counterexample to an asymptotic all-h D6 Omega(s^6) minimum: no infinite family is provided. In particular the same pair of true maps has S_seven=146 > 0, so this is NOT a counterexample to the seven-family obstruction of parent #230, full GF5 R3, or ASET exponent.
 
+## Exhaustive genuine W32 one-swap adversarial right neighborhood
+
+The exact standalone right-swap oracle freezes the **same complete original left f**, enumerates all 18,716 right-distinct ORIGINAL six-incidence physical-left-C6 candidates **ONCE**, and then enumerates ALL C(15,2)=105 independent choices of swapping two ORIGINAL right lines in the fixed complete right g above. The swap changes the ONE COMMON right mapping across all 45 original incidences; no local per-motif adjustments or random sampled incomplete mappings. For each complete swapped global g, compare pairwise physical column-position dual C6 incidence bit relations against the same original source.
+
+The full exact integer histogram is:
+
+    D6 count : number of one-swap global right maps
+       0     : 40
+       1     : 29
+       2     : 24
+       3     :  6
+       4     :  4
+       5     :  1
+       9     :  1
+    TOTAL    : 105.
+
+This shows finite W32 D6-zero robustness to 40/105 distinct individual right transpositions of one globally compatible witness. It is **not** a full permutation domain minimum proof by exhaustive 15! search (that minimum was already certified by one zero witness and nonnegativity), not a same-pair seven-family zero, and not an all-h obstruction.
+
 ## Exact all-h D6 incidence tensor requiring a new extremal inequality
 
 For any s=2^h and one fixed global left f, define J_C6,A(f) as all DISTINCT ORIGINAL six-incidence sets whose physical left projection is a simple six-cycle and whose six ORIGINAL right lines are distinct. Order the six original incidence columns consistently. Let D_L(J) be the connected six-cycle of column-position adjacencies induced by the physical left pairs, and D_R(J,g) the right column-position dual after ONE global right g. Then
