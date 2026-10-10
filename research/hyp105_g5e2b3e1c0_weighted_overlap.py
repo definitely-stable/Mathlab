@@ -92,6 +92,60 @@ def physical_target_two_point_design(a):
     }
 
 
+def physical_target_three_point_orbits(a):
+    """Exact ALL-a triple-label orbit co-degrees for six-edge 2factors.
+
+    Three distinct physical K_a pair edges have exactly five possible
+    unlabeled 3-edge graph shapes (all simple):
+      triangle (r=3): 1*C(a-3,3) target hyperedges;
+      length-three path P4 (r=4): 2*C(a-4,2);
+      claw K1,3 (r=4): 0, since physical degree would exceed 2;
+      P3 + disjoint K2 (r=5): 5*C(a-5,1);
+      three-edge perfect matching (r=6): 8.
+    Values 1,2,0,5,8 are an exact exhaustive K6 template census,
+    independently verified against all 70 K6 physical target factors.
+    They embed into K_a on all C(a-r,6-r) ways to add coordinates.
+    Target triplet incidence sum = C(6,3)*|T_a| exactly.
+    Neither all-h GQ-specific source m_f nor a positive min follows.
+    """
+    if not isinstance(a,int) or isinstance(a,bool) or a<6:
+        raise ValueError("K_a physical coordinate count must be >=6")
+    k=lambda n,m: comb(n,m) if n>=m>=0 else 0
+    target=physical_target_two_point_design(a)
+    triples={
+        "triangle":{"vertices":3,"source_K6_codegree":1,
+                    "orbit_cardinality":k(a,3),
+                    "codegree":k(a-3,3)},
+        "path_P4":{"vertices":4,"source_K6_codegree":2,
+                    "orbit_cardinality":12*k(a,4),
+                    "codegree":2*k(a-4,2)},
+        "star_K1_3":{"vertices":4,"source_K6_codegree":0,
+                    "orbit_cardinality":4*k(a,4),
+                    "codegree":0},
+        "path_P3_plus_edge":{"vertices":5,"source_K6_codegree":5,
+                    "orbit_cardinality":30*k(a,5),
+                    "codegree":5*k(a-5,1)},
+        "matching_3":{"vertices":6,"source_K6_codegree":8,
+                    "orbit_cardinality":15*k(a,6),
+                    "codegree":8},
+    }
+    if (sum(t["orbit_cardinality"] for t in triples.values())!=
+            k(k(a,2),3)):
+        raise AssertionError("all physical 3-edge graph orbits not exhausted")
+    if (sum(t["orbit_cardinality"]*t["codegree"]
+            for t in triples.values())!=20*target["physical_six_2factor_target_size"]):
+        raise AssertionError("target third-incidence moment consistency")
+    return {
+        "a":a,
+        "target_triple_label_orbits":triples,
+        "target_third_incidence_total":
+            20*target["physical_six_2factor_target_size"],
+        "exact_all_a_census_proved":True,
+        "actual_GQ_source_order3_distribution_computed":False,
+        "all_correlated_right_min_lower_proved":False,
+    }
+
+
 def one_degree_source_overlap_invariant(a, constant, vertex_coefficients):
     """Exact all-right-BIJECTION value for degree<=1 source m(R).
 
@@ -306,6 +360,7 @@ def report():
         "exact_W32":finite_W32_overlap_report(),
         "generic_mass_only_countermodel":generic_mass_only_countermodel(),
         "pair_marginal_blind_3cube_trade":two_marginal_blind_cube_trade(),
+        "physical_target_three_point_signature_W32":physical_target_three_point_orbits(6),
         "prior_art":"Bollobas-Scott 2015 weighted k-uniform intersections; no automatic min transfer",
         "full_R3_or_ASET_exponent":False,
     }
