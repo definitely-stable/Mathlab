@@ -94,6 +94,23 @@ class SevenMotifJointFixedTests(unittest.TestCase):
             z=seven_census(model)
             self.assertEqual(z["left_6coordinate_candidates"],62370)
             self.assertEqual(z["new_classes"],expected_new)
+            pinned = {
+                "lex":({
+                    "D6":15, "B-left/A-right":98, "A-left/B-right":110,
+                    "C/A":13, "C/B":1, "B/B-overlap":8,
+                    "B/B-disjoint":14,
+                }, 259, 50, 11225795),
+                "reverse-line":({
+                    "D6":3, "B-left/A-right":77, "A-left/B-right":74,
+                    "C/A":1, "C/B":1, "B/B-overlap":7,
+                    "B/B-disjoint":6,
+                }, 169, 32, 7627209),
+            }
+            expected_seven,expected_S,expected_Q4,expected_lower = pinned[scheme]
+            self.assertEqual(z["seven_class_motif_counts"],expected_seven)
+            self.assertEqual(z["S_seven"],expected_S)
+            self.assertEqual(z["Q4"],expected_Q4)
+            self.assertEqual(z["GF5_seven_lower_numerator"],expected_lower)
             self.assertEqual(sum(z["new_classes"].values()),total)
             self.assertGreaterEqual(z["S_seven"],total)
             baseline=finite_census(model)
