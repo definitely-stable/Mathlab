@@ -43,6 +43,60 @@ For the frozen three-SET trace (updates `0`, `min(1,n-1)`, `n-1`), letting `d_1,
 
 The inequalities follow directly from the immutable path-allocation injection; they are **not** information-theoretic lower bounds, do **not** account for root manifests/bitmap metadata, and do not establish that keeping old content can be done with that space under an adversarial unknown-future workload. Independent finite tests assert these bounds against the actual SHA-authenticated union, including the no-op path.
 
+## Exact restricted checkpoint-path union identity (stronger than the upper bound)
+
+For the accepted **full-path immutable COW** layout, the previous three-update
+path-injection upper bound can be sharpened to an **exact identity**, under the
+same no-reuse node-ID and no-op-emits-a-path conventions.
+
+Consider ANY frozen sequence of SET indices x_1,...,x_T (values may be
+unchanged), any strictly increasing retained checkpoint epochs
+0<=e_0<e_1<...<e_k=T, and the public balanced-tree coordinate path
+P(x_t) consisting of (lo,hi) intervals. After GC the number of additional
+distinct node records required by these roots beyond LATEST alone is EXACTLY
+
+\[
+N_{\rm extra}=\sum_{j=0}^{k-1}
+   \left|\bigcup_{t=e_j+1}^{e_{j+1}}P(x_t)\right|.
+\]
+
+**Proof (per-coordinate version accounting).** Every tree coordinate has
+exactly one node-ID in each epoch's root and gets a fresh, globally unique
+ID precisely when the SET index is in that coordinate's interval. Fix two
+consecutive retained checkpoints. For each coordinate, its two retained
+IDs differ iff at least one intervening update traversed that coordinate,
+regardless of whether the logical bit changed and regardless of how many
+updates touched the coordinate. As retained epochs increase, these IDs
+never recur, so a coordinate's distinct IDs across k+1 checkpoints
+exceed its LATEST-only ID count by exactly the number of adjacent
+checkpoint pairs whose intervening update paths contain that coordinate.
+Sum this equality over tree coordinates and swap the order of sums.
+
+For the three-SET workload retained epochs (0,2,3), this yields
+\[
+N_{\rm extra}=|P(x_1)\cup P(x_2)|+|P(x_3)|
+             =d_1+d_2-|P(x_1)\cap P(x_2)|+d_3.
+\]
+For PIN epoch 2 only, \(N_{\rm extra}=d_3\); for LATEST only, zero.
+Multiply by \(\lceil122/P\rceil\) and add the number of distinct historical
+epoch root slots times \(\lceil48/P\rceil\) for exact **incremental stored page
+images** within this frozen page-image grammar. Advisory bitmap metadata
+is already resident at issued highwater and does not multiply per PIN.
+
+The independent remote SHA-authenticated traversal checks this exact
+closed form rather than deriving the page count by repeating the path
+predictor. Tests enumerate all initial GF(2) words, *every* 3-SET position
+triple and *every* historical checkpoint subset for n<=3, including a
+no-op middle SET. All half-open intervals are queried for n<=6; larger
+n/P structural witnesses use an explicitly smaller representative
+interval profile.
+
+This is a **structural accounting identity for this concrete COW
+construction**, not an information-theoretic H1+H2 lower bound,
+not a cross-implementation inequality, and not a free online GC
+algorithm. The public path-union computation is an independently charged
+offline analytical calculation, not secretly assumed trusted RAM.
+
 ## Independent charged audit
 
 [\`research/uct005_d1b2f1_pin_retention.py\`](../../research/uct005_d1b2f1_pin_retention.py) validates each historical PIN commitment against independently authenticated epoch slots; it verifies every visited COW node with the accepted reference's actual SHA256 node grammar, and charges the complete aligned pages fetched for each epoch/root walk. Bitmap segment/page reads are separately charged, including zero-filled issued segments. For snapshots, it charges the packed payload + full manifest page images, recomputes epoch/root digest and validates the remote manifest.
