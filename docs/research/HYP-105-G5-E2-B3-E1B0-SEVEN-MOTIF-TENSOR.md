@@ -87,6 +87,31 @@ Independent tests also check:
 
 Two fixed schemes `lex` and `reverse-line` are reported on the **same** factor incidence order and exact finite physical bijections. Differences in the counts are not evidence of an all-h exponent or of a smaller COMPLETE R2/R3.
 
+## 3A. Exact FULL 51-palette GF5 signed risk of this selected seven-family subset
+
+Beyond the accepted universal lower based on positive minima, the [same-label oracle](../../research/hyp105_g5e2b3e1b0_seven_signature.py) now evaluates the **exact restricted seven-family GF5 3v3 contribution** for finite W(3,2). After collecting each qualifying ORIGINAL six-incidence set once, it independently evaluates **all ten unordered balanced signed partitions** of that set with the accepted 782-state exact GF5 dual Fourier oracle on its actual twelve physical coordinates:
+
+```text
+R3_seven_selected(f,g)
+ = (1/51^6) *
+   sum_{sixset e in seven qualified families}
+   sum_{10 unordered balanced sign patterns sigma}
+   F_GF5(exact support(e),sigma).
+```
+
+This is an *exact sum of restricted events*, not a union probability. In particular, for coincident D6 sets it includes nine further sign patterns besides the one alternating event whose positive 5,643 count was used in the structural floor. Every original sixset is assigned to at most one of the seven structural families, so all these selected signed events are disjointly indexed. The program asserts
+
+```text
+R3_seven_selected(f,g) >=
+ [5643 D6 + 45600(U_B-left+U_B-right)
+  + 43320 U_CA + 49050 U_CB
+  + 51750 U_BB-cap + 45010 U_BB-disjoint] / 51^6.
+```
+
+A hard cap of 5,000 exact GF5 events rejects oversized computations rather than reporting truncated risk. The CI independent tests validate all ten signs per qualifying original set, the exact per-class integer decomposition and this lower inequality for both pinned W(3,2) control labelings. Numerical full-event coefficients are accepted only after the exact PR-head GitHub-hosted Research success gate.
+
+**CRITICAL:** This new `R3_seven_selected` is not the FULL `R3`: A/A non-D6 positive signatures, other positive six-projection signatures, and 11,032 subleading necessary forest types can contribute. Its comparison across finite controls does not imply any uniform-in-h asymptotic risk bound.
+
 ## 4. Scientific gate and next action
 
 This is an **E1-B0 RESTRICTED/REDUCTION THEOREM**, not a solution to the #230 all-h disjunction. Follow-up B1 should seek a real all-label lower or infinite correlated counterexample for the seven coefficient families, e.g. a spectral/tensor inequality or a concrete infinite family of gauge-inequivalent maps. A finite W32 discrepancy, a random-label expectation Θ(s^6), or a low Q4/D6 proxy does not close that gate. The 11,032 subleading forest types also remain relevant for any full GF5 R3 upper.
