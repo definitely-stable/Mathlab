@@ -97,6 +97,27 @@ These classes are nonempty for all sufficiently large s by the same greedy const
 
 All-h fixed-label corollary: if a certified class has a positive minimum exact F_min over all its possible positive signed events, it gives a restricted risk lower proportional to the ACTUAL fixed-map event multiplicity. It gives no universal lower on multiplicity and never an R3 upper.
 
+### 4.1 New all-h fixed-label *necessary* obstruction (NOT an upper)
+
+For any fixed injective point/line pair-coordinate maps f_s,g_s, let U_CA, U_CB, U_BB_intersect, U_BB_disjoint count the ACTUAL, DISTINCT original six-incidence factor-forest sets of each class whose two physical projections touch exactly six coordinates and have no degree-one coordinate. Because every one of their ten unordered balanced sign events is GF5-positive, the exact finite minima yield the uniform-in-h **necessary lower**:
+
+```text
+R3(f_s,g_s) >= [
+  43320*U_CA + 49050*U_CB
+  + 51750*U_BB_intersect + 45010*U_BB_disjoint
+] / 51^6.
+```
+
+The four families are disjoint as original six-column sets; risk is a SUM of signed-event probabilities and no union-probability independence is asserted. This may be added to previous accepted disjoint matching six-cycle and one-cherry floors:
+
+```text
+R3 >= [5643*D6 + 45600*(U_B_left+U_B_right)
+       + 43320*U_CA + 49050*U_CB
+       + 51750*U_BB_intersect + 45010*U_BB_disjoint] / 51^6.
+```
+
+Here U_B_left/U_B_right specifically refer to accepted #218 single-cherry/6+6, and D6 to accepted matching aligned-C6 events. None of these U/D quantities currently has a proved universal Omega(s^6) lower valid for ALL deterministic f_s,g_s. This is therefore **not** a universal fixed-label obstruction, much less a full ASET upper.
+
 ## 5. Limits / remaining proof gate
 
 - The other **11,032** leafless necessary factor-forest shapes (with smaller random-label upper exponents) are OPEN. Their counts may behave differently under exceptional correlated deterministic labels, so cannot be discarded from a fixed-label theorem.
