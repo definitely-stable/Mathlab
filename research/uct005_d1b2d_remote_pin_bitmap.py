@@ -210,15 +210,16 @@ class RemotePinBitmapF1(SnapshotF1Reference):
                 raise AssertionError("PIN bitmap diverges from client trusted tokens")
 
 
-def future_pin_signature_count(horizon: int, pins: tuple[int, ...]) -> int:
-    """Independent finite decision-state oracle for H historic epochs."""
-    if horizon < 0 or len(set(pins)) != len(pins) or any(
-            t < 0 or t >= horizon for t in pins):
-        raise ValueError("invalid set of historic PIN epochs")
-    return len(set(tuple(int(i in subset) for i in range(horizon))
-                   for subset in itertools.chain.from_iterable(
-                       itertools.combinations(range(horizon), k)
-                       for k in range(horizon + 1))))
+def future_pin_signature_count(horizon: int, eligible: tuple[int, ...]) -> int:
+    """Independent enumeration of observable subsets at eligible epochs."""
+    if horizon < 0 or len(set(eligible)) != len(eligible) or any(
+            t < 0 or t >= horizon for t in eligible):
+        raise ValueError("invalid set of eligible historic PIN epochs")
+    return len({
+        tuple(int(i in subset) for i in range(horizon))
+        for k in range(len(eligible) + 1)
+        for subset in itertools.combinations(eligible, k)
+    })
 
 
 def compare_history(bits: tuple[int, ...], page_bytes: int) -> dict:
@@ -290,7 +291,7 @@ def compare_history(bits: tuple[int, ...], page_bytes: int) -> dict:
 def report() -> dict:
     return {
         "classification": "CLASSICAL_FINITE_HISTORY_INFO_AND_AUTHENTICATED_REMOTE_BITMAP",
-        "five_epoch_pin_signatures": future_pin_signature_count(5, (0, 2, 4)),
+        "five_epoch_pin_signatures": future_pin_signature_count(5, tuple(range(5))),
         "cases": [compare_history(tuple(i & 1 for i in range(n)), p)
                   for n, p in ((1, 1), (3, 2), (8, 8), (33, 2))],
         "cryptographic_theorem": False,
