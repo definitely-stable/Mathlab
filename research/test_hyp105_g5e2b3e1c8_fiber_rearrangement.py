@@ -7,7 +7,8 @@ import unittest
 from hyp105_g5e2b3e1c5_common_bijection import fixed_map_overlap
 from hyp105_g5e2b3e1c7_adversarial_minimum import exact_adversarial_minimum
 from hyp105_g5e2b3e1c8_fiber_rearrangement import (
-    frozen_fiber_rearrangement, universal_k_pin_lower, W32_fiber_report,
+    frozen_fiber_rearrangement, universal_k_pin_lower, finite_minimum_interval,
+    W32_fiber_report,
 )
 
 
@@ -42,6 +43,20 @@ class FiberRearrangementC8Tests(unittest.TestCase):
             self.assertEqual(frozen_fiber_rearrangement(
                 src, star, V, (0,), (j,)), 7 if j == 0 else 1)
         self.assertEqual(exact_adversarial_minimum(src, star, V)["exact_minimum"], 1)
+
+    def test_star_mean_upper_meets_one_pin_lower_exactly(self):
+        V=8
+        star={frozenset(set(range(V))-{0,j}) for j in range(1,V)}
+        source={R:1 for R in star}
+        loose=finite_minimum_interval(source, star, V)
+        sharp=finite_minimum_interval(source, star, V, (0,))
+        self.assertEqual((loose["certified_minimum_lower"],
+                          loose["existential_mean_minimum_upper"]), (0,1))
+        self.assertEqual((sharp["certified_minimum_lower"],
+                          sharp["existential_mean_minimum_upper"]), (1,1))
+        self.assertTrue(sharp["minimum_exact"])
+        self.assertEqual(sharp["exact_minimum_if_equal"], 1)
+        self.assertFalse(sharp["explicit_upper_witness"])
 
     def test_independent_direct_subset_relaxation_V7(self):
         V = 7
@@ -106,6 +121,7 @@ class FiberRearrangementC8Tests(unittest.TestCase):
             self.assertLessEqual(x["unconditional_lower"], x["one_pin_universal_lower"])
             self.assertLessEqual(x["one_pin_universal_lower"], x["two_pin_universal_lower"])
             self.assertLessEqual(x["two_pin_universal_lower"], x["actual_original_right_g_overlap"])
+            self.assertEqual(x["existential_mean_upper"], 69)
             self.assertFalse(x["f_and_F_minimum_proved"])
 
     def test_fail_closed_bad_pins_and_budget(self):
