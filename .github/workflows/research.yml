@@ -437,6 +437,12 @@ jobs:
       - name: HYP-105 C22 105 globally coherent right swaps exact all-seven and GF5 necessary floor report
         run: python research/hyp105_g5e2b3e1c22_joint_seven_tensor.py
 
+      - name: HYP-105 C23 independent K6 130 physical factors and exact all-seven global mean tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c23_seven_moment_influence.py'
+
+      - name: HYP-105 C23 W32 original all-seven exact expectation and all-h swap influence report
+        run: python research/hyp105_g5e2b3e1c23_seven_moment_influence.py
+
   research-full-suite:
     # A single explicit verdict: foundation-only SUCCESS is not full CI.
     if: ${{ always() }}
