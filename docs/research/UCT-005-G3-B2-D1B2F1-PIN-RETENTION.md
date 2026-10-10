@@ -31,6 +31,18 @@ For PAGE-001 snapshots, with complete snapshot page cost \`p_S=ceil(ceil(n/8)/P)
 
 No assumed physical file extents, SSD erase counts, network frames, proof compression or live remote directory indexes are inserted into these formulas. In particular, **the bitmap page count B is a paid resident metadata cost but is not charged AGAIN per historical root**. An empty bitmap segment already allocated by the highwater remains a remote page under the model.
 
+## Restricted path-injection upper bound
+
+An elementary finite counting result strengthens the retention audit without requiring a new theorem. The accepted immutable COW reference builds exactly `2n-1` node IDs at setup and allocates exactly the root-to-leaf path of depth `d_i` at each SET, **including a no-op**. Its latest version uses `2n-1` distinct node IDs. Every historical node ID not used by latest must belong to the initial issue set or one of the finite update paths.
+
+For the frozen three-SET trace (updates `0`, `min(1,n-1)`, `n-1`), letting `d_1,d_2,d_3` be the public balanced path lengths, the elementary upper bounds on **additional distinct PIN-retained COW node IDs** are:
+
+- PIN epochs 0 and 2 retained over latest 3: `N_extra <= d_1+d_2+d_3` (conservative all-issue bound)
+- Only epoch 2 retained over latest 3: `N_extra <= d_3` (only path 3 was newly allocated since epoch 2)
+- No historical PIN: `N_extra = 0`
+
+The inequalities follow directly from the immutable path-allocation injection; they are **not** information-theoretic lower bounds, do **not** account for root manifests/bitmap metadata, and do not establish that keeping old content can be done with that space under an adversarial unknown-future workload. Independent finite tests assert these bounds against the actual SHA-authenticated union, including the no-op path.
+
 ## Independent charged audit
 
 [\`research/uct005_d1b2f1_pin_retention.py\`](../../research/uct005_d1b2f1_pin_retention.py) validates each historical PIN commitment against independently authenticated epoch slots; it verifies every visited COW node with the accepted reference's actual SHA256 node grammar, and charges the complete aligned pages fetched for each epoch/root walk. Bitmap segment/page reads are separately charged, including zero-filled issued segments. For snapshots, it charges the packed payload + full manifest page images, recomputes epoch/root digest and validates the remote manifest.
