@@ -1,0 +1,37 @@
+name: issue-triage-integrity
+
+on:
+  push:
+    branches:
+      - main
+      - "research/**"
+    paths:
+      - "docs/research/ISSUE-TRIAGE-*"
+      - "docs/research/RESEARCH-MAINTENANCE-PLAN-2026-10-10.md"
+      - "research/issue_triage_snapshot.py"
+      - "research/test_issue_triage_snapshot.py"
+      - ".github/workflows/issue-triage-integrity.yml"
+  pull_request:
+    paths:
+      - "docs/research/ISSUE-TRIAGE-*"
+      - "docs/research/RESEARCH-MAINTENANCE-PLAN-2026-10-10.md"
+      - "research/issue_triage_snapshot.py"
+      - "research/test_issue_triage_snapshot.py"
+      - ".github/workflows/issue-triage-integrity.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-issue-triage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Check full dated issue inventory and generated dashboard
+        run: python research/issue_triage_snapshot.py --check
+      - name: Reject missing coverage, cycles, invalid closures and proof promotion
+        run: python -m unittest discover -s research -p 'test_issue_triage_snapshot.py' -v

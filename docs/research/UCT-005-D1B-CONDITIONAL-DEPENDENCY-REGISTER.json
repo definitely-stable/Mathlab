@@ -97,6 +97,24 @@
       "anchor": "**2026-10-10 scientific source correction:**",
       "kind": "SCOPED_SOURCE_AUDIT",
       "expected_line": "**2026-10-10 scientific source correction:** [External PDF audit / IMPORT-011](RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). Alman–Vassilevska Williams (arXiv:2610.06783) refute the standard 3SUM/APSP conjectures in their stated computational models: remove only dependency claims that actually rely on those conditional assumptions. This does not negate unconditional dynamic cell-probe lower bounds. Cauchyproofs and memory checking have different trust/security and cost models. Do not claim generic Ω(log n) authenticated penalty or a new joint UCT theorem without a same-task comparison. **ROOT_OPEN / NOVELTY_NOT_ESTABLISHED** persists."
+    },
+    {
+      "path": "docs/research/ISSUE-TRIAGE-ALL-OPEN.md",
+      "anchor": "— UCT-005 D1-B: audit obsolete 3SUM/APSP",
+      "kind": "BIBLIOGRAPHY_NAVIGATION",
+      "expected_line": "| [#231](https://github.com/definitely-stable/Mathlab/issues/231) — UCT-005 D1-B: audit obsolete 3SUM/APSP hardness dependencies and freeze model-safe CI | `UCT-005` | `UPDATE` | — |"
+    },
+    {
+      "path": "docs/research/ISSUE-TRIAGE-SNAPSHOT.json",
+      "anchor": "\"title\": \"UCT-005 D1-B: audit obsolete 3SUM/APSP",
+      "kind": "BIBLIOGRAPHY_NAVIGATION",
+      "expected_line": "\"title\": \"UCT-005 D1-B: audit obsolete 3SUM/APSP hardness dependencies and freeze model-safe CI\","
+    },
+    {
+      "path": "docs/research/RESEARCH-MAINTENANCE-PLAN-2026-10-10.md",
+      "anchor": "obsolete 3SUM/APSP transfer gate",
+      "kind": "SCOPED_SOURCE_AUDIT",
+      "expected_line": "| 5 | P0 | [#231](https://github.com/definitely-stable/Mathlab/issues/231) obsolete 3SUM/APSP transfer gate | 4×4=16 | 0.5–1 d | PR #232 merged | Postmerge Research/INDEX gate and explicit source transfer limitations |"
     }
   ],
   "catalog_occurrences": [

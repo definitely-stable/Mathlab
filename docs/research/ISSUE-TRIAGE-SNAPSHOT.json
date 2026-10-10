@@ -1,0 +1,560 @@
+{
+  "schema": "mathlab.issue-triage-snapshot.v1",
+  "as_of": "2026-10-10",
+  "source": "GitHub issue search repo:definitely-stable/Mathlab is:issue is:open, 2026-10-10",
+  "reviewed_main_sha": "7bf96f77e3841ebbe33d35beb002c893446f84e8",
+  "scope": "Snapshot of all 55 open issue search results; issue bodies sampled/reviewed at varying depth, comments/CI not exhaustive; recommendations are not actual issue state or scientific proof.",
+  "issue_count": 55,
+  "issues": [
+    {
+      "number": 1,
+      "title": "LENT-001: Sparse-Update State-Space Bounds foundation",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/1",
+      "state_at_snapshot": "OPEN",
+      "family": "LENT-001",
+      "triage_action": "REVIEW_CLOSE_AFTER_GATES",
+      "parent_issue": null,
+      "acceptance_gate": "Check finite oracle and signed-trade model against full ASET and primary prior art; no novelty by finite computation."
+    },
+    {
+      "number": 14,
+      "title": "LENT-001-G2B: genuine sparse scaling and exact hypergraph solver",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/14",
+      "state_at_snapshot": "OPEN",
+      "family": "LENT-001",
+      "triage_action": "REVIEW_CLOSE_AFTER_GATES",
+      "parent_issue": 1,
+      "acceptance_gate": "Check finite oracle and signed-trade model against full ASET and primary prior art; no novelty by finite computation."
+    },
+    {
+      "number": 15,
+      "title": "TOM-001: falsification-first theorem opportunity map (cross-domain, 14 candidates)",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/15",
+      "state_at_snapshot": "OPEN",
+      "family": "TOM",
+      "triage_action": "REVIEW_CLOSE_AFTER_GATES",
+      "parent_issue": null,
+      "acceptance_gate": "Freeze falsifiable source/target model and primary-source overlap; do not authorize production changes."
+    },
+    {
+      "number": 24,
+      "title": "HYP-001: prove ASET two-cell capacity Theta_q(m^3/2) and audit C4 prior art",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/24",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-FOUNDATION",
+      "triage_action": "REVIEW_CLOSE_AFTER_GATES",
+      "parent_issue": null,
+      "acceptance_gate": "C4-derived m^(3/2) result is a classical exponent candidate; check source proof and accepted CI before closure."
+    },
+    {
+      "number": 25,
+      "title": "HYP-002: sharp quadratic theorem — prior-art and constants audit",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/25",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-FOUNDATION",
+      "triage_action": "REVIEW_CLOSE_AFTER_GATES",
+      "parent_issue": null,
+      "acceptance_gate": "Quadratic derived theorem claimed in issue; verify proof, source audit, merged artifacts and exact-main CI before closure."
+    },
+    {
+      "number": 57,
+      "title": "RESEARCH-LITERATURE-003: diverse 2026 mathematics and algorithms literature import",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/57",
+      "state_at_snapshot": "OPEN",
+      "family": "LITERATURE",
+      "triage_action": "UPDATE",
+      "parent_issue": null,
+      "acceptance_gate": "2026 literature import request uses a 49-work historical baseline; current canonical catalog has 386 entries at review."
+    },
+    {
+      "number": 63,
+      "title": "TOM-006: source-only COPY/ADD patch-size certified lower bounds — prove/falsify before Rust",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/63",
+      "state_at_snapshot": "OPEN",
+      "family": "TOM",
+      "triage_action": "REVIEW_CLOSE_AFTER_GATES",
+      "parent_issue": null,
+      "acceptance_gate": "Freeze falsifiable source/target model and primary-source overlap; do not authorize production changes."
+    },
+    {
+      "number": 72,
+      "title": "HYP-101 G0: incremental-crypto prior art and exact BLAKE3 multi-edit time–space model",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/72",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-101",
+      "triage_action": "REVIEW_CLOSE_AFTER_GATES",
+      "parent_issue": null,
+      "acceptance_gate": "Keep incremental-hashing prior art separate from exact BLAKE3 multi-edit model and collision assumptions."
+    },
+    {
+      "number": 74,
+      "title": "UCT-001: unified dynamic-information theory, existing-results audit and four falsification gates",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/74",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-LEGACY",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": null,
+      "acceptance_gate": "Reconcile historical classical endpoint and source-audit gate with UCT-005 #105; no automatic closure."
+    },
+    {
+      "number": 76,
+      "title": "UCT-001 G1: select or STOP a genuinely nonredundant joint resource theorem",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/76",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-LEGACY",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": 74,
+      "acceptance_gate": "Reconcile historical classical endpoint and source-audit gate with UCT-005 #105; no automatic closure."
+    },
+    {
+      "number": 77,
+      "title": "UCT-002: unifying observation-capacity theorem across memory, updates, communication and verification",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/77",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-LEGACY",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": 76,
+      "acceptance_gate": "Reconcile historical classical endpoint and source-audit gate with UCT-005 #105; no automatic closure."
+    },
+    {
+      "number": 82,
+      "title": "UCT-003 G1: influence-transversal bound for adaptive queries and local writes",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/82",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-LEGACY",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": 77,
+      "acceptance_gate": "Reconcile historical classical endpoint and source-audit gate with UCT-005 #105; no automatic closure."
+    },
+    {
+      "number": 87,
+      "title": "UCT-004 G2: search for a novel nonfactorizing dynamic proof/read/write theorem",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/87",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-LEGACY",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": 82,
+      "acceptance_gate": "Reconcile historical classical endpoint and source-audit gate with UCT-005 #105; no automatic closure."
+    },
+    {
+      "number": 93,
+      "title": "UCT-004 G2-C: nonlinear parity proof-cover characterization, exact κ(n,p), 2026 source audit",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/93",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-LEGACY",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": 87,
+      "acceptance_gate": "Reconcile historical classical endpoint and source-audit gate with UCT-005 #105; no automatic closure."
+    },
+    {
+      "number": 95,
+      "title": "HYP-105 G5: close the weight-four three-sum exponent gap [12/5, 8/3]",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/95",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-105",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": null,
+      "acceptance_gate": "Prove all-h/all-s full weighted signed-trade statement or provide an infinite counterfamily; finite W(3,2) not sufficient."
+    },
+    {
+      "number": 97,
+      "title": "UCT-004 G3: hypergraph proof-cover obstructions and fully priced constant-soundness frontier",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/97",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-LEGACY",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": 93,
+      "acceptance_gate": "Reconcile historical classical endpoint and source-audit gate with UCT-005 #105; no automatic closure."
+    },
+    {
+      "number": 100,
+      "title": "HYP-105 G5-B: realizable signed-trade density and full weight-four exponent gate",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/100",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-105",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 95,
+      "acceptance_gate": "Prove all-h/all-s full weighted signed-trade statement or provide an infinite counterfamily; finite W(3,2) not sufficient."
+    },
+    {
+      "number": 102,
+      "title": "UCT-004 G2-E: exact nondivisible cover κ and fully priced online novelty gate",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/102",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-LEGACY",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": 93,
+      "acceptance_gate": "Reconcile historical classical endpoint and source-audit gate with UCT-005 #105; no automatic closure."
+    },
+    {
+      "number": 105,
+      "title": "UCT-005: единая фундаментальная теорема — корень и типизированное дерево доказательств",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/105",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "UPDATE",
+      "parent_issue": null,
+      "acceptance_gate": "Central original nonfactorizing same-model theorem remains OPEN_UNPROVED; require independent proof and prior-art novelty audit."
+    },
+    {
+      "number": 106,
+      "title": "HYP-105 G5-C: actual signed-trade extremal bounds beyond girth-only relaxation",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/106",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-105",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 95,
+      "acceptance_gate": "Prove all-h/all-s full weighted signed-trade statement or provide an infinite counterfamily; finite W(3,2) not sufficient."
+    },
+    {
+      "number": 117,
+      "title": "INDEX-001 G0/G1: exact range maps, physical rewrite accounting and novelty barriers",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/117",
+      "state_at_snapshot": "OPEN",
+      "family": "INDEX-001",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": null,
+      "acceptance_gate": "Price physical page writes, allocator metadata, RAM, GC and crash assumptions; verify finite countermodels and CI."
+    },
+    {
+      "number": 119,
+      "title": "HYP-105 G5-C3: deterministic pair labels vs random six-trade density obstruction",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/119",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-105",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 106,
+      "acceptance_gate": "Prove all-h/all-s full weighted signed-trade statement or provide an infinite counterfamily; finite W(3,2) not sufficient."
+    },
+    {
+      "number": 126,
+      "title": "INDEX-001 G2-B: durable range-index baseline, page byte accounting and crash oracles",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/126",
+      "state_at_snapshot": "OPEN",
+      "family": "INDEX-001",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 117,
+      "acceptance_gate": "Price physical page writes, allocator metadata, RAM, GC and crash assumptions; verify finite countermodels and CI."
+    },
+    {
+      "number": 131,
+      "title": "UCT-005 G2-B: freeze 2D adaptive authenticated range-parity family and quantify nonfactorizing frontier",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/131",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": 105,
+      "acceptance_gate": "Same-task typed cost model, explicit prior-art transfer limits, exact-head Research CI; no new root proof assumed."
+    },
+    {
+      "number": 136,
+      "title": "HYP-105 G5-C3-B1: uniform symplectic GQ(2^h) pair labels and all-s trade-count proof gate",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/136",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-105",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 119,
+      "acceptance_gate": "Prove all-h/all-s full weighted signed-trade statement or provide an infinite counterfamily; finite W(3,2) not sufficient."
+    },
+    {
+      "number": 140,
+      "title": "DAG-002 × ALG-001 G1: priced-probe/read/write frontier and nonfactorizing theorem novelty gate",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/140",
+      "state_at_snapshot": "OPEN",
+      "family": "DAG-ALG",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": null,
+      "acceptance_gate": "Preserve arbitrary dynamic-edge versus append-new-sink update semantics; typed resource transfer or STOP."
+    },
+    {
+      "number": 142,
+      "title": "UCT-005 G2-B source promotion: five pinned 2D/ADS papers into canonical LIT after #132",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/142",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "UPDATE",
+      "parent_issue": 131,
+      "acceptance_gate": "Recheck five cited source identities against CURRENT catalog (old LIT-205 count obsolete); import only missing works."
+    },
+    {
+      "number": 147,
+      "title": "SOURCE-G1-A: canonically import 1986 covering-code and Ko 2026 cell-probe primary works after LIT-205",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/147",
+      "state_at_snapshot": "OPEN",
+      "family": "LITERATURE",
+      "triage_action": "UPDATE",
+      "parent_issue": null,
+      "acceptance_gate": "Recheck 1986 covering-code and Ko 2026 primary identity against CURRENT catalog; old LIT-205 gate obsolete."
+    },
+    {
+      "number": 150,
+      "title": "UCT-005 G2-B2: multi-client freshness / subscriptions same-model primary-article STOP and quantitative frontier",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/150",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "UPDATE",
+      "parent_issue": 131,
+      "acceptance_gate": "Fork consistency/SUNDR and client communication are primary prior-art barriers; no unconditional freshness bound."
+    },
+    {
+      "number": 151,
+      "title": "UCT-005 G2-B2: exact multi-subscriber broadcast frontier and PLS prior-art barriers",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/151",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "UPDATE",
+      "parent_issue": 131,
+      "acceptance_gate": "Charge subscriber storage, multicast/unicast and source labels; PLS locality does not imply server broadcast."
+    },
+    {
+      "number": 154,
+      "title": "UCT-005 LIT normalization: promote ten G2-B/B1/B2 original sources after LIT-205",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/154",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "UPDATE",
+      "parent_issue": 142,
+      "acceptance_gate": "Reconcile ten G2-B/B1/B2 papers with CURRENT catalog; old fixed 205-to-215 target is a historical checkpoint."
+    },
+    {
+      "number": 161,
+      "title": "DAG-002 × ALG-001 G1-C: online read/write theorem novelty or explicit prior-art STOP",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/161",
+      "state_at_snapshot": "OPEN",
+      "family": "DAG-ALG",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 140,
+      "acceptance_gate": "Preserve arbitrary dynamic-edge versus append-new-sink update semantics; typed resource transfer or STOP."
+    },
+    {
+      "number": 162,
+      "title": "HYP-105 G5-E: prove all-s affine weighted trade-risk bounds and improve the ASET exponent",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/162",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-105",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 95,
+      "acceptance_gate": "Prove all-h/all-s full weighted signed-trade statement or provide an infinite counterfamily; finite W(3,2) not sufficient."
+    },
+    {
+      "number": 164,
+      "title": "UCT-005 G3: robust dynamic observability root — state/update/read/error joint theorem and typed Mathlab map",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/164",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": 105,
+      "acceptance_gate": "Same-task typed cost model, explicit prior-art transfer limits, exact-head Research CI; no new root proof assumed."
+    },
+    {
+      "number": 166,
+      "title": "UCT-005 G3-B: multi-epoch authenticated observation/update theorem with strict prior-art separation",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/166",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": 164,
+      "acceptance_gate": "Same-task typed cost model, explicit prior-art transfer limits, exact-head Research CI; no new root proof assumed."
+    },
+    {
+      "number": 169,
+      "title": "HYP-105 G5-E2-B: prove all-h positive-flow motif multiplicities and true R2/R3 exponents",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/169",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-105",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 162,
+      "acceptance_gate": "Prove all-h/all-s full weighted signed-trade statement or provide an infinite counterfamily; finite W(3,2) not sufficient."
+    },
+    {
+      "number": 173,
+      "title": "INDEX-001 G2-B4-A: variable-size exact range checkpoints and nontrivial locality–recourse theorem gate",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/173",
+      "state_at_snapshot": "OPEN",
+      "family": "INDEX-001",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 126,
+      "acceptance_gate": "Price physical page writes, allocator metadata, RAM, GC and crash assumptions; verify finite countermodels and CI."
+    },
+    {
+      "number": 176,
+      "title": "HYP-105 E2-B3: six-column signed-flow forests and correlated all-h labels for strict R3 exponent",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/176",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-105",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 169,
+      "acceptance_gate": "Prove all-h/all-s full weighted signed-trade statement or provide an infinite counterfamily; finite W(3,2) not sufficient."
+    },
+    {
+      "number": 178,
+      "title": "UCT-005 G3-B2: original multi-epoch update-read-verification frontier or explicit STOP",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/178",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "LEGACY_LINK",
+      "parent_issue": 164,
+      "acceptance_gate": "Same-task typed cost model, explicit prior-art transfer limits, exact-head Research CI; no new root proof assumed."
+    },
+    {
+      "number": 183,
+      "title": "INDEX-001 G2-B4-C: bounded slack, RAM metadata and joint page-recourse theorem gate",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/183",
+      "state_at_snapshot": "OPEN",
+      "family": "INDEX-001",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 173,
+      "acceptance_gate": "Price physical page writes, allocator metadata, RAM, GC and crash assumptions; verify finite countermodels and CI."
+    },
+    {
+      "number": 184,
+      "title": "IMPORT-006: verified graph/DAG/GraphRAG/agent-memory research corpus (2025–2026)",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/184",
+      "state_at_snapshot": "OPEN",
+      "family": "LITERATURE",
+      "triage_action": "AUDIT_SOURCE",
+      "parent_issue": null,
+      "acceptance_gate": "Verify original DOI/arXiv identity against canonical LIT catalog, regenerate indices, and pass exact-head CI."
+    },
+    {
+      "number": 195,
+      "title": "TKG-001 G1: physical read/write × bitemporal provenance × certification frontier",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/195",
+      "state_at_snapshot": "OPEN",
+      "family": "TKG-001",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": null,
+      "acceptance_gate": "Fix Boolean/provenance/negative-proof output contract and paid physical pages before a lower bound."
+    },
+    {
+      "number": 211,
+      "title": "INDEX-001 G2-B4-C5: paid allocator and bounded-workspace recovery",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/211",
+      "state_at_snapshot": "OPEN",
+      "family": "INDEX-001",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 183,
+      "acceptance_gate": "Price physical page writes, allocator metadata, RAM, GC and crash assumptions; verify finite countermodels and CI."
+    },
+    {
+      "number": 223,
+      "title": "UCT-005 G3-B2-D1: same-model causal information lower bound or scoped STOP",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/223",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "UPDATE",
+      "parent_issue": 105,
+      "acceptance_gate": "Same-F1 adaptive lower bound or scoped STOP; separate merged PR #253 and open PR #248 upper references."
+    },
+    {
+      "number": 228,
+      "title": "IMPORT-011: external Deep Research PDFs, canonical sources and theorem transfer corrections",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/228",
+      "state_at_snapshot": "OPEN",
+      "family": "LITERATURE",
+      "triage_action": "AUDIT_SOURCE",
+      "parent_issue": null,
+      "acceptance_gate": "Verify original DOI/arXiv identity against canonical LIT catalog, regenerate indices, and pass exact-head CI."
+    },
+    {
+      "number": 230,
+      "title": "HYP-105 B3.2-E1-B: all-label six-motif Ω(s^6) obstruction or infinite correlated counterexample",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/230",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-105",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 176,
+      "acceptance_gate": "All-label correlated seven-motif Omega(s^6) or infinite correlated counterexample; finite W(3,2) cannot prove exponent."
+    },
+    {
+      "number": 231,
+      "title": "UCT-005 D1-B: audit obsolete 3SUM/APSP hardness dependencies and freeze model-safe CI",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/231",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "UPDATE",
+      "parent_issue": null,
+      "acceptance_gate": "PR #232 merged at review; check postmerge main Research/INDEX gates before issue completion."
+    },
+    {
+      "number": 234,
+      "title": "UCT-005 G4: typed future-observation/causal-proof bridge atlas and falsification gates",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/234",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "UPDATE",
+      "parent_issue": 105,
+      "acceptance_gate": "G4 is a typed classical bridge atlas only; falsify proposed transfers against GF2/Boolean, page, trust and crypto countermodels."
+    },
+    {
+      "number": 236,
+      "title": "IMPORT-012: verified original hypergraph container sources and HYP-105 supersaturation gate",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/236",
+      "state_at_snapshot": "OPEN",
+      "family": "LITERATURE",
+      "triage_action": "UPDATE",
+      "parent_issue": null,
+      "acceptance_gate": "PR #246 merged at review; bibliography import does not close HYP-105 supersaturation theorem gate."
+    },
+    {
+      "number": 244,
+      "title": "UCT-005 D1-B2-B: byte-conserving authenticated COW tree, historical PIN and page GC",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/244",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "CHECK_PR_CI",
+      "parent_issue": 223,
+      "acceptance_gate": "PR #248 open at review: verify byte-authenticated COW pointer binding, page ledger, exact-head focused+Research CI and postmerge."
+    },
+    {
+      "number": 247,
+      "title": "IMPORT-013: insdel function codes, segmented deletion and polar-building extremal geometry",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/247",
+      "state_at_snapshot": "OPEN",
+      "family": "LITERATURE",
+      "triage_action": "CHECK_PR_CI",
+      "parent_issue": null,
+      "acceptance_gate": "PR #250 open at review; check LIT identity immutability, exact-head Research CI and no insdel-to-ASET transfer."
+    },
+    {
+      "number": 251,
+      "title": "HYP-105 G5-C2: nonuniform Campos–Samotij Theorem B and Janson probability gate",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/251",
+      "state_at_snapshot": "OPEN",
+      "family": "HYP-105",
+      "triage_action": "AUDIT_SOURCE",
+      "parent_issue": 95,
+      "acceptance_gate": "Campos–Samotij nonuniform Theorem B applies to nonuniform hypergraphs, but its transfer to GF5 signed-trade ASET is unproved."
+    },
+    {
+      "number": 252,
+      "title": "UCT-005 D1-B2-D: authenticated remote PIN bitmap and trusted-capacity gate",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/252",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "UPDATE",
+      "parent_issue": 223,
+      "acceptance_gate": "PR #253 merged at review, issue still open: check postmerge main CI and paid remote PIN bitmap security/costs; no F1 lower bound."
+    },
+    {
+      "number": 254,
+      "title": "UCT-005 D1-B2-B1: segmented physical allocator bitmap to eliminate global SET rewrite",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/254",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "CHECK_PR_CI",
+      "parent_issue": 244,
+      "acceptance_gate": "Segmented allocation bitmap vs global rewrite: same-page oracle and exact-head PR CI; no full Pareto dominance."
+    },
+    {
+      "number": 255,
+      "title": "UCT-005 D1-B2-E: total trusted PIN budget and remote-information falsifier",
+      "url": "https://github.com/definitely-stable/Mathlab/issues/255",
+      "state_at_snapshot": "OPEN",
+      "family": "UCT-005",
+      "triage_action": "KEEP_ACTIVE",
+      "parent_issue": 223,
+      "acceptance_gate": "Total persistent trusted PIN budget includes both offline readers, latest anchor, writer and PIN authority; remote advice not free."
+    }
+  ]
+}

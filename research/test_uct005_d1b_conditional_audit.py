@@ -22,7 +22,7 @@ class ConditionalHardnessAuditTests(unittest.TestCase):
         self.assertEqual(self.manifest["decision"],
                          "NO_EXPLICIT_3SUM_APSP_DEPENDENT_MATHLAB_THEOREM_LOCATED")
         self.assertIn("implicit", self.manifest["completeness"].lower())
-        self.assertEqual(len(self.manifest["documented_occurrences"]), 11)
+        self.assertEqual(len(self.manifest["documented_occurrences"]), 14)
         self.assertEqual(len(self.manifest["catalog_occurrences"]), 3)
 
     def test_new_unreviewed_document_hardness_claim_fails_closed(self):
