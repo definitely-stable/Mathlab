@@ -43,6 +43,14 @@ Cross-check this original-pair+four-line tensor census against the independently
 
 Finite V=8 oracles enumerate one-common completions (4! and 2!) and independently compare the conditional first and second moments; no-pin V8 comparison uses C5's seven-overlap reference. Generic K8 star fixtures demonstrate exact zero-variance positive-prefix bounds. Inputs reject invalid signed source weights, non-injective pinned maps, duplicate targets, and oversized computation budgets.
 
+### Hosted real W32 frozen baseline — all 24 common maps
+
+GitHub-hosted C11 Contract at initial PR HEAD 6de20e2544d92ae8b56737a034275129c2b80601 passed all five tests, and each of 24 full right-map completions gave identical original-C4 tensor and C5 sixset/physical two-factor recounts. Historical reverse-line B/A=77; the **exact minimum among these 24 maps is 56**, maximum 77, conditional mean **133/2**, variance **28**. The exact conditional-moment bound guarantees every one of these 24 values is **at least 42** and the conditional mean proves existence of a completion **at most 66**. One minimizing full map in canonical K6 physical-edge ordering is:
+
+    [14,13,12,11,10,9,8,7,6,5,4,0,1,3,2]
+
+Improvement 77→56 is 21 B/A motifs or 27.27% in this one fixed-11-label prefix, not an all-15!-map optimum and not full seven-class GF5 R3. Regression checks now freeze exact integers and rational moments; acceptance remains gated on **the newly updated exact PR HEAD CI**, not merely the initial head.
+
 ## Acceptance and next
 
 Reference: research/hyp105_g5e2b3e1c11_coupled_four.py. Independent tests: research/test_hyp105_g5e2b3e1c11_coupled_four.py. Exact PR-head dedicated GitHub-hosted hyp105-c11-contract and full Research SUCCESS both required, followed by sequential integration of C1–C10 and postmerge Research SUCCESS.
