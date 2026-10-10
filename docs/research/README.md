@@ -1,6 +1,6 @@
-## HYP-105 B3.2-E1-C0 — weighted six-hypergraph exact transfer and prior art
+## HYP-105 B3.2-E1-C0 — weighted six-hypergraph transfer, two-point design and prior art
 
-[Full mathematical reduction, four scholarly precursors and mass-only countermodel](HYP-105-G5-E2-B3-E1C0-WEIGHTED-OVERLAP-TRANSFER.md) · [reference](../../research/hyp105_g5e2b3e1c0_weighted_overlap.py) · [independent tests](../../research/test_hyp105_g5e2b3e1c0_weighted_overlap.py). B/A physical event is weighted 6-uniform overlap under an arbitrary physical pair-edge right injection; it has exact random mean but total mass alone does NOT force positive min. W32 exact original-six-incidence evidence; all-h GQ-specific min and entire R3 open. Canonical source import held for concurrent IMPORT-012 #246.
+[Full mathematical reduction, four scholarly precursors and mass-only countermodel](HYP-105-G5-E2-B3-E1C0-WEIGHTED-OVERLAP-TRANSFER.md) · [reference](../../research/hyp105_g5e2b3e1c0_weighted_overlap.py) · [independent tests](../../research/test_hyp105_g5e2b3e1c0_weighted_overlap.py). B/A physical event is weighted 6-uniform overlap under an arbitrary physical pair-edge right injection; exact T_a 1-design and adjacent/disjoint pair codegrees (7 C(a-3,3), 14 C(a-4,2)) isolate the W2-level target geometry; it has exact random mean but total mass alone does NOT force positive min. W32 exact original-six-incidence evidence; all-h GQ-specific min and entire R3 open. Canonical source import held for concurrent IMPORT-012 #246.
 
 ## UCT-005 D1-B2-A — same-trace three-upper comparator and partial-Pareto stop (2026-10-10)
 
