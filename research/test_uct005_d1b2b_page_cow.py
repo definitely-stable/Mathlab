@@ -155,6 +155,55 @@ class B2BPageCowTests(unittest.TestCase):
         with self.assertRaises(Abort):
             t.query(0, 0, 5)
 
+    def test_same_trace_as_byte_conserving_snapshot_two_reader_gc(self):
+        from uct005_d1b0_f1_reference import SnapshotF1Reference
+        for n in (1, 2, 3, 5, 8, 33):
+            bits = tuple((3*i+1) % 2 for i in range(n))
+            for p in (1, 2, 64):
+                s = SnapshotF1Reference(bits, page_bytes=p)
+                t = PageCowTree(bits, page_bytes=p)
+                self.assertEqual((s.pin_current(0), t.pin_current(0)), (0, 0))
+                words = [bits]
+                for step in range(3):
+                    current = list(words[-1])
+                    index = (0, min(1, n - 1), n - 1)[step]
+                    value = current[index] if step == 1 else current[index] ^ 1
+                    current[index] = value
+                    words.append(tuple(current))
+                    self.assertEqual(s.set(index, value), t.set(index, value))
+                    if step == 1:
+                        self.assertEqual((s.pin_current(1), t.pin_current(1)), (2, 2))
+                self.assertEqual(t.ledger["set_changed_logical_bits"],
+                                 s.ledger["set_changed_logical_bits"])
+                for left, right in ((0, n), (0, 1), (n - 1, n)):
+                    self.assertEqual(s.latest(0, left, right),
+                                     t.query(0, left, right))
+                    self.assertEqual(s.latest(1, left, right),
+                                     t.query(1, left, right))
+                    self.assertEqual(s.as_of(0, 0, left, right),
+                                     t.query(0, left, right, as_of=0))
+                    self.assertEqual(s.as_of(1, 2, left, right),
+                                     t.query(1, left, right, as_of=2))
+                self.assertEqual(s.ledger["set_full_page_writes"],
+                                 3 * s._pages_per_snapshot())
+                self.assertEqual(
+                    t.ledger["set_root_page_writes"], 3 * t.root_pages)
+                self.assertGreater(t.ledger["set_node_page_writes"], 0)
+                self.assertGreater(t.ledger["set_bitmap_page_writes"], 0)
+                self.assertGreater(s.ledger["query_full_page_reads"], 0)
+                self.assertGreater(t.ledger["query_root_page_reads"], 0)
+                self.assertGreater(t.ledger["query_node_page_reads"], 0)
+                s.gc()
+                t.gc()
+                self.assertEqual(set(s.remote), set(t.roots))
+                for reader, epoch in ((0, 0), (1, 2)):
+                    s.unpin(reader, epoch)
+                    t.unpin(reader, epoch)
+                    s.gc()
+                    t.gc()
+                    self.assertEqual(set(s.remote), set(t.roots))
+                self.assertEqual(set(t.roots), {3})
+
     def test_latest_anchor_replay_pin_race_and_cost_separation(self):
         t = PageCowTree((0, 1, 0), 1)
         old = t.roots[0]
