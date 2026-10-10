@@ -9,7 +9,7 @@ from hyp105_g5e2b3e1a_fixed_leading import finite_census
 from hyp105_g5e2b3e1b0_seven_signature import (
     R3_CERTIFIED_FLOORS, GF5_DENOM, classify_seven_prechecked,
     physical_column_dual, is_connected_column_cycle, seven_census,
-    report,
+    exact_seven_weighted_GF5, report,
 )
 
 
@@ -186,6 +186,29 @@ class SevenMotifJointFixedTests(unittest.TestCase):
             exact[(tuple(u for u,_ in l),tuple(u for u,_ in r))]+=coeff
         self.assertEqual(exact,by_support)
         self.assertEqual(sum(polynomial.values()),2**10)
+
+    def test_exact_full_pallette_GF5_signed_subset_seven_class_risk(self):
+        """All TEN signed configurations of EVERY accepted actual sixset."""
+        for scheme in ("lex","reverse-line"):
+            model=pair_labeled_symplectic(1,scheme)
+            structural=seven_census(model)
+            weighted=exact_seven_weighted_GF5(model,max_signed_events=5000)
+            self.assertEqual(weighted["seven_class_original_sixsets"],
+                             structural["S_seven"])
+            self.assertEqual(weighted["selected_exact_GF5_signed_events"],
+                             10*structural["S_seven"])
+            self.assertGreaterEqual(weighted["exact_selected_GF5_R3"],
+                                    structural["GF5_seven_lower"])
+            self.assertEqual(weighted["exact_selected_GF5_R3"],
+                             Fraction(weighted["exact_selected_GF5_R3_numerator"],
+                                      GF5_DENOM))
+            self.assertEqual(sum(weighted["selected_GF5_sum_by_class"].values()),
+                             weighted["exact_selected_GF5_R3_numerator"])
+            self.assertFalse(weighted["total_GF5_R3_all_motifs"])
+            self.assertFalse(weighted["all_h_general_GF5_bound"])
+        with self.assertRaises(ValueError):
+            exact_seven_weighted_GF5(pair_labeled_symplectic(1,"lex"),
+                                     max_signed_events=1)
 
     def test_classifier_invalid_and_no_asymptotic_promotion(self):
         m=pair_labeled_symplectic(1,"lex")
