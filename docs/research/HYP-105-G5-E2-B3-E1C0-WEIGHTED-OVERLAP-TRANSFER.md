@@ -137,6 +137,34 @@ A separate oracle exhaustively enumerates every 3-edge subset of physical K6 (45
 
 **Next B1-C1 proof question:** identify what third-order source marginals the W(3,s) incidence structure permits, distinguish them from freely assignable three-cube trades, and determine whether a model-specific inequality lower-bounds all-correlated `Σ_R m_f(R)1_{g(R)∈T_a}`. In view of the seven-class scope, proving B/A-specific positivity may be strictly stronger than the ultimate needed S-seven obstruction.
 
+## 2D. A GQ-specific all-h spread theorem that excludes concentrated toy countermodels
+
+Unlike an arbitrary weighted six-uniform source, the genuine W(3,s) source `m_f(R)` satisfies a stronger **pointwise bound** for EVERY left physical pair injection f and EVERY six-element set R of original right factor lines:
+
+```text
+0 ≤ m_f(R) ≤ binom(6,2) Delta^4 = 15(s+1)^4.
+```
+
+**Proof:** an original six-incidence set contributing to m_f(R) has precisely one LEFT factor point p repeated TWICE and four distinct singleton LEFT points; on the RIGHT it visits all six distinct line vertices of R exactly once. First select which two right line vertices of R meet at the repeated left factor point p (at most binom(6,2)=15 unordered possibilities). A generalized quadrangle has no ordinary factor-incidence C4: two distinct right lines have at most one shared left point, so this pair uniquely determines p if it exists. For each of the remaining four right lines, choose an incident left factor point (at most Delta=s+1 choices independently). The requirement that these four points are distinct and that their physical pair-edge images together with f(p) form the LEFT B physical degree-two pattern can only *remove* choices. Thus at most 15 Delta^4 original unordered six-incidence sets exist for each R. No 6! or 4! factor should be inserted; the four other right lines of R are distinguishable as original line vertices and determine their choices.
+
+From accepted B1-A there is an all-h finite integer lower `L_B^-(s)` on ALL original LEFT-B sixsets and at least the fraction `max(0,1−14/Delta²)` have SIX DISTINCT original right line endpoints, uniformly over f. Set
+
+```text
+H_B^-(s) = ceil[L_B^-(s)*max(0,1-14/Delta^2)],
+M_s       = 15 Delta^4.
+```
+
+The number of DISTINCT original right sixsets with **positive** source weight consequently satisfies
+
+```text
+|supp(m_f)| >= ceil(H_B^-(s)/M_s)
+              = (1/60+o(1))*s^11           (lower-bound scale),
+```
+
+uniformly for all left injective physical labelings as s=2^h→∞. For s=2 the finite `1−14/Delta²` collision union bound is vacuous and correctly gives zero; the full accepted W32 oracle separately computes `Σ_R m_f(R)=5000`, `|supp(m_f)|=3076`, and `max_R m_f(R)=6`, versus crude universal cap `15*3^4=1215`. This is independent of the RIGHT physical assignment and holds for lex and reverse-line controls with fixed f. At s=4 and higher, the frozen finite formula is positive; at s=128/256/1024 normalized lower counts approach 1/60 from above.
+
+**What this changes:** the single-sixset mass-M example in Section 3 and the eight-corner signed trade in Section 2B cannot themselves be complete `m_f` source families for arbitrarily large s, because the true source has at least Ω(s^11) positive hyperedges and bounded pointwise multiplicity. However, the GQ-specific source spread lower **still does not guarantee** intersection with a target of only 70*C(a,6) sixsets under EVERY correlated right injection. The ambient universe of right sixsets has size C(V,6)=Θ(s^18), so support Ω(s^11) alone is insufficient by a pigeonhole argument to prevent avoidance. A positive all-g minimum must use more than total mass and the largest individual source weight.
+
 ## 3. Corrected prior art and disallowed transfers
 
 The underlying weighted hypergraph intersection/discrepancy formulation is **classical**, and any originality or universal minimum theorem must be compared with:
