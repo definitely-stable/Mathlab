@@ -97,6 +97,8 @@ class PageCowTree:
         self.ledger["setup_anchor_publications"] += 1
         self.ledger["setup_anchor_bytes"] += ANCHOR_BYTES
         self.ledger["setup_bitmap_page_writes"] += self.bitmap_pages
+        self.ledger["setup_bitmap_upload_bytes"] += self.bitmap_pages * self.P
+        self.ledger["setup_remote_upload_bytes"] += self.bitmap_pages * self.P
         self.ledger["peak_remote_pages"] = self.remote_pages
 
     @property
@@ -152,7 +154,9 @@ class PageCowTree:
     def _read_node(self, nid: int, expected: bytes, span: int, phase: str) -> dict:
         if type(nid) is not int or nid <= 0 or nid >= self.next_id:
             raise Abort("bad immutable node pointer")
-        # node ID determines the complete fixed-stride node page location.
+        # Node page offset = (nid-1) * node_pages, independently of all
+        # remote dictionaries and of deleted physical-page holes.
+        self.ledger[f"{phase}_last_node_page_offset"] = (nid - 1) * self.node_pages
         self.ledger[f"{phase}_node_page_reads"] += self.node_pages
         raw = self.nodes.get(nid)
         if raw is None:
@@ -167,6 +171,8 @@ class PageCowTree:
               presented: bytes | None = None) -> int:
         if type(epoch) is not int or not 0 <= epoch <= self.epoch:
             raise Abort("invalid root epoch")
+        # Epoch manifest page offset = epoch * root_pages, including holes.
+        self.ledger[f"{phase}_last_root_page_offset"] = epoch * self.root_pages
         self.ledger[f"{phase}_root_page_reads"] += self.root_pages
         raw = self.roots.get(epoch) if presented is None else presented
         if not isinstance(raw, bytes) or len(raw) != ROOT_BYTES:
@@ -216,6 +222,8 @@ class PageCowTree:
         self.ledger["set_anchor_publication_bytes"] += ANCHOR_BYTES
         # Bitmap is stored, not a free allocation/deallocation oracle.
         self.ledger["set_bitmap_page_writes"] += self.bitmap_pages
+        self.ledger["set_bitmap_upload_bytes"] += self.bitmap_pages * self.P
+        self.ledger["set_remote_upload_bytes"] += self.bitmap_pages * self.P
         self.ledger["peak_remote_pages"] = max(
             self.ledger["peak_remote_pages"], self.remote_pages)
         return self.epoch
@@ -370,6 +378,7 @@ class PageCowTree:
         freed = len(dead_nodes) * self.node_pages + len(dead_epochs) * self.root_pages
         self.ledger["gc_logical_pages_freed"] += freed
         self.ledger["gc_bitmap_page_writes"] += self.bitmap_pages
+        self.ledger["gc_bitmap_upload_bytes"] += self.bitmap_pages * self.P
         self.ledger["gc_remote_free_calls"] += len(dead_nodes) + len(dead_epochs)
         self.generation += 1
         return freed
