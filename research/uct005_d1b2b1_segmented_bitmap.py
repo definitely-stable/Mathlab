@@ -43,7 +43,12 @@ class SegmentedPageCowTree(PageCowTree):
     def bitmap_pages(self) -> int:
         # Count persisted full page-images, including segments that became
         # all zero after GC and stay allocated at their public address.
-        return len(self.node_bitmap_segments) + len(self.epoch_bitmap_segments)
+        # Derive complete physical highwater from separately priced metadata;
+        # Python dictionary occupancy cannot make a missing page "free".
+        node_issued = self.next_id - 1
+        epoch_issued = self.epoch + 1
+        return (_ceil(node_issued, self.bits_per_segment)
+                + _ceil(epoch_issued, self.bits_per_segment))
 
     def _alloc(self, raw: bytes, phase: str):
         node_id, digest = super()._alloc(raw, phase)
@@ -68,15 +73,19 @@ class SegmentedPageCowTree(PageCowTree):
         """Charge page fetch *even for an unallocated all-zero segment*."""
         if namespace not in ("node", "epoch") or segment < 0:
             raise Abort("bad segment locator")
-        raw = self._pages(namespace).get(segment, bytes(self.P))
+        pages = self._pages(namespace)
+        start = segment * self.bits_per_segment
+        issued_max = self._max_index(namespace)
         self.ledger[f"{phase}_bitmap_page_reads"] += 1
         self.ledger[f"{phase}_bitmap_request_bytes"] += 1 + 8
         self.ledger[f"{phase}_bitmap_response_bytes"] += self.P
+        if segment not in pages and start <= issued_max:
+            raise Abort("missing previously issued bitmap page")
+        raw = pages.get(segment, bytes(self.P))
         if not isinstance(raw, bytes) or len(raw) != self.P:
             raise Abort("missing, malformed or truncated bitmap segment")
         # Reserved future bits and byte padding cannot be set.
-        maximum = self._max_index(namespace)
-        start = segment * self.bits_per_segment
+        maximum = issued_max
         if start > maximum:
             if any(raw):
                 raise Abort("nonzero future allocation bitmap segment")
@@ -119,9 +128,12 @@ class SegmentedPageCowTree(PageCowTree):
         elif phase == "gc":
             # Collector reads all allocated bitmap segment pages. No free
             # reachability index; parent's GC charges node/root highwater.
-            for kind, page_dict in (("node", self.node_bitmap_segments),
-                                    ("epoch", self.epoch_bitmap_segments)):
-                for segment in sorted(page_dict):
+            for kind in ("node", "epoch"):
+                # Scan all issued segment addresses. Missing remote pages
+                # must charge an attempted read and ABORT, not disappear
+                # from Python dict iteration and undercount GC costs.
+                high = self._max_index(kind)
+                for segment in range(high // self.bits_per_segment + 1):
                     self._bitmap_read_cache[(kind, segment)] = self._get_page(
                         kind, segment, phase)
         else:
@@ -209,6 +221,10 @@ class SegmentedPageCowTree(PageCowTree):
         """Independent finite audit; intentionally O(all issued page bits)."""
         for kind, pages in (("node", self.node_bitmap_segments),
                             ("epoch", self.epoch_bitmap_segments)):
+            expected_count = _ceil(self._max_index(kind) + 1,
+                                   self.bits_per_segment)
+            if set(pages) != set(range(expected_count)):
+                return False
             for segment, raw in pages.items():
                 if not isinstance(raw, bytes) or len(raw) != self.P:
                     return False
