@@ -209,6 +209,22 @@ def _updated_words(initial):
     return words
 
 
+def _path_depth(n: int, index: int) -> int:
+    """Untrusted input index determines a public balanced COW path length."""
+    if not 0 <= index < n:
+        raise ValueError("bad public path index")
+    lo,hi,depth=0,n,1
+    while hi-lo>1:
+        middle=(lo+hi)//2
+        if index<middle:
+            hi=middle
+        else:
+            lo=middle
+        depth+=1
+    return depth
+
+
+
 def exercise(n: int, p: int, initial: tuple[int,...] | None=None) -> dict:
     if type(n) is not int or not 1<=n<=2048 or type(p) is not int or not 1<=p<=4096:
         raise ValueError("bounded F1 retention oracle")
@@ -267,6 +283,24 @@ def exercise(n: int, p: int, initial: tuple[int,...] | None=None) -> dict:
             for k,v in audit_keys.items():
                 if m.ledger[k]!=v:
                     raise AssertionError("GC mutated separately charged audit ledger")
+            if isinstance(m,PageCowTree):
+                # Elementary path-injection bound for this exact three-SET
+                # workload: every non-latest retained node ID was issued by
+                # one of the three public, finite COW path rewrites.
+                depths=(
+                    _path_depth(n,0),
+                    _path_depth(n,min(1,n-1)),
+                    _path_depth(n,n-1),
+                )
+                extra_nodes=(info["union_reachable_COW_nodes"] -
+                             info["latest_reachable_COW_nodes"])
+                bound= (sum(depths) if stage=="PIN0_PIN2" else
+                       depths[2] if stage=="PIN2_ONLY" else 0)
+                if not 0<=extra_nodes<=bound:
+                    raise AssertionError("shared COW extra-node path injection bound")
+                info["extra_historical_node_ids"] = extra_nodes
+                info["path_injection_extra_node_upper"] = bound
+                info["path_injection_bound_is_full_Pareto_theorem"] = False
             if (isinstance(m,SegmentedPageCowTree)
                     and not m.segment_matches_storage()):
                 raise AssertionError("GC segmentation image corruption")
