@@ -144,6 +144,12 @@ jobs:
       - name: HYP-105 B3.2-E0 independently brute-check lex conditional expectations
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e0_joint_first_moment.py'
 
+      - name: HYP-105 B3.2-E1-B1-B all 105 correlated right-label swaps W32 exact GF5 audit
+        run: python research/hyp105_g5e2b3e1b1b_label_swaps.py
+
+      - name: HYP-105 B3.2-E1-B1-B independent swap delta full recount and gauge tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1b1b_label_swaps.py'
+
       - name: HYP-105 B3.2-E1-B0 same-label seven-family W32 GF5 and Q4 risk floors
         run: python research/hyp105_g5e2b3e1b0_seven_signature.py
 
