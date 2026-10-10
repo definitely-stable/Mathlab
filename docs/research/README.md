@@ -1,3 +1,7 @@
+## UCT-005 D1-B2-F1 — authenticated offline shared PIN retention (2026-10-10)
+
+[Charge and exact root-union theorem scope](UCT-005-G3-B2-D1B2F1-PIN-RETENTION.md) · [independent reference oracle](../../research/uct005_d1b2f1_pin_retention.py) · [finite falsifiers](../../research/test_uct005_d1b2f1_pin_retention.py) · [issue #270](https://github.com/definitely-stable/Mathlab/issues/270). Calculates additional remote COW node/root page images retained for historic PINs, charging all audit reads, but **not** completing an online F1 Pareto theorem. Root OPEN_UNPROVED.
+
 ## UCT-005 D1-B2-F — common F1 resource ledger and typed Pareto stop (2026-10-10)
 
 [Same-history cost reconciliation](UCT-005-G3-B2-D1B2F-RESOURCE-RECONCILIATION.md) · [reproducible driver](../../research/uct005_d1b2f_resource_reconciliation.py) · [independent tests](../../research/test_uct005_d1b2f_resource_reconciliation.py) · [issue #262](https://github.com/definitely-stable/Mathlab/issues/262). Snapshot, COW and segmented COW share PIN/SET/queries/GC and charged page axes; Replica+Log remain logical-only. Unknown axes stay `null`, no full Pareto or UCT root theorem.
