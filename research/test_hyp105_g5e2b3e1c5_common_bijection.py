@@ -155,9 +155,9 @@ class CommonBijectionC5Tests(unittest.TestCase):
                 Fraction(
                     c["GQ_original_BA_source_mass_lower"]*
                     c["occupied_target_count_lower"],comb(c["V"],6)))
-            self.assertFalse(c["not_fixed_adversarial_g_lower"])
-            # Correct flag is True: this benchmark MUST NEVER be
-            # misinterpreted as a deterministic all-correlated bound.
+            self.assertTrue(c["not_fixed_adversarial_g_lower"])
+            # This random-right mean MUST NEVER be treated as an
+            # all-correlated fixed-g deterministic lower bound.
         for bad in (1,3,True):
             with self.assertRaises(ValueError):
                 occupied_target_uniform_floor(bad)
