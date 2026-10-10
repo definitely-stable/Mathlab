@@ -418,4 +418,4 @@ def report():
 
 
 if __name__=="__main__":
-    print(json.dumps(report(),sort_keys=True,indent=2))
+    print(json.dumps(report(),sort_keys=True,indent=2,default=str))
