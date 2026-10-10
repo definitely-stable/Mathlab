@@ -183,6 +183,72 @@ def exact_physical_counts(a, pair_edges, *, max_a=14):
     return result
 
 
+def uniform_right_completion_BA(s):
+    """Exact random-right completion bounds for EVERY fixed left injection.
+
+    Assume original factor incidence host is W(3,s), with codegree <=1:
+    any two distinct left factor points share at most one right factor line.
+    For each left B physical template, its six ORIGINAL incidences choose
+    two distinct neighbors of its one doubled left vertex and one
+    independent neighbor of each of four singleton left vertices.
+    For multiplicities (2,1,1,1,1), the sum of distinct-left-factor
+    column-pair products is 2*4+binom(4,2)=14. Each pair of original
+    distinct left factors shares a line with probability at most
+    m_p*m_q/Delta^2; union bound gives at least
+      max(0,1-14/Delta^2)
+    of lifted sixsets having SIX DISTINCT original right line endpoints.
+
+    For each such sixset, an independent uniform RIGHT injection maps
+    the six distinct right factor vertices to six ordered distinct
+    physical K_a pairs; probability they form a physical simple
+    six-coordinate 2-factor is
+      pA=6!*70*C(a,6)/(K)_6.
+    This event is EXACTLY the accepted B-left/A-right six-family and
+    has ten strictly positive GF5 signs. Therefore expected B/A count
+    lies between left_B_lower*(1-14/Delta^2)_+*pA and
+    left_B_upper*pA, for EVERY fixed left injection f.
+
+    Since left_B=(1/4+O(1/s))*s^15 and pA=(560+O(1/s))*s^-9,
+    the expectation is (140+O(1/s))*s^6 UNIFORMLY in f.
+    NO all-right-map lower follows; a special correlated right g
+    could still suppress all accepted selected motifs.
+    """
+    p=left_six_mass(s)
+    K=p["K"]
+    falling=1
+    for j in range(6):
+        falling*=K-j
+    if not falling:
+        raise AssertionError("six random right factor images require K>=6")
+    p_A=Fraction(720*70*_choose(p["a"],6),falling)
+    if not 0<p_A<=1:
+        raise AssertionError("right physical 2factor completion probability")
+    d=p["Delta"]
+    right_distinct_floor=max(Fraction(0),Fraction(d*d-14,d*d))
+    lower=(Fraction(p["left_original_sixsets_lower"]["B"])
+           *right_distinct_floor*p_A)
+    upper=Fraction(p["left_original_sixsets_upper"]["B"])*p_A
+    if not 0<=lower<=upper:
+        raise AssertionError("invalid random-right B/A expectation sandwich")
+    return {
+        "s":s,
+        "right_2factor_probability":p_A,
+        "left_B_original_sixset_lower":
+            p["left_original_sixsets_lower"]["B"],
+        "left_B_original_sixset_upper":
+            p["left_original_sixsets_upper"]["B"],
+        "original_right_six_factors_distinct_floor":right_distinct_floor,
+        "expected_U_Bleft_Aright_lower":lower,
+        "expected_U_Bleft_Aright_upper":upper,
+        "asymptotic_expected_BA_over_s6":"140+O(1/s)",
+        "uniform_over_all_fixed_left_injections":True,
+        "requires_GQ_codegree_at_most_one":True,
+        "right_random_injection_only":True,
+        "universal_fixed_right_lower":False,
+        "total_GF5_R3_bound":False,
+    }
+
+
 def report():
     cases=[]
     for s in (2,4,8,16,32,64,128):
@@ -201,6 +267,16 @@ def report():
         "uniform_leading_B":str(COEFFICIENTS["B"]),
         "uniform_leading_C":str(COEFFICIENTS["C"]),
         "uniform_leading_total":str(TOTAL_LIMIT),
+        "uniform_random_right_Bleft_Aright_mean_over_s6":"140+O(1/s)",
+        "right_completion_controls":[{
+            "s":s,
+            "expected_lower_over_s6":str(Fraction(
+                uniform_right_completion_BA(s)["expected_U_Bleft_Aright_lower"],
+                s**6)),
+            "expected_upper_over_s6":str(Fraction(
+                uniform_right_completion_BA(s)["expected_U_Bleft_Aright_upper"],
+                s**6)),
+        } for s in (2,4,8,16,64,256)],
         "all_h_quantifiers":True,
         "two_sided_motif_Omega_s6":False,
         "need_right_projection_transfer_rate":"Omega(s^-9)",
