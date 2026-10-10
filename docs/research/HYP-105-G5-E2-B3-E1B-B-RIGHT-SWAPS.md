@@ -30,6 +30,48 @@ For W(3,2), accepted E1-A proved |C_f|=62,370 and the right pair alphabet covers
 
 The primary optimization objective is **S_7**. Ties use the accepted min-weight GF5 seven-family risk floor and lexicographic swap ID. This does NOT imply minimized full 51-palette six-event risk. The code verifies the best predicted swap by a completely independent full 62,370-candidate seven-family oracle and independent physical C6/C4 incidence joins; then computes the exact selected 10-sign full-palette GF5 risk of the chosen new right labeling. It neither claims a certified local optimum over several swaps nor runs a multi-generation search.
 
+## 2A. All-h uniform bounded-influence theorem for one correlated right-label swap
+
+**Theorem E1-B1B-U (proved, elementary).** For every s=2^h, all left/right pair injections f,g of the W(3,s) source and every swap of two original RIGHT factor line-vertex physical pair labels, the seven-class selected S and its accepted minimum-weight GF5 risk numerator satisfy explicit finite-h bounds depending ONLY on the host parameters.
+
+Let V=(s+1)(s²+1), Δ=s+1, a=min{n:binom(n,2)>=V}, K=binom(a,2). Let c_A=70,c_B=45,c_C=15, F_k=c_k binom(a,6). Let λ_A=Δ^6, λ_B=binom(Δ,2)Δ^4, λ_C=binom(Δ,2)^3 and L^+ = Σ F_k λ_k, the accepted all-h upper on LEFT six-coordinate leafless original sixsets (#238).
+
+Fix one *specific original incidence* (p,l) with fixed physical edge e=f(p). Over ALL K_a physical A/B/C templates, count the multiplicity of occurrence of e as an ORIGINAL left factor column (once for A singles; twice for B/C duplicated pair labels). Every physical template has exactly six factor-incidence columns, so the sum of these column-occurrence counts over all K physical edges is 6F_k. By full-K_a edge-transitivity, **each physical edge occurs with total multiplicity exactly 6F_k/K**. Conditional on a template that uses left factor p with multiplicity m=1 or 2, the probability that a uniformly chosen valid m-subset of its Δ distinct original incident edges includes the specified original incidence (p,l) is exactly m/Δ. Therefore an actual (p,l) lies in **at most**
+
+```text
+(6/(K*Δ)) Σ_k F_k λ_k = 6 L^+/(K Δ)
+```
+
+left-qualified original sixsets, with no assumption on the right labeling. This is a full-K_a upper, so omitting physical pair labels cannot invalidate it.
+
+One original right line factor l has Δ distinct incident original edges. Union-bounding over those Δ edges gives <=6L^+/K left-qualified original sixsets touching l. Thus swapping two distinct right line factors u,v touches at most
+
+```text
+B_s = min{L^+, floor(12 L^+/K)}
+```
+
+original sixsets. Since every selected seven-class E contributes an indicator in {0,1}, and all other E are unchanged,
+
+```text
+| S(f,g')-S(f,g) | <= B_s.
+```
+
+For the class-specific accepted GF5 **minimum-weight floor** numerator W(f,g)=Σ_E w_class(E), with possible weights 0,5643,43320,45010,45600,49050,51750, each individual E changes W by at most 51750. Therefore
+
+```text
+|W(f,g')-W(f,g)| <= 51750 B_s.
+```
+
+Using K=(1+o(1))s³ and L^+=(151/144+O(1/s))s^15, the upper is
+
+```text
+B_s = (151/12+o(1))s^12.
+```
+
+For s=2, L^+=62,370, K=15, giving B_2=min(62370, floor(12*62370/15))=49,896. The exact 105-neighbor W32 oracle verifies *every* affected-set count and both delta inequalities against the all-h integer bound. For s→∞ the per-swap influence is o(L_s(f)), but its O(s^12) scale is MUCH larger than the conjectured obstruction Ω(s^6). It therefore proves neither a universal all-correlated lower bound nor a constructive infinite counterexample.
+
+This all-h bound is elementary double-counting, not a new spectral theorem or a new exact full 51-pattern GF5 risk upper. It places a rigorous constraint on how a LOCAL right factor-label exchange can change the selected structural GF5 obstruction.
+
 ## 3. Independent falsifiers and significance
 
 The independent CI test runs the complete all-105 one-swap landscape on the fixed `reverse-line` W(3,2) input, verifies all 105 physical right factor-pair swaps are present exactly once and that the reported minimum is a genuine minimum over every neighbor. It tests the incremental predicted S and weighted GF5 lower numerators against three complete original-sixset re-enumerations for hand-selected swaps, *not* just the winner. The winner is independently recounted by a separate full structural/original-incidence oracle. A further test proves the two-swaps involution (including rebuilt full physical four-coordinate supports) and checks arbitrary physical coordinate-label gauge preserves S, Q4 and the weighted floor exactly.
