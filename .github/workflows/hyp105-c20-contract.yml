@@ -1,0 +1,28 @@
+name: hyp105-c20-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c20-global-left-c6-pressure
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c20_global_left_c6.py"
+      - "research/test_hyp105_g5e2b3e1c20_global_left_c6.py"
+      - ".github/workflows/hyp105-c20-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  global-original-left-six-cycle-pressure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C20 analytic all-h C6 pressure and independent true W32 / GF4 falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c20_global_left_c6.py' -v
+      - name: C20 four genuine W32 full left relabelings and 43740 original Hamilton lifts
+        run: python research/hyp105_g5e2b3e1c20_global_left_c6.py
