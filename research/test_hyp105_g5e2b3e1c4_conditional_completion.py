@@ -16,6 +16,7 @@ from hyp105_g5e2b3e1c0_weighted_overlap import (
 from hyp105_g5e2b3e1c4_conditional_completion import (
     occupied_target_residuals, original_W32_conditional_source,
     pair_frozen_moment_certificate,evaluate_conditional_tensor,
+    occupied_disjoint_triangle_completion_lower,all_h_pairwise_random_benchmark_lower,
 )
 
 
@@ -116,6 +117,51 @@ class ConditionalFourLineTests(unittest.TestCase):
         self.assertEqual(len(got),0)
         self.assertEqual(got,independently_brute_target(a,occupied,isolated_anchor))
         self.assertEqual(comb(a,2)-len(occupied),a-2)
+
+    def test_constructive_occupied_two_triangle_subfamily_all_K6_disjoint(self):
+        physical=tuple(combinations(range(6),2))
+        for pair in combinations(physical,2):
+            if set(pair[0])&set(pair[1]):
+                continue
+            cert=occupied_disjoint_triangle_completion_lower(6,physical,pair)
+            q,_=occupied_target_residuals(6,physical,pair)
+            self.assertEqual(cert["two_triangle_occupied_completion_count"],2)
+            self.assertEqual(cert["uniform_missing_budget_lower"],2)
+            self.assertLessEqual(cert["two_triangle_occupied_completion_count"],len(q))
+        # Adversarial occupancy from the independent full brute target:
+        a=7
+        all_edges=tuple(combinations(range(a),2))
+        pair=((0,1),(2,3))
+        for removed in (
+            (),((0,4),),((0,4),(0,5),(0,6)),
+            tuple((0,j) for j in range(2,a)),
+        ):
+            F=tuple(e for e in all_edges if e not in removed)
+            got=occupied_disjoint_triangle_completion_lower(a,F,pair)
+            Q,_=occupied_target_residuals(a,F,pair)
+            self.assertLessEqual(got["uniform_missing_budget_lower"],len(Q))
+            self.assertLessEqual(got["two_triangle_occupied_completion_count"],len(Q))
+            if len(removed)==a-2:
+                self.assertEqual(len(Q),0)
+                self.assertEqual(got["two_triangle_occupied_completion_count"],0)
+
+    def test_all_h_pairwise_benchmark_strictly_not_global_overlap(self):
+        for s in (2,4,8,16,32,64,128,256,512,1024):
+            c=all_h_pairwise_random_benchmark_lower(s)
+            L=max(0,c["a"]-4-c["physical_missing_t"])
+            self.assertEqual(c["all_disjoint_anchors_occupied_completion_lower"],
+                             L*(L-1) if L>=2 else 0)
+            self.assertEqual(c["pairwise_frozen_bijection_benchmark_lower"],
+                Fraction(
+                    c["all_correlated_disjoint_original_witness_mass_lower"]
+                    *c["all_disjoint_anchors_occupied_completion_lower"],
+                    comb(c["V"]-2,4)))
+            self.assertFalse(c["bound_is_global_deterministic_BA_overlap"])
+            if s>=16 and L>=2:
+                self.assertGreater(c["pairwise_frozen_bijection_benchmark_lower"],0)
+        for bad in (1,3,True):
+            with self.assertRaises(ValueError):
+                all_h_pairwise_random_benchmark_lower(bad)
 
     def test_exact_genuine_W32_original_conditional_tensor_and_105_swaps(self):
         for scheme in ("lex","reverse-line"):
