@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-B0 — seven-motif same-label tensor reduction
+
+[Exact polynomial coefficient identity, seven family GF5 floors and limits](HYP-105-G5-E2-B3-E1B0-SEVEN-MOTIF-TENSOR.md) · [reference](../../research/hyp105_g5e2b3e1b0_seven_signature.py) · [independent tests](../../research/test_hyp105_g5e2b3e1b0_seven_signature.py). Same W(3,2) fixed pair injection yields exact positive seven-family U/D6 counts plus independent Q4, but NO all-h Omega(s^6), strict R3 upper or ASET exponent improvement. Pending PR-head hosted CI.
+
 ## HYP-105 B3.2-E1-A — full fixed-label W32 six-coordinate GF5 leading motif census
 
 [Full finite theorem/scope](HYP-105-G5-E2-B3-E1A-FIXED-LEADING-MOTIFS.md) · [all-original-incidence oracle](../../research/hyp105_g5e2b3e1a_fixed_leading.py) · [independent falsifiers](../../research/test_hyp105_g5e2b3e1a_fixed_leading.py). Checks exactly 62,370 LEFT six-coordinate necessary candidate sets for W(3,2), then entire RIGHT for new four C/A/C/B/B/B sector; full 51-palette signed minimum R3 lower, NOT a complete weighted R3 or all-h ASET theorem. CI acceptance pending.
