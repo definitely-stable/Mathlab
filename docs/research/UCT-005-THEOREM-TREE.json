@@ -263,6 +263,12 @@
       "kind": "research_input",
       "status": "CANONICAL_20_PRIOR_ART_SCOPE_AND_QUERY_INTERFACE_NO_ORIGINAL_LOWER_BOUND",
       "source": "docs/research/UCT-005-G3-B2-D1B1-PRIMARY-TRANSFER-AND-MASK-OBSTRUCTION.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2A",
+      "kind": "research_input",
+      "status": "THREE_CONDITIONAL_UPPERS_SAME_FINITE_TRACE_PARTIAL_RESOURCE_PARETO_UNDECIDABLE_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md"
     }
   ],
   "edges": [
@@ -470,6 +476,11 @@
       "parent": "UCT005G3B2D1B0",
       "child": "UCT005G3B2D1B1",
       "relation": "SOURCE_TRANSFER_BARRIER_NOT_THEOREM_IMPLICATION"
+    },
+    {
+      "parent": "UCT005G3B2D1B1",
+      "child": "UCT005G3B2D1B2A",
+      "relation": "SAME_TRACE_UPPER_COMPARATOR_AND_PARTIAL_COST_BARRIER_NOT_PROOF"
     }
   ]
 }
