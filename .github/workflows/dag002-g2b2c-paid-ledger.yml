@@ -1,0 +1,35 @@
+name: dag002-g2b2c-paid-ledger
+
+on:
+  push:
+    branches:
+      - main
+      - "research/**"
+    paths:
+      - "research/dag002_g2b2c_paid_ledger.py"
+      - "research/test_dag002_g2b2c_paid_ledger.py"
+      - "docs/research/DAG-002-G2-B2-C0-PAID-LEDGER.md"
+      - ".github/workflows/dag002-g2b2c-paid-ledger.yml"
+  pull_request:
+    paths:
+      - "research/dag002_g2b2c_paid_ledger.py"
+      - "research/test_dag002_g2b2c_paid_ledger.py"
+      - "docs/research/DAG-002-G2-B2-C0-PAID-LEDGER.md"
+      - ".github/workflows/dag002-g2b2c-paid-ledger.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-common-page-ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Three-way paid page-image and explicit oracle-debt census
+        run: python research/dag002_g2b2c_paid_ledger.py
+      - name: Independent exact source semantics and storage validation
+        run: python -m unittest discover -s research -p 'test_dag002_g2b2c_paid_ledger.py' -v
