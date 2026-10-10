@@ -214,6 +214,13 @@ def joint_transport_W32(model, geometry_action, left_physical_action,
     if (any(len(t)!=V or set(t)!=set(range(V))
             for t in (sigma_p,sigma_l,hL,hR))):
         raise ValueError("geometry and physical actions must be complete bijections")
+    # A random permutation of 15 physical PAIR-EDGE labels is a legal
+    # new assignment but NOT a physical-coordinate automorphism.
+    # Only genuine S6 coordinate actions preserve the 2factor targets.
+    full_H=set(physical_coordinate_actions(
+        model["a"],palette)["distinct_occupied_edge_actions"])
+    if hL not in full_H or hR not in full_H:
+        raise ValueError("claimed physical action is not induced by a coordinate automorphism")
     from hyp105_b1_symplectic import symplectic_gq
     _,_,_,original_edges=symplectic_gq(1)
     if {(sigma_p[i],sigma_l[j]) for i,j in original_edges}!=set(original_edges):
@@ -296,6 +303,11 @@ def canonical_joint_pair_key_W32(model, original_actions, physical_actions,
     """
     fp,fg,_=_physical_bijections(model)
     H=tuple(physical_actions)
+    valid=set(physical_coordinate_actions(
+        model["a"],tuple(combinations(range(model["a"]),2))
+    )["distinct_occupied_edge_actions"])
+    if set(H)!=valid or len(H)!=len(valid):
+        raise ValueError("canonical normal form requires the EXACT full physical group")
     n=len(original_actions)*(2*len(H))
     if (type(max_physical_normalizations) is not int or
         max_physical_normalizations<1 or n>max_physical_normalizations):
