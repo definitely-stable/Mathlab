@@ -140,6 +140,17 @@ def query(db: Path, raw: str, limit: int) -> dict:
             "independent_reproduction": obj.get("independent_reproduction"),
             "model_id": obj.get("model_id"),
             "limitations": obj.get("limitations", ""),
+            "tags": obj.get("tags", []),
+            # Graph context is a retrieval hint. Each item retains its
+            # original typed relation and evidence path from the graph index.
+            "neighbors_out": [
+                e for e in obj.get("neighbors_out", [])
+                if e.get("relation") not in ("TAGGED_WITH", "BROADER_TAG")
+            ][:12],
+            "neighbors_in": [
+                e for e in obj.get("neighbors_in", [])
+                if e.get("relation") not in ("TAGGED_WITH", "BROADER_TAG")
+            ][:12],
             "rank": rank,
         })
     return {
