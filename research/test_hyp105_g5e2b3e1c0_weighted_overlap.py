@@ -16,6 +16,7 @@ from hyp105_g5e2b3e1c0_weighted_overlap import (
     finite_W32_overlap_report,generic_mass_only_countermodel,
     physical_target_two_point_design,one_degree_source_overlap_invariant,
     two_marginal_blind_cube_trade,physical_target_three_point_orbits,
+    GQ_weighted_BA_right_sixset_spread,
 )
 
 
@@ -226,6 +227,39 @@ class WeightedIntersectionTests(unittest.TestCase):
             self.assertFalse(report["actual_W3s_incidence_source"])
         with self.assertRaises(ValueError):
             two_marginal_blind_cube_trade(False)
+
+    def test_GQ_source_max_multiplicity_and_asymptotic_spread(self):
+        # Actual 10,935 original B-left candidates, not a toy hypergraph.
+        for scheme in ("lex","reverse-line"):
+            model=pair_labeled_symplectic(1,scheme)
+            weights=source_weighted_BA_hypergraph(model)
+            bound=GQ_weighted_BA_right_sixset_spread(2)
+            self.assertEqual(sum(weights.values()),5000)
+            self.assertEqual(len(weights),3076)
+            self.assertEqual(max(weights.values()),6)
+            self.assertLessEqual(max(weights.values()),
+                                 bound["each_six_right_endpoint_set_weight_upper"])
+            self.assertEqual(bound["each_six_right_endpoint_set_weight_upper"],
+                             15*3**4)
+        for s in (2,4,8,16,128,256,1024):
+            b=GQ_weighted_BA_right_sixset_spread(s)
+            self.assertEqual(b["each_six_right_endpoint_set_weight_upper"],
+                             15*(s+1)**4)
+            self.assertGreaterEqual(b["source_BA_weighted_mass_lower"],0)
+            self.assertGreaterEqual(b["positive_right_sixset_support_lower"],0)
+            self.assertTrue(b["uses_GQ_no_incidence_4cycles"])
+            self.assertTrue(b["independent_of_right_pair_injection"])
+            self.assertFalse(b["all_correlated_right_overlap_omega_s6_proved"])
+            if s>=4:
+                self.assertGreater(b["positive_right_sixset_support_lower"],0)
+        for s in (128,256,1024):
+            ratio=Fraction(
+                GQ_weighted_BA_right_sixset_spread(s)
+                ["positive_right_sixset_support_lower"],s**11)
+            self.assertGreater(ratio,Fraction(1,70))
+            self.assertLess(ratio,Fraction(1,55))
+        with self.assertRaises(ValueError):
+            GQ_weighted_BA_right_sixset_spread(3)
 
     def test_actual_correlated_pair_edge_swap_intersection(self):
         model=pair_labeled_symplectic(1,"reverse-line")
