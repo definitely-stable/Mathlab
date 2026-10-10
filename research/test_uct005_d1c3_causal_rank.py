@@ -68,6 +68,43 @@ class CausalRankStopTests(unittest.TestCase):
                 all_public = ((0, 0), (1, 0), (2, 0))
                 self.assertLessEqual(causal_rank(n, updates, q, all_public)["joint_rank"], n)
 
+    def test_all_interval_snapshots_equal_independent_last_writer_provenance(self):
+        # Independent set-of-author-symbol IDs, not the GF2 elimination.
+        from uct005_d1c3_causal_rank import full_interval_observation_rank
+        for n in range(1, 4):
+            intervals = tuple((l, r) for l in range(n)
+                              for r in range(l + 1, n + 1))
+            for H in range(4):
+                for updates in product(range(n), repeat=H):
+                    updates = tuple(updates)
+                    for epochs_mask in range(1 << (H + 1)):
+                        epochs = tuple(e for e in range(H + 1)
+                                       if epochs_mask & (1 << e))
+                        # Include known update-value conditioning, NOT
+                        # unpriced author-provided side information.
+                        for public_mask in range(1 << H):
+                            known = tuple((step, step & 1) for step in range(H)
+                                          if public_mask & (1 << step))
+                            q = tuple((0, e, l, r) for e in epochs
+                                      for l, r in intervals)
+                            rank = causal_rank(n, updates, q, known)["joint_rank"]
+                            independent = full_interval_observation_rank(
+                                n, updates, epochs, known)
+                            self.assertEqual(rank, independent,
+                                             (n, updates, epochs, known))
+                            self.assertLessEqual(rank, n + H - len(known))
+                            if len(epochs) == H + 1:
+                                self.assertEqual(rank, n + H - len(known))
+        # For an incomplete query family, simple source-support counting
+        # is NOT equal to answer rank: XOR of x0,x1 is only one answer bit.
+        z = causal_rank(2, (), ((0, 0, 0, 2),))
+        self.assertEqual(z["joint_rank"], 1)
+        self.assertEqual(z["distinct_hidden_provenance_variables_used"], 2)
+        with self.assertRaises(ValueError):
+            full_interval_observation_rank(2, (0,), (0, 0))
+        with self.assertRaises(ValueError):
+            full_interval_observation_rank(2, (0,), (2,))
+
     def test_overwritten_old_symbols_do_not_reappear(self):
         r = last_writer_row(2, (0, 1, 0), 3, 0, 2)
         # Last writer of coord0 is b2 at index 4; coord1 is b1 at index3.

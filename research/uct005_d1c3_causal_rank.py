@@ -151,6 +151,36 @@ def independent_answer_signatures(n: int, updates: tuple[int, ...],
     return outcomes
 
 
+
+def full_interval_observation_rank(n: int, updates: tuple[int, ...],
+                                   observed_epochs: tuple[int, ...],
+                                   known: tuple[tuple[int, int], ...] = ()) -> int:
+    """Independent provenance-set formula for ALL intervals at named epochs.
+
+    All singletons are then present. The unknown last-writer symbols visible
+    in at least one named epoch have independent basis rows. For arbitrary
+    incomplete interval families this formula is ONLY an upper bound.
+    """
+    if type(observed_epochs) is not tuple or any(
+            type(t) is not int or not 0 <= t <= len(updates)
+            for t in observed_epochs):
+        raise ValueError("invalid observed epoch set")
+    if len(set(observed_epochs)) != len(observed_epochs):
+        raise ValueError("duplicate named epoch")
+    _valid(n, updates, (), known)
+    exposed = set()
+    public = {n + step for step, _ in known}
+    last = list(range(n))
+    requested = set(observed_epochs)
+    for epoch in range(len(updates) + 1):
+        if epoch in requested:
+            exposed.update(symbol for symbol in last if symbol not in public)
+        if epoch < len(updates):
+            last[updates[epoch]] = n + epoch
+    return len(exposed)
+
+
+
 def examples() -> dict:
     # Identical current PIN observations by two independent readers:
     # ranks add to 6 but one common n=3 image suffices for the answer quotient.
