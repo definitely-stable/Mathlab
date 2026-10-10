@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-C0 — weighted six-hypergraph exact transfer and prior art
+
+[Full mathematical reduction, four scholarly precursors and mass-only countermodel](HYP-105-G5-E2-B3-E1C0-WEIGHTED-OVERLAP-TRANSFER.md) · [reference](../../research/hyp105_g5e2b3e1c0_weighted_overlap.py) · [independent tests](../../research/test_hyp105_g5e2b3e1c0_weighted_overlap.py). B/A physical event is weighted 6-uniform overlap under an arbitrary physical pair-edge right injection; it has exact random mean but total mass alone does NOT force positive min. W32 exact original-six-incidence evidence; all-h GQ-specific min and entire R3 open. Canonical source import held for concurrent IMPORT-012 #246.
+
 ## UCT-005 D1-B2-A — same-trace three-upper comparator and partial-Pareto stop (2026-10-10)
 
 [Formal finite evidence](UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md) · [reproducible model](../../research/uct005_d1b2a_partial_pareto.py) · [independent tests](../../research/test_uct005_d1b2a_partial_pareto.py). Three conditional F1 upper families answer identical SET/LATEST/PIN/AS_OF transcript under explicitly assumed trust. Only PAGE-001 snapshots have byte-conserving page prices; **no fabricated cross-family Pareto dominance, no new lower bound, ROOT_OPEN_UNPROVED**.
