@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**391** работ сопоставлены с **38** внутренними исследованиями.
+**396** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -553,6 +553,11 @@
 - [LIT-390](LITERATURE.md#lit-390) — When Do Graph Foundation Models Transfer? A Data-Centric Theory (2026; publisher_abstract_checked)
 - [LIT-391](LITERATURE.md#lit-391) — Graph Neural Networks Are Not Continuous Across Graph Resolutions (2026; publisher_abstract_checked)
 - [LIT-392](LITERATURE.md#lit-392) — GraphFlow: A Graph-Based Workflow Management for Efficient LLM-Agent Serving (2026; publisher_abstract_checked)
+- [LIT-393](LITERATURE.md#lit-393) — Transformers Provably Learn Algorithmic Solutions for Graph Connectivity, But Only with the Right Data (2026; publisher_abstract_checked)
+- [LIT-394](LITERATURE.md#lit-394) — An Approximation Algorithm for Graph Label Selection (2026; publisher_abstract_checked)
+- [LIT-395](LITERATURE.md#lit-395) — Adaptive Memory Retention in Dynamic Graphs (2026; publisher_abstract_checked)
+- [LIT-396](LITERATURE.md#lit-396) — Navigating Massive Visual Context in Retrieval-Augmented Generation via Multimodal Memory Graph (2026; publisher_abstract_checked)
+- [LIT-397](LITERATURE.md#lit-397) — A Tale of Two Graphs: Separating Knowledge Exploration from Outline Structure for Open-Ended Deep Research (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -766,6 +771,11 @@
 - [LIT-390](LITERATURE.md#lit-390) — When Do Graph Foundation Models Transfer? A Data-Centric Theory (2026; publisher_abstract_checked)
 - [LIT-391](LITERATURE.md#lit-391) — Graph Neural Networks Are Not Continuous Across Graph Resolutions (2026; publisher_abstract_checked)
 - [LIT-392](LITERATURE.md#lit-392) — GraphFlow: A Graph-Based Workflow Management for Efficient LLM-Agent Serving (2026; publisher_abstract_checked)
+- [LIT-393](LITERATURE.md#lit-393) — Transformers Provably Learn Algorithmic Solutions for Graph Connectivity, But Only with the Right Data (2026; publisher_abstract_checked)
+- [LIT-394](LITERATURE.md#lit-394) — An Approximation Algorithm for Graph Label Selection (2026; publisher_abstract_checked)
+- [LIT-395](LITERATURE.md#lit-395) — Adaptive Memory Retention in Dynamic Graphs (2026; publisher_abstract_checked)
+- [LIT-396](LITERATURE.md#lit-396) — Navigating Massive Visual Context in Retrieval-Augmented Generation via Multimodal Memory Graph (2026; publisher_abstract_checked)
+- [LIT-397](LITERATURE.md#lit-397) — A Tale of Two Graphs: Separating Knowledge Exploration from Outline Structure for Open-Ended Deep Research (2026; publisher_abstract_checked)
 
 ## ML-007
 
@@ -974,6 +984,8 @@
 - [LIT-390](LITERATURE.md#lit-390) — When Do Graph Foundation Models Transfer? A Data-Centric Theory (2026; publisher_abstract_checked)
 - [LIT-391](LITERATURE.md#lit-391) — Graph Neural Networks Are Not Continuous Across Graph Resolutions (2026; publisher_abstract_checked)
 - [LIT-392](LITERATURE.md#lit-392) — GraphFlow: A Graph-Based Workflow Management for Efficient LLM-Agent Serving (2026; publisher_abstract_checked)
+- [LIT-393](LITERATURE.md#lit-393) — Transformers Provably Learn Algorithmic Solutions for Graph Connectivity, But Only with the Right Data (2026; publisher_abstract_checked)
+- [LIT-394](LITERATURE.md#lit-394) — An Approximation Algorithm for Graph Label Selection (2026; publisher_abstract_checked)
 
 ## OM-135
 

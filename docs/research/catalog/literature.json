@@ -11290,6 +11290,192 @@
           "source_sha": "ceb08432c1b2c611bde225a9279eecf5bc165a6e"
         }
       ]
+    },
+    {
+      "id": "LIT-393",
+      "identity": "publisher:pmlr-v306-ye26f",
+      "year": 2026,
+      "title": "Transformers Provably Learn Algorithmic Solutions for Graph Connectivity, But Only with the Right Data",
+      "track": "graph-learning-theory",
+      "authors": [
+        "Qilin Ye",
+        "Deqing Fu",
+        "Robin Jia",
+        "Vatsal Sharan"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006",
+        "OM-133"
+      ],
+      "summary_ru": "ICML 2026: для Disentangled Transformer глубины L исследуется алгоритмическое вычисление графовой связности при диаметре не более 3^L, а также зависимость усвоения алгоритма от распределения обучающих графов в пределах capacity; проверка на стандартных Transformers носит экспериментальный характер.",
+      "limits_ru": "Существование реализуемой модели и аргументы о динамике обучения при ограничении диаметра не дают универсальной обучаемости, arbitrary directed reachability, immutable DAG oracle, physical write bounds или криптографического доказательства; графовая связность и достижимость различаются.",
+      "primary_url": "https://proceedings.mlr.press/v306/ye26f.html",
+      "alternate_identities": [],
+      "venue": "ICML 2026 (PMLR volume 306)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md",
+          "source_sha": "38d5dc52464d2c54fe00de22f2a3ea1025072f7b"
+        }
+      ]
+    },
+    {
+      "id": "LIT-394",
+      "identity": "publisher:pmlr-v306-john26a",
+      "year": 2026,
+      "title": "An Approximation Algorithm for Graph Label Selection",
+      "track": "graph-learning-theory",
+      "authors": [
+        "Josia John",
+        "Simon Meierhans",
+        "Maximilian Probst Gutenberg"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006",
+        "OM-133"
+      ],
+      "summary_ru": "ICML 2026: задача выбрать ровно k размечаемых вершин для предсказания неизвестных vertex labels остальных вершин; авторы выводят первую tilde-O(log^{1.5} n)-аппроксимацию при стандартном бюджетном ограничении без resource augmentation.",
+      "limits_ru": "Labels — наблюдаемые ответы supervised-обучения для вершин, а не точные reachability labels, persistent graph metadata или cell-probe oracle; аппроксимация целевой predictive loss не гарантирует правильность всех пар reachability либо оплаченные page writes.",
+      "primary_url": "https://proceedings.mlr.press/v306/john26a.html",
+      "alternate_identities": [],
+      "venue": "ICML 2026 (PMLR volume 306)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md",
+          "source_sha": "38d5dc52464d2c54fe00de22f2a3ea1025072f7b"
+        }
+      ]
+    },
+    {
+      "id": "LIT-395",
+      "identity": "publisher:pmlr-v306-de-castelli26a",
+      "year": 2026,
+      "title": "Adaptive Memory Retention in Dynamic Graphs",
+      "track": "graph-learning-theory",
+      "authors": [
+        "Fabrizio De Castelli",
+        "Alessio Gravina",
+        "Moshe Eliasof",
+        "Carola-Bibiane Schönlieb",
+        "Davide Bacciu"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "ICML 2026: LAMP сочетает импульсные neural ODE, антисимметричную консервативную динамику и адаптивную диссипацию для стабильных представлений snapshot-based динамических графов; представлены анализ устойчивости, выразительности и авторские эмпирические результаты.",
+      "limits_ru": "Стабильность learned graph embeddings не является lossless retention истории, bitemporal provenance, replay exact state, authenticated freshness, write amplification или независимым измерением скорости; архитектура ограничена snapshot-oriented model.",
+      "primary_url": "https://proceedings.mlr.press/v306/de-castelli26a.html",
+      "alternate_identities": [],
+      "venue": "ICML 2026 (PMLR volume 306)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md",
+          "source_sha": "38d5dc52464d2c54fe00de22f2a3ea1025072f7b"
+        }
+      ]
+    },
+    {
+      "id": "LIT-396",
+      "identity": "publisher:pmlr-v306-wang26ip",
+      "year": 2026,
+      "title": "Navigating Massive Visual Context in Retrieval-Augmented Generation via Multimodal Memory Graph",
+      "track": "graph-reasoning",
+      "authors": [
+        "Qiuchen Wang",
+        "Shihang Wang",
+        "Yu Zeng",
+        "Qiang Zhang",
+        "Fanrui Zhang",
+        "Zhuoning Guo",
+        "Bosi Zhang",
+        "Wenxuan Huang",
+        "Lin Chen",
+        "Zehui Chen",
+        "Pengjun Xie",
+        "Ruixue Ding"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "ICML 2026: VimRAG организует шаги мультимодального LLM-рассуждения и retrieved evidence в динамический DAG; graph-modulated encoding адаптирует детальность визуальных токенов по позиции в графе, graph-guided policy optimization отсеивает избыточные узлы.",
+      "limits_ru": "Оптимизация токенов или высокое качество RAG-бенчмарка не является сохранением всех исходных свидетельств, exact proof DAG, causal freshness или bounded-cost dynamic reachability; результаты воспроизведения качества и расхода памяти не подтверждены.",
+      "primary_url": "https://proceedings.mlr.press/v306/wang26ip.html",
+      "alternate_identities": [],
+      "venue": "ICML 2026 (PMLR volume 306)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md",
+          "source_sha": "38d5dc52464d2c54fe00de22f2a3ea1025072f7b"
+        }
+      ]
+    },
+    {
+      "id": "LIT-397",
+      "identity": "publisher:pmlr-v306-shi26n",
+      "year": 2026,
+      "title": "A Tale of Two Graphs: Separating Knowledge Exploration from Outline Structure for Open-Ended Deep Research",
+      "track": "graph-rag",
+      "authors": [
+        "Zhuofan Shi",
+        "Ming Ma",
+        "Zekun Yao",
+        "Fangkai Yang",
+        "Jue Zhang",
+        "Dongge Han",
+        "Victor Rühle",
+        "Qingwei Lin",
+        "Saravan Rajmohan",
+        "Dongmei Zhang"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "ICML 2026: DualGraph разделяет растущий Knowledge Graph доказательных знаний и Outline Graph плана исследовательского отчёта; топологические разрывы используются для targeted research queries, авторы оценивают методику на четырёх бенчмарках открытого исследования.",
+      "limits_ru": "Графовые пробелы могут быть артефактами retrieval или LLM; высокий benchmark score не доказывает полноту prior art, логическое следствие, достоверность цитат, новизну теорем или воспроизводимое преимущество в Mathlab.",
+      "primary_url": "https://proceedings.mlr.press/v306/shi26n.html",
+      "alternate_identities": [],
+      "venue": "ICML 2026 (PMLR volume 306)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md",
+          "source_sha": "38d5dc52464d2c54fe00de22f2a3ea1025072f7b"
+        }
+      ]
     }
   ]
 }

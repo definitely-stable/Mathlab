@@ -15,11 +15,11 @@ class Import013Tests(unittest.TestCase):
         cls.catalog = json.loads(INTERNAL.read_text(encoding="utf-8"))
         cls.relations = json.loads(RELATIONS.read_text(encoding="utf-8"))
 
-    def test_canonical_391_with_no_duplicate_identity(self):
+    def test_canonical_396_with_no_duplicate_identity(self):
         rows = self.data["entries"]
-        self.assertEqual(len(rows), 391)
-        self.assertEqual(len({x["id"] for x in rows}), 391)
-        self.assertEqual(len({x["identity"].lower() for x in rows}), 391)
+        self.assertEqual(len(rows), 396)
+        self.assertEqual(len({x["id"] for x in rows}), 396)
+        self.assertEqual(len({x["identity"].lower() for x in rows}), 396)
         self.assertEqual(len({x["track"] for x in rows}), 22)
         self.assertEqual(valid(self.data, self.catalog), [])
 

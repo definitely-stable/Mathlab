@@ -62,6 +62,12 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-014: official 2026 PMLR publisher-title identities.
+    "publisher:pmlr-v306-ye26f": "Transformers Provably Learn Algorithmic Solutions for Graph Connectivity, But Only with the Right Data",
+    "publisher:pmlr-v306-john26a": "An Approximation Algorithm for Graph Label Selection",
+    "publisher:pmlr-v306-de-castelli26a": "Adaptive Memory Retention in Dynamic Graphs",
+    "publisher:pmlr-v306-wang26ip": "Navigating Massive Visual Context in Retrieval-Augmented Generation via Multimodal Memory Graph",
+    "publisher:pmlr-v306-shi26n": "A Tale of Two Graphs: Separating Knowledge Exploration from Outline Structure for Open-Ended Deep Research",
     # IMPORT-013: exact ICML 2026 PMLR publisher titles.
     "publisher:pmlr-v306-wittig26a": "Which Algorithms Can Graph Neural Networks Learn?",
     "publisher:pmlr-v306-fetrat-qharabagh26a": "Learning to Execute Graph Algorithms Exactly with Graph Neural Networks",
