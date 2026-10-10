@@ -1,0 +1,28 @@
+name: hyp105-c22-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c22-joint-seven-tensor
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c22_joint_seven_tensor.py"
+      - "research/test_hyp105_g5e2b3e1c22_joint_seven_tensor.py"
+      - ".github/workflows/hyp105-c22-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  real-W32-joint-seven-global-right-tensor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C22 full one-common-right 7-class tensor with exact independent historical W32 oracles
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c22_joint_seven_tensor.py' -v
+      - name: C22 exact 105 globally coherent right swap full 7-class and necessary GF5 report
+        run: python research/hyp105_g5e2b3e1c22_joint_seven_tensor.py
