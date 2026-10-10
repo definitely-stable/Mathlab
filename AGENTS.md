@@ -16,6 +16,7 @@ Run from the repository root with Python 3 (stdlib only):
 python research/research_graph.py validate
 python research/research_graph.py search "GF5 signed trades" --limit 10
 python research/research_graph.py neighbors P:LIT-355 --hops 1 --direction out --relation MAPS_TO_RESEARCH
+python research/research_graph.py impact P:LIT-355 --depth 2
 python research/research_graph.py build --out .work/research-graph
 python research/research_graph_fts.py sync --jsonl .work/research-graph/retrieval.jsonl
 python research/research_graph_fts.py search "historical PIN"
