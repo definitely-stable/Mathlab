@@ -287,6 +287,12 @@
       "kind": "research_input",
       "status": "SAME_TRANSCRIPT_PARTIAL_PHYSICAL_LEDGER_KNOWN_AXES_AND_PARETO_STOP_NO_NEW_LOWER_BOUND",
       "source": "docs/research/UCT-005-G3-B2-D1B2F-RESOURCE-RECONCILIATION.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F2",
+      "kind": "research_input",
+      "status": "STREAMED_REMOTE_PIN_BITMAP_PAGED_TWO_PASS_TRUSTED_PAYLOAD_BOUND_ONLY_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F2-STREAMED-PIN-BITMAP.md"
     }
   ],
   "edges": [
@@ -514,6 +520,11 @@
       "parent": "UCT005G3B2D1B2B1",
       "child": "UCT005G3B2D1B2F",
       "relation": "RECONCILED_PARTIAL_PRICED_UPPER_STOP_NOT_PROVEN_ROOT_THEOREM"
+    },
+    {
+      "parent": "UCT005G3B2D1B2F",
+      "child": "UCT005G3B2D1B2F2",
+      "relation": "BOUNDED_TRANSIENT_PIN_BITMAP_SCRATCH_UPPER_AND_PARTIAL_PARETO_STOP"
     }
   ]
 }
