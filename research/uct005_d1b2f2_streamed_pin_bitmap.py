@@ -75,9 +75,30 @@ class StreamedPinBitmapF1(RemotePinBitmapF1):
         self.ledger["bitmap_stream_peak_payload_buffer_bytes"] = (
             self.bitmap_peak_trusted_payload_buffers)
 
+    @property
+    def retained_pinned_pages(self) -> int:
+        # Inherited SnapshotF1Reference would observe the deliberately
+        # EMPTY trusted pin_registry and silently return a false zero.
+        # Only an authenticated, fully paid remote bitmap audit can price
+        # unique historical epochs; a free accessor is forbidden.
+        raise RuntimeError("PIN-retained pages require a charged remote bitmap audit")
+
+    def _read_verified_bitmap(self, audit: bool = False) -> bytes:
+        # The predecessor API returns a complete B-byte trusted bitmap.
+        # Returning such a value here would invalidate the streamed gate.
+        raise RuntimeError("bulk trusted bitmap materialization forbidden")
+
+    def _bitmap_page_address(self, page: int, generation: int) -> int:
+        if not 0 <= page < self.bitmap_pages or not 0 <= generation < 1 << 64:
+            raise Abort("bad fixed-address bitmap page")
+        address = (generation & 1) * self.bitmap_pages + page
+        if address >= 1 << 64:
+            raise Abort("remote uint64 page address overflow")
+        return address
+
     def _page(self, page: int, *, pass_name: str) -> tuple[bytes, int]:
-        if not 0 <= page < self.bitmap_pages:
-            raise Abort("bitmap address outside issued physical slot")
+        address = self._bitmap_page_address(page, self.bitmap_generation)
+        self.ledger["bitmap_stream_last_active_page_offset"] = address
         self.ledger["bitmap_stream_" + pass_name + "_page_read_attempts"] += 1
         self.ledger["bitmap_remote_page_read_attempts"] += 1
         self.ledger["bitmap_remote_page_request_bytes"] += 8
@@ -171,7 +192,9 @@ class StreamedPinBitmapF1(RemotePinBitmapF1):
                     new_image = image
                 self._peak_scratch(valid, two=True)
                 next_digest.update(new_image[:valid])
+                stage_address = self._bitmap_page_address(page, next_generation)
                 self.bitmap_stage[page] = new_image
+                self.ledger["bitmap_stream_last_stage_page_offset"] = stage_address
                 self.ledger["bitmap_stream_stage_page_writes"] += 1
                 self.ledger["bitmap_remote_page_writes"] += 1
                 self.ledger["bitmap_remote_upload_bytes"] += self.page_bytes
@@ -197,8 +220,11 @@ class StreamedPinBitmapF1(RemotePinBitmapF1):
             self.trusted_bitmap_digest = next_digest.digest()
             self.ledger["bitmap_trusted_root_publications"] += 1
             self.ledger["bitmap_trusted_root_publication_bytes"] += self._TRUSTED_ROOT_BYTES
-            self.ledger["bitmap_stream_retired_bitmap_page_drop_calls"] += len(old)
-            self.ledger["bitmap_stream_retired_bitmap_drop_request_bytes"] += len(old) * 8
+            for page in old:
+                old_address = self._bitmap_page_address(page, next_generation - 1)
+                self.ledger["bitmap_stream_last_retired_page_offset"] = old_address
+                self.ledger["bitmap_stream_retired_bitmap_page_drop_calls"] += 1
+                self.ledger["bitmap_stream_retired_bitmap_drop_request_bytes"] += 8
             return any(after_bits)
         except Exception:
             self._discard_stage()
