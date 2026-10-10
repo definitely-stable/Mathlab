@@ -150,6 +150,12 @@ jobs:
       - name: HYP-105 B3.2-E1-B0 independent six-motif tensor, gauge and DFS checks
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1b0_seven_signature.py'
 
+      - name: HYP-105 B3.2-E1-B1-B all 105 correlated right-label swaps W32 exact GF5 audit
+        run: python research/hyp105_g5e2b3e1b1b_label_swaps.py
+
+      - name: HYP-105 B3.2-E1-B1-B independent swap delta full recount and gauge tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1b1b_label_swaps.py'
+
       - name: HYP-105 B3.2-E1-B1-A exact all-label left six-motif template sandwich
         run: python research/hyp105_g5e2b3e1b1a_one_sided.py
 
