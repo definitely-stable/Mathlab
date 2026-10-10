@@ -1,0 +1,29 @@
+name: uct005-d1b2b1-segmented-bitmap
+on:
+  push:
+    branches:
+      - research/uct005-d1b2b1-segmented-bitmap
+    paths:
+      - "research/uct005_d1b2b1_segmented_bitmap.py"
+      - "research/test_uct005_d1b2b1_segmented_bitmap.py"
+      - ".github/workflows/uct005-d1b2b1-segmented-bitmap.yml"
+  pull_request:
+    paths:
+      - "research/uct005_d1b2b1_segmented_bitmap.py"
+      - "research/test_uct005_d1b2b1_segmented_bitmap.py"
+      - ".github/workflows/uct005-d1b2b1-segmented-bitmap.yml"
+permissions:
+  contents: read
+jobs:
+  byte-conserving-segments:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Exhaustive 2-reader segmented bitmap and GC oracle
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2b1_segmented_bitmap.py' -v
+      - name: Same-service physical page witness
+        run: python research/uct005_d1b2b1_segmented_bitmap.py
