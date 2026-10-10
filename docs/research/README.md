@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-C7 — exact pinned one-bijection conditional mean and constructive fixed B/A selector
+
+[Proof, all-h quantifiers and precise seven-family scope](HYP-105-G5-E2-B3-E1C7-CONDITIONAL-PREFIX.md) · [source](../../research/hyp105_g5e2b3e1c7_conditional_prefix.py) · [tests](../../research/test_hyp105_g5e2b3e1c7_conditional_prefix.py) · #230. **EXACT_RESTRICTED_THEOREM_C / HOSTED_CI_PENDING / ORIGINAL_GQ_W32_GREEDY_GATE_LE_69 / NO_SEVEN_FAMILY_PROOF.**
+
 ## HYP-105 B3.2-E1-C6 — complete Johnson energy decomposition of one shared right permutation
 
 [All-h proof, exact global variance/Dirichlet and scope](HYP-105-G5-E2-B3-E1C6-JOHNSON-VARIANCE.md) · [reference](../../research/hyp105_g5e2b3e1c6_johnson_variance.py) · [independent brute transposition oracle](../../research/test_hyp105_g5e2b3e1c6_johnson_variance.py). Exact squared sixset marginal moments A_k give all W0..W6 norms through a triangular inclusion-eigenvalue inversion; C5 one-common-Pi variance equals Σ_r E_r(m_GQ)E_r(T_F)/[C(V,r)−C(V,r−1)], independently checked against C5 seven-overlap second moment. Uniform random right-factor transposition half squared-difference average is Σ_r[r(V+1−r)/C(V,2)] Var_r. Full 8!=40320 permutations ×28 swaps, real W32 K6 energy invariants and genuine fixed g 77→57. Arbitrary occupied target F may have W1≠0. A valid centered fixed-g Cauchy gate is checked but no all-g Omega(s6) or full 51-palette GF5 bound is asserted; hosted CI pending.
