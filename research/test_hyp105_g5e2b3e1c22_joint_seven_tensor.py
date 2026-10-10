@@ -9,6 +9,7 @@ from hyp105_g5e2b3e1b0_seven_signature import R3_CERTIFIED_FLOORS
 from hyp105_g5e2b3e1c21d_adversarial_right import W32_LEX_RIGHT_ZERO_D6
 from hyp105_g5e2b3e1c22_joint_seven_tensor import (
     EDGE_BITS, TAGS, six_edges_degree_two_by_parity,
+    all_h_D6_one_global_right_transposition_influence,
     _column_dual_signature,_cycle6_connected,
     compile_original_W32_joint_source,counts_for_global_right_mapping,
     exact_joint_one_swap_neighborhood,
@@ -46,6 +47,23 @@ class C22OneGlobalRightJointTensorTests(unittest.TestCase):
         self.assertEqual(six_edges_degree_two_by_parity(simple),False)
         with self.assertRaises(ValueError):
             six_edges_degree_two_by_parity((1,)*6)
+
+    def test_all_h_global_right_two_line_D6_influence(self):
+        for s in (2,4,8,16,32,64,128):
+            info=all_h_D6_one_global_right_transposition_influence(s)
+            self.assertEqual(
+                info["original_left_C6_with_two_swapped_right_lines_upper"],
+                2*info["original_left_C6_with_one_fixed_right_line_upper"])
+            self.assertLessEqual(info["D6_absolute_transposition_change_upper"],
+                                 info["all_original_left_C6_upper"])
+            self.assertTrue(info["not_positive_all_g_D6_or_seven_lower"])
+        self.assertEqual(
+            all_h_D6_one_global_right_transposition_influence(2)[
+                "original_left_C6_with_two_swapped_right_lines_upper"],
+            34992)
+        for s in (0,1,3,True,9,"4"):
+            with self.assertRaises(ValueError):
+                all_h_D6_one_global_right_transposition_influence(s)
 
     def test_connected_dual_rejects_two_disjoint_triangles(self):
         from hyp105_g5e2b3e1a_fixed_leading import _two_factors_K6
