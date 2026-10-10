@@ -331,7 +331,13 @@ def exercise(n: int, p: int, initial: tuple[int,...] | None=None) -> dict:
             if j==2 and m.pin_current(1)!=2:
                 raise AssertionError("PIN2 epoch")
         q = (m.latest if isinstance(m,SnapshotF1Reference) else m.query)
-        for lo,hi in ((0,1),(0,n),(n-1,n)):
+        # Small-instance tests require every half-open nonempty interval;
+        # large-size witnesses use the declared three-interval profile only.
+        query_ranges=(
+            tuple((lo,hi) for lo in range(n) for hi in range(lo+1,n+1))
+            if n<=6 else ((0,1),(0,n),(n-1,n))
+        )
+        for lo,hi in query_ranges:
             for reader in READER_IDS:
                 v=q(reader,lo,hi)
                 if v!=(sum(words[3][lo:hi])&1):
@@ -410,6 +416,8 @@ def exercise(n: int, p: int, initial: tuple[int,...] | None=None) -> dict:
             raise AssertionError("unpinning expanded retained storage")
         rows.append({"model":name,"stages":stages})
     return {"n":n,"P":p,"status":CLASSIFICATION,
+            "query_profile":"all_intervals" if n<=6 else "representative",
+            "query_count_per_model":4*(n*(n+1)//2 if n<=6 else 3),
             "same_finite_F1_answers_verified": True,
             "root_novelty":"OPEN_UNPROVED","models":rows,
             "completed_full_F1_pareto":False}
