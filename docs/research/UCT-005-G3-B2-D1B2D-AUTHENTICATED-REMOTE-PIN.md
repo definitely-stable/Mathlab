@@ -32,6 +32,12 @@ Proof by induction: initially latest epoch0 only; PIN_CURRENT changes bitmap for
 
 S = PAGE-001 version-history scanner; O(H) per-GC remote manifest probes in the chosen full-history scan implementation. E = #245 eager reclaimer with paid trusted active PIN-entry scans (41 bytes per record and ceil(41/P) trusted pages) and remote DROP_PAGE calls. R = authenticated remote bitmap, which reduces *central persistent trusted PIN-membership state* to 40 bytes but pays O(C/P) remote pages per read and full bitmap rewrite per PIN/UNPIN, plus hashing and frequent trusted root updates. The two reader clients can still retain O(H) historical roots, so **total trusted state is not constant**. No unconditional Pareto dominance or novel joint theorem follows.
 
+## Exact capacity witness for n=33, P=2, C=8
+
+Under the same three-SET history (including no-op) with reader0 PIN epoch0 and reader1 PIN epoch2, snapshot L=ceil(5/2)+ceil(48/2)=27 complete pages, while the remote 16-bit (two readers × eight epochs) bitmap occupies **one** page. With three live snapshots {0,2,3}, R uses 3×27+1=82 remote pages and E uses 3×27=81.
+
+The *central trusted membership* component is 40 bytes for R versus two 41-byte active PIN entries = 82 bytes for E, saving exactly **42 trusted bytes** in this deliberately bounded scenario. Both still retain the same writer n bits, globally trusted latest epoch/root (40 bytes) and two reader-local historical roots (2×40 bytes); these must NOT be removed from total trusted-state accounting. The reduced central memory is bought with full authenticated remote bitmap reads/writes and trusted-root hash/publication operations, so this is **not a strict overall Pareto dominance or new lower bound**. The exact ledger is checked independently in the tests.
+
 ## Finite acceptance/STOP
 
 The independent tests enumerate 2^H historical PIN subsets for H<=8, identical F1 histories across E/R for every initial word n<=5 and P=1,2,64, all exact range parity answers and two distinct AS_OF PIN roots; two clients pinning the *same* genesis; bitmap bytes/pages at capacities C=2,5,8,17; tamper/replay/withhold ABORT; and capacity/invalid operations. GitHub-hosted exact-head focused and Research CI required. These are finite sanity gates only.
