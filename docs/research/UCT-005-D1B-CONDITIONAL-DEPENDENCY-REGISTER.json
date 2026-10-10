@@ -81,7 +81,7 @@
   "catalog_occurrences": [
     {
       "lit_id": "LIT-058",
-      "identity": "doi:10.1145/3798129.3800802",
+      "identity": "doi:10.4230/LIPIcs.STACS.2026.68",
       "fields": [
         "summary_ru"
       ],
