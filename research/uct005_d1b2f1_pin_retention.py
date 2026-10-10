@@ -41,6 +41,8 @@ def _pins(m) -> dict[int, bytes]:
 
 def _snapshot_roots(m: SnapshotF1Reference):
     expected = _pins(m)
+    if m.epoch in expected and expected[m.epoch] != m.latest_root:
+        raise ValueError("snapshot trusted PIN conflicts with latest root")
     expected[m.epoch] = m.latest_root
     return expected
 
@@ -97,7 +99,8 @@ def retention_audit(m) -> dict:
     silently by the charged GC implementation.
     """
     before = {k:v for k,v in m.ledger.items()
-              if k.startswith("retention_audit_")}
+              if k.startswith("retention_audit_")
+              and not k.startswith("retention_audit_last_")}
     if isinstance(m, SnapshotF1Reference):
         trusted = _snapshot_roots(m)
         p = m.page_bytes
@@ -159,7 +162,8 @@ def retention_audit(m) -> dict:
         raise TypeError("unsupported reference")
 
     after = {k:v for k,v in m.ledger.items()
-             if k.startswith("retention_audit_")}
+             if k.startswith("retention_audit_")
+             and not k.startswith("retention_audit_last_")}
     new_cost = {k: after.get(k,0) - before.get(k,0)
                 for k in set(before)|set(after)}
     if any(v<0 for v in new_cost.values()):
