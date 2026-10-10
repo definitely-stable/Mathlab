@@ -24,7 +24,7 @@ Physical allocation is P*B where P includes live, pinned, dead and FREE slots, e
 
 ## Independent hosted acceptance
 
-The Python module research/index001_page_epochs.py implements real tempfile page writes, scan-to-find-free allocator, pin/unpin, full CRC chain reader, explicit GC and replayable crash-prefix hooks. Its source HYB4 data is streamed in B-14 byte chunks; it has a one-page serializer, but DOES NOT certify bounded total Python RSS, bounded reader pin table or bounded allocator CPU cost.
+The Python module research/index001_page_epochs.py implements real tempfile page writes, scan-to-find-free allocator, pin/unpin, full CRC chain reader, explicit GC and replayable crash-prefix hooks. Before any allocator page is touched, the complete source HYB4 file is checked for header/padding/CRC and decoded semantically with a streaming reader; its source page requests are separately charged and malformed input is rejected without changing the arena. Valid HYB4 data is then streamed in B-14 byte chunks; it has a one-page serializer, but DOES NOT certify bounded total Python RSS, bounded reader pin table or bounded allocator CPU cost.
 
 The independent tests research/test_index001_page_epochs.py reconstruct raw root/data CRC and page chains without reusing model readers; exhaust all binary maps N<=6 in B/R/S0/S1 modes at B=64/128; examine every simulated crash prefix of page writes (including intermediate link patches), recovery/sweep, pin retention, finite disk caps and page CRC corruption. The in-memory crash snapshot oracle is explicitly NOT a working-RAM implementation.
 
