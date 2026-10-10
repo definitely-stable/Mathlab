@@ -15,7 +15,7 @@ from hyp105_g5e2b3e1c0_weighted_overlap import (
     exact_BA_overlap,random_injection_expectation,
     finite_W32_overlap_report,generic_mass_only_countermodel,
     physical_target_two_point_design,one_degree_source_overlap_invariant,
-    two_marginal_blind_cube_trade,
+    two_marginal_blind_cube_trade,physical_target_three_point_orbits,
 )
 
 
@@ -104,6 +104,51 @@ class WeightedIntersectionTests(unittest.TestCase):
                          7*comb(11,3))
         self.assertEqual(values["pair_codegree_disjoint_physical_labels"],
                          14*comb(10,2))
+
+    def test_full_physical_third_orbit_census_K6_and_K9(self):
+        """Complete 455 K6 and 7140 K9 physical three-edge subsets."""
+        for a in (6,9):
+            target=simple_six_2factor_targets(a)
+            palette=tuple(combinations(range(a),2))
+            observed=Counter()
+            for physical_six in target:
+                for triplet in combinations(sorted(physical_six),3):
+                    observed[triplet]+=1
+            data=physical_target_three_point_orbits(a)
+            orbit_counts=Counter()
+            for tr in combinations(palette,3):
+                degrees=Counter(v for e in tr for v in e)
+                n=len(degrees)
+                signature=tuple(sorted(degrees.values(),reverse=True))
+                if n==3 and signature==(2,2,2):
+                    kind="triangle"
+                elif n==4 and signature==(2,2,1,1):
+                    kind="path_P4"
+                elif n==4 and signature==(3,1,1,1):
+                    kind="star_K1_3"
+                elif n==5 and signature==(2,1,1,1,1):
+                    kind="path_P3_plus_edge"
+                elif n==6 and signature==(1,1,1,1,1,1):
+                    kind="matching_3"
+                else:
+                    self.fail("unknown three-physical-pair orbit")
+                orbit_counts[kind]+=1
+                ids=tuple(palette.index(e) for e in tr)
+                self.assertEqual(observed[ids],
+                                 data["target_triple_label_orbits"][kind]["codegree"])
+            self.assertEqual(
+                dict(orbit_counts),
+                {k:v["orbit_cardinality"]
+                 for k,v in data["target_triple_label_orbits"].items()})
+            self.assertEqual(sum(observed.values()),20*len(target))
+        # Host a=14 from W(3,4), large arithmetic only; no complete
+        # physical 6set scan with 3e6 target hyperedges required.
+        target14=physical_target_three_point_orbits(14)
+        self.assertTrue(target14["exact_all_a_census_proved"])
+        self.assertFalse(target14["all_correlated_right_min_lower_proved"])
+        for bad in (0,5,True):
+            with self.assertRaises(ValueError):
+                physical_target_three_point_orbits(bad)
 
     def test_exact_degree_one_source_permutation_invariance_K6(self):
         a=6
