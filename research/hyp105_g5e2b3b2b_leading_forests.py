@@ -29,6 +29,14 @@ EXPECTED_NAMED = {
     "C/A": 21000, "C/B": 10800,
     "B/B-overlap": 10800, "B/B-disjoint": 8100,
 }
+# Independent small Python finite-certificate reproduction, full 51-palette:
+# (orbit representatives, fixed-left named mass, exact flow sum, min, max).
+EXPECTED_GF5 = {
+    "C/A": (31, 700, 4243968, 4332, 8319),
+    "C/B": (12, 360, 2084184, 4905, 6786),
+    "B/B-overlap": (17, 240, 1287120, 5175, 5535),
+    "B/B-disjoint": (21, 180, 1116160, 4501, 8310),
+}
 
 
 def normalize(edges):
@@ -176,11 +184,16 @@ def report():
             "zero_examples": zero_examples,
             "witness": witness,
         }
+        if ((row["orbits"], row["fixed_left_signed_cases"],
+             row["sum_flow_fixed_left"], row["minimum_GF5_flow"],
+             row["maximum_GF5_flow"]) != EXPECTED_GF5[kind]
+                or row["zero_named_cases"]):
+            raise AssertionError("pinned independent GF5 all-positive certificate changed")
         rows.append(row)
         named_total += row["all_named_signed_cases"]
         numerator += row["all_named_flow_sum"]
-    if named_total != 50700:
-        raise AssertionError("failed to close 50,700 leading signed cases")
+    if named_total != 50700 or numerator != 297992160:
+        raise AssertionError("failed exact 50,700 leading signed GF5 certificate")
     by_kind = {row["class"]: row for row in rows}
     cb_sum = by_kind["C/B"]["sum_flow_fixed_left"]
     overlap_sum = by_kind["B/B-overlap"]["sum_flow_fixed_left"]
@@ -195,7 +208,12 @@ def report():
         "B/B-overlap": 3 * overlap_sum // 8,
         "B/B-disjoint": 3 * disjoint_sum // 6,
     }
+    if per_forest != {"C/A": 4243968, "C/B": 173682,
+                      "B/B-overlap": 482670, "B/B-disjoint": 558080}:
+        raise AssertionError("per-original-factor forest coefficients changed")
     return {
+        "all_new_signed_templates_positive": True,
+        "all_new_named_GF5_weight_sum": 297992160,
         "per_original_factor_forest_signed_GF5_coefficients": per_forest,
         "random_expected_class_identity": {
             "C/A": "M_CA*S_CA*(a)_6^2/[8*51^6*(K)_3*(K)_6]",
