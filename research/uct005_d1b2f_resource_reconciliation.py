@@ -236,12 +236,17 @@ def reconcile(n: int, p: int, initial: tuple[int, ...] | None = None,
             raise AssertionError("legacy transcript was not independently checked")
         for baseline in old["comparators"][1:]:
             nulls = {a: None for a in PRICE_AXES}
-            comparators.append({"name": baseline["name"], "service": SERVICE,
+            comparators.append({"name": baseline["name"],
+                                # B2-A's reader1 performs an extra catch-up
+                                # query before PIN2: not an identical physical
+                                # request transcript to the PAGE-001 models.
+                                "service": "LEGACY_B2A_LOGICAL_TRACE_WITH_CATCHUP",
                                 "cost_model": baseline["cost_model"],
                                 "status": "LEGACY_LOGICAL_ONLY_NOT_PAGE_PRICED",
                                 "costs": nulls,
                                 "audit": {"sources": {},
-                                          "unknown_reasons": {k:"legacy logical model lacks full page/CAS/GC price" for k in PRICE_AXES}},
+                                          "unknown_reasons": {k:"legacy logical model includes reader catch-up and lacks full page/CAS/GC price" for k in PRICE_AXES},
+                                          "operation_trace_identical": False},
                                 "observed": {}, "source_ledger": {}})
     if any(candidate_dominates(a,b) is not None for a in comparators for b in comparators):
         raise AssertionError("incomplete F1 Pareto was spuriously decided")
