@@ -1,9 +1,12 @@
 """Independent D1-B2-F witness gates: same F1 parity, cost, missing axes."""
 import itertools
 import unittest
+from collections import Counter
+from types import SimpleNamespace
 
 from uct005_d1b2f_resource_reconciliation import (
     ALIASES, MODELS, PAGE_API, PRICE_AXES, SERVICE, STATUS, reconcile,
+    SOURCE_COUNTERS, _audit_raw_sources,
 )
 from uct005_d1b2a_partial_pareto import candidate_dominates
 
@@ -110,6 +113,36 @@ class B2FCostLedgerTests(unittest.TestCase):
             reconcile(4,2,(1,0,1,2))
         with self.assertRaises(ValueError):
             reconcile(4,2,profile="invented")
+
+    def test_all_raw_counter_sources_are_explicit_and_replayable(self):
+        x = reconcile(5, 2, profile="all_intervals", legacy=False)
+        for row in x["comparators"]:
+            name = row["name"]
+            keys = row["audit"]["raw_counter_sources"]
+            self.assertEqual(set(keys), set(ALIASES))
+            self.assertEqual(keys,
+                             {a:list(b) for a,b in SOURCE_COUNTERS[name].items()})
+            for diagnostic, contributing_keys in keys.items():
+                self.assertGreater(len(contributing_keys), 0)
+                if contributing_keys == ["@trusted_bits"]:
+                    self.assertEqual(row["observed"][diagnostic],
+                                     row["observed"]["peak_trusted_bits_declared"])
+                else:
+                    self.assertTrue(all(k in row["source_ledger"]
+                                        for k in contributing_keys))
+                    self.assertEqual(
+                        row["observed"][diagnostic],
+                        sum(row["source_ledger"][k] for k in contributing_keys))
+            self.assertLessEqual(row["observed"]["query_reply_payload_bytes"],
+                                 row["observed"]["query_remote_page_reads"] * 2)
+
+        snapshot = x["comparators"][0]
+        forged = dict(snapshot["source_ledger"])
+        forged.pop("set_full_page_writes")
+        fake = SimpleNamespace(ledger=Counter(forged))
+        with self.assertRaisesRegex(AssertionError, "missing explicitly charged"):
+            _audit_raw_sources("S_BYTE_SNAPSHOT", fake, snapshot["observed"],
+                               snapshot["observed"]["peak_trusted_bits_declared"])
 
     def test_legacy_not_claimed_on_nonmatching_query_set(self):
         x = reconcile(4,2,profile="all_intervals",legacy=True)
