@@ -1,3 +1,7 @@
+## UCT-005 D1-B2-F3-D — restricted deferred-output information counting cut (2026-10-11)
+
+[Classical bound, proof scope and STOP novelty](UCT-005-G3-B2-D1B2F3D-DEFERRED-OUTPUT-CUT.md) · [analytic finite reference](../../research/uct005_d1b2f3d_deferred_output.py) · [exhaustive independent falsifiers](../../research/test_uct005_d1b2f3d_deferred_output.py) · [issue #297](https://github.com/definitely-stable/Mathlab/issues/297). **RESTRICTED_CLASSICAL_PIGEONHOLE / PAID_PHASE_CUT_W_PRE_AND_Q_AFTER / ALL_SIDE_CHANNELS_ACCOUNTED / NOT_ACTUAL_SHA_UPPER / NO_ROOT_NOVELTY / CI_PENDING**. Stacked on unaccepted F3-C [#294](https://github.com/definitely-stable/Mathlab/pull/294).
+
 ## UCT-005 D1-B2-F3-C — speculative authenticated one-pass PIN bitmap update (2026-10-11)
 
 [Exact finite upper, failure accounting and limitations](UCT-005-G3-B2-D1B2F3C-ONEPASS-STAGING.md) · [reference](../../research/uct005_d1b2f3c_onepass_speculative_pin.py) · [adversarial finite tests](../../research/test_uct005_d1b2f3c_onepass_speculative_pin.py). **RESEARCH_INPUT / SAME_F1_ONE_PASS_7M_READS_VS_TWO_PASS_11M / UNTRUSTED_PREAUTH_STAGE_PERMITTED / FAIL_CLOSED_NO_PUBLICATION / CRASH_SAFETY_UNPROVED / ROOT_OPEN_UNPROVED / CI_PENDING**. Stacked on F3-B [#290](https://github.com/definitely-stable/Mathlab/pull/290), not an accepted predecessor.

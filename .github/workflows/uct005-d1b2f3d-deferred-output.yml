@@ -1,0 +1,33 @@
+name: uct005-d1b2f3d-deferred-output-cut
+on:
+  push:
+    branches:
+      - "research/uct005-d1b2f3d-*"
+    paths:
+      - "research/uct005_d1b2f3d_deferred_output.py"
+      - "research/test_uct005_d1b2f3d_deferred_output.py"
+      - ".github/workflows/uct005-d1b2f3d-deferred-output.yml"
+  pull_request:
+    paths:
+      - "research/uct005_d1b2f3d_deferred_output.py"
+      - "research/test_uct005_d1b2f3d_deferred_output.py"
+      - ".github/workflows/uct005-d1b2f3d-deferred-output.yml"
+permissions:
+  contents: read
+jobs:
+  classical-phase-cut:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent deterministic information cut, all finite witness words and invalid resource tests
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2f3d_deferred_output.py' -v
+      - name: Produce priced phase-cut inequality and explicitly abstract coding witness
+        run: python research/uct005_d1b2f3d_deferred_output.py
+      - name: Scientific predecessor correctness and rooted graph regression
+        run: |
+          python -m unittest discover -s research -p 'test_uct005_d1b2f3c_onepass_speculative_pin.py' -v
+          python -m unittest discover -s research -p 'test_uct005_tree.py' -v

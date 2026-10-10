@@ -317,6 +317,12 @@
       "kind": "research_input",
       "status": "SPECULATIVE_UNTRUSTED_STAGE_ONEPASS_SHA_BUFFER_UPPER_FALSIFIES_TWO_PASS_NECESSITY_NO_NEW_JOINT_LOWER",
       "source": "docs/research/UCT-005-G3-B2-D1B2F3C-ONEPASS-STAGING.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F3D",
+      "kind": "theorem_brick",
+      "status": "RESTRICTED_CLASSICAL_PIGEONHOLE_PHASE_CUT_NOT_NOVEL_UCT_ROOT",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F3D-DEFERRED-OUTPUT-CUT.md"
     }
   ],
   "edges": [
@@ -569,6 +575,11 @@
       "parent": "UCT005G3B2D1B2F3B",
       "child": "UCT005G3B2D1B2F3C",
       "relation": "SAME_F1_SPECULATIVE_STAGE_UPPER_COUNTERMODEL_TO_READ_PASS_NECESSITY_NOT_ROOT_THEOREM"
+    },
+    {
+      "parent": "UCT005G3B2D1B2F3C",
+      "child": "UCT005G3B2D1B2F3D",
+      "relation": "ELEMENTARY_DEFERRED_OUTPUT_CAPACITY_AND_ZERO_NOVELTY_NO_ROOT_LOWER"
     }
   ]
 }
