@@ -33,7 +33,7 @@ class HYP105JointFirstMomentTests(unittest.TestCase):
         means = tuple(sum((pair[i] for _, pair in table), Fraction()) / 36
                       for i in (0, 1))
         # Evaluate independent physical pair definitions directly.
-        palette = tuple((0, 1), (0, 2), (1, 2))
+        palette = ((0, 1), (0, 2), (1, 2))
         independent = []
         for left in permutations(palette, 2):
             for right in permutations(palette, 3):
