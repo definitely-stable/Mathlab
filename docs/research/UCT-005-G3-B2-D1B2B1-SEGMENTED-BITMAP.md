@@ -1,6 +1,6 @@
 # UCT-005 D1-B2-B1 — segmented allocation bitmap: exact page point updates
 
-**2026-10-10** · [Issue #254](https://github.com/definitely-stable/Mathlab/issues/254) · parent [#244](https://github.com/definitely-stable/Mathlab/issues/244), stacked on **unmerged** [PR #248](https://github.com/definitely-stable/Mathlab/pull/248). Scientific classification: \`CONDITIONAL_PAGE_IMAGE_UPPER_WITH_BOUNDED_ALLOCATOR_WRITES_NOT_PARETO_THEOREM\`. UCT-005 root: **OPEN_UNPROVED**.
+**2026-10-10** · [Issue #254](https://github.com/definitely-stable/Mathlab/issues/254) · parent [#244](https://github.com/definitely-stable/Mathlab/issues/244), based on **merged** [PR #248](https://github.com/definitely-stable/Mathlab/pull/248) and now targeting `main`. Scientific classification: \`CONDITIONAL_PAGE_IMAGE_UPPER_WITH_BOUNDED_ALLOCATOR_WRITES_NOT_PARETO_THEOREM\`. UCT-005 root: **OPEN_UNPROVED**.
 
 This implementation is separate from D1-B2-D's authenticated **reader PIN bitmap**. This file describes the **physical allocation occupancy bitmap of remote COW nodes and historical epoch slots**, not a trusted source of PIN membership or Byzantine availability.
 
@@ -43,6 +43,6 @@ All changes occur in a sequential, idealized page-image simulation. It does **no
 
 ## Acceptance and typed scientific status
 
-The independent finite oracle checks all \`2^n\` initial words for \`1<=n<=6\`, two independent historical PINs at epochs 0/2, a no-op and two toggling SETs, every nonempty interval, GC before/after UNPIN and adversarial bitmap damage. P=1/2/8/64/4096 checks exact page grammar, boundary crossing, padded transport and the bound above. It compares accepted answers with the predecessor COW and the existing PAGE-001 snapshot. It also verifies that n=257/P=1 improves only the *bitmap* coordinate and **does not prove a strict whole-vector Pareto improvement**. The predecessor [#248](https://github.com/definitely-stable/Mathlab/pull/248) must be accepted and merged first; this branch is intentionally stacked, not an independent alternative replacement.
+The independent finite oracle checks all \`2^n\` initial words for \`1<=n<=6\`, two independent historical PINs at epochs 0/2, a no-op and two toggling SETs, every nonempty interval, GC before/after UNPIN and adversarial bitmap damage. P=1/2/8/64/4096 checks exact page grammar, boundary crossing, padded transport and the bound above. It compares accepted answers with the predecessor COW and the existing PAGE-001 snapshot. It also verifies that n=257/P=1 improves only the *bitmap* coordinate and **does not prove a strict whole-vector Pareto improvement**. The predecessor [#248](https://github.com/definitely-stable/Mathlab/pull/248) was merged after exact-head full Research CI; this independent seven-file delta now targets `main` and requires its own new exact-head full/focused CI.
 
 **Stop gate:** No H1+H2 joint lower bound follows from this engineering upper comparator. Root remains \`OPEN_UNPROVED\`.
