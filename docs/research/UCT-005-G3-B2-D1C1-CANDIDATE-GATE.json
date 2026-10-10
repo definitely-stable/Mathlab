@@ -1,0 +1,242 @@
+{
+  "schema": "mathlab.uct005.d1c1.falsification.v1",
+  "root_status": "OPEN_UNPROVED",
+  "source_scope": "MODEL_MAPPING_UNPROVED_FROM_PRIMARY_THEOREM_PROOF",
+  "f1_contract": "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json",
+  "full_f1_axes": [
+    "s",
+    "S",
+    "U_r",
+    "U_w",
+    "U_delta",
+    "Q_r",
+    "B_pi",
+    "C_author",
+    "C_reader",
+    "G",
+    "V",
+    "A",
+    "T",
+    "M",
+    "GC_r",
+    "GC_w",
+    "GC_free",
+    "F"
+  ],
+  "primary_source_transfer": [
+    {
+      "key": "FREDMAN_SAKS_1989",
+      "title": "The cell probe complexity of dynamic data structures",
+      "url": "https://doi.org/10.1145/73007.73040",
+      "model": "dynamic partial sums/cell probe, not authenticated page image",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
+    },
+    {
+      "key": "PATRASCU_DEMAINE_2006",
+      "title": "Logarithmic Lower Bounds in the Cell-Probe Model",
+      "url": "https://doi.org/10.1137/S0097539705447256",
+      "model": "amortized randomized dynamic partial sums/cell probe, word/operation parameter dependent",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
+    },
+    {
+      "key": "BEGKN_1994",
+      "title": "Checking the correctness of memories",
+      "url": "https://research.ibm.com/publications/checking-the-correctness-of-memories",
+      "model": "unreliable memory checker with small reliable memory, not F1 pinned histories",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
+    },
+    {
+      "key": "DSST_1989",
+      "title": "Making data structures persistent",
+      "url": "https://doi.org/10.1016/0022-0000(89)90034-2",
+      "model": "linked persistence; not Byzantine SHA, independent reader PIN and full page GC",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
+    },
+    {
+      "key": "BKV_COVERT_2025",
+      "title": "The Complexity of Memory Checking with Covert Security",
+      "url": "https://eprint.iacr.org/2025/358",
+      "model": "covert-security memory checker lower bound Omega(log n/loglog n) under read-only reads; F1 PIN and GC operations differ",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
+    },
+    {
+      "key": "VC_UPDATE_FREQUENCY_2026",
+      "title": "Lower Bounding Update Frequency in Short Accumulators and Vector Commitments",
+      "url": "https://doi.org/10.1007/978-3-032-25330-9_7",
+      "model": "EUROCRYPT 2026 additive accumulators and constant-size digest updatable vector commitments; proof invalidation frequency not F1 paged immutable root storage",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
+    },
+    {
+      "key": "DYNAMIC_BOOLEAN_CELL_PROBE_2026",
+      "title": "An Omega((log n/loglog n)^2) Cell-Probe Lower Bound for Dynamic Boolean Data Structures",
+      "url": "https://eccc.weizmann.ac.il/report/2026/047/",
+      "model": "dynamic Boolean Multiphase problem with GF2 inner product; not proved reducible to 1D authenticated SET/RANGE_PARITY two offline PIN readers",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
+    },
+    {
+      "key": "NATURAL_PROOFS_BARRIER_2026",
+      "title": "The Natural Proofs Barrier against Data-Structure Lower-Bounds",
+      "url": "https://researchportal.ulisboa.pt/en/publications/the-natural-proofs-barrier-against-data-structure-lower-bounds/",
+      "model": "methodological cell-probe lower-bound proof barrier; not a transferable F1 lower bound itself",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C1-F0-BIT-PRODUCT",
+      "model": "F0_HONEST_BIT_CELL",
+      "claim": "For all n and operations, W_max*Q_max >= n.",
+      "quantifiers": "universal n and all input bit words; worst-case upper witness n=2^12",
+      "status": "REJECTED_SCOPED_F0",
+      "falsifier": "honest_fenwick_upper_k12",
+      "theorem_transfer": "MISMATCH_TO_F1_NOT_A_REFUTATION_OF_F1",
+      "unpriced_f1_axes": [
+        "s",
+        "S",
+        "A",
+        "B_pi",
+        "V",
+        "F"
+      ],
+      "novel_joint_f1_lower": false
+    },
+    {
+      "id": "C2-OBS-INDEPENDENT-PIN",
+      "model": "OBSERVATION_ONLY_NAMED_EPOCHS",
+      "claim": "Every k reachable n-bit pinned/last observations require k*n independent fixed bits.",
+      "quantifiers": "all legal one-coordinate SET incl no-op, exact bitmap-only responses at times (0,2,3), n=5",
+      "status": "REJECTED_SCOPED_OBSERVATION",
+      "falsifier": "c0_exact_reachable_entropy",
+      "theorem_transfer": "MISMATCH_TO_AUTHENTICATED_F1_NOT_A_REFUTATION_OF_F1",
+      "unpriced_f1_axes": [
+        "s",
+        "S",
+        "C_author",
+        "C_reader",
+        "A",
+        "B_pi",
+        "F"
+      ],
+      "novel_joint_f1_lower": false
+    },
+    {
+      "id": "C3-TWO-PASS-NECESSITY",
+      "model": "F1_IDEAL_PAGE_IMAGE_SPECULATIVE_STAGE",
+      "claim": "O(P) scratch requires at least two full old PIN bitmap scans.",
+      "quantifiers": "same F1 SET/PIN/AS_OF/GC history; P=1,C=17, speculative preverification stage allowed and paid",
+      "status": "REJECTED_SCOPED_F1_UPPER",
+      "falsifier": "f3c_one_pass_billed",
+      "theorem_transfer": "CONDITIONAL_SAME_TRACE_NOT_UNIVERSAL_LOWER",
+      "unpriced_f1_axes": [
+        "F",
+        "G",
+        "V",
+        "C_reader"
+      ],
+      "novel_joint_f1_lower": false
+    },
+    {
+      "id": "C4-F2-ZERO-ABORT-WRITES",
+      "model": "F1_IDEAL_PAGE_IMAGE_ADVERSARIAL_SECOND_PASS",
+      "claim": "Every failed F2 mutation incurs zero stage writes.",
+      "quantifiers": "remote bitmap mutated after old SHA passed but before second pass completed; P=1,C=17",
+      "status": "REJECTED_SCOPED_F1_UPPER",
+      "falsifier": "f3e_second_pass_toctou",
+      "theorem_transfer": "SAME_F1_MODEL_TESTED_REFERENCE_ONLY",
+      "unpriced_f1_axes": [
+        "F",
+        "G",
+        "V",
+        "C_reader"
+      ],
+      "novel_joint_f1_lower": false
+    },
+    {
+      "id": "C5-PIN-TOKEN-IMAGE-MULTIPLICITY",
+      "model": "F1_IDEAL_PAGE_IMAGE_INDEPENDENT_READERS",
+      "claim": "Each additional reader PIN token requires a separately stored immutable full snapshot image.",
+      "quantifiers": "both readers PIN same epoch0 before one SET creates epoch1",
+      "status": "REJECTED_SCOPED_F1_UPPER",
+      "falsifier": "f3b_same_epoch_deduplicated_retention",
+      "theorem_transfer": "SAME_F1_REFERENCE_UPPER_ONLY",
+      "unpriced_f1_axes": [
+        "F",
+        "G",
+        "V"
+      ],
+      "novel_joint_f1_lower": false
+    },
+    {
+      "id": "C6-F3C-ALL-AXIS-DOMINATES-F2",
+      "model": "F1_IDEAL_PAGE_IMAGE_PREEXISTING_INVALID_SHA",
+      "claim": "F3-C is no more expensive than F2 on every metric and every adversarial history.",
+      "quantifiers": "old bitmap SHA-invalid before first page request; P=1,C=17",
+      "status": "REJECTED_SCOPED_F1_UPPER",
+      "falsifier": "f3e_invalid_preauth_stage",
+      "theorem_transfer": "SAME_TRACE_DIFFERENT_FAILURE_SIDE_RESOURCE_AXIS",
+      "unpriced_f1_axes": [
+        "F",
+        "G",
+        "V",
+        "C_reader"
+      ],
+      "novel_joint_f1_lower": false
+    },
+    {
+      "id": "C7-F3D-ORIGINAL-UCT-ROOT",
+      "model": "RESTRICTED_DETERMINISTIC_DEFERRED_OUTPUT",
+      "claim": "N-1 <= lambda+b+8P(W_pre+Q_after)+A is a new joint authenticated history lower bound.",
+      "quantifiers": "exact deterministic encoding, fixed overwrite one bit, no free side-channel; no SHA security premise",
+      "status": "STOP_NOVELTY_CLASSICAL",
+      "falsifier": "f3d_elementary_counting_only",
+      "theorem_transfer": "CLASSICAL_INJECTION_IS_NOT_ROOT_THEOREM",
+      "unpriced_f1_axes": [
+        "S",
+        "U_r",
+        "Q_r",
+        "A",
+        "F",
+        "G",
+        "V"
+      ],
+      "novel_joint_f1_lower": false
+    },
+    {
+      "id": "C8-EXISTENCE-STRONGER-JOINT-F1",
+      "model": "F1_FULL_COMPUTATIONAL_ADVERSARIAL",
+      "claim": "An asymptotically strict nonfactorizing joint authenticated-history lower bound exists.",
+      "quantifiers": "UNSPECIFIED hard distribution, exact function, parameter family and proof reductions",
+      "status": "OPEN_UNFORMULATED",
+      "falsifier": "NONE_YET",
+      "theorem_transfer": "PRIMARY_FULL_TEXT_PROOF_TRANSFER_PENDING",
+      "unpriced_f1_axes": [
+        "s",
+        "S",
+        "U_r",
+        "U_w",
+        "Q_r",
+        "B_pi",
+        "C_author",
+        "C_reader",
+        "G",
+        "V",
+        "A",
+        "T",
+        "M",
+        "GC_r",
+        "GC_w",
+        "GC_free",
+        "F"
+      ],
+      "novel_joint_f1_lower": null
+    }
+  ]
+}
