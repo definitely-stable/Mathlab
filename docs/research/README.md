@@ -1,3 +1,7 @@
+## UCT-005 D1-B2-F2 — streamed authenticated PIN bitmap with paid transient buffers (2026-10-10)
+
+[Protocol and limits](UCT-005-G3-B2-D1B2F2-STREAM-PIN-BITMAP.md) · [streamed page-image reference](../../research/uct005_d1b2f2_stream_pin_bitmap.py) · [independent test oracle](../../research/test_uct005_d1b2f2_stream_pin_bitmap.py) · [issue #281](https://github.com/definitely-stable/Mathlab/issues/281). Replaces full-image materialization of bounded two-reader authenticated remote PIN bitmap with two-pass SHA streaming and separately charged untrusted remote staging. Under a frozen protocol, streaming trust-resident bitmap chunk buffers peak at 2·min(B,P) bytes vs 3B conceptual bytes in one bulk copy schedule, while 4 mutating PIN operations pay four additional complete bitmap scans, plus transient remote bitmap staging. No observed CPython RSS, full trusted RAM, filesystem durability, cryptographic lower bound, or full Pareto improvement; UCT005 root OPEN_UNPROVED.
+
 ## UCT-005 D1-B2-F — common F1 resource ledger and typed Pareto stop (2026-10-10)
 
 [Same-history cost reconciliation](UCT-005-G3-B2-D1B2F-RESOURCE-RECONCILIATION.md) · [reproducible driver](../../research/uct005_d1b2f_resource_reconciliation.py) · [independent tests](../../research/test_uct005_d1b2f_resource_reconciliation.py) · [issue #262](https://github.com/definitely-stable/Mathlab/issues/262). Snapshot, COW and segmented COW share PIN/SET/queries/GC and charged page axes; Replica+Log remain logical-only. Unknown axes stay `null`, no full Pareto or UCT root theorem.
