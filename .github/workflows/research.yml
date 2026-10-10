@@ -13,7 +13,7 @@ permissions:
 jobs:
   lent-001-foundation:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -26,96 +26,6 @@ jobs:
 
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
-
-      - name: HYP-105 C15 coupled genuine GQ right witness cluster and one-map lower tests
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c15_coupled_right_clusters.py'
-
-      - name: HYP-105 C15 compare three verified BnB modes on the W32 36 full joint map box
-        run: python research/hyp105_g5e2b3e1c15_coupled_right_clusters.py
-
-      - name: HYP-105 C14 independent seven-family partial domain and exact joint W32 falsifiers
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c14_domain_certificates.py'
-
-      - name: HYP-105 C14 36 true W32 joint map box and sound branch certificate
-        run: python research/hyp105_g5e2b3e1c14_domain_certificates.py
-
-      - name: HYP-105 C13 exact original GQ and both-physical joint orbit falsifiers
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c13_joint_orbits.py'
-
-      - name: HYP-105 C13 exact W32 SP4 joint stabilizer and canonical quotient report
-        run: python research/hyp105_g5e2b3e1c13_joint_orbits.py
-
-      - name: HYP-105 C12 exact physical Aut(F) orbit and seven-motif independent tests
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c12_physical_orbits.py'
-
-      - name: HYP-105 C12 W32 all-prefix orbit counts, same-map seven-motif result
-        run: python research/hyp105_g5e2b3e1c12_physical_orbits.py
-
-      - name: HYP-105 C11 independent shared-prefix second-moment and W32 four-line falsifiers
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c11_coupled_four.py'
-
-      - name: HYP-105 C11 true original W32 11-prefix four-line coupled report
-        run: python research/hyp105_g5e2b3e1c11_coupled_four.py
-
-      - name: HYP-105 C10 GQ three-pin barrier independent exact falsifiers
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c10_three_pin_barrier.py'
-
-      - name: HYP-105 C10 symbolic all-h three-pin relaxation zero certificate
-        run: python research/hyp105_g5e2b3e1c10_three_pin_barrier.py
-
-      - name: HYP-105 C9 GQ concurrence two-pin barrier exact checks
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c9_two_pin_barrier.py'
-
-      - name: HYP-105 C9 all-h two-pin zero method no-go with integer-rational certificates
-        run: python research/hyp105_g5e2b3e1c9_two_pin_barrier.py
-
-      - name: HYP-105 C8 exact frozen-fiber conditional permutation falsifiers
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c8_fiber_rearrangement.py'
-
-      - name: HYP-105 C8 genuine W32 low-pin lower and existential-upper interval
-        run: python research/hyp105_g5e2b3e1c8_fiber_rearrangement.py
-
-      - name: HYP-105 C7 exact adversarial permutation finite bound tests
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c7_adversarial_minimum.py'
-
-      - name: HYP-105 C7 true W32 rearrangement lower and two fixed maps
-        run: python research/hyp105_g5e2b3e1c7_adversarial_minimum.py
-
-      - name: HYP-105 C6 complete Johnson spectrum and one-common-Pi Dirichlet identity
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c6_johnson_variance.py'
-
-      - name: HYP-105 C6 true-GQ all-level moment and no-fixed-g-lower report
-        run: python research/hyp105_g5e2b3e1c6_johnson_variance.py
-
-      - name: HYP-105 C5 exact one-common-right-map seven-overlap moments and density
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c5_common_bijection.py'
-
-      - name: HYP-105 C5 occupied physical target fixed-image all-h expectation
-        run: python research/hyp105_g5e2b3e1c5_common_bijection.py
-
-      - name: HYP-105 C4 exact GQ pair-conditioned four-line overlap and moments
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c4_conditional_completion.py'
-
-      - name: HYP-105 C4 physically occupied conditional 2factor completion report
-        run: python research/hyp105_g5e2b3e1c4_conditional_completion.py
-
-      - name: HYP-105 C3 GQ original witness physically disjoint mass exact theorem
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c3_wedge_alignment.py'
-
-      - name: HYP-105 C3 all-h missing-star sharp extremum and W32 witness report
-        run: python research/hyp105_g5e2b3e1c3_wedge_alignment.py
-
-      - name: HYP-105 C2 exact rational Johnson W2 and 105 real GQ swaps
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c2_johnson_gate.py'
-
-      - name: HYP-105 C2 physical-target residual-energy and exact source report
-        run: python research/hyp105_g5e2b3e1c2_johnson_gate.py
-
-      - name: HYP-105 C1 GQ concurrence theorem and independent W32 wedge oracle
-        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c1_gq_concurrency.py'
-
-      - name: HYP-105 C1 original-line triple and right-sixset source report
-        run: python research/hyp105_g5e2b3e1c1_gq_concurrency.py
 
       - name: UCT-005 G3-B2-C2-B2-B online file COW author root CAS report
         run: python research/uct005_g3b2c2b2b_online_cow.py
@@ -189,6 +99,16 @@ jobs:
       - name: INDEX-001 G2-B2 exact filesystem application-byte report
         run: python research/index001_workload_io.py
 
+  research-hyp105-foundation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: HYP-105 G5-C2 deterministic signed-trade density report
         run: python research/hyp105_g5c2_density.py
 
@@ -258,6 +178,16 @@ jobs:
       - name: HYP-105 B3.2-E1-B1-A independent K14 missing-edge and W32 template tests
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1b1a_one_sided.py'
 
+  research-hyp105-exact-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: HYP-105 B3.2-E1-A full W32 fixed-map 62370-candidate GF5 lower census
         run: python research/hyp105_g5e2b3e1a_fixed_leading.py
 
@@ -296,6 +226,16 @@ jobs:
 
       - name: HYP-105 E2-B3.2-D full four-motif and joint GF5 seven-column certificate
         run: python research/hyp105_g5e2b3d_joint_risk.py
+
+  research-catalog-and-primitives:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
 
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
@@ -340,3 +280,172 @@ jobs:
 
       - name: TOM-003-D2 authenticated overwrite and multiproof cost gate
         run: python research/tom_authenticated_overwrite.py
+
+  research-hyp105-coupled-low:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: HYP-105 C10 GQ three-pin barrier independent exact falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c10_three_pin_barrier.py'
+
+      - name: HYP-105 C10 symbolic all-h three-pin relaxation zero certificate
+        run: python research/hyp105_g5e2b3e1c10_three_pin_barrier.py
+
+      - name: HYP-105 C9 GQ concurrence two-pin barrier exact checks
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c9_two_pin_barrier.py'
+
+      - name: HYP-105 C9 all-h two-pin zero method no-go with integer-rational certificates
+        run: python research/hyp105_g5e2b3e1c9_two_pin_barrier.py
+
+      - name: HYP-105 C8 exact frozen-fiber conditional permutation falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c8_fiber_rearrangement.py'
+
+      - name: HYP-105 C8 genuine W32 low-pin lower and existential-upper interval
+        run: python research/hyp105_g5e2b3e1c8_fiber_rearrangement.py
+
+      - name: HYP-105 C7 exact adversarial permutation finite bound tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c7_adversarial_minimum.py'
+
+      - name: HYP-105 C7 true W32 rearrangement lower and two fixed maps
+        run: python research/hyp105_g5e2b3e1c7_adversarial_minimum.py
+
+      - name: HYP-105 C6 complete Johnson spectrum and one-common-Pi Dirichlet identity
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c6_johnson_variance.py'
+
+      - name: HYP-105 C6 true-GQ all-level moment and no-fixed-g-lower report
+        run: python research/hyp105_g5e2b3e1c6_johnson_variance.py
+
+      - name: HYP-105 C5 exact one-common-right-map seven-overlap moments and density
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c5_common_bijection.py'
+
+      - name: HYP-105 C5 occupied physical target fixed-image all-h expectation
+        run: python research/hyp105_g5e2b3e1c5_common_bijection.py
+
+      - name: HYP-105 C4 exact GQ pair-conditioned four-line overlap and moments
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c4_conditional_completion.py'
+
+      - name: HYP-105 C4 physically occupied conditional 2factor completion report
+        run: python research/hyp105_g5e2b3e1c4_conditional_completion.py
+
+      - name: HYP-105 C3 GQ original witness physically disjoint mass exact theorem
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c3_wedge_alignment.py'
+
+      - name: HYP-105 C3 all-h missing-star sharp extremum and W32 witness report
+        run: python research/hyp105_g5e2b3e1c3_wedge_alignment.py
+
+      - name: HYP-105 C2 exact rational Johnson W2 and 105 real GQ swaps
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c2_johnson_gate.py'
+
+      - name: HYP-105 C2 physical-target residual-energy and exact source report
+        run: python research/hyp105_g5e2b3e1c2_johnson_gate.py
+
+      - name: HYP-105 C1 GQ concurrence theorem and independent W32 wedge oracle
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c1_gq_concurrency.py'
+
+      - name: HYP-105 C1 original-line triple and right-sixset source report
+        run: python research/hyp105_g5e2b3e1c1_gq_concurrency.py
+
+  research-hyp105-coupled-exact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: HYP-105 C15 coupled genuine GQ right witness cluster and one-map lower tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c15_coupled_right_clusters.py'
+
+      - name: HYP-105 C15 compare three verified BnB modes on the W32 36 full joint map box
+        run: python research/hyp105_g5e2b3e1c15_coupled_right_clusters.py
+
+      - name: HYP-105 C14 independent seven-family partial domain and exact joint W32 falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c14_domain_certificates.py'
+
+      - name: HYP-105 C14 36 true W32 joint map box and sound branch certificate
+        run: python research/hyp105_g5e2b3e1c14_domain_certificates.py
+
+      - name: HYP-105 C13 exact original GQ and both-physical joint orbit falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c13_joint_orbits.py'
+
+      - name: HYP-105 C13 exact W32 SP4 joint stabilizer and canonical quotient report
+        run: python research/hyp105_g5e2b3e1c13_joint_orbits.py
+
+      - name: HYP-105 C12 exact physical Aut(F) orbit and seven-motif independent tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c12_physical_orbits.py'
+
+      - name: HYP-105 C12 W32 all-prefix orbit counts, same-map seven-motif result
+        run: python research/hyp105_g5e2b3e1c12_physical_orbits.py
+
+      - name: HYP-105 C11 independent shared-prefix second-moment and W32 four-line falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c11_coupled_four.py'
+
+      - name: HYP-105 C11 true original W32 11-prefix four-line coupled report
+        run: python research/hyp105_g5e2b3e1c11_coupled_four.py
+
+      - name: HYP-105 C16 independent original two-sided source membership and hierarchy tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c16_two_sided_source.py'
+
+      - name: HYP-105 C16 full genuine W32 two-sided 36-pair certificate report
+        run: python research/hyp105_g5e2b3e1c16_two_sided_source.py
+
+      - name: HYP-105 C17 original sixset local support tensor and C16 equivalence tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c17_local_scope_tensors.py'
+
+      - name: HYP-105 C17 original W32 factor-local versus full-joint report
+        run: python research/hyp105_g5e2b3e1c17_local_scope_tensors.py
+
+      - name: HYP-105 C18 all-h five-star pure-local relaxation zero obstruction tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c18_zero_star_barrier.py'
+
+      - name: HYP-105 C18 all-h star zero original W32 A B C report
+        run: python research/hyp105_g5e2b3e1c18_zero_star_barrier.py
+
+      - name: HYP-105 C19 all-h two-anchor shared-left block zero obstruction tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c19_two_anchor_support.py'
+
+      - name: HYP-105 C19 genuine original W32 nine-point joint-left 62370 census report
+        run: python research/hyp105_g5e2b3e1c19_two_anchor_support.py
+
+      - name: HYP-105 C20 all-h physical missing-edge C6 and real W32 global-left tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c20_global_left_c6.py'
+
+      - name: HYP-105 C20 43740 real original W32 Hamilton source global relabel report
+        run: python research/hyp105_g5e2b3e1c20_global_left_c6.py
+
+  research-full-suite:
+    # A single explicit verdict: foundation-only SUCCESS is not full CI.
+    if: ${{ always() }}
+    needs:
+      - lent-001-foundation
+      - research-hyp105-foundation
+      - research-hyp105-exact-census
+      - research-catalog-and-primitives
+      - research-hyp105-coupled-low
+      - research-hyp105-coupled-exact
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require all six research shards to pass
+        env:
+          FOUNDATION: ${{ needs.lent-001-foundation.result }}
+          HYP_FOUNDATION: ${{ needs.research-hyp105-foundation.result }}
+          HYP_CENSUS: ${{ needs.research-hyp105-exact-census.result }}
+          CATALOG: ${{ needs.research-catalog-and-primitives.result }}
+          COUPLED_LOW: ${{ needs.research-hyp105-coupled-low.result }}
+          COUPLED_EXACT: ${{ needs.research-hyp105-coupled-exact.result }}
+        run: |
+          set -euo pipefail
+          for result in "$FOUNDATION" "$HYP_FOUNDATION" "$HYP_CENSUS" "$CATALOG" "$COUPLED_LOW" "$COUPLED_EXACT"; do
+            if [ "$result" != "success" ]; then
+              echo "Research suite incomplete: shard result=$result" >&2
+              exit 1
+            fi
+          done
+          echo "All six research shards succeeded."
