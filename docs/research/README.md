@@ -1,6 +1,6 @@
 ## UCT-005 D1-B2-F1 — authenticated offline shared PIN retention (2026-10-10)
 
-[Charge and exact root-union theorem scope](UCT-005-G3-B2-D1B2F1-PIN-RETENTION.md) · [independent reference oracle](../../research/uct005_d1b2f1_pin_retention.py) · [finite falsifiers](../../research/test_uct005_d1b2f1_pin_retention.py) · [issue #270](https://github.com/definitely-stable/Mathlab/issues/270). Calculates additional remote COW node/root page images retained for historic PINs, charging all audit reads, but **not** completing an online F1 Pareto theorem. Root OPEN_UNPROVED.
+[Charge and exact root-union theorem scope](UCT-005-G3-B2-D1B2F1-PIN-RETENTION.md) · [independent reference oracle](../../research/uct005_d1b2f1_pin_retention.py) · [finite falsifiers](../../research/test_uct005_d1b2f1_pin_retention.py) · [issue #270](https://github.com/definitely-stable/Mathlab/issues/270). Proves a **restricted exact checkpoint-path-union identity** for extra immutable COW node IDs (including no-op updates), independently checks SHA-authenticated historical retention for arbitrary small PIN sets, and prices all offline audit reads. Still **not** a general F1 lower bound or complete online Pareto theorem. Root OPEN_UNPROVED.
 
 ## UCT-005 D1-B2-F — common F1 resource ledger and typed Pareto stop (2026-10-10)
 
