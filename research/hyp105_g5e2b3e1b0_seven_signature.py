@@ -168,11 +168,80 @@ def seven_census(model, *, independent_checks=True, witness_sets=False):
     return result
 
 
+def exact_seven_weighted_GF5(model, *, max_signed_events=5000):
+    """EXACT selected seven-family GF5 R3 contribution, NOT total R3.
+
+    Collect every actual qualifying ORIGINAL six-incidence set ONCE.
+    Count all 10 unordered balanced 3-vs-3 sign events with the accepted
+    independent integer GF5 dual Fourier oracle (all 51 full nonzero
+    checksum-4 per-column patterns). For D6 this counts nine additional
+    possible signs beyond the ONE alternating event used in the floor.
+    A budget breach raises, never returns a partially computed statistic.
+    """
+    from hyp105_g5e2b3b1_critical_flows import SIGNS
+    from hyp105_g5e2b3b1b_five_six_flows import exact_dual_GF5_six_flow
+    census=seven_census(model,independent_checks=False,witness_sets=True)
+    sets=census["sets"]
+    if (not isinstance(max_signed_events,int) or max_signed_events<1
+            or 10*len(sets)>max_signed_events):
+        raise ValueError("exact full-palette GF5 event budget exceeded")
+    if len(SIGNS)!=10:
+        raise AssertionError("global-sign-unordered 3v3 partition changed")
+    subtotal=Counter()
+    min_event_by_class={}
+    max_event_by_class={}
+    positive_by_class=Counter()
+    all_event_count=0
+    for ids,tag in sorted(sets.items()):
+        supports=tuple(model["supports"][j] for j in ids)
+        if len(supports)!=6 or any(len(s)!=4 for s in supports):
+            raise ValueError("physical GF5 support map missing six support-four columns")
+        for mask in SIGNS:
+            signs=tuple(1 if (mask>>i)&1 else -1 for i in range(6))
+            val=exact_dual_GF5_six_flow(supports,signs,dimension=model["m"])
+            if not isinstance(val,int) or val<0:
+                raise AssertionError("negative/nonintegral exact GF5 flow")
+            all_event_count+=1
+            positive_by_class[tag]+=bool(val)
+            subtotal[tag]+=val
+            if tag not in min_event_by_class:
+                min_event_by_class[tag]=val
+                max_event_by_class[tag]=val
+            else:
+                min_event_by_class[tag]=min(min_event_by_class[tag],val)
+                max_event_by_class[tag]=max(max_event_by_class[tag],val)
+    if all_event_count != 10*census["S_seven"]:
+        raise AssertionError("full 3v3 signed GF5 event mass lost")
+    exact_num=sum(subtotal.values())
+    if exact_num<census["GF5_seven_lower_numerator"]:
+        raise AssertionError("exact selected GF5 seven-class risk below accepted floor")
+    for tag in R3_CERTIFIED_FLOORS:
+        if tag!="D6" and tag in min_event_by_class:
+            expected_per_signed=R3_CERTIFIED_FLOORS[tag]//10
+            if min_event_by_class[tag]<expected_per_signed:
+                raise AssertionError("new/one-cherry GF5 class minimum violated")
+    return {
+        "seven_class_original_sixsets":census["S_seven"],
+        "selected_exact_GF5_signed_events":all_event_count,
+        "selected_positive_signed_events_by_class":dict(positive_by_class),
+        "selected_GF5_sum_by_class":dict(subtotal),
+        "selected_min_signed_GF5_by_class":min_event_by_class,
+        "selected_max_signed_GF5_by_class":max_event_by_class,
+        "exact_selected_GF5_R3_numerator":exact_num,
+        "exact_selected_GF5_R3":Fraction(exact_num,GF5_DENOM),
+        "prior_certified_seven_GF5_R3_floor":
+            census["GF5_seven_lower"],
+        "total_GF5_R3_all_motifs":False,
+        "all_h_general_GF5_bound":False,
+    }
+
+
 def report():
     out=[]
     for scheme in ("lex","reverse-line"):
         m=pair_labeled_symplectic(1,scheme)
         a=seven_census(m)
+        weighted=exact_seven_weighted_GF5(m)
         out.append({
             "scheme":scheme,
             "S_seven":a["S_seven"],
@@ -181,6 +250,13 @@ def report():
             "R2_necessary_GF5":str(a["GF5_Q4_R2_lower"]),
             "R3_necessary_GF5":str(a["GF5_seven_lower"]),
             "R3_necessary_numerator":a["GF5_seven_lower_numerator"],
+            "exact_selected_seven_GF5_R3":
+                str(weighted["exact_selected_GF5_R3"]),
+            "exact_selected_seven_GF5_R3_numerator":
+                weighted["exact_selected_GF5_R3_numerator"],
+            "exact_selected_seven_GF5_sign_events":
+                weighted["selected_exact_GF5_signed_events"],
+            "exact_selected_by_class":weighted["selected_GF5_sum_by_class"],
         })
     return {
         "finite_joint_obstruction":out,
