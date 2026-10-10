@@ -73,6 +73,7 @@ class SnapshotF1Reference:
         self.latest_root = self._digest(0, self._image())
         self.remote[0] = self._image()
         self.ledger["setup_full_page_writes"] += self._pages_per_snapshot()
+        self.ledger["setup_remote_upload_bytes"] += self._pages_per_snapshot() * self.page_bytes
         self.ledger["setup_anchor_publications"] += 1
         self.ledger["setup_anchor_bytes"] += self.ROOT_BYTES
         self.ledger["peak_remote_pages"] = self.remote_pages
@@ -131,6 +132,7 @@ class SnapshotF1Reference:
         self.ledger["set_changed_logical_bits"] += delta
         self.ledger["set_full_page_reads"] += 0  # author holds n trusted bits
         self.ledger["set_full_page_writes"] += self._pages_per_snapshot()
+        self.ledger["author_remote_upload_bytes"] += self._pages_per_snapshot() * self.page_bytes
         self.ledger["anchor_publications"] += 1
         self.ledger["anchor_publication_bytes"] += self.ROOT_BYTES
         self.ledger["author_hash_input_bytes"] += len(image) + 16
@@ -148,6 +150,7 @@ class SnapshotF1Reference:
         self.pin_registry.add((reader, epoch))
         self.ledger["pin_registry_writes"] += 1
         self.ledger["pin_registry_bytes"] += self.ROOT_BYTES
+        self.ledger["pin_control_full_page_writes"] += 1
         return epoch
 
     def unpin(self, reader: int, epoch: int) -> None:
@@ -157,6 +160,7 @@ class SnapshotF1Reference:
         self.pin_registry.remove((reader, epoch))
         self.ledger["pin_registry_revocations"] += 1
         self.ledger["pin_registry_bytes"] += self.ROOT_BYTES
+        self.ledger["pin_control_full_page_writes"] += 1
 
     def gc(self) -> int:
         # One serialized collector. Scan explicitly charged version directory.
