@@ -52,6 +52,57 @@ at every prefix consider ALL currently available candidate pair labels x; their 
 
 The Python reference [E0 finite conditional-expectation model](../../research/hyp105_g5e2b3e0_joint_first_moment.py) enumerates **all** two-sided injective assignments only for tiny bounded alphabets and computes an exact rational Pareto certificate from a supplied oracle. The [independent tests](../../research/test_hyp105_g5e2b3e0_joint_first_moment.py) reproduce the 36-outcome example without calling the model's enumeration, check all prefixes and lex ties, nonnegativity, zero-mean behavior, negative costs, and fail-closed state budgets. The example intentionally uses two **toy physical pair-label diagnostics**, not the full GF5 R2/R3; it validates only the generic derandomization machinery. The all-h HYP-105 result is the mathematical consequence of the independently accepted two actual expectation bounds.
 
+## 3A. New sharp all-h random-leading GF(5) coefficient for the FOUR #224 classes
+
+This is a second, distinct model-specific theorem, sharpening #224's separate Theta(s^6) random expectation assertions to a **fully specified leading coefficient**, without assuming exact finite-h GQ forest counts.
+
+**Theorem E0-C (six-edge forest embedding asymptotic).** For any fixed typed bipartite six-edge **forest** F with c components, let Emb(F,W(3,s)) be the number of injective, color-preserving embeddings of its distinct abstract factor vertices, retaining all SIX prescribed incidence edges. Root each component in a prescribed side, choose each root from V=(s+1)(s^2+1) typed factor vertices and grow its tree children through Delta=s+1 neighbors. Since at most twelve factor vertices have been selected at any step, forbidding earlier vertex images removes at most twelve choices. Therefore, for s>=16,
+
+```text
+(V-12)^c*(Delta-12)^6
+  <= Emb(F,W(3,s)) <= V^c*Delta^6.
+```
+
+This proves Emb(F)=V^c Delta^6 (1+O(1/s)) as s=2^h grows. It does not assert the number is EXACTLY V^c Delta^6 for finite s. Extra unselected incidences between already selected vertex images do not invalidate an embedding of the **selected** six-edge forest. This is an elementary greedy-counting result for a fixed bounded forest, and the valid bound depends on the incidence graph being typed, simple, V-vertex-per-side and Delta-regular, not on treating any Sp(4,s) automorphism as a physical-coordinate symmetry.
+
+**Corollary E0-D (leading model-specific random GF5 risk constant).** The #224 six-coordinate leading physical projection classes are A=all six factor endpoints distinct, B=one repeated endpoint, and C=three disjoint repeated pairs. Every class tau below has exactly t_tau *named ORIGINAL factor endpoint-partition pairs* among six numbered selected column positions. Each un-ordered original six-incidence edge set has exactly 6! named orders, so
+
+```text
+M_tau(W(3,s))
+  = (t_tau/6!) * V^(c_tau) * Delta^6 * (1+O(1/s)),
+```
+
+where t_tau=(30,360,120,90), c_tau=(3,2,4,4). Do **NOT** treat these t_tau as physical signed-template counts: those were 21,000/10,800/10,800/8,100. Multiplying by signed-template counts here would overcount 3v3 events.
+
+Combine the accepted exact per-original-factor-forest sum S_tau, each physical-coordinate automorphism divisor d_tau, and the exact independent-injection formula from #224:
+
+```text
+E_random[R3_tau] = M_tau * S_tau*(a)_6^2
+                   / [d_tau*51^6*(K)_rL*(K)_rR],
+K=binom(a,2),  a=min{n:binom(n,2)>=V}.
+```
+
+Since rL+rR=c+6, a^2/V -> 2, K/V -> 1, and Delta/s ->1, all powers of V cancel; thus its leading coefficient is **exactly** 64*t_tau*S_tau/(720*d_tau*51^6).
+
+| New class | t_tau | c | d_tau | S_tau | Leading numerator over 51^6 |
+|---|---:|---:|---:|---:|---:|
+| C/A (both orientations) | 30 | 3 | 8 | 4,243,968 | 1,414,656 |
+| C/B (both orientations) | 360 | 2 | 16 | 173,682 | 347,364 |
+| B/B intersecting pairs | 120 | 4 | 4 | 482,670 | 1,287,120 |
+| B/B disjoint pairs | 90 | 4 | 4 | 558,080 | 1,116,160 |
+| **TOTAL new four classes** | **600** | — | — | — | **4,165,300** |
+
+Therefore for these four NEW restricted classes, and ONLY for uniformly independent two-color physical-pair injections,
+
+```text
+E_random[R3_new_leading] =
+  (4,165,300 / 51^6) * s^6 * (1+O(1/s)).
+```
+
+This proves the exact leading constant for this additive **subset** of R3. It does not give an upper for global R3 (other 11,032 structural shape classes remain); it is NOT an all-label R3 lower and cannot rule out exceptionally correlated deterministic pair labels. The leading coefficient is a model-specific combinatorial calculation, not an assertion of publication priority.
+
+The [independent rational certificate](../../research/hyp105_g5e2b3e0_random_intensity.py) derives all four leading numerators, checks finite-h positive lower/upper sandwiches without replacing actual M_tau by its asymptotic, and [tests](../../research/test_hyp105_g5e2b3e0_random_intensity.py) independently scan the 203x203 abstract endpoint partitions to reproduce t_tau and check convergence of the exact rational embedding bounds for large s. No binom(425,6) enumeration or fixed-label GF5 risk is claimed.
+
 ## 4. What this proves and what it does not
 
 PROVED in this scope:
