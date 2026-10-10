@@ -347,6 +347,12 @@
       "kind": "research_input",
       "status": "CLASSICAL_OFFLINE_PIN_VS_LATEST_TWO_WORLD_FRESHNESS_NO_NEW_ROOT_LOWER",
       "source": "docs/research/UCT-005-G3-B2-D1C2-PINNED-VS-LATEST-FRESHNESS.md"
+    },
+    {
+      "id": "UCT005G3B2D1C3",
+      "kind": "research_input",
+      "status": "EXACT_CLASSICAL_CONDITIONAL_CAUSAL_RANK_ADDITIVE_CUT_FALSE_F1_NONFACTORIZING_OPEN",
+      "source": "docs/research/UCT-005-G3-B2-D1C3-CAUSAL-RANK-REUSE.md"
     }
   ],
   "edges": [
@@ -624,6 +630,11 @@
       "parent": "UCT005G3B2D1C1",
       "child": "UCT005G3B2D1C2",
       "relation": "FRESHNESS_COUNTERMODEL_INPUT_NOT_JOINT_THEOREM"
+    },
+    {
+      "parent": "UCT005G3B2D1C2",
+      "child": "UCT005G3B2D1C3",
+      "relation": "MULTI_EPOCH_REUSE_FALSIFICATION_INPUT_NOT_THEOREM_TRANSFER"
     }
   ]
 }

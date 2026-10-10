@@ -1,0 +1,198 @@
+"""Independent D1-C3 causal GF(2) rank and full SET-execution falsifiers."""
+import unittest
+from itertools import product
+
+from uct005_d1c3_causal_rank import (
+    causal_rank, independent_answer_signatures, last_writer_row,
+    rank_gf2, examples, report,
+)
+
+
+class CausalRankStopTests(unittest.TestCase):
+    def test_fixed_examples_and_false_additive_cut(self):
+        w = examples()
+        a = w["duplicate_reader_PIN_same_epoch"]
+        self.assertEqual(a["joint_rank"], 3)
+        self.assertEqual(a["sum_individual_reader_ranks"], 6)
+        b = w["unchanged_coordinate_across_many_epochs"]
+        self.assertEqual(b["joint_rank"], 1)
+        self.assertEqual(b["sum_individual_epoch_ranks"], 4)
+        self.assertEqual(w["independently_hidden_historical_SET_payloads"]["joint_rank"], 4)
+        self.assertEqual(w["charged_public_SET_payloads"]["joint_rank"], 1)
+        self.assertEqual(w["last_writer_erases_prior_answer_dependency"]["joint_rank"], 1)
+
+    def test_all_schedules_all_initial_and_SET_values_exhaustive(self):
+        # Literal state-array simulation is independent of the XOR-row code.
+        for n in range(1, 4):
+            ranges = tuple((l, r) for l in range(n) for r in range(l + 1, n + 1))
+            for H in range(4):
+                for updates in product(range(n), repeat=H):
+                    updates = tuple(updates)
+                    # Every named half-open range at each epoch for reader0,
+                    # and overlapping singleton/full-range observations for
+                    # reader1. Includes repeated reads and no-op SET histories.
+                    all0 = tuple((0, t, l, r) for t in range(H + 1)
+                                 for l, r in ranges)
+                    overlap = tuple((1, t, 0, n) for t in range(H + 1))
+                    queries = all0 + overlap
+                    for mask in range(1 << H):
+                        public = tuple((t, t & 1) for t in range(H)
+                                       if mask & (1 << t))
+                        got = causal_rank(n, updates, queries, public)
+                        actual = independent_answer_signatures(
+                            n, updates, queries, public)
+                        with self.subTest(n=n, updates=updates, public=public):
+                            self.assertEqual(len(actual), got["answer_tuple_count"])
+                            self.assertEqual(got["joint_rank"], len(actual).bit_length() - 1)
+                            self.assertLessEqual(got["joint_rank"], n + H - len(public))
+                            self.assertLessEqual(got["joint_rank"],
+                                                 got["distinct_hidden_provenance_variables_used"])
+                            self.assertLessEqual(got["joint_rank"],
+                                                 got["sum_individual_reader_ranks"])
+                            self.assertLessEqual(got["joint_rank"],
+                                                 got["sum_individual_epoch_ranks"])
+                            self.assertFalse(got["full_F1_joint_lower_proved"])
+
+    def test_sparse_named_query_families_and_noop_are_not_conflated(self):
+        for n in range(1, 4):
+            for updates in product(range(n), repeat=3):
+                updates = tuple(updates)
+                q = tuple((j % 2, j, j % n, (j % n) + 1) for j in range(4))
+                for known in ((), ((0, 0),), ((1, 1), (2, 0))):
+                    a = causal_rank(n, updates, q, known)
+                    self.assertEqual(
+                        len(independent_answer_signatures(n, updates, q, known)),
+                        a["answer_tuple_count"])
+                # public SET values don't make epochs vanish: the historical
+                # initial x remains secret until explicitly sent.
+                all_public = ((0, 0), (1, 0), (2, 0))
+                self.assertLessEqual(causal_rank(n, updates, q, all_public)["joint_rank"], n)
+
+    def test_all_interval_snapshots_equal_independent_last_writer_provenance(self):
+        # Independent set-of-author-symbol IDs, not the GF2 elimination.
+        from uct005_d1c3_causal_rank import full_interval_observation_rank
+        for n in range(1, 4):
+            intervals = tuple((l, r) for l in range(n)
+                              for r in range(l + 1, n + 1))
+            for H in range(4):
+                for updates in product(range(n), repeat=H):
+                    updates = tuple(updates)
+                    for epochs_mask in range(1 << (H + 1)):
+                        epochs = tuple(e for e in range(H + 1)
+                                       if epochs_mask & (1 << e))
+                        # Include known update-value conditioning, NOT
+                        # unpriced author-provided side information.
+                        for public_mask in range(1 << H):
+                            known = tuple((step, step & 1) for step in range(H)
+                                          if public_mask & (1 << step))
+                            q = tuple((0, e, l, r) for e in epochs
+                                      for l, r in intervals)
+                            rank = causal_rank(n, updates, q, known)["joint_rank"]
+                            independent = full_interval_observation_rank(
+                                n, updates, epochs, known)
+                            self.assertEqual(rank, independent,
+                                             (n, updates, epochs, known))
+                            self.assertLessEqual(rank, n + H - len(known))
+                            if len(epochs) == H + 1:
+                                self.assertEqual(rank, n + H - len(known))
+        # For an incomplete query family, simple source-support counting
+        # is NOT equal to answer rank: XOR of x0,x1 is only one answer bit.
+        z = causal_rank(2, (), ((0, 0, 0, 2),))
+        self.assertEqual(z["joint_rank"], 1)
+        self.assertEqual(z["distinct_hidden_provenance_variables_used"], 2)
+        with self.assertRaises(ValueError):
+            full_interval_observation_rank(2, (0,), (0, 0))
+        with self.assertRaises(ValueError):
+            full_interval_observation_rank(2, (0,), (2,))
+
+    def test_affine_known_payload_values_and_full_answer_signatures(self):
+        # The cardinality check alone cannot catch an incorrect public XOR
+        # offset. Compare FULL answer signatures of independent literal SET
+        # executions against the algebraic affine-row predictions.
+        for n in range(1, 4):
+            for H in range(3):
+                for scheduled in product(range(n), repeat=H):
+                    scheduled = tuple(scheduled)
+                    observations = tuple((i & 1, t, i % n, (i % n) + 1)
+                                         for t in range(H + 1)
+                                         for i in range(n + 1))
+                    for known_mask in range(1 << H):
+                        known_steps = [t for t in range(H) if
+                                       known_mask & (1 << t)]
+                        for known_bits in product((0, 1), repeat=len(known_steps)):
+                            public = tuple(zip(known_steps, known_bits))
+                            data = causal_rank(n, scheduled, observations, public)
+                            unknown = tuple(i for i in range(n + H)
+                                            if i < n or not known_mask & (1 << (i - n)))
+                            predicted = set()
+                            for values in product((0, 1), repeat=len(unknown)):
+                                symbol_mask = sum((1 << i) for i, bit in zip(unknown, values)
+                                                  if bit)
+                                predicted.add(tuple(
+                                    ((row & symbol_mask).bit_count() & 1) ^ offset
+                                    for row, offset in zip(data["hidden_rows"],
+                                                           data["public_offsets"])))
+                            direct = independent_answer_signatures(
+                                n, scheduled, observations, public)
+                            self.assertEqual(predicted, direct,
+                                             (n, scheduled, observations, public))
+                            self.assertEqual(len(direct), data["answer_tuple_count"])
+        # Same secret rank, DIFFERENT known SET payload -> different affine
+        # answer signature. The output offset is part of the contract.
+        q = ((0, 1, 0, 1),)
+        zero = causal_rank(1, (0,), q, ((0, 0),))
+        one = causal_rank(1, (0,), q, ((0, 1),))
+        self.assertEqual(zero["joint_rank"], one["joint_rank"])
+        self.assertEqual(zero["joint_rank"], 0)
+        self.assertEqual(zero["public_offsets"], [0])
+        self.assertEqual(one["public_offsets"], [1])
+        self.assertEqual(independent_answer_signatures(
+            1, (0,), q, ((0, 0),)), {(0,)})
+        self.assertEqual(independent_answer_signatures(
+            1, (0,), q, ((0, 1),)), {(1,)})
+
+    def test_overwritten_old_symbols_do_not_reappear(self):
+        r = last_writer_row(2, (0, 1, 0), 3, 0, 2)
+        # Last writer of coord0 is b2 at index 4; coord1 is b1 at index3.
+        self.assertEqual(r, (1 << 4) | (1 << 3))
+        self.assertEqual(rank_gf2((3, 5, 6)), 2)
+        self.assertEqual(rank_gf2((3, 3, 0)), 1)
+
+    def test_reject_bad_contract_inputs_and_boolean_lookalikes(self):
+        cases = (
+            (0, (), (), ()),
+            (True, (), (), ()),
+            (2, (2,), (), ()),
+            (2, (True,), (), ()),
+            (2, (), ((0, 1, 0, 1),), ()),
+            (2, (), ((2, 0, 0, 1),), ()),
+            (2, (), ((0, 0, 1, 1),), ()),
+            (2, (), ((0, 0, 0, 3),), ()),
+            (2, (0,), (), ((0, 0), (0, 1))),
+            (2, (0,), (), ((1, 1),)),
+            (2, (0,), (), ((0, True),)),
+        )
+        for args in cases:
+            with self.subTest(args=args), self.assertRaises(ValueError):
+                causal_rank(*args)
+        with self.assertRaises(ValueError):
+            rank_gf2((-1,))
+        with self.assertRaises(ValueError):
+            last_writer_row(2, (0,), 2, 0, 1)
+        with self.assertRaises(ValueError):
+            independent_answer_signatures(8, (0, 0, 0), ((0, 0, 0, 1),))
+
+    def test_no_source_or_original_root_promoted(self):
+        z = report()
+        self.assertEqual(z["root_novelty"], "OPEN_UNPROVED")
+        self.assertIsNone(z["same_F1_nonfactorizing_theorem"])
+        self.assertIsNone(z["joint_F1_page_write_or_query_lower"])
+        self.assertIsNone(z["hard_adaptive_distribution"])
+        self.assertFalse(z["full_primary_theorem_model_transfer"])
+        self.assertTrue(z["classical_rank_counting_not_original"])
+        self.assertTrue(all(value is None for value in
+                            z["charged_F1_resource_axes_not_derived"].values()))
+
+
+if __name__ == "__main__":
+    unittest.main()
