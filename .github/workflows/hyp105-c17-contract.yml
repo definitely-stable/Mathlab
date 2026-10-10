@@ -1,0 +1,28 @@
+name: hyp105-c17-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c17-local-scope-sixset-factorization
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c17_local_scope_tensors.py"
+      - "research/test_hyp105_g5e2b3e1c17_local_scope_tensors.py"
+      - ".github/workflows/hyp105-c17-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  original-sixset-local-support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C17 local scope factorization and independent C16 4/36-map falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c17_local_scope_tensors.py' -v
+      - name: C17 polynomial local-only and right-shared original tensor lower report
+        run: python research/hyp105_g5e2b3e1c17_local_scope_tensors.py
