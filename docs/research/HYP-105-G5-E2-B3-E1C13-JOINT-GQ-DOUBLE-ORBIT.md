@@ -91,7 +91,29 @@ These are NOT the two physical right pair-label edge-orbits "physically adjacent
 
 For full occupied left and right physical K6 images, both physical edge-action groups have order 720. Thus the product action group has size 720³ = 373,248,000, but the actual orbit of any fixed mapping pair is 720³/stab(f,g), with stab(f,g) determined by the independent original 720-element loop. A truly correlated original transformation plus independent left/right physical actions must preserve the exact full seven-class W32 motif vector and its GF5 necessary-floor numerator; explicit regressions check this for several nonidentity elements.
 
-## 6. Acceptance gates, honest limitations, future C14
+## 6. Additional exact W32 double-sided prefix quotient and unavoidable search barrier
+
+The joint group induces an exact combined orbit partition even before assigning all original factor labels. Consider the 50,625 *named one-left/one-right pin assignments* (ORIGINAL p∈P, ORIGINAL l∈L, physical left edge f(p)∈E(K6), physical right edge g(l)∈E(K6)). Sp(4,2) is transitive separately on the ORIGINAL 45 incident p~l flags and the ORIGINAL 180 nonincident p≁l antiflags, while the two independent physical S6 groups are independently transitive on 15 left and 15 right edges. Consequently these 50,625 assignments have EXACTLY TWO joint orbits:
+
+    original incident flag orbit size: 45*15*15 = 10,125
+    original nonincident antiflag orbit size: 180*15*15 = 40,500
+    total 10,125 + 40,500 = 50,625
+
+The orbit/stabilizer counts are 720³/10,125=36,864 and 720³/40,500=9,216. This gives an exact joint **one-pinned-label per physical half** normalization, with the original incidence/nonincidence invariant explicitly retained. It must not be confused with a classification of all complete (f,g) maps, or with physical two-edge adjacency of the labels.
+
+**Strict complexity-kill inequality.** For W32 with FULL K6 physical alphabets on BOTH sides, all 15 original point labels and all 15 original line labels can be independently bijected onto 15 distinct pair-edge labels. Thus the true number of legal COMPLETE mapping PAIRS, before quotient, is
+
+    N_pairs = (15!)² = 1,710,012,252,724,199,424,000,000.
+
+Each joint triple-group orbit contains AT MOST |G|=720³=373,248,000 legal pairs (if it has no stabilizer). Orbit-stabilizer therefore forces, even under ideal full symmetry reduction,
+
+    #joint_orbits >= ceil((15!)²/720³) = 4,581,437,148,288,000.
+
+The inequality is exact, independent of guessing an average stabilizer, and becomes strictly larger if some joint pair has nontrivial stabilizer. The verified reverse-line W32 sample happens to have trivial stabilizer, giving a 373,248,000-element orbit; this DOES NOT make the entire joint action free on all pairs.
+
+This is an explicit finite **NO-GO for pure exhaustive joint orbit enumeration** on current GitHub-hosted CI: factorizing by ALL these symmetries alone still leaves over 4.5 quadrillion distinct W32 mapping-pair classes. Therefore C14's decision gate MUST add mathematically valid global pruning, SAT/ILP/branch proof certificates, or a positive all-h source/target inequality; simply generating every canonical pair is not an acceptable next stage.
+
+## 7. Acceptance gates, honest limitations, future C14
 
 Code: [exact joint group/orbit certificate](../../research/hyp105_g5e2b3e1c13_joint_orbits.py) and [independent exhaustive original-incidence and seven-class tests](../../research/test_hyp105_g5e2b3e1c13_joint_orbits.py). Dedicated GitHub-hosted hyp105-c13-contract and full Research workflow must both be SUCCESS on the EXACT PR HEAD. Dependence on C12 #291 and the earlier C1–C11 stack means no direct main merge. Parent #230 and #176 remain OPEN_WITH_FORMAL_BLOCKER; no all-h positive seven-motif lower or ASET exponent.
 
