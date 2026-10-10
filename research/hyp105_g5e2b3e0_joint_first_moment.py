@@ -177,8 +177,8 @@ def finite_pair_label_diagnostic(left, right):
     inc = ((0, 0), (0, 1), (1, 1), (1, 2))
     matched = sum(left[i] == right[j] for i, j in inc)
     # A second, non-monotonic risk proxy counts opposed shared names.
-    cycles = sum(left[0] == right[j] and left[1] == right[k]
-                 for j in range(3) for k in range(3) if j != k)
+    cycles = ((left[0] == right[0] and left[1] == right[2]) +
+              (left[0] == right[2] and left[1] == right[0]))
     return Fraction(matched), Fraction(cycles)
 
 
