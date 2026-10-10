@@ -163,10 +163,11 @@ def exact_physical_counts(a, pair_edges, *, max_a=14):
         raise ValueError("explicit exact pattern oracle resource bound")
     legal=set(combinations(range(a),2))
     try:
-        pairs=set(pair_edges)
+        edge_list=tuple(pair_edges)
+        pairs=set(edge_list)
     except TypeError as exc:
         raise ValueError("physical graph pair iterator invalid") from exc
-    if len(pairs)!=len(tuple(pair_edges)):
+    if len(pairs)!=len(edge_list):
         raise ValueError("physical pair labels must be injective")
     if not pairs<=legal:
         raise ValueError("invalid unordered physical pair edges")
