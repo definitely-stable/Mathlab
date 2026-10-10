@@ -1,0 +1,33 @@
+name: dag002-g1c2b-append-pages
+
+on:
+  push:
+    branches: [main, 'research/**']
+    paths:
+      - 'research/dag002_g1c2b_append_pages.py'
+      - 'research/test_dag002_g1c2b_append_pages.py'
+      - 'docs/research/DAG-002-ALG-001-G1-C2-B-APPEND-PAGES.md'
+      - '.github/workflows/dag002-g1c2b-append-pages.yml'
+  pull_request:
+    paths:
+      - 'research/dag002_g1c2b_append_pages.py'
+      - 'research/test_dag002_g1c2b_append_pages.py'
+      - 'docs/research/DAG-002-ALG-001-G1-C2-B-APPEND-PAGES.md'
+      - '.github/workflows/dag002-g1c2b-append-pages.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  exact-append-reachability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Complete transfer and model non-transfer report
+        run: python research/dag002_g1c2b_append_pages.py
+      - name: Exhaustive small append-DAG and page-ledger oracle
+        run: python -m unittest discover -s research -p 'test_dag002_g1c2b_append_pages.py' -v
