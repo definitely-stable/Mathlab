@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mathlab research graph curation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "policy",
+    "taxonomy",
+    "issue_anchors",
+    "document_annotations",
+    "relation_classes"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mathlab.research-graph-curation.v1"
+    },
+    "policy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "taxonomy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "prefLabel",
+          "aliases",
+          "broader"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "prefLabel": {
+            "type": "string",
+            "minLength": 1
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "broader": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]*$"
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "issue_anchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "issue",
+          "target",
+          "relation",
+          "evidence_path"
+        ],
+        "properties": {
+          "issue": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "target": {
+            "type": "string",
+            "pattern": "^(?:R:|P:|T:|B:|K:|S:|DOC:)[^\\s]+$"
+          },
+          "relation": {
+            "enum": [
+              "TRACKS_RESEARCH",
+              "CURATES_BRIDGE_ATLAS"
+            ]
+          },
+          "evidence_path": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "document_annotations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "tags",
+          "aliases",
+          "focus"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "focus": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(?:T:|R:|P:|B:|K:)[^\\s]+$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "relation_classes": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^[A-Z][A-Z_]+$"
+      },
+      "additionalProperties": {
+        "enum": [
+          "provenance",
+          "index_only",
+          "classification",
+          "semantic_non_implication",
+          "organization_non_implication",
+          "source_audited_non_implication",
+          "ownership_non_implication",
+          "classification_non_implication",
+          "model_overlap_non_implication"
+        ]
+      }
+    }
+  }
+}
