@@ -128,6 +128,80 @@ The fraction of CENTERED target squared energy residing in W2 is exactly
 
 Thus more than **94% of centered T6 squared energy** is in W>=3. A degree-two-only bound cannot recover this component by orthogonal projection. Importantly, this does NOT imply higher correlations produce a lower bound or prevent one: it rigorously quantifies the missing part.
 
+
+## 3A. Stronger exact all-a W3 transfer: five physical target orbits (additional C2 closure)
+
+The accepted B1-C0 three-edge physical target codegree theorem can be orthogonally projected exactly, rather than left in U_ge3. Let I_3 be incidence of a triple of abstract K physical pair labels in a sixset. The harmonic W3 eigenvalue is
+
+```text
+lambda_3 = binom(K-6,3).
+```
+
+On a triple tensor r with all pair-lower sums zero (sum_{z not in {x,y}} r(x,y,z)=0 for every x≠y), the standard Johnson I_3 I_3^T eigenvalue is lambda_3. This follows from inclusion and exclusion of overlaps 3,2,1,0 and the binomial identity; it is classical Johnson-scheme algebra. The executable oracle independently checks that the projected target has zero W0/W1/W2 pair marginals.
+
+For the physical target, enumerate the five orbit classes of three different *pair-edge labels*. Their within-triple physical-adjacent label-pair counts are respectively 3,2,3,1,0 for triangle, P4, claw, P3 plus disjoint edge, matching3. The target triple codegrees are exactly the B1-C0 proven values C(a-3,3), 2C(a-4,2), 0, 5(a-5), 8. With qbar, qA/qD and lambda2 from section 2, set for each physical label triple H:
+
+```text
+c2(H) = sum_{{i,j} subset H}(q_T(i,j)-qbar)/lambda_2
+r_T3(H) = codeg_T(H) - binom(K-3,3)*T/N
+           - binom(K-5,3)*c2(H)
+t3(S) = sum_{H subset S, |H|=3} r_T3(H)/lambda_3.
+```
+
+Target W1=0, so there is no missing W1 subtraction. The K_a physical coordinate orbits have exact cardinalities C(a,3), 12C(a,4), 4C(a,4), 30C(a,5), 15C(a,6); each gives a constant r_T3(H). Their complete sum of squared residuals gives
+
+```text
+||t3||² = (1/lambda_3) sum_{H, |H|=3} r_T3(H)²,
+||t>=4||² = T - T²/N - ||t2||² - ||t3||².
+```
+
+For a zero-padded source m, define original right three-line marginal d_ijk, W1 beta and W2 pair residual gamma_ij=r_ij/lambda2 as in section 3. The exact source W3 triple residual is
+
+```text
+r_m3(i,j,k)
+  = d_ijk - binom(K-3,3)*(M/N)
+          - binom(K-4,3)*(beta_i+beta_j+beta_k)
+          - binom(K-5,3)*(gamma_ij+gamma_ik+gamma_jk).
+
+||m3||² = sum_{i<j<k} r_m3(i,j,k)²/lambda_3
+||m>=4||² = ||m>=3||² - ||m3||².
+```
+
+For EVERY correlated legal physical right injection g, independently of the left f, the all-h identity now refines to
+
+```text
+U(f,g) = mu(f) + U2(f,g) + U3(f,g) + U>=4(f,g),
+
+U3(f,g) = sum_{{i,j,k} original right triple}
+             d_ijk(m_f)*r_T3(g(i),g(j),g(k))/lambda_3.
+```
+
+This is precisely the missing **joint original-source third marginal × physical-target five-orbit contraction**. Its numerical value can change arbitrarily under g; the original GQ triple-concurrence 0/1/2/3 class of {i,j,k} does not determine the physical target five-orbit class of {g(i),g(j),g(k)}. The all-g estimate remains open until those couplings or higher harmonics are constrained GQ-specifically.
+
+Exactly,
+
+```text
+|U3(f,g)| <= sqrt(||m3||²*||t3||²)
+|U>=4(f,g)| <= sqrt(||m>=4||²*||t>=4||²).
+```
+
+The corresponding global sufficient positive-overlap certificate uses mu>sqrt(B2)+sqrt(B3)+sqrt(B>=4). The implementation tests the conservative rational-only sufficient condition mu²>9 max(B2,B3,B>=4), not a necessary condition.
+
+For K6, the **complete exact numbers** are
+
+```text
+lambda_3 = 84,
+||t2||² = 42/11,
+||t3||² = 710/1001,
+||t>=4||² = 4966/77.
+```
+
+Thus the W>=4 contribution alone is exactly **32279/34545 (~93.44%)** of target CENTERED squared energy. The full W>=3 94.47% statement above stays true; the third-order projection accounts for only ~1.03% of centered target energy. This **does not** prove that U>=4 is positive or negative for any adversarial g, nor a global all-label risk power.
+
+Additional independent tests compute all 455 K6 physical triple marginal values from the brute 70-target enumeration, reconstruct t3 over all 5005 sixsets, confirm its 5 orbit residuals and exact 710/1001 norm, and check orthogonality to every pair indicator. The original W32 source W3 residual and W>=4 norms are independently reconstructed over all 5005 right sixsets. All 105 real right factor swaps retain the cheaper exact W0+W2+W>=3 check; four specially selected W32 permutations additionally validate the full W0+W2+W3+W>=4 identity.
+
+**Scientific status unchanged:** RESTRICTED_THEOREM_C (exact structural transfer), #230 Branch A/B unresolved. Any claim that this proves all-h Omega(s6) is prohibited.
+
 ## 4. Why both physical and GQ structure are indispensable
 
 C1 constrains source weights via the ORIGINAL right concurrence graph: m_f(R)<=c_GQ(R)(s+1)^4, with support restricted to sextets with concurrent original lines. C2 exactly characterizes the order-two part of their interaction with the physical target under g. However the pair-adjacency weight B_g above depends on **g**, which can arbitrarily change the physical adjacency relation among images of original factor lines. Replacing physical adjacency in B_g with c_GQ(i,j) is FALSE in general. Even controlling B_g would not control the W>=3 remainder.
