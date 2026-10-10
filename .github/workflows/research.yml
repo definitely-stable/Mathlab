@@ -13,7 +13,10 @@ permissions:
 jobs:
   lent-001-foundation:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # The full research suite includes HYP-105's exhaustive label-swap audit;
+    # ten minutes aborts otherwise healthy UCT-005 PR acceptance mid-test.
+    # Keep ALL tests enabled; this is a CI runtime budget, not a proof change.
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -143,6 +146,12 @@ jobs:
 
       - name: HYP-105 B3.2-E0 independently brute-check lex conditional expectations
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e0_joint_first_moment.py'
+
+      - name: HYP-105 B3.2-E1-C0 exact weighted six-hypergraph B/A overlap and generic packing no-go
+        run: python research/hyp105_g5e2b3e1c0_weighted_overlap.py
+
+      - name: HYP-105 B3.2-E1-C0 independent original six-incidence and K6 2factor overlap falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c0_weighted_overlap.py'
 
       - name: HYP-105 B3.2-E1-B0 same-label seven-family W32 GF5 and Q4 risk floors
         run: python research/hyp105_g5e2b3e1b0_seven_signature.py

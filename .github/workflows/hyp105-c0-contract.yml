@@ -1,0 +1,28 @@
+name: hyp105-c0-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c-weighted-overlap-transfer
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c0_weighted_overlap.py"
+      - "research/test_hyp105_g5e2b3e1c0_weighted_overlap.py"
+      - ".github/workflows/hyp105-c0-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  weighted-source-and-target:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent weighted overlap, 3-cube, GQ source and target tensors
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c0_weighted_overlap.py' -v
+      - name: Exact original GQ weighted source report
+        run: python research/hyp105_g5e2b3e1c0_weighted_overlap.py

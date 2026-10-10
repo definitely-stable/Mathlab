@@ -1,0 +1,31 @@
+name: uct005-d1c0-observation-entropy
+on:
+  push:
+    branches:
+      - "research/uct005-d1c0-*"
+    paths:
+      - "research/uct005_d1c0_observation_entropy.py"
+      - "research/test_uct005_d1c0_observation_entropy.py"
+      - ".github/workflows/uct005-d1c0-observation-entropy.yml"
+  pull_request:
+    paths:
+      - "research/uct005_d1c0_observation_entropy.py"
+      - "research/test_uct005_d1c0_observation_entropy.py"
+      - ".github/workflows/uct005-d1c0-observation-entropy.yml"
+permissions:
+  contents: read
+jobs:
+  exact-pinned-entropy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent every-epoch-subset oracle, Hamming product, online SET and mixed-radix bijection
+        run: python -m unittest discover -s research -p 'test_uct005_d1c0_observation_entropy.py' -v
+      - name: Emit reproducible no-novelty PIN-observation entropy countermodel
+        run: python research/uct005_d1c0_observation_entropy.py
+      - name: Verify typed UCT theorem-tree single-parent invariant
+        run: python -m unittest discover -s research -p 'test_uct005_tree.py' -v
