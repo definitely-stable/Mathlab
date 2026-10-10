@@ -82,7 +82,28 @@ C12 reconstructs the exact real original W(3,2) B/A source and full K6 target, p
 
 Each of these finite statements is regression-checked on GitHub-hosted runners. A valid reduction of S_seven from 169→141 does not prove that its all-h lower floor fails, nor that the full GF5 R3 has improved by the same fraction.
 
-## 6. Acceptance and next scientific decision
+## 6. Coupled shared-permutation **global** minimum interval for fixed f,F
+
+The executable C12 quotient is also a complete deterministic MINIMUM CERTIFICATE across **every actual right bijection** of the fixed original f and physically occupied F, not merely a single frozen-prefix certificate. Fix any k named ORIGINAL right lines D, and enumerate every canonical physical image p of D (one representative in each exact Aut(F)-orbit). For every representative, the independently proven C11 common-global-completion moment provides an integer lower L2(p) for EACH full completion of that representative, and floor(E[U|p]) provides existence of some completion with U no larger. The C8 classwise lower L8(p) is also valid for every completion; use L(p)=max(L2(p),L8(p)). Then
+
+    min_(canonical prefix orbit reps p) L(p)
+    <= min_(EVERY legal full common right map g) U(f,g)
+    <= min_(canonical prefix orbit reps p) floor(E[U|p]).
+
+Proof: every full g has a prefix in exactly one listed orbit and one physical h mapping it to that representative; both the full U and seven motif vector are unchanged by h. Thus the corresponding lower applies to g. Separately every orbit representative has at least one genuine full extension whose U is at most its conditional mean; minimize these existential witnesses to get the right-hand bound. No source-term or C4-anchor can choose its own right map.
+
+For audit, the algorithm also EXACTLY verifies both full tower equalities (law of total expectation) across all ordered injective p, with orbit sizes as weights:
+
+    sum_(orbits p) |orbit(p)|*E[U|p] / (V)_k = C5_UNCONDITIONAL_E_U,
+    sum_(orbits p) |orbit(p)|*E[U^2|p] / (V)_k = C5_UNCONDITIONAL_E_U_SQUARED.
+
+These are independent cross-checks using C5 original sixset intersection spectra, not an assertion based on arithmetic sampled from selected prefixes. If the global lower equals the global upper, the exact minimum over ALL V! right maps for that fixed f,F is rigorously determined **without enumerating V!**. Explicit hard gates apply to prefix-space cardinality and C11 relevant source cells.
+
+The genuine W32 reverse-line source uses original pins D=(0,1). Two physical representative assignments summarize all 210 named-pin images and all 15! actual common right permutations. The resulting global interval is rigorous for this single genuine f and full K6 occupied F, but with no a priori positive lower; numeric endpoints are evidence only after exact HEAD hosted CI. An additional one-sixset-weight finite K6 toy has exact global minimum ZERO from matching lower and upper, proving the implementation can certify an unrestricted right minimum in a nontrivial sparse case.
+
+**This is the first C12 full-right-map global certification method; it still does NOT optimize over all LEFT f, occupied F, nor combine all seven classes into a positive all-h obstruction.**
+
+## 7. Acceptance and next scientific decision
 
 Dedicated hyp105-c12-contract and FULL Research CI must both report SUCCESS on the exact PR HEAD; predecessor C1–C11 should be reviewed and merged in dependency order, and post-merge main Research CI verified. No PR should be merged based on queued or previously successful checks of a different SHA.
 
