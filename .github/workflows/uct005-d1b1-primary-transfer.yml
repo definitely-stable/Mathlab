@@ -1,0 +1,31 @@
+name: uct005-d1b1-primary-transfer
+on:
+  push:
+    branches: [research/uct005-d1b1-primary-transfer]
+    paths:
+      - "research/uct005_d1b1_source_gate.py"
+      - "research/test_uct005_d1b1_source_gate.py"
+      - "docs/research/UCT-005-G3-B2-D1B1-TRANSFER-MATRIX.json"
+      - ".github/workflows/uct005-d1b1-primary-transfer.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "research/uct005_d1b1_source_gate.py"
+      - "research/test_uct005_d1b1_source_gate.py"
+      - "docs/research/UCT-005-G3-B2-D1B1-TRANSFER-MATRIX.json"
+      - ".github/workflows/uct005-d1b1-primary-transfer.yml"
+permissions:
+  contents: read
+jobs:
+  d1b1-source-transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Strict canonical transfer matrix and independent mask oracle
+        run: python -m unittest discover -s research -p 'test_uct005_d1b1_source_gate.py' -v
+      - name: Standalone source gate and algebraic counterexample report
+        run: python research/uct005_d1b1_source_gate.py

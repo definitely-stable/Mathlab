@@ -2,9 +2,13 @@
 
 [Proof and scope](HYP-105-G5-E2-B3-E1B1A-ONE-SIDED-UNIVERSAL.md) · [exact bound](../../research/hyp105_g5e2b3e1b1a_one_sided.py) · [independent tests](../../research/test_hyp105_g5e2b3e1b1a_one_sided.py). For ANY pair injection f, L_left=(151/144+O(1/s))s^15 uniformly in f; for every fixed f, independent uniform right g has E_g[U_B/A]=(140+O(1/s))s^6 by GQ codegree one; the missing ALL-LABEL right transfer is equivalent to Ω(s^-9) fraction. Neither S_seven=Ω(s^6) nor a strict GF5 R3 bound proved. Hosted CI pending.
 
-## UCT-005 D1-A — classical fixed-one-probe certificate and false joint bound (2026-10-10)
+## UCT-005 D1-B1 — 20-source theorem transfer matrix and GF2 query-interface barrier (2026-10-10)
 
-[Exact restricted one-probe interval parity lower and Fenwick honest-bit-cell counterexample](UCT-005-G3-B2-D1A-ONE-PROBE-AND-CAUSAL-FALSIFICATION.md) · [test](../../research/test_uct005_d1a_causal_falsifiers.py) · [source D0](UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) · [#223](https://github.com/definitely-stable/Mathlab/issues/223). **One-probe proof sharp**, but not new originality; universal Wmax Qmax>=n false in honest bit-cell model, **not a Byzantine F1 counterexample**. Typed theorem tree keeps root OPEN.
+[Proof-scope and hard limits](UCT-005-G3-B2-D1B1-PRIMARY-TRANSFER-AND-MASK-OBSTRUCTION.md) · [typed canonical matrix](UCT-005-G3-B2-D1B1-TRANSFER-MATRIX.json) · [finite oracle](../../research/uct005_d1b1_source_gate.py) · [D1 #223](https://github.com/definitely-stable/Mathlab/issues/223). Three primary theorem statements inspected, not full proofs; 20 canonical records classified. **NO_NEW_NONFACTORIZING_LOWER_BOUND / ROOT_OPEN_UNPROVED**.
+
+## UCT-005 D1-B0 — paid two-reader F1 latest, PIN and GC (2026-10-10)
+
+[Formal model and cost firewall](UCT-005-G3-B2-D1B0-F1-COST-AND-PIN-FREEZE.md) · [machine contract](UCT-005-G3-B2-D1B0-F1-MODEL.json) · [independent reference tests](../../research/test_uct005_d1b0_f1_reference.py). **FINITE_CLASSICAL_UPPER / IDEAL_TRUSTED_ANCHOR / NO_NEW_LOWER_BOUND**; not real page-durability security.
 
 ## HYP-105 B3.2-E1-B0 — seven-motif same-label tensor reduction
 

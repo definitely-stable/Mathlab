@@ -1,0 +1,244 @@
+{
+  "schema": "mathlab.uct005.d1b1.transfer-matrix.v1",
+  "date": "2026-10-10",
+  "source_count": 20,
+  "root_novelty": "OPEN_UNPROVED",
+  "service": "F1 SET / LATEST_RANGE_PARITY / AS_OF_PINNED / GC",
+  "audit_scope": "precisely separate checked primary theorem statements from bibliographic/abstract-only entries; NOT full proof audit",
+  "classification_vocab": [
+    "CLASSICAL_SUBTASK_ONLY",
+    "REDUCTION_REQUIRED",
+    "SECURITY_NONTRANSFER",
+    "CONDITIONAL_UPPER",
+    "METHOD_ONLY"
+  ],
+  "primary_theorem_statement_checked": [
+    "LIT-112",
+    "LIT-119",
+    "LIT-159"
+  ],
+  "no_source_full_proof_rederived": true,
+  "novelty_gate": "NO_NEW_NONFACTORIZING_BOUND",
+  "entries": [
+    {
+      "id": "LIT-068",
+      "identity": "doi:10.4230/LIPIcs.ITCS.2026.6",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.ITCS.2026.6",
+      "title": "Model-Generic Incrementally Verifiable Computation from Updatable BARGs",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "CONDITIONAL_UPPER",
+      "barrier": "Incremental verification and BARG setup require explicit circuit/encoding, prover time, trusted anchor, historical PIN.",
+      "missing_proof": "No same-task circuit and setup accounting",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-111",
+      "identity": "doi:10.1145/73007.73040",
+      "primary_url": "https://doi.org/10.1145/73007.73040",
+      "title": "The cell probe complexity of dynamic data structures",
+      "source_evidence": "ABSTRACT_PLUS_SECONDARY_THEOREM",
+      "transfer": "CLASSICAL_SUBTASK_ONLY",
+      "barrier": "GF(2) partial-sums includes prefix parity, but SET->FLIP encoding, free preprocessing, word size and F1 trusted authority must be tracked.",
+      "missing_proof": "No F1-to-cell-probe resource-preserving reduction",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-112",
+      "identity": "doi:10.1137/S0097539705447256",
+      "primary_url": "https://doi.org/10.1137/S0097539705447256",
+      "title": "Logarithmic Lower Bounds in the Cell-Probe Model",
+      "source_evidence": "THEOREM_STATEMENT_PRIMARY",
+      "transfer": "REDUCTION_REQUIRED",
+      "barrier": "Theorem 2.1 uses delta=Omega(b); Theorem 2.2 uses integer-valued partial sums and small-delta accounting; no b-bit-update transfer for binary SET.",
+      "missing_proof": "No GF2 small-alphabet, trusted-space and page-I/O transfer",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-119",
+      "identity": "publisher:eccc:tr26-047",
+      "primary_url": "https://eccc.weizmann.ac.il/report/2026/047/",
+      "title": "An $\\Omega((\\log n / \\log\\log n)^2)$ Cell-Probe Lower Bound for Dynamic Boolean Data Structures",
+      "source_evidence": "THEOREM_STATEMENT_PRIMARY",
+      "transfer": "REDUCTION_REQUIRED",
+      "barrier": "Revised Theorem 1.1 is Multiphase with arbitrary GF2 inner product, m=n^(1+Omega(1)) and word-size terms; contiguous 1D range query is not this problem.",
+      "missing_proof": "No low-overhead Multiphase-to-contiguous-range reduction",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-156",
+      "identity": "doi:10.1109/SFCS.1991.185352",
+      "primary_url": "https://doi.org/10.1109/SFCS.1991.185352",
+      "title": "Checking the Correctness of Memories",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "REDUCTION_REQUIRED",
+      "barrier": "Memory checker protects arbitrary read/write interfaces with trusted space and remote probes; model equivalence for paid roots is missing.",
+      "missing_proof": "Original proof and paid-anchor translation",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-157",
+      "identity": "doi:10.1145/3618260.3649686",
+      "primary_url": "https://doi.org/10.1145/3618260.3649686",
+      "title": "Memory Checking Requires Logarithmic Overhead",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "REDUCTION_REQUIRED",
+      "barrier": "Computational memory-checker q-versus-s bound, with independent monotone root and durable pin control absent as free primitives.",
+      "missing_proof": "Theorem-level quantifiers and F1 adversarial reduction",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-158",
+      "identity": "doi:10.1007/978-3-031-91092-0_11",
+      "primary_url": "https://doi.org/10.1007/978-3-031-91092-0_11",
+      "title": "The Complexity of Memory Checking with Covert Security",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "REDUCTION_REQUIRED",
+      "barrier": "Covert security and detection failure do not equal F1 soundness/ABORT guarantees.",
+      "missing_proof": "Convert covert detection to F1 computational soundness",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-159",
+      "identity": "doi:10.4230/LIPIcs.AFT.2023.29",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.AFT.2023.29",
+      "title": "Vector Commitments with Efficient Updates",
+      "source_evidence": "THEOREM_STATEMENT_PRIMARY",
+      "transfer": "REDUCTION_REQUIRED",
+      "barrier": "AFT 2023 Definition 4 and Theorem 5 require proof-binding dynamic VC, proof-update time g2(k) and broadcast update information g1(k); neither denotes GC page writes.",
+      "missing_proof": "Prove proof-binding + circuit mapping and account k, epsilon, update diff",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-199",
+      "identity": "doi:10.1007/978-3-032-01878-6_6",
+      "primary_url": "https://doi.org/10.1007/978-3-032-01878-6_6",
+      "title": "Merkle Mountain Ranges are Optimal: On Witness Update Frequency for Cryptographic Accumulators",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "REDUCTION_REQUIRED",
+      "barrier": "Witness-update frequency for append-only accumulators is not the number of immutable pages retained or reclaimed.",
+      "missing_proof": "Historical PIN and physical GC transfer",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-200",
+      "identity": "doi:10.1007/978-3-032-25330-9_7",
+      "primary_url": "https://doi.org/10.1007/978-3-032-25330-9_7",
+      "title": "Lower Bounding Update Frequency in Short Accumulators and Vector Commitments",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "REDUCTION_REQUIRED",
+      "barrier": "Expected witness invalidation/frequency for short accumulators/VCs has different randomness and output than disk page moves.",
+      "missing_proof": "Expected-to-worst and witness-to-page mapping",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-349",
+      "identity": "usenix:osdi04:li-j",
+      "primary_url": "https://www.usenix.org/conference/osdi-04/secure-untrusted-data-repository-sundr",
+      "title": "Secure Untrusted Data Repository (SUNDR)",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "SECURITY_NONTRANSFER",
+      "barrier": "Fork consistency permits divergent views until communication; does not furnish independent global LATEST authority.",
+      "missing_proof": "No shared single-server anchor reduction",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-350",
+      "identity": "doi:10.1016/j.ic.2018.03.004",
+      "primary_url": "https://doi.org/10.1016/j.ic.2018.03.004",
+      "title": "Verifying the consistency of remote untrusted services with conflict-free operations",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "SECURITY_NONTRANSFER",
+      "barrier": "COP conflict-free operations and fork linearizability are not global latest detection.",
+      "missing_proof": "No independent reader latest theorem",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-351",
+      "identity": "doi:10.1016/j.jisa.2026.104444",
+      "primary_url": "https://doi.org/10.1016/j.jisa.2026.104444",
+      "title": "SNARKs for stateful computations on authenticated data",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "CONDITIONAL_UPPER",
+      "barrier": "Stateful authenticated computation is a conditional proof-system comparator with paid setup and prover work.",
+      "missing_proof": "Circuit for range parity and epoch/freshness integration",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-352",
+      "identity": "doi:10.1145/2213977.2213987",
+      "primary_url": "https://doi.org/10.1145/2213977.2213987",
+      "title": "The Cell Probe Complexity of Dynamic Range Counting",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "REDUCTION_REQUIRED",
+      "barrier": "Weighted 2D orthogonal dynamic range counting with multi-bit answers differs from binary 1D range parity.",
+      "missing_proof": "No weighted/2D-to-binary/1D cost-preserving reduction",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-353",
+      "identity": "doi:10.1145/2897518.2897556",
+      "primary_url": "https://doi.org/10.1145/2897518.2897556",
+      "title": "Cell-probe lower bounds for dynamic problems via a new communication model",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "REDUCTION_REQUIRED",
+      "barrier": "Nondeterministic communication lower bounds for interval union etc require a stated reduction to SET/parity.",
+      "missing_proof": "A source-level reduction preserving operations and error",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-354",
+      "identity": "doi:10.1016/0022-0000(89)90034-2",
+      "primary_url": "https://doi.org/10.1016/0022-0000(89)90034-2",
+      "title": "Making data structures persistent",
+      "source_evidence": "PRIMARY_FULLTEXT_SCOPE_CHECKED",
+      "transfer": "CONDITIONAL_UPPER",
+      "barrier": "DSST persistence has version access and node copying but not independently trusted epoch publication, PIN authority or full-page crash-safe GC.",
+      "missing_proof": "Pack/persistence/GC comparator under identical F1 costs",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-355",
+      "identity": "arxiv:2608.25206",
+      "primary_url": "https://arxiv.org/abs/2608.25206",
+      "title": "Authenticated Data Structures for Dynamic Workloads",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "CONDITIONAL_UPPER",
+      "barrier": "Adaptive Huffman Merkle tree is proof-size/updates upper comparator under workloads; worst-case hard ranges and PIN durability still need pricing.",
+      "missing_proof": "Authenticated range proof, updates and migration costs",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-356",
+      "identity": "doi:10.1016/j.future.2024.107629",
+      "primary_url": "https://doi.org/10.1016/j.future.2024.107629",
+      "title": "Integrita: A BFT distributed storage system",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "SECURITY_NONTRANSFER",
+      "barrier": "Distributed BFT storage q-detectable view assumptions do not match one server with separately trusted global monotone root.",
+      "missing_proof": "Trust topologies and communication model differ",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-358",
+      "identity": "doi:10.1109/SP61157.2025.00247",
+      "primary_url": "https://doi.org/10.1109/SP61157.2025.00247",
+      "title": "Cauchyproofs: Batch-Updatable Vector Commitment with Easy Aggregation and Application to Stateless Blockchains",
+      "source_evidence": "ABSTRACT_ONLY",
+      "transfer": "CONDITIONAL_UPPER",
+      "barrier": "Cauchyproofs batch witness aggregation is not a physical historical GC lower bound.",
+      "missing_proof": "Compare same F1 circuit and preprocessing/prover/reader work",
+      "proof_verified": false
+    },
+    {
+      "id": "LIT-359",
+      "identity": "arxiv:2507.22265",
+      "primary_url": "https://arxiv.org/abs/2507.22265",
+      "title": "Cell-Probe Lower Bounds via Semi-Random CSP Refutation: Simplified and the Odd-Locality Case",
+      "source_evidence": "PRIMARY_FULLTEXT_SCOPE_CHECKED",
+      "transfer": "METHOD_ONLY",
+      "barrier": "GLY derives STATIC cell-probe / NC0 range-avoidance lower bounds from semi-random CSP refutation; not dynamic F1 pages.",
+      "missing_proof": "New dynamic reduction and amortized/PIN preservation required",
+      "proof_verified": false
+    }
+  ]
+}
