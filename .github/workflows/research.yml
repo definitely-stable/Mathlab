@@ -144,6 +144,12 @@ jobs:
       - name: HYP-105 B3.2-E0 independently brute-check lex conditional expectations
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e0_joint_first_moment.py'
 
+      - name: HYP-105 B3.2-E1-B0 same-label seven-family W32 GF5 and Q4 risk floors
+        run: python research/hyp105_g5e2b3e1b0_seven_signature.py
+
+      - name: HYP-105 B3.2-E1-B0 independent six-motif tensor, gauge and DFS checks
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1b0_seven_signature.py'
+
       - name: HYP-105 B3.2-E1-B1-A exact all-label left six-motif template sandwich
         run: python research/hyp105_g5e2b3e1b1a_one_sided.py
 
