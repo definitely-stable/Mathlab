@@ -143,10 +143,13 @@ def local_scope_sixset_certificate(
     base_s = min(q[0] for q in eligible_by_right)
     base_risk = min(q[1] for q in eligible_by_right)
     remaining_s = remaining_risk = 0
+    all_local_s = all_local_risk = 0
     rows = []
     for (u, v), tensor in sorted(tensors.items()):
         best_s = min(x[0] for x in tensor.values())
         best_risk = min(x[1] for x in tensor.values())
+        all_local_s += best_s
+        all_local_risk += best_risk
         if u:
             remaining_s += best_s
             remaining_risk += best_risk
@@ -159,6 +162,9 @@ def local_scope_sixset_certificate(
             "local_seven_minimum": best_s,
             "local_GF5_necessary_numerator_minimum": best_risk,
         })
+    if (all_local_s > base_s + remaining_s
+            or all_local_risk > base_risk + remaining_risk):
+        raise AssertionError("local polynomial relaxation exceeds shared-right bound")
     return {
         "scope": "TRUE_ORIGINAL_W32_COMPLETE_K6_BOTH_HALVES",
         "candidate_source_instances": source_instances,
@@ -166,6 +172,8 @@ def local_scope_sixset_certificate(
         "original_named_two_sided_signature_groups": len(tensors),
         "actual_local_motif_classifications": evaluations,
         "full_joint_completion_score_matrix_allocated": False,
+        "C17_all_signature_local_S_lower": all_local_s,
+        "C17_all_signature_local_GF5_numerator_lower": all_local_risk,
         "C15_shared_eligible_left_S": base_s,
         "C17_local_two_sided_signature_S_lower": base_s + remaining_s,
         "C15_shared_eligible_left_GF5_numerator": base_risk,
