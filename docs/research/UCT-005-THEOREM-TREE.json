@@ -335,6 +335,12 @@
       "kind": "research_input",
       "status": "EXACT_CLASSICAL_ONLINE_SET_PIN_OBSERVATION_ENTROPY_NO_F1_PHYSICAL_BOUND_STOP_NOVELTY",
       "source": "docs/research/UCT-005-G3-B2-D1C0-PIN-OBSERVATION-ENTROPY.md"
+    },
+    {
+      "id": "UCT005G3B2D1C1",
+      "kind": "research_input",
+      "status": "SCOPED_HYPOTHESIS_FALSIFICATION_AND_PRIMARY_SOURCE_MAPPING_NO_ORIGINAL_LOWER",
+      "source": "docs/research/UCT-005-G3-B2-D1C1-HYPOTHESIS-KILL-GATE.md"
     }
   ],
   "edges": [
@@ -602,6 +608,11 @@
       "parent": "UCT005G3B2D0",
       "child": "UCT005G3B2D1C0",
       "relation": "INDEPENDENT_D1_C_OBSERVATIONAL_COUNTERMODEL_NO_NEW_ROOT_THEOREM"
+    },
+    {
+      "parent": "UCT005G3B2D1C0",
+      "child": "UCT005G3B2D1C1",
+      "relation": "FALSIFICATION_INPUT_NOT_THEOREM_TRANSFER"
     }
   ]
 }

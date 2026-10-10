@@ -1,3 +1,7 @@
+## UCT-005 D1-C1 — frozen same-model candidate falsifiers and primary-theorem transfer gate (2026-10-11)
+
+[Machine-readable scoped candidate matrix](UCT-005-G3-B2-D1C1-CANDIDATE-GATE.json) · [scope proof and STOP](UCT-005-G3-B2-D1C1-HYPOTHESIS-KILL-GATE.md) · [oracle](../../research/uct005_d1c1_hypothesis_kill_gate.py) · [independent falsifiers](../../research/test_uct005_d1c1_hypothesis_kill_gate.py) · [issue #307](https://github.com/definitely-stable/Mathlab/issues/307). **SEVEN_SCOPED_REJECTIONS_AND_CLASSICAL_STOPS / FULL_F1_JOINT_BOUND_OPEN_UNFORMULATED / ALL_UNPRICED_AXES_NULL / PRIMARY_THEOREM_TRANSFER_REQUIRED / ROOT_OPEN_UNPROVED / CI_PENDING**. Stacked on D1-C0 [#304](https://github.com/definitely-stable/Mathlab/pull/304).
+
 ## UCT-005 D1-C0 — exact online SET/PIN observational entropy and independent-history falsifier (2026-10-11)
 
 [Formal classical entropy count](UCT-005-G3-B2-D1C0-PIN-OBSERVATION-ENTROPY.md) · [finite state oracle](../../research/uct005_d1c0_observation_entropy.py) · [independent tests](../../research/test_uct005_d1c0_observation_entropy.py) · [issue #303](https://github.com/definitely-stable/Mathlab/issues/303). **EXACT_K=2^n*PRODUCT_HAMMING_BALL_VOLUMES / TWO_PIN_LATEST_N5_H3_3072_STATES / NOT_kN_INDEPENDENT_SNAPSHOTS / F1_PHYSICAL_SECURITY_UNPROVED / STOP_NOVELTY / ROOT_OPEN_UNPROVED**.
