@@ -1,6 +1,7 @@
 """Independent falsification of complete W(3,2) right label-swap landscape."""
 import unittest
 from itertools import combinations
+from fractions import Fraction
 
 from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
 from hyp105_g5e2b3e1b0_seven_signature import (
@@ -8,6 +9,7 @@ from hyp105_g5e2b3e1b0_seven_signature import (
 )
 from hyp105_g5e2b3e1b1b_label_swaps import (
     exact_swap_deltas, swap_line_pair_labels,
+    all_h_two_right_line_influence_bound,
 )
 
 
@@ -27,6 +29,15 @@ class CorrelatedRightLabelExchangeTests(unittest.TestCase):
                          data["best"]["new_S"])
         self.assertFalse(data["universal_asymptotic_counterexample"])
         self.assertFalse(data["full_R3_minimization"])
+        bound=data["universal_all_h_single_swap_influence"]
+        self.assertEqual(bound["s"],2)
+        for event in data["all_105_swaps"]:
+            self.assertLessEqual(event["affected_sixsets"],
+                                 bound["max_affected_sixsets_for_one_right_pair_assignment_swap"])
+            self.assertLessEqual(abs(event["delta_S"]),
+                                 bound["max_absolute_S_change"])
+            self.assertLessEqual(abs(event["delta_GF5_floor_numerator"]),
+                                 bound["max_absolute_GF5_seven_floor_numerator_change"])
 
         # These three independent full recomputations do not use the
         # incremental touched-sixset delta formula. This is an
@@ -43,6 +54,30 @@ class CorrelatedRightLabelExchangeTests(unittest.TestCase):
                 sum(R3_CERTIFIED_FLOORS[k]*n
                     for k,n in full["seven_class_motif_counts"].items()),
                 delta["new_GF5_R3_floor_numerator"])
+
+    def test_all_h_uniform_one_swap_influence_o_s15(self):
+        from math import comb
+        for s in (2,4,8,16,32,128,256):
+            b=all_h_two_right_line_influence_bound(s)
+            self.assertEqual(b["V"],(s+1)*(s*s+1))
+            self.assertEqual(b["Delta"],s+1)
+            self.assertEqual(b["K"],comb(b["a"],2))
+            self.assertGreaterEqual(b["K"],b["V"])
+            self.assertEqual(sum(b["full_left_A_B_C"].values()),
+                             b["full_left_sixset_upper"])
+            self.assertEqual(b["max_absolute_S_change"],
+                             min(b["full_left_sixset_upper"],
+                                 12*b["full_left_sixset_upper"]//b["K"]))
+            self.assertTrue(b["uniform_over_all_injections"])
+            self.assertFalse(b["all_h_two_sided_omega_s6_proved"])
+        for s in (128,256,1024):
+            b=all_h_two_right_line_influence_bound(s)
+            ratio=Fraction(b["max_absolute_S_change"],s**12)
+            self.assertGreater(ratio,10)
+            self.assertLess(ratio,16)
+        for s in (0,1,3,6,True,-2):
+            with self.assertRaises(ValueError):
+                all_h_two_right_line_influence_bound(s)
 
     def test_double_swap_involution_and_physical_pair_bijection(self):
         model=pair_labeled_symplectic(1,"reverse-line")
