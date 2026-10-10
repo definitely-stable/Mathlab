@@ -50,6 +50,12 @@ class ExactPinnedRetentionTests(unittest.TestCase):
                             self.assertFalse(audit["full_F1_pinned_retained_axis_proven"])
                             self.assertGreaterEqual(stage["PIN_incremental_pages"],0)
                             self.assertGreaterEqual(audit["root_slot_pages"],1)
+                            if model["model"].endswith("COW"):
+                                self.assertLessEqual(
+                                    audit["extra_historical_node_ids"],
+                                    audit["path_injection_extra_node_upper"])
+                                self.assertFalse(
+                                    audit["path_injection_bound_is_full_Pareto_theorem"])
                         self.assertEqual(stages[-1]["PIN_incremental_pages"],0)
                         self.assertGreater(stages[0]["PIN_incremental_pages"],0)
                         self.assertGreater(stages[1]["PIN_incremental_pages"],0)
