@@ -56,6 +56,44 @@ def six_edges_degree_two_by_parity(pair_masks):
     return union.bit_count() == 6 and parity == 0
 
 
+def all_h_D6_one_global_right_transposition_influence(s):
+    """Uniform ALL-h absolute Lipschitz bound for D6 under ONE line swap.
+
+    Fixed complete original point f. Every original right line l is
+    incident with Delta=s+1 distinct original points. For each
+    original incidence (p,l), at most 24*C(a-2,4) physical simple
+    C6s contain physical f(p), and the five OTHER ORIGINAL points
+    in such a cycle each admit Delta original incidence selections.
+    Therefore number of left-C6 original sixsets containing an
+    incidence on l is <=24*C(a-2,4)*Delta^6. Union bound over the
+    TWO swapped ORIGINAL right lines yields
+        |D6(f,g swap(l1,l2))-D6(f,g)| <=48*C(a-2,4)*Delta^6.
+    Counts original sixsets ONCE and is independent of the occupied
+    pair-alphabet missing-edge pattern and global right g.
+
+    This is O(s^12), too weak to imply ANY positive adversarial
+    Omega(s^6) D6 or seven-class lower. Explicit nontransfer.
+    """
+    from hyp105_g5e2b3e1c20_global_left_c6 import all_h_global_left_c6_lower
+    c20=all_h_global_left_c6_lower(s)
+    a=c20["minimal_physical_coordinates"]
+    delta=s+1
+    per_original_line=24*comb(a-2,4)*delta**6
+    two_line=2*per_original_line
+    full_C6_source_upper=c20["all_Ka_simple_six_cycles"]*delta**6
+    return {
+        "s":s,"Delta":delta,"physical_coordinates":a,
+        "per_fixed_physical_pair_C6_max":24*comb(a-2,4),
+        "original_left_C6_with_one_fixed_right_line_upper":per_original_line,
+        "original_left_C6_with_two_swapped_right_lines_upper":two_line,
+        "all_original_left_C6_upper":full_C6_source_upper,
+        "D6_absolute_transposition_change_upper":
+            min(two_line,full_C6_source_upper),
+        "asymptotic_influence_upper":"O(s^12)",
+        "not_positive_all_g_D6_or_seven_lower":True,
+    }
+
+
 def _column_dual_signature(pair_masks):
     """Exactly six named column edges; bit for each intersecting pair."""
     signature = 0
