@@ -2,6 +2,11 @@
 
 [Scientific scope, classical counting and explicit STOP gates](UCT-005-G3-B2-D1B2E-TOTAL-PIN-BUDGET.md) · [finite classical and paid-F1 comparator code](../../research/uct005_d1b2e_total_pin_budget.py) · [independent tests](../../research/test_uct005_d1b2e_total_pin_budget.py) · [issue #255](https://github.com/definitely-stable/Mathlab/issues/255). Full-vector H historical membership audit, no uncharged side information: known classical H<=s+b; **false for one-member query**, proven by exact direct-index countermodel. Same-PAGE-001 F1 data, PIN e0/e2 and 3 SETs including no-op: n=33,P=2,C=8 modeled persistent trusted 1649 bits with eager PIN records vs 1313 with authenticated remote bitmap, for respectively 81 vs 82 live remote pages. All reader-held roots charged; scratch RAM, real durability, setup and full network costs unknown. **ROOT OPEN_UNPROVED**, no general lower bound or full Pareto claim.
 
+
+## HYP-105 B3.2-E1-B1-B — all-h bounded influence plus finite correlated swaps
+
+[Proof, risk scope and limits](HYP-105-G5-E2-B3-E1B-B-RIGHT-SWAPS.md) · [full all-105 swap census](../../research/hyp105_g5e2b3e1b1b_label_swaps.py) · [independent full-recount and gauge tests](../../research/test_hyp105_g5e2b3e1b1b_label_swaps.py). Exact all-h |ΔS|≤(151/12+o(1))s12 for ANY single original right line factor-pair assignment swap, plus full W32 105-neighbor affected-sixset delta and full selected GF5 signed risk for best neighbor. No all-h S=Omega(s6) lower or infinite counterexample. Draft CI pending.
+
 ## HYP-105 B3.2-E1-B1-A — all-h one-sided six-motif mass and random-right completion
 
 [Proof and scope](HYP-105-G5-E2-B3-E1B1A-ONE-SIDED-UNIVERSAL.md) · [exact bound](../../research/hyp105_g5e2b3e1b1a_one_sided.py) · [independent tests](../../research/test_hyp105_g5e2b3e1b1a_one_sided.py). For ANY pair injection f, L_left=(151/144+O(1/s))s^15 uniformly in f; for every fixed f, independent uniform right g has E_g[U_B/A]=(140+O(1/s))s^6 by GQ codegree one; the missing ALL-LABEL right transfer is equivalent to Ω(s^-9) fraction. Neither S_seven=Ω(s^6) nor a strict GF5 R3 bound proved. Hosted CI pending.
