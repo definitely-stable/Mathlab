@@ -2,6 +2,10 @@
 
 [Algorithm, exact page pricing and trust exclusions](UCT-005-G3-B2-D1B2F2-STREAMED-PIN-BITMAP.md) · [reference](../../research/uct005_d1b2f2_streamed_pin_bitmap.py) · [independent tests](../../research/test_uct005_d1b2f2_streamed_pin_bitmap.py) · [issue #281](https://github.com/definitely-stable/Mathlab/issues/281). Reduces **conceptual bitmap payload scratch** to <=2 min(B,P) bytes by double verification and explicitly charged remote staging; **not** a peak trusted-process RSS, full Pareto or UCT-005 original lower bound.
 
+## UCT-005 D1-B2-F3-A — paid authenticated two-model PIN retention on one F1 transcript (2026-10-10)
+
+[Scoped proof and exact formulas](UCT-005-G3-B2-D1B2F3A-SAME-TRACE-PIN-RETENTION.md) · [implementation](../../research/uct005_d1b2f3a_joint_retention.py) · [independent tests](../../research/test_uct005_d1b2f3a_joint_retention.py) · [UCT root #105](https://github.com/definitely-stable/Mathlab/issues/105). **SAME_F1_HISTORY / AUTHENTICATED_REMOTE_PIN_BULK_AND_COW / PAID_OFFLINE_AUDITS / LIVE_REMOTE_PAGES_EQUAL_EXACT_FORMULAS / CI_PENDING / FULL_PARETO_UNKNOWN / ROOT_OPEN_UNPROVED**. No transfer of pending streamed F2 buffer claims.
+
 ## UCT-005 D1-B2-F1 — authenticated offline shared PIN retention (2026-10-10)
 
 [Charge and exact root-union theorem scope](UCT-005-G3-B2-D1B2F1-PIN-RETENTION.md) · [independent reference oracle](../../research/uct005_d1b2f1_pin_retention.py) · [finite falsifiers](../../research/test_uct005_d1b2f1_pin_retention.py) · [issue #270](https://github.com/definitely-stable/Mathlab/issues/270). Proves a **restricted exact checkpoint-path-union identity** for extra immutable COW node IDs (including no-op updates), independently checks SHA-authenticated historical retention for arbitrary small PIN sets, and prices all offline audit reads. Still **not** a general F1 lower bound or complete online Pareto theorem. Root OPEN_UNPROVED.
