@@ -32,6 +32,15 @@ We checked the publisher/author abstracts and bibliographic scope, **not a verif
 - Blum–Evans–Gemmell–Kannan–Naor, *Checking the Correctness of Memories*, Algorithmica (1994), [IBM primary metadata](https://research.ibm.com/publications/checking-the-correctness-of-memories). Trusted verifier memory vs adversarial storage overlaps, but historical authoritative PIN root and external page/write charges do not follow automatically.
 - Driscoll–Sarnak–Sleator–Tarjan, *Making Data Structures Persistent*, JCSS 38(1), 86–124 (1989), [publisher DOI](https://doi.org/10.1016/0022-0000(89)90034-2). Persistent linked structures can share versions; they do not directly satisfy SHA adversary, offline two-reader freshness and page-image/GC cost constraints.
 
+**2025–2026 methodological and authenticated-proof update.** These are verified publisher, archive or institutional descriptions, not a proof-level transfer into F1:
+
+- Boyle–Komargodski–Vafa, *The Complexity of Memory Checking with Covert Security*, EUROCRYPT 2025 / [ePrint 2025/358](https://eprint.iacr.org/2025/358). Their lower bound of Ω(log n/loglog n) under a **read-only reads** condition addresses covert memory checking; it does not automatically hold for a PIN/GC authorizer that can modify trusted or remote state.
+- Abusalah–Anthoine–Avitabile–Giunta, *Lower Bounding Update Frequency in Short Accumulators and Vector Commitments*, EUROCRYPT 2026, [DOI](https://doi.org/10.1007/978-3-032-25330-9_7). Constant-size digest proof invalidation on accumulator/VC update has important implications for **per-reader witness maintenance**, but an immutable SHA-page Merkle proof and an offline reader who recomputes on reconnect do not instantiate that protocol without a reduction.
+- Young Kun Ko, *An Ω((log n/loglog n)²) Cell-Probe Lower Bound for Dynamic Boolean Data Structures*, ECCC TR26-047, March/April 2026, [institutional manuscript](https://eccc.weizmann.ac.il/report/2026/047/). The proved hard problem is **Multiphase with GF(2) inner product**, not the 1D SET/RANGE_PARITY and two independently authenticated reader snapshots; restrict claims to `REDUCTION_REQUIRED`.
+- *The Natural Proofs Barrier against Data-Structure Lower-Bounds*, STOC 2026, [institutional bibliographic record](https://researchportal.ulisboa.pt/en/publications/the-natural-proofs-barrier-against-data-structure-lower-bounds/). This constrains lower-bound **proof-method expectations**; it is not itself a certified physical page/time F1 lower bound.
+
+These four sources refine the novelty kill criteria: original F1 work must isolate a joint adversarial-history phenomenon not merely re-prove dynamic Boolean, proof-refresh or memory-checking results. **No theorem-level transfer is established** for any of the eight sources; future full-text checks require an explicit quantifier/operation/memory/trust reduction.
+
 Avoid importing duplicate bibliography IDs until separately reconciling with existing Mathlab LIT corpus. Citation metadata and primary abstracts are evidence about **model overlap**, not about establishing new F1 theorems.
 
 ## 4. What is necessary to move beyond scoped STOP
