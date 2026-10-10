@@ -378,10 +378,21 @@ def exercise(n: int, p: int, initial: tuple[int,...] | None=None) -> dict:
                              info["latest_reachable_COW_nodes"])
                 bound= (sum(depths) if stage=="PIN0_PIN2" else
                        depths[2] if stage=="PIN2_ONLY" else 0)
-                if not 0<=extra_nodes<=bound:
-                    raise AssertionError("shared COW extra-node path injection bound")
+                checkpoints=(
+                    (0,2,3) if stage=="PIN0_PIN2" else
+                    (2,3) if stage=="PIN2_ONLY" else (3,)
+                )
+                exact=exact_retained_node_excess(
+                    n,(0,min(1,n-1),n-1),checkpoints
+                )
+                if not 0<=extra_nodes<=bound or extra_nodes!=exact:
+                    raise AssertionError(
+                        "retained node IDs violate exact public path-union identity"
+                    )
                 info["extra_historical_node_ids"] = extra_nodes
                 info["path_injection_extra_node_upper"] = bound
+                info["exact_checkpoint_path_union_excess"] = exact
+                info["exact_path_union_equality_certified"] = True
                 info["path_injection_bound_is_full_Pareto_theorem"] = False
             if (isinstance(m,SegmentedPageCowTree)
                     and not m.segment_matches_storage()):
