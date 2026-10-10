@@ -3,7 +3,7 @@ import itertools
 import unittest
 from math import comb
 from dag002_g1c2f_joint_cut import (
-    Cut, Witness, ball_volume, hamming_ball, joint_cut,
+    Cut, Witness, ChargedOldSource, ball_volume, hamming_ball, joint_cut,
     construct_matching_witness, independent_ancestor_dfs, verify_witness,
 )
 
@@ -78,13 +78,41 @@ class JointCutTests(unittest.TestCase):
     def test_charged_prehistory_local_bits_and_fresh_target_semantics(self):
         cert=construct_matching_witness(3,1,2,3,1)
         self.assertTrue(verify_witness(cert,2))
-        self.assertEqual(cert.update(0b101)[0],1)
-        self.assertEqual(cert.update(0b101)[2],2)
-        self.assertEqual(cert.query_vector(*cert.update(0b101)[:2]),0b1101)
+        retained = cert.retained_state_from_prior_append(0b101)
+        source = ChargedOldSource(0b101, 3, 2)
+        local, word = cert.update_charged(retained, source.read_bit)
+        self.assertEqual(local, 1)
+        self.assertEqual(source.reads, 2)
+        self.assertEqual(source.addresses, (1, 2))
+        self.assertEqual(cert.query_vector(local, word), 0b1101)
         with self.assertRaises(ValueError):
-            cert.update(1 << 3)
+            cert.retained_state_from_prior_append(1 << 3)
         with self.assertRaises(ValueError):
             cert.query_vector(1,7)
+
+    def test_updater_cannot_bypass_charged_old_source_channel(self):
+        cert = construct_matching_witness(3, 1, 2, 3, 1)
+        seen = []
+        def one_bit_only(address):
+            self.assertIn(address, (1, 2))
+            seen.append(address)
+            return (0b110 >> address) & 1
+        local, remote = cert.update_charged(0, one_bit_only)
+        self.assertEqual(seen, [1, 2])
+        self.assertEqual(cert.query_vector(local, remote), 0b1110)
+
+        insufficient = ChargedOldSource(0b110, 3, 1)
+        with self.assertRaises(ValueError):
+            cert.update_charged(0, insufficient.read_bit)
+        self.assertEqual(insufficient.reads, 1)
+        self.assertEqual(insufficient.addresses, (1,))
+
+        corrupted = ChargedOldSource(0b110, 3, 2)
+        with self.assertRaises(ValueError):
+            corrupted.read_bit(4)
+        self.assertEqual(corrupted.reads, 0)
+        with self.assertRaises(ValueError):
+            cert.update_charged(2, corrupted.read_bit)
 
     def test_corrupt_or_overpriced_certificate_rejected(self):
         cert=construct_matching_witness(3,1,2,3,1)
