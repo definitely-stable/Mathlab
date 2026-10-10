@@ -57,8 +57,16 @@ def validate_matrix(matrix: dict) -> dict:
     if axis_set != required_axes:
         raise ValueError("incomplete or false F1 physical resource vocabulary")
     sources = matrix.get("primary_source_transfer")
-    if not isinstance(sources, list) or len(sources) != 4:
+    if not isinstance(sources, list) or len(sources) != 8:
         raise ValueError("missing primary source/mapping gates")
+    required_source_keys = {
+        "FREDMAN_SAKS_1989", "PATRASCU_DEMAINE_2006",
+        "BEGKN_1994", "DSST_1989",
+        "BKV_COVERT_2025", "VC_UPDATE_FREQUENCY_2026",
+        "DYNAMIC_BOOLEAN_CELL_PROBE_2026", "NATURAL_PROOFS_BARRIER_2026",
+    }
+    if {src.get("key") for src in sources} != required_source_keys:
+        raise ValueError("primary source key missing, repeated, or substituted")
     for source in sources:
         if (not source.get("url", "").startswith("https://")
                 or source.get("status") != "REDUCTION_REQUIRED"
