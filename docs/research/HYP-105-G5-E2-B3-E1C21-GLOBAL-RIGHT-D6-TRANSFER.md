@@ -49,6 +49,24 @@ This holds for ALL s=2^h, all occupied F_L/F_R and every complete original-left 
 
 The expectation guarantees some g with D6 at least this mean (up to integrality) but **does NOT guarantee a lower bound for the worst g**. In particular, inf_(f,g) S_seven=Omega(s^6) is still completely unproved. Nor does this imply any ASET exponent improvement or full GF5 R3 bound.
 
+## Theorem 3: disjoint C5 B-left/A-right plus C21 strict D6, SAME g
+
+The accepted C5 all-h theorem already lower-bounds, UNIFORMLY over the same fixed global left f and occupied right alphabet F_R, the expectation under ONE uniformly random globally shared g of the accepted B-left/A-right class:
+
+    E_g U_{B-left/A-right}(f,g) >= M_B(s) = (140-o(1))*s^6.
+
+This is the exact quantity returned by C5 occupied_target_uniform_floor(s)["one_common_right_bijection_mean_lower"]. C21 D6 and C5 B-left/A-right count DISJOINT ORIGINAL six-incidence sets: D6 uses six distinct ORIGINAL left points, whereas B-left/A-right uses one doubled original left point. Both are positive subclasses of S_seven and evaluated under the **same** global random g; no independence nor a second g is required. By pointwise nonnegativity and linearity,
+
+    E_g S_seven(f,g) >= M_B(s) + 12*L(s)^2*H(s)/(V)_6
+                       = (436/3-o(1))*s^6.
+
+Furthermore the accepted GF5 necessary R3 floor in issue #230 gives, after expectation,
+
+    E_g R3(f,g) >= [45600*M_B(s)
+                        +5643*12*L(s)^2*H(s)/(V)_6] / 51^6.
+
+These are **expectation** lower bounds, NOT a bound on inf_(f,g) S_seven, NOT a full R3 calculation and NOT a new ASET exponent. A single map g might do substantially worse than the mean. The functions and genuine W32 oracle independently compare this disjoint B/A + D6 contribution with C5's weighted-original-right source and B0 seven_census.
+
 ## Independent executable falsification
 
 * research/hyp105_g5e2b3e1c21_global_right_transfer.py
