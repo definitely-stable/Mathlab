@@ -1,6 +1,6 @@
 ## HYP-105 B3.2-E1-C2 — exact Johnson W2 transfer, quantified W>=3 barrier
 
-[Proof, full scope and prior art](HYP-105-G5-E2-B3-E1C2-JOHNSON-HARMONIC-GATE.md) · [reference](../../research/hyp105_g5e2b3e1c2_johnson_gate.py) · [independent exact-rational falsifiers](../../research/test_hyp105_g5e2b3e1c2_johnson_gate.py). For every legal g, exact U=mu+U2+U>=3, U2 from correlated two-point original-source marginals × physical pair-label adjacency; target W1=0 always, K6 W2²=42/11 and residual W>=3²=9324/143. Independently check full K6 target and all 105 real right swaps of W(3,2), including no-go trade and a=9 W2=0. Classical Johnson framework, not an all-h all-correlated Omega(s6) bound or new ASET exponent; hosted CI pending.
+[Proof, full scope and prior art](HYP-105-G5-E2-B3-E1C2-JOHNSON-HARMONIC-GATE.md) · [reference](../../research/hyp105_g5e2b3e1c2_johnson_gate.py) · [independent exact-rational falsifiers](../../research/test_hyp105_g5e2b3e1c2_johnson_gate.py). For every legal g, exact U=mu+U2+U>=3, U2 from correlated two-point original-source marginals × physical pair-label adjacency; target W1=0 always, K6 W2²=42/11, W3²=710/1001, residual W>=4²=4966/77 (93.44% of centered energy). Independently check full K6 target and all 105 real right swaps of W(3,2), including no-go trade and a=9 W2=0. Classical Johnson framework, not an all-h all-correlated Omega(s6) bound or new ASET exponent; hosted CI pending.
 
 ## HYP-105 B3.2-E1-C1 — GQ concurrence fibers and exact original B/A wedge decomposition
 
