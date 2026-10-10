@@ -56,6 +56,36 @@ The target T6 is the family of **70** physical simple six-edge 2-factors, verifi
 
 Both pinned concrete fixed W32 injections are independently checked: `lex` gives U_B/A=98, `reverse-line` gives U_B/A=77. Furthermore, after the genuine original right factor pair-label swap (line IDs 4 and 13) already accepted in B1-B, H_f DOES NOT CHANGE because only the right physical mapping changes, but the weighted overlap becomes 57. The exact random-injection expectation remains unchanged. No multi-h or all-injection minimum is computed.
 
+## 2A. Exact all-a target-design theorem: one-point uniformity and two adjacency orbits
+
+A further **elementary all-a structural theorem** follows from the fact that each physical target hyperedge consists of six pair labels forming a 2-regular graph on six of the a physical coordinate vertices. The 70 possible K6 2-factors are vertex-transitive; they contain each K6 edge in exactly 28 factors. Their pairs of distinct physical edges fall into two S6-orbits: adjacent (sharing a physical coordinate) and disjoint. Within the 70 K6 2-factors, each fixed adjacent physical-edge pair occurs **7** times and each fixed disjoint pair occurs **14** times. Independently verify these constants by exhaustively scanning 5,005 possible six-edge subsets of K6, checking exact degree two.
+
+After embedding each six-coordinate K6 factor into a physical K_a, the target T_a has EXACT incidence design parameters:
+
+```text
+K = binom(a,2),   |T_a| = 70 binom(a,6).
+
+For any fixed physical pair label e in E(K_a):
+  deg_T(e) = 28 binom(a-2,4).
+
+For two DISTINCT physical pair labels e != f:
+  co_deg_T(e,f) = 7 binom(a-3,3)  if |e ∩ f|=1,
+                = 14 binom(a-4,2) if |e ∩ f|=0.
+```
+
+These follow by choosing the six-element physical coordinate set containing the fixed one/two pair edges and using the exact 28/7/14 embedded-template incidences. The identities `K deg_T(e) = 6|T_a|` and `sum_{e<f}co_deg_T(e,f)=binom(6,2)|T_a|` are exact integer falsification checks. Thus **T_a is a 1-design for every a>=6**, because all K physical pair-edge labels have identical degree. It is a **2-design exactly when a=9**: the adjacent and disjoint co-degrees are equal if and only if `(a-3)/6=1`. In the genuine W(3,2^h) minimal physical alphabet, a=6 at s=2, a=14 at s=4, and a grows thereafter. The exceptional a=9 2-design is NOT a GQ instance and proves nothing about the all-h risk bound.
+
+**Exact bijection-only linear-source corollary.** If original right factor vertices and physical pair labels have exactly the SAME cardinality K (a full bijection g, as at s=2) and an abstract source weighting on six-factor subsets has only constant and degree-one components, namely `m(R)=c+sum_{v in R}beta_v`, then for EVERY bijection g:
+
+```text
+sum_{|R|=6} m(R) * 1_{g(R) in T_a}
+  = c |T_a| + deg_T(e) * sum_v beta_v.
+```
+
+Proof: each target T_a edge is counted once by constant c and each physical vertex label appears in exactly `deg_T(e)` target hyperedges. This is the elementary fixed-degree counterpart of the W1 harmonic-orthogonality picture in Bollobás–Scott, **not a new generic discrepancy theorem**. Under a non-surjective injection V<K, a restricted image of T_a need NOT be 1-design. Nor is the true GQ m_f known to be constant-plus-degree-one; thus this does not imply a universal all-g lower for HYP-105.
+
+The independent CI falsifier checks all physical pair-of-label codegrees by enumerating every target hyperedge of K6 and K9 (including the accidental K9 2-design) and verifies the linear-source overlap identity against several explicit non-gauge permutations of all 15 K6 edge-label vertices. At a=14 the exact unequal adjacency codegrees are 1155 and 630. These complete target signatures are useful invariants for the next B1-C step: computing the corresponding second-order source distribution of m_f and testing whether it can generate a universal MIN-over-g lower.
+
 ## 3. Corrected prior art and disallowed transfers
 
 The underlying weighted hypergraph intersection/discrepancy formulation is **classical**, and any originality or universal minimum theorem must be compared with:
