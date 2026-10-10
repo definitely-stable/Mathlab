@@ -91,25 +91,50 @@ class ExactPinnedRetentionTests(unittest.TestCase):
             if n==1:
                 self.assertEqual(t["stages"][0]["offline_audit"]["shared_references_elided_by_COW"],0)
 
-    def test_duplicate_reader_pin_same_epoch_deduplicates_remote_pages(self):
+    def test_duplicate_reader_pin_same_historical_epoch_deduplicates_pages(self):
         for cls in (SnapshotF1Reference,PageCowTree,SegmentedPageCowTree):
             m=cls((0,1,1,0,1),page_bytes=2)
-            e0=m.pin_current(0)
-            baseline=retention_audit(m)
-            self.assertEqual(e0,0)
+            self.assertEqual(m.pin_current(0),0)
             self.assertEqual(m.pin_current(1),0)
-            duplicated=retention_audit(m)
-            self.assertEqual(baseline["distinct_pinned_epochs"],[])
-            self.assertEqual(duplicated["distinct_pinned_epochs"],[])
-            self.assertEqual(duplicated["authenticated_kept_remote_pages_including_metadata"],
-                             baseline["authenticated_kept_remote_pages_including_metadata"])
-            self.assertEqual(duplicated["incremental_PIN_remote_pages_over_latest"],0)
-            self.assertEqual(duplicated["active_pin_entries"],2)
+            m.set(0,1)  # both PIN e0 are now *historical*
+            twice=retention_audit(m)
+            self.assertEqual(twice["distinct_pinned_epochs"],[0])
+            self.assertEqual(twice["active_pin_entries"],2)
+            self.assertGreater(twice["incremental_PIN_remote_pages_over_latest"],0)
             m.unpin(1,0)
-            after=retention_audit(m)
-            self.assertEqual(after["active_pin_entries"],1)
-            self.assertEqual(after["authenticated_kept_remote_pages_including_metadata"],
-                             baseline["authenticated_kept_remote_pages_including_metadata"])
+            once=retention_audit(m)
+            self.assertEqual(once["active_pin_entries"],1)
+            self.assertEqual(once["distinct_pinned_epochs"],[0])
+            self.assertEqual(once["authenticated_kept_remote_pages_including_metadata"],
+                             twice["authenticated_kept_remote_pages_including_metadata"])
+            self.assertEqual(once["incremental_PIN_remote_pages_over_latest"],
+                             twice["incremental_PIN_remote_pages_over_latest"])
+            m.gc()  # surviving independently trusted PIN still forbids delete
+            self.assertEqual(m.query(0,0,5,as_of=0) if not isinstance(m,SnapshotF1Reference)
+                             else m.as_of(0,0,0,5),1)
+            m.unpin(0,0)
+            latest=retention_audit(m)
+            self.assertEqual(latest["distinct_pinned_epochs"],[])
+            self.assertEqual(latest["incremental_PIN_remote_pages_over_latest"],0)
+            self.assertLess(latest["authenticated_kept_remote_pages_including_metadata"],
+                            twice["authenticated_kept_remote_pages_including_metadata"])
+
+    def test_snapshot_missing_historical_slot_fails_audit(self):
+        m=SnapshotF1Reference((0,1,0,1),page_bytes=2)
+        m.pin_current(0)
+        m.set(0,1)
+        before=retention_audit(m)
+        self.assertGreater(before["incremental_PIN_remote_pages_over_latest"],0)
+        saved=m.remote.pop(0)
+        with self.assertRaises(ValueError):
+            retention_audit(m)
+        m.remote[0]=saved
+        manifest=m.remote_manifests.pop(0)
+        with self.assertRaises(ValueError):
+            retention_audit(m)
+        m.remote_manifests[0]=manifest
+        self.assertEqual(retention_audit(m)["incremental_PIN_remote_pages_over_latest"],
+                         before["incremental_PIN_remote_pages_over_latest"])
 
     def test_abort_if_an_authenticated_pin_node_or_root_is_withheld(self):
         for cls in (PageCowTree,SegmentedPageCowTree):
