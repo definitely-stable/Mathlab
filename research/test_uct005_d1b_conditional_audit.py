@@ -65,7 +65,7 @@ class ConditionalHardnessAuditTests(unittest.TestCase):
         self.assertTrue(SENSITIVE.search("3SUM"))
         self.assertTrue(SENSITIVE.search("APSP"))
         self.assertTrue(SENSITIVE.search("SETH"))
-        self.assertFalse(SENSITIVE.search("ordinary APSP-independent claim"))
+        self.assertFalse(SENSITIVE.search("ordinary shortest-path algorithm claim"))
 
 
 if __name__ == "__main__":
