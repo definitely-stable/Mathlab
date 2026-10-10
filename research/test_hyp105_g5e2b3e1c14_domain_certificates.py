@@ -75,6 +75,19 @@ class C14W32JointProofTests(unittest.TestCase):
         self.assertLessEqual(tree["leaves_explicitly_evaluated"],4)
         self.assertLessEqual(tree["nodes_visited"],20)
 
+    def test_independent_GF5_floor_objective_exact_4_map_box(self):
+        # C14 supports TWO DISTINCT legitimate objectives. Numerator
+        # minimization must not be conflated with minimal seven motif count.
+        audit=independent_exact_completion_audit(
+            self.model,self.f,self.g,max_full_maps=4)
+        tree=bounded_exact_joint_branch_search(
+            self.model,self.f,self.g,objective="GF5_floor_numerator",
+            max_full_maps=4,max_nodes=20)
+        self.assertEqual(
+            tree["exact_minimum_within_fixed_joint_completion_box"],
+            audit["true_minimum_GF5_floor_numerator_in_box"])
+        self.assertLessEqual(tree["leaves_explicitly_evaluated"],4)
+
     def test_true_all_36_joint_W32_box_not_promoted_to_global(self):
         result=genuine_W32_C14_report()
         self.assertEqual(result["all_true_full_joint_mapping_pairs_in_box"],36)
@@ -82,6 +95,16 @@ class C14W32JointProofTests(unittest.TestCase):
                          result["branch_exact_same_S_min"])
         self.assertLessEqual(result["locally_inevitable_7_motifs_lower"],
                              result["independent_true_box_S_min"])
+        # Frozen GitHub-hosted independent real W32 3!^2=36 baseline.
+        self.assertEqual(result["independent_true_box_S_min"],148)
+        self.assertEqual(result["locally_inevitable_7_motifs_lower"],2)
+        self.assertEqual(result["frozen_both_halves_7_motifs_lower"],2)
+        self.assertEqual(result["locally_inevitable_GF5_numerator_lower"],91200)
+        self.assertEqual(result["independent_true_box_GF5_floor_numerator_min"],
+                         6676842)
+        self.assertEqual(result["branch_nodes_visited"],73)
+        self.assertEqual(result["branch_leaves"],3)
+        self.assertEqual(result["branch_pruned_subtrees"],33)
         self.assertTrue(result["not_global_W32_or_all_h_result"])
 
     def test_bad_partial_right_budget_and_duplicate_label_fail_closed(self):

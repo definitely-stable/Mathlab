@@ -69,7 +69,27 @@ An **independent**, fully explicit enumeration constructs each legal full left/r
 
 The 13+13 root, its one-step left/right extensions, and the fully pinned true reverse-line map are compared for monotonic L_7 and L_GF5; at zero missing pins the bound MUST equal the full independent S_7 and GF5 necessary-floor numerator exactly. Wrong duplicate physical images, boolean keys, unsupported objectives, too many free right lines, local evaluation exhaustion, incomplete-box size and tree node budget all fail closed.
 
-## 6. Research interpretation, acceptance, next decision
+## 6. Independent GitHub-hosted REAL W32 finite result — positive but weak early floor
+
+Dedicated C14 Contract on first PR HEAD f25e145ce1d36cbc34e3e30620e8775d57944ba2 **SUCCESS: 6/6 independent tests** and complete exact report, run [#38081738228](https://github.com/definitely-stable/Mathlab/actions/runs/38081738228). In the genuine symplectic W32 reverse-line physical K6/K6 partial box whose first 12 ORIGINAL left points and first 12 ORIGINAL right lines are held fixed at their historical pair-edge labels, independent exhaustive enumeration checks EVERY 3!×3!=36 real complete joint maps. Separately the certified branch-and-bound agrees with the true box minimum.
+
+| Honest finite metric | Exact independent value |
+| --- | ---: |
+| Every legal full joint map in this rooted box | 36 |
+| Exact minimum S_seven across these 36 | **148** |
+| Certified local-seven floor at the ROOT partial node | **2** |
+| Actual frozen-both-halves motif count at ROOT | 2 |
+| Exact minimum ACCEPTED GF5 necessary numerator in the box | **6,676,842** |
+| Certified local GF5 necessary numerator at ROOT | **91,200** |
+| Branch-and-bound nodes visited | **73** |
+| Distinct complete leaf maps fully recounted | **3** |
+| Pruned internal subtrees | **33** |
+
+This distinguishes correctness from strength. The root partial certificate proves ONLY S_seven>=2, far weaker than the true exact box minimum148; the GF5 necessary lower91200 is similarly much weaker than 6676842. The solver pruned 33 subtrees only AFTER the remaining physical domains shrank enough during deeper decisions. The 73 visited nodes and 3 actually recounted leaf mappings are finite algorithmic observations for THIS rooted completion box and objective ordering, not a general complexity estimate. They are now pinned as exact CI regression assertions, as is the independent GF5 objective branch test on the 2!²=4 box. Acceptance of these frozen assertions on the NEW HEAD still requires dedicated+full Research CI.
+
+This is NOT a global W32 min: a concrete C11 map outside this rooted 12+12 box has seven S=141, smaller than box min148. That concrete counterexample conclusively forbids promoting the box result S>=148 into any all-f,g statement. Likewise the bound 2 at the box root cannot be stated as a universal all-h lower, no matter how many subtrees were pruned.
+
+## 7. Research interpretation, acceptance, next decision
 
 A positive C14 lower for a 12+12 or 13+13 rooted residual box proves that every complete joint f,g EXTENDING those actual 24 or 26 assigned physical pins has at least that many accepted seven-family motifs. It does NOT prove the original issue's infimum over ALL possible f,g; most W32 full-map space lies outside that box, and the C13 quotient still contains >=4,581,437,148,288,000 global orbits. Likewise a positive GF5 necessary-floor numerator is a property of seven-family selected terms, not the entire signed GF5 R3.
 
