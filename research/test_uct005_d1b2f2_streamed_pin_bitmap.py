@@ -26,6 +26,12 @@ class StreamingPINTests(unittest.TestCase):
                 N = (B + p - 1) // p
                 self.assertEqual(m.bitmap_pages, N)
                 self.assertEqual(m._slot_start_page(0), 2 * N)
+                self.assertEqual(m._bitmap_page_address(0, 0), 0)
+                self.assertEqual(m._bitmap_page_address(0, 1), N)
+                with self.assertRaises(RuntimeError):
+                    _ = m.retained_pinned_pages
+                with self.assertRaises(RuntimeError):
+                    m._read_verified_bitmap()
                 self.assertEqual(m.bitmap_peak_trusted_payload_buffers, min(B, p))
                 self.assertEqual(m.trusted_bits, 2 + 8 * 80)
                 self.assertEqual(m.pin_current(0), 0)
