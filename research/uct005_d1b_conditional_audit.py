@@ -52,7 +52,10 @@ def audit_docs(manifest, root):
         elif matching[0] in used:
             errors.append(f"{path}:{line_no}: DUPLICATED_ANCHOR {expected[matching[0]]['anchor']}")
         else:
-            used.add(matching[0])
+            index = matching[0]
+            used.add(index)
+            if line != expected[index].get("expected_line"):
+                errors.append(f"{path}:{line_no}: CHANGED_REVIEWED_MENTION {expected[index]['anchor']}")
     for index, item in enumerate(expected):
         if item["kind"] not in KINDS:
             errors.append(f"{item['path']}: unknown classification {item['kind']}")
@@ -75,7 +78,9 @@ def audit_catalog(manifest, entries):
         if item is None:
             errors.append(f"{lid}: UNREVIEWED_CANONICAL_HARDNESS_MENTION {matched}")
         elif (entry.get("identity") != item["identity"]
-              or matched != sorted(item["fields"])):
+              or matched != sorted(item["fields"])
+              or any(entry.get(field) != item.get("expected_values", {}).get(field)
+                     for field in matched)):
             errors.append(f"{lid}: SOURCE_IDENTITY_OR_FIELDS_MISMATCH {matched}")
         elif item["kind"] not in KINDS:
             errors.append(f"{lid}: invalid classification {item['kind']}")
