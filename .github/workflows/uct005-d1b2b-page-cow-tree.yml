@@ -1,0 +1,29 @@
+name: uct005-d1b2b-page-cow-tree
+on:
+  push:
+    branches: [research/uct005-d1b2b-page-cow-tree]
+    paths:
+      - "research/uct005_d1b2b_page_cow.py"
+      - "research/test_uct005_d1b2b_page_cow.py"
+      - ".github/workflows/uct005-d1b2b-page-cow-tree.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "research/uct005_d1b2b_page_cow.py"
+      - "research/test_uct005_d1b2b_page_cow.py"
+      - ".github/workflows/uct005-d1b2b-page-cow-tree.yml"
+permissions:
+  contents: read
+jobs:
+  authenticated-page-cow-and-gc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Full page-image ledger and independent two-reader adversarial oracle
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2b_page_cow.py' -v
+      - name: Reproducible reference witness
+        run: python research/uct005_d1b2b_page_cow.py
