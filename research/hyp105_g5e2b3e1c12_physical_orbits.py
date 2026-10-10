@@ -207,6 +207,96 @@ def original_to_physical_action(pi, action):
     return tuple(action[x] for x in pi)
 
 
+def orbit_quotiented_shared_minimum_interval(
+        source, a, occupied, original_pins, *,
+        max_prefixes=50000,
+        max_relevant_source_cells=10000):
+    """FULL right-S_V global interval for ONE fixed genuine f,F, via H-orbits.
+
+    Every complete common g has a D-prefix p belonging to EXACTLY
+    one physical Aut(F) orbit. An h maps g to a full completion of the
+    canonical representative without changing U. Thus min over all g
+    is >=min over orbit representatives of ANY valid C11/C8 conditional
+    completion lower, and <=min over orbit reps of floor conditional
+    completion mean (existential upper). This does not optimize f or F.
+
+    Exact independent tower identities also audit the physical quotient:
+      (sum_{prefix-orbits} orbit_size * E[U|representative]) / (V)_k
+        == unconditional one-right-bijection mean,
+    and identically for E[U^2]. No independent motif or anchor maps.
+    """
+    from hyp105_g5e2b3e1c11_coupled_four import common_prefix_joint_moments
+    from hyp105_g5e2b3e1c8_fiber_rearrangement import frozen_fiber_rearrangement
+    from hyp105_g5e2b3e1c5_common_bijection import common_bijection_moments
+
+    F=tuple(occupied)
+    group=physical_prefix_orbits(
+        a,F,original_pins,max_prefixes=max_prefixes)
+    V=len(F)
+    src=validate_weighted_sixsets(source,V)
+    target=physical_occupied_target(a,F)
+    D=group["original_pins"]
+    rows=[]
+    total_mu=Fraction(0)
+    total_second=Fraction(0)
+    for orb in group["orbits"]:
+        images=orb["canonical_images"]
+        p=dict(zip(D,images))
+        moments=common_prefix_joint_moments(
+            src,target,V,p,
+            max_relevant_source_cells=max_relevant_source_cells)
+        loose=frozen_fiber_rearrangement(src,target,V,D,images)
+        lower=max(
+            loose,moments["worst_completion_lower_from_second_moment"])
+        upper=moments["existential_completion_upper_from_mean"]
+        if lower>upper:
+            raise AssertionError("invalid globally certified orbit interval")
+        weight=orb["orbit_size"]
+        total_mu+=weight*moments["mean_one_shared_completion"]
+        total_second+=weight*moments["second_moment_one_shared_completion"]
+        rows.append({
+            "canonical_physical_prefix_images":images,
+            "orbit_size":weight,
+            "C8_fiber_lower":loose,
+            "C11_joint_variance_lower":
+                moments["worst_completion_lower_from_second_moment"],
+            "certified_all_completions_lower":lower,
+            "existential_some_completion_upper":upper,
+            "exact_conditional_mean":moments["mean_one_shared_completion"],
+            "exact_conditional_second_moment":
+                moments["second_moment_one_shared_completion"],
+        })
+    if not rows:
+        raise AssertionError("empty exact physical prefix partition")
+    global_lower=min(row["certified_all_completions_lower"] for row in rows)
+    global_upper=min(row["existential_some_completion_upper"] for row in rows)
+    if global_lower>global_upper:
+        raise AssertionError("global orbit interval violated")
+    reference=common_bijection_moments(src,target,V)
+    count=group["all_injective_prefixes"]
+    weighted_mean=total_mu/count
+    weighted_second=total_second/count
+    if weighted_mean!=reference["one_common_right_bijection_mean"]:
+        raise AssertionError("physical-prefix tower violated C5 exact mean")
+    if weighted_second!=reference["one_common_right_bijection_second_moment"]:
+        raise AssertionError("physical-prefix tower violated C5 exact second moment")
+    return {
+        "fixed_original_left_embedding_and_occupied_F":True,
+        "V":V,"original_pins":D,
+        "physical_prefix_orbits":len(rows),
+        "physical_prefix_assignments_exhausted":count,
+        "certified_global_BA_minimum_lower":global_lower,
+        "existential_global_BA_minimum_upper":global_upper,
+        "exact_global_BA_minimum_if_equal":
+            global_lower if global_lower==global_upper else None,
+        "unconditional_mean_recovered_by_exact_orbit_tower":weighted_mean,
+        "unconditional_second_recovered_by_exact_orbit_tower":weighted_second,
+        "all_prefix_orbit_certificates":tuple(rows),
+        "all_right_completions_same_global_map":True,
+        "all_f_F_GQ_or_seven_family_lower_proved":False,
+    }
+
+
 def genuine_W32_orbit_report():
     """Real original symplectic W32 f; quotient AND seven-class safeguard."""
     from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
@@ -227,6 +317,13 @@ def genuine_W32_orbit_report():
     if (tuple(p["representative_prefixes"] for p in part)!=(1,1,2,9)
             or group["induced_action_group_order"]!=720):
         raise AssertionError("canonical physical K6 orbit partition changed")
+    # All 210 physical assignments of two NAMED original right lines are
+    # covered by just TWO exact common-completion conditional moment gates.
+    k2_global=orbit_quotiented_shared_minimum_interval(
+        src,6,F,(0,1),max_prefixes=210)
+    if (k2_global["physical_prefix_orbits"]!=2
+            or k2_global["physical_prefix_assignments_exhausted"]!=210):
+        raise AssertionError("GQ W32 global two-pin orbit certificate incomplete")
     blind=full_physical_alphabet_one_pin_blindness(src,6)
     for images in range(15):
         actual_mean=conditional_shared_prefix_mean(src,target,15,{0:images})
@@ -270,6 +367,16 @@ def genuine_W32_orbit_report():
             tuple(p["all_injective_prefixes"] for p in part),
         "full_right_permutations":factorial(15),
         "full_map_orbits_exact_quotient":factorial(15)//720,
+        "W32_all_right_g_two_pin_orbit_global_lower":
+            k2_global["certified_global_BA_minimum_lower"],
+        "W32_all_right_g_two_pin_orbit_existential_upper":
+            k2_global["existential_global_BA_minimum_upper"],
+        "W32_two_pin_orbit_global_exact_if_meet":
+            k2_global["exact_global_BA_minimum_if_equal"],
+        "W32_two_pin_orbit_conditional_mean_tower":
+            str(k2_global["unconditional_mean_recovered_by_exact_orbit_tower"]),
+        "W32_two_pin_orbit_conditional_second_tower":
+            str(k2_global["unconditional_second_recovered_by_exact_orbit_tower"]),
         "all_15_factorial_orbits_enumerated":False,
         "physical_S6_equivariant_seven_class_count":True,
         "same_11_pin_prefix_conditional_variance":
