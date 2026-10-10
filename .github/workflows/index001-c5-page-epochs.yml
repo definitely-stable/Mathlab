@@ -1,0 +1,26 @@
+name: index001-c5-page-epochs
+
+on:
+  push:
+    branches:
+      - main
+      - "research/**"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-pins-and-crash-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: C5-A independent page/CRC/pin/crash-prefix oracle
+        run: python -m unittest discover -s research -p 'test_index001_page_epochs.py' -v
+      - name: C5-A deterministic paged-epoch report
+        run: python research/index001_page_epochs.py --json
