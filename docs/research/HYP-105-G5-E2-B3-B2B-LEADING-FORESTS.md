@@ -45,6 +45,31 @@ For every signed orbit, reconstruct the six distinct support-four columns on twe
 
 The orbit certificate MUST report the complete zero/positive split, minimum/maximum nonnegative flow, total weighted sum, and separate B/B overlap/disjoint coefficients. The previous cherry B/A exact coefficient 3,902,064 for a single fixed physical C4 is a compulsory regression check. Source: [code](../../research/hyp105_g5e2b3b2b_leading_forests.py), [independent tests](../../research/test_hyp105_g5e2b3b2b_leading_forests.py).
 
+### 3.1 Reproduced exact integer certificate (CI acceptance separately required)
+
+The complete signed-orbit quotient was independently reproduced by a separate small Python implementation of the 782-state integer dual sum, including the accepted cherry regression 3,902,064; eight selected new representatives also matched the independent 2^12-edge GF5 inclusion-exclusion oracle.
+
+| Class | Fixed-left signed orbits | Fixed-left named mass | All positive | Flow min..max | Fixed-left exact sum | Total named sum |
+|---|---:|---:|---:|---:|---:|---:|
+| C/A | 31 | 700 | 700 | 4,332..8,319 | 4,243,968 | 127,319,040 |
+| C/B | 12 | 360 | 360 | 4,905..6,786 | 2,084,184 | 62,525,520 |
+| B/B intersect | 17 | 240 | 240 | 5,175..5,535 | 1,287,120 | 57,920,400 |
+| B/B disjoint | 21 | 180 | 180 | 4,501..8,310 | 1,116,160 | 50,227,200 |
+| **Total** | **81** | **1,480** | **1,480** | **4,332..8,319** | — | **297,992,160** |
+
+All **50,700/50,700 named signed templates** have strictly positive exact GF5 51-pattern flow. The displayed overall minimum is 4,332 (C/A); global maximum is 8,319 (C/A). This is an exact finite classification, NOT a claim that every fixed-label GQ family contains any given motif.
+
+The exact signed coefficients per ONE fixed original factor-forest six-set, summed over possible six-coordinate physical graph types and all ten sign partitions, are:
+
+```text
+S_CA=4,243,968
+S_CB=2,084,184 / 12 = 173,682
+S_BB_intersect = 3 * 1,287,120 / 8 = 482,670
+S_BB_disjoint = 3 * 1,116,160 / 6 = 558,080
+```
+
+The divisors 12, 8, 6 here count possible named original right-cherry pairs per fixed representative; they are NOT physical-coordinate automorphism divisors (those are 8,16,4 in the expectation probabilities). All five numbers including the previous fixed-left cherry regression are frozen as exact integers in source/tests; they must survive PR-head CI.
+
 ## 4. The uniform-in-h exact expectation identities once coefficients are certified
 
 Write a=min{t:C(t,2)>=V}, K=C(a,2), V=(s+1)(s^2+1), and (z)_k=z(z-1)...(z-k+1). Let M_CA(s) be the ACTUAL total number of distinct six-incidence original forests of either orientation of C/A; analogously M_CB(s), M_BB_cap(s), M_BB_disj(s). Each forest is counted once with its unique factor-endpoint partitions. These counts are not the number of signed events, and the source does NOT currently give closed exact all-h formulas for them.
@@ -60,7 +85,15 @@ E[R3_BB] = (M_BB_cap*S_BB_cap + M_BB_disj*S_BB_disj)
            * (a)_6^2 / [4 * 51^6 * (K)_5^2]
 ```
 
-These are restricted signed-risk contributions, **not** global R3. The multipliers 8, 16 and 4 arise from indistinguishable physical coordinates in the B/C projections, and are independent of the number of abstract factor embeddings. The accepted B3.0 all-h embedding *upper* O(V^c Delta^6) implies each of these expectation contributions O(s^6); a matching lower must be separately established by actual positive motifs and geometric embeddings (no unjustified Theta claim).
+These are restricted signed-risk contributions, **not** global R3. The multipliers 8, 16 and 4 arise from indistinguishable physical coordinates in the B/C projections, and are independent of the number of abstract factor embeddings. **An additional all-h forest-embedding lower lemma** closes the *random-label* exponent for these classes. For ANY fixed two-colored abstract forest F with at most six distinct selected edges, c connected components and prescribed point/line sides, root each component and embed its vertices successively into the Delta-regular incidence graph (V vertices per side). For every s with V>12, Delta>12, choosing each root avoids at most 12 prior used vertices and choosing each tree child avoids at most 12 prior used vertices. Therefore there are at least (V-12)^c (Delta-12)^6 injective **labeled vertex embeddings**. Each six-incidence edge set can represent at most 12! such labeled embeddings, giving a valid (coarse) lower. The existing upper V^c Delta^6 is immediate. Thus the distinct-factor-forest counts of each nonempty class satisfy
+
+```text
+M_CA(s) = Theta(s^15), c=3;
+M_CB(s) = Theta(s^12), c=2;
+M_BB_intersect(s), M_BB_disjoint(s) = Theta(s^18), c=4.
+```
+
+These classes are nonempty for all sufficiently large s by the same greedy construction (without using an unproved Sp(4,s) action on physical labels). Since a=Theta(s^(3/2)) and K=Theta(s^3), the exact coefficient identities above with strictly positive S prove **E_independent_uniform_pair_labels[R3_class]=Theta(s^6) separately for C/A, C/B, B/B-intersect and B/B-disjoint**. This is an expectation-only method barrier, **not** a universal lower for fixed labels nor an improved ASET exponent. The root/child lower is deliberately weak for s<=12 and the asymptotic statement is for s=2^h tending to infinity.
 
 All-h fixed-label corollary: if a certified class has a positive minimum exact F_min over all its possible positive signed events, it gives a restricted risk lower proportional to the ACTUAL fixed-map event multiplicity. It gives no universal lower on multiplicity and never an R3 upper.
 
