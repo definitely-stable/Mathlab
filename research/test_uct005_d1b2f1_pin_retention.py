@@ -18,6 +18,9 @@ class ExactPinnedRetentionTests(unittest.TestCase):
                     result = exercise(n,p,bits)
                     self.assertEqual(result["status"],CLASSIFICATION)
                     self.assertEqual(result["root_novelty"],"OPEN_UNPROVED")
+                    self.assertEqual(result["query_profile"],"all_intervals")
+                    self.assertEqual(result["query_count_per_model"],
+                                     2*n*(n+1))
                     self.assertTrue(result["same_finite_F1_answers_verified"])
                     self.assertFalse(result["completed_full_F1_pareto"])
                     self.assertEqual([m["model"] for m in result["models"]],
