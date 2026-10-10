@@ -222,6 +222,18 @@ class Arena:
         length=source.tell()
         if not 0<length<1<<32:
             raise ValueError("opaque frame length outside range")
+        # Fail closed on a malformed HYB4 payload BEFORE touching allocator
+        # pages. The source preflight uses C4's page-streaming CRC validator
+        # and semantic parser; its page reads are billed separately.
+        from index001_hybrid_streaming import check as check_hyb4,scan as scan_hyb4
+        source.seek(0)
+        info=check_hyb4(source,self.B)
+        if info["D"]!=length:
+            raise ValueError("source frame allocation mismatch")
+        semantic_io={"pages":0}
+        for _ in scan_hyb4(source,self.B,info,semantic_io):
+            pass
+        self.io["source_preflight_pages"]=self.io.get("source_preflight_pages",0)+info["check_read_pages"]+semantic_io["pages"]
         source.seek(0)
         cursor=None
         first=END
@@ -284,7 +296,8 @@ class Arena:
                 "retained_root_bytes":self.B,
                 "volatile_pins":sum(self.pins.values()),
                 "reads":self.io["reads"],"writes":self.io["writes"],
-                "gc_writes":self.io["gc_page_writes"]}
+                "gc_writes":self.io["gc_page_writes"],
+                "source_preflight_pages":self.io.get("source_preflight_pages",0)}
 
 
 def report():
