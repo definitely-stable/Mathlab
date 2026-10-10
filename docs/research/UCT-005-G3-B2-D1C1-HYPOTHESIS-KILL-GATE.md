@@ -1,6 +1,6 @@
 # UCT-005 D1-C1 — source-mapped candidate inequality kill gate, exact finite countermodels
 
-2026-10-11. [D1-C #302](https://github.com/definitely-stable/Mathlab/issues/302) · [slice #307](https://github.com/definitely-stable/Mathlab/issues/307) · predecessor [D1-C0 PR #304](https://github.com/definitely-stable/Mathlab/pull/304) · [UCT root #105](https://github.com/definitely-stable/Mathlab/issues/105). **NO NEW NONFACTORIZING JOINT LOWER BOUND. ROOT OPEN_UNPROVED.**
+2026-10-11. [D1-C #302](https://github.com/definitely-stable/Mathlab/issues/302) · [slice #307](https://github.com/definitely-stable/Mathlab/issues/307) · accepted predecessor [D1-C0 PR #304](https://github.com/definitely-stable/Mathlab/pull/304) · [UCT root #105](https://github.com/definitely-stable/Mathlab/issues/105). **NO NEW NONFACTORIZING JOINT LOWER BOUND. ROOT OPEN_UNPROVED.**
 
 ## 1. Frozen candidate protocol
 
