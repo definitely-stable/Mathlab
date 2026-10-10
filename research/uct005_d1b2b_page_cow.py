@@ -59,9 +59,9 @@ def _encode(kind: int, span: int, parity: int, left: int = 0, right: int = 0,
     if not 1 <= span < 2**32 or not 0 <= left < 2**64 or not 0 <= right < 2**64:
         raise ValueError("node exceeds frozen wire grammar")
     prefix = NODE.pack(b"UCTN", kind, span, parity, left, right, ld, rd)
-    raw = prefix + sha256(DOMAIN + prefix).digest()
-    _decode(raw)
-    return raw
+    # Author generates one SHA; _alloc separately re-parses and authenticates
+    # the record, so both hash invocations are charged in the ledger.
+    return prefix + sha256(DOMAIN + prefix).digest()
 
 
 class PageCowTree:
@@ -137,7 +137,8 @@ class PageCowTree:
         self.nodes[i] = raw
         self.ledger[f"{phase}_node_page_writes"] += self.node_pages
         self.ledger[f"{phase}_remote_upload_bytes"] += self.node_pages * self.P
-        self.ledger[f"{phase}_hash_calls"] += 1
+        self.ledger[f"{phase}_hash_calls"] += 2
+        self.ledger[f"{phase}_hash_input_bytes"] += 2 * (NODE.size + len(DOMAIN))
         self.ledger["peak_remote_pages"] = max(
             self.ledger["peak_remote_pages"], self.remote_pages)
         return i, node["digest"]
@@ -163,6 +164,7 @@ class PageCowTree:
             raise Abort("remote node omitted/reclaimed")
         result = _decode(raw)
         self.ledger[f"{phase}_hash_calls"] += 1
+        self.ledger[f"{phase}_hash_input_bytes"] += NODE.size + len(DOMAIN)
         if result["span"] != span or result["digest"] != expected:
             raise Abort("node hash/span mismatch")
         return result
