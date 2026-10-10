@@ -226,6 +226,29 @@ class B2BPageCowTests(unittest.TestCase):
                     self.assertEqual(set(s.remote), set(t.roots))
                 self.assertEqual(set(t.roots), {3})
 
+    def test_whole_bitmap_rewrite_falsifies_sublinear_page_update_claim(self):
+        # Restricted construction lower bound, not a universal F1 theorem:
+        # at setup we have 2n-1 issued nodes, so the allocation bitmap
+        # needs at least as many pages as the snapshot packed data itself.
+        from uct005_d1b0_f1_reference import SnapshotF1Reference
+        for n in (1, 2, 7, 8, 9, 33, 65, 257):
+            for p in (1, 2, 8, 64, 4096):
+                word = (0,) * n
+                cow = PageCowTree(word, p)
+                snapshot = SnapshotF1Reference(word, page_bytes=p)
+                packed_data_pages = (n + 7) // 8
+                packed_data_pages = (packed_data_pages + p - 1) // p
+                self.assertGreaterEqual(cow.bitmap_pages, packed_data_pages)
+                self.assertEqual(cow.set(0, 1), 1)
+                snapshot.set(0, 1)
+                self.assertGreaterEqual(
+                    cow.ledger["set_bitmap_page_writes"], packed_data_pages)
+                self.assertGreaterEqual(
+                    cow.ledger["set_bitmap_upload_bytes"],
+                    packed_data_pages * p)
+                self.assertEqual(cow.remote_bitmap, cow._bitmap_image())
+                self.assertEqual(cow.query(0, 0, n), snapshot.latest(0, 0, n))
+
     def test_remote_bitmap_actual_bytes_sparse_gc_and_corruption(self):
         t = PageCowTree((0, 1, 0, 1), 2)
         initial = t.remote_bitmap
