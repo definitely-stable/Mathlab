@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-C2 — exact Johnson W2 transfer, quantified W>=3 barrier
+
+[Proof, full scope and prior art](HYP-105-G5-E2-B3-E1C2-JOHNSON-HARMONIC-GATE.md) · [reference](../../research/hyp105_g5e2b3e1c2_johnson_gate.py) · [independent exact-rational falsifiers](../../research/test_hyp105_g5e2b3e1c2_johnson_gate.py). For every legal g, exact U=mu+U2+U>=3, U2 from correlated two-point original-source marginals × physical pair-label adjacency; target W1=0 always, K6 W2²=42/11 and residual W>=3²=9324/143. Independently check full K6 target and all 105 real right swaps of W(3,2), including no-go trade and a=9 W2=0. Classical Johnson framework, not an all-h all-correlated Omega(s6) bound or new ASET exponent; hosted CI pending.
+
 ## HYP-105 B3.2-E1-C1 — GQ concurrence fibers and exact original B/A wedge decomposition
 
 [All-h proof and scope](HYP-105-G5-E2-B3-E1C1-GQ-CONCURRENCE.md) · [reference](../../research/hyp105_g5e2b3e1c1_gq_concurrency.py) · [independent tests](../../research/test_hyp105_g5e2b3e1c1_gq_concurrency.py) · [stacked PR #260](https://github.com/definitely-stable/Mathlab/pull/260). Classical GQ line-concurrence SRG (V,s(s+1),s−1,s+1) with exact 0/1/2/3-edge original right-line triple counts; all-h m_f(R)≤c_GQ(R)(s+1)^4 and zero for c_GQ(R)=0. Complete independent point-wedge W32 B/A source and original-line third marginal checks. **Not physical-target S_a triple orbits, no all-right intersection lower, no strict ASET exponent; hosted CI pending.**
