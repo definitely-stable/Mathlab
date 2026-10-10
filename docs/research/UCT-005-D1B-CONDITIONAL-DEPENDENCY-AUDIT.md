@@ -6,9 +6,9 @@
 
 Authors claim deterministic O(n^1.9992) for integer 3SUM of polynomially bounded magnitude and O(n^2.9995) for directed APSP with polynomially bounded integer edge weights, plus separately described transfers to real instances, Exact Triangle, and selected hinted matrix-vector variants. This contradicts the **standard fine-grained hypotheses** that all algorithms require n^(2-o(1)) and n^(3-o(1)) respectively in their respective models. The paper is an author preprint; Mathlab has **not independently replayed its full proof**. A conditional theorem of the form H implies L is still a valid mathematical implication when H is false, but it **cannot substantiate L as an operative hardness barrier**. The reduction itself has not been disproved. None of this refutes SETH, OVH, arbitrary OMv variants, or unconditional cell-probe/memory-checker statements.
 
-## 2. Actual source inventory — 180 audited non-generated Markdown/JSON files at IMPORT-011 merge 0abcb9e
+## 2. Actual source inventory — fail-closed CI scan of non-generated Markdown/JSON
 
-Only five non-generated documents contained 3SUM/APSP/SETH/Exact-Triangle/OMv-type text. All nine matching lines were classed under explicit anchors in [machine-readable audit register](UCT-005-D1B-CONDITIONAL-DEPENDENCY-REGISTER.json); the catalog was reviewed separately (364 entries).
+Six non-generated documents contain 3SUM/APSP/SETH/Exact-Triangle/OMv-type text. All eleven matching lines were classed under explicit anchors in [machine-readable audit register](UCT-005-D1B-CONDITIONAL-DEPENDENCY-REGISTER.json); the catalog was reviewed separately (364 entries).
 
 | Path or source | Evidence found | Classification |
 | --- | --- | --- |
@@ -17,9 +17,12 @@ Only five non-generated documents contained 3SUM/APSP/SETH/Exact-Triangle/OMv-ty
 | RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md | Four statements about the October 2026 source and needed dependencies | **SCOPED_SOURCE_AUDIT**; not an underlying lower-bound proof. |
 | UCT-005-ROOT-THEOREM-PROGRAM.md | IMPORT-011 warning note | **SCOPED_SOURCE_AUDIT**; ROOT_OPEN. |
 | catalog/README.md | IMPORT-011 navigation and historical count | **BIBLIOGRAPHY_NAVIGATION**, not theorem. |
+| catalog/LITERATURE-003-2026-OPPORTUNITY-AUDIT.md | Two historical source/proposal references to SETH and cell-probe | **INDEPENDENT_SETH_PRIOR_ART / SCOPED_SOURCE_AUDIT**; do not treat independent SETH results as refuted. |
 | LIT-058 | Dynamic pattern matching, a conditional limitation via SETH | **INDEPENDENT_SETH_PRIOR_ART**, unaffected. |
 | LIT-163 | Dynamic spanner via APSP | **APSP_ALGORITHM_NOT_HARDNESS**. |
 | LIT-357 | Alman–Vassilevska Williams refutation source | **REFUTATION_SOURCE**, not Mathlab original theorem. |
+
+**Audit correction:** An initial file-name exclusion swept up historical LITERATURE-003 along with generated catalog views. GitHub-hosted CI correctly flagged two SETH mentions. This register now pins both lines; generated LITERATURE.md and LITERATURE-BY-RESEARCH.md alone are excluded from the scan. No semantic lower-bound transfer is inferred from either mention.
 
 **Result:** No explicit text in the audited non-generated corpus or canonical LIT metadata claims a Mathlab lower-bound theorem conditional *only* on the classical 3SUM/APSP hypotheses. This is **not a universal negative theorem**: dependencies hidden in unstated reductions, linked PDF proofs or future open PRs are not ruled out.
 
