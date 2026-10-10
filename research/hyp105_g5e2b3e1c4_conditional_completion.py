@@ -82,8 +82,9 @@ def occupied_disjoint_triangle_completion_lower(a,occupied_labels,anchor_pair):
     """
     if type(a) is not int or a<6:
         raise ValueError("physical alphabet must be >=6")
-    F=frozenset(_physical_pair(e,a) for e in occupied_labels)
-    if len(F)!=len(tuple(occupied_labels)) or len(F)<6:
+    labels=tuple(_physical_pair(e,a) for e in occupied_labels)
+    F=frozenset(labels)
+    if len(F)!=len(labels) or len(F)<6:
         raise ValueError("physical occupied labels must be injective")
     pair=tuple(_physical_pair(e,a) for e in anchor_pair)
     if len(pair)!=2 or len(set(pair))!=2 or any(e not in F for e in pair):
@@ -193,6 +194,30 @@ def _checked_tensor(tensor,V):
                 any(type(i) is not int or not 0<=i<V for i in H) or
                 type(w) is not int or w<0):
                 raise ValueError("invalid original four-line conditional source")
+
+
+
+def all_h_GQ_conditional_cell_capacity(s, mass_at_pair):
+    """True model-specific capacity of ONE original pair P, residual H cell.
+
+    If P={u,v} is concurrent, W(3,s) gives a UNIQUE original doubled
+    left point p. For each of the four distinct ORIGINAL right lines
+    in H, at most Delta original incident left point choices exist.
+    Hence b_f(P,H)<=Delta^4, and support_H>=ceil(w_P/Delta^4).
+    This holds for ALL admissible f,g, without physical-label mixing.
+    """
+    from hyp105_g5e2b3e1b1a_one_sided import gq_parameters
+    if type(mass_at_pair) is not int or mass_at_pair<0:
+        raise ValueError("pair mass must be a nonnegative integer")
+    delta=gq_parameters(s)["Delta"]
+    cap=delta**4
+    return {
+        "s":s,"original_pair_mass":mass_at_pair,
+        "source_conditional_fourset_max_cell_weight":cap,
+        "source_conditional_distinct_foursets_lower":
+            (mass_at_pair+cap-1)//cap,
+        "not_a_physical_completion_lower":True,
+    }
 
 
 def pair_frozen_moment_certificate(rows, original_vertices, target_completions,
