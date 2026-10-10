@@ -19,7 +19,8 @@ and [JSON Schema](RESEARCH-STATUS-REGISTRY.schema.json).
 5. Bibliographic identities: [literature catalog](catalog/literature.json).
    This active-status registry never duplicates the canonical LIT entries.
 
-The active-status registry lists only **ten selected active programs** as a
+The active-status registry lists **ten selected research programs**, including
+completed engineering issue slices, as a
 reviewed snapshot. It does not claim to inventory every GitHub issue or proof.
 
 ## Separate status dimensions
@@ -27,7 +28,8 @@ reviewed snapshot. It does not claim to inventory every GitHub issue or proof.
 - `scientific_status`: whether the selected research objective is unproved,
   a restricted classical result, or a model-only implementation.
 - `workflow_status`: the issue/PR position **at review time**, not a live API
-  result. `OPEN_PR_UNVERIFIED` explicitly does not mean merged.
+  result. `OPEN_PR_UNVERIFIED` explicitly does not mean merged;
+  `CLOSED_ISSUE` records issue lifecycle only and does not mean scientific proof.
 - `proof_grade`: none, finite oracle, restricted classical proof, or checked
   formal proof. A finite oracle cannot promote a universal asymptotic theorem.
 - `novelty_status`: prior-art classification separate from mathematical truth.
