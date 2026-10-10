@@ -133,8 +133,7 @@ class WeightedIntersectionTests(unittest.TestCase):
                 else:
                     self.fail("unknown three-physical-pair orbit")
                 orbit_counts[kind]+=1
-                ids=tuple(palette.index(e) for e in tr)
-                self.assertEqual(observed[ids],
+                self.assertEqual(observed[tr],
                                  data["target_triple_label_orbits"][kind]["codegree"])
             self.assertEqual(
                 dict(orbit_counts),
