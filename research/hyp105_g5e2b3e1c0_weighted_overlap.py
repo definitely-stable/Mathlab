@@ -115,6 +115,62 @@ def one_degree_source_overlap_invariant(a, constant, vertex_coefficients):
     return result
 
 
+def two_marginal_blind_cube_trade(scale=1):
+    """Explicit 3-dimensional 6-uniform trade invisible through order two.
+
+    Source V=K=15 abstract original right-factor vertices, mapped via
+    identity to the 15 physical K6 pair labels in lex ordering.
+    Common 3 vertices = (0,1,6), switch pairs (2,11),(3,12),(13,14).
+    Eight 6sets split evenly by selection parity. This 3-cube trade
+    has equal |R|<=2 marginals for even and odd halves, since fixing
+    at most two chosen vertices leaves one independent sign toggle.
+    Yet exactly ONE odd sixset, mask 7, is a K6 physical 2factor.
+    Neither source models actual W(3,s) incidence weights m_f.
+    """
+    if not isinstance(scale,int) or isinstance(scale,bool) or scale<=0:
+        raise ValueError("positive integer weight scale required")
+    shared=(0,1,6)
+    pairs=((2,11),(3,12),(13,14))
+    lhs, rhs=Counter(),Counter()
+    for mask in range(8):
+        R=frozenset((*shared,*(pairs[i][(mask>>i)&1] for i in range(3))))
+        (rhs if mask.bit_count()%2 else lhs)[R]=scale
+    if len(lhs)!=4 or len(rhs)!=4:
+        raise AssertionError("cube trade lost sixset injectivity")
+    def signature(weights,order):
+        if order==0:
+            return {():sum(weights.values())}
+        out=Counter()
+        for R,m in weights.items():
+            for subset in combinations(sorted(R),order):
+                out[subset]+=m
+        return dict(out)
+    same={}
+    for k in (0,1,2):
+        if signature(lhs,k)!=signature(rhs,k):
+            raise AssertionError("3-cube pair marginal cancellation invalid")
+        same[k]=True
+    palette=tuple(combinations(range(6),2))
+    target=simple_six_2factor_targets(6)
+    left_value=exact_BA_overlap(lhs,palette,target=target)
+    right_value=exact_BA_overlap(rhs,palette,target=target)
+    if (left_value,right_value)!=(0,scale):
+        raise AssertionError("3-cube trade was not detected by physical T6")
+    return {
+        "source_abstract_original_vertices":15,
+        "source_even_sixsets":tuple(sorted(tuple(sorted(x)) for x in lhs)),
+        "source_odd_sixsets":tuple(sorted(tuple(sorted(x)) for x in rhs)),
+        "equal_0_1_2_marginals":same,
+        "equal_total_mass_each":4*scale,
+        "even_overlap_T6":left_value,
+        "odd_overlap_T6":right_value,
+        "overlap_gap":scale,
+        "extends_to_any_physical_a_at_least_six_by_embedding":True,
+        "actual_W3s_incidence_source":False,
+        "universal_all_correlated_S_lower_proved":False,
+    }
+
+
 def source_weighted_BA_hypergraph(model):
     """Exact finite W32 weighted right six-uniform original-line hypergraph.
 
@@ -249,6 +305,7 @@ def report():
     return {
         "exact_W32":finite_W32_overlap_report(),
         "generic_mass_only_countermodel":generic_mass_only_countermodel(),
+        "pair_marginal_blind_3cube_trade":two_marginal_blind_cube_trade(),
         "prior_art":"Bollobas-Scott 2015 weighted k-uniform intersections; no automatic min transfer",
         "full_R3_or_ASET_exponent":False,
     }
