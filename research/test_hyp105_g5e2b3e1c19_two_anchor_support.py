@@ -48,7 +48,7 @@ class C19TwoAnchorBlockBarrierTests(unittest.TestCase):
             full[:6],
             full[-6:],
             tuple((0, x) for x in range(1,7)),
-            tuple((0,1), (2,3), (4,5), (6,7), (8,9), (10,11)),
+            ((0,1), (2,3), (4,5), (6,7), (8,9), (10,11)),
         )
         for removed in removed_cases:
             subset = tuple(e for e in full if e not in set(removed))
