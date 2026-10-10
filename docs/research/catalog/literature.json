@@ -1,6 +1,6 @@
 {
   "schema": "mathlab.external-literature.v1",
-  "snapshot_date": "2026-10-09",
+  "snapshot_date": "2026-10-10",
   "collection": "Curated primary literature mentioned by or model-overlapping Mathlab, DELSK and DeltaMeter; not independently proved",
   "source_snapshots": {
     "MATHLAB": {
@@ -9072,6 +9072,806 @@
       "alternate_identities": [
         "arxiv:2512.03413"
       ]
+    },
+    {
+      "id": "LIT-317",
+      "year": 2024,
+      "track": "agent-memory",
+      "identity": "arxiv:2405.14831",
+      "title": "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models",
+      "summary_ru": "Граф знаний и Personalized PageRank для ассоциативной и многошаговой памяти LLM.",
+      "limits_ru": "Аналогия с гиппокампом не означает нейронной эквивалентности и exact provenance.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://arxiv.org/abs/2405.14831",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-318",
+      "year": 2023,
+      "track": "agent-memory",
+      "identity": "arxiv:2310.08560",
+      "title": "MemGPT: Towards LLMs as Operating Systems",
+      "summary_ru": "Виртуальные уровни контекстной памяти LLM и paging между быстрым и медленным хранением.",
+      "limits_ru": "Paging контекста не является графовым хранилищем и не доказывает bounded IO.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://arxiv.org/abs/2310.08560",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-319",
+      "year": 2018,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1038/nbt.4227",
+      "title": "Variation graph toolkit improves read mapping by representing genetic variation in the reference",
+      "summary_ru": "vg: bidirected граф DNA-вариантов и ориентированные пути реальных геномов.",
+      "limits_ru": "Последовательность генома и семантический provenance DAG имеют разные виды пути.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/nbt.4227",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-320",
+      "year": 2019,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1093/bioinformatics/btz575",
+      "title": "Haplotype-aware graph indexes",
+      "summary_ru": "GBWT: сжатые индексы биологически наблюдаемых гаплотипных путей.",
+      "limits_ru": "Online 2019 и выпуск 2020; произвольная комбинация дуг графа может не быть реальным гаплотипом.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1093/bioinformatics/btz575",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-321",
+      "year": 2020,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1186/s13059-020-02135-8",
+      "title": "Bifrost: highly parallel construction and indexing of colored and compacted de Bruijn graphs",
+      "summary_ru": "Параллельное построение и индексирование colored compacted de Bruijn графов, поддержка изменений.",
+      "limits_ru": "Compaction unitigs не даёт bounds на NAND записи и не гарантирует immutability старых labels.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1186/s13059-020-02135-8",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-322",
+      "year": 2021,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1016/j.csbj.2021.06.047",
+      "title": "Buffering updates enables efficient dynamic de Bruijn graphs",
+      "summary_ru": "BufBOSS: insert/delete buffer для компактного BWT-представления de Bruijn graph.",
+      "limits_ru": "Буферизация требует отдельного подсчёта amortized writes, GC и истории PIN.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1016/j.csbj.2021.06.047",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-323",
+      "year": 2022,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1093/bioinformatics/btac308",
+      "title": "ODGI: understanding pangenome graphs",
+      "summary_ru": "ODGI: эффективная память, обход и визуализация больших графов пангеномов.",
+      "limits_ru": "Dynamic в ODGI не означает durable transactional graph updates и доказанный worst-case recourse.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1093/bioinformatics/btac308",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-324",
+      "year": 2023,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1038/s41586-023-05896-x",
+      "title": "A draft human pangenome reference",
+      "summary_ru": "Human Pangenome Reference Consortium: пангеном 47 диплоидных сборок, двунаправленные последовательности и haplotype walks.",
+      "limits_ru": "Биологические варианты не означают проверяемые факты knowledge graph; когорта ограничена.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41586-023-05896-x",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-325",
+      "year": 2023,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1038/s41587-023-01793-w",
+      "title": "Pangenome graph construction from genome alignments with Minigraph-Cactus",
+      "summary_ru": "Граф пангенома из full-genome alignments: variants всех размеров.",
+      "limits_ru": "Онлайн 2023, том 2024; конвейер batch, нет exact incremental I/O guarantee.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41587-023-01793-w",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-326",
+      "year": 2025,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1038/s41588-024-02029-6",
+      "title": "Pangenome graphs and their applications in biodiversity genomics",
+      "summary_ru": "Обзор pangenome graph инструментов, сравнение и использование в биоразнообразии.",
+      "limits_ru": "Это обзор, у которого существует corrigendum от февраля 2025.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41588-024-02029-6",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-327",
+      "year": 2025,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1186/s13059-025-03606-6",
+      "title": "A survey of sequence-to-graph mapping algorithms in the pangenome era",
+      "summary_ru": "Обзор seeds, minimizers и indexing для graph sequence alignment.",
+      "limits_ru": "Не является доказательством обновляемости graph-CAS или низкой стоимости compaction.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1186/s13059-025-03606-6",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-328",
+      "year": 2025,
+      "track": "genomic-graphs",
+      "identity": "doi:10.4230/LIPIcs.SEA.2025.13",
+      "title": "Pangenome Graph Indexing via the Multidollar-BWT",
+      "summary_ru": "gindex: BWT-индекс substring matching без pruning сложных участков pangenome.",
+      "limits_ru": "Затраты на построение и query vs GCSA2 зависят от графа; нет онлайн обновлений.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.4230/LIPIcs.SEA.2025.13",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-329",
+      "year": 2025,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1038/s41586-025-09603-w",
+      "title": "Efficient and accurate search in petabase-scale sequence repositories",
+      "summary_ru": "MetaGraph: annotated de Bruijn k-mer graph и компактная матрица принадлежности биологическим samples.",
+      "limits_ru": "Оценка полного архива экстраполирована; не independent full-archive benchmark и не SSD bound.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41586-025-09603-w",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-330",
+      "year": 2026,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1038/s41588-025-02478-7",
+      "title": "Compressive pangenomics using mutation-annotated networks",
+      "summary_ru": "Mutation-annotated networks связывают сжатие геномов с эволюционными мутациями.",
+      "limits_ru": "Evolutionary lineage не равна provenance trust и сохраняемости исторических signed roots.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41588-025-02478-7",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-331",
+      "year": 2026,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1038/s41586-026-10924-7",
+      "title": "An Icelandic pangenome reference",
+      "summary_ru": "HPRC-ICE и Weaver: большие графы гаплотипов с read mapping для популяций.",
+      "limits_ru": "Часть raw genomic data ограничена доступом; авторская точность не проверена в Mathlab.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41586-026-10924-7",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-332",
+      "year": 2026,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1186/s13059-026-04242-4",
+      "title": "COSIGT: population-scalable genotyping of complex loci from low-coverage sequencing data using pangenome graphs",
+      "summary_ru": "Low-coverage генотипирование по cosine similarity покрытия haplotype paths.",
+      "limits_ru": "Статистическая оценка генотипа не даёт exact evidence certificate при малом покрытии.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1186/s13059-026-04242-4",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-333",
+      "year": 2026,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1038/s41576-026-00987-7",
+      "title": "Building and applying pangenome references to capture genetic diversity",
+      "summary_ru": "Обзор графовых и multi-haplotype эталонов и последствий reference bias.",
+      "limits_ru": "Обзор 2026 не является новой фундаментальной теоремой по индексации.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41576-026-00987-7",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-334",
+      "year": 2026,
+      "track": "genomic-graphs",
+      "identity": "doi:10.1186/s13059-026-04017-x",
+      "title": "Multi-context seeds enable fast and high-accuracy read mapping",
+      "summary_ru": "Multi-context seeds для компромисса точности и скорости сопоставления DNA.",
+      "limits_ru": "Вероятностные/выборочные seeds требуют отдельной оценки ошибок и ресурсов.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1186/s13059-026-04017-x",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-335",
+      "year": 2026,
+      "track": "biological-memory",
+      "identity": "doi:10.1038/s41467-026-74126-5",
+      "title": "Interpretable graph-based models on multimodal biomedical data integration: a technical review and benchmarking",
+      "summary_ru": "Межмодальные графовые модели для биологических данных и их интерпретируемость.",
+      "limits_ru": "Обзор и авторское сравнение, но не проверенное доказательство причинности.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41467-026-74126-5",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-336",
+      "year": 2024,
+      "track": "biological-memory",
+      "identity": "doi:10.1038/s41586-024-07973-1",
+      "title": "Human hippocampal and entorhinal neurons encode the temporal structure of experience",
+      "summary_ru": "Мозговое представление временных отношений и successor-подобной графовой структуры.",
+      "limits_ru": "Нейронное кодирование не эквивалентно page-index, PageRank или историческому proof.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41586-024-07973-1",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-337",
+      "year": 2025,
+      "track": "biological-memory",
+      "identity": "doi:10.1038/s41586-025-08993-1",
+      "title": "Systems consolidation reorganizes hippocampal engram circuitry",
+      "summary_ru": "Перестройка энграмм гиппокампа при переходе от эпизодической точности к generalization.",
+      "limits_ru": "Биологическое обобщение может быть несовместимо с exact historical storage.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41586-025-08993-1",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-338",
+      "year": 2025,
+      "track": "biological-memory",
+      "identity": "doi:10.1038/s41593-025-01986-3",
+      "title": "Formation of an expanding memory representation in the hippocampus",
+      "summary_ru": "Экспериментальная динамика формирования расширяющейся памяти гиппокампа.",
+      "limits_ru": "Здесь нет строгой оптимизации графовой памяти агентов, retention или GC.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41593-025-01986-3",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-339",
+      "year": 2026,
+      "track": "biological-memory",
+      "identity": "doi:10.1038/s41593-026-02231-1",
+      "title": "The prefrontal cortex controls memory organization in the hippocampus",
+      "summary_ru": "Контекстное управление нейронным linking через prefrontal–entorhinal схему.",
+      "limits_ru": "Сопоставление контекстов может ложным образом объединять неродственные факты.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41593-026-02231-1",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-340",
+      "year": 2026,
+      "track": "biological-memory",
+      "identity": "doi:10.1038/s41593-026-02230-2",
+      "title": "Deconstruction of a memory engram reveals distinct ensembles recruited at learning",
+      "summary_ru": "Нейронные ансамбли с разными периодами закрепления ассоциативной памяти.",
+      "limits_ru": "Cellular engram не тождественен формальному графу версий и доказательств.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41593-026-02230-2",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-341",
+      "year": 2026,
+      "track": "biological-memory",
+      "identity": "doi:10.1038/s41583-025-01012-2",
+      "title": "Astroengrams: rethinking the cellular substrate for memory",
+      "summary_ru": "Обзор перспектив astrocyte ensembles и механизмов памяти вне исключительно нейронных энграмм.",
+      "limits_ru": "Perspective не доказательство вычислительного алгоритма или эффективности GraphRAG.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41583-025-01012-2",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-342",
+      "year": 2024,
+      "track": "biological-memory",
+      "identity": "doi:10.1038/s41467-024-44871-6",
+      "title": "Latent representations in hippocampal network model co-evolve with behavioral exploration of task structure",
+      "summary_ru": "Вычислительная модель формирования латентных cognitive maps в процессе исследования опыта.",
+      "limits_ru": "Модель поведения не обеспечивает достоверность источника или полноту вывода.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41467-024-44871-6",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-343",
+      "year": 2026,
+      "track": "biological-memory",
+      "identity": "doi:10.1038/s41593-026-02357-2",
+      "title": "Experience reorganizes content-specific memory traces in macaques",
+      "summary_ru": "Изменение и стабилизация нейронных memory traces после опыта и сна.",
+      "limits_ru": "Биологическая реорганизация может нарушать exact immutable provenance.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/s41593-026-02357-2",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-344",
+      "year": 2025,
+      "track": "biological-memory",
+      "identity": "doi:10.1016/j.nlm.2025.108057",
+      "title": "The molecular and cellular basis of memory engrams: Mechanisms of synaptic and systems consolidation",
+      "summary_ru": "Обзор механизмов формирования и консолидации neural engrams.",
+      "limits_ru": "Обзор не проверяет программную memory-recall архитектуру или page storage.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1016/j.nlm.2025.108057",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-345",
+      "year": 2017,
+      "track": "molecular-dna-storage",
+      "identity": "doi:10.1126/science.aaj2038",
+      "title": "DNA Fountain enables a robust and efficient storage architecture",
+      "summary_ru": "Fountain coding синтетических DNA oligonucleotides для плотной записи и восстановления цифровых данных.",
+      "limits_ru": "Химические erasure/indel каналы не равны электронным exact CAS и SSD I/O.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1126/science.aaj2038",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-346",
+      "year": 2018,
+      "track": "molecular-dna-storage",
+      "identity": "doi:10.1038/nbt.4079",
+      "title": "Random access in large-scale DNA data storage",
+      "summary_ru": "Праймерный адресный доступ к множеству молекулярных DNA файлов с исправлением ошибок.",
+      "limits_ru": "PCR-селективность не является O(1) цифровой операцией; sequencing оплачивается.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1038/nbt.4079",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-347",
+      "year": 2025,
+      "track": "molecular-dna-storage",
+      "identity": "doi:10.1093/bioinformatics/btaf618",
+      "title": "De-Bruijn graph partitioning for scalable and accurate DNA storage processing",
+      "summary_ru": "ConCluD: сегментация de Bruijn graph для восстановления закодированных олигонуклеотидов.",
+      "limits_ru": "Требуется полный read с primers; множество графовых путей без валидации не является оригинальными файлами.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1093/bioinformatics/btaf618",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-348",
+      "year": 2022,
+      "track": "molecular-dna-storage",
+      "identity": "doi:10.1093/nargab/lqab126",
+      "title": "High-scale random access on DNA storage systems",
+      "summary_ru": "Исследование адресуемого получения молекулярных данных DNA в масштабе.",
+      "limits_ru": "Молекулярный read process не доказывает crash safety или асимптотику WAL/LSM.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "primary_url": "https://doi.org/10.1093/nargab/lqab126",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md",
+          "kind": "model_overlap",
+          "source_sha": "8c9bd7948f0cb9fc5a40c99964b96e71cbd74128"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
     }
   ]
 }

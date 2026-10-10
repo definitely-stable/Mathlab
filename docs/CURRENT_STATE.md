@@ -4,6 +4,10 @@
 
 # CURRENT_STATE
 
+## IMPORT-010 — graph memory × pangenome × molecular DNA × neurobiology (2026-10-10)
+
+[Source metadata and model-transfer audit](research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) · [issue #220](https://github.com/definitely-stable/Mathlab/issues/220). **315→347 unique LIT works**, new LIT-317..348, **18→21** tracks (genomic-graphs, biological-memory, molecular-dna-storage). 2026 works **171**. H1 sample-colored path coherence; H2 buffered indexing vs pinned epoch recourse; H3 associative retrieval negative controls; H4 noisy molecule reconstruction. Source-level evidence; **NO_NEW_THEOREM / NO_REPRODUCED_BENCHMARK / NO_SSD_PAGE_IO / NO_BIOLOGICAL_EQUIVALENCE**.
+
 ## UCT-005 G3-B2-C2-B2-B — онлайн COW SET с доверенным root CAS (2026-10-10)
 
 [Проверенная ограниченная файловая модель онлайн-автора](research/UCT-005-G3-B2-C2-B2-B-ONLINE-COW-ROOT-FENCE.md) · [реализация](../research/uct005_g3b2c2b2b_online_cow.py) · [аварийные тесты](../research/test_uct005_g3b2c2b2b_online_cow.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). **FILE_PAGE_PATH_COW / ROOT_INDEX_FSYNC_BEFORE_IDEAL_40B_ROOT_CAS / UNCOMMITTED_TAIL_TRUNCATION / STALE_GC_FAIL_CLOSED / NO_REAL_POWERLOSS_PROOF / NO_ONLINE_GC_COMPOSITION / NO_NEW_LOWER_BOUND.** После первоначального импорта дерева SET читает и переписывает только SHA-256-аттестованный путь, публикует корень через независимый доверенный CAS; восстанавливает прежнее или новое поколение строго по опубликованному значению. Ранее открытый B2-A GC отклоняет новые эпохи из-за изменения размера bitmap/root. Автор, независимые PIN, GC и динамический корневой каталог **ещё не являются** одной crash-safe службой; корень UCT #105 остаётся OPEN.

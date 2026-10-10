@@ -4,6 +4,10 @@
 
 # Research index and authority order
 
+## IMPORT-010 — DNA, pangenome graphs, biological engrams and agent memory (2026-10-10)
+
+[32 DOI/arXiv primary sources, four typed model barriers and research hypotheses](RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) · [canonical literature](catalog/LITERATURE.md) · [issue #220](https://github.com/definitely-stable/Mathlab/issues/220). HippoRAG, MemGPT, GBWT, ODGI, BufBOSS, MetaGraph, genome and engram neuroscience; separate biological sequence paths from graph of facts and independent source epochs. Metadata only; no new theorem.
+
 ## UCT-005 G3-B2-C2-B2-B — online COW SET and root fence (2026-10-10)
 
 [**File-page online SHA256 path-copying, modeled node/bitmap/root/metadata barrier ordering, ideal trusted root CAS, crash-prefix oracle and stale GC rejection**](UCT-005-G3-B2-C2-B2-B-ONLINE-COW-ROOT-FENCE.md) · [reference](../../research/uct005_g3b2c2b2b_online_cow.py) · [independent tests](../../research/test_uct005_g3b2c2b2b_online_cow.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). The initial exporter and root authority still retain O(n+H) Python state. Live GC cannot continue across this SET; no real filesystem crash durability or new UCT lower bound.

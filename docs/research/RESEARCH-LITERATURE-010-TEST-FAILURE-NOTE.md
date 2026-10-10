@@ -1,0 +1,3 @@
+# IMPORT-010 CI corrective audit
+
+The exact-head PR Research run 38024327235 executed 720 tests; only `test_bibliography_expansion_covers_three_projects` failed because it asserted **18** tracks after adding exactly 3 new registered tracks. The old cohort count of 18 works from IMPORT-007 remains correct and must **not** be modified. Correct the global assertion to 21 and rename the misleading older test method. Failure was an outdated aggregate guard, not a source identity mismatch or catalog semantic error. Final acceptance requires passing full new-head PR Research and merged-main Research. This note is a reproducible audit trail, not a performance claim.

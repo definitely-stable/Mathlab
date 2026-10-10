@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## IMPORT-010 — neurobiology and DNA/pangenome graph corpus
+
+[32 original sources, three new typed research lanes, and four falsification hypotheses](../RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) · [issue #220](https://github.com/definitely-stable/Mathlab/issues/220). Canonical 315→347 unique sources, LIT-317..348, 18→21 research tracks. No proof reproduction, biomedical causal model, cryptographic freshness, or measured SSD benchmark promoted.
+
 ## IMPORT-009 — original DAG lower bounds, cut-query and graph memory indexing
 
 [19 primary source records, 2025/2026 bibliographic dating correction, and model transfer audit](../RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) · [issue #206](https://github.com/definitely-stable/Mathlab/issues/206). LIT-298..316 extend 296→315 works. Core: Larsen–Yu cell-probe DAG lower bound, 2026 cut-query oracle and transitive closure, ICDE 2026 2-hop and Clue-RAG, 2026 verified temporal-source trace studies, AAAI ArchRAG and PVLDB BookRAG. First online date retained for 2025 SIAM and ACM survey, not mislabeled as new 2026 discovery. Full proofs and benchmarks not independently reproduced.
