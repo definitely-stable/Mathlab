@@ -1,6 +1,6 @@
 """Lossless six-shard GitHub-hosted Research CI regression contract.
 
-Frozen 119 exact (name, run) pairs preserve the 107 scientific-branch commands,
+Frozen 121 exact (name, run) pairs preserve the 107 scientific-branch commands,
 plus two explicit C16, six C17-C19 and two C20 commands. No old check lost. Any
 future command edits/additions must update the independent fingerprint
 AND explain the change in the CI documentation. No removed checks,
@@ -46,10 +46,10 @@ SHARDS = {
         "HYP-105 C20 43740 real original W32 Hamilton source global relabel report",
     ),
 }
-# Independently frozen on the 119 exact (name,run) pairs: the full
+# Independently frozen on the 121 exact (name,run) pairs: the full
 # 117-command C20 six-shard suite plus two explicit C21 checks.
-FROZEN_FNV1A64 = 0x9DF72DE9A8F21B4C
-FROZEN_COMMANDS = 119
+FROZEN_FNV1A64 = 0x0BAEB6BDD0C8839B
+FROZEN_COMMANDS = 121
 
 
 def jobs_from_source(raw):
@@ -73,7 +73,7 @@ def fnv1a64(items):
     h = 0xCBF29CE484222325
     mask = (1 << 64) - 1
     for name, run in sorted(items):
-        # All 119 current source names and commands are ASCII.
+        # All 121 current source names and commands are ASCII.
         for byte in (name + "\x00" + run).encode("utf-8") + b"\n":
             h = ((h ^ byte) * 0x100000001B3) & mask
     return h
