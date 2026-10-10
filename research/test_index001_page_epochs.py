@@ -191,6 +191,23 @@ class PageEpochTests(unittest.TestCase):
             Arena.recover(good[:-1],B)
         f.close()
 
+    def test_invalid_hybrid_source_rejected_before_allocation(self):
+        B=64
+        src=from_bits((0,1,0,1),B,"B")
+        a=Arena(B)
+        first=a.publish(src)
+        image=bytearray(view_image(src))
+        image[7]^=1  # corrupt the opaque bitmap payload, not page root
+        invalid=io.BytesIO(image)
+        before=a.snapshot()
+        with self.assertRaises(ValueError):
+            a.publish(invalid)
+        self.assertEqual(a.snapshot(),before)
+        self.assertEqual(a.root(),first)
+        self.assertEqual(a.blob(),view_image(src))
+        self.assertGreater(a.io.get("source_preflight_pages",0),0)
+        src.close()
+
     def test_invalid_pin_unpin_and_free_pages_protected(self):
         f=from_bits((0,1,1,0),64,"B")
         a=Arena(64)
