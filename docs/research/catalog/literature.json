@@ -6477,7 +6477,10 @@
       "full_proof_verified": false,
       "independent_reproduction": false,
       "publication_stage": "author_preprint",
-      "selection_priority": "A"
+      "selection_priority": "A",
+      "alternate_identities": [
+        "doi:10.1109/ICKG66886.2025.00019"
+      ]
     },
     {
       "id": "LIT-217",
@@ -10388,6 +10391,719 @@
       "verification": "publisher_abstract_checked",
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "id": "LIT-366",
+      "year": 2015,
+      "identity": "doi:10.1007/s00222-014-0562-8",
+      "primary_url": "https://doi.org/10.1007/s00222-014-0562-8",
+      "title": "Hypergraph containers",
+      "track": "graph-algorithms",
+      "authors": [
+        "David Saxton",
+        "Andrew Thomason"
+      ],
+      "maps_to": [
+        "ML-002"
+      ],
+      "summary_ru": "Исходная контейнерная лемма: малое семейство контейнеров накрывает независимые множества r-равномерных гиперграфов при структурных степенных предпосылках; применения к экстремальным задачам.",
+      "limits_ru": "Смешанный размер 4/6 и знаковые конфликты HYP-105 требуют собственной codegree и balanced supersaturation леммы.",
+      "alternate_identities": [],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-367",
+      "year": 2014,
+      "identity": "doi:10.1090/S0894-0347-2014-00816-X",
+      "primary_url": "https://doi.org/10.1090/S0894-0347-2014-00816-X",
+      "title": "Independent sets in hypergraphs",
+      "track": "graph-algorithms",
+      "authors": [
+        "József Balogh",
+        "Robert Morris",
+        "Wojciech Samotij"
+      ],
+      "maps_to": [
+        "ML-002"
+      ],
+      "summary_ru": "Независимая фундаментальная контейнерная теорема о структуре и подсчёте независимых множеств uniform hypergraphs; первое электронное издание 2014, том JAMS 2015.",
+      "limits_ru": "Источник не покрывает без отдельной редукции unrestricted GF(5) signed trades, unequal 3-vs-2 relations и требования HYP-105.",
+      "alternate_identities": [
+        "arxiv:1204.6530"
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-368",
+      "year": 2024,
+      "identity": "doi:10.1007/s00493-026-00214-1",
+      "primary_url": "https://doi.org/10.1007/s00493-026-00214-1",
+      "title": "Towards an Optimal Hypergraph Container Lemma",
+      "track": "graph-algorithms",
+      "authors": [
+        "Marcelo Campos",
+        "Wojciech Samotij"
+      ],
+      "maps_to": [
+        "ML-002"
+      ],
+      "summary_ru": "Новые версии контейнерной леммы с улучшенной зависимостью размера семейства от uniformity и иным понятием почти-независимости; arXiv 2024, журнал 2026.",
+      "limits_ru": "Имеется second-moment барьер в постановках статьи; не следует применять к mixed 4/6 GF(5) forbidden trades без новых доказательств.",
+      "alternate_identities": [
+        "arxiv:2408.06617"
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-369",
+      "year": 2018,
+      "identity": "arxiv:1801.04584",
+      "primary_url": "https://arxiv.org/abs/1801.04584",
+      "title": "The method of hypergraph containers",
+      "track": "graph-algorithms",
+      "authors": [
+        "József Balogh",
+        "Robert Morris",
+        "Wojciech Samotij"
+      ],
+      "maps_to": [
+        "ML-002"
+      ],
+      "summary_ru": "Обзор и методологический мост: независимые множества гиперграфов, разреженные запретные конфигурации, экстремальная аддитивная комбинаторика и геометрия.",
+      "limits_ru": "Обзор не является новой контейнерной теоремой и не доказывает асимптотический показатель ASET.",
+      "alternate_identities": [],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-370",
+      "year": 2021,
+      "identity": "doi:10.1137/21M1428431",
+      "primary_url": "https://doi.org/10.1137/21M1428431",
+      "title": "A Logarithmic Lower Bound for Oblivious RAM (For All Parameters)",
+      "track": "dynamic-data-structures",
+      "authors": [
+        "Ilan Komargodski",
+        "Wei-Kai Lin"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "Для специальной конфигурации размеров слов и памяти доказана онлайн нижняя граница Omega(log N/log log N) амортизированных ORAM-проб при офлайн o(1); CRYPTO 2021, журнал 2025.",
+      "limits_ru": "ORAM скрывает паттерн доступа; не утверждает универсальную стоимость доверенного provenance, физической перезаписи страницы либо UCT-005.",
+      "alternate_identities": [
+        "doi:10.1007/978-3-030-84259-8_20"
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-371",
+      "year": 2017,
+      "identity": "arxiv:1704.06185",
+      "primary_url": "https://arxiv.org/abs/1704.06185",
+      "title": "Cell-Probe Lower Bounds from Online Communication Complexity",
+      "track": "dynamic-data-structures",
+      "authors": [
+        "Josh Alman",
+        "Joshua R. Wang",
+        "Huacheng Yu"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "Введён online communication model и получены tight cell-probe границы для group range и dynamic forest connectivity; конференционная версия STOC 2018.",
+      "limits_ru": "Специальная задача и онлайн модель не равны произвольному динамическому authenticated history или F1 root freshness.",
+      "alternate_identities": [],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-372",
+      "year": 2026,
+      "identity": "arxiv:2608.19172",
+      "primary_url": "https://arxiv.org/abs/2608.19172",
+      "title": "Cell-Probe Lower Bounds and Complexity-Preserving Reductions for Suffix Array Queries",
+      "track": "compressed-indexing",
+      "authors": [
+        "Dominik Kempa",
+        "Tomasz Kociumaka"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "Нетривиальные static suffix-array cell-probe bounds и prefix-select/prefix-special-rank редукции, сохраняющие четыре вычислительных ресурса.",
+      "limits_ru": "Статический индекс не учитывает WAL, bounded-RAM compaction, online updates, физический SSD recourse и persistent proofs.",
+      "alternate_identities": [],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-373",
+      "year": 2026,
+      "identity": "doi:10.4230/LIPIcs.CCC.2026.41",
+      "primary_url": "https://doi.org/10.4230/LIPIcs.CCC.2026.41",
+      "title": "Systematic Data Structure Lower Bounds via the Query-With-Sketch Model",
+      "track": "dynamic-data-structures",
+      "authors": [
+        "Sumegha Garg",
+        "Songhua He",
+        "Yuanzhi Li",
+        "Periklis A. Papakonstantinou",
+        "Xin Yang"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "CCC 2026: min-entropy query-with-sketch подход для lower bounds на static systematic approximate matrix powering с ценой redundancy и проб исходной матрицы.",
+      "limits_ru": "Официальный DOI .41; .42 другой автор. Static approximate matrix query не есть dynamic authenticated RANGE или freshness.",
+      "alternate_identities": [
+        "arxiv:2609.18024"
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-374",
+      "year": 2023,
+      "identity": "doi:10.1016/j.ffa.2024.102569",
+      "primary_url": "https://doi.org/10.1016/j.ffa.2024.102569",
+      "title": "Regular sets of lines in rank 3 polar spaces",
+      "track": "graph-algorithms",
+      "authors": [
+        "Ferdinand Ihringer",
+        "Morgan Rodgers"
+      ],
+      "maps_to": [
+        "ML-002"
+      ],
+      "summary_ru": "Классифицированы минимальные регулярные множества линий в семействе rank-3 polar spaces через ассоциативные схемы; arXiv 2023, журнал 2025.",
+      "limits_ru": "Нет эквивалентности регулярности линий и GF(5) знакового запрета на малые комбинации столбцов.",
+      "alternate_identities": [
+        "arxiv:2312.02397"
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-375",
+      "year": 2024,
+      "identity": "doi:10.1007/s10623-024-01489-5",
+      "primary_url": "https://doi.org/10.1007/s10623-024-01489-5",
+      "title": "A common generalization of hypercube partitions and ovoids in polar spaces",
+      "track": "algebraic-algorithms",
+      "authors": [
+        "Jozefien D'haeseleer",
+        "Ferdinand Ihringer",
+        "Kai-Uwe Schmidt"
+      ],
+      "maps_to": [
+        "ML-002"
+      ],
+      "summary_ru": "Обобщены q-аналог ovoids и разбиения гиперкуба, доказаны ограничения существования в больших рангах.",
+      "limits_ru": "Теорема относится к polar spaces, не к HYP-105 signed support-4 collision-free семействам.",
+      "alternate_identities": [
+        "arxiv:2401.10523"
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-376",
+      "year": 2025,
+      "identity": "doi:10.1016/j.ffa.2025.102746",
+      "primary_url": "https://doi.org/10.1016/j.ffa.2025.102746",
+      "title": "The Erdős-Rado sunflower problem for vector spaces",
+      "track": "algebraic-algorithms",
+      "authors": [
+        "Ferdinand Ihringer",
+        "Andrey Kupavskii"
+      ],
+      "maps_to": [
+        "ML-001",
+        "ML-002"
+      ],
+      "summary_ru": "q-аналог sunflower-free подпространств с конструкциями из lifted MRD-кодов; авторский препринт 2025, журнал 2026.",
+      "limits_ru": "Не доказана редукция к GF(5) ASET и ограниченным знаковым суммам.",
+      "alternate_identities": [
+        "arxiv:2505.03671"
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-377",
+      "year": 2025,
+      "identity": "doi:10.1112/blms.70382",
+      "primary_url": "https://doi.org/10.1112/blms.70382",
+      "title": "Fractional clique decompositions of dense hypergraphs",
+      "track": "graph-algorithms",
+      "authors": [
+        "Michelle Delcourt",
+        "Thomas Lesgourgues",
+        "Luke Postle"
+      ],
+      "maps_to": [
+        "ML-002"
+      ],
+      "summary_ru": "Улучшенные достаточные условия minimum codegree для дробного clique decomposition плотных униформных гиперграфов; авторский препринт 2025, журнал 2026.",
+      "limits_ru": "Дробная декомпозиция клики не доказывает bounds для sparse forbidden signed-trade hypergraph.",
+      "alternate_identities": [
+        "arxiv:2510.07225"
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-378",
+      "year": 2022,
+      "identity": "doi:10.1101/gr.276607.122",
+      "primary_url": "https://doi.org/10.1101/gr.276607.122",
+      "title": "Lossless indexing with counting de Bruijn graphs",
+      "track": "genomic-graphs",
+      "authors": [
+        "Mikhail Karasikov",
+        "Harun Mustafa",
+        "Gunnar Rätsch",
+        "Andre Kahles"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "Введены counting de Bruijn graphs с k-mer abundance и positional annotations; представлены авторские результаты компрессии больших геномных коллекций.",
+      "limits_ru": "Нельзя переносить экспериментальный коэффициент сжатия или queries по k-mer путям на arbitrary DAG reachability/SSD rewrite theorem.",
+      "alternate_identities": [],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-379",
+      "year": 2025,
+      "identity": "doi:10.3389/fgene.2025.1679660",
+      "primary_url": "https://doi.org/10.3389/fgene.2025.1679660",
+      "title": "Beyond single references: pangenome graphs and the future of genomic medicine",
+      "track": "genomic-graphs",
+      "authors": [
+        "Denis M. Nyaga",
+        "Roan E. Zaied",
+        "Olin K. Silander",
+        "Michael A. Black",
+        "Justin M. O'Sullivan"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "Издательский обзор пангеномных графов и haplotype paths, преимуществ перед единичным линейным reference и проблем интерпретируемости.",
+      "limits_ru": "Это обзор биомедицинского применения, а не математическая нижняя граница для графовых индексов.",
+      "alternate_identities": [],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-380",
+      "year": 2024,
+      "identity": "doi:10.18653/v1/2024.acl-long.8",
+      "primary_url": "https://doi.org/10.18653/v1/2024.acl-long.8",
+      "title": "A Unified Temporal Knowledge Graph Reasoning Model Towards Interpolation and Extrapolation",
+      "track": "agent-memory",
+      "authors": [
+        "Kai Chen",
+        "Ye Wang",
+        "Yitong Li",
+        "Aiping Li",
+        "Han Yu",
+        "Xin Song"
+      ],
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "summary_ru": "ACL 2024 TPAR: temporal path reasoning, объединяющий interpolation и extrapolation при построении прогнозов TKG; авторские benchmark результаты.",
+      "limits_ru": "Нет доказательства источниковой истины, bitemporal достоверности или криптографической freshness.",
+      "alternate_identities": [],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-381",
+      "year": 2024,
+      "identity": "doi:10.18653/v1/2024.findings-emnlp.543",
+      "primary_url": "https://doi.org/10.18653/v1/2024.findings-emnlp.543",
+      "title": "Natural Evolution-based Dual-Level Aggregation for Temporal Knowledge Graph Reasoning",
+      "track": "agent-memory",
+      "authors": [
+        "Bin Chen",
+        "Chunjing Xiao",
+        "Fan Zhou"
+      ],
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "summary_ru": "EMNLP 2024 NEDA: асинхронные event patches и dual-level aggregation для temporal knowledge-graph link prediction.",
+      "limits_ru": "Ни причинная идентификация, ни проверяемость исторических PIN, ни полный provenance не доказаны.",
+      "alternate_identities": [],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-382",
+      "year": 2025,
+      "identity": "publisher:aclanthology:2025-neusymbridge-1-2",
+      "primary_url": "https://aclanthology.org/2025.neusymbridge-1.2/",
+      "title": "CEGRL-TKGR: A Causal Enhanced Graph Representation Learning Framework for Temporal Knowledge Graph Reasoning",
+      "track": "agent-memory",
+      "authors": [
+        "Jinze Sun",
+        "Yongpan Sheng",
+        "Lirong He",
+        "Yongbin Qin",
+        "Ming Liu",
+        "Tao Jia"
+      ],
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "summary_ru": "COLING NeusymBridge 2025: disentangling causal и confounding representations, интервенционные идеи в обучении TKG embeddings и авторские эксперименты.",
+      "limits_ru": "Работа использует каузальный язык в ML, но не гарантирует корректную структурную каузальную модель или доказательство подлинности факта.",
+      "alternate_identities": [],
+      "verification": "publisher_bibliography_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-383",
+      "year": 2025,
+      "identity": "arxiv:2507.23581",
+      "primary_url": "https://arxiv.org/abs/2507.23581",
+      "title": "GraphRAG-R1: Graph Retrieval-Augmented Generation with Process-Constrained Reinforcement Learning",
+      "track": "graph-rag",
+      "authors": [
+        "Chuanyue Yu",
+        "Kuo Zhao",
+        "Yuhan Li",
+        "Heng Chang",
+        "Mingjian Feng",
+        "Xiangzhe Jiang",
+        "Yufei Sun",
+        "Jia Li",
+        "Yuzhi Zhang",
+        "Jianxin Li",
+        "Ziwei Zhang"
+      ],
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "summary_ru": "Process-constrained RL и cost-aware graph-text retrieval; авторы сообщают улучшение по multi-hop retrieval бенчмаркам.",
+      "limits_ru": "Экспериментальные показатели не перепроверены; не гарантируют completeness, provenance, timeliness или causal correctness.",
+      "alternate_identities": [],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-384",
+      "year": 2025,
+      "identity": "doi:10.5281/zenodo.21039806",
+      "primary_url": "https://doi.org/10.5281/zenodo.21039806",
+      "title": "Comparing RAG and GraphRAG for Page-Level Retrieval Question Answering on a Math Textbook",
+      "track": "graph-rag",
+      "authors": [
+        "Eason Chen",
+        "Chuangji Li",
+        "Shizhuo Li",
+        "Zimo Xiao",
+        "Jionghao Lin",
+        "Ken Koedinger"
+      ],
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "summary_ru": "EDM 2026: 477 QA примеров из одного учебника; авторы находят преимущество RAG/BM25 по page-level retrieval и более низкий шум контекста относительно GraphRAG.",
+      "limits_ru": "Частный эксперимент не является общей теоремой о преимуществе RAG; первый авторский препринт 2025 отличается метаданными версий.",
+      "alternate_identities": [
+        "arxiv:2509.16780"
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-385",
+      "year": 2026,
+      "identity": "doi:10.1145/3798129.3800774",
+      "primary_url": "https://doi.org/10.1145/3798129.3800774",
+      "title": "Dynamic Meta-Kernelization",
+      "track": "graph-algorithms",
+      "authors": [
+        "Christian Bertram",
+        "Deborah Haun",
+        "Mads Vestergaard Jensen",
+        "Tuukka Korhonen"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "STOC 2026 динамическая параметризованная meta-kernelization для графовых задач и инкрементальных задач ограниченного ядра.",
+      "limits_ru": "Не относится напрямую к arbitrary DAG reachability, GF(5) signed trades или authenticated range queries.",
+      "alternate_identities": [],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-386",
+      "identity": "arxiv:2505.12891",
+      "year": 2025,
+      "title": "TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios",
+      "track": "agent-memory",
+      "authors": [
+        "Shaohang Wei",
+        "Wei Li",
+        "Feifan Song",
+        "Wen Luo",
+        "Tianyi Zhuang",
+        "Haochen Tan",
+        "Zhijiang Guo",
+        "Houfeng Wang"
+      ],
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "summary_ru": "NeurIPS 2025 Datasets & Benchmarks: авторы сформировали 38 522 пары temporal QA из Wiki/News/Dialog, 3 уровня и 11 подзадач; источник для отрицательных и положительных экспериментальных тестов временных моделей.",
+      "limits_ru": "Benchmark LLM temporal QA не доказывает cryptographic freshness, causal ground truth, надежность bitemporal provenance или lower bounds; исходные результаты не воспроизведены.",
+      "primary_url": "https://arxiv.org/abs/2505.12891",
+      "alternate_identities": [],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-387",
+      "identity": "doi:10.64898/2026.03.26.714584",
+      "year": 2026,
+      "title": "A run-length-compressed skiplist data structure for dynamic GBWTs supports time and space efficient pangenome operations over syncmers",
+      "track": "genomic-graphs",
+      "authors": [
+        "Richard Durbin"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "Авторский bioRxiv-препринт 2026: динамический run-length-compressed BWT с skiplist и представлением syncmer-indexed haplotype paths; авторы сообщают rank/access O(log N) и insert O(log N+S) в собственной модели.",
+      "limits_ru": "Не подтверждена рецензируемая версия; алгоритмические границы для заданных путей не означают произвольную DAG reachability, fsync/WAL/GC, paid SSD page recourse или Byzantine proof freshness.",
+      "primary_url": "https://doi.org/10.64898/2026.03.26.714584",
+      "alternate_identities": [],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
     }
   ]
 }
