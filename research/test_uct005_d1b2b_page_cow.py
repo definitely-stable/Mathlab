@@ -114,6 +114,13 @@ class B2BPageCowTests(unittest.TestCase):
         manifest, records = t.make_proof(0, 1, 4)
         self.assertEqual(t.query(0, 1, 4, as_of=0, presented_root=manifest,
                                  presented_records=records), 1)
+        # Root node ID is now authenticated *by the anchor* rather than
+        # merely being an untrusted locator with a matching node digest.
+        wrong_pointer = bytearray(manifest)
+        wrong_pointer[15] ^= 1
+        with self.assertRaises(Abort):
+            t.query(0, 1, 4, as_of=0, presented_root=bytes(wrong_pointer),
+                    presented_records=records)
         bad = bytearray(manifest)
         bad[-1] ^= 1
         with self.assertRaises(Abort):
@@ -214,12 +221,16 @@ class B2BPageCowTests(unittest.TestCase):
     def test_latest_anchor_replay_pin_race_and_cost_separation(self):
         t = PageCowTree((0, 1, 0), 1)
         old = t.roots[0]
+        anchor0 = t.latest_digest
         generation_before = t.generation
         t.pin_current(0)
         with self.assertRaises(Abort):
             t.gc(expected_generation=generation_before)
         e = t.set(1, 1)  # no-op; epoch still increments
         self.assertEqual(e, 1)
+        self.assertNotEqual(t.latest_digest, anchor0,
+                            "no-op epoch and newly rooted page identity are anchored")
+        self.assertEqual(t.ledger["set_root_hash_calls"], 2)
         self.assertEqual(t.ledger["set_changed_logical_bits"], 0)
         with self.assertRaises(Abort):
             t.query(0, 0, 3, presented_root=old)
