@@ -108,7 +108,7 @@ class GQConcurrenceTests(unittest.TestCase):
             self.assertEqual(data["all_original_three_line_sets_by_class"],
                              cert["induced_three_line_counts_by_edges"])
             self.assertEqual(data["source_total_mass"], 5000)
-            self.assertEqual(data["source_3marginal_total"], 100000)
+            self.assertEqual(data["source_third_marginal_total"], 100000)
             self.assertEqual(sum(data["source_3marginal_by_concurrence_pairs"]),
                              100000)
             self.assertTrue(all(a <= b for a,b in zip(
