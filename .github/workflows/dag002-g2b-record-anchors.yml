@@ -1,0 +1,35 @@
+name: dag002-g2b-record-anchors
+
+on:
+  push:
+    branches:
+      - main
+      - "research/**"
+    paths:
+      - "research/dag002_g2b_record_anchors.py"
+      - "research/test_dag002_g2b_record_anchors.py"
+      - "docs/research/DAG-002-G2-B1-RECORD-ANCHOR-PAGES.md"
+      - ".github/workflows/dag002-g2b-record-anchors.yml"
+  pull_request:
+    paths:
+      - "research/dag002_g2b_record_anchors.py"
+      - "research/test_dag002_g2b_record_anchors.py"
+      - "docs/research/DAG-002-G2-B1-RECORD-ANCHOR-PAGES.md"
+      - ".github/workflows/dag002-g2b-record-anchors.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-record-anchor-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Deterministic record-anchor page-cost report
+        run: python research/dag002_g2b_record_anchors.py
+      - name: Independent DFS and page-ledger unit tests
+        run: python -m unittest discover -s research -p 'test_dag002_g2b_record_anchors.py' -v
