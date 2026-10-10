@@ -1,0 +1,34 @@
+name: uct005-d1b2f3c-speculative-onepass-pin
+on:
+  push:
+    branches:
+      - "research/uct005-d1b2f3c-*"
+    paths:
+      - "research/uct005_d1b2f3c_onepass_speculative_pin.py"
+      - "research/test_uct005_d1b2f3c_onepass_speculative_pin.py"
+      - ".github/workflows/uct005-d1b2f3c-onepass-pin.yml"
+  pull_request:
+    paths:
+      - "research/uct005_d1b2f3c_onepass_speculative_pin.py"
+      - "research/test_uct005_d1b2f3c_onepass_speculative_pin.py"
+      - ".github/workflows/uct005-d1b2f3c-onepass-pin.yml"
+permissions:
+  contents: read
+jobs:
+  speculative-onepass-falsifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaustive old SHA gate, stage abort, one-pass full-byte ledger and PIN traces
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2f3c_onepass_speculative_pin.py' -v
+      - name: Reproduce same-F1 bulk 7M versus F2 11M versus F3-C 7M
+        run: python research/uct005_d1b2f3c_onepass_speculative_pin.py
+      - name: Regression against immutable F3-B and F2 scopes
+        run: |
+          python -m unittest discover -s research -p 'test_uct005_d1b2f3b_three_model_pareto.py' -v
+          python -m unittest discover -s research -p 'test_uct005_d1b2f2_streamed_pin_bitmap.py' -v
+          python -m unittest discover -s research -p 'test_uct005_tree.py' -v
