@@ -122,6 +122,7 @@ def retention_audit(m) -> dict:
         pinned = set(trusted) - {m.epoch}
         incremental = len(pinned)*per_epoch
         kept = len(trusted)*per_epoch
+        latest_only_kept = per_epoch
         bitmap = 0
         overlap = 0
         latest_nodes = 0
@@ -146,6 +147,7 @@ def retention_audit(m) -> dict:
         incremental = ((len(union)-len(latest_set))*node_pages
                        + len(pinned)*root_pages)
         kept = len(union)*node_pages + len(trusted)*root_pages + bitmap
+        latest_only_kept = len(latest_set)*node_pages + root_pages + bitmap
         latest_nodes = len(latest_set)
         union_nodes = len(union)
         overlap = sum(len(x) for x in per_root.values())-len(union)
@@ -170,6 +172,7 @@ def retention_audit(m) -> dict:
         "active_pin_entries": len(m.pin_registry if isinstance(m, SnapshotF1Reference)
                                   else m.authority_pins),
         "incremental_PIN_remote_pages_over_latest": incremental,
+        "latest_only_remote_pages_including_metadata": latest_only_kept,
         "authenticated_kept_remote_pages_including_metadata": kept,
         "bitmap_remote_pages_charged": bitmap,
         "root_slot_pages": distinct_root_pages,
@@ -248,8 +251,8 @@ def exercise(n: int, p: int, initial: tuple[int,...] | None=None) -> dict:
             if actual != info["authenticated_kept_remote_pages_including_metadata"]:
                 raise AssertionError("retention root union did not predict post-GC pages")
             if (info["incremental_PIN_remote_pages_over_latest"] !=
-                    actual - (actual - info["incremental_PIN_remote_pages_over_latest"])):
-                raise AssertionError("PIN delta arithmetic error")
+                    actual - info["latest_only_remote_pages_including_metadata"]):
+                raise AssertionError("PIN delta exceeds authenticated kept-root union")
             for k,v in audit_keys.items():
                 if m.ledger[k]!=v:
                     raise AssertionError("GC mutated separately charged audit ledger")
