@@ -1,3 +1,7 @@
+## UCT-005 D1-B2-B1 — segmented bitmap allocation (2026-10-10)
+
+[Byte grammar, exact write bound and GC](UCT-005-G3-B2-D1B2B1-SEGMENTED-BITMAP.md) · [conditional implementation](../../research/uct005_d1b2b1_segmented_bitmap.py) · [independent tests](../../research/test_uct005_d1b2b1_segmented_bitmap.py) · [issue #254](https://github.com/definitely-stable/Mathlab/issues/254). Stacked on unmerged D1-B2-B PR #248. **Only the allocator-bitmap SET coordinate improves; full F1 Pareto and UCT-005 root remain OPEN_UNPROVED.**
+
 ## UCT-005 D1-B2-B — charged COW-tree page records, PIN and mark-sweep (2026-10-10)
 
 [Exact 122-byte node/48-byte root model](UCT-005-G3-B2-D1B2B-PAGE-COW-TREE.md) · [reference](../../research/uct005_d1b2b_page_cow.py) · [independent tests](../../research/test_uct005_d1b2b_page_cow.py) · [issue #244](https://github.com/definitely-stable/Mathlab/issues/244). Two independent readers, authenticated latest/historical roots, complete page-image ledgers, stale-GC exclusion. **FINITE_UPPER / NO_REAL_CRASH_SECURITY / ROOT_OPEN_UNPROVED**.
