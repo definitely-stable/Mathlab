@@ -210,6 +210,24 @@ class SevenMotifJointFixedTests(unittest.TestCase):
             model=pair_labeled_symplectic(1,scheme)
             structural=seven_census(model)
             weighted=exact_seven_weighted_GF5(model,max_signed_events=5000)
+            pinned_full = {
+                "lex": (14874594, {
+                    "D6":812430, "B-left/A-right":5627064,
+                    "A-left/B-right":6213834,
+                    "C/A":819300, "C/B":59982,
+                    "B/B-overlap":428832, "B/B-disjoint":913152,
+                }),
+                "reverse-line": (9330448, {
+                    "D6":162486, "B-left/A-right":4231006,
+                    "A-left/B-right":4087738,
+                    "C/A":63132, "C/B":53718,
+                    "B/B-overlap":374682, "B/B-disjoint":357686,
+                }),
+            }
+            exact_total, per_class = pinned_full[scheme]
+            self.assertEqual(weighted["exact_selected_GF5_R3_numerator"],
+                             exact_total)
+            self.assertEqual(weighted["selected_GF5_sum_by_class"],per_class)
             self.assertEqual(weighted["seven_class_original_sixsets"],
                              structural["S_seven"])
             self.assertEqual(weighted["selected_exact_GF5_signed_events"],
