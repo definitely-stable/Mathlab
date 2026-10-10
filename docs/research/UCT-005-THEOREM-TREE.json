@@ -287,6 +287,24 @@
       "kind": "research_input",
       "status": "SAME_TRANSCRIPT_PARTIAL_PHYSICAL_LEDGER_KNOWN_AXES_AND_PARETO_STOP_NO_NEW_LOWER_BOUND",
       "source": "docs/research/UCT-005-G3-B2-D1B2F-RESOURCE-RECONCILIATION.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2C",
+      "kind": "research_input",
+      "status": "CLASSICAL_EAGER_PIN_RECLAIM_REFERENCE_UPPER_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B2C-EAGER-PIN-RECLAIM.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2D",
+      "kind": "research_input",
+      "status": "CLASSICAL_AUTHENTICATED_REMOTE_PIN_BITMAP_UPPER_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B2D-AUTHENTICATED-REMOTE-PIN.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2E",
+      "kind": "research_input",
+      "status": "CLASSICAL_FULL_AUDIT_INFORMATION_AND_CONDITIONAL_F1_TRUST_BUDGET_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B2E-TOTAL-PIN-BUDGET.md"
     }
   ],
   "edges": [
@@ -514,6 +532,21 @@
       "parent": "UCT005G3B2D1B2B1",
       "child": "UCT005G3B2D1B2F",
       "relation": "RECONCILED_PARTIAL_PRICED_UPPER_STOP_NOT_PROVEN_ROOT_THEOREM"
+    },
+    {
+      "parent": "UCT005G3B2D1B2A",
+      "child": "UCT005G3B2D1B2C",
+      "relation": "PAID_EAGER_GC_UPPER_NOT_UNIVERSAL_HISTORICAL_GC_BOUND"
+    },
+    {
+      "parent": "UCT005G3B2D1B2C",
+      "child": "UCT005G3B2D1B2D",
+      "relation": "REMOTE_AUTHENTICATED_PIN_BITMAP_UPPER_NOT_INFORMATION_LOWER_BOUND"
+    },
+    {
+      "parent": "UCT005G3B2D1B2D",
+      "child": "UCT005G3B2D1B2E",
+      "relation": "CLASSICAL_FULL_AUDIT_FALSIFIER_AND_CONDITIONAL_TOTAL_TRUST_UPPER_NOT_ROOT"
     }
   ]
 }

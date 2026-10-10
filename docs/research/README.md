@@ -1,3 +1,9 @@
+## UCT-005 D1-B2-E — total trusted PIN budget / exact full-audit gate (2026-10-10)
+
+[Scientific scope, classical counting and explicit STOP gates](UCT-005-G3-B2-D1B2E-TOTAL-PIN-BUDGET.md) · [finite classical and paid-F1 comparator code](../../research/uct005_d1b2e_total_pin_budget.py) · [independent tests](../../research/test_uct005_d1b2e_total_pin_budget.py) · [issue #255](https://github.com/definitely-stable/Mathlab/issues/255). Full-vector H historical membership audit, no uncharged side information: known classical H<=s+b; **false for one-member query**, proven by exact direct-index countermodel. Same-PAGE-001 F1 data, PIN e0/e2 and 3 SETs including no-op: n=33,P=2,C=8 modeled persistent trusted 1649 bits with eager PIN records vs 1313 with authenticated remote bitmap, for respectively 81 vs 82 live remote pages. All reader-held roots charged; scratch RAM, real durability, setup and full network costs unknown. **ROOT OPEN_UNPROVED**, no general lower bound or full Pareto claim.
+
+
+
 ## UCT-005 D1-B2-F — common F1 resource ledger and typed Pareto stop (2026-10-10)
 
 [Same-history cost reconciliation](UCT-005-G3-B2-D1B2F-RESOURCE-RECONCILIATION.md) · [reproducible driver](../../research/uct005_d1b2f_resource_reconciliation.py) · [independent tests](../../research/test_uct005_d1b2f_resource_reconciliation.py) · [issue #262](https://github.com/definitely-stable/Mathlab/issues/262). Snapshot, COW and segmented COW share PIN/SET/queries/GC and charged page axes; Replica+Log remain logical-only. Unknown axes stay `null`, no full Pareto or UCT root theorem.
