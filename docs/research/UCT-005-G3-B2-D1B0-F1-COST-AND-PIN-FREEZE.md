@@ -58,3 +58,32 @@ An ideal serialized authority stores a current 40-byte epoch/root and active PIN
 **Next D1-B1:** inspect full primary theorem and proof hypotheses for canonical LIT-111/112/119/156–159/199–200/349–359, then issue a signed `APPLICABLE/REDUCTION_REQUIRED/NOT_APPLICABLE` transfer table for this *exact* F1 task. LIT-359 (Guruswami–Lyu–Yuan, [arXiv:2507.22265](https://arxiv.org/abs/2507.22265)) is static semi-random-CSP/cell-probe methodology, **not** a directly transferred authenticated dynamic range theorem. The bibliography corpus already contains the identifiers; do not duplicate them. D1-B2 should then enumerate same-task Pareto points, D1-B3 must state **one quantified falsifiable H1+H2 formula**, and D1-B4 must either prove a novel strict Pareto gap or record a scoped `STOP_NOVELTY`.
 
 **UCT-005 root remains `OPEN_UNPROVED`.**
+
+
+## 2026-10-10 D1-B0-F1-PAGE-001 byte conservation correction
+
+**Issue #240.** Corrects an incorrect single-page manifest and implicit epoch-to-snapshot lookup in merged PR #235. Logical PIN/GC, the ideal anchor and UCT ROOT_OPEN_UNPROVED remain unchanged.
+
+### Exact frozen reference layout
+
+Each integer epoch e in [0,2^64) has one immutable, independently page-aligned sparse fixed-stride slot. Its public layout uses n logical bits and page size P bytes:
+\[
+B_d=\lceil n/8\rceil,\quad B_m=8_{\rm epoch}+8_{\rm length}+32_{\rm digest}=48\ \text{bytes},
+\]
+\[
+P_d=\lceil B_d/P\rceil,\quad P_m=\lceil48/P\rceil,\quad
+P_{\rm slot}=P_d+P_m,\quad {\rm first\_page}(e)=eP_{\rm slot}.
+\]
+Remote manifest wire grammar: big-endian uint64 epoch || big-endian uint64 payload length || 32-byte domain-separated SHA256 digest. This is a physically stored 48-byte manifest, **not** a free pointer to a digest; the 40-byte epoch+digest in the *separately trusted* linearizable anchor remains independently charged. Manifest and payload are separately page-aligned (rounding waste included).
+
+All remote data/proof reads use the public arithmetic slot, verify manifest epoch, length and digest, and compare to the reader's trusted latest root or PIN. The Python dictionaries only simulate presence of physical pages in public fixed-stride slots: no unpriced dynamic remote lookup B-tree or epoch-to-object directory. Old slots are never relocated or reused in this restricted upper construction; reclaiming them leaves sparse address holes. Space measures *allocated live pages*, not largest virtual byte offset. The archive is an abstract page-image machine, not a real file, filesystem hole punch, mmap, NAND or crash-safe SSD claim.
+
+Per snapshot update, charge P_slot full-page remote writes and P*P_slot padded upload bytes. Exact server query payload is 48 manifest bytes plus B_d image bytes, with an additional 8-byte epoch request. Charge P_slot full-page remote reads and 16+B_d verifier-hash input bytes. For GC, enumerate **every issued epoch**, including reclaimed sparse holes, and charge (e+1)*P_m manifest-region page fetch attempts; remote deletion/reclaim page ledger remains separate. Thus using a Python dictionary to simulate extant payloads does not confer a free epoch-directory oracle.
+
+The separately trusted authoritative PIN registry stores 1-byte reader ID + 8-byte epoch + 32-byte digest = 41 bytes per active record, additionally to the 40-byte PIN kept by the independent reader. PIN/UNPIN persistence charges ceil(41/P) **trusted-authority** page writes, not remote S/U_w. Trusted state s counts writer's n bits, latest 40-byte root, every reader PIN root and each 41-byte registry record. Actual separate anchor, network authentication, retry framing, durable fsync and cryptographic security reductions remain unimplemented/assumed.
+
+### Corrected finite witness
+
+At n=33, P=2, a 5-byte packed payload uses 3 data pages; the 48-byte manifest uses 24 pages. Exact total is **27** remote pages per snapshot and **54** padded upload bytes, rather than the earlier incorrect 4 pages and 8 upload bytes. The independent regression covers P in {1,2,8,40,64}, n in {1,33,65}, no-op epoch binding, two independent PINs, latest and historical reads, GC holes, replay, manifest tampering and truncation. A full Research CI pass and exact-head focused workflow are prerequisites to acceptance.
+
+Do not infer any original lower bound, cryptographic security proof, bounded-address-space optimality, OS fsync guarantee or real SSD physical write amplification from this byte-conserving reference comparator.

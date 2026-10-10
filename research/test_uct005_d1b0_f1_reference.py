@@ -76,26 +76,103 @@ class F1D1B0Tests(unittest.TestCase):
         self.assertEqual(m.as_of(0, e1, 0, 4), 1)
         self.assertIn(e1, m.remote)
 
+    def test_small_page_metadata_page_conservation(self):
+        # Independent bytes-to-full-pages arithmetic, never call the
+        # implementation's _pages helpers for the expected count.
+        for p in (1, 2, 8, 40, 64):
+            for n in (1, 33, 65):
+                m = SnapshotF1Reference((0,) * n, page_bytes=p)
+                payload_bytes = (n + 7) // 8
+                remote_manifest_bytes = 8 + 8 + 32
+                data_pages = (payload_bytes + p - 1) // p
+                manifest_pages = (remote_manifest_bytes + p - 1) // p
+                reference_pages = data_pages + manifest_pages
+                self.assertEqual(m._pages_per_snapshot(), reference_pages)
+                self.assertEqual(m.remote_pages, reference_pages)
+                self.assertEqual(m._slot_start_page(0), 0)
+                self.assertEqual(m._slot_start_page(1), reference_pages)
+                self.assertEqual(len(m.remote_manifests[0]), 48)
+                self.assertEqual(int.from_bytes(m.remote_manifests[0][:8], "big"), 0)
+                self.assertEqual(int.from_bytes(m.remote_manifests[0][8:16], "big"),
+                                 payload_bytes)
+                self.assertEqual(m.remote_manifests[0][16:], m.latest_root)
+                self.assertEqual(m.ledger["setup_full_page_writes"], reference_pages)
+                e0 = m.pin_current(0)
+                self.assertEqual(m.ledger["pin_control_full_page_writes"],
+                                 (41 + p - 1) // p)
+                self.assertEqual(m.ledger["pin_registry_bytes"], 41)
+                m.set(0, 0)
+                self.assertEqual(m.ledger["set_full_page_writes"], reference_pages)
+                self.assertEqual(m.remote_pages, 2 * reference_pages)
+                self.assertEqual(m.ledger["author_remote_upload_bytes"],
+                                 reference_pages * p)
+                self.assertEqual(m.latest(1, 0, n), 0)
+                self.assertEqual(m.as_of(0, e0, 0, n), 0)
+                self.assertEqual(m.ledger["query_remote_payload_bytes"],
+                                 2 * (payload_bytes + remote_manifest_bytes))
+                self.assertEqual(m.ledger["query_full_page_reads"],
+                                 2 * reference_pages)
+                self.assertEqual(m.ledger["query_remote_request_bytes"], 16)
+                self.assertEqual(set(m.remote), set(m.remote_manifests))
+                m.unpin(0, e0)
+                self.assertEqual(m.gc(), reference_pages)
+                self.assertNotIn(0, m.remote)
+                self.assertNotIn(0, m.remote_manifests)
+                self.assertEqual(m.remote_pages, reference_pages)
+                self.assertEqual(m.ledger["gc_directory_page_reads"], 2 * manifest_pages)
+                self.assertEqual(m.ledger["gc_manifest_page_writes"], manifest_pages)
+
+    def test_immutable_manifest_tampering_and_reclaimed_slot_abort(self):
+        for p in (1, 2, 40, 64):
+            m = SnapshotF1Reference((1, 0, 1), page_bytes=p)
+            good = m.remote_manifests[0]
+            corrupted = bytearray(good)
+            corrupted[8] ^= 1
+            m.remote_manifests[0] = bytes(corrupted)
+            self.assertRaises(Abort, m.latest, 0, 0, 3)
+            m.remote_manifests[0] = good[:-1]
+            self.assertRaises(Abort, m.latest, 0, 0, 3)
+            m.remote_manifests[0] = good
+            self.assertEqual(m.latest(0, 0, 3), 0)
+            self.assertEqual(len(good), 48)
+            self.assertGreaterEqual(m.ledger["query_full_page_reads"],
+                                    3 * m._pages_per_snapshot())
+
+    def test_gc_scans_all_epoch_slots_after_reclamation(self):
+        m = SnapshotF1Reference((0, 0, 1), page_bytes=2)
+        m.set(0, 1)
+        m.set(1, 1)
+        m.gc()
+        first = m.ledger["gc_directory_page_reads"]
+        self.assertEqual(first, 3 * 24)
+        self.assertEqual(m.remote_pages, m._pages_per_snapshot())
+        m.gc()  # old sparse slots still require probed absence; no free dict index
+        self.assertEqual(m.ledger["gc_directory_page_reads"] - first, 3 * 24)
+
     def test_charged_snapshot_and_noop_epoch(self):
         m = SnapshotF1Reference((0,) * 33, page_bytes=2)
-        # ceil(5 bytes/2)=3 data pages + one entire manifest page
-        self.assertEqual(m.remote_pages, 4)
-        self.assertEqual(m.ledger["setup_full_page_writes"], 4)
+        # 5 payload bytes -> 3 data pages; remote fixed manifest
+        # 8-byte epoch + 8-byte length + 32-byte digest = 48 bytes,
+        # thus 24 additional pages when P=2.
+        self.assertEqual(m.MANIFEST_BYTES, 48)
+        self.assertEqual(len(m.remote_manifests[0]), 48)
+        self.assertEqual(m.remote_pages, 27)
+        self.assertEqual(m.ledger["setup_full_page_writes"], 27)
         t0 = m.pin_current(0)
         old_hash = m.latest_root
         t1 = m.set(15, 0)
         self.assertEqual((t0, t1), (0, 1))
         self.assertNotEqual(m.latest_root, old_hash)
         self.assertEqual(m.ledger["set_changed_logical_bits"], 0)
-        self.assertEqual(m.ledger["set_full_page_writes"], 4)
+        self.assertEqual(m.ledger["set_full_page_writes"], 27)
         self.assertEqual(m.ledger["set_full_page_reads"], 0)
         self.assertEqual(m.ledger["anchor_publication_bytes"], 40)
-        self.assertEqual(m.ledger["author_remote_upload_bytes"], 8)
-        self.assertEqual(m.ledger["pin_control_full_page_writes"], 1)
+        self.assertEqual(m.ledger["author_remote_upload_bytes"], 54)
+        self.assertEqual(m.ledger["pin_control_full_page_writes"], 21)
         self.assertEqual(m.ledger["anchor_read_request_bytes"], 1)
         self.assertEqual(m.ledger["anchor_read_response_bytes"], 40)
-        self.assertEqual(m.remote_pages, 8)
-        self.assertEqual(m.retained_pinned_pages, 4)
+        self.assertEqual(m.remote_pages, 54)
+        self.assertEqual(m.retained_pinned_pages, 27)
         self.assertGreaterEqual(m.trusted_bits, 33 + 40 * 8)
         self.assertRaises(ValueError, m.latest, 2, 0, 1)
         self.assertRaises(ValueError, m.pin_current, 2)

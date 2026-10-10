@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""UCT-005 D1-B0: fully charged *reference snapshot* and PIN/GC negative oracle.
+"""UCT-005 D1-B0: byte-conserving fixed-slot snapshot and PIN/GC negative oracle.
 
 NOT a production authenticated storage implementation or a lower bound.
 SHA-256 binding and a serialized, separately trusted anchor+PIN authority
@@ -40,6 +40,13 @@ def validate_contract() -> dict:
         raise ValueError("pin/GC race unmodeled")
     if spec["d1_b1_status"] != "FULL_TEXT_THEOREM_TRANSFER_PENDING":
         raise ValueError("abstract-only source verification promoted")
+    layout = spec.get("reference_storage_layout", {})
+    if layout.get("kind") != "immutable_sparse_fixed_stride_page_slots":
+        raise ValueError("unknown F1 page layout")
+    if layout.get("remote_manifest_format", {}).get("total_bytes") != 48:
+        raise ValueError("remote manifest must have 48 charged bytes")
+    if layout.get("pin_registry", {}).get("record_bytes") != 41:
+        raise ValueError("trusted PIN entry must have 41 charged bytes")
     return spec
 
 
@@ -52,12 +59,14 @@ class SnapshotF1Reference:
 
     The writer's n trusted bits, authority's latest root, each reader's PIN,
     and the duplicated authoritative PIN registry are all separately counted.
-    Full immutable packed snapshots are an intentionally expensive upper
+    Fixed-stride manifest and data pages are an intentionally expensive upper
     comparator, not a cost-optimal data structure.
     """
 
     DIGEST_BYTES = 32
     ROOT_BYTES = 8 + DIGEST_BYTES
+    MANIFEST_BYTES = 8 + 8 + DIGEST_BYTES  # epoch, payload length, digest
+    PIN_RECORD_BYTES = 1 + ROOT_BYTES    # reader ID plus epoch/root
 
     def __init__(self, bits: tuple[int, ...], page_bytes: int = 64):
         if not bits or any(bit not in (0, 1) for bit in bits) or page_bytes < 1:
@@ -66,12 +75,17 @@ class SnapshotF1Reference:
         self.page_bytes = page_bytes
         self.writer_bits = list(bits)  # n trusted writer bits; not free
         self.epoch = 0
+        # Sparse simulator of immutable *fixed-stride physical slots*. The slot
+        # page address is epoch * (data_pages + manifest_pages); there is no
+        # unpriced epoch-to-object directory or server-side keyed lookup.
         self.remote: dict[int, bytes] = {}
+        self.remote_manifests: dict[int, bytes] = {}
         self.readers: dict[int, dict[int, bytes]] = {0: {}, 1: {}}
-        self.pin_registry: set[tuple[int, int]] = set()
+        self.pin_registry: dict[tuple[int, int], bytes] = {}
         self.ledger = Counter()
         self.latest_root = self._digest(0, self._image())
         self.remote[0] = self._image()
+        self.remote_manifests[0] = self._manifest(0, self.remote[0])
         self.ledger["setup_full_page_writes"] += self._pages_per_snapshot()
         self.ledger["setup_remote_upload_bytes"] += self._pages_per_snapshot() * self.page_bytes
         self.ledger["setup_anchor_publications"] += 1
@@ -92,9 +106,32 @@ class SnapshotF1Reference:
             + image
         ).digest()
 
+    def _pages(self, size: int) -> int:
+        return (size + self.page_bytes - 1) // self.page_bytes
+
+    def _data_pages(self) -> int:
+        return self._pages((self.n + 7) // 8)
+
+    def _manifest_pages(self) -> int:
+        return self._pages(self.MANIFEST_BYTES)
+
     def _pages_per_snapshot(self) -> int:
-        # ceil(data/P) + one entire full-page epoch/manifest entry
-        return (len(self._image()) + self.page_bytes - 1) // self.page_bytes + 1
+        # Two separately aligned extents, including their actual bytes.
+        return self._data_pages() + self._manifest_pages()
+
+    def _manifest(self, epoch: int, image: bytes) -> bytes:
+        if not 0 <= epoch < (1 << 64):
+            raise ValueError("epoch exceeds fixed 64-bit slot contract")
+        return (epoch.to_bytes(8, "big")
+                + len(image).to_bytes(8, "big")
+                + self._digest(epoch, image))
+
+    def _slot_start_page(self, epoch: int) -> int:
+        # Public fixed-stride placement; holes are addressable without a B-tree.
+        return epoch * self._pages_per_snapshot()
+
+    def _pin_record(self, reader: int, epoch: int, root: bytes) -> bytes:
+        return reader.to_bytes(1, "big") + epoch.to_bytes(8, "big") + root
 
     @property
     def remote_pages(self) -> int:
@@ -109,10 +146,9 @@ class SnapshotF1Reference:
     def trusted_bits(self) -> int:
         # Writer + authoritative latest root + each reader PIN copy +
         # separately trusted authoritative PIN registry. All distinct.
-        return self.n + 8 * self.ROOT_BYTES * (
-            1 + sum(len(pins) for pins in self.readers.values())
-            + len(self.pin_registry)
-        )
+        return (self.n + 8 * self.ROOT_BYTES *
+                (1 + sum(len(pins) for pins in self.readers.values()))
+                + 8 * self.PIN_RECORD_BYTES * len(self.pin_registry))
 
     def _read_anchor(self) -> tuple[int, bytes]:
         self.ledger["anchor_read_calls"] += 1
@@ -125,10 +161,13 @@ class SnapshotF1Reference:
             raise ValueError("invalid SET")
         delta = int(self.writer_bits[i] != value)
         self.writer_bits[i] = value
+        if self.epoch == (1 << 64) - 1:
+            raise ValueError("fixed 64-bit epoch space exhausted")
         self.epoch += 1  # no-op also creates an epoch
         image = self._image()
-        self.remote[self.epoch] = image  # complete immutable snapshot image
+        self.remote[self.epoch] = image  # slot address by epoch, not index
         self.latest_root = self._digest(self.epoch, image)
+        self.remote_manifests[self.epoch] = self._manifest(self.epoch, image)
         self.ledger["set_changed_logical_bits"] += delta
         self.ledger["set_full_page_reads"] += 0  # author holds n trusted bits
         self.ledger["set_full_page_writes"] += self._pages_per_snapshot()
@@ -147,33 +186,36 @@ class SnapshotF1Reference:
         epoch, root = self._read_anchor()
         # Ideal atomic PIN acquisition and GC exclusion at this boundary.
         self.readers[reader][epoch] = root
-        self.pin_registry.add((reader, epoch))
+        self.pin_registry[(reader, epoch)] = root
         self.ledger["pin_registry_writes"] += 1
-        self.ledger["pin_registry_bytes"] += self.ROOT_BYTES
-        self.ledger["pin_control_full_page_writes"] += 1
+        self.ledger["pin_registry_bytes"] += self.PIN_RECORD_BYTES
+        # Trusted PIN authority storage, NOT part of remote S or U_w.
+        self.ledger["pin_control_full_page_writes"] += self._pages(self.PIN_RECORD_BYTES)
         return epoch
 
     def unpin(self, reader: int, epoch: int) -> None:
         if reader not in self.readers or epoch not in self.readers[reader]:
             raise ValueError("UNPIN without active token")
         del self.readers[reader][epoch]
-        self.pin_registry.remove((reader, epoch))
+        del self.pin_registry[(reader, epoch)]
         self.ledger["pin_registry_revocations"] += 1
-        self.ledger["pin_registry_bytes"] += self.ROOT_BYTES
-        self.ledger["pin_control_full_page_writes"] += 1
+        self.ledger["pin_registry_bytes"] += self.PIN_RECORD_BYTES
+        self.ledger["pin_control_full_page_writes"] += self._pages(self.PIN_RECORD_BYTES)
 
     def gc(self) -> int:
-        # One serialized collector. Scan explicitly charged version directory.
+        # Deterministic slot enumeration for every issued epoch, including
+        # deleted holes: no free Python-dict directory oracle. Remote probe
+        # attempts are charged even for absent, reclaimed slots.
         self.ledger["gc_directory_page_reads"] += (
-            len(self.remote) * 8 + self.page_bytes - 1
-        ) // self.page_bytes
+            (self.epoch + 1) * self._manifest_pages())
         retained = {self.epoch} | {epoch for _, epoch in self.pin_registry}
         deleted = [e for e in self.remote if e not in retained]
         for e in deleted:
             del self.remote[e]
+            del self.remote_manifests[e]
         freed = len(deleted) * self._pages_per_snapshot()
         self.ledger["gc_logical_pages_freed"] += freed
-        self.ledger["gc_manifest_page_writes"] += len(deleted)
+        self.ledger["gc_manifest_page_writes"] += len(deleted) * self._manifest_pages()
         return freed
 
     def _verify(self, epoch: int, expected_root: bytes, left: int, right: int,
@@ -183,16 +225,19 @@ class SnapshotF1Reference:
             raise ValueError("invalid half-open range")
         actual_epoch = epoch if presented_epoch is None else presented_epoch
         image = self.remote.get(actual_epoch) if presented is None else presented
-        if image is None:
+        manifest = self.remote_manifests.get(actual_epoch)
+        if image is None or manifest is None:
             raise Abort("withheld or reclaimed snapshot")
         self.ledger["query_full_page_reads"] += self._pages_per_snapshot()
-        self.ledger["query_remote_payload_bytes"] += 8 + len(image)
+        self.ledger["query_remote_request_bytes"] += 8  # public slot epoch
+        self.ledger["query_remote_payload_bytes"] += len(manifest) + len(image)
         self.ledger["verifier_hash_input_bytes"] += 16 + len(image)
-        if len(image) != (self.n + 7) // 8:
-            raise Abort("malformed length")
+        if len(image) != (self.n + 7) // 8 or len(manifest) != self.MANIFEST_BYTES:
+            raise Abort("malformed snapshot or manifest length")
         if (actual_epoch != epoch
+                or manifest != self._manifest(actual_epoch, image)
                 or self._digest(actual_epoch, image) != expected_root):
-            raise Abort("stale/tampered snapshot")
+            raise Abort("stale/tampered snapshot or manifest")
         return sum((image[i >> 3] >> (i & 7)) & 1
                    for i in range(left, right)) & 1
 
