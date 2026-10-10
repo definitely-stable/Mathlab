@@ -1,0 +1,70 @@
+{
+  "schema": "mathlab.research-graph-retrieval-fixtures.v1",
+  "policy": "Expected identities constrain lexical/graph retriever only. They do not verify claims or scientific novelty.",
+  "queries": [
+    {
+      "query": "T:UCT005",
+      "kind": "theorem_tree",
+      "relevant": [
+        "T:UCT005"
+      ],
+      "k": 1
+    },
+    {
+      "query": "P:LIT-355",
+      "kind": "publication",
+      "relevant": [
+        "P:LIT-355"
+      ],
+      "k": 1
+    },
+    {
+      "query": "R:ML-002",
+      "kind": "internal_research",
+      "relevant": [
+        "R:ML-002"
+      ],
+      "k": 1
+    },
+    {
+      "query": "аутентифицированная наблюдаемость",
+      "kind": "concept",
+      "relevant": [
+        "TAG:authenticated-observability"
+      ],
+      "k": 5
+    },
+    {
+      "query": "GraphRAG",
+      "kind": "concept",
+      "relevant": [
+        "TAG:graph-retrieval"
+      ],
+      "k": 5
+    },
+    {
+      "query": "signed trades",
+      "kind": "concept",
+      "relevant": [
+        "TAG:signed-trades"
+      ],
+      "k": 5
+    },
+    {
+      "query": "аутентифицированная наблюдаемость",
+      "kind": "artifact",
+      "relevant": [
+        "DOC:docs/research/UCT-005-G3-B2-D1B0-F1-COST-AND-PIN-FREEZE.md"
+      ],
+      "k": 30
+    },
+    {
+      "query": "Myhill-Nerode",
+      "kind": "typed_bridge",
+      "relevant": [
+        "B:G4-B01"
+      ],
+      "k": 10
+    }
+  ]
+}

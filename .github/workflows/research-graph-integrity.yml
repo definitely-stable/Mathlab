@@ -1,0 +1,78 @@
+name: research-graph-integrity
+
+on:
+  push:
+    branches:
+      - main
+      - "research/**"
+    paths:
+      - "research/research_graph.py"
+      - "research/test_research_graph.py"
+      - "research/research_graph_fts.py"
+      - "research/test_research_graph_fts.py"
+      - "research/research_graph_eval.py"
+      - "research/test_research_graph_eval.py"
+      - "docs/research/graph/retrieval-fixtures.json"
+      - "docs/research/graph/**"
+      - "docs/research/catalog/**"
+      - "docs/research/UCT-005-THEOREM-TREE.json"
+      - "docs/research/UCT-005-G4-TYPED-BRIDGES.json"
+      - "docs/research/KNOWN-AND-STOPPED-RESEARCH.json"
+      - "docs/research/IMPORT-012-SOURCE-GENEALOGY.json"
+      - "docs/research/**.md"
+      - ".github/workflows/research-graph-integrity.yml"
+  pull_request:
+    paths:
+      - "research/research_graph.py"
+      - "research/test_research_graph.py"
+      - "research/research_graph_fts.py"
+      - "research/test_research_graph_fts.py"
+      - "research/research_graph_eval.py"
+      - "research/test_research_graph_eval.py"
+      - "docs/research/graph/retrieval-fixtures.json"
+      - "docs/research/graph/**"
+      - "docs/research/catalog/**"
+      - "docs/research/UCT-005-THEOREM-TREE.json"
+      - "docs/research/UCT-005-G4-TYPED-BRIDGES.json"
+      - "docs/research/KNOWN-AND-STOPPED-RESEARCH.json"
+      - "docs/research/IMPORT-012-SOURCE-GENEALOGY.json"
+      - "docs/research/**.md"
+      - ".github/workflows/research-graph-integrity.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  research-graph:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate canonical graph and scoped non-proof semantics
+        run: python research/research_graph.py validate
+      - name: Negative regression and deterministic export tests
+        run: python -m unittest discover -s research -p 'test_research_graph.py' -v
+      - name: Test incremental indexed search, bilingual alias and removals
+        run: python -m unittest discover -s research -p 'test_research_graph_fts.py' -v
+      - name: Validate bilingual retrieval fixtures and negative cases
+        run: python -m unittest discover -s research -p 'test_research_graph_eval.py' -v
+      - name: Generate AI retrieval bundle, graph and bidirectional indexes
+        run: python research/research_graph.py build --out .work/research-graph
+      - name: Evaluate top-k relevance against source-grounded IDs
+        run: python research/research_graph_eval.py --check --report .work/research-graph/retrieval-evaluation.json
+      - name: Build incremental FTS5 cache and validate AI queries
+        run: |
+          python research/research_graph_fts.py sync --jsonl .work/research-graph/retrieval.jsonl --db .work/research-graph/retrieval.sqlite
+          python research/research_graph_fts.py search "GF5 signed trade" --db .work/research-graph/retrieval.sqlite --limit 5 > .work/research-graph/fts-search-example.json
+      - name: Validate offline AI search and graph neighborhood
+        run: |
+          python research/research_graph.py search "GF5 signed trade" --limit 5 > .work/research-graph/search-example.json
+          python research/research_graph.py neighbors T:UCT005 --hops 2 > .work/research-graph/uct005-neighborhood.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mathlab-research-graph
+          path: .work/research-graph/
+          retention-days: 14
