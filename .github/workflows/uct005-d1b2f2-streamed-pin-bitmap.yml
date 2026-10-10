@@ -30,6 +30,8 @@ jobs:
         run: python -m unittest discover -s research -p 'test_uct005_d1b2f2_streamed_pin_bitmap.py' -v
       - name: Independent all crash cuts, malformed page, bad publication order and ledger
         run: python -m unittest discover -s research -p 'test_uct005_d1b2f2_crash_prefix.py' -v
+      - name: Regression F1 merged authenticated history retention and checkpoint identities
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2f1_pin_retention.py' -v
       - name: Reproduce finite ordered stage/publish/retire report
         run: python research/uct005_d1b2f2_crash_prefix.py
       - name: Reproduce bounded bitmap-buffer reference
