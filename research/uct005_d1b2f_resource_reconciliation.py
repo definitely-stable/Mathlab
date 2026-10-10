@@ -43,6 +43,72 @@ ALIASES = {
 }
 
 
+# Exact raw ledgers underlying every published diagnostic. Missing Counter
+# keys are NOT interpreted as a free 0; a future refactor that stops charging
+# an operation must fail the reproducible gate instead.
+SOURCE_COUNTERS = {
+    "S_BYTE_SNAPSHOT": {
+        "setup_remote_page_writes": ("setup_full_page_writes",),
+        "set_remote_page_reads": ("set_full_page_reads",),
+        "set_remote_page_writes": ("set_full_page_writes",),
+        "query_remote_page_reads": ("query_full_page_reads",),
+        "query_reply_payload_bytes": ("query_remote_payload_bytes",),
+        "gc_remote_page_reads": ("gc_directory_page_reads",),
+        "gc_remote_page_writes_observed": ("gc_manifest_page_writes",),
+        "gc_logical_pages_freed": ("gc_logical_pages_freed",),
+        "authority_pin_page_writes": ("pin_control_full_page_writes",),
+        "peak_trusted_bits_declared": ("@trusted_bits",),
+        "peak_remote_pages": ("peak_remote_pages",),
+        "set_remote_upload_bytes": ("author_remote_upload_bytes",),
+    },
+    "T_GLOBAL_BITMAP_COW": {},
+    "T_SEGMENTED_BITMAP_COW": {},
+}
+_COW_COUNTERS = {
+    "setup_remote_page_writes": (
+        "setup_node_page_writes", "setup_root_page_writes",
+        "setup_bitmap_page_writes"),
+    "set_remote_page_reads": (
+        "set_node_page_reads", "set_root_page_reads", "set_bitmap_page_reads"),
+    "set_remote_page_writes": (
+        "set_node_page_writes", "set_root_page_writes", "set_bitmap_page_writes"),
+    "query_remote_page_reads": ("query_node_page_reads", "query_root_page_reads"),
+    "query_reply_payload_bytes": ("query_proof_payload_bytes",),
+    "gc_remote_page_reads": (
+        "gc_node_page_reads", "gc_root_page_reads",
+        "gc_bitmap_page_reads", "gc_node_slot_scan_page_reads",
+        "gc_root_slot_scan_page_reads"),
+    "gc_remote_page_writes_observed": ("gc_bitmap_page_writes",),
+    "gc_logical_pages_freed": ("gc_logical_pages_freed",),
+    "authority_pin_page_writes": ("authority_pin_page_writes",),
+    "peak_trusted_bits_declared": ("@trusted_bits",),
+    "peak_remote_pages": ("peak_remote_pages",),
+    "set_remote_upload_bytes": ("set_remote_upload_bytes",),
+}
+for _name in ("T_GLOBAL_BITMAP_COW", "T_SEGMENTED_BITMAP_COW"):
+    SOURCE_COUNTERS[_name] = dict(_COW_COUNTERS)
+
+
+def _audit_raw_sources(model: str, m, observed: dict) -> dict[str, list[str]]:
+    if set(SOURCE_COUNTERS[model]) != set(ALIASES):
+        raise AssertionError("incomplete diagnostic-source map")
+    source = SOURCE_COUNTERS[model]
+    for axis, keys in source.items():
+        if not keys:
+            raise AssertionError("empty raw provenance")
+        if keys == ("@trusted_bits",):
+            value = m.trusted_bits
+        else:
+            if any(k not in m.ledger for k in keys):
+                raise AssertionError(
+                    f"missing explicitly charged {model}/{axis}: {keys}")
+            value = sum(m.ledger[k] for k in keys)
+        if observed[axis] != value:
+            raise AssertionError(
+                f"provenance drift {model}/{axis}: {observed[axis]} != {value}")
+    return {k: list(v) for k, v in source.items()}
+
+
 def _add(ledger: Counter, *keys: str) -> int:
     return sum(ledger[k] for k in keys)
 
@@ -224,7 +290,12 @@ def reconcile(n: int, p: int, initial: tuple[int, ...] | None = None,
             raise AssertionError("remote SETUP byte-to-page nonconservation")
         if observed["set_remote_page_writes"] <= 0 or observed["query_remote_page_reads"] <= 0:
             raise AssertionError("zero but mandatory I/O cost")
+        raw_sources = _audit_raw_sources(name, m, observed)
+        if (observed["query_reply_payload_bytes"]
+                > observed["query_remote_page_reads"] * p):
+            raise AssertionError("query payload exceeds full read page images")
         priced, audit = _partial_vector(observed, name)
+        audit["raw_counter_sources"] = raw_sources
         row = {"name": name, "service": SERVICE, "cost_model": PAGE_API,
                "status": "PARTIAL_PRICING_NO_FULL_PARETO",
                "costs": priced, "audit": audit,
