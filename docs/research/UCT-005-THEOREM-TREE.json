@@ -341,6 +341,12 @@
       "kind": "research_input",
       "status": "SCOPED_HYPOTHESIS_FALSIFICATION_AND_PRIMARY_SOURCE_MAPPING_NO_ORIGINAL_LOWER",
       "source": "docs/research/UCT-005-G3-B2-D1C1-HYPOTHESIS-KILL-GATE.md"
+    },
+    {
+      "id": "UCT005G3B2D1C2",
+      "kind": "research_input",
+      "status": "CLASSICAL_OFFLINE_PIN_VS_LATEST_TWO_WORLD_FRESHNESS_NO_NEW_ROOT_LOWER",
+      "source": "docs/research/UCT-005-G3-B2-D1C2-PINNED-VS-LATEST-FRESHNESS.md"
     }
   ],
   "edges": [
@@ -613,6 +619,11 @@
       "parent": "UCT005G3B2D1C0",
       "child": "UCT005G3B2D1C1",
       "relation": "FALSIFICATION_INPUT_NOT_THEOREM_TRANSFER"
+    },
+    {
+      "parent": "UCT005G3B2D1C1",
+      "child": "UCT005G3B2D1C2",
+      "relation": "FRESHNESS_COUNTERMODEL_INPUT_NOT_JOINT_THEOREM"
     }
   ]
 }

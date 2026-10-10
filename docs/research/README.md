@@ -1,3 +1,7 @@
+## UCT-005 D1-C2 — offline immutable PIN versus online LATEST freshness (2026-10-11)
+
+[Restricted two-world replay lemma and paid F1 model](UCT-005-G3-B2-D1C2-PINNED-VS-LATEST-FRESHNESS.md) · [finite F1 implementation](../../research/uct005_d1c2_pinned_freshness.py) · [independent exhaustive tests](../../research/test_uct005_d1c2_pinned_freshness.py) · [issue #311](https://github.com/definitely-stable/Mathlab/issues/311). **CLASSICAL_FRESHNESS_TWO_WORLD / IMMUTABLE_AS_OF_ZERO_NEW_ANCHOR_READ / LATEST_PAID_FRESH_ANCHOR / SEPARATE_OLD_PIN_PROOF_AND_NEW_VC_PROOF / BYZANTINE_AVAILABILITY_NOT_PROVED / ROOT_OPEN_UNPROVED / CI_PENDING**. Stacked on pending D1-C1 [#309](https://github.com/definitely-stable/Mathlab/pull/309).
+
 ## UCT-005 D1-C1 — frozen same-model candidate falsifiers and primary-theorem transfer gate (2026-10-11)
 
 [Machine-readable scoped candidate matrix](UCT-005-G3-B2-D1C1-CANDIDATE-GATE.json) · [scope proof and STOP](UCT-005-G3-B2-D1C1-HYPOTHESIS-KILL-GATE.md) · [oracle](../../research/uct005_d1c1_hypothesis_kill_gate.py) · [independent falsifiers](../../research/test_uct005_d1c1_hypothesis_kill_gate.py) · [issue #307](https://github.com/definitely-stable/Mathlab/issues/307). **SEVEN_SCOPED_REJECTIONS_AND_CLASSICAL_STOPS / FULL_F1_JOINT_BOUND_OPEN_UNFORMULATED / ALL_UNPRICED_AXES_NULL / PRIMARY_THEOREM_TRANSFER_REQUIRED / ROOT_OPEN_UNPROVED / CI_PENDING**. Built on accepted D1-C0 [#304](https://github.com/definitely-stable/Mathlab/pull/304); D1-C1 independent validation pending.
