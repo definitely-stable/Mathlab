@@ -1,0 +1,36 @@
+name: uct005-d1b2f3b-three-model-pareto
+on:
+  push:
+    branches:
+      - "research/uct005-d1b2f3b-*"
+    paths:
+      - "research/uct005_d1b2f3b_three_model_pareto.py"
+      - "research/test_uct005_d1b2f3b_three_model_pareto.py"
+      - ".github/workflows/uct005-d1b2f3b-three-model-pareto.yml"
+  pull_request:
+    paths:
+      - "research/uct005_d1b2f3b_three_model_pareto.py"
+      - "research/test_uct005_d1b2f3b_three_model_pareto.py"
+      - ".github/workflows/uct005-d1b2f3b-three-model-pareto.yml"
+permissions:
+  contents: read
+jobs:
+  same-history-triple:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All GF2 words, matched PIN history, paid CM scan and adversarial ABORT
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2f3b_three_model_pareto.py' -v
+      - name: Reproduce complete three-model partial resource ledger and no-theorem gate
+        run: python research/uct005_d1b2f3b_three_model_pareto.py
+      - name: Enforce single-parent theorem-tree invariant and no-fake-root gates
+        run: python -m unittest discover -s research -p 'test_uct005_tree.py' -v
+      - name: Check dependent exact model cross-reference regressions
+        run: |
+          python -m unittest discover -s research -p 'test_uct005_d1b2f3a_joint_retention.py' -v
+          python -m unittest discover -s research -p 'test_uct005_d1b2f2_streamed_pin_bitmap.py' -v
+          python -m unittest discover -s research -p 'test_uct005_d1b2f2_crash_prefix.py' -v
