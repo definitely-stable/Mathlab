@@ -1,3 +1,7 @@
+## UCT-005 D1-B2-F3-B — three same-task authenticated uppers, priced PIN audit and partial Pareto STOP (2026-10-10)
+
+[Formal resource gate](UCT-005-G3-B2-D1B2F3B-THREE-MODEL-PARETO-GATE.md) · [reference](../../research/uct005_d1b2f3b_three_model_pareto.py) · [independent tests](../../research/test_uct005_d1b2f3b_three_model_pareto.py). Accepted predecessors: [F2 #283](https://github.com/definitely-stable/Mathlab/pull/283) and [F3-A #287](https://github.com/definitely-stable/Mathlab/pull/287). **SAME_F1_THREE_UPPERS / EXACT_4M_SECOND_PASS_PENALTY / EXACT_3CM_PAID_OFFLINE_AUDIT / STREAM_PEAK_PLUS_M / UNKNOWN_AXES_NULL / ROOT_OPEN_UNPROVED / CI_PENDING**.
+
 ## UCT-005 D1-B2-F2 — two-pass streamed PIN bitmap and paid staging (2026-10-10)
 
 [Algorithm, exact page pricing and trust exclusions](UCT-005-G3-B2-D1B2F2-STREAMED-PIN-BITMAP.md) · [reference](../../research/uct005_d1b2f2_streamed_pin_bitmap.py) · [independent tests](../../research/test_uct005_d1b2f2_streamed_pin_bitmap.py) · [issue #281](https://github.com/definitely-stable/Mathlab/issues/281). Reduces **conceptual bitmap payload scratch** to <=2 min(B,P) bytes by double verification and explicitly charged remote staging; **not** a peak trusted-process RSS, full Pareto or UCT-005 original lower bound.
