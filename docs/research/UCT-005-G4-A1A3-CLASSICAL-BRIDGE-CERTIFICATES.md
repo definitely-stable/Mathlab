@@ -90,3 +90,12 @@ The companion [G4 typed bridge register](UCT-005-G4-TYPED-BRIDGES.json) enumerat
 A separate fail-closed test \`research/test_uct005_g4_bridge_register.py\` rejects unknown type values, absent preconditions, duplicate IDs, blank resource mappings, and promotion of an unproved REDUCTION_REQUIRED edge to CLASSICAL_DIRECT without separately changing its acceptance contract. This is **registry hygiene**, not machine-verification of a proof. Scientific advancement of an edge requires source theorem assumptions, an independently audited reduction and preservation of security/error/resource units; textual classification alone cannot establish it.
 
 The hosted workflow now discovers both \`test_uct005_g4_bridge_oracles.py\` and \`test_uct005_g4_bridge_register.py\`. The repository's general Research CI discovers all \`test_*.py\`.
+
+
+## Additional scope falsifiers — fixed horizon and DNA indels
+
+**Finite-horizon noncongruence:** X={0,1,2}, O=(0,0,1), one total operation T=(2,1,2). At horizon 0, states 0 and 1 are indistinguishable; after T their outputs differ (1 versus 0). Therefore the fixed-h equivalence relation is not automatically transition invariant. The independent future-trace oracle also checks all small-machine refinement equations.
+
+**DNA one-deletion counterexample:** two length-six words \`ACACAC\` and \`CACACA\` have Hamming distance **6**, yet deletion of the initial A from the former and deletion of the final A from the latter both produce the five-symbol observation \`CACAC\`. Their one-deletion corruption balls intersect, so even a pair of words with this large Hamming separation is **not** a one-deletion-correcting code. This is an elementary edit-channel counterexample, not a biological experiment or a new DNA code theorem.
+
+Both are now tested independently; the original 11 finite tests expand to **13** finite checks (in addition to 3 register-schema checks). GitHub-hosted acceptance must target the latest commit, not a previously successful run.
