@@ -66,8 +66,9 @@ def sixset_intersection_spectrum(weights,V):
     mass=sum(w.values())
     if any(x<0 for x in overlap) or sum(overlap)!=mass*mass:
         raise AssertionError("nonnegative ordered-intersection spectrum failed")
-    if sum(overlap[j]*comb(j,k) for j in range(7)) != binomial_moments[k]:
-        raise AssertionError("binomial inversion moment identity failed")
+    for k in range(7):
+        if sum(overlap[j]*comb(j,k) for j in range(k,7)) != binomial_moments[k]:
+            raise AssertionError("binomial inversion moment identity failed")
     return {
         "V":V,"mass":mass,"support":len(w),
         "binomial_squared_marginal_moments":binomial_moments,
