@@ -191,10 +191,30 @@ def source_johnson_energy(weights, K):
     higher=Fraction(squared)-w0sq-w1sq-w2sq
     if higher < 0:
         raise AssertionError("negative source Johnson >=3 norm squared")
+    triple_counts=Counter()
+    for R,value in w.items():
+        for triple in combinations(sorted(R),3):
+            triple_counts[triple]+=value
+    lam3=comb(K-6,3)
+    gamma={pair:res/lam2 for pair,res in residual.items()}
+    triple_residual={}
+    w3sq=Fraction(0)
+    for i,j,k in combinations(range(K),3):
+        h=(Fraction(triple_counts[(i,j,k)])
+           -comb(K-3,3)*mean
+           -comb(K-4,3)*(betas[i]+betas[j]+betas[k])
+           -comb(K-5,3)*(gamma[(i,j)]+gamma[(i,k)]+gamma[(j,k)]))
+        triple_residual[(i,j,k)]=h
+        w3sq+=h*h/lam3
+    ge4=higher-w3sq
+    if ge4<0:
+        raise AssertionError("negative source Johnson >=4 norm squared")
     return {
         "K":K, "M":M, "N":N, "source_norm_squared":squared,
         "w0_norm_squared":w0sq, "w1_norm_squared":w1sq,
         "w2_norm_squared":w2sq, "w_ge3_norm_squared":higher,
+        "w3_norm_squared":w3sq, "w_ge4_norm_squared":ge4,
+        "w3_triple_residuals":triple_residual,
         "degree_vector":tuple(degrees),
         "pair_marginals":pairs,
         "w2_pair_residuals":residual,
