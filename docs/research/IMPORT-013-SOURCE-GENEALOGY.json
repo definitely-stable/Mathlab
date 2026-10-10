@@ -1,0 +1,55 @@
+{
+  "schema": "mathlab.import013.source-genealogy.v1",
+  "date": "2026-10-10",
+  "scientific_gate": "METHOD_FAMILY_IS_NOT_LOGICAL_IMPLICATION",
+  "edges": [
+    {
+      "from": "LIT-365",
+      "to": "LIT-388",
+      "type": "METHOD_FAMILY",
+      "detail": "HEDGES DNA-storage indel recovery and function-correcting insdel bounds share an error-channel domain; distinct output preservation guarantees."
+    },
+    {
+      "from": "LIT-365",
+      "to": "LIT-389",
+      "type": "METHOD_FAMILY",
+      "detail": "HEDGES general indel-oriented coding versus independent segmented one-burst deletion coding; no claimed source citation."
+    },
+    {
+      "from": "LIT-388",
+      "to": "LIT-389",
+      "type": "METHOD_FAMILY",
+      "detail": "Function-preservation against insertion/deletion and constrained segmented burst deletion are distinct coding models."
+    },
+    {
+      "from": "LIT-374",
+      "to": "LIT-390",
+      "type": "METHOD_FAMILY",
+      "detail": "Rank-3 polar regular line sets and type-B spherical chamber families share classical incidence/association-scheme concepts."
+    },
+    {
+      "from": "LIT-375",
+      "to": "LIT-390",
+      "type": "METHOD_FAMILY",
+      "detail": "Generalized ovoids and non-opposite chamber maximality are related polar-building incidence structures, not identical forbidden sets."
+    },
+    {
+      "from": "LIT-388",
+      "to": "ML-001",
+      "type": "PROPOSED_TRANSFER_STOP",
+      "detail": "No equivalence between function-correcting indel metrics and bounded-support GF(5) signed subset-sum collision."
+    },
+    {
+      "from": "LIT-389",
+      "to": "ML-002",
+      "type": "PROPOSED_TRANSFER_STOP",
+      "detail": "Segmented burst deletion redundancy is not GF(5) ASET exponent or signed trade constraint."
+    },
+    {
+      "from": "LIT-390",
+      "to": "ML-002",
+      "type": "PROPOSED_TRANSFER_STOP",
+      "detail": "Non-opposite chamber extremum not known to embed weighted GF(5) 4-support forbidden trades."
+    }
+  ]
+}

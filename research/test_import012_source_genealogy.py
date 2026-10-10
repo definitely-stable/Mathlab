@@ -50,7 +50,7 @@ class GenealogySourceTests(unittest.TestCase):
                       lookup["LIT-216"]["alternate_identities"])
         self.assertEqual(lookup["LIT-373"]["identity"],
                          "doi:10.4230/LIPIcs.CCC.2026.41")
-        self.assertEqual(len(sources), 386)
+        self.assertEqual(sum(e["id"] <= "LIT-387" for e in sources), 386)
 
 
 if __name__ == "__main__":

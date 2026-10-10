@@ -11104,6 +11104,97 @@
           "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
         }
       ]
+    },
+    {
+      "id": "LIT-388",
+      "identity": "arxiv:2512.07243",
+      "year": 2025,
+      "title": "Function-Correcting Codes for Insertion-Deletion Channel",
+      "authors": [
+        "Anamika Singh",
+        "Abhay Kumar Singh"
+      ],
+      "track": "sparse-coding",
+      "maps_to": [
+        "ML-001",
+        "ML-002"
+      ],
+      "summary_ru": "Авторский препринт (декабрь 2025; редакция июль 2026): определены function-correcting insertion/deletion/insdel codes, доказана эквивалентность трёх постановок и получены границы оптимальной избыточности через irregular insdel-distance codes и аналогичные GV/Plotkin оценки.",
+      "limits_ru": "Канал вставок и удалений и восстановление только выбранной функции не совпадают с точной равенством знаковых сумм разреженных столбцов GF(5); никакого ASET exponent здесь не доказано.",
+      "primary_url": "https://arxiv.org/abs/2512.07243",
+      "verification": "primary_abstract_checked",
+      "alternate_identities": [],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-013-INDEL-AND-POLAR-FOUNDATIONS.md",
+          "kind": "model_overlap",
+          "source_sha": "ce6f319decf23231562571cf4a91cc60b7e922f4"
+        }
+      ]
+    },
+    {
+      "id": "LIT-389",
+      "identity": "arxiv:2507.14070",
+      "year": 2025,
+      "title": "Error Correcting Codes for Segmented Burst-Deletion Channels",
+      "authors": [
+        "Yajuan Liu",
+        "Tolga M. Duman"
+      ],
+      "track": "molecular-dna-storage",
+      "maps_to": [
+        "ML-001",
+        "ML-004"
+      ],
+      "summary_ru": "Авторский препринт (июль 2025): конструкции с восстановлением границ сегментов для канала, где в каждом сегменте длины b происходит не более одного burst из t удалений; заявленная избыточность O(log b).",
+      "limits_ru": "Ограничение один burst на сегмент существенно; канал отличается от произвольных deletions/insertions, GF(5) signed-trade и online physical index update.",
+      "primary_url": "https://arxiv.org/abs/2507.14070",
+      "verification": "primary_abstract_checked",
+      "alternate_identities": [],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-013-INDEL-AND-POLAR-FOUNDATIONS.md",
+          "kind": "model_overlap",
+          "source_sha": "ce6f319decf23231562571cf4a91cc60b7e922f4"
+        }
+      ]
+    },
+    {
+      "id": "LIT-390",
+      "identity": "arxiv:2505.14322",
+      "year": 2025,
+      "title": "The largest sets of non-opposite chambers in spherical buildings of type B",
+      "authors": [
+        "Jan De Beule",
+        "Philipp Heering",
+        "Sam Mattheus",
+        "Klaus Metsch"
+      ],
+      "track": "graph-algorithms",
+      "maps_to": [
+        "ML-002"
+      ],
+      "summary_ru": "Препринт с первой версией 2025 и редакцией 2026: верхние границы и классификация максимальных non-opposite chamber families в type-B spherical buildings; использованы антипланы (antidesigns), association schemes, Iwahori-Hecke algebra и полярная геометрия.",
+      "limits_ru": "Семейства непараллельных flags/chambers и запрет противоположности не тождественны GF(5) разреженным векторным signed trades; требуется отдельная точная структурная редукция.",
+      "primary_url": "https://arxiv.org/abs/2505.14322",
+      "verification": "primary_abstract_checked",
+      "alternate_identities": [],
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/RESEARCH-LITERATURE-013-INDEL-AND-POLAR-FOUNDATIONS.md",
+          "kind": "model_overlap",
+          "source_sha": "ce6f319decf23231562571cf4a91cc60b7e922f4"
+        }
+      ]
     }
   ]
 }

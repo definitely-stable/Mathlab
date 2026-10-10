@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## IMPORT-013 — formal insdel function codes, burst deletion and non-opposite polar flags
+
+[Three original arXiv first-publication sources, exact mathematical model boundaries and eight typed genealogy edges](../RESEARCH-LITERATURE-013-INDEL-AND-POLAR-FOUNDATIONS.md) · [genealogy](../IMPORT-013-SOURCE-GENEALOGY.json) · [issue #247](https://github.com/definitely-stable/Mathlab/issues/247). Canonical **386→389**, LIT-388..390, no proof reproduction, no new ASET/UCT theorem.
+
 ## IMPORT-012 — cross-disciplinary genealogy and 22 corrected external Deep Research records
 
 [Scientific correction/disposition of 32 PDF items, ancestor/descendant chains and cross-model STOP gates](../RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) · [typed 24-edge source genealogy](../IMPORT-012-SOURCE-GENEALOGY.json) · [issue #236](https://github.com/definitely-stable/Mathlab/issues/236). Canonical **364→386** records LIT-366..387; original 2015 container foundations plus 2026 Campos–Samotij, CCC/ORAM/cell-probe, TIME/dynamic-GBWT and existing FAIR GraphRAG, finite polar geometry, DNA/k-mer, TKG and negative GraphRAG controls. No primary theorem independently reproduced; no transfer/novelty claim.

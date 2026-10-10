@@ -17,11 +17,11 @@ class LiteratureTests(unittest.TestCase):
 
     def test_import006_distinct_works_and_indexed_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 386)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 386)
-        self.assertEqual(len({e["id"] for e in entries}), 386)
+        self.assertEqual(len(entries), 389)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 389)
+        self.assertEqual(len({e["id"] for e in entries}), 389)
         self.assertEqual(({f"LIT-{i:03d}" for i in range(1, 205)} |
-                          {"LIT-206", "LIT-207", "LIT-208", "LIT-209", "LIT-210", "LIT-211", "LIT-212", "LIT-213"} | {f"LIT-{i:03d}" for i in range(214, 388)}),
+                          {"LIT-206", "LIT-207", "LIT-208", "LIT-209", "LIT-210", "LIT-211", "LIT-212", "LIT-213"} | {f"LIT-{i:03d}" for i in range(214, 391)}),
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 21)
 
@@ -73,6 +73,21 @@ class LiteratureTests(unittest.TestCase):
         next(e for e in altered["entries"] if e["id"] == "LIT-386")["title"] = "wrong TIME"
         self.assertTrue(any("primary source title mismatch" in e
                             for e in valid(altered, self.catalog)))
+
+    def test_import013_insdel_polar_primary_source_and_ancestry(self):
+        e = {p["id"]: p for p in self.data["entries"]}
+        self.assertEqual(e["LIT-388"]["identity"], "arxiv:2512.07243")
+        self.assertEqual(e["LIT-389"]["identity"], "arxiv:2507.14070")
+        self.assertEqual(e["LIT-390"]["identity"], "arxiv:2505.14322")
+        cohort = [e[k] for k in ("LIT-388", "LIT-389", "LIT-390")]
+        self.assertTrue(all(not x["full_proof_verified"] and
+                            not x["independent_reproduction"] for x in cohort))
+        self.assertTrue(all(x["mentioned_in"][0]["source_sha"] ==
+                            "ce6f319decf23231562571cf4a91cc60b7e922f4" for x in cohort))
+        mutated = copy.deepcopy(self.data)
+        next(x for x in mutated["entries"] if x["id"] == "LIT-390")["title"] = "wrong"
+        self.assertTrue(any("primary source title mismatch" in x
+                            for x in valid(mutated, self.catalog)))
 
     def test_import006_graph_rag_memory_primary_metadata(self):
         cohort = {e["id"]: e for e in self.data["entries"]
@@ -544,7 +559,7 @@ class LiteratureTests(unittest.TestCase):
         original = {e["id"] for e in self.data["entries"]}
         self.assertTrue({f"LIT-{i:03d}" for i in range(50, 96)} <= original)
         self.assertTrue({f"LIT-{i:03d}" for i in range(1, 96)} <= original)
-        self.assertEqual(len(self.data["entries"]), 386)
+        self.assertEqual(len(self.data["entries"]), 389)
         all_ids = [e["identity"].lower() for e in self.data["entries"]]
         self.assertEqual(len(all_ids), len(set(all_ids)))
 
@@ -844,7 +859,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 386)
+        self.assertEqual(len({e["id"] for e in entries}), 389)
         tracks = {e["track"] for e in entries}
         self.assertEqual(len(tracks), 21)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(

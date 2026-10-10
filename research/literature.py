@@ -61,6 +61,10 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-013 original verified coding/polar foundational works.
+    "arxiv:2512.07243": "Function-Correcting Codes for Insertion-Deletion Channel",
+    "arxiv:2507.14070": "Error Correcting Codes for Segmented Burst-Deletion Channels",
+    "arxiv:2505.14322": "The largest sets of non-opposite chambers in spherical buildings of type B",
     # IMPORT-012 additional primary source benchmarks and dynamic GBWT.
     "arxiv:2505.12891": "TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios",
     "doi:10.64898/2026.03.26.714584": "A run-length-compressed skiplist data structure for dynamic GBWTs supports time and space efficient pangenome operations over syncmers",
