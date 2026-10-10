@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**386** работ сопоставлены с **38** внутренними исследованиями.
+**389** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -171,6 +171,8 @@
 - [LIT-362](LITERATURE.md#lit-362) — Largest Sidon subsets in weak Sidon sets (2026; primary_abstract_checked)
 - [LIT-365](LITERATURE.md#lit-365) — HEDGES error-correcting code for DNA storage corrects indels and allows sequence constraints (2020; publisher_abstract_checked)
 - [LIT-376](LITERATURE.md#lit-376) — The Erdős-Rado sunflower problem for vector spaces (2025; publisher_abstract_checked)
+- [LIT-388](LITERATURE.md#lit-388) — Function-Correcting Codes for Insertion-Deletion Channel (2025; primary_abstract_checked)
+- [LIT-389](LITERATURE.md#lit-389) — Error Correcting Codes for Segmented Burst-Deletion Channels (2025; primary_abstract_checked)
 
 ## ML-002
 
@@ -223,6 +225,8 @@
 - [LIT-375](LITERATURE.md#lit-375) — A common generalization of hypercube partitions and ovoids in polar spaces (2024; publisher_abstract_checked)
 - [LIT-376](LITERATURE.md#lit-376) — The Erdős-Rado sunflower problem for vector spaces (2025; publisher_abstract_checked)
 - [LIT-377](LITERATURE.md#lit-377) — Fractional clique decompositions of dense hypergraphs (2025; publisher_abstract_checked)
+- [LIT-388](LITERATURE.md#lit-388) — Function-Correcting Codes for Insertion-Deletion Channel (2025; primary_abstract_checked)
+- [LIT-390](LITERATURE.md#lit-390) — The largest sets of non-opposite chambers in spherical buildings of type B (2025; primary_abstract_checked)
 
 ## ML-003
 
@@ -548,6 +552,7 @@
 - [LIT-385](LITERATURE.md#lit-385) — Dynamic Meta-Kernelization (2026; publisher_abstract_checked)
 - [LIT-386](LITERATURE.md#lit-386) — TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios (2025; primary_abstract_checked)
 - [LIT-387](LITERATURE.md#lit-387) — A run-length-compressed skiplist data structure for dynamic GBWTs supports time and space efficient pangenome operations over syncmers (2026; primary_abstract_checked)
+- [LIT-389](LITERATURE.md#lit-389) — Error Correcting Codes for Segmented Burst-Deletion Channels (2025; primary_abstract_checked)
 
 ## ML-005
 

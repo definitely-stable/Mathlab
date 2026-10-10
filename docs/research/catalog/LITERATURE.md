@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-10** · **386** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-10** · **389** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -10,7 +10,7 @@
 
 | Направление | Записей |
 | --- | ---: |
-| [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 24 |
+| [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 25 |
 | [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 38 |
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 24 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
@@ -18,10 +18,10 @@
 | [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 19 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 62 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 63 |
 | [DNA, пангеномы, de Bruijn и sequence graph индексы](#genomic-graphs) | 19 |
 | [Когнитивные карты, гиппокамп, engram и биологическая память](#biological-memory) | 10 |
-| [Молекулярная запись в DNA, кодирование и графовая реконструкция](#molecular-dna-storage) | 5 |
+| [Молекулярная запись в DNA, кодирование и графовая реконструкция](#molecular-dna-storage) | 6 |
 | [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 35 |
 | [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 30 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
@@ -352,6 +352,19 @@ Naor и Verstraëte (Combinatorica 2008) исследуют верхние оц�
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
+
+### LIT-388
+**[Function-Correcting Codes for Insertion-Deletion Channel](https://arxiv.org/abs/2512.07243)** (2025)
+
+Авторский препринт (декабрь 2025; редакция июль 2026): определены function-correcting insertion/deletion/insdel codes, доказана эквивалентность трёх постановок и получены границы оптимальной избыточности через irregular insdel-distance codes и аналогичные GV/Plotkin оценки.
+
+**Ограничение:** Канал вставок и удалений и восстановление только выбранной функции не совпадают с точной равенством знаковых сумм разреженных столбцов GF(5); никакого ASET exponent здесь не доказано.
+
+**Идентичность:** `arxiv:2512.07243` · **Авторы:** Anamika Singh, Abhay Kumar Singh · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-013-INDEL-AND-POLAR-FOUNDATIONS.md](https://github.com/definitely-stable/Mathlab/blob/ce6f319decf23231562571cf4a91cc60b7e922f4/docs/research/RESEARCH-LITERATURE-013-INDEL-AND-POLAR-FOUNDATIONS.md) (model_overlap)
 
 
 ## dynamic-data-structures
@@ -2940,6 +2953,19 @@ STOC 2026 динамическая параметризованная meta-kerne
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
+### LIT-390
+**[The largest sets of non-opposite chambers in spherical buildings of type B](https://arxiv.org/abs/2505.14322)** (2025)
+
+Препринт с первой версией 2025 и редакцией 2026: верхние границы и классификация максимальных non-opposite chamber families в type-B spherical buildings; использованы антипланы (antidesigns), association schemes, Iwahori-Hecke algebra и полярная геометрия.
+
+**Ограничение:** Семейства непараллельных flags/chambers и запрет противоположности не тождественны GF(5) разреженным векторным signed trades; требуется отдельная точная структурная редукция.
+
+**Идентичность:** `arxiv:2505.14322` · **Авторы:** Jan De Beule, Philipp Heering, Sam Mattheus, Klaus Metsch · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-013-INDEL-AND-POLAR-FOUNDATIONS.md](https://github.com/definitely-stable/Mathlab/blob/ce6f319decf23231562571cf4a91cc60b7e922f4/docs/research/RESEARCH-LITERATURE-013-INDEL-AND-POLAR-FOUNDATIONS.md) (model_overlap)
+
 
 ## genomic-graphs
 *DNA, пангеномы, de Bruijn и sequence graph индексы*
@@ -3393,6 +3419,19 @@ PNAS 2020: код HEDGES исправляет вставки, удаления �
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
+
+### LIT-389
+**[Error Correcting Codes for Segmented Burst-Deletion Channels](https://arxiv.org/abs/2507.14070)** (2025)
+
+Авторский препринт (июль 2025): конструкции с восстановлением границ сегментов для канала, где в каждом сегменте длины b происходит не более одного burst из t удалений; заявленная избыточность O(log b).
+
+**Ограничение:** Ограничение один burst на сегмент существенно; канал отличается от произвольных deletions/insertions, GF(5) signed-trade и online physical index update.
+
+**Идентичность:** `arxiv:2507.14070` · **Авторы:** Yajuan Liu, Tolga M. Duman · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-013-INDEL-AND-POLAR-FOUNDATIONS.md](https://github.com/definitely-stable/Mathlab/blob/ce6f319decf23231562571cf4a91cc60b7e922f4/docs/research/RESEARCH-LITERATURE-013-INDEL-AND-POLAR-FOUNDATIONS.md) (model_overlap)
 
 
 ## graph-rag
