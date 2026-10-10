@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-B1-B — correlated right-label exchanges on complete W32
+
+[Proof, risk scope and limits](HYP-105-G5-E2-B3-E1B-B-RIGHT-SWAPS.md) · [full all-105 swap census](../../research/hyp105_g5e2b3e1b1b_label_swaps.py) · [independent full-recount and gauge tests](../../research/test_hyp105_g5e2b3e1b1b_label_swaps.py). Exact affected-original-sixset delta and full selected GF5 signed risk for best neighbor, but no universal all-h S lower or infinite counterexample. Draft CI pending.
+
 ## HYP-105 B3.2-E1-B0 — seven-motif same-label tensor reduction
 
 [Exact polynomial coefficient identity, seven family GF5 floors and limits](HYP-105-G5-E2-B3-E1B0-SEVEN-MOTIF-TENSOR.md) · [reference](../../research/hyp105_g5e2b3e1b0_seven_signature.py) · [independent tests](../../research/test_hyp105_g5e2b3e1b0_seven_signature.py). Same W(3,2) fixed pair injection yields exact positive seven-family U/D6 counts plus independent Q4, but NO all-h Omega(s^6), strict R3 upper or ASET exponent improvement. Pending PR-head hosted CI.
