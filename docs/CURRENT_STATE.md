@@ -1,3 +1,7 @@
+## UCT-005 G3-B2-D1-A — one-probe sharp interval parity and honest Fenwick falsifier (2026-10-10)
+
+[Доказательство с точной нижней границей](research/UCT-005-G3-B2-D1A-ONE-PROBE-AND-CAUSAL-FALSIFICATION.md) · [отдельные независимые конечные оракулы](../research/test_uct005_d1a_causal_falsifiers.py) · [D1 #223](https://github.com/definitely-stable/Mathlab/issues/223). **RESTRICTED_CLASSICAL_ONE_PROBE / SHARP m=n(n+1)/2, W>=floor((n+1)^2/4) / FALSE_GLOBAL_PRODUCT_FENWICK n=4096, W<=14, Q<=24 => 336<4096 / NO_F1_BYZANTINE_TRANSFER / NO_ROOT_THEOREM**. Новая асимптотическая UCT граница **не доказана**, следующий этап — D1-B same-model hard-adaptive information transfer и source proof theorem matrix.
+
 ## UCT-005 G3-B2-D0 — восемь первоисточников после IMPORT-010 (2026-10-10)
 
 [Восемь отсутствовавших работ и H1/H2/H3 novelty gates](research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) · [UCT-005 #105](https://github.com/definitely-stable/Mathlab/issues/105) · [D1 #223](https://github.com/definitely-stable/Mathlab/issues/223). Canonical LIT-349..356, каталог **347→355** уникальных работ, 21 направление; исходные LIT-317..348 (геномные графы, DNA и память) сохранены после уже merged PR #221. Издательские/авторские аннотации сверены, доказательства и benchmark НЕ воспроизведены. **ROOT OPEN_UNPROVED / NO_NEW_ASYMPTOTIC_BOUND**; следующее: D1-A same-model theorem audit и независимая finite falsification.
