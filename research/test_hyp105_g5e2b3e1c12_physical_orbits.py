@@ -132,6 +132,11 @@ class PhysicalOrbitC12Tests(unittest.TestCase):
         self.assertGreaterEqual(r["W32_all_right_g_two_pin_orbit_existential_upper"],
                                 r["W32_all_right_g_two_pin_orbit_global_lower"])
         self.assertEqual(r["W32_two_pin_orbit_conditional_mean_tower"],"10000/143")
+        self.assertEqual(r["W32_two_pin_orbit_conditional_second_tower"],
+                         "2142290/429")
+        self.assertEqual(r["W32_all_right_g_two_pin_orbit_global_lower"],0)
+        self.assertEqual(r["W32_all_right_g_two_pin_orbit_existential_upper"],69)
+        self.assertIsNone(r["W32_two_pin_orbit_global_exact_if_meet"])
         self.assertFalse(r["all_15_factorial_orbits_enumerated"])
 
     def test_fail_closed_partial_group_and_budget(self):
