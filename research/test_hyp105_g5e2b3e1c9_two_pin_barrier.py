@@ -56,7 +56,6 @@ class TwoPinC9Tests(unittest.TestCase):
         # Complete original W(3,2) enumeration for both genuine embeddings.
         from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
         from hyp105_g5e2b3e1c0_weighted_overlap import source_weighted_BA_hypergraph
-        from hyp105_g5e2b3e1c1_gq_concurrency import original_line_concurrency_graph
         # Use direct actual sixsets and test exact C9 union-support upper
         # without assuming C9 capacity succeeds at small s.
         cert=two_pin_source_target_capacity(2)
