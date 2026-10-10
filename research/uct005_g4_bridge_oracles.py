@@ -195,6 +195,37 @@ def graph_parity_falsifier():
     }
 
 
+
+def finite_horizon_congruence_falsifier():
+    """Finite-h equivalence does not remain congruent under one more update."""
+    outputs = (0, 0, 1)
+    operation = ((2, 1, 2),)
+    at_zero = future_partition_refinement(outputs, operation, 0)
+    at_one = future_partition_refinement(outputs, operation, 1)
+    assert at_zero[0] == at_zero[1] and at_one[0] != at_one[1]
+    assert outputs[operation[0][0]] != outputs[operation[0][1]]
+    return {
+        "same_present_class": True, "distinct_after_one_update": True,
+        "status": "COUNTERMODEL_FINITE_HORIZON_NOT_STATIONARY_CONGRUENCE",
+    }
+
+
+def dna_indel_falsifier():
+    """Binary subalphabet of DNA: huge Hamming gap but deletion-ball overlap."""
+    a, b = "ACACAC", "CACACA"
+    hamming = sum(x != y for x, y in zip(a, b))
+    deleted_a = {a[:i] + a[i + 1:] for i in range(len(a))}
+    deleted_b = {b[:i] + b[i + 1:] for i in range(len(b))}
+    shared = deleted_a & deleted_b
+    assert hamming == 6 and "CACAC" in shared
+    # In particular the two codewords cannot uniquely correct one deletion.
+    return {
+        "hamming_distance": hamming, "common_one_deletion_observation": "CACAC",
+        "edit_distance_upper": 2,
+        "status": "COUNTERMODEL_HAMMING_SUBSTITUTION_TO_ONE_INDEL",
+    }
+
+
 def report():
     return {
         "theorem_status": "DERIVED_CLASSICAL_ONLY_ROOT_OPEN",
@@ -203,6 +234,8 @@ def report():
         "historical_5_pins": histories_by_observable_pins(5, range(5)),
         "historical_2_pins": histories_by_observable_pins(5, (0, 4)),
         "graph": graph_parity_falsifier(),
+        "finite_horizon_congruence": finite_horizon_congruence_falsifier(),
+        "dna_indel": dna_indel_falsifier(),
     }
 
 
