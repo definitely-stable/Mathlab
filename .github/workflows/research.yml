@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: HYP-105 C5 exact one-common-right-map seven-overlap moments and density
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c5_common_bijection.py'
+
+      - name: HYP-105 C5 occupied physical target fixed-image all-h expectation
+        run: python research/hyp105_g5e2b3e1c5_common_bijection.py
+
       - name: HYP-105 C4 exact GQ pair-conditioned four-line overlap and moments
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c4_conditional_completion.py'
 
