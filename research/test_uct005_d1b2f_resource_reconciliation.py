@@ -68,6 +68,9 @@ class B2FCostLedgerTests(unittest.TestCase):
                 self.assertTrue(all(v is None for v in legacy_row["costs"].values()))
                 self.assertEqual(set(legacy_row["audit"]["unknown_reasons"]), set(PRICE_AXES))
                 self.assertEqual(legacy_row["observed"], {})
+                self.assertEqual(legacy_row["service"], "LEGACY_B2A_LOGICAL_TRACE_WITH_CATCHUP")
+                self.assertIs(legacy_row["audit"]["operation_trace_identical"], False)
+                self.assertNotEqual(legacy_row["service"], s["service"])
                 self.assertIsNone(candidate_dominates(seg, legacy_row))
                 self.assertIsNone(candidate_dominates(legacy_row, s))
             self.assertEqual(x["workload"]["range_query_count_per_model"],
