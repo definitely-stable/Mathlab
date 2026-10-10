@@ -123,6 +123,12 @@ jobs:
       - name: HYP-105 G5-E2-B3.0 six-factor-forest projection polynomial and exponent audit
         run: python research/hyp105_g5e2b3_forests.py
 
+      - name: HYP-105 B3.1-B2-A nonmatching factor-cherry six-coordinate GF5 census
+        run: python research/hyp105_g5e2b3b2_cherry66.py
+
+      - name: HYP-105 B3.1-B2-A independently cross-check cherry GF5 flow oracles
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3b2_cherry66.py'
+
       - name: HYP-105 E2-B3.1-A all-six GF5 critical 2-factor flow census
         run: python research/hyp105_g5e2b3b1_critical_flows.py
 
