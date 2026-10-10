@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-10** · **386** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-11** · **391** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -24,7 +24,8 @@
 | [Молекулярная запись в DNA, кодирование и графовая реконструкция](#molecular-dna-storage) | 5 |
 | [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 35 |
 | [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 30 |
-| [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
+| [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 2 |
+| [Теория обучения графовым алгоритмам, перенос GFM и устойчивость представлений](#graph-learning-theory) | 4 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 16 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 30 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
@@ -4263,6 +4264,75 @@ NeurIPS 2025 Datasets & Benchmarks: авторы сформировали 38 522
 **Связь с исследованиями →** [OM-133](INDEX.md#om-133), [ML-004](INDEX.md#ml-004)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/72ec2a72c0a47cefbbb2c36275080f2d433f304c/docs/research/RESEARCH-LITERATURE-006-GRAPHS-DAG-GRAPHRAG-MEMORY-2025-2026.md) (model_overlap)
+
+### LIT-392
+**[GraphFlow: A Graph-Based Workflow Management for Efficient LLM-Agent Serving](https://proceedings.mlr.press/v306/li26ig.html)** (2026)
+
+ICML 2026: wGraph — единое представление агентных workflows с адаптивной сборкой и повторным использованием KV-cache; авторская оценка около 4× уменьшения memory footprint и +4.95 п.п. качества в пяти датасетах.
+
+**Ограничение:** Эксперименты не воспроизведены независимо; нужны одинаковые задачи, модель, hardware, cold/warm KV-cache и стоимость graph build/invalidation; результаты не доказывают byte-level I/O или worst-case нижние границы.
+
+**Идентичность:** `publisher:pmlr-v306-li26ig` · **Авторы:** Ao Li, Shangpeng Yang, Fahao Chen, Tianheng Xu, Peng Li, Su Zhou · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md](https://github.com/definitely-stable/Mathlab/blob/ceb08432c1b2c611bde225a9279eecf5bc165a6e/docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md) (model_overlap)
+
+
+## graph-learning-theory
+*Теория обучения графовым алгоритмам, перенос GFM и устойчивость представлений*
+
+### LIT-388
+**[Which Algorithms Can Graph Neural Networks Learn?](https://proceedings.mlr.press/v306/wittig26a.html)** (2026)
+
+ICML 2026: достаточные условия worst-case MPNN-аппроксимации исполнения графовых алгоритмов при обобщении с небольших экземпляров на произвольный размер; невозможность некоторых задач для стандартных MPNN и улучшенные Bellman–Ford условия.
+
+**Ограничение:** MPNN approximation не равна exact reachability в immutable DAG, онлайн-обновлению labels, отсутствию ошибок или lower bound для оплачиваемых физических page writes; результат требует специальных условий обучения и семейства алгоритмов.
+
+**Идентичность:** `publisher:pmlr-v306-wittig26a` · **Авторы:** Solveig Wittig, Antonis Vasileiou, Robert R Nerem, Timo Stoll, Floris Geerts, Yusu Wang, Christopher Morris · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md](https://github.com/definitely-stable/Mathlab/blob/ceb08432c1b2c611bde225a9279eecf5bc165a6e/docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md) (model_overlap)
+
+### LIT-389
+**[Learning to Execute Graph Algorithms Exactly with Graph Neural Networks](https://proceedings.mlr.press/v306/fetrat-qharabagh26a.html)** (2026)
+
+ICML 2026: обучение ансамбля локальных MLP-инструкций и их GNN-исполнение; результаты точной реализации LOCAL и известных BFS, DFS, flooding, Bellman–Ford с высокой вероятностью через NTK-аргументацию.
+
+**Ограничение:** Exactness условна: bounded-degree, finite precision, обученная локальная MLP модель и вероятностная гарантия; не доказывает универсальную точность любых GNN либо online immutable reachability с бесплатным хранилищем.
+
+**Идентичность:** `publisher:pmlr-v306-fetrat-qharabagh26a` · **Авторы:** Muhammad Fetrat Qharabagh, Artur Back De Luca, George Giapitzakis, Kimon Fountoulakis · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md](https://github.com/definitely-stable/Mathlab/blob/ceb08432c1b2c611bde225a9279eecf5bc165a6e/docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md) (model_overlap)
+
+### LIT-390
+**[When Do Graph Foundation Models Transfer? A Data-Centric Theory](https://proceedings.mlr.press/v306/zhu26e.html)** (2026)
+
+ICML 2026: graphon-предел для dense graphs и Lipschitz backbone; разделение междоменного отклонения на finite-sample и инвариантную к перенумерации структурную части с исследованием stability spectral PE.
+
+**Ограничение:** Dense graphon/Lipschitz assumptions не дают автоматически переноса на sparse произвольные DAG, динамический reachability, хранение сертификатов, exact queries или page-recourse; output shift не идентичен proof freshness.
+
+**Идентичность:** `publisher:pmlr-v306-zhu26e` · **Авторы:** Jiajun Zhu, Ying Chen, Peihao Wang, Yixuan He, Pan Li, Aditya Akella, Zhangyang Wang · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md](https://github.com/definitely-stable/Mathlab/blob/ceb08432c1b2c611bde225a9279eecf5bc165a6e/docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md) (model_overlap)
+
+### LIT-391
+**[Graph Neural Networks Are Not Continuous Across Graph Resolutions](https://proceedings.mlr.press/v306/koke26a.html)** (2026)
+
+ICML 2026: доказана разрывность GNN-представлений для ряда естественных пределов графов и разрешений; выявлена структурная причина в механизме message-passing и дана модификация для cross-resolution continuity.
+
+**Ограничение:** Разрывность не заявлена для всех архитектур/видов сходимости; continuity embedding не гарантирует сохранность exact reachability, provenance, temporal freshness и физическую стоимость page writes.
+
+**Идентичность:** `publisher:pmlr-v306-koke26a` · **Авторы:** Christian Koke, Yuesong Shen, Abhishek Saroha, Marvin Eisenberger, Bastian Rieck, Michael M. Bronstein, Daniel Cremers · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md](https://github.com/definitely-stable/Mathlab/blob/ceb08432c1b2c611bde225a9279eecf5bc165a6e/docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md) (model_overlap)
 
 
 ## algebraic-algorithms

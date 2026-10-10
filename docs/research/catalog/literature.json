@@ -1,6 +1,6 @@
 {
   "schema": "mathlab.external-literature.v1",
-  "snapshot_date": "2026-10-10",
+  "snapshot_date": "2026-10-11",
   "collection": "Curated primary literature mentioned by or model-overlapping Mathlab, DELSK and DeltaMeter; not independently proved",
   "source_snapshots": {
     "MATHLAB": {
@@ -11102,6 +11102,192 @@
           "kind": "model_overlap",
           "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
           "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-388",
+      "identity": "publisher:pmlr-v306-wittig26a",
+      "year": 2026,
+      "title": "Which Algorithms Can Graph Neural Networks Learn?",
+      "track": "graph-learning-theory",
+      "authors": [
+        "Solveig Wittig",
+        "Antonis Vasileiou",
+        "Robert R Nerem",
+        "Timo Stoll",
+        "Floris Geerts",
+        "Yusu Wang",
+        "Christopher Morris"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006",
+        "OM-133"
+      ],
+      "summary_ru": "ICML 2026: достаточные условия worst-case MPNN-аппроксимации исполнения графовых алгоритмов при обобщении с небольших экземпляров на произвольный размер; невозможность некоторых задач для стандартных MPNN и улучшенные Bellman–Ford условия.",
+      "limits_ru": "MPNN approximation не равна exact reachability в immutable DAG, онлайн-обновлению labels, отсутствию ошибок или lower bound для оплачиваемых физических page writes; результат требует специальных условий обучения и семейства алгоритмов.",
+      "primary_url": "https://proceedings.mlr.press/v306/wittig26a.html",
+      "alternate_identities": [],
+      "venue": "ICML 2026 (PMLR volume 306)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md",
+          "source_sha": "ceb08432c1b2c611bde225a9279eecf5bc165a6e"
+        }
+      ]
+    },
+    {
+      "id": "LIT-389",
+      "identity": "publisher:pmlr-v306-fetrat-qharabagh26a",
+      "year": 2026,
+      "title": "Learning to Execute Graph Algorithms Exactly with Graph Neural Networks",
+      "track": "graph-learning-theory",
+      "authors": [
+        "Muhammad Fetrat Qharabagh",
+        "Artur Back De Luca",
+        "George Giapitzakis",
+        "Kimon Fountoulakis"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006",
+        "OM-133"
+      ],
+      "summary_ru": "ICML 2026: обучение ансамбля локальных MLP-инструкций и их GNN-исполнение; результаты точной реализации LOCAL и известных BFS, DFS, flooding, Bellman–Ford с высокой вероятностью через NTK-аргументацию.",
+      "limits_ru": "Exactness условна: bounded-degree, finite precision, обученная локальная MLP модель и вероятностная гарантия; не доказывает универсальную точность любых GNN либо online immutable reachability с бесплатным хранилищем.",
+      "primary_url": "https://proceedings.mlr.press/v306/fetrat-qharabagh26a.html",
+      "alternate_identities": [],
+      "venue": "ICML 2026 (PMLR volume 306)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md",
+          "source_sha": "ceb08432c1b2c611bde225a9279eecf5bc165a6e"
+        }
+      ]
+    },
+    {
+      "id": "LIT-390",
+      "identity": "publisher:pmlr-v306-zhu26e",
+      "year": 2026,
+      "title": "When Do Graph Foundation Models Transfer? A Data-Centric Theory",
+      "track": "graph-learning-theory",
+      "authors": [
+        "Jiajun Zhu",
+        "Ying Chen",
+        "Peihao Wang",
+        "Yixuan He",
+        "Pan Li",
+        "Aditya Akella",
+        "Zhangyang Wang"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006",
+        "OM-133"
+      ],
+      "summary_ru": "ICML 2026: graphon-предел для dense graphs и Lipschitz backbone; разделение междоменного отклонения на finite-sample и инвариантную к перенумерации структурную части с исследованием stability spectral PE.",
+      "limits_ru": "Dense graphon/Lipschitz assumptions не дают автоматически переноса на sparse произвольные DAG, динамический reachability, хранение сертификатов, exact queries или page-recourse; output shift не идентичен proof freshness.",
+      "primary_url": "https://proceedings.mlr.press/v306/zhu26e.html",
+      "alternate_identities": [],
+      "venue": "ICML 2026 (PMLR volume 306)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md",
+          "source_sha": "ceb08432c1b2c611bde225a9279eecf5bc165a6e"
+        }
+      ]
+    },
+    {
+      "id": "LIT-391",
+      "identity": "publisher:pmlr-v306-koke26a",
+      "year": 2026,
+      "title": "Graph Neural Networks Are Not Continuous Across Graph Resolutions",
+      "track": "graph-learning-theory",
+      "authors": [
+        "Christian Koke",
+        "Yuesong Shen",
+        "Abhishek Saroha",
+        "Marvin Eisenberger",
+        "Bastian Rieck",
+        "Michael M. Bronstein",
+        "Daniel Cremers"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006",
+        "OM-133"
+      ],
+      "summary_ru": "ICML 2026: доказана разрывность GNN-представлений для ряда естественных пределов графов и разрешений; выявлена структурная причина в механизме message-passing и дана модификация для cross-resolution continuity.",
+      "limits_ru": "Разрывность не заявлена для всех архитектур/видов сходимости; continuity embedding не гарантирует сохранность exact reachability, provenance, temporal freshness и физическую стоимость page writes.",
+      "primary_url": "https://proceedings.mlr.press/v306/koke26a.html",
+      "alternate_identities": [],
+      "venue": "ICML 2026 (PMLR volume 306)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md",
+          "source_sha": "ceb08432c1b2c611bde225a9279eecf5bc165a6e"
+        }
+      ]
+    },
+    {
+      "id": "LIT-392",
+      "identity": "publisher:pmlr-v306-li26ig",
+      "year": 2026,
+      "title": "GraphFlow: A Graph-Based Workflow Management for Efficient LLM-Agent Serving",
+      "track": "graph-reasoning",
+      "authors": [
+        "Ao Li",
+        "Shangpeng Yang",
+        "Fahao Chen",
+        "Tianheng Xu",
+        "Peng Li",
+        "Su Zhou"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006",
+        "OM-133"
+      ],
+      "summary_ru": "ICML 2026: wGraph — единое представление агентных workflows с адаптивной сборкой и повторным использованием KV-cache; авторская оценка около 4× уменьшения memory footprint и +4.95 п.п. качества в пяти датасетах.",
+      "limits_ru": "Эксперименты не воспроизведены независимо; нужны одинаковые задачи, модель, hardware, cold/warm KV-cache и стоимость graph build/invalidation; результаты не доказывают byte-level I/O или worst-case нижние границы.",
+      "primary_url": "https://proceedings.mlr.press/v306/li26ig.html",
+      "alternate_identities": [],
+      "venue": "ICML 2026 (PMLR volume 306)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md",
+          "source_sha": "ceb08432c1b2c611bde225a9279eecf5bc165a6e"
         }
       ]
     }

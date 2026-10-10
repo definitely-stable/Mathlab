@@ -1,0 +1,152 @@
+{
+  "schema": "mathlab.import013.typed-relations.v1",
+  "audit_date": "2026-10-11",
+  "source_pins": [
+    {
+      "id": "LIT-388",
+      "identity": "publisher:pmlr-v306-wittig26a",
+      "url": "https://proceedings.mlr.press/v306/wittig26a.html"
+    },
+    {
+      "id": "LIT-389",
+      "identity": "publisher:pmlr-v306-fetrat-qharabagh26a",
+      "url": "https://proceedings.mlr.press/v306/fetrat-qharabagh26a.html"
+    },
+    {
+      "id": "LIT-390",
+      "identity": "publisher:pmlr-v306-zhu26e",
+      "url": "https://proceedings.mlr.press/v306/zhu26e.html"
+    },
+    {
+      "id": "LIT-391",
+      "identity": "publisher:pmlr-v306-koke26a",
+      "url": "https://proceedings.mlr.press/v306/koke26a.html"
+    },
+    {
+      "id": "LIT-392",
+      "identity": "publisher:pmlr-v306-li26ig",
+      "url": "https://proceedings.mlr.press/v306/li26ig.html"
+    }
+  ],
+  "new_literature": [
+    "LIT-388",
+    "LIT-389",
+    "LIT-390",
+    "LIT-391",
+    "LIT-392"
+  ],
+  "links": [
+    {
+      "source": "LIT-388",
+      "target": "LIT-389",
+      "relation": "contrasts_with",
+      "scope_note_en": "Approximation versus conditional exact execution: reconcile error quantifiers, graph families and training assumptions.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-388",
+      "target": "LIT-239",
+      "relation": "model_overlap",
+      "scope_note_en": "MPNN learned graph tasks do not construct immutable labels for pair-reachability.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-389",
+      "target": "LIT-299",
+      "relation": "model_overlap",
+      "scope_note_en": "Learned LOCAL message-passing is not parameterized transitive closure in an online index.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-390",
+      "target": "LIT-391",
+      "relation": "contrasts_with",
+      "scope_note_en": "Dense graphon domain transfer and resolution discontinuity use nonidentical convergence models.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-390",
+      "target": "LIT-303",
+      "relation": "assumption_incompatible",
+      "scope_note_en": "Dense graphon Lipschitz backbone does not match sparse succinct graph indexing.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-391",
+      "target": "LIT-284",
+      "relation": "model_overlap",
+      "scope_note_en": "GNN embedding continuity is not symmetry-preserving lossless graph compression.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-392",
+      "target": "LIT-294",
+      "relation": "evaluation_baseline",
+      "scope_note_en": "Compare KV-cache savings with graph memory indexing: both ingest/update and warm/cold serving.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-392",
+      "target": "LIT-243",
+      "relation": "evaluation_baseline",
+      "scope_note_en": "Workflow planning is not graph memory retrieval; keep simple lexical BM25 controls.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-389",
+      "target": "LIT-388",
+      "relation": "evaluation_baseline",
+      "scope_note_en": "Run independent bounded-degree local-algorithm oracles with consistent precision and error.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-391",
+      "target": "LIT-390",
+      "relation": "evaluation_baseline",
+      "scope_note_en": "Use coarsening/refinement pairs to separate query truth and embedding continuity.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-392",
+      "target": "LIT-221",
+      "relation": "evaluation_baseline",
+      "scope_note_en": "Compare a graph workflow to a non-graph baseline at equal model and cache budgets.",
+      "theorem_transfer": false
+    }
+  ],
+  "model_bridges": [
+    {
+      "target": "DAG-002",
+      "literature": [
+        "LIT-388",
+        "LIT-389"
+      ],
+      "boundary": "Learned BFS/LOCAL execution does not supply adaptive online exact DAG reachability with immutable labels and paid writes."
+    },
+    {
+      "target": "ALG-001",
+      "literature": [
+        "LIT-388",
+        "LIT-389"
+      ],
+      "boundary": "Rank and adaptive observation queries are not NTK finite-precision local MLP training guarantees."
+    },
+    {
+      "target": "UCT-005",
+      "literature": [
+        "LIT-390",
+        "LIT-391"
+      ],
+      "boundary": "Learned embedding stability does not imply Byzantine freshness, authenticated history or causal information preservation."
+    },
+    {
+      "target": "INDEX-001",
+      "literature": [
+        "LIT-390",
+        "LIT-391",
+        "LIT-392"
+      ],
+      "boundary": "Learned representation stability and KV-cache savings do not price disk page rewrites, WAL or physical I/O."
+    }
+  ]
+}

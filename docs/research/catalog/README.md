@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## IMPORT-013 — graph algorithm learning and Graph Foundation Models (ICML 2026)
+
+[Five PMLR 306 sources and nontransfer model audit](../RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md) · [typed research relationships](../IMPORT-013-GRAPH-LEARNING-RELATIONS.json) · [issue #318](https://github.com/definitely-stable/Mathlab/issues/318). Canonical **386→391** references LIT-388..392, **21→22** tracks. Original theorem proofs and performance not independently reproduced.
+
 ## IMPORT-012 — cross-disciplinary genealogy and 22 corrected external Deep Research records
 
 [Scientific correction/disposition of 32 PDF items, ancestor/descendant chains and cross-model STOP gates](../RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) · [typed 24-edge source genealogy](../IMPORT-012-SOURCE-GENEALOGY.json) · [issue #236](https://github.com/definitely-stable/Mathlab/issues/236). Canonical **364→386** records LIT-366..387; original 2015 container foundations plus 2026 Campos–Samotij, CCC/ORAM/cell-probe, TIME/dynamic-GBWT and existing FAIR GraphRAG, finite polar geometry, DNA/k-mer, TKG and negative GraphRAG controls. No primary theorem independently reproduced; no transfer/novelty claim.

@@ -39,6 +39,7 @@ TRACKS = {
     "graph-rag": "GraphRAG, knowledge-graph retrieval, системное сравнение с RAG",
     "agent-memory": "Графовая память агентов, темпоральность и эволюция знаний",
     "graph-reasoning": "Графовые зависимости шагов рассуждения, DAG-планирование",
+    "graph-learning-theory": "Теория обучения графовым алгоритмам, перенос GFM и устойчивость представлений",
     "algebraic-algorithms": "Алгебраические алгоритмы, subset sum и разреженные матрицы",
     "proof-certification": "Машинные доказательства, сертификаты и верификация",
     "proof-complexity": "Нижние границы доказательств, IPS/PIT и сертификаты",
@@ -61,6 +62,12 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-013: exact ICML 2026 PMLR publisher titles.
+    "publisher:pmlr-v306-wittig26a": "Which Algorithms Can Graph Neural Networks Learn?",
+    "publisher:pmlr-v306-fetrat-qharabagh26a": "Learning to Execute Graph Algorithms Exactly with Graph Neural Networks",
+    "publisher:pmlr-v306-zhu26e": "When Do Graph Foundation Models Transfer? A Data-Centric Theory",
+    "publisher:pmlr-v306-koke26a": "Graph Neural Networks Are Not Continuous Across Graph Resolutions",
+    "publisher:pmlr-v306-li26ig": "GraphFlow: A Graph-Based Workflow Management for Efficient LLM-Agent Serving",
     # IMPORT-012 additional primary source benchmarks and dynamic GBWT.
     "arxiv:2505.12891": "TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios",
     "doi:10.64898/2026.03.26.714584": "A run-length-compressed skiplist data structure for dynamic GBWTs supports time and space efficient pangenome operations over syncmers",

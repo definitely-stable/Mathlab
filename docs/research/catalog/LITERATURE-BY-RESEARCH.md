@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**386** работ сопоставлены с **38** внутренними исследованиями.
+**391** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -548,6 +548,11 @@
 - [LIT-385](LITERATURE.md#lit-385) — Dynamic Meta-Kernelization (2026; publisher_abstract_checked)
 - [LIT-386](LITERATURE.md#lit-386) — TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios (2025; primary_abstract_checked)
 - [LIT-387](LITERATURE.md#lit-387) — A run-length-compressed skiplist data structure for dynamic GBWTs supports time and space efficient pangenome operations over syncmers (2026; primary_abstract_checked)
+- [LIT-388](LITERATURE.md#lit-388) — Which Algorithms Can Graph Neural Networks Learn? (2026; publisher_abstract_checked)
+- [LIT-389](LITERATURE.md#lit-389) — Learning to Execute Graph Algorithms Exactly with Graph Neural Networks (2026; publisher_abstract_checked)
+- [LIT-390](LITERATURE.md#lit-390) — When Do Graph Foundation Models Transfer? A Data-Centric Theory (2026; publisher_abstract_checked)
+- [LIT-391](LITERATURE.md#lit-391) — Graph Neural Networks Are Not Continuous Across Graph Resolutions (2026; publisher_abstract_checked)
+- [LIT-392](LITERATURE.md#lit-392) — GraphFlow: A Graph-Based Workflow Management for Efficient LLM-Agent Serving (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -756,6 +761,11 @@
 - [LIT-379](LITERATURE.md#lit-379) — Beyond single references: pangenome graphs and the future of genomic medicine (2025; publisher_abstract_checked)
 - [LIT-385](LITERATURE.md#lit-385) — Dynamic Meta-Kernelization (2026; publisher_abstract_checked)
 - [LIT-387](LITERATURE.md#lit-387) — A run-length-compressed skiplist data structure for dynamic GBWTs supports time and space efficient pangenome operations over syncmers (2026; primary_abstract_checked)
+- [LIT-388](LITERATURE.md#lit-388) — Which Algorithms Can Graph Neural Networks Learn? (2026; publisher_abstract_checked)
+- [LIT-389](LITERATURE.md#lit-389) — Learning to Execute Graph Algorithms Exactly with Graph Neural Networks (2026; publisher_abstract_checked)
+- [LIT-390](LITERATURE.md#lit-390) — When Do Graph Foundation Models Transfer? A Data-Centric Theory (2026; publisher_abstract_checked)
+- [LIT-391](LITERATURE.md#lit-391) — Graph Neural Networks Are Not Continuous Across Graph Resolutions (2026; publisher_abstract_checked)
+- [LIT-392](LITERATURE.md#lit-392) — GraphFlow: A Graph-Based Workflow Management for Efficient LLM-Agent Serving (2026; publisher_abstract_checked)
 
 ## ML-007
 
@@ -959,6 +969,11 @@
 - [LIT-383](LITERATURE.md#lit-383) — GraphRAG-R1: Graph Retrieval-Augmented Generation with Process-Constrained Reinforcement Learning (2025; primary_abstract_checked)
 - [LIT-384](LITERATURE.md#lit-384) — Comparing RAG and GraphRAG for Page-Level Retrieval Question Answering on a Math Textbook (2025; publisher_abstract_checked)
 - [LIT-386](LITERATURE.md#lit-386) — TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios (2025; primary_abstract_checked)
+- [LIT-388](LITERATURE.md#lit-388) — Which Algorithms Can Graph Neural Networks Learn? (2026; publisher_abstract_checked)
+- [LIT-389](LITERATURE.md#lit-389) — Learning to Execute Graph Algorithms Exactly with Graph Neural Networks (2026; publisher_abstract_checked)
+- [LIT-390](LITERATURE.md#lit-390) — When Do Graph Foundation Models Transfer? A Data-Centric Theory (2026; publisher_abstract_checked)
+- [LIT-391](LITERATURE.md#lit-391) — Graph Neural Networks Are Not Continuous Across Graph Resolutions (2026; publisher_abstract_checked)
+- [LIT-392](LITERATURE.md#lit-392) — GraphFlow: A Graph-Based Workflow Management for Efficient LLM-Agent Serving (2026; publisher_abstract_checked)
 
 ## OM-135
 
