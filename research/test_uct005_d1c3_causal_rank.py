@@ -105,6 +105,52 @@ class CausalRankStopTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             full_interval_observation_rank(2, (0,), (2,))
 
+    def test_affine_known_payload_values_and_full_answer_signatures(self):
+        # The cardinality check alone cannot catch an incorrect public XOR
+        # offset. Compare FULL answer signatures of independent literal SET
+        # executions against the algebraic affine-row predictions.
+        for n in range(1, 4):
+            for H in range(3):
+                for scheduled in product(range(n), repeat=H):
+                    scheduled = tuple(scheduled)
+                    observations = tuple((i & 1, t, i % n, (i % n) + 1)
+                                         for t in range(H + 1)
+                                         for i in range(n + 1))
+                    for known_mask in range(1 << H):
+                        known_steps = [t for t in range(H) if
+                                       known_mask & (1 << t)]
+                        for known_bits in product((0, 1), repeat=len(known_steps)):
+                            public = tuple(zip(known_steps, known_bits))
+                            data = causal_rank(n, scheduled, observations, public)
+                            unknown = tuple(i for i in range(n + H)
+                                            if i < n or not known_mask & (1 << (i - n)))
+                            predicted = set()
+                            for values in product((0, 1), repeat=len(unknown)):
+                                symbol_mask = sum((1 << i) for i, bit in zip(unknown, values)
+                                                  if bit)
+                                predicted.add(tuple(
+                                    ((row & symbol_mask).bit_count() & 1) ^ offset
+                                    for row, offset in zip(data["hidden_rows"],
+                                                           data["public_offsets"])))
+                            direct = independent_answer_signatures(
+                                n, scheduled, observations, public)
+                            self.assertEqual(predicted, direct,
+                                             (n, scheduled, observations, public))
+                            self.assertEqual(len(direct), data["answer_tuple_count"])
+        # Same secret rank, DIFFERENT known SET payload -> different affine
+        # answer signature. The output offset is part of the contract.
+        q = ((0, 1, 0, 1),)
+        zero = causal_rank(1, (0,), q, ((0, 0),))
+        one = causal_rank(1, (0,), q, ((0, 1),))
+        self.assertEqual(zero["joint_rank"], one["joint_rank"])
+        self.assertEqual(zero["joint_rank"], 0)
+        self.assertEqual(zero["public_offsets"], [0])
+        self.assertEqual(one["public_offsets"], [1])
+        self.assertEqual(independent_answer_signatures(
+            1, (0,), q, ((0, 0),)), {(0,)})
+        self.assertEqual(independent_answer_signatures(
+            1, (0,), q, ((0, 1),)), {(1,)})
+
     def test_overwritten_old_symbols_do_not_reappear(self):
         r = last_writer_row(2, (0, 1, 0), 3, 0, 2)
         # Last writer of coord0 is b2 at index 4; coord1 is b1 at index3.
