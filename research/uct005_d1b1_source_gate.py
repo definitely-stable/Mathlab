@@ -7,7 +7,6 @@ cell-probe lower bound, authenticated security proof or source theorem transfer.
 from __future__ import annotations
 
 from collections import Counter
-from itertools import product
 import json
 from pathlib import Path
 
@@ -27,7 +26,7 @@ def validate_matrix() -> dict:
     f1 = json.loads(F1.read_text(encoding="utf-8"))
     if doc["schema"] != "mathlab.uct005.d1b1.transfer-matrix.v1":
         raise ValueError("unrecognized D1-B1 source matrix")
-    if doc["root_novelty"] != f1["root_novelty"] != "OPEN_UNPROVED":
+    if doc["root_novelty"] != "OPEN_UNPROVED" or f1["root_novelty"] != "OPEN_UNPROVED":
         raise ValueError("false theorem promotion")
     if not doc["no_source_full_proof_rederived"]:
         raise ValueError("source proof verification falsely implied")
