@@ -1,0 +1,28 @@
+name: hyp105-c14-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c14-seven-family-domain-certificate
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c14_domain_certificates.py"
+      - "research/test_hyp105_g5e2b3e1c14_domain_certificates.py"
+      - ".github/workflows/hyp105-c14-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-seven-family-domain-pruning:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent exact 4/36-completion original W32 seven-family falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c14_domain_certificates.py' -v
+      - name: True W32 3-by-3 joint map box exact certificate and BnB report
+        run: python research/hyp105_g5e2b3e1c14_domain_certificates.py
