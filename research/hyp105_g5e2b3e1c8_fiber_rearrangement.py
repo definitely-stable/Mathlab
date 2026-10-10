@@ -105,6 +105,33 @@ def universal_k_pin_lower(source, target, V, original_pins=(),
     }
 
 
+def finite_minimum_interval(source, target, V, original_pins=()):
+    """Genuine S_V minimum lies between all-prefix fiber lower and mean upper.
+
+    C5 exact common-bijection mean gives existence of a map with integer
+    overlap <= floor(M*|target|/C(V,6)); this is an EXISTENTIAL upper
+    only, not an explicit mapping or the risk of another family.
+    """
+    left = universal_k_pin_lower(source, target, V, original_pins)
+    s = validate_weighted_sixsets(source, V)
+    t = validate_weighted_sixsets({R: 1 for R in target}, V)
+    if len(t) != len(target):
+        raise ValueError("duplicate target")
+    upper = sum(s.values()) * len(t) // comb(V, 6)
+    lower = left["minimum_fiber_lower"]
+    if lower > upper:
+        raise AssertionError("false all-permutation lower or mean upper")
+    return {
+        "certified_minimum_lower": lower,
+        "existential_mean_minimum_upper": upper,
+        "minimum_exact": lower == upper,
+        "exact_minimum_if_equal": lower if lower == upper else None,
+        "explicit_upper_witness": False,
+        "all_h_GQ_seven_family_lower_proved": False,
+        "prefix_fiber_certificate": left,
+    }
+
+
 def W32_fiber_report():
     """Genuine W32 source/target, only low-k universal relaxations."""
     from itertools import combinations
@@ -122,6 +149,7 @@ def W32_fiber_report():
         k0 = universal_k_pin_lower(source, target, 15)
         k1 = universal_k_pin_lower(source, target, 15, (0,))
         k2 = universal_k_pin_lower(source, target, 15, (0, 1))
+        interval = finite_minimum_interval(source, target, 15, (0, 1))
         actual = fixed_map_overlap(source, target, pi)
         if not 0 <= k0["minimum_fiber_lower"] <= k1["minimum_fiber_lower"] <= k2["minimum_fiber_lower"] <= actual:
             raise AssertionError("invalid W32 universal fiber certificate chain")
@@ -130,6 +158,8 @@ def W32_fiber_report():
             "unconditional_lower": k0["minimum_fiber_lower"],
             "one_pin_universal_lower": k1["minimum_fiber_lower"],
             "two_pin_universal_lower": k2["minimum_fiber_lower"],
+            "existential_mean_upper": interval["existential_mean_minimum_upper"],
+            "exact_BA_minimum_certified": interval["minimum_exact"],
             "one_pin_prefixes": k1["enumerated_injective_prefixes"],
             "two_pin_prefixes": k2["enumerated_injective_prefixes"],
             "f_and_F_minimum_proved": False,
