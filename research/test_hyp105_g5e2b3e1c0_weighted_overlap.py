@@ -15,6 +15,7 @@ from hyp105_g5e2b3e1c0_weighted_overlap import (
     exact_BA_overlap,random_injection_expectation,
     finite_W32_overlap_report,generic_mass_only_countermodel,
     physical_target_two_point_design,one_degree_source_overlap_invariant,
+    two_marginal_blind_cube_trade,
 )
 
 
@@ -142,6 +143,45 @@ class WeightedIntersectionTests(unittest.TestCase):
                 weights,a=6,original_vertices=15),
                 Fraction(sum(weights.values())*2,143))
             self.assertGreater(len(source),0)
+
+    def test_pair_marginals_cannot_determine_exact_target_overlap(self):
+        """Independent 8-corner K6 trade and exact 0,1,2 marginals."""
+        palette=tuple(combinations(range(6),2))
+        T=independent_degree2_target_K6()
+        shared=(0,1,6)
+        flip=((2,11),(3,12),(13,14))
+        corners={}
+        for mask in range(8):
+            R=frozenset(shared+tuple(flip[j][(mask>>j)&1]
+                                     for j in range(3)))
+            corners[R]=mask
+        self.assertEqual(len(corners),8)
+        for scale in (1,17,1_000_000):
+            m_even={R:scale for R,mask in corners.items()
+                    if not mask.bit_count()%2}
+            m_odd={R:scale for R,mask in corners.items()
+                   if mask.bit_count()%2}
+            for k in (0,1,2):
+                def marginal(source):
+                    out=Counter()
+                    for R,w in source.items():
+                        for subset in combinations(sorted(R),k):
+                            out[subset]+=w
+                    return out
+                self.assertEqual(marginal(m_even),marginal(m_odd))
+            self.assertEqual(sum(m_even.values()),4*scale)
+            self.assertEqual(sum(m_odd.values()),4*scale)
+            self.assertEqual(exact_BA_overlap(m_even,palette,target=T),0)
+            self.assertEqual(exact_BA_overlap(m_odd,palette,target=T),scale)
+            self.assertEqual(random_injection_expectation(
+                m_even,a=6,original_vertices=15),
+                random_injection_expectation(
+                    m_odd,a=6,original_vertices=15))
+            report=two_marginal_blind_cube_trade(scale)
+            self.assertEqual(report["overlap_gap"],scale)
+            self.assertFalse(report["actual_W3s_incidence_source"])
+        with self.assertRaises(ValueError):
+            two_marginal_blind_cube_trade(False)
 
     def test_actual_correlated_pair_edge_swap_intersection(self):
         model=pair_labeled_symplectic(1,"reverse-line")
