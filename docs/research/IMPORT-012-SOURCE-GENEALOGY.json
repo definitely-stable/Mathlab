@@ -156,6 +156,36 @@
       "to": "ML-004",
       "type": "PROPOSED_TRANSFER_STOP",
       "detail": "Dynamic parameterized kernel methods differ from exact history/reachability."
+    },
+    {
+      "from": "LIT-380",
+      "to": "LIT-386",
+      "type": "METHOD_FAMILY",
+      "detail": "Temporal interpolation/extrapolation and TIME dataset evaluate related tasks; no direct theorem transfer."
+    },
+    {
+      "from": "LIT-216",
+      "to": "LIT-382",
+      "type": "METHOD_FAMILY",
+      "detail": "Existing FAIR GraphRAG source and temporal KG causal embeddings have different objectives; provenance is not automatic."
+    },
+    {
+      "from": "LIT-328",
+      "to": "LIT-387",
+      "type": "METHOD_FAMILY",
+      "detail": "Static multidollar-BWT compared with dynamic run-length compressed skiplist GBWT for path sets."
+    },
+    {
+      "from": "LIT-387",
+      "to": "ML-006",
+      "type": "PROPOSED_TRANSFER_STOP",
+      "detail": "Path-set dynamic index does not bound SSD/WAL/GC authenticated physical rewrite."
+    },
+    {
+      "from": "LIT-386",
+      "to": "OM-133",
+      "type": "NEGATIVE_CONTROL",
+      "detail": "Temporal QA benchmark evidence is empirical and does not certify Byzantine freshness."
     }
   ]
 }

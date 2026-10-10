@@ -57,11 +57,11 @@ For query-with-sketch/ORAM, the source assumes a particular systematic static ma
 | 10 TPAR temporal interpolation/extrapolation | IMPORT corrected ACL authors and DOI |
 | 11 NEDA asynchronous TKG | IMPORT official ACL Anthology |
 | 12 CEGRL-TKGR | IMPORT with ACL publisher identity (no verified DOI), experimental only |
-| 13 TimE temporal benchmark | NEEDS_METADATA_RECHECK; do not infer universal temporal guarantees |
+| 13 TimE temporal benchmark | IMPORT original NeurIPS 2025 TIME [arXiv:2505.12891](https://arxiv.org/abs/2505.12891), benchmark only; no proof of freshness or causality |
 | 14 GraphRAG-R1 | IMPORT correct preprint metadata |
 | 15 negative GraphRAG baseline | IMPORT corrected official proceedings title/DOI |
-| 16 FAIR GraphRAG | NEEDS_ABSTRACT_AND_IDENTITY_RECHECK; no formal-verification theorem established |
-| 17 dynamic pangenome via RLE skiplists/syncmers | NEEDS_SOURCE_IDENTITY_RECHECK; user PDF conflates CPM 2025 and bioRxiv 2026 |
+| 16 FAIR GraphRAG | ALREADY_PRESENT **LIT-216** (arXiv:2607.11464); official ICKG 2025 [DOI 10.1109/ICKG66886.2025.00019](https://doi.org/10.1109/ICKG66886.2025.00019) added as alias; no duplicate |
+| 17 dynamic pangenome via RLE skiplists/syncmers | IMPORT Richard Durbin 2026 non-reviewed bioRxiv [DOI 10.64898/2026.03.26.714584](https://doi.org/10.64898/2026.03.26.714584); path-set queries, no full DAG reachability guarantee |
 | 18 counting de Bruijn | IMPORT corrected original paper and DOI |
 | 19 Bifrost | ALREADY_PRESENT LIT-321; report's Nature DOI is wrong |
 | 20 HEDGES | ALREADY_PRESENT LIT-365 |
@@ -80,7 +80,11 @@ For query-with-sketch/ORAM, the source assumes a particular systematic static ma
 
 The first PDF also contains blogs, index pages, and other low-information/secondary sources; these are **not automatically promoted to canonical scientific publications**. Verified relevant material is treated as explicit source-graph ancestry/descendancy and catalog candidate; speculative theorem-formulas remain in quarantine.
 
-## 5. Acceptance
+## 5. Additional source-grounded reviews
+
+TIME temporal benchmark (LIT-386) and Durbin dynamic GBWT preprint (LIT-387) are source-verified late additions. FAIR GraphRAG is **ALREADY_PRESENT LIT-216**, correctly deduplicated with ICKG 2025 DOI as a new alternate identity; the report's incorrect earlier deferral has been superseded. No author-reported benchmark is independently reproduced. Source genealogy distinguishes method-family rather than literal citations.
+
+## 6. Acceptance
 
 - Distinct canonical identities; primary source URLs matching DOI/arXiv or verified ACL publisher record; first-online dates versus journal dates explained.
 - Generated forward/reverse index from canonical JSON; source title pins, tests, typed source genealogy.

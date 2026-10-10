@@ -6477,7 +6477,10 @@
       "full_proof_verified": false,
       "independent_reproduction": false,
       "publication_stage": "author_preprint",
-      "selection_priority": "A"
+      "selection_priority": "A",
+      "alternate_identities": [
+        "doi:10.1109/ICKG66886.2025.00019"
+      ]
     },
     {
       "id": "LIT-217",
@@ -11033,6 +11036,71 @@
           "repo": "MATHLAB",
           "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
           "kind": "model_overlap",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-386",
+      "identity": "arxiv:2505.12891",
+      "year": 2025,
+      "title": "TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios",
+      "track": "agent-memory",
+      "authors": [
+        "Shaohang Wei",
+        "Wei Li",
+        "Feifan Song",
+        "Wen Luo",
+        "Tianyi Zhuang",
+        "Haochen Tan",
+        "Zhijiang Guo",
+        "Houfeng Wang"
+      ],
+      "maps_to": [
+        "ML-004",
+        "OM-133"
+      ],
+      "summary_ru": "NeurIPS 2025 Datasets & Benchmarks: авторы сформировали 38 522 пары temporal QA из Wiki/News/Dialog, 3 уровня и 11 подзадач; источник для отрицательных и положительных экспериментальных тестов временных моделей.",
+      "limits_ru": "Benchmark LLM temporal QA не доказывает cryptographic freshness, causal ground truth, надежность bitemporal provenance или lower bounds; исходные результаты не воспроизведены.",
+      "primary_url": "https://arxiv.org/abs/2505.12891",
+      "alternate_identities": [],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+          "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
+        }
+      ]
+    },
+    {
+      "id": "LIT-387",
+      "identity": "doi:10.64898/2026.03.26.714584",
+      "year": 2026,
+      "title": "A run-length-compressed skiplist data structure for dynamic GBWTs supports time and space efficient pangenome operations over syncmers",
+      "track": "genomic-graphs",
+      "authors": [
+        "Richard Durbin"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "Авторский bioRxiv-препринт 2026: динамический run-length-compressed BWT с skiplist и представлением syncmer-indexed haplotype paths; авторы сообщают rank/access O(log N) и insert O(log N+S) в собственной модели.",
+      "limits_ru": "Не подтверждена рецензируемая версия; алгоритмические границы для заданных путей не означают произвольную DAG reachability, fsync/WAL/GC, paid SSD page recourse или Byzantine proof freshness.",
+      "primary_url": "https://doi.org/10.64898/2026.03.26.714584",
+      "alternate_identities": [],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
           "source_sha": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d"
         }
       ]

@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-10** · **384** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-10** · **386** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -19,11 +19,11 @@
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
 | [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 62 |
-| [DNA, пангеномы, de Bruijn и sequence graph индексы](#genomic-graphs) | 18 |
+| [DNA, пангеномы, de Bruijn и sequence graph индексы](#genomic-graphs) | 19 |
 | [Когнитивные карты, гиппокамп, engram и биологическая память](#biological-memory) | 10 |
 | [Молекулярная запись в DNA, кодирование и графовая реконструкция](#molecular-dna-storage) | 5 |
 | [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 35 |
-| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 29 |
+| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 30 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 16 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 30 |
@@ -3178,6 +3178,19 @@ Multi-context seeds для компромисса точности и скоро
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
+### LIT-387
+**[A run-length-compressed skiplist data structure for dynamic GBWTs supports time and space efficient pangenome operations over syncmers](https://doi.org/10.64898/2026.03.26.714584)** (2026)
+
+Авторский bioRxiv-препринт 2026: динамический run-length-compressed BWT с skiplist и представлением syncmer-indexed haplotype paths; авторы сообщают rank/access O(log N) и insert O(log N+S) в собственной модели.
+
+**Ограничение:** Не подтверждена рецензируемая версия; алгоритмические границы для заданных путей не означают произвольную DAG reachability, fsync/WAL/GC, paid SSD page recourse или Byzantine proof freshness.
+
+**Идентичность:** `doi:10.64898/2026.03.26.714584` · **Авторы:** Richard Durbin · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
 
 ## biological-memory
 *Когнитивные карты, гиппокамп, engram и биологическая память*
@@ -3418,7 +3431,7 @@ PNAS 2020: код HEDGES исправляет вставки, удаления �
 
 **Ограничение:** Биомедицинская демонстрация, а не доказанная общая эффективность или масштабируемость.
 
-**Идентичность:** `arxiv:2607.11464` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+**Идентичность:** `arxiv:2607.11464` · **Также:** doi:10.1109/ICKG66886.2025.00019 · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 
@@ -4216,6 +4229,19 @@ COLING NeusymBridge 2025: disentangling causal и confounding representations, �
 **Ограничение:** Работа использует каузальный язык в ML, но не гарантирует корректную структурную каузальную модель или доказательство подлинности факта.
 
 **Идентичность:** `publisher:aclanthology:2025-neusymbridge-1-2` · **Авторы:** Jinze Sun, Yongpan Sheng, Lirong He, Yongbin Qin, Ming Liu, Tao Jia · **Проверка:** `publisher_bibliography_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-386
+**[TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios](https://arxiv.org/abs/2505.12891)** (2025)
+
+NeurIPS 2025 Datasets & Benchmarks: авторы сформировали 38 522 пары temporal QA из Wiki/News/Dialog, 3 уровня и 11 подзадач; источник для отрицательных и положительных экспериментальных тестов временных моделей.
+
+**Ограничение:** Benchmark LLM temporal QA не доказывает cryptographic freshness, causal ground truth, надежность bitemporal provenance или lower bounds; исходные результаты не воспроизведены.
+
+**Идентичность:** `arxiv:2505.12891` · **Авторы:** Shaohang Wei, Wei Li, Feifan Song, Wen Luo, Tianyi Zhuang, Haochen Tan, Zhijiang Guo, Houfeng Wang · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
 
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 

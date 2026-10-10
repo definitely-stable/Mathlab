@@ -61,6 +61,9 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-012 additional primary source benchmarks and dynamic GBWT.
+    "arxiv:2505.12891": "TIME: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios",
+    "doi:10.64898/2026.03.26.714584": "A run-length-compressed skiplist data structure for dynamic GBWTs supports time and space efficient pangenome operations over syncmers",
     # IMPORT-012 verified canonical primary title identities (provenance and genealogy).
     "doi:10.1007/s00222-014-0562-8": "Hypergraph containers",
     "doi:10.1090/S0894-0347-2014-00816-X": "Independent sets in hypergraphs",
