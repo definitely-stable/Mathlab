@@ -1,3 +1,7 @@
+## UCT-005 D0 — causal information novelty gates (2026-10-10)
+
+[Eight new original primary studies LIT-349..356 and typed H1/H2/H3 proof/falsification program](UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) · [canonical LIT](catalog/LITERATURE.md) · [follow-up D1 issue #223](https://github.com/definitely-stable/Mathlab/issues/223). After IMPORT-010: **347→355** works, 21 catalog lanes. Original proof texts and empirical benchmarks NOT independently verified; source links are model-overlap evidence only. UCT root #105 OPEN_UNPROVED.
+
 ## HYP-105 B3.1-B2-A — first nonmatching factor-cherry exact GF5 (2026-10-10)
 
 [Proof, exact coefficient, independent oracles](HYP-105-G5-E2-B3-B2A-CHERRY66.md) · 66 signed orbits, 700 positive of 700, all-h random-expected nonmatching R3 Theta(s^6). Remaining nonmatching forests and all-h fixed-label R2/R3 upper OPEN.
