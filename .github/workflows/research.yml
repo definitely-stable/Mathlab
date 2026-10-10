@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: HYP-105 C7 exact one-common-Pi pinned-prefix and true GQ deterministic selector
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c7_conditional_prefix.py'
+
+      - name: HYP-105 C7 true-original W32 restricted conditional-label selector report
+        run: python research/hyp105_g5e2b3e1c7_conditional_prefix.py
+
       - name: HYP-105 C6 complete Johnson spectrum and one-common-Pi Dirichlet identity
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c6_johnson_variance.py'
 
