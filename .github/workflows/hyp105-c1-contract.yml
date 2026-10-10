@@ -1,0 +1,28 @@
+name: hyp105-c1-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c1-gq-concurrency-wedge
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c1_gq_concurrency.py"
+      - "research/test_hyp105_g5e2b3e1c1_gq_concurrency.py"
+      - ".github/workflows/hyp105-c1-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-incidence-concurrence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Complete GQ original-line concurrence and wedge source falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c1_gq_concurrency.py' -v
+      - name: GQ all-h symbolic parameters and W32 oracle report
+        run: python research/hyp105_g5e2b3e1c1_gq_concurrency.py
