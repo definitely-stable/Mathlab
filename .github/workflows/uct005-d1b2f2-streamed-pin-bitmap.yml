@@ -6,6 +6,8 @@ on:
     paths:
       - "research/uct005_d1b2f2_streamed_pin_bitmap.py"
       - "research/test_uct005_d1b2f2_streamed_pin_bitmap.py"
+      - "research/uct005_d1b2f2_crash_prefix.py"
+      - "research/test_uct005_d1b2f2_crash_prefix.py"
       - ".github/workflows/uct005-d1b2f2-streamed-pin-bitmap.yml"
   pull_request:
     branches: [main]
@@ -26,5 +28,9 @@ jobs:
           python-version: "3.x"
       - name: Two readers, all binary words, page staging and abort tests
         run: python -m unittest discover -s research -p 'test_uct005_d1b2f2_streamed_pin_bitmap.py' -v
+      - name: Independent all crash cuts, malformed page, bad publication order and ledger
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2f2_crash_prefix.py' -v
+      - name: Reproduce finite ordered stage/publish/retire report
+        run: python research/uct005_d1b2f2_crash_prefix.py
       - name: Reproduce bounded bitmap-buffer reference
         run: python research/uct005_d1b2f2_streamed_pin_bitmap.py
