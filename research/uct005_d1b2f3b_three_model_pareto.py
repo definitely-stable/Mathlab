@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """UCT-005 D1-B2-F3-B: three upper constructions, one F1 PIN/GC trace.
 
-Reference-only, fully paid PAGE-IMAGE comparisons. F2 streaming is a pending
-research dependency until exact-head CI and accepted merge. Nothing here
-establishes a new information lower bound or a complete Pareto frontier.
+Reference-only, model-scoped PAGE-IMAGE comparisons against accepted F2
+streaming and F3-A COW references. Their merge does not accept this new
+F3-B join or establish any information lower bound or Pareto frontier.
 """
 from __future__ import annotations
 
