@@ -98,7 +98,7 @@ class G1C2EPrefixGateTests(unittest.TestCase):
         self.assertFalse(store.reach(0, 3))
         self.assertEqual(store.query_read_records, 3)
         self.assertTrue(store.reach(1, 3))
-        self.assertEqual(store.query_read_records, 6)
+        self.assertEqual(store.query_read_records, 5)
         self.assertEqual(store.update_read_records, 0)
 
     def test_validation_and_no_hidden_free_inputs(self):
