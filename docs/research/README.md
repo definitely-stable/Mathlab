@@ -1,6 +1,6 @@
-## HYP-105 B3.2-E1-B1-A — all-h one-sided six-motif mass
+## HYP-105 B3.2-E1-B1-A — all-h one-sided six-motif mass and random-right completion
 
-[Proof and scope](HYP-105-G5-E2-B3-E1B1A-ONE-SIDED-UNIVERSAL.md) · [exact bound](../../research/hyp105_g5e2b3e1b1a_one_sided.py) · [independent tests](../../research/test_hyp105_g5e2b3e1b1a_one_sided.py). For ANY pair injection f, L_left=(151/144+O(1/s))s^15 uniformly in f; the missing all-label right projection transfer is equivalent to an Ω(s^-9) acceptance fraction. Neither S_seven=Ω(s^6) nor a strict GF5 R3 bound proved. Hosted CI pending.
+[Proof and scope](HYP-105-G5-E2-B3-E1B1A-ONE-SIDED-UNIVERSAL.md) · [exact bound](../../research/hyp105_g5e2b3e1b1a_one_sided.py) · [independent tests](../../research/test_hyp105_g5e2b3e1b1a_one_sided.py). For ANY pair injection f, L_left=(151/144+O(1/s))s^15 uniformly in f; for every fixed f, independent uniform right g has E_g[U_B/A]=(140+O(1/s))s^6 by GQ codegree one; the missing ALL-LABEL right transfer is equivalent to Ω(s^-9) fraction. Neither S_seven=Ω(s^6) nor a strict GF5 R3 bound proved. Hosted CI pending.
 
 ## UCT-005 D1-A — classical fixed-one-probe certificate and false joint bound (2026-10-10)
 
