@@ -61,16 +61,16 @@ class LiteratureTests(unittest.TestCase):
 
     def test_import012_time_durbin_and_fair_dedup(self):
         lookup = {e["id"]: e for e in self.data["entries"]}
-        self.assertEqual(lookup["LIT-391"]["identity"], "arxiv:2505.12891")
+        self.assertEqual(lookup["LIT-386"]["identity"], "arxiv:2505.12891")
         self.assertEqual(lookup["LIT-387"]["identity"], "doi:10.64898/2026.03.26.714584")
         self.assertEqual(lookup["LIT-216"]["identity"], "arxiv:2607.11464")
         self.assertIn("doi:10.1109/ICKG66886.2025.00019",
                       lookup["LIT-216"]["alternate_identities"])
         self.assertTrue(all(not lookup[key]["full_proof_verified"] and
                             not lookup[key]["independent_reproduction"]
-                            for key in ("LIT-391", "LIT-387")))
+                            for key in ("LIT-386", "LIT-387")))
         altered = copy.deepcopy(self.data)
-        next(e for e in altered["entries"] if e["id"] == "LIT-391")["title"] = "wrong TIME"
+        next(e for e in altered["entries"] if e["id"] == "LIT-386")["title"] = "wrong TIME"
         self.assertTrue(any("primary source title mismatch" in e
                             for e in valid(altered, self.catalog)))
 
