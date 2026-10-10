@@ -59,11 +59,16 @@ def _cow_walk(m: PageCowTree, epoch: int, digest: bytes) -> set[int]:
     """Authenticated traversal without an unpriced stored node directory."""
     root_id, root_digest = m._root(epoch, digest, "retention_audit")
     nodes: set[int] = set()
+    seen: dict[int, tuple[bytes, int, int]] = {}
 
     def visit(nid: int, expected_digest: bytes, lo: int, hi: int):
-        if nid in nodes:
+        previous = seen.get(nid)
+        if previous is not None:
+            if previous != (expected_digest, lo, hi):
+                raise CowAbort("same node ID reused with conflicting authenticated interval")
             return
         rec = m._read_node(nid, expected_digest, hi-lo, "retention_audit")
+        seen[nid] = (expected_digest, lo, hi)
         nodes.add(nid)
         if hi - lo == 1:
             if rec["kind"] != 0:
