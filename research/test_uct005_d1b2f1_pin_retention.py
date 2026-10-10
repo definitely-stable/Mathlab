@@ -3,7 +3,7 @@ import itertools
 import unittest
 
 from uct005_d1b2f1_pin_retention import (
-    CLASSIFICATION, retention_audit, exercise,
+    CLASSIFICATION, retention_audit, exercise, exact_retained_node_excess, _path_coordinates,
 )
 from uct005_d1b0_f1_reference import SnapshotF1Reference
 from uct005_d1b2b_page_cow import PageCowTree, Abort as CowAbort
@@ -67,11 +67,81 @@ class ExactPinnedRetentionTests(unittest.TestCase):
                                 self.assertLessEqual(
                                     audit["extra_historical_node_ids"],
                                     audit["path_injection_extra_node_upper"])
+                                self.assertEqual(
+                                    audit["extra_historical_node_ids"],
+                                    audit["exact_checkpoint_path_union_excess"])
+                                self.assertIs(
+                                    audit["exact_path_union_equality_certified"], True)
                                 self.assertFalse(
                                     audit["path_injection_bound_is_full_Pareto_theorem"])
                         self.assertEqual(stages[-1]["PIN_incremental_pages"],0)
                         self.assertGreater(stages[0]["PIN_incremental_pages"],0)
                         self.assertGreater(stages[1]["PIN_incremental_pages"],0)
+
+
+    def test_exact_checkpoint_path_union_for_arbitrary_pin_subsets(self):
+        # Independent oracle: the implementation's authenticated COW node
+        # reachability is counted by SHA-verified remote traversal, not by
+        # reusing this public-coordinate predictor.
+        for n in range(1, 4):
+            for word in itertools.product((0, 1), repeat=n):
+                for indices in itertools.product(range(n), repeat=3):
+                    for mask in range(8):
+                        selected = tuple(e for e in range(3) if mask & (1 << e))
+                        for cls in (PageCowTree, SegmentedPageCowTree):
+                            m = cls(word, page_bytes=2)
+                            current = list(word)
+                            if 0 in selected:
+                                m.pin_current(0)
+                            for epoch, pos in enumerate(indices, 1):
+                                # The middle SET is a deliberately new epoch
+                                # without changing a bit; full-path COW still
+                                # emits new physical node IDs.
+                                value = current[pos] if epoch == 2 else current[pos] ^ 1
+                                current[pos] = value
+                                self.assertEqual(m.set(pos, value), epoch)
+                                if epoch in selected:
+                                    m.pin_current(0)
+                            audit = retention_audit(m)
+                            predicted = exact_retained_node_excess(
+                                n, indices, selected + (3,))
+                            actual = (audit["union_reachable_COW_nodes"] -
+                                      audit["latest_reachable_COW_nodes"])
+                            self.assertEqual(actual, predicted)
+                            self.assertEqual(
+                                audit["incremental_PIN_remote_pages_over_latest"],
+                                predicted*m.node_pages +
+                                len(selected)*m.root_pages)
+                            self.assertEqual(audit["distinct_pinned_epochs"],
+                                             list(selected))
+                            self.assertEqual(audit["root_novelty"], "OPEN_UNPROVED")
+
+    def test_exact_path_union_closed_formula_and_invalid_epochs(self):
+        for n in (1, 2, 3, 5, 33, 257):
+            x1, x2, x3 = 0, min(n-1, 1), n-1
+            p1, p2, p3 = (
+                _path_coordinates(n, x1),
+                _path_coordinates(n, x2),
+                _path_coordinates(n, x3))
+            self.assertEqual(
+                exact_retained_node_excess(n, (x1, x2, x3), (0, 2, 3)),
+                len(p1 | p2) + len(p3))
+            self.assertEqual(
+                exact_retained_node_excess(n, (x1, x2, x3), (2, 3)),
+                len(p3))
+            self.assertEqual(
+                exact_retained_node_excess(n, (x1, x2, x3), (3,)), 0)
+            self.assertEqual(
+                exact_retained_node_excess(n, (x1, x2, x3), (0, 1, 2, 3)),
+                len(p1) + len(p2) + len(p3))
+        for epochs in ((), (0, 0, 3), (2, 1, 3), (0, 2), (-1, 3),
+                       (0, 4), (True, 3)):
+            with self.subTest(epochs=epochs), self.assertRaises(ValueError):
+                exact_retained_node_excess(5, (0, 1, 4), epochs)
+        with self.assertRaises(ValueError):
+            exact_retained_node_excess(5, (0, 9, 4), (0, 3))
+        with self.assertRaises(ValueError):
+            exact_retained_node_excess(0, (), (0,))
 
     def test_page_sizes_and_sharing(self):
         for n,p in ((1,1),(2,2),(5,64),(33,2),(257,4096)):
