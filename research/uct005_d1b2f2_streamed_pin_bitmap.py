@@ -154,19 +154,21 @@ class StreamedPinBitmapF1(RemotePinBitmapF1):
                 previous.update(image[:valid])
                 # Only one old and one new bitmap payload page coexist in
                 # trusted algorithmic scratch at any iteration.
-                new_page = bytearray(image)
                 if (bit >> 3) // self.page_bytes == page:
                     index_in_page = (bit >> 3) % self.page_bytes
-                    if value:
-                        new_page[index_in_page] |= 1 << (bit & 7)
-                    else:
-                        new_page[index_in_page] &= ~(1 << (bit & 7))
+                    old_byte = image[index_in_page]
+                    new_byte = ((old_byte | (1 << (bit & 7))) if value
+                                else (old_byte & ~(1 << (bit & 7))))
+                    # At protocol level, one old page plus one constructed
+                    # new page, not a third full-page mutable clone.
+                    new_image = (image[:index_in_page] + bytes((new_byte,))
+                                 + image[index_in_page + 1:])
                     shift = (2 * epoch) & 7
-                    byte = new_page[index_in_page]
                     # Both reader bits occupy one byte for any epoch.
-                    after_bits = (bool(byte & (1 << shift)),
-                                  bool(byte & (1 << (shift + 1))))
-                new_image = bytes(new_page)
+                    after_bits = (bool(new_byte & (1 << shift)),
+                                  bool(new_byte & (1 << (shift + 1))))
+                else:
+                    new_image = image
                 self._peak_scratch(valid, two=True)
                 next_digest.update(new_image[:valid])
                 self.bitmap_stage[page] = new_image
