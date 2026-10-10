@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: HYP-105 C15 coupled genuine GQ right witness cluster and one-map lower tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c15_coupled_right_clusters.py'
+
+      - name: HYP-105 C15 compare three verified BnB modes on the W32 36 full joint map box
+        run: python research/hyp105_g5e2b3e1c15_coupled_right_clusters.py
+
       - name: HYP-105 C14 independent seven-family partial domain and exact joint W32 falsifiers
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c14_domain_certificates.py'
 
