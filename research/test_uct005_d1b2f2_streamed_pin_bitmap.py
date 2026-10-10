@@ -89,6 +89,26 @@ class StreamingPINTests(unittest.TestCase):
             self.assertIn(0, m.readers[0])
             self.assertEqual(m.bitmap_generation, 1)
 
+    def test_two_readers_same_historic_epoch_and_capacity(self):
+        for page_size in (1, 2, 64):
+            m = StreamedPinBitmapF1((1, 0), page_size, 4)
+            self.assertEqual(m.pin_current(0), 0)
+            self.assertEqual(m.pin_current(1), 0)
+            self.assertEqual(m.set(0, 0), 1)
+            self.assertEqual(m.as_of(1, 0, 0, 2), 1)
+            m.unpin(0, 0)
+            self.assertIn(0, m.remote)  # reader 1 still owns PIN0
+            self.assertEqual(m.as_of(1, 0, 0, 2), 1)
+            m.unpin(1, 0)
+            self.assertNotIn(0, m.remote)
+            self.assertEqual(m.set(0, 0), 2)  # no-op emits a new epoch
+            self.assertEqual(m.set(0, 1), 3)
+            with self.assertRaises(ValueError):
+                m.set(0, 0)
+            with self.assertRaises(Abort):
+                m.as_of(1, 0, 0, 2)
+            m.assert_live_invariant()
+
     def test_between_passes_change_discards_stage(self):
         class SwitchingPage(StreamedPinBitmapF1):
             switch = False
