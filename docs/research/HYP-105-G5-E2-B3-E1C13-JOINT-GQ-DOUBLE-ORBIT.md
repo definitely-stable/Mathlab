@@ -69,6 +69,8 @@ For every σ∈Γ, transport the left and right assigned label arrays back into 
 
 Then two legal W32 mapping pairs with the same occupied left/right image palettes have the same canonical key **if and only if** they belong to the SAME joint orbit. This is an exact exhaustive normal form, not a probabilistic hash. It does not enumerate all possible (f,g) pairs, so it cannot determine how many distinct global mapping-pair orbits exist without further enumeration or independent Burnside counting.
 
+A strict input firewall additionally distinguishes arbitrary physical PAIR-EDGE permutations (which are legal alternative mappings but are NOT automorphisms preserving six-edge targets) from genuine PHYSICAL COORDINATE S6 actions. The joint transport rejects any h_L,h_R not induced by an actual K6 coordinate permutation, and the canonical key refuses a missing or non-exhaustive physical group. Negative tests swap only two of the 15 occupied pair-edge IDs and demand rejection. Without this gate, arbitrary edge-label permutations could falsely be called equivalent and invalidate a global lower proof.
+
 The executable finite q=2 oracle imposes a HARD comparison budget (720*(720+720)=1,036,800 physical normalizations for full K6) and raises without returning a truncated "canonical key" on budget failure. For larger q, the theorem remains true abstractly; no claim executable symplectic group enumeration or canonical key beyond W32.
 
 ## 5. Independently constructed W32 symplectic automorphism group
