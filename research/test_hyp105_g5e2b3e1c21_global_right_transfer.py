@@ -9,6 +9,7 @@ from hyp105_g5e2b3e1c21_global_right_transfer import (
     _gq_right_distinct_floor,
     _line_sdr_dp,
     all_h_global_random_right_D6_transfer,
+    all_h_joint_uniform_right_seven_mean_lower,
     exact_K6_D6_compatible_right_orderings,
     genuine_W32_C21_report,
 )
@@ -33,6 +34,28 @@ class C21GlobalRightTransferTests(unittest.TestCase):
             self.assertTrue(new["not_fixed_adversarial_g_lower"])
         self.assertEqual(_gq_right_distinct_floor(4), 6250)
         self.assertEqual(_gq_right_distinct_floor(2), 1)
+
+    def test_same_global_g_C5_BA_plus_C21_D6_joint_mean(self):
+        from hyp105_g5e2b3e1c5_common_bijection import occupied_target_uniform_floor
+        for s in (2, 4, 8, 16, 32, 64, 128):
+            combined = all_h_joint_uniform_right_seven_mean_lower(s)
+            b = Fraction(combined["C5_B_left_A_right_mean_lower"])
+            d = Fraction(combined["C21_D6_mean_lower"])
+            total = Fraction(
+                combined["same_global_random_g_disjoint_seven_classes_mean_lower"])
+            self.assertEqual(b, occupied_target_uniform_floor(s)[
+                "one_common_right_bijection_mean_lower"])
+            self.assertEqual(d, Fraction(all_h_global_random_right_D6_transfer(s)[
+                "one_common_uniform_random_right_D6_expectation_floor"]))
+            self.assertEqual(total, b+d)
+            self.assertTrue(combined["same_g_without_independence"])
+            self.assertTrue(combined["not_adversarial_minimum"])
+            self.assertEqual(
+                Fraction(combined["same_global_random_g_GF5_R3_necessary_mean_lower"]),
+                (45600*b+5643*d)/51**6)
+        self.assertGreater(Fraction(
+            all_h_joint_uniform_right_seven_mean_lower(4)[
+                "same_global_random_g_disjoint_seven_classes_mean_lower"]), 0)
 
     def test_s2_exact_K6_right_D6_ordered_cycle_isomorphisms(self):
         info = exact_K6_D6_compatible_right_orderings()
@@ -82,6 +105,11 @@ class C21GlobalRightTransferTests(unittest.TestCase):
                              distinct)
             self.assertEqual(Fraction(x["one_shared_uniform_random_global_right_D6_exact_mean"]),
                              Fraction(distinct,5005))
+            self.assertEqual(
+                Fraction(x["one_shared_global_right_joint_B_plus_D6_exact_mean"]),
+                Fraction(x["one_shared_uniform_random_global_right_B_left_A_right_exact_mean"])
+                + Fraction(x["one_shared_uniform_random_global_right_D6_exact_mean"]))
+            self.assertGreaterEqual(x["true_actual_one_fixed_global_right_B_left_A_right"],0)
             self.assertTrue(x["independently_verified_SDR_dynamic_program"])
             self.assertTrue(x["finite_adversarial_minimum_not_proved"])
         # Independently enumerate the historical full seven-class source
@@ -89,13 +117,18 @@ class C21GlobalRightTransferTests(unittest.TestCase):
         from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
         from hyp105_g5e2b3e1b0_seven_signature import seven_census
         for scheme in ("lex", "reverse-line"):
-            expected_D6 = seven_census(
+            historical = seven_census(
                 pair_labeled_symplectic(1,scheme),
-                independent_checks=False)["seven_class_motif_counts"]["D6"]
+                independent_checks=False)["seven_class_motif_counts"]
+            expected_D6 = historical["D6"]
             actual_D6 = next(x["true_actual_one_fixed_global_right_D6"]
                              for x in cases if x["scheme"]==scheme and
                              x["global_original_left_relabel"]=="original")
             self.assertEqual(actual_D6, expected_D6)
+            actual_B = next(x["true_actual_one_fixed_global_right_B_left_A_right"]
+                            for x in cases if x["scheme"]==scheme and
+                            x["global_original_left_relabel"]=="original")
+            self.assertEqual(actual_B, historical["B-left/A-right"])
 
     def test_bad_inputs_and_enumeration_cap_fail_closed(self):
         for s in (0, 1, 3, 6, True, "4"):
