@@ -70,6 +70,78 @@ def occupied_target_residuals(a, occupied_labels, distinguished_pair):
     return frozenset(completions),full_codegree
 
 
+
+def occupied_disjoint_triangle_completion_lower(a,occupied_labels,anchor_pair):
+    """Constructive, exact physically occupied two-triangle 2-factor family.
+
+    For two PHYSICALLY DISJOINT occupied edges ab,cd let X consist of
+    physical x outside {a,b,c,d} with ax,bx occupied, and Y consist of
+    y with cy,dy occupied. Every x∈X,y∈Y,x!=y gives the distinct
+    2factor triangles abx and cdy. This counts a true subfamily of
+    q_F, not arbitrary four-original-line compatibility.
+    """
+    if type(a) is not int or a<6:
+        raise ValueError("physical alphabet must be >=6")
+    F=frozenset(_physical_pair(e,a) for e in occupied_labels)
+    if len(F)!=len(tuple(occupied_labels)) or len(F)<6:
+        raise ValueError("physical occupied labels must be injective")
+    pair=tuple(_physical_pair(e,a) for e in anchor_pair)
+    if len(pair)!=2 or len(set(pair))!=2 or any(e not in F for e in pair):
+        raise ValueError("anchor must be two distinct occupied labels")
+    if set(pair[0])&set(pair[1]):
+        raise ValueError("triangle subfamily bound requires disjoint anchor edges")
+    (p,q),(r,s)=pair
+    used=set((p,q,r,s))
+    outside=set(range(a))-used
+    edge=lambda x,y:tuple(sorted((x,y)))
+    X={x for x in outside if edge(p,x) in F and edge(q,x) in F}
+    Y={y for y in outside if edge(r,y) in F and edge(s,y) in F}
+    count=len(X)*len(Y)-len(X&Y)
+    if count<0:
+        raise AssertionError("negative available two-triangle completions")
+    t=comb(a,2)-len(F)
+    L=max(0,a-4-t)
+    universal=max(0,L*(L-1))
+    if count<universal:
+        raise AssertionError("universal occupied two-triangle lower falsified")
+    return {
+        "a":a,"occupied_labels":len(F),"missing_labels":t,
+        "first_triangle_extra_vertices":len(X),
+        "second_triangle_extra_vertices":len(Y),
+        "two_triangle_occupied_completion_count":count,
+        "uniform_missing_budget_lower":universal,
+        "not_actual_GQ_four_line_completion":True,
+    }
+
+
+def all_h_pairwise_random_benchmark_lower(s):
+    """Asymmetric C3 anchored mass × occupied physical triangles / C(V-2,4).
+
+    A sum of DIFFERENT per-P frozen-pair random-bijection means.
+    It is NOT the expectation under ONE shared uniform right labeling,
+    NOT a bound for fixed adversarial g, and NOT R3.
+    If along a sequence t<= (1-eta)*a for fixed eta>0, this lower
+    is Omega_eta(s^6), by the separately proved C3 mass estimate.
+    """
+    from hyp105_g5e2b3e1c3_wedge_alignment import universal_wedge_alignment
+    p=universal_wedge_alignment(s)
+    a,V,t=p["a"],p["V"],p["missing_physical_pair_labels"]
+    L=max(0,a-4-t)
+    per_disjoint=max(0,L*(L-1))
+    conditional_N=comb(V-2,4)
+    mdis=p["physically_disjoint_distinguished_pair_source_mass_lower"]
+    bound=Fraction(mdis*per_disjoint,conditional_N)
+    return {
+        "s":s,"a":a,"V":V,"physical_missing_t":t,
+        "all_disjoint_anchors_occupied_completion_lower":per_disjoint,
+        "all_correlated_disjoint_original_witness_mass_lower":mdis,
+        "pairwise_frozen_bijection_benchmark_lower":bound,
+        "bound_is_global_deterministic_BA_overlap":False,
+        "asymptotic_if_t_le_(1-eta)a":
+            "Omega_eta(s^6) for every fixed eta>0, only for benchmark",
+    }
+
+
 def original_W32_conditional_source(model):
     """Unique original doubled-point P and four OTHER original right lines.
 
