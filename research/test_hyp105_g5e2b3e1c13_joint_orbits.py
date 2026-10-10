@@ -10,6 +10,8 @@ from hyp105_g5e2b3e1c13_joint_orbits import (
     w32_original_sp4_automorphisms,original_incidence_pair_orbits,
     joint_transport_W32,joint_fixed_pair_stabilizer_W32,
     canonical_joint_pair_key_W32,W32_joint_orbit_report,
+    W32_joint_one_left_one_right_pin_orbits,
+    W32_joint_global_orbit_count_lower,
 )
 
 
@@ -37,6 +39,26 @@ class C13JointGQDoubleOrbitTests(unittest.TestCase):
         self.assertEqual(r["original_nonincident_antiflags"],180)
         for _,size,stabilizer in r["point_line_pair_orbits"]:
             self.assertEqual(size*stabilizer,720)
+
+    def test_full_named_left_right_pin_two_orbit_exact_partition(self):
+        counts=W32_joint_one_left_one_right_pin_orbits()
+        self.assertEqual(counts["all_joint_one_eachd_side_pin_assignments"],
+                         15**4)
+        self.assertEqual(counts["joint_flag_prefix_orbit_size"],45*225)
+        self.assertEqual(counts["joint_antiflag_prefix_orbit_size"],180*225)
+        self.assertEqual(counts["joint_one_eachd_side_physical_and_GQ_orbit_count"],2)
+        self.assertEqual(counts["joint_flag_prefix_stabilizer"],36864)
+        self.assertEqual(counts["joint_antiflag_prefix_stabilizer"],9216)
+
+    def test_joint_complete_mapping_pair_orbit_count_lower_kill_gate(self):
+        bound=W32_joint_global_orbit_count_lower()
+        self.assertEqual(bound["full_W32_joint_left_right_mapping_pairs"],
+                         factorial(15)**2)
+        self.assertEqual(bound["largest_possible_joint_orbit"],720**3)
+        self.assertEqual(bound["rigorous_number_joint_orbits_at_least"],
+                         4581437148288000)
+        self.assertTrue(bound["symmetry_quotient_alone_is_not_feasible_exhaustive_search"])
+        self.assertFalse(bound["all_joint_orbits_exhaustively_enumerated"])
 
     def test_joint_stabilizer_exact_orbit_size(self):
         cert=joint_fixed_pair_stabilizer_W32(self.model,self.A,self.H,self.H)
@@ -90,6 +112,10 @@ class C13JointGQDoubleOrbitTests(unittest.TestCase):
         report=W32_joint_orbit_report()
         self.assertEqual(report["original_sp4_order"],720)
         self.assertEqual(report["joint_group_order"],720**3)
+        self.assertEqual(report["joint_flag_named_pin_orbit_size"],10125)
+        self.assertEqual(report["joint_antiflag_named_pin_orbit_size"],40500)
+        self.assertEqual(report["rigorous_joint_mapping_pair_orbits_at_least"],
+                         4581437148288000)
         self.assertEqual(report["original_point_line_orbits"],(45,180))
         self.assertEqual(report["same_map_seven_original_S"],
                          report["same_map_transformed_S"])
