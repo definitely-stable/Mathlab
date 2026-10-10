@@ -1,0 +1,28 @@
+name: hyp105-c18-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c18-zero-local-star-barrier
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c18_zero_star_barrier.py"
+      - "research/test_hyp105_g5e2b3e1c18_zero_star_barrier.py"
+      - ".github/workflows/hyp105-c18-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  all-h-zero-local-star:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C18 all-h star density and genuine W32 A B C zero-scope independent tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c18_zero_star_barrier.py' -v
+      - name: C18 exact two-power star arithmetic and original incidence no-go report
+        run: python research/hyp105_g5e2b3e1c18_zero_star_barrier.py
