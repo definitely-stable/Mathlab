@@ -72,7 +72,27 @@ Independent proof gates:
 
 A dedicated C15 report separately benchmarks THREE modes on the SAME original 12+12 rooted 36-map box against one complete independent enumerator. It records root C14 singleton/cluster/shared lower, GF5 necessary root lower, actual left-pinned witness count, right-line signature clusters, total right completions, nodes visited, leaves recounted and pruned subtrees. No performance or numerical gain is predeclared before actual CI results.
 
-## 5. Acceptance and mathematical decision
+## 5. Verified actual W32 C15 hosted result — stronger bounds and smaller tree
+
+At first exact PR HEAD f69719edd85c79ff50bb5d53a680085d4681c2ec, GitHub-hosted dedicated [C15 Contract run 38083573985](https://github.com/definitely-stable/Mathlab/actions/runs/38083573985) completed **SUCCESS: 6/6 independent unit tests** and an independent three-mode true original W32 36-legal-map report. All three branches recover the *same* independently exhaustive minimum S_seven=148; the independently enumerated minimum ACCEPTED GF5 necessary numerator is 6,676,842. Numerical results are:
+
+| True W32 12-left/12-right pinned rooted box | C14 single-witness | C15 exact-right-signature clusters | C15 ONE full shared right map |
+| --- | ---: | ---: | ---: |
+| Certified seven-family ROOT lower | **2** | **8** | **12** |
+| Certified GF5 NECESSARY numerator ROOT lower | 91,200 | 370,950 | 513,393 |
+| Visited exact joint BnB nodes | 73 | 46 | **34** |
+| Fully recounted genuine joint full leaves | 3 | 3 | 3 |
+| Explicitly pruned subtree roots | 33 | 19 | 12 |
+
+The three bounds are ordered IN PROOF, not merely in samples. At the root, the source covers 6,723 ORIGINAL six-incidence witnesses whose left original points are ALL pinned, classified in eight disjoint exact touched-unpinned-original-right-line signature clusters. There are exactly 3!=6 full right completions for the three unpinned ORIGINAL right lines. The other 62,370−6,723=55,647 physical-left sixset candidates are deliberately ignored because at least one ORIGINAL left point is not pinned.
+
+The shared mode's **12 vs 2 = 6× stronger certified root floor** and reduction in visited nodes 73→34 (39 fewer nodes, **53.42%**) are actual measurements under identical original point/right line extension order, not an asymptotic performance result. The observed number of pruned subtree ROOTS is smaller with stronger bounds (33→12) because far fewer tree nodes are visited; it would be incorrect to report 12 vs 33 as worse proof strength or to confuse a subtree-root count with the number of avoided full maps.
+
+Root 12 is still much less than the true fixed-box min 148. This proves the principal next obstruction is on the LEFT source eligibility: 55,647 of 62,370 potential left structural witnesses touch at least one still-unpinned ORIGINAL left point. C16 should build certified *two-sided coupled original source domains* and retain overlapping original GQ point/line constraints without enumerating all (15!)² joint maps.
+
+Exact values are now frozen into both a fast dedicated root test and the standalone three-mode report's self-check. **The updated exact HEAD needs its own GitHub-hosted dedicated and full Research SUCCESS; a prior success does not certify a changed SHA.** No global all-f,g or all-h omega(s6) result follows.
+
+## 6. Acceptance and mathematical decision
 
 The dedicated GitHub-hosted `hyp105-c15-contract` and full `research` CI on the EXACT PR HEAD must both be SUCCESS; C0–C14 upstream dependency PRs are not merged by this phase. Parent #230 OPEN_WITH_FORMAL_BLOCKER; no full 15!² original GQ joint minimum, no GF5 full R3 and no all-h obstruction proven.
 

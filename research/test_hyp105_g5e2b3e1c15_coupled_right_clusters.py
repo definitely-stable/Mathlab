@@ -26,6 +26,19 @@ class C15CoupledRightProofTests(unittest.TestCase):
         x=coupled_right_witness_certificate(self.m,self.f,self.g)
         old=seven_local_completion_lower(self.m,self.f,self.g)
         self.assertEqual(x["actual_one_common_right_completions"],6)
+        # Frozen genuine original GQ host result from GitHub-hosted
+        # 36-map independent completion and 3-mode branch audit.
+        self.assertEqual(x["eligible_all_left_pinned_candidates"],6723)
+        self.assertEqual(x["right_signature_cluster_count"],8)
+        self.assertEqual(x["C14_independent_single_seven_lower"],2)
+        self.assertEqual(x["C15_support_cluster_seven_lower"],8)
+        self.assertEqual(x["C15_one_shared_right_seven_lower"],12)
+        self.assertEqual(
+            x["C14_independent_single_GF5_necessary_numerator_lower"],91200)
+        self.assertEqual(
+            x["C15_support_cluster_GF5_necessary_numerator_lower"],370950)
+        self.assertEqual(
+            x["C15_one_shared_right_GF5_necessary_numerator_lower"],513393)
         self.assertEqual(x["C14_independent_single_seven_lower"],
                          old["certified_every_completion_S_seven_lower"])
         self.assertEqual(

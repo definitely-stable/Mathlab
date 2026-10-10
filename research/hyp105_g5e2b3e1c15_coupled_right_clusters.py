@@ -281,6 +281,24 @@ def genuine_W32_C15_report():
             and cert["C15_one_shared_right_GF5_necessary_numerator_lower"]
             <=independent["true_minimum_GF5_floor_numerator_in_box"]):
         raise AssertionError("root coupled local lower exceeds independent true minimum")
+    # Frozen independent GitHub-hosted true W32 C15 benchmark.
+    # These are finite comparison statistics, NOT all-f,g lower bounds.
+    if (cert["eligible_all_left_pinned_candidates"]!=6723
+            or cert["right_signature_cluster_count"]!=8
+            or (
+                cert["C14_independent_single_seven_lower"],
+                cert["C15_support_cluster_seven_lower"],
+                cert["C15_one_shared_right_seven_lower"]
+            )!=(2,8,12)
+            or (
+                cert["C14_independent_single_GF5_necessary_numerator_lower"],
+                cert["C15_support_cluster_GF5_necessary_numerator_lower"],
+                cert["C15_one_shared_right_GF5_necessary_numerator_lower"]
+            )!=(91200,370950,513393)
+            or results!={"single":{"nodes":73,"leaves":3,"pruned":33},
+                         "cluster":{"nodes":46,"leaves":3,"pruned":19},
+                         "shared":{"nodes":34,"leaves":3,"pruned":12}}):
+        raise AssertionError("verified W32 C15 three-mode baseline changed")
     return {
         "scope":"TRUE_ORIGINAL_W32_REVERSE_LINE_12_LEFT_12_RIGHT_PIN_BOX",
         "full_true_joint_mapping_pairs_in_box":36,
