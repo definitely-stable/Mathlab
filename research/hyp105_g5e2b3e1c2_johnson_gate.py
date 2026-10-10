@@ -376,4 +376,4 @@ def finite_W32_report():
 
 
 if __name__=="__main__":
-    print(json.dumps(finite_W32_report(),sort_keys=True,indent=2))
+    print(json.dumps(finite_W32_report(),sort_keys=True,indent=2,default=str))
