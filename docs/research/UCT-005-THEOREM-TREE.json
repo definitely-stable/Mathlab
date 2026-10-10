@@ -323,6 +323,12 @@
       "kind": "theorem_brick",
       "status": "RESTRICTED_CLASSICAL_PIGEONHOLE_PHASE_CUT_NOT_NOVEL_UCT_ROOT",
       "source": "docs/research/UCT-005-G3-B2-D1B2F3D-DEFERRED-OUTPUT-CUT.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F3E",
+      "kind": "research_input",
+      "status": "AUTHENTICATED_PIN_FAILURE_SIDE_STAGE_PAGE_AMPLIFICATION_SPECIFIC_UPPERS_STOP_NOVELTY",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F3E-FAILURE-STAGING.md"
     }
   ],
   "edges": [
@@ -580,6 +586,11 @@
       "parent": "UCT005G3B2D1B2F3C",
       "child": "UCT005G3B2D1B2F3D",
       "relation": "ELEMENTARY_DEFERRED_OUTPUT_CAPACITY_AND_ZERO_NOVELTY_NO_ROOT_LOWER"
+    },
+    {
+      "parent": "UCT005G3B2D1B2F3D",
+      "child": "UCT005G3B2D1B2F3E",
+      "relation": "SUBORDINATE_ADVERSARIAL_UPPER_COMPARATOR_NOT_PROOF_TRANSFER"
     }
   ]
 }
