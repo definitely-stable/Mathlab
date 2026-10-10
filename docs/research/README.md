@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-A — full fixed-label W32 six-coordinate GF5 leading motif census
+
+[Full finite theorem/scope](HYP-105-G5-E2-B3-E1A-FIXED-LEADING-MOTIFS.md) · [all-original-incidence oracle](../../research/hyp105_g5e2b3e1a_fixed_leading.py) · [independent falsifiers](../../research/test_hyp105_g5e2b3e1a_fixed_leading.py). Checks exactly 62,370 LEFT six-coordinate necessary candidate sets for W(3,2), then entire RIGHT for new four C/A/C/B/B/B sector; full 51-palette signed minimum R3 lower, NOT a complete weighted R3 or all-h ASET theorem. CI acceptance pending.
+
 ## HYP-105 B3.2-E0 — one all-h labeling, weak joint R2/R3
 
 [Proof and scope](HYP-105-G5-E2-B3-E0-JOINT-FIRST-MOMENT.md) · [reference](../../research/hyp105_g5e2b3e0_joint_first_moment.py) · [tests](../../research/test_hyp105_g5e2b3e0_joint_first_moment.py). Same-label R2=O(s^4), R3=O(s^6) follows from existing two expectation bounds via classical first moment. Strict R3 exponent, practical deterministic construction and ASET gap remain OPEN; PR-head CI pending.
