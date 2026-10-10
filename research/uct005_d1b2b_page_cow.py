@@ -105,9 +105,7 @@ class PageCowTree:
         self.ledger["setup_remote_upload_bytes"] += self.root_pages * self.P
         self.ledger["setup_anchor_publications"] += 1
         self.ledger["setup_anchor_bytes"] += ANCHOR_BYTES
-        self.ledger["setup_bitmap_page_writes"] += self.bitmap_pages
-        self.ledger["setup_bitmap_upload_bytes"] += self.bitmap_pages * self.P
-        self.ledger["setup_remote_upload_bytes"] += self.bitmap_pages * self.P
+        self._write_bitmap("setup")
         self.ledger["peak_remote_pages"] = self.remote_pages
 
     @property
@@ -120,8 +118,45 @@ class PageCowTree:
 
     @property
     def bitmap_pages(self):
-        # Persistent allocated/deleted bitmap, 1 bit per issued ID and epoch.
+        # Node slots 1..next_id-1, then epochs 0..epoch, followed by one
+        # reserved zero sentinel bit. The boundary counters are trusted/paid.
         return _ceil(_ceil(self.next_id + self.epoch + 1, 8), self.P)
+
+    def _bitmap_image(self) -> bytes:
+        # Explicit packed remote allocation-state grammar. Position of the
+        # epoch segment derives from the separately charged next_id counter.
+        # The Python dictionaries are the untrusted page-image simulator.
+        bits = [int(i in self.nodes) for i in range(1, self.next_id)]
+        bits.extend(int(e in self.roots) for e in range(self.epoch + 1))
+        bits.append(0)  # explicit reserved sentinel
+        out = bytearray(_ceil(len(bits), 8))
+        for index, bit in enumerate(bits):
+            if bit:
+                out[index // 8] |= 1 << (index % 8)
+        if len(out) != _ceil(self.next_id + self.epoch + 1, 8):
+            raise AssertionError("bitmap allocation grammar mismatch")
+        return bytes(out)
+
+    def _read_bitmap(self, phase: str) -> bytes:
+        # The bitmap is advisory: GC validates all pinned roots directly,
+        # never marks based solely on unauthenticated bitmap bits.
+        self.ledger[f"{phase}_bitmap_page_reads"] += self.bitmap_pages
+        raw = getattr(self, "remote_bitmap", None)
+        if not isinstance(raw, bytes) or len(raw) != _ceil(
+                self.next_id + self.epoch + 1, 8):
+            raise Abort("missing or malformed persisted bitmap")
+        high = self.next_id + self.epoch  # reserved sentinel bit index
+        if raw[high // 8] & (~((1 << (high % 8)) - 1) & 0xFF):
+            raise Abort("bitmap reserved and padding bits nonzero")
+        return raw
+
+    def _write_bitmap(self, phase: str) -> None:
+        image = self._bitmap_image()
+        self.remote_bitmap = image
+        self.ledger[f"{phase}_bitmap_page_writes"] += self.bitmap_pages
+        self.ledger[f"{phase}_bitmap_upload_bytes"] += self.bitmap_pages * self.P
+        if phase in ("setup", "set"):
+            self.ledger[f"{phase}_remote_upload_bytes"] += self.bitmap_pages * self.P
 
     @property
     def remote_pages(self):
@@ -222,6 +257,7 @@ class PageCowTree:
         _check_bit(bit)
         if self.epoch >= 2**64 - 1:
             raise ValueError("epoch overflow")
+        self._read_bitmap("set")
         root_id, old_node_digest = self._root(self.epoch, self.latest_digest, "set")
         new_id, digest, oldparity, newparity = self._rewrite(
             root_id, old_node_digest, 0, self.n, index, bit)
@@ -239,9 +275,7 @@ class PageCowTree:
         self.ledger["set_anchor_publications"] += 1
         self.ledger["set_anchor_publication_bytes"] += ANCHOR_BYTES
         # Bitmap is stored, not a free allocation/deallocation oracle.
-        self.ledger["set_bitmap_page_writes"] += self.bitmap_pages
-        self.ledger["set_bitmap_upload_bytes"] += self.bitmap_pages * self.P
-        self.ledger["set_remote_upload_bytes"] += self.bitmap_pages * self.P
+        self._write_bitmap("set")
         self.ledger["peak_remote_pages"] = max(
             self.ledger["peak_remote_pages"], self.remote_pages)
         return self.epoch
@@ -386,6 +420,7 @@ class PageCowTree:
     def gc(self, expected_generation: int | None = None) -> int:
         if expected_generation is not None and expected_generation != self.generation:
             raise Abort("stale PIN/GC generation")
+        self._read_bitmap("gc")
         # Entire mark pass verifies pinned roots BEFORE any remote deletion.
         roots = {self.epoch: self.latest_digest}
         for (_, e), digest in self.authority_pins.items():
@@ -409,8 +444,7 @@ class PageCowTree:
             del self.roots[e]
         freed = len(dead_nodes) * self.node_pages + len(dead_epochs) * self.root_pages
         self.ledger["gc_logical_pages_freed"] += freed
-        self.ledger["gc_bitmap_page_writes"] += self.bitmap_pages
-        self.ledger["gc_bitmap_upload_bytes"] += self.bitmap_pages * self.P
+        self._write_bitmap("gc")
         self.ledger["gc_remote_free_calls"] += len(dead_nodes) + len(dead_epochs)
         self.generation += 1
         return freed
