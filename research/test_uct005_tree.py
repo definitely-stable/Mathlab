@@ -189,6 +189,17 @@ class Uct005TreeTests(unittest.TestCase):
             self.data["edges"])
         self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
 
+    def test_d1b2b1_segmented_bitmap_remains_only_an_upper_input(self):
+        nodes = {n["id"]: n for n in self.data["nodes"]}
+        upper = nodes["UCT005G3B2D1B2B1"]
+        self.assertEqual(upper["kind"], "research_input")
+        self.assertIn("NO_PARETO_THEOREM", upper["status"])
+        self.assertIn(
+            {"parent": "UCT005G3B2D1B2B", "child": "UCT005G3B2D1B2B1",
+             "relation": "CONDITIONAL_ALLOCATION_BITMAP_UPPER_WITH_SCOPED_STOP_ONLY"},
+            self.data["edges"])
+        self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
+
     def test_no_unsound_logical_arrows(self):
         relations = {e["relation"] for e in self.data["edges"]}
         self.assertIn("THREAT_MODEL_NONTRANSFER", relations)
