@@ -122,11 +122,13 @@ def retention_audit(m) -> dict:
                 raise ValueError("withheld or malformed pinned snapshot")
             recomputed = m._digest(e,img)
             m.ledger["retention_audit_hash_calls"] += 1
-            m.ledger["retention_audit_hash_input_bytes"] += len(img)+16
+            m.ledger["retention_audit_hash_input_bytes"] += (
+                len(b"mathlab.F1.snapshot.v1\0") + len(img) + 16)
             if recomputed != root or manifest != m._manifest(e,img):
                 raise ValueError("snapshot PIN root or manifest mismatch")
             m.ledger["retention_audit_hash_calls"] += 1
-            m.ledger["retention_audit_hash_input_bytes"] += len(img)+16
+            m.ledger["retention_audit_hash_input_bytes"] += (
+                len(b"mathlab.F1.snapshot.v1\0") + len(img) + 16)
         pinned = set(trusted) - {m.epoch}
         incremental = len(pinned)*per_epoch
         kept = len(trusted)*per_epoch
