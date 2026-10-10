@@ -23,6 +23,9 @@ The active-status registry lists **ten selected research programs**, including
 completed engineering issue slices, as a
 reviewed snapshot. It does not claim to inventory every GitHub issue or proof.
 
+**2026-10-11 scoped correction:** GitHub issues [#244](https://github.com/definitely-stable/Mathlab/issues/244) and [#254](https://github.com/definitely-stable/Mathlab/issues/254) are both **CLOSED** after the accepted upper-construction PRs [#248](https://github.com/definitely-stable/Mathlab/pull/248) and [#258](https://github.com/definitely-stable/Mathlab/pull/258). Both registry records are now `CLOSED_ISSUE / MODEL_ONLY`; this is not a proof of any fully priced F1 Pareto bound, and [#105](https://github.com/definitely-stable/Mathlab/issues/105) stays `OPEN_UNPROVED`. The baseline SHA is a **review checkpoint**, not proof of live GitHub state or CI. The dated issue inventory and successor evidence are separately tracked by [PR #257](https://github.com/definitely-stable/Mathlab/pull/257); no copied live-state database is introduced.
+
+
 ## Separate status dimensions
 
 - `scientific_status`: whether the selected research objective is unproved,

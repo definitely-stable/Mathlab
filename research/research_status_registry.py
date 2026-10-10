@@ -240,6 +240,10 @@ def validate_registry(data: dict, root: Path = ROOT) -> None:
                  and by_id[key]["parent"] == parent
                  and by_id[key]["scientific_status"] == scientific,
                  f"{key}: owner, parent or scientific status drift")
+    for completed_key in ("UCT-005-COW", "UCT-005-ALLOCATOR"):
+        _require(by_id[completed_key]["workflow_status"] == "CLOSED_ISSUE"
+                 and by_id[completed_key]["scientific_status"] == "MODEL_ONLY",
+                 f"{completed_key}: scoped completed issue cannot be open or promoted")
     _require(atlas["status"] == "EVIDENCE_TYPED_ATLAS_NOT_ROOT_THEOREM"
              and atlas["owner_issue"] == 234 and atlas["root_issue"] == 105,
              "G4 atlas scope drift")

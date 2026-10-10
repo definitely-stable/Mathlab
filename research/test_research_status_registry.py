@@ -61,6 +61,22 @@ class RegistryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "owner, parent"):
             validate_registry(self.data)
 
+    def test_cow_issue_closed_scoped(self):
+        item = next(x for x in self.data["programs"]
+                    if x["id"] == "UCT-005-COW")
+        self.assertEqual(item["workflow_status"], "CLOSED_ISSUE")
+        self.assertEqual(item["scientific_status"], "MODEL_ONLY")
+        item["workflow_status"] = "OPEN_ISSUE"
+        with self.assertRaisesRegex(ValueError, "scoped completed issue"):
+            validate_registry(self.data)
+
+    def test_allocator_remains_scoped_closed(self):
+        item = next(x for x in self.data["programs"]
+                    if x["id"] == "UCT-005-ALLOCATOR")
+        item["scientific_status"] = "OPEN_UNPROVED"
+        with self.assertRaisesRegex(ValueError, "owner, parent or scientific status"):
+            validate_registry(self.data)
+
     def test_pin_trust_false_promotion(self):
         item = next(x for x in self.data["programs"]
                     if x["id"] == "UCT-005-PIN-TRUST")
