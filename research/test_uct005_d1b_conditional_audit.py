@@ -51,6 +51,30 @@ class ConditionalHardnessAuditTests(unittest.TestCase):
         self.assertTrue(any("MISSING_EXPECTED_ANCHOR" in e for e in errors))
         self.assertTrue(any("UNREVIEWED_HARDNESS_MENTION" in e for e in errors))
 
+    def test_reviewed_anchor_text_change_fails_closed(self):
+        manifest = copy.deepcopy(self.manifest)
+        manifest["documented_occurrences"] = [{
+            "path": "docs/research/example.md", "anchor": "By the 3SUM",
+            "kind": "SCOPED_SOURCE_AUDIT",
+            "expected_line": "By the 3SUM Hypothesis, no subquadratic algorithm exists."
+        }]
+        manifest["excluded_paths"] = []
+        with tempfile.TemporaryDirectory() as scratch:
+            path = Path(scratch) / "docs/research/example.md"
+            path.parent.mkdir(parents=True)
+            path.write_text("By the 3SUM Hypothesis, this lower bound is unconditional.\n",
+                            encoding="utf-8")
+            errors = audit_docs(manifest, Path(scratch))
+            self.assertTrue(any("CHANGED_REVIEWED_MENTION" in e for e in errors))
+
+    def test_existing_catalog_claim_edit_fails_even_if_identity_unchanged(self):
+        mutated = copy.deepcopy(self.catalog)
+        next(e for e in mutated if e["id"] == "LIT-058")["summary_ru"] += (
+            " This SETH result has a changed claim that requires review."
+        )
+        errors = audit_catalog(self.manifest, mutated)
+        self.assertTrue(any("SOURCE_IDENTITY_OR_FIELDS_MISMATCH" in e for e in errors))
+
     def test_breakthrough_source_and_unaffected_other_assumptions(self):
         cohort = {e["id"]: e for e in self.catalog}
         expected = {i["lit_id"]: i["identity"] for i in self.manifest["catalog_occurrences"]}
