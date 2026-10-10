@@ -1,6 +1,6 @@
 # Mathlab roadmap
 
-**No-repeat research gate (2026-10-08):** [40 source-linked already-known, proved, superseded and STOP entries](research/KNOWN-AND-STOPPED-RESEARCH.md) (and [JSON](research/KNOWN-AND-STOPPED-RESEARCH.json)) are normative before selecting any new theorem, reopening a paper claim or starting a Rust crate. DEFER and narrow prior-art overlap do not imply impossibility of all variants. Historical G2A/G2B descriptions below retain provenance; current G2 priority is REDUCE_TARGET, with no novel G4 claim or Rust product selected.
+**No-repeat research gate (historical checkpoint 2026-10-08):** [canonical source-linked already-known, proved, superseded and STOP entries](research/KNOWN-AND-STOPPED-RESEARCH.md) (and [JSON](research/KNOWN-AND-STOPPED-RESEARCH.json)) are normative before selecting any new theorem, reopening a paper claim or starting a Rust crate. DEFER and narrow prior-art overlap do not imply impossibility of all variants. Historical G2A/G2B descriptions below retain provenance; current G2 priority is REDUCE_TARGET, with no novel G4 claim or Rust product selected.
 
 
 ## TOM-005 — seven independent cross-domain proof kernels

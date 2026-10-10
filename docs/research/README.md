@@ -1,3 +1,18 @@
+# Mathlab research index
+
+**Current navigation:** [active research status](RESEARCH-STATUS.md) ·
+[machine-readable active registry](RESEARCH-STATUS-REGISTRY.json) ·
+[UCT-005 theorem tree](UCT-005-THEOREM-TREE.json) ·
+[G4 typed bridge atlas](UCT-005-G4-TYPED-BRIDGES.json) ·
+[known/stopped decisions](KNOWN-AND-STOPPED-RESEARCH.md) ·
+[canonical literature](catalog/LITERATURE.md).
+
+The chronological entries below are historical research checkpoints, not a
+current-HEAD/CI ledger. Proof status and novelty status must not be inferred
+from a green finite-oracle run. [Live CI/PR navigation](../STATUS-LIVE.md).
+
+---
+
 ## UCT-005 D1-B2-B1 — segmented bitmap allocation (2026-10-10)
 
 [Byte grammar, exact write bound and GC](UCT-005-G3-B2-D1B2B1-SEGMENTED-BITMAP.md) · [conditional implementation](../../research/uct005_d1b2b1_segmented_bitmap.py) · [independent tests](../../research/test_uct005_d1b2b1_segmented_bitmap.py) · [issue #254](https://github.com/definitely-stable/Mathlab/issues/254). D1-B2-B PR #248 is merged; this follow-on PR #258 now targets main. **Only the allocator-bitmap SET coordinate improves; full F1 Pareto and UCT-005 root remain OPEN_UNPROVED.**
