@@ -323,9 +323,18 @@ class PageCowTree:
                 raise Abort("no independently trusted historical PIN")
             epoch, digest = as_of, self.readers[reader][as_of]
         remote_epoch = epoch if presented_epoch is None else presented_epoch
+        # Byzantine replay of an unissued or reclaimed epoch MUST NOT turn
+        # a missing Python dict entry into "None -> fetch current root".
+        # The attempted remote root-slot read is still charged.
+        if type(remote_epoch) is not int or remote_epoch != epoch:
+            self.ledger["query_root_page_reads"] += self.root_pages
+            raise Abort("stale or invalid server epoch")
         # Each query must read a complete remote 48-byte root slot; it may
         # NOT use a free Python root index or silently skip manifest I/O.
         remote_root = self.roots.get(remote_epoch) if presented_root is None else presented_root
+        if remote_root is None:
+            self.ledger["query_root_page_reads"] += self.root_pages
+            raise Abort("missing remote root slot")
         nid = self._root(epoch, digest, "query", remote_root)
         if presented_records is None:
             _, records = self.make_proof(epoch, left, right)
