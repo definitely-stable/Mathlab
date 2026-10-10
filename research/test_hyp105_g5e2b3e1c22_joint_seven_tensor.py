@@ -101,6 +101,28 @@ class C22OneGlobalRightJointTensorTests(unittest.TestCase):
         self.assertTrue(r["not_full_15_factorial_right_search"])
         trials=r["all_105_exact_global_right_joint_profiles"]
         self.assertEqual(len(trials),105)
+        # Independently re-derived by a second GF(2) W32 incidence
+        # generator and full 62,370-source JavaScript oracle, not by
+        # serializing this very Python implementation.
+        self.assertEqual(r["source_eligible_seven_pattern_sixsets"],52309)
+        self.assertEqual(r["source_compiled_weighted_records"],36272)
+        self.assertEqual(r["minimum_S_seven_over_only_105_swaps"],122)
+        self.assertEqual(r["minimum_GF5_necessary_numerator_over_only_105_swaps"],
+                         5623340)
+        winner=r["min_S_attaining_global_right_swap"]
+        self.assertEqual(tuple(winner["swap_original_right_lines"]),(4,14))
+        self.assertEqual(winner["S_seven"],122)
+        self.assertEqual(winner["GF5_seven_necessary_numerator"],5623340)
+        self.assertEqual(winner["seven_counts"],{
+            "D6":0,"B-left/A-right":47,"A-left/B-right":57,
+            "C/A":2,"C/B":0,"B/B-overlap":11,"B/B-disjoint":5,
+        })
+        self.assertEqual(r["min_GF5_attaining_global_right_swap"][
+            "swap_original_right_lines"],(4,14))
+        self.assertEqual(r["per_D6_level_exact_minima_over_only_105_swaps"][0][
+            "min_S"],122)
+        self.assertEqual(r["per_D6_level_exact_minima_over_only_105_swaps"][0][
+            "min_GF5"],5623340)
         for trial in trials:
             self.assertEqual(sum(trial["seven_counts"].values()),trial["S_seven"])
             self.assertEqual(
