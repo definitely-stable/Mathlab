@@ -85,6 +85,22 @@ The source is unchanged for all its 105 complete right-original-line transpositi
 
 **Do not interpret covariance sign as all-h compensation.** A D6=0 configuration with S>0 is a true finite counterexample only to D6-alone mean-to-min; the size of its other six classes neither proves nor refutes a universal seven-family \(\Omega(s^6)\).
 
+### Independently verified finite 105-neighborhood minima and NO-GO for naive compensation
+
+A second independent exact GF(2) W32 incidence generator and original six-incidence enumerator confirms exactly **62,370** unique left-source sixsets (A=51,030, B=10,935, C=405), **52,309** statically eligible original sixsets and **36,272** weighted source signatures. It then computes the seven-vector under all 105 single global right transpositions from the C21-D baseline, reproduces the earlier independent D6 histogram 0:40, 1:29, 2:24, 3:6, 4:4, 5:1, 9:1, and certifies the restricted exact minima:
+
+    min over THESE 105 complete global right transpositions S_seven = 122
+    min over THESE 105 accepted GF5 necessary numerators Q7 = 5,623,340
+    both witnessed by swapping ORIGINAL right line IDs 4 and 14
+    global right perm at baseline = (4,13,2,9,14,3,6,0,8,1,11,5,7,12,10)
+    one-swap true original seven-vector at (4,14):
+      D6=0, B-left/A-right=47, A-left/B-right=57,
+      C/A=2, C/B=0, B/B-overlap=11, B/B-disjoint=5.
+
+By contrast the baseline complete g has seven-vector (0,60,66,5,0,9,6), **S=146** and Q7=6,698,010. The SAME original global left f and SAME true GQ incidence host are used. The one-swap true global g changes the six-class residual count from 146 to 122 **without adding any D6**. Therefore a proposed **monotonic-compensation premise** such as "D6=0 implies the other six-class count is at least its D6=0 baseline value 146 throughout the one-swap neighborhood" is rigorously FALSE even on genuine W32. This does NOT rule out a *different* seven-family all-h inequality or a uniform positive minimum: 122 remains strictly positive and covers only 105 right maps at s=2.
+
+These independent finite integers are now frozen as executable regression assertions in the C22 test suite; a different result is a CI FAIL, not an opportunity to silently revise the research claim. The full original historical B0 seven_census remains a separate comparator on several complete right maps, rather than sole self-reference to the new compiled tensor.
+
 ## 5. Executable independent falsification and CI
 
 Source: research/hyp105_g5e2b3e1c22_joint_seven_tensor.py
