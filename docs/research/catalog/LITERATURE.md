@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-10** · **355** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-10** · **364** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -10,7 +10,7 @@
 
 | Направление | Записей |
 | --- | ---: |
-| [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 23 |
+| [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 24 |
 | [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 35 |
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 24 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
@@ -18,18 +18,18 @@
 | [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 18 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 53 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 55 |
 | [DNA, пангеномы, de Bruijn и sequence graph индексы](#genomic-graphs) | 16 |
 | [Когнитивные карты, гиппокамп, engram и биологическая память](#biological-memory) | 10 |
-| [Молекулярная запись в DNA, кодирование и графовая реконструкция](#molecular-dna-storage) | 4 |
+| [Молекулярная запись в DNA, кодирование и графовая реконструкция](#molecular-dna-storage) | 5 |
 | [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 33 |
-| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 25 |
+| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 26 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
-| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 28 |
+| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 30 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
 | [Алгебраические схемы, математика и нижние границы](#algebraic-complexity) | 4 |
-| [Edit distance, строки и тонкая сложность](#fine-grained-algorithms) | 3 |
+| [Edit distance, строки и тонкая сложность](#fine-grained-algorithms) | 5 |
 | [Рандомизированная выборка, подсчёт и memory-sample](#randomized-sampling) | 4 |
 
 ## sparse-coding
@@ -339,6 +339,19 @@ Naor и Verstraëte (Combinatorica 2008) исследуют верхние оц�
 **Связь с исследованиями →** [ML-002](INDEX.md#ml-002), [ML-004](INDEX.md#ml-004), [ML-007](INDEX.md#ml-007)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/HYP-105-G5-A-TRADE-INTERSECTION.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/HYP-105-G5-A-TRADE-INTERSECTION.md) (model_overlap)
+
+### LIT-362
+**[Largest Sidon subsets in weak Sidon sets](https://arxiv.org/abs/2602.23282)** (2026)
+
+Препринт 2026 даёт точное g(n)=ceil((n+1)/2) для наименьшего максимального полного Sidon подмножества в weak Sidon множестве из n вещественных чисел, а также оценки для локальных (4,5)-множеств.
+
+**Ограничение:** Доказательство в R и определения x<y и x<=y отличаются от ASET над GF(5) с отдельными границами положительной и отрицательной стороны.
+
+**Идентичность:** `arxiv:2602.23282` · **Авторы:** Jie Ma, Quanyu Tang · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
 
 
 ## dynamic-data-structures
@@ -2758,6 +2771,32 @@ VLDBJ 2026: поддерживаемые temporal window-CC индексы св�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
 
+### LIT-360
+**[Counting hypergraphs without linear cycles of fixed length](https://arxiv.org/abs/2609.38772)** (2026)
+
+Авторский препринт сентября 2026 доказывает асимптотический счёт r-униформных гиперграфов без линейных k-циклов 2^((1+o(1))*ex_r(n,C_k)), применяя balanced supersaturation и hypergraph containers.
+
+**Ограничение:** Линейные неориентированные циклы не равны GF(5) two-sided signed trades с весами: перенос в HYP-105 требует собственного signed-incidence embedding и леммы о супернасыщении.
+
+**Идентичность:** `arxiv:2609.38772` · **Авторы:** József Balogh, Ramon I. Garcia, Abhishek Methuku · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
+
+### LIT-361
+**[Spectral Turán Problems for Expanded hypergraphs](https://arxiv.org/abs/2603.00428)** (2026)
+
+Препринт 2026 устанавливает спектральную стабильность для гиперграфов, не содержащих расширения заданных графов, и определяет экстремальные конфигурации из multipartite Turán-построений.
+
+**Ограничение:** Запрет expanded graph motifs не эквивалентен signed GF(5) зависимости; требуются редукция и учёт знаков коэффициентов.
+
+**Идентичность:** `arxiv:2603.00428` · **Авторы:** Zhenyu Ni, Dongquan Cheng, Jing Wang, Liying Kang · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
+
 
 ## genomic-graphs
 *DNA, пангеномы, de Bruijn и sequence graph индексы*
@@ -3159,6 +3198,19 @@ ConCluD: сегментация de Bruijn graph для восстановлен�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-365
+**[HEDGES error-correcting code for DNA storage corrects indels and allows sequence constraints](https://doi.org/10.1073/pnas.2004821117)** (2020)
+
+PNAS 2020: код HEDGES исправляет вставки, удаления и замены в синтетической DNA и поддерживает ограничения на последовательности; внешнее кодирование Рида–Соломона повышает восстановимость.
+
+**Ограничение:** Метрика Levenshtein/indel и DNA-кодирование не равны GF(5) signed restricted subset sums или минимальной длине signed trades; соответствующий изоморфизм не доказан.
+
+**Идентичность:** `doi:10.1073/pnas.2004821117` · **Авторы:** William H. Press, John A. Hawkins, Stephen K. Jones Jr., Jeffrey M. Schaub, Ilya J. Finkelstein · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
 
 
 ## graph-rag
@@ -3922,6 +3974,19 @@ Scientific Reports 2026: совместное использование гло�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
 
+### LIT-364
+**[LycheeMemory V2: Efficient Long-Term Memory for LLM Agents via Semantic Segment-Level Consolidation](https://arxiv.org/abs/2608.12990)** (2026)
+
+Препринт 2026 исследует сегментное объединение контекста ИИ-агента, типизированные записи и упорядоченный поиск вместо консолидации на каждом ходе; приведены авторские бенчмарки LoCoMo и LongMemEval-S.
+
+**Ограничение:** Эмпирические баллы не воспроизведены; метод не доказывает криптографическую freshness, bitemporal correctness, Byzantine soundness или отсутствие семантических ошибок.
+
+**Идентичность:** `arxiv:2608.12990` · **Авторы:** Dongfang Li, Zixuan Liu, Junmai Wang, Jiahe Huang, Fuhao Li, Bonian Jia, Baotian Hu, Min Zhang · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
+
 
 ## graph-reasoning
 *Графовые зависимости шагов рассуждения, DAG-планирование*
@@ -4497,6 +4562,32 @@ FGCS 2025: распределённый history-tree механизм для в�
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md](https://github.com/definitely-stable/Mathlab/blob/f7986a438aef85376c7973049dc75ea1d3c63ecf/docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) (model_overlap)
 
+### LIT-358
+**[Cauchyproofs: Batch-Updatable Vector Commitment with Easy Aggregation and Application to Stateless Blockchains](https://doi.org/10.1109/SP61157.2025.00247)** (2025)
+
+IEEE S&P 2025: пакетное обновление открытий векторного коммитмента на базе KZG и структурных свойств матриц Коши; авторы уменьшают стоимость обновления доказательств при множестве транзакций и пользователей.
+
+**Ограничение:** Криптографические предпосылки и setup обязательны; компактность доказательства не означает бесплатных операций prover, verifier, коммуникации, freshness или истинности содержимого графа.
+
+**Идентичность:** `doi:10.1109/SP61157.2025.00247` · **Авторы:** Zhongtang Luo, Yanxue Jia, Alejandra Victoria Ospina Gracia, Aniket Kate · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
+
+### LIT-363
+**[Formalizing Singer Sidon Constructions and Sidon Set Infrastructure in Lean 4](https://arxiv.org/abs/2605.03274)** (2026)
+
+Препринт 2026 представляет Lean 4 формализацию конструкций Singer Sidon для степеней простых q и базовую инфраструктуру теории аддитивных Sidon-множеств; авторы заявляют доказательство конструкции размера q+1 в Z/(q²+q+1).
+
+**Ограничение:** Формальная классическая конструкция не является доказательством нового GF(5) вес-4 d=3 ASET exponent; независимый lean build не запускался.
+
+**Идентичность:** `arxiv:2605.03274` · **Авторы:** David B. Hulak, Arthur F. Ramos, Ruy J. G. B. de Queiroz · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-002](INDEX.md#ml-002)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
+
 
 ## proof-complexity
 *Нижние границы доказательств, IPS/PIT и сертификаты*
@@ -4777,6 +4868,32 @@ Bibbens–Borevitz–McCauley строят линейно-пространств
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [DL-001](INDEX.md#dl-001)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/cce55aa0eb28e369eef3e032e01d3fce79304c1d/docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md) (model_overlap)
+
+### LIT-357
+**[Truly Subquadratic 3SUM and Truly Subcubic APSP via Triangles in Sparse Lopsided Graphs](https://arxiv.org/abs/2610.06783)** (2026)
+
+Препринт 5 октября 2026: авторы получают детерминированные O(n^1.9992) для 3SUM на целых числах полиномиального размера и O(n^2.9995) для APSP на ориентированных графах с целочисленными весами полиномиального размера; заявлено опровержение стандартных 3SUM/APSP conjectures.
+
+**Ограничение:** Полный 76-страничный вывод не перепроверен. Отменяются только условные барьеры, основанные на точных опровергнутых предпосылках; unconditional динамические и cell-probe bounds от этого не следуют.
+
+**Идентичность:** `arxiv:2610.06783` · **Авторы:** Josh Alman, Virginia Vassilevska Williams · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
+
+### LIT-359
+**[Cell-Probe Lower Bounds via Semi-Random CSP Refutation: Simplified and the Odd-Locality Case](https://arxiv.org/abs/2507.22265)** (2025)
+
+Авторский препринт связывает lower bounds статических локальных структур и битовых схем с semi-random CSP/XOR опровержением, улучшая случаи нечётной локальности.
+
+**Ограничение:** Нет готовой редукции к онлайн-динамической аутентифицированной памяти, bitemporal query или физическим page writes; теоремы источника полнотекстово не воспроизведены.
+
+**Идентичность:** `arxiv:2507.22265` · **Авторы:** Venkatesan Guruswami, Xin Lyu, Weiqiang Yuan · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md](https://github.com/definitely-stable/Mathlab/blob/af1f18470d46fb6068e5c51fb16224abb4cfb093/docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md) (model_overlap)
 
 
 ## randomized-sampling

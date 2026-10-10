@@ -61,6 +61,16 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-011: external PDF corrections, checked publisher/author identities.
+    "arxiv:2610.06783": "Truly Subquadratic 3SUM and Truly Subcubic APSP via Triangles in Sparse Lopsided Graphs",
+    "doi:10.1109/SP61157.2025.00247": "Cauchyproofs: Batch-Updatable Vector Commitment with Easy Aggregation and Application to Stateless Blockchains",
+    "arxiv:2507.22265": "Cell-Probe Lower Bounds via Semi-Random CSP Refutation: Simplified and the Odd-Locality Case",
+    "arxiv:2609.38772": "Counting hypergraphs without linear cycles of fixed length",
+    "arxiv:2603.00428": "Spectral Turán Problems for Expanded hypergraphs",
+    "arxiv:2602.23282": "Largest Sidon subsets in weak Sidon sets",
+    "arxiv:2605.03274": "Formalizing Singer Sidon Constructions and Sidon Set Infrastructure in Lean 4",
+    "arxiv:2608.12990": "LycheeMemory V2: Efficient Long-Term Memory for LLM Agents via Semantic Segment-Level Consolidation",
+    "doi:10.1073/pnas.2004821117": "HEDGES error-correcting code for DNA storage corrects indels and allows sequence constraints",
     # UCT-005 D0 originals, after genomic IMPORT-010 LIT-317..348.
     "usenix:osdi04:li-j": "Secure Untrusted Data Repository (SUNDR)",
     "doi:10.1016/j.ic.2018.03.004": "Verifying the consistency of remote untrusted services with conflict-free operations",

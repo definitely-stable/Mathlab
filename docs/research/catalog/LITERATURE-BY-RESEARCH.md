@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**355** работ сопоставлены с **38** внутренними исследованиями.
+**364** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -168,6 +168,8 @@
 - [LIT-128](LITERATURE.md#lit-128) — Update-Efficiency and Local Repairability Limits for Capacity Approaching Codes (2013; publisher_abstract_checked)
 - [LIT-133](LITERATURE.md#lit-133) — Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes (2019; publisher_abstract_checked)
 - [LIT-352](LITERATURE.md#lit-352) — The Cell Probe Complexity of Dynamic Range Counting (2012; author_paper_or_bibliography_checked)
+- [LIT-362](LITERATURE.md#lit-362) — Largest Sidon subsets in weak Sidon sets (2026; primary_abstract_checked)
+- [LIT-365](LITERATURE.md#lit-365) — HEDGES error-correcting code for DNA storage corrects indels and allows sequence constraints (2020; publisher_abstract_checked)
 
 ## ML-002
 
@@ -207,6 +209,11 @@
 - [LIT-151](LITERATURE.md#lit-151) — New Turán Exponents for Two Extremal Hypergraph Problems (2021; publisher_abstract_checked)
 - [LIT-152](LITERATURE.md#lit-152) — Parity check matrices and product representations of squares (2008; publisher_abstract_checked)
 - [LIT-153](LITERATURE.md#lit-153) — Additive codes arising from hypergraphs (2026; primary_abstract_checked)
+- [LIT-360](LITERATURE.md#lit-360) — Counting hypergraphs without linear cycles of fixed length (2026; primary_abstract_checked)
+- [LIT-361](LITERATURE.md#lit-361) — Spectral Turán Problems for Expanded hypergraphs (2026; primary_abstract_checked)
+- [LIT-362](LITERATURE.md#lit-362) — Largest Sidon subsets in weak Sidon sets (2026; primary_abstract_checked)
+- [LIT-363](LITERATURE.md#lit-363) — Formalizing Singer Sidon Constructions and Sidon Set Infrastructure in Lean 4 (2026; primary_abstract_checked)
+- [LIT-365](LITERATURE.md#lit-365) — HEDGES error-correcting code for DNA storage corrects indels and allows sequence constraints (2020; publisher_abstract_checked)
 
 ## ML-003
 
@@ -514,6 +521,10 @@
 - [LIT-354](LITERATURE.md#lit-354) — Making data structures persistent (1989; publisher_abstract_checked)
 - [LIT-355](LITERATURE.md#lit-355) — Authenticated Data Structures for Dynamic Workloads (2026; author_paper_or_bibliography_checked)
 - [LIT-356](LITERATURE.md#lit-356) — Integrita: A BFT distributed storage system (2025; publisher_abstract_checked)
+- [LIT-357](LITERATURE.md#lit-357) — Truly Subquadratic 3SUM and Truly Subcubic APSP via Triangles in Sparse Lopsided Graphs (2026; primary_abstract_checked)
+- [LIT-358](LITERATURE.md#lit-358) — Cauchyproofs: Batch-Updatable Vector Commitment with Easy Aggregation and Application to Stateless Blockchains (2025; publisher_abstract_checked)
+- [LIT-359](LITERATURE.md#lit-359) — Cell-Probe Lower Bounds via Semi-Random CSP Refutation: Simplified and the Odd-Locality Case (2025; primary_abstract_checked)
+- [LIT-364](LITERATURE.md#lit-364) — LycheeMemory V2: Efficient Long-Term Memory for LLM Agents via Semantic Segment-Level Consolidation (2026; primary_abstract_checked)
 
 ## ML-005
 
