@@ -111,7 +111,8 @@
           "enum": [
             "OPEN_ISSUE",
             "OPEN_PR_UNVERIFIED",
-            "BACKLOG"
+            "BACKLOG",
+            "CLOSED_ISSUE"
           ]
         },
         "proof_grade": {
