@@ -1,3 +1,7 @@
+## UCT-005 D1-A — classical fixed-one-probe certificate and false joint bound (2026-10-10)
+
+[Exact restricted one-probe interval parity lower and Fenwick honest-bit-cell counterexample](UCT-005-G3-B2-D1A-ONE-PROBE-AND-CAUSAL-FALSIFICATION.md) · [test](../../research/test_uct005_d1a_causal_falsifiers.py) · [source D0](UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) · [#223](https://github.com/definitely-stable/Mathlab/issues/223). **One-probe proof sharp**, but not new originality; universal Wmax Qmax>=n false in honest bit-cell model, **not a Byzantine F1 counterexample**. Typed theorem tree keeps root OPEN.
+
 ## UCT-005 D0 — primary source and causal-cut model gates (2026-10-10)
 
 [Eight original papers LIT-349..356](UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) · [D1 #223](https://github.com/definitely-stable/Mathlab/issues/223) · [canonical corpus](catalog/LITERATURE.md). 347→355 records after IMPORT-010. Only publication abstracts/metadata audited; root theorem OPEN_UNPROVED.
