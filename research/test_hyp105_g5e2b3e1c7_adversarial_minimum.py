@@ -45,18 +45,36 @@ class FixedAdversarialC7Tests(unittest.TestCase):
                     src, target, V), expected)
                 self.assertNotEqual(got["status"], "UNKNOWN_BUDGET")
 
+    def test_star_geometry_positive_minimum_despite_zero_rearrangement(self):
+        # At V=8 sixsets are complements of pairs. The original source
+        # and physical target are ALL 7 complements of star edges (0,j).
+        # Under one genuine common pi, their centers are 0 and pi(0):
+        # same center gives 7 overlapping sixsets, different gives 1.
+        # An arbitrary permutation of 28 sixset cells could give zero.
+        V = 8
+        star = {frozenset(set(range(V)) - {0, j})
+                for j in range(1, V)}
+        src = {R: 1 for R in star}
+        self.assertEqual(rearrangement_lower_bound(src, star, V), 0)
+        got = exact_adversarial_minimum(src, star, V)
+        self.assertEqual(self.independent_enumeration(src, star, V), 1)
+        self.assertEqual(got["exact_minimum"], 1)
+        self.assertEqual(got["status"], "CERTIFIED_MINIMUM")
+        self.assertEqual(fixed_map_overlap(src, star,
+                         got["witness_permutation"]), 1)
+
     def test_budget_cut_must_not_certify_positive_result(self):
-        V = 7
-        sets = list(combinations(range(V), 6))
-        src = {frozenset(sets[0]): 2, frozenset(sets[1]): 3}
-        target = {frozenset(R) for R in sets[:3]}
-        got = exact_adversarial_minimum(src, target, V, max_nodes=1)
-        self.assertTrue(got["certified_lower"] <= got["witness_upper"])
-        self.assertIn(got["status"], ("UNKNOWN_BUDGET", "ZERO_WITNESS"))
-        self.assertEqual(got["exact_minimum"] is None,
-                         got["status"] == "UNKNOWN_BUDGET")
-        self.assertEqual(fixed_map_overlap(src, target,
-                         got["witness_permutation"]), got["witness_upper"])
+        V = 8
+        star = {frozenset(set(range(V)) - {0, j})
+                for j in range(1, V)}
+        src = {R: 1 for R in star}
+        got = exact_adversarial_minimum(src, star, V, max_nodes=1)
+        self.assertEqual(got["status"], "UNKNOWN_BUDGET")
+        self.assertIsNone(got["exact_minimum"])
+        self.assertEqual(got["certified_lower"], 0)
+        self.assertEqual(got["witness_upper"], 1)
+        self.assertEqual(fixed_map_overlap(src, star,
+                         got["witness_permutation"]), 1)
 
     def test_true_GQ_W32_lower_relaxation_is_zero_not_positive_proof(self):
         result = W32_rearrangement_report()
