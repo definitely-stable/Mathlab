@@ -53,6 +53,21 @@ class FixedLabelLeadingW32Tests(unittest.TestCase):
         for name in ("lex","reverse-line"):
             model=pair_labeled_symplectic(1,name)
             result=finite_census(model)
+            pinned = {
+                "lex": ({
+                    "C/A":13, "C/B":1,
+                    "B/B-overlap":8, "B/B-disjoint":14,
+                }, 36, 1656350),
+                "reverse-line": ({
+                    "C/A":1, "C/B":1,
+                    "B/B-overlap":7, "B/B-disjoint":6,
+                }, 15, 724680),
+            }
+            counts, total, numerator = pinned[name]
+            self.assertEqual(result["new_motif_counts"], counts)
+            self.assertEqual(result["new_total_original_six_sets"], total)
+            self.assertEqual(result["GF5_exact_restricted_R3_lower_numerator"],
+                             numerator)
             self.assertGreater(result["new_total_original_six_sets"],0)
             self.assertEqual(result["candidate_left_2factor_sets"],62370)
             expected=sum(10*MIN_GF5[tag]*count for tag,count in
