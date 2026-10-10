@@ -1,3 +1,7 @@
+## UCT-005 D1-B2-F2 — two-pass streamed PIN bitmap and paid staging (2026-10-10)
+
+[Algorithm, exact page pricing and trust exclusions](UCT-005-G3-B2-D1B2F2-STREAMED-PIN-BITMAP.md) · [reference](../../research/uct005_d1b2f2_streamed_pin_bitmap.py) · [independent tests](../../research/test_uct005_d1b2f2_streamed_pin_bitmap.py) · [issue #281](https://github.com/definitely-stable/Mathlab/issues/281). Reduces **conceptual bitmap payload scratch** to <=2 min(B,P) bytes by double verification and explicitly charged remote staging; **not** a peak trusted-process RSS, full Pareto or UCT-005 original lower bound.
+
 ## UCT-005 D1-B2-F — common F1 resource ledger and typed Pareto stop (2026-10-10)
 
 [Same-history cost reconciliation](UCT-005-G3-B2-D1B2F-RESOURCE-RECONCILIATION.md) · [reproducible driver](../../research/uct005_d1b2f_resource_reconciliation.py) · [independent tests](../../research/test_uct005_d1b2f_resource_reconciliation.py) · [issue #262](https://github.com/definitely-stable/Mathlab/issues/262). Snapshot, COW and segmented COW share PIN/SET/queries/GC and charged page axes; Replica+Log remain logical-only. Unknown axes stay `null`, no full Pareto or UCT root theorem.
