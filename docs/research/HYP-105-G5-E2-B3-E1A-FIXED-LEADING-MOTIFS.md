@@ -42,6 +42,29 @@ R3 >=
 
 For one example set in each nonempty new class, run the independent accepted integer 782-dual-state Fourier oracle on all ten 3v3 partitions. Every one must have positive exact count >= its class global minimum (full 51 nonzero-checksum4 weights; **not** unit-only collision counts).
 
+### 2.1 Exact W32 control census — GitHub-hosted GF5 oracle
+
+The independently hosted report on the complete 45 original W(3,2) incidences yields:
+
+| Fixed map | U(C/A) | U(C/B) | U(B/B overlap) | U(B/B disjoint) | Total NEW original six-sets | Proven NEW-class GF5 R3 lower |
+|---|---:|---:|---:|---:|---:|---:|
+| Lex | 13 | 1 | 8 | 14 | 36 | 1,656,350 / 51^6 |
+| Reverse-line | 1 | 1 | 7 | 6 | 15 | 724,680 / 51^6 |
+
+These are exact **selected-family structural counts** for fixed W32 physical bijections, not Monte Carlo estimates. Both are based on the same explicit original GQ factor edges. The lex count 36 and reverse-line count 15 were observed in the hosted E1-specific SUCCESS run [#38026388632](https://github.com/definitely-stable/Mathlab/actions/runs/38026388632); now pinned as regression values in the independent test. Under the proven positive full-GF5 minimum flow constants for each class,
+
+```text
+R3_new(lex) >=
+ [43320*13 + 49050*1 + 51750*8 + 45010*14]/51^6
+ = 1,656,350 / 51^6;
+
+R3_new(reverse-line) >=
+ [43320*1 + 49050*1 + 51750*7 + 45010*6]/51^6
+ = 724,680 / 51^6.
+```
+
+**Interpretation:** reversing the line coordinate order reduces this narrowly defined necessary floor from lex. It does NOT show a better full 51-pattern R3, nor does a comparison at s=2 show any saving as s=2^h grows. Full Q4 and D6 might change in a different direction, and there are missing full-matching/cherry and subleading six-flow classes. Exact-GF5 Fourier checks on witness six-sets independently confirmed strictly positive signed flow weights for all ten balanced signs in every nonempty class.
+
 ## 3. Independent falsification and covariance boundary
 
 The independent tests reproduce the 62,370 left candidates and compare the optimized result against raw combinations of all six columns from multiple **explicitly witness-enriched 10-column subuniverses**. This comparison is a test of coverage restricted to each small subuniverse; it is not a claim that the 10-column distribution is representative.
