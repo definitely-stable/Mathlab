@@ -1,0 +1,34 @@
+name: uct005-d1c2-pinned-freshness
+on:
+  push:
+    branches:
+      - "research/uct005-d1c2-*"
+    paths:
+      - "research/uct005_d1c2_pinned_freshness.py"
+      - "research/test_uct005_d1c2_pinned_freshness.py"
+      - ".github/workflows/uct005-d1c2-pinned-freshness.yml"
+  pull_request:
+    paths:
+      - "research/uct005_d1c2_pinned_freshness.py"
+      - "research/test_uct005_d1c2_pinned_freshness.py"
+      - ".github/workflows/uct005-d1c2-pinned-freshness.yml"
+permissions:
+  contents: read
+jobs:
+  pinned-versus-latest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Two-world replay and exact F1 PIN/LATEST authority page ledger
+        run: python -m unittest discover -s research -p 'test_uct005_d1c2_pinned_freshness.py' -v
+      - name: Emit independently checked freshness-bound countermodel evidence
+        run: python research/uct005_d1c2_pinned_freshness.py
+      - name: Prevent regression of F1 contract and prior scoped hypotheses
+        run: |
+          python -m unittest discover -s research -p 'test_uct005_d1b0_f1_reference.py' -v
+          python -m unittest discover -s research -p 'test_uct005_d1c1_hypothesis_kill_gate.py' -v
+          python -m unittest discover -s research -p 'test_uct005_tree.py' -v
