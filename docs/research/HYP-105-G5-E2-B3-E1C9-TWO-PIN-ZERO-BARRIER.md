@@ -93,3 +93,7 @@ The C8 two-pin relaxation loses essentially all information about joint occurren
 **Acceptance PENDING** exact PR-head GitHub-hosted `hyp105-c9-contract` and full Research SUCCESS, then ordered dependency integration through #284 and C9, followed by postmerge main Research SUCCESS. Parent #230, #176 stay OPEN_WITH_FORMAL_BLOCKER. No UCT/other repos changed.
 
 **C10 choice:** either prove a stronger k>=3 barrier with additional GQ conditioned-line marginals, or replace per-fiber independent sixset permutations by a model-preserving coupled physical completion constraint for the remaining four right lines. A genuine all-h seven-family theorem would require simultaneous same-`f,g` arguments; avoid another standalone random-right moment.
+
+## C10 strengthening — three pinned original lines are also insufficient
+
+[C10 proof](HYP-105-G5-E2-B3-E1C10-THREE-PIN-ZERO-BARRIER.md) proves the same exact zero C8 lower relaxation for ANY pinned set of cardinality <=3, ALL s=2^h>=16, ALL legal GQ f, occupied physical F, and images p. The additional ingredient is a distinguished original concurrent pair witness cap conditioned on a fixed THIRD original singleton right line plus an occupied physical target ONE-edge codegree cap. The C9 two-pin no-go remains valid and is strictly subsumed. This says NOTHING about an actual zero-overlap g.
