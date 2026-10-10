@@ -1,3 +1,11 @@
+## UCT-005 D1-B1 — 20-source theorem transfer matrix and GF2 query-interface barrier (2026-10-10)
+
+[Proof-scope and hard limits](UCT-005-G3-B2-D1B1-PRIMARY-TRANSFER-AND-MASK-OBSTRUCTION.md) · [typed canonical matrix](UCT-005-G3-B2-D1B1-TRANSFER-MATRIX.json) · [finite oracle](../../research/uct005_d1b1_source_gate.py) · [D1 #223](https://github.com/definitely-stable/Mathlab/issues/223). Three primary theorem statements inspected, not full proofs; 20 canonical records classified. **NO_NEW_NONFACTORIZING_LOWER_BOUND / ROOT_OPEN_UNPROVED**.
+
+## UCT-005 D1-B0 — paid two-reader F1 latest, PIN and GC (2026-10-10)
+
+[Formal model and cost firewall](UCT-005-G3-B2-D1B0-F1-COST-AND-PIN-FREEZE.md) · [machine contract](UCT-005-G3-B2-D1B0-F1-MODEL.json) · [independent reference tests](../../research/test_uct005_d1b0_f1_reference.py). **FINITE_CLASSICAL_UPPER / IDEAL_TRUSTED_ANCHOR / NO_NEW_LOWER_BOUND**; not real page-durability security.
+
 ## UCT-005 D1-A — classical fixed-one-probe certificate and false joint bound (2026-10-10)
 
 [Exact restricted one-probe interval parity lower and Fenwick honest-bit-cell counterexample](UCT-005-G3-B2-D1A-ONE-PROBE-AND-CAUSAL-FALSIFICATION.md) · [test](../../research/test_uct005_d1a_causal_falsifiers.py) · [source D0](UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) · [#223](https://github.com/definitely-stable/Mathlab/issues/223). **One-probe proof sharp**, but not new originality; universal Wmax Qmax>=n false in honest bit-cell model, **not a Byzantine F1 counterexample**. Typed theorem tree keeps root OPEN.
