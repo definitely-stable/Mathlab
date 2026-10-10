@@ -1,0 +1,29 @@
+name: uct005-d1b2f3a-joint-retention
+on:
+  push:
+    branches:
+      - "research/uct005-d1b2f3a-*"
+    paths:
+      - "research/uct005_d1b2f3a_joint_retention.py"
+      - "research/test_uct005_d1b2f3a_joint_retention.py"
+      - ".github/workflows/uct005-d1b2f3a-joint-retention.yml"
+  pull_request:
+    paths:
+      - "research/uct005_d1b2f3a_joint_retention.py"
+      - "research/test_uct005_d1b2f3a_joint_retention.py"
+      - ".github/workflows/uct005-d1b2f3a-joint-retention.yml"
+permissions:
+  contents: read
+jobs:
+  authentic-two-model-retention:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent all GF2 words, two-model PIN pages and tamper cases
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2f3a_joint_retention.py' -v
+      - name: Publish paid historical remote pages and exact same-trace parity report
+        run: python research/uct005_d1b2f3a_joint_retention.py

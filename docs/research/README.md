@@ -1,10 +1,46 @@
+## UCT-005 D1-B2-F3-B — three same-task authenticated uppers, priced PIN audit and partial Pareto STOP (2026-10-10)
+
+[Formal resource gate](UCT-005-G3-B2-D1B2F3B-THREE-MODEL-PARETO-GATE.md) · [reference](../../research/uct005_d1b2f3b_three_model_pareto.py) · [independent tests](../../research/test_uct005_d1b2f3b_three_model_pareto.py). Accepted predecessors: [F2 #283](https://github.com/definitely-stable/Mathlab/pull/283) and [F3-A #287](https://github.com/definitely-stable/Mathlab/pull/287). **SAME_F1_THREE_UPPERS / EXACT_4M_SECOND_PASS_PENALTY / EXACT_3CM_PAID_OFFLINE_AUDIT / STREAM_PEAK_PLUS_M / UNKNOWN_AXES_NULL / ROOT_OPEN_UNPROVED / CI_PENDING**.
+
+## UCT-005 D1-B2-F2 — two-pass streamed PIN bitmap and paid staging (2026-10-10)
+
+[Algorithm, exact page pricing and trust exclusions](UCT-005-G3-B2-D1B2F2-STREAMED-PIN-BITMAP.md) · [reference](../../research/uct005_d1b2f2_streamed_pin_bitmap.py) · [independent tests](../../research/test_uct005_d1b2f2_streamed_pin_bitmap.py) · [issue #281](https://github.com/definitely-stable/Mathlab/issues/281). Reduces **conceptual bitmap payload scratch** to <=2 min(B,P) bytes by double verification and explicitly charged remote staging; **not** a peak trusted-process RSS, full Pareto or UCT-005 original lower bound.
+
+## UCT-005 D1-B2-F3-A — paid authenticated two-model PIN retention on one F1 transcript (2026-10-10)
+
+[Scoped proof and exact formulas](UCT-005-G3-B2-D1B2F3A-SAME-TRACE-PIN-RETENTION.md) · [implementation](../../research/uct005_d1b2f3a_joint_retention.py) · [independent tests](../../research/test_uct005_d1b2f3a_joint_retention.py) · [UCT root #105](https://github.com/definitely-stable/Mathlab/issues/105). **SAME_F1_HISTORY / AUTHENTICATED_REMOTE_PIN_BULK_AND_COW / PAID_OFFLINE_AUDITS / LIVE_REMOTE_PAGES_EQUAL_EXACT_FORMULAS / CI_PENDING / FULL_PARETO_UNKNOWN / ROOT_OPEN_UNPROVED**. No transfer of pending streamed F2 buffer claims.
+
+## UCT-005 D1-B2-F1 — authenticated offline shared PIN retention (2026-10-10)
+
+[Charge and exact root-union theorem scope](UCT-005-G3-B2-D1B2F1-PIN-RETENTION.md) · [independent reference oracle](../../research/uct005_d1b2f1_pin_retention.py) · [finite falsifiers](../../research/test_uct005_d1b2f1_pin_retention.py) · [issue #270](https://github.com/definitely-stable/Mathlab/issues/270). Proves a **restricted exact checkpoint-path-union identity** for extra immutable COW node IDs (including no-op updates), independently checks SHA-authenticated historical retention for arbitrary small PIN sets, and prices all offline audit reads. Still **not** a general F1 lower bound or complete online Pareto theorem. Root OPEN_UNPROVED.
+
+## UCT-005 D1-B2-F — common F1 resource ledger and typed Pareto stop (2026-10-10)
+
+[Same-history cost reconciliation](UCT-005-G3-B2-D1B2F-RESOURCE-RECONCILIATION.md) · [reproducible driver](../../research/uct005_d1b2f_resource_reconciliation.py) · [independent tests](../../research/test_uct005_d1b2f_resource_reconciliation.py) · [issue #262](https://github.com/definitely-stable/Mathlab/issues/262). Snapshot, COW and segmented COW share PIN/SET/queries/GC and charged page axes; Replica+Log remain logical-only. Unknown axes stay `null`, no full Pareto or UCT root theorem.
+
 ## UCT-005 D1-B2-B1 — segmented bitmap allocation (2026-10-10)
 
 [Byte grammar, exact write bound and GC](UCT-005-G3-B2-D1B2B1-SEGMENTED-BITMAP.md) · [conditional implementation](../../research/uct005_d1b2b1_segmented_bitmap.py) · [independent tests](../../research/test_uct005_d1b2b1_segmented_bitmap.py) · [issue #254](https://github.com/definitely-stable/Mathlab/issues/254). D1-B2-B PR #248 is merged; this follow-on PR #258 now targets main. **Only the allocator-bitmap SET coordinate improves; full F1 Pareto and UCT-005 root remain OPEN_UNPROVED.**
 
+## HYP-105 B3.2-E1-C0 — weighted six-hypergraph transfer, two-point design and prior art
+
+[Full mathematical reduction, four scholarly precursors and mass-only countermodel](HYP-105-G5-E2-B3-E1C0-WEIGHTED-OVERLAP-TRANSFER.md) · [reference](../../research/hyp105_g5e2b3e1c0_weighted_overlap.py) · [independent tests](../../research/test_hyp105_g5e2b3e1c0_weighted_overlap.py). B/A physical event is weighted 6-uniform overlap under an arbitrary physical pair-edge right injection; exact T_a 1-design and adjacent/disjoint pair codegrees (7 C(a-3,3), 14 C(a-4,2)) isolate the W2-level target geometry; it has exact random mean but total mass alone does NOT force positive min. W32 exact original-six-incidence evidence; all-h GQ-specific min and entire R3 open. GQ incidence codegree at most one implies each original right-sixset weight ≤15(s+1)^4 and uniformly Ω(s11) distinct positive source right-sixsets; a generic 3-cube trade with identical all ≤2 marginals gives different target overlap. Third target orbit counts (1,2,0,5,8) proved. Canonical Bollobás–Scott source import remains independently gated.
+
 ## UCT-005 D1-B2-B — charged COW-tree page records, PIN and mark-sweep (2026-10-10)
 
 [Exact 122-byte node/48-byte root model](UCT-005-G3-B2-D1B2B-PAGE-COW-TREE.md) · [reference](../../research/uct005_d1b2b_page_cow.py) · [independent tests](../../research/test_uct005_d1b2b_page_cow.py) · [issue #244](https://github.com/definitely-stable/Mathlab/issues/244). Two independent readers, authenticated latest/historical roots, complete page-image ledgers, stale-GC exclusion. **FINITE_UPPER / NO_REAL_CRASH_SECURITY / ROOT_OPEN_UNPROVED**.
+
+## UCT-005 D1-B2-A — same-trace three-upper comparator and partial-Pareto stop (2026-10-10)
+
+[Formal finite evidence](UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md) · [reproducible model](../../research/uct005_d1b2a_partial_pareto.py) · [independent tests](../../research/test_uct005_d1b2a_partial_pareto.py). Three conditional F1 upper families answer identical SET/LATEST/PIN/AS_OF transcript under explicitly assumed trust. Only PAGE-001 snapshots have byte-conserving page prices; **no fabricated cross-family Pareto dominance, no new lower bound, ROOT_OPEN_UNPROVED**.
+
+## UCT-005 D1-B1 — 20-source theorem transfer matrix and GF2 query-interface barrier (2026-10-10)
+
+[Proof-scope and hard limits](UCT-005-G3-B2-D1B1-PRIMARY-TRANSFER-AND-MASK-OBSTRUCTION.md) · [typed canonical matrix](UCT-005-G3-B2-D1B1-TRANSFER-MATRIX.json) · [finite oracle](../../research/uct005_d1b1_source_gate.py) · [D1 #223](https://github.com/definitely-stable/Mathlab/issues/223). Three primary theorem statements inspected, not full proofs; 20 canonical records classified. **NO_NEW_NONFACTORIZING_LOWER_BOUND / ROOT_OPEN_UNPROVED**.
+
+## UCT-005 D1-B0 — paid two-reader F1 latest, PIN and GC (2026-10-10)
+
+[Formal model and cost firewall](UCT-005-G3-B2-D1B0-F1-COST-AND-PIN-FREEZE.md) · [machine contract](UCT-005-G3-B2-D1B0-F1-MODEL.json) · [independent reference tests](../../research/test_uct005_d1b0_f1_reference.py). **FINITE_CLASSICAL_UPPER / IDEAL_TRUSTED_ANCHOR / NO_NEW_LOWER_BOUND**; not real page-durability security.
 
 ## HYP-105 B3.2-E1-B1-B — all-h bounded influence plus finite correlated swaps
 
