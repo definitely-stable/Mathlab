@@ -1,0 +1,28 @@
+name: hyp105-c13-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c13-joint-gq-double-orbit
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c13_joint_orbits.py"
+      - "research/test_hyp105_g5e2b3e1c13_joint_orbits.py"
+      - ".github/workflows/hyp105-c13-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  joint-original-gq-both-physical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact independent W32 SP4 incidence, both-physical orbit and seven motif tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c13_joint_orbits.py' -v
+      - name: True GQ W32 full-group and canonical-pair stabilizer report
+        run: python research/hyp105_g5e2b3e1c13_joint_orbits.py
