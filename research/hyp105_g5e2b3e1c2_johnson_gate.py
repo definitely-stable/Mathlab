@@ -245,28 +245,33 @@ def is_target_sixset(physical_six):
 
 
 def exact_overlap_decomposition(weights, right_labels, *, a=6,
-                                with_source_norms=True):
-    """Exact for EVERY right injection, no random-right averaging.
+                                with_source_norms=True, with_third_order=True):
+    """Exact U=mu+U2+U3+U>=4 for EVERY injection (if W3 enabled).
 
-    U=mu+U2+U>=3; no W1 target component since T_a is a 1-design.
-    U2=(qA-qD)/lambda2*(adjacency-weighted original source
-       pair marginal - 15*M * physical adjacent-pair fraction).
-    The arbitrary map g is allowed to destroy GQ concurrence.
+    With third order disabled, exact U=mu+U2+U>=3 remains true and
+    is cheaper for exhaustive 105-swap W32 falsification.
+    No assumption that a correlated g preserves ORIGINAL GQ adjacency.
     """
     a=_valid_a(a)
     K=comb(a,2)
     w=_checked_source(weights,K)
     labels=_checked_right_map(right_labels,a,w)
-    t=target_degree_two_data(a)
+    t=(target_order_three_data(a) if with_third_order
+       else target_degree_two_data(a))
     mass=sum(w.values())
     q=Counter()
+    triple_marg=Counter()
     exact=0
     for R,x in w.items():
-        edges=tuple(labels[i] for i in sorted(R))
+        ordered=sorted(R)
+        edges=tuple(labels[i] for i in ordered)
         if is_target_sixset(edges):
             exact+=x
-        for p in combinations(sorted(R),2):
+        for p in combinations(ordered,2):
             q[p]+=x
+        if with_third_order:
+            for triple in combinations(ordered,3):
+                triple_marg[triple]+=x
     adjacent_source_pair_mass=sum(
         count for (i,j),count in q.items()
         if len(set(labels[i]) & set(labels[j]))==1)
@@ -288,27 +293,58 @@ def exact_overlap_decomposition(weights, right_labels, *, a=6,
         "johnson_identity_exact":expected+second+higher==exact,
         "universal_all_correlated_positive_lower_proved":False,
     }
+    if with_third_order:
+        third=Fraction(0)
+        for triple,count in triple_marg.items():
+            physical=tuple(labels[i] for i in triple)
+            orbit=physical_three_edge_type(physical)
+            third+=(count*t["target_three_harmonic_residual"][orbit]
+                    /t["johnson_lambda3"])
+        fourth=higher-third
+        out.update({
+            "correlated_degree3_contribution":third,
+            "degree_ge4_contribution":fourth,
+            "johnson_identity_degree3_exact":(
+                expected+second+third+fourth==exact),
+        })
     if with_source_norms:
         source=source_johnson_energy(w,K)
-        second_square_bound=source["w2_norm_squared"]*t["target_w2_norm_squared"]
-        higher_square_bound=(source["w_ge3_norm_squared"]
-                             *t["target_w_ge3_norm_squared"])
-        if second*second>second_square_bound or higher*higher>higher_square_bound:
-            raise AssertionError("orthogonal Johnson Cauchy bound falsified")
+        second_bound=source["w2_norm_squared"]*t["target_w2_norm_squared"]
+        higher_bound=(source["w_ge3_norm_squared"]
+                      *t["target_w_ge3_norm_squared"])
+        if second*second>second_bound or higher*higher>higher_bound:
+            raise AssertionError("Johnson degree2 or >=3 Cauchy bound falsified")
         out.update({
             "source_w1_norm_squared":source["w1_norm_squared"],
             "source_w2_norm_squared":source["w2_norm_squared"],
             "source_w_ge3_norm_squared":source["w_ge3_norm_squared"],
             "target_w2_norm_squared":t["target_w2_norm_squared"],
             "target_w_ge3_norm_squared":t["target_w_ge3_norm_squared"],
-            "degree2_absolute_square_bound":second_square_bound,
-            "degree_ge3_absolute_square_bound":higher_square_bound,
+            "degree2_absolute_square_bound":second_bound,
+            "degree_ge3_absolute_square_bound":higher_bound,
             "square_bound_checked":True,
-            "nonnegative_global_lower_certified":(
-                expected*expected>4*max(second_square_bound,higher_square_bound)),
         })
-        # Sufficient, deliberately conservative: mu>2max(sqrt(B2),sqrt(B3))
-        # => mu>sqrt(B2)+sqrt(B3), so overlap positive under all g.
+        if with_third_order:
+            third_bound=(source["w3_norm_squared"]
+                         *t["target_w3_norm_squared"])
+            fourth_bound=(source["w_ge4_norm_squared"]
+                          *t["target_w_ge4_norm_squared"])
+            if third*third>third_bound or fourth*fourth>fourth_bound:
+                raise AssertionError("Johnson degree3 or >=4 Cauchy bound falsified")
+            out.update({
+                "source_w3_norm_squared":source["w3_norm_squared"],
+                "source_w_ge4_norm_squared":source["w_ge4_norm_squared"],
+                "target_w3_norm_squared":t["target_w3_norm_squared"],
+                "target_w_ge4_norm_squared":t["target_w_ge4_norm_squared"],
+                "degree3_absolute_square_bound":third_bound,
+                "degree_ge4_absolute_square_bound":fourth_bound,
+                "nonnegative_global_lower_certified":(
+                    expected*expected>9*max(second_bound,third_bound,fourth_bound)),
+            })
+            # mu > 3*max(sqrt(B2),sqrt(B3),sqrt(B4+)) is sufficient.
+        else:
+            out["nonnegative_global_lower_certified"]=(
+                expected*expected>4*max(second_bound,higher_bound))
     return out
 
 
@@ -332,8 +368,8 @@ def finite_W32_report():
                 if key not in ("source_pair_total",)}
     return {
         "target_K6":{k:str(v) if isinstance(v,Fraction) else v
-                     for k,v in target_degree_two_data(6).items()},
-        "target_K9_W2_zero":target_degree_two_data(9)["target_w2_zero"],
+                     for k,v in target_order_three_data(6).items()},
+        "target_K9_W2_zero":target_order_three_data(9)["target_w2_zero"],
         "finite_cases":cases,
         "all_h_GQ_obstruction":False,
     }
