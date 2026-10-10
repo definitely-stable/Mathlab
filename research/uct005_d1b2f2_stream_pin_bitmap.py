@@ -71,7 +71,6 @@ class StreamedRemotePinBitmapF1(RemotePinBitmapF1):
         old_flags = self._stream_verify(epoch)
         if not value and not old_flags[reader]:
             raise Abort("PIN registry contradicts local revoke token")
-        source = self.remote_pin_bitmap
         generation = self.bitmap_generation
         if generation >= (1 << 64) - 1:
             raise ValueError("PIN bitmap generation exhausted")
@@ -84,6 +83,9 @@ class StreamedRemotePinBitmapF1(RemotePinBitmapF1):
         # Staged bitmap is the UNTRUSTED remote storage object. The trusted
         # authority never constructs a full-size updated bitmap.
         remote_staging = bytearray(self.bitmap_payload_bytes)
+        # The old source is NOT cached after pass 1: fetch each page from
+        # the live untrusted server in pass 2, so mid-pass substitution is
+        # detected by independently recomputing the old-image digest.
         self.ledger["stream_peak_extra_remote_bitmap_pages"] = max(
             self.ledger["stream_peak_extra_remote_bitmap_pages"],
             self.bitmap_pages)
@@ -92,7 +94,11 @@ class StreamedRemotePinBitmapF1(RemotePinBitmapF1):
         changed_flags = list(old_flags)
         for start in range(0, self.bitmap_payload_bytes, self.page_bytes):
             end = min(start + self.page_bytes, self.bitmap_payload_bytes)
-            old_page = bytes(memoryview(source)[start:end])
+            candidate = self.remote_pin_bitmap
+            if not isinstance(candidate, bytes) or len(candidate) != self.bitmap_payload_bytes:
+                self.ledger["stream_aborted_unpublished_staging_pages"] += self.bitmap_pages
+                raise Abort("remote PIN bitmap withheld/truncated during staging")
+            old_page = bytes(memoryview(candidate)[start:end])
             updated_page = bytearray(old_page)
             self._buffer_mark(len(old_page) + len(updated_page))
             if start <= (bit_index >> 3) < end:
@@ -181,19 +187,15 @@ class StreamedRemotePinBitmapF1(RemotePinBitmapF1):
 
     def assert_streamed_live_set(self) -> None:
         """Test-only audit is separately charged; not an online F1 operation."""
-        bitmap = self.remote_pin_bitmap
-        old = self._stream_verify()
+        bitmap = super()._read_verified_bitmap(audit=True)
         self.ledger["stream_diagnostic_audits"] += 1
-        # Diagnostic reads enumerate the remote bitmap in the TEST HARNESS;
-        # they are excluded from online trusted scratch claims and ledgers
-        # are labelled, not silently treated as free online reads.
+        # This explicit TEST-ONLY materializing audit uses the parent's
+        # bitmap_audit_* ledger instead of online stream_* resource counters.
         active = {e for e in range(self.epoch_capacity)
                   if (bitmap[(2*e)>>3] & (1 << ((2*e)&7))
                       or bitmap[(2*e+1)>>3] & (1 << ((2*e+1)&7)))}
         if set(self.remote) != ({self.epoch} | active):
             raise AssertionError("PIN bitmap live-set invariant failed")
-        if old != (False, False):  # _stream_verify(no epoch) carries no flags.
-            raise AssertionError("unexpected flags without target epoch")
 
 
 def compare(bits: tuple[int, ...], page_bytes: int, epoch_capacity: int) -> dict:
