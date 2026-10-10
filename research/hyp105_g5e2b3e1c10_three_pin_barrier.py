@@ -101,8 +101,13 @@ def analytic_s_ge_64_three_pin_gate():
         Fraction(112)/Fraction(98,100)**3,
     )
     strict=(19,10,77,113,163,119)
-    if any(a>=b for a,b in zip(coeff,strict)):
+    # Crossed-pair coefficient is exactly 10, so <=10/s is valid.
+    # Other five coefficients are strictly below their rounded caps.
+    if any((a > b if i == 1 else a >= b)
+           for i,(a,b) in enumerate(zip(coeff,strict))):
         raise AssertionError("three-pin symbolic rational constants fail")
+    if coeff[1] != 10:
+        raise AssertionError("crossed-pair sharp coefficient unexpectedly moved")
     tail=Fraction(29,64)+Fraction(113,64**2)+Fraction(163,64**3)
     if tail>=1:
         raise AssertionError("three-pin analytic tail lacks strict slack")
