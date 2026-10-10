@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/definitely-stable/Mathlab/blob/main/docs/research/RESEARCH-STATUS-REGISTRY.schema.json",
+  "title": "Mathlab active research status and cross-registry navigation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "as_of",
+    "baseline_main_sha",
+    "authority",
+    "root_id",
+    "programs",
+    "dependencies",
+    "typed_edges"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mathlab.research-status.v1"
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date"
+    },
+    "baseline_main_sha": {
+      "$ref": "#/$defs/sha"
+    },
+    "authority": {
+      "type": "string",
+      "minLength": 40
+    },
+    "root_id": {
+      "const": "UCT-005-ROOT"
+    },
+    "programs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/program"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/dependency"
+      }
+    },
+    "typed_edges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    }
+  },
+  "$defs": {
+    "sha": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "path": {
+      "type": "string",
+      "pattern": "^(docs/research|research|lean|preprints)/[A-Za-z0-9._/-]+$"
+    },
+    "program": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "owner_issue",
+        "parent",
+        "scientific_status",
+        "workflow_status",
+        "proof_grade",
+        "novelty_status",
+        "source_audit_grade",
+        "model_id",
+        "artifact_paths",
+        "evidence",
+        "last_verified_sha",
+        "ci",
+        "next_falsifier",
+        "reopen_rule"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Z0-9-]+$"
+        },
+        "owner_issue": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "parent": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scientific_status": {
+          "enum": [
+            "OPEN_UNPROVED",
+            "CLASSICAL_RESTRICTED",
+            "MODEL_ONLY"
+          ]
+        },
+        "workflow_status": {
+          "enum": [
+            "OPEN_ISSUE",
+            "OPEN_PR_UNVERIFIED",
+            "BACKLOG",
+            "CLOSED_ISSUE"
+          ]
+        },
+        "proof_grade": {
+          "enum": [
+            "NONE",
+            "FINITE_ORACLE",
+            "RESTRICTED_CLASSICAL",
+            "FORMAL_CHECKED"
+          ]
+        },
+        "novelty_status": {
+          "enum": [
+            "NOT_ESTABLISHED",
+            "NOT_CLAIMED",
+            "PRIOR_ART"
+          ]
+        },
+        "source_audit_grade": {
+          "enum": [
+            "NOT_CHECKED",
+            "METADATA_ONLY",
+            "PARTIAL_PRIMARY",
+            "FULL_PROOF_AUDIT"
+          ]
+        },
+        "model_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 3
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "artifact_paths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/path"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/path"
+          }
+        },
+        "last_verified_sha": {
+          "$ref": "#/$defs/sha"
+        },
+        "ci": {
+          "$ref": "#/$defs/ci"
+        },
+        "next_falsifier": {
+          "type": "string",
+          "minLength": 20
+        },
+        "reopen_rule": {
+          "type": "string",
+          "minLength": 20
+        }
+      }
+    },
+    "ci": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "head_sha",
+        "run_url"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "NOT_CHECKED",
+            "SUCCESS",
+            "FAILURE"
+          ]
+        },
+        "head_sha": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/sha"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "run_url": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^https://github.com/definitely-stable/Mathlab/actions/runs/[0-9]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from",
+        "to"
+      ],
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "target",
+        "kind",
+        "status",
+        "evidence"
+      ],
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "REDUCTION_REQUIRED",
+            "APPLICATION_ONLY",
+            "MODEL_COMPARISON_ONLY",
+            "UPPER_CONSTRUCTION_PENDING",
+            "COUNTERMODEL",
+            "PROOF_INGREDIENT"
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNPROVED",
+            "UNVERIFIED",
+            "NO_THEOREM_TRANSFER",
+            "CLASSICAL_RESTRICTED",
+            "FALSE_TRANSFER"
+          ]
+        },
+        "evidence": {
+          "$ref": "#/$defs/path"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "schema": "mathlab.research-status.v1",
+  "as_of": "2026-10-11",
+  "baseline_main_sha": "24577fe2bcbb8bd7dda7aa154619516c6b833939",
+  "authority": "Navigation and cross-registry consistency only. Scientific claims remain governed by cited theorem/model documents, source-specific proofs, and canonical registries. This file does not establish proof or live CI.",
+  "root_id": "UCT-005-ROOT",
+  "programs": [
+    {
+      "id": "UCT-005-ROOT",
+      "owner_issue": 105,
+      "parent": null,
+      "scientific_status": "OPEN_UNPROVED",
+      "workflow_status": "OPEN_ISSUE",
+      "proof_grade": "NONE",
+      "novelty_status": "NOT_ESTABLISHED",
+      "source_audit_grade": "PARTIAL_PRIMARY",
+      "model_id": null,
+      "artifact_paths": [
+        "docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md",
+        "docs/research/UCT-005-THEOREM-TREE.json"
+      ],
+      "evidence": [
+        "docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md",
+        "docs/research/UCT-005-THEOREM-TREE.json"
+      ],
+      "last_verified_sha": "2b5942d1b48070509d4125c67ecdef5b68dd0541",
+      "ci": {
+        "status": "NOT_CHECKED",
+        "head_sha": null,
+        "run_url": null
+      },
+      "next_falsifier": "Find one same-task, quantified nonfactorizing bound strictly beyond applicable prior art, or record a scoped STOP.",
+      "reopen_rule": "Only a complete model-preserving asymptotic proof and independent novelty audit may promote the root."
+    },
+    {
+      "id": "UCT-005-F1",
+      "owner_issue": 223,
+      "parent": "UCT-005-ROOT",
+      "scientific_status": "OPEN_UNPROVED",
+      "workflow_status": "OPEN_ISSUE",
+      "proof_grade": "FINITE_ORACLE",
+      "novelty_status": "NOT_ESTABLISHED",
+      "source_audit_grade": "PARTIAL_PRIMARY",
+      "model_id": "mathlab.uct005.d1b0.f1.v1",
+      "artifact_paths": [
+        "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json",
+        "docs/research/UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md"
+      ],
+      "evidence": [
+        "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json",
+        "docs/research/UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md"
+      ],
+      "last_verified_sha": "2b5942d1b48070509d4125c67ecdef5b68dd0541",
+      "ci": {
+        "status": "NOT_CHECKED",
+        "head_sha": null,
+        "run_url": null
+      },
+      "next_falsifier": "Falsify a fully quantified adaptive SET/RANGE_PARITY/PIN joint inequality against same-F1 upper points.",
+      "reopen_rule": "Reopen a rejected bound only after exact cost, trust and quantifier changes with a fresh counterexample search."
+    },
+    {
+      "id": "UCT-005-G4",
+      "owner_issue": 234,
+      "parent": "UCT-005-ROOT",
+      "scientific_status": "CLASSICAL_RESTRICTED",
+      "workflow_status": "OPEN_ISSUE",
+      "proof_grade": "RESTRICTED_CLASSICAL",
+      "novelty_status": "NOT_ESTABLISHED",
+      "source_audit_grade": "PARTIAL_PRIMARY",
+      "model_id": null,
+      "artifact_paths": [
+        "docs/research/UCT-005-G4-TYPED-BRIDGES.json",
+        "docs/research/UCT-005-G4-A1A3-CLASSICAL-BRIDGE-CERTIFICATES.md"
+      ],
+      "evidence": [
+        "docs/research/UCT-005-G4-TYPED-BRIDGES.json",
+        "docs/research/UCT-005-G4-A1A3-CLASSICAL-BRIDGE-CERTIFICATES.md"
+      ],
+      "last_verified_sha": "2b5942d1b48070509d4125c67ecdef5b68dd0541",
+      "ci": {
+        "status": "NOT_CHECKED",
+        "head_sha": null,
+        "run_url": null
+      },
+      "next_falsifier": "Try a typed future-observation transfer against the existing countermodels before claiming any resource implication.",
+      "reopen_rule": "Only a complete assumption- and resource-preserving reduction upgrades an OPEN_REDUCTION edge."
+    },
+    {
+      "id": "UCT-005-COW",
+      "owner_issue": 244,
+      "parent": "UCT-005-F1",
+      "scientific_status": "MODEL_ONLY",
+      "workflow_status": "CLOSED_ISSUE",
+      "proof_grade": "NONE",
+      "novelty_status": "NOT_ESTABLISHED",
+      "source_audit_grade": "NOT_CHECKED",
+      "model_id": "mathlab.uct005.d1b0.f1.v1",
+      "artifact_paths": [
+        "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json",
+        "docs/research/UCT-005-G3-B2-D1B2B-PAGE-COW-TREE.md"
+      ],
+      "evidence": [
+        "docs/research/UCT-005-G3-B2-D1B2B-PAGE-COW-TREE.md"
+      ],
+      "last_verified_sha": "24577fe2bcbb8bd7dda7aa154619516c6b833939",
+      "ci": {
+        "status": "NOT_CHECKED",
+        "head_sha": null,
+        "run_url": null
+      },
+      "next_falsifier": "Issue #244 CLOSED, PR #248 MERGED as a scoped COW upper; test authenticated two-PIN page/GC ledger against same-F1 alternatives with source and crash assumptions paid, not a new lower bound.",
+      "reopen_rule": "Reopen scoped issue #244 only for a reproducible failure of its authenticated COW reference; its accepted implementation does not close F1 #223 or root #105."
+    },
+    {
+      "id": "UCT-005-PIN-BITMAP",
+      "owner_issue": 252,
+      "parent": "UCT-005-F1",
+      "scientific_status": "MODEL_ONLY",
+      "workflow_status": "OPEN_ISSUE",
+      "proof_grade": "FINITE_ORACLE",
+      "novelty_status": "NOT_ESTABLISHED",
+      "source_audit_grade": "NOT_CHECKED",
+      "model_id": "mathlab.uct005.d1b0.f1.v1",
+      "artifact_paths": [
+        "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json",
+        "docs/research/UCT-005-G3-B2-D1B2C-EAGER-PIN-RECLAIM.md"
+      ],
+      "evidence": [
+        "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json",
+        "docs/research/UCT-005-G3-B2-D1B2C-EAGER-PIN-RECLAIM.md"
+      ],
+      "last_verified_sha": "2b5942d1b48070509d4125c67ecdef5b68dd0541",
+      "ci": {
+        "status": "NOT_CHECKED",
+        "head_sha": null,
+        "run_url": null
+      },
+      "next_falsifier": "Audit merged PR #253 and post-merge exact-main CI, paid two-reader historical PINs, and remote bitmap tampering.",
+      "reopen_rule": "A merged reference implementation is not a novel F1 lower bound; keep issue #252 open until its independent source and acceptance gates are met."
+    },
+    {
+      "id": "UCT-005-ALLOCATOR",
+      "owner_issue": 254,
+      "parent": "UCT-005-COW",
+      "scientific_status": "MODEL_ONLY",
+      "workflow_status": "CLOSED_ISSUE",
+      "proof_grade": "NONE",
+      "novelty_status": "NOT_ESTABLISHED",
+      "source_audit_grade": "NOT_CHECKED",
+      "model_id": "mathlab.uct005.d1b0.f1.v1",
+      "artifact_paths": [
+        "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json",
+        "docs/research/UCT-005-G3-B2-D1B2B1-SEGMENTED-BITMAP.md"
+      ],
+      "evidence": [
+        "docs/research/UCT-005-G3-B2-D1B2B1-SEGMENTED-BITMAP.md"
+      ],
+      "last_verified_sha": "a9444cec78aa0228018037c5d37ce760af173d69",
+      "ci": {
+        "status": "NOT_CHECKED",
+        "head_sha": null,
+        "run_url": null
+      },
+      "next_falsifier": "Issue #254 CLOSED and PR #258 MERGED as scoped segmented allocator upper; continue complete same-F1 resource comparisons under #262, without upgrading bitmap-only savings to Pareto.",
+      "reopen_rule": "Closed engineering issue #254 does not settle F1 Pareto or root lower bound; reopen only for a reproducible regression in its scoped allocator model."
+    },
+    {
+      "id": "UCT-005-PIN-TRUST",
+      "owner_issue": 255,
+      "parent": "UCT-005-F1",
+      "scientific_status": "OPEN_UNPROVED",
+      "workflow_status": "OPEN_ISSUE",
+      "proof_grade": "NONE",
+      "novelty_status": "NOT_ESTABLISHED",
+      "source_audit_grade": "NOT_CHECKED",
+      "model_id": "mathlab.uct005.d1b0.f1.v1",
+      "artifact_paths": [
+        "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json",
+        "docs/research/UCT-005-G3-B2-D1B2C-EAGER-PIN-RECLAIM.md"
+      ],
+      "evidence": [
+        "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json"
+      ],
+      "last_verified_sha": "7bf96f77e3841ebbe33d35beb002c893446f84e8",
+      "ci": {
+        "status": "NOT_CHECKED",
+        "head_sha": null,
+        "run_url": null
+      },
+      "next_falsifier": "Charge writer, global latest anchor, both offline readers and PIN authority persistent state, then falsify free remote advice.",
+      "reopen_rule": "Promote only a source-audited same-F1 joint trusted-memory lower bound or record scoped STOP; classical counting is not enough."
+    },
+    {
+      "id": "HYP-105-G5",
+      "owner_issue": 230,
+      "parent": null,
+      "scientific_status": "OPEN_UNPROVED",
+      "workflow_status": "OPEN_ISSUE",
+      "proof_grade": "RESTRICTED_CLASSICAL",
+      "novelty_status": "NOT_ESTABLISHED",
+      "source_audit_grade": "PARTIAL_PRIMARY",
+      "model_id": null,
+      "artifact_paths": [
+        "docs/research/HYP-105-G5-E2-B3-E1B0-SEVEN-MOTIF-TENSOR.md"
+      ],
+      "evidence": [
+        "docs/research/HYP-105-G5-E2-B3-E1B0-SEVEN-MOTIF-TENSOR.md"
+      ],
+      "last_verified_sha": "2b5942d1b48070509d4125c67ecdef5b68dd0541",
+      "ci": {
+        "status": "NOT_CHECKED",
+        "head_sha": null,
+        "run_url": null
+      },
+      "next_falsifier": "Prove all-h correlated-label seven-motif Omega(s^6), or exhibit an infinite counterfamily.",
+      "reopen_rule": "Finite W(3,2) counts or positive random expectation alone cannot close the all-label gap."
+    },
+    {
+      "id": "INDEX-001-PAGES",
+      "owner_issue": 183,
+      "parent": null,
+      "scientific_status": "OPEN_UNPROVED",
+      "workflow_status": "OPEN_ISSUE",
+      "proof_grade": "FINITE_ORACLE",
+      "novelty_status": "NOT_ESTABLISHED",
+      "source_audit_grade": "PARTIAL_PRIMARY",
+      "model_id": null,
+      "artifact_paths": [
+        "docs/research/INDEX-001-G2-B4-B-PAGE-RECOURSE.md"
+      ],
+      "evidence": [
+        "docs/research/INDEX-001-G2-B4-B-PAGE-RECOURSE.md"
+      ],
+      "last_verified_sha": "2b5942d1b48070509d4125c67ecdef5b68dd0541",
+      "ci": {
+        "status": "NOT_CHECKED",
+        "head_sha": null,
+        "run_url": null
+      },
+      "next_falsifier": "Construct same-layout bounded-slack recourse counterexamples with paid RAM, metadata and GC.",
+      "reopen_rule": "Any physical-page transfer must preserve page model, allocator and cache assumptions."
+    },
+    {
+      "id": "TKG-001-G1",
+      "owner_issue": 195,
+      "parent": null,
+      "scientific_status": "OPEN_UNPROVED",
+      "workflow_status": "OPEN_ISSUE",
+      "proof_grade": "FINITE_ORACLE",
+      "novelty_status": "NOT_ESTABLISHED",
+      "source_audit_grade": "PARTIAL_PRIMARY",
+      "model_id": null,
+      "artifact_paths": [
+        "docs/research/TKG-001-G1-A-TRANSFER-FIREWALL.md"
+      ],
+      "evidence": [
+        "docs/research/TKG-001-G1-A-TRANSFER-FIREWALL.md"
+      ],
+      "last_verified_sha": "2b5942d1b48070509d4125c67ecdef5b68dd0541",
+      "ci": {
+        "status": "NOT_CHECKED",
+        "head_sha": null,
+        "run_url": null
+      },
+      "next_falsifier": "Fix one Boolean/negative-proof output contract and falsify a joint bitemporal page/GC claim.",
+      "reopen_rule": "No transfer from parity path counts or provenance witness enumeration without preserving output semantics."
+    }
+  ],
+  "dependencies": [
+    {
+      "from": "UCT-005-COW",
+      "to": "UCT-005-F1"
+    },
+    {
+      "from": "UCT-005-PIN-BITMAP",
+      "to": "UCT-005-F1"
+    },
+    {
+      "from": "UCT-005-ALLOCATOR",
+      "to": "UCT-005-COW"
+    },
+    {
+      "from": "UCT-005-PIN-TRUST",
+      "to": "UCT-005-F1"
+    }
+  ],
+  "typed_edges": [
+    {
+      "source": "UCT-005-G4",
+      "target": "UCT-005-F1",
+      "kind": "REDUCTION_REQUIRED",
+      "status": "UNPROVED",
+      "evidence": "docs/research/UCT-005-G4-A1A3-CLASSICAL-BRIDGE-CERTIFICATES.md"
+    },
+    {
+      "source": "UCT-005-COW",
+      "target": "UCT-005-F1",
+      "kind": "UPPER_CONSTRUCTION_PENDING",
+      "status": "UNVERIFIED",
+      "evidence": "docs/research/UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md"
+    },
+    {
+      "source": "UCT-005-PIN-BITMAP",
+      "target": "UCT-005-F1",
+      "kind": "UPPER_CONSTRUCTION_PENDING",
+      "status": "UNVERIFIED",
+      "evidence": "docs/research/UCT-005-G3-B2-D1B2C-EAGER-PIN-RECLAIM.md"
+    },
+    {
+      "source": "HYP-105-G5",
+      "target": "UCT-005-ROOT",
+      "kind": "APPLICATION_ONLY",
+      "status": "NO_THEOREM_TRANSFER",
+      "evidence": "docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md"
+    },
+    {
+      "source": "INDEX-001-PAGES",
+      "target": "UCT-005-F1",
+      "kind": "MODEL_COMPARISON_ONLY",
+      "status": "NO_THEOREM_TRANSFER",
+      "evidence": "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json"
+    },
+    {
+      "source": "TKG-001-G1",
+      "target": "UCT-005-G4",
+      "kind": "MODEL_COMPARISON_ONLY",
+      "status": "NO_THEOREM_TRANSFER",
+      "evidence": "docs/research/TKG-001-G1-A-TRANSFER-FIREWALL.md"
+    }
+  ]
+}

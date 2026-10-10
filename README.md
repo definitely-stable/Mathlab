@@ -1,16 +1,28 @@
 # Mathlab
 
-## Current research — HYP-101 G0 incremental cryptographic hashing
+## Current research navigation
 
-[Incremental cryptography prior art and exact standard-BLAKE3 one-shot lower-bound countermodel](docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md), issue [#72](https://github.com/definitely-stable/Mathlab/issues/72). Foundational crypto papers predate BLAKE3; exact BLAKE3 compatibility differs from new hash constructions. A linear-size answer table kills an overbroad *single-update*, free-preprocessing lower bound. No multi-edit theorem, originality or Rust implementation claimed. Literature catalog: **110** unique works.
+- [Live GitHub state, PRs and Research CI](docs/STATUS-LIVE.md)
+- [Active research status and evidence grades](docs/research/RESEARCH-STATUS.md) ([machine-readable registry](docs/research/RESEARCH-STATUS-REGISTRY.json))
+- [UCT-005 central theorem and model tree](docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md) — **OPEN_UNPROVED**
+- [Known, proved, prior-art and stopped claims](docs/research/KNOWN-AND-STOPPED-RESEARCH.md)
+- [Canonical primary-literature catalog](docs/research/catalog/LITERATURE.md)
 
-## Current mathematics — HYP-103 G0 (scope-limited)
+The sections below preserve dated research checkpoints, not a live inventory.
+Source counts, CI status and scientific novelty must be checked against the linked
+canonical registries and exact GitHub commit; finite tests are not asymptotic proofs.
 
-[Exact minimum old-state certificate reduction, counterexamples, and six new primary papers](docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md). The minimum old-bit probe certificate for a publicly specified batch of input overwrites under an authenticated old-root promise is a **classical certificate-complexity/hitting-set problem**, not a newly discovered theorem. [TOM-007](docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) remains the prior broad scouting program. External literature index: **108** curated works; no Rust authorization.
+## Historical checkpoint — HYP-101 G0 incremental cryptographic hashing
+
+[Incremental cryptography prior art and exact standard-BLAKE3 one-shot lower-bound countermodel](docs/research/HYP-101-G0-INCREMENTAL-HASH-AUDIT.md), issue [#72](https://github.com/definitely-stable/Mathlab/issues/72). Foundational crypto papers predate BLAKE3; exact BLAKE3 compatibility differs from new hash constructions. A linear-size answer table kills an overbroad *single-update*, free-preprocessing lower bound. No multi-edit theorem, originality or Rust implementation claimed. Historical literature checkpoint (110 works); consult the canonical catalog for the current count.
+
+## Historical checkpoint — HYP-103 G0 (scope-limited)
+
+[Exact minimum old-state certificate reduction, counterexamples, and six new primary papers](docs/research/HYP-103-G0-CERTIFICATE-REDUCTION.md). The minimum old-bit probe certificate for a publicly specified batch of input overwrites under an authenticated old-root promise is a **classical certificate-complexity/hitting-set problem**, not a newly discovered theorem. [TOM-007](docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) remains the prior broad scouting program. Historical external-literature checkpoint (108 works); no Rust authorization.
 
 ## New theorem scouting — TOM-007
 
-[Six cross-domain hypotheses, rigorous stop/reopen conditions and source-level overlap](docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (issue [#68](https://github.com/definitely-stable/Mathlab/issues/68)). Independent finite falsification probes three hypothesis families and the external literature index adds seven unique primary works (102 total). No novel theorem or new Rust crate claimed; avoid repeating stopped broad hypotheses from TOM-001/TOM-006 and DeltaMeter.
+[Six cross-domain hypotheses, rigorous stop/reopen conditions and source-level overlap](docs/research/TOM-007-SIX-HYPOTHESIS-AUDIT.md) (issue [#68](https://github.com/definitely-stable/Mathlab/issues/68)). Independent finite falsification probes three hypothesis families and the historical external-literature checkpoint added seven unique primary works (102 at that time). No novel theorem or new Rust crate claimed; avoid repeating stopped broad hypotheses from TOM-001/TOM-006 and DeltaMeter.
 
 Mathlab is a verification-first repository for mathematical research developed with explicit claim status, executable falsification/checking artifacts, and a path to formal proof.
 
@@ -30,7 +42,7 @@ The operating pattern is adapted from the evidence discipline used in `definitel
 
 ## Seven cross-domain theorem proof baselines — TOM-005
 
-[All seven proofs, closest known sources, counterexamples and product gates](docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md). This is a seven-way classical theorem/model audit, **not** seven original discoveries or a Rust release. The no-repeat registry now contains 40 records.
+[All seven proofs, closest known sources, counterexamples and product gates](docs/research/TOM-005-SEVEN-THEOREM-AUDIT.md). This is a seven-way classical theorem/model audit, **not** seven original discoveries or a Rust release. The canonical no-repeat registry is the authority for its current record count.
 
 ## Research discovery and evidence catalog
 

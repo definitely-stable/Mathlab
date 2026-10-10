@@ -1,0 +1,43 @@
+name: research-status-integrity
+
+on:
+  push:
+    branches:
+      - main
+      - "research/**"
+    paths:
+      - "docs/research/RESEARCH-STATUS*"
+      - "docs/research/UCT-005-THEOREM-TREE.json"
+      - "docs/research/UCT-005-G4-TYPED-BRIDGES.json"
+      - "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json"
+      - "docs/research/KNOWN-AND-STOPPED-RESEARCH.json"
+      - "research/research_status_registry.py"
+      - "research/test_research_status_registry.py"
+      - ".github/workflows/research-status-integrity.yml"
+  pull_request:
+    paths:
+      - "docs/research/RESEARCH-STATUS*"
+      - "docs/research/UCT-005-THEOREM-TREE.json"
+      - "docs/research/UCT-005-G4-TYPED-BRIDGES.json"
+      - "docs/research/UCT-005-G3-B2-D1B0-F1-MODEL.json"
+      - "docs/research/KNOWN-AND-STOPPED-RESEARCH.json"
+      - "research/research_status_registry.py"
+      - "research/test_research_status_registry.py"
+      - ".github/workflows/research-status-integrity.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-research-status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate canonical scientific-status boundaries and generated index
+        run: python research/research_status_registry.py --check
+      - name: Positive and negative regression tests
+        run: python -m unittest discover -s research -p 'test_research_status_registry.py' -v

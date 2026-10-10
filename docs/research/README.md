@@ -1,3 +1,18 @@
+# Mathlab research index
+
+**Current navigation:** [active research status](RESEARCH-STATUS.md) ·
+[machine-readable active registry](RESEARCH-STATUS-REGISTRY.json) ·
+[UCT-005 theorem tree](UCT-005-THEOREM-TREE.json) ·
+[G4 typed bridge atlas](UCT-005-G4-TYPED-BRIDGES.json) ·
+[known/stopped decisions](KNOWN-AND-STOPPED-RESEARCH.md) ·
+[canonical literature](catalog/LITERATURE.md).
+
+The chronological entries below are historical research checkpoints, not a
+current-HEAD/CI ledger. Proof status and novelty status must not be inferred
+from a green finite-oracle run. [Live CI/PR navigation](../STATUS-LIVE.md).
+
+---
+
 ## UCT-005 D1-C0 — exact online SET/PIN observational entropy and independent-history falsifier (2026-10-11)
 
 [Formal classical entropy count](UCT-005-G3-B2-D1C0-PIN-OBSERVATION-ENTROPY.md) · [finite state oracle](../../research/uct005_d1c0_observation_entropy.py) · [independent tests](../../research/test_uct005_d1c0_observation_entropy.py) · [issue #303](https://github.com/definitely-stable/Mathlab/issues/303). **EXACT_K=2^n*PRODUCT_HAMMING_BALL_VOLUMES / TWO_PIN_LATEST_N5_H3_3072_STATES / NOT_kN_INDEPENDENT_SNAPSHOTS / F1_PHYSICAL_SECURITY_UNPROVED / STOP_NOVELTY / ROOT_OPEN_UNPROVED**.
