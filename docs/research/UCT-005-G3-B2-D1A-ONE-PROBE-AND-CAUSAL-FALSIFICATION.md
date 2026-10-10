@@ -51,13 +51,13 @@ For `n=4096, k=12`, the **explicit justified upper** gives `W_max<=14`, `Q_max<=
 | LIT | Work | What overlaps | Transfer into F1 authenticated SET/RANGE_PARITY? |
 | --- | --- | --- | --- |
 | 111/112 | Fredman–Saks / Pătraşcu–Demaine | Dynamic partial sums, cell-probe chronogram and sharp tradeoffs | `REDUCTION_REQUIRED`: bit/word size, delta alphabet, randomization, all-range hard quantifiers, external anchored checkpoint |
-| 320/321 | Larsen 2012 / Yu 2016 | Cell sampling and communication-game information methods | `REDUCTION_REQUIRED`: weighted 2D range counts and dynamic interval union are not binary 1D SET parity |
+| 352/353 | Larsen 2012 / Yu 2016 | Cell sampling and communication-game information methods | `REDUCTION_REQUIRED`: weighted 2D range counts and dynamic interval union are not binary 1D SET parity |
 | 156–158 | BEGKN / BKV memory checking | Trusted verifier memory, separated read/write and adversarial storage | `REDUCTION_REQUIRED`: arbitrary memory read/write semantics, full query proof, public author updates, trusted anchor and amortization |
 | 159/199/200 | Tas–Boneh / accumulator update-frequency bounds | Succinct authenticated witnesses and paid updates | `REDUCTION_REQUIRED`: commitment/witness definition, setup, observer count and position-update information |
-| 068/319 | Updatable BARG/IVC / ADSC-SNARK | State-consistent certified computation upper constructions | `UPPER_ONLY_CONDITIONAL`: no free independent-global latest anchor, setup/prover work and proof bytes must be charged |
-| 317–318 (now 349–350) | SUNDR / COP | Fork consistency with untrusted server | `NOT_SAME_F1_TASK`: fork histories do not automatically guarantee independently verifiable LATEST |
-| 322/323 (now 354/355) | DSST persistence / 2026 HMT | Historical versioning and dynamic-workload proof upper constructions | `UPPER_ONLY_CONDITIONAL`: page retention, rebalancing, proof bytes and memory charged |
-| 324 (now 356) | Integrita BFT distributed storage | Multi-node view-consistency | `NOT_SAME_F1_TASK`: distributed Byzantine trust and q-detection are not independent single-anchor latest |
+| 068/351 | Updatable BARG/IVC / ADSC-SNARK | State-consistent certified computation upper constructions | `UPPER_ONLY_CONDITIONAL`: no free independent-global latest anchor, setup/prover work and proof bytes must be charged |
+| 349–350 | SUNDR / COP | Fork consistency with untrusted server | `NOT_SAME_F1_TASK`: fork histories do not automatically guarantee independently verifiable LATEST |
+| 354/355 | DSST persistence / 2026 HMT | Historical versioning and dynamic-workload proof upper constructions | `UPPER_ONLY_CONDITIONAL`: page retention, rebalancing, proof bytes and memory charged |
+| 356 | Integrita BFT distributed storage | Multi-node view-consistency | `NOT_SAME_F1_TASK`: distributed Byzantine trust and q-detection are not independent single-anchor latest |
 
 The overlap audit is **model-level**, based on primary bibliographic/abstract materials as recorded in D0. No source's precise full proof and all quantifiers have been re-derived here.
 
@@ -67,6 +67,6 @@ The overlap audit is **model-level**, based on primary bibliographic/abstract ma
 - Independently instantiate paid honest raw+Fenwick SET and every interval for all `n<=8`, with no-op and changed-SET costs, plus logarithmic-product counterexamples at powers `k=7,8,10,12,16`.
 - [Model and report](../../research/uct005_d1a_causal_falsifiers.py) output exact resource units and a non-promotion marker; GitHub-hosted unit CI is mandatory.
 
-**NEXT D1-B:** move to one *truly joint* multi-epoch `F1` inequality with public honest author, trusted monotone anchor and adversarial proof channel. Before a theorem claim, derive full primary-paper same-model applicability for LIT-111/112/119/156–159/199–200/320/321/349–356, define an explicit hard adaptive range distribution and charge `(s,S,B,U_r,U_w,Q_r,B_pi,C,G,V,T,H,lambda,epsilon)`. Reject any bound collapsed to classical one-probe counting or falsified by Fenwick/snapshot/replica/VC/IVC points. If novelty fails, record `STOP_NOVELTY` for this task and preserve the correct restricted lemmas as independent components.
+**NEXT D1-B:** move to one *truly joint* multi-epoch `F1` inequality with public honest author, trusted monotone anchor and adversarial proof channel. Before a theorem claim, derive full primary-paper same-model applicability for LIT-111/112/119/156–159/199–200/352/353/349–356, define an explicit hard adaptive range distribution and charge `(s,S,B,U_r,U_w,Q_r,B_pi,C,G,V,T,H,lambda,epsilon)`. Reject any bound collapsed to classical one-probe counting or falsified by Fenwick/snapshot/replica/VC/IVC points. If novelty fails, record `STOP_NOVELTY` for this task and preserve the correct restricted lemmas as independent components.
 
 **The foundational UCT-005 root [#105](https://github.com/definitely-stable/Mathlab/issues/105) remains `OPEN_UNPROVED`.**

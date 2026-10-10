@@ -1,5 +1,7 @@
 # DAG-002 G0 — immutable append-only DAG observability, exact finite foundation
 
+**2026-10-10 source correction:** [IMPORT-011 external PDF audit](RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). Existing LIT-164 (Goranci, Karczmarz, Momeni, Parotsidis; ICALP 2025) offers fully dynamic transitive-reduction bounds O(m+n log n) amortized and O(m+n^1.585) worst-case **in a different legal-update model**. It does not resolve immutable prior-node labels with append-only new-sink DAG reachability; genomic GBWT path-set membership is not arbitrary DAG reachability.
+
 **Status (2026-10-09):** MODEL_FROZEN / ELEMENTARY_COUNTING_PROOF / KNOWN_CHAIN_PRIOR_ART / ORACLE_PENDING_UNTIL_CI / NO_NEW_NONFACTORIZING_THEOREM / NO_RUST. [Issue #133](https://github.com/definitely-stable/Mathlab/issues/133), paired with [ALG-001 #134](https://github.com/definitely-stable/Mathlab/issues/134). This is an independent model audit, **not a claim to reprove all SEA 2025 results**.
 
 ## 1. Mandatory primary prior art and novelty separation

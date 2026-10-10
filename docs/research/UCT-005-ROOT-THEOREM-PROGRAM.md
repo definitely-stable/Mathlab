@@ -1,5 +1,7 @@
 # UCT-005 — fundamental root theorem program and typed research tree
 
+**2026-10-10 scientific source correction:** [External PDF audit / IMPORT-011](RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). Alman–Vassilevska Williams (arXiv:2610.06783) refute the standard 3SUM/APSP conjectures in their stated computational models: remove only dependency claims that actually rely on those conditional assumptions. This does not negate unconditional dynamic cell-probe lower bounds. Cauchyproofs and memory checking have different trust/security and cost models. Do not claim generic Ω(log n) authenticated penalty or a new joint UCT theorem without a same-task comparison. **ROOT_OPEN / NOVELTY_NOT_ESTABLISHED** persists.
+
 **As-of:** 2026-10-09; baseline `main` `e0b24b0c6185a19b5075cfaac155f0158d60704a`; **root issue:** [#105](https://github.com/definitely-stable/Mathlab/issues/105).
 **Scientific status: ROOT OPEN / NO ORIGINAL UNIFIED THEOREM PROVED / NO PRODUCT OR RUST RELEASE.**
 
