@@ -80,6 +80,40 @@ def all_h_global_random_right_D6_transfer(s):
     }
 
 
+
+def all_h_joint_uniform_right_seven_mean_lower(s):
+    """C5 B-left/A-right plus C21 D6 on the SAME globally uniform g.
+
+    Both source classes count disjoint ORIGINAL sixsets; linearity
+    of expectation is valid without independence or separate g draws.
+    Neither positive mean implies an adversarial all-g floor.
+    """
+    from hyp105_g5e2b3e1c5_common_bijection import occupied_target_uniform_floor
+    from hyp105_g5e2b3e1b0_seven_signature import R3_CERTIFIED_FLOORS
+
+    c5 = occupied_target_uniform_floor(s)
+    c21 = all_h_global_random_right_D6_transfer(s)
+    b_mean = c5["one_common_right_bijection_mean_lower"]
+    d_mean = Fraction(c21["one_common_uniform_random_right_D6_expectation_floor"])
+    if b_mean < 0 or d_mean <= 0:
+        raise AssertionError("lost nonnegative disjoint motif expectation")
+    joint = b_mean + d_mean
+    gf5_necessary = (
+        b_mean*R3_CERTIFIED_FLOORS["B-left/A-right"]
+        + d_mean*R3_CERTIFIED_FLOORS["D6"]
+    )
+    return {
+        "s": s,
+        "C5_B_left_A_right_mean_lower": str(b_mean),
+        "C21_D6_mean_lower": str(d_mean),
+        "same_global_random_g_disjoint_seven_classes_mean_lower": str(joint),
+        "same_global_random_g_GF5_R3_necessary_mean_lower":
+            str(gf5_necessary/Fraction(51**6)),
+        "same_g_without_independence": True,
+        "asymptotic_joint_seven_mean_growth": "(436/3-o(1))*s^6",
+        "not_adversarial_minimum": True,
+    }
+
 def _line_sdr_dp(point_line_neighbors):
     """Independent Hall/SDR exact oracle: bitset DP, no incidence products."""
     dp = {0: 1}
@@ -138,6 +172,8 @@ def genuine_W32_C21_report(*, max_sixset_evaluations=200000):
     from hyp105_g5e2b3e1a_fixed_leading import PAIRS
     from hyp105_g5e2b3e1b0_seven_signature import classify_seven_prechecked
     from hyp105_g5e2b3e1c14_domain_certificates import _filled_model
+    from hyp105_g5e2b3e1c0_weighted_overlap import source_weighted_BA_hypergraph
+    from hyp105_g5e2b3e1c5_common_bijection import physical_occupied_target, fixed_map_overlap
 
     if type(max_sixset_evaluations) is not int or max_sixset_evaluations < 1:
         raise ValueError("invalid exact original sixset evaluation cap")
@@ -203,6 +239,18 @@ def genuine_W32_C21_report(*, max_sixset_evaluations=200000):
             if all_lifts != 43740 or sum(cycle_sdr_hist.values()) != 60:
                 raise AssertionError("C20 left Hamilton lift census lost")
             expected = Fraction(distinct_right_total, 5005)
+            # Independent C5 B-left/A-right branch, on SAME global f,g.
+            # Its distinct-right-line ORIGINAL sixsets cannot be D6 because
+            # B-left uses one repeated ORIGINAL point, while D6 uses six.
+            weighted_B = source_weighted_BA_hypergraph(m)
+            right_target = physical_occupied_target(6, PAIRS)
+            B_mean = Fraction(sum(weighted_B.values())*len(right_target),
+                              comb(15, 6))
+            actual_B = fixed_map_overlap(
+                weighted_B, right_target,
+                tuple(PAIRS.index(e) for e in m["right_labels"]))
+            if actual_B < 0 or expected <= 0:
+                raise AssertionError("joint independent B/A+D6 mean invalid")
             cases.append({
                 "scheme": scheme,
                 "global_original_left_relabel": relabel,
@@ -211,7 +259,11 @@ def genuine_W32_C21_report(*, max_sixset_evaluations=200000):
                 "per_left_cycle_SDR_histogram": dict(sorted(cycle_sdr_hist.items())),
                 "independently_verified_SDR_dynamic_program": True,
                 "true_actual_one_fixed_global_right_D6": observed_fixed_g_D6,
+                "true_actual_one_fixed_global_right_B_left_A_right": actual_B,
                 "one_shared_uniform_random_global_right_D6_exact_mean": str(expected),
+                "one_shared_uniform_random_global_right_B_left_A_right_exact_mean": str(B_mean),
+                "one_shared_global_right_joint_B_plus_D6_exact_mean":
+                    str(expected + B_mean),
                 "finite_adversarial_minimum_not_proved": True,
             })
     return {
@@ -228,5 +280,8 @@ if __name__ == "__main__":
     print(json.dumps({
         "all_h": [all_h_global_random_right_D6_transfer(s)
                   for s in (2, 4, 8, 16, 32, 64, 128)],
+        "joint_all_h_C5_plus_C21":
+            [all_h_joint_uniform_right_seven_mean_lower(s)
+             for s in (2, 4, 8, 16, 32, 64, 128)],
         "W32": genuine_W32_C21_report(),
     }, indent=2, sort_keys=True))
