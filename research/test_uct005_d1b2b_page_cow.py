@@ -37,6 +37,14 @@ class B2BPageCowTests(unittest.TestCase):
                                  (records * t.node_pages + t.root_pages + t.bitmap_pages) * p)
                 self.assertEqual(t.ledger["setup_bitmap_upload_bytes"],
                                  t.bitmap_pages * p)
+                # A real packed allocation bitmap exists on the untrusted
+                # page-image machine, rather than a charged ghost counter.
+                self.assertIsInstance(t.remote_bitmap, bytes)
+                self.assertEqual(len(t.remote_bitmap),
+                                 (t.next_id + t.epoch + 1 + 7) // 8)
+                self.assertEqual(t.remote_bitmap, t._bitmap_image())
+                self.assertEqual(t.ledger["setup_bitmap_page_writes"],
+                                 t.bitmap_pages)
                 self.assertEqual(t.remote_pages,
                                  records * t.node_pages + t.root_pages +
                                  t.bitmap_pages)
@@ -217,6 +225,46 @@ class B2BPageCowTests(unittest.TestCase):
                     t.gc()
                     self.assertEqual(set(s.remote), set(t.roots))
                 self.assertEqual(set(t.roots), {3})
+
+    def test_remote_bitmap_actual_bytes_sparse_gc_and_corruption(self):
+        t = PageCowTree((0, 1, 0, 1), 2)
+        initial = t.remote_bitmap
+        self.assertEqual(initial, t._bitmap_image())
+        old_generation = t.generation
+        t.pin_current(0)
+        t.set(0, 1)
+        self.assertNotEqual(t.remote_bitmap, initial)
+        self.assertEqual(t.remote_bitmap, t._bitmap_image())
+        self.assertGreater(t.ledger["set_bitmap_page_reads"], 0)
+        self.assertGreater(t.ledger["set_bitmap_page_writes"], 0)
+        self.assertEqual(t.ledger["set_bitmap_upload_bytes"],
+                         t.ledger["set_bitmap_page_writes"] * t.P)
+        t.gc()
+        self.assertEqual(t.remote_bitmap, t._bitmap_image())
+        self.assertGreater(t.ledger["gc_bitmap_page_reads"], 0)
+        self.assertGreater(t.ledger["gc_bitmap_page_writes"], 0)
+        original = t.remote_bitmap
+        t.remote_bitmap = original + b"x"
+        with self.assertRaises(Abort):
+            t.gc()
+        with self.assertRaises(Abort):
+            t.set(0, 0)
+        t.remote_bitmap = original
+        # Set a forbidden final reserved/padding bit, without changing size.
+        bad = bytearray(original)
+        reserved = t.next_id + t.epoch
+        bad[reserved // 8] |= 1 << (reserved % 8)
+        t.remote_bitmap = bytes(bad)
+        with self.assertRaises(Abort):
+            t.gc()
+        t.remote_bitmap = original
+        self.assertEqual(t.query(0, 0, 4, as_of=0), 0)
+        t.unpin(0, 0)
+        t.gc()
+        self.assertEqual(t.remote_bitmap, t._bitmap_image())
+        self.assertEqual(set(t.roots), {1})
+        with self.assertRaises(Abort):
+            t.gc(expected_generation=old_generation)
 
     def test_latest_anchor_replay_pin_race_and_cost_separation(self):
         t = PageCowTree((0, 1, 0), 1)
