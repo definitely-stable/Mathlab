@@ -17,6 +17,7 @@ from hyp105_g5e2b3e1c4_conditional_completion import (
     occupied_target_residuals, original_W32_conditional_source,
     pair_frozen_moment_certificate,evaluate_conditional_tensor,
     occupied_disjoint_triangle_completion_lower,all_h_pairwise_random_benchmark_lower,
+    all_h_GQ_conditional_cell_capacity,
 )
 
 
@@ -238,6 +239,52 @@ class ConditionalFourLineTests(unittest.TestCase):
                          sum(rows.values())**2)
         self.assertEqual(sum(cert["ordered_target_completion_pair_overlap_count"]),
                          len(completions)**2)
+
+    def test_model_specific_all_h_GQ_conditional_cell_capacity(self):
+        for s in (2,4,8,16,32,64,128):
+            cap=(s+1)**4
+            for mass in (0,1,cap,cap+1,2*cap+7):
+                info=all_h_GQ_conditional_cell_capacity(s,mass)
+                self.assertEqual(
+                    info["source_conditional_fourset_max_cell_weight"],cap)
+                self.assertEqual(
+                    info["source_conditional_distinct_foursets_lower"],
+                    (mass+cap-1)//cap)
+        model=pair_labeled_symplectic(1,"reverse-line")
+        tensor=original_W32_conditional_source(model)
+        for P,rows in tensor.items():
+            d=all_h_GQ_conditional_cell_capacity(2,sum(rows.values()))
+            self.assertTrue(all(w<=d["source_conditional_fourset_max_cell_weight"]
+                                for w in rows.values()))
+            self.assertGreaterEqual(len(rows),
+                d["source_conditional_distinct_foursets_lower"])
+        for s,m in ((1,1),(3,1),(2,True),(2,-1)):
+            with self.assertRaises(ValueError):
+                all_h_GQ_conditional_cell_capacity(s,m)
+
+    def test_equal_pair_frozen_moments_but_opposite_fixed_map_overlap(self):
+        # A general hypergraph toy (NOT actual GQ source): two one-hot
+        # fourline distributions have IDENTICAL S_j and first/second
+        # frozen-pair moments but different fixed-g completed count.
+        physical=tuple(combinations(range(6),2))
+        P=next(pair for pair in combinations(physical,2)
+               if not set(pair[0])&set(pair[1]))
+        completions,_=occupied_target_residuals(6,physical,P)
+        H_good=next(iter(completions))
+        available=frozenset(physical)-frozenset(P)
+        H_bad=next(frozenset(H) for H in combinations(sorted(available),4)
+                   if frozenset(H) not in completions)
+        idx={p:i for i,p in enumerate(physical)}
+        good=Counter({frozenset(idx[e] for e in H_good):1})
+        bad=Counter({frozenset(idx[e] for e in H_bad):1})
+        C=pair_frozen_moment_certificate(good,15,completions,retain_overlap_counts=True)
+        D=pair_frozen_moment_certificate(bad,15,completions,retain_overlap_counts=True)
+        self.assertEqual(C,D)
+        self.assertEqual(sum(w for H,w in good.items()
+                             if frozenset(physical[i] for i in H) in completions),1)
+        self.assertEqual(sum(w for H,w in bad.items()
+                             if frozenset(physical[i] for i in H) in completions),0)
+        self.assertTrue(C["not_an_all_right_lower"])
 
     def test_Cauchy_certificate_is_exact_and_not_a_fake_lower(self):
         model=pair_labeled_symplectic(1,"reverse-line")
