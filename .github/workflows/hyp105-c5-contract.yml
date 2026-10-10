@@ -1,0 +1,28 @@
+name: hyp105-c5-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c5-common-map-second-moment
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c5_common_bijection.py"
+      - "research/test_hyp105_g5e2b3e1c5_common_bijection.py"
+      - ".github/workflows/hyp105-c5-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-one-common-right-permutation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact original and physical intersection spectra and all 8 factorial shared permutations
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c5_common_bijection.py' -v
+      - name: Genuine W32 global variance and all-h occupied-label image lower
+        run: python research/hyp105_g5e2b3e1c5_common_bijection.py
