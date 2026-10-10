@@ -1,6 +1,6 @@
 {
   "schema": "mathlab.external-literature.v1",
-  "snapshot_date": "2026-10-09",
+  "snapshot_date": "2026-10-10",
   "collection": "Curated primary literature mentioned by or model-overlapping Mathlab, DELSK and DeltaMeter; not independently proved",
   "source_snapshots": {
     "MATHLAB": {

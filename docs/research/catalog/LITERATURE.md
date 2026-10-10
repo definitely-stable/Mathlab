@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-09** · **315** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-10** · **347** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -19,8 +19,11 @@
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
 | [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 53 |
+| [DNA, пангеномы, de Bruijn и sequence graph индексы](#genomic-graphs) | 16 |
+| [Когнитивные карты, гиппокамп, engram и биологическая память](#biological-memory) | 10 |
+| [Молекулярная запись в DNA, кодирование и графовая реконструкция](#molecular-dna-storage) | 4 |
 | [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 33 |
-| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 23 |
+| [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 25 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 23 |
@@ -2717,6 +2720,408 @@ VLDBJ 2026: поддерживаемые temporal window-CC индексы св�
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
 
 
+## genomic-graphs
+*DNA, пангеномы, de Bruijn и sequence graph индексы*
+
+### LIT-319
+**[Variation graph toolkit improves read mapping by representing genetic variation in the reference](https://doi.org/10.1038/nbt.4227)** (2018)
+
+vg: bidirected граф DNA-вариантов и ориентированные пути реальных геномов.
+
+**Ограничение:** Последовательность генома и семантический provenance DAG имеют разные виды пути.
+
+**Идентичность:** `doi:10.1038/nbt.4227` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-320
+**[Haplotype-aware graph indexes](https://doi.org/10.1093/bioinformatics/btz575)** (2019)
+
+GBWT: сжатые индексы биологически наблюдаемых гаплотипных путей.
+
+**Ограничение:** Online 2019 и выпуск 2020; произвольная комбинация дуг графа может не быть реальным гаплотипом.
+
+**Идентичность:** `doi:10.1093/bioinformatics/btz575` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-321
+**[Bifrost: highly parallel construction and indexing of colored and compacted de Bruijn graphs](https://doi.org/10.1186/s13059-020-02135-8)** (2020)
+
+Параллельное построение и индексирование colored compacted de Bruijn графов, поддержка изменений.
+
+**Ограничение:** Compaction unitigs не даёт bounds на NAND записи и не гарантирует immutability старых labels.
+
+**Идентичность:** `doi:10.1186/s13059-020-02135-8` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-322
+**[Buffering updates enables efficient dynamic de Bruijn graphs](https://doi.org/10.1016/j.csbj.2021.06.047)** (2021)
+
+BufBOSS: insert/delete buffer для компактного BWT-представления de Bruijn graph.
+
+**Ограничение:** Буферизация требует отдельного подсчёта amortized writes, GC и истории PIN.
+
+**Идентичность:** `doi:10.1016/j.csbj.2021.06.047` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-323
+**[ODGI: understanding pangenome graphs](https://doi.org/10.1093/bioinformatics/btac308)** (2022)
+
+ODGI: эффективная память, обход и визуализация больших графов пангеномов.
+
+**Ограничение:** Dynamic в ODGI не означает durable transactional graph updates и доказанный worst-case recourse.
+
+**Идентичность:** `doi:10.1093/bioinformatics/btac308` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-324
+**[A draft human pangenome reference](https://doi.org/10.1038/s41586-023-05896-x)** (2023)
+
+Human Pangenome Reference Consortium: пангеном 47 диплоидных сборок, двунаправленные последовательности и haplotype walks.
+
+**Ограничение:** Биологические варианты не означают проверяемые факты knowledge graph; когорта ограничена.
+
+**Идентичность:** `doi:10.1038/s41586-023-05896-x` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-325
+**[Pangenome graph construction from genome alignments with Minigraph-Cactus](https://doi.org/10.1038/s41587-023-01793-w)** (2023)
+
+Граф пангенома из full-genome alignments: variants всех размеров.
+
+**Ограничение:** Онлайн 2023, том 2024; конвейер batch, нет exact incremental I/O guarantee.
+
+**Идентичность:** `doi:10.1038/s41587-023-01793-w` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-326
+**[Pangenome graphs and their applications in biodiversity genomics](https://doi.org/10.1038/s41588-024-02029-6)** (2025)
+
+Обзор pangenome graph инструментов, сравнение и использование в биоразнообразии.
+
+**Ограничение:** Это обзор, у которого существует corrigendum от февраля 2025.
+
+**Идентичность:** `doi:10.1038/s41588-024-02029-6` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-327
+**[A survey of sequence-to-graph mapping algorithms in the pangenome era](https://doi.org/10.1186/s13059-025-03606-6)** (2025)
+
+Обзор seeds, minimizers и indexing для graph sequence alignment.
+
+**Ограничение:** Не является доказательством обновляемости graph-CAS или низкой стоимости compaction.
+
+**Идентичность:** `doi:10.1186/s13059-025-03606-6` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-328
+**[Pangenome Graph Indexing via the Multidollar-BWT](https://doi.org/10.4230/LIPIcs.SEA.2025.13)** (2025)
+
+gindex: BWT-индекс substring matching без pruning сложных участков pangenome.
+
+**Ограничение:** Затраты на построение и query vs GCSA2 зависят от графа; нет онлайн обновлений.
+
+**Идентичность:** `doi:10.4230/LIPIcs.SEA.2025.13` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-329
+**[Efficient and accurate search in petabase-scale sequence repositories](https://doi.org/10.1038/s41586-025-09603-w)** (2025)
+
+MetaGraph: annotated de Bruijn k-mer graph и компактная матрица принадлежности биологическим samples.
+
+**Ограничение:** Оценка полного архива экстраполирована; не independent full-archive benchmark и не SSD bound.
+
+**Идентичность:** `doi:10.1038/s41586-025-09603-w` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-330
+**[Compressive pangenomics using mutation-annotated networks](https://doi.org/10.1038/s41588-025-02478-7)** (2026)
+
+Mutation-annotated networks связывают сжатие геномов с эволюционными мутациями.
+
+**Ограничение:** Evolutionary lineage не равна provenance trust и сохраняемости исторических signed roots.
+
+**Идентичность:** `doi:10.1038/s41588-025-02478-7` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-331
+**[An Icelandic pangenome reference](https://doi.org/10.1038/s41586-026-10924-7)** (2026)
+
+HPRC-ICE и Weaver: большие графы гаплотипов с read mapping для популяций.
+
+**Ограничение:** Часть raw genomic data ограничена доступом; авторская точность не проверена в Mathlab.
+
+**Идентичность:** `doi:10.1038/s41586-026-10924-7` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-332
+**[COSIGT: population-scalable genotyping of complex loci from low-coverage sequencing data using pangenome graphs](https://doi.org/10.1186/s13059-026-04242-4)** (2026)
+
+Low-coverage генотипирование по cosine similarity покрытия haplotype paths.
+
+**Ограничение:** Статистическая оценка генотипа не даёт exact evidence certificate при малом покрытии.
+
+**Идентичность:** `doi:10.1186/s13059-026-04242-4` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-333
+**[Building and applying pangenome references to capture genetic diversity](https://doi.org/10.1038/s41576-026-00987-7)** (2026)
+
+Обзор графовых и multi-haplotype эталонов и последствий reference bias.
+
+**Ограничение:** Обзор 2026 не является новой фундаментальной теоремой по индексации.
+
+**Идентичность:** `doi:10.1038/s41576-026-00987-7` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-334
+**[Multi-context seeds enable fast and high-accuracy read mapping](https://doi.org/10.1186/s13059-026-04017-x)** (2026)
+
+Multi-context seeds для компромисса точности и скорости сопоставления DNA.
+
+**Ограничение:** Вероятностные/выборочные seeds требуют отдельной оценки ошибок и ресурсов.
+
+**Идентичность:** `doi:10.1186/s13059-026-04017-x` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+
+## biological-memory
+*Когнитивные карты, гиппокамп, engram и биологическая память*
+
+### LIT-335
+**[Interpretable graph-based models on multimodal biomedical data integration: a technical review and benchmarking](https://doi.org/10.1038/s41467-026-74126-5)** (2026)
+
+Межмодальные графовые модели для биологических данных и их интерпретируемость.
+
+**Ограничение:** Обзор и авторское сравнение, но не проверенное доказательство причинности.
+
+**Идентичность:** `doi:10.1038/s41467-026-74126-5` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-336
+**[Human hippocampal and entorhinal neurons encode the temporal structure of experience](https://doi.org/10.1038/s41586-024-07973-1)** (2024)
+
+Мозговое представление временных отношений и successor-подобной графовой структуры.
+
+**Ограничение:** Нейронное кодирование не эквивалентно page-index, PageRank или историческому proof.
+
+**Идентичность:** `doi:10.1038/s41586-024-07973-1` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-337
+**[Systems consolidation reorganizes hippocampal engram circuitry](https://doi.org/10.1038/s41586-025-08993-1)** (2025)
+
+Перестройка энграмм гиппокампа при переходе от эпизодической точности к generalization.
+
+**Ограничение:** Биологическое обобщение может быть несовместимо с exact historical storage.
+
+**Идентичность:** `doi:10.1038/s41586-025-08993-1` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-338
+**[Formation of an expanding memory representation in the hippocampus](https://doi.org/10.1038/s41593-025-01986-3)** (2025)
+
+Экспериментальная динамика формирования расширяющейся памяти гиппокампа.
+
+**Ограничение:** Здесь нет строгой оптимизации графовой памяти агентов, retention или GC.
+
+**Идентичность:** `doi:10.1038/s41593-025-01986-3` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-339
+**[The prefrontal cortex controls memory organization in the hippocampus](https://doi.org/10.1038/s41593-026-02231-1)** (2026)
+
+Контекстное управление нейронным linking через prefrontal–entorhinal схему.
+
+**Ограничение:** Сопоставление контекстов может ложным образом объединять неродственные факты.
+
+**Идентичность:** `doi:10.1038/s41593-026-02231-1` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-340
+**[Deconstruction of a memory engram reveals distinct ensembles recruited at learning](https://doi.org/10.1038/s41593-026-02230-2)** (2026)
+
+Нейронные ансамбли с разными периодами закрепления ассоциативной памяти.
+
+**Ограничение:** Cellular engram не тождественен формальному графу версий и доказательств.
+
+**Идентичность:** `doi:10.1038/s41593-026-02230-2` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-341
+**[Astroengrams: rethinking the cellular substrate for memory](https://doi.org/10.1038/s41583-025-01012-2)** (2026)
+
+Обзор перспектив astrocyte ensembles и механизмов памяти вне исключительно нейронных энграмм.
+
+**Ограничение:** Perspective не доказательство вычислительного алгоритма или эффективности GraphRAG.
+
+**Идентичность:** `doi:10.1038/s41583-025-01012-2` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-342
+**[Latent representations in hippocampal network model co-evolve with behavioral exploration of task structure](https://doi.org/10.1038/s41467-024-44871-6)** (2024)
+
+Вычислительная модель формирования латентных cognitive maps в процессе исследования опыта.
+
+**Ограничение:** Модель поведения не обеспечивает достоверность источника или полноту вывода.
+
+**Идентичность:** `doi:10.1038/s41467-024-44871-6` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-343
+**[Experience reorganizes content-specific memory traces in macaques](https://doi.org/10.1038/s41593-026-02357-2)** (2026)
+
+Изменение и стабилизация нейронных memory traces после опыта и сна.
+
+**Ограничение:** Биологическая реорганизация может нарушать exact immutable provenance.
+
+**Идентичность:** `doi:10.1038/s41593-026-02357-2` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-344
+**[The molecular and cellular basis of memory engrams: Mechanisms of synaptic and systems consolidation](https://doi.org/10.1016/j.nlm.2025.108057)** (2025)
+
+Обзор механизмов формирования и консолидации neural engrams.
+
+**Ограничение:** Обзор не проверяет программную memory-recall архитектуру или page storage.
+
+**Идентичность:** `doi:10.1016/j.nlm.2025.108057` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+
+## molecular-dna-storage
+*Молекулярная запись в DNA, кодирование и графовая реконструкция*
+
+### LIT-345
+**[DNA Fountain enables a robust and efficient storage architecture](https://doi.org/10.1126/science.aaj2038)** (2017)
+
+Fountain coding синтетических DNA oligonucleotides для плотной записи и восстановления цифровых данных.
+
+**Ограничение:** Химические erasure/indel каналы не равны электронным exact CAS и SSD I/O.
+
+**Идентичность:** `doi:10.1126/science.aaj2038` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-346
+**[Random access in large-scale DNA data storage](https://doi.org/10.1038/nbt.4079)** (2018)
+
+Праймерный адресный доступ к множеству молекулярных DNA файлов с исправлением ошибок.
+
+**Ограничение:** PCR-селективность не является O(1) цифровой операцией; sequencing оплачивается.
+
+**Идентичность:** `doi:10.1038/nbt.4079` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-347
+**[De-Bruijn graph partitioning for scalable and accurate DNA storage processing](https://doi.org/10.1093/bioinformatics/btaf618)** (2025)
+
+ConCluD: сегментация de Bruijn graph для восстановления закодированных олигонуклеотидов.
+
+**Ограничение:** Требуется полный read с primers; множество графовых путей без валидации не является оригинальными файлами.
+
+**Идентичность:** `doi:10.1093/bioinformatics/btaf618` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-348
+**[High-scale random access on DNA storage systems](https://doi.org/10.1093/nargab/lqab126)** (2022)
+
+Исследование адресуемого получения молекулярных данных DNA в масштабе.
+
+**Ограничение:** Молекулярный read process не доказывает crash safety или асимптотику WAL/LSM.
+
+**Идентичность:** `doi:10.1093/nargab/lqab126` · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+
 ## graph-rag
 *GraphRAG, knowledge-graph retrieval, системное сравнение с RAG*
 
@@ -3451,6 +3856,32 @@ Scientific Reports 2026: совместное использование гло�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-133](INDEX.md#om-133)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-317
+**[HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models](https://arxiv.org/abs/2405.14831)** (2024)
+
+Граф знаний и Personalized PageRank для ассоциативной и многошаговой памяти LLM.
+
+**Ограничение:** Аналогия с гиппокампом не означает нейронной эквивалентности и exact provenance.
+
+**Идентичность:** `arxiv:2405.14831` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
+
+### LIT-318
+**[MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560)** (2023)
+
+Виртуальные уровни контекстной памяти LLM и paging между быстрым и медленным хранением.
+
+**Ограничение:** Paging контекста не является графовым хранилищем и не доказывает bounded IO.
+
+**Идентичность:** `arxiv:2310.08560` · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md](https://github.com/definitely-stable/Mathlab/blob/8c9bd7948f0cb9fc5a40c99964b96e71cbd74128/docs/research/RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) (model_overlap)
 
 
 ## graph-reasoning
