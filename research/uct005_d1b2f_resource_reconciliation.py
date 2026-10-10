@@ -89,7 +89,8 @@ for _name in ("T_GLOBAL_BITMAP_COW", "T_SEGMENTED_BITMAP_COW"):
     SOURCE_COUNTERS[_name] = dict(_COW_COUNTERS)
 
 
-def _audit_raw_sources(model: str, m, observed: dict) -> dict[str, list[str]]:
+def _audit_raw_sources(model: str, m, observed: dict,
+                       captured_peak_trusted_bits: int) -> dict[str, list[str]]:
     if set(SOURCE_COUNTERS[model]) != set(ALIASES):
         raise AssertionError("incomplete diagnostic-source map")
     source = SOURCE_COUNTERS[model]
@@ -97,7 +98,9 @@ def _audit_raw_sources(model: str, m, observed: dict) -> dict[str, list[str]]:
         if not keys:
             raise AssertionError("empty raw provenance")
         if keys == ("@trusted_bits",):
-            value = m.trusted_bits
+            # PIN/UNPIN have already released history after the trace.
+            # The declared peak was captured while both PINs were live.
+            value = captured_peak_trusted_bits
         else:
             if any(k not in m.ledger for k in keys):
                 raise AssertionError(
@@ -290,7 +293,7 @@ def reconcile(n: int, p: int, initial: tuple[int, ...] | None = None,
             raise AssertionError("remote SETUP byte-to-page nonconservation")
         if observed["set_remote_page_writes"] <= 0 or observed["query_remote_page_reads"] <= 0:
             raise AssertionError("zero but mandatory I/O cost")
-        raw_sources = _audit_raw_sources(name, m, observed)
+        raw_sources = _audit_raw_sources(name, m, observed, peaks)
         if (observed["query_reply_payload_bytes"]
                 > observed["query_remote_page_reads"] * p):
             raise AssertionError("query payload exceeds full read page images")
