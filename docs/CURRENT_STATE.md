@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-C12 — exact physically occupied Aut(F) quotient, shared right-map symmetry (2026-10-10)
+
+[All-h theorem, occupancy firewall, source/reference and acceptance](research/HYP-105-G5-E2-B3-E1C12-PHYSICAL-ORBIT-QUOTIENT.md) · [reference](../research/hyp105_g5e2b3e1c12_physical_orbits.py) · [independent tests](../research/test_hyp105_g5e2b3e1c12_physical_orbits.py) · #230. **ALL-h_EXACT_SAME-g_PHYSICAL_AUT(F)_FREE_FULL_RIGHT_ORBIT_V_FACTORIAL_DIV_GROUP_ORDER / EXACT_PREFIX_CONDITIONAL_FULL_DISTRIBUTION_ORBIT_TRANSFER / W32_K6_PHYSICAL_S6_720_K0_TO_K3_ORBITS_1_1_2_9 / MISSING_TWO_EDGE_K6_GROUPS_12_16 / FULL_PHYSICAL_EDGE_ALPHABET_ONE-PIN_MEAN_BLINDNESS / GENUINE_W32_BA_RESTRICTED_MIN56_S_SEVEN_169_TO_141_GF5_NECESSARY_NUM_7627209_TO_6400556 / NO_UNRESTRICTED_ALL-F_G_POSITIVE_S_LOWER / CI_PENDING.** #230 remains OPEN_WITH_FORMAL_BLOCKER.
+
 ## HYP-105 B3.2-E1-C11 — common-prefix conditional second moment and real GQ four-line coupling (2026-10-10)
 
 [Proof and scope](research/HYP-105-G5-E2-B3-E1C11-COUPLED-FOUR-LINE.md) · [reference](../research/hyp105_g5e2b3e1c11_coupled_four.py) · [independent tests](../research/test_hyp105_g5e2b3e1c11_coupled_four.py) · issue #230. **ALL-h_EXACT_CONDITIONAL_SHARED_PERM_SECOND_MOMENT / JOINT_ORIGINAL_A_B_REMAINDER_INTERSECTION_j / TRUE_FIXED-PREFIX_VAR_MIN_LOWER / FINITE_GENUINE_W32_11_RIGHT_PINS_ALL_24_COUPLED_C4_C5_CHECKS / NO_FULL_15_FACTORIAL_MIN / NO_SEVEN_GF5_ASYMPTOTIC / CI_PENDING**. #230 remains OPEN_WITH_FORMAL_BLOCKER.
