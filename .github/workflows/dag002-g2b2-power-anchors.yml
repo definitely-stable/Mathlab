@@ -1,0 +1,35 @@
+name: dag002-g2b2-power-anchors
+
+on:
+  push:
+    branches:
+      - main
+      - "research/**"
+    paths:
+      - "research/dag002_g2b2_power_anchors.py"
+      - "research/test_dag002_g2b2_power_anchors.py"
+      - "docs/research/DAG-002-G2-B2-POWER-ANCHORS.md"
+      - ".github/workflows/dag002-g2b2-power-anchors.yml"
+  pull_request:
+    paths:
+      - "research/dag002_g2b2_power_anchors.py"
+      - "research/test_dag002_g2b2_power_anchors.py"
+      - "docs/research/DAG-002-G2-B2-POWER-ANCHORS.md"
+      - ".github/workflows/dag002-g2b2-power-anchors.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-power-anchor-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: SEA power-anchor source and Boolean DAG census
+        run: python research/dag002_g2b2_power_anchors.py
+      - name: Independent source ranking and Lemma 9 finite tests
+        run: python -m unittest discover -s research -p 'test_dag002_g2b2_power_anchors.py' -v
