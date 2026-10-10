@@ -86,6 +86,34 @@ Proof: each target T_a edge is counted once by constant c and each physical vert
 
 The independent CI falsifier checks all physical pair-of-label codegrees by enumerating every target hyperedge of K6 and K9 (including the accidental K9 2-design) and verifies the linear-source overlap identity against several explicit non-gauge permutations of all 15 K6 edge-label vertices. At a=14 the exact unequal adjacency codegrees are 1155 and 630. These complete target signatures are useful invariants for the next B1-C step: computing the corresponding second-order source distribution of m_f and testing whether it can generate a universal MIN-over-g lower.
 
+## 2B. Stronger exact no-go: a 3-cube trade defeats every degree ≤2 source marginal
+
+This is a **rigorous finite structural countermodel** against an overstrong B1-C inference from target two-point orbits alone. It is again NOT a genuine W(3,s) source. Take a=6, K=15, and number the physical pair labels of K6 lexicographically 0..14. Let the three common source vertices be C={0,1,6}; let three switch pairs be P_0=(2,11), P_1=(3,12), P_2=(13,14). Every mask b∈{0,1}³ gives one distinct six-element hyperedge
+
+```text
+R_b = C ∪ {P_0[b_0],P_1[b_1],P_2[b_2]}.
+```
+
+Define two NONNEGATIVE, integer-weighted six-hypergraphs m_even and m_odd, each with unit weight on the four distinct R_b having even versus odd parity, zero elsewhere. For every subset A of source vertices with |A|≤2,
+
+```text
+Σ_{R ⊇ A} m_even(R) = Σ_{R ⊇ A} m_odd(R).
+```
+
+**Proof:** the signed difference of the two hypergraphs is the product of the three independent binary sign toggles. Requiring a specific set A of at most two vertices can fix at most two of those switches, leaving at least one free switch whose ± terms cancel. If A requires both endpoints of any switch, neither side contains A; cancellation is then trivial. Thus their 0th, 1st and **every** 2nd-order source marginal agrees exactly.
+
+Yet under the SAME identity labeling into physical K6 pair edges, the exact 70-element target T6 contains exactly ONE of the eight sixsets: R_(1,1,1)={0,1,6,11,12,14}. It is a physical simple C6, with pair labels (0,1),(0,2),(1,3),(2,5),(3,4),(4,5). Therefore
+
+```text
+overlap(m_even,T6)=0,    overlap(m_odd,T6)=1.
+```
+
+Scaling all weights by any positive integer M preserves every equality of source 0th/1st/2nd marginals and gives overlap gap M. The same local counterexample embeds in the K6 coordinate subset of any physical K_a (a≥6); an injection of the remaining source vertices, if needed, completes it. Because the image sixsets only use K6 edges, no additional physical coordinates can alter membership.
+
+**Consequence:** neither the first nor the complete second marginal of a GENERAL weighted six-hypergraph determines its intersection with T_a under a fixed permutation/injection; higher-order components matter. Combined with the target's distinct adjacent/disjoint pair codegrees, this means an all-g positive lower theorem for the actual GQ source m_f cannot be obtained just by treating its first two marginals as a sufficient statistic. The GQ incidence-derived family might still possess special structure that rules out these arbitrary signed 3-cube trades; proving that exclusion is a legitimate B1-C next step. There is no contradiction with the accepted 140 s^6 independent-right expectation because m_even and m_odd have the same total mass and thus the same random mean.
+
+[Code](../../research/hyp105_g5e2b3e1c0_weighted_overlap.py) freezes all eight sixsets. Independent tests rederive the corners rather than using the production generator, compute all ≤2 incidence marginals by direct weighted summation, enumerate the entire 5,005 K6 six-edge universe to obtain the 70 targets, and independently compute overlaps 0 and M for M=1,17,10^6. No FPT/probabilistic claim, no actual GQ counterexample and no all-h ASET power is inferred.
+
 ## 3. Corrected prior art and disallowed transfers
 
 The underlying weighted hypergraph intersection/discrepancy formulation is **classical**, and any originality or universal minimum theorem must be compared with:
