@@ -49,12 +49,16 @@ class RemotePinBitmapTests(unittest.TestCase):
                                  pages_expected + data_pages + manifest_pages)
                 self.assertEqual(m.ledger["bitmap_setup_page_writes"], pages_expected)
                 self.assertEqual(m.ledger["bitmap_setup_upload_bytes"], pages_expected * p)
+                full_sha_input = len(m._DOMAIN) + 8 + bytes_expected
+                self.assertEqual(m.ledger["bitmap_setup_hashed_bytes"], full_sha_input)
                 self.assertEqual(m.trusted_bits, 33 + 8 * 80)
                 e0 = m.pin_current(0)
                 self.assertEqual(e0, 0)
                 self.assertEqual(m.trusted_bits, 33 + 8 * 120)
                 self.assertEqual(m.ledger["bitmap_remote_page_writes"], pages_expected)
                 self.assertEqual(m.ledger["bitmap_trusted_root_publication_bytes"], 40)
+                self.assertEqual(m.ledger["bitmap_author_hash_input_bytes"], full_sha_input)
+                self.assertEqual(m.ledger["bitmap_verifier_hashed_bytes"], full_sha_input)
                 self.assertEqual(m.ledger["bitmap_remote_upload_bytes"], pages_expected * p)
                 before = m.ledger["bitmap_remote_page_read_attempts"]
                 m.assert_live_invariant()
