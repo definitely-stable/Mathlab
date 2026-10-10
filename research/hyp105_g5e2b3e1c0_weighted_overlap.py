@@ -44,6 +44,77 @@ def simple_six_2factor_targets(a=6):
     return frozenset(output)
 
 
+def physical_target_two_point_design(a):
+    """All-a exact 1-design and two adjacency-orbit codegrees of T_a.
+
+    The six-edge simple 2-factors of K6 number 70. Under S6 symmetry,
+    each physical K6 edge belongs to 28 factors. Every unordered pair
+    of adjacent K6 edges belongs to 7 factors, every disjoint pair
+    belongs to 14 factors (independently exhaustively verified by tests).
+
+    Embed each fixed 6-symbol factor into K_a:
+      |T_a|=70*C(a,6);
+      deg(e)=28*C(a-2,4);
+      co_deg(adjacent e,e')=7*C(a-3,3);
+      co_deg(disjoint e,e')=14*C(a-4,2).
+    Thus T_a is a 1-design for all a>=6. It is a 2-design
+    precisely at a=9 (for a>=6), where 7*C(6,3)=14*C(5,2)=140.
+    Actual HYP-105 minimal a_s is 6 at s=2, 14 at s=4 and
+    grows thereafter, so the accidental a=9 2-design does NOT
+    give a positive-min theorem for any actual W(3,2^h).
+    """
+    if not isinstance(a,int) or isinstance(a,bool) or a<6:
+        raise ValueError("physical K_a must have at least six coordinates")
+    n=comb(a,2)
+    count=70*comb(a,6)
+    d=28*comb(a-2,4)
+    adj=7*comb(a-3,3)
+    dis=14*comb(a-4,2)
+    # C(K,2) unordered physical PAIR-EDGE pairs, two adjacency orbits:
+    # adj pair of K_a edges share one physical coordinate;
+    # disjoint pair of K_a edges occupy four physical coordinates.
+    n_adj=a*comb(a-1,2)
+    n_dis=3*comb(a,4)
+    if (6*count!=n*d or
+            comb(6,2)*count!=n_adj*adj+n_dis*dis or
+            n_adj+n_dis!=comb(n,2)):
+        raise AssertionError("two-point incidence design identities failed")
+    return {
+        "a":a,"physical_pair_label_vertices":n,
+        "physical_six_2factor_target_size":count,
+        "target_degree_each_pair_label":d,
+        "pair_codegree_adjacent_physical_labels":adj,
+        "pair_codegree_disjoint_physical_labels":dis,
+        "target_is_one_design":True,
+        "target_is_two_design":adj==dis,
+        "uniform_target_component_W1_zero":True,
+        "all_correlated_right_min_lower_proved":False,
+    }
+
+
+def one_degree_source_overlap_invariant(a, constant, vertex_coefficients):
+    """Exact all-right-BIJECTION value for degree<=1 source m(R).
+
+    m(R)=constant + sum_{v in R} beta[v] on C(K,6). For a full
+    bijection pi:[K]->E(K_a), <m_pi, 1_{T_a}>
+      = constant*|T_a| + d(T_a)*sum_v beta[v],
+    independent of pi, because T_a is 1-design.
+
+    This does NOT apply to arbitrary incidence-generated m_f, and
+    does not cover non-surjective right injections V<K where
+    only a restricted physical subset of pair labels is occupied.
+    """
+    target=physical_target_two_point_design(a)
+    coeff=tuple(vertex_coefficients)
+    if (len(coeff)!=target["physical_pair_label_vertices"] or
+            not isinstance(constant,int) or isinstance(constant,bool) or
+            any(not isinstance(x,int) or isinstance(x,bool) for x in coeff)):
+        raise ValueError("complete bijective degree-one source required")
+    result=(constant*target["physical_six_2factor_target_size"]+
+            sum(coeff)*target["target_degree_each_pair_label"])
+    return result
+
+
 def source_weighted_BA_hypergraph(model):
     """Exact finite W32 weighted right six-uniform original-line hypergraph.
 
