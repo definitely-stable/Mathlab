@@ -102,6 +102,23 @@ class SegmentedBitmapTests(unittest.TestCase):
                 snap.set(0, 1)
                 self.assertEqual(s.query(0, 0, n), snap.latest(0, 0, n))
 
+    def test_symbolic_high_n_page_write_crossover_not_full_pareto(self):
+        # Pure cost-grammar inequality: do NOT allocate a million-node model
+        # and do NOT mistake remote SET page writes for complete F1 cost.
+        n, p = 1 << 20, 4096
+        depth = 21  # exact COW root-to-leaf nodes for n=2^20
+        node_pages = (122 + p - 1) // p
+        root_pages = (48 + p - 1) // p
+        bitmap_segment_bound = (depth + 8*p - 1)//(8*p) + 2
+        cow_update_page_upper = depth * node_pages + root_pages + bitmap_segment_bound
+        snapshot_update_pages = ((n + 7)//8 + p - 1)//p + root_pages
+        self.assertEqual(cow_update_page_upper, 25)
+        self.assertEqual(snapshot_update_pages, 33)
+        self.assertLess(cow_update_page_upper, snapshot_update_pages)
+        # This proves a scope-limited write-count inequality for the frozen
+        # abstract record widths; it excludes physical durability, GC, setup,
+        # authority messages, verifier proof bytes and read-page expenses.
+
     def test_counterexample_to_global_rewrite_n257_p1(self):
         n, p = 257, 1
         bits = (0,) * n
