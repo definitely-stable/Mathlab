@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: HYP-105 C9 GQ concurrence two-pin barrier exact checks
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c9_two_pin_barrier.py'
+
+      - name: HYP-105 C9 all-h two-pin zero method no-go with integer-rational certificates
+        run: python research/hyp105_g5e2b3e1c9_two_pin_barrier.py
+
       - name: HYP-105 C8 exact frozen-fiber conditional permutation falsifiers
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c8_fiber_rearrangement.py'
 

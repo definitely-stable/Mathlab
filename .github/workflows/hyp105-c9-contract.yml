@@ -1,0 +1,28 @@
+name: hyp105-c9-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c9-two-pin-zero-barrier
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c9_two_pin_barrier.py"
+      - "research/test_hyp105_g5e2b3e1c9_two_pin_barrier.py"
+      - ".github/workflows/hyp105-c9-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  all-h-two-pin-zero-method-barrier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent GQ W32 falsifiers and analytic coefficient tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c9_two_pin_barrier.py' -v
+      - name: Exact all-h small base and symbolic rational tail certificate
+        run: python research/hyp105_g5e2b3e1c9_two_pin_barrier.py
