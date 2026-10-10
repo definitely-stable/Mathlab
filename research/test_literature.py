@@ -15,7 +15,7 @@ class LiteratureTests(unittest.TestCase):
     def test_real_collection_has_no_metadata_errors(self):
         self.assertEqual(valid(self.data, self.catalog), [])
 
-    def test_import006_distinct_works_and_eighteen_lanes(self):
+    def test_import006_distinct_works_and_indexed_lanes(self):
         entries = self.data["entries"]
         self.assertEqual(len(entries), 347)
         self.assertEqual(len({e["identity"].lower() for e in entries}), 347)
@@ -771,7 +771,7 @@ class LiteratureTests(unittest.TestCase):
         entries = self.data["entries"]
         self.assertEqual(len({e["id"] for e in entries}), 347)
         tracks = {e["track"] for e in entries}
-        self.assertEqual(len(tracks), 18)
+        self.assertEqual(len(tracks), 21)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
             {e["id"] for e in entries}))
         self.assertTrue({"MATHLAB", "DELSK", "DELTAMETER"}.issubset(
