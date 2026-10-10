@@ -46,6 +46,37 @@ class IncrementalFTS5Tests(unittest.TestCase):
             self.assertEqual(query(db, "indexed", 5)["results"][0]["id"], "R:TEST001")
             self.assertEqual(query(db, "future", 5)["results"][0]["id"], "R:TEST003")
 
+    def test_fts_keeps_scoped_graph_backlinks_and_primary_identity(self):
+        with TemporaryDirectory() as folder:
+            path = Path(folder)
+            data = path / "items.jsonl"
+            pub = record("P:LIT-355", "Authenticated structures",
+                         "primary work on authenticated updates")
+            pub.update({
+                "identity": "arxiv:2608.25206",
+                "primary_url": "https://arxiv.org/abs/2608.25206",
+                "full_proof_verified": False,
+                "independent_reproduction": False,
+                "neighbors_out": [
+                    {"id": "R:ML-002", "relation": "MAPS_TO_RESEARCH",
+                     "evidence_path": "docs/research/catalog/literature.json"},
+                    {"id": "TAG:crypto", "relation": "TAGGED_WITH",
+                     "evidence_path": "docs/research/catalog/literature.json"}
+                ],
+                "neighbors_in": []
+            })
+            data.write_text(json.dumps(pub, ensure_ascii=False) + "\n",
+                            encoding="utf-8")
+            sync(path / "index.sqlite", data)
+            result = query(path / "index.sqlite", "Authenticated", 2)["results"][0]
+            self.assertEqual(result["id"], "P:LIT-355")
+            self.assertEqual(result["identity"], "arxiv:2608.25206")
+            self.assertFalse(result["full_proof_verified"])
+            self.assertEqual(len(result["neighbors_out"]), 1)
+            self.assertEqual(result["neighbors_out"][0]["relation"],
+                             "MAPS_TO_RESEARCH")
+            self.assertEqual(result["neighbors_out"][0]["id"], "R:ML-002")
+
     def test_duplicate_id_rejected(self):
         with TemporaryDirectory() as folder:
             path = Path(folder)
