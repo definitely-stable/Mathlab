@@ -1,6 +1,6 @@
-## HYP-105 B3.2-E1-B1-B — correlated right-label exchanges on complete W32
+## HYP-105 B3.2-E1-B1-B — all-h bounded influence plus finite correlated swaps
 
-[Proof, risk scope and limits](HYP-105-G5-E2-B3-E1B-B-RIGHT-SWAPS.md) · [full all-105 swap census](../../research/hyp105_g5e2b3e1b1b_label_swaps.py) · [independent full-recount and gauge tests](../../research/test_hyp105_g5e2b3e1b1b_label_swaps.py). Exact affected-original-sixset delta and full selected GF5 signed risk for best neighbor, but no universal all-h S lower or infinite counterexample. Draft CI pending.
+[Proof, risk scope and limits](HYP-105-G5-E2-B3-E1B-B-RIGHT-SWAPS.md) · [full all-105 swap census](../../research/hyp105_g5e2b3e1b1b_label_swaps.py) · [independent full-recount and gauge tests](../../research/test_hyp105_g5e2b3e1b1b_label_swaps.py). Exact all-h |ΔS|≤(151/12+o(1))s12 for ANY single original right line factor-pair assignment swap, plus full W32 105-neighbor affected-sixset delta and full selected GF5 signed risk for best neighbor. No all-h S=Omega(s6) lower or infinite counterexample. Draft CI pending.
 
 ## HYP-105 B3.2-E1-B0 — seven-motif same-label tensor reduction
 
