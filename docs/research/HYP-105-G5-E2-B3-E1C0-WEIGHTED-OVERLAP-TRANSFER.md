@@ -114,6 +114,29 @@ Scaling all weights by any positive integer M preserves every equality of source
 
 [Code](../../research/hyp105_g5e2b3e1c0_weighted_overlap.py) freezes all eight sixsets. Independent tests rederive the corners rather than using the production generator, compute all ≤2 incidence marginals by direct weighted summation, enumerate the entire 5,005 K6 six-edge universe to obtain the 70 targets, and independently compute overlaps 0 and M for M=1,17,10^6. No FPT/probabilistic claim, no actual GQ counterexample and no all-h ASET power is inferred.
 
+## 2C. Exact all-a third-order target tensor, five edge orbits
+
+Because the eight-corner trade above is invisible to every source marginal of order ≤2, the next target signature to compute is its **third-order incidence tensor**. For any THREE distinct physical pair labels e₁,e₂,e₃ of K_a, define `codeg_T(e₁,e₂,e₃)` as the number of target sixsets containing all three. Under coordinate permutations S_a, the three chosen physical edges have exactly FIVE isomorphism types:
+
+| Unlabeled three-edge physical graph | Used physical vertices r | Number of such triple-label sets in K_a | Target sixset co-degree |
+| --- | ---: | ---: | ---: |
+| Triangle C3 | 3 | C(a,3) | C(a−3,3) |
+| Simple path P4 of length 3 | 4 | 12 C(a,4) | 2 C(a−4,2) |
+| Three-leaf claw K1,3 | 4 | 4 C(a,4) | **0** |
+| Two-edge path P3 plus isolated edge | 5 | 30 C(a,5) | 5(a−5) |
+| Three disjoint edges (perfect matching) | 6 | 15 C(a,6) | **8** |
+
+**Proof:** for the six physical coordinates used by each target sixset, all 70 simple degree-two six-edge K6 factors are exhaustively classifiable. For a fixed three-edge graph of each type within that K6, the exact number of completions is respectively **1,2,0,5,8**. Zero for a claw follows from its degree-three central vertex, which no 2-regular target can contain. To pass from K6 to K_a, add any `6−r` new physical vertices to the specified `r` existing ones, and multiply by C(a−r,6−r). This proves the formulas for **all a≥6**, without sampling. They satisfy the global third-incidence identity
+
+```text
+Σ_{3 distinct physical pair labels} codeg_T(e₁,e₂,e₃)
+    = binom(6,3)|T_a| = 20*70*C(a,6).
+```
+
+A separate oracle exhaustively enumerates every 3-edge subset of physical K6 (455 cases) and K9 (C(36,3)=7,140 cases) and checks its orbit classification and exact target co-degree against all 70*C(a,6) target hyperedges. At a=14 the code checks the symbolic counting identities without enumerating ~2.1 million target sixsets. This is an exact TARGET-side theorem. It does not compute the corresponding 3-marginal of the actual GQ source m_f for all h and it does not force a positive worst-case intersection.
+
+**Next B1-C1 proof question:** identify what third-order source marginals the W(3,s) incidence structure permits, distinguish them from freely assignable three-cube trades, and determine whether a model-specific inequality lower-bounds all-correlated `Σ_R m_f(R)1_{g(R)∈T_a}`. In view of the seven-class scope, proving B/A-specific positivity may be strictly stronger than the ultimate needed S-seven obstruction.
+
 ## 3. Corrected prior art and disallowed transfers
 
 The underlying weighted hypergraph intersection/discrepancy formulation is **classical**, and any originality or universal minimum theorem must be compared with:
