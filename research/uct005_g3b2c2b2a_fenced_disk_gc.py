@@ -50,10 +50,14 @@ class DiskFencedGC:
             raise ValueError("incompatible client/page configurations")
         if arena.latest != journal.latest:
             raise ValueError("root epoch history differs")
+        if getattr(arena, "_uct005_writer_inflight", False):
+            raise Integrity("cannot open GC during in-flight COW writer")
         self.arena = arena
         self.journal = journal
         self.page_bytes = arena.page_bytes
         self.count = arena.count
+        self.frozen_epoch = arena.latest
+        self.frozen_digest = arena.latest_trusted_checkpoint.digest
         self.blocks = (self.count + self.page_bytes - 1) // self.page_bytes
         self.pages_per_gen = 1 + self.blocks
         # No all-epochs reachability set; compare attestations one at a time.
@@ -76,6 +80,18 @@ class DiskFencedGC:
             "metadata_truncates": 0, "gc_anchor_publications": 0,
             "sha256_digests": 0, "logical_trim_commands": 0,
         }
+
+    def _assert_forest_frozen(self):
+        # A live COW author can increase both node count and epoch. A GC
+        # instance constructed for the previous forest must FAIL CLOSED:
+        # its bitmap cardinality and generation digest format are stale.
+        if (getattr(self.arena, "_uct005_writer_inflight", False) or
+                self.arena.count != self.count or
+                self.arena.latest != self.frozen_epoch or
+                self.arena.latest_trusted_checkpoint.epoch != self.frozen_epoch or
+                self.journal.latest != self.frozen_epoch or
+                self.arena.latest_trusted_checkpoint.digest != self.frozen_digest):
+            raise Integrity("GC instance frozen to an earlier writer/root epoch")
 
     def _offset(self, generation):
         if type(generation) is not int or generation < 1:
@@ -131,6 +147,7 @@ class DiskFencedGC:
     def prepare(self, fail_at=None):
         if fail_at not in CUTS:
             raise ValueError("unknown crash cut before any mutation")
+        self._assert_forest_frozen()
         if self.staged is not None:
             raise Integrity("unpublished candidate must be recovered/discarded first")
         fence = self.journal.tip
@@ -234,6 +251,7 @@ class DiskFencedGC:
     def publish(self, stage, fail_at=None):
         if fail_at not in (None, "publish_before", "publish", "trim"):
             raise ValueError("invalid publication crash cut")
+        self._assert_forest_frozen()
         if not isinstance(stage, FencedStage) or self.staged != stage:
             raise Integrity("only currently staged immutable generation can publish")
         if stage.generation != self.anchor.generation+1:
@@ -262,6 +280,7 @@ class DiskFencedGC:
     def recover(self, fail_at=None):
         if fail_at not in (None, "trim"):
             raise ValueError("unknown recovery crash cut")
+        self._assert_forest_frozen()
         self.journal.crash_recover()
         self.generations.truncate(self.durable_bytes)
         self.io["metadata_truncates"] += 1
@@ -305,6 +324,7 @@ class DiskFencedGC:
 
     def query(self, epoch, left, right, checkpoint):
         """Reference full-tree query, NOT optimized or bounded-CPU query."""
+        self._assert_forest_frozen()
         if type(epoch) is not int or epoch not in self.journal.roots:
             raise ValueError("invalid authenticated epoch")
         if self.journal.roots[epoch] != checkpoint.digest or epoch != checkpoint.epoch:

@@ -134,6 +134,19 @@ class Uct005TreeTests(unittest.TestCase):
         )
         self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
 
+    def test_g3b2c2b2b_is_only_scoped_cow_upper_with_stale_gc_gate(self):
+        nodes = {n["id"]: n for n in self.data["nodes"]}
+        entry = nodes["UCT005G3B2C2B2B"]
+        self.assertEqual(entry["kind"], "research_input")
+        self.assertIn("NO_REAL_DURABILITY", entry["status"])
+        self.assertIn("NO_NEW_LOWER_BOUND", entry["status"])
+        self.assertIn(
+            {"parent": "UCT005G3B2C2B2A", "child": "UCT005G3B2C2B2B",
+             "relation": "ROOT_PUBLICATION_UPPER_AND_EXPLICIT_NONCOMPOSITION"},
+            self.data["edges"],
+        )
+        self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
+
     def test_no_unsound_logical_arrows(self):
         relations = {e["relation"] for e in self.data["edges"]}
         self.assertIn("THREAT_MODEL_NONTRANSFER", relations)
