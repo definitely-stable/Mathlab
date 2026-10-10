@@ -1,7 +1,7 @@
 {
   "schema": "mathlab.research-status.v1",
   "as_of": "2026-10-10",
-  "baseline_main_sha": "2b5942d1b48070509d4125c67ecdef5b68dd0541",
+  "baseline_main_sha": "a9444cec78aa0228018037c5d37ce760af173d69",
   "authority": "Navigation and cross-registry consistency only. Scientific claims remain governed by cited theorem/model documents, source-specific proofs, and canonical registries. This file does not establish proof or live CI.",
   "root_id": "UCT-005-ROOT",
   "programs": [
