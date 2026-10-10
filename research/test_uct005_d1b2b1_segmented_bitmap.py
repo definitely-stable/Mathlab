@@ -166,6 +166,38 @@ class SegmentedBitmapTests(unittest.TestCase):
         with self.assertRaises(Abort):
             s.query(0, 0, 5, as_of=0)
 
+    def test_missing_already_issued_bitmap_segment_is_not_free_to_gc(self):
+        # Loss of an entire historical segment is not allowed to disappear
+        # from a sparse Python dict's iteration or the physical page bill.
+        n, p = 65, 1
+        x = SegmentedPageCowTree((0,) * n, p)
+        self.assertEqual(x.bitmap_pages,
+                         (x.next_id - 1 + 7) // 8 + (x.epoch + 1 + 7) // 8)
+        self.assertTrue(x.segment_matches_storage())
+        missing = 2
+        self.assertIn(missing, x.node_bitmap_segments)
+        old = x.node_bitmap_segments.pop(missing)
+        self.assertFalse(x.segment_matches_storage())
+        before = x.ledger["gc_bitmap_page_reads"]
+        with self.assertRaisesRegex(Abort, "missing previously issued bitmap page"):
+            x.gc()
+        self.assertGreater(x.ledger["gc_bitmap_page_reads"], before)
+        # A changing SET that happens to touch this issued segment must
+        # also fail closed if that segment is addressed.
+        x.node_bitmap_segments[missing] = old
+        self.assertTrue(x.segment_matches_storage())
+        root_missing = x.epoch_bitmap_segments.pop(0)
+        with self.assertRaisesRegex(Abort, "missing previously issued bitmap page"):
+            x.gc()
+        with self.assertRaisesRegex(Abort, "missing previously issued bitmap page"):
+            x.set(0, 1)
+        x.epoch_bitmap_segments[0] = root_missing
+        self.assertEqual(x.query(0, 0, n), 0)
+        x.gc()
+        self.assertTrue(x.segment_matches_storage())
+        self.assertEqual(x.bitmap_pages,
+                         len(x.node_bitmap_segments) + len(x.epoch_bitmap_segments))
+
     def test_untrusted_occupancy_not_used_for_safe_gc_frees(self):
         s = SegmentedPageCowTree((0, 1, 1, 0), 2)
         s.pin_current(0)
