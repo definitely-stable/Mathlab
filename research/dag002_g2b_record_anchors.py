@@ -120,7 +120,7 @@ class IndexedDAG:
 
         chosen = -1
         restricted = restrict(-1)
-        best = (len(restricted), 0, -1)
+        best = None
         for a in sorted(candidates):
             depth, curr = 0, a
             while curr >= 0:
@@ -130,7 +130,7 @@ class IndexedDAG:
                 continue
             target = restrict(a)
             ranking = (len(target), depth, a)
-            if ranking < best:
+            if best is None or ranking < best:
                 chosen, restricted, best = a, target, ranking
 
         rec = Record(chain, chosen, restricted)

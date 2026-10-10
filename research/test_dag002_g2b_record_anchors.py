@@ -41,6 +41,7 @@ class RecordAnchorTests(unittest.TestCase):
         d = demo()
         self.assertEqual(d["chain"]["vertices"], 160)
         self.assertEqual(d["chain"]["chains"], 1)
+        self.assertGreater(d["chain"]["total_update_page_reads"], 319)
         self.assertEqual(d["antichain"]["chains"], 160)
         self.assertEqual(d["diamond"]["vertices"], 4)
 
