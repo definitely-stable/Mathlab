@@ -1,0 +1,28 @@
+name: hyp105-c12-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c12-physical-orbit-quotient
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c12_physical_orbits.py"
+      - "research/test_hyp105_g5e2b3e1c12_physical_orbits.py"
+      - ".github/workflows/hyp105-c12-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  true-physical-orbit-quotient:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full S6 physical action and incomplete-occupancy orbit falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c12_physical_orbits.py' -v
+      - name: Genuine W32 coupled common map and seven-motif proof gate
+        run: python research/hyp105_g5e2b3e1c12_physical_orbits.py
