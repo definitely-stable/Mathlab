@@ -42,6 +42,12 @@ The remaining axes are **always \`null\`** rather than fabricated zero:
 
 Separately exposed **diagnostics** include \`peak_trusted_bits_declared\`, \`setup_remote_page_writes\`, \`set_remote_page_reads\`, \`gc_remote_page_writes_observed\`, \`gc_logical_pages_freed\`, \`authority_pin_page_writes\` and original raw ledger counters. The label \`gc_logical_pages_freed\` must not be translated to hardware TRIM without an independent physical implementation.
 
+### Raw provenance and missing-counter audit
+
+The output now includes `audit.raw_counter_sources` for every published diagnostic, with **exact model-specific source ledger keys**, not merely aliases of already-normalized values. A mandatory counter that disappears after a future refactor causes `AssertionError` instead of silently becoming Counter's zero. The sole non-ledger source is the expressly sampled `@trusted_bits` property, captured when both historical PINs are still live; post-GC trusted bits must not be mistaken for its peak.
+
+An additional independent byte-safety invariant enforces `query_reply_payload_bytes <= query_remote_page_reads * P` for all successful finite references. This verifies that the model cannot report a proof/image response longer than all its explicitly charged full remote read images; it is **not** a complete proof of socket/TLS framing or author CPU cost. An independent test removes a mandatory source key and requires immediate failure.
+
 The existing strict dominance gate \`candidate_dominates(a,b)\` must return **\`None\` for every actual candidate pair**, because every model's status remains partial and critical axes are \`null\`. A favorable known-coordinate inequality is insufficient to change that decision.
 
 ## 4. Falsification before theoretical promotion
