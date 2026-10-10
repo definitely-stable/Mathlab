@@ -9,6 +9,7 @@ from hyp105_g5e2b3e1c21d_adversarial_right import (
     W32_EXPECTED_GF5_NECESSARY_NUMERATOR,
     genuine_global_W32_model,
     direct_original_C6_D6_oracle,
+    exact_global_right_swap_neighborhood,
     genuine_W32_C21D_certificate,
 )
 
@@ -59,6 +60,17 @@ class C21DAdversarialGlobalRightTests(unittest.TestCase):
         self.assertEqual(reference["actual_seven_total"],259)
         self.assertEqual(reference["independent_weighted_B_left_A_right"],98)
         self.assertFalse(reference["restricted_s2_fixed_f_min_over_all_right_g_exactly_zero"])
+
+    def test_all_105_actual_one_swap_right_maps_exact_D6_histogram(self):
+        neighborhood = exact_global_right_swap_neighborhood()
+        self.assertEqual(neighborhood["shared_original_right_source"],18716)
+        self.assertEqual(neighborhood["one_global_right_transposition_neighbors"],105)
+        self.assertEqual(neighborhood["D6_histogram"],
+                         {0:40, 1:29, 2:24, 3:6, 4:4, 5:1, 9:1})
+        self.assertEqual(neighborhood["zero_D6_right_swap_neighbors"],40)
+        self.assertTrue(
+            neighborhood["not_global_right_full_15_factorial_minimum_enumeration"])
+        self.assertTrue(neighborhood["not_all_h_or_all_seven_no_go"])
 
     def test_invalid_global_right_maps_and_budget_fail_closed(self):
         for bad in (
