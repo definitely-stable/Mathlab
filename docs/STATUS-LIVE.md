@@ -11,3 +11,5 @@ This page avoids hardcoding HEAD, open PR count or workflow conclusion. Links an
 **Dated issue-triage checkpoint (not live):** [55-open-issue inventory](research/ISSUE-TRIAGE-ALL-OPEN.md) ([JSON](research/ISSUE-TRIAGE-SNAPSHOT.json)) and [2026-10-10 issue ownership / acceptance-gate review](research/ISSUE-TRIAGE-2026-10-10.md). Recommendations do not change issue state or certify PR CI.
 
 **Execution backlog (dated, not live):** [20 ranked maintenance and proof-gate tasks](research/RESEARCH-MAINTENANCE-PLAN-2026-10-10.md); effort/priority are heuristics, not proof status.
+
+**Post-snapshot review (2026-10-11, not live):** [reconciled open-issue delta](research/ISSUE-TRIAGE-POSTSNAPSHOT-2026-10-11.md) ([typed JSON](research/ISSUE-TRIAGE-DELTA-2026-10-11.json)) and [dependency-aware successor roadmap](research/RESEARCH-MAINTENANCE-PLAN-2026-10-11.md). Original 2026-10-10 inventory remains unchanged.
