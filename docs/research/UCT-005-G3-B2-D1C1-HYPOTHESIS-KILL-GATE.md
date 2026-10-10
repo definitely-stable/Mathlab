@@ -40,4 +40,4 @@ D1-C issue #302 requires **one specifically quantified candidate** of form `F(s,
 
 If no such `F/f` survives paid-replica, fixed-stride snapshots, persistent COW, log-replay, F2 and F3-C and all expected failure costs, record **SCOPED_STOP_NO_NEW_ROOT** rather than rebrand Hamming-ball / pigeonhole / cell-probe lower bounds. The current matrix contains **zero original lower-bound proofs**.
 
-All sample counters are modeled full P-byte API page images, not measurements of NAND traffic or real power-loss behavior. Tests must pass on GitHub-hosted runners with exact-head dedicated+Research+INDEX/D1-A, while predecessor D1-C0 must merge first. **UCT root OPEN_UNPROVED.**
+All sample counters are modeled full P-byte API page images, not measurements of NAND traffic or real power-loss behavior. Tests must pass on GitHub-hosted runners with exact-head dedicated+Research+INDEX/D1-A, with accepted predecessor D1-C0 already merged and independently green. **UCT root OPEN_UNPROVED.**
