@@ -51,6 +51,18 @@ For practical bounded enumeration, the exact solver is deliberately restricted t
 
 All returned witness values are checked by independent direct source-target sextet recounts. A separate implementation exhaustively enumerates all 7!=5,040 or 8!=40,320 genuine full permutations for independent cross-validation (NOT a sampling claim), including dense positive-pigeonhole fixtures, sparse zero fixtures, and fail-closed budget cuts.
 
+### A strict finite geometry-versus-support separation (V=8)
+
+For V=8, sixsets are complements of TWO-sets. Let E_i be the 7 edges of the star of K8 centered at vertex i. Define both source support and target as the seven sixsets whose complements lie in E_0, all unit weighted. Under a **single shared** π∈S_8, the image of E_0 is E_{π(0)}. Two different stars have exactly one common edge; identical stars have seven. Therefore
+
+```text
+U(π)=7 if π(0)=0, and U(π)=1 otherwise.
+min_{π∈S_8} U(π)=1.
+L_rearr=0, because N=28, |support|=|target|=7.
+```
+
+This is an exact elementary finite theorem with an **independent 8! exhaustive falsifier**. It establishes that respecting the induced sixset action of a common original-vertex permutation matters strictly: a support-only relaxation can predict zero even when every genuine common permutation intersects. It is NOT a genuine GQ W(3,s) example, does not extend the positive constant to every legal f,F, and does not prove S_seven Omega(s6). The same star supplies a deliberately truncated 1-node test with upper=1, certified lower=0, `UNKNOWN_BUDGET`, `exact_minimum=None`.
+
 ## 4. Genuine W(3,2) report and remaining blocker
 
 The true left GQ incidence census, right physical K6 target (70 sextets), and actual fixed lex/reverse-line bijections are reused from C0/C5. For V=15, N=5005 the solver **does NOT** attempt 15! and makes **no** claim of minimum. It reports the rearrangement floor, source support, target support, and actual independent fixed overlaps (expected historical controls 98 lex and 77 reverse-line). The rearrangement floor is zero because over 70 original sixsets have zero source weight; the observed *positive* overlaps are **not** evidence of a positive worst-case minimum.
