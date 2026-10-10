@@ -12,7 +12,7 @@ from math import ceil
 
 from uct005_d1b0_f1_reference import SnapshotF1Reference, validate_contract
 from uct005_g3b2b_range_tree import (
-    Reader, TreeWriter, checked_query, _wire,
+    Reader, TreeWriter, checked_query,
 )
 from uct005_g3b2b_baselines import (
     ReplicaReader, ReplicaWriter, replica_query,
@@ -67,11 +67,13 @@ def _check_tree(writer: TreeWriter, epoch: int, lo: int, hi: int,
     return outcome.value, len(response)
 
 
-def exercise(n: int, page_bytes: int) -> dict:
+def exercise(n: int, page_bytes: int, initial_bits: tuple[int, ...] | None = None) -> dict:
     validate_contract()  # PAGE-001 layout must be integrated in this branch
     if not 1 <= n <= 2048 or not 1 <= page_bytes <= 4096:
         raise ValueError("bounded finite reference only")
-    bits = tuple(i & 1 for i in range(n))
+    bits = tuple(i & 1 for i in range(n)) if initial_bits is None else tuple(initial_bits)
+    if len(bits) != n or any(type(v) is not int or v not in (0, 1) for v in bits):
+        raise ValueError('invalid initial GF2 word')
     snapshot = SnapshotF1Reference(bits, page_bytes=page_bytes)
     tree = TreeWriter(bits)
     log = ReplicaWriter(bits)
@@ -157,6 +159,7 @@ def exercise(n: int, page_bytes: int) -> dict:
     if set(snapshot.remote) != {0, 2, 3}:
         raise AssertionError("GC illegally discarded independent PIN")
     retained_before = snapshot.retained_pinned_pages
+    peak_trusted = snapshot.trusted_bits
     snapshot.unpin(0, 0)
     snapshot.gc()
     if set(snapshot.remote) != {2, 3}:
@@ -168,7 +171,7 @@ def exercise(n: int, page_bytes: int) -> dict:
 
     base_costs = {key: None for key in PRICE_AXES}
     base_costs.update({
-        "trusted_bits": snapshot.trusted_bits,
+        "trusted_bits": peak_trusted,
         "peak_remote_pages": snapshot.ledger["peak_remote_pages"],
         "set_remote_page_writes": snapshot.ledger["set_full_page_writes"],
         "query_remote_page_reads": snapshot.ledger["query_full_page_reads"],
@@ -191,13 +194,16 @@ def exercise(n: int, page_bytes: int) -> dict:
        "costs":tcost,
        "charged_logical_node_writes":total_tree_upload_logical_nodes}
     rcost={key:None for key in PRICE_AXES}
-    rcost.update({"proof_payload_bytes":total_replica_response_bytes})
+    # Log suffix catch-up delivered on PIN and LATEST is a different traffic
+    # category than per-query proof-only payload; do not rank these bytes.
+
     rep={"name":"R_FULL_TRUSTED_REPLICA_AND_LOG",
          "service":snap["service"],"cost_model":"legacy_remote_log",
          "status":"NO_PRICED_HISTORICAL_GC_OR_PAGES",
          "costs":rcost,
          "minimum_reader_replica_bits":2 * n,
-         "additional_pinned_copy_bits":2 * n}
+         "additional_pinned_copy_bits":2 * n,
+         "legacy_remote_catchup_and_query_reply_bytes":total_replica_response_bytes}
     return {
         "n":n, "page_bytes":page_bytes,
         "status":SCIENTIFIC_STATUS,
