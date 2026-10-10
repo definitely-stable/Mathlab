@@ -1,0 +1,42 @@
+name: import014-graph-ai
+
+on:
+  push:
+    branches:
+      - "research/import-014-graph-ai-2026"
+  pull_request:
+    paths:
+      - "docs/research/catalog/literature.json"
+      - "docs/research/catalog/LITERATURE.md"
+      - "docs/research/catalog/LITERATURE-BY-RESEARCH.md"
+      - "docs/research/IMPORT-014-GRAPH-AI-RELATIONS.json"
+      - "docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md"
+      - "research/literature.py"
+      - "research/test_literature.py"
+      - "research/test_import012_source_genealogy.py"
+      - "research/test_import013_graph_learning.py"
+      - "research/test_import014_graph_ai.py"
+      - ".github/workflows/import014-graph-ai.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  literature-primary-identity-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Canonical literature and generated navigation
+        run: python research/literature.py --check
+      - name: Complete bibliography unit tests
+        run: python -m unittest discover -s research -p "test_literature.py"
+      - name: Historical IMPORT-012 source genealogy
+        run: python -m unittest discover -s research -p "test_import012_source_genealogy.py"
+      - name: Preserved IMPORT-013 PMLR identities and graph fences
+        run: python -m unittest discover -s research -p "test_import013_graph_learning.py"
+      - name: New IMPORT-014 identities, exact dedup and model bridges
+        run: python -m unittest discover -s research -p "test_import014_graph_ai.py"
