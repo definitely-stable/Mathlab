@@ -13,6 +13,8 @@ Existing single 10-minute workflow job \`lent-001-foundation\` had **77 named se
 | \`research-hyp105-exact-census\` | 13 long HYP-105 census/flow stages | 90 min |
 | \`research-catalog-and-primitives\` | 15 literature, catalog, TOM/HYP-002/G2B stages | 20 min |
 
+**Mandatory aggregate status:** A fifth job, `research-full-suite`, runs after all four shards with `if: always()`. It inspects each `needs.<job>.result` and fails if any shard is FAILED, CANCELLED, SKIPPED, or otherwise not SUCCESS. It runs on GitHub-hosted `ubuntu-latest` and uses no checkout. **Branch protection should require `research-full-suite`** in addition to slice-specific checks; retaining only the legacy `lent-001-foundation` required status is insufficient. The aggregate verdict is not a fifth research workload and does not duplicate any of the 77 original commands.
+
 **Change-time exact audit:** the old and new workflow each have **77** named steps and the original list of **77 run commands matches exactly in the same order**. Nothing in the mathematical scripts was modified. The existing \`lent-001-foundation\` required-check job name is preserved, but **it alone is not a sufficient acceptance gate**: all four research jobs and every focused slice workflow must conclude SUCCESS for the exact accepted SHA.
 
 ## Guarantees and limitations
@@ -21,7 +23,7 @@ Existing single 10-minute workflow job \`lent-001-foundation\` had **77 named se
 - Jobs are independent workspace snapshots; if an old command implicitly relied on an untracked artifact produced by a preceding command, that would be a dependency bug exposed by hosted runs. All newly separated scripts are intended to be self-contained, and **hosted CI must confirm this**.
 - The longest HYP-105 census can still fail by its 90-minute timeout; do not auto-merge or substitute incomplete evidence.
 - Parallel jobs increase concurrent runner demand but retain GitHub-hosted-only constraints.
-- Regression test \`research/test_ci_research_shards.py\` checks the four named jobs, Ubuntu runner setup, at least 77 unique checks, their required sentinels and placement of the time-consuming census. More research checks can be appended in future without requiring an exact count of 77.
+- Regression test \`research/test_ci_research_shards.py\` checks the four research shard jobs and their aggregate verdict, Ubuntu runner setup, at least 77 unique checks, their required sentinels and placement of the time-consuming census. More research checks can be appended in future without requiring an exact count of 77.
 - Do not use this refactor to override previously required full CI gates for PRs #267, #268, #271, #274, #275, #276. Those heads need appropriate post-integration runs (and any required branch update) before merge.
 
 **Acceptance:** exact-head workflow CI succeeds on this branch; then merge this CI-only PR before updating pending research branches. No force-push or self-hosted runners.
