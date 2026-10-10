@@ -82,6 +82,57 @@ Interpretation: we have now ruled out *left-side sparsity* as a possible all-h e
 
 If future work tries to apply Sidorenko, rainbow-cycle, expander mixing or a tensor inequality to force the transfer, it MUST explicitly prove a lower bound on this two-sided T (or the correspondingly weighted signed GF5 quantity) uniformly across arbitrary correlated f,g. The full-GF5 risk still contains other positive four/six-coordinate classes, so S_s=o(s^6) alone never proves R3=o(s^6).
 
+## 3A. Stronger half-random theorem: every fixed f has Θ(s^6) expected B/A motifs under uniform random g
+
+**Theorem E1-B1A-RAND (new model-specific conditional expectation formula).** Freeze any legal left injection f, let the right injection g be sampled uniformly among all injections into the K physical pair-edge palette, independently of f. Let H_B(f) count the original six-incidence sets that (i) have left factor profile B and a six-coordinate degree-two LEFT physical projection, and (ii) use SIX DISTINCT original right factor line endpoints (original factor profile A on the right). The original incidence graph of W(3,s) contains no 4-cycles; equivalently, two different left factor points share AT MOST ONE right factor line.
+
+For any fixed realized left physical B template, the exact original lift multiplicity is binom(Δ,2)Δ^4. Its five distinct left factor points have original incidence multiplicities (2,1,1,1,1). Uniformly choosing the two distinct neighboring right lines of the repeated factor point and one line for each singleton factor point gives mutually independent selections across different left factor points. For a pair of distinct left factor points with multiplicities m_i,m_j, the probability that their chosen line subsets intersect is at most m_i*m_j/Δ²: there is at most one common right neighbor and each subset contains it with probability m_i/Δ respectively. Summing over all cross-factor pairs gives
+
+```text
+sum_{i<j} m_i*m_j = 2*4 + binom(4,2) = 14.
+P(all six selected right endpoints distinct)
+  >= max(0, 1-14/Δ²).
+```
+
+The 14 counts cross-left-factor pairs of ORIGINAL incidences; there are NO right-vertex repeats within a single left factor because its two incident columns are selected WITHOUT replacement. This probability bound is uniform in the left physical pair template and in f. Consequently
+
+```text
+L_B^-(s)*max(0,1-14/Δ²) <= H_B(f) <= L_B^+(s).
+```
+
+Conditioned on any such six-distinct-original-right-endpoint set, uniform injection g maps those six right factor lines to SIX ORDERED distinct edges of physical K_a. Exactly 70*binom(a,6) unordered physical simple six-coordinate 2-factors are possible, each with 6! assignments to six ordered original columns. Therefore the EXACT completion probability is
+
+```text
+p_A(s) = [6!*70*binom(a,6)] / (K)_6,
+(K)_6 = K(K-1)...(K-5).
+```
+
+Every successful completion produces one **accepted GF5-positive B-left/A-right six-motif**, independently of the physical dual-column matching orientation (accepted single-cherry exact GF5 classification, #218). Write U_BA(f,g) for this accepted original-sixset count. Then for EVERY fixed f, for all h>=1,
+
+```text
+E_{uniform g}[ U_BA(f,g) ] = H_B(f) * p_A(s),
+
+L_B^-(s)*max(0,1-14/Δ²)*p_A(s)
+   <= E_g[U_BA(f,g)] <= L_B^+(s)*p_A(s).
+```
+
+As a→∞, K~V~s³ and a²~2K, so p_A(s)=(560+O(1/s))s^-9. Combining with L_B(f)=(1/4+O(1/s))s^15 and Δ~s gives the **UNIFORM fixed-left asymptotic**
+
+```text
+E_{uniform g}[ U_BA(f,g) ]
+  = (140+O(1/s))*s^6    for EVERY injective left f.
+```
+
+Thus applying the previously accepted nonnegative full-51-pattern GF5 minimum weight 45,600 for each such original sixset also gives
+
+```text
+E_g[R3(f,g)] >= (45,600*140/51^6 + o(1))*s^6.
+```
+
+This is a **one-side-random, other-side-adversarial EXPECTATION LOWER**, not a lower on every deterministic pair (f,g). It also does NOT imply the existence of any g with a strict exponent-saving U_BA or full R3: expectations can be dominated by large values and correlated exceptional g remains the hard #230 question. It shows that any attempt to improve the six-trade scale using an *independently sampled* right assignment fails already for the B/A accepted necessary positive family, whatever f was chosen beforehand.
+
+The [reference](../../research/hyp105_g5e2b3e1b1a_one_sided.py) computes exact rational p_A and the finite-h expectation sandwich for every h and fails closed if the input is not a legal s=2^h. Independent tests brute-count all 70 physical K6 2-factors among 5,005 unordered six-edge choices, checking p_A(2)=2/143, and exhaustively enumerate 6,250 choices on a separate five-factor degree-five, pair-codegree-one TOY host to verify the collision union bound. The toy host is explicitly NOT claimed to be W(3,4). Uniform normalized bounds at s=128/256/1024 converge towards 140 without assuming empirically fitted exponents.
+
 ## 4. Code, independent falsifiers and acceptance
 
 [Reference implementation](../../research/hyp105_g5e2b3e1b1a_one_sided.py) uses exact Python integers for GQ parameters, full-template counts, per-missing-edge counts, nonnegative sandwich, original-incidence lift and all-h normalized output. [Independent tests](../../research/test_hyp105_g5e2b3e1b1a_one_sided.py) enumerate every physical A/B/C pattern of K6 and two inequivalent missing-six-edge K14 graphs (not samples), check exact original incidence W32 counts against accepted E1-A, check transitive deletion coefficients across s=2..256, and validate asymptotic normalizations at s=128,256,1024.
