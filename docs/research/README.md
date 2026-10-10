@@ -2,13 +2,23 @@
 
 [Proof, full scope and prior art](HYP-105-G5-E2-B3-E1C2-JOHNSON-HARMONIC-GATE.md) · [reference](../../research/hyp105_g5e2b3e1c2_johnson_gate.py) · [independent exact-rational falsifiers](../../research/test_hyp105_g5e2b3e1c2_johnson_gate.py). For every legal g, exact U=mu+U2+U>=3, U2 from correlated two-point original-source marginals × physical pair-label adjacency; target W1=0 always, K6 W2²=42/11, W3²=710/1001, residual W>=4²=4966/77 (93.44% of centered energy). Independently check full K6 target and all 105 real right swaps of W(3,2), including no-go trade and a=9 W2=0. Classical Johnson framework, not an all-h all-correlated Omega(s6) bound or new ASET exponent; hosted CI pending.
 
+
 ## HYP-105 B3.2-E1-C1 — GQ concurrence fibers and exact original B/A wedge decomposition
 
 [All-h proof and scope](HYP-105-G5-E2-B3-E1C1-GQ-CONCURRENCE.md) · [reference](../../research/hyp105_g5e2b3e1c1_gq_concurrency.py) · [independent tests](../../research/test_hyp105_g5e2b3e1c1_gq_concurrency.py) · [stacked PR #260](https://github.com/definitely-stable/Mathlab/pull/260). Classical GQ line-concurrence SRG (V,s(s+1),s−1,s+1) with exact 0/1/2/3-edge original right-line triple counts; all-h m_f(R)≤c_GQ(R)(s+1)^4 and zero for c_GQ(R)=0. Complete independent point-wedge W32 B/A source and original-line third marginal checks. **Not physical-target S_a triple orbits, no all-right intersection lower, no strict ASET exponent; hosted CI pending.**
 
+
+## UCT-005 D1-B2-B1 — segmented bitmap allocation (2026-10-10)
+
+[Byte grammar, exact write bound and GC](UCT-005-G3-B2-D1B2B1-SEGMENTED-BITMAP.md) · [conditional implementation](../../research/uct005_d1b2b1_segmented_bitmap.py) · [independent tests](../../research/test_uct005_d1b2b1_segmented_bitmap.py) · [issue #254](https://github.com/definitely-stable/Mathlab/issues/254). D1-B2-B PR #248 is merged; this follow-on PR #258 now targets main. **Only the allocator-bitmap SET coordinate improves; full F1 Pareto and UCT-005 root remain OPEN_UNPROVED.**
+
 ## HYP-105 B3.2-E1-C0 — weighted six-hypergraph transfer, two-point design and prior art
 
 [Full mathematical reduction, four scholarly precursors and mass-only countermodel](HYP-105-G5-E2-B3-E1C0-WEIGHTED-OVERLAP-TRANSFER.md) · [reference](../../research/hyp105_g5e2b3e1c0_weighted_overlap.py) · [independent tests](../../research/test_hyp105_g5e2b3e1c0_weighted_overlap.py). B/A physical event is weighted 6-uniform overlap under an arbitrary physical pair-edge right injection; exact T_a 1-design and adjacent/disjoint pair codegrees (7 C(a-3,3), 14 C(a-4,2)) isolate the W2-level target geometry; it has exact random mean but total mass alone does NOT force positive min. W32 exact original-six-incidence evidence; all-h GQ-specific min and entire R3 open. GQ incidence codegree at most one implies each original right-sixset weight ≤15(s+1)^4 and uniformly Ω(s11) distinct positive source right-sixsets; a generic 3-cube trade with identical all ≤2 marginals gives different target overlap. Third target orbit counts (1,2,0,5,8) proved. Canonical Bollobás–Scott source import remains independently gated.
+
+## UCT-005 D1-B2-B — charged COW-tree page records, PIN and mark-sweep (2026-10-10)
+
+[Exact 122-byte node/48-byte root model](UCT-005-G3-B2-D1B2B-PAGE-COW-TREE.md) · [reference](../../research/uct005_d1b2b_page_cow.py) · [independent tests](../../research/test_uct005_d1b2b_page_cow.py) · [issue #244](https://github.com/definitely-stable/Mathlab/issues/244). Two independent readers, authenticated latest/historical roots, complete page-image ledgers, stale-GC exclusion. **FINITE_UPPER / NO_REAL_CRASH_SECURITY / ROOT_OPEN_UNPROVED**.
 
 ## UCT-005 D1-B2-A — same-trace three-upper comparator and partial-Pareto stop (2026-10-10)
 

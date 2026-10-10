@@ -2,9 +2,11 @@
 
 [All-h exact degree-2 overlap proof and honest model limits](research/HYP-105-G5-E2-B3-E1C2-JOHNSON-HARMONIC-GATE.md) · [reference](../research/hyp105_g5e2b3e1c2_johnson_gate.py) · [independent tests](../research/test_hyp105_g5e2b3e1c2_johnson_gate.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230). **GENERAL_JOHNSON_FIXED-g_IDENTITY_U=MU+U_W2+U_GE3 / ALL-a_TARGET_W1_ZERO / ALL-a_EXACT_W2_TWO_ORBIT_COEFFICIENT / K6_TARGET_W2_NORM_42_OVER_11_W3_NORM_710_OVER_1001_WGE4_NORM_4966_OVER_77 / GQ_W32_ALL_105_REAL_ORIGINAL_RIGHT_LINE_SWAPS_ORACLE / HIGHER_ORDER_HARD_BLOCKER / STACKED_PR_HEAD_CI_PENDING / NO_OMEGA(s6)_ALL-g / NO_STRICT_GF5_R3_OR_ASET_EXPONENT.** C2 is a restricted general harmonic-transfer theorem, not the full joint GQ-specific #230 obstruction. Exact original six-incidence indexing, all signs/palette risks unchanged.
 
+
 ## HYP-105 B3.2-E1-C1 — GQ original-line concurrence and B/A wedge certificate (2026-10-10)
 
 [Exact all-h classical concurrence proof + GQ-source consequences](research/HYP-105-G5-E2-B3-E1C1-GQ-CONCURRENCE.md) · [reference](../research/hyp105_g5e2b3e1c1_gq_concurrency.py) · [independent tests](../research/test_hyp105_g5e2b3e1c1_gq_concurrency.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230) · stacked on [PR #249](https://github.com/definitely-stable/Mathlab/pull/249). **ALL-h_GQ_LINE_CONCURRENCE_SRG_AND_0-1-2-3_TRIPLE_CENSUS / B-A_ORIGINAL_WEDGE_C4_EXACT_FACTORISATION / m_f(R)<=c(R)*(s+1)^4 / SUPPORT_ONLY_ON_ORIGINAL_CONCURRENT_LINE_SEXTETS_O(s17) / W32_INDEPENDENT_10935_TO_5000_ORIGINAL_SOURCE / EXACT_455_SOURCE_TRIPLE_MARGINAL_ORACLE / PR_HEAD_CI_PENDING / ALL-g_OMEGA(s6)_OPEN / NO_STRICT_GF5_R3_OR_ASET_EXPONENT.** This does NOT transfer source-line concurrency to the arbitrary physical right mapping. Parent #230 stays OPEN.
+
 
 ## HYP-105 B3.2-E1-C0 — weighted six-hypergraph right-transfer model and mass-only no-go (2026-10-10)
 

@@ -269,6 +269,18 @@
       "kind": "research_input",
       "status": "THREE_CONDITIONAL_UPPERS_SAME_FINITE_TRACE_PARTIAL_RESOURCE_PARETO_UNDECIDABLE_NO_NEW_LOWER_BOUND",
       "source": "docs/research/UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2B",
+      "kind": "research_input",
+      "status": "BYTE_CONSERVING_IMMUTABLE_COW_PAGES_PIN_GC_FINITE_UPPER_NO_REAL_DURABILITY_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B2B-PAGE-COW-TREE.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2B1",
+      "kind": "research_input",
+      "status": "SEGMENTED_BITMAP_PAGE_CONSERVATION_AND_RESTRICTED_UPPER_NO_PARETO_THEOREM",
+      "source": "docs/research/UCT-005-G3-B2-D1B2B1-SEGMENTED-BITMAP.md"
     }
   ],
   "edges": [
@@ -481,6 +493,16 @@
       "parent": "UCT005G3B2D1B1",
       "child": "UCT005G3B2D1B2A",
       "relation": "SAME_TRACE_UPPER_COMPARATOR_AND_PARTIAL_COST_BARRIER_NOT_PROOF"
+    },
+    {
+      "parent": "UCT005G3B2D1B2A",
+      "child": "UCT005G3B2D1B2B",
+      "relation": "SAME_TASK_PHYSICAL_PAGE_UPPER_ONLY_NOT_ROOT_THEOREM"
+    },
+    {
+      "parent": "UCT005G3B2D1B2B",
+      "child": "UCT005G3B2D1B2B1",
+      "relation": "CONDITIONAL_ALLOCATION_BITMAP_UPPER_WITH_SCOPED_STOP_ONLY"
     }
   ]
 }
