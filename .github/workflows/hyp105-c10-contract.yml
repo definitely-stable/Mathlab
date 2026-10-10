@@ -1,0 +1,28 @@
+name: hyp105-c10-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c10-three-pin-zero-barrier
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c10_three_pin_barrier.py"
+      - "research/test_hyp105_g5e2b3e1c10_three_pin_barrier.py"
+      - ".github/workflows/hyp105-c10-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  all-h-three-pin-zero-relaxation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent original-GQ W32 and symbolic all-h rational falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c10_three_pin_barrier.py' -v
+      - name: All-h exact base and analytic tail three-pin method barrier
+        run: python research/hyp105_g5e2b3e1c10_three_pin_barrier.py
