@@ -55,6 +55,38 @@
       "model": "linked persistence; not Byzantine SHA, independent reader PIN and full page GC",
       "status": "REDUCTION_REQUIRED",
       "full_text_proof_transfer": false
+    },
+    {
+      "key": "BKV_COVERT_2025",
+      "title": "The Complexity of Memory Checking with Covert Security",
+      "url": "https://eprint.iacr.org/2025/358",
+      "model": "covert-security memory checker lower bound Omega(log n/loglog n) under read-only reads; F1 PIN and GC operations differ",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
+    },
+    {
+      "key": "VC_UPDATE_FREQUENCY_2026",
+      "title": "Lower Bounding Update Frequency in Short Accumulators and Vector Commitments",
+      "url": "https://doi.org/10.1007/978-3-032-25330-9_7",
+      "model": "EUROCRYPT 2026 additive accumulators and constant-size digest updatable vector commitments; proof invalidation frequency not F1 paged immutable root storage",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
+    },
+    {
+      "key": "DYNAMIC_BOOLEAN_CELL_PROBE_2026",
+      "title": "An Omega((log n/loglog n)^2) Cell-Probe Lower Bound for Dynamic Boolean Data Structures",
+      "url": "https://eccc.weizmann.ac.il/report/2026/047/",
+      "model": "dynamic Boolean Multiphase problem with GF2 inner product; not proved reducible to 1D authenticated SET/RANGE_PARITY two offline PIN readers",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
+    },
+    {
+      "key": "NATURAL_PROOFS_BARRIER_2026",
+      "title": "The Natural Proofs Barrier against Data-Structure Lower-Bounds",
+      "url": "https://researchportal.ulisboa.pt/en/publications/the-natural-proofs-barrier-against-data-structure-lower-bounds/",
+      "model": "methodological cell-probe lower-bound proof barrier; not a transferable F1 lower bound itself",
+      "status": "REDUCTION_REQUIRED",
+      "full_text_proof_transfer": false
     }
   ],
   "candidates": [
