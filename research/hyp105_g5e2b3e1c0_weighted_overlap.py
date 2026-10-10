@@ -29,14 +29,15 @@ def simple_six_2factor_targets(a=6):
     """All 6-edge simple 2-regular graphs on exactly 6 vertices of K_a."""
     if not isinstance(a,int) or isinstance(a,bool) or not 6<=a<=14:
         raise ValueError("finite physical target alphabet must be 6..14")
-    edges=tuple(combinations(range(a),2))
+    from hyp105_g5e2b3e1a_fixed_leading import _two_factors_K6
+    templates=tuple(_two_factors_K6())
+    if len(templates)!=70:
+        raise AssertionError("physical K6 reference template count changed")
     output=set()
     for verts in combinations(range(a),6):
-        local=tuple(e for e in edges if e[0] in verts and e[1] in verts)
-        for chosen in combinations(local,6):
-            degrees=Counter(v for edge in chosen for v in edge)
-            if len(degrees)==6 and all(v==2 for v in degrees.values()):
-                output.add(frozenset(chosen))
+        for edges6 in templates:
+            output.add(frozenset(
+                (verts[u],verts[v]) for u,v in edges6))
     expected=70*comb(a,6)
     if len(output)!=expected:
         raise AssertionError("expected K6 2factor count 70 per six symbols")
