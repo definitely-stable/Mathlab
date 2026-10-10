@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: HYP-105 C2 exact rational Johnson W2 and 105 real GQ swaps
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c2_johnson_gate.py'
+
+      - name: HYP-105 C2 physical-target residual-energy and exact source report
+        run: python research/hyp105_g5e2b3e1c2_johnson_gate.py
+
       - name: HYP-105 C1 GQ concurrence theorem and independent W32 wedge oracle
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c1_gq_concurrency.py'
 
