@@ -122,6 +122,71 @@ def original_incidence_pair_orbits(original_actions):
     }
 
 
+def W32_joint_one_left_one_right_pin_orbits():
+    """True 4-tuple prefix quotient: (original p, original l, f(p),g(l)).
+
+    Each physical full-K6 S6 action is edge-transitive on 15 pair edges,
+    and the original Sp4 group has exactly TWO distinct orbits on
+    original point×line pairs: 45 flags and 180 antiflags.
+    Their direct product therefore has EXACTLY two orbits on all
+    15*15*15*15 = 50,625 one-left/one-right pinned assignments.
+
+    This is NOT a quotient of all full f,g mapping pairs.
+    """
+    A=w32_original_sp4_automorphisms()
+    orbit=original_incidence_pair_orbits(A)
+    F=tuple(combinations(range(6),2))
+    physical=physical_coordinate_actions(6,F)
+    H=physical["distinct_occupied_edge_actions"]
+    V=len(F)
+    if any({h[i] for h in H}!=set(range(V)) for i in range(V)):
+        raise AssertionError("K6 physical edge action is not transitive")
+    if orbit["orbit_cardinalities"]!=(45,180):
+        raise AssertionError("original GQ flag-antiflag split changed")
+    flags=45*V**2
+    antiflags=180*V**2
+    total=V**4
+    if flags+antiflags!=total:
+        raise AssertionError("combined named pin orbit partition invalid")
+    if 720**3 % flags or 720**3 % antiflags:
+        raise AssertionError("combined named pin orbit stabilizers noninteger")
+    return {
+        "original_point_line_named_pair_count":V*V,
+        "physical_left_and_right_label_choices":V**2,
+        "all_joint_one_eachd_side_pin_assignments":total,
+        "joint_flag_prefix_orbit_size":flags,
+        "joint_antiflag_prefix_orbit_size":antiflags,
+        "joint_one_eachd_side_physical_and_GQ_orbit_count":2,
+        "joint_flag_prefix_stabilizer":720**3//flags,
+        "joint_antiflag_prefix_stabilizer":720**3//antiflags,
+        "full_f_g_mapping_pair_orbits_computed":False,
+    }
+
+
+def W32_joint_global_orbit_count_lower():
+    """Exact counting NO-GO for exhaustive quotient enumeration.
+
+    The complete physical left/right K6 factor maps are independent
+    bijections of 15 ORIGINAL points/lines onto 15 K6 pair edges.
+    There are (15!)**2 actual legal mapping PAIRS. Every joint orbit
+    has AT MOST |Sp4(2)|*|S6_L|*|S6_R| = 720**3 maps, with equality
+    only when its stabilizer is trivial. Therefore number of JOINT
+    ORBITS >= ceil((15!)**2/720**3), without assuming a free action.
+    """
+    total=factorial(15)**2
+    G=720**3
+    floor=(total+G-1)//G
+    if floor!=4581437148288000:
+        raise AssertionError("W32 global orbit lower integer drift")
+    return {
+        "full_W32_joint_left_right_mapping_pairs":total,
+        "largest_possible_joint_orbit":G,
+        "rigorous_number_joint_orbits_at_least":floor,
+        "all_joint_orbits_exhaustively_enumerated":False,
+        "symmetry_quotient_alone_is_not_feasible_exhaustive_search":True,
+    }
+
+
 def _physical_bijections(model):
     left,right,edges,_=validated_small_model(model)
     a=model["a"]
@@ -272,6 +337,8 @@ def W32_joint_orbit_report():
     group=physical_coordinate_actions(6,tuple(combinations(range(6),2)))
     H=group["distinct_occupied_edge_actions"]
     original_orbits=original_incidence_pair_orbits(A)
+    one_each=W32_joint_one_left_one_right_pin_orbits()
+    global_count=W32_joint_global_orbit_count_lower()
     cert=joint_fixed_pair_stabilizer_W32(model,A,H,H)
     key=canonical_joint_pair_key_W32(model,A,H)
     identity=tuple(range(15))
@@ -300,6 +367,15 @@ def W32_joint_orbit_report():
         "physical_left_S6_order":len(H),
         "physical_right_S6_order":len(H),
         "joint_group_order":cert["full_joint_group_order"],
+        "named_one_left_one_right_pin_orbits":
+            one_each["joint_one_eachd_side_physical_and_GQ_orbit_count"],
+        "joint_flag_named_pin_orbit_size":one_each["joint_flag_prefix_orbit_size"],
+        "joint_antiflag_named_pin_orbit_size":
+            one_each["joint_antiflag_prefix_orbit_size"],
+        "full_joint_left_right_mapping_pairs":
+            global_count["full_W32_joint_left_right_mapping_pairs"],
+        "rigorous_joint_mapping_pair_orbits_at_least":
+            global_count["rigorous_number_joint_orbits_at_least"],
         "actual_original_pair_stabilizer":cert["stabilizer_size_of_actual_pair_f_g"],
         "actual_joint_f_g_orbit_size":cert["joint_orbit_cardinality"],
         "canonical_joint_pair_key_invariant_under_nontrivial_triple":True,
