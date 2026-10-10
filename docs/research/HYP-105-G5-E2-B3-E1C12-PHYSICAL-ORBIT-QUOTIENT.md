@@ -88,7 +88,11 @@ The executable C12 quotient is also a complete deterministic MINIMUM CERTIFICATE
 
     min_(canonical prefix orbit reps p) L(p)
     <= min_(EVERY legal full common right map g) U(f,g)
-    <= min_(canonical prefix orbit reps p) floor(E[U|p]).
+    <= min(
+         min_(canonical prefix orbit reps p) floor(E[U|p]),
+         min_(independently recounted FULL legal right witnesses w) U(w)
+       ).
+
 
 Proof: every full g has a prefix in exactly one listed orbit and one physical h mapping it to that representative; both the full U and seven motif vector are unchanged by h. Thus the corresponding lower applies to g. Separately every orbit representative has at least one genuine full extension whose U is at most its conditional mean; minimize these existential witnesses to get the right-hand bound. No source-term or C4-anchor can choose its own right map.
 
@@ -107,11 +111,12 @@ GitHub-hosted C12 Contract at intermediate HEAD d28bce53b450e3b5030227dbf2d0953c
 
 Numerical result:
 
-    certified global right-map B/A min interval: [0,69]
+    C11/C8 orbit-and-moment-only global B/A min interval: [0,69]
+    WITH INDEPENDENT LEGAL C11 FULL-RIGHT-MAP WITNESS U=56: [0,56]
     orbit-weighted mean = C5 exact unconditional mean = 10000/143
     orbit-weighted second moment = C5 exact unconditional second = 2142290/429
 
-The lower ZERO is not a positive obstruction, and the upper 69 only guarantees some true right map with U_B/A<=69; neither bound is a full 15!-map exact minimum. A separate valid 11-pin map has known U=56 (C11), which is consistent with [0,69] but does not identify the global optimum. The actual full seven-family and full GF5 all-h lower remain OPEN. These exact rational values are now frozen in the dedicated regression gate and require reacceptance at the newest HEAD.
+The lower ZERO is not a positive obstruction. The MOMENT-ONLY upper69 proves some true right map with U_B/A<=69. The implementation additionally accepts independently validated, FULL, LEGAL original-to-physical right bijection witnesses and recounts each against the same original weighted sixset source and physically occupied target. Feeding C11's concrete U=56 minimizer tightens the rigorous global fixed-f,F interval to **[0,56]**. This still is NOT an exact full 15!-map minimum; the true global optimum may be smaller. The actual full seven-family and full GF5 all-h lower remain OPEN. These exact rational values are now frozen in the dedicated regression gate and require reacceptance at the newest HEAD.
 
 **This is the first C12 full-right-map global certification method; it still does NOT optimize over all LEFT f, occupied F, nor combine all seven classes into a positive all-h obstruction.**
 
