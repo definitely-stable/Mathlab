@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-10** · **347** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-10** · **355** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -11,7 +11,7 @@
 | Направление | Записей |
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 23 |
-| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 32 |
+| [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 35 |
 | [Инкрементальные вычисления и сертификаты](#incremental-computation) | 24 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
@@ -26,7 +26,7 @@
 | [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 25 |
 | [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 1 |
 | [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 14 |
-| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 23 |
+| [Машинные доказательства, сертификаты и верификация](#proof-certification) | 28 |
 | [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
 | [Алгебраические схемы, математика и нижние границы](#algebraic-complexity) | 4 |
 | [Edit distance, строки и тонкая сложность](#fine-grained-algorithms) | 3 |
@@ -769,6 +769,45 @@ Larsen–Yu: безусловная нижняя граница tilde-Omega(log^
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
+
+### LIT-352
+**[The Cell Probe Complexity of Dynamic Range Counting](https://doi.org/10.1145/2213977.2213987)** (2012)
+
+STOC 2012: cell-probe lower bound с комбинированием chronogram и cell sampling; для динамического взвешенного двумерного dominance range counting дана зависимость query time от update time и размера машинного слова.
+
+**Ограничение:** Исходная задача — двумерный range counting с логарифмически-битовыми весами, а не 1D binary SET/RANGE_PARITY; нижняя граница для page-I/O, anchored freshness и Byzantine proofs требует строгой сохраняющей ресурсы редукции.
+
+**Идентичность:** `doi:10.1145/2213977.2213987` · **Также:** arxiv:1105.5933 · **Авторы:** Kasper Green Larsen · **Проверка:** `author_paper_or_bibliography_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-004](INDEX.md#ml-004)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md](https://github.com/definitely-stable/Mathlab/blob/f7986a438aef85376c7973049dc75ea1d3c63ecf/docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) (model_overlap)
+
+### LIT-353
+**[Cell-probe lower bounds for dynamic problems via a new communication model](https://doi.org/10.1145/2897518.2897556)** (2016)
+
+STOC 2016: новая коммуникационная игра и информационное доказательство нижней границы для dynamic interval union, включая ожидаемую стоимость на распределении последовательностей обновлений/запросов.
+
+**Ограничение:** Модель insert/delete интервалов и суммарной длины объединения не совпадает с двоичной чётностью диапазона; перенос на online authenticated storage или proof maintenance нельзя заявлять без явной редукции и согласования стоимостных единиц.
+
+**Идентичность:** `doi:10.1145/2897518.2897556` · **Также:** arxiv:1512.01293 · **Авторы:** Huacheng Yu · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md](https://github.com/definitely-stable/Mathlab/blob/f7986a438aef85376c7973049dc75ea1d3c63ecf/docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) (model_overlap)
+
+### LIT-354
+**[Making data structures persistent](https://doi.org/10.1016/0022-0000(89)90034-2)** (1989)
+
+Классическая теория частично и полностью персистентных структур с эффективным сохранением и чтением прежних версий; критический верхний контрпример для слишком сильных гипотез об обязательной стоимости исторических PIN.
+
+**Ограничение:** Структурная персистентность и эффективные связные представления не обеспечивают Byzantine soundness, доказанную глобальную latest freshness, page-fsync протокол либо реальное освобождение пространства при compaction.
+
+**Идентичность:** `doi:10.1016/0022-0000(89)90034-2` · **Также:** doi:10.1145/12130.12142 · **Авторы:** James R. Driscoll, Neil Sarnak, Daniel D. Sleator, Robert E. Tarjan · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md](https://github.com/definitely-stable/Mathlab/blob/f7986a438aef85376c7973049dc75ea1d3c63ecf/docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) (model_overlap)
 
 
 ## incremental-computation
@@ -4392,6 +4431,71 @@ Proceedings of ISP RAS 2026: расширение DIFFuzzer на моделир�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md](https://github.com/definitely-stable/Mathlab/blob/6cc1496bf68a1909e1bccb4def731a3b7d5e99ad/docs/research/INDEX-001-G2-B3-A-GENERATION-COMMIT-PROTOCOL.md) (model_overlap)
+
+### LIT-349
+**[Secure Untrusted Data Repository (SUNDR)](https://www.usenix.org/conference/osdi-04/secure-untrusted-data-repository-sundr)** (2004)
+
+SUNDR (OSDI 2004): проверяемый файловый сервис на недоверенном сервере с fork consistency; независимые читатели могут наблюдать согласованные префиксы без автоматически гарантированного глобально свежего состояния.
+
+**Ограничение:** Fork consistency зависит от обмена наблюдаемыми изменениями между клиентами; недоступная связь и отсутствие внешнего монотонного якоря не дают F1 LATEST. Не установлена нижняя граница физических чтений/записей для RANGE_PARITY.
+
+**Идентичность:** `usenix:osdi04:li-j` · **Авторы:** Jinyuan Li, Maxwell Krohn, David Mazières, Dennis Shasha · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md](https://github.com/definitely-stable/Mathlab/blob/f7986a438aef85376c7973049dc75ea1d3c63ecf/docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) (model_overlap)
+
+### LIT-350
+**[Verifying the consistency of remote untrusted services with conflict-free operations](https://doi.org/10.1016/j.ic.2018.03.004)** (2018)
+
+COP: формальная проверка удалённого недоверенного сервиса; при честном сервере linearizability, иначе fork-linearizability; нет прямой коммуникации между клиентами и конфликтующие операции учитываются отдельно.
+
+**Ограничение:** Fork-linearizability не эквивалентна самостоятельной проверке глобально последнего состояния после отключения; криптографические предположения, права владельца и множество операций не переносятся автоматически в F1 SET/RANGE_PARITY.
+
+**Идентичность:** `doi:10.1016/j.ic.2018.03.004` · **Авторы:** Christian Cachin, Olga Ohrimenko · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md](https://github.com/definitely-stable/Mathlab/blob/f7986a438aef85376c7973049dc75ea1d3c63ecf/docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) (model_overlap)
+
+### LIT-351
+**[SNARKs for stateful computations on authenticated data](https://doi.org/10.1016/j.jisa.2026.104444)** (2026)
+
+JISA 2026 ADSC-SNARK: проверяемые многократные вычисления над аутентифицированными данными с согласованным состоянием и публичной проверкой; применим как возможный криптографический upper comparator.
+
+**Ограничение:** Гарантии вычислительной корректности и последовательности состояния не создают бесплатный внешний монотонный источник свежести независимых offline readers; proof/update/prover cost и setup должны учитываться отдельно. Бенчмарки не воспроизведены.
+
+**Идентичность:** `doi:10.1016/j.jisa.2026.104444` · **Авторы:** Johannes Reinhart, Erik-Oliver Blass, Björn Annighöfer · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md](https://github.com/definitely-stable/Mathlab/blob/f7986a438aef85376c7973049dc75ea1d3c63ecf/docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) (model_overlap)
+
+### LIT-355
+**[Authenticated Data Structures for Dynamic Workloads](https://arxiv.org/abs/2608.25206)** (2026)
+
+Авторский препринт 2026: Huffman-Merkle Tree и динамическая многоуровневая организация аутентифицированных структур под изменяющуюся частоту доступа; поддерживает пакетную перестройку и проверяемые membership proofs.
+
+**Ограничение:** Оценки оптимизируют распределённую по доступам среднюю стоимость proofs и hashes в конкретных workload, но не устанавливают новый worst-case lower bound для SET/RANGE_PARITY. Миграция, поддержание статистики и внешний latest anchor должны оплачиваться; эксперименты не воспроизведены.
+
+**Идентичность:** `arxiv:2608.25206` · **Авторы:** Ziheng Shangguan, Aviv Yaish, Dahlia Malkhi · **Проверка:** `author_paper_or_bibliography_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md](https://github.com/definitely-stable/Mathlab/blob/f7986a438aef85376c7973049dc75ea1d3c63ecf/docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) (model_overlap)
+
+### LIT-356
+**[Integrita: A BFT distributed storage system](https://doi.org/10.1016/j.future.2024.107629)** (2025)
+
+FGCS 2025: распределённый history-tree механизм для выявления противоречащих пользовательских представлений при многосерверном Byzantine adversary и заявленной q-detectable view consistency.
+
+**Ограничение:** Сервис использует N отдельных хранителей, модель допускает до N−1 сговорившихся Byzantine участников; гарантия q-detectable view consistency не эквивалентна немедленной F1 LATEST свежести от независимого монотонного якоря. Характеристики хранения и оценки производительности не перепроверены.
+
+**Идентичность:** `doi:10.1016/j.future.2024.107629` · **Авторы:** Sanaz Taheri Boshrooyeh, Alptekin Küpçü, Öznur Özkasap · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md](https://github.com/definitely-stable/Mathlab/blob/f7986a438aef85376c7973049dc75ea1d3c63ecf/docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) (model_overlap)
 
 
 ## proof-complexity
