@@ -98,6 +98,33 @@ class C16TwoSidedSourceTests(unittest.TestCase):
                 self.assertGreaterEqual(child[name + suffix],
                                         self.root[name + suffix])
 
+    def test_nonprefix_original_pins_other_true_four_map_box(self):
+        # Independent non-prefix adversary: neither the left nor the right
+        # missing source IDs are a terminal 12+ prefix. All four real joint
+        # completions must match independent accepted seven_census scores.
+        f = {i: PAIRS.index(e)
+             for i, e in enumerate(self.m["left_labels"]) if i not in (1, 13)}
+        g = {i: PAIRS.index(e)
+             for i, e in enumerate(self.m["right_labels"]) if i not in (0, 12)}
+        x = two_sided_source_certificate(self.m, f, g)
+        real = [
+            seven_census(_filled_model(self.m, fl, gr),
+                         independent_checks=False)
+            for fl, gr in _completion_pairs(self.m, f, g, 4)
+        ]
+        self.assertEqual(x["actual_joint_completions"], 4)
+        self.assertEqual(
+            x["S_by_every_actual_joint_completion"],
+            tuple(t["S_seven"] for t in real))
+        self.assertEqual(
+            x["GF5_by_every_actual_joint_completion"],
+            tuple(t["GF5_seven_lower_numerator"] for t in real))
+        self.assertEqual(x["C16_exact_joint_box_lower_S"],
+                         min(t["S_seven"] for t in real))
+        self.assertEqual(
+            x["C16_exact_joint_box_lower_GF5_numerator"],
+            min(t["GF5_seven_lower_numerator"] for t in real))
+
     def test_complete_pins_exact_and_fail_closed_budgets(self):
         complete_f = {
             i: PAIRS.index(e) for i, e in enumerate(self.m["left_labels"])}
