@@ -1,0 +1,161 @@
+{
+  "schema": "mathlab.literature-genealogy.v1",
+  "date": "2026-10-10",
+  "primary_report": "docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md",
+  "source_pin": "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d",
+  "scientific_gate": "MODEL_OVERLAP_NOT_LOGICAL_IMPLICATION",
+  "edge_types": {
+    "PRIMARY_REFERENCE": "Official primary source reference is visible on source landing page.",
+    "METHOD_FAMILY": "Shared mathematical technique/object; no claim of direct bibliographic citation or formal derivation.",
+    "SOURCE_METHOD_EXTENSION": "Author or publisher describes methodological extension relative to known earlier class.",
+    "NEGATIVE_CONTROL": "Compared empirical task/model, explicitly cannot generalize across workloads.",
+    "PROPOSED_TRANSFER_STOP": "Hypothetical Mathlab transfer; STOP until same-model reduction, proof and asymptotic bound.",
+    "EXISTING_PRIOR_ART": "Existing Mathlab literature record supplies source ancestor or application context."
+  },
+  "edges": [
+    {
+      "from": "LIT-367",
+      "to": "LIT-366",
+      "type": "PRIMARY_REFERENCE",
+      "detail": "Saxton–Thomason 2015 explicitly reference BMS preprint 1204.6530; chronological online BMS 2014 earlier."
+    },
+    {
+      "from": "LIT-366",
+      "to": "LIT-369",
+      "type": "METHOD_FAMILY",
+      "detail": "2018 survey explains hypergraph containers method."
+    },
+    {
+      "from": "LIT-367",
+      "to": "LIT-369",
+      "type": "SOURCE_METHOD_EXTENSION",
+      "detail": "Same BMS author team reviews original 2015 method."
+    },
+    {
+      "from": "LIT-366",
+      "to": "LIT-368",
+      "type": "METHOD_FAMILY",
+      "detail": "2026 paper improves uniform container dependence vs classical 2015."
+    },
+    {
+      "from": "LIT-367",
+      "to": "LIT-368",
+      "type": "METHOD_FAMILY",
+      "detail": "Uniform independent-set container genealogy."
+    },
+    {
+      "from": "LIT-368",
+      "to": "LIT-360",
+      "type": "METHOD_FAMILY",
+      "detail": "2026 cycle-free counting employs container framework, not a proved instance of every variant of Campos–Samotij."
+    },
+    {
+      "from": "LIT-360",
+      "to": "ML-002",
+      "type": "PROPOSED_TRANSFER_STOP",
+      "detail": "G5-C2 mixed 4/6 GF(5) forbidden support requires own balanced supersaturation/codegrees."
+    },
+    {
+      "from": "LIT-374",
+      "to": "LIT-376",
+      "type": "METHOD_FAMILY",
+      "detail": "Finite polar line incidence and vector-space sunflower/MRD geometry; not same forbidden-trade model."
+    },
+    {
+      "from": "LIT-375",
+      "to": "LIT-374",
+      "type": "METHOD_FAMILY",
+      "detail": "Polar-space structures have intersection with association scheme theory."
+    },
+    {
+      "from": "LIT-376",
+      "to": "ML-002",
+      "type": "PROPOSED_TRANSFER_STOP",
+      "detail": "Need exact mapping of sunflowers to signed GF(5) ASET."
+    },
+    {
+      "from": "LIT-371",
+      "to": "LIT-353",
+      "type": "METHOD_FAMILY",
+      "detail": "2017/18 online communication method and previously catalogued dynamic lower bounds."
+    },
+    {
+      "from": "LIT-370",
+      "to": "ML-004",
+      "type": "PROPOSED_TRANSFER_STOP",
+      "detail": "ORAM access-pattern secrecy differs from authenticated freshness and GC."
+    },
+    {
+      "from": "LIT-373",
+      "to": "ML-006",
+      "type": "PROPOSED_TRANSFER_STOP",
+      "detail": "Static matrix systematic query-with-sketch differs from physical index rewrite."
+    },
+    {
+      "from": "LIT-372",
+      "to": "ML-006",
+      "type": "PROPOSED_TRANSFER_STOP",
+      "detail": "Suffix-array static cell-probe lower bounds do not directly quantify SSD recourse."
+    },
+    {
+      "from": "LIT-321",
+      "to": "LIT-378",
+      "type": "METHOD_FAMILY",
+      "detail": "Both colored/annotated versus quantitative k-mer de Bruijn indexes."
+    },
+    {
+      "from": "LIT-322",
+      "to": "LIT-378",
+      "type": "METHOD_FAMILY",
+      "detail": "Buffered dynamic k-mer graph and compressed counting graph have different operations."
+    },
+    {
+      "from": "LIT-378",
+      "to": "LIT-379",
+      "type": "METHOD_FAMILY",
+      "detail": "Genomic graph indexing approaches represented in pangenomic survey."
+    },
+    {
+      "from": "LIT-328",
+      "to": "LIT-379",
+      "type": "METHOD_FAMILY",
+      "detail": "Pangenome index and clinical survey represent related domains."
+    },
+    {
+      "from": "LIT-380",
+      "to": "LIT-381",
+      "type": "METHOD_FAMILY",
+      "detail": "Temporal KG reasoning: interpolation/extrapolation versus asynchronous evolution."
+    },
+    {
+      "from": "LIT-381",
+      "to": "LIT-382",
+      "type": "METHOD_FAMILY",
+      "detail": "Temporal event prediction vs causal disentangled embeddings."
+    },
+    {
+      "from": "LIT-382",
+      "to": "LIT-383",
+      "type": "METHOD_FAMILY",
+      "detail": "Causal embeddings and RL graph retrieval are different predictive workflows."
+    },
+    {
+      "from": "LIT-383",
+      "to": "LIT-384",
+      "type": "NEGATIVE_CONTROL",
+      "detail": "No global GraphRAG dominance; page-level math textbook benchmark can favor RAG/BM25."
+    },
+    {
+      "from": "LIT-384",
+      "to": "OM-133",
+      "type": "PROPOSED_TRANSFER_STOP",
+      "detail": "Check retrieval objective and graph-memory quality separately before adopting a graph structure."
+    },
+    {
+      "from": "LIT-385",
+      "to": "ML-004",
+      "type": "PROPOSED_TRANSFER_STOP",
+      "detail": "Dynamic parameterized kernel methods differ from exact history/reachability."
+    }
+  ]
+}
