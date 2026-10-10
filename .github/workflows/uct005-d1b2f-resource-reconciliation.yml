@@ -1,0 +1,41 @@
+name: uct005-d1b2f-resource-reconciliation
+on:
+  push:
+    branches:
+      - research/uct005-d1b2f-resource-reconciliation
+    paths:
+      - "research/uct005_d1b2f_resource_reconciliation.py"
+      - "research/test_uct005_d1b2f_resource_reconciliation.py"
+      - ".github/workflows/uct005-d1b2f-resource-reconciliation.yml"
+  pull_request:
+    paths:
+      - "research/uct005_d1b2f_resource_reconciliation.py"
+      - "research/test_uct005_d1b2f_resource_reconciliation.py"
+      - ".github/workflows/uct005-d1b2f-resource-reconciliation.yml"
+permissions:
+  contents: read
+jobs:
+  resource-reconciliation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Same-trace GF2, PIN GC, null price and exact physical byte tests
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2f_resource_reconciliation.py' -v
+      - name: Reproducible representative partial vector and STOP
+        run: python research/uct005_d1b2f_resource_reconciliation.py > /tmp/d1b2f-report.json
+      - name: Verify closed unproven root and incomplete Pareto decision
+        run: |
+          python - <<'PY'
+          import json
+          with open('/tmp/d1b2f-report.json', encoding='utf-8') as f:
+              payload = json.load(f)
+          assert payload["root_novelty"] == "OPEN_UNPROVED"
+          for case in payload["cases"]:
+              assert case["pareto"] == "UNDECIDABLE_MISSING_AXES"
+              assert case["fully_priced_models"] == 0
+              assert all(c["status"] != "FULLY_PRICED" for c in case["comparators"])
+          PY
