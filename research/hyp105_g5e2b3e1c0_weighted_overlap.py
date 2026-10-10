@@ -17,7 +17,7 @@ discrepancy conclusions do not imply positive minimum overlap.
 from collections import Counter
 from fractions import Fraction
 from itertools import combinations
-from math import comb
+from math import comb, ceil
 import json
 
 from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
@@ -225,6 +225,56 @@ def two_marginal_blind_cube_trade(scale=1):
     }
 
 
+def GQ_weighted_BA_right_sixset_spread(s):
+    """All-h uniform restricted GQ incidence SOURCE multiplicity bound.
+
+    Every positive source weight m_f(R), |R|=6, counts ORIGINAL
+    six-incidence B-left candidates with SIX DISTINCT original right
+    factor lines R. B-left means exactly ONE original left point p
+    occurs twice and four other left points occur once.
+    The two right lines chosen at p are an unordered 2-subset of R
+    (at most C(6,2)=15 choices), and W(3,s) has line-pair
+    codegree<=1, so that line pair determines p uniquely, if any.
+    For each of the remaining FOUR right lines there are at most
+    Delta=s+1 choices for its original left point; distinctness and
+    physical 2regular conditions can ONLY reduce this number.
+    Thus for EVERY legal f and R: 0<=m_f(R)<=15 Delta^4.
+
+    From accepted B1-A uniform LEFT-B lower and original C4-free
+    distinct-right-endpoints collision bound, mass H_B(f)>=
+    L_Bminus * max(0, 1-14/Delta^2). Therefore the number of
+    distinct positive 6sets on the original right factor lines is
+      >=ceil(ceil(H_Blower)/[15 Delta^4]).
+    The resulting all-h asymptotic support >=(1/60+o(1))s^11.
+    This is a RESTRICTED GQ-only support/spread theorem, not a
+    fixed-correlated-right minimum overlap, R3 upper or ASET exponent.
+    """
+    from hyp105_g5e2b3e1b1a_one_sided import left_six_mass
+    p=left_six_mass(s)
+    delta=p["Delta"]
+    raw_B=p["left_original_sixsets_lower"]["B"]
+    distinct_fraction=max(Fraction(0),Fraction(delta*delta-14,delta*delta))
+    mass_floor=ceil(Fraction(raw_B)*distinct_fraction)
+    weight_cap=comb(6,2)*delta**4
+    positive_sixset_floor=(mass_floor+weight_cap-1)//weight_cap
+    if positive_sixset_floor>comb(p["V"],6):
+        raise AssertionError("lower source support exceeds all original sixsets")
+    return {
+        "s":s,
+        "V":p["V"],
+        "Delta":delta,
+        "source_B_left_original_sixset_lower":raw_B,
+        "distinct_right_line_probability_lower":distinct_fraction,
+        "source_BA_weighted_mass_lower":mass_floor,
+        "each_six_right_endpoint_set_weight_upper":weight_cap,
+        "positive_right_sixset_support_lower":positive_sixset_floor,
+        "support_leading_order":"(1/60+o(1))*s^11",
+        "uses_GQ_no_incidence_4cycles":True,
+        "independent_of_right_pair_injection":True,
+        "all_correlated_right_overlap_omega_s6_proved":False,
+    }
+
+
 def source_weighted_BA_hypergraph(model):
     """Exact finite W32 weighted right six-uniform original-line hypergraph.
 
@@ -361,6 +411,7 @@ def report():
         "generic_mass_only_countermodel":generic_mass_only_countermodel(),
         "pair_marginal_blind_3cube_trade":two_marginal_blind_cube_trade(),
         "physical_target_three_point_signature_W32":physical_target_three_point_orbits(6),
+        "all_h_GQ_right_sixset_spread_s4":GQ_weighted_BA_right_sixset_spread(4),
         "prior_art":"Bollobas-Scott 2015 weighted k-uniform intersections; no automatic min transfer",
         "full_R3_or_ASET_exponent":False,
     }
