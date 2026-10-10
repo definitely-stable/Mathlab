@@ -1,0 +1,193 @@
+{
+  "schema": "mathlab.uct005.g4.typed_bridges.v1",
+  "status": "EVIDENCE_TYPED_ATLAS_NOT_ROOT_THEOREM",
+  "root_issue": 105,
+  "owner_issue": 234,
+  "head_baseline": "fcd6c6a76c88e7d3e89adad0acbe10deb1063d0d",
+  "last_review_date": "2026-10-10",
+  "legend": {
+    "CLASSICAL_DIRECT": "A restricted already-known/classical valid implication with explicit assumptions",
+    "PROOF_INGREDIENT": "Proven tool used in a restricted argument, not root transfer",
+    "COUNTERMODEL": "Explicit false extension or model mismatch; never promote to theorem edge",
+    "REDUCTION_REQUIRED": "Potential edge with unproved resource-preserving map",
+    "APPLICATION_ONLY": "Engineering/application analogy with no theorem transfer"
+  },
+  "bridges": [
+    {
+      "id": "G4-B01",
+      "source": "Myhill-Nerode/Moore refinement",
+      "target": "G4-A1 finite-horizon classes",
+      "classification": "CLASSICAL_DIRECT",
+      "assumptions": "total deterministic operation alphabet, exact observation",
+      "resource_map": "state labels -> horizon-indexed quotient; no resource claim",
+      "evidence": "finite/refinement-vs-enumeration",
+      "non_transfer": "not stationary congruence for fixed finite horizon",
+      "acceptance": "CLASSICAL_PROVED_RESTRICTED"
+    },
+    {
+      "id": "G4-B02",
+      "source": "UCT-001 / LENT Hamming reachable ball",
+      "target": "G4-A1 representation count",
+      "classification": "PROOF_INGREDIENT",
+      "assumptions": "deterministic encoded update, changed remote symbols w and trusted b bits",
+      "resource_map": "same initial code, remote radius dw, trusted labels 2^b",
+      "evidence": "finite/future-classes-and-Hamming",
+      "non_transfer": "cannot preserve immediate bounded-probe p for future operations",
+      "acceptance": "CLASSICAL_PROVED_RESTRICTED"
+    },
+    {
+      "id": "G4-B03",
+      "source": "ROST G3-A bounded current probes",
+      "target": "G4-A1 future-observation K_H",
+      "classification": "COUNTERMODEL",
+      "assumptions": "single current query reads u; public swap available as paid update",
+      "resource_map": "M=1 -> false K_future<=2 when actual K_future=4",
+      "evidence": "future_probe_transfer_falsifier",
+      "non_transfer": "operations require additional remote accesses",
+      "acceptance": "FALSE_TRANSFER_EXACT"
+    },
+    {
+      "id": "G4-B04",
+      "source": "HYP-105 ASET exact subset sums",
+      "target": "robust e-substitution capacity",
+      "classification": "CLASSICAL_DIRECT",
+      "assumptions": "all subsets of size 0..d, q-ary sums, support<=w",
+      "resource_map": "empty-vs-singleton enforces w>=2e+1",
+      "evidence": "robust_support_gate_report",
+      "non_transfer": "not GF(q) unrestricted coefficient relations; DNA edit channel distinct",
+      "acceptance": "CLASSICAL_PROVED_RESTRICTED"
+    },
+    {
+      "id": "G4-B05",
+      "source": "Historical observable quotient",
+      "target": "G4-A2 pinned binary histories",
+      "classification": "CLASSICAL_DIRECT",
+      "assumptions": "independent binary edits, fixed AS_OF pins, no uncharged external history",
+      "resource_map": "K_Pi=2^|Pi|; exact reachable storage >= log2 K_Pi",
+      "evidence": "histories_by_observable_pins",
+      "non_transfer": "two pins do not force Omega(H) bits; no physical page implication",
+      "acceptance": "CLASSICAL_PROVED_RESTRICTED"
+    },
+    {
+      "id": "G4-B06",
+      "source": "PODS provenance semiring LIT-252",
+      "target": "DAG reachability via nonnegative counts",
+      "classification": "CLASSICAL_DIRECT",
+      "assumptions": "finite forward DAG, positive integer edge weights",
+      "resource_map": "path count >0 exactly Boolean existence",
+      "evidence": "dag_path_count-vs-dag_boolean_bfs",
+      "non_transfer": "not arbitrary signed GF(q) path values",
+      "acceptance": "CLASSICAL_PROVED_RESTRICTED"
+    },
+    {
+      "id": "G4-B07",
+      "source": "GF(2) path count",
+      "target": "Boolean DAG reachability",
+      "classification": "COUNTERMODEL",
+      "assumptions": "two disjoint s-t length-two paths",
+      "resource_map": "two mod2=0 although path exists",
+      "evidence": "graph_parity_falsifier",
+      "non_transfer": "parity zero != no path",
+      "acceptance": "FALSE_TRANSFER_EXACT"
+    },
+    {
+      "id": "G4-B08",
+      "source": "Larsen-Yu dynamic reachability LIT-298",
+      "target": "DAG-002 immutable new-sink update",
+      "classification": "REDUCTION_REQUIRED",
+      "assumptions": "insertion between existing vertices vs addition of a new sink",
+      "resource_map": "no reduction established; old-old reachability invariant under new sink",
+      "evidence": "requires independent DAG-002 model checker",
+      "non_transfer": "do not transfer original dynamic DAG lower bound",
+      "acceptance": "OPEN_REDUCTION"
+    },
+    {
+      "id": "G4-B09",
+      "source": "GF5 HYP-105 signed flow motifs",
+      "target": "TKG factorized Boolean provenance",
+      "classification": "REDUCTION_REQUIRED",
+      "assumptions": "non-zero edge weights; a semantics-preserving map must be proven",
+      "resource_map": "field cancellation forbids unconditional Boolean preservation",
+      "evidence": "GF2 diamond as scope warning; GF5 cancellation 1+4=0",
+      "non_transfer": "need signed-to-Boolean query homomorphism with sound evidence semantics",
+      "acceptance": "OPEN_REDUCTION"
+    },
+    {
+      "id": "G4-B10",
+      "source": "G4-A1 exact future distinguishability",
+      "target": "F1 malicious multi-reader authenticated history #223",
+      "classification": "REDUCTION_REQUIRED",
+      "assumptions": "PPT binding, two independent readers, trusted anchor, PIN authority",
+      "resource_map": "no valid resource-preserving reduction established",
+      "evidence": "PR #235 reference F1 oracle is independent",
+      "non_transfer": "no claim for proof bytes, page writes or fork-freshness",
+      "acceptance": "OPEN_REDUCTION"
+    },
+    {
+      "id": "G4-B11",
+      "source": "INDEX-001 compressed recourse #183",
+      "target": "F1 pinned snapshot page GC",
+      "classification": "REDUCTION_REQUIRED",
+      "assumptions": "common page allocator, RAM, root retention, complete page images",
+      "resource_map": "must map write relocation, allocation, and verified queries",
+      "evidence": "requires same-model page counterexamples",
+      "non_transfer": "Hamming symbol changes do not count physical page I/O",
+      "acceptance": "OPEN_REDUCTION"
+    },
+    {
+      "id": "G4-B12",
+      "source": "TOM-006 COPY/ADD patch floor",
+      "target": "F1 dynamic certificate maintenance",
+      "classification": "APPLICATION_ONLY",
+      "assumptions": "fixed transform grammar, data source and no free patch decoder",
+      "resource_map": "wire bytes and proof CPU not yet mapped",
+      "evidence": "requires concrete instance and comparator",
+      "non_transfer": "patch lower bound is not proof update lower bound",
+      "acceptance": "OPEN_APPLICATION"
+    },
+    {
+      "id": "G4-B13",
+      "source": "DeltaMeter finite-sample estimator",
+      "target": "adaptive approximate quotient",
+      "classification": "REDUCTION_REQUIRED",
+      "assumptions": "random sketch, error delta, adaptive transcript and refresh policy",
+      "resource_map": "no equivalence with deterministic exact ROST counting",
+      "evidence": "requires adaptive statistical oracle",
+      "non_transfer": "approximate and exact output families differ",
+      "acceptance": "OPEN_REDUCTION"
+    },
+    {
+      "id": "G4-B14",
+      "source": "DNA indel channel LIT-365",
+      "target": "Hamming robust ASET distance",
+      "classification": "COUNTERMODEL",
+      "assumptions": "insertions/deletions versus substitutions",
+      "resource_map": "Hamming distance is not edit distance",
+      "evidence": "requires edit-distance countermodel before DIRECT claims",
+      "non_transfer": "substitution correction alone does not imply indel correction",
+      "acceptance": "KNOWN_NONTRANSFER"
+    },
+    {
+      "id": "G4-B15",
+      "source": "HYP-101 incremental hashing",
+      "target": "G4 signed proof-preserving no-effect",
+      "classification": "APPLICATION_ONLY",
+      "assumptions": "concrete digest DAG, changed source chunks and old-state read budget",
+      "resource_map": "invalidation and recomputation cost remains task-dependent",
+      "evidence": "requires exact digest trace oracle",
+      "non_transfer": "semantic output equality does not entail zero hashing",
+      "acceptance": "OPEN_APPLICATION"
+    },
+    {
+      "id": "G4-B16",
+      "source": "UCT-004 witness proof-cover",
+      "target": "F1 Byzantine constant-soundness query",
+      "classification": "REDUCTION_REQUIRED",
+      "assumptions": "matching verifier coin, proof grammar, trust, adversarial rounds",
+      "resource_map": "no applicable soundness amplification proof as stated",
+      "evidence": "requires malicious witness simulator",
+      "non_transfer": "weak soundness/one-shot cover not constant adaptive soundness",
+      "acceptance": "OPEN_REDUCTION"
+    }
+  ]
+}
