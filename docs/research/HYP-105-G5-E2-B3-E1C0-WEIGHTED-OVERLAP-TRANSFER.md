@@ -101,7 +101,7 @@ This identifies an essential gap: to prove `min_g U_B/A >=c*s^6` one must use st
 
 ### Bibliography transaction boundary
 
-Catalog import for HYP-105 must use unique canonical LIT IDs, title/DOI dedup, and regenerate `docs/research/catalog/LITERATURE.md` and its reverse index with the repository's generator. Concurrent [IMPORT-012 PR #246](https://github.com/definitely-stable/Mathlab/pull/246) modifies precisely these catalog files and reserves LIT-366–387; this independent research PR therefore pins the four DOI sources in the reviewed proof note **without inventing LIT IDs or overwriting the concurrent bibliography write**. Canonical import is an explicit follow-up after #246 merges and catalog ID reservations are checked.
+Catalog import for HYP-105 must use unique canonical LIT IDs, title/DOI dedup, and regenerate `docs/research/catalog/LITERATURE.md` and its reverse index with the repository's generator. [IMPORT-012 PR #246](https://github.com/definitely-stable/Mathlab/pull/246) has been merged and reserves LIT-366–387 in the canonical catalog. This independent research PR pins the four DOI identities and source-transfer review in the proof note **without inventing LIT IDs or rewriting the generated catalog indexes**. A separate deduplicated import transaction should inspect the post-#246 catalog, allocate only unused canonical IDs and regenerate both derived indexes with `research/literature.py --write` on GitHub-hosted CI.
 
 ## 4. Next falsifiable research gate
 
