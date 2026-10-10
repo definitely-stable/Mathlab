@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: HYP-105 C6 complete Johnson spectrum and one-common-Pi Dirichlet identity
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c6_johnson_variance.py'
+
+      - name: HYP-105 C6 true-GQ all-level moment and no-fixed-g-lower report
+        run: python research/hyp105_g5e2b3e1c6_johnson_variance.py
+
       - name: HYP-105 C5 exact one-common-right-map seven-overlap moments and density
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c5_common_bijection.py'
 
