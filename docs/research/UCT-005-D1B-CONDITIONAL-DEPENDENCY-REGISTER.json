@@ -35,47 +35,56 @@
     {
       "path": "docs/research/RESEARCH-LITERATURE-004-CACHING-GRAPHS-2025-2026.md",
       "anchor": "| T25-04 |",
-      "kind": "ALGORITHM_TITLE_NO_HARDNESS"
+      "kind": "ALGORITHM_TITLE_NO_HARDNESS",
+      "expected_line": "| T25-04 | [Kyng–Meierhans–Zöcklein, *A Simple Dynamic Spanner via APSP*, ICALP 2025](https://doi.org/10.4230/LIPIcs.ICALP.2025.111) | Dynamic approximate distance spanner using APSP with controlled total recourse under specified insertion/deletion sequences. | GRAPH-001/ML-004; approximate distances are not exact reachability or ASET signed trade exclusion. |"
     },
     {
       "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
       "anchor": "| LIT-190 | 2025-ICALP-93 |",
-      "kind": "APSP_ALGORITHM_NOT_HARDNESS"
+      "kind": "APSP_ALGORITHM_NOT_HARDNESS",
+      "expected_line": "| LIT-190 | 2025-ICALP-93 | [On Incremental Approximate Shortest Paths in Directed Graphs](https://doi.org/10.4230/LIPIcs.ICALP.2025.93) | Sparse directed graphs with polynomially bounded nonnegative weights and edge insertions; deterministic and randomized (1+epsilon)-approximate APSP against adaptive adversary. | Insertion-only not fully dynamic; approximate distances not exact reachability, and total update bounds not memory/proof costs. |"
     },
     {
       "path": "docs/research/RESEARCH-LITERATURE-005-DYNAMIC-ALGEBRA-GRAPHS-2025-2026.md",
       "anchor": "**Anchor:** ICALP'25 incremental APSP",
-      "kind": "APSP_ALGORITHM_NOT_HARDNESS"
+      "kind": "APSP_ALGORITHM_NOT_HARDNESS",
+      "expected_line": "**Anchor:** ICALP'25 incremental APSP and ESA'25 temporal realizability plus ICALP'26 directed sparsifiers, dynamic coloring and MIS. Freeze distinct observables: reachability boolean, weighted approximate distance, directed cut, spectrum, temporal reachability, independent set, and separately priced signed verification. **Kill:** transferring an approximation-preserving sparsifier into an exact connectivity certificate or comparing unrelated adversary guarantees. Counterexamples include highly unbalanced directed cuts, temporal edges in wrong order, update-to-cycle and triangle insertion violating assumptions."
     },
     {
       "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
       "anchor": "- **Alman & Vassilevska Williams**",
-      "kind": "SCOPED_SOURCE_AUDIT"
+      "kind": "SCOPED_SOURCE_AUDIT",
+      "expected_line": "- **Alman & Vassilevska Williams**, *Truly Subquadratic 3SUM and Truly Subcubic APSP via Triangles in Sparse Lopsided Graphs*, [arXiv:2610.06783](https://arxiv.org/abs/2610.06783), submitted 2026-10-05: author-claimed deterministic `O(n^1.9992)` 3SUM (polynomial-size integers) and `O(n^2.9995)` APSP (polynomially bounded integer edge weights), with real-valued variants addressed using reductions. **Status: AUTHOR_PREPRINT / AUTHOR_THEOREM_STATEMENT_CHECKED / INDEPENDENT_PROOF_NOT_VERIFIED.** The classical universal fine-grained 3SUM and APSP conjectures are refuted by these author-stated algorithms; earlier conditional lower bounds depending *essentially* on these precise hypotheses require retraction/retargeting. This does not negate *unconditional* cell-probe bounds, arbitrary dynamic online lower bounds, OV/SETH assumptions, or hardness statements proved in a different model. Audit each dependency arrow one by one; do not globally delete conditional evidence."
     },
     {
       "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
       "anchor": "| Alman–Vassilevska Williams, fine-grained breakthrough",
-      "kind": "SCOPED_SOURCE_AUDIT"
+      "kind": "SCOPED_SOURCE_AUDIT",
+      "expected_line": "| Alman–Vassilevska Williams, fine-grained breakthrough | [arXiv:2610.06783](https://arxiv.org/abs/2610.06783) | Retire false 3SUM/APSP conditional premises **only** where the exact reductions depend on the refuted hypotheses. |"
     },
     {
       "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
       "anchor": "- **UCT-005:** scope 3SUM/APSP",
-      "kind": "SCOPED_SOURCE_AUDIT"
+      "kind": "SCOPED_SOURCE_AUDIT",
+      "expected_line": "- **UCT-005:** scope 3SUM/APSP hypothesis break, do not generalize memory-checker lower bounds, preserve time-horizon/adaptive error/independent trust/fork fencing, distinguish bit/cell accesses from proof bytes and verifier CPU; comparison must use same task. `ROOT_OPEN` remains."
     },
     {
       "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
       "anchor": "1. Audit every Mathlab theorem/issue dependent",
-      "kind": "SCOPED_SOURCE_AUDIT"
+      "kind": "SCOPED_SOURCE_AUDIT",
+      "expected_line": "1. Audit every Mathlab theorem/issue dependent on standard 3SUM/APSP hardness with a machine-readable model/conditional-dependency matrix; preserve unconditional boundaries."
     },
     {
       "path": "docs/research/UCT-005-ROOT-THEOREM-PROGRAM.md",
       "anchor": "**2026-10-10 scientific source correction:**",
-      "kind": "SCOPED_SOURCE_AUDIT"
+      "kind": "SCOPED_SOURCE_AUDIT",
+      "expected_line": "**2026-10-10 scientific source correction:** [External PDF audit / IMPORT-011](RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). Alman–Vassilevska Williams (arXiv:2610.06783) refute the standard 3SUM/APSP conjectures in their stated computational models: remove only dependency claims that actually rely on those conditional assumptions. This does not negate unconditional dynamic cell-probe lower bounds. Cauchyproofs and memory checking have different trust/security and cost models. Do not claim generic Ω(log n) authenticated penalty or a new joint UCT theorem without a same-task comparison. **ROOT_OPEN / NOVELTY_NOT_ESTABLISHED** persists."
     },
     {
       "path": "docs/research/catalog/README.md",
       "anchor": "[Source-grounded scientific audit](",
-      "kind": "BIBLIOGRAPHY_NAVIGATION"
+      "kind": "BIBLIOGRAPHY_NAVIGATION",
+      "expected_line": "[Source-grounded scientific audit](../RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). Adds LIT-357..365, **355→364** canonical works; corrects 3SUM/APSP October 2026 conditional-bound status, transitive-reduction author/bounds, Cauchyproofs DOI, hypergraph author attribution, Ma–Tang/Singer metadata. Does not claim any new theorem, independent proof replay or universal transfer to UCT-005/HYP-105/TKG-001. Existing genomic IMPORT-010 and UCT D0 remain unchanged."
     }
   ],
   "catalog_occurrences": [
@@ -85,7 +94,10 @@
       "fields": [
         "summary_ru"
       ],
-      "kind": "SETH_INDEPENDENT_CONDITIONAL_PRIOR_ART"
+      "kind": "SETH_INDEPENDENT_CONDITIONAL_PRIOR_ART",
+      "expected_values": {
+        "summary_ru": "Полностью динамическое сопоставление текста и шаблона с k wildcard: суб-линейная сложность при малом k и условный запрет части режимов через SETH."
+      }
     },
     {
       "lit_id": "LIT-163",
@@ -93,7 +105,10 @@
       "fields": [
         "title"
       ],
-      "kind": "APSP_ALGORITHM_NOT_HARDNESS"
+      "kind": "APSP_ALGORITHM_NOT_HARDNESS",
+      "expected_values": {
+        "title": "A Simple Dynamic Spanner via APSP"
+      }
     },
     {
       "lit_id": "LIT-357",
@@ -102,7 +117,11 @@
         "title",
         "summary_ru"
       ],
-      "kind": "REFUTATION_SOURCE_NO_NEW_MATHLAB_THEOREM"
+      "kind": "REFUTATION_SOURCE_NO_NEW_MATHLAB_THEOREM",
+      "expected_values": {
+        "title": "Truly Subquadratic 3SUM and Truly Subcubic APSP via Triangles in Sparse Lopsided Graphs",
+        "summary_ru": "Препринт 5 октября 2026: авторы получают детерминированные O(n^1.9992) для 3SUM на целых числах полиномиального размера и O(n^2.9995) для APSP на ориентированных графах с целочисленными весами полиномиального размера; заявлено опровержение стандартных 3SUM/APSP conjectures."
+      }
     }
   ],
   "decision": "NO_EXPLICIT_3SUM_APSP_DEPENDENT_MATHLAB_THEOREM_LOCATED",
