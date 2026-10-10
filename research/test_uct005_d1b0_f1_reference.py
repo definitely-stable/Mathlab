@@ -18,7 +18,6 @@ class F1D1B0Tests(unittest.TestCase):
         self.assertTrue(contract["pin_gc"]["retention"].startswith("latest"))
         self.assertTrue(contract["adversary"]["abort_on_withholding"])
         self.assertEqual(contract["interval"]["representation"], "half-open [l,r)")
-        self.assertIn("STATIC", "STATIC")  # no inferred prior-art dynamic reduction
 
     def test_exhaustive_two_offline_readers_full_snapshot_upper(self):
         for n in range(1, 5):
@@ -91,6 +90,8 @@ class F1D1B0Tests(unittest.TestCase):
         self.assertEqual(m.ledger["set_full_page_writes"], 4)
         self.assertEqual(m.ledger["set_full_page_reads"], 0)
         self.assertEqual(m.ledger["anchor_publication_bytes"], 40)
+        self.assertEqual(m.ledger["author_remote_upload_bytes"], 8)
+        self.assertEqual(m.ledger["pin_control_full_page_writes"], 1)
         self.assertEqual(m.ledger["anchor_read_request_bytes"], 1)
         self.assertEqual(m.ledger["anchor_read_response_bytes"], 40)
         self.assertEqual(m.remote_pages, 8)
