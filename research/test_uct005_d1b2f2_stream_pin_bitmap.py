@@ -31,6 +31,10 @@ class StreamedPINFiniteTests(unittest.TestCase):
                                      + 4 * outcome["bitmap_pages"])
                     self.assertEqual(outcome["stream_bitmap_page_writes"],
                                      outcome["bulk_bitmap_page_writes"])
+                    self.assertEqual(outcome["stream_staging_page_reservations"],
+                                     4 * outcome["bitmap_pages"])
+                    self.assertEqual(outcome["stream_staging_reserved_wire_bytes"],
+                                     4 * outcome["bitmap_pages"] * p)
                     self.assertEqual(outcome["stream_protocol_peak_trusted_bitmap_buffer_bytes"],
                                      2 * min(outcome["bitmap_bytes"], p))
 
@@ -117,6 +121,10 @@ class StreamedPINFiniteTests(unittest.TestCase):
             self.assertEqual(x.epoch,0)
             self.assertEqual(x.readers[0],{})
             self.assertGreater(x.ledger["stream_aborted_unpublished_staging_pages"],0)
+            self.assertEqual(x.ledger["stream_staging_page_reservations"],
+                             x.bitmap_pages)
+            self.assertEqual(x.ledger["stream_staging_padded_reserved_bytes"],
+                             x.bitmap_pages * p)
             self.assertEqual(x.ledger["bitmap_trusted_root_publications"],0)
 
     def test_page_accounting_exact_without_hidden_history_lookup(self):
