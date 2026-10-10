@@ -1,0 +1,30 @@
+name: uct005-d1b2f2-streamed-pin-bitmap
+on:
+  push:
+    branches:
+      - "research/uct005-d1b2f2-*"
+    paths:
+      - "research/uct005_d1b2f2_streamed_pin_bitmap.py"
+      - "research/test_uct005_d1b2f2_streamed_pin_bitmap.py"
+      - ".github/workflows/uct005-d1b2f2-streamed-pin-bitmap.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "research/uct005_d1b2f2_streamed_pin_bitmap.py"
+      - "research/test_uct005_d1b2f2_streamed_pin_bitmap.py"
+      - ".github/workflows/uct005-d1b2f2-streamed-pin-bitmap.yml"
+permissions:
+  contents: read
+jobs:
+  two-pass-streamed-bitmap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Two readers, all binary words, page staging and abort tests
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2f2_streamed_pin_bitmap.py' -v
+      - name: Reproduce bounded bitmap-buffer reference
+        run: python research/uct005_d1b2f2_streamed_pin_bitmap.py
