@@ -81,3 +81,12 @@ Tests enumerate all single columns over Z/2Z and Z/5Z at m≤4 to reject e=2; co
 - The root \`research\` workflow already discovers \`test_*.py\`; neither it nor the F1 workflow must be modified.
 
 **Next slice:** only after independent hosted tests, implement a fully charged time-expanded F1 model and propose one falsifiable **nonfactorizing** bound or explicit STOP via #223. Research completeness of this atlas is not theorem novelty.
+
+
+## Typed machine-readable bridge atlas (G4-B0)
+
+The companion [G4 typed bridge register](UCT-005-G4-TYPED-BRIDGES.json) enumerates **16** scoped links across UCT/ROST, LENT/ASET, HYP-105, provenance/DAG, TKG, INDEX, TOM, incremental hashing, DeltaMeter, DNA channels and F1 verification. **This is 16 documented edges, NOT 16 independently proved reductions.** Only the records classified CLASSICAL_DIRECT or PROOF_INGREDIENT assert restricted, classical derivations; COUNTERMODEL records explicitly block invalid arrows; REDUCTION_REQUIRED and APPLICATION_ONLY remain unproved.
+
+A separate fail-closed test \`research/test_uct005_g4_bridge_register.py\` rejects unknown type values, absent preconditions, duplicate IDs, blank resource mappings, and promotion of an unproved REDUCTION_REQUIRED edge to CLASSICAL_DIRECT without separately changing its acceptance contract. This is **registry hygiene**, not machine-verification of a proof. Scientific advancement of an edge requires source theorem assumptions, an independently audited reduction and preservation of security/error/resource units; textual classification alone cannot establish it.
+
+The hosted workflow now discovers both \`test_uct005_g4_bridge_oracles.py\` and \`test_uct005_g4_bridge_register.py\`. The repository's general Research CI discovers all \`test_*.py\`.
