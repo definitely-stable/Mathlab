@@ -2,6 +2,10 @@
 
 [Full mathematical reduction, four scholarly precursors and mass-only countermodel](HYP-105-G5-E2-B3-E1C0-WEIGHTED-OVERLAP-TRANSFER.md) · [reference](../../research/hyp105_g5e2b3e1c0_weighted_overlap.py) · [independent tests](../../research/test_hyp105_g5e2b3e1c0_weighted_overlap.py). B/A physical event is weighted 6-uniform overlap under an arbitrary physical pair-edge right injection; exact T_a 1-design and adjacent/disjoint pair codegrees (7 C(a-3,3), 14 C(a-4,2)) isolate the W2-level target geometry; it has exact random mean but total mass alone does NOT force positive min. W32 exact original-six-incidence evidence; all-h GQ-specific min and entire R3 open. GQ incidence codegree at most one implies each original right-sixset weight ≤15(s+1)^4 and uniformly Ω(s11) distinct positive source right-sixsets; a generic 3-cube trade with identical all ≤2 marginals gives different target overlap. Third target orbit counts (1,2,0,5,8) proved. Canonical Bollobás–Scott source import remains independently gated.
 
+## UCT-005 D1-B2-B — charged COW-tree page records, PIN and mark-sweep (2026-10-10)
+
+[Exact 122-byte node/48-byte root model](UCT-005-G3-B2-D1B2B-PAGE-COW-TREE.md) · [reference](../../research/uct005_d1b2b_page_cow.py) · [independent tests](../../research/test_uct005_d1b2b_page_cow.py) · [issue #244](https://github.com/definitely-stable/Mathlab/issues/244). Two independent readers, authenticated latest/historical roots, complete page-image ledgers, stale-GC exclusion. **FINITE_UPPER / NO_REAL_CRASH_SECURITY / ROOT_OPEN_UNPROVED**.
+
 ## UCT-005 D1-B2-A — same-trace three-upper comparator and partial-Pareto stop (2026-10-10)
 
 [Formal finite evidence](UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md) · [reproducible model](../../research/uct005_d1b2a_partial_pareto.py) · [independent tests](../../research/test_uct005_d1b2a_partial_pareto.py). Three conditional F1 upper families answer identical SET/LATEST/PIN/AS_OF transcript under explicitly assumed trust. Only PAGE-001 snapshots have byte-conserving page prices; **no fabricated cross-family Pareto dominance, no new lower bound, ROOT_OPEN_UNPROVED**.
