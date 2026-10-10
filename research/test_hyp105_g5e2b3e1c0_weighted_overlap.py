@@ -14,6 +14,7 @@ from hyp105_g5e2b3e1c0_weighted_overlap import (
     simple_six_2factor_targets,source_weighted_BA_hypergraph,
     exact_BA_overlap,random_injection_expectation,
     finite_W32_overlap_report,generic_mass_only_countermodel,
+    physical_target_two_point_design,one_degree_source_overlap_invariant,
 )
 
 
@@ -63,6 +64,66 @@ class WeightedIntersectionTests(unittest.TestCase):
         self.assertEqual(len(expected),70)
         self.assertEqual(actual,frozenset(expected))
         self.assertEqual(Fraction(len(actual),comb(15,6)),Fraction(2,143))
+
+    def test_independent_K6_and_K9_target_two_point_signature(self):
+        for a in (6,9):
+            T=simple_six_2factor_targets(a)
+            edges=tuple(combinations(range(a),2))
+            d=Counter()
+            adjacent=Counter()
+            disjoint=Counter()
+            for six in T:
+                for e in six:
+                    d[e]+=1
+                for e,f in combinations(sorted(six),2):
+                    (adjacent if len(set(e)&set(f)) else disjoint)[(e,f)]+=1
+            expected=physical_target_two_point_design(a)
+            self.assertEqual(len(T),
+                             expected["physical_six_2factor_target_size"])
+            self.assertEqual(set(d.values()),
+                             {expected["target_degree_each_pair_label"]})
+            for e,f in combinations(edges,2):
+                key=tuple(sorted((e,f)))
+                observed=(adjacent if set(e)&set(f) else disjoint)[key]
+                oracle=(expected["pair_codegree_adjacent_physical_labels"]
+                        if set(e)&set(f) else
+                        expected["pair_codegree_disjoint_physical_labels"])
+                self.assertEqual(observed,oracle)
+            self.assertEqual(expected["target_is_two_design"],a==9)
+
+    def test_K14_nontrivial_two_orbit_second_component(self):
+        values=physical_target_two_point_design(14)
+        self.assertEqual(values["a"],14)
+        self.assertTrue(values["target_is_one_design"])
+        self.assertFalse(values["target_is_two_design"])
+        self.assertTrue(values["uniform_target_component_W1_zero"])
+        self.assertEqual(values["target_degree_each_pair_label"],
+                         28*comb(12,4))
+        self.assertEqual(values["pair_codegree_adjacent_physical_labels"],
+                         7*comb(11,3))
+        self.assertEqual(values["pair_codegree_disjoint_physical_labels"],
+                         14*comb(10,2))
+
+    def test_exact_degree_one_source_permutation_invariance_K6(self):
+        a=6
+        edges=tuple(combinations(range(a),2))
+        T=independent_degree2_target_K6()
+        K=len(edges)
+        coeff=tuple((i*17)%29 for i in range(K))
+        constant=9
+        expected=one_degree_source_overlap_invariant(a,constant,coeff)
+        for mapping in (
+            tuple(range(K)),
+            tuple(reversed(range(K))),
+            tuple((i+7)%K for i in range(K)),
+        ):
+            observed=0
+            for R in combinations(range(K),6):
+                weight=constant+sum(coeff[i] for i in R)
+                if frozenset(edges[mapping[i]] for i in R) in T:
+                    observed+=weight
+            self.assertEqual(observed,expected)
+        self.assertEqual(expected,constant*70+28*sum(coeff))
 
     def test_W32_both_controls_with_true_original_incidence(self):
         target=independent_degree2_target_K6()
