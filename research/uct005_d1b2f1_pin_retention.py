@@ -249,6 +249,63 @@ def _path_depth(n: int, index: int) -> int:
     return depth
 
 
+def _path_coordinates(n: int, index: int) -> frozenset[tuple[int, int]]:
+    """Public balanced-tree coordinate path, NOT a remote pointer lookup."""
+    if type(n) is not int or not 1 <= n < 2**32:
+        raise ValueError("positive finite tree size")
+    if type(index) is not int or not 0 <= index < n:
+        raise ValueError("invalid public update index")
+    lo, hi = 0, n
+    result = set()
+    while True:
+        result.add((lo, hi))
+        if hi - lo == 1:
+            return frozenset(result)
+        mid = (lo + hi) // 2
+        if index < mid:
+            hi = mid
+        else:
+            lo = mid
+
+
+def exact_retained_node_excess(
+    n: int, update_indices: tuple[int, ...],
+    retained_epochs: tuple[int, ...],
+) -> int:
+    """Restricted structural identity for the full-path immutable COW grammar.
+
+    For retained checkpoints e0<e1<...<ek=LATEST, the number of distinct
+    node IDs kept beyond the latest root's 2n-1 nodes is EXACTLY
+
+        sum_j | union_{e_j < update_epoch <= e_{j+1}} path(update_index) |.
+
+    Every tree coordinate (lo,hi) has a fresh physical node ID iff its
+    coordinate lies on a SET path, including no-op SETs. For each interval
+    between consecutive retained checkpoints, a coordinate contributes
+    one extra physical version iff at least one SET touched it. This is a
+    per-coordinate bijection, not a general dynamic-storage lower bound.
+    Public path computation is OFFLINE diagnostic CPU, NOT free online GC.
+    """
+    if type(n) is not int or not 1 <= n < 2**32:
+        raise ValueError("invalid tree size")
+    indices = tuple(update_indices)
+    epochs = tuple(retained_epochs)
+    if any(type(i) is not int or not 0 <= i < n for i in indices):
+        raise ValueError("invalid update index")
+    if (not epochs or any(type(e) is not int for e in epochs)
+            or tuple(sorted(set(epochs))) != epochs
+            or epochs[-1] != len(indices) or epochs[0] < 0):
+        raise ValueError("checkpoint epochs must be sorted, distinct and end at LATEST")
+    paths = [_path_coordinates(n, i) for i in indices]
+    extra = 0
+    for a, b in zip(epochs, epochs[1:]):
+        union = set()
+        for i in range(a, b):
+            union.update(paths[i])
+        extra += len(union)
+    return extra
+
+
 
 def exercise(n: int, p: int, initial: tuple[int,...] | None=None) -> dict:
     if type(n) is not int or not 1<=n<=2048 or type(p) is not int or not 1<=p<=4096:
