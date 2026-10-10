@@ -17,11 +17,11 @@ class LiteratureTests(unittest.TestCase):
 
     def test_import006_distinct_works_and_indexed_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 364)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 364)
-        self.assertEqual(len({e["id"] for e in entries}), 364)
+        self.assertEqual(len(entries), 384)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 384)
+        self.assertEqual(len({e["id"] for e in entries}), 384)
         self.assertEqual(({f"LIT-{i:03d}" for i in range(1, 205)} |
-                          {"LIT-206", "LIT-207", "LIT-208", "LIT-209", "LIT-210", "LIT-211", "LIT-212", "LIT-213"} | {f"LIT-{i:03d}" for i in range(214, 366)}),
+                          {"LIT-206", "LIT-207", "LIT-208", "LIT-209", "LIT-210", "LIT-211", "LIT-212", "LIT-213"} | {f"LIT-{i:03d}" for i in range(214, 386)}),
                          {e["id"] for e in entries})
         self.assertEqual(len({e["track"] for e in entries}), 21)
 
@@ -36,6 +36,28 @@ class LiteratureTests(unittest.TestCase):
         altered = copy.deepcopy(self.data)
         next(e for e in altered["entries"] if e["id"] == "LIT-357")["title"] = "Tampered title"
         self.assertTrue(any("primary source title mismatch" in x for x in valid(altered, self.catalog)))
+
+    def test_import012_primary_identity_alias_and_source_fences(self):
+        cohort = {e["id"]: e for e in self.data["entries"]
+                  if "LIT-366" <= e["id"] <= "LIT-385"}
+        self.assertEqual(len(cohort), 20)
+        self.assertEqual(len({e["identity"].lower() for e in cohort.values()}), 20)
+        self.assertEqual(cohort["LIT-368"]["identity"],
+                         "doi:10.1007/s00493-026-00214-1")
+        self.assertEqual(cohort["LIT-373"]["identity"],
+                         "doi:10.4230/LIPIcs.CCC.2026.41")
+        self.assertEqual(cohort["LIT-377"]["identity"], "doi:10.1112/blms.70382")
+        self.assertEqual(cohort["LIT-378"]["identity"], "doi:10.1101/gr.276607.122")
+        self.assertEqual(cohort["LIT-382"]["identity"],
+                         "publisher:aclanthology:2025-neusymbridge-1-2")
+        self.assertTrue(all(not e["full_proof_verified"] and
+                            not e["independent_reproduction"] for e in cohort.values()))
+        self.assertTrue(all(e["mentioned_in"][0]["source_sha"] ==
+                            "2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d" for e in cohort.values()))
+        tampered = copy.deepcopy(self.data)
+        next(e for e in tampered["entries"] if e["id"] == "LIT-373")["title"] = "false CCC DOI"
+        self.assertTrue(any("primary source title mismatch" in x
+                            for x in valid(tampered, self.catalog)))
 
     def test_import006_graph_rag_memory_primary_metadata(self):
         cohort = {e["id"]: e for e in self.data["entries"]
@@ -507,7 +529,7 @@ class LiteratureTests(unittest.TestCase):
         original = {e["id"] for e in self.data["entries"]}
         self.assertTrue({f"LIT-{i:03d}" for i in range(50, 96)} <= original)
         self.assertTrue({f"LIT-{i:03d}" for i in range(1, 96)} <= original)
-        self.assertEqual(len(self.data["entries"]), 364)
+        self.assertEqual(len(self.data["entries"]), 384)
         all_ids = [e["identity"].lower() for e in self.data["entries"]]
         self.assertEqual(len(all_ids), len(set(all_ids)))
 
@@ -807,7 +829,7 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 364)
+        self.assertEqual(len({e["id"] for e in entries}), 384)
         tracks = {e["track"] for e in entries}
         self.assertEqual(len(tracks), 21)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(

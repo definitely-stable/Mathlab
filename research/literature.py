@@ -61,6 +61,27 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-012 verified canonical primary title identities (provenance and genealogy).
+    "doi:10.1007/s00222-014-0562-8": "Hypergraph containers",
+    "doi:10.1090/S0894-0347-2014-00816-X": "Independent sets in hypergraphs",
+    "doi:10.1007/s00493-026-00214-1": "Towards an Optimal Hypergraph Container Lemma",
+    "arxiv:1801.04584": "The method of hypergraph containers",
+    "doi:10.1137/21M1428431": "A Logarithmic Lower Bound for Oblivious RAM (For All Parameters)",
+    "arxiv:1704.06185": "Cell-Probe Lower Bounds from Online Communication Complexity",
+    "arxiv:2608.19172": "Cell-Probe Lower Bounds and Complexity-Preserving Reductions for Suffix Array Queries",
+    "doi:10.4230/LIPIcs.CCC.2026.41": "Systematic Data Structure Lower Bounds via the Query-With-Sketch Model",
+    "doi:10.1016/j.ffa.2024.102569": "Regular sets of lines in rank 3 polar spaces",
+    "doi:10.1007/s10623-024-01489-5": "A common generalization of hypercube partitions and ovoids in polar spaces",
+    "doi:10.1016/j.ffa.2025.102746": "The Erdős-Rado sunflower problem for vector spaces",
+    "doi:10.1112/blms.70382": "Fractional clique decompositions of dense hypergraphs",
+    "doi:10.1101/gr.276607.122": "Lossless indexing with counting de Bruijn graphs",
+    "doi:10.3389/fgene.2025.1679660": "Beyond single references: pangenome graphs and the future of genomic medicine",
+    "doi:10.18653/v1/2024.acl-long.8": "A Unified Temporal Knowledge Graph Reasoning Model Towards Interpolation and Extrapolation",
+    "doi:10.18653/v1/2024.findings-emnlp.543": "Natural Evolution-based Dual-Level Aggregation for Temporal Knowledge Graph Reasoning",
+    "publisher:aclanthology:2025-neusymbridge-1-2": "CEGRL-TKGR: A Causal Enhanced Graph Representation Learning Framework for Temporal Knowledge Graph Reasoning",
+    "arxiv:2507.23581": "GraphRAG-R1: Graph Retrieval-Augmented Generation with Process-Constrained Reinforcement Learning",
+    "doi:10.5281/zenodo.21039806": "Comparing RAG and GraphRAG for Page-Level Retrieval Question Answering on a Math Textbook",
+    "doi:10.1145/3798129.3800774": "Dynamic Meta-Kernelization",
     # IMPORT-011: external PDF corrections, checked publisher/author identities.
     "arxiv:2610.06783": "Truly Subquadratic 3SUM and Truly Subcubic APSP via Triangles in Sparse Lopsided Graphs",
     "doi:10.1109/SP61157.2025.00247": "Cauchyproofs: Batch-Updatable Vector Commitment with Easy Aggregation and Application to Stateless Blockchains",

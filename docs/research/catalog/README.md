@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## IMPORT-012 — cross-disciplinary genealogy and 20 corrected external Deep Research records
+
+[Scientific correction/disposition of 32 PDF items, ancestor/descendant chains and cross-model STOP gates](../RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) · [typed 24-edge source genealogy](../IMPORT-012-SOURCE-GENEALOGY.json) · [issue #236](https://github.com/definitely-stable/Mathlab/issues/236). Canonical **364→384** records LIT-366..385; original 2015 container foundations plus 2026 Campos–Samotij, CCC/ORAM/cell-probe, finite polar geometry, DNA/k-mer, TKG and negative GraphRAG controls. No primary theorem independently reproduced; no transfer/novelty claim.
+
 ## IMPORT-011 — external Deep Research PDF corrections + nine verified original identities
 
 [Source-grounded scientific audit](../RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). Adds LIT-357..365, **355→364** canonical works; corrects 3SUM/APSP October 2026 conditional-bound status, transitive-reduction author/bounds, Cauchyproofs DOI, hypergraph author attribution, Ma–Tang/Singer metadata. Does not claim any new theorem, independent proof replay or universal transfer to UCT-005/HYP-105/TKG-001. Existing genomic IMPORT-010 and UCT D0 remain unchanged.

@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**364** работ сопоставлены с **38** внутренними исследованиями.
+**384** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -170,6 +170,7 @@
 - [LIT-352](LITERATURE.md#lit-352) — The Cell Probe Complexity of Dynamic Range Counting (2012; author_paper_or_bibliography_checked)
 - [LIT-362](LITERATURE.md#lit-362) — Largest Sidon subsets in weak Sidon sets (2026; primary_abstract_checked)
 - [LIT-365](LITERATURE.md#lit-365) — HEDGES error-correcting code for DNA storage corrects indels and allows sequence constraints (2020; publisher_abstract_checked)
+- [LIT-376](LITERATURE.md#lit-376) — The Erdős-Rado sunflower problem for vector spaces (2025; publisher_abstract_checked)
 
 ## ML-002
 
@@ -214,6 +215,14 @@
 - [LIT-362](LITERATURE.md#lit-362) — Largest Sidon subsets in weak Sidon sets (2026; primary_abstract_checked)
 - [LIT-363](LITERATURE.md#lit-363) — Formalizing Singer Sidon Constructions and Sidon Set Infrastructure in Lean 4 (2026; primary_abstract_checked)
 - [LIT-365](LITERATURE.md#lit-365) — HEDGES error-correcting code for DNA storage corrects indels and allows sequence constraints (2020; publisher_abstract_checked)
+- [LIT-366](LITERATURE.md#lit-366) — Hypergraph containers (2015; publisher_abstract_checked)
+- [LIT-367](LITERATURE.md#lit-367) — Independent sets in hypergraphs (2014; publisher_abstract_checked)
+- [LIT-368](LITERATURE.md#lit-368) — Towards an Optimal Hypergraph Container Lemma (2024; publisher_abstract_checked)
+- [LIT-369](LITERATURE.md#lit-369) — The method of hypergraph containers (2018; primary_abstract_checked)
+- [LIT-374](LITERATURE.md#lit-374) — Regular sets of lines in rank 3 polar spaces (2023; publisher_abstract_checked)
+- [LIT-375](LITERATURE.md#lit-375) — A common generalization of hypercube partitions and ovoids in polar spaces (2024; publisher_abstract_checked)
+- [LIT-376](LITERATURE.md#lit-376) — The Erdős-Rado sunflower problem for vector spaces (2025; publisher_abstract_checked)
+- [LIT-377](LITERATURE.md#lit-377) — Fractional clique decompositions of dense hypergraphs (2025; publisher_abstract_checked)
 
 ## ML-003
 
@@ -525,6 +534,18 @@
 - [LIT-358](LITERATURE.md#lit-358) — Cauchyproofs: Batch-Updatable Vector Commitment with Easy Aggregation and Application to Stateless Blockchains (2025; publisher_abstract_checked)
 - [LIT-359](LITERATURE.md#lit-359) — Cell-Probe Lower Bounds via Semi-Random CSP Refutation: Simplified and the Odd-Locality Case (2025; primary_abstract_checked)
 - [LIT-364](LITERATURE.md#lit-364) — LycheeMemory V2: Efficient Long-Term Memory for LLM Agents via Semantic Segment-Level Consolidation (2026; primary_abstract_checked)
+- [LIT-370](LITERATURE.md#lit-370) — A Logarithmic Lower Bound for Oblivious RAM (For All Parameters) (2021; publisher_abstract_checked)
+- [LIT-371](LITERATURE.md#lit-371) — Cell-Probe Lower Bounds from Online Communication Complexity (2017; primary_abstract_checked)
+- [LIT-372](LITERATURE.md#lit-372) — Cell-Probe Lower Bounds and Complexity-Preserving Reductions for Suffix Array Queries (2026; primary_abstract_checked)
+- [LIT-373](LITERATURE.md#lit-373) — Systematic Data Structure Lower Bounds via the Query-With-Sketch Model (2026; publisher_abstract_checked)
+- [LIT-378](LITERATURE.md#lit-378) — Lossless indexing with counting de Bruijn graphs (2022; publisher_abstract_checked)
+- [LIT-379](LITERATURE.md#lit-379) — Beyond single references: pangenome graphs and the future of genomic medicine (2025; publisher_abstract_checked)
+- [LIT-380](LITERATURE.md#lit-380) — A Unified Temporal Knowledge Graph Reasoning Model Towards Interpolation and Extrapolation (2024; publisher_abstract_checked)
+- [LIT-381](LITERATURE.md#lit-381) — Natural Evolution-based Dual-Level Aggregation for Temporal Knowledge Graph Reasoning (2024; publisher_abstract_checked)
+- [LIT-382](LITERATURE.md#lit-382) — CEGRL-TKGR: A Causal Enhanced Graph Representation Learning Framework for Temporal Knowledge Graph Reasoning (2025; publisher_bibliography_checked)
+- [LIT-383](LITERATURE.md#lit-383) — GraphRAG-R1: Graph Retrieval-Augmented Generation with Process-Constrained Reinforcement Learning (2025; primary_abstract_checked)
+- [LIT-384](LITERATURE.md#lit-384) — Comparing RAG and GraphRAG for Page-Level Retrieval Question Answering on a Math Textbook (2025; publisher_abstract_checked)
+- [LIT-385](LITERATURE.md#lit-385) — Dynamic Meta-Kernelization (2026; publisher_abstract_checked)
 
 ## ML-005
 
@@ -725,6 +746,13 @@
 - [LIT-354](LITERATURE.md#lit-354) — Making data structures persistent (1989; publisher_abstract_checked)
 - [LIT-355](LITERATURE.md#lit-355) — Authenticated Data Structures for Dynamic Workloads (2026; author_paper_or_bibliography_checked)
 - [LIT-356](LITERATURE.md#lit-356) — Integrita: A BFT distributed storage system (2025; publisher_abstract_checked)
+- [LIT-370](LITERATURE.md#lit-370) — A Logarithmic Lower Bound for Oblivious RAM (For All Parameters) (2021; publisher_abstract_checked)
+- [LIT-371](LITERATURE.md#lit-371) — Cell-Probe Lower Bounds from Online Communication Complexity (2017; primary_abstract_checked)
+- [LIT-372](LITERATURE.md#lit-372) — Cell-Probe Lower Bounds and Complexity-Preserving Reductions for Suffix Array Queries (2026; primary_abstract_checked)
+- [LIT-373](LITERATURE.md#lit-373) — Systematic Data Structure Lower Bounds via the Query-With-Sketch Model (2026; publisher_abstract_checked)
+- [LIT-378](LITERATURE.md#lit-378) — Lossless indexing with counting de Bruijn graphs (2022; publisher_abstract_checked)
+- [LIT-379](LITERATURE.md#lit-379) — Beyond single references: pangenome graphs and the future of genomic medicine (2025; publisher_abstract_checked)
+- [LIT-385](LITERATURE.md#lit-385) — Dynamic Meta-Kernelization (2026; publisher_abstract_checked)
 
 ## ML-007
 
@@ -922,6 +950,11 @@
 - [LIT-312](LITERATURE.md#lit-312) — Temporal knowledge graph reasoning using global and recent history information (2026; publisher_abstract_checked)
 - [LIT-314](LITERATURE.md#lit-314) — ArchRAG: Attributed Community-based Hierarchical Retrieval-Augmented Generation (2026; publisher_abstract_checked)
 - [LIT-316](LITERATURE.md#lit-316) — BookRAG: A Hierarchical Structure-aware Index-based Approach for Retrieval-Augmented Generation on Complex Documents (2026; publisher_abstract_checked)
+- [LIT-380](LITERATURE.md#lit-380) — A Unified Temporal Knowledge Graph Reasoning Model Towards Interpolation and Extrapolation (2024; publisher_abstract_checked)
+- [LIT-381](LITERATURE.md#lit-381) — Natural Evolution-based Dual-Level Aggregation for Temporal Knowledge Graph Reasoning (2024; publisher_abstract_checked)
+- [LIT-382](LITERATURE.md#lit-382) — CEGRL-TKGR: A Causal Enhanced Graph Representation Learning Framework for Temporal Knowledge Graph Reasoning (2025; publisher_bibliography_checked)
+- [LIT-383](LITERATURE.md#lit-383) — GraphRAG-R1: Graph Retrieval-Augmented Generation with Process-Constrained Reinforcement Learning (2025; primary_abstract_checked)
+- [LIT-384](LITERATURE.md#lit-384) — Comparing RAG and GraphRAG for Page-Level Retrieval Question Answering on a Math Textbook (2025; publisher_abstract_checked)
 
 ## OM-135
 
