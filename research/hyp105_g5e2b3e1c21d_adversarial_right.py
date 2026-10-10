@@ -123,6 +123,67 @@ def direct_original_C6_D6_oracle(
     }
 
 
+
+def exact_global_right_swap_neighborhood():
+    """ALL 105 complete right maps at transposition distance 1 from D6 zero.
+
+    One shared global right map per swap; source ORIGINAL f stays frozen.
+    The direct method uses ONLY physical left C6 and TRUE ORIGINAL GQ
+    incidence choices; no seven_census or original-to-physical symmetry.
+    All 105 scores are integer exact, with no Monte Carlo sampling.
+    """
+    from hyp105_g5e2b3e1a_fixed_leading import PAIRS, validated_small_model
+
+    m = genuine_global_W32_model()
+    left, right, incidence, by_point = validated_small_model(m)
+    physical_cycles = tuple(canonical_simple_six_cycles(PAIRS, 6))
+    source = []
+    pair_positions = tuple(combinations(range(6), 2))
+    inverse = {e:i for i,e in enumerate(left)}
+    for cycle in physical_cycles:
+        pts = tuple(inverse[e] for e in cycle)
+        target_pattern = tuple(bool(set(cycle[i]) & set(cycle[j]))
+                               for i,j in pair_positions)
+        for ids in product(*(by_point[p] for p in pts)):
+            lines = tuple(incidence[i][1] for i in ids)
+            if len(set(lines)) == 6:
+                source.append((target_pattern, lines))
+    if len(source) != 18716:
+        raise AssertionError("GQ right-distinct original source lost")
+    physical_bits = tuple((1<<a)|(1<<b) for a,b in PAIRS)
+    baseline = W32_LEX_RIGHT_ZERO_D6
+    scores = Counter()
+    examples = {}
+    for i,j in combinations(range(15), 2):
+        global_g = list(baseline)
+        global_g[i], global_g[j] = global_g[j], global_g[i]
+        # One common globally swapped g: right adjacency is computed ONCE
+        # for original right-line pair IDs and used across EVERY original J.
+        edge_mask = tuple(physical_bits[p] for p in global_g)
+        adjacency = tuple(tuple(bool(edge_mask[x] & edge_mask[y])
+                                for y in range(15)) for x in range(15))
+        value = 0
+        for target, lines in source:
+            if all(adjacency[lines[u]][lines[v]] == expected
+                   for (u,v), expected in zip(pair_positions,target)):
+                value += 1
+        scores[value] += 1
+        examples.setdefault(value, (i,j))
+    if sum(scores.values()) != comb(15, 2):
+        raise AssertionError("not every one-swap global right map enumerated")
+    return {
+        "scope": "ONE_FIXED_TRUE_ORIGINAL_W32_LEFT_AND_105_FULL_RIGHT_MAPS",
+        "shared_original_right_source": len(source),
+        "one_global_right_transposition_neighbors": comb(15,2),
+        "D6_histogram": dict(sorted(scores.items())),
+        "zero_D6_right_swap_neighbors": scores[0],
+        "lexicographically_first_swap_by_D6": {
+            score: list(swap) for score,swap in sorted(examples.items())},
+        "not_global_right_full_15_factorial_minimum_enumeration": True,
+        "not_all_h_or_all_seven_no_go": True,
+    }
+
+
 def genuine_W32_C21D_certificate(right_permutation=W32_LEX_RIGHT_ZERO_D6):
     """Finite unrestricted right zero witness; full seven-class fallback audit."""
     from hyp105_g5e2b3e1b0_seven_signature import (
@@ -185,4 +246,6 @@ if __name__ == "__main__":
     print(json.dumps({
         "adversarial_global_right": genuine_W32_C21D_certificate(),
         "lex_baseline": genuine_W32_C21D_certificate(tuple(range(15))),
+        "all_105_true_global_right_single_swaps":
+            exact_global_right_swap_neighborhood(),
     }, sort_keys=True, indent=2))
