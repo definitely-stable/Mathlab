@@ -210,7 +210,8 @@ def original_to_physical_action(pi, action):
 def orbit_quotiented_shared_minimum_interval(
         source, a, occupied, original_pins, *,
         max_prefixes=50000,
-        max_relevant_source_cells=10000):
+        max_relevant_source_cells=10000,
+        explicit_right_witnesses=()):
     """FULL right-S_V global interval for ONE fixed genuine f,F, via H-orbits.
 
     Every complete common g has a D-prefix p belonging to EXACTLY
@@ -269,9 +270,34 @@ def orbit_quotiented_shared_minimum_interval(
     if not rows:
         raise AssertionError("empty exact physical prefix partition")
     global_lower=min(row["certified_all_completions_lower"] for row in rows)
-    global_upper=min(row["existential_some_completion_upper"] for row in rows)
+    moment_only_upper=min(row["existential_some_completion_upper"] for row in rows)
+    global_upper=moment_only_upper
+
+    # Explicit FULL original->physical right-map witnesses can sharpen the
+    # existential bound, but NEVER the universal deterministic lower.
+    # Each is independently validated and recounted against the very same
+    # source and occupied physical 2-factor target.
+    try:
+        witness_sequence=tuple(explicit_right_witnesses)
+    except TypeError as exc:
+        raise ValueError("witnesses must be explicit full right maps") from exc
+    witness_values=[]
+    best_witness=None
+    for candidate in witness_sequence:
+        try:
+            pi=tuple(candidate)
+        except TypeError as exc:
+            raise ValueError("witness must be a complete right bijection") from exc
+        if (len(pi)!=V or any(type(x) is not int or not 0<=x<V for x in pi)
+                or len(set(pi))!=V):
+            raise ValueError("witness must biject ALL original right IDs")
+        actual=fixed_map_overlap(src,target,pi)
+        witness_values.append(actual)
+        if best_witness is None or actual<best_witness[0]:
+            best_witness=(actual,pi)
+        global_upper=min(global_upper,actual)
     if global_lower>global_upper:
-        raise AssertionError("global orbit interval violated")
+        raise AssertionError("invalid certified right-map witness or lower bound")
     reference=common_bijection_moments(src,target,V)
     count=group["all_injective_prefixes"]
     weighted_mean=total_mu/count
@@ -286,7 +312,11 @@ def orbit_quotiented_shared_minimum_interval(
         "physical_prefix_orbits":len(rows),
         "physical_prefix_assignments_exhausted":count,
         "certified_global_BA_minimum_lower":global_lower,
+        "moment_only_existential_global_BA_upper":moment_only_upper,
         "existential_global_BA_minimum_upper":global_upper,
+        "explicit_full_right_witness_values":tuple(witness_values),
+        "best_recounted_explicit_right_witness":
+            best_witness[1] if best_witness else None,
         "exact_global_BA_minimum_if_equal":
             global_lower if global_lower==global_upper else None,
         "unconditional_mean_recovered_by_exact_orbit_tower":weighted_mean,
@@ -319,8 +349,10 @@ def genuine_W32_orbit_report():
         raise AssertionError("canonical physical K6 orbit partition changed")
     # All 210 physical assignments of two NAMED original right lines are
     # covered by just TWO exact common-completion conditional moment gates.
+    c11=genuine_W32_coupled_four_report()
     k2_global=orbit_quotiented_shared_minimum_interval(
-        src,6,F,(0,1),max_prefixes=210)
+        src,6,F,(0,1),max_prefixes=210,
+        explicit_right_witnesses=(c11["minimizing_full_right_permutation"],))
     if (k2_global["physical_prefix_orbits"]!=2
             or k2_global["physical_prefix_assignments_exhausted"]!=210):
         raise AssertionError("GQ W32 global two-pin orbit certificate incomplete")
@@ -354,7 +386,6 @@ def genuine_W32_orbit_report():
                 "worst_completion_lower_from_second_moment"):
         if m[key]!=m2[key]:
             raise AssertionError("common-completion distribution changed under automorphism")
-    c11=genuine_W32_coupled_four_report()
     if c11["restricted_four_line_exact_minimum"]!=56:
         raise AssertionError("W32 24-common-map regression changed")
     return {
@@ -371,6 +402,10 @@ def genuine_W32_orbit_report():
             k2_global["certified_global_BA_minimum_lower"],
         "W32_all_right_g_two_pin_orbit_existential_upper":
             k2_global["existential_global_BA_minimum_upper"],
+        "W32_all_right_g_two_pin_orbit_moment_only_upper":
+            k2_global["moment_only_existential_global_BA_upper"],
+        "W32_global_explicit_right_witness_BA":
+            k2_global["explicit_full_right_witness_values"][0],
         "W32_two_pin_orbit_global_exact_if_meet":
             k2_global["exact_global_BA_minimum_if_equal"],
         "W32_two_pin_orbit_conditional_mean_tower":
