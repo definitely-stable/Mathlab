@@ -46,6 +46,41 @@ q_F(z) = Σ_{J⊆E(K_a)∖F, |J|≤4} (-1)^|J| codeg_{T_a}(z∪J)
 
 holds by inclusion–exclusion since each completion adds exactly four other physical pair labels. It is valid for all a>=6 and any occupied F and anchor z⊆F; do not infer codegrees of a 6+-edge set from just C0's two-/three-point data.
 
+## 2A. Additional universal occupied-physical two-triangle subfamily (all a, all missing sets)
+
+C3 provides many distinguished pairs with disjoint PHYSICAL images. Unlike the previous example where missing occupied edges can kill an anchor containing a physically degree-one coordinate, a useful **conditional positive occupancy lemma** holds whenever the missing-edge budget is sufficiently smaller than a.
+
+Fix any physically disjoint occupied anchor edges ab, cd of F⊆E(K_a), |E(K_a)∖F|=t. Let W be all a−4 physical coordinates outside {a,b,c,d} and define
+
+```text
+X = {x in W: ax and bx both occupied},
+Y = {y in W: cy and dy both occupied}.
+```
+
+For every ordered (x,y) in X×Y with x≠y, the physical SIX-edge set consisting of the two disjoint triangles (ab,ax,bx) and (cd,cy,dy) is a genuine occupied 2-factor containing the anchor. These are all DISTINCT since the triangle containing ab uniquely identifies x and the triangle containing cd identifies y. Consequently,
+
+```text
+q_F({ab,cd}) >= |X||Y| - |X∩Y|
+             >= max{0, L(L−1)},
+L = max{0, a−4−t}.
+```
+
+The last inequality follows because one missing physical edge can exclude at most one extra coordinate from X and at most one from Y, so both sizes ≥a−4−t. For sizes ≥L, |X||Y|−|X∩Y|≥L(L−1). Thus **if t≤a−6**, EVERY physically disjoint anchor in F admits at least two true occupied physical 2factor completions. The lemma is constructive and uniform over the adversarial occupied physical pair labels, not specific to a random F. It is NOT a guarantee that the four ACTUAL original right line images g(H(E)) coincide with any such completion.
+
+### Exact all-h conditional-random benchmark (not an adversarial lower!)
+
+Combine the new occupied triangle lemma with the genuinely uniform C3 distinguished pair mass lower `M_dis^-(s)`. For each original distinguished pair P, freeze its g(P), F and randomize **that pair's** remaining right labels, as specified in section 3. The sum of these DIFFERENT per-P conditional means obeys the exact finite lower
+
+```text
+Σ_{P physically disjoint} E_{π_P}[X_P(π_P)]
+  = Σ_{P disjoint} w_f(P)*q_F(g(P))/binom(V−2,4)
+ >= M_dis^-(s)*max{0,L(L−1)}/binom(V−2,4).
+```
+
+If along a sequence s=2^h the minimal alphabet slack obeys t≤(1−η)a for some FIXED η>0, then L≥ηa−4, the C3 mass is asymptotically ≥(1/4−o(1))s^15, V∼s³, a∼sqrt(2)s^(3/2), and the displayed conditional-benchmark lower is **Omega_η(s^6)**. This is a *restricted theorem about the sum of separately conditioned random means*; it is **NOT** the expectation of the total overlap under a common right random permutation, and does **NOT** imply any positive lower for adversarial fixed g or full seven-family S. Without the η slack assumption the exact bound may be zero.
+
+This exposes the exact missing obstacle: there are MANY legal PHYSICAL completions for almost every source anchor under a non-extreme missing budget, but the actual correlated source conditional four-line images may systematically avoid them. The jointly constrained avoidance is what a future GQ-specific theorem must preclude (or exhibit) on all seven families.
+
 ## 3. Pair-frozen conditional random permutation: EXACT all-h moments
 
 For **one fixed** original concurrent pair P, freeze (i) the original GQ source b_f(P,H), (ii) physical images g(P), and (iii) the complete V-element occupied physical pair-edge image F. Let n=V−2 and N=binom(n,4). Randomize a **uniform bijection** of the remaining n original right lines L_s∖P to the n occupied physical labels F∖g(P). This random model is **not** the adversarial fixed g and, as P changes, different pairs give DIFFERENT conditional probability spaces. Do not sum these means and claim a single globally conditional-right-map expectation.
