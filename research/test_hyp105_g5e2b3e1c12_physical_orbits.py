@@ -11,6 +11,7 @@ from hyp105_g5e2b3e1c12_physical_orbits import (
     physical_coordinate_actions, physical_prefix_orbits,
     conditional_shared_prefix_mean, full_physical_alphabet_one_pin_blindness,
     original_to_physical_action,genuine_W32_orbit_report,
+    orbit_quotiented_shared_minimum_interval,
 )
 
 
@@ -94,6 +95,22 @@ class PhysicalOrbitC12Tests(unittest.TestCase):
                 self.assertEqual(conditional_shared_prefix_mean(
                     src,T,15,{original:physical}),b["unconditional_one_map_mean"])
 
+    def test_full_K6_global_two_pin_orbit_certificate_exact_zero_toy(self):
+        # A single weighted original sixset can always avoid the sparse
+        # physical T(K6) target, by one genuine full map (not 15! search).
+        F=tuple(combinations(range(6),2))
+        source={frozenset(range(6)):1}
+        result=orbit_quotiented_shared_minimum_interval(
+            source,6,F,(0,1),max_prefixes=210)
+        self.assertEqual(result["physical_prefix_orbits"],2)
+        self.assertEqual(result["physical_prefix_assignments_exhausted"],210)
+        self.assertEqual(result["certified_global_BA_minimum_lower"],0)
+        self.assertEqual(result["existential_global_BA_minimum_upper"],0)
+        self.assertEqual(result["exact_global_BA_minimum_if_equal"],0)
+        self.assertEqual(result["unconditional_mean_recovered_by_exact_orbit_tower"],
+                         Fraction(70,5005))
+        self.assertTrue(result["all_right_completions_same_global_map"])
+
     def test_genuine_W32_source_same_map_seven_class_equivariance(self):
         r=genuine_W32_orbit_report()
         self.assertEqual(r["prefix_orbit_counts_k0_to_k3"],(1,1,2,9))
@@ -109,6 +126,12 @@ class PhysicalOrbitC12Tests(unittest.TestCase):
         self.assertEqual(r["same_11_pin_prefix_conditional_variance"],
                          r["transformed_11_pin_prefix_conditional_variance"])
         self.assertEqual(r["full_map_orbits_exact_quotient"],1816214400)
+        self.assertGreaterEqual(r["W32_all_right_g_two_pin_orbit_global_lower"],0)
+        self.assertLessEqual(r["W32_all_right_g_two_pin_orbit_global_lower"],56)
+        self.assertLessEqual(r["W32_all_right_g_two_pin_orbit_existential_upper"],69)
+        self.assertGreaterEqual(r["W32_all_right_g_two_pin_orbit_existential_upper"],
+                                r["W32_all_right_g_two_pin_orbit_global_lower"])
+        self.assertEqual(r["W32_two_pin_orbit_conditional_mean_tower"],"10000/143")
         self.assertFalse(r["all_15_factorial_orbits_enumerated"])
 
     def test_fail_closed_partial_group_and_budget(self):
