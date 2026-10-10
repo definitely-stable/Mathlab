@@ -1,0 +1,30 @@
+name: uct005-d1b2a-partial-pareto
+on:
+  push:
+    branches: [research/uct005-d1b2a-partial-pareto]
+    paths:
+      - "research/uct005_d1b2a_partial_pareto.py"
+      - "research/test_uct005_d1b2a_partial_pareto.py"
+      - ".github/workflows/uct005-d1b2a-partial-pareto.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "research/uct005_d1b2a_partial_pareto.py"
+      - "research/test_uct005_d1b2a_partial_pareto.py"
+      - ".github/workflows/uct005-d1b2a-partial-pareto.yml"
+
+permissions:
+  contents: read
+jobs:
+  same-trace-and-pareto-guards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Exhaustive three-protocol two-reader transcript and dominance guards
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2a_partial_pareto.py' -v
+      - name: Report finite point costs and explicit Pareto refusal
+        run: python research/uct005_d1b2a_partial_pareto.py
