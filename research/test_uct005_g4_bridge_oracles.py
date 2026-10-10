@@ -7,6 +7,7 @@ from uct005_g4_bridge_oracles import (
     disjoint_triple_columns, future_partition_by_traces,
     future_partition_refinement, future_probe_transfer_falsifier,
     graph_parity_falsifier, hamming_ball, histories_by_observable_pins,
+    finite_horizon_congruence_falsifier, dna_indel_falsifier,
     min_pair_distance, qary_subset_sums, robust_subset_sums,
     robust_support_gate_report,
 )
@@ -96,6 +97,19 @@ class HistoryAndGraphChecks(unittest.TestCase):
             for mask in itertools.product((0, 1), repeat=h):
                 pins = [i for i, bit in enumerate(mask) if bit]
                 self.assertEqual(histories_by_observable_pins(h, pins), 1 << len(pins))
+
+    def test_one_step_right_invariance_cannot_be_assumed(self):
+        result = finite_horizon_congruence_falsifier()
+        self.assertTrue(result["same_present_class"])
+        self.assertTrue(result["distinct_after_one_update"])
+
+    def test_dna_shifted_words_share_one_deletion_outcome(self):
+        result = dna_indel_falsifier()
+        self.assertEqual(result["hamming_distance"], 6)
+        a, b = "ACACAC", "CACACA"
+        common_a = {a[:i] + a[i+1:] for i in range(len(a))}
+        common_b = {b[:i] + b[i+1:] for i in range(len(b))}
+        self.assertIn(result["common_one_deletion_observation"], common_a & common_b)
 
     def test_graph_two_path_collision(self):
         result = graph_parity_falsifier()
