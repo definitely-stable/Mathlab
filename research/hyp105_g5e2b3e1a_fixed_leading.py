@@ -134,6 +134,11 @@ def selected_left_six(model):
 def classify_six(model, indices):
     """One exact original 6-incidence set; None for all other patterns."""
     left,right,edges,_=validated_small_model(model)
+    return _classify_six_prechecked(indices,left,right,edges)
+
+
+def _classify_six_prechecked(indices,left,right,edges):
+    """Validated fixed finite geometry; no 45-edge revalidation per candidate."""
     ids=tuple(sorted(indices))
     if len(ids)!=6 or len(set(ids))!=6 or ids[0]<0 or ids[-1]>=len(edges):
         raise ValueError("six DISTINCT actual incidence-column IDs required")
@@ -161,7 +166,7 @@ def classify_six(model, indices):
 
 def finite_census(model, *, collect_sets=False):
     """Complete finite counts and the proven per-label R3 lower numerator."""
-    validated_small_model(model)
+    left,right,edges,_=validated_small_model(model)
     counts=Counter()
     types=Counter()
     witnesses={}
@@ -176,7 +181,7 @@ def finite_census(model, *, collect_sets=False):
         if actual_left!=expected_left:
             raise AssertionError("left physical 2-factor generator invalid")
         types[expected_left]+=1
-        tag=classify_six(model,ids)
+        tag=_classify_six_prechecked(ids,left,right,edges)
         if tag is not None:
             counts[tag]+=1
             witnesses.setdefault(tag,ids)
