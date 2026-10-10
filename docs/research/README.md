@@ -6,6 +6,10 @@
 
 [Formal model and cost firewall](UCT-005-G3-B2-D1B0-F1-COST-AND-PIN-FREEZE.md) · [machine contract](UCT-005-G3-B2-D1B0-F1-MODEL.json) · [independent reference tests](../../research/test_uct005_d1b0_f1_reference.py). **FINITE_CLASSICAL_UPPER / IDEAL_TRUSTED_ANCHOR / NO_NEW_LOWER_BOUND**; not real page-durability security.
 
+## HYP-105 B3.2-E1-B0 — seven-motif same-label tensor reduction
+
+[Exact polynomial coefficient identity, seven family GF5 floors and limits](HYP-105-G5-E2-B3-E1B0-SEVEN-MOTIF-TENSOR.md) · [reference](../../research/hyp105_g5e2b3e1b0_seven_signature.py) · [independent tests](../../research/test_hyp105_g5e2b3e1b0_seven_signature.py). Same W(3,2) fixed pair injection yields exact positive seven-family U/D6 counts plus independent Q4, but NO all-h Omega(s^6), strict R3 upper or ASET exponent improvement. Pending PR-head hosted CI.
+
 ## UCT-005 D1-A — classical fixed-one-probe certificate and false joint bound (2026-10-10)
 
 [Exact restricted one-probe interval parity lower and Fenwick honest-bit-cell counterexample](UCT-005-G3-B2-D1A-ONE-PROBE-AND-CAUSAL-FALSIFICATION.md) · [test](../../research/test_uct005_d1a_causal_falsifiers.py) · [source D0](UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) · [#223](https://github.com/definitely-stable/Mathlab/issues/223). **One-probe proof sharp**, but not new originality; universal Wmax Qmax>=n false in honest bit-cell model, **not a Byzantine F1 counterexample**. Typed theorem tree keeps root OPEN.
