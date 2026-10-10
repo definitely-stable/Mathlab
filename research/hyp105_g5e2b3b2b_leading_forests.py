@@ -181,7 +181,28 @@ def report():
         numerator += row["all_named_flow_sum"]
     if named_total != 50700:
         raise AssertionError("failed to close 50,700 leading signed cases")
+    by_kind = {row["class"]: row for row in rows}
+    cb_sum = by_kind["C/B"]["sum_flow_fixed_left"]
+    overlap_sum = by_kind["B/B-overlap"]["sum_flow_fixed_left"]
+    disjoint_sum = by_kind["B/B-disjoint"]["sum_flow_fixed_left"]
+    if cb_sum % 12 or (3 * overlap_sum) % 8 or (3 * disjoint_sum) % 6:
+        raise AssertionError("per-factor-forest coefficient violates symmetry")
+    # Exactly one abstract factor six-set is counted in each M-class;
+    # never multiply the symbolic expected R3 identity by 15 or 30.
+    per_forest = {
+        "C/A": by_kind["C/A"]["sum_flow_fixed_left"],
+        "C/B": cb_sum // 12,
+        "B/B-overlap": 3 * overlap_sum // 8,
+        "B/B-disjoint": 3 * disjoint_sum // 6,
+    }
     return {
+        "per_original_factor_forest_signed_GF5_coefficients": per_forest,
+        "random_expected_class_identity": {
+            "C/A": "M_CA*S_CA*(a)_6^2/[8*51^6*(K)_3*(K)_6]",
+            "C/B": "M_CB*S_CB*(a)_6^2/[16*51^6*(K)_3*(K)_5]",
+            "B/B": "(M_cap*S_cap+M_disj*S_disj)*(a)_6^2/"
+                   "[4*51^6*(K)_5^2]",
+        },
         "completed_named_cases": named_total,
         "all_leading_named_cases_including_accepted": 162700,
         "all_leading_factor_partition_shapes": 631,
