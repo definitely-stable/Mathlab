@@ -2,6 +2,22 @@
 
 [Proof, risk scope and limits](HYP-105-G5-E2-B3-E1B-B-RIGHT-SWAPS.md) · [full all-105 swap census](../../research/hyp105_g5e2b3e1b1b_label_swaps.py) · [independent full-recount and gauge tests](../../research/test_hyp105_g5e2b3e1b1b_label_swaps.py). Exact all-h |ΔS|≤(151/12+o(1))s12 for ANY single original right line factor-pair assignment swap, plus full W32 105-neighbor affected-sixset delta and full selected GF5 signed risk for best neighbor. No all-h S=Omega(s6) lower or infinite counterexample. Draft CI pending.
 
+## HYP-105 B3.2-E1-B1-A — all-h one-sided six-motif mass and random-right completion
+
+[Proof and scope](HYP-105-G5-E2-B3-E1B1A-ONE-SIDED-UNIVERSAL.md) · [exact bound](../../research/hyp105_g5e2b3e1b1a_one_sided.py) · [independent tests](../../research/test_hyp105_g5e2b3e1b1a_one_sided.py). For ANY pair injection f, L_left=(151/144+O(1/s))s^15 uniformly in f; for every fixed f, independent uniform right g has E_g[U_B/A]=(140+O(1/s))s^6 by GQ codegree one; the missing ALL-LABEL right transfer is equivalent to Ω(s^-9) fraction. Neither S_seven=Ω(s^6) nor a strict GF5 R3 bound proved. Hosted CI pending.
+
+## UCT-005 D1-B2-A — same-trace three-upper comparator and partial-Pareto stop (2026-10-10)
+
+[Formal finite evidence](UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md) · [reproducible model](../../research/uct005_d1b2a_partial_pareto.py) · [independent tests](../../research/test_uct005_d1b2a_partial_pareto.py). Three conditional F1 upper families answer identical SET/LATEST/PIN/AS_OF transcript under explicitly assumed trust. Only PAGE-001 snapshots have byte-conserving page prices; **no fabricated cross-family Pareto dominance, no new lower bound, ROOT_OPEN_UNPROVED**.
+
+## UCT-005 D1-B1 — 20-source theorem transfer matrix and GF2 query-interface barrier (2026-10-10)
+
+[Proof-scope and hard limits](UCT-005-G3-B2-D1B1-PRIMARY-TRANSFER-AND-MASK-OBSTRUCTION.md) · [typed canonical matrix](UCT-005-G3-B2-D1B1-TRANSFER-MATRIX.json) · [finite oracle](../../research/uct005_d1b1_source_gate.py) · [D1 #223](https://github.com/definitely-stable/Mathlab/issues/223). Three primary theorem statements inspected, not full proofs; 20 canonical records classified. **NO_NEW_NONFACTORIZING_LOWER_BOUND / ROOT_OPEN_UNPROVED**.
+
+## UCT-005 D1-B0 — paid two-reader F1 latest, PIN and GC (2026-10-10)
+
+[Formal model and cost firewall](UCT-005-G3-B2-D1B0-F1-COST-AND-PIN-FREEZE.md) · [machine contract](UCT-005-G3-B2-D1B0-F1-MODEL.json) · [independent reference tests](../../research/test_uct005_d1b0_f1_reference.py). **FINITE_CLASSICAL_UPPER / IDEAL_TRUSTED_ANCHOR / NO_NEW_LOWER_BOUND**; not real page-durability security.
+
 ## HYP-105 B3.2-E1-B0 — seven-motif same-label tensor reduction
 
 [Exact polynomial coefficient identity, seven family GF5 floors and limits](HYP-105-G5-E2-B3-E1B0-SEVEN-MOTIF-TENSOR.md) · [reference](../../research/hyp105_g5e2b3e1b0_seven_signature.py) · [independent tests](../../research/test_hyp105_g5e2b3e1b0_seven_signature.py). Same W(3,2) fixed pair injection yields exact positive seven-family U/D6 counts plus independent Q4, but NO all-h Omega(s^6), strict R3 upper or ASET exponent improvement. Pending PR-head hosted CI.

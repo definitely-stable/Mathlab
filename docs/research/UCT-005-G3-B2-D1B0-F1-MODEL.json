@@ -4,40 +4,214 @@
   "parent_issue": 223,
   "root_novelty": "OPEN_UNPROVED",
   "coordinates": {
-    "n": {"unit":"logical bits","domain":"n >= 1"},
-    "H": {"unit":"committed epochs","domain":"H = poly(n) for asymptotics; finite oracle is bounded"},
-    "lambda": {"unit":"security bits","domain":"lambda(n) must scale; 256 is only a finite reference"},
-    "epsilon": {"unit":"probability of undetected false acceptance","domain":"conditional on an explicitly stated computational assumption"},
-    "P": {"unit":"bytes per complete physical page","domain":"P >= 1; packing and metadata pages must be charged"},
-    "s": {"unit":"trusted persistent bits","scope":"writer, independent readers, anchor, PIN registry, program-dependent advice"},
-    "S": {"unit":"peak remote complete pages","scope":"data, roots, indexes, logs, generations and metadata"},
-    "U_r": {"unit":"complete remote page reads per SET","scope":"source reads and metadata fetches"},
-    "U_w": {"unit":"complete remote page writes per SET","scope":"data, root, metadata, WAL and amplification"},
-    "U_delta": {"unit":"changed logical data bits per SET","scope":"separate from page writes and no-op epoch change"},
-    "Q_r": {"unit":"complete remote page reads per range query","scope":"data and remote proofs"},
-    "B_pi": {"unit":"bytes sent as remote query proof and data","scope":"wire-format exact; separate from anchor traffic"},
-    "C_author": {"unit":"bytes of author to external services","scope":"anchor publication, server requests, root and log pushes"},
-    "C_reader": {"unit":"bytes of reader to external services","scope":"server requests, remote data, catch-up and trusted-control requests"},
-    "G": {"unit":"prover primitive operations and bytes hashed","scope":"include preprocessing and witness updates"},
-    "V": {"unit":"verifier primitive operations and bytes hashed","scope":"include local parity, hashing, and root comparison"},
-    "A": {"unit":"trusted anchor operations and bytes","scope":"all SET publications and LATEST/PIN refresh reads"},
-    "T": {"unit":"setup and program bits, one-time I/O, preprocessed advice","scope":"no state-dependent preprocessing free of charge"},
-    "M": {"unit":"retained immutable historical remote pages","scope":"pinned reachability, shared pages, index pages, root pages"},
-    "GC_r": {"unit":"complete remote pages read during collection","scope":"mark/sweep, compaction and metadata"},
-    "GC_w": {"unit":"complete remote pages rewritten during collection","scope":"bitmap, generations and compaction"},
-    "GC_free": {"unit":"logically freed pages","scope":"not automatically physical SSD discards"},
-    "F": {"unit":"fsync or durability barriers","scope":"record independently from operating-system page API calls"}
+    "n": {
+      "unit": "logical bits",
+      "domain": "n >= 1"
+    },
+    "H": {
+      "unit": "committed epochs",
+      "domain": "H = poly(n) for asymptotics; finite oracle is bounded"
+    },
+    "lambda": {
+      "unit": "security bits",
+      "domain": "lambda(n) must scale; 256 is only a finite reference"
+    },
+    "epsilon": {
+      "unit": "probability of undetected false acceptance",
+      "domain": "conditional on an explicitly stated computational assumption"
+    },
+    "P": {
+      "unit": "bytes per complete physical page",
+      "domain": "P >= 1; packing and metadata pages must be charged"
+    },
+    "s": {
+      "unit": "trusted persistent bits",
+      "scope": "writer, independent readers, anchor, PIN registry, program-dependent advice"
+    },
+    "S": {
+      "unit": "peak remote complete pages",
+      "scope": "data, roots, indexes, logs, generations and metadata"
+    },
+    "U_r": {
+      "unit": "complete remote page reads per SET",
+      "scope": "source reads and metadata fetches"
+    },
+    "U_w": {
+      "unit": "complete remote page writes per SET",
+      "scope": "data, root, metadata, WAL and amplification"
+    },
+    "U_delta": {
+      "unit": "changed logical data bits per SET",
+      "scope": "separate from page writes and no-op epoch change"
+    },
+    "Q_r": {
+      "unit": "complete remote page reads per range query",
+      "scope": "data and remote proofs"
+    },
+    "B_pi": {
+      "unit": "bytes sent as remote query proof and data",
+      "scope": "wire-format exact; separate from anchor traffic"
+    },
+    "C_author": {
+      "unit": "bytes of author to external services",
+      "scope": "anchor publication, server requests, root and log pushes"
+    },
+    "C_reader": {
+      "unit": "bytes of reader to external services",
+      "scope": "server requests, remote data, catch-up and trusted-control requests"
+    },
+    "G": {
+      "unit": "prover primitive operations and bytes hashed",
+      "scope": "include preprocessing and witness updates"
+    },
+    "V": {
+      "unit": "verifier primitive operations and bytes hashed",
+      "scope": "include local parity, hashing, and root comparison"
+    },
+    "A": {
+      "unit": "trusted anchor operations and bytes",
+      "scope": "all SET publications and LATEST/PIN refresh reads"
+    },
+    "T": {
+      "unit": "setup and program bits, one-time I/O, preprocessed advice",
+      "scope": "no state-dependent preprocessing free of charge"
+    },
+    "M": {
+      "unit": "retained immutable historical remote pages",
+      "scope": "pinned reachability, shared pages, index pages, root pages"
+    },
+    "GC_r": {
+      "unit": "complete remote pages read during collection",
+      "scope": "mark/sweep, compaction and metadata"
+    },
+    "GC_w": {
+      "unit": "complete remote pages rewritten during collection",
+      "scope": "bitmap, generations and compaction"
+    },
+    "GC_free": {
+      "unit": "logically freed pages",
+      "scope": "not automatically physical SSD discards"
+    },
+    "F": {
+      "unit": "fsync or durability barriers",
+      "scope": "record independently from operating-system page API calls"
+    }
   },
-  "operations": ["SET", "LATEST_RANGE_PARITY", "PIN_CURRENT", "AS_OF_PINNED", "UNPIN", "GC"],
-  "interval": {"representation":"half-open [l,r)","domain":"0 <= l < r <= n","legacy_adapter":"inclusive [l,r] becomes [l,r+1)"},
-  "set": {"writer":"single honest serialized writer","noop_creates_epoch":true,"epoch_binding":true,"author_data_must_be_accounted":true},
-  "reader": {"count":2,"independent_persistent_state":true,"latest_anchor_read":"mandatory and charged for every freshness claim","as_of_requires":"prior trusted PIN token for that exact epoch","offline":"permitted; catch-up communication paid"},
-  "anchor": {"trust":"separate ideal globally linearizable monotone epoch and authenticated root","charged":true,"withholding":"ABORT permitted","availability_not_claimed":true},
-  "pin_gc": {"pin_linearization":"PIN_CURRENT must atomically register root before GC may reclaim that epoch","unpin_linearization":"UNPIN permits reclamation only after authoritative revocation","races":"serialize PIN, UNPIN, root admission and GC","retention":"latest and every active pinned epoch","collector":"no free global snapshot catalog or persistent pin database"},
-  "adversary": {"controls":["remote pages","response order","replay","omission","tampering","response timing"],"does_not_control":["honest author","reader trusted memory","trusted anchor","trusted PIN registry"],"abort_on_withholding":true},
-  "soundness": {"bad_accept":"reader accepts a wrong parity for trusted root/epoch","required":"Pr[bad_accept] <= epsilon(lambda) under named binding assumptions","liveness":"no guarantee against Byzantine withholding","full_reduction":"NOT_PROVED"},
-  "quantifiers": {"state":"all 2^n initial binary arrays","set":"all authorized SET including no-op","query":"all nonempty intervals, including adaptive choices","history":"arbitrary bounded sequence with two readers and PIN/UNPIN/GC","resource":"worst-case and amortized costs stored separately; never infer worst-case from averages"},
-  "model_separation": {"F0":"honest fixed-address bit-probe parity only","F1":"malicious remote with separately charged trusted monotone anchor","C0":"packed-node page model","C2":"complete-node-per-page file image","network":"transport framing, retries and signatures excluded from reference but MUST be charged in full deployments"},
-  "forbidden_claims": ["first joint lower bound without full-text audit","constant hash digest is uniformly asymptotically secure","F0 Fenwick is an authenticated F1 protocol","PIN plus GC without atomic authority","an OS page API call is physical SSD write amplification","proof of real crash safety from ideal fsync"],
-  "d1_b1_status": "FULL_TEXT_THEOREM_TRANSFER_PENDING"
+  "operations": [
+    "SET",
+    "LATEST_RANGE_PARITY",
+    "PIN_CURRENT",
+    "AS_OF_PINNED",
+    "UNPIN",
+    "GC"
+  ],
+  "interval": {
+    "representation": "half-open [l,r)",
+    "domain": "0 <= l < r <= n",
+    "legacy_adapter": "inclusive [l,r] becomes [l,r+1)"
+  },
+  "set": {
+    "writer": "single honest serialized writer",
+    "noop_creates_epoch": true,
+    "epoch_binding": true,
+    "author_data_must_be_accounted": true
+  },
+  "reader": {
+    "count": 2,
+    "independent_persistent_state": true,
+    "latest_anchor_read": "mandatory and charged for every freshness claim",
+    "as_of_requires": "prior trusted PIN token for that exact epoch",
+    "offline": "permitted; catch-up communication paid"
+  },
+  "anchor": {
+    "trust": "separate ideal globally linearizable monotone epoch and authenticated root",
+    "charged": true,
+    "withholding": "ABORT permitted",
+    "availability_not_claimed": true
+  },
+  "pin_gc": {
+    "pin_linearization": "PIN_CURRENT must atomically register root before GC may reclaim that epoch",
+    "unpin_linearization": "UNPIN permits reclamation only after authoritative revocation",
+    "races": "serialize PIN, UNPIN, root admission and GC",
+    "retention": "latest and every active pinned epoch",
+    "collector": "no free global snapshot catalog or persistent pin database"
+  },
+  "adversary": {
+    "controls": [
+      "remote pages",
+      "response order",
+      "replay",
+      "omission",
+      "tampering",
+      "response timing"
+    ],
+    "does_not_control": [
+      "honest author",
+      "reader trusted memory",
+      "trusted anchor",
+      "trusted PIN registry"
+    ],
+    "abort_on_withholding": true
+  },
+  "soundness": {
+    "bad_accept": "reader accepts a wrong parity for trusted root/epoch",
+    "required": "Pr[bad_accept] <= epsilon(lambda) under named binding assumptions",
+    "liveness": "no guarantee against Byzantine withholding",
+    "full_reduction": "NOT_PROVED"
+  },
+  "quantifiers": {
+    "state": "all 2^n initial binary arrays",
+    "set": "all authorized SET including no-op",
+    "query": "all nonempty intervals, including adaptive choices",
+    "history": "arbitrary bounded sequence with two readers and PIN/UNPIN/GC",
+    "resource": "worst-case and amortized costs stored separately; never infer worst-case from averages"
+  },
+  "model_separation": {
+    "F0": "honest fixed-address bit-probe parity only",
+    "F1": "malicious remote with separately charged trusted monotone anchor",
+    "C0": "packed-node page model",
+    "C2": "complete-node-per-page file image",
+    "network": "transport framing, retries and signatures excluded from reference but MUST be charged in full deployments",
+    "remote_storage": "fixed-stride page-image simulator; no free remote directory; all manifest and data bytes charged"
+  },
+  "forbidden_claims": [
+    "first joint lower bound without full-text audit",
+    "constant hash digest is uniformly asymptotically secure",
+    "F0 Fenwick is an authenticated F1 protocol",
+    "PIN plus GC without atomic authority",
+    "an OS page API call is physical SSD write amplification",
+    "proof of real crash safety from ideal fsync"
+  ],
+  "d1_b1_status": "FULL_TEXT_THEOREM_TRANSFER_PENDING",
+  "reference_storage_layout": {
+    "kind": "immutable_sparse_fixed_stride_page_slots",
+    "snapshot_payload_bytes": "ceil(n / 8)",
+    "remote_manifest_format": {
+      "epoch_bytes": 8,
+      "payload_length_bytes": 8,
+      "sha256_bytes": 32,
+      "total_bytes": 48,
+      "manifest_page_count": "ceil(48/P)",
+      "data_page_count": "ceil(ceil(n/8)/P)",
+      "slot_start_page": "epoch * (manifest_page_count + data_page_count)",
+      "fixed_region": "manifest and data separately page aligned",
+      "word_limit": "epoch < 2^64"
+    },
+    "remote_locator": "public arithmetic fixed stride; no state-dependent remote epoch-to-object directory or free B-tree",
+    "remote_simulator": "in-memory dictionaries represent content at deterministic physical slot addresses; keys are not a free oracle for read/GC",
+    "gc_enumeration": "probe every issued epoch slot 0..H, including holes; count at least manifest pages per attempted remote lookup",
+    "pin_registry": {
+      "authority": "separately trusted",
+      "format": "one-byte reader ID plus eight-byte epoch plus 32-byte digest",
+      "record_bytes": 41,
+      "persistent_authority_page_writes": "ceil(41/P) per PIN/UNPIN, separate from remote S and U_w"
+    },
+    "accounting_status": "PAGE_IMAGE_REFERENCE_NOT_REAL_STORAGE_OR_SSD",
+    "limitations": [
+      "Sparse page holes are abstractly reclaimed, not real filesystem punches",
+      "Atomic trust anchor and PIN authority are idealized and separately charged",
+      "Catalog scanning counts page API probes including missing slots; concrete filesystem API not implemented",
+      "No cryptographic reduction or source physical durability proof"
+    ]
+  }
 }

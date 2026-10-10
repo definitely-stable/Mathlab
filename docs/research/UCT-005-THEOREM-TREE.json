@@ -251,6 +251,24 @@
       "kind": "theorem_brick",
       "status": "PROVED_RESTRICTED_CLASSICAL_ONE_PROBE_AND_FALSE_GLOBAL_PRODUCT_NO_NEW_UCT_BOUND",
       "source": "docs/research/UCT-005-G3-B2-D1A-ONE-PROBE-AND-CAUSAL-FALSIFICATION.md"
+    },
+    {
+      "id": "UCT005G3B2D1B0",
+      "kind": "research_input",
+      "status": "F1_FORMAL_COST_FREEZE_AND_FINITE_CLASSICAL_UPPER_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B0-F1-COST-AND-PIN-FREEZE.md"
+    },
+    {
+      "id": "UCT005G3B2D1B1",
+      "kind": "research_input",
+      "status": "CANONICAL_20_PRIOR_ART_SCOPE_AND_QUERY_INTERFACE_NO_ORIGINAL_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B1-PRIMARY-TRANSFER-AND-MASK-OBSTRUCTION.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2A",
+      "kind": "research_input",
+      "status": "THREE_CONDITIONAL_UPPERS_SAME_FINITE_TRACE_PARTIAL_RESOURCE_PARETO_UNDECIDABLE_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md"
     }
   ],
   "edges": [
@@ -448,6 +466,21 @@
       "parent": "UCT005G3B2D0",
       "child": "UCT005G3B2D1A",
       "relation": "RESTRICTED_CLASSICAL_BIT_CELL_PROOF_AND_FALSIFIER_NOT_ROOT"
+    },
+    {
+      "parent": "UCT005G3B2D1A",
+      "child": "UCT005G3B2D1B0",
+      "relation": "CHARGED_AUTHENTICATED_F1_UPPER_NOT_LOWER"
+    },
+    {
+      "parent": "UCT005G3B2D1B0",
+      "child": "UCT005G3B2D1B1",
+      "relation": "SOURCE_TRANSFER_BARRIER_NOT_THEOREM_IMPLICATION"
+    },
+    {
+      "parent": "UCT005G3B2D1B1",
+      "child": "UCT005G3B2D1B2A",
+      "relation": "SAME_TRACE_UPPER_COMPARATOR_AND_PARTIAL_COST_BARRIER_NOT_PROOF"
     }
   ]
 }

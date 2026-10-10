@@ -1,0 +1,31 @@
+name: uct005-g4-bridge-oracles
+
+on:
+  push:
+    branches:
+      - "research/uct005-g4-*"
+  pull_request:
+    paths:
+      - "research/uct005_g4_bridge_oracles.py"
+      - "research/test_uct005_g4_bridge_oracles.py"
+      - "research/test_uct005_g4_bridge_register.py"
+      - "docs/research/UCT-005-G4-TYPED-BRIDGES.json"
+      - "docs/research/UCT-005-G4-A1A3-CLASSICAL-BRIDGE-CERTIFICATES.md"
+      - ".github/workflows/uct005-g4-bridge-oracles.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  finite-falsification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Independent exhaustive G4 finite oracles
+        run: python -m unittest discover -s research -p 'test_uct005_g4_bridge_*.py' -v
+      - name: Emit machine-readable classical / countermodel report
+        run: python research/uct005_g4_bridge_oracles.py
