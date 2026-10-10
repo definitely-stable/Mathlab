@@ -96,9 +96,6 @@ class SegmentedBitmapTests(unittest.TestCase):
                                  s.ledger["set_bitmap_response_bytes"])
                 self.assertEqual(s.ledger["set_bitmap_request_bytes"],
                                  s.ledger["set_bitmap_page_reads"] * 9)
-                self.assertEqual(s.ledger["set_bitmap_page_writes"],
-                                 s.ledger["set_bitmap_projected_node_count"] * 0 +
-                                 s.ledger["set_bitmap_page_writes"])
                 self.assertGreaterEqual(s.bitmap_pages, 2)
                 # Same binary data, but distinct trustworthy resource model.
                 snap = SnapshotF1Reference(bits, p)
