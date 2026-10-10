@@ -1,3 +1,7 @@
+## HYP-105 B3.1-B2-A — первая точная классификация nonmatching factor-cherry GF5 (2026-10-10)
+
+[Доказательство, 66-орбитный сертификат и строгие ограничения](research/HYP-105-G5-E2-B3-B2A-CHERRY66.md) · [реализация](../research/hyp105_g5e2b3b2_cherry66.py) · [независимые проверки](../research/test_hyp105_g5e2b3b2_cherry66.py) · [#176](https://github.com/definitely-stable/Mathlab/issues/176). **ONE_REPEATED_FACTOR_VERTEX_EXACT_GF5_66_ORBITS / 700_OF_700_POSITIVE / FLOW_4560_TO_6786 / ALL-h_EXPECTED_NONMATCHING_R3_THETA(s^6) / RESTRICTED_FIXED_LABEL_R3_FLOOR / GENERAL_FORESTS_OPEN / NO_STRICT_FIXED_LABEL_UPPER / NO_ASET_EXPONENT.** Для одного оригинального factor-cherry и двух шестикоординатных leafless проекций подсчитаны 66 орбит, 700 signed случаев, сумма GF5 весов 3,902,064 для фиксированного левого C4 и 11,706,192 для трёх. Доказана точная формула случайного ожидаемого риска с обязательным делением на 2 из-за двух неразличимых left physical coordinate masks. Новое важное ограничение: нематчинговый лес сам даёт Theta(s^6) среднего R3. Далее B3.1-B2-B и B3.2-E; корневая проблема открыта.
+
 # CURRENT_STATE
 
 ## UCT-005 G3-B2-C2-B2-A — PIN-fenced disk-based GC generation (2026-10-10)

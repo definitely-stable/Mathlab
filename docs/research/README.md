@@ -1,3 +1,7 @@
+## HYP-105 B3.1-B2-A — first nonmatching factor-cherry exact GF5 (2026-10-10)
+
+[Proof, exact coefficient, independent oracles](HYP-105-G5-E2-B3-B2A-CHERRY66.md) · 66 signed orbits, 700 positive of 700, all-h random-expected nonmatching R3 Theta(s^6). Remaining nonmatching forests and all-h fixed-label R2/R3 upper OPEN.
+
 # Research index and authority order
 
 ## UCT-005 G3-B2-C2-B2-A — authenticated PIN-fenced file-GC generation (2026-10-10)
