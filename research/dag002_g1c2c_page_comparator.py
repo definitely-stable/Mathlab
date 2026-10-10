@@ -196,7 +196,7 @@ class PagedIndex:
             self._ensure_workspace(max(len(data), max_parent_bytes) +
                                    3*self.P + 2*self.w*len(next_heads))
             next_heads = tuple(next_heads)
-        self._ensure_workspace(max(self.P, 2*self.P if self.kind == "bitmap"
+        self._ensure_workspace(max(self.P, len(data)+2*self.P if self.kind == "bitmap"
                                    else len(data)+self.P))
         self._write_blob(("label", v), data, "label")
         self._write_blob(("manifest", 0), self._manifest_bytes(v+1, next_heads), "metadata")
