@@ -1,0 +1,38 @@
+name: uct005-d1a-classical-falsifiers
+
+on:
+  push:
+    branches: [research/uct005-d1a-one-probe-h1-falsifiers]
+    paths:
+      - "research/uct005_d1a_causal_falsifiers.py"
+      - "research/test_uct005_d1a_causal_falsifiers.py"
+      - "research/test_uct005_tree.py"
+      - "docs/research/UCT-005-THEOREM-TREE.json"
+      - ".github/workflows/uct005-d1a-classical-falsifiers.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "research/uct005_d1a_causal_falsifiers.py"
+      - "research/test_uct005_d1a_causal_falsifiers.py"
+      - "research/test_uct005_tree.py"
+      - "docs/research/UCT-005-THEOREM-TREE.json"
+      - ".github/workflows/uct005-d1a-classical-falsifiers.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  d1a-restricted-parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Independent exhaustive bit-cell falsifiers
+        run: python -m unittest discover -s research -p 'test_uct005_d1a_causal_falsifiers.py' -v
+      - name: Independent typed theorem tree no root promotion
+        run: python -m unittest discover -s research -p 'test_uct005_tree.py' -v
+      - name: Standalone model counterexample certificate
+        run: python research/uct005_d1a_causal_falsifiers.py
