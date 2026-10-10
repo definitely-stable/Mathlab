@@ -101,6 +101,18 @@ These are independent cross-checks using C5 original sixset intersection spectra
 
 The genuine W32 reverse-line source uses original pins D=(0,1). Two physical representative assignments summarize all 210 named-pin images and all 15! actual common right permutations. The resulting global interval is rigorous for this single genuine f and full K6 occupied F, but with no a priori positive lower; numeric endpoints are evidence only after exact HEAD hosted CI. An additional one-sixset-weight finite K6 toy has exact global minimum ZERO from matching lower and upper, proving the implementation can certify an unrestricted right minimum in a nontrivial sparse case.
 
+### Hosted real W32 global-right certificate (pre-regression-freeze head)
+
+GitHub-hosted C12 Contract at intermediate HEAD d28bce53b450e3b5030227dbf2d0953cce5f024f passed **8/8 exact tests**, including the complete two-physical-orbit conditional C11/C8 interval and C5 first/second moment tower. For the fixed genuine reverse-line GQ-left f, physically occupied full F=E(K6) and original pins D=(0,1), all 210 physical image prefixes and all genuine 15! common right bijections are covered by EXACTLY TWO orbit representatives.
+
+Numerical result:
+
+    certified global right-map B/A min interval: [0,69]
+    orbit-weighted mean = C5 exact unconditional mean = 10000/143
+    orbit-weighted second moment = C5 exact unconditional second = 2142290/429
+
+The lower ZERO is not a positive obstruction, and the upper 69 only guarantees some true right map with U_B/A<=69; neither bound is a full 15!-map exact minimum. A separate valid 11-pin map has known U=56 (C11), which is consistent with [0,69] but does not identify the global optimum. The actual full seven-family and full GF5 all-h lower remain OPEN. These exact rational values are now frozen in the dedicated regression gate and require reacceptance at the newest HEAD.
+
 **This is the first C12 full-right-map global certification method; it still does NOT optimize over all LEFT f, occupied F, nor combine all seven classes into a positive all-h obstruction.**
 
 ## 7. Acceptance and next scientific decision
