@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-A — full fixed-label W32 six-coordinate GF5 leading motif census
+
+[Full finite theorem/scope](HYP-105-G5-E2-B3-E1A-FIXED-LEADING-MOTIFS.md) · [all-original-incidence oracle](../../research/hyp105_g5e2b3e1a_fixed_leading.py) · [independent falsifiers](../../research/test_hyp105_g5e2b3e1a_fixed_leading.py). Checks exactly 62,370 LEFT six-coordinate necessary candidate sets for W(3,2), then entire RIGHT for new four C/A/C/B/B/B sector; full 51-palette signed minimum R3 lower, NOT a complete weighted R3 or all-h ASET theorem. CI acceptance pending.
+
 ## UCT-005 D0 — primary source and causal-cut model gates (2026-10-10)
 
 [Eight original papers LIT-349..356](UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) · [D1 #223](https://github.com/definitely-stable/Mathlab/issues/223) · [canonical corpus](catalog/LITERATURE.md). 347→355 records after IMPORT-010. Only publication abstracts/metadata audited; root theorem OPEN_UNPROVED.
