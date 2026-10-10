@@ -37,18 +37,21 @@ class ResearchWorkflowShardTests(unittest.TestCase):
         raw = WORKFLOW.read_text(encoding="utf-8")
         self.assertIn("jobs:\n", raw)
         jobs = parse_jobs(raw)
-        self.assertEqual(set(jobs), set(REQUIRED))
+        self.assertEqual(set(jobs), set(REQUIRED) | {"research-full-suite"})
         for name, body in jobs.items():
             self.assertIn("runs-on: ubuntu-latest", body, name)
             self.assertRegex(body, r"timeout-minutes: [1-9][0-9]+")
-            self.assertIn("- uses: actions/checkout@v4", body, name)
-            self.assertIn("- uses: actions/setup-python@v5", body, name)
+            if name in REQUIRED:
+                self.assertIn("- uses: actions/checkout@v4", body, name)
+                self.assertIn("- uses: actions/setup-python@v5", body, name)
 
     def test_no_silent_loss_or_duplicate_named_steps(self):
         raw = WORKFLOW.read_text(encoding="utf-8")
         jobs = parse_jobs(raw)
         all_names = []
         for name, body in jobs.items():
+            if name == "research-full-suite":
+                continue
             names = re.findall(r"(?m)^      - name: (.+)$", body)
             commands = re.findall(r"(?m)^        run: (.+)$", body)
             self.assertEqual(len(names), len(commands), name)
@@ -57,6 +60,16 @@ class ResearchWorkflowShardTests(unittest.TestCase):
             all_names.extend(names)
         self.assertGreaterEqual(len(all_names), 77)
         self.assertEqual(len(all_names), len(set(all_names)))
+
+    def test_aggregate_full_suite_depends_on_all_four_shards(self):
+        jobs = parse_jobs(WORKFLOW.read_text(encoding="utf-8"))
+        full = jobs["research-full-suite"]
+        self.assertIn("if: ${{ always() }}", full)
+        for required in REQUIRED:
+            self.assertIn("      - " + required + "\n", full)
+            self.assertIn("needs." + required + ".result", full)
+        self.assertIn('"$result" != "success"', full)
+        self.assertIn("exit 1", full)
 
     def test_heavy_census_is_not_in_ten_minute_foundation(self):
         jobs = parse_jobs(WORKFLOW.read_text(encoding="utf-8"))
