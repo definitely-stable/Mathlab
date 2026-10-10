@@ -163,6 +163,31 @@ def retention_audit(m) -> dict:
         overlap = sum(len(x) for x in per_root.values())-len(union)
         distinct_root_pages = len(trusted)*root_pages
         audit_node_reads = sum(len(x) for x in per_root.values())*node_pages
+        # Full P-byte remote response images for independently paid root,
+        # node and bitmap page reads. Counts are measured as incremental
+        # page reads since the beginning of this audit, not cumulative.
+        node_read_pages = (
+            m.ledger["retention_audit_node_page_reads"] -
+            before.get("retention_audit_node_page_reads", 0))
+        root_read_pages = (
+            m.ledger["retention_audit_root_page_reads"] -
+            before.get("retention_audit_root_page_reads", 0))
+        bitmap_read_pages = (
+            m.ledger["retention_audit_bitmap_page_reads"] -
+            before.get("retention_audit_bitmap_page_reads", 0))
+        if (node_read_pages != audit_node_reads
+                or root_read_pages != len(trusted)*root_pages
+                or bitmap_read_pages != bitmap):
+            raise AssertionError("offline retained history page-read conservation")
+        if node_read_pages % node_pages or root_read_pages % root_pages:
+            raise AssertionError("unaligned COW audit record reads")
+        m.ledger["retention_audit_response_bytes"] += (
+            node_read_pages + root_read_pages + bitmap_read_pages)*p
+        # One fixed 8-byte public ID per authenticated node/root image
+        # request; for bitmap namespaces, fixed 9-byte page addresses.
+        m.ledger["retention_audit_request_bytes"] += (
+            8*(node_read_pages//node_pages + root_read_pages//root_pages)
+            + 9*bitmap_read_pages)
         # No Python set allocation is free in a real GC. The frozen
         # fixed-u64-ID representation is a diagnostic only, NOT heap bytes.
     else:
