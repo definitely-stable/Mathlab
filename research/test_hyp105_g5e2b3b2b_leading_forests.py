@@ -62,6 +62,14 @@ class LeadingNonmatchingForests(unittest.TestCase):
     def test_complete_exact_GF5_certificate_and_prior_cherry(self):
         result = report()
         self.assertEqual(result["completed_named_cases"], 50700)
+        self.assertTrue(result["all_new_signed_templates_positive"])
+        self.assertEqual(result["all_new_named_GF5_weight_sum"], 297992160)
+        self.assertEqual(result["per_original_factor_forest_signed_GF5_coefficients"], {
+            "C/A": 4243968,
+            "C/B": 173682,
+            "B/B-overlap": 482670,
+            "B/B-disjoint": 558080,
+        })
         self.assertEqual(result["all_leading_named_cases_including_accepted"], 162700)
         self.assertEqual(result["all_leading_factor_partition_shapes"], 631)
         self.assertEqual(result["subleading_forest_shapes_open"], 11032)
