@@ -1,10 +1,14 @@
+## HYP-105 B3.2-E0 — one all-h labeling, weak joint R2/R3
+
+[Proof and scope](HYP-105-G5-E2-B3-E0-JOINT-FIRST-MOMENT.md) · [reference](../../research/hyp105_g5e2b3e0_joint_first_moment.py) · [tests](../../research/test_hyp105_g5e2b3e0_joint_first_moment.py). Same-label R2=O(s^4), R3=O(s^6) follows from existing two expectation bounds via classical first moment. Strict R3 exponent, practical deterministic construction and ASET gap remain OPEN; PR-head CI pending.
+
 ## UCT-005 D0 — primary source and causal-cut model gates (2026-10-10)
 
 [Eight original papers LIT-349..356](UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) · [D1 #223](https://github.com/definitely-stable/Mathlab/issues/223) · [canonical corpus](catalog/LITERATURE.md). 347→355 records after IMPORT-010. Only publication abstracts/metadata audited; root theorem OPEN_UNPROVED.
 
-## HYP-105 B3.1-B2-B — full leading nonmatching six-coordinate GF5 certificate (PR pending)
+## HYP-105 B3.1-B2-B — full leading nonmatching six-coordinate GF5 certificate (PR #224 merged)
 
-[Model, 50,700 signed templates and scope](HYP-105-G5-E2-B3-B2B-LEADING-FORESTS.md) · [oracle](../../research/hyp105_g5e2b3b2b_leading_forests.py) · [tests](../../research/test_hyp105_g5e2b3b2b_leading_forests.py). Exact signed coefficient census awaits exact-head hosted CI acceptance; 11,032 remaining subleading necessary factor-forest shapes and all-h fixed-label R2/R3 upper remain OPEN.
+[Model, 50,700 signed templates and scope](HYP-105-G5-E2-B3-B2B-LEADING-FORESTS.md) · [oracle](../../research/hyp105_g5e2b3b2b_leading_forests.py) · [tests](../../research/test_hyp105_g5e2b3b2b_leading_forests.py). Exact signed coefficient census accepted: exact PR-head and postmerge hosted Research SUCCESS; 11,032 remaining subleading necessary factor-forest shapes and all-h fixed-label R2/R3 upper remain OPEN.
 
 ## HYP-105 B3.1-B2-A — first nonmatching factor-cherry exact GF5 (2026-10-10)
 
