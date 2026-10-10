@@ -4,6 +4,13 @@
 
 # CURRENT_STATE
 
+## UCT-005 G3-B2-C2-B2-B — онлайн COW SET с доверенным root CAS (2026-10-10)
+
+[Проверенная ограниченная файловая модель онлайн-автора](research/UCT-005-G3-B2-C2-B2-B-ONLINE-COW-ROOT-FENCE.md) · [реализация](../research/uct005_g3b2c2b2b_online_cow.py) · [аварийные тесты](../research/test_uct005_g3b2c2b2b_online_cow.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). **FILE_PAGE_PATH_COW / ROOT_INDEX_FSYNC_BEFORE_IDEAL_40B_ROOT_CAS / UNCOMMITTED_TAIL_TRUNCATION / STALE_GC_FAIL_CLOSED / NO_REAL_POWERLOSS_PROOF / NO_ONLINE_GC_COMPOSITION / NO_NEW_LOWER_BOUND.** После первоначального импорта дерева SET читает и переписывает только SHA-256-аттестованный путь, публикует корень через независимый доверенный CAS; восстанавливает прежнее или новое поколение строго по опубликованному значению. Ранее открытый B2-A GC отклоняет новые эпохи из-за изменения размера bitmap/root. Автор, независимые PIN, GC и динамический корневой каталог **ещё не являются** одной crash-safe службой; корень UCT #105 остаётся OPEN.
+
+
+
+
 ## UCT-005 G3-B2-C2-B2-A — PIN-fenced disk-based GC generation (2026-10-10)
 
 [Единая проверяемая файловая модель GC и доверенного закрепления](research/UCT-005-G3-B2-C2-B2-A-FENCED-DISK-GC.md) · [код](../research/uct005_g3b2c2b2a_fenced_disk_gc.py) · [тесты](../research/test_uct005_g3b2c2b2a_fenced_disk_gc.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). **FILE_BUFFERED_MARK_DATA_PLANE_AND_AUTHENTICATED_PIN_FENCE / GC_STAGED_NOT_MUTATING_LIVE / POST_TRUSTED_COMMIT_LOGICAL_TRIM / NO_END_TO_END_BOUNDED_RSS / NO_DURABLE_ONLINE_SET / NO_REAL_POWERLOSS_PROOF / NO_NEW_LOWER_BOUND.** C2-A теперь выполняет mark/sweep в дисковой копии bitmap; C2-B1 журнал определяет два независимых исторических PIN, перед публикацией проверяется полный PIN tip и образ поколения. Учитываются операции файловой очереди/bitmap и публикации; читательские/авторские рассуждения и криптографические допущения разделены. B1 хранит все аттестованные корни Python map, исходный writer не RAM-bounded. Следующий шаг B2-B: онлайн COW SET с опубликованием корневых страниц, имитацией аварийных срезов и реальной файловой персистентностью. Теорема UCT-005 #105 открыта.

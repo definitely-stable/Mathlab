@@ -1,0 +1,38 @@
+name: uct005-c2b2b-fast
+
+on:
+  push:
+    branches: [research/uct005-g3b2c2b2b-online-cow]
+    paths:
+      - "research/uct005_g3b2c2b2b_online_cow.py"
+      - "research/test_uct005_g3b2c2b2b_online_cow.py"
+      - "research/uct005_g3b2c2b2a_fenced_disk_gc.py"
+      - ".github/workflows/uct005-c2b2b-fast.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "research/uct005_g3b2c2b2b_online_cow.py"
+      - "research/test_uct005_g3b2c2b2b_online_cow.py"
+      - "research/uct005_g3b2c2b2a_fenced_disk_gc.py"
+      - ".github/workflows/uct005-c2b2b-fast.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  cow-author:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Exhaustive online-COW writer and crash-prefix oracle
+        run: python -m unittest discover -s research -p 'test_uct005_g3b2c2b2b_online_cow.py' -v
+      - name: File-page online COW benchmark counters
+        run: python research/uct005_g3b2c2b2b_online_cow.py
+      - name: Previous C2-B2-A GC regression
+        run: python -m unittest discover -s research -p 'test_uct005_g3b2c2b2a_fenced_disk_gc.py'
+      - name: Research tree non-promotion test
+        run: python -m unittest discover -s research -p 'test_uct005_tree.py'

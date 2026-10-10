@@ -233,6 +233,12 @@
       "kind": "research_input",
       "status": "FENCED_DISK_DATA_PLANE_CLASSICAL_UPPER_NO_END_TO_END_DURABILITY_NO_NEW_LOWER_BOUND",
       "source": "docs/research/UCT-005-G3-B2-C2-B2-A-FENCED-DISK-GC.md"
+    },
+    {
+      "id": "UCT005G3B2C2B2B",
+      "kind": "research_input",
+      "status": "FILE_COW_AUTHOR_IDEAL_ROOT_CAS_STALE_GC_FENCED_CLASSICAL_UPPER_NO_REAL_DURABILITY_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-C2-B2-B-ONLINE-COW-ROOT-FENCE.md"
     }
   ],
   "edges": [
@@ -415,6 +421,11 @@
       "parent": "UCT005G3B2C2B1",
       "child": "UCT005G3B2C2B2A",
       "relation": "FILE_BUFFERED_CONTROL_JOIN_NOT_ORIGINAL_THEOREM"
+    },
+    {
+      "parent": "UCT005G3B2C2B2A",
+      "child": "UCT005G3B2C2B2B",
+      "relation": "ROOT_PUBLICATION_UPPER_AND_EXPLICIT_NONCOMPOSITION"
     }
   ]
 }

@@ -4,6 +4,13 @@
 
 # Research index and authority order
 
+## UCT-005 G3-B2-C2-B2-B — online COW SET and root fence (2026-10-10)
+
+[**File-page online SHA256 path-copying, modeled node/bitmap/root/metadata barrier ordering, ideal trusted root CAS, crash-prefix oracle and stale GC rejection**](UCT-005-G3-B2-C2-B2-B-ONLINE-COW-ROOT-FENCE.md) · [reference](../../research/uct005_g3b2c2b2b_online_cow.py) · [independent tests](../../research/test_uct005_g3b2c2b2b_online_cow.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). The initial exporter and root authority still retain O(n+H) Python state. Live GC cannot continue across this SET; no real filesystem crash durability or new UCT lower bound.
+
+
+
+
 ## UCT-005 G3-B2-C2-B2-A — authenticated PIN-fenced file-GC generation (2026-10-10)
 
 [**Live bitmap staging, six-buffer C2-A queue/mark collector, B1 authenticated PIN snapshot, streamed generation and fail-closed publication/recovery**](UCT-005-G3-B2-C2-B2-A-FENCED-DISK-GC.md) · [implementation](../../research/uct005_g3b2c2b2a_fenced_disk_gc.py) · [independent oracle tests](../../research/test_uct005_g3b2c2b2a_fenced_disk_gc.py) · [#178](https://github.com/definitely-stable/Mathlab/issues/178). GC *data-plane only* uses file-resident queue/bitmap, not generation-wide Python reachability sets. B1 root catalog and B2-B author/exporter still use unbounded RAM, trusted CAS and ideal fsync. No real power-loss claim, no original UCT lower bound.
