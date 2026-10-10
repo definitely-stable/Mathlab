@@ -331,6 +331,11 @@ class PageCowTree:
             _, records = self.make_proof(epoch, left, right)
         else:
             records = presented_records
+            # Supplied Byzantine wire records still consume charged server
+            # page fetches when materialized from their fixed-stride IDs;
+            # a malformed transport must not make reads appear free.
+            if isinstance(records, tuple):
+                self.ledger["query_node_page_reads"] += len(records) * self.node_pages
         if not isinstance(records, tuple) or any(not isinstance(r, bytes) for r in records):
             raise Abort("malformed proof transport")
         self.ledger["query_remote_request_bytes"] += 8 + 8 + 8
