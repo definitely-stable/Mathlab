@@ -50,3 +50,7 @@ The PAGE-001 full-snapshot construction is already a page-conserving F1 upper co
 **D1-B2-C / issue #245** studies alternative epoch-scan versus eager reclaim. D1-B2-D should consolidate these upper costs into a shared vector without misclassifying bitmap page *rewrites* as measured SSD write amplification. D1-B3 may only state a conjectural joint H1+H2 lower bound after complete source audit and upper-frontier falsification.
 
 **UCT-005 root remains OPEN_UNPROVED.**
+
+### Work-accounting correction (independent audit)
+
+The author executes two SHA-256 invocations per newly allocated node: one while encoding the digest, one while validating the stored record; remote path reads execute one additional SHA per accessed node. `setup_hash_calls` and `set_hash_calls` and separately charged SHA input bytes count these actual operations; independent tests reconcile them against exact allocated-node and read-page counts. A verifier's proof hashes are counted separately under `verify_hash_calls` and `verify_hash_input_bytes`. These are concrete Python reference operations, not processor-cycle timings or a security reduction.
