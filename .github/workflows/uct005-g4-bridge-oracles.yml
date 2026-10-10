@@ -8,6 +8,8 @@ on:
     paths:
       - "research/uct005_g4_bridge_oracles.py"
       - "research/test_uct005_g4_bridge_oracles.py"
+      - "research/test_uct005_g4_bridge_register.py"
+      - "docs/research/UCT-005-G4-TYPED-BRIDGES.json"
       - "docs/research/UCT-005-G4-A1A3-CLASSICAL-BRIDGE-CERTIFICATES.md"
       - ".github/workflows/uct005-g4-bridge-oracles.yml"
 
@@ -24,6 +26,6 @@ jobs:
         with:
           python-version: "3.x"
       - name: Independent exhaustive G4 finite oracles
-        run: python -m unittest discover -s research -p 'test_uct005_g4_bridge_oracles.py' -v
+        run: python -m unittest discover -s research -p 'test_uct005_g4_bridge_*.py' -v
       - name: Emit machine-readable classical / countermodel report
         run: python research/uct005_g4_bridge_oracles.py
