@@ -51,6 +51,20 @@ class Uct005TreeTests(unittest.TestCase):
                 self.assertTrue((REPO / source).is_file(), f"missing source: {source}")
         self.assertEqual(next(n for n in nodes if n["id"] == "UCT005")["status"], "OPEN_UNPROVED")
 
+    def test_d1a_one_probe_stays_classical_falsifier(self):
+        data = self.data
+        nodes = {n["id"]: n for n in data["nodes"]}
+        self.assertIn("NO_ORIGINAL_THEOREM", nodes["UCT005G3B2D0"]["status"])
+        self.assertEqual(nodes["UCT005G3B2D1A"]["kind"], "theorem_brick")
+        self.assertIn("CLASSICAL", nodes["UCT005G3B2D1A"]["status"])
+        self.assertIn("NO_NEW_UCT_BOUND", nodes["UCT005G3B2D1A"]["status"])
+        self.assertIn({
+            "parent": "UCT005G3B2D0",
+            "child": "UCT005G3B2D1A",
+            "relation": "RESTRICTED_CLASSICAL_BIT_CELL_PROOF_AND_FALSIFIER_NOT_ROOT",
+        }, data["edges"])
+        self.assertEqual(data["root_novelty"], "OPEN_UNPROVED")
+
     def test_g3a_is_foundational_not_promoted_to_original_root(self):
         d = self.data
         nodes = {n["id"]: n for n in d["nodes"]}
