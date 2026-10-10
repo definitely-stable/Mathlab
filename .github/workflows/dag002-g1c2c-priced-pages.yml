@@ -1,0 +1,33 @@
+name: dag002-g1c2c-priced-pages
+
+on:
+  push:
+    branches: [main, 'research/**']
+    paths:
+      - 'research/dag002_g1c2c_page_comparator.py'
+      - 'research/test_dag002_g1c2c_page_comparator.py'
+      - 'docs/research/DAG-002-ALG-001-G1-C2-C-PAGE-COMPARATOR.md'
+      - '.github/workflows/dag002-g1c2c-priced-pages.yml'
+  pull_request:
+    paths:
+      - 'research/dag002_g1c2c_page_comparator.py'
+      - 'research/test_dag002_g1c2c_page_comparator.py'
+      - 'docs/research/DAG-002-ALG-001-G1-C2-C-PAGE-COMPARATOR.md'
+      - '.github/workflows/dag002-g1c2c-priced-pages.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  exact-page-comparator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Deterministic page-ledger and crossover report
+        run: python research/dag002_g1c2c_page_comparator.py
+      - name: Independent exhaustive DAG and wire-cost regression
+        run: python -m unittest discover -s research -p 'test_dag002_g1c2c_page_comparator.py' -v
