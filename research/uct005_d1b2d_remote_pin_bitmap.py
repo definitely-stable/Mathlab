@@ -135,9 +135,10 @@ class RemotePinBitmapF1(SnapshotF1Reference):
             return 0
         # Scan the TWO bits for this epoch in an already authenticated
         # full bitmap; no free lookup into readers' local PIN dictionaries.
+        first_pinned = self._has_bit(verified_bitmap, self._index(0, epoch))
+        second_pinned = self._has_bit(verified_bitmap, self._index(1, epoch))
         self.ledger["bitmap_reclaim_bit_tests"] += 2
-        if (self._has_bit(verified_bitmap, self._index(0, epoch)) or
-                self._has_bit(verified_bitmap, self._index(1, epoch))):
+        if first_pinned or second_pinned:
             return 0
         pages = self._pages_per_snapshot()
         first = self._slot_start_page(epoch)
