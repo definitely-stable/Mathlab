@@ -1,0 +1,28 @@
+name: hyp105-c11-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c11-coupled-four-line-prefix
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c11_coupled_four.py"
+      - "research/test_hyp105_g5e2b3e1c11_coupled_four.py"
+      - ".github/workflows/hyp105-c11-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  coupled-four-line:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent one-global-right-completion and original W32 tensor checks
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c11_coupled_four.py' -v
+      - name: Actual W32 11-pinned four-line common-permutation diagnostic
+        run: python research/hyp105_g5e2b3e1c11_coupled_four.py

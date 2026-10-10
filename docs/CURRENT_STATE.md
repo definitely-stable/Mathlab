@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-C11 — common-prefix conditional second moment and real GQ four-line coupling (2026-10-10)
+
+[Proof and scope](research/HYP-105-G5-E2-B3-E1C11-COUPLED-FOUR-LINE.md) · [reference](../research/hyp105_g5e2b3e1c11_coupled_four.py) · [independent tests](../research/test_hyp105_g5e2b3e1c11_coupled_four.py) · issue #230. **ALL-h_EXACT_CONDITIONAL_SHARED_PERM_SECOND_MOMENT / JOINT_ORIGINAL_A_B_REMAINDER_INTERSECTION_j / TRUE_FIXED-PREFIX_VAR_MIN_LOWER / FINITE_GENUINE_W32_11_RIGHT_PINS_ALL_24_COUPLED_C4_C5_CHECKS / NO_FULL_15_FACTORIAL_MIN / NO_SEVEN_GF5_ASYMPTOTIC / CI_PENDING**. #230 remains OPEN_WITH_FORMAL_BLOCKER.
+
 ## HYP-105 B3.2-E1-C10 — all-h zero barrier extends to three pinned original GQ right lines (2026-10-10)
 
 [Full proof](research/HYP-105-G5-E2-B3-E1C10-THREE-PIN-ZERO-BARRIER.md) · [reference](../research/hyp105_g5e2b3e1c10_three_pin_barrier.py) · [independent falsifiers](../research/test_hyp105_g5e2b3e1c10_three_pin_barrier.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230). **ALL_s=2^h>=16_EVERY_LEFT_GQ_f_EVERY_OCCUPIED_F_EVERY_PIN_D_SIZE_LE3_EVERY_IMAGES_p_C8_REARRANGEMENT_L_D(p)_EQUAL_ZERO / C9_TWO_PIN_STRICTLY_STRENGTHENED / C3_DISTINGUISHED_PAIR_PLUS_THIRD_ORIGINAL_LINE_CAP_2C(a-4,2)Delta4 / TARGET_ONE_EDGE_CODEGREE_28C(a-2,4) / EXACT_INTEGER_s16_32 / RATIONAL_TAIL_s>=64 / ACTUAL_GQ_RIGHT_MIN_NOT_ZERO_PROVED / NO_SEVEN_FAMILY_GF5_ASYMPTOTIC / PR_HEAD_CI_PENDING.** #230 OPEN_WITH_FORMAL_BLOCKER.
