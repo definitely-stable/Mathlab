@@ -83,6 +83,28 @@ The previous [B1-A](https://github.com/definitely-stable/Mathlab/pull/238) mathe
 ### Prior-art transfer
 Recent rainbow/properly colored cycle work such as [Kim, Lee, Liu and Tran, *Rainbow Cycles in Properly Edge-Colored Graphs* (Combinatorica 2024)](https://doi.org/10.1007/s00493-024-00101-7) does not establish our exact two-color coupled GF5 moment inequality. In the original GQ model, each incidence edge at one factor vertex inherits the same physical pair label; the induced coloring is *not proper*. No automatic rainbow-cycle/expander or spectral theorem may be imported into the proof without first changing and proving a model-preserving reduction.
 
+## 3A. Hosted exact 105-neighbor outcome (fully reproduced)
+
+[GitHub-hosted Research #38042611336](https://github.com/definitely-stable/Mathlab/actions/runs/38042611336) completed **SUCCESS** on the initial W32 implementation, including the independent full-recount and right physical S6-gauge falsifiers. Every 105 swap candidate is evaluated against all 62,370 qualified original LEFT sixsets, using the mathematical delta identity. The deterministic best ONE-swap neighbor of the fixed `reverse-line` map is the exchange of right ORIGINAL line-factor IDs **(4,13)** (not physical coordinate symbols).
+
+| Complete pinned finite W(3,2) calculation | Reverse-line baseline | Swap right factor IDs 4↔13 |
+|---|---:|---:|
+| Accepted seven-family original sixsets S_7 | 169 | **128** |
+| Accepted matched Q4 four-incidence cycles | 32 | **23** |
+| Necessary selected GF5 minimum-floor numerator / 51^6 | 7,627,209 | **5,803,196** |
+| EXACT selected seven-class full-51 GF5 ten-sign numerator / 51^6 | 9,330,448 | **7,087,162** |
+| D6 | 3 | 2 |
+| B-left/A-right | 77 | 57 |
+| A-left/B-right | 74 | 51 |
+| C/A | 1 | 3 |
+| C/B | 1 | 2 |
+| B/B intersect | 7 | 8 |
+| B/B disjoint | 6 | 5 |
+
+The exact accepted weighted floor for the chosen swap has numerator 5,803,196, while the exact all-ten-signed selected-seven-class sum 7,087,162 also includes positive surplus above the per-class minima (including nonalternating D6 signs). Both differ from TOTAL R3, which has additional positive classes outside this oracle.
+
+**Interpretation and limits:** This is a strict finite selected-family improvement for **one** original line-factor pair-assignment swap with f fixed, and a simultaneous finite decrease in the independent Q4 count. It is *not* a proof that the complete GF5 R2/R3 risk decreases, and it is not an asymptotic s→∞ counterexample. The minimum is among 105 neighbors of the pinned baseline, not a global optimum over 15! right pair-label permutations and not a local optimum after further rounds. Numbers are frozen in independent CI regression. The new universal one-swap O(s^12) influence theorem is independent of these finite numerical values.
+
 ## 4. Acceptance and open barrier
 
 Acceptance requires GitHub-hosted full Research CI on EXACT PR HEAD, including independent original-sixset recount, exact selected full 51-palette GF5 risk and separate full GQ provenance checks; postmerge main Research must pass separately. Parent #230/#176 remain OPEN. The next B1-C theorem target is a **uniform-in-h lower for ALL correlated right injections** on the transfer fraction S/L (or an explicit infinite counterexample); finite exchange search only generates useful falsifiers and constraints.
