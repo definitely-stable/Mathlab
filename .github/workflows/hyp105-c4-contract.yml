@@ -1,0 +1,28 @@
+name: hyp105-c4-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c4-conditional-four-line-completion
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c4_conditional_completion.py"
+      - "research/test_hyp105_g5e2b3e1c4_conditional_completion.py"
+      - ".github/workflows/hyp105-c4-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  conditional-four-line-model:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Complete original W32 conditional tensor and 105 right swaps
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c4_conditional_completion.py' -v
+      - name: Deterministic exact pair-conditioned completion report
+        run: python research/hyp105_g5e2b3e1c4_conditional_completion.py
