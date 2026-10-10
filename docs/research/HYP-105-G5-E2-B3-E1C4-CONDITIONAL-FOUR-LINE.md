@@ -141,6 +141,21 @@ The Cauchy bound can be *vacuous* when conditional b is sparse, as expected in W
 
 An exact full all-h zero-overlap characterization can also be written as the combinatorial bilinear feasibility system `sum_{P,H}b_f(P,H)1[g(H)∈C_F(g(P))]=0` over physically injective g. This is a model-equivalent Branch C reduction for **B/A only**. The other six GF5-positive classes need separate tensors.
 
+## 4A. Genuine all-h GQ conditional cell capacity and a moment-only countermodel
+
+For the ACTUAL GQ source, fix one concurrent ORIGINAL right pair P={u,v} with its UNIQUE doubled original left point p. Fix any unordered fourset H of distinct other ORIGINAL right lines. The original-six-incidence selection b_f(P,H) is specified by choosing one original left factor point incident with each of the four lines of H, after the two incidences at p have been determined by P. Each original right line has Delta=s+1 original incident left points. Therefore, for every admissible left f and any right injection g, **the exact all-h model-specific bound**
+
+```text
+0 <= b_f(P,H) <= (s+1)^4,
+|supp b_f(P,·)| >= ceil(w_f(P)/(s+1)^4).
+```
+
+No physical f-C4 multiplicity is added: that constraint can only REMOVE candidate choices. This bound is specific to the original GQ incidence source (though elementary), whereas the Cauchy and pair-intersection moment identities are general uniform hypergraph combinatorics. It proves source spread within each concurrent pair fiber but **not** the overlap of that fiber with C_F(g(P)).
+
+**Why even exact conditional first and second moments cannot imply deterministic positivity without GQ-specific correlation control:** fix any physically occupied F and two-label anchor z with 0<q_F(z)<N. Construct abstract residual-source weights concentrated at a single 4set H_good whose image is in C_F(z), versus at a single H_bad whose image is not in C_F(z). Each is a unit one-hot source: both have the same w=1, the same ordered overlap statistics S_4=1 and all S_0..S_3=0, and therefore identical EXACT pair-frozen E[X], E[X²], Var[X] and conditional source L2 energy. Yet their fixed-embedding counts are respectively 1 and 0. The new finite independent falsifier uses actual K6 2factor completion sets to build this example.
+
+This is an **abstract conditional-source countermodel, not a genuine W(3,s) source**. It shows the limit of *moment-only implication*. A theorem for #230 must exploit additional cross-fiber GQ constraints under ONE shared right injection g, or provide an infinite actual GQ counterfamily.
+
 ## 5. Independent finite W(3,2) certification and explicit failure modes
 
 The [reference](../../research/hyp105_g5e2b3e1c4_conditional_completion.py) produces b_f(P,H) by the accepted six-incidence original selection with an explicit unique doubled ORIGINAL left factor point and six distinct original right endpoints. It checks per-sixset masses against the independently frozen C0 m_f and retains exact original six-incidence multiplicity.
