@@ -30,6 +30,8 @@ class B2BPageCowTests(unittest.TestCase):
                 self.assertEqual(len(t.nodes), records)
                 self.assertEqual(t.ledger["setup_node_page_writes"],
                                  records * t.node_pages)
+                self.assertEqual(t.ledger["setup_hash_calls"], 2 * records)
+                self.assertGreater(t.ledger["setup_hash_input_bytes"], 0)
                 self.assertEqual(t.ledger["setup_root_page_writes"], t.root_pages)
                 self.assertEqual(t.ledger["setup_remote_upload_bytes"],
                                  (records * t.node_pages + t.root_pages + t.bitmap_pages) * p)
@@ -189,6 +191,11 @@ class B2BPageCowTests(unittest.TestCase):
                 self.assertEqual(
                     t.ledger["set_root_page_writes"], 3 * t.root_pages)
                 self.assertGreater(t.ledger["set_node_page_writes"], 0)
+                self.assertEqual(
+                    t.ledger["set_hash_calls"],
+                    2 * t.ledger["set_node_page_writes"] // t.node_pages
+                    + t.ledger["set_node_page_reads"] // t.node_pages
+                )
                 self.assertGreater(t.ledger["set_bitmap_page_writes"], 0)
                 self.assertGreater(s.ledger["query_full_page_reads"], 0)
                 self.assertGreater(t.ledger["query_root_page_reads"], 0)
