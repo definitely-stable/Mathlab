@@ -63,6 +63,8 @@ jobs:
         run: python research/research_graph.py build --out .work/research-graph
       - name: Evaluate top-k relevance against source-grounded IDs
         run: python research/research_graph_eval.py --check --report .work/research-graph/retrieval-evaluation.json
+      - name: Export source-change impact evidence paths
+        run: python research/research_graph.py impact P:LIT-355 --depth 2 --limit 100 > .work/research-graph/source-impact-example.json
       - name: Build incremental FTS5 cache and validate AI queries
         run: |
           python research/research_graph_fts.py sync --jsonl .work/research-graph/retrieval.jsonl --db .work/research-graph/retrieval.sqlite
