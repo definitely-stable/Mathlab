@@ -425,6 +425,12 @@ jobs:
       - name: HYP-105 C21 one-common-right exact D6 expectation and real W32 report
         run: python research/hyp105_g5e2b3e1c21_global_right_transfer.py
 
+      - name: HYP-105 C21-D independent genuine original W32 all-global-right zero D6 tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c21d_adversarial_right.py'
+
+      - name: HYP-105 C21-D global right strict D6 zero vs positive seven-family W32 report
+        run: python research/hyp105_g5e2b3e1c21d_adversarial_right.py
+
   research-full-suite:
     # A single explicit verdict: foundation-only SUCCESS is not full CI.
     if: ${{ always() }}
