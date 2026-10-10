@@ -46,6 +46,19 @@ class ExactPinnedRetentionTests(unittest.TestCase):
                                 stage["freed_logical_remote_pages"])
                             self.assertGreater(
                                 sum(audit["offline_audit_charged"].values()),0)
+                            prices=audit["offline_audit_charged"]
+                            self.assertGreater(prices["retention_audit_request_bytes"],0)
+                            self.assertGreater(prices["retention_audit_response_bytes"],0)
+                            if model["model"]=="PAGE001_SNAPSHOT":
+                                self.assertEqual(
+                                    prices["retention_audit_response_bytes"],
+                                    prices["retention_audit_slot_page_reads"]*p)
+                            else:
+                                self.assertEqual(
+                                    prices["retention_audit_response_bytes"],
+                                    (prices["retention_audit_node_page_reads"]
+                                     +prices["retention_audit_root_page_reads"]
+                                     +prices["retention_audit_bitmap_page_reads"])*p)
                             self.assertFalse(audit["online_gc_price_reused_for_audit"])
                             self.assertFalse(audit["full_F1_pinned_retained_axis_proven"])
                             self.assertGreaterEqual(stage["PIN_incremental_pages"],0)
