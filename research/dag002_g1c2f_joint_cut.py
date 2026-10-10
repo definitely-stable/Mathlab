@@ -63,6 +63,29 @@ def joint_cut(history_bits, local_bits, update_probes, new_cells, changed_cells)
                k <= min(probe_capacity, record_capacity))
 
 
+@dataclass
+class ChargedOldSource:
+    """Test-only source; updater receives ONLY the bound read_bit callback.
+
+    The full previous history is held by the verifier, not passed to the
+    updater. Each requested binary coordinate is charged before delivery.
+    """
+    history_mask: int
+    width: int
+    max_reads: int
+    reads: int = 0
+    addresses: tuple[int, ...] = ()
+
+    def read_bit(self, coordinate):
+        if type(coordinate) is not int or not 0 <= coordinate < self.width:
+            raise ValueError("invalid source bit address")
+        if self.reads >= self.max_reads:
+            raise ValueError("old-source bit-probe budget exceeded")
+        self.reads += 1
+        self.addresses += (coordinate,)
+        return (self.history_mask >> coordinate) & 1
+
+
 @dataclass(frozen=True)
 class Witness:
     """Special promise family, not a complete all-history DAG index."""
@@ -79,18 +102,31 @@ class Witness:
         return tuple(() for _ in range(m)) + (
             tuple(i for i in range(m) if history_mask & (1 << i)),)
 
-    def update(self, old_parent_mask):
+    def retained_state_from_prior_append(self, old_parent_mask):
+        """Pay H retained bits at the PREVIOUS append when e was public."""
         m, h = self.history_bits, self.local_bits
-        if (type(old_parent_mask) is not int
-                or not 0 <= old_parent_mask < (1 << m)):
+        if (type(old_parent_mask) is not int or
+                not 0 <= old_parent_mask < (1 << m)):
             raise ValueError("invalid previous parent mask")
-        # Local state is maintained at the earlier append, when that append
-        # receives the full m-bit parent-incidence command; not free prehistory.
-        trusted = old_parent_mask & ((1 << h) - 1)
-        observations = tuple((old_parent_mask >> i) & 1
-                             for i in range(h, m))
-        unseen = sum(bit << j for j, bit in enumerate(observations))
-        return trusted, self.codewords[unseen], len(observations)
+        return old_parent_mask & ((1 << h) - 1)
+
+    def update_charged(self, retained_local, read_old_bit):
+        """Final updater has NO full-history argument or prior input row.
+
+        Only retained H bits plus the provided one-bit read callback are
+        reachable. No new-record address / codebook side channel is used.
+        """
+        m, h = self.history_bits, self.local_bits
+        if (type(retained_local) is not int or
+                not 0 <= retained_local < (1 << h)):
+            raise ValueError("invalid retained local state")
+        unseen = 0
+        for j, i in enumerate(range(h, m)):
+            bit = read_old_bit(i)
+            if type(bit) is not int or bit not in (0, 1):
+                raise ValueError("old-source probe returned nonbinary result")
+            unseen |= bit << j
+        return retained_local, self.codewords[unseen]
 
     def query_vector(self, trusted, remote_word):
         h, m = self.local_bits, self.history_bits
@@ -148,8 +184,11 @@ def verify_witness(cert, allowed_probes, full_history=True):
                 cert.update_probes > allowed_probes):
             return False
         for e in range(1 << m):
-            local, word, read_count = cert.update(e)
-            if read_count > allowed_probes:
+            retained = cert.retained_state_from_prior_append(e)
+            old_source = ChargedOldSource(e, m, allowed_probes)
+            local, word = cert.update_charged(retained, old_source.read_bit)
+            if (old_source.reads != cert.update_probes or
+                    old_source.addresses != tuple(range(h, m))):
                 return False
             result = cert.query_vector(local, word)
             if result != ((1 << m) | e):
