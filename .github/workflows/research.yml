@@ -27,6 +27,12 @@ jobs:
       - name: Unit tests
         run: python -m unittest discover -s research -p "test_*.py"
 
+      - name: HYP-105 C13 exact original GQ and both-physical joint orbit falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c13_joint_orbits.py'
+
+      - name: HYP-105 C13 exact W32 SP4 joint stabilizer and canonical quotient report
+        run: python research/hyp105_g5e2b3e1c13_joint_orbits.py
+
       - name: HYP-105 C12 exact physical Aut(F) orbit and seven-motif independent tests
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c12_physical_orbits.py'
 
