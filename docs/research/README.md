@@ -2,6 +2,10 @@
 
 [Proof and scope](HYP-105-G5-E2-B3-E1B1A-ONE-SIDED-UNIVERSAL.md) · [exact bound](../../research/hyp105_g5e2b3e1b1a_one_sided.py) · [independent tests](../../research/test_hyp105_g5e2b3e1b1a_one_sided.py). For ANY pair injection f, L_left=(151/144+O(1/s))s^15 uniformly in f; for every fixed f, independent uniform right g has E_g[U_B/A]=(140+O(1/s))s^6 by GQ codegree one; the missing ALL-LABEL right transfer is equivalent to Ω(s^-9) fraction. Neither S_seven=Ω(s^6) nor a strict GF5 R3 bound proved. Hosted CI pending.
 
+## UCT-005 D1-B2-A — same-trace three-upper comparator and partial-Pareto stop (2026-10-10)
+
+[Formal finite evidence](UCT-005-G3-B2-D1B2A-SAME-TRACE-PARTIAL-PARETO.md) · [reproducible model](../../research/uct005_d1b2a_partial_pareto.py) · [independent tests](../../research/test_uct005_d1b2a_partial_pareto.py). Three conditional F1 upper families answer identical SET/LATEST/PIN/AS_OF transcript under explicitly assumed trust. Only PAGE-001 snapshots have byte-conserving page prices; **no fabricated cross-family Pareto dominance, no new lower bound, ROOT_OPEN_UNPROVED**.
+
 ## UCT-005 D1-B1 — 20-source theorem transfer matrix and GF2 query-interface barrier (2026-10-10)
 
 [Proof-scope and hard limits](UCT-005-G3-B2-D1B1-PRIMARY-TRANSFER-AND-MASK-OBSTRUCTION.md) · [typed canonical matrix](UCT-005-G3-B2-D1B1-TRANSFER-MATRIX.json) · [finite oracle](../../research/uct005_d1b1_source_gate.py) · [D1 #223](https://github.com/definitely-stable/Mathlab/issues/223). Three primary theorem statements inspected, not full proofs; 20 canonical records classified. **NO_NEW_NONFACTORIZING_LOWER_BOUND / ROOT_OPEN_UNPROVED**.
