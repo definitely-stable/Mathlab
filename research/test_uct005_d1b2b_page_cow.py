@@ -32,7 +32,9 @@ class B2BPageCowTests(unittest.TestCase):
                                  records * t.node_pages)
                 self.assertEqual(t.ledger["setup_root_page_writes"], t.root_pages)
                 self.assertEqual(t.ledger["setup_remote_upload_bytes"],
-                                 (records * t.node_pages + t.root_pages) * p)
+                                 (records * t.node_pages + t.root_pages + t.bitmap_pages) * p)
+                self.assertEqual(t.ledger["setup_bitmap_upload_bytes"],
+                                 t.bitmap_pages * p)
                 self.assertEqual(t.remote_pages,
                                  records * t.node_pages + t.root_pages +
                                  t.bitmap_pages)
