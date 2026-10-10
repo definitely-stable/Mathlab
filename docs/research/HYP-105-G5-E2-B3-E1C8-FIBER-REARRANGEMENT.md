@@ -93,3 +93,7 @@ Conditional weighted rearrangement and the expectation method are elementary com
 - **Acceptance pending** exact PR HEAD hosted `hyp105-c8-contract` + full Research SUCCESS, then merge only after #279 and earlier C1–C6 are accepted sequentially. #280 is a parallel C7 that needs separate reconciliation.
 - **Never infer** `inf_{f,g} S_seven(f,g)=Ω(s^6)`, a genuine infinite B counterfamily, full GF5 R3, or ASET exponent from these results.
 - **C9 proof gate:** find a GQ-/physical-completion-specific structural invariant giving L_D=Ω(s^6) with k small enough for all-h proof, OR formally prove why every bounded-k family cannot certify such a positive floor, then study stronger orbit/correlation constraints. A finite W32 numerical positive lower for fixed f,F alone would not close #230.
+
+## C9 subsequent correction — two-pin method cannot certify all-h positive B/A floor
+
+[C9 proof](HYP-105-G5-E2-B3-E1C9-TWO-PIN-ZERO-BARRIER.md) shows that for EVERY s=2^h>=16, every legal GQ source f, every physical occupied F, and EVERY original pinned subset of size <=2 with ANY injective images, the **C8 per-fiber independent rearrangement bound** is identically zero. This overrides any interpretation of the C8 low-pin hierarchy as a plausible asymptotic positive obstruction; the finite star example remains a true generic K8 toy outside the GQ model. This does NOT imply the actual minimum is zero. Next proof step must couple physical remaining-line constraints or use >=3 pins with stronger GQ structure.
