@@ -56,9 +56,9 @@ class EagerPINReclaimFiniteTests(unittest.TestCase):
         for p in (1, 2, 8, 64):
             m = EagerPinReclaim((0, 1, 0), p)
             e0 = m.pin_current(0)
+            self.assertEqual(m.pin_current(1), e0)  # same epoch, two readers
             m.set(0, 1)
             self.assertEqual(m.as_of(0, e0, 0, 3), 1)
-            m.pin_current(1)  # both readers retain the SAME historical epoch
             m.set(2, 1)
             self.assertIn(0, m.remote)
             self.assertNotIn(1, m.remote)
