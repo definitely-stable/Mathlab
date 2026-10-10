@@ -67,7 +67,7 @@ class JointCutTests(unittest.TestCase):
                                 for v in cert.codewords),w)
 
     def test_extra_read_budget_does_not_create_a_free_program_channel(self):
-        for m,h,n,w in ((3,1,3,1),(4,2,2,2),(2,0,2,1)):
+        for m,h,n,w in ((3,1,3,1),(4,2,2,2),(2,0,2,2)):
             need=m-h
             cert=construct_matching_witness(m,h,need+3,n,w)
             self.assertIsNotNone(cert)
