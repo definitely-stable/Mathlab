@@ -76,9 +76,17 @@ class CoupledFourC11Tests(unittest.TestCase):
         self.assertEqual(d["historical_BA"],77)
         self.assertEqual(d["all_common_tail_maps_checked"],24)
         self.assertTrue(d["independent_original_C4_tensor_all_24_agree"])
-        self.assertLessEqual(d["restricted_four_line_exact_minimum"],77)
-        self.assertGreaterEqual(d["restricted_four_line_exact_minimum"],0)
-        self.assertLessEqual(d["moment_based_lower"],d["restricted_four_line_exact_minimum"])
+        # Frozen independently verified real W32 24-map baseline.
+        self.assertEqual(d["restricted_four_line_exact_minimum"],56)
+        self.assertEqual(d["restricted_four_line_exact_maximum"],77)
+        self.assertEqual(d["conditional_mean"],"133/2")
+        self.assertEqual(d["conditional_variance"],"28")
+        self.assertEqual(d["moment_based_lower"],42)
+        self.assertEqual(d["conditional_mean_existential_upper"],66)
+        self.assertEqual(d["minimizing_full_right_permutation"],
+                         (14,13,12,11,10,9,8,7,6,5,4,0,1,3,2))
+        self.assertLessEqual(d["moment_based_lower"],
+                             d["restricted_four_line_exact_minimum"])
         self.assertGreaterEqual(d["conditional_mean_existential_upper"],
                                 d["restricted_four_line_exact_minimum"])
         self.assertFalse(d["f_and_F_unrestricted_15_factorial_minimum_proved"])
