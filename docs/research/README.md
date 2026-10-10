@@ -1,6 +1,6 @@
 ## HYP-105 B3.2-E1-C7 — certified finite worst-case one-common-right mapping
 
-[Proof and strict all-h/finite separation](HYP-105-G5-E2-B3-E1C7-ADVERSARIAL-MINIMUM.md) · [reference](../../research/hyp105_g5e2b3e1c7_adversarial_minimum.py) · [independent full-permutation oracles](../../research/test_hyp105_g5e2b3e1c7_adversarial_minimum.py). Exact arbitrary-sixset rearrangement lower, admissible prefix-forced bound, full small-n simultaneous mapping minimization or exact zero witness. Budgeted search is UNKNOWN, never certified. True W32 genuine maps checked, 15! not claimed; B/A only, not universal seven-family GF5. GitHub-hosted CI pending.
+[Proof and strict all-h/finite separation](HYP-105-G5-E2-B3-E1C7-ADVERSARIAL-MINIMUM.md) · [reference](../../research/hyp105_g5e2b3e1c7_adversarial_minimum.py) · [independent full-permutation oracles](../../research/test_hyp105_g5e2b3e1c7_adversarial_minimum.py). Exact arbitrary-sixset rearrangement lower, admissible prefix-forced bound, and a strict finite V8 star example with true common-permutation minimum 1 despite zero support-only relaxation; full small-n simultaneous mapping minimization or exact zero witness. Budgeted search is UNKNOWN, never certified. True W32 genuine maps checked, 15! not claimed; B/A only, not universal seven-family GF5. GitHub-hosted CI pending.
 
 ## HYP-105 B3.2-E1-C6 — complete Johnson energy decomposition of one shared right permutation
 
