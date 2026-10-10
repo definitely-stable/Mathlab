@@ -34,7 +34,7 @@ class RemotePinBitmapF1(SnapshotF1Reference):
         self.trusted_bitmap_digest = self._bitmap_digest(0, self.remote_pin_bitmap)
         self.ledger["bitmap_setup_page_writes"] += self.bitmap_pages
         self.ledger["bitmap_setup_upload_bytes"] += self.bitmap_pages * self.page_bytes
-        self.ledger["bitmap_setup_hashed_bytes"] += 8 + len(self.remote_pin_bitmap)
+        self.ledger["bitmap_setup_hashed_bytes"] += len(self._DOMAIN) + 8 + len(self.remote_pin_bitmap)
         self.ledger["peak_remote_pages"] = max(
             self.ledger["peak_remote_pages"], self.remote_pages
         )
@@ -87,7 +87,7 @@ class RemotePinBitmapF1(SnapshotF1Reference):
         self.ledger[prefix + "_remote_payload_bytes"] += len(candidate)
         if len(candidate) != self.bitmap_payload_bytes:
             raise Abort("truncated or lengthened PIN bitmap")
-        self.ledger[prefix + "_verifier_hashed_bytes"] += 8 + len(candidate)
+        self.ledger[prefix + "_verifier_hashed_bytes"] += len(self._DOMAIN) + 8 + len(candidate)
         if self._bitmap_digest(self.bitmap_generation, candidate) != (
                 self.trusted_bitmap_digest):
             raise Abort("stale/tampered remote PIN bitmap")
@@ -106,7 +106,7 @@ class RemotePinBitmapF1(SnapshotF1Reference):
         self.trusted_bitmap_digest = new_digest
         self.ledger["bitmap_remote_page_writes"] += self.bitmap_pages
         self.ledger["bitmap_remote_upload_bytes"] += self.bitmap_pages * self.page_bytes
-        self.ledger["bitmap_author_hash_input_bytes"] += 8 + len(image)
+        self.ledger["bitmap_author_hash_input_bytes"] += len(self._DOMAIN) + 8 + len(image)
         self.ledger["bitmap_trusted_root_publications"] += 1
         self.ledger["bitmap_trusted_root_publication_bytes"] += self._TRUSTED_ROOT_BYTES
 
