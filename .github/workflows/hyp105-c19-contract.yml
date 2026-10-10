@@ -1,0 +1,28 @@
+name: hyp105-c19-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c19-two-anchor-support-barrier
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c19_two_anchor_support.py"
+      - "research/test_hyp105_g5e2b3e1c19_two_anchor_support.py"
+      - ".github/workflows/hyp105-c19-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  all-h-joint-left-two-anchor-barrier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C19 all-h occupied double-star arithmetic and genuine W32 nine-point falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c19_two_anchor_support.py' -v
+      - name: C19 original W32 all-62370 left source changed-embedding audit
+        run: python research/hyp105_g5e2b3e1c19_two_anchor_support.py
