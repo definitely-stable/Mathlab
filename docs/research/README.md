@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E0 — one all-h labeling, weak joint R2/R3
+
+[Proof and scope](HYP-105-G5-E2-B3-E0-JOINT-FIRST-MOMENT.md) · [reference](../../research/hyp105_g5e2b3e0_joint_first_moment.py) · [tests](../../research/test_hyp105_g5e2b3e0_joint_first_moment.py). Same-label R2=O(s^4), R3=O(s^6) follows from existing two expectation bounds via classical first moment. Strict R3 exponent, practical deterministic construction and ASET gap remain OPEN; PR-head CI pending.
+
 ## HYP-105 B3.1-B2-B — full leading nonmatching six-coordinate GF5 certificate (PR pending)
 
 [Model, 50,700 signed templates and scope](HYP-105-G5-E2-B3-B2B-LEADING-FORESTS.md) · [oracle](../../research/hyp105_g5e2b3b2b_leading_forests.py) · [tests](../../research/test_hyp105_g5e2b3b2b_leading_forests.py). Exact signed coefficient census awaits exact-head hosted CI acceptance; 11,032 remaining subleading necessary factor-forest shapes and all-h fixed-label R2/R3 upper remain OPEN.
