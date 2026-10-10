@@ -53,6 +53,12 @@ class RemotePinBitmapF1(SnapshotF1Reference):
         return snapshot_pages + (self.bitmap_pages
                                  if hasattr(self, "remote_pin_bitmap") else 0)
 
+    def _slot_start_page(self, epoch: int) -> int:
+        # The remote PIN bitmap occupies physical pages [0, bitmap_pages).
+        # PAGE-001 immutable epoch slots follow those pages with no overlap;
+        # all addresses are public arithmetic, with no hidden object index.
+        return self.bitmap_pages + epoch * self._pages_per_snapshot()
+
     @property
     def trusted_bits(self) -> int:
         # Unused inherited pin_registry dict must remain empty: otherwise
@@ -68,19 +74,20 @@ class RemotePinBitmapF1(SnapshotF1Reference):
             self._DOMAIN + generation.to_bytes(8, "big") + bitmap
         ).digest()
 
-    def _read_verified_bitmap(self) -> bytes:
-        self.ledger["bitmap_trusted_root_reads"] += 1
-        self.ledger["bitmap_trusted_root_bytes_read"] += self._TRUSTED_ROOT_BYTES
-        # Full pages are logically fetched even if the malicious server
-        # withholds the object or returns a malformed blob.
-        self.ledger["bitmap_remote_page_read_attempts"] += self.bitmap_pages
+    def _read_verified_bitmap(self, audit: bool = False) -> bytes:
+        # Test-only invariant checks must not inflate operational counters:
+        # their own authenticating reads are still charged under audit_*.
+        prefix = "bitmap_audit" if audit else "bitmap"
+        self.ledger[prefix + "_trusted_root_reads"] += 1
+        self.ledger[prefix + "_trusted_root_bytes_read"] += self._TRUSTED_ROOT_BYTES
+        self.ledger[prefix + "_remote_page_read_attempts"] += self.bitmap_pages
         candidate = self.remote_pin_bitmap
         if candidate is None:
             raise Abort("withheld remote PIN bitmap")
-        self.ledger["bitmap_remote_payload_bytes"] += len(candidate)
+        self.ledger[prefix + "_remote_payload_bytes"] += len(candidate)
         if len(candidate) != self.bitmap_payload_bytes:
             raise Abort("truncated or lengthened PIN bitmap")
-        self.ledger["bitmap_verifier_hashed_bytes"] += 8 + len(candidate)
+        self.ledger[prefix + "_verifier_hashed_bytes"] += 8 + len(candidate)
         if self._bitmap_digest(self.bitmap_generation, candidate) != (
                 self.trusted_bitmap_digest):
             raise Abort("stale/tampered remote PIN bitmap")
@@ -192,7 +199,7 @@ class RemotePinBitmapF1(SnapshotF1Reference):
         return 0
 
     def assert_live_invariant(self) -> None:
-        image = self._read_verified_bitmap()
+        image = self._read_verified_bitmap(audit=True)
         pinned = {
             e for e in range(self.epoch_capacity)
             if self._has_bit(image, 2 * e) or self._has_bit(image, 2 * e + 1)
