@@ -144,17 +144,27 @@ class WeightedIntersectionTests(unittest.TestCase):
             self.assertGreater(len(source),0)
 
     def test_actual_correlated_pair_edge_swap_intersection(self):
-        from hyp105_g5e2b3e1b1b_label_swaps import swap_line_pair_labels
         model=pair_labeled_symplectic(1,"reverse-line")
         weights=source_weighted_BA_hypergraph(model)
         target=independent_degree2_target_K6()
-        swapped=swap_line_pair_labels(model,4,13)
+        # Self-contained real ORIGINAL right-factor reassignment; no
+        # import from not-yet-merged PR #242.
+        r=list(model["right_labels"])
+        r[4],r[13]=r[13],r[4]
+        swapped=dict(model)
+        swapped["right_labels"]=tuple(r)
+        a=model["a"]
+        swapped["supports"]=tuple(tuple(sorted(
+            model["left_labels"][p]+tuple(a+v for v in r[l])))
+            for p,l in model["incidences"])
         # LEFT f and ORIGINAL source weights must NOT change:
         self.assertEqual(source_weighted_BA_hypergraph(swapped),weights)
         self.assertEqual(exact_BA_overlap(weights,model["right_labels"],
                                           target=target),77)
         self.assertEqual(exact_BA_overlap(weights,swapped["right_labels"],
                                           target=target),57)
+        self.assertEqual(seven_census(swapped,independent_checks=False)
+                         ["seven_class_motif_counts"]["B-left/A-right"],57)
         self.assertEqual(random_injection_expectation(
             weights,a=6,original_vertices=15),
             random_injection_expectation(
