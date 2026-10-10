@@ -1,5 +1,10 @@
 # Research catalog — provenance-first index
 
+## UCT-005 D0 — missing primary sources / theorem-overlap firewall
+
+[Eight original LIT-349..356 studies and H1/H2/H3 quantified novelty gates](../UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) · [UCT root #105](https://github.com/definitely-stable/Mathlab/issues/105) · [D1 issue #223](https://github.com/definitely-stable/Mathlab/issues/223). Merged IMPORT-010 32-source cohort LIT-317..348 remains untouched; D0 extends **347→355** canonical unique works and retains 21 tracks. Source abstract/identity verified only; original bounds and benchmarks not independently reproduced. No new UCT root theorem.
+
+
 ## IMPORT-010 — neurobiology and DNA/pangenome graph corpus
 
 [32 original sources, three new typed research lanes, and four falsification hypotheses](../RESEARCH-LITERATURE-010-DNA-PANGENOME-BIOLOGICAL-GRAPH-MEMORY.md) · [issue #220](https://github.com/definitely-stable/Mathlab/issues/220). Canonical 315→347 unique sources, LIT-317..348, 18→21 research tracks. No proof reproduction, biomedical causal model, cryptographic freshness, or measured SSD benchmark promoted.

@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**347** работ сопоставлены с **38** внутренними исследованиями.
+**355** работ сопоставлены с **38** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -167,6 +167,7 @@
 - [LIT-127](LITERATURE.md#lit-127) — Locally Updatable and Locally Decodable Codes (2014; publisher_abstract_checked)
 - [LIT-128](LITERATURE.md#lit-128) — Update-Efficiency and Local Repairability Limits for Capacity Approaching Codes (2013; publisher_abstract_checked)
 - [LIT-133](LITERATURE.md#lit-133) — Tight upper and lower bounds for leakage-resilient, locally decodable and updatable non-malleable codes (2019; publisher_abstract_checked)
+- [LIT-352](LITERATURE.md#lit-352) — The Cell Probe Complexity of Dynamic Range Counting (2012; author_paper_or_bibliography_checked)
 
 ## ML-002
 
@@ -505,6 +506,14 @@
 - [LIT-346](LITERATURE.md#lit-346) — Random access in large-scale DNA data storage (2018; publisher_abstract_checked)
 - [LIT-347](LITERATURE.md#lit-347) — De-Bruijn graph partitioning for scalable and accurate DNA storage processing (2025; publisher_abstract_checked)
 - [LIT-348](LITERATURE.md#lit-348) — High-scale random access on DNA storage systems (2022; publisher_abstract_checked)
+- [LIT-349](LITERATURE.md#lit-349) — Secure Untrusted Data Repository (SUNDR) (2004; publisher_abstract_checked)
+- [LIT-350](LITERATURE.md#lit-350) — Verifying the consistency of remote untrusted services with conflict-free operations (2018; publisher_abstract_checked)
+- [LIT-351](LITERATURE.md#lit-351) — SNARKs for stateful computations on authenticated data (2026; publisher_abstract_checked)
+- [LIT-352](LITERATURE.md#lit-352) — The Cell Probe Complexity of Dynamic Range Counting (2012; author_paper_or_bibliography_checked)
+- [LIT-353](LITERATURE.md#lit-353) — Cell-probe lower bounds for dynamic problems via a new communication model (2016; publisher_abstract_checked)
+- [LIT-354](LITERATURE.md#lit-354) — Making data structures persistent (1989; publisher_abstract_checked)
+- [LIT-355](LITERATURE.md#lit-355) — Authenticated Data Structures for Dynamic Workloads (2026; author_paper_or_bibliography_checked)
+- [LIT-356](LITERATURE.md#lit-356) — Integrita: A BFT distributed storage system (2025; publisher_abstract_checked)
 
 ## ML-005
 
@@ -698,6 +707,13 @@
 - [LIT-346](LITERATURE.md#lit-346) — Random access in large-scale DNA data storage (2018; publisher_abstract_checked)
 - [LIT-347](LITERATURE.md#lit-347) — De-Bruijn graph partitioning for scalable and accurate DNA storage processing (2025; publisher_abstract_checked)
 - [LIT-348](LITERATURE.md#lit-348) — High-scale random access on DNA storage systems (2022; publisher_abstract_checked)
+- [LIT-349](LITERATURE.md#lit-349) — Secure Untrusted Data Repository (SUNDR) (2004; publisher_abstract_checked)
+- [LIT-350](LITERATURE.md#lit-350) — Verifying the consistency of remote untrusted services with conflict-free operations (2018; publisher_abstract_checked)
+- [LIT-351](LITERATURE.md#lit-351) — SNARKs for stateful computations on authenticated data (2026; publisher_abstract_checked)
+- [LIT-353](LITERATURE.md#lit-353) — Cell-probe lower bounds for dynamic problems via a new communication model (2016; publisher_abstract_checked)
+- [LIT-354](LITERATURE.md#lit-354) — Making data structures persistent (1989; publisher_abstract_checked)
+- [LIT-355](LITERATURE.md#lit-355) — Authenticated Data Structures for Dynamic Workloads (2026; author_paper_or_bibliography_checked)
+- [LIT-356](LITERATURE.md#lit-356) — Integrita: A BFT distributed storage system (2025; publisher_abstract_checked)
 
 ## ML-007
 

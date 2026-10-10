@@ -9872,6 +9872,252 @@
       "verification": "publisher_abstract_checked",
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "id": "LIT-349",
+      "title": "Secure Untrusted Data Repository (SUNDR)",
+      "year": 2004,
+      "identity": "usenix:osdi04:li-j",
+      "primary_url": "https://www.usenix.org/conference/osdi-04/secure-untrusted-data-repository-sundr",
+      "track": "proof-certification",
+      "authors": [
+        "Jinyuan Li",
+        "Maxwell Krohn",
+        "David Mazières",
+        "Dennis Shasha"
+      ],
+      "summary_ru": "SUNDR (OSDI 2004): проверяемый файловый сервис на недоверенном сервере с fork consistency; независимые читатели могут наблюдать согласованные префиксы без автоматически гарантированного глобально свежего состояния.",
+      "limits_ru": "Fork consistency зависит от обмена наблюдаемыми изменениями между клиентами; недоступная связь и отсутствие внешнего монотонного якоря не дают F1 LATEST. Не установлена нижняя граница физических чтений/записей для RANGE_PARITY.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md",
+          "kind": "model_overlap",
+          "source_sha": "f7986a438aef85376c7973049dc75ea1d3c63ecf"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-350",
+      "title": "Verifying the consistency of remote untrusted services with conflict-free operations",
+      "year": 2018,
+      "identity": "doi:10.1016/j.ic.2018.03.004",
+      "primary_url": "https://doi.org/10.1016/j.ic.2018.03.004",
+      "track": "proof-certification",
+      "authors": [
+        "Christian Cachin",
+        "Olga Ohrimenko"
+      ],
+      "summary_ru": "COP: формальная проверка удалённого недоверенного сервиса; при честном сервере linearizability, иначе fork-linearizability; нет прямой коммуникации между клиентами и конфликтующие операции учитываются отдельно.",
+      "limits_ru": "Fork-linearizability не эквивалентна самостоятельной проверке глобально последнего состояния после отключения; криптографические предположения, права владельца и множество операций не переносятся автоматически в F1 SET/RANGE_PARITY.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md",
+          "kind": "model_overlap",
+          "source_sha": "f7986a438aef85376c7973049dc75ea1d3c63ecf"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-351",
+      "title": "SNARKs for stateful computations on authenticated data",
+      "year": 2026,
+      "identity": "doi:10.1016/j.jisa.2026.104444",
+      "primary_url": "https://doi.org/10.1016/j.jisa.2026.104444",
+      "track": "proof-certification",
+      "authors": [
+        "Johannes Reinhart",
+        "Erik-Oliver Blass",
+        "Björn Annighöfer"
+      ],
+      "summary_ru": "JISA 2026 ADSC-SNARK: проверяемые многократные вычисления над аутентифицированными данными с согласованным состоянием и публичной проверкой; применим как возможный криптографический upper comparator.",
+      "limits_ru": "Гарантии вычислительной корректности и последовательности состояния не создают бесплатный внешний монотонный источник свежести независимых offline readers; proof/update/prover cost и setup должны учитываться отдельно. Бенчмарки не воспроизведены.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md",
+          "kind": "model_overlap",
+          "source_sha": "f7986a438aef85376c7973049dc75ea1d3c63ecf"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-352",
+      "title": "The Cell Probe Complexity of Dynamic Range Counting",
+      "year": 2012,
+      "identity": "doi:10.1145/2213977.2213987",
+      "alternate_identities": [
+        "arxiv:1105.5933"
+      ],
+      "primary_url": "https://doi.org/10.1145/2213977.2213987",
+      "track": "dynamic-data-structures",
+      "authors": [
+        "Kasper Green Larsen"
+      ],
+      "summary_ru": "STOC 2012: cell-probe lower bound с комбинированием chronogram и cell sampling; для динамического взвешенного двумерного dominance range counting дана зависимость query time от update time и размера машинного слова.",
+      "limits_ru": "Исходная задача — двумерный range counting с логарифмически-битовыми весами, а не 1D binary SET/RANGE_PARITY; нижняя граница для page-I/O, anchored freshness и Byzantine proofs требует строгой сохраняющей ресурсы редукции.",
+      "maps_to": [
+        "ML-001",
+        "ML-004"
+      ],
+      "verification": "author_paper_or_bibliography_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md",
+          "kind": "model_overlap",
+          "source_sha": "f7986a438aef85376c7973049dc75ea1d3c63ecf"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-353",
+      "title": "Cell-probe lower bounds for dynamic problems via a new communication model",
+      "year": 2016,
+      "identity": "doi:10.1145/2897518.2897556",
+      "alternate_identities": [
+        "arxiv:1512.01293"
+      ],
+      "primary_url": "https://doi.org/10.1145/2897518.2897556",
+      "track": "dynamic-data-structures",
+      "authors": [
+        "Huacheng Yu"
+      ],
+      "summary_ru": "STOC 2016: новая коммуникационная игра и информационное доказательство нижней границы для dynamic interval union, включая ожидаемую стоимость на распределении последовательностей обновлений/запросов.",
+      "limits_ru": "Модель insert/delete интервалов и суммарной длины объединения не совпадает с двоичной чётностью диапазона; перенос на online authenticated storage или proof maintenance нельзя заявлять без явной редукции и согласования стоимостных единиц.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md",
+          "kind": "model_overlap",
+          "source_sha": "f7986a438aef85376c7973049dc75ea1d3c63ecf"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-354",
+      "title": "Making data structures persistent",
+      "year": 1989,
+      "identity": "doi:10.1016/0022-0000(89)90034-2",
+      "alternate_identities": [
+        "doi:10.1145/12130.12142"
+      ],
+      "primary_url": "https://doi.org/10.1016/0022-0000(89)90034-2",
+      "track": "dynamic-data-structures",
+      "authors": [
+        "James R. Driscoll",
+        "Neil Sarnak",
+        "Daniel D. Sleator",
+        "Robert E. Tarjan"
+      ],
+      "summary_ru": "Классическая теория частично и полностью персистентных структур с эффективным сохранением и чтением прежних версий; критический верхний контрпример для слишком сильных гипотез об обязательной стоимости исторических PIN.",
+      "limits_ru": "Структурная персистентность и эффективные связные представления не обеспечивают Byzantine soundness, доказанную глобальную latest freshness, page-fsync протокол либо реальное освобождение пространства при compaction.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md",
+          "kind": "model_overlap",
+          "source_sha": "f7986a438aef85376c7973049dc75ea1d3c63ecf"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-355",
+      "title": "Authenticated Data Structures for Dynamic Workloads",
+      "year": 2026,
+      "identity": "arxiv:2608.25206",
+      "primary_url": "https://arxiv.org/abs/2608.25206",
+      "track": "proof-certification",
+      "authors": [
+        "Ziheng Shangguan",
+        "Aviv Yaish",
+        "Dahlia Malkhi"
+      ],
+      "summary_ru": "Авторский препринт 2026: Huffman-Merkle Tree и динамическая многоуровневая организация аутентифицированных структур под изменяющуюся частоту доступа; поддерживает пакетную перестройку и проверяемые membership proofs.",
+      "limits_ru": "Оценки оптимизируют распределённую по доступам среднюю стоимость proofs и hashes в конкретных workload, но не устанавливают новый worst-case lower bound для SET/RANGE_PARITY. Миграция, поддержание статистики и внешний latest anchor должны оплачиваться; эксперименты не воспроизведены.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "author_paper_or_bibliography_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md",
+          "kind": "model_overlap",
+          "source_sha": "f7986a438aef85376c7973049dc75ea1d3c63ecf"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-356",
+      "title": "Integrita: A BFT distributed storage system",
+      "year": 2025,
+      "identity": "doi:10.1016/j.future.2024.107629",
+      "primary_url": "https://doi.org/10.1016/j.future.2024.107629",
+      "track": "proof-certification",
+      "authors": [
+        "Sanaz Taheri Boshrooyeh",
+        "Alptekin Küpçü",
+        "Öznur Özkasap"
+      ],
+      "summary_ru": "FGCS 2025: распределённый history-tree механизм для выявления противоречащих пользовательских представлений при многосерверном Byzantine adversary и заявленной q-detectable view consistency.",
+      "limits_ru": "Сервис использует N отдельных хранителей, модель допускает до N−1 сговорившихся Byzantine участников; гарантия q-detectable view consistency не эквивалентна немедленной F1 LATEST свежести от независимого монотонного якоря. Характеристики хранения и оценки производительности не перепроверены.",
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "verification": "publisher_abstract_checked",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "path": "docs/research/UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md",
+          "kind": "model_overlap",
+          "source_sha": "f7986a438aef85376c7973049dc75ea1d3c63ecf"
+        }
+      ],
+      "full_proof_verified": false,
+      "independent_reproduction": false
     }
   ]
 }
