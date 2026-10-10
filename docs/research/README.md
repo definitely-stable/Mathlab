@@ -1,3 +1,7 @@
+## UCT-005 D1-C0 — exact online SET/PIN observational entropy and independent-history falsifier (2026-10-11)
+
+[Formal classical entropy count](UCT-005-G3-B2-D1C0-PIN-OBSERVATION-ENTROPY.md) · [finite state oracle](../../research/uct005_d1c0_observation_entropy.py) · [independent tests](../../research/test_uct005_d1c0_observation_entropy.py) · [issue #303](https://github.com/definitely-stable/Mathlab/issues/303). **EXACT_K=2^n*PRODUCT_HAMMING_BALL_VOLUMES / TWO_PIN_LATEST_N5_H3_3072_STATES / NOT_kN_INDEPENDENT_SNAPSHOTS / F1_PHYSICAL_SECURITY_UNPROVED / STOP_NOVELTY / ROOT_OPEN_UNPROVED**.
+
 ## UCT-005 D1-B2-F3-E — adversarial failed-stage read/write/cleanup cost gate (2026-10-11)
 
 [Explicit fault model and no-Pareto stop](UCT-005-G3-B2-D1B2F3E-FAILURE-STAGING.md) · [reference](../../research/uct005_d1b2f3e_failure_amp.py) · [independent falsifiers](../../research/test_uct005_d1b2f3e_failure_amp.py) · [issue #299](https://github.com/definitely-stable/Mathlab/issues/299). **F2_PREEXISTING_SHA_FAIL_ZERO_STAGE / F3C_PREAUTH_M_FULL_PAGE_WRITES_AND_DROPS / F2_SECOND_PASS_TOCTOU_COST / REPEATED_FAILURE_AMPLIFICATION / NO_STORAGE_AVAILABILITY / ROOT_OPEN_UNPROVED / CI_PENDING**. Research dependent on unaccepted F3-D [#298](https://github.com/definitely-stable/Mathlab/pull/298); separate from mathematical root theorem.
