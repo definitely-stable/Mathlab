@@ -20,6 +20,13 @@ ROOT_BYTES = ROOT.size       # exactly 48 bytes
 ANCHOR_BYTES = 40           # trusted u64 epoch + SHA256 root
 PIN_RECORD_BYTES = 41       # trusted reader u8 + anchor
 DOMAIN = b"mathlab.uct005.d1b2b.pagecow.node.v1\0"
+ROOT_DOMAIN = b"mathlab.uct005.d1b2b.root-slot.v1\0"
+
+
+def _root_commitment(raw: bytes) -> bytes:
+    if not isinstance(raw, bytes) or len(raw) != ROOT_BYTES:
+        raise Abort("invalid root slot digest input")
+    return sha256(ROOT_DOMAIN + raw).digest()
 
 
 class Abort(RuntimeError):
@@ -90,8 +97,10 @@ class PageCowTree:
         self.authority_pins: dict[tuple[int, int], bytes] = {}
         self.generation = 0
         root_id, digest, _ = self._build(bits, 0, self.n)
-        self.latest_digest = digest
         self.roots[0] = ROOT.pack(0, root_id, digest)
+        self.latest_digest = _root_commitment(self.roots[0])
+        self.ledger["setup_root_hash_calls"] += 1
+        self.ledger["setup_root_hash_input_bytes"] += len(ROOT_DOMAIN) + ROOT_BYTES
         self.ledger["setup_root_page_writes"] += self.root_pages
         self.ledger["setup_remote_upload_bytes"] += self.root_pages * self.P
         self.ledger["setup_anchor_publications"] += 1
@@ -180,9 +189,13 @@ class PageCowTree:
         if not isinstance(raw, bytes) or len(raw) != ROOT_BYTES:
             raise Abort("root page missing/truncated")
         claimed_epoch, nid, digest = ROOT.unpack(raw)
-        if claimed_epoch != epoch or digest != expected or not 1 <= nid < self.next_id:
-            raise Abort("stale/forged root slot")
-        return nid
+        commitment = _root_commitment(raw)
+        self.ledger[f"{phase}_root_hash_calls"] += 1
+        self.ledger[f"{phase}_root_hash_input_bytes"] += len(ROOT_DOMAIN) + ROOT_BYTES
+        if (claimed_epoch != epoch or commitment != expected
+                or not 1 <= nid < self.next_id):
+            raise Abort("stale/forged root slot or unauthenticated root ID")
+        return nid, digest
 
     def _rewrite(self, nid, digest, lo, hi, index, bit):
         old = self._read_node(nid, digest, hi - lo, "set")
@@ -209,13 +222,16 @@ class PageCowTree:
         _check_bit(bit)
         if self.epoch >= 2**64 - 1:
             raise ValueError("epoch overflow")
-        root_id = self._root(self.epoch, self.latest_digest, "set")
+        root_id, old_node_digest = self._root(self.epoch, self.latest_digest, "set")
         new_id, digest, oldparity, newparity = self._rewrite(
-            root_id, self.latest_digest, 0, self.n, index, bit)
+            root_id, old_node_digest, 0, self.n, index, bit)
         next_epoch = self.epoch + 1
-        self.roots[next_epoch] = ROOT.pack(next_epoch, new_id, digest)
+        manifest = ROOT.pack(next_epoch, new_id, digest)
+        self.roots[next_epoch] = manifest
         self.epoch = next_epoch
-        self.latest_digest = digest
+        self.latest_digest = _root_commitment(manifest)
+        self.ledger["set_root_hash_calls"] += 1
+        self.ledger["set_root_hash_input_bytes"] += len(ROOT_DOMAIN) + ROOT_BYTES
         self.generation += 1
         self.ledger["set_changed_logical_bits"] += int(oldparity != newparity)
         self.ledger["set_root_page_writes"] += self.root_pages
@@ -337,7 +353,7 @@ class PageCowTree:
         if remote_root is None:
             self.ledger["query_root_page_reads"] += self.root_pages
             raise Abort("missing remote root slot")
-        nid = self._root(epoch, digest, "query", remote_root)
+        nid, node_digest = self._root(epoch, digest, "query", remote_root)
         if presented_records is None:
             _, records = self.make_proof(epoch, left, right)
         else:
@@ -351,7 +367,7 @@ class PageCowTree:
             raise Abort("malformed proof transport")
         self.ledger["query_remote_request_bytes"] += 8 + 8 + 8
         self.ledger["query_proof_payload_bytes"] += ROOT_BYTES + sum(map(len, records))
-        return self._verify_proof(digest, nid, left, right, records)
+        return self._verify_proof(node_digest, nid, left, right, records)
 
     def _mark(self, nid, digest, lo, hi, reachable: set[int]):
         if nid in reachable:
@@ -378,8 +394,8 @@ class PageCowTree:
             roots[e] = digest
         reachable = set()
         for e, digest in sorted(roots.items()):
-            nid = self._root(e, digest, "gc")
-            self._mark(nid, digest, 0, self.n, reachable)
+            nid, node_digest = self._root(e, digest, "gc")
+            self._mark(nid, node_digest, 0, self.n, reachable)
         # Physically inspect entire public address span including holes.
         self.ledger["gc_node_slot_scan_page_reads"] += (
             (self.next_id - 1) * self.node_pages)
