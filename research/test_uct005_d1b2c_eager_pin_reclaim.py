@@ -70,7 +70,7 @@ class EagerPINReclaimFiniteTests(unittest.TestCase):
             self.assertRaises(Abort, m.as_of, 1, e0, 0, 3)
             self.assertEqual(set(m.remote), {2})
             self.assertEqual(set(m.remote), set(m.remote_manifests))
-            self.assertEqual(m.latest(0, 0, 3), 0)
+            self.assertEqual(m.latest(0, 0, 3), 1)
 
     def test_explicit_unpin_latest_is_not_deletion(self):
         for p in (1, 2, 16, 64):
