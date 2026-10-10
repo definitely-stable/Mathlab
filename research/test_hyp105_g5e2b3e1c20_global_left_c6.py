@@ -85,7 +85,7 @@ class C20GlobalLeftCyclePressureTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             finite_graph_C20_audit(2,pairs[:-1])
         with self.assertRaises(ValueError):
-            canonical_simple_six_cycles(pairs,6,max_vertices=5)
+            list(canonical_simple_six_cycles(pairs,6,max_vertices=5))
         with self.assertRaises(ValueError):
             list(canonical_simple_six_cycles(pairs+(pairs[0],),6))
         with self.assertRaises(ValueError):
