@@ -200,6 +200,18 @@ class Uct005TreeTests(unittest.TestCase):
             self.data["edges"])
         self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
 
+    def test_d1b2f_resource_reconciliation_is_not_full_pareto(self):
+        nodes = {n["id"]: n for n in self.data["nodes"]}
+        n = nodes["UCT005G3B2D1B2F"]
+        self.assertEqual(n["kind"], "research_input")
+        self.assertIn("PARETO_STOP", n["status"])
+        self.assertIn("NO_NEW_LOWER_BOUND", n["status"])
+        self.assertIn(
+            {"parent": "UCT005G3B2D1B2B1", "child": "UCT005G3B2D1B2F",
+             "relation": "RECONCILED_PARTIAL_PRICED_UPPER_STOP_NOT_PROVEN_ROOT_THEOREM"},
+            self.data["edges"])
+        self.assertEqual(self.data["root_novelty"], "OPEN_UNPROVED")
+
     def test_no_unsound_logical_arrows(self):
         relations = {e["relation"] for e in self.data["edges"]}
         self.assertIn("THREAT_MODEL_NONTRANSFER", relations)

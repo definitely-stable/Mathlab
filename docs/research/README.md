@@ -3,6 +3,11 @@
 [All-h proof and scope](HYP-105-G5-E2-B3-E1C1-GQ-CONCURRENCE.md) · [reference](../../research/hyp105_g5e2b3e1c1_gq_concurrency.py) · [independent tests](../../research/test_hyp105_g5e2b3e1c1_gq_concurrency.py) · [stacked PR #260](https://github.com/definitely-stable/Mathlab/pull/260). Classical GQ line-concurrence SRG (V,s(s+1),s−1,s+1) with exact 0/1/2/3-edge original right-line triple counts; all-h m_f(R)≤c_GQ(R)(s+1)^4 and zero for c_GQ(R)=0. Complete independent point-wedge W32 B/A source and original-line third marginal checks. **Not physical-target S_a triple orbits, no all-right intersection lower, no strict ASET exponent; hosted CI pending.**
 
 
+
+## UCT-005 D1-B2-F — common F1 resource ledger and typed Pareto stop (2026-10-10)
+
+[Same-history cost reconciliation](UCT-005-G3-B2-D1B2F-RESOURCE-RECONCILIATION.md) · [reproducible driver](../../research/uct005_d1b2f_resource_reconciliation.py) · [independent tests](../../research/test_uct005_d1b2f_resource_reconciliation.py) · [issue #262](https://github.com/definitely-stable/Mathlab/issues/262). Snapshot, COW and segmented COW share PIN/SET/queries/GC and charged page axes; Replica+Log remain logical-only. Unknown axes stay `null`, no full Pareto or UCT root theorem.
+
 ## UCT-005 D1-B2-B1 — segmented bitmap allocation (2026-10-10)
 
 [Byte grammar, exact write bound and GC](UCT-005-G3-B2-D1B2B1-SEGMENTED-BITMAP.md) · [conditional implementation](../../research/uct005_d1b2b1_segmented_bitmap.py) · [independent tests](../../research/test_uct005_d1b2b1_segmented_bitmap.py) · [issue #254](https://github.com/definitely-stable/Mathlab/issues/254). D1-B2-B PR #248 is merged; this follow-on PR #258 now targets main. **Only the allocator-bitmap SET coordinate improves; full F1 Pareto and UCT-005 root remain OPEN_UNPROVED.**
