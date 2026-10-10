@@ -20,7 +20,7 @@
       "classification": "CLASSICAL_DIRECT",
       "assumptions": "total deterministic operation alphabet, exact observation",
       "resource_map": "state labels -> horizon-indexed quotient; no resource claim",
-      "evidence": "finite/refinement-vs-enumeration",
+      "evidence": "future_partition_refinement versus complete word oracle; finite_horizon_congruence_falsifier",
       "non_transfer": "not stationary congruence for fixed finite horizon",
       "acceptance": "CLASSICAL_PROVED_RESTRICTED"
     },
@@ -163,9 +163,9 @@
       "classification": "COUNTERMODEL",
       "assumptions": "insertions/deletions versus substitutions",
       "resource_map": "Hamming distance is not edit distance",
-      "evidence": "requires edit-distance countermodel before DIRECT claims",
-      "non_transfer": "substitution correction alone does not imply indel correction",
-      "acceptance": "KNOWN_NONTRANSFER"
+      "evidence": "dna_indel_falsifier: ACACAC vs CACACA Hamming=6, shared one-deletion observation CACAC",
+      "non_transfer": "large Hamming distance does not imply even one-deletion correction",
+      "acceptance": "FALSE_TRANSFER_EXACT"
     },
     {
       "id": "G4-B15",
