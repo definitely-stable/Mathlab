@@ -231,7 +231,34 @@ def genuine_W32_coupled_four_report():
     if not (moments["worst_completion_lower_from_second_moment"]<=min(vals)
             <=moments["existential_completion_upper_from_mean"]):
         raise AssertionError("conditional interval misses true restricted minimum")
+
+    # An improvement in ONE B/A term is NOT automatically an improvement in
+    # all seven ORIGINAL incidence motif families. Recount both maps on the
+    # SAME genuine original W32 left incidence model, before any claim.
+    from hyp105_g5e2b3e1b0_seven_signature import seven_census
+    candidate=dict(original)
+    candidate["right_labels"]=tuple(palette[i] for i in argmin[1])
+    before=seven_census(original,independent_checks=False)
+    after=seven_census(candidate,independent_checks=False)
+    if (before["seven_class_motif_counts"]["B-left/A-right"]!=77
+            or after["seven_class_motif_counts"]["B-left/A-right"]!=argmin[0]):
+        raise AssertionError("exact seven-family source B/A census not consistent")
+    before_counts=before["seven_class_motif_counts"]
+    after_counts=after["seven_class_motif_counts"]
+    class_deltas={key:after_counts[key]-before_counts[key]
+                  for key in sorted(before_counts)}
+    if sum(class_deltas.values())!=after["S_seven"]-before["S_seven"]:
+        raise AssertionError("all seven original motif counts not reconciled")
     return {
+        "seven_family_original_S":before["S_seven"],
+        "seven_family_candidate_S":after["S_seven"],
+        "seven_family_total_delta":after["S_seven"]-before["S_seven"],
+        "seven_family_class_count_delta":class_deltas,
+        "GF5_seven_necessary_floor_original_numerator":
+            before["GF5_seven_lower_numerator"],
+        "GF5_seven_necessary_floor_candidate_numerator":
+            after["GF5_seven_lower_numerator"],
+        "full_GF5_R3_or_all_h_obstruction_proved":False,
         "model":"GENUINE_ORIGINAL_GQ_W32_BA_ONLY",
         "fixed_left":"reverse-line",
         "original_right_prefix_fixed":11,
