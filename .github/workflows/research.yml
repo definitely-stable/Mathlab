@@ -13,7 +13,10 @@ permissions:
 jobs:
   lent-001-foundation:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # The full research suite includes HYP-105's exhaustive label-swap audit;
+    # ten minutes aborts otherwise healthy UCT-005 PR acceptance mid-test.
+    # Keep ALL tests enabled; this is a CI runtime budget, not a proof change.
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 

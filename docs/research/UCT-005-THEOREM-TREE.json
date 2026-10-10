@@ -299,6 +299,12 @@
       "kind": "research_input",
       "status": "AUTHENTICATED_SAME_TRACE_TWO_UPPERS_PAID_OFFLINE_PIN_RETENTION_NO_FULL_PARETO_OR_NEW_LOWER",
       "source": "docs/research/UCT-005-G3-B2-D1B2F3A-SAME-TRACE-PIN-RETENTION.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F2",
+      "kind": "research_input",
+      "status": "STREAMED_REMOTE_PIN_BITMAP_PAGED_TWO_PASS_TRUSTED_PAYLOAD_BOUND_ONLY_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F2-STREAMED-PIN-BITMAP.md"
     }
   ],
   "edges": [
@@ -536,6 +542,11 @@
       "parent": "UCT005G3B2D1B2F1",
       "child": "UCT005G3B2D1B2F3A",
       "relation": "SAME_TASK_BULK_REMOTE_PIN_AND_COW_OFFLINE_PRICE_NOT_NEW_LOWER"
+    },
+    {
+      "parent": "UCT005G3B2D1B2F",
+      "child": "UCT005G3B2D1B2F2",
+      "relation": "BOUNDED_TRANSIENT_PIN_BITMAP_SCRATCH_UPPER_AND_PARTIAL_PARETO_STOP"
     }
   ]
 }
