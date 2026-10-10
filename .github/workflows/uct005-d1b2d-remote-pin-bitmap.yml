@@ -1,0 +1,34 @@
+name: uct005-d1b2d-remote-pin-bitmap
+
+on:
+  push:
+    branches:
+      - "research/uct005-d1b2d-*"
+    paths:
+      - "research/uct005_d1b2d_remote_pin_bitmap.py"
+      - "research/test_uct005_d1b2d_remote_pin_bitmap.py"
+      - "docs/research/UCT-005-G3-B2-D1B2D-AUTHENTICATED-REMOTE-PIN.md"
+      - ".github/workflows/uct005-d1b2d-remote-pin-bitmap.yml"
+  pull_request:
+    paths:
+      - "research/uct005_d1b2d_remote_pin_bitmap.py"
+      - "research/test_uct005_d1b2d_remote_pin_bitmap.py"
+      - "docs/research/UCT-005-G3-B2-D1B2D-AUTHENTICATED-REMOTE-PIN.md"
+      - ".github/workflows/uct005-d1b2d-remote-pin-bitmap.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  authenticated-pin-bitmap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Exhaustive exact PIN-set and remote bitmap falsifiers
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2d_remote_pin_bitmap.py' -v
+      - name: Reproducible priced remote bitmap ledger
+        run: python research/uct005_d1b2d_remote_pin_bitmap.py
