@@ -40,6 +40,13 @@ def validate_contract() -> dict:
         raise ValueError("pin/GC race unmodeled")
     if spec["d1_b1_status"] != "FULL_TEXT_THEOREM_TRANSFER_PENDING":
         raise ValueError("abstract-only source verification promoted")
+    layout = spec.get("reference_storage_layout", {})
+    if layout.get("kind") != "immutable_sparse_fixed_stride_page_slots":
+        raise ValueError("unknown F1 page layout")
+    if layout.get("remote_manifest_format", {}).get("total_bytes") != 48:
+        raise ValueError("remote manifest must have 48 charged bytes")
+    if layout.get("pin_registry", {}).get("record_bytes") != 41:
+        raise ValueError("trusted PIN entry must have 41 charged bytes")
     return spec
 
 
