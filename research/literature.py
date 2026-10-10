@@ -61,6 +61,15 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # UCT-005 D0 originals, after genomic IMPORT-010 LIT-317..348.
+    "usenix:osdi04:li-j": "Secure Untrusted Data Repository (SUNDR)",
+    "doi:10.1016/j.ic.2018.03.004": "Verifying the consistency of remote untrusted services with conflict-free operations",
+    "doi:10.1016/j.jisa.2026.104444": "SNARKs for stateful computations on authenticated data",
+    "doi:10.1145/2213977.2213987": "The Cell Probe Complexity of Dynamic Range Counting",
+    "doi:10.1145/2897518.2897556": "Cell-probe lower bounds for dynamic problems via a new communication model",
+    "doi:10.1016/0022-0000(89)90034-2": "Making data structures persistent",
+    "arxiv:2608.25206": "Authenticated Data Structures for Dynamic Workloads",
+    "doi:10.1016/j.future.2024.107629": "Integrita: A BFT distributed storage system",
     # IMPORT-010: original 2024–2026 graph/DNA/biology and foundational titles.
     "arxiv:2405.14831": "HippoRAG: Neurobiologically Inspired Long-Term Memory for Large Language Models",
     "arxiv:2310.08560": "MemGPT: Towards LLMs as Operating Systems",
