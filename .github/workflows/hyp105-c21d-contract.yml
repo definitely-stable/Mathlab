@@ -1,0 +1,28 @@
+name: hyp105-c21d-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c21d-adversarial-global-right-falsifier
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c21d_adversarial_right.py"
+      - "research/test_hyp105_g5e2b3e1c21d_adversarial_right.py"
+      - ".github/workflows/hyp105-c21d-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  original-W32-single-global-right-zero-D6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C21-D independent true W32 direct C6 and full seven-family adversarial right tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c21d_adversarial_right.py' -v
+      - name: C21-D exact all original W32 43740 C6 and 62370 seven-class fixed global right report
+        run: python research/hyp105_g5e2b3e1c21d_adversarial_right.py
