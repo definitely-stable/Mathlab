@@ -57,6 +57,74 @@ def target_degree_two_data(a):
     }
 
 
+
+def physical_three_edge_type(triple):
+    """Five S_a types of THREE distinct physical K_a edge labels."""
+    e=tuple(triple)
+    if len(e)!=3 or len(set(e))!=3:
+        raise ValueError("exactly three distinct physical pair edges required")
+    degree=Counter(x for edge in e for x in edge)
+    shape=tuple(sorted(degree.values(),reverse=True))
+    key=(len(degree),shape)
+    mapping={
+        (3,(2,2,2)):"triangle",
+        (4,(2,2,1,1)):"path_P4",
+        (4,(3,1,1,1)):"star_K1_3",
+        (5,(2,1,1,1,1)):"path_P3_plus_edge",
+        (6,(1,1,1,1,1,1)):"matching_3",
+    }
+    if key not in mapping:
+        raise AssertionError("unknown simple three-physical-pair orbit")
+    return mapping[key]
+
+
+def target_order_three_data(a):
+    """All-a target W3 by five exact physical triple-edge S_a orbits.
+
+    The target q3 values 1/2/0/5/8 on K6 were established in C0;
+    the binomial embedding to a physical K_a is exact. The W3
+    projection uses triple incidence after removing W0, W1=0 and W2.
+    """
+    t=target_degree_two_data(a)
+    K=t["K"]
+    lam2=t["johnson_lambda2"]
+    lam3=comb(K-6,3)
+    mean=Fraction(t["T"],t["N"])
+    A=t["target_codegree_adjacent"]
+    D=t["target_codegree_disjoint"]
+    bar=t["target_codegree_mean"]
+    # (orbit cardinality, adjacent label pairs within triple, codegree)
+    orbits={
+        "triangle":(comb(a,3),3,comb(a-3,3)),
+        "path_P4":(12*comb(a,4),2,2*comb(a-4,2)),
+        "star_K1_3":(4*comb(a,4),3,0),
+        "path_P3_plus_edge":(30*comb(a,5),1,5*(a-5)),
+        "matching_3":(15*comb(a,6),0,8),
+    }
+    if sum(x[0] for x in orbits.values())!=comb(K,3):
+        raise AssertionError("physical triple orbits not a partition")
+    residual={}
+    third_energy=Fraction(0)
+    for name,(count,adjacent,q3) in orbits.items():
+        two_pair_weight=Fraction(adjacent*(A-bar)+(3-adjacent)*(D-bar),
+                                 lam2)
+        h=(Fraction(q3)-comb(K-3,3)*mean
+           -comb(K-5,3)*two_pair_weight)
+        residual[name]=h
+        third_energy+=count*h*h/lam3
+    fourth_or_higher=(t["target_w_ge3_norm_squared"]-third_energy)
+    if fourth_or_higher<0:
+        raise AssertionError("negative target W>=4 squared energy")
+    return {
+        **t,
+        "johnson_lambda3":lam3,
+        "target_three_orbits":orbits,
+        "target_three_harmonic_residual":residual,
+        "target_w3_norm_squared":third_energy,
+        "target_w_ge4_norm_squared":fourth_or_higher,
+    }
+
+
 def _checked_source(weights, K):
     """Sparse source on first V<=K abstract vertices, then zero padded."""
     if type(K) is not int or K < 6:
