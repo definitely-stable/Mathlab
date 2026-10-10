@@ -1,5 +1,7 @@
 # HYP-105 G5-E2-B3.2-D — Four-cycle Q4 obstruction, complete unit T4, paired finite GF(5) R2/R3
 
+**2026-10-10 source-model firewall:** [IMPORT-011 external report audit](RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). Balogh–Garcia–Methuku hypergraph linear-cycle containers, Ni–Cheng–Wang–Kang expanded-graph spectra, and Ma–Tang real Sidon subsets do not by themselves prove GF(5) w=4 d=3 two-sided signed-trade density/exponent. A target-specific signed-incidence hypergraph, coefficient-aware embedding and balanced supersaturation are mandatory; no earlier finite oracle or joint-risk evidence is superseded.
+
 Date: 2026-10-09. Parents [#176](https://github.com/definitely-stable/Mathlab/issues/176), [#169](https://github.com/definitely-stable/Mathlab/issues/169), [#162](https://github.com/definitely-stable/Mathlab/issues/162). Follows [Plücker nonalignment](HYP-105-G5-E2-B3-C-PLUCKER-NONALIGNED.md), [coincident C6 obstruction](HYP-105-G5-E2-B3-B2-COINCIDENT-CYCLES.md), [full weighted GF5 disjoint pair energy](HYP-105-G5-E2-B1-EXACT-DISJOINT-ENERGY.md), [independent-label R2 upper](HYP-105-G5-E2-B2-RANDOM-R2-BOUND.md).
 
 **ALL-h FIXED LABEL LOWER R2/ALL-h EXACT RANDOM Q4 EXPECTATION AND MATCHING LOWER / FULL FINITE UNIT-COEFFICIENT T4 / EXACT GF5 R2/R3 ON ONE 7-COLUMN WITNESS-ENRICHED SUBFAMILY / NO FULL GF4 WEIGHTED R2/R3 / NO UNIFORM STRICT R2/R3 UPPER / NO NEW ASET EXPONENT / SCIENTIFIC PRIORITY UNVERIFIED.**

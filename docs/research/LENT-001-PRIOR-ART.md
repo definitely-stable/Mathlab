@@ -1,5 +1,7 @@
 # LENT-001 — prior-art status after G1B
 
+**2026-10-10 source-model correction:** [IMPORT-011 external PDF audit](RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). HEDGES DNA indel/edit-channel coding and fully formalized prime-power Singer Sidon sets are useful distinct prior art, **not** an isomorphism to GF(5) exact additive bounded-support, bounded-active two-sided signed subset-sum collision-freeness. No HYP-105 exponent or new coding-theoretic capacity follows without an assumption-preserving reduction.
+
 Status: **G1B CLOSED — SPLIT_BY_CHARACTERISTIC**
 
 The broad exact additive set-identification object is established prior art.

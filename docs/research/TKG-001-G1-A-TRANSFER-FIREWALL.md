@@ -1,5 +1,7 @@
 # TKG-001 G1-A — строгая граница применимости DAG lower bounds, page costs и двух часов provenance
 
+**2026-10-10 source correction:** [IMPORT-011 external PDF audit](RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). LycheeMemory V2 supplies empirical consolidation/LLM-cost baselines only, not strict bitemporal, Byzantine, causal or freshness guarantees. Graph topology/persistent-homology cycles do not imply semantic contradictions; causal association does not imply provenance authentication. Cryptographic roots require independently trusted monotone publication for latest/fork claims, and CRDT joins do not preserve arbitrary DAG acyclicity for free.
+
 Дата: 2026-10-10. [Issue #210](https://github.com/definitely-stable/Mathlab/issues/210), [G1 #195](https://github.com/definitely-stable/Mathlab/issues/195), [DAG-002 #133](https://github.com/definitely-stable/Mathlab/issues/133), [TKG-001 G0](TKG-001-G0-BITEMPORAL-PROVENANCE-AND-RECOURSE.md).
 
 **CLASSICAL_TRANSFER_FIREWALL / EXACT_FINITE_ORACLES / PAID_LOGICAL_PAGE_IMAGES / NO_NEW_JOINT_LOWER_BOUND / NO_PHYSICAL_SSD / NO_CRYPTO / NO_PRODUCTION_RAG.**
