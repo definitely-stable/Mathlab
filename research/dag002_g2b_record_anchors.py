@@ -126,13 +126,13 @@ class IndexedDAG:
             while curr >= 0:
                 depth += 1
                 curr = load(curr).anchor
-            if self.depth_cap is not None and depth >= self.depth_cap:
-                continue
             target = restrict(a)
             ranking = (len(target), depth, a)
             if best is None or ranking < best:
                 chosen, restricted, best = a, target, ranking
 
+        if self.depth_cap is not None and chosen >= 0 and best[1] >= self.depth_cap:
+            chosen, restricted = -1, restrict(-1)
         rec = Record(chain, chosen, restricted)
         self.records.append(rec)
         self.parents.append(parent_ids)
