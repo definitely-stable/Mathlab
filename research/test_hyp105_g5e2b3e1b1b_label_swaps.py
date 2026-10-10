@@ -25,6 +25,11 @@ class CorrelatedRightLabelExchangeTests(unittest.TestCase):
                          set(combinations(range(15),2)))
         self.assertEqual(data["best"]["new_S"],
                          min(x["new_S"] for x in data["all_105_swaps"]))
+        self.assertEqual(tuple(data["best"]["swap"]),(4,13))
+        self.assertEqual(data["best"]["new_S"],128)
+        self.assertEqual(data["best"]["new_GF5_R3_floor_numerator"],5803196)
+        self.assertEqual(
+            data["exact_independent_best_verification"]["full_recount_Q4"],23)
         self.assertEqual(data["exact_independent_best_verification"]["full_recount_S"],
                          data["best"]["new_S"])
         self.assertFalse(data["universal_asymptotic_counterexample"])
