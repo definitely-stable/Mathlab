@@ -43,10 +43,11 @@ class EagerPinReclaim(SnapshotF1Reference):
         if candidate == self.epoch or pinned:
             self.ledger["eager_retention_decisions"] += 1
             return 0
-        if candidate not in self.remote:
-            self.ledger["eager_already_absent_decisions"] += 1
-            return 0
-        assert candidate in self.remote_manifests
+        # No remote "does this slot exist?" lookup: the trusted serialized
+        # transition determines the obsolete epoch. Issue addressed deletion
+        # operations unconditionally (idempotent even if a malicious server
+        # already discarded a slot). The simulator's sparse dictionary is
+        # not consulted to decide the paid remote operation.
         pages = self._pages_per_snapshot()
         start = self._slot_start_page(candidate)
         if start + pages > (1 << 64):
@@ -55,8 +56,8 @@ class EagerPinReclaim(SnapshotF1Reference):
             self.ledger["eager_remote_drop_page_calls"] += 1
             self.ledger["eager_remote_drop_page_request_bytes"] += 8
             self.ledger["eager_remote_drop_page_address_checks"] += 1
-        del self.remote[candidate]
-        del self.remote_manifests[candidate]
+        self.remote.pop(candidate, None)
+        self.remote_manifests.pop(candidate, None)
         self.ledger["gc_logical_pages_freed"] += pages
         self.ledger["eager_retired_epochs"] += 1
         return pages
