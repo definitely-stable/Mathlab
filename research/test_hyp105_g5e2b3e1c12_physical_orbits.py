@@ -135,7 +135,9 @@ class PhysicalOrbitC12Tests(unittest.TestCase):
         self.assertEqual(r["W32_two_pin_orbit_conditional_second_tower"],
                          "2142290/429")
         self.assertEqual(r["W32_all_right_g_two_pin_orbit_global_lower"],0)
-        self.assertEqual(r["W32_all_right_g_two_pin_orbit_existential_upper"],69)
+        self.assertEqual(r["W32_all_right_g_two_pin_orbit_existential_upper"],56)
+        self.assertEqual(r["W32_all_right_g_two_pin_orbit_moment_only_upper"],69)
+        self.assertEqual(r["W32_global_explicit_right_witness_BA"],56)
         self.assertIsNone(r["W32_two_pin_orbit_global_exact_if_meet"])
         self.assertFalse(r["all_15_factorial_orbits_enumerated"])
 
