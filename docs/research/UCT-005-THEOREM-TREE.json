@@ -281,6 +281,66 @@
       "kind": "research_input",
       "status": "SEGMENTED_BITMAP_PAGE_CONSERVATION_AND_RESTRICTED_UPPER_NO_PARETO_THEOREM",
       "source": "docs/research/UCT-005-G3-B2-D1B2B1-SEGMENTED-BITMAP.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F",
+      "kind": "research_input",
+      "status": "SAME_TRANSCRIPT_PARTIAL_PHYSICAL_LEDGER_KNOWN_AXES_AND_PARETO_STOP_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F-RESOURCE-RECONCILIATION.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F1",
+      "kind": "research_input",
+      "status": "EXACT_RESTRICTED_COW_PATH_UNION_AND_CHARGED_OFFLINE_PIN_RETENTION_NO_ONLINE_PARETO",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F1-PIN-RETENTION.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F3A",
+      "kind": "research_input",
+      "status": "AUTHENTICATED_SAME_TRACE_TWO_UPPERS_PAID_OFFLINE_PIN_RETENTION_NO_FULL_PARETO_OR_NEW_LOWER",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F3A-SAME-TRACE-PIN-RETENTION.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F2",
+      "kind": "research_input",
+      "status": "STREAMED_REMOTE_PIN_BITMAP_PAGED_TWO_PASS_TRUSTED_PAYLOAD_BOUND_ONLY_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F2-STREAMED-PIN-BITMAP.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F3B",
+      "kind": "research_input",
+      "status": "SAME_F1_THREE_UPPERS_PIN_SCRATCH_STAGING_AND_PAID_OFFLINE_AUDITS_PARTIAL_PARETO_STOP_NO_NEW_LOWER_BOUND",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F3B-THREE-MODEL-PARETO-GATE.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F3C",
+      "kind": "research_input",
+      "status": "SPECULATIVE_UNTRUSTED_STAGE_ONEPASS_SHA_BUFFER_UPPER_FALSIFIES_TWO_PASS_NECESSITY_NO_NEW_JOINT_LOWER",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F3C-ONEPASS-STAGING.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F3D",
+      "kind": "theorem_brick",
+      "status": "RESTRICTED_CLASSICAL_PIGEONHOLE_PHASE_CUT_NOT_NOVEL_UCT_ROOT",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F3D-DEFERRED-OUTPUT-CUT.md"
+    },
+    {
+      "id": "UCT005G3B2D1B2F3E",
+      "kind": "research_input",
+      "status": "AUTHENTICATED_PIN_FAILURE_SIDE_STAGE_PAGE_AMPLIFICATION_SPECIFIC_UPPERS_STOP_NOVELTY",
+      "source": "docs/research/UCT-005-G3-B2-D1B2F3E-FAILURE-STAGING.md"
+    },
+    {
+      "id": "UCT005G3B2D1C0",
+      "kind": "research_input",
+      "status": "EXACT_CLASSICAL_ONLINE_SET_PIN_OBSERVATION_ENTROPY_NO_F1_PHYSICAL_BOUND_STOP_NOVELTY",
+      "source": "docs/research/UCT-005-G3-B2-D1C0-PIN-OBSERVATION-ENTROPY.md"
+    },
+    {
+      "id": "UCT005G3B2D1C1",
+      "kind": "research_input",
+      "status": "SCOPED_HYPOTHESIS_FALSIFICATION_AND_PRIMARY_SOURCE_MAPPING_NO_ORIGINAL_LOWER",
+      "source": "docs/research/UCT-005-G3-B2-D1C1-HYPOTHESIS-KILL-GATE.md"
     }
   ],
   "edges": [
@@ -503,6 +563,56 @@
       "parent": "UCT005G3B2D1B2B",
       "child": "UCT005G3B2D1B2B1",
       "relation": "CONDITIONAL_ALLOCATION_BITMAP_UPPER_WITH_SCOPED_STOP_ONLY"
+    },
+    {
+      "parent": "UCT005G3B2D1B2B1",
+      "child": "UCT005G3B2D1B2F",
+      "relation": "RECONCILED_PARTIAL_PRICED_UPPER_STOP_NOT_PROVEN_ROOT_THEOREM"
+    },
+    {
+      "parent": "UCT005G3B2D1B2F",
+      "child": "UCT005G3B2D1B2F1",
+      "relation": "CONDITIONAL_PAID_OFFLINE_RETENTION_ORACLE_NOT_FULL_F1_AXIS_OR_LOWER_BOUND"
+    },
+    {
+      "parent": "UCT005G3B2D1B2F1",
+      "child": "UCT005G3B2D1B2F3A",
+      "relation": "SAME_TASK_BULK_REMOTE_PIN_AND_COW_OFFLINE_PRICE_NOT_NEW_LOWER"
+    },
+    {
+      "parent": "UCT005G3B2D1B2F",
+      "child": "UCT005G3B2D1B2F2",
+      "relation": "BOUNDED_TRANSIENT_PIN_BITMAP_SCRATCH_UPPER_AND_PARTIAL_PARETO_STOP"
+    },
+    {
+      "parent": "UCT005G3B2D1B2F2",
+      "child": "UCT005G3B2D1B2F3B",
+      "relation": "RESEARCH_JOIN_STREAMED_PIN_PAGE_STAGING_NOT_THEOREM_IMPLICATION"
+    },
+    {
+      "parent": "UCT005G3B2D1B2F3B",
+      "child": "UCT005G3B2D1B2F3C",
+      "relation": "SAME_F1_SPECULATIVE_STAGE_UPPER_COUNTERMODEL_TO_READ_PASS_NECESSITY_NOT_ROOT_THEOREM"
+    },
+    {
+      "parent": "UCT005G3B2D1B2F3C",
+      "child": "UCT005G3B2D1B2F3D",
+      "relation": "ELEMENTARY_DEFERRED_OUTPUT_CAPACITY_AND_ZERO_NOVELTY_NO_ROOT_LOWER"
+    },
+    {
+      "parent": "UCT005G3B2D1B2F3D",
+      "child": "UCT005G3B2D1B2F3E",
+      "relation": "SUBORDINATE_ADVERSARIAL_UPPER_COMPARATOR_NOT_PROOF_TRANSFER"
+    },
+    {
+      "parent": "UCT005G3B2D0",
+      "child": "UCT005G3B2D1C0",
+      "relation": "INDEPENDENT_D1_C_OBSERVATIONAL_COUNTERMODEL_NO_NEW_ROOT_THEOREM"
+    },
+    {
+      "parent": "UCT005G3B2D1C0",
+      "child": "UCT005G3B2D1C1",
+      "relation": "FALSIFICATION_INPUT_NOT_THEOREM_TRANSFER"
     }
   ]
 }

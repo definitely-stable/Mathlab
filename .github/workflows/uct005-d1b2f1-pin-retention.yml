@@ -1,0 +1,41 @@
+name: uct005-d1b2f1-pin-retention
+on:
+  push:
+    branches:
+      - research/uct005-d1b2f1-pin-retention-oracle
+    paths:
+      - "research/uct005_d1b2f1_pin_retention.py"
+      - "research/test_uct005_d1b2f1_pin_retention.py"
+      - ".github/workflows/uct005-d1b2f1-pin-retention.yml"
+  pull_request:
+    paths:
+      - "research/uct005_d1b2f1_pin_retention.py"
+      - "research/test_uct005_d1b2f1_pin_retention.py"
+      - ".github/workflows/uct005-d1b2f1-pin-retention.yml"
+permissions:
+  contents: read
+jobs:
+  retention-oracle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Exhaustive exact two-PIN shared GC retention falsifiers
+        run: python -m unittest discover -s research -p 'test_uct005_d1b2f1_pin_retention.py' -v
+      - name: Offline paid authenticated root-union physical page witness
+        run: python research/uct005_d1b2f1_pin_retention.py > /tmp/retention.json
+      - name: Refuse promotion to full F1 Pareto
+        run: |
+          python - <<'PY'
+          import json
+          with open('/tmp/retention.json', encoding='utf-8') as f:
+              out=json.load(f)
+          assert out["root_novelty"] == "OPEN_UNPROVED"
+          for case in out["cases"]:
+              assert not case["completed_full_F1_pareto"]
+              for model in case["models"]:
+                  assert model["stages"][2]["PIN_incremental_pages"] == 0
+          PY
