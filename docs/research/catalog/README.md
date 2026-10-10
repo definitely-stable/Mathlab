@@ -1,5 +1,9 @@
 # Research catalog — provenance-first index
 
+## IMPORT-011 — external Deep Research PDF corrections + nine verified original identities
+
+[Source-grounded scientific audit](../RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). Adds LIT-357..365, **355→364** canonical works; corrects 3SUM/APSP October 2026 conditional-bound status, transitive-reduction author/bounds, Cauchyproofs DOI, hypergraph author attribution, Ma–Tang/Singer metadata. Does not claim any new theorem, independent proof replay or universal transfer to UCT-005/HYP-105/TKG-001. Existing genomic IMPORT-010 and UCT D0 remain unchanged.
+
 ## UCT-005 D0 — missing primary sources / theorem-overlap firewall
 
 [Eight original LIT-349..356 studies and H1/H2/H3 quantified novelty gates](../UCT-005-G3-B2-D0-PRIMARY-SOURCES-AND-CAUSAL-CUT-GATES.md) · [UCT root #105](https://github.com/definitely-stable/Mathlab/issues/105) · [D1 issue #223](https://github.com/definitely-stable/Mathlab/issues/223). Merged IMPORT-010 32-source cohort LIT-317..348 remains untouched; D0 extends **347→355** canonical unique works and retains 21 tracks. Source abstract/identity verified only; original bounds and benchmarks not independently reproduced. No new UCT root theorem.

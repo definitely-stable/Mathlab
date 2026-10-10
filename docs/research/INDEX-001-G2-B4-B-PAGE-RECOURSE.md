@@ -1,5 +1,7 @@
 # INDEX-001 G2-B4-B — page-model locality and physical recourse
 
+**2026-10-10 source correction:** [IMPORT-011 external PDF audit](RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). Dynamic GBWT, Wheeler graph or succinct compressed string-index algorithmic bounds do not price the INDEX-001 physical page-read/write, RAM-cap, WAL, metadata, compaction/GC and crash publication ledger. Do not transfer O(L) path queries into a worst-case physical rewrite or arbitrary DAG reachability theorem.
+
 **Frozen 2026-10-09**, issue #173, parent #126, predecessor INDEX-001-G2-B4-A-VARIABLE-CHECKPOINT.md. Research-only logical page-image accounting: NOT SSD/NAND, POSIX, atomicity, crash durability, or general cell-probe lower bounds.
 
 ## G0 — frozen model, *before code*

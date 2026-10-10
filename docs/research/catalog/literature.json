@@ -10118,6 +10118,276 @@
       ],
       "full_proof_verified": false,
       "independent_reproduction": false
+    },
+    {
+      "id": "LIT-357",
+      "year": 2026,
+      "identity": "arxiv:2610.06783",
+      "primary_url": "https://arxiv.org/abs/2610.06783",
+      "title": "Truly Subquadratic 3SUM and Truly Subcubic APSP via Triangles in Sparse Lopsided Graphs",
+      "track": "fine-grained-algorithms",
+      "authors": [
+        "Josh Alman",
+        "Virginia Vassilevska Williams"
+      ],
+      "maps_to": [
+        "ML-004"
+      ],
+      "summary_ru": "Препринт 5 октября 2026: авторы получают детерминированные O(n^1.9992) для 3SUM на целых числах полиномиального размера и O(n^2.9995) для APSP на ориентированных графах с целочисленными весами полиномиального размера; заявлено опровержение стандартных 3SUM/APSP conjectures.",
+      "limits_ru": "Полный 76-страничный вывод не перепроверен. Отменяются только условные барьеры, основанные на точных опровергнутых предпосылках; unconditional динамические и cell-probe bounds от этого не следуют.",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
+          "source_sha": "af1f18470d46fb6068e5c51fb16224abb4cfb093"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-358",
+      "year": 2025,
+      "identity": "doi:10.1109/SP61157.2025.00247",
+      "primary_url": "https://doi.org/10.1109/SP61157.2025.00247",
+      "title": "Cauchyproofs: Batch-Updatable Vector Commitment with Easy Aggregation and Application to Stateless Blockchains",
+      "track": "proof-certification",
+      "authors": [
+        "Zhongtang Luo",
+        "Yanxue Jia",
+        "Alejandra Victoria Ospina Gracia",
+        "Aniket Kate"
+      ],
+      "maps_to": [
+        "ML-004"
+      ],
+      "summary_ru": "IEEE S&P 2025: пакетное обновление открытий векторного коммитмента на базе KZG и структурных свойств матриц Коши; авторы уменьшают стоимость обновления доказательств при множестве транзакций и пользователей.",
+      "limits_ru": "Криптографические предпосылки и setup обязательны; компактность доказательства не означает бесплатных операций prover, verifier, коммуникации, freshness или истинности содержимого графа.",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
+          "source_sha": "af1f18470d46fb6068e5c51fb16224abb4cfb093"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-359",
+      "year": 2025,
+      "identity": "arxiv:2507.22265",
+      "primary_url": "https://arxiv.org/abs/2507.22265",
+      "title": "Cell-Probe Lower Bounds via Semi-Random CSP Refutation: Simplified and the Odd-Locality Case",
+      "track": "fine-grained-algorithms",
+      "authors": [
+        "Venkatesan Guruswami",
+        "Xin Lyu",
+        "Weiqiang Yuan"
+      ],
+      "maps_to": [
+        "ML-004"
+      ],
+      "summary_ru": "Авторский препринт связывает lower bounds статических локальных структур и битовых схем с semi-random CSP/XOR опровержением, улучшая случаи нечётной локальности.",
+      "limits_ru": "Нет готовой редукции к онлайн-динамической аутентифицированной памяти, bitemporal query или физическим page writes; теоремы источника полнотекстово не воспроизведены.",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
+          "source_sha": "af1f18470d46fb6068e5c51fb16224abb4cfb093"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-360",
+      "year": 2026,
+      "identity": "arxiv:2609.38772",
+      "primary_url": "https://arxiv.org/abs/2609.38772",
+      "title": "Counting hypergraphs without linear cycles of fixed length",
+      "track": "graph-algorithms",
+      "authors": [
+        "József Balogh",
+        "Ramon I. Garcia",
+        "Abhishek Methuku"
+      ],
+      "maps_to": [
+        "ML-002"
+      ],
+      "summary_ru": "Авторский препринт сентября 2026 доказывает асимптотический счёт r-униформных гиперграфов без линейных k-циклов 2^((1+o(1))*ex_r(n,C_k)), применяя balanced supersaturation и hypergraph containers.",
+      "limits_ru": "Линейные неориентированные циклы не равны GF(5) two-sided signed trades с весами: перенос в HYP-105 требует собственного signed-incidence embedding и леммы о супернасыщении.",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
+          "source_sha": "af1f18470d46fb6068e5c51fb16224abb4cfb093"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-361",
+      "year": 2026,
+      "identity": "arxiv:2603.00428",
+      "primary_url": "https://arxiv.org/abs/2603.00428",
+      "title": "Spectral Turán Problems for Expanded hypergraphs",
+      "track": "graph-algorithms",
+      "authors": [
+        "Zhenyu Ni",
+        "Dongquan Cheng",
+        "Jing Wang",
+        "Liying Kang"
+      ],
+      "maps_to": [
+        "ML-002"
+      ],
+      "summary_ru": "Препринт 2026 устанавливает спектральную стабильность для гиперграфов, не содержащих расширения заданных графов, и определяет экстремальные конфигурации из multipartite Turán-построений.",
+      "limits_ru": "Запрет expanded graph motifs не эквивалентен signed GF(5) зависимости; требуются редукция и учёт знаков коэффициентов.",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
+          "source_sha": "af1f18470d46fb6068e5c51fb16224abb4cfb093"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-362",
+      "year": 2026,
+      "identity": "arxiv:2602.23282",
+      "primary_url": "https://arxiv.org/abs/2602.23282",
+      "title": "Largest Sidon subsets in weak Sidon sets",
+      "track": "sparse-coding",
+      "authors": [
+        "Jie Ma",
+        "Quanyu Tang"
+      ],
+      "maps_to": [
+        "ML-001",
+        "ML-002"
+      ],
+      "summary_ru": "Препринт 2026 даёт точное g(n)=ceil((n+1)/2) для наименьшего максимального полного Sidon подмножества в weak Sidon множестве из n вещественных чисел, а также оценки для локальных (4,5)-множеств.",
+      "limits_ru": "Доказательство в R и определения x<y и x<=y отличаются от ASET над GF(5) с отдельными границами положительной и отрицательной стороны.",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
+          "source_sha": "af1f18470d46fb6068e5c51fb16224abb4cfb093"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-363",
+      "year": 2026,
+      "identity": "arxiv:2605.03274",
+      "primary_url": "https://arxiv.org/abs/2605.03274",
+      "title": "Formalizing Singer Sidon Constructions and Sidon Set Infrastructure in Lean 4",
+      "track": "proof-certification",
+      "authors": [
+        "David B. Hulak",
+        "Arthur F. Ramos",
+        "Ruy J. G. B. de Queiroz"
+      ],
+      "maps_to": [
+        "ML-002"
+      ],
+      "summary_ru": "Препринт 2026 представляет Lean 4 формализацию конструкций Singer Sidon для степеней простых q и базовую инфраструктуру теории аддитивных Sidon-множеств; авторы заявляют доказательство конструкции размера q+1 в Z/(q²+q+1).",
+      "limits_ru": "Формальная классическая конструкция не является доказательством нового GF(5) вес-4 d=3 ASET exponent; независимый lean build не запускался.",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
+          "source_sha": "af1f18470d46fb6068e5c51fb16224abb4cfb093"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-364",
+      "year": 2026,
+      "identity": "arxiv:2608.12990",
+      "primary_url": "https://arxiv.org/abs/2608.12990",
+      "title": "LycheeMemory V2: Efficient Long-Term Memory for LLM Agents via Semantic Segment-Level Consolidation",
+      "track": "agent-memory",
+      "authors": [
+        "Dongfang Li",
+        "Zixuan Liu",
+        "Junmai Wang",
+        "Jiahe Huang",
+        "Fuhao Li",
+        "Bonian Jia",
+        "Baotian Hu",
+        "Min Zhang"
+      ],
+      "maps_to": [
+        "ML-004"
+      ],
+      "summary_ru": "Препринт 2026 исследует сегментное объединение контекста ИИ-агента, типизированные записи и упорядоченный поиск вместо консолидации на каждом ходе; приведены авторские бенчмарки LoCoMo и LongMemEval-S.",
+      "limits_ru": "Эмпирические баллы не воспроизведены; метод не доказывает криптографическую freshness, bitemporal correctness, Byzantine soundness или отсутствие семантических ошибок.",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
+          "source_sha": "af1f18470d46fb6068e5c51fb16224abb4cfb093"
+        }
+      ],
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
+    },
+    {
+      "id": "LIT-365",
+      "year": 2020,
+      "identity": "doi:10.1073/pnas.2004821117",
+      "primary_url": "https://doi.org/10.1073/pnas.2004821117",
+      "title": "HEDGES error-correcting code for DNA storage corrects indels and allows sequence constraints",
+      "track": "molecular-dna-storage",
+      "authors": [
+        "William H. Press",
+        "John A. Hawkins",
+        "Stephen K. Jones Jr.",
+        "Jeffrey M. Schaub",
+        "Ilya J. Finkelstein"
+      ],
+      "maps_to": [
+        "ML-001",
+        "ML-002"
+      ],
+      "summary_ru": "PNAS 2020: код HEDGES исправляет вставки, удаления и замены в синтетической DNA и поддерживает ограничения на последовательности; внешнее кодирование Рида–Соломона повышает восстановимость.",
+      "limits_ru": "Метрика Levenshtein/indel и DNA-кодирование не равны GF(5) signed restricted subset sums или минимальной длине signed trades; соответствующий изоморфизм не доказан.",
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md",
+          "source_sha": "af1f18470d46fb6068e5c51fb16224abb4cfb093"
+        }
+      ],
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false
     }
   ]
 }
