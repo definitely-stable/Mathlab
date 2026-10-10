@@ -6,7 +6,6 @@ left permutation: a canonical filler may never define a variable-left
 witness universe. Sixsets absent for a full left map contribute ZERO.
 No all-h obstruction, full R3 claim, or scalable full-permutation search.
 """
-from collections import defaultdict
 from itertools import permutations
 from math import factorial
 
@@ -196,11 +195,11 @@ def genuine_W32_C16_report():
         m, f, g, max_full_maps=36)
     if (cert["C15_eligible_one_right_lower_S"] != 12
             or cert["C15_eligible_one_right_lower_GF5_numerator"] != 513393
-            or cert["C16_exact_joint_box_lower_S"]
-            != independent["true_minimum_S_seven_in_box"] != 148
-            or cert["C16_exact_joint_box_lower_GF5_numerator"]
-            != independent["true_minimum_GF5_floor_numerator_in_box"]
-            != 6676842):
+            or not (cert["C16_exact_joint_box_lower_S"]
+                    == independent["true_minimum_S_seven_in_box"] == 148)
+            or not (cert["C16_exact_joint_box_lower_GF5_numerator"]
+                    == independent["true_minimum_GF5_floor_numerator_in_box"]
+                    == 6676842)):
         raise AssertionError("C16 two-sided source differs from true W32 audit")
     return cert
 
