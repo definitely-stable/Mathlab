@@ -1,0 +1,80 @@
+# HYP-105 B3.2-E1-C0 — weighted six-hypergraph intersection / prior-art transfer firewall
+
+Date: 2026-10-10. Parent [#230](https://github.com/definitely-stable/Mathlab/issues/230), [#176](https://github.com/definitely-stable/Mathlab/issues/176). Prior implementations: [#233](https://github.com/definitely-stable/Mathlab/pull/233) merged B0, [#238](https://github.com/definitely-stable/Mathlab/pull/238) B1-A, [#242](https://github.com/definitely-stable/Mathlab/pull/242) B1-B.
+
+**TYPE: exact model reduction for arbitrary s=2^h; executable COMPLETE source original-incidence census for s=2 only; generic mass-only counterexample. No all-h universal positive min, no infinite correlated counterexample, no R3 bound and no ASET exponent.**
+
+## 1. Exact weighted six-uniform hypergraph transfer (all h, no complexity claim)
+
+Freeze a valid left physical pair injection f from the V=(s+1)(s²+1) point vertices of W(3,s) into the K=binom(a,2) physical K_a edges, a minimal with K>=V. Let the RIGHT original line-factor vertex set be `L_s`, |L_s|=V.
+
+For any six-element subset R⊆L_s, set
+
+```text
+m_f(R) = number of UNORDERED sets E of SIX DISTINCT ORIGINAL
+incidences of W(3,s) satisfying:
+ (1) original RIGHT endpoint set of E equals R, each once;
+ (2) original LEFT factor multiplicity is B=(2,1,1,1,1);
+ (3) LEFT physical K_a projection is leafless on exactly
+     six coordinate symbols, each with physical degree TWO.
+```
+
+Each original-incidence sixset E contributes exactly one unit to exactly one m_f(R). This is a nonnegative **integer-weighted 6-uniform hypergraph** H_f on V original right factor vertices, not on physical coordinate symbols.
+
+Define physical target `T_a` on the K=binom(a,2) vertices that are themselves unordered K_a physical pair-edge labels. A six-element subset of those pair-edge labels belongs to T_a iff it forms a simple six-edge 2-regular graph on exactly SIX distinct physical coordinate symbols; admissible components are C6 or C3⊔C3. Exactly
+
+```text
+|T_a| = 70*binom(a,6).
+```
+
+For EVERY admissible injective right label assignment g:L_s→E(K_a), exactly and pointwise,
+
+```text
+U_B-left/A-right(f,g)
+  = sum_{R in C(L_s,6)} m_f(R) * 1_{g(R) in T_a}.
+```
+
+This is **not** an approximate first-moment theorem: the B/A accepted motif condition is exactly that its six original right endpoints are all distinct and their physical images form a simple 2-factor. The original six-incidence sets producing the same unordered R have multiplicity m_f(R), and each contributes once. No extra factor 6!, no GF5 signed cancellation. This is a model-specific application of the classical weighted hypergraph intersection functional, not a new mathematical operator.
+
+For independently UNIFORMLY random right injection g, a fixed R maps uniformly to a size-six subset of the K physical pair labels. Hence
+
+```text
+E_g U_B-left/A-right(f,g)
+   = (sum_R m_f(R))*|T_a|/binom(K,6)
+   = (sum_R m_f(R))*70*binom(a,6)/binom(K,6).
+```
+
+This equals the accepted B1-A six-ordered-right-endpoint completion factor 6!*70*C(a,6)/(K)_6, since (K)_6=6!C(K,6). The right map has to be independent of f for the expectation; no independence is required by the exact fixed-map hypergraph overlap identity. For each fixed f, the independent expectation is (140+O(s^-1))s^6, from B1-A, but the desired `min_g U_B/A` is not thereby bounded below.
+
+**IMPORTANT: even min_g U_B/A=0 at all h would not settle the seven-family S lower** because the other six classes may contribute; minimizing one fixed positive family is a subproblem.
+
+## 2. Independent exact finite certification
+
+At s=2, V=K=15, the 15 original right line vertices map bijectively to the 15 physical K6 pair labels. We build m_f from each and every accepted physical-left-B original six-incidence selection among the complete **10,935** candidates inside the **62,370** full-left-qualified collection; each selected original sixset is counted once. Only those with all six original right endpoints distinct contribute.
+
+The target T6 is the family of **70** physical simple six-edge 2-factors, verified in a completely independent oracle by enumerating all C(15,6)=5,005 six-edge subsets of K6 and checking physical degree exactly two. The production generator uses the accepted 70 K6 templates embedded into a physical K_a coordinate subset, without the 5,005 brute loop.
+
+Both pinned concrete fixed W32 injections are independently checked: `lex` gives U_B/A=98, `reverse-line` gives U_B/A=77. Furthermore, after the genuine original right factor pair-label swap (line IDs 4 and 13) already accepted in B1-B, H_f DOES NOT CHANGE because only the right physical mapping changes, but the weighted overlap becomes 57. The exact random-injection expectation remains unchanged. No multi-h or all-injection minimum is computed.
+
+## 3. Corrected prior art and disallowed transfers
+
+The underlying weighted hypergraph intersection/discrepancy formulation is **classical**, and any originality or universal minimum theorem must be compared with:
+
+- **Béla Bollobás, Alex Scott**, *Intersections of hypergraphs*, *Journal of Combinatorial Theory, Series B* **110** (2015), 180–208, DOI [10.1016/j.jctb.2014.08.002](https://doi.org/10.1016/j.jctb.2014.08.002), [author manuscript](https://people.maths.ox.ac.uk/~scott/Papers/hyperint.pdf), [arXiv:1408.6348](https://arxiv.org/abs/1408.6348). Its **Theorem 3** bounds the product of positive and negative *discrepancy* components in terms of the W-vectors, not the absolute `min_permutation overlap` from below; its **Theorem 16** gives orthogonal weight-component pairs with zero discrepancy. Their Section 4 treats effects of transpositions on weighted hypergraph overlap. None of these facts alone implies a positive minimum for our particular source-target pair.
+- **Béla Bollobás, Alex Scott**, *Intersections of random hypergraphs and tournaments*, *European Journal of Combinatorics* **44A** (2015), 125–139, DOI [10.1016/j.ejc.2014.08.023](https://doi.org/10.1016/j.ejc.2014.08.023), [publisher](https://www.sciencedirect.com/science/article/pii/S0195669814001358). This concerns RANDOM hypergraphs and random tournaments, not a fixed weighted source generated by W(3,s) and a deterministic highly structured physical target T_a.
+- **Béla Bollobás, Alex Scott**, *Intersections of graphs*, *Journal of Graph Theory* **66** (2011), 261–282, DOI [10.1002/jgt.20489](https://doi.org/10.1002/jgt.20489). Related k=2 ancestor; our k=6 model does not inherit a quantitative minimum bound automatically.
+- **Béla Bollobás, Svante Janson, Alex Scott**, *Packing random graphs and hypergraphs*, *Random Structures & Algorithms* **51** (2017), 3–13, DOI [10.1002/rsa.20673](https://doi.org/10.1002/rsa.20673), [arXiv:1408.6354](https://arxiv.org/abs/1408.6354). The random-model packing thresholds do not provide a deterministic GQ source packing into T_a.
+
+**Explicit disproof of a general mass-only inference.** On 15 abstract source vertices take m(R)=M>0 on ONE six-set R and zero elsewhere. Let T6 be the positive 70-edge six-2factor target on physical K6 pair labels. Assign those six right source vertices to a five-edge star centered at physical coordinate 0 plus physical edge (1,2). This is a valid partial bijection to SIX DISTINCT physical pair-edge labels, extendable to the other nine labels. The image is not 2-regular and hence the intersection is **exactly zero** under that assignment, although its random-permutation expectation is 2M/143>0 and its total source weight M is arbitrary. Thus source total mass alone cannot force positive minimum overlap. This **does not model W(3,s)** and therefore does NOT refute the desired GQ-specific minimum.
+
+This identifies an essential gap: to prove `min_g U_B/A >=c*s^6` one must use structural constraints on **how the multiplicity weights m_f(R) are distributed on original six-line subsets**, not only their total `Σm_f≈(1/4)s^15`. Even then, a B/A-only lower is stronger than needed for the accepted seven-family S lower and may be false independently.
+
+### Bibliography transaction boundary
+
+Catalog import for HYP-105 must use unique canonical LIT IDs, title/DOI dedup, and regenerate `docs/research/catalog/LITERATURE.md` and its reverse index with the repository's generator. Concurrent [IMPORT-012 PR #246](https://github.com/definitely-stable/Mathlab/pull/246) modifies precisely these catalog files and reserves LIT-366–387; this independent research PR therefore pins the four DOI sources in the reviewed proof note **without inventing LIT IDs or overwriting the concurrent bibliography write**. Canonical import is an explicit follow-up after #246 merges and catalog ID reservations are checked.
+
+## 4. Next falsifiable research gate
+
+Before attempting a new all-label HYP-105 asymptotic theorem, compute or bound distributional signatures of m_f beyond total mass: weighted vertex degree, weighted pair-codegree, intersection signature and W-vector components relative to T_a; prove an inequality for **MIN** over injections or build an infinite correlated avoidance construction. Classical discrepancy can be positive while min overlap is zero; don't confuse `max |deviation|`, random mean, and deterministic minimum.
+
+CI acceptance: full exact PR-HEAD GitHub-hosted Research SUCCESS, independent original incidence W32 oracle and physical target brute, fail-closed typed inputs, research indices; do not close #230 or claim full GF5 R3 or ASET power.
