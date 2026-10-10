@@ -36,6 +36,24 @@ class FullAuditClassicalGateTests(unittest.TestCase):
                     else:
                         self.assertIsNone(result["distinct_collision_witness"])
 
+    def test_variable_length_response_count_does_not_add_a_full_bit(self):
+        # A length<=b remote binary transcript admits (2^(b+1)-1)
+        # different strings, not 2^b; but cannot double the full-state
+        # capacity and thus preserves the integer H<=s+b conclusion.
+        for trusted in range(7):
+            for max_reply_bits in range(7):
+                replies = {
+                    "".join(b)
+                    for k in range(max_reply_bits + 1)
+                    for b in itertools.product("01", repeat=k)
+                }
+                self.assertEqual(len(replies), (1 << (max_reply_bits + 1)) - 1)
+                signatures = (1 << trusted) * len(replies)
+                self.assertLess(signatures, 1 << (trusted + max_reply_bits + 1))
+                self.assertGreaterEqual(signatures, 1 << (trusted + max_reply_bits))
+                self.assertEqual(signatures.bit_length() - 1,
+                                 trusted + max_reply_bits)
+
     def test_individual_member_query_refutes_false_full_vector_transfer(self):
         for h in range(2, 9):
             result = independent_member_lookup_countermodel(h)
