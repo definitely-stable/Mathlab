@@ -25,6 +25,11 @@ class HypothesisGateTests(unittest.TestCase):
             })
             self.assertTrue(candidate["unpriced_f1_axes"])
             self.assertIsNot(candidate["novel_joint_f1_lower"],True)
+        self.assertEqual(len(data["primary_source_transfer"]),8)
+        self.assertIn("VC_UPDATE_FREQUENCY_2026",
+                      {x["key"] for x in data["primary_source_transfer"]})
+        self.assertIn("DYNAMIC_BOOLEAN_CELL_PROBE_2026",
+                      {x["key"] for x in data["primary_source_transfer"]})
         for source in data["primary_source_transfer"]:
             self.assertEqual(source["status"],"REDUCTION_REQUIRED")
             self.assertFalse(source["full_text_proof_transfer"])
@@ -42,6 +47,9 @@ class HypothesisGateTests(unittest.TestCase):
             full_text_proof_transfer=True))
         corrupt(lambda a:a["primary_source_transfer"][0].update(
             status="APPLICABLE"))
+        corrupt(lambda a:a["primary_source_transfer"].pop())
+        corrupt(lambda a:a["primary_source_transfer"][7].update(
+            key="MISLABELED_THEOREM"))
         corrupt(lambda a:a["candidates"][0].update(status="PROVED_ROOT"))
         corrupt(lambda a:a["candidates"][0].update(
             status="REJECTED_SCOPED_F1_UPPER"))
