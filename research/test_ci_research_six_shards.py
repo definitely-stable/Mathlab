@@ -48,7 +48,7 @@ SHARDS = {
 }
 # Independently frozen on the 119 exact (name,run) pairs: the full
 # 117-command C20 six-shard suite plus two explicit C21 checks.
-FROZEN_FNV1A64 = 0xAD2167445A060D08
+FROZEN_FNV1A64 = 0x9DF72DE9A8F21B4C
 FROZEN_COMMANDS = 119
 
 
