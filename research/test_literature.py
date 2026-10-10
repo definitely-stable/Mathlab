@@ -17,13 +17,13 @@ class LiteratureTests(unittest.TestCase):
 
     def test_import006_distinct_works_and_indexed_lanes(self):
         entries = self.data["entries"]
-        self.assertEqual(len(entries), 386)
-        self.assertEqual(len({e["identity"].lower() for e in entries}), 386)
-        self.assertEqual(len({e["id"] for e in entries}), 386)
+        self.assertEqual(len(entries), 391)
+        self.assertEqual(len({e["identity"].lower() for e in entries}), 391)
+        self.assertEqual(len({e["id"] for e in entries}), 391)
         self.assertEqual(({f"LIT-{i:03d}" for i in range(1, 205)} |
-                          {"LIT-206", "LIT-207", "LIT-208", "LIT-209", "LIT-210", "LIT-211", "LIT-212", "LIT-213"} | {f"LIT-{i:03d}" for i in range(214, 388)}),
+                          {"LIT-206", "LIT-207", "LIT-208", "LIT-209", "LIT-210", "LIT-211", "LIT-212", "LIT-213"} | {f"LIT-{i:03d}" for i in range(214, 393)}),
                          {e["id"] for e in entries})
-        self.assertEqual(len({e["track"] for e in entries}), 21)
+        self.assertEqual(len({e["track"] for e in entries}), 22)
 
 
     def test_import011_external_pdf_source_identity_and_novelty_fence(self):
@@ -544,7 +544,7 @@ class LiteratureTests(unittest.TestCase):
         original = {e["id"] for e in self.data["entries"]}
         self.assertTrue({f"LIT-{i:03d}" for i in range(50, 96)} <= original)
         self.assertTrue({f"LIT-{i:03d}" for i in range(1, 96)} <= original)
-        self.assertEqual(len(self.data["entries"]), 386)
+        self.assertEqual(len(self.data["entries"]), 391)
         all_ids = [e["identity"].lower() for e in self.data["entries"]]
         self.assertEqual(len(all_ids), len(set(all_ids)))
 
@@ -844,9 +844,9 @@ class LiteratureTests(unittest.TestCase):
 
     def test_bibliography_expansion_covers_three_projects(self):
         entries = self.data["entries"]
-        self.assertEqual(len({e["id"] for e in entries}), 386)
+        self.assertEqual(len({e["id"] for e in entries}), 391)
         tracks = {e["track"] for e in entries}
-        self.assertEqual(len(tracks), 21)
+        self.assertEqual(len(tracks), 22)
         self.assertTrue({"LIT-043", "LIT-044", "LIT-047"}.issubset(
             {e["id"] for e in entries}))
         self.assertTrue({"MATHLAB", "DELSK", "DELTAMETER"}.issubset(

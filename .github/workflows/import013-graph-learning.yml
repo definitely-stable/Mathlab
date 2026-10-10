@@ -1,0 +1,39 @@
+name: import013-graph-learning
+
+on:
+  push:
+    branches:
+      - "research/import-013-icml2026-graph-learning"
+  pull_request:
+    paths:
+      - "docs/research/catalog/literature.json"
+      - "docs/research/catalog/LITERATURE.md"
+      - "docs/research/catalog/LITERATURE-BY-RESEARCH.md"
+      - "docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md"
+      - "docs/research/IMPORT-013-GRAPH-LEARNING-RELATIONS.json"
+      - "research/literature.py"
+      - "research/test_literature.py"
+      - "research/test_import012_source_genealogy.py"
+      - "research/test_import013_graph_learning.py"
+      - ".github/workflows/import013-graph-learning.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  canonical-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Canonical source and generated indexes
+        run: python research/literature.py --check
+      - name: Historical library invariants
+        run: python -m unittest discover -s research -p "test_literature.py"
+      - name: Pre-existing genealogy invariants
+        run: python -m unittest discover -s research -p "test_import012_source_genealogy.py"
+      - name: ICML 2026 provenance and typed transfer fences
+        run: python -m unittest discover -s research -p "test_import013_graph_learning.py"
