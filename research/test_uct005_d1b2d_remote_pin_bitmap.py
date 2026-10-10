@@ -44,6 +44,9 @@ class RemotePinBitmapTests(unittest.TestCase):
                 self.assertEqual(m.bitmap_pages, pages_expected)
                 self.assertEqual(len(m.remote_pin_bitmap), bytes_expected)
                 self.assertEqual(m.remote_pages, data_pages + manifest_pages + pages_expected)
+                self.assertEqual(m._slot_start_page(0), pages_expected)
+                self.assertEqual(m._slot_start_page(1),
+                                 pages_expected + data_pages + manifest_pages)
                 self.assertEqual(m.ledger["bitmap_setup_page_writes"], pages_expected)
                 self.assertEqual(m.ledger["bitmap_setup_upload_bytes"], pages_expected * p)
                 self.assertEqual(m.trusted_bits, 33 + 8 * 80)
@@ -53,7 +56,11 @@ class RemotePinBitmapTests(unittest.TestCase):
                 self.assertEqual(m.ledger["bitmap_remote_page_writes"], pages_expected)
                 self.assertEqual(m.ledger["bitmap_trusted_root_publication_bytes"], 40)
                 self.assertEqual(m.ledger["bitmap_remote_upload_bytes"], pages_expected * p)
+                before = m.ledger["bitmap_remote_page_read_attempts"]
                 m.assert_live_invariant()
+                self.assertEqual(m.ledger["bitmap_remote_page_read_attempts"], before)
+                self.assertEqual(m.ledger["bitmap_audit_remote_page_read_attempts"],
+                                 pages_expected)
 
     def test_two_readers_same_pin_and_independent_revoke(self):
         for p in (1, 2, 8, 64):
