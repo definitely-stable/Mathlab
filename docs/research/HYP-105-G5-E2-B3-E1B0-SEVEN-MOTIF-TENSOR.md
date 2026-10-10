@@ -130,6 +130,25 @@ R3_seven_selected(f,g) >=
 
 A hard cap of 5,000 exact GF5 events rejects oversized computations rather than reporting truncated risk. The CI independent tests validate all ten signs per qualifying original set, the exact per-class integer decomposition and this lower inequality for both pinned W(3,2) control labelings. Numerical full-event coefficients are accepted only after the exact PR-head GitHub-hosted Research success gate.
 
+### 3A.1 Pinned exact restricted R3 numerator (all 51-pattern GF5)
+
+The complete hosted all-ten-sign evaluation [Research #38028014149](https://github.com/definitely-stable/Mathlab/actions/runs/38028014149) reports the following exact signed-event weights. Each value is the sum of nonnegative integer GF5 flow counts for the specified selected actual ORIGINAL six-incidence subfamily:
+
+| Subfamily | Lex | Reverse-line |
+|---|---:|---:|
+| D6 (all ten signs, not only accepted alternating sign) | 812,430 | 162,486 |
+| B-left / A-right | 5,627,064 | 4,231,006 |
+| A-left / B-right | 6,213,834 | 4,087,738 |
+| C/A | 819,300 | 63,132 |
+| C/B | 59,982 | 53,718 |
+| B/B overlap | 428,832 | 374,682 |
+| B/B disjoint | 913,152 | 357,686 |
+| **EXACT restricted GF5 R3 numerator** | **14,874,594** | **9,330,448** |
+| Number of signed selected events (ten per original six-set) | 2,590 | 1,690 |
+| Proven simpler minimum-based R3 numerator | 11,225,795 | 7,627,209 |
+
+Thus `R3_seven_selected(lex) = 14874594/51^6` and `R3_seven_selected(reverse-line) = 9330448/51^6`, with all event indices and class sums frozen as independent unit-test regression values. This is an exact selected-family risk, not a bound on the entire 51-palette R3. The difference between the selected exact and necessary minimum-based numerator is the explicitly counted nonnegative surplus within the seven families. The full GF5 second moment or all-h structural inequality remains unknown.
+
 **CRITICAL:** This new `R3_seven_selected` is not the FULL `R3`: A/A non-D6 positive signatures, other positive six-projection signatures, and 11,032 subleading necessary forest types can contribute. Its comparison across finite controls does not imply any uniform-in-h asymptotic risk bound.
 
 ## 3B. Prior-art transfer firewall for the next all-label theorem
