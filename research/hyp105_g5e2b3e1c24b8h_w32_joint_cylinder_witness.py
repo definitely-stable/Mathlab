@@ -70,7 +70,7 @@ def report():
     fibers=compile_right_pullback_fibers(src)
     all_states=[]
     for remainder in permutations(available):
-        whole=tuple(pinned.get(i,remainder[i-10]) for i in range(15))
+        whole=tuple(pinned[i] if i in pinned else remainder[i-10] for i in range(15))
         all_states.append((template_pullback_score(fibers,whole)["S_seven"],whole))
     if len(all_states)!=120 or len(set(g for _,g in all_states))!=120:
         raise AssertionError("not all globally coherent original g completions")
