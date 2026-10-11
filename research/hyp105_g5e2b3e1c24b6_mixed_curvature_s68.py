@@ -228,6 +228,10 @@ def exact_next_ball_from_s68():
     representative = {best, max(states, key=lambda g:(states[g]["S_seven"],g)),
                       next(g for g in states if kind[g] == "disjoint"),
                       next(g for g in states if kind[g] == "three_cycle")}
+    # Independently recount EVERY tied exact distance-two minimum, not just
+    # the lexical winner. This is a finite ORIGINAL right-first falsifier.
+    representative.update(g for g, row in states.items()
+                          if row["S_seven"] == best_score)
     for g in representative:
         full_independent_check(g)
     one_check = full_left_score(source, first_perm[first_min])
@@ -262,6 +266,29 @@ def exact_next_ball_from_s68():
     improvements = sorted((row["S_seven"], g) for g,row in states.items()
                           if row["S_seven"] < 68)
     minima = min(base["S_seven"], first[first_min]["S_seven"], best_score)
+
+    # Independently reconstructed true W(3,2) 62,370-sixset baseline and
+    # full 105+5005 endpoints. Pin the finite S68 RADIUS-TWO optimum; a
+    # later code or source drift must fail closed instead of silently
+    # changing the accepted scientific witness.
+    if (first[first_min]["S_seven"] != 75 or first_min != (8, 9)
+            or sum(row["S_seven"] < 68 for row in first.values()) != 0
+            or best_score != 69 or minima != 68
+            or improvements or improves_three_cycle or improves_disjoint
+            or sum(1 for row in states.values() if row["S_seven"] == 69) != 2
+            or best != (2,9,11,4,10,6,0,13,5,14,3,7,12,1,8)
+            or tuple(states[best]["seven_counts"][t] for t in TAGS)
+               != (0,41,25,0,0,2,1)
+            or states[best]["Q7_necessary_numerator"] != 3158110
+            or states[best]["right_C_accepted"] != 0
+            or path != ((4,13),(0,12))
+            or first[path[0]]["S_seven"] != 78
+            or kappa != -65 or (ka,kb) != ((0,12),(4,11))
+            or actual_abs_sum != 40989
+            or exact_sum_joint_exposure != 77873220
+            or smallest_pointwise_slack != 33604
+            or len(support_fibers) != 7468):
+        raise AssertionError("independent original W32 exact S68 radius-two witness changed")
     return {
         "base_S":68, "base_global_right":start,
         "original_sixsets":source["left_source_size"],
