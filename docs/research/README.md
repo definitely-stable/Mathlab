@@ -1,6 +1,6 @@
 ## HYP-105 C24-B4 — exact global right swap gain/loss and signed-cut recovery (2026-10-11)
 
-[All-h exact swap-flow, cut inversion, finite original W32 105-third-neighbor audit](HYP-105-G5-E2-B3-E1C24B4-SWAP-FLOW-CUTS.md) · [source flow and signed cut executable](../../research/hyp105_g5e2b3e1c24b4_swap_flow_cuts.py) · [genuine original GQ independent regressions](../../research/test_hyp105_g5e2b3e1c24b4_swap_flow_cuts.py) · [PR #348](https://github.com/definitely-stable/Mathlab/pull/348) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_ALL-h_EXACT_FLOW_PLUS_CUT_GRADIENT_INVERSION / FINITE_GENUINE_W32_THIRD_NEIGHBORHOOD / NOT_ALL-h_POSITIVE_BOUND / FULL_HOSTED_CI_PENDING.**
+[All-h exact swap-flow, cut inversion, finite original W32 105-third-neighbor audit](HYP-105-G5-E2-B3-E1C24B4-SWAP-FLOW-CUTS.md) · [source flow and signed cut executable](../../research/hyp105_g5e2b3e1c24b4_swap_flow_cuts.py) · [genuine original GQ independent regressions](../../research/test_hyp105_g5e2b3e1c24b4_swap_flow_cuts.py) · [PR #348](https://github.com/definitely-stable/Mathlab/pull/348) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_ALL-h_EXACT_FLOW_PLUS_CUT_GRADIENT_INVERSION / FINITE_W32_THIRD_BEST_S102_AT_7_11_EIGHT_IMPROVING / EXPLICIT_GLOBAL_DESCENT_TO_S72_STRICT_LOCAL_MIN_ALL_105_FINAL_NEIGHBORS_MIN74 / NOT_ALL-h_POSITIVE_BOUND / FULL_HOSTED_CI_PENDING.**
 
 
 ## HYP-105 C24-B3 — all-h joint-seven swap-exchange gate and finite lambda-seven threshold
