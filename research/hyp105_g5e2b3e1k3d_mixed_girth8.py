@@ -16,6 +16,7 @@ import json
 from hyp105_g5e2b3e1k1_kikuchi_c6 import gq_pair_model, kikuchi_graph
 from hyp105_g5e2b3e1k3_local_collisions import star_degree_tensor
 from hyp105_g5e2b3e1k3c_book_packing import book_moments
+from hyp105_g5e2b3e1k2_cycle_pattern_weights import four_cycles
 
 
 def _choose2(n):
@@ -170,7 +171,7 @@ def global_mixed_book_certificate(model, *,
         raise ValueError("nonnegative book witness budget required")
     invert = source_inverses(model)
     mixed_m1=mixed_m2=mixed_m3=0
-    aligned_m1=aligned_m3=0
+    aligned_m1=aligned_m2=aligned_m3=0
     book_witnesses=0
     witness_max_path3=0
     max_c=0
@@ -181,6 +182,7 @@ def global_mixed_book_certificate(model, *,
             c = len(nu & graph[v])
             if (u//a == v//a) or (u%a == v%a):
                 aligned_m1 += c
+                aligned_m2 += _choose2(c)
                 aligned_m3 += _choose3(c)
                 continue
             mixed_m1 += c
@@ -210,7 +212,18 @@ def global_mixed_book_certificate(model, *,
     # 3*choose(c,3)=c*(c-1)*(c-2)/2, monotone in c.
     book_bound = mixed_m1*max(0,cap-1)*max(0,cap-2)//2
     actual_book = 3*mixed_m3
-    if actual_book > book_bound:
+    # 3*choose(c,3)=(c-2)*choose(c,2), and each C4 has exactly
+    # two distinct pairs of opposite vertices, hence M2_all=2*C4.
+    total_m2 = mixed_m2+aligned_m2
+    if total_m2 % 2:
+        raise AssertionError("every C4 has two opposite vertex pairs")
+    c4_from_m2 = total_m2//2
+    if c4_from_m2 != len(four_cycles(graph)):
+        raise AssertionError("independent C4 edge-set oracle disagrees with M2")
+    book_from_m2 = max(cap-2,0)*mixed_m2
+    book_from_c4 = max(cap-2,0)*2*c4_from_m2
+    book_best = min(book_bound,book_from_m2,book_from_c4)
+    if actual_book > book_best:
         raise AssertionError("global mixed-book cap violated")
     check=book_moments(graph,a)
     if check["book_mixed"] != actual_book:
@@ -220,7 +233,8 @@ def global_mixed_book_certificate(model, *,
     return {
         "s":s,"a":a,"r":a-2,"Kikuchi_vertices":n,
         "mixed_M1":mixed_m1,"mixed_M2":mixed_m2,
-        "mixed_M3":mixed_m3,"B_mixed":actual_book,
+        "mixed_M3":mixed_m3,"aligned_M2":aligned_m2,
+        "C4_from_exact_M2":c4_from_m2,"B_mixed":actual_book,
         "B_aligned":3*aligned_m3,
         "B_total":actual_book+3*aligned_m3,
         "B_mixed_fraction":str(__import__("fractions").Fraction(actual_book,
@@ -232,6 +246,9 @@ def global_mixed_book_certificate(model, *,
         "C4_free_cap":c4_free_edge_cap(a-2),
         "C6_free_Moore_cap":girth8_moore_edge_cap(a-2),
         "B_mixed_upper_via_first_moment":book_bound,
+        "B_mixed_upper_via_second_moment":book_from_m2,
+        "B_mixed_upper_via_C4":book_from_c4,
+        "B_mixed_upper_best_certified":book_best,
         "book_witnesses_checked_against_original_GQ":book_witnesses,
         "max_witness_3paths":witness_max_path3,
         "uniform_o_s6_proved":False,
