@@ -30,10 +30,12 @@ class JointGlobalExchangeTests(unittest.TestCase):
             self.assertEqual(delta["delta_Q7"],
                              sum(GF5_WEIGHTS[i] * delta["delta_seven"][tag]
                                  for i, tag in enumerate(TAGS)))
+        for swap in ((0, 1), (6, 14), (10, 14)):
+            trial = next(t for t in self.neighbors["entries"] if t["swap"] == swap)
             self.assertEqual(
                 full_left_score(self.source,
-                                legal_transpose(W32_RIGHT_H45_ZERO, *x["swap"]))["S_seven"],
-                x["S_seven"])
+                                legal_transpose(W32_RIGHT_H45_ZERO, *swap))["S_seven"],
+                trial["S_seven"])
 
     def test_exact_105_global_map_joint_regularization_two_phase_envelope(self):
         k = exact_finite_penalty_frontier(self.neighbors["entries"])
