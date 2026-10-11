@@ -61,6 +61,11 @@ class OriginalW32MixedSideTest(unittest.TestCase):
                 self.assertTrue(row["does_not_prove_asymptotic_Os6_or_positivity"])
                 values.append(row["absolute_signed_cross_curvature_upper"])
             self.assertEqual(values,sorted(values))
+            # Exact hockey-stick overlap penalty, independent of the
+            # implementation of all_h_original_gq_cross_touch_bound.
+            for c in range(1,4):
+                expected=sum(comb(e-2*d+t,5) for t in range(c))
+                self.assertEqual((values[c]-values[0])//2,expected)
         for s,c in ((3,0),(1,0),(2,4),(2,-1),(2,1.0),(True,0)):
             with self.assertRaises(ValueError):
                 all_h_original_gq_cross_touch_bound(s,c)
