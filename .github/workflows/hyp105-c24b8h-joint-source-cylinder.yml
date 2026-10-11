@@ -1,0 +1,32 @@
+name: hyp105-c24b8h-joint-source-cylinder
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b8h_joint_source_cylinder.py"
+      - "research/test_hyp105_g5e2b3e1c24b8h_joint_source_cylinder.py"
+      - "research/hyp105_g5e2b3e1c24b8h_w32_joint_cylinder_witness.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B8H-JOINT-SOURCE-CYLINDER.md"
+      - ".github/workflows/hyp105-c24b8h-joint-source-cylinder.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-joint-original-source-cylinder:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: B8-H exact synthetic K4 global-injection joint source falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b8h_joint_source_cylinder.py' -v
+      - name: B8-H true ORIGINAL W32 five-free-line pinned cylinder, two independent seven-score oracles, pair-residual coupling
+        run: python research/hyp105_g5e2b3e1c24b8h_w32_joint_cylinder_witness.py
