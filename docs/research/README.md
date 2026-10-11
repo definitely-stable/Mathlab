@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-D — mixed-coordinate compatibility and girth-eight book moments (2026-10-12)
+
+[All-h exact mixed compatibility, C4-free and 3-path-capacity lemmas; exact global first codegree moment and explicit insufficient cubic book bound](HYP-105-G5-E2-B3-E1K3D-MIXED-GIRTH8-BOOK-MOMENTS.md) · [reference](../../research/hyp105_g5e2b3e1k3d_mixed_girth8.py) · [independent original GQ and 3-path tests](../../research/test_hyp105_g5e2b3e1k3d_mixed_girth8.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_ALL_h_GIRTH8 / EXACT_GLOBAL_M1 / MIXED_CUBIC_PACKING_OPEN / NO_BRANCH_A_B_OR_ASET / CI_PENDING**.
+
 ## HYP-105 B3.2-E1-K3-C — exact C4 books and GQ-aligned pencils (2026-10-11)
 
 [All-graph C4 intersection formula, K2t cubic book term and all-h original GQ physical-coordinate cap](HYP-105-G5-E2-B3-E1K3C-EXACT-BOOK-INTERSECTIONS.md) · [reference](../../research/hyp105_g5e2b3e1k3c_book_packing.py) · [independent C4 oracle and genuine GQ tests](../../research/test_hyp105_g5e2b3e1k3c_book_packing.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_EXACT_BOOK_IDENTITY / ALL_h_ALIGNED_CODEGREE_CAP / MIXED_BOOK_PACKING_OPEN / NO_BRANCH_A_B / CI_PENDING**.
