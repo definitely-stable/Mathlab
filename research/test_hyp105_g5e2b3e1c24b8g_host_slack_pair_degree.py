@@ -101,7 +101,7 @@ class HostSlackPairDegreeTests(unittest.TestCase):
 
     def test_reject_noncanonical_and_nonminimal_hosts(self):
         with self.assertRaises(ValueError):
-            minimal_host_capacity(6,14) # K6 is not minimal for 14
+            minimal_host_capacity(6,10) # K5 already hosts ten edges
         with self.assertRaises(ValueError):
             minimal_host_capacity(5,11)
         with self.assertRaises(ValueError):
