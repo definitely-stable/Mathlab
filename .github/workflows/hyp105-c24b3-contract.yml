@@ -1,0 +1,29 @@
+name: hyp105-c24b3-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c24b3-joint-swap-gradient
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b3_joint_swap_gradient.py"
+      - "research/test_hyp105_g5e2b3e1c24b3_joint_swap_gradient.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B3-JOINT-SWAP-PENALTY.md"
+      - ".github/workflows/hyp105-c24b3-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-global-right-joint-seven-swap-gradient:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C24-B3 exact seven-vector exchange 105-map lambda frontier and second-neighborhood tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b3_joint_swap_gradient.py' -v
+      - name: C24-B3 original W32 full seven-family swap gradient and finite two-step descent report
+        run: python research/hyp105_g5e2b3e1c24b3_joint_swap_gradient.py
