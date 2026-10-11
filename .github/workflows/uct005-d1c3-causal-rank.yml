@@ -1,0 +1,34 @@
+name: uct005-d1c3-causal-rank
+on:
+  push:
+    branches:
+      - "research/uct005-d1c3-*"
+    paths:
+      - "research/uct005_d1c3_causal_rank.py"
+      - "research/test_uct005_d1c3_causal_rank.py"
+      - ".github/workflows/uct005-d1c3-causal-rank.yml"
+  pull_request:
+    paths:
+      - "research/uct005_d1c3_causal_rank.py"
+      - "research/test_uct005_d1c3_causal_rank.py"
+      - ".github/workflows/uct005-d1c3-causal-rank.yml"
+permissions:
+  contents: read
+jobs:
+  independent-conditional-rank:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent real SET trace vs GF2 matrix for all n<=3 H<=3
+        run: python -m unittest discover -s research -p 'test_uct005_d1c3_causal_rank.py' -v
+      - name: Emit bounded multi-cut reuse falsifier evidence
+        run: python research/uct005_d1c3_causal_rank.py
+      - name: Freeze predecessor F1 and D1-C2 soundness scopes
+        run: |
+          python -m unittest discover -s research -p 'test_uct005_d1c2_pinned_freshness.py' -v
+          python -m unittest discover -s research -p 'test_uct005_d1c1_hypothesis_kill_gate.py' -v
+          python -m unittest discover -s research -p 'test_uct005_tree.py' -v
