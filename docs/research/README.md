@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K1 — Kikuchi six-cycles and conditional D6 floor (2026-10-11)
+
+[D6 = proper six-cycles of the level-(1,1) Kikuchi graph, exact Cauchy–Schwarz identity, AHL/peeling floor and the coincidence-mass blocker](HYP-105-G5-E2-B3-E1K1-KIKUCHI-C6-SUPERSATURATION.md) · [exact reference](../../research/hyp105_g5e2b3e1k1_kikuchi_c6.py) · [independent seven-census / left-C6 join / K2 falsifiers](../../research/test_hyp105_g5e2b3e1k1_kikuchi_c6.py) · [root #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_ALL_h_CONDITIONAL / EXACT_D6_Q4_KIKUCHI_ENCODING / COINCIDENCE_MASS_OPEN_WITH_FORMAL_BLOCKER / MAIN_BASED / PR_CI_PENDING**.
+
 ## UCT-005 D1-C3 — conditional GF(2) causal information reuse (2026-10-11)
 
 [Exact classical rank and false additive cut](UCT-005-G3-B2-D1C3-CAUSAL-RANK-REUSE.md) · [independent rank model](../../research/uct005_d1c3_causal_rank.py) · [literal SET-execution tests](../../research/test_uct005_d1c3_causal_rank.py) · [issue #319](https://github.com/definitely-stable/Mathlab/issues/319). **CLASSICAL_RANK_ONLY / FALSE_SUM_OF_READER_EPOCH_CUTS / FULL_F1_JOINT_BOUND_OPEN / ROOT_OPEN_UNPROVED / EXACT_HEAD_CI_PENDING**. Predecessor D1-C2 [#313](https://github.com/definitely-stable/Mathlab/pull/313) is MERGED; D1-C3 [#323](https://github.com/definitely-stable/Mathlab/pull/323) is main-based DRAFT until exact-head CI.

@@ -165,6 +165,12 @@ jobs:
       - name: HYP-105 B3.2-E1-C0 independent original six-incidence and K6 2factor overlap falsifiers
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c0_weighted_overlap.py'
 
+      - name: HYP-105 B3.2-E1-K1 Kikuchi graph D6 proper six-cycles and conditional CS/Moore floor report
+        run: python research/hyp105_g5e2b3e1k1_kikuchi_c6.py
+
+      - name: HYP-105 B3.2-E1-K1 independent seven-census, left-C6 join and K2 definition-level falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k1_kikuchi_c6.py'
+
       - name: HYP-105 B3.2-E1-B0 same-label seven-family W32 GF5 and Q4 risk floors
         run: python research/hyp105_g5e2b3e1b0_seven_signature.py
 
