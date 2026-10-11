@@ -140,6 +140,7 @@ def audit_true_w32_cross_global_orbit():
     left_rows={}
     cross_best=None
     cross_min_Q7=None
+    cross_tied_minima=[]
     cross_score_hist=Counter()
     cross_negative_kappa=0
     cross_strict_improve=0
@@ -183,6 +184,10 @@ def audit_true_w32_cross_global_orbit():
             if cross_best is None or item<cross_best[:3]:
                 cross_best=(score,a,b,fa,gb,row,kappa,left_row["S_seven"],
                             right_rows[b]["S_seven"],c)
+            if not cross_tied_minima or score<cross_tied_minima[0][0]:
+                cross_tied_minima=[(score,a,b,fa,gb,row)]
+            elif score==cross_tied_minima[0][0]:
+                cross_tied_minima.append((score,a,b,fa,gb,row))
             weighted=(row["Q7_necessary_numerator"],score,a,b)
             if cross_min_Q7 is None or weighted<cross_min_Q7:
                 cross_min_Q7=weighted
@@ -211,11 +216,38 @@ def audit_true_w32_cross_global_orbit():
     separate_original_right_first(legal_transpose(f0,*a),g0,left_rows[a])
     bestscore,besta,bestb,bestf,bestg,bestrow,bestk,firstL,firstR,cross_c=cross_best
     separate_original_right_first(bestf,bestg,bestrow)
+    for tied_S,tied_a,tied_b,tied_f,tied_g,tied_row in cross_tied_minima:
+        if tied_S!=bestscore:
+            raise AssertionError("inconsistent mixed minimum tie list")
+        separate_original_right_first(tied_f,tied_g,tied_row)
     if (bestrow["S_seven"]!=bestscore
             or bestk!=bestscore-firstL-firstR+68):
         raise AssertionError("mixed global f,g aggregate identity failed")
 
     bestL=left_rows[a]["S_seven"]
+
+    # Freeze the exact initial GitHub-hosted 11236-typed-map scientific
+    # witness after complete independently classified original W32 census.
+    # This is finite strict typed (left <=1,right <=1) stationarity only.
+    if (bestL!=70 or left_min!=(3,7)
+            or right_min!=(8,9)
+            or cross_strict_improve!=0 or bestscore!=70
+            or len(cross_tied_minima)!=2 or cross_score_hist[70]!=2
+            or cross_negative_kappa!=8286
+            or cross_mixed_min!=(-70,(4,14),(4,11))
+            or besta!=(3,8) or bestb!=(0,14)
+            or firstL!=95 or firstR!=97 or bestk!=-54
+            or cross_c!=0
+            or bestf!=(13,4,2,10,0,11,1,7,14,6,9,5,12,3,8)
+            or bestg!=(8,9,11,4,1,6,0,13,5,14,3,7,2,10,12)
+            or tuple(bestrow["seven_counts"][t] for t in TAGS)
+               !=(0,46,18,0,0,2,4)
+            or bestrow["Q7_necessary_numerator"]!=3201940
+            or bestrow["right_C_accepted"]!=0
+            or cross_min_Q7[0]!=3201940
+            or overlap_hist!=Counter({0:4185,1:5040,2:1620,3:180})
+            or total_analytic_joint_universe!=32252059350):
+        raise AssertionError("hosted true-original W32 mixed global 11236-map witness changed")
     return {
         "original_gq_source_per_left":62370,
         "physical_K6_right_2factor_templates":130,
@@ -242,6 +274,8 @@ def audit_true_w32_cross_global_orbit():
         "cross_best_mixed_delta":bestk,
         "cross_best_original_incidence_overlap":cross_c,
         "cross_strict_improving_cells":cross_strict_improve,
+        "cross_tied_minima_independently_right_first_verified":len(cross_tied_minima),
+        "strict_finite_typed_radius_one_local_minimum":True,
         "cross_negative_signed_mixed_curvature_cells":cross_negative_kappa,
         "cross_min_signed_mixed_curvature":cross_mixed_min[0],
         "cross_min_signed_mixed_pair":(cross_mixed_min[1],cross_mixed_min[2]),
