@@ -48,7 +48,7 @@ SHARDS = {
 }
 # Independently frozen 135 exact (name,run) pairs: all 133 C24-B3 checks
 # preserved, plus two explicit C24-B5 full two-swap commands.
-FROZEN_FNV1A64 = 0xEAB81A8EAB116756
+FROZEN_FNV1A64 = 0x069403F46467A4EE
 FROZEN_COMMANDS = 137
 
 
