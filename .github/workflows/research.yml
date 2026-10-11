@@ -479,6 +479,12 @@ jobs:
       - name: HYP-105 C24-B5 complete original W32 5005 distance-two global-right states report
         run: python research/hyp105_g5e2b3e1c24b5_two_swap_escape.py
 
+      - name: HYP-105 C24-B6 original W32 signed curvature exposure and all-h joint support unit tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b6_mixed_curvature_s68.py'
+
+      - name: HYP-105 C24-B6 full original W32 S68 5111 radius-two global right maps report
+        run: python research/hyp105_g5e2b3e1c24b6_mixed_curvature_s68.py
+
   research-full-suite:
     # A single explicit verdict: foundation-only SUCCESS is not full CI.
     if: ${{ always() }}

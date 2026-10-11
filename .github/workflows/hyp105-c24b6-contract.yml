@@ -1,0 +1,29 @@
+name: hyp105-c24b6-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c24b6-mixed-curvature-s68
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b6_mixed_curvature_s68.py"
+      - "research/test_hyp105_g5e2b3e1c24b6_mixed_curvature_s68.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B6-S68-CURVATURE-EXPOSURE.md"
+      - ".github/workflows/hyp105-c24b6-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  true-W32-S68-radius-two-and-all-h-joint-curvature:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C24-B6 fast exact all-h joint exposure and original W32 source falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b6_mixed_curvature_s68.py' -v
+      - name: C24-B6 exhaustive true original W32 S68 105 plus 5005 radius-two states and mixed curvature
+        run: python research/hyp105_g5e2b3e1c24b6_mixed_curvature_s68.py
