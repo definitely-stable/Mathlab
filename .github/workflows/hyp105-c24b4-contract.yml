@@ -1,0 +1,29 @@
+name: hyp105-c24b4-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c24b4-swap-flow-cuts
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b4_swap_flow_cuts.py"
+      - "research/test_hyp105_g5e2b3e1c24b4_swap_flow_cuts.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B4-SWAP-FLOW-CUTS.md"
+      - ".github/workflows/hyp105-c24b4-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  all-h-flow-and-genuine-W32-third-swap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C24-B4 all-h signed-flow cut reconstruction and W32 third-swap tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b4_swap_flow_cuts.py' -v
+      - name: C24-B4 complete third original W32 neighborhood and independent right-first report
+        run: python research/hyp105_g5e2b3e1c24b4_swap_flow_cuts.py
