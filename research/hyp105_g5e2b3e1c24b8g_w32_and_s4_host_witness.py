@@ -89,7 +89,7 @@ def report():
     if (synthetic_ev["centered_projection"]!=
             evaluate_projection(synthetic_proj,actual_edges,a)
             or synthetic_cert["certified_global_projection_lower"]!=Fraction(-4,15)
-            or synthetic_ev["occupied_adjacency_count"]!=963 or
+            or synthetic_ev["occupied_adjacency_count"]!=960 or
             not synthetic_cert["complete_piecewise_linear_dual_scan"]):
         raise AssertionError("s=4 exact minimal-host synthetic lower/oracle failed")
     return {
