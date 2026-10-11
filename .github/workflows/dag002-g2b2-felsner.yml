@@ -17,8 +17,14 @@ on:
       - "docs/research/DAG-002-G2-B2-FELSNER-UPGROWING.md"
       - ".github/workflows/dag002-g2b2-felsner.yml"
 
+  workflow_dispatch:
+
 permissions:
   contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   exact-felsner-upgrowing-oracles:
