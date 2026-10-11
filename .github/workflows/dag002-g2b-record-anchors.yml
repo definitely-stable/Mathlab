@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - "research/**"
     paths:
       - "research/dag002_g2b_record_anchors.py"
       - "research/test_dag002_g2b_record_anchors.py"
