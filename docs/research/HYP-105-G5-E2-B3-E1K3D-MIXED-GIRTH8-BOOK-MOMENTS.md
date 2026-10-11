@@ -109,7 +109,34 @@ Let Cmax=min(M_C4(r),M_Moore(r),r*(s+1)), r=a-2. As all mixed codegrees c satisf
     Bmixed = sum_mixed c(c-1)(c-2)/2
           <= M1_mixed*(Cmax-1)*(Cmax-2)/2.
 
-This is a genuine deterministic all-h upper bound and a new auditable aggregation of the individual C4-free restrictions. But its scale is generally TOO WEAK; in particular it is NOT shown to be o(s^6) and does not satisfy any acceptance criterion for Branch A/B.
+This is a genuine deterministic all-h upper bound and an auditable
+aggregation of the individual C4/C6-free restrictions, but the scale
+remains too weak.
+
+A STRICTLY STRONGER separate bridge to existing C4 counts follows
+from the EXACT combinatorial identities
+
+    3*binom(c,3)=(c-2)*binom(c,2),
+    M2_all := sum_{u<v} binom(codeg_Ghat(u,v),2)=2*C4(Ghat).
+
+Let M2_mixed denote the restriction to mixed pairs, and define
+M2_aligned=2*C4-M2_mixed. Then
+
+    Bmixed <= (Cmax-2)*M2_mixed
+           <= 2*(Cmax-2)*C4(Ghat).
+
+These are valid for Cmax>=2; the implementation replaces negative
+coefficients by zero when Cmax<2. It computes the sharpest of this
+second-moment estimate and the older first-moment estimate, independently
+checking M2_all/2 against an edge-set 4-cycle census. The new bound
+avoids losing the C4 distribution entirely, but still does NOT prove
+a uniform o(s^6) book bound or a positive lower floor for D6/S.
+
+For example at s=4, the Moore cap Cmax=35 replaces the earlier
+C4-only 46, while the second-moment estimate replaces a multi-million
+first-moment upper with a direct C4-weighted upper. Reporting BOTH
+bounds prevents any claim that the true Bmixed is nearly as large as
+either loose relaxation.
 
 Implementation compares mixed moments and exact cubic book mass against independent K3-C book_moments; every c>=3 original GQ mixed compatibility is rebuilt from physical inverse pairs and checked against Ghat common-neighbor counts. Budgets for pair counts and witness checks fail CLOSED; no synthetic scores masquerade as genuine GQ data.
 
