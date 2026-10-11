@@ -1,0 +1,32 @@
+name: hyp105-c24b8e-pair-harmonic-residual
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b8e_pair_harmonic_residual.py"
+      - "research/test_hyp105_g5e2b3e1c24b8e_pair_harmonic_residual.py"
+      - "research/hyp105_g5e2b3e1c24b8e_w32_residual_witness.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B8E-PAIR-HARMONIC-RESIDUAL.md"
+      - ".github/workflows/hyp105-c24b8e-pair-harmonic-residual.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-pair-gram-and-independent-original-W32-residual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: B8-E independent K6 injection covariance and singular Gram fast falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b8e_pair_harmonic_residual.py' -v
+      - name: B8-E true original W32 exact pair-linear projection and nonlinear-residual certificate
+        run: python research/hyp105_g5e2b3e1c24b8e_w32_residual_witness.py
