@@ -129,8 +129,8 @@ def verified_two_step_finite_descent():
     if next_step["baseline"]["S_seven"] != 129:
         raise AssertionError("first step not the second neighborhood baseline")
     possible = next_step["min_S"]
-    if possible["S_seven"] > 129:
-        raise AssertionError("strict score cannot increase when choosing next move")
+    # Every legal one-swap neighbor may be worse if g is already a
+    # strict local minimum; compare before applying a candidate move.
     # The min over exactly 105 swaps can exceed current S if the first-step
     # map is already a strict 1-swap local minimum; no action is then taken.
     take_move = possible["S_seven"] < 129
