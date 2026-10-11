@@ -1,0 +1,29 @@
+name: hyp105-c24b5-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c24b5-two-swap-escape
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b5_two_swap_escape.py"
+      - "research/test_hyp105_g5e2b3e1c24b5_two_swap_escape.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B5-TWO-SWAP-ESCAPE.md"
+      - ".github/workflows/hyp105-c24b5-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  complete-original-W32-distance-two-global-right-orbit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C24-B5 fast right-template and distinct double-transposition algebra tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b5_two_swap_escape.py' -v
+      - name: C24-B5 exhaustive genuine original W32 5005 distance-two maps and independent right-first audit
+        run: python research/hyp105_g5e2b3e1c24b5_two_swap_escape.py
