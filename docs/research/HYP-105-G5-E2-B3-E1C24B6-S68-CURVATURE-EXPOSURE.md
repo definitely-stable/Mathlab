@@ -66,9 +66,24 @@ For the best two-swap endpoint and representative 3-cycle/disjoint/max-score end
 
 For **all 4095 disjoint pairs**, calculate exact signed curvature from the four total scores. Count negative curvatures and strict improvements separately. For the most negative pair, recompute kappa from *jointly-touched ORIGINAL sixsets*, test the all-h pointwise 2*M_AB cap, and assert equality with the four-score expression. If the best two-step endpoint is disjoint, independently recount its source-level mixed kappa too; if 3-cycle, do NOT call it a symmetric Hessian.
 
-**No output minimum is pre-asserted before the first actual GitHub-hosted computation.** Any numeric finding should then be pinned by exact regressions with an independent provenance note. A finite escape is a counterexample to a *finite local-optimality implication* only; it is neither Branch B (which demands an infinite sub-sixth-power correlated family) nor a proof of the universal Branch A. No all-15! right-map minimum is claimed, no all-f left optimizations, no total GF5 R3 or ASET exponent.
+The finite numeric minimum was obtained by an independent local reproduction and pinned as a fail-closed oracle (Section 3); latest exact-head GitHub-hosted Contract/Research/INDEX acceptance remains mandatory. A finite escape is a counterexample to a *finite local-optimality implication* only; it is neither Branch B (which demands an infinite sub-sixth-power correlated family) nor a proof of the universal Branch A. No all-15! right-map minimum is claimed, no all-f left optimizations, no total GF5 R3 or ASET exponent.
 
-## 3. Runtime and correctness gates
+## 3. Independently reproduced true W32 finite S68 radius-two optimum (latest hosted acceptance pending)
+
+An additional independent locally executed ORIGINAL W(3,2) compiler enumerated all **62,370 distinct original six-incidence sets** from the symplectic GF(2)^4 host and retained **53,907** left-eligible ORIGINAL sources compressed into **51,506** static left records. Its separately written inverse-physical-130-template scorer recomputed all 105 single swaps and all 5,005 UNIQUE two-swap maps around the C24-B5 full original global RIGHT map S68.
+
+- Baseline **S68**, seven vector (0,44,21,0,0,2,1), Q7 NECESSARY numerator 3,112,510 and accepted ORIGINAL right-C=0.
+- All **105 one-swap** original global right maps have S>=**75**, best ORIGINAL right swap **(8,9)**. Zero improve S68.
+- All **5,005 distinct two-swap** original global right maps have S>=**69**; exactly **TWO** maps attain 69; zero improve S68. The lex-first minimum map is `(2,9,11,4,10,6,0,13,5,14,3,7,12,1,8)` with seven vector **(0,41,25,0,0,2,1)**, Q7 necessary **3,158,110** and original-right-C=0. Its least-peak two-step decomposition is **(4,13)** yielding S78 and then **(0,12)** yielding S69, temporary barrier +10 above S68.
+- Consequently **S68 is a STRICT radius-two (one- and two-global-right-transposition) local minimum** for this ONE frozen original GQ W32 f,g. No global minimum over 15! and no all-h inference.
+- Among 4,095 disjoint double pairs, **2,731** signed curvatures are negative, and the most negative `kappa=-65` occurs for A=(0,12), B=(4,11): the separate first-step scores are S103 and S127, while the joint endpoint is S97 (68+35+59-65=97). **Negative curvature need not yield an improving endpoint.**
+- Independently summed absolute disjoint curvatures: **40,989**. Exact joint exposure `SUM_{pairs} M_AB = 77,873,220` by actual ORIGINAL support-mask enumeration, agreeing with `SUM_J K(15,|H(J)|)` via the all-h inclusion-exclusion formula. The coarse rigorous upper is `2*77,873,220=155,746,440`. Every one of the **4,095 individual** pairwise bounds `|kappa_AB|<=2*M_AB` was checked, with minimum margin **33,604**. Original right support histogram: r=3:45, r=5:26,281, r=6:27,581 (total 53,907).
+
+These are **independent local finite computations**, now recorded as fail-closed assertions in the B6 executable, including independent original LEFT + RIGHT-first 62,370-source checks for both tied best radius-two endpoints. They must be validated by **exact updated PR HEAD** GitHub-hosted Contract, full six-shard Research and INDEX before repository acceptance.
+
+This is a mathematically relevant finite separation: even abundant and strongly negative joint interactions are insufficient for descent unless the mixed term overwhelms the two nonnegative individual swap gradients. The general all-h assertion that *small S forces such an overwhelming interaction* remains unproved.
+
+## 4. Runtime and correctness gates
 
 A dedicated GitHub-hosted B6 Contract must separately run fast unit tests of small-n K(n,r), original weighted support histogram, frozen true original S68, true source-level mixed indicator recounts; then perform one full finite 5005-state report. The full six-shard Research suite and seventh fail-closed aggregate retain every predecessor named command, append exactly two B6 named commands, freeze the new independent FNV1a64 hash, and keep large 5005-state scans **out of broad Unit tests**. Require latest exact PR HEAD C24-B6 Contract/Research/INDEX SUCCESS before accepting. No self-hosted runners, and do not merge stacked PRs automatically.
 
