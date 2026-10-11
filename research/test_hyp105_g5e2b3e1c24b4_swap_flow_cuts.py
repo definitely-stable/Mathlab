@@ -46,6 +46,32 @@ class OriginalW32ThirdExchangeTest(unittest.TestCase):
         self.assertEqual(
             report["after_two_swaps_stationary"],
             report["third_strictly_improving_neighbors"] == 0)
+        self.assertEqual(report["third_best_swap"], (7, 11))
+        self.assertEqual(report["third_best_neighbor_S"], 102)
+        self.assertEqual(report["third_strictly_improving_neighbors"], 8)
+        self.assertEqual(report["two_swap_seven_vector"],
+                         dict(zip(TAGS, (0, 54, 46, 4, 0, 3, 4))))
+        self.assertEqual(report["best_neighbor_flow"]["gain"], 49)
+        self.assertEqual(report["best_neighbor_flow"]["loss"], 58)
+        witness = report["explicit_five_step_witness"]
+        self.assertEqual([x["after"] for x in witness["moves"]],
+                         [102, 93, 86, 76, 72])
+        self.assertEqual([x["swap"] for x in witness["moves"]],
+                         [(7, 11), (6, 8), (5, 9), (2, 8), (1, 13)])
+        self.assertEqual(witness["final_S"], 72)
+        self.assertEqual(witness["final_seven_counts"],
+                         dict(zip(TAGS, (0, 36, 31, 2, 0, 1, 2))))
+        self.assertEqual(witness["final_Q7_necessary"], 3283610)
+        self.assertEqual(witness["final_right_C"], 0)
+        self.assertEqual(witness["final_original_right_perm"],
+                         (12, 9, 11, 2, 8, 6, 0, 13, 5, 14, 3, 7, 4, 10, 1))
+        self.assertTrue(witness["strict_one_swap_local_minimum"])
+        self.assertTrue(witness["all_105_final_neighbors_checked"])
+        self.assertEqual(witness["strictly_improving_final_neighbors"], 0)
+        self.assertEqual(witness["best_final_neighbor_swap"], (1, 14))
+        self.assertEqual(witness["best_final_neighbor_S"], 74)
+        self.assertEqual(witness["s2_all_s_gradient_gate_c_upper"], "9/8")
+        self.assertTrue(witness["not_asymptotic_all_h_c_upper"])
         self.assertFalse(report["all_h_positive_lower_proved"])
         self.assertFalse(report["full_GF5_R3_upper_proved"])
 
