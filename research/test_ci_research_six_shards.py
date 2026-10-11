@@ -1,7 +1,7 @@
 """Lossless six-shard GitHub-hosted Research CI regression contract.
 
-Frozen 127 exact (name, run) pairs preserve all 125 C23 checks
-and append exactly two explicit C24 commands. No old check lost. Any
+Frozen 129 exact (name, run) pairs preserve all 127 C24-A1 checks
+and append exactly two explicit C24-B1 commands. No old check lost. Any
 future command edits/additions must update the independent fingerprint
 AND explain the change in the CI documentation. No removed checks,
 name-only surrogates or hidden duplicates silently pass this guard.
@@ -48,8 +48,8 @@ SHARDS = {
 }
 # Independently frozen on the 127 exact (name,run) pairs: the full
 # 117-command C20 six-shard suite plus two explicit C21, two C21-D, two C22 checks, two C23 checks and two C24 checks.
-FROZEN_FNV1A64 = 0x47EB82D9CD26D8A4
-FROZEN_COMMANDS = 127
+FROZEN_FNV1A64 = 0xFBB1D4C90C0FEAC1
+FROZEN_COMMANDS = 129
 
 
 def jobs_from_source(raw):

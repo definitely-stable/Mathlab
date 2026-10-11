@@ -1,0 +1,29 @@
+name: hyp105-c24b-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c24b-triple-collision-trade
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b_three_collision.py"
+      - "research/test_hyp105_g5e2b3e1c24b_three_collision.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B-TRIPLE-COLLISION-TRADE.md"
+      - ".github/workflows/hyp105-c24b-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-three-way-collision-and-original-W32:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C24-B1 independent genuine W32 H45 and three-way correction tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b_three_collision.py' -v
+      - name: C24-B1 exact complete f,g right-C zero, Pasch pair-only no-go report
+        run: python research/hyp105_g5e2b3e1c24b_three_collision.py
