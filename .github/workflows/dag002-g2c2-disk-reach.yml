@@ -1,0 +1,33 @@
+name: dag002-g2c2-disk-reach
+
+on:
+  push:
+    branches:
+      - main
+      - "research/**"
+    paths:
+      - "research/dag002_g2c2_disk_reach.py"
+      - "research/test_dag002_g2c2_disk_reach.py"
+      - "docs/research/DAG-002-G2-B2-C2-B1-DISK-REACH.md"
+      - ".github/workflows/dag002-g2c2-disk-reach.yml"
+  pull_request:
+    paths:
+      - "research/dag002_g2c2_disk_reach.py"
+      - "research/test_dag002_g2c2_disk_reach.py"
+      - "docs/research/DAG-002-G2-B2-C2-B1-DISK-REACH.md"
+      - ".github/workflows/dag002-g2c2-disk-reach.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-disk-dag-reachability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Real file-backed same-source DAG baselines and independent DFS
+        run: python -m unittest discover -s research -p 'test_dag002_g2c2_disk_reach.py' -v
