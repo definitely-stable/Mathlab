@@ -120,6 +120,58 @@ def disjoint_swap_curvature(score0, score_a, score_b, score_ab):
             "escapes": score_ab < score0}
 
 
+
+def independent_disjoint_original_source_curvature(source, global_g, a, b):
+    """Exact mixed derivative from ORIGINAL jointly-touched six-incidence sets.
+
+    When A and B are disjoint right-line swaps, four acceptance indicators
+    of the SAME original J give integer mixed increment
+    X_J(gAB)-X_J(gA)-X_J(gB)+X_J(g). A J not touching A or not touching B
+    has identically zero mixed increment. This is an exact all-h identity;
+    the executable below is a genuine original W32 instance.
+    """
+    g = full_permutation(global_g)
+    if (len(a) != 2 or len(b) != 2 or
+            any(type(i) is not int or not 0 <= i < N_RIGHT for i in (*a, *b))
+            or len(set((*a, *b))) != 4):
+        raise ValueError("two pairwise DISJOINT legal original right swaps required")
+    ga, gb = legal_transpose(g, *a), legal_transpose(g, *b)
+    gab = legal_transpose(ga, *b)
+    check = legal_transpose(gb, *a)
+    if gab != check:
+        raise AssertionError("disjoint original transpositions must commute")
+    masks0, masksa, masksb, masksab = (
+        right_masks(x) for x in (g, ga, gb, gab))
+    touch_a = source["by_line"][a[0]] | source["by_line"][a[1]]
+    touch_b = source["by_line"][b[0]] | source["by_line"][b[1]]
+    intersect = touch_a & touch_b
+    by_tag = Counter()
+    nonzero_original = jointly_touched_original = 0
+    c_curvature = 0
+    for rid in intersect:
+        rec = source["records"][rid]
+        jointly_touched_original += rec[3]
+        diff = (int(accepted(rec, masksab)) - int(accepted(rec, masksa))
+                - int(accepted(rec, masksb)) + int(accepted(rec, masks0)))
+        if diff:
+            amount = rec[3] * diff
+            by_tag[rec[0]] += amount
+            nonzero_original += rec[3]
+            if len(set(rec[1])) == 3:
+                c_curvature += amount
+    vector = {t: by_tag[t] for t in TAGS}
+    curvature = sum(vector.values())
+    return {"swap_a": tuple(a), "swap_b": tuple(b),
+            "jointly_touched_original_sixsets": jointly_touched_original,
+            "nonzero_mixed_original_sixsets": nonzero_original,
+            "mixed_curvature_by_tag": vector,
+            "mixed_curvature": curvature,
+            "mixed_Q7_necessary": sum(w * vector[t]
+                                      for t, w in zip(TAGS, GF5_WEIGHTS)),
+            "mixed_original_right_C": c_curvature,
+            "only_joint_touch_sources_can_contribute": True}
+
+
 def audit_two_swap_ball(source=None, *, verify_right_first=True):
     """Exhaust the ENTIRE transposition-distance <=2 ball at frozen W32 S72.
 
@@ -224,10 +276,18 @@ def audit_two_swap_ball(source=None, *, verify_right_first=True):
         raise AssertionError("hosted C24-B5 exact W32 5005-map escape certificate changed")
 
     best_curvature = None
+    original_source_curvature = None
     if kinds[best] == "disjoint":
         a, b = best_path
         best_curvature = disjoint_swap_curvature(
             72, first[a]["S_seven"], first[b]["S_seven"], best_row["S_seven"])
+        original_source_curvature = independent_disjoint_original_source_curvature(
+            source, g0, a, b)
+        if (original_source_curvature["mixed_curvature"] != -31
+                or best_curvature["mixed_curvature"] != -31
+                or original_source_curvature["mixed_curvature"] !=
+                   best_curvature["mixed_curvature"]):
+            raise AssertionError("true ORIGINAL joint-touch mixed curvature fails")
     else:
         # 3-cycles compose noncommutatively: only ordered path deltas.
         best_curvature = {"noncommuting": True, "no_symmetric_disjoint_hessian_claim": True}
@@ -258,6 +318,7 @@ def audit_two_swap_ball(source=None, *, verify_right_first=True):
         "best_path_peak_S": best_peak,
         "best_path_minimum_barrier_above_72": best_peak - 72,
         "best_curvature": best_curvature,
+        "best_original_joint_touch_curvature": original_source_curvature,
         "strict_two_swap_escape_exists": best_is_escape,
         "radius_two_local_minimum": not best_is_escape,
         "independent_left_right_original_oracles": True,
