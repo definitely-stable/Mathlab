@@ -461,6 +461,12 @@ jobs:
       - name: HYP-105 C24-B2 full seven Q7 and right-C-only finite surrogate no-go report
         run: python research/hyp105_g5e2b3e1c24b2_joint_seven.py
 
+      - name: HYP-105 C24-B3 exact original W32 joint seven gradient and lambda-seven tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b3_joint_swap_gradient.py'
+
+      - name: HYP-105 C24-B3 all-h stationarity finite proof gate and two-neighborhood W32 report
+        run: python research/hyp105_g5e2b3e1c24b3_joint_swap_gradient.py
+
   research-full-suite:
     # A single explicit verdict: foundation-only SUCCESS is not full CI.
     if: ${{ always() }}
