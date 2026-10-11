@@ -37,6 +37,30 @@ def c4_free_edge_cap(r):
     return bound
 
 
+def girth8_moore_edge_cap(r):
+    """Rigorous all-graph C4/C6-free bipartite Moore-cap, integer only.
+
+    Let H have two sides of size r and m edges, girth>=8. When average
+    degree m/r >=3, K1's all-graph NB3 bound with degree<=1 peeling
+    yields 2*m*(m/r-1)^2 <= NB3(H). Every oriented 3-path uses an
+    opposite-side nonedge and is unique, so NB3(H)<=2*(r*r-m).
+    Thus m*((m-r)^2+r^2)<=r^4 in the >=3 regime. In the other
+    regime m<=3*r-1. No inequality for the low-degree regime is
+    silently assumed. The combined cap is max(3r-1, integer root),
+    also capped by the r*r available edges.
+    """
+    if type(r) is not int or r < 1:
+        raise ValueError("positive integer side capacity required")
+    lo, hi = 0, r*r+1
+    while hi-lo>1:
+        mid=(lo+hi)//2
+        if mid*((mid-r)**2+r*r)<=r**4:
+            lo=mid
+        else:
+            hi=mid
+    return min(r*r,max(3*r-1,lo))
+
+
 def source_inverses(model):
     """Physical pair inverses; zero for absent host pair labels."""
     if type(model.get("a")) is not int or type(model.get("s")) is not int:
@@ -99,8 +123,9 @@ def mixed_compatibility(model, u, v, inverses=None):
     if m * (m-r) > r*r*(r-1):
         raise AssertionError("C4-free Jensen bound violation")
     c4_cap = c4_free_edge_cap(r)
-    if m > c4_cap:
-        raise AssertionError("C4-free integer cap violation")
+    moore_cap = girth8_moore_edge_cap(r)
+    if m > min(c4_cap,moore_cap):
+        raise AssertionError("girth-eight integer edge cap violation")
     # Number of oriented nonbacktracking 3-paths left->right. With no
     # C4 they never connect adjacent endpoints. With no C6 there is
     # at most one for any (left,right) pair.
@@ -115,6 +140,8 @@ def mixed_compatibility(model, u, v, inverses=None):
         "left_wedges":left_wedges,"right_wedges":right_wedges,
         "opposite_pair_capacity":_choose2(r),
         "C4_free_edge_cap":c4_cap,
+        "C6_free_Moore_edge_cap":moore_cap,
+        "combined_girth8_edge_cap":min(c4_cap,moore_cap,r*(s+1)),
         "degree_cap":r*(s+1),
         "path3_left_to_right":paths3,
         "path3_pair_capacity":r*r-m,
@@ -176,7 +203,8 @@ def global_mixed_book_certificate(model, *,
     total_codegree_by_stars=sum(_choose2(d) for d in degree_from_original)
     if mixed_m1+aligned_m1 != total_codegree_by_stars:
         raise AssertionError("all-graph codegree first moment identity failed")
-    cap = min(c4_free_edge_cap(a-2),(a-2)*(s+1))
+    cap = min(c4_free_edge_cap(a-2),girth8_moore_edge_cap(a-2),
+              (a-2)*(s+1))
     if max_c > cap:
         raise AssertionError("mixed original GQ pointwise girth cap exceeded")
     # 3*choose(c,3)=c*(c-1)*(c-2)/2, monotone in c.
@@ -201,6 +229,8 @@ def global_mixed_book_certificate(model, *,
         "aligned_M1":aligned_m1,
         "mixed_max_codegree":max_c,
         "universal_mixed_codegree_cap":cap,
+        "C4_free_cap":c4_free_edge_cap(a-2),
+        "C6_free_Moore_cap":girth8_moore_edge_cap(a-2),
         "B_mixed_upper_via_first_moment":book_bound,
         "book_witnesses_checked_against_original_GQ":book_witnesses,
         "max_witness_3paths":witness_max_path3,
