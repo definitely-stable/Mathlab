@@ -46,10 +46,10 @@ SHARDS = {
         "HYP-105 C20 43740 real original W32 Hamilton source global relabel report",
     ),
 }
-# Independently frozen on the 125 exact (name,run) pairs: the full
-# 117-command C20 six-shard suite plus two explicit C21, two C21-D, and two C22 checks.
-FROZEN_FNV1A64 = 0xE1C77061D31C2B1C
-FROZEN_COMMANDS = 125
+# Independently frozen on the 127 exact (name,run) pairs: the full
+# 117-command C20 six-shard suite plus two explicit C21, two C21-D, two C22 checks, two C23 checks and two C24 checks.
+FROZEN_FNV1A64 = 0x47EB82D9CD26D8A4
+FROZEN_COMMANDS = 127
 
 
 def jobs_from_source(raw):
