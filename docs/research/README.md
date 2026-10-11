@@ -1,6 +1,6 @@
 ## HYP-105 C24-B7 — typed LEFT/RIGHT cross-curvature and f-dependent original source recompilation (2026-10-11)
 
-[ALL-h source-support proof, finite 11236-map true W32 research protocol](HYP-105-G5-E2-B3-E1C24B7-CROSS-SIDE-ORBIT.md) · [105 recompiled original LEFT sources × 105 RIGHT swaps exact scorer](../../research/hyp105_g5e2b3e1c24b7_cross_side_orbit.py) · [independent small universe and true W32 source falsifiers](../../research/test_hyp105_g5e2b3e1c24b7_cross_side_orbit.py) · [root #230](https://github.com/definitely-stable/Mathlab/issues/230). **ALL-h_TYPED_LEFT_RIGHT_EXACT_MIXED_SOURCE_SUPPORT / TRUE_ORIGINAL_W32_11236_COMPLETE_GLOBAL_TYPED_MAPS / HOSTED_EXACT_HEAD_PENDING / NO_UNIVERSAL_SEVEN_LOWER.**
+[ALL-h source-support proof, finite 11236-map true W32 research protocol](HYP-105-G5-E2-B3-E1C24B7-CROSS-SIDE-ORBIT.md) · [105 recompiled original LEFT sources × 105 RIGHT swaps exact scorer](../../research/hyp105_g5e2b3e1c24b7_cross_side_orbit.py) · [independent small universe and true W32 source falsifiers](../../research/test_hyp105_g5e2b3e1c24b7_cross_side_orbit.py) · [root #230](https://github.com/definitely-stable/Mathlab/issues/230). **ALL-h_TYPED_LEFT_RIGHT_EXACT_MIXED_SOURCE_SUPPORT / TRUE_ORIGINAL_W32_11236_TYPED_MAPS_LEFT_MIN70_RIGHT_MIN75_MIXED_MIN70_ZERO_IMPROVEMENTS_8286_NEGATIVE_CROSS_CURVATURE / INITIAL_HOSTED_CONTRACT_SUCCESS_LATEST_HEAD_CI_PENDING / NO_UNIVERSAL_SEVEN_LOWER.**
 
 ## HYP-105 C24-B6 — signed joint-source curvature and complete original W32 S68 radius-two scan (2026-10-11)
 
