@@ -20,10 +20,21 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Detect relevant INDEX changes (retain job check on all PRs)
+        id: scope
+        run: python research/ci_scope.py --event "${{ github.event_name }}" --output "$GITHUB_OUTPUT"
+      - name: Report scoped INDEX exclusion
+        if: ${{ steps.scope.outputs.index == 'false' }}
+        run: echo "INDEX scoped out by ci_scope.py; no page/CRC/pin oracle executed"
       - uses: actions/setup-python@v5
+        if: ${{ steps.scope.outputs.index == 'true' }}
         with:
           python-version: "3.x"
       - name: C5-A independent page/CRC/pin/crash-prefix oracle
+        if: ${{ steps.scope.outputs.index == 'true' }}
         run: python -m unittest discover -s research -p 'test_index001_page_epochs.py' -v
       - name: C5-A deterministic paged-epoch report
+        if: ${{ steps.scope.outputs.index == 'true' }}
         run: python research/index001_page_epochs.py --json
