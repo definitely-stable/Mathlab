@@ -111,7 +111,9 @@ class TwoLineInfluenceTests(unittest.TestCase):
         six,_=fixture()[0]
         with self.assertRaises(ValueError):
             source_influence(6,"D6",tuple(l for _,l in six),None,0,1)
-        with self.assertRaises(ValueError):
+        # A source population checksum disagreement is an integrity
+        # assertion, not a malformed parameter ValueError.
+        with self.assertRaisesRegex(AssertionError,"multiplicities lost"):
             compiled_matrix({"records":[],"static_eligible":1},6,15)
         with self.assertRaises(ValueError):
             compiled_matrix({"records":[],"static_eligible":0},6,16)
