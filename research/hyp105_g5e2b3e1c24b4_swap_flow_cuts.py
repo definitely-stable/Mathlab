@@ -196,6 +196,47 @@ def genuine_w32_third_neighborhood():
     }
 
 
+
+def certified_explicit_five_swap_witness(source=None):
+    """Exactly verified finite W32 coherent right-swap witness down to S=72.
+
+    All swaps preserve ONE original global f and RIGHT bijection. These are
+    strict actual seven-score improvements, NOT local/global optimality.
+    """
+    if source is None:
+        source = compile_left(W32_LEFT_H45)
+    g = W32_RIGHT_AFTER_TWO_SWAPS
+    prior = full_left_score(source, g)["S_seven"]
+    if prior != 111:
+        raise AssertionError("C24-B3 frozen two-swap W32 baseline changed")
+    moves = ((7, 11, 102), (6, 8, 93), (5, 9, 86),
+             (2, 8, 76), (1, 13, 72))
+    trail = []
+    for i, j, expected in moves:
+        g = legal_transpose(g, i, j)
+        row = full_left_score(source, g)
+        value = row["S_seven"]
+        if value != expected or value >= prior:
+            raise AssertionError("pinned genuine W32 exact seven-score path changed")
+        trail.append({"swap": (i, j), "before": prior,
+                      "after": value, "seven_counts": row["seven_counts"],
+                      "right_C": row["right_C_accepted"],
+                      "Q7_necessary": row["Q7_necessary_numerator"]})
+        prior = value
+    independent = right_first_independent(W32_LEFT_H45, g)
+    final = full_left_score(source, g)
+    if any(independent[k] != final[k] for k in
+           ("S_seven", "seven_counts", "Q7_necessary_numerator", "right_C_accepted")):
+        raise AssertionError("S72 independent right-first original 62370 census failed")
+    return {"initial_S": 111, "moves": trail,
+            "final_S": prior, "final_original_right_perm": g,
+            "final_seven_counts": final["seven_counts"],
+            "final_right_C": final["right_C_accepted"],
+            "final_Q7_necessary": final["Q7_necessary_numerator"],
+            "independent_full_right_first_source": True,
+            "not_local_or_global_minimum_proof": True}
+
+
 if __name__ == "__main__":
     import json
     print(json.dumps(genuine_w32_third_neighborhood(), indent=2, sort_keys=True))
