@@ -188,6 +188,7 @@ def genuine_w32_third_neighborhood():
         "after_two_swaps_stationary": neighborhood["one_swap_local_minimum_S"],
         "best_neighbor_flow": flow,
         "swap_cut_certificate": cuts,
+        "explicit_five_step_witness": certified_explicit_five_swap_witness(source),
         "independent_right_first_census": True,
         "scope": "FINITE W32, ONE fixed left f, exactly third 105-right-swap neighborhood",
         "all_h_positive_lower_proved": False,
