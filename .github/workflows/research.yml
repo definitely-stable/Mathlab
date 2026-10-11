@@ -455,6 +455,12 @@ jobs:
       - name: HYP-105 C24-B1 all-h triple-collision identity and Pasch pair-only no-go report
         run: python research/hyp105_g5e2b3e1c24b_three_collision.py
 
+      - name: HYP-105 C24-B2 original W32 full-seven two-orientation and 105 coherent right swaps tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b2_joint_seven.py'
+
+      - name: HYP-105 C24-B2 full seven Q7 and right-C-only finite surrogate no-go report
+        run: python research/hyp105_g5e2b3e1c24b2_joint_seven.py
+
   research-full-suite:
     # A single explicit verdict: foundation-only SUCCESS is not full CI.
     if: ${{ always() }}

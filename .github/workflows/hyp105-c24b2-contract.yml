@@ -1,0 +1,29 @@
+name: hyp105-c24b2-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c24b2-full-seven-joint-audit
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b2_joint_seven.py"
+      - "research/test_hyp105_g5e2b3e1c24b2_joint_seven.py"
+      - ".github/workflows/hyp105-c24b2-contract.yml"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B2-JOINT-SEVEN-FINITE-NOGO.md"
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-original-W32-full-seven-global-tradeoff:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C24-B2 complete independent left-right original W32 seven-class and 105 global swap tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b2_joint_seven.py' -v
+      - name: C24-B2 exact original W32 all-seven Q7 and C-only surrogate falsifier report
+        run: python research/hyp105_g5e2b3e1c24b2_joint_seven.py

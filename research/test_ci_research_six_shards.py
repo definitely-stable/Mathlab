@@ -1,7 +1,7 @@
 """Lossless six-shard GitHub-hosted Research CI regression contract.
 
-Frozen 129 exact (name, run) pairs preserve all 127 C24-A1 checks
-and append exactly two explicit C24-B1 commands. No old check lost. Any
+Frozen 131 exact (name, run) pairs preserve all 129 C24-B1 checks
+and append exactly two explicit C24-B2 commands. No old check lost. Any
 future command edits/additions must update the independent fingerprint
 AND explain the change in the CI documentation. No removed checks,
 name-only surrogates or hidden duplicates silently pass this guard.
@@ -46,10 +46,10 @@ SHARDS = {
         "HYP-105 C20 43740 real original W32 Hamilton source global relabel report",
     ),
 }
-# Independently frozen on the 127 exact (name,run) pairs: the full
-# 117-command C20 six-shard suite plus two explicit C21, two C21-D, two C22 checks, two C23 checks and two C24 checks.
-FROZEN_FNV1A64 = 0xFBB1D4C90C0FEAC1
-FROZEN_COMMANDS = 129
+# Independently frozen 131 exact (name,run) pairs: all 129 C24-B1 checks
+# preserved, plus two explicit C24-B2 finite joint-seven commands.
+FROZEN_FNV1A64 = 0x2CA51D573F3ADEE7
+FROZEN_COMMANDS = 131
 
 
 def jobs_from_source(raw):
