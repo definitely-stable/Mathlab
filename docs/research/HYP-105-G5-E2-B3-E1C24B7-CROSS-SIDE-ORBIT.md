@@ -62,7 +62,40 @@ Crucially check **both** the selected best left-only and best mixed endpoints ag
 
 Numerical minima intentionally not guessed before first dedicated GitHub-hosted Contract. Once observed, pin result to an exact-head fail-closed finite regression. Distinguish evidence from any all-h theorem.
 
-## 3. Acceptance and next mathematical decision
+## 3. Exact support-envelope asymptotics — why it cannot close Branch A
+
+Let `M_c=C(E,6)-2C(E-d,6)+C(E-2d+c,6)` as above, with `E~s^4`, `d~2s` and fixed c in {0,1,2,3}. For ZERO shared incidences (c=0), double inclusion-exclusion counts primarily one incidence from each swapped support and four arbitrary other incidences. Expanding the binomial discrete second difference gives
+
+    M_0 = (1+o(1)) d^2 E^4/24 = (1/6+o(1)) s^18.
+
+With c>=1, the fact that ONE source incidence can touch BOTH swap supports creates a much larger correction by the exact hockey-stick identity:
+
+    M_c-M_0 = sum_{t=0}^{c-1} C(E-2d+t,5),
+
+and therefore for any fixed nonzero c,
+
+    M_c = (c/120+o(1)) s^20.
+
+Thus the valid bound `|kappa_LR|<=2M_c` only caps a quantity at order s^18 (c=0) or s^20 (c>=1), many powers above the desired S~s^6 scale. **No positive universal lower bound, signed descent theorem, or asymptotically sharp comparison is proved by this envelope.** This documented failure is deliberate: an all-h solution must exploit coherent PHYSICAL 2-factor eligibility, original seven-family correlations, and/or a signed incidence-tensor cancellation inequality.
+
+## 4. Exact hosted ORIGINAL W32 11,236-map finite outcome
+
+Dedicated [GitHub-hosted C24-B7 Contract run #38134355587](https://github.com/definitely-stable/Mathlab/actions/runs/38134355587) completed SUCCESS on its then exact PR head `5ace8a57a39c0c0ce295133c820b1c9bace097dc`, including independent fast source tests and exhaustive B7 11,236 typed global map pairs. Every left map was independently recompiled from **62,370 distinct ORIGINAL W32 six-incidence candidates** under that LEFT mapping, and decisive endpoints were checked against separate LEFT-source scoring and full **RIGHT-FIRST original 62,370-source** enumeration.
+
+- Baseline: S68 at frozen complete f0,g68, frozen seven-vector (0,44,21,0,0,2,1), necessary GF5 Q7=3,112,510.
+- All **105 LEFT-only** global swaps have S>=**70**, best left (3,7), zero improving.
+- All **105 RIGHT-only** global swaps have S>=**75**, best right (8,9), zero improving.
+- All **11,025 simultaneous LEFT+RIGHT** swaps have S>=**70**, with exactly **TWO** tied maps attaining S70, zero improving.
+- Lexical best typed mixed swaps: LEFT **(3,8)** and RIGHT **(0,14)**. LEFT-alone would be S95, RIGHT-alone S97, simultaneously they produce **S70** with signed mixed curvature **-54**: `95+97-68-54=70`. The complete new left map is `(13,4,2,10,0,11,1,7,14,6,9,5,12,3,8)`; complete new right map is `(8,9,11,4,1,6,0,13,5,14,3,7,2,10,12)`. Original accepted seven vector is **(0,46,18,0,0,2,4)**, necessary Q7 **3,201,940**, original right-C=0.
+- There are **8,286 negative** signed typed mixed curvatures among 11,025 cells; strongest negative is **-70** for LEFT (4,14), RIGHT (4,11). Even these signs alone imply no descent.
+- Independent true-original W32 cross incidence c histogram across exactly 11,025 typed pairs: c=0:4,185; c=1:5,040; c=2:1,620; c=3:180. Total unrestricted original sixset joint-touch envelope across these cells: **32,252,059,350**, emphatically much larger than any observed signed `kappa`.
+- The number of source sixsets statically eligible under each global LEFT swap **varied**, from **52,856** to **54,217** (initial f0 had 53,907), providing a direct quantitative falsifier of the unsafe idea that a compiled left candidate census may be reused when swapping f.
+
+**Exact finite separation:** The true ORIGINAL W32 map (f0,g68) is strict local minimum in the *typed* rectangle where LEFT moves <=1 transposition and RIGHT moves <=1 transposition (including their simultaneous action). Combined with C24-B6 it is separately strict under 1–2 RIGHT swaps. This does NOT imply any other mixed move (e.g. two LEFT plus one RIGHT), global minimum over (15!)² assignments, or universal S>=Omega(s^6).
+
+Following new fail-closed regression and both-tied-minima independent cross-check, the updated latest PR HEAD needs **new exact-head hosted Contract/Research/INDEX success**; the older-head success cannot be reused.
+
+## 5. Acceptance and next mathematical decision
 
 Dedicated GitHub-hosted B7 Contract runs light tests then EXACT 105-left-source recompile times 105-right-global-swap audit, separately from full six-shard hosted Research (existing 139 commands + exactly two new B7 commands, independently frozen FNV1a64), and mandatory INDEX. The large `105*105` report must not be repeated in broad Unit tests. All three workflows must show SUCCESS at the exact latest HEAD. Do not merge automatically.
 
