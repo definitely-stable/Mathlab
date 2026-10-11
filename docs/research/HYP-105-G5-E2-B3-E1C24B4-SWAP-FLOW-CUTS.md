@@ -18,7 +18,7 @@ If \mathcal J_t is compressed, use its original integer multiplicity, not compre
 
 The distinct sixsets not touching i or j have zero delta. Each touching J has the same *static* tag before and after the swap. Consequently, for the frozen necessary GF5 numerator Q7=\sum_t w_t S_t, \Delta Q7=\sum_t w_t(G_{ij,t}-L_{ij,t}), with weights (5643,45600,45600,43320,49050,51750,45010). An identical gain/loss projection gives the accepted **original-right-C** change. Neither Q7 nor original-right-C is the complete GF5 R3.
 
-**Local minimum exact criterion:** g is globally right one-transposition-stationary for S iff G_{ij} <= L_{ij} is **false** for all pairs, equivalently G_{ij} >= L_{ij} for every i<j. A strictly improving swap exists iff L_{ij}>G_{ij} for at least one pair. This is a balance identity and exact stationarity characterization, NOT a proof that every S<cs^6 violates it.
+**Local minimum exact criterion:** g is globally right one-transposition-stationary for S **if and only if** G_{ij} >= L_{ij} for every i<j (since d_{ij}=G_{ij}-L_{ij} >=0). A strictly improving swap exists iff L_{ij}>G_{ij} for at least one pair. This is a balance identity and exact stationarity characterization, NOT a proof that every S<cs^6 violates it.
 
 The source support H(J) contains at most six original right line IDs. For |H(J)|=r, exactly \binom V2-\binom{V-r}2 swap edges touch J, independently of g. This gives an exact *exposure capacity* count; it does not force a positive lower on S because accepted and rejected source flows can compensate in the same and different tags.
 
