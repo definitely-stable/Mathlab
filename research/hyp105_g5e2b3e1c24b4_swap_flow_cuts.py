@@ -228,13 +228,36 @@ def certified_explicit_five_swap_witness(source=None):
     if any(independent[k] != final[k] for k in
            ("S_seven", "seven_counts", "Q7_necessary_numerator", "right_C_accepted")):
         raise AssertionError("S72 independent right-first original 62370 census failed")
+    # Complete 105-neighbor ORIGINAL right global transposition audit around
+    # this specific W32 score-72 map. This is STRICT 1-swap local optimality,
+    # not a minimum over the remaining 15! right permutations or all left f.
+    final_neighbors = exact_exchange_neighborhood(source, g)
+    cuts = signed_swap_cut_certificate(final_neighbors["entries"], 15)
+    if (final_neighbors["baseline"]["S_seven"] != 72
+            or final_neighbors["strict_S_improving_global_neighbors"] != 0
+            or final_neighbors["min_S"]["S_seven"] != 74
+            or final_neighbors["min_S"]["swap"] != (1, 14)
+            or not final_neighbors["one_swap_local_minimum_S"]
+            or not cuts["one_swap_stationary"]):
+        raise AssertionError("genuine W32 S72 strict 105-neighbor stationarity not verified")
+    # Since s=2, every all-s (including s=2) strict-improvement gate
+    # S < c*s**6 -> some negative swap requires c <= 72/64 = 9/8.
+    # There is NO restriction here on a purely asymptotic s>=s0 constant.
     return {"initial_S": 111, "moves": trail,
             "final_S": prior, "final_original_right_perm": g,
             "final_seven_counts": final["seven_counts"],
             "final_right_C": final["right_C_accepted"],
             "final_Q7_necessary": final["Q7_necessary_numerator"],
+            "strict_one_swap_local_minimum": True,
+            "all_105_final_neighbors_checked": True,
+            "strictly_improving_final_neighbors": 0,
+            "best_final_neighbor_swap": (1, 14),
+            "best_final_neighbor_S": 74,
+            "smallest_swap_increase": 2,
+            "s2_all_s_gradient_gate_c_upper": "9/8",
+            "not_asymptotic_all_h_c_upper": True,
             "independent_full_right_first_source": True,
-            "not_local_or_global_minimum_proof": True}
+            "not_global_minimum_proof": True}
 
 
 if __name__ == "__main__":
