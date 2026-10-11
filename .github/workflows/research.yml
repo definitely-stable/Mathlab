@@ -13,10 +13,7 @@ permissions:
 jobs:
   lent-001-foundation:
     runs-on: ubuntu-latest
-    # The full research suite includes HYP-105's exhaustive label-swap audit;
-    # ten minutes aborts otherwise healthy UCT-005 PR acceptance mid-test.
-    # Keep ALL tests enabled; this is a CI runtime budget, not a proof change.
-    timeout-minutes: 45
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -102,6 +99,16 @@ jobs:
       - name: INDEX-001 G2-B2 exact filesystem application-byte report
         run: python research/index001_workload_io.py
 
+  research-hyp105-foundation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: HYP-105 G5-C2 deterministic signed-trade density report
         run: python research/hyp105_g5c2_density.py
 
@@ -171,6 +178,16 @@ jobs:
       - name: HYP-105 B3.2-E1-B1-A independent K14 missing-edge and W32 template tests
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1b1a_one_sided.py'
 
+  research-hyp105-exact-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: HYP-105 B3.2-E1-A full W32 fixed-map 62370-candidate GF5 lower census
         run: python research/hyp105_g5e2b3e1a_fixed_leading.py
 
@@ -209,6 +226,16 @@ jobs:
 
       - name: HYP-105 E2-B3.2-D full four-motif and joint GF5 seven-column certificate
         run: python research/hyp105_g5e2b3d_joint_risk.py
+
+  research-catalog-and-primitives:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
 
       - name: TOM-001-C exact zero-probe certificate oracle
         run: python research/tom_certificate.py
@@ -253,3 +280,30 @@ jobs:
 
       - name: TOM-003-D2 authenticated overwrite and multiproof cost gate
         run: python research/tom_authenticated_overwrite.py
+
+  research-full-suite:
+    # A single explicit verdict: foundation-only SUCCESS is not full CI.
+    if: ${{ always() }}
+    needs:
+      - lent-001-foundation
+      - research-hyp105-foundation
+      - research-hyp105-exact-census
+      - research-catalog-and-primitives
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require all four research shards to pass
+        env:
+          FOUNDATION: ${{ needs.lent-001-foundation.result }}
+          HYP_FOUNDATION: ${{ needs.research-hyp105-foundation.result }}
+          HYP_CENSUS: ${{ needs.research-hyp105-exact-census.result }}
+          CATALOG: ${{ needs.research-catalog-and-primitives.result }}
+        run: |
+          set -euo pipefail
+          for result in "$FOUNDATION" "$HYP_FOUNDATION" "$HYP_CENSUS" "$CATALOG"; do
+            if [ "$result" != "success" ]; then
+              echo "Research suite incomplete: shard result=$result" >&2
+              exit 1
+            fi
+          done
+          echo "All four research shards succeeded."
