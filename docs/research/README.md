@@ -1,3 +1,8 @@
+## HYP-105 B3.2-E1-K3-A/B — exact endpoint-local path collisions and book counterexample (2026-10-11)
+
+[Localized Cauchy–Schwarz theorem, internal-vertex collision partition, K(2,t) falsifier and independent original GQ star contraction](HYP-105-G5-E2-B3-E1K3-LOCAL-COLLISIONS-BOOK-DICHOTOMY.md) · [reference](../../research/hyp105_g5e2b3e1k3_local_collisions.py) · [independent quadratic oracle and true W(3,s) falsifiers](../../research/test_hyp105_g5e2b3e1k3_local_collisions.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_ALL_GRAPHS_LOCAL_IDENTITY / ENDPOINT_CODEGREE_FILTER_FALSE_FOR_BOOKS / EXACT_GQ_STAR_DEGREE_CODEGREE / D2_STAR_PACKING_OPEN / NO_BRANCH_A_B / CI_PENDING**.
+
+
 ## HYP-105 B3.2-E1-K2 — Kikuchi cycle-pattern weights and Theorem K′ (2026-10-11)
 
 [All 879 six-cycle and 9 four-cycle patterns, alternating GF5 weights ≥5643/≥531, D2 identity and conditional R3 floor](HYP-105-G5-E2-B3-E1K2-CYCLE-PATTERN-WEIGHTS.md) · [reference](../../research/hyp105_g5e2b3e1k2_cycle_pattern_weights.py) · [independent meet-in-middle / brute-force tests](../../research/test_hyp105_g5e2b3e1k2_cycle_pattern_weights.py) · [root #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_ALL_h / R3_NOT_ONLY_S / THETA_REGULARITY_OPEN / PR_CI_PENDING**.
