@@ -1,0 +1,35 @@
+name: dag002-g2b2c1-billed-updater
+
+on:
+  pull_request:
+    paths:
+      - "research/dag002_g2b2c1_billed_updater.py"
+      - "research/test_dag002_g2b2c1_billed_updater.py"
+      - "docs/research/DAG-002-G2-B2-C1-BILLED-UPDATER.md"
+      - ".github/workflows/dag002-g2b2c1-billed-updater.yml"
+  push:
+    branches:
+      - main
+      - "research/**"
+    paths:
+      - "research/dag002_g2b2c1_billed_updater.py"
+      - "research/test_dag002_g2b2c1_billed_updater.py"
+      - "docs/research/DAG-002-G2-B2-C1-BILLED-UPDATER.md"
+      - ".github/workflows/dag002-g2b2c1-billed-updater.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-page-billed-updater:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Prior-state charged page reads and exact four-node census
+        run: python research/dag002_g2b2c1_billed_updater.py
+      - name: Independent scratch cap, restart and manifest validation
+        run: python -m unittest discover -s research -p 'test_dag002_g2b2c1_billed_updater.py' -v
