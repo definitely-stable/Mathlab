@@ -2,7 +2,7 @@ name: dag002-g1c-online
 
 on:
   push:
-    branches: [main, 'research/**']
+    branches: [main]
     paths:
       - 'research/dag002_g1c_online.py'
       - 'research/test_dag002_g1c_online.py'
@@ -15,8 +15,14 @@ on:
       - 'docs/research/DAG-002-ALG-001-G1-C1-ONLINE-CONSISTENCY.md'
       - '.github/workflows/dag002-g1c-online.yml'
 
+  workflow_dispatch:
+
 permissions:
   contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   exact-online-oracles:
