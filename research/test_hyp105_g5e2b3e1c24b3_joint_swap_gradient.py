@@ -80,12 +80,14 @@ class JointGlobalExchangeTests(unittest.TestCase):
         self.assertTrue(report["only_two_exact_neighborhoods_not_global_minimum"])
         self.assertEqual(report["first_initial_S"], 177)
         self.assertEqual(report["after_first_S"], 129)
-        self.assertLessEqual(report["second_best_or_stationary_S"], 129)
-        if report["after_first_one_swap_S_stationary"]:
-            self.assertFalse(report["second_move_taken"])
-        else:
-            self.assertTrue(report["second_move_taken"])
-            self.assertLess(report["second_best_or_stationary_S"], 129)
+        self.assertEqual(report["after_first_strict_improving_neighbors"], 17)
+        self.assertFalse(report["after_first_one_swap_S_stationary"])
+        self.assertTrue(report["second_move_taken"])
+        self.assertEqual(report["second_applied_original_right_swap"], (12, 13))
+        self.assertEqual(report["second_best_or_stationary_S"], 111)
+        self.assertEqual(sum(report["second_seven_counts"].values()), 111)
+        self.assertEqual(len(report["second_full_right_perm"]), 15)
+        self.assertEqual(len(set(report["second_full_right_perm"])), 15)
 
     def test_invalid_transpositions_fail_closed(self):
         with self.assertRaises(ValueError):
