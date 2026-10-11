@@ -30,7 +30,7 @@ class Import015Tests(unittest.TestCase):
         for ident,doi in zip(IDS[:4],DOIS):
             e=self.rows[ident]
             self.assertEqual(e["identity"],"doi:"+doi)
-            self.assertEqual(e["primary_url"],"https://epubs.siam.org/doi/"+doi)
+            self.assertEqual(e["primary_url"],"https://doi.org/"+doi)
             self.assertEqual(e["publication_stage"],"peer_reviewed_proceedings")
             self.assertEqual(e["verification"],"publisher_abstract_checked")
         eccc=self.rows["LIT-402"]

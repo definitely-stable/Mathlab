@@ -1185,7 +1185,7 @@ SIGMOD 2018: инкрементальное обслуживание property-gr
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
 
 ### LIT-399
-**[From Incremental Transitive Cover to Strongly Polynomial Maximum Flow](https://epubs.siam.org/doi/10.1137/1.9781611978971.7)** (2026)
+**[From Incremental Transitive Cover to Strongly Polynomial Maximum Flow](https://doi.org/10.1137/1.9781611978971.7)** (2026)
 
 SODA 2026: strongly polynomial max-flow для структурированных сетей через incremental transitive cover — ограниченное надмножество транзитивного замыкания при добавлении дуг — и редукцию к bounded-capacity потокам.
 
@@ -1838,7 +1838,7 @@ Instance-sensitive сжатие preferential-attachment графов с подд
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
 ### LIT-400
-**[The Complexity of Dynamic LZ77 is \(\tilde \Theta(n^{2/3})\)](https://epubs.siam.org/doi/10.1137/1.9781611978971.67)** (2026)
+**[The Complexity of Dynamic LZ77 is \(\tilde \Theta(n^{2/3})\)](https://doi.org/10.1137/1.9781611978971.67)** (2026)
 
 SODA 2026: точная поддержка LZ77-факторизации при редактировании строки за tilde-O(n^(2/3)) на обновление и tilde-O(n) инициализацию; matching SETH-условная нижняя граница даже для подстановок и числа факторов.
 
@@ -2968,7 +2968,7 @@ STOC 2026 динамическая параметризованная meta-kerne
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
 ### LIT-398
-**[Stochastic Embedding of Digraphs into DAGs](https://epubs.siam.org/doi/10.1137/1.9781611978971.5)** (2026)
+**[Stochastic Embedding of Digraphs into DAGs](https://doi.org/10.1137/1.9781611978971.5)** (2026)
 
 SODA 2026: вложение взвешенного ориентированного графа в распределение пар DAG с ожидаемым искажением tilde-O(log n), разреженностью tilde-O(m) и построением за tilde-O(m).
 
@@ -4655,7 +4655,7 @@ q-аналог sunflower-free подпространств с конструкц
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
 ### LIT-401
-**[Determinization of Min-Plus Weighted Automata is Decidable](https://epubs.siam.org/doi/10.1137/1.9781611978971.11)** (2026)
+**[Determinization of Min-Plus Weighted Automata is Decidable](https://doi.org/10.1137/1.9781611978971.11)** (2026)
 
 SODA 2026: разрешимость вопроса о детерминизации min-plus (тропических) взвешенных автоматов с использованием структуры запусков недетерминированных автоматов.
 
