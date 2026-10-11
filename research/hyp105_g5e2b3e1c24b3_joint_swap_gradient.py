@@ -113,6 +113,44 @@ def exact_exchange_neighborhood(source, global_g):
     }
 
 
+def exhaustive_small_exchange_gate(score_by_permutation, threshold):
+    """Toy all-permutation oracle for the ALL-h finite descent lemma.
+
+    The general theorem is elementary for any finite permutation group:
+    global min >= T iff every one-swap local minimum has score >= T.
+    Here we verify the equivalence only for an explicitly COMPLETE toy S_n.
+    """
+    from itertools import combinations, permutations
+    if type(threshold) is not int or not score_by_permutation:
+        raise ValueError("integer threshold and complete S_n scores required")
+    n = len(next(iter(score_by_permutation)))
+    expected = set(permutations(range(n)))
+    if n not in (3, 4) or set(score_by_permutation) != expected:
+        raise ValueError("all 3! or 4! score entries required")
+    if any(type(v) is not int or v < 0 for v in score_by_permutation.values()):
+        raise ValueError("nonnegative integer scores required")
+    stationary = []
+    for perm, score in score_by_permutation.items():
+        if all(score <= score_by_permutation[legal_toy_swap(perm, i, j)]
+               for i, j in combinations(range(n), 2)):
+            stationary.append((perm, score))
+    global_min = min(score_by_permutation.values())
+    local_min_value = min(score for _, score in stationary)
+    if global_min != local_min_value:
+        raise AssertionError("finite global minimum is not one-swap stationary")
+    return {"global_min": global_min, "least_local_min": local_min_value,
+            "all_scores_at_least_threshold": global_min >= threshold,
+            "all_local_minima_at_least_threshold":
+                all(score >= threshold for _, score in stationary),
+            "stationary_count": len(stationary)}
+
+
+def legal_toy_swap(perm, i, j):
+    out = list(perm)
+    out[i], out[j] = out[j], out[i]
+    return tuple(out)
+
+
 def verified_two_step_finite_descent():
     """Two exact 105-neighborhood audits. Not a global minimum search."""
     source = compile_left(W32_LEFT_H45)
