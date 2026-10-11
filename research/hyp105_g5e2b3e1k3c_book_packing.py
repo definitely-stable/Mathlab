@@ -178,7 +178,7 @@ def classify_c4_pair_overlaps(neighbors, *, model=None, max_pair_incidents=300_0
         if set(degree.values()) != {2}:
             raise AssertionError("chorded symmetric difference is not a C6")
         chord = next(iter(a & b))
-        if chord & cycle:
+        if chord in cycle:
             raise AssertionError("antipodal chord must not be a cycle edge")
         chorded[cycle].add(chord)
         if model is not None:
