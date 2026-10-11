@@ -1,3 +1,7 @@
+## CI-OPT-001 — scientific Research/INDEX CI route policy (2026-10-11)
+
+[Detailed audit and exact-head fail-closed rollout](CI-OPT-001-SCOPED-RESEARCH.md) · [issue #355](https://github.com/definitely-stable/Mathlab/issues/355) · [documented conservative classifier](../../research/ci_scope.py). **SAFE_PROSE_ONLY_ZERO_HEAVY_SHARDS / SCIENTIFIC_DOCS_FORCE_FULL / HYP_PR_THREE_SHARDS_INCLUDING_UNIT_GATE / CATALOG_PR_FOUNDATION_PLUS_CATALOG / INDEX_PR_ONLY_FOUNDATION_PLUS_INDEX / UNKNOWN_PR_ALL_FOUR / FULL_MAIN_MANUAL_UNCHANGED / AGGREGATE_REQUIRED_CHECK_STABLE.**
+
 ## UCT-005 D1-C3 — conditional GF(2) causal information reuse (2026-10-11)
 
 [Exact classical rank and false additive cut](UCT-005-G3-B2-D1C3-CAUSAL-RANK-REUSE.md) · [independent rank model](../../research/uct005_d1c3_causal_rank.py) · [literal SET-execution tests](../../research/test_uct005_d1c3_causal_rank.py) · [issue #319](https://github.com/definitely-stable/Mathlab/issues/319). **CLASSICAL_RANK_ONLY / FALSE_SUM_OF_READER_EPOCH_CUTS / FULL_F1_JOINT_BOUND_OPEN / ROOT_OPEN_UNPROVED / EXACT_HEAD_CI_PENDING**. Predecessor D1-C2 [#313](https://github.com/definitely-stable/Mathlab/pull/313) is MERGED; D1-C3 [#323](https://github.com/definitely-stable/Mathlab/pull/323) is main-based DRAFT until exact-head CI.
