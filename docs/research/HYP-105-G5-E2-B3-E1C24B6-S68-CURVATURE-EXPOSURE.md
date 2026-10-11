@@ -48,7 +48,7 @@ Summing triangle inequality over *all disjoint swap pairs* gives the exact deter
 
 This is a **structural absolute upper** on possible interaction, not a useful positive lower on `S_seven` by itself. In particular it does NOT show a negative curvature must exist, that the sum of signed curvatures has a particular sign, or that a small S map always admits any local move. Establishing one of those implications would require original GQ incidence-specific signed correlation inequalities and quantification over **every f,g,h**.
 
-For the original finite W32 source, the executable checks source multiplicity 53,907 statically eligible distinct sixsets, original support histogram, all 4,095 disjoint double transpositions, computed sum of absolute curvatures <= exact exposure cap, and independent source-level mixed curvature for the most negative observed pair.
+For the original finite W32 source, the executable checks source multiplicity 53,907 statically eligible distinct sixsets, original support histogram, all 4,095 disjoint double transpositions, computed sum of absolute curvatures <= exact exposure cap, and independent source-level mixed curvature for the most negative observed pair. **Stronger full finite falsifier:** independently compress original candidate sixsets by their actual line-support bitmask, for EACH of the 4,095 disjoint swap pairs compute the exact original jointly touched count M_AB, verify EVERY individual |kappa_AB| <= 2 M_AB, and verify that the sum of these 4,095 directly enumerated M_AB agrees EXACTLY with the analytic sum over the source K(n,|H(J)|). No probabilistic extrapolation or independent map-per-J choice.
 
 ## 2. Exactly the genuine finite W32 radius-two neighborhood around S68
 
