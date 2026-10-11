@@ -1,0 +1,46 @@
+name: hyp105-k1-contract
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k1_kikuchi_c6.py"
+      - "research/test_hyp105_g5e2b3e1k1_kikuchi_c6.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K1-KIKUCHI-C6-SUPERSATURATION.md"
+      - "research/hyp105_g5e2b3e1k2_cycle_pattern_weights.py"
+      - "research/test_hyp105_g5e2b3e1k2_cycle_pattern_weights.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K2-CYCLE-PATTERN-WEIGHTS.md"
+      - ".github/workflows/hyp105-k1-contract.yml"
+  workflow_dispatch:
+    inputs:
+      s8_cycles:
+        description: "Also count all six-cycles of the s=8 Kikuchi graph (slow)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  kikuchi-d6-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent seven-census, left-C6 join, K2 and AHL falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k1_kikuchi_c6.py' -v
+      - name: Exact Kikuchi report s=2,4,8 with s=4 greedy adversary probe
+        run: python research/hyp105_g5e2b3e1k1_kikuchi_c6.py --adversary 40
+      - name: K2 independent cycle-pattern GF5 weight and D2 falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k2_cycle_pattern_weights.py' -v
+      - name: K2 all-pattern classification and W32 Theorem K-prime report
+        run: python research/hyp105_g5e2b3e1k2_cycle_pattern_weights.py
+      - name: Optional s=8 six-cycle census (manual dispatch only)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.s8_cycles }}
+        run: python research/hyp105_g5e2b3e1k1_kikuchi_c6.py --s8-cycles
