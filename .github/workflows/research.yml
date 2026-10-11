@@ -485,6 +485,12 @@ jobs:
       - name: HYP-105 C24-B6 full original W32 S68 5111 radius-two global right maps report
         run: python research/hyp105_g5e2b3e1c24b6_mixed_curvature_s68.py
 
+      - name: HYP-105 C24-B7 all-h typed cross incidence support and recompiled W32 left source tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b7_cross_side_orbit.py'
+
+      - name: HYP-105 C24-B7 full real W32 11236 typed left-right global map rectangle report
+        run: python research/hyp105_g5e2b3e1c24b7_cross_side_orbit.py
+
   research-full-suite:
     # A single explicit verdict: foundation-only SUCCESS is not full CI.
     if: ${{ always() }}
