@@ -50,7 +50,32 @@ Use exactly the C24-B3 frozen original left f=(13,4,2,14,0,11,1,7,10,6,9,5,12,3,
 
 Baseline S_seven=111. Exhaust all \binom{15}2=105 legal complete globally coherent original-right swaps on this **same** g; compute all seven signed deltas, correct original-right-C projection, necessary Q7 and all cut inequalities, including every nontrivial signed cut up to complement. Independently re-enumerate all 62,370 right-first distinct original sixsets for the 111 baseline and the best third neighbor (or baseline if stationary), then independently count the source-level gain/loss fibers for the best proposed swap. A chosen third swap is applied **only if** its full S strictly decreases. The executable reports whether 111 is truly one-swap stationary instead of assuming either result.
 
-All exact finite values after this third neighborhood, including the best swap, must come from the executable and exact-head GitHub-hosted CI. **Do not predeclare an unknown numerical improvement.**
+The independently reconstructed finite candidate values, including the third swap and terminal one-swap stationary map, are pinned as regression assertions; only exact-head GitHub-hosted CI can establish accepted project status.
+
+### III-b. Pinned finite strictly stationary endpoint: S=72
+
+The independent local W32 reproducibility calculation (left-first source with 51,506 compressed signatures and separately enumerated right-first 62,370 *original distinct* sixsets) found eight improving global-right swaps at the frozen 111 map, with the exact best third swap **(7,11)** and S=102, seven-vector (1,53,38,3,0,1,6), necessary Q7=4,607,013 and original-right-C=1. For that swap, exactly 58 original accepted sixsets are destroyed and 49 rejected original sixsets are newly accepted (net -9).
+
+The following fixed global-right ORIGINAL swaps, all with ONE unchanged complete LEFT f, give a strictly descending **finite explicit existence certificate**:
+
+| original right swap | complete seven-family S |
+| --- | ---: |
+| Starting C24-B3 two-swap map | 111 |
+| (7,11) | 102 |
+| (6,8) | 93 |
+| (5,9) | 86 |
+| (2,8) | 76 |
+| (1,13) | **72** |
+
+The last globally complete original right map (indices into lex physical K6 edges) is
+
+    (12,9,11,2,8,6,0,13,5,14,3,7,4,10,1).
+
+For this specific map, the **independent right-first 62,370 original-sixset full classifier** agrees with the left-first source on the exact seven-vector **(0,36,31,2,0,1,2)**, original-right-C=0 and necessary Q7 numerator **3,283,610**. A separate complete **105-neighbor original-right global transposition scan** found **ZERO improving swaps** and minimum neighbor **S=74 at (1,14)**. Thus this genuine W32 map is a **STRICT one-transposition-local minimum** with margin at least 2 and S=72. It is not a global min over 15!, much less over arbitrary f.
+
+**Finite restriction on a uniformly all-s gradient criterion:** for s=2 we have s^6=64. If the conjectural all-s gate is required for *every* s=2^h including h=1, this concrete stationary original global pair of maps forces **c <= 72/64 = 9/8** in the strict implication `S<cs^6 => some improving transposition`; any c>9/8 is falsified. **This says absolutely nothing about the possible c of an asymptotic gate valid only beyond some large h0**, and does not disprove the existence of some small positive universal c.
+
+All numerical values in this section are local independent W32 calculations plus corresponding exact regression assertions in PR #348. They require new exact-HEAD GitHub-hosted Contract/Research/INDEX SUCCESS for project acceptance. Until then, no accepted hosted result is claimed.
 
 ## IV. What the evidence would and would not mean
 
