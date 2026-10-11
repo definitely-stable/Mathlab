@@ -9,7 +9,7 @@ from hyp105_g5e2b3e1k1_kikuchi_c6 import gq_pair_model, kikuchi_graph
 from hyp105_g5e2b3e1k3_local_collisions import star_codegree_tensor
 from hyp105_g5e2b3e1k3c_book_packing import book_moments
 from hyp105_g5e2b3e1k3d_mixed_girth8 import (
-    c4_free_edge_cap, global_mixed_book_certificate,
+    c4_free_edge_cap, girth8_moore_edge_cap, global_mixed_book_certificate,
     mixed_compatibility, source_inverses,
 )
 
@@ -103,6 +103,22 @@ class MixedGirthTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 c4_free_edge_cap(bad)
 
+    def test_girth8_moore_integer_cap_regimes(self):
+        for r in range(1,101):
+            bound=girth8_moore_edge_cap(r)
+            self.assertLessEqual(bound,r*r)
+            self.assertGreaterEqual(bound,min(3*r-1,r*r))
+            if bound>=3*r:
+                self.assertLessEqual(bound*((bound-r)**2+r*r),r**4)
+            if bound+1<=r*r and bound+1>=3*r:
+                self.assertGreater((bound+1)*((bound+1-r)**2+r*r),r**4)
+        self.assertEqual(c4_free_edge_cap(12),46)
+        self.assertEqual(girth8_moore_edge_cap(12),35)
+        self.assertLess(girth8_moore_edge_cap(33),c4_free_edge_cap(33))
+        for invalid in (-2,0,True,3.0):
+            with self.assertRaises(ValueError):
+                girth8_moore_edge_cap(invalid)
+
     def test_true_w32_compatibility_exhaustive_and_girth(self):
         for scheme in ("lex","reverse-line"):
             model=gq_pair_model(1,scheme)
@@ -165,6 +181,8 @@ class MixedGirthTests(unittest.TestCase):
                              result["total_codegree_M1_from_original_stars"])
             self.assertGreaterEqual(result["B_mixed_upper_via_first_moment"],
                                     result["B_mixed"])
+            self.assertLessEqual(result["universal_mixed_codegree_cap"],
+                                 result["C4_free_cap"])
             self.assertGreaterEqual(result["book_witnesses_checked_against_original_GQ"],1)
             books=book_moments(kikuchi_graph(model),model["a"])
             self.assertEqual(books["book_mixed"],mixed_book)
