@@ -1,0 +1,39 @@
+name: hyp105-c24b8i-cylinder-cover-replay
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b8i_global_cover_replay.py"
+      - "research/test_hyp105_g5e2b3e1c24b8i_global_cover_replay.py"
+      - "research/hyp105_g5e2b3e1c24b8i_w32_cover_witness.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B8I-CYLINDER-COVER-REPLAY.md"
+      - ".github/workflows/hyp105-c24b8i-cylinder-cover-replay.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  independent-global-cover-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: B8-I independent K4 360 and 720 original global-injection proof-tree replay and tamper gates
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b8i_global_cover_replay.py' -v
+      - name: B8-I true ORIGINAL W32 exact 120-global-completion tree, 29-prune theorem, two independent source scorers
+        run: python research/hyp105_g5e2b3e1c24b8i_w32_cover_witness.py
+      - name: Preserve replayable original W32 proof trees
+        uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-c24b8i-w32-verified-global-cover
+          path: artifacts/hyp105-c24b8i-w32-proof.json
+          if-no-files-found: error
+          retention-days: 14
