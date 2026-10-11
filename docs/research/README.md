@@ -1,3 +1,7 @@
+## HYP-105 C24-B6 — signed joint-source curvature and complete original W32 S68 radius-two scan (2026-10-11)
+
+[All-h exact K(n,r) pair-exposure identity and finite S68 original GQ protocol](HYP-105-G5-E2-B3-E1C24B6-S68-CURVATURE-EXPOSURE.md) · [full S68 exact 5111-map radius-two and disjoint curvature oracle](../../research/hyp105_g5e2b3e1c24b6_mixed_curvature_s68.py) · [fast original/small-n independent tests](../../research/test_hyp105_g5e2b3e1c24b6_mixed_curvature_s68.py) · [root #230](https://github.com/definitely-stable/Mathlab/issues/230). **ALL-h_DISJOINT_JOINT_SUPPORT_ABS_CURVATURE_CAP / FINITE_TRUE_ORIGINAL_W32_S68_105_SINGLE_5005_DOUBLE_EXHAUSTIVE / FULL_HOSTED_CI_PENDING / NO_UNIVERSAL_SEVEN_LOWER.**
+
 ## HYP-105 C24-B5 — complete transposition distance-two sphere and exact original-right template pullback (2026-10-11)
 
 [All-n cycle classification and original W32 5005-state 2-swap escape certificate](HYP-105-G5-E2-B3-E1C24B5-TWO-SWAP-ESCAPE.md) · [exact right 130-template source fibers](../../research/hyp105_g5e2b3e1c24b5_two_swap_escape.py) · [fast independent regression](../../research/test_hyp105_g5e2b3e1c24b5_two_swap_escape.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **ALL-n_EXACT_2SWAP_CAYLEY_SPHERE / ALL-h_EXACT_PHYSICAL_RIGHT_TEMPLATE_PULLBACK / TRUE_ORIGINAL_W32_5005_DISTANCE2_TWO_STRICTLY_IMPROVING_ENDPOINTS_MIN_S68_VIA_DISJOINT_4_14_THEN3_12_CURVATURE_MINUS31 / INITIAL_HOSTED_CONTRACT_SUCCESS_LATEST_HEAD_CI_PENDING / NO_UNIVERSAL_S_LOWER.**
