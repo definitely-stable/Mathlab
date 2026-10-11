@@ -10,7 +10,6 @@ on:
   push:
     branches:
       - main
-      - "research/**"
     paths:
       - "docs/research/DAG-002-G2-*"
       - "research/dag002_g2_model_gate.py"
