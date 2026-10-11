@@ -443,6 +443,12 @@ jobs:
       - name: HYP-105 C23 W32 original all-seven exact expectation and all-h swap influence report
         run: python research/hyp105_g5e2b3e1c23_seven_moment_influence.py
 
+      - name: HYP-105 C24 independent original W32 right-C star-collision and zero-witness tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24_right_c_certificate.py'
+
+      - name: HYP-105 C24 all-h star-collision and genuine one-global-right zero-C report
+        run: python research/hyp105_g5e2b3e1c24_right_c_certificate.py
+
   research-full-suite:
     # A single explicit verdict: foundation-only SUCCESS is not full CI.
     if: ${{ always() }}

@@ -1,0 +1,29 @@
+name: hyp105-c24-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c24-right-c-star-certificate
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24_right_c_certificate.py"
+      - "research/test_hyp105_g5e2b3e1c24_right_c_certificate.py"
+      - ".github/workflows/hyp105-c24-contract.yml"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24-RIGHT-C-STAR-CERTIFICATE.md"
+
+permissions:
+  contents: read
+
+jobs:
+  right-c-star-collision-original-w32:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C24 independent 62370 original sixsets and all-h conditional certificate
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24_right_c_certificate.py' -v
+      - name: C24 exact genuine W32 global zero-right-C witness report
+        run: python research/hyp105_g5e2b3e1c24_right_c_certificate.py
