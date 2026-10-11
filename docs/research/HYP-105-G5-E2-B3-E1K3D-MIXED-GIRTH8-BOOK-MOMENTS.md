@@ -47,6 +47,35 @@ Integer computation uses isqrt without floating point. The further exact degree 
 
 This is a universal all-h restriction for a mixed GQ codegree, not a global positive D6 bound. As r~sqrt(2)*s^(3/2), this C4-free bound permits order s^(9/4) and is too loose to close the cubic mixed book term. The C6 prohibition adds another LOCAL path inequality below; an unproved sharp s^2 edge bound is NOT asserted here.
 
+## 2b. Full girth-eight Moore cap (strengthens C4 alone)
+
+The K1 Alon–Hoory–Linial nonbacktracking path bound is applicable to
+the bipartite graph H after peeling its vertices of degree <=1.
+For the initial average degree d=m/r >=3, its 2-core peeling lemma
+preserves the lower bound NB3 >=2m(d-1)^2. By the 3-path endpoint
+injection proved in Section 3, NB3 <=2(r^2-m). Thus, in the regime
+m>=3r, necessarily
+
+    m*((m-r)^2+r^2) <= r^4.                              (MOORE8)
+
+When m<3r we do NOT assert (MOORE8); we retain the exact integer
+cap m<=3r-1. Define rho(r) as the largest integer m<=r^2
+satisfying (MOORE8). A valid unconditional all-h cap is
+
+    M_Moore(r)=min(r^2, max(3r-1,rho(r))).
+
+It is computed by an exact integer binary search; no floating point,
+asymptotic assumption or incorrect low-degree extension. Combining
+the restrictions gives
+
+    m_uv <= Cmax := min(M_C4(r),M_Moore(r),r*(s+1)),
+
+where M_C4 is Section 2's integer C4-free cap. For r=12
+(W(3,4)), M_C4=46 but M_Moore=35. For large r the path bound
+has order O(r^(4/3))=O(s^2), still too weak as a collective
+mixed-book theorem. The K1 entropy/Moore argument is prior art,
+not claimed as a novel generic graph theorem.
+
 ## 3. Girth-eight injection of oriented 3-paths
 
 Every non-backtracking 3-walk in H_uv is a simple path (no triangles in a bipartite graph). For each ordered left endpoint z0 and right endpoint t3:
@@ -75,7 +104,7 @@ Let M1_mixed be the sum of codegrees over all MIXED unordered Kikuchi pairs and 
 
     M1_mixed = sum_w binom(deg_Ghat(w),2)-M1_aligned.
 
-Let Cmax=min(floor[r(1+sqrt(4r-3))/2],r*(s+1)), r=a-2. As all mixed codegrees c satisfy c<=Cmax,
+Let Cmax=min(M_C4(r),M_Moore(r),r*(s+1)), r=a-2. As all mixed codegrees c satisfy c<=Cmax,
 
     Bmixed = sum_mixed c(c-1)(c-2)/2
           <= M1_mixed*(Cmax-1)*(Cmax-2)/2.
@@ -93,7 +122,7 @@ Two-independent-construction checks: (i) inverse physical label map original-inc
 
 ## 6. Next mathematically decisive question (K3-E)
 
-The available pointwise m_uv cap allows too much total Bmixed. Need a SHARED-SOURCE collision/packing lemma that exploits the simultaneous use of ONE original f,g across every mixed pair; quantitatively bound
+Even the strengthened C6-free Moore pointwise cap allows too much total Bmixed. Need a SHARED-SOURCE collision/packing lemma that exploits the simultaneous use of ONE original f,g across every mixed pair; quantitatively bound
 
     sum_mixed binom(codeg_Ghat(u,v),3)
 
