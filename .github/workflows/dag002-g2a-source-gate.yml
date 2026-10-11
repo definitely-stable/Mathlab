@@ -17,8 +17,14 @@ on:
       - "research/test_dag002_g2_model_gate.py"
       - ".github/workflows/dag002-g2a-source-gate.yml"
 
+  workflow_dispatch:
+
 permissions:
   contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   exact-source-model-oracles:
