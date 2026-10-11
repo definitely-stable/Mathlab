@@ -207,6 +207,22 @@ def audit_two_swap_ball(source=None, *, verify_right_first=True):
         if independent_start["seven_counts"] != initial["seven_counts"]:
             raise AssertionError("initial original RIGHT-FIRST witness changed")
 
+    # Hosted C24-B5 Contract witnessed an exact COMPLETE 5005-state
+    # ORIGINAL W32 finite two-swap escape. Freeze the published result;
+    # deviations fail closed on subsequent HEADs.
+    if (best_row["S_seven"] != 68 or len(improving) != 2
+            or score_hist.get(68) != 2
+            or kinds[best] != "disjoint"
+            or best_path != ((4, 14), (3, 12))
+            or first_at_best != 82
+            or best_peak != 82
+            or best_row["Q7_necessary_numerator"] != 3112510
+            or tuple(best_row["seven_counts"][t] for t in TAGS)
+               != (0, 44, 21, 0, 0, 2, 1)
+            or best_row["right_C_accepted"] != 0
+            or best != (12, 9, 11, 4, 1, 6, 0, 13, 5, 14, 3, 7, 2, 10, 8)):
+        raise AssertionError("hosted C24-B5 exact W32 5005-map escape certificate changed")
+
     best_curvature = None
     if kinds[best] == "disjoint":
         a, b = best_path
