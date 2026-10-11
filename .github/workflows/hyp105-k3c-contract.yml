@@ -1,0 +1,31 @@
+name: hyp105-k3c-book-decomposition-contract
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3c_book_packing.py"
+      - "research/test_hyp105_g5e2b3e1k3c_book_packing.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3C-EXACT-BOOK-INTERSECTIONS.md"
+      - ".github/workflows/hyp105-k3c-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  c4-book-and-gq-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent C4 walk and pair intersections, book cubic formula, original GQ tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3c_book_packing.py' -v
+      - name: Deterministic genuine W32 and W34 chorded cycle census
+        run: python research/hyp105_g5e2b3e1k3c_book_packing.py

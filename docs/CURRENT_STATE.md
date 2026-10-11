@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-C — exact book overlap / all-h aligned pencil cap (2026-10-11)
+
+[Proof and falsification](research/HYP-105-G5-E2-B3-E1K3C-EXACT-BOOK-INTERSECTIONS.md) · [reference](../research/hyp105_g5e2b3e1k3c_book_packing.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3c_book_packing.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230). **EXACT_A=H+6SUM_CHOOSE_CODEG_3+T+6K4 / C6>=CEIL(H/3) / D6>=CEIL(H_PROPER/3) / ALL_h_GQ_ALIGNED_CODEGREE_LE_A_MINUS_2 / MIXED_BOOK_CUBIC_OPEN / NO_BRANCH_A_B_OR_ASET / PARENT_PR_367_HEAD_d51f3c5 / CI_PENDING**. Separate Draft scientific child; no main modifications.
+
 ## HYP-105 B3.2-E1-K3-A/B — localized 3-path collisions and book obstruction (2026-10-11)
 
 [Proof and falsification](research/HYP-105-G5-E2-B3-E1K3-LOCAL-COLLISIONS-BOOK-DICHOTOMY.md) · [reference](../research/hyp105_g5e2b3e1k3_local_collisions.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3_local_collisions.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **EXACT_ENDPOINT_THETA=SUM_INTERNAL_LOAD_K(K-1)-2*REVERSED_CENTRAL_EDGES / LOCAL_D_U>=M_U^2/|U|-M_U-THETA_U / K_2_T_ENDPOINT_CODEGREE_ZERO_FILTER_FAILS / GQ_PHYSICAL_STAR_TENSOR_EXACT / BOUND_NOT_UNIFORM_IN_H / NO_BRANCH_A_B / D2_BOOK_CONTROL_OPEN / PARENT_PR_366_EXACT_HEAD_0b21fd5 / CI_PENDING.** Separate stacked Draft, no main modification, no merge authorization. Next: incidence-specific D2* book packing / distinct-column extraction with multiplicity cap.
