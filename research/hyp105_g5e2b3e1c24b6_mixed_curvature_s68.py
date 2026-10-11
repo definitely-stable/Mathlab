@@ -160,11 +160,25 @@ def exact_next_ball_from_s68():
 
     # ALL disjoint double swaps, each exactly once. Negative curvature may
     # occur without any improvement: record both quantities separately.
+    # Independently group ORIGINAL candidate sixsets by their original
+    # right-line SUPPORT, preserving each compressed row's true multiplicity.
+    # This differs from the K(n,r) formula: it counts actual joint exposures
+    # pair by pair, making an exhaustive finite falsifier of the all-h bound.
+    support_multiplicity = Counter()
+    for rec in source["records"]:
+        mask = 0
+        for line in set(rec[1]):
+            mask |= 1 << line
+        support_multiplicity[mask] += rec[3]
+    if sum(support_multiplicity.values()) != source["static_eligible"]:
+        raise AssertionError("original line support compression lost sixset multiplicities")
+    support_fibers = tuple(support_multiplicity.items())
     disjoint_curvatures = Counter()
     most_negative = None
     actual_abs_sum = 0
+    exact_sum_joint_exposure = 0
+    smallest_pointwise_slack = None
     improves_disjoint = improves_three_cycle = 0
-    worst_joint_support_ratio = 0
     for g, row in states.items():
         if row["S_seven"] < 68:
             if kind[g] == "disjoint":
@@ -178,12 +192,24 @@ def exact_next_ball_from_s68():
                  first[b]["S_seven"] + base["S_seven"])
         disjoint_curvatures[kappa] += 1
         actual_abs_sum += abs(kappa)
+        amask = (1 << a[0]) | (1 << a[1])
+        bmask = (1 << b[0]) | (1 << b[1])
+        jointly_touched = sum(weight for mask, weight in support_fibers
+                              if mask & amask and mask & bmask)
+        exact_sum_joint_exposure += jointly_touched
+        slack = 2*jointly_touched - abs(kappa)
+        if slack < 0:
+            raise AssertionError("pointwise original source support cap violated")
+        if smallest_pointwise_slack is None or slack < smallest_pointwise_slack:
+            smallest_pointwise_slack = slack
         record = (kappa, a, b, g)
         if most_negative is None or record < most_negative:
             most_negative = record
     if sum(disjoint_curvatures.values()) != N_DOUBLE_TRANSPOSITIONS:
         raise AssertionError("missing disjoint mixed curvatures")
     exposure = exact_all_disjoint_joint_exposure(source)
+    if exact_sum_joint_exposure != exposure["sum_jointly_touched_original_sources_over_all_pairs"]:
+        raise AssertionError("K(n,r) source exposure != independent enumeration of all 4095 swap pairs")
     if actual_abs_sum > exposure["sum_absolute_mixed_curvature_upper"]:
         raise AssertionError("all-h signed curvature support bound falsified")
 
@@ -219,6 +245,8 @@ def exact_next_ball_from_s68():
     touched = source_curvature["jointly_touched_original_sixsets"]
     if abs(kappa) > 2*touched:
         raise AssertionError("pointwise original joint source support bound violated")
+    if not (smallest_pointwise_slack is not None and smallest_pointwise_slack >= 0):
+        raise AssertionError("all 4095 pointwise source support caps not checked")
 
     best_curvature = None
     if kind[best] == "disjoint":
@@ -270,6 +298,10 @@ def exact_next_ball_from_s68():
         "disjoint_curvature_negative_count":sum(v for k,v in disjoint_curvatures.items() if k<0),
         "disjoint_curvature_minimum":min(disjoint_curvatures),
         "sum_abs_disjoint_curvature":actual_abs_sum,
+        "all_4095_individual_support_caps_verified":True,
+        "smallest_individual_two_M_minus_abs_kappa":smallest_pointwise_slack,
+        "independently_enumerated_joint_exposure_all_disjoint_pairs":exact_sum_joint_exposure,
+        "original_support_mask_fiber_count":len(support_fibers),
         "all_h_joint_exposure_certificate":exposure,
         "exact_original_left_and_right_falsifiers":True,
         "no_full_right_15_factorial_minimum_claim":True,
