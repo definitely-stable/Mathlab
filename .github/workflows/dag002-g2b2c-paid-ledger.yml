@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - "research/**"
     paths:
       - "research/dag002_g2b2c_paid_ledger.py"
       - "research/test_dag002_g2b2c_paid_ledger.py"
