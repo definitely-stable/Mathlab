@@ -1,7 +1,7 @@
 """Lossless six-shard GitHub-hosted Research CI regression contract.
 
-Frozen 125 exact (name, run) pairs preserve the 107 scientific-branch commands,
-plus two explicit C16, six C17-C19 and two C20 commands. No old check lost. Any
+Frozen 127 exact (name, run) pairs preserve all 125 C23 checks
+and append exactly two explicit C24 commands. No old check lost. Any
 future command edits/additions must update the independent fingerprint
 AND explain the change in the CI documentation. No removed checks,
 name-only surrogates or hidden duplicates silently pass this guard.
