@@ -1,0 +1,32 @@
+name: hyp105-c24b8a-physical-tensor
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b8a_physical_tensor.py"
+      - "research/test_hyp105_g5e2b3e1c24b8a_physical_tensor.py"
+      - "research/hyp105_g5e2b3e1c24b8a_w32_tensor_witness.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B8A-PHYSICAL-TENSOR.md"
+      - ".github/workflows/hyp105-c24b8a-physical-tensor.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-physical-motif-tensor-and-original-W32-witness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: B8-A all-h seven-family Boolean and 60-cycle tensor independent light tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b8a_physical_tensor.py' -v
+      - name: B8-A complete four-corner true original W32 independent signed tensor witnesses
+        run: python research/hyp105_g5e2b3e1c24b8a_w32_tensor_witness.py
