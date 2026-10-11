@@ -18,7 +18,8 @@ from hyp105_g5e2b3e1c24b3_joint_swap_gradient import legal_transpose
 from hyp105_g5e2b3e1c24b5_two_swap_escape import (
     ALL_SWAPS, N_DISTANCE_TWO, N_DOUBLE_TRANSPOSITIONS,
     N_THREE_CYCLES, audit_two_swap_ball, compile_right_pullback_fibers,
-    template_pullback_score, disjoint_swap_curvature)
+    template_pullback_score, disjoint_swap_curvature,
+    independent_disjoint_original_source_curvature)
 
 
 class TrueOriginalW32DoubleSwapTest(unittest.TestCase):
@@ -93,6 +94,27 @@ class TrueOriginalW32DoubleSwapTest(unittest.TestCase):
         self.assertEqual(N_THREE_CYCLES, 910)
         self.assertEqual(N_DOUBLE_TRANSPOSITIONS, 4095)
         self.assertEqual(N_DISTANCE_TWO, 5005)
+
+    def test_true_original_joint_touch_negative_mixed_curvature(self):
+        a, b = (4, 14), (3, 12)
+        for x, y in ((a, b), (b, a)):
+            r = independent_disjoint_original_source_curvature(
+                self.source, self.g, x, y)
+            self.assertEqual(r["mixed_curvature"], -31)
+            self.assertEqual(
+                r["mixed_curvature"],
+                sum(r["mixed_curvature_by_tag"].values()))
+            self.assertGreater(r["jointly_touched_original_sixsets"], 0)
+            self.assertGreater(r["nonzero_mixed_original_sixsets"], 0)
+            self.assertLessEqual(r["nonzero_mixed_original_sixsets"],
+                                 r["jointly_touched_original_sixsets"])
+            self.assertEqual(
+                r["mixed_Q7_necessary"],
+                sum(w * r["mixed_curvature_by_tag"][tag]
+                    for tag, w in zip(TAGS, GF5_WEIGHTS)))
+        with self.assertRaises(ValueError):
+            independent_disjoint_original_source_curvature(
+                self.source, self.g, (0, 1), (1, 2))
 
     def test_mixed_curvature_disjoint_and_nontrivial_escape_equivalence(self):
         d = disjoint_swap_curvature(72, 74, 76, 70)
