@@ -20,7 +20,7 @@ class ResearchScopeTests(unittest.TestCase):
         self.assertTrue(got["catalog"])
         self.assertTrue(got["foundation"])
         self.assertFalse(got["index"])
-        self.assertFalse(any(got[n] for n in ("hyp_foundation", "hyp_census"))
+        self.assertFalse(any(got[n] for n in ("hyp_foundation", "hyp_census")))
 
     def test_scientific_family_routing(self):
         cases = (
