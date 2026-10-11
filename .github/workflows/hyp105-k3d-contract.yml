@@ -1,0 +1,31 @@
+name: hyp105-k3d-mixed-girth8-contract
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3d_mixed_girth8.py"
+      - "research/test_hyp105_g5e2b3e1k3d_mixed_girth8.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3D-MIXED-GIRTH8-BOOK-MOMENTS.md"
+      - ".github/workflows/hyp105-k3d-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  mixed-girth8-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent original GQ double-incidence and girth-eight path oracles
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3d_mixed_girth8.py' -v
+      - name: Deterministic true GQ aggregate mixed book moment report
+        run: python research/hyp105_g5e2b3e1k3d_mixed_girth8.py
