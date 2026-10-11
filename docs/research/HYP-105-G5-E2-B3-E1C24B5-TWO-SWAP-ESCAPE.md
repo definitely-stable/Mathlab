@@ -58,7 +58,23 @@ For overlapping transpositions the final result is a 3-cycle; the ordered operat
 
 The path barrier for a candidate path (A,B) is `max(S(g), S(g^A), S(g^(AB))) - S(g)`. The code selects the lowest barrier among all ordered decompositions of the **minimum-scoring** exact distance-two endpoint and reports its intermediate S. It does NOT claim that this is the minimum barrier among all possible improving endpoints (if any), nor that two steps reach a global minimum.
 
-## 4. Exact finite acceptance and no-go firewall
+## 4. Hosted original W32 outcome — exact strict two-swap escape 72 -> 68
+
+The initial exact C24-B5 [GitHub-hosted Contract run #38128554258](https://github.com/definitely-stable/Mathlab/actions/runs/38128554258) completed **SUCCESS** on PR-head ac82828113c54965c4e7613a7fc5c61d593234c0, including all six fast tests and the full 5005-endpoint report with independent full original RIGHT-FIRST 62,370-sixset recount. The numerical result is **not** a guessed sample or a fit.
+
+- Baseline S=72: all 105 single global-original-right swaps have S>=74.
+- Complete 10,920 ordered distinct two-swap paths cover exactly 5,005 different endpoint right maps with multiplicities 3 (910 3-cycles) / 2 (4,095 disjoint transposition pairs).
+- **Exact minimum among all 5,005 distance-two right maps = 68**. Exactly **TWO** distinct endpoints improve S=72; the next smallest score after the tied 68 endpoints is 73.
+- The lex-first minimum right map (physical lex K6 pair indices by the 15 ORIGINAL right GQ lines) is **(12,9,11,4,1,6,0,13,5,14,3,7,2,10,8)**. Its complete accepted seven-vector in frozen tag order is **(0,44,21,0,0,2,1)**, accepted original-right-C=0, and necessary GF5 Q7 numerator **3,112,510**.
+- Best two-step factorization of that map minimizes the temporary score barrier: **(4,14) -> S=82**, then **(3,12) -> S=68**. Since the swaps are disjoint, the opposite order is also valid but has first-score S=89 (the pinned first-gradient values are +10 and +17). Thus best transient barrier above the local minimum is **+10**.
+- Mixed derivative for these two commuting original swaps is **kappa=-31**, so the endpoint identity is `S(gAB)=72+10+17-31=68`. Since both first step deltas are positive, the negative mixed interaction is exactly what breaks the one-swap trap.
+- The optimized pullback census had 14,693 original-right multiset fibers holding 53,907 eligible original sixsets, obtained from **62,370 distinct ORIGINAL left-incidence sources** and **130** physical K6 right multigraph 2-factor templates. The full original LEFT scorer plus an independently implemented full original RIGHT-FIRST 62,370-sixset enumerator confirmed the decisive endpoint.
+
+**Strict finite separation:** This original globally coherent f,g witness proves that **one-global-right-transposition stationarity does NOT imply two-transposition stationarity** for the accepted seven-class score even on a true GQ W(3,2). It is a counterexample to such a *restricted local-optimality implication*, **not** Branch B (which requires an infinite asymptotically small-S family). It does not establish the minimum over all 15! right permutations or any all-f/all-h lower bound.
+
+The first C24-B5 Contract SUCCESS applied to an earlier PR HEAD. Later freeze/metadata commits must pass their own **exact final HEAD Contract/Research/INDEX SUCCESS** before acceptance. The parent issue #230 remains OPEN_WITH_FORMAL_BLOCKER.
+
+## 5. Exact finite acceptance and no-go firewall
 
 The dedicated C24-B5 Contract and a dedicated Research script must fully enumerate the 5005 distinct endpoint maps and verify:
 
