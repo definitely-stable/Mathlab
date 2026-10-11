@@ -16,11 +16,11 @@ class Import014Tests(unittest.TestCase):
         cls.edges=json.loads(REL.read_text(encoding="utf-8"))
         cls.entries={e["id"]:e for e in cls.data["entries"]}
 
-    def test_exactly_five_new_and_total_396(self):
-        self.assertEqual(len(self.data["entries"]),396)
-        self.assertEqual(len({e["id"] for e in self.data["entries"]}),396)
-        self.assertEqual(len({e["identity"].lower() for e in self.data["entries"]}),396)
-        self.assertEqual({e["id"] for e in self.data["entries"] if int(e["id"][4:])>=393},set(IDS))
+    def test_exactly_five_new_and_total_401(self):
+        self.assertEqual(len(self.data["entries"]),401)
+        self.assertEqual(len({e["id"] for e in self.data["entries"]}),401)
+        self.assertEqual(len({e["identity"].lower() for e in self.data["entries"]}),401)
+        self.assertEqual({e["id"] for e in self.data["entries"] if 393 <= int(e["id"][4:]) <= 397},set(IDS))
         self.assertEqual(len({e["track"] for e in self.data["entries"]}),22)
         self.assertEqual(valid(self.data,self.catalog),[])
 
