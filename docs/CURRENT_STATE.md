@@ -1,6 +1,6 @@
 ## CI-OPT-001 — fail-closed scoped PR Research / INDEX, 2026-10-11
 
-[Workflow audit, exact dependency fallback and safety contract](research/CI-OPT-001-SCOPED-RESEARCH.md) · [issue #355](https://github.com/definitely-stable/Mathlab/issues/355) · [scope classifier](../research/ci_scope.py) · [adversarial regression](../research/test_ci_scope.py). **SCOPED_PR_RESEARCH_4_SHARDS_FULL_MAIN_AND_MANUAL / UNKNOWN_SHARED_WORKFLOW_CHANGES_FORCE_FULL / INDEX_SCIENCE_STEPS_ONLY_WHEN_RELEVANT / STABLE_REQUIRED_AGGREGATOR_FAIL_CLOSED / NO_SCIENTIFIC_ORACLE_REMOVED / NO_CACHED_PROOF_RESULTS / BRANCH_INFRA_NO_MAIN_MERGE / EXACT_HEAD_HOSTED_CI_PENDING.**
+[Workflow audit, exact dependency fallback and safety contract](research/CI-OPT-001-SCOPED-RESEARCH.md) · [issue #355](https://github.com/definitely-stable/Mathlab/issues/355) · [scope classifier](../research/ci_scope.py) · [adversarial regression](../research/test_ci_scope.py). **SCOPED_PR_RESEARCH_4_SHARDS_FULL_MAIN_AND_MANUAL / UNKNOWN_SHARED_WORKFLOW_CHANGES_FORCE_FULL / INDEX_SCIENCE_STEPS_ONLY_WHEN_RELEVANT / STABLE_REQUIRED_AGGREGATOR_FAIL_CLOSED / NO_SCIENTIFIC_ORACLE_REMOVED / NO_CACHED_PROOF_RESULTS / BRANCH_INFRA_NO_MAIN_MERGE / EXACT_HEAD_HOSTED_CI_PENDING / SOURCE_BOUND_DOCS_FORCE_FULL / RENAMES_CLASSIFY_BOTH_PATHS / FOUNDATION_REQUIRED_FOR_HYP_AND_CATALOG / INVALID_INDEX_ROUTING_FAILS.**
 
 ## UCT-005 D1-C3 — exact conditional causal rank and shared-information STOP (2026-10-11)
 

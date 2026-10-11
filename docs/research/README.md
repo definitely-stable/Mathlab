@@ -1,6 +1,6 @@
 ## CI-OPT-001 — scientific Research/INDEX CI route policy (2026-10-11)
 
-[Detailed audit and exact-head fail-closed rollout](CI-OPT-001-SCOPED-RESEARCH.md) · [issue #355](https://github.com/definitely-stable/Mathlab/issues/355) · [documented conservative classifier](../../research/ci_scope.py). **DOCS_PR_ZERO_HEAVY_SHARDS / HYP_PR_ONLY_TWO_RELEVANT_SHARDS / INDEX_PR_ONLY_FOUNDATION_PLUS_INDEX / UNKNOWN_PR_ALL_FOUR / FULL_MAIN_MANUAL_UNCHANGED / AGGREGATE_REQUIRED_CHECK_STABLE.**
+[Detailed audit and exact-head fail-closed rollout](CI-OPT-001-SCOPED-RESEARCH.md) · [issue #355](https://github.com/definitely-stable/Mathlab/issues/355) · [documented conservative classifier](../../research/ci_scope.py). **SAFE_PROSE_ONLY_ZERO_HEAVY_SHARDS / SCIENTIFIC_DOCS_FORCE_FULL / HYP_PR_THREE_SHARDS_INCLUDING_UNIT_GATE / CATALOG_PR_FOUNDATION_PLUS_CATALOG / INDEX_PR_ONLY_FOUNDATION_PLUS_INDEX / UNKNOWN_PR_ALL_FOUR / FULL_MAIN_MANUAL_UNCHANGED / AGGREGATE_REQUIRED_CHECK_STABLE.**
 
 ## UCT-005 D1-C3 — conditional GF(2) causal information reuse (2026-10-11)
 

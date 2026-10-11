@@ -13,6 +13,8 @@ from pathlib import PurePosixPath
 
 SHARDS = ("foundation", "hyp_foundation", "hyp_census", "catalog")
 KNOWN_EVENTS = ("pull_request", "push", "workflow_dispatch")
+SAFE_PROSE = frozenset({"README.md", "docs/CURRENT_STATE.md",
+    "docs/research/README.md", "docs/research/CI-OPT-001-SCOPED-RESEARCH.md"})
 
 
 def all_required():
@@ -31,13 +33,15 @@ def _classify_file(path):
             or any(part in ("", ".", "..") for part in path.split("/"))):
         return None
     if path.startswith("docs/research/catalog/"):
-        return ({"catalog"}, False)
-    if path == "README.md" or (path.startswith("docs/") and path.endswith(".md")):
+        # Catalog source pins are also verified by foundation unit tests.
+        return ({"foundation", "catalog"}, False) if path.endswith((".json", ".md")) else None
+    if path in SAFE_PROSE:
         return (set(), False)
+    # Unlisted scientific Markdown is source-gate input, never auto docs-only.
     if path.startswith("research/") and path.endswith(".py"):
         leaf = PurePosixPath(path).name
         if leaf.startswith(("hyp105_", "test_hyp105_")):
-            return ({"hyp_foundation", "hyp_census"}, False)
+            return ({"foundation", "hyp_foundation", "hyp_census"}, False)
         if leaf.startswith(("index001_", "test_index001_")):
             return ({"foundation"}, True)
         if leaf.startswith(("uct005_", "test_uct005_",
@@ -85,7 +89,7 @@ def pull_request_changed_paths():
     if len(parents) != 3:
         raise RuntimeError("PR checkout must be a merge commit with TWO parents")
     raw = subprocess.check_output(
-        ["git", "diff", "--name-only", "-z", "HEAD^1", "HEAD"],
+        ["git", "diff", "--no-renames", "--name-only", "-z", "HEAD^1", "HEAD"],
         stderr=subprocess.PIPE,
     )
     return tuple(p.decode("utf-8", errors="strict")

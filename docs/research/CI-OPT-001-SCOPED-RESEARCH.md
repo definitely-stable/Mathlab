@@ -16,22 +16,22 @@ Both workflows **already have PR concurrency cancellation**. Do not claim this c
 
 ### Central Research routing
 
-A dedicated short `scope` job now runs for **every event**. For PR events it checks out the ephemeral GitHub-constructed merge ref at `fetch-depth: 2`, demands a genuine 2-parent merge commit, and obtains the **actual changed file list vs its FIRST (base) parent** using the argument-array command `git diff --name-only -z HEAD^1 HEAD`. No untrusted PR title or path is interpreted in shell. Git checkout/diff errors or non-merge checkout FAIL the `scope` job and required aggregate instead of reporting a false green docs-only check.
+A dedicated short `scope` job now runs for **every event**. For PR events it checks out the ephemeral GitHub-constructed merge ref at `fetch-depth: 2`, demands a genuine 2-parent merge commit, and obtains the **actual changed file list vs its FIRST (base) parent** using the argument-array command `git diff --no-renames --name-only -z HEAD^1 HEAD`. Both the old and new paths of a rename are classified (`--no-renames` prevents rename detection from hiding a removed shared path). No untrusted PR title or path is interpreted in shell. Git checkout/diff errors or non-merge checkout FAIL the `scope` job and required aggregate instead of reporting a false green docs-only check.
 
 `research/ci_scope.py` contains a conservative, explicit, **allowlist** with default FULL behavior:
 
 | PR file scope | Hosted Research shards | INDEX C5 computations |
 |---|---|---|
-| Only prose markdown under `docs/**` or root README | None (scope + required aggregate still run and explicitly report scoped docs) | Skipped with visible message |
-| Only `docs/research/catalog/**` metadata / literature | Catalog + primitives | Skipped |
-| Only `research/hyp105_*.py` and `test_hyp105_*.py` | HYP foundation + HYP exact census | Skipped |
+| Explicit safe prose (`README.md`, `docs/CURRENT_STATE.md`, research README, this policy note) | None; scope and aggregate still run | Skipped with visible message |
+| Only `docs/research/catalog/**` Markdown/JSON | Foundation unit/source gates + catalog | Skipped |
+| Only `research/hyp105_*.py` and `test_hyp105_*.py` | Foundation unit/source gates + both HYP shards | Skipped |
 | Only `research/uct005_*.py` / `test_uct005_*.py` or `dag002_*.py` / `test_dag002_*.py` | LENT / UCT / INDEX foundation | Skipped |
 | Only `research/index001_*.py` / `test_index001_*.py` | LENT / UCT / INDEX foundation | Runs |
 | Known mixed changes | Union of directly relevant shards | Runs only if INDEX relevant |
-| Shared / unknown code, manifests, scripts, YAML changes (including CI policy itself) | ALL FOUR shards | Runs |
+| Unlisted scientific Markdown, shared / unknown code, manifests, scripts, YAML / CI policy | ALL FOUR shards | Runs |
 | Full `push main`, `workflow_dispatch` or any unknown event | ALL FOUR shards (unchanged scientific coverage) | Runs |
 
-Unknown/unsupported input is NEVER treated as safe documentation. The allowlist deliberately errs towards extra work to protect research soundness. In particular shared Python utilities, workflow and routing-contract edits always fall back to FULL. A scoped HYP PR still has its dedicated domain Contract whenever applicable. This implementation does NOT try to prove transitive Python dependency coverage; newly discovered cross-family imports must be added to the full-mode triggers before claiming safe isolation.
+Unknown/unsupported input is NEVER treated as safe documentation. The allowlist deliberately errs towards extra work to protect research soundness. In particular shared Python utilities, workflow and routing-contract edits always fall back to FULL. A scoped HYP PR still has its dedicated domain Contract whenever applicable. This implementation does NOT try to prove transitive Python dependency coverage; newly discovered cross-family imports must be added to the full-mode triggers before claiming safe isolation. Scientific Markdown is NOT intrinsically documentation-only: source-gate tests load files such as `docs/research/UCT-005-G1-MEMORY-CHECKING-AND-VC-PRIMARY-AUDIT.md` and `docs/research/INDEX-001-G2-B4-C2-ADAPTIVE-PARTITIONS.md`. Unlisted docs therefore run FULL. Catalog and HYP changes retain the foundation all-unit gate, because otherwise existing source/pin or newly-added domain tests may not run.
 
 ### Required check compatibility and fail-closed results
 
@@ -42,7 +42,7 @@ The original `research-full-suite` **job name is unchanged**, and there is no wo
 - In docs-only mode **all** four scientific shards must be skipped. The aggregate prints **SCOPED**, never dishonestly calls itself a full scientific pass.
 - No original research command is removed, renamed or made optional for main pushes and manual full dispatch. Tests inspect the YAML job structure and keep the earlier shard invariants.
 
-The original INDEX `exact-pins-and-crash-oracles` job remains present on every PR. For unrelated/docs-only PRs, the **scientific INDEX steps** are skipped and the job prints a visible scope-exclusion reason. Both INDEX steps still run on relevant INDEX edits and all full events. This is intentionally different from workflow `paths` filtering, which could leave existing branch requirements waiting for a check that never appeared.
+The original INDEX `exact-pins-and-crash-oracles` job remains present on every PR. It now fails on missing or invalid `index` output instead of silently skipping both mathematical steps. For unrelated/docs-only PRs, the **scientific INDEX steps** are skipped and the job prints a visible scope-exclusion reason. Both INDEX steps still run on relevant INDEX edits and all full events. This is intentionally different from workflow `paths` filtering, which could leave existing branch requirements waiting for a check that never appeared.
 
 ### Regression tests
 
@@ -57,7 +57,7 @@ New lightweight `research/test_ci_scope.py` includes adversarial path/mixed/unkn
 
 ## Expected savings versus proof contract
 
-Pure docs PR: four heavy Research shards → **zero** heavy Research shards; INDEX's two scientific steps → zero. A narrow HYP PR: four main Research shards → **two** (plus the relevant standalone HYP Contract). A narrow INDEX/UCT PR: four → **one**. Unknown changes still do FULL. `push main` and manually invoked Research continue to run all four unchanged.
+Pure docs PR: four heavy Research shards → **zero** heavy Research shards; INDEX's two scientific steps → zero. A narrow HYP PR: four Research shards → **three** (foundation including all unit/source checks + both HYP shards). A narrow INDEX/UCT PR: four → **one**. Catalog metadata: four → **two** (foundation + catalog). Explicit safe prose: four → **zero**. Unlisted scientific Markdown remains FULL until its doc/source dependencies are statically audited. Unknown changes still do FULL. `push main` and manually invoked Research continue to run all four unchanged.
 
 These are **logical job-count reductions**, not claimed measured runner-minute speedups. Exact latest PR HEAD hosted checks must verify the new semantics and previous Research acceptance before integration. Also note that **already-open stacked PRs #347–#354 do not automatically inherit this main-based infra branch**: they will see the improvement only after their branch history incorporates the final merged implementation.
 

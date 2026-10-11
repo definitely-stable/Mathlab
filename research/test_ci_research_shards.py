@@ -73,9 +73,8 @@ class ResearchWorkflowShardTests(unittest.TestCase):
         raw = WORKFLOW.read_text(encoding="utf-8")
         jobs = parse_jobs(raw)
         all_names = []
-        for name, body in jobs.items():
-            if name == "research-full-suite":
-                continue
+        for name in REQUIRED:
+            body = jobs[name]
             names = re.findall(r"(?m)^      - name: (.+)$", body)
             commands = re.findall(r"(?m)^        run: (.+)$", body)
             self.assertEqual(len(names), len(commands), name)
@@ -93,7 +92,7 @@ class ResearchWorkflowShardTests(unittest.TestCase):
             self.assertIn("      - " + required + "\n", full)
             self.assertIn("needs." + required + ".result", full)
         self.assertIn('"$result" != "success"', full)
-        self.assertIn("      - scope\\n", full)
+        self.assertIn("      - scope\n", full)
         self.assertIn("exit 1", full)
 
     def test_heavy_census_is_not_in_ten_minute_foundation(self):

@@ -25,6 +25,14 @@ jobs:
       - name: Detect relevant INDEX changes (retain job check on all PRs)
         id: scope
         run: python research/ci_scope.py --event "${{ github.event_name }}" --output "$GITHUB_OUTPUT"
+      - name: Fail closed on invalid INDEX routing
+        env:
+          INDEX_SCOPE: ${{ steps.scope.outputs.index }}
+        run: |
+          case "$INDEX_SCOPE" in
+            true|false) ;;
+            *) echo "Invalid INDEX routing: $INDEX_SCOPE" >&2; exit 1 ;;
+          esac
       - name: Report scoped INDEX exclusion
         if: ${{ steps.scope.outputs.index == 'false' }}
         run: echo "INDEX scoped out by ci_scope.py; no page/CRC/pin oracle executed"
