@@ -1,0 +1,32 @@
+name: hyp105-c24b8f-signed-star-residual-gate
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b8f_signed_star_gate.py"
+      - "research/test_hyp105_g5e2b3e1c24b8f_signed_star_gate.py"
+      - "research/hyp105_g5e2b3e1c24b8f_w32_signed_star_witness.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B8F-SIGNED-STAR-RESIDUAL-GATE.md"
+      - ".github/workflows/hyp105-c24b8f-signed-star-residual-gate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-star-dual-and-original-w32:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: B8-F independent exhaustive K4 bijections and K6 exact dual falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b8f_signed_star_gate.py' -v
+      - name: B8-F actual original W32 signed-star bound and nonlinear residual gate
+        run: python research/hyp105_g5e2b3e1c24b8f_w32_signed_star_witness.py
