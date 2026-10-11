@@ -1,5 +1,13 @@
 # Research catalog — provenance-first index
 
+## IMPORT-015 — SODA/ECCC 2026 DAG embeddings, LZ77 and proof complexity
+
+[Scientific audit](../RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md) · [typed edges](../IMPORT-015-ALGORITHM-RELATIONS.json) · [issue #343](https://github.com/definitely-stable/Mathlab/issues/343). Stacked on IMPORT-014: five new LIT-398..402, **396→401**, 22 tracks unchanged. Existing LIT-258 excluded. Publisher abstracts and ECCC metadata checked; no independently verified proofs.
+
+## IMPORT-014 — ICML 2026 graph learning, dynamic retention and dual-graph research
+
+[Five original PMLR 306 papers, theorem-model audit and future falsification gates](../RESEARCH-LITERATURE-014-GRAPH-AI-2026.md) · [15 source-to-source typed links + 5 model bridges](../IMPORT-014-GRAPH-AI-RELATIONS.json) · [issue #332](https://github.com/definitely-stable/Mathlab/issues/332). Canonical **391→396** (LIT-393..397), 22 tracks retained. Duplicate MRAgent already **LIT-230**, not imported again; proofs and empirical benchmarks are not independently verified.
+
 ## IMPORT-013 — graph algorithm learning and Graph Foundation Models (ICML 2026)
 
 [Five PMLR 306 sources and nontransfer model audit](../RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md) · [typed research relationships](../IMPORT-013-GRAPH-LEARNING-RELATIONS.json) · [issue #318](https://github.com/definitely-stable/Mathlab/issues/318). Canonical **386→391** references LIT-388..392, **21→22** tracks. Original theorem proofs and performance not independently reproduced.

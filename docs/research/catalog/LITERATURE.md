@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` by `research/literature.py`. Редактировать следует только JSON.
 
-Срез: **2026-10-11** · **391** проверенных ссылок на первичные публикации/авторские рукописи.
+Срез: **2026-10-11** · **401** проверенных ссылок на первичные публикации/авторские рукописи.
 
 **Критически важно:** проверенная библиография или авторский abstract не равны независимо проверенному доказательству, статистическому результату либо научной новизне. Точные условия — в каждой записи.
 
@@ -12,23 +12,23 @@
 | --- | ---: |
 | [Кодирование, ограниченная поддержка, экстремальные границы](#sparse-coding) | 24 |
 | [Динамические структуры, каноничность и локальность правок](#dynamic-data-structures) | 38 |
-| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 24 |
+| [Инкрементальные вычисления и сертификаты](#incremental-computation) | 25 |
 | [DELSK: поиск delta-базы, сжатие, признаки](#delta-base-selection) | 15 |
 | [DeltaMeter: потоковые оценки и согласование множеств](#streaming-reconciliation) | 14 |
-| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 19 |
+| [Сжатые структуры, индексация строк и нижние границы](#compressed-indexing) | 20 |
 | [Онлайн-оптимизация, конкурентные оценки и барьеры](#online-optimization) | 12 |
 | [Кэширование, online paging, консистентность и память](#caching) | 7 |
-| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 62 |
+| [Динамические графы, гиперграфы и sparsification](#graph-algorithms) | 63 |
 | [DNA, пангеномы, de Bruijn и sequence graph индексы](#genomic-graphs) | 19 |
 | [Когнитивные карты, гиппокамп, engram и биологическая память](#biological-memory) | 10 |
 | [Молекулярная запись в DNA, кодирование и графовая реконструкция](#molecular-dna-storage) | 5 |
-| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 35 |
+| [GraphRAG, knowledge-graph retrieval, системное сравнение с RAG](#graph-rag) | 36 |
 | [Графовая память агентов, темпоральность и эволюция знаний](#agent-memory) | 30 |
-| [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 2 |
-| [Теория обучения графовым алгоритмам, перенос GFM и устойчивость представлений](#graph-learning-theory) | 4 |
-| [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 16 |
+| [Графовые зависимости шагов рассуждения, DAG-планирование](#graph-reasoning) | 3 |
+| [Теория обучения графовым алгоритмам, перенос GFM и устойчивость представлений](#graph-learning-theory) | 7 |
+| [Алгебраические алгоритмы, subset sum и разреженные матрицы](#algebraic-algorithms) | 17 |
 | [Машинные доказательства, сертификаты и верификация](#proof-certification) | 30 |
-| [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 12 |
+| [Нижние границы доказательств, IPS/PIT и сертификаты](#proof-complexity) | 13 |
 | [Алгебраические схемы, математика и нижние границы](#algebraic-complexity) | 4 |
 | [Edit distance, строки и тонкая сложность](#fine-grained-algorithms) | 5 |
 | [Рандомизированная выборка, подсчёт и memory-sample](#randomized-sampling) | 4 |
@@ -1184,6 +1184,19 @@ SIGMOD 2018: инкрементальное обслуживание property-gr
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md](https://github.com/definitely-stable/Mathlab/blob/1503899bfba204ed5e0bfc6d245440b20c92db3d/docs/research/RESEARCH-LITERATURE-009-DAG-REACHABILITY-PROVENANCE-2025-2026.md) (model_overlap)
 
+### LIT-399
+**[From Incremental Transitive Cover to Strongly Polynomial Maximum Flow](https://doi.org/10.1137/1.9781611978971.7)** (2026)
+
+SODA 2026: strongly polynomial max-flow для структурированных сетей через incremental transitive cover — ограниченное надмножество транзитивного замыкания при добавлении дуг — и редукцию к bounded-capacity потокам.
+
+**Ограничение:** Надмножество транзитивного замыкания не является точным oracle достижимости, а алгоритмические границы на max-flow не измеряют SSD writes.
+
+**Идентичность:** `doi:10.1137/1.9781611978971.7` · **Авторы:** Daniel Dadush, James B. Orlin, Aaron Sidford, László A. Végh · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md](https://github.com/definitely-stable/Mathlab/blob/808a07737c891d6d602ce999ab0b51f0042c4686/docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md) (model_overlap)
+
 
 ## delta-base-selection
 *DELSK: поиск delta-базы, сжатие, признаки*
@@ -1823,6 +1836,19 @@ Instance-sensitive сжатие preferential-attachment графов с подд
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-400
+**[The Complexity of Dynamic LZ77 is \(\tilde \Theta(n^{2/3})\)](https://doi.org/10.1137/1.9781611978971.67)** (2026)
+
+SODA 2026: точная поддержка LZ77-факторизации при редактировании строки за tilde-O(n^(2/3)) на обновление и tilde-O(n) инициализацию; matching SETH-условная нижняя граница даже для подстановок и числа факторов.
+
+**Ограничение:** SETH-условная граница касается LZ77, а не CDC, CAS, Zucchini patch, физического объёма записи или произвольного преобразования бинарников.
+
+**Идентичность:** `doi:10.1137/1.9781611978971.67` · **Авторы:** Itai Boneh, Shay Golan, Matan Kraus · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md](https://github.com/definitely-stable/Mathlab/blob/808a07737c891d6d602ce999ab0b51f0042c4686/docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md) (model_overlap)
 
 
 ## online-optimization
@@ -2941,6 +2967,19 @@ STOC 2026 динамическая параметризованная meta-kerne
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
+### LIT-398
+**[Stochastic Embedding of Digraphs into DAGs](https://doi.org/10.1137/1.9781611978971.5)** (2026)
+
+SODA 2026: вложение взвешенного ориентированного графа в распределение пар DAG с ожидаемым искажением tilde-O(log n), разреженностью tilde-O(m) и построением за tilde-O(m).
+
+**Ограничение:** Пара случайных DAG с гарантией искажения не является одним точным reachability index или гарантией онлайн-обновлений и физической стоимости записи.
+
+**Идентичность:** `doi:10.1137/1.9781611978971.5` · **Авторы:** Arnold Filtser · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md](https://github.com/definitely-stable/Mathlab/blob/808a07737c891d6d602ce999ab0b51f0042c4686/docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md) (model_overlap)
+
 
 ## genomic-graphs
 *DNA, пангеномы, de Bruijn и sequence graph индексы*
@@ -3854,6 +3893,19 @@ EDM 2026: 477 QA примеров из одного учебника; автор
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
 
+### LIT-397
+**[A Tale of Two Graphs: Separating Knowledge Exploration from Outline Structure for Open-Ended Deep Research](https://proceedings.mlr.press/v306/shi26n.html)** (2026)
+
+ICML 2026: DualGraph разделяет растущий Knowledge Graph доказательных знаний и Outline Graph плана исследовательского отчёта; топологические разрывы используются для targeted research queries, авторы оценивают методику на четырёх бенчмарках открытого исследования.
+
+**Ограничение:** Графовые пробелы могут быть артефактами retrieval или LLM; высокий benchmark score не доказывает полноту prior art, логическое следствие, достоверность цитат, новизну теорем или воспроизводимое преимущество в Mathlab.
+
+**Идентичность:** `publisher:pmlr-v306-shi26n` · **Авторы:** Zhuofan Shi, Ming Ma, Zekun Yao, Fangkai Yang, Jue Zhang, Dongge Han, Victor Rühle, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md](https://github.com/definitely-stable/Mathlab/blob/38d5dc52464d2c54fe00de22f2a3ea1025072f7b/docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md) (model_overlap)
+
 
 ## agent-memory
 *Графовая память агентов, темпоральность и эволюция знаний*
@@ -4278,6 +4330,19 @@ ICML 2026: wGraph — единое представление агентных w
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md](https://github.com/definitely-stable/Mathlab/blob/ceb08432c1b2c611bde225a9279eecf5bc165a6e/docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md) (model_overlap)
 
+### LIT-396
+**[Navigating Massive Visual Context in Retrieval-Augmented Generation via Multimodal Memory Graph](https://proceedings.mlr.press/v306/wang26ip.html)** (2026)
+
+ICML 2026: VimRAG организует шаги мультимодального LLM-рассуждения и retrieved evidence в динамический DAG; graph-modulated encoding адаптирует детальность визуальных токенов по позиции в графе, graph-guided policy optimization отсеивает избыточные узлы.
+
+**Ограничение:** Оптимизация токенов или высокое качество RAG-бенчмарка не является сохранением всех исходных свидетельств, exact proof DAG, causal freshness или bounded-cost dynamic reachability; результаты воспроизведения качества и расхода памяти не подтверждены.
+
+**Идентичность:** `publisher:pmlr-v306-wang26ip` · **Авторы:** Qiuchen Wang, Shihang Wang, Yu Zeng, Qiang Zhang, Fanrui Zhang, Zhuoning Guo, Bosi Zhang, Wenxuan Huang, Lin Chen, Zehui Chen, Pengjun Xie, Ruixue Ding · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md](https://github.com/definitely-stable/Mathlab/blob/38d5dc52464d2c54fe00de22f2a3ea1025072f7b/docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md) (model_overlap)
+
 
 ## graph-learning-theory
 *Теория обучения графовым алгоритмам, перенос GFM и устойчивость представлений*
@@ -4333,6 +4398,45 @@ ICML 2026: доказана разрывность GNN-представлени�
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006), [OM-133](INDEX.md#om-133)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md](https://github.com/definitely-stable/Mathlab/blob/ceb08432c1b2c611bde225a9279eecf5bc165a6e/docs/research/RESEARCH-LITERATURE-013-ICML-GRAPH-LEARNING-2026.md) (model_overlap)
+
+### LIT-393
+**[Transformers Provably Learn Algorithmic Solutions for Graph Connectivity, But Only with the Right Data](https://proceedings.mlr.press/v306/ye26f.html)** (2026)
+
+ICML 2026: для Disentangled Transformer глубины L исследуется алгоритмическое вычисление графовой связности при диаметре не более 3^L, а также зависимость усвоения алгоритма от распределения обучающих графов в пределах capacity; проверка на стандартных Transformers носит экспериментальный характер.
+
+**Ограничение:** Существование реализуемой модели и аргументы о динамике обучения при ограничении диаметра не дают универсальной обучаемости, arbitrary directed reachability, immutable DAG oracle, physical write bounds или криптографического доказательства; графовая связность и достижимость различаются.
+
+**Идентичность:** `publisher:pmlr-v306-ye26f` · **Авторы:** Qilin Ye, Deqing Fu, Robin Jia, Vatsal Sharan · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md](https://github.com/definitely-stable/Mathlab/blob/38d5dc52464d2c54fe00de22f2a3ea1025072f7b/docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md) (model_overlap)
+
+### LIT-394
+**[An Approximation Algorithm for Graph Label Selection](https://proceedings.mlr.press/v306/john26a.html)** (2026)
+
+ICML 2026: задача выбрать ровно k размечаемых вершин для предсказания неизвестных vertex labels остальных вершин; авторы выводят первую tilde-O(log^{1.5} n)-аппроксимацию при стандартном бюджетном ограничении без resource augmentation.
+
+**Ограничение:** Labels — наблюдаемые ответы supervised-обучения для вершин, а не точные reachability labels, persistent graph metadata или cell-probe oracle; аппроксимация целевой predictive loss не гарантирует правильность всех пар reachability либо оплаченные page writes.
+
+**Идентичность:** `publisher:pmlr-v306-john26a` · **Авторы:** Josia John, Simon Meierhans, Maximilian Probst Gutenberg · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006), [OM-133](INDEX.md#om-133)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md](https://github.com/definitely-stable/Mathlab/blob/38d5dc52464d2c54fe00de22f2a3ea1025072f7b/docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md) (model_overlap)
+
+### LIT-395
+**[Adaptive Memory Retention in Dynamic Graphs](https://proceedings.mlr.press/v306/de-castelli26a.html)** (2026)
+
+ICML 2026: LAMP сочетает импульсные neural ODE, антисимметричную консервативную динамику и адаптивную диссипацию для стабильных представлений snapshot-based динамических графов; представлены анализ устойчивости, выразительности и авторские эмпирические результаты.
+
+**Ограничение:** Стабильность learned graph embeddings не является lossless retention истории, bitemporal provenance, replay exact state, authenticated freshness, write amplification или независимым измерением скорости; архитектура ограничена snapshot-oriented model.
+
+**Идентичность:** `publisher:pmlr-v306-de-castelli26a` · **Авторы:** Fabrizio De Castelli, Alessio Gravina, Moshe Eliasof, Carola-Bibiane Schönlieb, Davide Bacciu · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md](https://github.com/definitely-stable/Mathlab/blob/38d5dc52464d2c54fe00de22f2a3ea1025072f7b/docs/research/RESEARCH-LITERATURE-014-GRAPH-AI-2026.md) (model_overlap)
 
 
 ## algebraic-algorithms
@@ -4549,6 +4653,19 @@ q-аналог sunflower-free подпространств с конструкц
 **Связь с исследованиями →** [ML-001](INDEX.md#ml-001), [ML-002](INDEX.md#ml-002)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md](https://github.com/definitely-stable/Mathlab/blob/2fbcaa5a1fc2a1754f8d2753b8867e1701fb385d/docs/research/RESEARCH-LITERATURE-012-CROSS-DISCIPLINARY-ANCESTORS-DESCENDANTS.md) (model_overlap)
+
+### LIT-401
+**[Determinization of Min-Plus Weighted Automata is Decidable](https://doi.org/10.1137/1.9781611978971.11)** (2026)
+
+SODA 2026: разрешимость вопроса о детерминизации min-plus (тропических) взвешенных автоматов с использованием структуры запусков недетерминированных автоматов.
+
+**Ограничение:** Разрешимость не означает эффективно минимальную конструкцию, универсальную детерминизацию всех взвешенных систем или теорему о динамических индексах.
+
+**Идентичность:** `doi:10.1137/1.9781611978971.11` · **Авторы:** Shaull Almagor, Guy Arbel, Sarai Sheinvald · **Проверка:** `publisher_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [OM-129](INDEX.md#om-129)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md](https://github.com/definitely-stable/Mathlab/blob/808a07737c891d6d602ce999ab0b51f0042c4686/docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md) (model_overlap)
 
 
 ## proof-certification
@@ -5111,6 +5228,19 @@ MFCS 2022 устанавливает нижние границы для коди
 **Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-006](INDEX.md#ml-006)
 
 **Происхождение цитаты / пересечения →** [MATHLAB:docs/research/UCT-004-G2-D-PPZ-PRIMARY-SOURCE-AUDIT.md](https://github.com/definitely-stable/Mathlab/blob/9beb9721ba7213a9a2701fc92a41d539bcc75b79/docs/research/UCT-004-G2-D-PPZ-PRIMARY-SOURCE-AUDIT.md) (model_overlap)
+
+### LIT-402
+**[Monotone circuit lower bounds from spread matchings](https://eccc.weizmann.ac.il/report/2026/129/)** (2026)
+
+ECCC TR26-129, ревизия #5 сентября 2026: распознавание совершенного паросочетания в двудольных графах на n вершинах требует exp(Omega(sqrt n)) вентилей в монотонной схемной модели; метод spread matchings.
+
+**Ограничение:** Нижняя граница относится только к монотонным схемам; не распространяется на произвольные Boolean circuits, GF(q)-потоки или физические динамические структуры. ECCC — авторский препринт.
+
+**Идентичность:** `publisher:eccc-tr26-129` · **Авторы:** Anup Rao · **Проверка:** `primary_abstract_checked` · **Доказательство:** НЕ перепроверено · **Бенчмарк:** НЕ воспроизведён.
+
+**Связь с исследованиями →** [ML-004](INDEX.md#ml-004), [ML-005](INDEX.md#ml-005)
+
+**Происхождение цитаты / пересечения →** [MATHLAB:docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md](https://github.com/definitely-stable/Mathlab/blob/808a07737c891d6d602ce999ab0b51f0042c4686/docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md) (model_overlap)
 
 
 ## algebraic-complexity

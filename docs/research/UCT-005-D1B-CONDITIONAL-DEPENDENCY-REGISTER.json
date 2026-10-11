@@ -97,6 +97,30 @@
       "anchor": "**2026-10-10 scientific source correction:**",
       "kind": "SCOPED_SOURCE_AUDIT",
       "expected_line": "**2026-10-10 scientific source correction:** [External PDF audit / IMPORT-011](RESEARCH-LITERATURE-011-EXTERNAL-PDF-AUDIT-2026.md). Alman–Vassilevska Williams (arXiv:2610.06783) refute the standard 3SUM/APSP conjectures in their stated computational models: remove only dependency claims that actually rely on those conditional assumptions. This does not negate unconditional dynamic cell-probe lower bounds. Cauchyproofs and memory checking have different trust/security and cost models. Do not claim generic Ω(log n) authenticated penalty or a new joint UCT theorem without a same-task comparison. **ROOT_OPEN / NOVELTY_NOT_ESTABLISHED** persists."
+    },
+    {
+      "path": "docs/research/IMPORT-015-ALGORITHM-RELATIONS.json",
+      "anchor": "\"scope_note_en\": \"SETH conditional LZ77 maintenance",
+      "kind": "SETH_INDEPENDENT_CONDITIONAL_PRIOR_ART",
+      "expected_line": "\"scope_note_en\": \"SETH conditional LZ77 maintenance is not a static compressed query lower bound\","
+    },
+    {
+      "path": "docs/research/IMPORT-015-ALGORITHM-RELATIONS.json",
+      "anchor": "\"boundary\": \"SETH conditional LZ77 factor update",
+      "kind": "SETH_INDEPENDENT_CONDITIONAL_PRIOR_ART",
+      "expected_line": "\"boundary\": \"SETH conditional LZ77 factor update cost differs from compressed static index queries.\""
+    },
+    {
+      "path": "docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md",
+      "anchor": "3. **LIT-400 —",
+      "kind": "SETH_INDEPENDENT_CONDITIONAL_PRIOR_ART",
+      "expected_line": "3. **LIT-400 — [The Complexity of Dynamic LZ77 is `tilde-Theta(n^(2/3))`](https://epubs.siam.org/doi/10.1137/1.9781611978971.67)**, Itai Boneh, Shay Golan, Matan Kraus, *SODA 2026*, pp. 1859–1872, DOI `10.1137/1.9781611978971.67`. Initial tilde-O(n) preprocessing; maintenance under substitutions, insertions, deletions in **tilde-O(n^(2/3))** time. Matching **SETH-conditional** lower bound against O(n^(2/3)-epsilon), even substitutions when maintaining only the number of factors. **Not** an unconditional bound, not CDC/FastCDC, not general patch-size lower bound and not proof about CAS rewrite volume."
+    },
+    {
+      "path": "docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md",
+      "anchor": "- **UCT-005 / INDEX-001:**",
+      "kind": "SETH_INDEPENDENT_CONDITIONAL_PRIOR_ART",
+      "expected_line": "- **UCT-005 / INDEX-001:** incremental transitive-cover maintenance and SETH-conditional LZ77 recomputation complexity require separate accounting for RAM, SSD reads, writes, full history replay, and proof size. *Kill:* claiming a conditional time bound as unconditional physical write lower bound."
     }
   ],
   "catalog_occurrences": [
@@ -134,6 +158,19 @@
         "title": "Truly Subquadratic 3SUM and Truly Subcubic APSP via Triangles in Sparse Lopsided Graphs",
         "summary_ru": "Препринт 5 октября 2026: авторы получают детерминированные O(n^1.9992) для 3SUM на целых числах полиномиального размера и O(n^2.9995) для APSP на ориентированных графах с целочисленными весами полиномиального размера; заявлено опровержение стандартных 3SUM/APSP conjectures."
       }
+    },
+    {
+      "lit_id": "LIT-400",
+      "identity": "doi:10.1137/1.9781611978971.67",
+      "fields": [
+        "summary_ru",
+        "limits_ru"
+      ],
+      "kind": "SETH_INDEPENDENT_CONDITIONAL_PRIOR_ART",
+      "expected_values": {
+        "summary_ru": "SODA 2026: точная поддержка LZ77-факторизации при редактировании строки за tilde-O(n^(2/3)) на обновление и tilde-O(n) инициализацию; matching SETH-условная нижняя граница даже для подстановок и числа факторов.",
+        "limits_ru": "SETH-условная граница касается LZ77, а не CDC, CAS, Zucchini patch, физического объёма записи или произвольного преобразования бинарников."
+      }
     }
   ],
   "decision": "NO_EXPLICIT_3SUM_APSP_DEPENDENT_MATHLAB_THEOREM_LOCATED",
@@ -144,5 +181,21 @@
     "docs/research/catalog/literature.json",
     "docs/research/UCT-005-D1B-CONDITIONAL-DEPENDENCY-AUDIT.md",
     "docs/research/UCT-005-D1B-CONDITIONAL-DEPENDENCY-REGISTER.json"
-  ]
+  ],
+  "import015_conditional_source_review": {
+    "source_id": "LIT-400",
+    "primary_url": "https://doi.org/10.1137/1.9781611978971.67",
+    "citation": "Boneh, Golan, Kraus, The Complexity of Dynamic LZ77 is tilde Theta(n^(2/3)), SODA 2026, DOI 10.1137/1.9781611978971.67",
+    "theorem_model": "Dynamic exact LZ77 factorization and count of factors for string substitutions/insertions/deletions, with lower-bound restriction even to substitutions.",
+    "conditional_assumption": "Strong Exponential Time Hypothesis (SETH). The hardness claim is conditional; it is not an unconditional data-structure lower bound.",
+    "relation_to_prior_2026_breakthrough": "Independent of standard 3SUM and APSP conjectures refuted by LIT-357; no reduction from these conjectures is asserted.",
+    "prohibited_transfers": [
+      "No universal CDC/CAS or delta-patch size bound",
+      "No physical write-volume/SSD I/O lower bound",
+      "No UCT-005 joint information+I/O theorem",
+      "No unconditional LZ77 dynamic lower bound"
+    ],
+    "status": "PUBLISHER_ABSTRACT_CHECKED_PROOF_NOT_INDEPENDENTLY_VERIFIED",
+    "disposition": "SCOPED_PRIOR_ART_NO_MATHLAB_THEOREM_TRANSFER"
+  }
 }
