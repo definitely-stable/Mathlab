@@ -183,6 +183,17 @@ class MixedGirthTests(unittest.TestCase):
                                     result["B_mixed"])
             self.assertLessEqual(result["universal_mixed_codegree_cap"],
                                  result["C4_free_cap"])
+            self.assertEqual(result["mixed_M2"]+result["aligned_M2"],
+                             2*result["C4_from_exact_M2"])
+            self.assertGreaterEqual(result["B_mixed_upper_via_second_moment"],
+                                    result["B_mixed"])
+            self.assertGreaterEqual(result["B_mixed_upper_via_C4"],
+                                    result["B_mixed_upper_via_second_moment"])
+            self.assertEqual(result["B_mixed_upper_best_certified"],
+                             min(result["B_mixed_upper_via_first_moment"],
+                                 result["B_mixed_upper_via_second_moment"],
+                                 result["B_mixed_upper_via_C4"]))
+
             self.assertGreaterEqual(result["book_witnesses_checked_against_original_GQ"],1)
             books=book_moments(kikuchi_graph(model),model["a"])
             self.assertEqual(books["book_mixed"],mixed_book)
