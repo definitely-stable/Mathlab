@@ -70,7 +70,11 @@ Unlike mere two-witness crossing, this is a provable full 105-map envelope: ever
 
 A new seven-component signed exchange oracle tracks all 105 complete right swaps of the baseline, computing Delta_t, Delta S, Delta Q7, and ORIGINAL right-C changes, and checks exact class/floor conservation. Several independent full original 62,370 RIGHT-FIRST recounts check selected decisive swaps against the sparse affected-fiber source, not just self-reference.
 
-An additional SECOND one-swap neighborhood around the true complete 129-score global right map (obtained by baseline swap (6,14)) tests whether it is strictly one-swap stationary or has a further improving full S move. If it has a lower full-seven neighbor, apply ONE additional legal global right transposition and independently recount from the original right physical K6 two-factor templates; otherwise label the candidate only one-swap-stationary. No 15! minimum, unbounded local optimization, asymptotic inference or ASET claim. The executable does not assume the result of this second neighborhood ahead of its actual exact check.
+The dedicated exact PR-HEAD GitHub-hosted Contract verified a SECOND one-swap neighborhood around the true complete **129-score** right map (obtained by original right-line swap (6,14) of the C24-B2 baseline). This 129 map is **NOT** a transposition-local minimum: exactly **17 of its 105 globally coherent full-right transpositions** improve the seven-family score. The best second swap is of ORIGINAL right GQ lines **(12,13)**, reducing **S_seven from 129 to 111**. The actual complete global final right physical K6 edge permutation is
+
+    (12,10,5,2,8,14,11,7,0,6,3,13,4,9,1).
+
+This is a TWO-SWAP witness from the original C24-B1 complete right mapping with SAME global original left f. The full RIGHT-FIRST independent original 62,370-sixset classifier confirms the second candidate's seven vector, S=111 and necessary GF5 Q7; new executable regression gates freeze S=111, 17 improving neighbors and second swap (12,13). Nothing establishes the **third** neighborhood's minimum, global min over 15!, any all-f or all-h bound.
 
 - research/hyp105_g5e2b3e1c24b3_joint_swap_gradient.py
 - research/test_hyp105_g5e2b3e1c24b3_joint_swap_gradient.py
