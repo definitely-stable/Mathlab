@@ -69,6 +69,18 @@ class ResearchScopeTests(unittest.TestCase):
                 self.assertEqual(got["mode"], "full")
                 self.assertTrue(all(got[n] for n in (*SHARDS, "index")))
 
+    def test_index_job_keeps_status_and_gates_both_scientific_steps(self):
+        from pathlib import Path
+        w = (Path(__file__).resolve().parents[1] /
+             ".github/workflows/index001-c5-page-epochs.yml").read_text(
+                 encoding="utf-8")
+        self.assertIn("pull_request:", w)
+        self.assertIn("workflow_dispatch:", w)
+        self.assertIn("fetch-depth: 2", w)
+        self.assertIn("python research/ci_scope.py", w)
+        self.assertEqual(w.count("if: ${{ steps.scope.outputs.index == 'true' }}"), 3)
+        self.assertIn("Report scoped INDEX exclusion", w)
+
     @patch("ci_scope.subprocess.check_output")
     def test_pr_merge_parent_diff_is_nul_delimited_and_no_shell(self, call):
         call.side_effect = [b"abc base head\n",
