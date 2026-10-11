@@ -15,6 +15,8 @@ on:
       - "research/test_literature.py"
       - "research/test_import014_graph_ai.py"
       - "research/test_import015_algorithms.py"
+      - "docs/research/UCT-005-D1B-CONDITIONAL-DEPENDENCY-REGISTER.json"
+      - "research/test_uct005_d1b_conditional_audit.py"
       - ".github/workflows/import015-algorithms.yml"
 
 permissions:
@@ -41,3 +43,5 @@ jobs:
         run: python -m unittest discover -s research -p "test_import014_graph_ai.py"
       - name: IMPORT-015 SODA and ECCC sources
         run: python -m unittest discover -s research -p "test_import015_algorithms.py"
+      - name: UCT-005 reviewed conditional hardness source inventory
+        run: python -m unittest discover -s research -p "test_uct005_d1b_conditional_audit.py"
