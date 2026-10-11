@@ -22,8 +22,30 @@ class ConditionalHardnessAuditTests(unittest.TestCase):
         self.assertEqual(self.manifest["decision"],
                          "NO_EXPLICIT_3SUM_APSP_DEPENDENT_MATHLAB_THEOREM_LOCATED")
         self.assertIn("implicit", self.manifest["completeness"].lower())
-        self.assertEqual(len(self.manifest["documented_occurrences"]), 11)
-        self.assertEqual(len(self.manifest["catalog_occurrences"]), 3)
+        self.assertEqual(len(self.manifest["documented_occurrences"]), 15)
+        self.assertEqual(len(self.manifest["catalog_occurrences"]), 4)
+
+    def test_import015_dynamic_lz77_conditional_scope_and_exact_source(self):
+        reviewed = self.manifest["import015_conditional_source_review"]
+        self.assertEqual(reviewed["source_id"], "LIT-400")
+        self.assertEqual(reviewed["primary_url"],
+                         "https://doi.org/10.1137/1.9781611978971.67")
+        self.assertIn("Strong Exponential Time Hypothesis", reviewed["conditional_assumption"])
+        self.assertIn("Independent of standard 3SUM and APSP",
+                      reviewed["relation_to_prior_2026_breakthrough"])
+        self.assertEqual(reviewed["disposition"],
+                         "SCOPED_PRIOR_ART_NO_MATHLAB_THEOREM_TRANSFER")
+        self.assertEqual(len(reviewed["prohibited_transfers"]), 4)
+        rec = next(x for x in self.manifest["catalog_occurrences"]
+                   if x["lit_id"] == "LIT-400")
+        self.assertEqual(rec["identity"], "doi:10.1137/1.9781611978971.67")
+        self.assertEqual(rec["kind"], "SETH_INDEPENDENT_CONDITIONAL_PRIOR_ART")
+        self.assertEqual(set(rec["fields"]), {"summary_ru", "limits_ru"})
+        doc = [x for x in self.manifest["documented_occurrences"]
+               if "IMPORT-015" in x["path"] or "LITERATURE-015" in x["path"]]
+        self.assertEqual(len(doc), 4)
+        self.assertTrue(all(x["kind"] == "SETH_INDEPENDENT_CONDITIONAL_PRIOR_ART"
+                            for x in doc))
 
     def test_new_unreviewed_document_hardness_claim_fails_closed(self):
         manifest = copy.deepcopy(self.manifest)
