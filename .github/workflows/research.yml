@@ -473,6 +473,12 @@ jobs:
       - name: HYP-105 C24-B4 all-h swap-flow cut identity and true W32 third-neighborhood report
         run: python research/hyp105_g5e2b3e1c24b4_swap_flow_cuts.py
 
+      - name: HYP-105 C24-B5 physical 130-template exact pullback and double-swap algebra tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b5_two_swap_escape.py'
+
+      - name: HYP-105 C24-B5 complete original W32 5005 distance-two global-right states report
+        run: python research/hyp105_g5e2b3e1c24b5_two_swap_escape.py
+
   research-full-suite:
     # A single explicit verdict: foundation-only SUCCESS is not full CI.
     if: ${{ always() }}
