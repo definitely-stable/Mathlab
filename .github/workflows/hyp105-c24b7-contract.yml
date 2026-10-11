@@ -1,0 +1,29 @@
+name: hyp105-c24b7-contract
+
+on:
+  push:
+    branches:
+      - research/hyp105-b32e1c24b7-cross-side-orbit
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b7_cross_side_orbit.py"
+      - "research/test_hyp105_g5e2b3e1c24b7_cross_side_orbit.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B7-CROSS-SIDE-ORBIT.md"
+      - ".github/workflows/hyp105-c24b7-contract.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  real-W32-complete-typed-left-right-transposition-rectangle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: C24-B7 independent all-h cross support and genuine recompiled original-left W32 unit tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b7_cross_side_orbit.py' -v
+      - name: C24-B7 exhaustive original W32 11236 typed-left-right globally complete map pairs report
+        run: python research/hyp105_g5e2b3e1c24b7_cross_side_orbit.py
