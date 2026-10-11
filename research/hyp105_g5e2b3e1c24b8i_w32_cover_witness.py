@@ -89,7 +89,7 @@ def report(output_path=None):
         raise AssertionError("original W32 full pinned cylinder proof incomplete")
     minimum=exact_replay["exact_cylinder_minimum"]
     threshold_tree=build_cover(
-        15,15,pins,order,fast_score,threshold=1,
+        15,15,pins,order,fast_score,threshold=29,
         floor=original_coupled_floor,floor_max_depth=0,
         max_nodes=400,max_leaves=130)
     threshold_replay=replay_cover(
@@ -97,7 +97,7 @@ def report(output_path=None):
         floor=original_coupled_floor,max_nodes=400,max_leaves=130)
     if threshold_replay["certified_cylinder_score_lower"]>minimum:
         raise AssertionError("joint threshold proof exceeded independently exact minimum")
-    if threshold_replay["positive_threshold_proven"]!=(minimum>=1):
+    if threshold_replay["positive_threshold_proven"]!=(minimum>=29):
         raise AssertionError("threshold proof does not match exact cylinder minimum")
     base=independent_original_score(dict(enumerate(g68)))
     if base!=68 or right_first_independent(f,g68)["S_seven"]!=68:
@@ -148,12 +148,12 @@ def report(output_path=None):
         "exact_cylinder_minimum_S":minimum,
         "exact_cylinder_minimizer":list(chosen),
         "score_at_original_g68":68,
-        "source_bucket_joint_floor_at_root":original_coupled_floor(pins),
+        "source_bucket_joint_floor_at_root":floor_checks[0],\n        "independent_builder_replayer_root_floor_recomputations":len(floor_checks),
         "proof_tree_exact_nodes":exact_replay["node_count"],
         "proof_tree_exact_leaves":exact_replay["whole_global_injection_leaf_count"],
         "threshold_tree_nodes":threshold_replay["node_count"],
         "threshold_tree_pruned_subtrees":threshold_replay["pruned_subtree_count"],
-        "threshold_one_positive_floor_certified":threshold_replay["positive_threshold_proven"],
+        "threshold_29_positive_floor_certified":threshold_replay["positive_threshold_proven"],
         "verified_global_branch_coverage":True,
         "independent_full_left_sixset_replay_each_leaf":True,
         "independent_right_first_original_minimizer":True,
