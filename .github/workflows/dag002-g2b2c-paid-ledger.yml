@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - "research/**"
     paths:
       - "research/dag002_g2b2c_paid_ledger.py"
       - "research/test_dag002_g2b2c_paid_ledger.py"
@@ -17,8 +16,14 @@ on:
       - "docs/research/DAG-002-G2-B2-C0-PAID-LEDGER.md"
       - ".github/workflows/dag002-g2b2c-paid-ledger.yml"
 
+  workflow_dispatch:
+
 permissions:
   contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   exact-common-page-ledger:
