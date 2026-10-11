@@ -1,0 +1,38 @@
+name: dag002-g2a-source-gate
+
+on:
+  pull_request:
+    paths:
+      - "docs/research/DAG-002-G2-*"
+      - "research/dag002_g2_model_gate.py"
+      - "research/test_dag002_g2_model_gate.py"
+      - ".github/workflows/dag002-g2a-source-gate.yml"
+  push:
+    branches:
+      - main
+      - "research/**"
+    paths:
+      - "docs/research/DAG-002-G2-*"
+      - "research/dag002_g2_model_gate.py"
+      - "research/test_dag002_g2_model_gate.py"
+      - ".github/workflows/dag002-g2a-source-gate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-source-model-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: DAG-002 G2-A finite semantic separation report
+        run: python research/dag002_g2_model_gate.py
+
+      - name: DAG-002 G2-A independent source/type and append oracles
+        run: python -m unittest discover -s research -p 'test_dag002_g2_model_gate.py' -v

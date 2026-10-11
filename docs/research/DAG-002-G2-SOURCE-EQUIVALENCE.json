@@ -1,0 +1,230 @@
+{
+  "schema": "dag002-g2-source-equivalence-v1",
+  "issue": 322,
+  "updated_utc": "2026-10-11",
+  "target": {
+    "update": "APPEND_SINK",
+    "query": "BOOLEAN_REACHABILITY",
+    "trust": "HONEST_REMOTE_STORE",
+    "notes": "Fresh sink only, immutable old edges; paid parent incidence input; no free old query records or mutable history."
+  },
+  "proof_status": "NOVELTY_UNPROVED",
+  "source_proof_replay": false,
+  "sources": [
+    {
+      "key": "sea2025",
+      "catalog_id": "LIT-187",
+      "title": "Incremental Reachability Index",
+      "year": 2025,
+      "url": "https://doi.org/10.4230/LIPIcs.SEA.2025.9",
+      "update": "APPEND_SINK",
+      "query": "BOOLEAN_REACHABILITY",
+      "resources": [
+        "immutable_old_labels",
+        "chain_labels",
+        "mutable_manifest",
+        "query_operations"
+      ],
+      "relation": "DIRECT_ALGORITHMIC_BASELINE",
+      "evidence": "PUBLISHER_SCOPE_CHECKED",
+      "restriction": "Published anchor/Felsner chain scheme; Mathlab first-compatible chain is not its reproduction."
+    },
+    {
+      "key": "tcc2014",
+      "catalog_id": "LIT-127",
+      "title": "Locally Updatable and Locally Decodable Codes",
+      "year": 2014,
+      "url": "https://doi.org/10.1007/978-3-642-54242-8_21",
+      "update": "CODEWORD_EDIT",
+      "query": "SYMBOL_DECODE",
+      "resources": [
+        "read_locality",
+        "write_locality",
+        "error_model"
+      ],
+      "relation": "ADJACENT_CODING",
+      "evidence": "PUBLISHER_SCOPE_CHECKED",
+      "restriction": "Prefix-Hamming/error guarantees; remote physical writes and DAG append semantics not implied."
+    },
+    {
+      "key": "bitprobe2007",
+      "catalog_id": "LIT-114",
+      "title": "On dynamic bit-probe complexity",
+      "year": 2007,
+      "url": "https://doi.org/10.1016/j.tcs.2007.02.058",
+      "update": "DYNAMIC_LANGUAGE_OR_PARTIAL_SUM",
+      "query": "MEMBERSHIP_OR_PARTIAL_SUM",
+      "resources": [
+        "bit_probes",
+        "dynamic_updates"
+      ],
+      "relation": "PRIOR_ART_BARRIER",
+      "evidence": "PUBLISHER_SCOPE_CHECKED",
+      "restriction": "Problem-specific lower bounds, no direct universal APPEND_SINK transfer."
+    },
+    {
+      "key": "larsenyu2025",
+      "catalog_id": "LIT-298",
+      "title": "Super-Logarithmic Lower Bounds for Dynamic Graph Problems",
+      "year": 2025,
+      "url": "https://doi.org/10.1137/24M1638215",
+      "update": "INSERT_OLD_EDGE",
+      "query": "BOOLEAN_REACHABILITY",
+      "resources": [
+        "cell_probes",
+        "update_time",
+        "query_time"
+      ],
+      "relation": "NONTRANSFER_WITHOUT_REDUCTION",
+      "evidence": "PUBLISHER_SCOPE_CHECKED",
+      "restriction": "Graph reachability lower bound permits inserting edges among existing DAG vertices, unlike APPEND_SINK."
+    },
+    {
+      "key": "ko2025",
+      "catalog_id": null,
+      "title": "Unifying the Landscape of Super-Logarithmic Dynamic Cell-Probe Lower Bounds",
+      "year": 2025,
+      "url": "https://eccc.weizmann.ac.il/report/2025/156/",
+      "update": "PUBLIC_SETS_BITVECTOR_UPDATES",
+      "query": "INNER_PRODUCT_OR_HARD_F",
+      "resources": [
+        "cell_probes",
+        "communication_distribution",
+        "public_preprocessing"
+      ],
+      "relation": "NONTRANSFER_WITHOUT_REDUCTION",
+      "evidence": "AUTHOR_REPORT_ABSTRACT_CHECKED",
+      "restriction": "Translation needs hard f, product distribution and specified preprocessing; not automatic append-DAG hardness."
+    },
+    {
+      "key": "ko2026",
+      "catalog_id": "LIT-119",
+      "title": "An Ω((log n/log log n)^2) Cell-Probe Lower Bound for Dynamic Boolean Data Structures",
+      "year": 2026,
+      "url": "https://eccc.weizmann.ac.il/report/2026/047/",
+      "update": "BOOLEAN_MULTIPHASE",
+      "query": "INNER_PRODUCT",
+      "resources": [
+        "cell_probes",
+        "communication_rounds"
+      ],
+      "relation": "NONTRANSFER_WITHOUT_REDUCTION",
+      "evidence": "AUTHOR_REPORT_ABSTRACT_CHECKED",
+      "restriction": "Boolean Multiphase lower bound is not a universal authenticated DAG theorem."
+    },
+    {
+      "key": "natural2026",
+      "catalog_id": "LIT-072",
+      "title": "The Natural Proofs Barrier against Data-Structure Lower-Bounds",
+      "year": 2026,
+      "url": "https://acm-stoc.org/stoc2026/toc.html",
+      "update": "ABSTRACT_DYNAMIC_DATA_STRUCTURE",
+      "query": "ABSTRACT_DATA_STRUCTURE_QUERY",
+      "resources": [
+        "proof_technique",
+        "cell_probe_model"
+      ],
+      "relation": "METHODOLOGICAL_BARRIER",
+      "evidence": "CONFERENCE_PROCEEDINGS_ABSTRACT_CHECKED",
+      "restriction": "Conditional/methodological barrier; not an impossibility theorem for every DAG bound."
+    },
+    {
+      "key": "tasboneh2023",
+      "catalog_id": "LIT-159",
+      "title": "Vector Commitments with Efficient Updates",
+      "year": 2023,
+      "url": "https://doi.org/10.4230/LIPIcs.AFT.2023.29",
+      "update": "VECTOR_COMMITMENT_UPDATE",
+      "query": "PROOF_VERIFY_AND_REFRESH",
+      "resources": [
+        "update_information",
+        "proof_refresh",
+        "digest"
+      ],
+      "relation": "ADJACENT_AUTHENTICATION",
+      "evidence": "PUBLISHER_SCOPE_CHECKED",
+      "restriction": "Cryptographic proof-update model, not unauthenticated Boolean DAG membership."
+    },
+    {
+      "key": "accumulator2026",
+      "catalog_id": "LIT-200",
+      "title": "Lower Bounding Update Frequency in Short Accumulators and Vector Commitments",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/978-3-032-25330-9_7",
+      "update": "ACCUMULATOR_UPDATE",
+      "query": "MEMBERSHIP_PROOF_REFRESH",
+      "resources": [
+        "digest_size",
+        "invalidated_proofs",
+        "universe_size"
+      ],
+      "relation": "ADJACENT_AUTHENTICATION",
+      "evidence": "PUBLISHER_SCOPE_CHECKED",
+      "restriction": "Specific accumulator/VC premises; does not imply PIN/GC or arbitrary Merkle-DAG lower bound."
+    },
+    {
+      "key": "reachsurvey2025",
+      "catalog_id": "LIT-301",
+      "title": "Indexing Techniques for Graph Reachability Queries",
+      "year": 2025,
+      "url": "https://doi.org/10.1145/3776737",
+      "update": "STATIC_OR_MULTI_MODEL_GRAPH",
+      "query": "BOOLEAN_REACHABILITY",
+      "resources": [
+        "index_size",
+        "query_cost"
+      ],
+      "relation": "SURVEY_COMPARATOR_GATE",
+      "evidence": "PUBLISHER_SCOPE_CHECKED",
+      "restriction": "Survey identifies candidate index families; does not certify immutable online append behavior."
+    },
+    {
+      "key": "covering1986",
+      "catalog_id": null,
+      "title": "Further Results on the Covering Radius of Codes",
+      "year": 1986,
+      "url": "https://doi.org/10.1109/TIT.1986.1057227",
+      "update": "STATIC_HAMMING_COVERING",
+      "query": "COVERING_RADIUS",
+      "resources": [
+        "code_size",
+        "covering_radius"
+      ],
+      "relation": "CLASSICAL_COUNTING_BARRIER",
+      "evidence": "ORIGINAL_IDENTITY_CHECKED",
+      "restriction": "Covering-code equivalence is confined to fixed-coordinate XOR-center subclass, not all one-probe schemes."
+    },
+    {
+      "key": "rank2026",
+      "catalog_id": "LIT-195",
+      "title": "Dynamic Rank, Basis, and Matching",
+      "year": 2026,
+      "url": "https://doi.org/10.4230/LIPIcs.ICALP.2026.45",
+      "update": "MATRIX_ENTRY_UPDATE",
+      "query": "RANK_OR_BASIS",
+      "resources": [
+        "arithmetic_update_time",
+        "rank"
+      ],
+      "relation": "NONTRANSFER_WITHOUT_REDUCTION",
+      "evidence": "PUBLISHER_SCOPE_CHECKED",
+      "restriction": "Scalar rank is not the vector of individual Boolean reachability answers."
+    },
+    {
+      "key": "tr2025",
+      "catalog_id": "LIT-164",
+      "title": "Fully Dynamic Algorithms for Transitive Reduction",
+      "year": 2025,
+      "url": "https://doi.org/10.4230/LIPIcs.ICALP.2025.92",
+      "update": "DYNAMIC_GRAPH_EDGES",
+      "query": "TRANSITIVE_REDUCTION",
+      "resources": [
+        "update_time",
+        "graph_size"
+      ],
+      "relation": "RELATED_GRAPH_PROBLEM",
+      "evidence": "PUBLISHER_SCOPE_CHECKED",
+      "restriction": "Maintaining a transitive-reduction graph is not the immutable-label APPEND_SINK query service."
+    }
+  ]
+}

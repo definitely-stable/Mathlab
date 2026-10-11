@@ -13,14 +13,26 @@ class FelsnerTests(unittest.TestCase):
 
     def test_family_exchange_realizes_theorem_35(self):
         db = FelsnerUpGrowing()
-        events = [db.append(p) for p in (
-            (), (), (0,), (1,), (2, 3), (0, 1, 2, 3, 4)
-        )]
-        self.assertEqual(events[0].level, 1)
-        self.assertEqual(events[1].level, 2)
-        self.assertFalse(events[2].created)
-        self.assertGreaterEqual(events[3].level, 1)
-        self.assertFalse(db.invariant_errors())
+        trace = ((), (), (0,), (1,), (2, 3), (0, 1, 2, 3, 4))
+        observed_exchange = False
+        for parents in trace:
+            prior = tuple(tuple(group) for group in db.families)
+            old_assignments = tuple(db.assignment)
+            event = db.append(parents)
+            self.assertEqual(tuple(db.assignment[:-1]), old_assignments)
+            self.assertFalse(db.invariant_errors())
+            if event.level > 1:
+                observed_exchange = True
+                previous_group = list(prior[event.level - 2])
+                current_group = (list(prior[event.level - 1])
+                                 if event.level - 1 < len(prior) else [])
+                self.assertEqual(db.families[event.level - 2],
+                                 [cid for cid in current_group
+                                  if cid != event.chain])
+                self.assertEqual(db.families[event.level - 1],
+                                 previous_group + [event.chain])
+        self.assertTrue(observed_exchange)
+        self.assertEqual(len(db.assignment), len(trace))
 
     def test_ancestor_oracle_agrees_with_independent_dfs(self):
         parents = ((), (), (0,), (1,), (2, 3), (4,), (3, 5))
