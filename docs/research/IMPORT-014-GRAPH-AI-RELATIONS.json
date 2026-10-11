@@ -1,0 +1,171 @@
+{
+  "schema": "mathlab.import014.typed-relations.v1",
+  "audit_date": "2026-10-11",
+  "publisher": "PMLR volume 306, 43rd ICML, published 29 September 2026",
+  "new_literature": [
+    "LIT-393",
+    "LIT-394",
+    "LIT-395",
+    "LIT-396",
+    "LIT-397"
+  ],
+  "known_duplicate": {
+    "id": "LIT-230",
+    "title": "Memory is Reconstructed, Not Retrieved: Graph Memory for LLM Agents",
+    "arxiv_identity": "arxiv:2606.06036",
+    "publisher_url": "https://proceedings.mlr.press/v306/ji26d.html",
+    "action": "do_not_reimport_as_new_work"
+  },
+  "links": [
+    {
+      "source": "LIT-393",
+      "target": "LIT-388",
+      "relation": "contrasts_with",
+      "scope_note_en": "Transformer bounded-diameter graph connectivity and MPNN graph algorithm approximation differ in task, architecture and sample guarantees.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-393",
+      "target": "LIT-389",
+      "relation": "assumption_incompatible",
+      "scope_note_en": "Disentangled Transformer with capacity-bound training distribution is not the bounded-degree finite-precision LOCAL MLP/GNN model.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-393",
+      "target": "LIT-239",
+      "relation": "model_overlap",
+      "scope_note_en": "Connectivity algorithm training cannot replace GRAIL deterministic directed graph reachability labeling oracle.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-394",
+      "target": "LIT-239",
+      "relation": "assumption_incompatible",
+      "scope_note_en": "Graph label selection uses observed supervised vertex-label budget k, not reachability index labels and query correctness.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-394",
+      "target": "LIT-393",
+      "relation": "evaluation_baseline",
+      "scope_note_en": "Freeze graph family and exact prediction task; separate k selected labels from transformer learned algorithm capacity.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-395",
+      "target": "LIT-391",
+      "relation": "contrasts_with",
+      "scope_note_en": "LAMP dynamic snapshot stability and resolution-based GNN noncontinuity use different dynamics and topology limits.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-395",
+      "target": "LIT-294",
+      "relation": "assumption_incompatible",
+      "scope_note_en": "Dynamic learned state dissipation does not pay the measured storage costs of query, ingest and update for agent graph databases.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-395",
+      "target": "LIT-243",
+      "relation": "evaluation_baseline",
+      "scope_note_en": "Compare temporal graph representation retention with persistent-history graph memory under exact timestamp and tombstone oracles.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-396",
+      "target": "LIT-392",
+      "relation": "contrasts_with",
+      "scope_note_en": "VimRAG reasoning/evidence DAG with adaptive visual token retention differs from wGraph workflow orchestration with KV cache sharing.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-396",
+      "target": "LIT-230",
+      "relation": "evaluation_baseline",
+      "scope_note_en": "Compare multimodal DAG-guided evidence access to associative graph reconstruction on compatible evidence recall tasks.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-396",
+      "target": "LIT-221",
+      "relation": "evaluation_baseline",
+      "scope_note_en": "Compare graph-guided multimodal retrieval to strong vector/lexical RAG under equal context tokens and evidence coverage.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-397",
+      "target": "LIT-396",
+      "relation": "contrasts_with",
+      "scope_note_en": "DualGraph separates outline and knowledge structures; VimRAG maintains a joint reasoning evidence DAG.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-397",
+      "target": "LIT-221",
+      "relation": "evaluation_baseline",
+      "scope_note_en": "Include sparse and flat retrieval baselines before attributing gains to knowledge-graph topology.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-397",
+      "target": "LIT-243",
+      "relation": "useful_design_analogy",
+      "scope_note_en": "Use source-identity nodes and evidence-claim provenance edges to guide Mathlab agent gap search; any edge requires independent source verification.",
+      "theorem_transfer": false
+    },
+    {
+      "source": "LIT-397",
+      "target": "LIT-230",
+      "relation": "contrasts_with",
+      "scope_note_en": "DualGraph outline/knowledge planning and MRAgent associative cue-tag-content retrieval solve distinct tasks and are not duplicate research.",
+      "theorem_transfer": false
+    }
+  ],
+  "model_bridges": [
+    {
+      "target": "DAG-002",
+      "literature": [
+        "LIT-393",
+        "LIT-394",
+        "LIT-396"
+      ],
+      "boundary": "Graph connectivity learning, k vertex labels for classification, and RAG reasoning traces cannot be substituted for exact adaptive immutable directed reachability or priced metadata updates."
+    },
+    {
+      "target": "ALG-001",
+      "literature": [
+        "LIT-393",
+        "LIT-394"
+      ],
+      "boundary": "Approximate supervised graph label selection and Transformer learned graph connectivity have different objective functions, oracles, capacity and training distributions."
+    },
+    {
+      "target": "UCT-005",
+      "literature": [
+        "LIT-395",
+        "LIT-396",
+        "LIT-397"
+      ],
+      "boundary": "Neural state dissipation, graph retrieval path pruning and outline gap planning cannot establish authenticated history preservation, temporal freshness or logical truth."
+    },
+    {
+      "target": "INDEX-001",
+      "literature": [
+        "LIT-394",
+        "LIT-395",
+        "LIT-396"
+      ],
+      "boundary": "Observed vertex target label budget, learned representation stability and compressed visual tokens have no direct bound on WAL/fsync, SSD bytes rewritten or page recourse."
+    },
+    {
+      "target": "RESEARCH-INDEX",
+      "literature": [
+        "LIT-397",
+        "LIT-396"
+      ],
+      "boundary": "Design analogy only: bibliographic evidence graph and research question map must use pinned sources and typed reviewed edges rather than fabricated citations."
+    }
+  ]
+}
