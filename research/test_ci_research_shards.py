@@ -37,13 +37,37 @@ class ResearchWorkflowShardTests(unittest.TestCase):
         raw = WORKFLOW.read_text(encoding="utf-8")
         self.assertIn("jobs:\n", raw)
         jobs = parse_jobs(raw)
-        self.assertEqual(set(jobs), set(REQUIRED) | {"research-full-suite"})
+        self.assertEqual(set(jobs), set(REQUIRED) | {"scope", "research-full-suite"})
         for name, body in jobs.items():
             self.assertIn("runs-on: ubuntu-latest", body, name)
             self.assertRegex(body, r"timeout-minutes: [1-9][0-9]*")
             if name in REQUIRED:
                 self.assertIn("- uses: actions/checkout@v4", body, name)
                 self.assertIn("- uses: actions/setup-python@v5", body, name)
+
+    def test_scope_routes_shards_without_removing_any_full_commands(self):
+        jobs = parse_jobs(WORKFLOW.read_text(encoding="utf-8"))
+        scope = jobs["scope"]
+        self.assertIn("fetch-depth: 2", scope)
+        self.assertIn("python research/ci_scope.py", scope)
+        self.assertIn("test_ci_scope.py", scope)
+        for name, flag in (
+            ("lent-001-foundation", "foundation"),
+            ("research-hyp105-foundation", "hyp_foundation"),
+            ("research-hyp105-exact-census", "hyp_census"),
+            ("research-catalog-and-primitives", "catalog"),
+        ):
+            self.assertIn("needs: scope", jobs[name])
+            self.assertIn("needs.scope.outputs." + flag + " == 'true'",
+                          jobs[name])
+        aggregator = jobs["research-full-suite"]
+        self.assertIn("SCOPE_RESULT", aggregator)
+        self.assertIn('if [ "$SCOPE_RESULT" != "success" ]; then',
+                      aggregator)
+        self.assertIn('if [ "$actual" != "skipped" ]; then', aggregator)
+        self.assertIn('if [ "$actual" != "success" ]; then', aggregator)
+        self.assertIn("No FULL-suite conclusion is claimed for this PR.",
+                      aggregator)
 
     def test_no_silent_loss_or_duplicate_named_steps(self):
         raw = WORKFLOW.read_text(encoding="utf-8")
@@ -69,6 +93,7 @@ class ResearchWorkflowShardTests(unittest.TestCase):
             self.assertIn("      - " + required + "\n", full)
             self.assertIn("needs." + required + ".result", full)
         self.assertIn('"$result" != "success"', full)
+        self.assertIn("      - scope\\n", full)
         self.assertIn("exit 1", full)
 
     def test_heavy_census_is_not_in_ten_minute_foundation(self):
