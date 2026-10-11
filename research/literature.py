@@ -62,6 +62,13 @@ PUBLICATION_STAGES = {"peer_reviewed_proceedings", "author_preprint"}
 PRIORITIES = {"A", "B"}
 
 SOURCE_TITLE_PINS = {
+    # IMPORT-015 2026 publisher titles.
+    "doi:10.1137/1.9781611978971.5": "Stochastic Embedding of Digraphs into DAGs",
+    "doi:10.1137/1.9781611978971.7": "From Incremental Transitive Cover to Strongly Polynomial Maximum Flow",
+    "doi:10.1137/1.9781611978971.67": "The Complexity of Dynamic LZ77 is \\(\\tilde \\Theta(n^{2/3})\\)",
+    "doi:10.1137/1.9781611978971.11": "Determinization of Min-Plus Weighted Automata is Decidable",
+    "publisher:eccc-tr26-129": "Monotone circuit lower bounds from spread matchings",
+
     # IMPORT-014: official 2026 PMLR publisher-title identities.
     "publisher:pmlr-v306-ye26f": "Transformers Provably Learn Algorithmic Solutions for Graph Connectivity, But Only with the Right Data",
     "publisher:pmlr-v306-john26a": "An Approximation Algorithm for Graph Label Selection",

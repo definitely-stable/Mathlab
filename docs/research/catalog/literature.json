@@ -11476,6 +11476,168 @@
           "source_sha": "38d5dc52464d2c54fe00de22f2a3ea1025072f7b"
         }
       ]
+    },
+    {
+      "id": "LIT-398",
+      "identity": "doi:10.1137/1.9781611978971.5",
+      "year": 2026,
+      "title": "Stochastic Embedding of Digraphs into DAGs",
+      "track": "graph-algorithms",
+      "authors": [
+        "Arnold Filtser"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "SODA 2026: вложение взвешенного ориентированного графа в распределение пар DAG с ожидаемым искажением tilde-O(log n), разреженностью tilde-O(m) и построением за tilde-O(m).",
+      "limits_ru": "Пара случайных DAG с гарантией искажения не является одним точным reachability index или гарантией онлайн-обновлений и физической стоимости записи.",
+      "primary_url": "https://doi.org/10.1137/1.9781611978971.5",
+      "alternate_identities": [],
+      "venue": "SODA 2026 (SIAM Proceedings)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md",
+          "source_sha": "808a07737c891d6d602ce999ab0b51f0042c4686"
+        }
+      ]
+    },
+    {
+      "id": "LIT-399",
+      "identity": "doi:10.1137/1.9781611978971.7",
+      "year": 2026,
+      "title": "From Incremental Transitive Cover to Strongly Polynomial Maximum Flow",
+      "track": "incremental-computation",
+      "authors": [
+        "Daniel Dadush",
+        "James B. Orlin",
+        "Aaron Sidford",
+        "László A. Végh"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "SODA 2026: strongly polynomial max-flow для структурированных сетей через incremental transitive cover — ограниченное надмножество транзитивного замыкания при добавлении дуг — и редукцию к bounded-capacity потокам.",
+      "limits_ru": "Надмножество транзитивного замыкания не является точным oracle достижимости, а алгоритмические границы на max-flow не измеряют SSD writes.",
+      "primary_url": "https://doi.org/10.1137/1.9781611978971.7",
+      "alternate_identities": [],
+      "venue": "SODA 2026 (SIAM Proceedings)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md",
+          "source_sha": "808a07737c891d6d602ce999ab0b51f0042c4686"
+        }
+      ]
+    },
+    {
+      "id": "LIT-400",
+      "identity": "doi:10.1137/1.9781611978971.67",
+      "year": 2026,
+      "title": "The Complexity of Dynamic LZ77 is \\(\\tilde \\Theta(n^{2/3})\\)",
+      "track": "compressed-indexing",
+      "authors": [
+        "Itai Boneh",
+        "Shay Golan",
+        "Matan Kraus"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-006"
+      ],
+      "summary_ru": "SODA 2026: точная поддержка LZ77-факторизации при редактировании строки за tilde-O(n^(2/3)) на обновление и tilde-O(n) инициализацию; matching SETH-условная нижняя граница даже для подстановок и числа факторов.",
+      "limits_ru": "SETH-условная граница касается LZ77, а не CDC, CAS, Zucchini patch, физического объёма записи или произвольного преобразования бинарников.",
+      "primary_url": "https://doi.org/10.1137/1.9781611978971.67",
+      "alternate_identities": [],
+      "venue": "SODA 2026 (SIAM Proceedings)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md",
+          "source_sha": "808a07737c891d6d602ce999ab0b51f0042c4686"
+        }
+      ]
+    },
+    {
+      "id": "LIT-401",
+      "identity": "doi:10.1137/1.9781611978971.11",
+      "year": 2026,
+      "title": "Determinization of Min-Plus Weighted Automata is Decidable",
+      "track": "algebraic-algorithms",
+      "authors": [
+        "Shaull Almagor",
+        "Guy Arbel",
+        "Sarai Sheinvald"
+      ],
+      "maps_to": [
+        "ML-004",
+        "OM-129"
+      ],
+      "summary_ru": "SODA 2026: разрешимость вопроса о детерминизации min-plus (тропических) взвешенных автоматов с использованием структуры запусков недетерминированных автоматов.",
+      "limits_ru": "Разрешимость не означает эффективно минимальную конструкцию, универсальную детерминизацию всех взвешенных систем или теорему о динамических индексах.",
+      "primary_url": "https://doi.org/10.1137/1.9781611978971.11",
+      "alternate_identities": [],
+      "venue": "SODA 2026 (SIAM Proceedings)",
+      "publication_stage": "peer_reviewed_proceedings",
+      "verification": "publisher_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md",
+          "source_sha": "808a07737c891d6d602ce999ab0b51f0042c4686"
+        }
+      ]
+    },
+    {
+      "id": "LIT-402",
+      "identity": "publisher:eccc-tr26-129",
+      "year": 2026,
+      "title": "Monotone circuit lower bounds from spread matchings",
+      "track": "proof-complexity",
+      "authors": [
+        "Anup Rao"
+      ],
+      "maps_to": [
+        "ML-004",
+        "ML-005"
+      ],
+      "summary_ru": "ECCC TR26-129, ревизия #5 сентября 2026: распознавание совершенного паросочетания в двудольных графах на n вершинах требует exp(Omega(sqrt n)) вентилей в монотонной схемной модели; метод spread matchings.",
+      "limits_ru": "Нижняя граница относится только к монотонным схемам; не распространяется на произвольные Boolean circuits, GF(q)-потоки или физические динамические структуры. ECCC — авторский препринт.",
+      "primary_url": "https://eccc.weizmann.ac.il/report/2026/129/",
+      "alternate_identities": [],
+      "venue": "ECCC TR26-129 (revision 5)",
+      "publication_stage": "author_preprint",
+      "verification": "primary_abstract_checked",
+      "full_proof_verified": false,
+      "independent_reproduction": false,
+      "mentioned_in": [
+        {
+          "repo": "MATHLAB",
+          "kind": "model_overlap",
+          "path": "docs/research/RESEARCH-LITERATURE-015-2026-DAG-LZ77-AUTOMATA.md",
+          "source_sha": "808a07737c891d6d602ce999ab0b51f0042c4686"
+        }
+      ]
     }
   ]
 }

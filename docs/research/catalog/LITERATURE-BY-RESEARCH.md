@@ -2,7 +2,7 @@
 
 > Generated from `literature.json` and `registry.json`. Связи обозначают релевантность, но не логическое следствие.
 
-**396** работ сопоставлены с **38** внутренними исследованиями.
+**401** работ сопоставлены с **39** внутренними исследованиями.
 
 [Основной индекс литературы](LITERATURE.md) · [Индекс исследований](INDEX.md)
 
@@ -558,6 +558,11 @@
 - [LIT-395](LITERATURE.md#lit-395) — Adaptive Memory Retention in Dynamic Graphs (2026; publisher_abstract_checked)
 - [LIT-396](LITERATURE.md#lit-396) — Navigating Massive Visual Context in Retrieval-Augmented Generation via Multimodal Memory Graph (2026; publisher_abstract_checked)
 - [LIT-397](LITERATURE.md#lit-397) — A Tale of Two Graphs: Separating Knowledge Exploration from Outline Structure for Open-Ended Deep Research (2026; publisher_abstract_checked)
+- [LIT-398](LITERATURE.md#lit-398) — Stochastic Embedding of Digraphs into DAGs (2026; publisher_abstract_checked)
+- [LIT-399](LITERATURE.md#lit-399) — From Incremental Transitive Cover to Strongly Polynomial Maximum Flow (2026; publisher_abstract_checked)
+- [LIT-400](LITERATURE.md#lit-400) — The Complexity of Dynamic LZ77 is \(\tilde \Theta(n^{2/3})\) (2026; publisher_abstract_checked)
+- [LIT-401](LITERATURE.md#lit-401) — Determinization of Min-Plus Weighted Automata is Decidable (2026; publisher_abstract_checked)
+- [LIT-402](LITERATURE.md#lit-402) — Monotone circuit lower bounds from spread matchings (2026; primary_abstract_checked)
 
 ## ML-005
 
@@ -593,6 +598,7 @@
 - [LIT-124](LITERATURE.md#lit-124) — A textbook solution for dynamic strings (2026; publisher_abstract_checked)
 - [LIT-125](LITERATURE.md#lit-125) — The BLAKE3 Hashing Framework (C2SP v1.0.0) (2024; publisher_full_text_spotchecked)
 - [LIT-126](LITERATURE.md#lit-126) — Logarithmic-Time Internal Pattern Matching Queries in Compressed and Dynamic Texts (2026; publisher_full_text_spotchecked)
+- [LIT-402](LITERATURE.md#lit-402) — Monotone circuit lower bounds from spread matchings (2026; primary_abstract_checked)
 
 ## ML-006
 
@@ -776,6 +782,9 @@
 - [LIT-395](LITERATURE.md#lit-395) — Adaptive Memory Retention in Dynamic Graphs (2026; publisher_abstract_checked)
 - [LIT-396](LITERATURE.md#lit-396) — Navigating Massive Visual Context in Retrieval-Augmented Generation via Multimodal Memory Graph (2026; publisher_abstract_checked)
 - [LIT-397](LITERATURE.md#lit-397) — A Tale of Two Graphs: Separating Knowledge Exploration from Outline Structure for Open-Ended Deep Research (2026; publisher_abstract_checked)
+- [LIT-398](LITERATURE.md#lit-398) — Stochastic Embedding of Digraphs into DAGs (2026; publisher_abstract_checked)
+- [LIT-399](LITERATURE.md#lit-399) — From Incremental Transitive Cover to Strongly Polynomial Maximum Flow (2026; publisher_abstract_checked)
+- [LIT-400](LITERATURE.md#lit-400) — The Complexity of Dynamic LZ77 is \(\tilde \Theta(n^{2/3})\) (2026; publisher_abstract_checked)
 
 ## ML-007
 
@@ -886,6 +895,12 @@
 **[Family 122: заявленные оценки trace reconstruction](INDEX.md#om-122)**
 
 - [LIT-091](LITERATURE.md#lit-091) — Improved Pseudorandom Codes from Permuted Puzzles (2026; publisher_abstract_checked)
+
+## OM-129
+
+**[Family 129: заявленные экспоненциальные состояния двухсторонних автоматов](INDEX.md#om-129)**
+
+- [LIT-401](LITERATURE.md#lit-401) — Determinization of Min-Plus Weighted Automata is Decidable (2026; publisher_abstract_checked)
 
 ## OM-130
 
