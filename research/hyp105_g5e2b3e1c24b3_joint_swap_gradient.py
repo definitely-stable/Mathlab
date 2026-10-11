@@ -176,8 +176,16 @@ def verified_two_step_finite_descent():
     second_score = possible if take_move else next_step["baseline"]
     if take_move:
         second_independent = right_first_independent(W32_LEFT_H45, second_g)
-        if second_independent["seven_counts"] != second_score["seven_counts"]:
-            raise AssertionError("second global step independent right census failed")
+        if (second_independent["seven_counts"] != second_score["seven_counts"] or
+                second_independent["S_seven"] != second_score["S_seven"] or
+                second_independent["Q7_necessary_numerator"] !=
+                second_score["Q7_necessary_numerator"] or
+                second_independent["right_C_accepted"] !=
+                second_score["right_C_accepted"]):
+            raise AssertionError("second global step independent RIGHT-FIRST 62370 census failed")
+    if (not take_move or possible["swap"] != (12, 13) or
+            second_score["S_seven"] != 111):
+        raise AssertionError("frozen finite W32 second complete-global-swap improvement lost")
     return {
         "source_original_left_2factors": source["left_source_size"],
         "first_initial_S": initial["baseline"]["S_seven"],
@@ -192,7 +200,11 @@ def verified_two_step_finite_descent():
         "after_first_strict_improving_neighbors":
             next_step["strict_S_improving_global_neighbors"],
         "second_move_taken": take_move,
+        "second_applied_original_right_swap": possible["swap"] if take_move else None,
         "second_best_or_stationary_S": second_score["S_seven"],
+        "second_seven_counts": second_score["seven_counts"],
+        "second_Q7_necessary_numerator": second_score["Q7_necessary_numerator"],
+        "second_original_right_C": second_score["right_C_accepted"],
         "second_full_right_perm": second_g,
         "only_two_exact_neighborhoods_not_global_minimum": True,
     }
