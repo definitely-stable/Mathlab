@@ -1,0 +1,32 @@
+name: hyp105-c24b8c-conditional-discrepancy
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1c24b8c_conditional_discrepancy.py"
+      - "research/test_hyp105_g5e2b3e1c24b8c_conditional_discrepancy.py"
+      - "research/hyp105_g5e2b3e1c24b8c_w32_conditional_witness.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1C24B8C-CONDITIONAL-DISCREPANCY.md"
+      - ".github/workflows/hyp105-c24b8c-conditional-discrepancy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-right-conditional-mean-and-W32-orbit-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: B8-C fast all-h fixed-f mean and two-edge orbit regressions
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1c24b8c_conditional_discrepancy.py' -v
+      - name: B8-C independent true original W32 62370-source exact conditional mean and C hard-zero report
+        run: python research/hyp105_g5e2b3e1c24b8c_w32_conditional_witness.py
