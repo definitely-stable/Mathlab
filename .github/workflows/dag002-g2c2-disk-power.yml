@@ -1,0 +1,33 @@
+name: dag002-g2c2-disk-power
+
+on:
+  push:
+    branches:
+      - main
+      - "research/**"
+    paths:
+      - "research/dag002_g2c2_disk_power.py"
+      - "research/test_dag002_g2c2_disk_power.py"
+      - "docs/research/DAG-002-G2-B2-C2-B2-DISK-POWER.md"
+      - ".github/workflows/dag002-g2c2-disk-power.yml"
+  pull_request:
+    paths:
+      - "research/dag002_g2c2_disk_power.py"
+      - "research/test_dag002_g2c2_disk_power.py"
+      - "docs/research/DAG-002-G2-B2-C2-B2-DISK-POWER.md"
+      - ".github/workflows/dag002-g2c2-disk-power.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-disk-felsner-power:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Exact finite Felsner-Power disk and three-algorithm oracles
+        run: python -m unittest discover -s research -p 'test_dag002_g2c2_disk_power.py' -v
