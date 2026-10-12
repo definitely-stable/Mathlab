@@ -1,0 +1,63 @@
+name: hyp105-k3g2k-conditional-injection
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2k_conditional_injection.py"
+      - "research/test_hyp105_g5e2b3e1k3g2k_conditional_injection.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2K-CONDITIONAL-INJECTION.md"
+      - ".github/workflows/hyp105-k3g2k-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-conditional-injection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Synthetic complete conditional probability and genuine W32 B/A tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2k_conditional_injection.py' -v
+      - name: Four coherent true original W32 right injections, both directions
+        run: |
+          python research/hyp105_g5e2b3e1k3g2k_conditional_injection.py > /tmp/hyp105-k3g2k.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          r=json.loads(Path("/tmp/hyp105-k3g2k.json").read_text())
+          assert r["slice"]=="HYP-105-E1-K3-G2-K"
+          assert r["all_h_constructive_some_right_g"] is True
+          assert r["all_h_universal_every_f_g"] is False
+          assert set(r["models"])=={"lex","correlated-left"}
+          for name,model in r["models"].items():
+              assert model["max_and_min_verified_all_true_W32"] is True
+              assert model["universal_all_label_S_omega_proved"] is False
+              assert model["all_h_S_surplus_proved"] is False
+              mean=Fraction(*model["random_mean"])
+              hi=model["results"]["maximize"]
+              lo=model["results"]["minimize"]
+              assert lo["actual_overlap"]<=mean<=hi["actual_overlap"]
+              assert hi["total_original_BA_weight"]==lo["total_original_BA_weight"]
+              for c in (hi,lo):
+                  assert c["actual_BA_full_B0_independent"]==c["actual_overlap"]
+                  assert len(c["pair_ids"])==len(set(c["pair_ids"]))==15
+                  assert len(c["trajectory"])==15
+                  assert len(c["trajectory_sha256"])==64
+                  assert c["complete_true_W32_B0_S"]>=c["actual_overlap"]
+                  assert c["seven_GF5_risk_floor_numerator"]>=c["BA_GF5_risk_floor_numerator"]
+          assert r["models"]["lex"]["random_mean"]==[10000,143]
+          assert r["models"]["correlated-left"]["random_mean"]==[10638,143]
+          assert [r["models"]["lex"]["results"][x]["actual_overlap"] for x in ("maximize","minimize")]==[131,33]
+          assert [r["models"]["correlated-left"]["results"][x]["actual_overlap"] for x in ("maximize","minimize")]==[120,40]
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY
