@@ -40,5 +40,11 @@ jobs:
           assert r['unit_hall_failures'] + r['unit_hall_successes'] == 210
           assert r['no_all_h_charge_claimed'] and r['no_all_h_S_omega_claimed']
           assert len(r['swap_shell_results_sha256']) == 64
+          assert r['unit_hall_successes'] == 210 and r['unit_hall_failures'] == 0
+          assert r['minimum_exact_S'] == {'side':'right','i':2,'j':11,'S_seven_exact':176}
+          assert r['maximum_exact_Jcross'] == {'side':'left','i':3,'j':9,'Jcross':47}
+          assert r['minimum_S_minus_J'] == {'side':'left','i':1,'j':14,'S_minus_J':139}
+          assert r['minimum_local_degree'] == {'side':'right','i':1,'j':8,'min_target_degree':3}
+          assert r['swap_shell_results_sha256'] == 'd841d5e6dfb31666df301297843806deb099b3388be842912c3d7658306fc8b7'
           print(json.dumps(r, sort_keys=True, indent=2))
           PY
