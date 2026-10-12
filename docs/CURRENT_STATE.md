@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-E — C4-weighted mixed codegree/physical star-tail (2026-10-12)
+
+[Exact mathematical scope](research/HYP-105-G5-E2-B3-E1K3E-WEIGHTED-CODEGREE-TAILS.md) · [reference](../research/hyp105_g5e2b3e1k3e_weighted_codegrees.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3e_weighted_codegrees.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230). **BMIXED=M2MIXED*(KAPPA-2)=SUM_C4_WEIGHTED_CODEGREE_TAIL / ORIGINAL_SOURCE_STAR_DEGREE_BOUND_UPPER / NO_UNIFORM_TAIL_SAVING / PARENT_369_HEAD_69eb52a4 / CI_PENDING / BRANCH_A_B_OPEN**. Separate stacked Draft; no main modification.
+
 ## HYP-105 B3.2-E1-K3-D — original mixed GQ girth-eight constraints (2026-10-12)
 
 [Proof and transfer limitations](research/HYP-105-G5-E2-B3-E1K3D-MIXED-GIRTH8-BOOK-MOMENTS.md) · [reference](../research/hyp105_g5e2b3e1k3d_mixed_girth8.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3d_mixed_girth8.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230). **ALL_h_HUV_EDGE_COUNT_EQUALS_CODEG / HUV_BIPARTITE_GIRTH_GE_8 / SUM_EDGE(dz-1)(dt-1)_LE_r²-m / M1_MIXED_EXACT_SOURCE_DEGREE_WEDGES / POINTWISE_C4_AND_C6_FREE_MOORE_CAP / R_GE_12_STRICT_IMPROVEMENT / EXACT_M2_ALL=2C4 / SHARPER_BMIXED_LE_(CMAX-2)M2MIXED / GLOBAL_BOOK_PACKING_OPEN / NO_BRANCH_A_B / PARENT_368_HEAD_3b29892c / CI_PENDING**. Separate stacked Draft only; no main modifications.
