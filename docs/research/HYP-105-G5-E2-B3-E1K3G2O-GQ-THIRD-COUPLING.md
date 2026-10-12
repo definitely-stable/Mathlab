@@ -82,3 +82,21 @@ The ORIGINAL GQ transpose gives a second INDEPENDENT A/B tensor with swapped who
 Independently enumerate K6 and K9 target triple codegrees, compare entire 5005 physical K6 third harmonic against N rank-three level, verify W32/W34 original GQ triple counts by brute enumeration, and check real W32 ORIGINAL sixsource cherry support including deliberate invalid-weight negative tests. Test W32 lex and K3-G2-M harder correlated original maps including their TRUE dual. Run full paired B0/C0 only twice, not the 223-map old corpus, in dedicated hosted Contract.
 
 The results remain **restricted exact identities, rank-three and source-support theorems**. No proof of universal P2, P7, ALL-h S=Omega(s^6), all-h charge K, full R3 or new ASET exponent. The next K3-G2-P must exploit GQ fiber restrictions on the FEASIBLE 4x5 joint tensors and/or rank 4-6 signed cancellation, not merely rename P2 as a rank decomposition. A counterexample to P2 alone does not refute P7. No merge without exact final HEAD 3/3 SUCCESS and independent mathematical review.
+
+## First hosted original/dual exact result — 2026-10-12
+
+[First GitHub-hosted Contract #38241438573](https://github.com/definitely-stable/Mathlab/actions/runs/38241438573) **SUCCESS** on initial O HEAD 1564b698b0abd0fbb6e83fb7a28cfddc38cc117c: 6 independent unit tests plus one complete true-GQ+dual two-map report. True-source B0/C0 independently reproduced original/dual U_BA/U_AB and seven-S on both tested maps. For physical a=6, exact target squared energy E3=710/1001 and ranks 4–6 E_ge4=4966/77. Thus E3/(E3+E_ge4) is about 1.09%, and almost **98.91%** of high-rank physical squared energy still lies in ranks 4–6; H3 alone cannot nearly exhaust high-rank cancellation.
+
+Genuine original hard correlated model (same map as M; whole original source left swap (13,14)):
+
+    U_BA=36, U_AB=39, S_seven=86, P2 margin=757/143
+    ORIGINAL B/A: C3=2192/1001, C456=-541/385
+       original sixsource mass=4984; 4x5 tensor row masses r=0..3:
+       [16678, 39188, 40502, 3312].
+    ORIGINAL DUAL A/B: C3=-1211/858, C456=17/6
+       dual sixsource mass=5302; 4x5 tensor row masses r=0..3:
+       [18175, 41797, 42593, 3475].
+
+The original B/A row r=0 has zero physical triangle triples, while r=1/2/3 have [3009,2110,0] physical triangle entries; the dual r=3/triangle entry is 747. These are SAME-global-map original/dual counts, not mixtures of independently optimized marginals. The SOURCE cherry cap is independently verified but numerically weak: maximum observed original weight/(Delta^4*e_GQ(R)) is 2/135 and dual 4/243. Accordingly, the all-h geometric cap is a rigorous support restriction, NOT a tight mass transportation/coercivity inequality implying P2.
+
+Initial success was followed by regression updates pinning these exact finite values. Renew Contract/INDEX/Research on FINAL HEAD before acceptance; independent mathematical review remains separate. Keep PR Draft, main unchanged, issue #230 OPEN.
