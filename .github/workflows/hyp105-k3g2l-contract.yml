@@ -62,5 +62,20 @@ jobs:
                   floor=max(Fraction(0),(mu-p["S"])/p["Jcross"])
                   assert p["necessary_beta_nonnegative_if_J_positive"]==[
                       floor.numerator,floor.denominator]
+          # Frozen genuine 223-source all-seven-class finite certificate.
+          assert r["unique_fixed_left_source_maps"]==109
+          assert r["positive_deficit_D_maps"]==11
+          assert r["tested_S_below_fixed_left_mu_maps"]==0
+          assert r["tested_zero_J_S_below_mu_impossible_maps"]==[]
+          assert r["finite_beta_possible_for_all_tested_maps"] is True
+          assert r["necessary_beta_floor_from_tested_J_positive"]==[0,1]
+          assert r["minimum_observed_signed_S_minus_mu"]=={
+              "Jcross":21,"S":90,"mu":[10638,143],"name":"corr:5",
+              "value":[2232,143]}
+          assert r["witnesses"]["corr:5"]["U_BA"]==44
+          assert r["witnesses"]["corr:5"]["S_other_six"]==46
+          assert r["witnesses"]["corr:5"]["signed_deficit_D_mu_minus_BA"]==[4346,143]
+          assert r["ordered_full_original_ledger_sha256"]==(
+              "ebfc121f04056fe0b6215633e1f93ab135a306ced5fb92213925f665e672f1d0")
           print(json.dumps(r,sort_keys=True,indent=2))
           PY
