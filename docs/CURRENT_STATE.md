@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-G2-A — source coincidence partition for repeated C6 (2026-10-12)
+
+[Proof of exact local/cross split and uniform O(s^5) bound](research/HYP-105-G5-E2-B3-E1K3G2-SOURCE-COINCIDENCE.md) · [reference](../research/hyp105_g5e2b3e1k3g2_source_coincidence.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2_source_coincidence.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **J=JSAME+JCROSS / JSAME=SUM_EDGE_TRIANGLE_LOAD_SQUARES=O(s^5)=o(s^6) / REP1_LOCAL=JSAME-3REP3 / REP1_CROSS=JCROSS / PARENT_PR373_HEAD_53df42a / CI_PENDING / BRANCH_A_B_OPEN**. Stacked Draft; no main change or merge.
+
 ## HYP-105 B3.2-E1-K3-G1 — antipodal C6 repeated-column incidence and source-pencil triangles (2026-10-12)
 
 [All-h repeat-column proof and explicit next blocker](research/HYP-105-G5-E2-B3-E1K3G1-ANTIPODAL-REPEAT-LOSS.md) · [reference](../research/hyp105_g5e2b3e1k3g_repeat_loss.py) · [tests](../research/test_hyp105_g5e2b3e1k3g_repeat_loss.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **J=R1+3R3 / C6_REPEATED=J-2R3 / R3=POINT_AND_LINE_PENCIL_TRIANGLES=O(s^9/2) / R1_BLOCKER_OPEN / PARENT_PR372_HEAD_4129b88 / CI_PENDING / MAIN_UNCHANGED**. Stacked Draft PR proposed; no merge.
