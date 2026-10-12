@@ -53,7 +53,8 @@ class K3G2PFourthGeometryTests(unittest.TestCase):
                 self.assertEqual(counts[B],r["shapes"][shape]["target_codegree"])
             self.assertEqual(
                 dict(observed),
-                {k:v["orbit_size"] for k,v in r["shapes"].items()})
+                {k:v["orbit_size"] for k,v in r["shapes"].items()
+                 if v["orbit_size"]})
             self.assertEqual(sum(counts.values()),
                              15*70*comb(a,6))
 
