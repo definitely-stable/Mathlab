@@ -36,8 +36,6 @@ def independent_chorded_six_census(graph, model):
     for i,(p,l) in enumerate(model["incidences"]):
         px,py=model["left_labels"][p]
         lx,ly=model["right_labels"][l]
-        for x,y in ((px*a+lx,py*a+ly),(px*a+ly,py*a+lx)):
-            pass
         column[frozenset((px*a+lx,py*a+ly))]=i
         column[frozenset((px*a+ly,py*a+lx))]=i
     result=Counter()
