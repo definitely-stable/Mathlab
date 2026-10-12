@@ -1,0 +1,92 @@
+name: hyp105-k3g2o-gq-third-orbit-coupling
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2o_gq_third_coupling.py"
+      - "research/test_hyp105_g5e2b3e1k3g2o_gq_third_coupling.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2O-GQ-THIRD-COUPLING.md"
+      - ".github/workflows/hyp105-k3g2o-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-gq-triple-orbit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Third-order orbit and true-GQ source independent tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2o_gq_third_coupling.py' -v
+      - name: Two genuine original plus dual rank-three geometric tensor certificates
+        run: |
+          python research/hyp105_g5e2b3e1k3g2o_gq_third_coupling.py > /tmp/hyp105-k3g2o.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          r=json.loads(Path("/tmp/hyp105-k3g2o.json").read_text())
+          assert r["slice"]=="HYP-105-E1-K3-G2-O"
+          assert r["branch_A_B"]=="OPEN"
+          assert r["all_h_P2_proved"] is False
+          assert r["all_h_P7_proved"] is False
+          assert r["all_h_GQ_intersection_and_cherry_cap_theorem"] is True
+          v=r["all_a_third_harmonic_orbits"]
+          expect={"triangle":[57,4004],"path_P4":[-25,6006],
+                  "star_K1_3":[1,429],"path_P3_plus_edge":[5,4004],
+                  "matching_3":[20,3003]}
+          assert v["6"]["h3"]==expect
+          assert v["6"]["E3"]==[710,1001]
+          assert v["6"]["E_ge4"]==[4966,77]
+          assert len(v["14"]["h3"])==5
+          result=r["original_true_GQ_models"]
+          assert [x["name"] for x in result]==["lex","hardest-M"]
+          for item in result:
+              for name in ("original_BA","actual_GQ_dual_AB"):
+                  c=item[name]
+                  assert c["third_J_harmonic_correlation"]==c["independent_triple_projection"]
+                  assert c["third_J_harmonic_correlation"]==c["sixsource_spectrum_third_level"]
+                  assert c["gq_geometry"]["V"]==15
+                  assert c["gq_geometry"]["triple_populations"]==[80,180,180,15]
+                  assert c["gq_geometry"]["k"]==6
+                  assert c["original_GQ_sixsource_guard"]["all_h_sixsource_GQ_cherry_cap_valid"] is True
+                  assert c["tensor_triple_mass"]==20*c["original_GQ_sixsource_guard"]["mass"]
+                  assert sum(sum(row.values()) for row in c["coupled_original_GQ_4x5_tensor"].values())==c["tensor_triple_mass"]
+                  assert Fraction(*c["remaining_four_to_six"])**2<=Fraction(*c["rank_four_to_six_CS_bound_squared"])
+              assert item["U_BA"]+item["U_AB"]<=item["S_seven"]
+          hard=result[1]
+          assert (hard["U_BA"],hard["U_AB"],hard["S_seven"])==(36,39,86)
+          assert hard["P2_margin"]==[757,143]
+          BA=hard["original_BA"]
+          AB=hard["actual_GQ_dual_AB"]
+          assert BA["third_J_harmonic_correlation"]==[2192,1001]
+          assert BA["remaining_four_to_six"]==[-541,385]
+          assert AB["third_J_harmonic_correlation"]==[-1211,858]
+          assert AB["remaining_four_to_six"]==[17,6]
+          assert BA["original_GQ_sixsource_guard"]["mass"]==4984
+          assert AB["original_GQ_sixsource_guard"]["mass"]==5302
+          assert BA["original_GQ_sixsource_guard"]["max_weight_over_GQ_cherry_cap"]==[2,135]
+          assert AB["original_GQ_sixsource_guard"]["max_weight_over_GQ_cherry_cap"]==[4,243]
+          assert BA["coupled_original_GQ_4x5_tensor"]["0"]["triangle"]==0
+          assert BA["coupled_original_GQ_4x5_tensor"]["1"]["triangle"]==3009
+          assert BA["coupled_original_GQ_4x5_tensor"]["2"]["triangle"]==2110
+          assert BA["coupled_original_GQ_4x5_tensor"]["3"]["triangle"]==0
+          assert AB["coupled_original_GQ_4x5_tensor"]["3"]["triangle"]==747
+          for c,mass,rows in ((BA,4984,[16678,39188,40502,3312]),
+                              (AB,5302,[18175,41797,42593,3475])):
+              assert [sum(c["coupled_original_GQ_4x5_tensor"][str(j)].values())
+                      for j in range(4)]==rows
+              assert c["tensor_triple_mass"]==20*mass
+          assert result[0]["original_BA"]["third_J_harmonic_correlation"]==[-16853,12012]
+          assert result[0]["actual_GQ_dual_AB"]["third_J_harmonic_correlation"]==[2342,3003]
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY
