@@ -59,6 +59,27 @@ class K3G2KConditionalInjectionTests(unittest.TestCase):
         self.assertLessEqual(mn,oracle.uniform_expectation())
         self.assertLessEqual(oracle.uniform_expectation(),mx)
 
+    def test_true_injection_with_unused_physical_labels(self):
+        # All-h geometry can have K=C(a,2)>V, not just the W32 K=V case.
+        # Complete assignment leaves a physical label unused. The final
+        # original-image event and each conditional mean remain exact.
+        weights={frozenset((0,1,2,3,4,5)):4,
+                 frozenset((1,2,3,4,5,6)):2}
+        targets=(frozenset((0,1,2,3,4,5)),
+                 frozenset((1,2,3,4,5,7)))
+        oracle=SixSourceConditionalExpectation(7,8,weights,targets)
+        for prefix in ((),(0,),(0,7),(4,3,2,1)):
+            with self.subTest(prefix=prefix):
+                self.assertEqual(
+                    oracle.expectation(prefix),
+                    independent_bruteforce(oracle,prefix))
+        for mode in ("maximize","minimize"):
+            cert=oracle.construct(mode)
+            self.assertEqual(len(set(cert["pair_ids"])),7)
+            self.assertEqual(cert["physical_label_capacity"],8)
+            self.assertEqual(oracle.expectation(cert["pair_ids"]),
+                             Fraction(cert["actual_overlap"]))
+
     def test_outside_source_used_labels_are_forbidden(self):
         # Source sixset R excludes original endpoint 0. Mapping endpoint 0
         # to physical 0 forbids a target containing physical 0.
