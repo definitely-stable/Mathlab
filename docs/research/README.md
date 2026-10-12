@@ -1,6 +1,8 @@
 ## HYP-105 E1-K3-G2-L — signed B/A deficit ledger and whole-original-right-sixset XOR transposition (2026-10-12)
 
-[All-h exact rank-six XOR right source-swap formula and tautological compensation barrier, plus complete W32 223-true-label beta obstruction oracle](HYP-105-G5-E2-B3-E1K3G2L-COMPENSATION-TRANSPORT.md) · [reference](../../research/hyp105_g5e2b3e1k3g2l_compensation_transport.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2l_compensation_transport.py). **SIX_SOURCE_XOR_SUPPORT_PROVED / ALL_H_POSITIVE_SURPLUS_OPEN / CLASSICAL_FULL_W32_TRUE_GF5_CENSUS / CI_PENDING**.
+[All-h exact rank-six XOR right source-swap formula and tautological compensation barrier, plus complete W32 223-true-label beta obstruction oracle](HYP-105-G5-E2-B3-E1K3G2L-COMPENSATION-TRANSPORT.md) · [reference](../../research/hyp105_g5e2b3e1k3g2l_compensation_transport.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2l_compensation_transport.py). **SIX_SOURCE_XOR_SUPPORT_PROVED / ALL_H_POSITIVE_SURPLUS_OPEN / CLASSICAL_FULL_W32_TRUE_GF5_CENSUS / EXACT_223_SOURCE_CONTRACT_SUCCESS_EARLIER_HEAD / FINAL_HEAD_CI_REQUIRED**.
+
+**First complete finite certificate:** 223 original coherent W32 maps, 109 distinct f, 11 positive B/A deficits yet 0 S<mu; observed min S-mu `2232/143` at `corr:5`. All original seven GF5 classes and Jcross independently counted. [Contract #38232996122](https://github.com/definitely-stable/Mathlab/actions/runs/38232996122) SUCCESS earlier child HEAD; final-head CI rerun required. This is finite, not all-h.
 
 ## HYP-105 E1-K3-G2-K — all-h positive B/A original sixsets via conditional right injection (2026-10-12)
 
