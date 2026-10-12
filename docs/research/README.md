@@ -1,3 +1,7 @@
+## HYP-105 E1-K3-G2-M — dual original GQ sixth-order transfer and complete two-family counterexample gate (2026-10-12)
+
+[Proof of exact all-h A/B = dual original B/A weighted sixsource identity, complete W32 223-map and adversarial original f,g two-class-versus-seven-class falsifiers](HYP-105-G5-E2-B3-E1K3G2M-TWOFAMILY-DUAL-FALSIFIER.md) · [reference](../../research/hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py). **EXACT_ALL_H_DUAL_TRANSFER / TWO_FAMILY_STRONGER_THAN_S_TOTAL / TRUE_COMPLETE_W32_NEGATIVE_CERTIFICATES / NO_UNIVERSAL_POSITIVE_ALPHA_OR_K / CI_PENDING**.
+
 ## HYP-105 E1-K3-G2-L — signed B/A deficit ledger and whole-original-right-sixset XOR transposition (2026-10-12)
 
 [All-h exact rank-six XOR right source-swap formula and tautological compensation barrier, plus complete W32 223-true-label beta obstruction oracle](HYP-105-G5-E2-B3-E1K3G2L-COMPENSATION-TRANSPORT.md) · [reference](../../research/hyp105_g5e2b3e1k3g2l_compensation_transport.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2l_compensation_transport.py). **SIX_SOURCE_XOR_SUPPORT_PROVED / ALL_H_POSITIVE_SURPLUS_OPEN / CLASSICAL_FULL_W32_TRUE_GF5_CENSUS / EXACT_223_SOURCE_CONTRACT_SUCCESS_EARLIER_HEAD / FINAL_HEAD_CI_REQUIRED**.
