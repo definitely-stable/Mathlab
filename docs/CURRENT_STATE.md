@@ -1,6 +1,8 @@
 ## HYP-105 B3.2-E1-K3-G2-H — complete W32 one-swap Hall falsifier (2026-10-12)
 
-[Complete genuine accepted seven-GF5 target W32 lex 210 single-swap exhaustive Hall/cut gate](research/HYP-105-G5-E2-B3-E1K3G2H-EXACT-SWAP-SHELL.md) · [reference](../research/hyp105_g5e2b3e1k3g2h_exact_swap_shell.py) · [tests](../research/test_hyp105_g5e2b3e1k3g2h_exact_swap_shell.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **PARENT_PR380_HEAD_8180230D / FULL_W32_210_ONE_SWAP_SHELL / COMPLETE_ACCEPTED_TARGET_NEGATIVE_PROOF_GATE / NO_ALL_H_PROOF / CI_PENDING**. New stacked Draft; no merge or main change.
+[Complete genuine accepted seven-GF5 target W32 lex 210 single-swap exhaustive Hall/cut gate](research/HYP-105-G5-E2-B3-E1K3G2H-EXACT-SWAP-SHELL.md) · [reference](../research/hyp105_g5e2b3e1k3g2h_exact_swap_shell.py) · [tests](../research/test_hyp105_g5e2b3e1k3g2h_exact_swap_shell.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **PARENT_PR380_HEAD_8180230D / FULL_W32_210_ONE_SWAP_SHELL / COMPLETE_ACCEPTED_TARGET_NEGATIVE_PROOF_GATE / NO_ALL_H_PROOF / CONTRACT_210_OF_210_SUCCESS_AT_PREVIOUS_HEAD / EXACT_REGRESSION_PINNED / FINAL_HEAD_CI_REQUIRED**. New stacked Draft; no merge or main change.
+
+**Hosted finite theorem (Contract #38216707775):** 210/210 genuine original-source two-overlap Hall injections across the complete 105-left + 105-right lex W32 single-swap shell. Exact \`min S=176\`, \`max Jcross=47\`, \`min(S-Jcross)=139\`, \`min source target degree=3\`; regression SHA256 \`d841d5e6dfb31666df301297843806deb099b3388be842912c3d7658306fc8b7\`. No all-h conclusion. Final child HEAD checks must be renewed after this documentation update.
 
 ## HYP-105 B3.2-E1-K3-G2-G — globally shared positive targets and quantitative finite charging (2026-10-12)
 
