@@ -247,7 +247,7 @@ def correlated_search(*,steps=6,proposals_per_step=8,
         {**r["initial_exact"],"anchor":r["anchor_number"],"step":0}
         for r in results
     ]+[
-        {**v,"anchor":r["anchor_number"]}
+        {**v,"S":v["S_seven_exact"],"anchor":r["anchor_number"]}
         for r in results for v in r["path"]
     ]
     def risk_sort(row):
