@@ -89,3 +89,31 @@ Dedicated GitHub-hosted Contract only, no redundant 223-map prior corpus or repe
 ## 6. Next K3-G2-R decision
 
 K3-G2-R should use this new small-permanent/Hall local structure to formulate a **genuinely joint ORIGINAL+DUAL coercivity lemma**, conditioning on global physical pair labels shared across f and g. Candidate: bound negative rank5/6 perfect-matching witnesses by positive original/dual 2-factor completions through an explicit common ORIGINAL incidence Hall/charging object. Test feasibility on the complete original sixsource ledgers first and prove all-h only if the geometric injection is truly uniform. Do NOT infer P2 from an upper bound on w_f, and do NOT turn a negative C56 or finite positive margin into an all-label universal conclusion.
+
+## 7. First GitHub-hosted full original/dual permanent certification (2026-10-12)
+
+Initial [dedicated Contract #38245954264](https://github.com/definitely-stable/Mathlab/actions/runs/38245954264) **SUCCESS** on early Q HEAD dd3eb656293efc8d299cd847fb852f13acfaa62f: six independent focused tests (5.099s), then exact original-source plus genuine original-dual on two globally coherent W32 models. Every model exhaustively checks all 5005 original right-line sixsets and 96525 anchored physical C4/four-line GQ incidence matrices, with full independent C0 source weight agreement and B0 all-seven-class agreement.
+
+Complete 4x4 binary incidence proof: of all 65536 matrices exactly 16217 are 4-/6-cycle-free; their permanent histogram is 0:11321, 1:4824, 2:72. A sharp permanent-two witness has row bitmasks (12,10,5,3), giving a simple C8.
+
+The exact original/dual physical signed high-harmonic source results:
+
+| Coherent original model | Direction | Source mass | Positive R | perm=0 terms | perm=1 terms | perm=2 terms | max w(R)/e_GQ(R) |
+|---|---|---:|---:|---:|---:|---:|---|
+| lex | B/A | 5000 | 3076 | 91537 | 4976 | 12 | 4/3 |
+| lex | A/B true GQ dual | 5793 | 3347 | 90746 | 5765 | 14 | 5/3 |
+| hardest-M | B/A | 4984 | 3068 | 91554 | 4958 | 13 | 6/5 |
+| hardest-M | A/B true GQ dual | 5302 | 3091 | 91226 | 5296 | 3 | 4/3 |
+
+In every row exactly 96525 anchor-square 4x4 sub-incidence attempts were independently evaluated, of which the valid perfect-matching witnesses have permanent one or two. A permanent-two term contributes TWO distinct original six-incidence supports. For the hardest map, only 26 of 4984 original B/A support units and 6 of 5302 dual A/B support units come from such double-matchings: most mass is from unique local matchings, NOT accidental multiplicity.
+
+The **same-global-map signed rank5+6 Johnson physical target** split (first component from permanent-one, second already multiplied by two for permanent-two):
+
+    lex B/A:          -145/308 + 13/231 = -383/924
+    lex A/B true dual: 628/231 + 226/231 = 122/33
+    hardest-M B/A:    -3097/462 + 745/462 = -56/11
+    hardest-M A/B:    -1937/462 + 50/231 = -167/42.
+
+These signs genuinely refer to the **same legal original f,g** in each case. On hardest-M, full actual counts remain U_BA=36,U_AB=39,S_seven=86,mu_f=9968/143 and P2 margin=757/143>0. Negative C56 comes mainly from *permanent-one original incidence matchings*; a proposed theorem attributing it only to rare double source multiplicities is therefore falsified. The positive rank56 contribution from two-matchings is insufficient by itself to cancel the negative rank56 contribution from one-matchings. No all-h sign theorem is inferred from either finite behavior.
+
+The exact numerical ledgers are sealed in the updated dedicated Contract after the initial success. First-run CI does NOT cover later commits. Need 3/3 exact FINAL HEAD Contract/INDEX/Research SUCCESS and independent math review before acceptance. Parent PR #389 Contract/INDEX/full Research all SUCCESS at its pinned parent HEAD 805e1145ff40287ed7759c27dc4126eb7eb6cd20; parent still Draft for independent mathematical review. Main remains unchanged. K3-G2-R remains a joint original/dual Hall-charging/coercivity gate and not a generic sixth-order design bound.
