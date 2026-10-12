@@ -102,3 +102,39 @@ and cannot close the gate from `|B|=O(s^5)` alone. D2 should either establish an
 where eta, Lambda are absolute and independent of f,g. This is a sufficient PROPOSAL only; proving the identity C=C_endpoint_mass+C_internal_only is not a proof of this inequality.
 
 Acceptance: one focused GitHub-hosted Contract, INDEX, complete Research on the SAME final HEAD, and separate external mathematical review. Do not merge main, close #230/#176/#169, claim ASET exponent or reanimate false P2/P7.
+
+
+## 6. Exact hosted finite result — calibrated split and per-pair congestion
+
+The first dedicated hosted [Contract #38282150953](https://github.com/definitely-stable/Mathlab/actions/runs/38282150953) **SUCCESS** on the original full 16-atom ledger, including the independent endpair-first/middle-edge verification for W32 and W34, complete W38 global fixture, both ORIGINAL typed incidence pencil formulas, and agreement with the independent parent proper-path census. These data are all ORIGINAL globally coherent f,g; they are *not* independent physical f/g draws within a state.
+
+| GQ state | blocked C | endpoint-only | internal-only | mixed endpoint/internal | endpoint-bad weighted mass |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| W32 lex | 942 | 168 | 156 | 618 | 786 |
+| W32 reverse | 898 | 142 | 222 | 534 | 676 |
+| W32 S68 | 606 | 52 | 62 | 492 | 544 |
+| W32 S72 | 658 | 68 | 58 | 532 | 600 |
+| W34 lex | 55,384 | 22,056 | 17,364 | 15,964 | 38,020 |
+| W34 random | 48,542 | 18,034 | 18,348 | 12,160 | 30,194 |
+| W38 random | 1,888,776 | 851,208 | 869,548 | 168,020 | 1,019,228 |
+
+Additional EXACT underlying ORIGINAL pair statistics:
+
+| State | # nonincident ORIGINAL pairs | # endpoint-bad ORIGINAL pairs | Max paths / one pair | Max paths / endpoint-bad pair |
+| --- | ---: | ---: | ---: | ---: |
+| W32 S68 | 180 | 166 | 12 | 12 |
+| W34 random | 6,800 | 3,203 | 36 | 34 |
+| W38 random | 336,960 | 70,174 | 54 | 54 |
+
+**Mechanistic reading:** in S68, endpoint conflicts affect 544/606 blocked paths, but another 62/606 are **internal-only** despite safe physical endpoint anchors. In random W38, internal-only accounts for 869,548 blocked paths, almost as many as all endpoint-only blockers (851,208); these internal-only paths cannot be controlled merely by eliminating the `B_L union B_R` endpoint-bad original pair relation. Conversely `|B_L union B_R|=70,174` contributes `1,019,228` distinct oriented physical P3s in W38, so *counting original endpoint pairs is mathematically not counting paths*.
+
+The ratio changes across these small finite h and may reverse under adversarial globally coherent maps. No asymptotic statement about any of these ratios is claimed. A claim `C=o(s^6)` remains UNPROVED, and the known S68 counterexample to unit-mean P2/P7 remains intact.
+
+**Concrete D2 proof split:** establish (or falsify) an upper or compensated estimate on
+```
+E(f,g) = sum_{(q,r) in B_L union B_R} N_{q,r},
+I(f,g) = sum_{(q,r) not in B_L union B_R}
+             #(proper original projected paths blocked internally),
+C=E+I.
+```
+An upper on E alone is INSUFFICIENT. Both terms depend on the SAME globally coupled f,g. A valid useful result could bound E+I by `(16-eta)s^6+Lambda*S+o(s^6)`, or provide separate bounds whose constants add to less than16. None is yet proved.
