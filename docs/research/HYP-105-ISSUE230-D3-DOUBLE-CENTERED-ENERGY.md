@@ -132,3 +132,24 @@ The full finite seven-state report is **NOT** a proof of any o(s^power) theorem.
 (3) If either target fails, study a **COMPENSATED** inequality of `W_H<=o(s^(59/10))+K*S/s^alpha` or directly `C=E+I <=(16-eta)s^6+Lambda*S+o(s^6)`; do not attempt to resuscitate falsified global P2/P7.
 
 No merge to main, no #230/#176/#169 closure, no strict full R3 bound, no new ASET exponent. Independent mathematical proof review remains required even if Contract/INDEX/full Research are all green.
+
+
+## 8. First hosted exact signed-spectrum results
+
+The initial [dedicated D3 Contract #38293260178](https://github.com/definitely-stable/Mathlab/actions/runs/38293260178) was **SUCCESS** at child HEAD `9fd66343f6dbc22d15c73576eba2e3670a20e9f9` (7 focused original typed/gauge tests and full seven-map signed-spectrum census). Every number below is an EXACT rational integer/Fraction, with the complete true-original GQ f,g on each row:
+
+| Genuine coherent original GQ map | W_G | W_mean | W_corr | M_f | true-original M_g | bad original U |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| W32 lex | 2,977 | 3,060 | -83 | 26 | 32 | 153 |
+| W32 reverse | 2,709 | 2,700 | +9 | 26 | 21 | 135 |
+| W32 S68 | 3,289 | 3,320 | -31 | 35 | 24 | 166 |
+| W32 S72 | 3,303 | 3,340 | -37 | 35 | 25 | 167 |
+| W34 lex | 133,432 | 2,207,655/17 | +60,689/17 | 235 | 305 | 3,648 |
+| W34 random | 115,088 | 1,910,476/17 | +46,020/17 | 226 | 237 | 3,203 |
+| W38 random | 4,927,736 | 313,987,787/65 | +6,315,053/65 | 2,298 | 2,341 | 70,174 |
+
+**Interpretation strictly limited to finite cases:** The mean is the dominant positive contribution in these seven frozen actual maps. The signed residual is both negative (S68 -31) and positive (W38 +6,315,053/65). Neither separate sign can be guaranteed for arbitrary global f,g. In W38 `Wcorr≈97,154.66`, compared with `W_G=4,927,736`: it is NOT zero, and it is not legitimate to discard it for an all-h proof merely because the mean is larger on finite fixtures. All seven exact centered Cauchy checks pass, and the true signed values were verified independently from the original bad (q,r)-weighted product and the physical matrix contraction.
+
+The original source intersection masses `M_f,M_g` grow much slower than the generic `O(s^4)` cap on these listed small coherent f,g, but this does NOT show any uniform worst-case gain in the exponent. A genuine all-label theorem on `M_f+M_g` and/or a relative correlation/compensation bound is needed. The sign-changing finite residuals block any attempted replacement `Wcorr<=0`.
+
+These numbers were copied from a completed hosted D3 report, then sealed into dedicated regression tests/workflow at a *new child HEAD*. CI on that new final HEAD must be checked separately; don't inherit the previous report's green status.
