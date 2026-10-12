@@ -59,8 +59,9 @@ class Issue230EndpointMixedbookD2Tests(unittest.TestCase):
         self.assertEqual(x["actual_bad_physical_antipodal_chords"],140348)
         self.assertEqual(x["degree_energy_W"],4927736)
         self.assertTrue(x["independent_sparse_square_trace_computed"])
-        self.assertGreaterEqual(x["independent_sparse_A2_A3_chord_trace"],
-                                1019228)  # D1 complete proper-path floor
+        self.assertEqual(x["independent_sparse_A2_A3_chord_trace"],1195458)
+        self.assertEqual(x["independent_sparse_A2_A3_chord_trace"]-1019228,
+                         176230)  # independently sealed D1 full proper endpoint floor
         self.assertFalse(x["all_h_endpoint_mass_o_s6_proved"])
 
     def test_lex_and_reverse_endpoint_original_weight(self):
