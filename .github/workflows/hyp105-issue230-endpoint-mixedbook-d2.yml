@@ -56,8 +56,24 @@ jobs:
               if key in exact:
                   assert x["exact_proper_original_endpoint_bad_paths"]==exact[key]
                   assert x["all_oriented_threewalks_bad_endpoint_chords"]>=exact[key]
+          pinned_w={
+              (2,"lex"):(2977,1834),(2,"reverse"):(2709,1456),
+              (2,"S68"):(3289,1644),(2,"S72"):(3303,1692),
+              (4,"lex"):(133432,56790),(4,"random"):(115088,44552),
+              (8,"random"):(4927736,1195458),
+          }
+          for key,(w,trace) in pinned_w.items():
+              x=rows[key]
+              assert x["degree_energy_W"]==w
+              assert x["independent_sparse_A2_A3_chord_trace"]==trace
+              assert x["independent_sparse_square_trace_computed"] is True
+              if key in exact:
+                  assert x["all_oriented_threewalks_bad_endpoint_chords"]==trace
           x=rows[8,"random"]
           assert x["bad_original_union_pairs"]==70174
           assert x["actual_bad_physical_antipodal_chords"]==140348
+          assert x["independent_sparse_A2_A3_chord_trace"]-1019228==176230
+          assert rows[2,"S68"]["mixedbook_small_book_allowance_24tW"]==236808
+          assert rows[2,"S68"]["mixedbook_certificate_nontrivial"] is False
           print(json.dumps(r,sort_keys=True,indent=2))
           PY
