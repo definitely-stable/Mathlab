@@ -1,0 +1,66 @@
+name: hyp105-k3g2l-compensation-transport
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2l_compensation_transport.py"
+      - "research/test_hyp105_g5e2b3e1k3g2l_compensation_transport.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2L-COMPENSATION-TRANSPORT.md"
+      - ".github/workflows/hyp105-k3g2l-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  full-W32-compensation-source-transport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent original-source XOR swaps and complete B0 compensation tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2l_compensation_transport.py' -v
+      - name: Full 223-map complete-original-seven-class compensation ledger, once
+        run: |
+          python research/hyp105_g5e2b3e1k3g2l_compensation_transport.py > /tmp/hyp105-k3g2l.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          r=json.loads(Path("/tmp/hyp105-k3g2l.json").read_text())
+          assert r["slice"]=="HYP-105-E1-K3-G2-L"
+          assert r["model_count"]==223
+          assert r["complete_210_single_swap_shell"]
+          assert r["four_constructed_K_maps"]
+          assert r["right_six_target_count"]==70
+          assert r["unique_fixed_left_source_maps"]>=105
+          assert r["entire_W32_label_space_enumerated"] is False
+          assert r["all_h_true_compensation_inequality_proved"] is False
+          assert r["all_h_K_charge_proved"] is False
+          assert r["branch_A_B"]=="OPEN"
+          assert len(r["ordered_full_original_ledger_sha256"])==64
+          assert set(r["witnesses"])=={
+              "lex","corr:5","corr:6",
+              "CE:lex:maximize","CE:lex:minimize",
+              "CE:correlated-left:maximize","CE:correlated-left:minimize"}
+          for name,p in r["witnesses"].items():
+              mu=Fraction(*p["mu_BA"])
+              deficit=Fraction(*p["signed_deficit_D_mu_minus_BA"])
+              slack=Fraction(*p["signed_total_surplus_S_minus_mu"])
+              assert p["S"]==p["S_other_six"]+p["U_BA"]
+              assert p["S_other_six"]-deficit==slack==p["S"]-mu
+              assert p["U_BA"]>=0 and p["S_other_six"]>=0
+              assert p["full_positive_GF5_seven_numerator"]>0
+              if p["Jcross"]>0:
+                  floor=max(Fraction(0),(mu-p["S"])/p["Jcross"])
+                  assert p["necessary_beta_nonnegative_if_J_positive"]==[
+                      floor.numerator,floor.denominator]
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY
