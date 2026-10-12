@@ -1,0 +1,93 @@
+name: hyp105-k3g2m-original-dual-twofamily
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py"
+      - "research/test_hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2M-TWOFAMILY-DUAL-FALSIFIER.md"
+      - ".github/workflows/hyp105-k3g2m-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-original-dual-twofamily-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent GQ dual C0-B0 and short correlated falsifier tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py' -v
+      - name: Full 223 true original pair maps plus complete-replayed two-sided adversary once
+        run: |
+          python research/hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py > /tmp/hyp105-k3g2m.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          r=json.loads(Path("/tmp/hyp105-k3g2m.json").read_text())
+          assert r["slice"]=="HYP-105-E1-K3-G2-M"
+          assert r["branch_A_B"]=="OPEN"
+          assert r["all_h_two_family_inequality_proved"] is False
+          assert r["all_h_seven_family_inequality_proved"] is False
+          corpus=r["complete_corpus"]
+          assert corpus["named_exact_original_source_maps"]==223
+          assert corpus["complete_single_swap_shell"]
+          assert corpus["constructed_high_low_four"]
+          assert corpus["entire_W32_pair_map_space_exhausted"] is False
+          assert corpus["universal_all_h_two_family_claim"] is False
+          assert corpus["universal_all_h_full_S_claim"] is False
+          assert len(corpus["full_source_corpus_sha256"])==64
+          for name,p in corpus["selected_full_true_source_ledger"].items():
+              assert p["dual_seven_S_invariant"] is True
+              assert p["distinct_original_left_6candidates"]==62370
+              assert p["distinct_original_dual_left_6candidates"]==62370
+              assert p["U_BA"]+p["U_AB"]+p["five_other_family"]==p["S_seven"]
+              assert Fraction(*p["two_family_minus_mu"])==(
+                  p["U_BA"]+p["U_AB"]-Fraction(*p["mu_BA"]))
+          probe=r["correlated_adversarial"]
+          assert probe["anchors_tested"]==3
+          assert probe["whole_W32_map_space_exhausted"] is False
+          assert probe["all_h_branch_A_B_proved"] is False
+          assert probe["complete_original_B0_C0_dual_replays"]>=3
+          assert len(probe["selected_path_sha256"])==64
+          assert probe["candidate_moves_precisely_delta_scored"]<=120
+          for a in probe["result"]:
+              for p in a["selected_path"]:
+                  if p["finite_two_family_counterexample"]:
+                      assert Fraction(*p["two_family_minus_mu"])<0
+                      assert p["five_other_family"]>=0
+          # Exact hosted original/dual complete 223-map and selected probe seal.
+          assert corpus["distinct_original_left_f"]==109
+          assert corpus["distinct_original_right_g"]==114
+          assert corpus["two_family_failures"]==0
+          assert corpus["full_seven_mu_failures"]==0
+          assert corpus["smallest_two_family_signed_margin"]["value"]==[945,143]
+          assert corpus["smallest_two_family_signed_margin"]["name"]=="corr:5"
+          assert corpus["full_source_corpus_sha256"]==(
+              "cdabb909755ea9f1cc5f83874b73c880937cb50039ea5843329e460d87b0f40a")
+          assert probe["candidate_moves_precisely_delta_scored"]==120
+          assert probe["complete_original_B0_C0_dual_replays"]==18
+          assert probe["strict_full_source_two_family_counterexamples"]==0
+          assert probe["minimum_found_two_family_minus_mu"]==[757,143]
+          assert probe["selected_path_sha256"]==(
+              "5db98923e6769b8398cf97d400e7f87520275e333bab9538732d031313d22835")
+          first=probe["result"][0]["selected_path"][0]
+          assert (first["side"],first["i"],first["j"])==("left",13,14)
+          assert (first["U_BA"],first["U_AB"],first["S_seven"])==(36,39,86)
+          assert first["mu_BA"]==[9968,143]
+          assert first["Jcross"]==22
+          assert first["five_other_family"]==11
+          assert first["physical_global_labels_sha256"]==(
+              "e5c3f92068d6221f44cbb77fbae5dc95000144a0c495d216a48cdf3b047bfd4a")
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY
