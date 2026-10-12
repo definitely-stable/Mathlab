@@ -55,5 +55,9 @@ jobs:
                   assert len(c["trajectory_sha256"])==64
                   assert c["complete_true_W32_B0_S"]>=c["actual_overlap"]
                   assert c["seven_GF5_risk_floor_numerator"]>=c["BA_GF5_risk_floor_numerator"]
+          assert r["models"]["lex"]["random_mean"]==[10000,143]
+          assert r["models"]["correlated-left"]["random_mean"]==[10638,143]
+          assert [r["models"]["lex"]["results"][x]["actual_overlap"] for x in ("maximize","minimize")]==[131,33]
+          assert [r["models"]["correlated-left"]["results"][x]["actual_overlap"] for x in ("maximize","minimize")]==[120,40]
           print(json.dumps(r,sort_keys=True,indent=2))
           PY
