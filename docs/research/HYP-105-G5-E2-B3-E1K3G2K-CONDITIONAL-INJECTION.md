@@ -75,3 +75,24 @@ No invented random probabilities, no truncation-as-negative, no floating-point. 
 The broad derandomization principle is **classical prior art**, not a new central theorem. The contribution here is a concrete all-h explicit right-injection witness for the known B/A positive mean, with exact original-source combinatorial weight and independent finite oracle. It makes the existential side constructive and isolates the crucial failure of the method for arbitrary adversarial g.
 
 The next genuine all-label task K3-G2-L should analyze the **distance / signed trade / six-coordinate rearrangement** between an arbitrary right injection and these constructed above-mean maps, with exact charge to actual positive original S or Jcross, rather than presuming a Lipschitz telescoping bound: B1-B's per-transposition influence is O(s^12), much too large over O(V) swaps to derive an s^6 min. The C0 3-cube equal-two-marginal trade also rules out a naive marginals-only proof. Alternatively produce a legitimate infinite coherent f,g falsifier. Only a uniform all-h lower proof closes Branch A.
+
+## 6. First genuine W32 deterministic output (GitHub-hosted 2026-10-12)
+
+[Focused Contract #38227910260](https://github.com/definitely-stable/Mathlab/actions/runs/38227910260) **SUCCESS** on original child HEAD `5da127fe9588ba079ec6f787dd1e77e242431f82`. The first hosted oracle was run for TWO legal globally coherent original W(3,2)/K6 left maps. Exactly 70 physical target six-edge 2-factors were used, and all right maps are whole-original-source vertex injections onto the 15 physical edges of K6:
+
+| Fixed original left f | Original source right-sixset weight sum | Exact uniform right mean E[U_B/A] | Constructive max U_B/A | Full true S at max | Constructive min U_B/A | Full true S at min |
+|---|---:|---:|---:|---:|---:|---:|
+| lex | 5000 | 10000/143 | **131** | **320** | **33** | **101** |
+| correlated-left | 5319 | 10638/143 | **120** | **245** | **40** | **104** |
+
+For lex fixed f, `33 < 10000/143 < 131`. For correlated-left, `40 < 10638/143 < 120`. Every one of the four `U_B/A` values was independently recomputed with C0's weighted ORIGINAL-right-sixset physical target oracle and B0's COMPLETE original 62,370-left-candidate seven-family census. Thus they are not artificial template counts and the positive GF5 class floors are strictly additive on true original six-incidence supports.
+
+Full seven-family certified 51^6 GF5 R3 **lower numerators** (not full R3) in max/min order:
+- lex: `13,589,291` / `4,629,430`.
+- correlated-left: `10,917,154` / `4,681,086`.
+
+Deterministic complete right physical-label SHA256 in max/min order:
+- lex: `f06c5203f316494b559d3a5e4ff64a5c381681bca9a82272c40d8831f296972f` / `e9f3bb5e6753513c3eb09803f8566206ccd5fbe8a47c63f9a94d576533c86742`.
+- correlated-left: `9e676e01195a181effd96aa554378e527a072710268124fcf0314f2b1456b23b` / `c0c1cd1803903c34dca2b8e31dedee27125756856fe7d55e75cb4b3db78dd226`.
+
+**Interpretation:** The high right injections construct B/A counts above the uniform right mean and hence strictly positive true seven-family S for each of these f. The low right injections demonstrate a real range within globally legal coherent pair maps, but still yield positive B/A counts. Neither map is a general all-h counterexample. This method itself is classical derandomization; its scientific role is a constructive benchmark for the harder arbitrary-right all-label transport theorem. Exact-value regression was added after the first success; final child HEAD CI verification is required.
