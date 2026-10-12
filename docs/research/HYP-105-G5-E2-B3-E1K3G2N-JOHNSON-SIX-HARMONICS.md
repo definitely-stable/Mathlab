@@ -98,3 +98,24 @@ U_AB(f,g) + C2(f,g) + C_ge3(f,g) >= 0
 with a genuine positive or nonnegative *geometric* lower certificate, **not** a rearranged tautology. The exact N orthogonal decomposition states what must be controlled but is NOT such a certificate. Any alternative finite adversarial result must preserve whole original labels and independently recheck B0/C0. A W32 counterexample to P2 (if found) does not automatically disprove seven-family P7.
 
 Acceptance: exact-head Contract/INDEX/Research SUCCESS, regression on complete K6 Johnson spectrum and dual C0/B0, independent mathematical review; keep stacked PR Draft, maintain root issues OPEN, do not merge to main.
+
+## 6. First hosted exact spectrum (finite verification only)
+
+[Dedicated initial Contract #38239319194](https://github.com/definitely-stable/Mathlab/actions/runs/38239319194) **SUCCESS** at earlier N HEAD `810dd201011b6df90b871587075df8fbb6c92c3e` (five unit tests, exact full J(15,6) decomposition and two complete original/dual C0+B0 GQ maps). Complete **target** rank squared energies, ranks 0..6 in order:
+```
+[140/143, 0, 42/11, 710/1001, 86/7, 1182/77, 258/7].
+```
+The high-rank total is exactly `9324/143`; the orthogonal ranks reconstruct all 70 actual physical K6 two-factors.
+
+The genuine coherent original `hardest-M` W32 map (previously published original correlated model plus whole original left swap (13,14)), verified from actual incidence IDs, has:
+```
+U_BA=36, U_AB=39, S_seven=86, mu_f=9968/143
+P2 margin=757/143>0, five other accepted GF5 families=11
+ORIGINAL B/A:
+  C2=-1897/55, C_ge3=51/65, C0=9968/143, U_BA=36
+ORIGINAL DUAL A/B:
+  C2=-1207/33, C_ge3=610/429, C0=964/13, U_AB=39.
+```
+Both high-order **signed correlations are small in these particular sources**, despite the substantial high-rank target norm; this is NOT a bound uniform in legal GQ maps. The plain source-energy Cauchy–Schwarz bound is many orders looser than the measured signed high-order correlations and by itself does not certify P2. A useful follow-on is to exploit source-geometric cancellation rather than merely estimate L2 norms.
+
+One implementation hardening after this first success: source energy now requires the **explicit full physical alphabet a**. For V<K, occupied physical labels can omit all pairs involving the last coordinate, so inferring `a` from used labels computes a wrong Johnson universe and wrong denominators. A dedicated non-surjective K7 zero-padding test was added. This changes no W32 first-run values but **requires renewed final HEAD Contract/INDEX/Research**. Avoid claiming first-run success applies to later commits.
