@@ -47,6 +47,22 @@ jobs:
           assert r["all_h_S_omega_proved"] is False
           assert r["Branch_A_B"]=="OPEN"
           assert len(r["selected_path_certificate_sha256"])==64
+          # Pinned exact 2026-10-12 deterministic correlated W32 certificate.
+          assert r["candidate_transitions_exactly_scored"]==144
+          assert r["committed_states_independently_full_replayed"]==21
+          assert r["finite_unit_two_overlap_Hall_counterexamples"]==0
+          assert r["minimum_observed_S_minus_J"] == {
+              "S_minus_J":68,"S":94,"Jcross":26,"anchor":2,"step":6}
+          assert r["selected_path_certificate_sha256"] == (
+              "25e93b1374d99a6db40a53df913f6e87bfa1cfbcd9909b4b960454d7d54162d9")
+          anchor=r["results"][2]
+          assert [anchor["initial_exact"][k] for k in ("S","Jcross","S_minus_J")] == [201,29,172]
+          assert [row["S_minus_J"] for row in anchor["path"]] == [139,114,102,84,69,68]
+          assert anchor["path"][-1]["GF5_floor_numerator"]==4289420
+          assert anchor["path"][-1]["min_witness_target_degree"]==2
+          assert anchor["final_labels_digest"] == (
+              "d736eae47626ecf935b21d9fec7d09ca1af80a48cda20b50a7e3c7c5bfb3baa0")
+
           for path in r["results"]:
               assert len(path["final_labels_digest"])==64
               assert path["committed_moves"]<=6
