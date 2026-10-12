@@ -102,3 +102,30 @@ If the mixed-book certificate is numerically vacuous on unpruned W32/W34, report
 Either prove a true-original-incidence weighted estimate on W_H for the spectrally pruned H with uniform h constants or construct a concrete coherent family where the desired `o(s^(59/10))` fails. Independently, investigate I_H, internal anchor-coordinate conflicts on endpoint-good original pairs, using actual fixed (q,r)-conditioned adjacent middle-edge tensors and compensated positive CA/CB/BB sixsets. Do not infer I from |U| or from W_H; it is a disjoint tensor. Any successful A proof must control the sum C=E+I (possibly amortized by S), not only E.
 
 **Acceptance:** GitHub-hosted dedicated Contract, INDEX and full Research at exact final PR HEAD; separate mathematical audit and OPEN #230/#176/#169. No merge/main modification and no ASET exponent.
+
+
+## 8. First hosted EXACT report and critical non-vacuity verdict
+
+The first [dedicated hosted Contract #38286091216](https://github.com/definitely-stable/Mathlab/actions/runs/38286091216) completed **SUCCESS** on child HEAD `505859d471c1a0f9857ab954bc32fb3276606a85`. All explicit W32/W34 bad-original-pencil SETS agreed with independently enumerated actual GQ projections; complete independent proper threewalk E agreed with D1's 16-atom endpoint mass. W38 received a complete independent ORIGINAL weighted-degree ledger, without a second full threewalk scan.
+
+| true original state | original bad pairs | physical bad chords | exact W_G | full-G block t | exact proper E_G | all unrestricted T_B(G) | slack T_B-E |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| W32 lex | 153 | 306 | 2,977 | 3 | 786 | 1,834 | 1,048 |
+| W32 reverse | 135 | 270 | 2,709 | 3 | 676 | 1,456 | 780 |
+| W32 S68 | 166 | 332 | 3,289 | 3 | 544 | 1,644 | 1,100 |
+| W32 S72 | 167 | 334 | 3,303 | 3 | 600 | 1,692 | 1,092 |
+| W34 lex | 3,648 | 7,296 | 133,432 | 5 | 38,020 | 56,790 | 18,770 |
+| W34 random | 3,203 | 6,406 | 115,088 | 4 | 30,194 | 44,552 | 14,358 |
+| W38 random | 70,174 | 140,348 | 4,927,736 | 5 | D1: 1,019,228 | not run | not run |
+
+**Critical negative finding about this certificate:** On EVERY W32/W34 full-G fixture, `24*t_G*W_G` already exceeds the actual E_G by orders of magnitude (S68: 236,808 versus E=544). Hence the mixed-book D6 compensation bound gives `max(E-24tW,0)=0` in these finite instances. The exact physical relation and weighted energy are useful structural results; the unpruned FULL-G numerical mixed-book inequality is VACUOUS as a positive-motif detector. The intended all-h analysis uses #394's coherently pruned H' with t=s^(1/10), NOT these finite full-G caps.
+
+Finite W_G/s^(11/2) happens to be about 53–73 on the listed states. That is only a finite dimensional observation. There is no proof of a *uniform* O(s^(11/2)) bound, no evidence about its sharp worst-case coefficient for arbitrary globally correlated maps, and no claim that a finite trend is a theorem. D3 must distinguish a true universal W_H estimate from merely typical/random labelings, especially when the original pencil bad-set cardinality approaches the worst-case O(s^5).
+
+Also, a generic Cauchy estimate
+```
+W_H <= sqrt(sum_z deg_Bbad(z)^2 * sum_z deg_H(z)^2)
+```
+does not automatically prove the proposed small W_H. In high-density bad-pair scenarios the first squared term may carry a large power of s, while #394's bound `M2(G)=O(s^(11/2))` alone leaves substantial slack. Proving an extra **correlation-specific** gain in the contraction is the substantive D3 question; source-dimension support or expected random g does not supply it.
+
+All numerical rows above are from TRUE ORIGINAL globally coherent f,g; none includes unlabeled surrogate target sampling. Scope remains `RESTRICTED_THEOREM_C`. Recheck Contract/INDEX/full Research on the final pinned regression HEAD.
