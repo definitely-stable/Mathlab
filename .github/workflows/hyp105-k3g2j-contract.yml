@@ -1,0 +1,77 @@
+name: hyp105-k3g2j-rational-surplus-frontier
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2j_surplus_frontier.py"
+      - "research/test_hyp105_g5e2b3e1k3g2j_surplus_frontier.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2J-RATIONAL-SURPLUS.md"
+      - ".github/workflows/hyp105-k3g2j-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  rational-original-seven-S-constant-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent rational boundary proof and small real GQ cases
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2j_surplus_frontier.py' -v
+      - name: Full G2H 210-swap and G2I correlated finite coefficient separation
+        run: |
+          python research/hyp105_g5e2b3e1k3g2j_surplus_frontier.py > /tmp/hyp105-k3g2j.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          r=json.loads(Path("/tmp/hyp105-k3g2j.json").read_text())
+          assert r["slice"]=="HYP-105-E1-K3-G2-J"
+          assert r["finite_exact_model_count"]==219
+          assert r["complete_single_swap_shell"]
+          assert r["correlated_best_path_replayed"]
+          assert r["minimum_observed_S_at_beta_zero"]["S"]==90
+          assert r["minimum_observed_S_at_beta_zero"]["alpha_upper"]==[45,32]
+          assert r["example_refuted_alpha_2_beta_0"]["refuted"]
+          assert r["true_all_h_positive_alpha_beta_proved"] is False
+          assert r["all_h_Jcross_leq_K_S_proved"] is False
+          assert r["entire_W32_label_space_enumerated"] is False
+          assert r["no_W34_partial_target_as_negative_evidence"] is True
+          assert r["independent_pair_intersection_probes"]>=2
+          assert len(r["envelope_rational_pieces"])>=1
+          assert len(r["observations_sha256"])==64
+          # Exact full-W32 source-map census and rational supporting-line seal.
+          assert r["finite_distinct_S_J_pairs"]==198
+          assert r["independent_pair_intersection_probes"]==141
+          assert r["finite_K_necessary_lower"]==[13,47]
+          assert r["envelope_rational_pieces"]==[
+              {"J":21,"S":90,"active_source":"corr:5",
+               "alpha_intercept":[45,32],"alpha_slope":[21,64],
+               "beta_from":[0,1],"beta_to":[11,4]},
+              {"J":17,"S":101,"active_source":"corr:4",
+               "alpha_intercept":[101,64],"alpha_slope":[17,64],
+               "beta_from":[11,4],"beta_to":[8,1]},
+              {"J":15,"S":117,"active_source":"corr:3",
+               "alpha_intercept":[117,64],"alpha_slope":[15,64],
+               "beta_from":[8,1],"beta_to":None}
+          ]
+          assert r["observations_sha256"]==(
+              "2bed34a0fc5c6181ffc239f60e69cbd7682ee71d1585310c30f66996df89c461")
+
+          intervals=r["envelope_rational_pieces"]
+          assert intervals[0]["beta_from"]==[0,1]
+          assert intervals[-1]["beta_to"] is None
+          for left,right in zip(intervals,intervals[1:]):
+              assert left["beta_to"]==right["beta_from"]
+              assert left["J"]>right["J"]
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY

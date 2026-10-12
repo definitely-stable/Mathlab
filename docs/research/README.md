@@ -1,3 +1,9 @@
+## HYP-105 E1-K3-G2-J — rational support intervals and exact all-h surplus necessity (2026-10-12)
+
+[All-h necessary alpha/beta/K coefficient screen, genuine positive seven-family complete-W32 certificate and independently tested exact rational lower line envelope](HYP-105-G5-E2-B3-E1K3G2J-RATIONAL-SURPLUS.md) · [reference](../../research/hyp105_g5e2b3e1k3g2j_surplus_frontier.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2j_surplus_frontier.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **ALL_H_NECESSARY_COEFFICIENT_THEOREM / NO_POSITIVE_UNIVERSAL_ALPHA_PROVED / ALL_H_BRANCH_A_B_OPEN / 219_MAP_RATIONAL_FRONTIER_CONTRACT_SUCCESS_EARLIER_HEAD / FINAL_HEAD_RECHECK**.
+
+**Finite hosted theorem:** 219 genuine coherent W32 models yield a complete three-piece rational NECESSARY α/β frontier, 141 independent exact intersection probes, and floor K>=13/47. At β=0 only α<=45/32 is known necessary; no all-h positive constant proved. [Contract #38221690490](https://github.com/definitely-stable/Mathlab/actions/runs/38221690490) SUCCESS at earlier HEAD; final HEAD repeat required.
+
 ## HYP-105 E1-K3-G2-I — exact swap-locality lemma and complete-target correlated W32 search (2026-10-12)
 
 [All-host transposition support invariance, W32 left-candidate-union delta update, and deterministic correlated both-half complete-B0 Hall adversary](HYP-105-G5-E2-B3-E1K3G2I-CORRELATED-DELTA.md) · [reference](../../research/hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **EXACT_LOCAL_DELTA / SELECTED_PATH_INDEPENDENT_FULL_B0_REPLAY / NOT_EXHAUSTIVE / BRANCH_A_B_OPEN / EXACT_144_21_POSITIVE_CONTRACT_SUCCESS_AT_PREVIOUS_HEAD / FINAL_HEAD_CI_REQUIRED**.

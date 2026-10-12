@@ -1,3 +1,9 @@
+## HYP-105 B3.2-E1-K3-G2-J — exact rational necessary all-h seven-S surplus coefficient frontier (2026-10-12)
+
+[Universal coefficient necessity theorem, independently certified rational finite envelope and W32 original-label counterexample screen](research/HYP-105-G5-E2-B3-E1K3G2J-RATIONAL-SURPLUS.md) · [reference](../research/hyp105_g5e2b3e1k3g2j_surplus_frontier.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2j_surplus_frontier.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **STACKED_DRAFT_PR382 / ALL_H_NECESSARY_NOT_SUFFICIENT / EXACT_W32_219_LABEL_MAPS / RATIONAL_INTERVAL_CERTIFICATES / BRANCH_A_B_OPEN / 219_MAP_RATIONAL_FRONTIER_CONTRACT_SUCCESS_EARLIER_HEAD / FINAL_HEAD_RECHECK**. Main unchanged.
+
+**Finite hosted theorem:** Contract #38221690490 SUCCESS: 219 exactly reconstructed coherent W32 maps, 198 distinct (S,J) pairs, 141 independent rational probes, and three exact necessary intervals: (90+21β)/64 on [0,11/4], (101+17β)/64 on [11/4,8], (117+15β)/64 on [8,+∞). At β=0, α<=45/32 is NECESSARY only; all-h positive α unproved. Finite necessary K>=13/47. SHA256 `2bed34a0fc5c6181ffc239f60e69cbd7682ee71d1585310c30f66996df89c461`. Final HEAD CI recheck required.
+
 ## HYP-105 B3.2-E1-K3-G2-I — exact original-sixset transposition locality and correlated two-sided W32 Hall adversary (2026-10-12)
 
 [Proof, deterministic correlated source-label probe and complete accepted seven-S full Hall replay](research/HYP-105-G5-E2-B3-E1K3G2I-CORRELATED-DELTA.md) · [reference](../research/hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **STACKED_DRAFT_CHILD_OF_PR381 / EXACT_W32_DELTA / CORRELATED_BOTH_SIDES / EACH_COMMITTED_STATE_FULL_B0_AND_HALL / NO_ALL_H_CLAIM / EXACT_144_21_POSITIVE_CONTRACT_SUCCESS_AT_PREVIOUS_HEAD / FINAL_HEAD_CI_REQUIRED**. Main unchanged.
