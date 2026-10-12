@@ -153,7 +153,7 @@ def transposition_shell(base, *, sides=("left", "right"),
                 "hall_cut_neighbor_size", "isolated_witnesses_full_S")}
             for r in failures[:10]
         ],
-        "all_h_charge_refuted_by_this_shell": bool(failures),
+        "universal_unit_two_overlap_charge_refuted_by_this_shell": bool(failures),
         "minimum_exact_S": {k:worst("S_seven_exact")[k]
                             for k in ("side", "i", "j", "S_seven_exact")},
         "maximum_exact_Jcross": {k:most("Jcross")[k]
