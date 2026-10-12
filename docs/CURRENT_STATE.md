@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-G2-M — exact dual B/A+A/B original sixsource falsifier (2026-10-12)
+
+[All-h GQ dual weighted original-sixsource identity, two-family versus full S fixed-left-random-mean separation, full W32 223-map plus correlated falsifier](research/HYP-105-G5-E2-B3-E1K3G2M-TWOFAMILY-DUAL-FALSIFIER.md) · [reference](../research/hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py) · [tests](../research/test_hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py) · [root #230](https://github.com/definitely-stable/Mathlab/issues/230). **DRAFT_CHILD_PR385 / ALL_H_EXACT_DUAL_ORIGINAL_SIXSOURCE / FINITE_TRUE_ORIGINAL_223_CORPUS / NEGATIVES_ONLY_AFTER_FULL_B0_C0_DUAL_REPLAY / ALL_H_TWO_FAMILY_AND_SEVEN_BOUND_UNPROVED / CI_PENDING**. Main unchanged.
+
 ## HYP-105 B3.2-E1-K3-G2-L — exact signed compensation and six-source XOR swap transport (2026-10-12)
 
 [All-h XOR source support theorem, compensation-equivalence barrier and complete 223-map W32 positive-seven-family beta audit](research/HYP-105-G5-E2-B3-E1K3G2L-COMPENSATION-TRANSPORT.md) · [reference](../research/hyp105_g5e2b3e1k3g2l_compensation_transport.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2l_compensation_transport.py) · [root #230](https://github.com/definitely-stable/Mathlab/issues/230). **DRAFT_CHILD_PR384 / ALL_H_EXACT_XOR_IDENTITY / ALL_H_COMPENSATION_EQUIVALENCE_ONLY / 223_COMPLETE_W32_LABELS / NO_ALL_H_POSITIVE_BOUND / EXACT_223_SOURCE_CONTRACT_SUCCESS_EARLIER_HEAD / FINAL_HEAD_CI_REQUIRED**. Main unchanged.
