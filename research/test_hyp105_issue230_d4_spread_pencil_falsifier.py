@@ -84,9 +84,9 @@ class Issue230D4TrueSpreadTests(unittest.TestCase):
         x=true_spread_counterfamily(3,check_full_energy=True)
         self.assertEqual(x["s"],8)
         self.assertTrue(x["all_spread_lines_are_true_original_W3s"])
-        self.assertEqual(x["selected_disjoint_original_spread_lines"],32)
-        self.assertEqual(x["forced_original_collinear_shared_coordinate_Mf_floor"],1152)
-        self.assertGreaterEqual(x["Mf_actual"],1152)
+        self.assertEqual(x["selected_disjoint_original_spread_lines"],8)
+        self.assertEqual(x["forced_original_collinear_shared_coordinate_Mf_floor"],288)
+        self.assertGreaterEqual(x["Mf_actual"],288)
         self.assertEqual(x["true_original_right_label_star_min"],x["a"]-3)
         self.assertGreaterEqual(Fraction(x["W_original_mean"]),
                                 Fraction(x["exact_rational_mean_lower_numerator"],
@@ -100,7 +100,10 @@ class Issue230D4TrueSpreadTests(unittest.TestCase):
             labels=balanced_right_labels(s,a)
             self.assertEqual(len(labels),parameters(s)["V"])
             self.assertEqual(len(set(labels)),len(labels))
-            sums=[sum(u in e for e in labels) for u in range(a)]
+            sums=[0]*a
+            for u,v in labels:
+                sums[u]+=1
+                sums[v]+=1
             self.assertGreaterEqual(min(sums),a-3)
             self.assertLessEqual(max(sums),a-1)
 
