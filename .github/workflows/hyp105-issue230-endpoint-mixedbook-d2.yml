@@ -1,0 +1,63 @@
+name: hyp105-issue230-endpoint-mixedbook-d2
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_endpoint_mixedbook_d2.py"
+      - "research/test_hyp105_issue230_endpoint_mixedbook_d2.py"
+      - "docs/research/HYP-105-ISSUE230-ENDPOINT-MIXEDBOOK-D2.md"
+      - ".github/workflows/hyp105-issue230-endpoint-mixedbook-d2.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-typed-original-endpoint-mixedbook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent bad-chord, typed endpoint energy and threewalk tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_endpoint_mixedbook_d2.py' -v
+      - name: Complete real W32 W34 and W38 weighted endpoint ledger
+        run: |
+          python research/hyp105_issue230_endpoint_mixedbook_d2.py > /tmp/hyp105-issue230-d2.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('/tmp/hyp105-issue230-d2.json').read_text())
+          assert r["slice"]=="ISSUE230-PROJECTION-ENDPOINT-MIXEDBOOK-D2"
+          assert r["all_h_necessary_endpoint_energy_bound_proved"] is False
+          assert r["all_h_seven_S_lower"]=="OPEN"
+          assert r["all_h_infinite_counterexample"]=="OPEN"
+          assert r["original_P2_P7_unit_mean"].startswith("FALSE")
+          rows={(x["s"],x["scheme"]):x for x in r["records"]}
+          assert len(rows)==7
+          exact={
+              (2,"lex"):786,(2,"reverse"):676,(2,"S68"):544,
+              (2,"S72"):600,(4,"lex"):38020,(4,"random"):30194,
+          }
+          for key,x in rows.items():
+              assert x["two_antipodal_chords_per_bad_original_pair"] is True
+              assert x["chord_relation_disjoint_from_original_G_edges"] is True
+              assert x["actual_bad_physical_antipodal_chords"]==2*x["bad_original_union_pairs"]
+              assert x["original_qr_tensor_energy_W"]==x["degree_energy_W"]
+              assert x["degree_energy_W"]**2<=x["physical_bad_chord_degree_square"]*x["physical_H_degree_square"]
+              assert x["all_h_weighted_energy_bound_proved"] is False
+              assert x["issue230_Branch_A"]=="OPEN"
+              if key in exact:
+                  assert x["exact_proper_original_endpoint_bad_paths"]==exact[key]
+                  assert x["all_oriented_threewalks_bad_endpoint_chords"]>=exact[key]
+          x=rows[8,"random"]
+          assert x["bad_original_union_pairs"]==70174
+          assert x["actual_bad_physical_antipodal_chords"]==140348
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY
