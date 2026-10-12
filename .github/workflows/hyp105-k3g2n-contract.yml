@@ -1,0 +1,87 @@
+name: hyp105-k3g2n-johnson-six-harmonics
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2n_johnson_harmonics.py"
+      - "research/test_hyp105_g5e2b3e1k3g2n_johnson_harmonics.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2N-JOHNSON-SIX-HARMONICS.md"
+      - ".github/workflows/hyp105-k3g2n-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  original-gq-johnson-harmonics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rank-six Johnson exact theorem and independent finite falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2n_johnson_harmonics.py' -v
+      - name: Two complete original plus genuine dual W32 spectrum certificates once
+        run: |
+          python research/hyp105_g5e2b3e1k3g2n_johnson_harmonics.py > /tmp/hyp105-k3g2n.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          r=json.loads(Path("/tmp/hyp105-k3g2n.json").read_text())
+          assert r["slice"]=="HYP-105-E1-K3-G2-N"
+          assert r["branch_A_B"]=="OPEN"
+          assert r["all_h_target_H1_zero_proved"] is True
+          assert r["all_h_target_H2_orbit_formula_proved"] is True
+          assert r["all_h_two_family_P2_proved"] is False
+          assert r["all_h_seven_family_P7_proved"] is False
+          low=r["target_all_a_low_harmonics"]
+          assert low["6"]["density"]==[2,143]
+          assert low["6"]["h2_adj"]==[-1,110]
+          assert low["6"]["h2_dis"]==[2,165]
+          assert low["6"]["E0"]==[140,143]
+          assert low["6"]["E2"]==[42,11]
+          assert low["6"]["E_ge3"]==[9324,143]
+          assert low["9"]["second_level_zero"] is True
+          assert low["14"]["second_level_zero"] is False
+          energies=[Fraction(*x) for x in r["K6_exact_target_ranks_0_to_6"]]
+          assert len(energies)==7
+          assert sum(energies)==70
+          assert energies==[
+              Fraction(140,143),Fraction(0),Fraction(42,11),
+              Fraction(710,1001),Fraction(86,7),
+              Fraction(1182,77),Fraction(258,7)]
+          models=r["two_true_original_GQ_models"]
+          assert [m["name"] for m in models]==["lex","hardest-M"]
+          assert len(models)==2
+          for m in models:
+              assert m["U_BA"]+m["U_AB"]+m["five_other"]==m["S_seven"]
+              assert Fraction(*m["P2_margin"])>=0
+              for key,expected in (("original_BA",m["U_BA"]),
+                                   ("original_dual_AB",m["U_AB"])):
+                  cert=m[key]
+                  ranks=[Fraction(*x) for x in cert["signed_ranks"]]
+                  assert len(ranks)==7
+                  assert cert["actual_U"]==expected==sum(ranks)
+                  assert ranks[0]==Fraction(*cert["random_mean"])
+                  assert ranks[1]==0
+                  assert ranks[2]==Fraction(*cert["low_order2"])
+                  assert sum(ranks[3:])==Fraction(*cert["higher_order_3_to_6"])
+                  assert Fraction(*cert["higher_order_3_to_6"])**2<=Fraction(*cert["CS_squared_bound"])
+                  assert cert["strict_CS_bound_valid"] is True
+          hard=models[1]
+          assert (hard["U_BA"],hard["U_AB"],hard["S_seven"])==(36,39,86)
+          assert hard["P2_margin"]==[757,143]
+          assert hard["original_BA"]["low_order2"]==[-1897,55]
+          assert hard["original_BA"]["higher_order_3_to_6"]==[51,65]
+          assert hard["original_dual_AB"]["low_order2"]==[-1207,33]
+          assert hard["original_dual_AB"]["higher_order_3_to_6"]==[610,429]
+          assert hard["original_dual_AB"]["random_mean"]==[964,13]
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY
