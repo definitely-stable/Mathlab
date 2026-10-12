@@ -1,0 +1,31 @@
+name: hyp105-k3g2g-global-adaptive-charge
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2g_global_adaptive.py"
+      - "research/test_hyp105_g5e2b3e1k3g2g_global_adaptive.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2G-GLOBAL-ADAPTIVE.md"
+      - ".github/workflows/hyp105-k3g2g-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  global-adaptive-seven-family:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent all-W32 and W34 adaptive Hall / genuine GF5 risk floors
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2g_global_adaptive.py' -v
+      - name: Deterministic full-W34 cross-source adaptive quantifier report
+        run: python research/hyp105_g5e2b3e1k3g2g_global_adaptive.py
