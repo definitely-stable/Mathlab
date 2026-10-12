@@ -34,6 +34,9 @@ class Issue230EndpointMixedbookD2Tests(unittest.TestCase):
         self.assertEqual(d2["bad_original_union_pairs"],166)
         self.assertEqual(d2["actual_bad_physical_antipodal_chords"],332)
         self.assertGreaterEqual(d2["all_oriented_threewalks_bad_endpoint_chords"],544)
+        self.assertEqual(d2["independent_sparse_A2_A3_chord_trace"],1644)
+        self.assertEqual(d2["independent_sparse_A2_A3_chord_trace"],
+                         d2["all_oriented_threewalks_bad_endpoint_chords"])
         self.assertEqual(d2["all_h_weighted_energy_bound_proved"],False)
         self.assertEqual(d2["all_h_internal_only_upper_proved"],False)
         self.assertEqual(d2["issue230_Branch_A"],"OPEN")
@@ -45,7 +48,20 @@ class Issue230EndpointMixedbookD2Tests(unittest.TestCase):
         self.assertEqual(z["actual_bad_physical_antipodal_chords"],6406)
         self.assertEqual(z["exact_proper_original_endpoint_bad_paths"],30194)
         self.assertGreaterEqual(z["all_oriented_threewalks_bad_endpoint_chords"],30194)
+        self.assertEqual(z["independent_sparse_A2_A3_chord_trace"],44552)
+        self.assertEqual(z["independent_sparse_A2_A3_chord_trace"],
+                         z["all_oriented_threewalks_bad_endpoint_chords"])
         self.assertEqual(z["issue230_Branch_B"],"OPEN")
+
+    def test_complete_real_W38_sparse_A3_endpoint_chord_tensor(self):
+        x=mixedbook_gate(fixture(3,"random"),verify_proper=False)
+        self.assertEqual(x["bad_original_union_pairs"],70174)
+        self.assertEqual(x["actual_bad_physical_antipodal_chords"],140348)
+        self.assertEqual(x["degree_energy_W"],4927736)
+        self.assertTrue(x["independent_sparse_square_trace_computed"])
+        self.assertGreaterEqual(x["independent_sparse_A2_A3_chord_trace"],
+                                1019228)  # D1 complete proper-path floor
+        self.assertFalse(x["all_h_endpoint_mass_o_s6_proved"])
 
     def test_lex_and_reverse_endpoint_original_weight(self):
         for scheme,expect in (("lex",786),("reverse",676),("S72",600)):
@@ -110,6 +126,7 @@ class Issue230EndpointMixedbookD2Tests(unittest.TestCase):
                              2*x["bad_original_union_pairs"])
             self.assertEqual(x["degree_energy_W"],
                              x["original_qr_tensor_energy_W"])
+            self.assertTrue(x["independent_sparse_square_trace_computed"])
             self.assertFalse(x["all_h_endpoint_mass_o_s6_proved"])
             if x["s"]<=4:
                 self.assertGreaterEqual(
