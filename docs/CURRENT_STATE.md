@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-G2-L — exact signed compensation and six-source XOR swap transport (2026-10-12)
+
+[All-h XOR source support theorem, compensation-equivalence barrier and complete 223-map W32 positive-seven-family beta audit](research/HYP-105-G5-E2-B3-E1K3G2L-COMPENSATION-TRANSPORT.md) · [reference](../research/hyp105_g5e2b3e1k3g2l_compensation_transport.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2l_compensation_transport.py) · [root #230](https://github.com/definitely-stable/Mathlab/issues/230). **DRAFT_CHILD_PR384 / ALL_H_EXACT_XOR_IDENTITY / ALL_H_COMPENSATION_EQUIVALENCE_ONLY / 223_COMPLETE_W32_LABELS / NO_ALL_H_POSITIVE_BOUND / CI_PENDING**. Main unchanged.
+
 ## HYP-105 B3.2-E1-K3-G2-K — constructive all-h fixed-left B/A positive right injection (2026-10-12)
 
 [Exact partial-injection conditional probability, deterministic constructive high/low right maps and full genuine W32 checks](research/HYP-105-G5-E2-B3-E1K3G2K-CONDITIONAL-INJECTION.md) · [reference](../research/hyp105_g5e2b3e1k3g2k_conditional_injection.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2k_conditional_injection.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **STACKED_DRAFT_ON_PR383 / CLASSICAL_CONDITIONAL_EXPECTATION / CONSTRUCTIVE_FOR_EACH_F_SOME_G / ALL_F_G_UNPROVED / CONTRACT_FIRST_RUN_SUCCESS / EXACT_HIGH_LOW_REGRESSION_PINNED / FINAL_HEAD_CI_REQUIRED**. Main untouched.
