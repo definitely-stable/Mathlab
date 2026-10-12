@@ -1,3 +1,7 @@
+## HYP-105 E1-K3-G2-K — all-h positive B/A original sixsets via conditional right injection (2026-10-12)
+
+[Classical derandomization instantiated on exact weighted original-six-incidence hypergraphs, injective without-replacement conditional probability and four independent full-W32 certificates](HYP-105-G5-E2-B3-E1K3G2K-CONDITIONAL-INJECTION.md) · [reference](../../research/hyp105_g5e2b3e1k3g2k_conditional_injection.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2k_conditional_injection.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **ALL_H_FIXED_LEFT_CONSTRUCTIVE_EXISTENCE / NO_ALL_LABEL_UNIVERSAL_SURPLUS / B1A_C0_REUSED / CI_PENDING**.
+
 ## HYP-105 E1-K3-G2-J — rational support intervals and exact all-h surplus necessity (2026-10-12)
 
 [All-h necessary alpha/beta/K coefficient screen, genuine positive seven-family complete-W32 certificate and independently tested exact rational lower line envelope](HYP-105-G5-E2-B3-E1K3G2J-RATIONAL-SURPLUS.md) · [reference](../../research/hyp105_g5e2b3e1k3g2j_surplus_frontier.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2j_surplus_frontier.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **ALL_H_NECESSARY_COEFFICIENT_THEOREM / NO_POSITIVE_UNIVERSAL_ALPHA_PROVED / ALL_H_BRANCH_A_B_OPEN / 219_MAP_RATIONAL_FRONTIER_CONTRACT_SUCCESS_EARLIER_HEAD / FINAL_HEAD_RECHECK**.
