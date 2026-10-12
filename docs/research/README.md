@@ -1,3 +1,7 @@
+## HYP-105 E1-K3-G2-F — sound W34 seeded true-S target generator (2026-10-12)
+
+[All-a accepted seven GF5 families, exact seeded original pair completion, finite positive-only W34 Hall certificate](HYP-105-G5-E2-B3-E1K3G2F-W34-SEEDED-TARGETS.md) · [reference](../../research/hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py) · [independent tests](../../research/test_hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **STRUCTURAL_ALL_A / W34_TRUE_S_TARGETS_BUDGETED / NO_NEGATIVE_FROM_TRUNCATION / BRANCH_A_B_OPEN / CI_PENDING**.
+
 ## HYP-105 E1-K3-G2-E — true seven-family GF5 Hall source charging (2026-10-12)
 
 [Exact finite W32 original five-column Jcross witnesses versus all seven actually accepted strictly-positive GF5 six-column targets; Hall/mincut and minimal capacities](HYP-105-G5-E2-B3-E1K3G2E-SEVEN-FAMILY-HALL.md) · [reference](../../research/hyp105_g5e2b3e1k3g2e_seven_family_hall.py) · [independent tests](../../research/test_hyp105_g5e2b3e1k3g2e_seven_family_hall.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **FINITE_W32_TRUE_SEVEN_GF5_TARGETS / ALL_H_S_OPEN / CI_PENDING**.
