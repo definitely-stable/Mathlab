@@ -66,5 +66,28 @@ jobs:
                   if p["finite_two_family_counterexample"]:
                       assert Fraction(*p["two_family_minus_mu"])<0
                       assert p["five_other_family"]>=0
+          # Exact hosted original/dual complete 223-map and selected probe seal.
+          assert corpus["distinct_original_left_f"]==109
+          assert corpus["distinct_original_right_g"]==114
+          assert corpus["two_family_failures"]==0
+          assert corpus["full_seven_mu_failures"]==0
+          assert corpus["smallest_two_family_signed_margin"]["value"]==[945,143]
+          assert corpus["smallest_two_family_signed_margin"]["name"]=="corr:5"
+          assert corpus["full_source_corpus_sha256"]==(
+              "cdabb909755ea9f1cc5f83874b73c880937cb50039ea5843329e460d87b0f40a")
+          assert probe["candidate_moves_precisely_delta_scored"]==120
+          assert probe["complete_original_B0_C0_dual_replays"]==18
+          assert probe["strict_full_source_two_family_counterexamples"]==0
+          assert probe["minimum_found_two_family_minus_mu"]==[757,143]
+          assert probe["selected_path_sha256"]==(
+              "5db98923e6769b8398cf97d400e7f87520275e333bab9538732d031313d22835")
+          first=probe["result"][0]["selected_path"][0]
+          assert (first["side"],first["i"],first["j"])==("left",13,14)
+          assert (first["U_BA"],first["U_AB"],first["S_seven"])==(36,39,86)
+          assert first["mu_BA"]==[9968,143]
+          assert first["Jcross"]==22
+          assert first["five_other_family"]==11
+          assert first["physical_global_labels_sha256"]==(
+              "e5c3f92068d6221f44cbb77fbae5dc95000144a0c495d216a48cdf3b047bfd4a")
           print(json.dumps(r,sort_keys=True,indent=2))
           PY
