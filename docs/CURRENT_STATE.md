@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-G2-E — exact finite seven accepted GF5 charging (2026-10-12)
+
+[Finite Hall/mincut original-column charging against ALL seven genuinely accepted GF5 motif targets](research/HYP-105-G5-E2-B3-E1K3G2E-SEVEN-FAMILY-HALL.md) · [reference](../research/hyp105_g5e2b3e1k3g2e_seven_family_hall.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2e_seven_family_hall.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **REAL_W32_SEVEN_TARGETS / ANCHOR_AND_OVERLAP_HALL_GATE / PARENT_PR377_HEAD_86dcc5e / ALL_H_PROOF_OPEN / CI_PENDING**. Stacked Draft, no main change.
+
 ## HYP-105 B3.2-E1-K3-G2-D — exact finite Hall obstruction to direct proper D6 charging (2026-10-12)
 
 [Finite Hall/mincut proof gate and independent W32 counting no-go](research/HYP-105-G5-E2-B3-E1K3G2D-HALL-CHARGING.md) · [reference](../research/hyp105_g5e2b3e1k3g2d_charging_hall.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2d_charging_hall.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **J_CROSS_W32_36_28 / ACCEPTED_D6_W32_15_3 / UNIT_CHARGE_NO_GO / DIRECT_CHARGE_MIN_GLOBAL_CAP_3_10 / PARENT_PR376_HEAD_7adc87e / CI_PENDING / BRANCH_A_B_OPEN**. Stacked Draft, no main change.
