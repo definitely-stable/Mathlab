@@ -1,0 +1,31 @@
+name: hyp105-k3g2f-w34-true-seven-target-contract
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py"
+      - "research/test_hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2F-W34-SEEDED-TARGETS.md"
+      - ".github/workflows/hyp105-k3g2f-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  w34-accepted-seeded-positive-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact W32 all-candidate agreement and W34 lower-certified targets
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py' -v
+      - name: Deterministic bounded W34 source-to-true-S target report
+        run: python research/hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py
