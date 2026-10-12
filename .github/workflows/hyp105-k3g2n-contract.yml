@@ -53,7 +53,10 @@ jobs:
           energies=[Fraction(*x) for x in r["K6_exact_target_ranks_0_to_6"]]
           assert len(energies)==7
           assert sum(energies)==70
-          assert energies[0:3]==[Fraction(140,143),Fraction(0),Fraction(42,11)]
+          assert energies==[
+              Fraction(140,143),Fraction(0),Fraction(42,11),
+              Fraction(710,1001),Fraction(86,7),
+              Fraction(1182,77),Fraction(258,7)]
           models=r["two_true_original_GQ_models"]
           assert [m["name"] for m in models]==["lex","hardest-M"]
           assert len(models)==2
@@ -75,5 +78,10 @@ jobs:
           hard=models[1]
           assert (hard["U_BA"],hard["U_AB"],hard["S_seven"])==(36,39,86)
           assert hard["P2_margin"]==[757,143]
+          assert hard["original_BA"]["low_order2"]==[-1897,55]
+          assert hard["original_BA"]["higher_order_3_to_6"]==[51,65]
+          assert hard["original_dual_AB"]["low_order2"]==[-1207,33]
+          assert hard["original_dual_AB"]["higher_order_3_to_6"]==[610,429]
+          assert hard["original_dual_AB"]["random_mean"]==[964,13]
           print(json.dumps(r,sort_keys=True,indent=2))
           PY
