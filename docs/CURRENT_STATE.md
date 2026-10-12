@@ -1,6 +1,8 @@
 ## HYP-105 B3.2-E1-K3-G2-I — exact original-sixset transposition locality and correlated two-sided W32 Hall adversary (2026-10-12)
 
-[Proof, deterministic correlated source-label probe and complete accepted seven-S full Hall replay](research/HYP-105-G5-E2-B3-E1K3G2I-CORRELATED-DELTA.md) · [reference](../research/hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **STACKED_DRAFT_CHILD_OF_PR381 / EXACT_W32_DELTA / CORRELATED_BOTH_SIDES / EACH_COMMITTED_STATE_FULL_B0_AND_HALL / NO_ALL_H_CLAIM / CI_PENDING**. Main unchanged.
+[Proof, deterministic correlated source-label probe and complete accepted seven-S full Hall replay](research/HYP-105-G5-E2-B3-E1K3G2I-CORRELATED-DELTA.md) · [reference](../research/hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **STACKED_DRAFT_CHILD_OF_PR381 / EXACT_W32_DELTA / CORRELATED_BOTH_SIDES / EACH_COMMITTED_STATE_FULL_B0_AND_HALL / NO_ALL_H_CLAIM / EXACT_144_21_POSITIVE_CONTRACT_SUCCESS_AT_PREVIOUS_HEAD / FINAL_HEAD_CI_REQUIRED**. Main unchanged.
+
+**Exact hosted finite result:** [Contract #38219544548](https://github.com/definitely-stable/Mathlab/actions/runs/38219544548) SUCCESS: 144 exact candidate transitions, 21 COMPLETE independent B0/Hall replays, 0 Hall failures; best correlated map `S=94`, `Jcross=26`, `S-J=68`, positive seven-family `51^6 R3>=4,289,420`, min accepted target degree=2. Result digest `25e93b1374d99a6db40a53df913f6e87bfa1cfbcd9909b4b960454d7d54162d9`. No universal all-h result. Final HEAD CI must be renewed.
 
 ## HYP-105 B3.2-E1-K3-G2-H — complete W32 one-swap Hall falsifier (2026-10-12)
 
