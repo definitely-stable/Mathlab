@@ -131,11 +131,13 @@ def exact_target_johnson_decomposition():
         h={A:Fraction(marg[A],lam)
            for A in combinations(range(K),j)}
         if j:
-            for sub in combinations(range(K),j-1):
-                down=sum((value for A,value in h.items()
-                          if set(sub).issubset(A)),Fraction(0))
-                if down:
-                    raise AssertionError("rank-j coefficient not harmonic")
+            down=Counter()
+            for A,value in h.items():
+                if value:
+                    for sub in combinations(A,j-1):
+                        down[sub]+=value
+            if any(down.values()):
+                raise AssertionError("rank-j coefficient not harmonic")
         comp=tuple(sum((h[A] for A in combinations(S,j)),
                        Fraction(0)) for S in sets)
         residual=[r-c for r,c in zip(residual,comp)]
