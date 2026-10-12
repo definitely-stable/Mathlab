@@ -94,8 +94,8 @@ class K3G2DChargingTests(unittest.TestCase):
         # Finite, fully quantified model-specific NO-GO to a bijective
         # charging of ALL Jcross witnesses into accepted proper D6.
         for scheme,expected in (
-            ("lex",{"Jcross":36,"D6":15,"heavy":18,"capacity_floor":3}),
-            ("reverse-line",{"Jcross":28,"D6":3,"heavy":6,"capacity_floor":10}),
+            ("lex",{"Jcross":36,"D6":15,"heavy":18,"capacity_floor":3,"orphan_all":9,"orphan_heavy":5}),
+            ("reverse-line",{"Jcross":28,"D6":3,"heavy":6,"capacity_floor":10,"orphan_all":20,"orphan_heavy":6}),
         ):
             model=gq_pair_model(1,scheme)
             rows=cross_witnesses(model)
@@ -111,6 +111,12 @@ class K3G2DChargingTests(unittest.TestCase):
             self.assertTrue(cert["unit_injection_global_no_go"])
             self.assertGreater(cert["all_cross_anchor_local_charge"]["unmatched"],0)
             self.assertGreater(cert["heavy_anchor_local_charge"]["unmatched"],0)
+            self.assertEqual(cert["all_cross_anchor_local_charge"]["isolated"],
+                             expected["orphan_all"])
+            self.assertEqual(cert["heavy_anchor_local_charge"]["isolated"],
+                             expected["orphan_heavy"])
+            self.assertIsNone(cert["all_cross_anchor_local_charge"]["minimum_capacity_to_charge_all"])
+            self.assertIsNone(cert["heavy_anchor_local_charge"]["minimum_capacity_to_charge_all"])
             for side,part in (("line","line"),("point","point")):
                 for cls,n in c[part]["seven_class_weighted"].items():
                     self.assertEqual(sum(x["side"]==side and x["class"]==cls
