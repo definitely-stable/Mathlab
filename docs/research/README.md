@@ -1,3 +1,7 @@
+## HYP-105 E1-K3-G2-E — true seven-family GF5 Hall source charging (2026-10-12)
+
+[Exact finite W32 original five-column Jcross witnesses versus all seven actually accepted strictly-positive GF5 six-column targets; Hall/mincut and minimal capacities](HYP-105-G5-E2-B3-E1K3G2E-SEVEN-FAMILY-HALL.md) · [reference](../../research/hyp105_g5e2b3e1k3g2e_seven_family_hall.py) · [independent tests](../../research/test_hyp105_g5e2b3e1k3g2e_seven_family_hall.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **FINITE_W32_TRUE_SEVEN_GF5_TARGETS / ALL_H_S_OPEN / CI_PENDING**.
+
 ## HYP-105 E1-K3-G2-D — finite Hall charging no-go for Jcross→proper D6 (2026-10-12)
 
 [Exact model-specific Hall/mincut certificate, unit-charge obstruction, six-original-column proper-D6 provenance](HYP-105-G5-E2-B3-E1K3G2D-HALL-CHARGING.md) · [reference](../../research/hyp105_g5e2b3e1k3g2d_charging_hall.py) · [independent tests](../../research/test_hyp105_g5e2b3e1k3g2d_charging_hall.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **FINITE_NO_GO_FOR_UNIT_CHARGING / SEVEN_FAMILY_S_OPEN / CI_PENDING**.
