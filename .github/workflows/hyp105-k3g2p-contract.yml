@@ -1,0 +1,69 @@
+name: hyp105-k3g2p-fourth-geometry
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2p_fourth_geometry.py"
+      - "research/test_hyp105_g5e2b3e1k3g2p_fourth_geometry.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2P-FOURTH-GEOMETRY.md"
+      - ".github/workflows/hyp105-k3g2p-contract.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  exact-physical-rank-four-original-gq:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All-a physical four-orbits, W32/W34 true-GQ and source rank4 falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2p_fourth_geometry.py' -v
+      - name: Two actual original and dual GQ source fourth rank certificates
+        run: |
+          python research/hyp105_g5e2b3e1k3g2p_fourth_geometry.py > /tmp/hyp105-k3g2p.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          r=json.loads(Path("/tmp/hyp105-k3g2p.json").read_text())
+          assert r["slice"]=="HYP-105-E1-K3-G2-P"
+          assert r["branch_A_B"]=="OPEN"
+          assert r["all_h_original_no_diamond_and_clique_pencil_proved"] is True
+          assert r["all_h_P2_proved"] is False
+          assert r["all_h_P7_proved"] is False
+          levels=r["physical_rank4_all_a"]
+          assert set(levels)=={"6","9","14"}
+          assert levels["6"]["E4"]==[86,7]
+          assert levels["6"]["E_ge5"]==[4020,77]
+          for a,rec in levels.items():
+              K=rec["K"]
+              assert K==int(a)*(int(a)-1)//2
+              assert len(rec["four_graph_orbits"])==11
+              assert sum(x["orbit_size"] for x in rec["four_graph_orbits"].values())==(
+                  K*(K-1)*(K-2)*(K-3)//24)
+          models=r["original_GQ_models"]
+          assert [m["name"] for m in models]==["lex","hardest-M"]
+          assert len(models)==2
+          for m in models:
+              assert m["U_BA"]+m["U_AB"]<=m["S_seven"]
+              for side in ("original_BA","genuine_original_dual_AB"):
+                  d=m[side]
+                  assert d["original_GQ_four_histogram"]["diamond_count"]==0
+                  assert d["original_GQ_four_histogram"]["K4_count"]==0
+                  assert d["tensor_mass"]==15*d["source_mass"]
+                  assert d["rank4_contraction"]==d["independent_full_spectrum_rank4"]
+                  assert d["rank4_contraction"]==d["rank4_independent_source_projection"]
+                  assert Fraction(*d["rank5_and_rank6_correlation"])**2<=Fraction(*d["rank_ge5_CS_squared_bound"])
+                  assert len(d["coupled_original_GQ_four_by_physical_four"])==11
+                  assert sum(sum(row.values()) for row in
+                        d["coupled_original_GQ_four_by_physical_four"].values())==d["tensor_mass"]
+          hard=models[1]
+          assert (hard["U_BA"],hard["U_AB"],hard["S_seven"])==(36,39,86)
+          assert hard["P2_margin"]==[757,143]
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY
