@@ -171,20 +171,23 @@ def _frozen_target_W32():
     return ({S:idx for idx,S in enumerate(sets)},components,energies)
 
 
-def source_energy_ge3(weights, labels):
+def source_energy_ge3(weights, labels, *, a):
     """Exact low-rank projections of a zero-padded physical 6-source.
 
-    The source W(S) is the original multiplicity on each six-image,
-    zero elsewhere in J(K,6). All entries and moments are rational.
-    ||W_ge3||²=||W||²-E0-E1-E2. This is a sharp orthogonal energy,
-    not an unnormalized marginal surrogate.
+    The physical alphabet size a MUST be explicit. For V<K injections,
+    the largest coordinate appearing in occupied pair labels may be less
+    than a-1; inferring a from used labels would silently compute WRONG
+    Johnson denominators and source energy. Unused K_a pair labels remain
+    zero, not removed from J(K,6).
     """
+    if type(a) is not int or a<6:
+        raise ValueError("explicit physical alphabet a>=6 required")
     labels=tuple(tuple(e) for e in labels)
-    coords=max((max(e) for e in labels),default=-1)+1
-    palette=physical_pair_indices(coords)
-    K=comb(coords,2)
-    if K<15 or len(labels)>K:
-        raise ValueError("complete physical K_a with a>=6 required")
+    palette=physical_pair_indices(a)
+    K=comb(a,2)
+    if (not 6<=len(labels)<=K or len(set(labels))!=len(labels)
+            or any(e not in palette for e in labels)):
+        raise ValueError("legal injective K_a physical pair labels required")
     mass=0
     norm=0
     degree=[0]*K
@@ -251,7 +254,7 @@ def spectral_overlap_certificate(weights, labels):
         for j in range(7):
             corr[j]+=w*components[j][idx]
     low=target_low_harmonics(6)
-    source=source_energy_ge3(weights,labels)
+    source=source_energy_ge3(weights,labels,a=6)
     U=exact_BA_overlap(weights,labels,target=simple_six_2factor_targets(6))
     mu=Fraction(source["mass"])*low["density"]
     Eproduct=source["E_ge3"]*low["E_ge3"]
