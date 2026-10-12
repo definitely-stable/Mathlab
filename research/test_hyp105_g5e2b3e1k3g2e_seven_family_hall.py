@@ -15,7 +15,7 @@ from hyp105_g5e2b3e1k3g2d_charging_hall import (
 )
 from hyp105_g5e2b3e1k3g2e_seven_family_hall import (
     seven_family_hall_certificate,witness_original_five_support,
-    hall_capacity_certificate,_rules_for
+    hall_capacity_certificate,_rules_for,explicit_injective_assignment
 )
 
 
@@ -161,6 +161,66 @@ class K3G2ESevenMotifHallTests(unittest.TestCase):
             frozenset(range(5)),frozenset((1,2,3,7,8,9)),1)["same_anchor"])
         self.assertFalse(_rules_for(
             frozenset(range(5)),frozenset((1,2,3,7,8,9)),1)["overlap_ge_4"])
+
+    def test_pinned_actual_seven_family_hall_sharpness(self):
+        # Exact finite W(3,2) observations from the first hosted run:
+        # seven-family targets restore charging even where proper D6 fails.
+        # This is NOT a uniform all-h theorem.
+        expected={
+            "lex":(259,36,18,{"same_anchor":(36,0,1),
+                                "overlap_ge_2":(36,0,1),
+                                "anchor_and_overlap_ge_2":(36,0,1),
+                                "overlap_ge_3":(19,17,None),
+                                "overlap_ge_4":(0,36,None)}),
+            "reverse-line":(169,28,6,{"same_anchor":(28,0,1),
+                                       "overlap_ge_2":(28,0,1),
+                                       "anchor_and_overlap_ge_2":(25,3,None),
+                                       "overlap_ge_3":(9,15,None),
+                                       "overlap_ge_4":(0,28,None)}),
+            "random":(144,17,5,{"same_anchor":(17,0,1),
+                                  "overlap_ge_2":(17,0,1),
+                                  "anchor_and_overlap_ge_2":(12,5,None),
+                                  "overlap_ge_3":(4,13,None),
+                                  "overlap_ge_4":(0,17,None)})
+        }
+        for scheme,(targets,jcross,heavy,checks) in expected.items():
+            seed=20261012 if scheme=="random" else None
+            model=gq_pair_model(1,scheme,seed)
+            result=seven_family_hall_certificate(model)
+            self.assertEqual(result["accepted_seven_sixset_targets"],targets)
+            self.assertEqual(result["J_cross_five_column_witnesses"],jcross)
+            self.assertEqual(result["heavy_class_witnesses"],heavy)
+            for rule,(covered,orphans,k) in checks.items():
+                entry=result["rules"][rule]
+                self.assertEqual(entry["all"]["matched"],covered)
+                self.assertEqual(entry["all"]["isolated"],orphans)
+                self.assertEqual(
+                    entry["all"]["minimum_capacity_to_charge_all"],k)
+                self.assertEqual(entry["constructive_matching"]["assigned"],covered)
+                self.assertEqual(entry["constructive_matching"]["complete"],
+                                 covered==jcross)
+                self.assertEqual(len(entry["constructive_matching"]["sha256"]),64)
+
+    def test_constructive_matching_independent_exact_flow(self):
+        from hyp105_g5e2b3e1k3g2d_charging_hall import _maxflow_with_cut
+        examples=(
+            ([],2),([()],2),
+            ([(0,),(0,),(0,)],1),
+            ([(0,1),(0,1),(1,2),(2,)],3),
+            ([(0,),(1,),(0,1)],2),
+            ([(0,1),(1,2),(0,2)],3))
+        for adj,n in examples:
+            constructed=explicit_injective_assignment(adj,n)
+            by_flow=_maxflow_with_cut(adj,n,1)
+            self.assertEqual(constructed["assigned"],by_flow["matched"])
+            assignment=constructed["assignment"]
+            self.assertEqual(len(assignment),len(adj))
+            used=[j for j in assignment if j is not None]
+            self.assertEqual(len(set(used)),len(used))
+            self.assertTrue(all(j is None or j in adj[i]
+                                for i,j in enumerate(assignment)))
+        with self.assertRaises(ValueError):
+            explicit_injective_assignment([(5,)],2)
 
     def test_fail_closed(self):
         model=gq_pair_model(1,"lex")
