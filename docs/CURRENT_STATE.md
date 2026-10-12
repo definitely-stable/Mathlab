@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-G2-B — original GQ cross-source incidence kernel (2026-10-12)
+
+[Exact source-pair closure tensor, 4 original GQ bins and shared physical wedge packing](research/HYP-105-G5-E2-B3-E1K3G2B-ORIGIN-PAIR-KERNEL.md) · [reference](../research/hyp105_g5e2b3e1k3g2b_origin_pair_kernel.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2b_origin_pair_kernel.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **JCROSS=TKT_OFF_DIAGONAL / FOUR_GEOMETRIC_CLASSES / HOST_WEDGES_O_S9OVER2 / UNIVERSAL_O_S6_CROSS_OPEN / PARENT_PR374_HEAD_bd6d122 / CI_PENDING**. Stacked Draft, main unchanged.
+
 ## HYP-105 B3.2-E1-K3-G2-A — source coincidence partition for repeated C6 (2026-10-12)
 
 [Proof of exact local/cross split and uniform O(s^5) bound](research/HYP-105-G5-E2-B3-E1K3G2-SOURCE-COINCIDENCE.md) · [reference](../research/hyp105_g5e2b3e1k3g2_source_coincidence.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2_source_coincidence.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **J=JSAME+JCROSS / JSAME=SUM_EDGE_TRIANGLE_LOAD_SQUARES=O(s^5)=o(s^6) / REP1_LOCAL=JSAME-3REP3 / REP1_CROSS=JCROSS / PARENT_PR373_HEAD_53df42a / CI_PENDING / BRANCH_A_B_OPEN**. Stacked Draft; no main change or merge.
