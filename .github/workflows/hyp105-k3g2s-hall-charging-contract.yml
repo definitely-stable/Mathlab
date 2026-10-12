@@ -1,0 +1,57 @@
+name: hyp105-k3g2s-hall-charging-contract
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2s_incidence_hall_charging.py"
+      - "research/test_hyp105_g5e2b3e1k3g2s_incidence_hall_charging.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2S-INCIDENCE-HALL-CHARGING.md"
+      - ".github/workflows/hyp105-k3g2s-hall-charging-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  original-dual-exact-hall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent integer max-flow, 32768 Hall subsets, exact original-dual W32
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2s_incidence_hall_charging.py' -v
+      - name: Frozen original/dual incidence-local Hall certificate
+        run: |
+          python research/hyp105_g5e2b3e1k3g2s_incidence_hall_charging.py > /tmp/hyp105-k3g2s.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("/tmp/hyp105-k3g2s.json").read_text())
+          assert r["slice"]=="HYP-105-E1-K3-G2-S"
+          assert r["universal_hypothesis_P2"]=="OPEN"
+          assert r["universal_hypothesis_P7"]=="OPEN"
+          cases=r["original_and_true_dual_complete_W32_cases"]
+          assert [x["name"] for x in cases]==["lex","hardest-M"]
+          for x in cases:
+              assert x["full_hall_subsets_checked"]==32768
+              assert x["density"]==[2,143]
+              assert x["original_GQ_incidence_edges"]==45
+              assert x["hall_shortfall"]==x["independent_exhaustive_hall_max_deficit"]
+              assert x["hall_shortfall"]==x["total_demand"]-x["exact_integer_maxflow"]
+              assert x["all_h_P2_proved"] is False
+          hard=cases[1]
+          assert hard["scalar_P2_margin"]==[757,143]
+          assert hard["original_BA_source_mass"]==4984
+          assert hard["original_BA_target_hits"]==36
+          assert hard["true_original_dual_AB_target_hits"]==39
+          assert hard["joint_signed_rank5"]==[-2473,462]
+          assert hard["joint_signed_rank6"]==[-26,7]
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY
