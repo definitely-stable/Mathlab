@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-G1 — antipodal C6 repeated-column incidence and source-pencil triangles (2026-10-12)
+
+[All-h repeat-column proof and explicit next blocker](research/HYP-105-G5-E2-B3-E1K3G1-ANTIPODAL-REPEAT-LOSS.md) · [reference](../research/hyp105_g5e2b3e1k3g_repeat_loss.py) · [tests](../research/test_hyp105_g5e2b3e1k3g_repeat_loss.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **J=R1+3R3 / C6_REPEATED=J-2R3 / R3=POINT_AND_LINE_PENCIL_TRIANGLES=O(s^9/2) / R1_BLOCKER_OPEN / PARENT_PR372_HEAD_4129b88 / CI_PENDING / MAIN_UNCHANGED**. Stacked Draft PR proposed; no merge.
+
 ## HYP-105 B3.2-E1-K3-F2 — weighted C4 mixed diagonals and chorded D6 witnesses (2026-10-12)
 
 [Formal identities, evidence boundaries and next proof gate](research/HYP-105-G5-E2-B3-E1K3F2-WEIGHTED-DIAGONALS-MOTIFS.md) · [reference](../research/hyp105_g5e2b3e1k3f2_diagonal_operator.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3f2_diagonal_operator.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **EXACT_QH=HALF_hWh / ROW_STRENGTH_CUT_IDENTITY / INTEGER_FROBENIUS_Q_CAP / H=HPROPER+HIMPROPER_DISTINCT+HREPEATED / HPROPER<=3D6 / FULL_R3_NE_SEVEN_S / PARENT_PR371_HEAD_8d3eae4 / SHARED_SOURCE_C4_PACKING_OPEN / CI_PENDING**. Separate stacked Draft, main unchanged.
