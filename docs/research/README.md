@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-F1 — shared-source physical-star spectral transport and joint tails (2026-10-12)
+
+[Original W(3,s) strongly regular incidence spectrum, exact f/g physical-star row/column transport, all-h Frobenius mixing and high-degree joint C4-weighted tail envelope](HYP-105-G5-E2-B3-E1K3F-SHARED-SOURCE-SPECTRUM.md) · [reference](../../research/hyp105_g5e2b3e1k3f_shared_source_spectrum.py) · [independent original incidence matrix and SRG tests](../../research/test_hyp105_g5e2b3e1k3f_shared_source_spectrum.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_ALL_h_SHARED_SOURCE_TRANSPORT_SPECTRUM / JOINT_C4_WEIGHTED_TAIL_UPPER / NO_UNIFORM_s6_SAVING / BRANCH_A_B_OPEN / CI_PENDING**.
+
 ## HYP-105 B3.2-E1-K3-E — C4-weighted mixed codegree layer identities (2026-10-12)
 
 [Exact kappa and layer-cake book identity, original GQ star-degree tail upper and explicit shared-star packing blocker](HYP-105-G5-E2-B3-E1K3E-WEIGHTED-CODEGREE-TAILS.md) · [reference](../../research/hyp105_g5e2b3e1k3e_weighted_codegrees.py) · [independent opposite-C4 diagonal and triple-book falsifiers](../../research/test_hyp105_g5e2b3e1k3e_weighted_codegrees.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_ALL_h_EXACT_WEIGHTED_TAIL / SOURCE_STAR_UPPER / SHARED_GQ_TAIL_PACKING_OPEN / NO_BRANCH_A_B_OR_ASET / CI_PENDING**.
