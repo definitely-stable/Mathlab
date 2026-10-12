@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-G2-H — complete W32 one-swap Hall falsifier (2026-10-12)
+
+[Complete genuine accepted seven-GF5 target W32 lex 210 single-swap exhaustive Hall/cut gate](research/HYP-105-G5-E2-B3-E1K3G2H-EXACT-SWAP-SHELL.md) · [reference](../research/hyp105_g5e2b3e1k3g2h_exact_swap_shell.py) · [tests](../research/test_hyp105_g5e2b3e1k3g2h_exact_swap_shell.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **PARENT_PR380_HEAD_8180230D / FULL_W32_210_ONE_SWAP_SHELL / COMPLETE_ACCEPTED_TARGET_NEGATIVE_PROOF_GATE / NO_ALL_H_PROOF / CI_PENDING**. New stacked Draft; no merge or main change.
+
 ## HYP-105 B3.2-E1-K3-G2-G — globally shared positive targets and quantitative finite charging (2026-10-12)
 
 [Finite full-Jcross adaptive Hall with distinct accepted seven-family targets and strictly positive S/R3 subrisk floors](research/HYP-105-G5-E2-B3-E1K3G2G-GLOBAL-ADAPTIVE.md) · [reference](../research/hyp105_g5e2b3e1k3g2g_global_adaptive.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2g_global_adaptive.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **PARENT_PR379_HEAD_71434182 / FULL_FINITE_W34_CHARGING_GATE / POSITIVE_ONLY_GF5_S_R3_LOWER / ALL_H_TWO_PROOF_OBLIGATIONS_OPEN / CI_PENDING**. Stacked Draft, main unchanged.
