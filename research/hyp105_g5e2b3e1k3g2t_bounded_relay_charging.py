@@ -263,13 +263,27 @@ def exact_bounded_relay_gate(demand,own,dual,incidence,
     whole_margin=sum(own)+sum(dual)-sum(demand)
     if base["deficit"]<0 or one["deficit"]>base["deficit"]:
         raise AssertionError("new relay cannot worsen exact transport optimum")
-    old_flow,_,old_deficit=exact_integer_maxflow(
-        demand,own,dual,incidence)
-    exhaustive,_=exhaustive_hall_deficit(
-        demand,own,dual,incidence)
+    if n==15:
+        old_flow,_,old_deficit=exact_integer_maxflow(
+            demand,own,dual,incidence)
+        exhaustive,_=exhaustive_hall_deficit(
+            demand,own,dual,incidence)
+    else:
+        # S's production finite checker deliberately accepts ONLY W32=15;
+        # synthetic adversarial graphs are evaluated independently instead.
+        old_flow=base["independent_flow"]
+        old_deficit=sum(demand)-old_flow
+        exhaustive=0
+        if n<=15:
+            for mask in range(1<<n):
+                U=[p for p in range(n) if mask & (1<<p)]
+                N=set(l for p in U for l in incidence[p])
+                deficit=(sum(demand[p]-own[p] for p in U)-
+                         sum(dual[l] for l in N))
+                exhaustive=max(exhaustive,deficit)
     if (base["flow"],base["deficit"])!=(old_flow,old_deficit) or (
-            exhaustive!=base["deficit"]):
-        raise AssertionError("kappa=0 does not reproduce all 32768 original Hall cuts")
+            n<=15 and exhaustive!=base["deficit"]):
+        raise AssertionError("kappa=0 does not reproduce independent baseline Hall")
     lo=0
     upper=sum(demand)
     upper_cert=run(upper)
@@ -301,7 +315,7 @@ def exact_bounded_relay_gate(demand,own,dual,incidence,
             run(minimum) if minimum is not None else None),
         "minimal_minus_one_certificate":(
             run(minimum-1) if minimum else None),
-        "all_32768_old_Hall_cuts_independently_matched_at_kappa_zero":True,
+        "all_32768_old_Hall_cuts_independently_matched_at_kappa_zero":n==15,
         "scalar_P2_margin":rat(Fraction(whole_margin,unit_denominator)),
         "all_h_P2_proved":False,
         "relay_budget_derived_from_GQ_theorem":False,
