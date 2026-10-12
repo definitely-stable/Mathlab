@@ -266,13 +266,8 @@ def report():
         ("lex",gq_pair_model(1,"lex")),
         ("hardest-M",swapped_labeling(_anchors()[0][1],"left",13,14)),
     ):
-        _,_,original_incidence=original_GQ_tables(
+        original_lines,_,_=original_GQ_tables(
             2,tuple(model["incidences"]))
-        original_lines=tuple(frozenset(
-            l for (p0,l),p in original_incidence.items() if p0==p)
-            for p in range(15)) if False else tuple(
-                frozenset(l for p0,l in model["incidences"] if p0==p)
-                for p in range(15))
         # Reconstruct ORIGINAL and TRUE transposed ORIGINAL source weights.
         orig_source=true_original_sixsource_permanents(model)
         dual_state=dual_model(model)
