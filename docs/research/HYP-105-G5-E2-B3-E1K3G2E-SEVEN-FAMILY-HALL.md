@@ -46,3 +46,22 @@ The exact sums `S_seven=259` for W32 lex and `S_seven=169` for W32 reverse-line 
 Reference `research/hyp105_g5e2b3e1k3g2e_seven_family_hall.py` and tests `research/test_hyp105_g5e2b3e1k3g2e_seven_family_hall.py`. The tests independently rebuild physical cyclic ORIGINAL edge provenance, validate all accepted source six-set targets and certified positive GF5 class floors, recompute true GF5 nonzero signed events for one representative from EACH seven family using the 782-orbit Fourier oracle, and check the actual Hall outcomes against the K3-G2-D proper-only subgraph and synthetic exact small capacity tests. Full deterministic report includes both entire Jcross and heavy-class gates.
 
 Next decision: If any of the source-overlap rules is promising at finite h, derive a GLOBAL ALL-h geometric charging map with explicit bounded multiplicity. If each fails, prove a structural obstruction and return to the joint `(L(P3)-Theta)/12-Jcross` inequality or a different accepted-S positive motif extraction. Do not resume merely subdividing witnesses by GQ projection labels.
+
+## 2026-10-12 exact Hosted Contract result — seven true GF5 targets overturn the D6-only locality NO-GO at s=2
+
+The initial [dedicated K3-G2-E Contract #38207827789](https://github.com/definitely-stable/Mathlab/actions/runs/38207827789) PASSED all five checks, including actual signed positive GF5 six-set witness oracles from all seven accepted classes. Its output gives these exact W(3,2) finite charging certificates, one target capacity k=1:
+
+| Coherent legal mapping | All seven actual positive targets | Source Jcross witnesses | Same original anchor covers | Any >=2 original columns covers | Anchor AND >=2 covers | >=3 covers | >=4 covers |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| lex | 259 | 36 | **36** | **36** | 36 | 19 | 0 |
+| reverse-line | 169 | 28 | **28** | **28** | 25 | 9 | 0 |
+| random(seed=20261012) | 144 | 17 | **17** | **17** | 12 | 4 | 0 |
+
+For the **heavy** original `off_differentfoot_noncollinear` class, all three maps also have a full injective charge under `same_anchor` and under `overlap_ge_2`, covering respectively 18, 6, and 5 witnesses. Results at higher overlap are smaller or zero and cannot be repaired by capacity when a witness has NO candidates.
+
+**Important distinction:** K3-G2-D proved the D6-only SAME-original-anchor rule has isolated witnesses even when unlimited capacity is available. The full accepted seven GF5 target set has NO isolated witness for that same_anchor rule in all three finite W32 cases and admits an actual matching of target capacity 1. Consequently, any universal negative assertion that SAME-original-anchor charging is impossible regardless of allowed positive S-family would be false. Only the D6-only rule was refuted.
+
+**More promising rule for generalized proof:** `|S(w)∩T|>=2` WITHOUT demanding that the repeated anchor column itself belong to T. It yields independent matchings at capacity 1 for three different coherent W32 models; its stricter anchor-and-second-column variant is falsified (3 and 5 isolated witnesses in reverse/random respectively), and `>=4` has no candidate whatsoever for these models. The new code constructs explicit deterministic injective witness→accepted-target index assignments via an augmenting path algorithm independent from maxflow, checks every edge/uniqueness condition, and records a SHA256 assignment certificate per finite model and rule. These positive finite outcomes are NOT an all-h Hall theorem; all s>=4 and adversarial global f,g remain unverified.
+
+**Necessary next scientific proof:** Derive a symbolic injection/bounded-fiber map for every s=2^h from ORIGINAL GQ incidence and one globally coherent f,g into genuine positive accepted S_s six-column motifs, preserving a fixed (e.g. two-source-column) overlap. A witness-to-target map, even injective, establishes only `Jcross <= S_s` for that labeling. By itself this inequality would NOT establish the desired `S_s=Omega(s^6)`: one still needs either `Jcross=Omega(s^6)`, or a separate dichotomy showing small Jcross implies many positive S motifs. The full-R3 route `(L(P3)-Theta)/12-Jcross` remains independent.
+
