@@ -221,6 +221,64 @@ def _target_rank4_on_six(S,edges,orbit):
         for B in combinations(S,4)),Fraction(0))
 
 
+def independent_source_rank4_projection(weights,labels,*,a):
+    """Exact physical-rank 0..4 source harmonics from its own down marginals.
+
+    All unused K_a edge labels remain present. The jth source coefficient
+    is recovered by triangular harmonic inversion using eigenvalues
+    C(K-2j,6-j). Includes source L2 energy on ranks >=5 without ever
+    iterating full C(K,6) physical target sets.
+    """
+    if type(a) is not int or a<6:
+        raise ValueError("explicit physical alphabet a>=6")
+    K=comb(a,2)
+    palette=physical_pair_indices(a)
+    labels=tuple(tuple(e) for e in labels)
+    if (not 6<=len(labels)<=K or len(set(labels))!=len(labels)
+            or any(e not in palette for e in labels)):
+        raise ValueError("source map must inject into entire K_a alphabet")
+    marginals=[Counter() for _ in range(5)]
+    norm=0
+    for R,w in weights.items():
+        if type(w) is not int or w<0:
+            raise ValueError("nonnegative integer original sixth-order weights")
+        S=six_image_index(R,labels,palette)
+        norm+=w*w
+        if not w:
+            continue
+        for j in range(5):
+            for B in combinations(S,j):
+                marginals[j][B]+=w
+    harmonics=[]
+    energy=[]
+    for j in range(5):
+        lam=comb(K-2*j,6-j)
+        h={}
+        for A in combinations(range(K),j):
+            prior=sum((
+                comb(K-j-i,6-j)*sum(
+                    (harmonics[i][B] for B in combinations(A,i)),
+                    Fraction(0))
+                for i in range(j)),Fraction(0))
+            h[A]=Fraction(marginals[j][A]-prior,lam)
+        if j:
+            down=Counter()
+            for A,val in h.items():
+                if val:
+                    for B in combinations(A,j-1):
+                        down[B]+=val
+            if any(down.values()):
+                raise AssertionError("independent rank-j source down-kernel failed")
+        harmonics.append(h)
+        energy.append(lam*sum((v*v for v in h.values()),Fraction(0)))
+    remain=Fraction(norm)-sum(energy,Fraction(0))
+    if remain<0:
+        raise AssertionError("negative source residual high-rank squared energy")
+    return {"rank4_coefficients":harmonics[4],
+            "rank0_to_4_energies":tuple(energy),
+            "rank_ge5_energy":remain,"source_norm2":norm}
+
+
 def original_GQ_fourth_coupling(model):
     """Exact TRUE GQ original-physical 11x11 tensor and independent H4."""
     if model["s"]!=2 or model["a"]!=6:
@@ -250,11 +308,18 @@ def original_GQ_fourth_coupling(model):
     spectrum=spectral_overlap_certificate(w,labels)
     if corr!=Fraction(*spectrum["signed_ranks"][4]):
         raise AssertionError("independent entire-Johnson spectral rank4 mismatch")
-    E56=Fraction(*spectrum["source_E_ge3"])-Fraction(0)
-    # Source high-rank moments through H4 are computed separately by the
-    # full-source rank4 oracle; no fake bound derived from target alone.
+    source=independent_source_rank4_projection(w,labels,a=6)
+    rank4_by_source=fourth["lambda4"]*sum((
+        coeff*fourth["shapes"][str(physical_four_shape(
+            tuple(edges[i] for i in A)))]["h4"]
+        for A,coeff in source["rank4_coefficients"].items()),Fraction(0))
+    if rank4_by_source!=corr:
+        raise AssertionError("genuine source H4 projection differs from 11x11 tensor")
     residual=sum((Fraction(*v) for v in spectrum["signed_ranks"][5:]),
                  Fraction(0))
+    cs56=source["rank_ge5_energy"]*fourth["E_ge5"]
+    if residual*residual>cs56:
+        raise AssertionError("rank-5/6 CS bound failed")
     complete_gq=gq_forbidden_diamond_theorem(geom)
     return {
         "original_GQ_four_histogram":complete_gq,
@@ -268,6 +333,11 @@ def original_GQ_fourth_coupling(model):
         "rank4_contraction":rat(corr),
         "independent_full_spectrum_rank4":spectrum["signed_ranks"][4],
         "rank5_and_rank6_correlation":rat(residual),
+        "source_rank0_to4_energies":[rat(v)
+                 for v in source["rank0_to_4_energies"]],
+        "source_rank_ge5_energy":rat(source["rank_ge5_energy"]),
+        "rank4_independent_source_projection":rat(rank4_by_source),
+        "rank_ge5_CS_squared_bound":rat(cs56),
         "rank4_target_E":rat(fourth["E4"]),
         "rank_ge5_target_E":rat(fourth["E_ge5"]),
         "universal_P2_proved":False,
