@@ -116,6 +116,57 @@ def antipodal_repeat_certificate(model, *, max_incidence_columns=10000,
             "seven_family_S_omega_s6_proved":False}
 
 
+
+def aligned_repeat_packing_certificate(model):
+    """All-h J<=4V(a-2)^2 via aligned codegree marginal transport.
+
+    For y!=y', sum_x codeg((x,y),(x,y')) <= 2(a-2):
+    for each third t, the two ORIGINAL lines labeled {y,t},{y',t}
+    meet at most once, and the unique source point label has two
+    physical x endpoints. Dual bound fixes x,x' and sums over y.
+    Per source line/point, sums of endpoint-products are bounded by
+    all unordered physical endpoint pairs, with no independence.
+    """
+    graph=kikuchi_graph(model)
+    a=model["a"]
+    V=len(model["left_labels"])
+    if len(model["right_labels"])!=V:
+        raise ValueError("balanced original point/line sources required")
+    by_line=[[] for _ in range(V)]
+    by_point=[[] for _ in range(V)]
+    for p,l in model["incidences"]:
+        by_line[l].append(p)
+        by_point[p].append(l)
+    r=a-2
+    actual_raw=refined_cap=0
+    max_marginal=0
+    for l,(y,yy) in enumerate(model["right_labels"]):
+        c=[len(graph[x*a+y]&graph[x*a+yy]) for x in range(a)]
+        total=sum(c)
+        if total>2*r or total%2:
+            raise AssertionError("original GQ dual-line intersection marginal")
+        max_marginal=max(max_marginal,total)
+        actual_raw+=sum(c[x]*c[xx] for p in by_line[l]
+                        for x,xx in (model["left_labels"][p],))
+        refined_cap+=(total*total-sum(v*v for v in c))//2
+    for p,(x,xx) in enumerate(model["left_labels"]):
+        c=[len(graph[x*a+y]&graph[xx*a+y]) for y in range(a)]
+        total=sum(c)
+        if total>2*r or total%2:
+            raise AssertionError("original GQ point intersection marginal")
+        max_marginal=max(max_marginal,total)
+        actual_raw+=sum(c[y]*c[yy] for l in by_point[p]
+                        for y,yy in (model["right_labels"][l],))
+        refined_cap+=(total*total-sum(v*v for v in c))//2
+    all_h_cap=4*V*r*r
+    if actual_raw>refined_cap or refined_cap>all_h_cap:
+        raise AssertionError("all-h aligned source-pencil packing failed")
+    return {"aligned_source_raw_products":actual_raw,
+            "aligned_marginal_max":max_marginal,
+            "J_refined_source_marginal_upper":refined_cap,
+            "J_all_h_upper":all_h_cap,
+            "J_uniform_O_s6":True}
+
 def report():
     out={"slice":"HYP-105-B3.2-E1-K3-G1",
          "status":"RESTRICTED_THEOREM_C_ANTIPODAL_SOURCE_REPEAT",
@@ -126,7 +177,8 @@ def report():
         model=gq_pair_model(h,scheme,seed)
         key="s%s-%s%s"%(model["s"],scheme,
                         "-"+str(seed) if seed is not None else "")
-        out["models"][key]=antipodal_repeat_certificate(model)
+        out["models"][key]={**antipodal_repeat_certificate(model),
+                            **aligned_repeat_packing_certificate(model)}
     return out
 
 
