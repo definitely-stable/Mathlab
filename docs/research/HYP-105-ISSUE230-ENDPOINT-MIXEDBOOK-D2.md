@@ -92,7 +92,7 @@ The executable D2 report outputs:
 - the independent ORIGINAL F*Inc*L^T degree matrix, exact energy W in two forms, `sum deg_B^2` / `sum deg_H^2` and Cauchy check;
 - exact physical coordinate neighbor block bound t, allowance `24 t W`, and nontriviality flag `E_H>24 t W`;
 - for complete W32/W34: independently counted unrestricted `T_B(H)`, exact proper E, explicit `T_B-E` coordinate/walk slack, D1 endpoint-mass equality;
-- W38 finite exact ORIGINAL bad sets and W without an expensive second full threewalk census; no claim of full W38 proper-path replay in D2;
+- W38 finite exact ORIGINAL bad sets, W and **independently sparse-matrix-reconstructed unrestricted A_H³/B_bad trace**; no claim of an independently repeated FULL W38 proper-path enumeration in D2;
 - synthetic subgraph tests where one true edge or ALL true edges are deleted, preserving theorem scope.
 
 If the mixed-book certificate is numerically vacuous on unpruned W32/W34, report **VACUOUS**, do not tune constants after observing data. Finite W32/W34/W38 behavior cannot prove/falsify asymptotic (D2.5).
@@ -116,7 +116,9 @@ The first [dedicated hosted Contract #38286091216](https://github.com/definitely
 | W32 S72 | 167 | 334 | 3,303 | 3 | 600 | 1,692 | 1,092 |
 | W34 lex | 3,648 | 7,296 | 133,432 | 5 | 38,020 | 56,790 | 18,770 |
 | W34 random | 3,203 | 6,406 | 115,088 | 4 | 30,194 | 44,552 | 14,358 |
-| W38 random | 70,174 | 140,348 | 4,927,736 | 5 | D1: 1,019,228 | not run | not run |
+| W38 random | 70,174 | 140,348 | 4,927,736 | 5 | D1: 1,019,228 | **1,195,458** (independent sparse A²/A³) | **176,230** (vs D1) |
+
+**Independent new matrix oracle:** All seven rows also have a separate integer sparse construction of A_H² followed by the trace contraction tr(A_H³ A_Bbad), avoiding both the D1 forward P3 scanner and D2's endpoint-first enumeration. For all six W32/W34 full global f,g, the independent sparse tensor exactly equals the separately enumerated unrestricted threewalk number (1,834 / 1,456 / 1,644 / 1,692 / 56,790 / 44,552). For actual full W38 global random f,g the independent sparse trace is exactly **1,195,458**, safely above the previously D1-verified proper endpoint-blocked E=1,019,228, by **176,230** coordinate/vertex-improper walks. Thus the matrix identity is independently checked through W38 without pretending to have repeated the full W38 proper original path enumeration.
 
 **Critical negative finding about this certificate:** On EVERY W32/W34 full-G fixture, `24*t_G*W_G` already exceeds the actual E_G by orders of magnitude (S68: 236,808 versus E=544). Hence the mixed-book D6 compensation bound gives `max(E-24tW,0)=0` in these finite instances. The exact physical relation and weighted energy are useful structural results; the unpruned FULL-G numerical mixed-book inequality is VACUOUS as a positive-motif detector. The intended all-h analysis uses #394's coherently pruned H' with t=s^(1/10), NOT these finite full-G caps.
 
