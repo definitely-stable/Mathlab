@@ -78,6 +78,23 @@ class K3G2NExactHarmonics(unittest.TestCase):
                              proof["actual_U"]-rank[0])
             self.assertTrue(proof["strict_CS_bound_valid"])
 
+    def test_zero_padding_never_infers_a_from_used_coordinates(self):
+        # Legal non-surjective V=15 injection into K7 (K=21), with
+        # all used pair labels entirely inside the first six coordinates.
+        labels=tuple(combinations(range(6),2))
+        weights={frozenset(range(6)):2,
+                 frozenset((0,1,2,3,4,6)):3}
+        p=source_energy_ge3(weights,labels,a=7)
+        self.assertEqual(p["mass"],5)
+        self.assertEqual(p["norm2"],13)
+        self.assertEqual(p["E0"],Fraction(25,comb(21,6)))
+        self.assertEqual(sum(p[k] for k in ("E0","E1","E2","E_ge3")),13)
+        self.assertGreaterEqual(p["E_ge3"],0)
+        with self.assertRaises(TypeError):
+            source_energy_ge3(weights,labels)
+        with self.assertRaises(ValueError):
+            source_energy_ge3(weights,labels,a=5)
+
     def test_reject_duplicate_and_out_of_range_original_sources(self):
         labels=tuple(combinations(range(6),2))
         weights={frozenset(range(6)):1}
@@ -90,7 +107,7 @@ class K3G2NExactHarmonics(unittest.TestCase):
         with self.assertRaises(ValueError):
             six_image_index(tuple(range(7)),labels,physical_pair_indices(6))
         with self.assertRaises(ValueError):
-            source_energy_ge3(weights,labels[:8]+labels[:7])
+            source_energy_ge3(weights,labels[:8]+labels[:7],a=6)
 
 
 if __name__=="__main__":
