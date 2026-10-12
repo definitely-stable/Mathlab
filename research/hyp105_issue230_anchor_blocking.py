@@ -177,10 +177,20 @@ def anchor_ledger(model, *, max_paths=70_000_000, verify_middle_edges=False):
         "max_original_endpoint_pair_path_multiplicity":max(by_pair.values(),default=0),
         "max_bad_original_endpoint_pair_path_multiplicity":max(weights_bad.values(),default=0),
         "top_original_pair_path_weights":[{"original_point":q,"original_line":r,
-                                          "oriented_paths":v}
+                                          "original_projection_point":core.projection[q,r][0],
+                                          "original_projection_line":core.projection[q,r][1],
+                                          "endpoint_bad_left":(q,r) in left_bad,
+                                          "endpoint_bad_right":(q,r) in right_bad,
+                                          "oriented_paths":v,
+                                          "sixteen_mask_breakdown":per_pair_atoms[q,r]}
                                          for (q,r),v in ranked[:5]],
         "top_bad_original_pair_path_weights":[{"original_point":q,"original_line":r,
-                                              "oriented_paths":v}
+                                              "original_projection_point":core.projection[q,r][0],
+                                              "original_projection_line":core.projection[q,r][1],
+                                              "endpoint_bad_left":(q,r) in left_bad,
+                                              "endpoint_bad_right":(q,r) in right_bad,
+                                              "oriented_paths":v,
+                                              "sixteen_mask_breakdown":per_pair_atoms[q,r]}
                                              for (q,r),v in bad_ranked[:5]],
         "all_inclusion_exclusion_atoms_exact":True,
         "all_h_blocking_upper_proved":False,
