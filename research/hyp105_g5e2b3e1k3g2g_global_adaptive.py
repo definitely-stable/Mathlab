@@ -241,10 +241,10 @@ def report():
                                       "-"+str(seed) if seed is not None else "")
                          ]=adaptive_complete_cross_probe(
             model,
-            max_nodes_per_seed=12000,
+            max_nodes_per_seed=30000,
             max_targets_per_seed=12,
             first_pass_seed_count=1,
-            max_seeds_per_unmatched=4)
+            max_seeds_per_unmatched=10)
     return output
 
 if __name__=="__main__":
