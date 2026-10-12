@@ -56,3 +56,22 @@ Dedicated path-limited GitHub-hosted workflow, inherited INDEX and Research; no 
 **Do not** attempt to prove a false all-h one-to-one charging of ALL Jcross (or just its heavy class) into D6. For original seven-family S there are six other accepted families, and a bounded-multiplicity map to their true weighted positive GF5 witnesses may still exist. K3-G2-E should identify the true accepted motif targets (rather than all full R3), and test a new charging relation with explicit source-column overlap and bounded fiber multiplicity. Any universal bound needs all s=2^h and all legal global f,g; finite flow checks alone do not prove it.
 
 Alternative K3 full-R3 route: the exact separate coupled bound `(L(P3)-Theta)/12 - Jcross >= c s^6`, after K3-G2-A o(s^6) local losses. These goals are not interchangeable. No ASET exponent or Branch A/B decision is claimed.
+
+
+## 2026-10-12 exact hosted discovery: ORPHAN witnesses defeat this local rule at ANY k
+
+The [first hosted K3-G2-D Contract](https://github.com/definitely-stable/Mathlab/actions/runs/38205330816) independently verified the following all-integer results for the precisely defined **same original anchor incidence** charging relation:
+
+| Legal W(3,2) globally coherent labeling | Jcross | Proper D6 | Max matching, k=1 | Left witnesses without ANY proper-D6 sharing original anchor | Heavy off-differentfoot-noncollinear count | Heavy class anchor-orphans |
+|---|---:|---:|---:|---:|---:|---:|
+| lex | 36 | 15 | 13 | **9** | 18 | **5** |
+| reverse-line | 28 | 3 | 3 | **20** | 6 | **6** |
+| random(seed=20261012) | 17 | 1 | 1 | **14** | 5 | **4** |
+
+In the reverse-line labeling, all six heavily weighted off-differentfoot-noncollinear witnesses are anchor-orphans. Even if every proper D6 could accept an arbitrarily large number of witnesses, such a charging map CANNOT cover any anchor-orphan. This is strictly stronger than the global cardinality pigeonhole obstruction at k=1. A failed Hall matching does NOT imply the original risk obstruction fails: only the chosen very local target relation is ruled out.
+
+The exact orphan counts for lex and reverse-line are frozen in independent hosted regression tests, separate from the generic exact maxflow/mincut and seven-bin source-ledger tests. All source incidence anchors and six columns are original W(3,s) objects, not projected independent labels.
+
+**Next design requirement:** either relax locality with a proven bounded witness-to-positive-motif multiplicity, or charge to other truly accepted GF5 S-family motifs. Do not add more cross-origin subclasses without a positive-motif bridge.
+
+---
