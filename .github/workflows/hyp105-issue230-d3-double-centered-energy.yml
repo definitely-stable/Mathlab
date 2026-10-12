@@ -62,6 +62,25 @@ jobs:
               assert x["universal_internal_only_I_small_proved"] is False
               assert x["issue230_Branch_A"]=="OPEN"
               assert x["issue230_Branch_B"]=="OPEN"
+          pinned_signed={
+            (2,"lex"):("3060/1","-83/1",26,32),
+            (2,"reverse"):("2700/1","9/1",26,21),
+            (2,"S68"):("3320/1","-31/1",35,24),
+            (2,"S72"):("3340/1","-37/1",35,25),
+            (4,"lex"):("2207655/17","60689/17",235,305),
+            (4,"random"):("1910476/17","46020/17",226,237),
+            (8,"random"):("313987787/65","6315053/65",2298,2341),
+          }
+          for key,(mean,correlation,mf,mg) in pinned_signed.items():
+              x=rows[key]
+              assert x["W_mean"]==mean
+              assert x["W_centered_correlation"]==correlation
+              assert x["left_concurrent_physical_Mf"]==mf
+              assert x["true_dual_concurrent_physical_Mg"]==mg
+          assert rows[2,"S68"]["centered_B_Frobenius_squared"]=="568/9"
+          assert rows[2,"S68"]["original_GQ_residual_R_Frobenius_squared"]=="30/1"
+          assert rows[8,"random"]["centered_B_Frobenius_squared"]=="874968726/1225"
+          assert rows[8,"random"]["original_GQ_residual_R_Frobenius_squared"]=="1120628/65"
           assert rows[2,"S68"]["union_bad_original_pair_count"]==166
           assert rows[8,"random"]["union_bad_original_pair_count"]==70174
           print(json.dumps(r,sort_keys=True,indent=2))
