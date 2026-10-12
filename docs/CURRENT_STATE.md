@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-G2-F — W34 positive-only original pair-seeded accepted seven-GF5 targets (2026-10-12)
+
+[Exact general-a seven-family predicate, sound subset-completion and explicit incomplete-search semantics](research/HYP-105-G5-E2-B3-E1K3G2F-W34-SEEDED-TARGETS.md) · [reference](../research/hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **PARENT_PR378_HEAD_ef846731 / SOUND_POSITIVE_ONLY_SEEDED_W34 / NO_TRUNCATED_NO_GO / ALL_H_S_OPEN / CI_PENDING**. Stacked Draft, no main change.
+
 ## HYP-105 B3.2-E1-K3-G2-E — exact finite seven accepted GF5 charging (2026-10-12)
 
 [Finite Hall/mincut original-column charging against ALL seven genuinely accepted GF5 motif targets](research/HYP-105-G5-E2-B3-E1K3G2E-SEVEN-FAMILY-HALL.md) · [reference](../research/hyp105_g5e2b3e1k3g2e_seven_family_hall.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2e_seven_family_hall.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **REAL_W32_SEVEN_TARGETS / ANCHOR_AND_OVERLAP_HALL_GATE / PARENT_PR377_HEAD_86dcc5e / ALL_H_PROOF_OPEN / CI_PENDING**. Stacked Draft, no main change.
