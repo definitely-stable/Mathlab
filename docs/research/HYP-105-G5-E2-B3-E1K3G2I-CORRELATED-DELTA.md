@@ -46,3 +46,29 @@ Report pins actual initial and selected paths, true S and Jcross, complete Hall 
 ## 5. Next K3-G2-J proof fork
 
 If a complete independent selected state produces a deficient Hall subset X, publish exact original source incidence supports, matchable-target neighborhoods and cut deficit, and investigate permissible alternative capacity or charging relation (without claiming all-h Branch A false). If this finite search finds no obstruction, prioritize a structural symbolic `S_s >= alpha*s^6-beta*Jcross` positive-seven-family surplus inequality or a formal all-h counterexample to it; a richer finite search alone cannot establish either. A companion attempt at `Jcross<=K*S_s` needs all-h bounded preimage multiplicity and positive accepted target existence for every legal globally coherent f,g. Only BOTH all-h inequalities would yield `S_s >= alpha/(1+beta*K) * s^6`.
+
+
+## 6. GitHub-hosted exact finite adversarial result — 2026-10-12
+
+[Dedicated Contract #38219544548](https://github.com/definitely-stable/Mathlab/actions/runs/38219544548) **SUCCESS**, run at child HEAD `4a9337bcd4b7a4fb52e3e2cb2a963ee6c330d737`. Four independent locality/replay/fail-closed tests passed, then the seeded full experiment completed: exactly 144 candidate transposition transitions scored by exact original-sixset delta, exactly 21 selected/anchor states independently replayed by the COMPLETE 62,370-eligible-sixset B0 accepted seven-family census and COMPLETE Jcross-to-S original-two-overlap Hall. All **21/21** full Hall matchings succeed; **0** restricted unit-two-overlap finite counterexamples encountered. The 144 rejected/selected proposal candidates have exact S and J count but only SELECTED maps have independent full Hall replay.
+
+Finite min observed `S-Jcross` among the 21 replayed anchor/selected states: **68**, achieved by anchor #2 step 6 at **S=94**, **Jcross=26**, strictly positive accepted seven-family GF5 bound **`51^6 R3 >= 4,289,420`** for that SAME source map, and minimum full accepted target degree among its 26 cross witnesses **2**. For other anchors the smallest observed score was 92 and 92. This shrinks the previous K3-G2-H *single swap shell* minimum 139 to 68, but those are different **finite sampled families**, not all-W32 minima or asymptotic lower bounds.
+
+Exact best original-vertex-label transposition transcript from W32 lex:
+1. INITIAL left (0,14), then INITIAL right (0,14);
+2. left (1,4) -> (S,J,margin)=(168,29,139);
+3. right (2,4) -> (132,18,114);
+4. left (2,13) -> (117,15,102);
+5. right (3,13) -> (101,17,84);
+6. left (2,3) -> (90,21,69);
+7. right (1,14) -> (94,26,68).
+
+No original incidence changed; every permutation applies to *whole pair labels on source factor vertices*. The entire 21-map selected path report and selected-label digests were recorded in hosted CI output, not a model extrapolation.
+
+The deterministic ordered selected-path SHA256 certificate:
+`25e93b1374d99a6db40a53df913f6e87bfa1cfbcd9909b4b960454d7d54162d9`.
+
+Final best full physical pair labeling digest:
+`d736eae47626ecf935b21d9fec7d09ca1af80a48cda20b50a7e3c7c5bfb3baa0`.
+
+**Scope:** The resulting 21 full-source Hall positive proofs are exact. They do NOT prove Hall for all 144 candidate proposals, all 11,025 two-sided single-pair products, arbitrary coherent W32 labelings, or any all-h s. Branch A/B and the independent restricted seven-family surplus inequality remain OPEN. Later documentation/Contract regression commits require new CI verification on the FINAL child HEAD.
