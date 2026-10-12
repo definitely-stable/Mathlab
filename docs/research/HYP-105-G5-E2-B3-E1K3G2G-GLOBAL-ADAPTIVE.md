@@ -55,3 +55,47 @@ When complete source injection is obtained on a finite map, additionally `Jcross
 ## 5. Next K3-G2-H proof gate
 
 If the G2-G global W34 charge test succeeds, inspect the actual source-to-target assignments across classes and find a **uniform**, independent-of-s multiplicity bound or a symbolic source completion from global GQ incidence. If it fails due to budget, optimize anchored positive two-factor joins, but NEVER label such partial failure a counterexample. Separately derive (or rigorously refute) the S-restricted complementary inequality of point 1, rather than importing a full R3 theorem as an accepted-S theorem. Keep original Branch A/B and ASET exponent OPEN.
+
+
+## 2026-10-12 exact all-witness W(3,4) charging theorem for two specific legal maps
+
+After the original full-W34 experiment [Contract #38214269288](https://github.com/definitely-stable/Mathlab/actions/runs/38214269288) gave partial genuine-S injections (127/128 lex, 70/75 random) with 12,000 candidate nodes and at most 4 original source-pair seeds per unmatched witness, an enlarged **finite** proof search tested up to all 10 original source-column pairs for each remaining unmatched witness, with 30,000 candidate nodes per distinct seed and a fixed per-seed accepted-target cap of 12.
+
+The independent GitHub-hosted [Contract #38214367141](https://github.com/definitely-stable/Mathlab/actions/runs/38214367141) PASSED and produced exact complete source-to-positive-S injections:
+
+| Quantitative exact certificate | W(3,2) lex control | W(3,4) lex | W(3,4) random seed 20261012 |
+|---|---:|---:|---:|
+| ALL individual Jcross witnesses enumerated | 36 | **128** | **75** |
+| Genuine distinct accepted S targets discovered | 150 | **374** | **203** |
+| First-pass exact matching (capacity 1) | 36 | 126 | 73 |
+| Final exact matching (capacity 1) | **36/36** | **128/128** | **75/75** |
+| Additional adaptive rounds | 0 | 1 | 5 |
+| Distinct original-pair seed completions used | 28 | 127 | 79 |
+| Candidate nodes checked | 102,381 | 3,810,000 | 2,370,000 |
+| Proven `S_s(f,g) >= discovered genuine targets` | >=150 | **>=374** | **>=203** |
+| Proven `51^6 R3(f,g) >= discovered GF5 family floors` | >=6,359,976 | **>=16,504,153** | **>=8,814,887** |
+| Complete Jcross=>true-S injective charging (THIS map) | YES | **YES** | **YES** |
+
+For W34 lex, the 374 discovered distinct accepted original six-incidence sets split by family:
+```
+A-left/B-right 132; B-left/A-right 101; B/B-disjoint 58;
+B/B-overlap 7; C/A 60; C/B 5; D6 11.
+```
+For W34 random:
+```
+A-left/B-right 84; B-left/A-right 36; B/B-disjoint 26;
+B/B-overlap 3; C/A 42; C/B 3; D6 9.
+```
+
+The source witnesses include BOTH original point-origin and line-origin cross-source repeated-column sixcycles. They are not just heavy-class samples. For each actual original source witness, an entirely constructed six-distinct-incidence accepted-S target is assigned, with at least TWO original source columns in common, and no target is assigned twice. The exact max-flow/min-cut and independent augmenting-path assignments agree; the deterministic original-incidence target assignment SHA256 hashes are sealed in the hosted regression test.
+
+This rigorously proves the **finite model-specific inequalities**
+```
+W34 lex legal global f,g:    128=Jcross <= S_4(f,g), and S_4(f,g)>=374.
+W34 random legal global f,g:  75=Jcross <= S_4(f,g), and S_4(f,g)>=203.
+```
+The positive GF5 lower numerator is obtained by summing individually certified per-family floor weights over distinct actual ORIGINAL target sixsets. This is a lower bound on the FULL GF5 six-column R3 numerator for this map; the actual R3 can be larger.
+
+**Strict limitations:** Most seed-pair searches are still target-budget or node-budget limited; no complete enumeration of ALL possible accepted S sixsets is asserted. However, an actual full matching is an existential witness, so incompleteness of the target census does not invalidate the full Jcross injection. These results concern ONLY these two coherent W34 labelings. They are NOT a universal all-h theorem, do NOT give S_s=Omega(s^6), do NOT provide an analytic dichotomy when Jcross is small, and do NOT resolve issue #230 Branch A/B or ASET exponent.
+
+**Next mathematical gate:** Separate the syntactic two-original-column Hall relation from a PROVABLE GQ-based all-h charging construction with uniform capacity K. Even then, derive a distinct S-family restricted all-h complementary lower bound `S_s>=alpha*s^6-beta*Jcross` (not merely the earlier complete-R3 sixcycle inequality). Without BOTH, the original Omega(s^6) universal obstacle remains OPEN.
