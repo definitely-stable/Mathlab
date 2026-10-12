@@ -45,7 +45,12 @@ class Issue230AnchorBlockingTests(unittest.TestCase):
         self.assertEqual((row["proper_P3"],row["missing"],row["incident"],
                           row["blocked"],row["unblocked"]),(678,0,72,606,0))
         self.assertEqual(row["synchronized_BB_overlap_sixsets"],0)
-        self.assertGreater(row["max_bad_original_endpoint_pair_path_multiplicity"],0)
+        self.assertEqual(
+            (row["endpoint_only_weight"],row["internal_only_weight"],
+             row["mixed_endpoint_internal_weight"]), (52,62,492))
+        self.assertEqual(row["endpoint_bad_pair_weight"],544)
+        self.assertEqual(row["union_endpoint_bad_pair_count"],166)
+        self.assertEqual(row["max_bad_original_endpoint_pair_path_multiplicity"],12)
         self.assertEqual(row["endpoint_bad_pair_weight"],
                          row["endpoint_only_weight"]+row["mixed_endpoint_internal_weight"])
         self.assertFalse(row["universal_S_lower_proved"])
@@ -66,6 +71,11 @@ class Issue230AnchorBlockingTests(unittest.TestCase):
                           row["blocked"],row["unblocked"]),
                          (78894,10198,4112,48542,16042))
         self.assertEqual(row["synchronized_BB_overlap_sixsets"],8021)
+        self.assertEqual((row["endpoint_only_weight"],row["internal_only_weight"],
+                          row["mixed_endpoint_internal_weight"]), (18034,18348,12160))
+        self.assertEqual(row["endpoint_bad_pair_weight"],30194)
+        self.assertEqual(row["union_endpoint_bad_pair_count"],3203)
+        self.assertEqual(row["max_bad_original_endpoint_pair_path_multiplicity"],34)
         self.assertTrue(row["independent_original_endpair_middle_edge_oracle"])
         self.assertEqual(row["nonincident_endpoint_complete"],64584)
         self.assertGreater(row["internal_only_weight"],0)
