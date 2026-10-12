@@ -1,3 +1,7 @@
+## HYP-105 E1-K3-G2-G — global adaptive Jcross Hall and actual seven-S/R3 floors (2026-10-12)
+
+[Adaptive globally shared true GF5 motif index, finite full-W34 charging and model-specific S/R3 lower certificates](HYP-105-G5-E2-B3-E1K3G2G-GLOBAL-ADAPTIVE.md) · [reference](../../research/hyp105_g5e2b3e1k3g2g_global_adaptive.py) · [independent tests](../../research/test_hyp105_g5e2b3e1k3g2g_global_adaptive.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **FINITE_ADAPTIVE_W34 / STRICT_S_LOWER / GF5_R3_LOWER / UNIVERSAL_JCROSS_LEQ_S_OPEN / BRANCH_A_B_OPEN / CI_PENDING**.
+
 ## HYP-105 E1-K3-G2-F — sound W34 seeded true-S target generator (2026-10-12)
 
 [All-a accepted seven GF5 families, exact seeded original pair completion, finite positive-only W34 Hall certificate](HYP-105-G5-E2-B3-E1K3G2F-W34-SEEDED-TARGETS.md) · [reference](../../research/hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py) · [independent tests](../../research/test_hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **STRUCTURAL_ALL_A / W34_TRUE_S_TARGETS_BUDGETED / NO_NEGATIVE_FROM_TRUNCATION / BRANCH_A_B_OPEN / CI_PENDING**.
