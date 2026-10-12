@@ -162,9 +162,9 @@ def physical_squares(model):
         for v in combinations(coords,4):
             allsix=set(combinations(v,2))
             forbidden=[
-                (tuple(sorted((v[0],v[1])),tuple(sorted((v[2],v[3])))),
-                (tuple(sorted((v[0],v[2])),tuple(sorted((v[1],v[3])))),
-                (tuple(sorted((v[0],v[3])),tuple(sorted((v[1],v[2])))),
+                (tuple(sorted((v[0],v[1]))),tuple(sorted((v[2],v[3])))),
+                (tuple(sorted((v[0],v[2]))),tuple(sorted((v[1],v[3])))),
+                (tuple(sorted((v[0],v[3]))),tuple(sorted((v[1],v[2])))),
             ]
             for matching in forbidden:
                 sq=allsix-set(matching)
