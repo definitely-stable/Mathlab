@@ -72,5 +72,29 @@ jobs:
           assert hard["P2_margin"]==[757,143]
           assert hard["original_BA"]["signed_C56"]==[-56,11]
           assert hard["genuine_original_dual_AB"]["signed_C56"]==[-167,42]
+          # Seal complete all-a target spectral prototypes on 6,9,14.
+          assert all_a["6"]["h5_path_P6"]==[18,385]
+          assert all_a["6"]["h5_C3_plus_P3"]==[-19,770]
+          assert all_a["9"]["E0_to_E6"]==[
+              [102900,5797],[0,1],[0,1],[35712,493],
+              [1436,11],[273240,377],[1988600,403]]
+          assert all_a["14"]["E0_to_E6"]==[
+              [7357350,110983],[0,1],[2102100,21199],
+              [1682278884,3641791],[3853077228,2487593],
+              [3749500040,368271],[260563803500,1316961]]
+          # Exact signed certificate for SAME hard original f,g:
+          # rank-five and rank-six JOINT contributions are BOTH negative.
+          assert hard["joint_C5"]==[-2473,462]
+          assert hard["joint_C6"]==[-26,7]
+          assert hard["original_BA"]["signed_C5"]==[-260,77]
+          assert hard["original_BA"]["signed_C6"]==[-12,7]
+          assert hard["genuine_original_dual_AB"]["signed_C5"]==[-83,42]
+          assert hard["genuine_original_dual_AB"]["signed_C6"]==[-2,1]
+          assert hard["original_BA"]["rows_permanent_one_two_columns_rank5_rank6"]==[
+              [[-8951,2310],[-99,35]],[[1151,2310],[39,35]]]
+          assert hard["genuine_original_dual_AB"]["rows_permanent_one_two_columns_rank5_rank6"]==[
+              [[-1703,770],[-208,105]],[[272,1155],[-2,105]]]
+          assert models[0]["joint_C5"]==[-3403,4620]
+          assert models[0]["joint_C6"]==[422,105]
           print(json.dumps(r,sort_keys=True,indent=2))
           PY
