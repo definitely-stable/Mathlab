@@ -121,6 +121,27 @@ class K3G2TBoundedRelayTests(unittest.TestCase):
         self.assertEqual(hard["joint_C5"],[-2473,462])
         self.assertEqual(hard["joint_C6"],[-26,7])
         self.assertEqual(cases[0]["zero_relay"]["deficit"],0)
+        self.assertEqual(cases[0]["minimal_uniform_relay_scaled"],0)
+        self.assertEqual(hard["one_physical_credit_per_line"]["deficit"],0)
+        self.assertEqual(hard["minimal_uniform_relay_scaled"],59)
+        self.assertEqual(hard["minimal_uniform_relay_physical_units"],[59,143])
+        self.assertEqual(hard["smallest_integer_physical_credit_cap"],1)
+        self.assertEqual(hard["minimal_minus_one_certificate"]["deficit"],8)
+        witness=hard["independent_sharp_original_geometric_cut"]
+        self.assertEqual(witness["original_demand_points"],
+                         [1,2,3,5,8,13,14])
+        self.assertEqual(witness["original_incident_lines"],
+                         [0,1,3,4,5,6,7,8,10,11,12,13])
+        self.assertEqual(witness["selected_activated_relay_lines"],[3,11,13])
+        self.assertEqual(witness["line_gate_count"],9)
+        self.assertEqual(witness["exact_demand"],4820)
+        self.assertEqual(witness["exact_own_BA_credit"],1144)
+        self.assertEqual(witness["exact_incident_dual_AB_credit"],3146)
+        self.assertEqual(witness["ungated_deficit"],530)
+        self.assertEqual(witness["necessary_uniform_scaled_gate"],59)
+        self.assertEqual(
+            witness["ungated_deficit"]-
+            58*witness["line_gate_count"],8)
 
 
 if __name__=="__main__":
