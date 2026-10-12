@@ -1,0 +1,31 @@
+name: hyp105-k3g2d-finite-hall-charging-contract
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2d_charging_hall.py"
+      - "research/test_hyp105_g5e2b3e1k3g2d_charging_hall.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2D-HALL-CHARGING.md"
+      - ".github/workflows/hyp105-k3g2d-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  finite-hall-charging:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent finite Hall no-go and proper original-column D6
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2d_charging_hall.py' -v
+      - name: Reproducible exact finite Hall obstruction report
+        run: python research/hyp105_g5e2b3e1k3g2d_charging_hall.py
