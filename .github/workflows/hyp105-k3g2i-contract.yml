@@ -1,0 +1,62 @@
+name: hyp105-k3g2i-correlated-delta-hall
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2i_correlated_delta.py"
+      - "research/test_hyp105_g5e2b3e1k3g2i_correlated_delta.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2I-CORRELATED-DELTA.md"
+      - ".github/workflows/hyp105-k3g2i-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  finite-correlated-complete-hall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fast independent swap-locality and full B0 replay tests
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2i_correlated_delta.py' -v
+      - name: Correlated six-step full-oracle replay once
+        run: |
+          python research/hyp105_g5e2b3e1k3g2i_correlated_delta.py > /tmp/hyp105-k3g2i.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('/tmp/hyp105-k3g2i.json').read_text())
+          assert r["slice"]=="HYP-105-E1-K3-G2-I"
+          assert r["anchors_tested"]==3
+          assert r["steps_requested_per_anchor"]==6
+          assert r["proposals_requested_per_step"]==8
+          assert 0 < r["candidate_transitions_exactly_scored"] <= 144
+          assert len(r["results"])==3
+          assert r["committed_states_independently_full_replayed"]==sum(
+            x["full_oracle_replays"] for x in r["results"])
+          assert r["full_W32_labeling_space_exhausted"] is False
+          assert r["all_h_universal_Hall_proved"] is False
+          assert r["all_h_S_omega_proved"] is False
+          assert r["Branch_A_B"]=="OPEN"
+          assert len(r["selected_path_certificate_sha256"])==64
+          for path in r["results"]:
+              assert len(path["final_labels_digest"])==64
+              assert path["committed_moves"]<=6
+              assert path["full_oracle_replays"]==path["committed_moves"]+1
+              for x in path["path"]:
+                  assert x["S_seven_exact"] - x["Jcross"] == x["S_minus_J"]
+                  assert x["GF5_floor_numerator"]>0
+                  if x["Hall_deficiency"]:
+                      assert x["Hall_cut_witness_subset"]>x["Hall_cut_neighbor_size"]
+                  else:
+                      assert x["full_Hall_unit"]
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY
