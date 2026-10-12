@@ -6,7 +6,7 @@ import unittest
 from hyp105_g5e2b3e1k1_kikuchi_c6 import gq_pair_model, kikuchi_graph
 from hyp105_g5e2b3e1k3g_repeat_loss import (
     antipodal_repeat_certificate, source_pencil_repeat_three,
-    triangles_of_edges,
+    triangles_of_edges, aligned_repeat_packing_certificate,
 )
 
 
@@ -117,6 +117,74 @@ class K3G1RepeatLossTests(unittest.TestCase):
             self.assertLessEqual(cert["C6_rep3"],cert["all_h_rep3_upper"])
         self.assertEqual(triangles_of_edges([(0,1),(1,2),(0,2)]),1)
         self.assertEqual(triangles_of_edges([(0,1),(1,2)]),0)
+
+
+    def test_source_incidence_dual_marginals_and_uniform_J_cap(self):
+        """Source incidence meet-at-most-once oracle, not graph codegrees."""
+        for h,scheme,seed in ((1,"lex",None),
+                              (1,"reverse-line",None),
+                              (2,"random",20261011)):
+            model=gq_pair_model(h,scheme,seed)
+            graph=kikuchi_graph(model)
+            a=model["a"]
+            P=len(model["left_labels"])
+            lines_by_point=[set() for _ in range(P)]
+            points_by_line=[set() for _ in range(P)]
+            for p,l in model["incidences"]:
+                lines_by_point[p].add(l)
+                points_by_line[l].add(p)
+            left_inv={frozenset(pair):p for p,pair in
+                      enumerate(model["left_labels"])}
+            right_inv={frozenset(pair):l for l,pair in
+                       enumerate(model["right_labels"])}
+            for l,(y,yy) in enumerate(model["right_labels"]):
+                predicted=Counter()
+                for t in range(a):
+                    if t in (y,yy):
+                        continue
+                    l1=right_inv.get(frozenset((y,t)))
+                    l2=right_inv.get(frozenset((yy,t)))
+                    if l1 is None or l2 is None:
+                        continue
+                    common=points_by_line[l1]&points_by_line[l2]
+                    self.assertLessEqual(len(common),1)
+                    for p in common:
+                        predicted.update(model["left_labels"][p])
+                actual=Counter({x:len(graph[x*a+y]&graph[x*a+yy])
+                                for x in range(a)})
+                self.assertEqual(
+                    [predicted[x] for x in range(a)],
+                    [actual[x] for x in range(a)])
+                self.assertLessEqual(sum(actual.values()),2*(a-2))
+            for p,(x,xx) in enumerate(model["left_labels"]):
+                predicted=Counter()
+                for z in range(a):
+                    if z in (x,xx):
+                        continue
+                    p1=left_inv.get(frozenset((x,z)))
+                    p2=left_inv.get(frozenset((xx,z)))
+                    if p1 is None or p2 is None:
+                        continue
+                    common=lines_by_point[p1]&lines_by_point[p2]
+                    self.assertLessEqual(len(common),1)
+                    for l in common:
+                        predicted.update(model["right_labels"][l])
+                actual=Counter({y:len(graph[x*a+y]&graph[xx*a+y])
+                                for y in range(a)})
+                self.assertEqual(
+                    [predicted[y] for y in range(a)],
+                    [actual[y] for y in range(a)])
+                self.assertLessEqual(sum(actual.values()),2*(a-2))
+            cert=aligned_repeat_packing_certificate(model)
+            direct=antipodal_repeat_certificate(model)
+            self.assertLessEqual(
+                direct["J_repeat_column_antipodal_path_incidence"],
+                cert["aligned_source_raw_products"])
+            self.assertLessEqual(cert["aligned_source_raw_products"],
+                                 cert["J_refined_source_marginal_upper"])
+            self.assertLessEqual(cert["J_refined_source_marginal_upper"],
+                                 cert["J_all_h_upper"])
+            self.assertTrue(cert["J_uniform_O_s6"])
 
     def test_fail_closed_budgets(self):
         model=gq_pair_model(1,"lex")
