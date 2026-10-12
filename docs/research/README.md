@@ -1,3 +1,7 @@
+## HYP-105 E1-K3-G2-A — source-coincident and cross-origin repeat C6 splitting (2026-10-12)
+
+[Exact all-h J=J_same+J_cross, self-source source-pencil-triangle square identity, O(s^5)=o(s^6) local repeat theorem](HYP-105-G5-E2-B3-E1K3G2-SOURCE-COINCIDENCE.md) · [reference](../../research/hyp105_g5e2b3e1k3g2_source_coincidence.py) · [independent oracles](../../research/test_hyp105_g5e2b3e1k3g2_source_coincidence.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_LOCAL_O_S5 / CROSS_SOURCE_OPEN / SEVEN_S_OPEN / CI_PENDING**.
+
 ## HYP-105 E1-K3-G1 — antipodal repeated-source-column six-cycle decomposition (2026-10-12)
 
 [All-h antipodal incidence identity, exhaustive six-walk no-two-repeat lemma, source-pencil triangle bound](HYP-105-G5-E2-B3-E1K3G1-ANTIPODAL-REPEAT-LOSS.md) · [reference](../../research/hyp105_g5e2b3e1k3g_repeat_loss.py) · [independent tests](../../research/test_hyp105_g5e2b3e1k3g_repeat_loss.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_TRIPLE_REPEAT_O_S9OVER2 / SINGLE_REPEAT_OPEN / SEVEN_S_OPEN / CI_PENDING**.
