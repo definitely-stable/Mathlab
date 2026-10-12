@@ -84,3 +84,41 @@ A signed table is not a *nonnegative Hall-flow capacity* and does not by itself 
 ## 6. Next K3-G2-S decision
 
 The physical target ranks 0..6 now have complete exact formulas, while Q's ORIGINAL 4x4 GQ permanent witnesses give a much finer SOURCE parametrization. Next genuine proof obligation is to use the **shared ORIGINAL incidence** between B/A and A/B witness systems to construct (or falsify) a bounded-capacity, nonnegative, explicitly geometric charging scheme for negative signed rank5/6 permanent-one contributions. Any proposed all-h inequality must be uniform in f,g and s, and ideally imply P2 or P7 using the OTHER positive motifs, not merely recompute a signed spectral identity. An exact W32 finite Hall failure would invalidate only the corresponding chosen charging graph, not universal P2.
+
+## 7. First hosted exact all-a spectrum and same-map joint signed NO-GO — 2026-10-12
+
+The corrected [dedicated hosted Contract #38248723614](https://github.com/definitely-stable/Mathlab/actions/runs/38248723614) is **SUCCESS** at intermediate R HEAD eb5038eb1c8fee40e4ec10f8b3d3a6c2c0799318. Five independent unit tests (25.201s), then two full genuine original+dual globally coherent W32 source reports. First attempt #38248574088 failed one **test-only canonical physical edge** mistake (test input (4,0) replaced by (0,4)); all other four independent tests succeeded on the initial run. No theorem or mathematical implementation was altered in that fix.
+
+The new ALL-a exact full seven-rank physical TARGET squared energy table, in order E0..E6:
+
+    a=6:  [140/143,0,42/11,710/1001,86/7,1182/77,258/7]
+    a=9:  [102900/5797,0,0,35712/493,1436/11,
+           273240/377,1988600/403]
+    a=14: [7357350/110983,0,2102100/21199,
+           1682278884/3641791,3853077228/2487593,
+           3749500040/368271,260563803500/1316961].
+
+At a=6 the two unique five-edge physical completion orbit coefficients are h5(P6)=18/385 and h5(C3+P3)=-19/770. These all-a target values exactly reproduce the entire independent N Johnson projection on all 5005 physical K6 sixsets, for BOTH rank 5 and rank 6; no large physical sixset enumeration was used for a=9/14 formulas.
+
+For the previously accepted original hard correlated W32 global f,g state, ORIGINAL B/A and TRUE ORIGINAL DUAL A/B yield separately
+
+    original B/A: C5=-260/77, C6=-12/7, C56=-56/11;
+    genuine A/B: C5=-83/42, C6=-2, C56=-167/42.
+
+The **joint original+dual** signed contributions are
+
+    C5^(BA)+C5^(AB)=-2473/462 < 0;
+    C6^(BA)+C6^(AB)=-26/7 < 0.
+
+These values are for the SAME actual coherent original labels f,g. Thus BOTH proposed termwise bounds C5_BA+C5_AB>=0 and C6_BA+C6_AB>=0 are refuted on a genuine W32 labeling. This does NOT refute P2: true U_BA=36, U_AB=39, original fixed-left mean mu_f=9968/143, P2 margin 757/143>0, full S_seven=86.
+
+Even at the ORIGINAL GQ local 4x4 matching level, the 2x2 rational rank5/rank6 decomposition is:
+
+    hardest BA:      permanent-one [-8951/2310,-99/35],
+                     permanent-two [1151/2310,39/35];
+    hardest dual AB: permanent-one [-1703/770,-208/105],
+                     permanent-two [272/1155,-2/105].
+
+The rank5 negativity is predominantly from unique original matchings; the rank6 negativity is not uniformly attributable to only one of the two source multiplicities. The two-matching physical contribution is not universally positive (dual rank6 -2/105). A uniform all-h positivity or charging proof must exploit lower ranks, other positive motifs or actual incidence coupling and cannot require either joint signed high rank to be nonnegative.
+
+The exact scalar regressions and full all-a target energies have been PINNED in the dedicated Contract after the first hosted green. The final revision after these docs is NOT accepted until its exact-head Contract/INDEX/full Research all SUCCESS and independent mathematical review. Main unchanged; #230/#176/#169 and stacked PRs remain OPEN / Draft. The next S step requires a bona fide geometric nonnegative Hall/charging construction or its falsifier; do not confuse signed harmonics with positive target capacities.
