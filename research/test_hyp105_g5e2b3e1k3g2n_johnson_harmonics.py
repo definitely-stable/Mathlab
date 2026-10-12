@@ -88,7 +88,7 @@ class K3G2NExactHarmonics(unittest.TestCase):
         with self.assertRaises(ValueError):
             spectral_overlap_certificate({frozenset(range(6)):-1},labels)
         with self.assertRaises(ValueError):
-            six_image_index(tuple(range(6)),labels,(physical_pair_indices(6)))
+            six_image_index(tuple(range(7)),labels,physical_pair_indices(6))
         with self.assertRaises(ValueError):
             source_energy_ge3(weights,labels[:8]+labels[:7])
 
