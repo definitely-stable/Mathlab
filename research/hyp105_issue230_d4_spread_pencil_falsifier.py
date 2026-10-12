@@ -9,6 +9,7 @@ These disprove the two PROPOSED D3 sufficient conditions
 They do NOT disprove the original seven-positive-family universal lower
 S=Omega(s^6) (Branch A), nor construct S=o(s^6) (Branch B).
 """
+from collections import Counter
 from itertools import combinations
 from math import comb
 import json
