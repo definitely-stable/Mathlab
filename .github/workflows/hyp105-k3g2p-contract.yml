@@ -40,6 +40,10 @@ jobs:
           assert set(levels)=={"6","9","14"}
           assert levels["6"]["E4"]==[86,7]
           assert levels["6"]["E_ge5"]==[4020,77]
+          assert levels["9"]["E4"]==[1436,11]
+          assert levels["9"]["E_ge5"]==[5087680,899]
+          assert levels["14"]["E4"]==[3853077228,2487593]
+          assert levels["14"]["E_ge5"]==[15007591521780,72140197]
           for a,rec in levels.items():
               K=rec["K"]
               assert K==int(a)*(int(a)-1)//2
@@ -65,5 +69,18 @@ jobs:
           hard=models[1]
           assert (hard["U_BA"],hard["U_AB"],hard["S_seven"])==(36,39,86)
           assert hard["P2_margin"]==[757,143]
+          BA=hard["original_BA"]
+          AB=hard["genuine_original_dual_AB"]
+          assert BA["source_mass"]==4984 and AB["source_mass"]==5302
+          assert BA["rank4_contraction"]==[129,35]
+          assert AB["rank4_contraction"]==[143,21]
+          assert BA["rank5_and_rank6_correlation"]==[-56,11]
+          assert AB["rank5_and_rank6_correlation"]==[-167,42]
+          assert BA["source_rank_ge5_energy"]==[2285873,1386]
+          assert AB["source_rank_ge5_energy"]==[37570,21]
+          assert BA["rank_ge5_CS_squared_bound"]==[1531534910,17787]
+          assert AB["rank_ge5_CS_squared_bound"]==[50343800,539]
+          assert models[0]["original_BA"]["rank4_contraction"]==[748,105]
+          assert models[0]["genuine_original_dual_AB"]["rank4_contraction"]==[11,35]
           print(json.dumps(r,sort_keys=True,indent=2))
           PY
