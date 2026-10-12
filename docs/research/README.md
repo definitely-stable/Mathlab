@@ -1,3 +1,7 @@
+## HYP-105 E1-K3-G2-H — exhaustive W32 lex one-swap Hall/cut counterexample gate (2026-10-12)
+
+[Exact all-seven accepted original target enumeration per legal W32 labeling, 210 globally coherent pair-label swaps, independent integral flow/matching and sound finite Hall NO-GO semantics](HYP-105-G5-E2-B3-E1K3G2H-EXACT-SWAP-SHELL.md) · [reference](../../research/hyp105_g5e2b3e1k3g2h_exact_swap_shell.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2h_exact_swap_shell.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **COMPLETE_W32_TARGETS / EXACT_HALL_FALSIFIER / FINITE_ONE_SWAP_ONLY / ALL_H_BRANCH_A_B_OPEN / CI_PENDING**.
+
 ## HYP-105 E1-K3-G2-G — global adaptive Jcross Hall and actual seven-S/R3 floors (2026-10-12)
 
 [Adaptive globally shared true GF5 motif index, finite full-W34 charging and model-specific S/R3 lower certificates](HYP-105-G5-E2-B3-E1K3G2G-GLOBAL-ADAPTIVE.md) · [reference](../../research/hyp105_g5e2b3e1k3g2g_global_adaptive.py) · [independent tests](../../research/test_hyp105_g5e2b3e1k3g2g_global_adaptive.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **FINITE_ADAPTIVE_W34 / STRICT_S_LOWER / GF5_R3_LOWER / UNIVERSAL_JCROSS_LEQ_S_OPEN / BRANCH_A_B_OPEN / CI_PENDING**.
