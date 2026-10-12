@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-E — C4-weighted mixed codegree layer identities (2026-10-12)
+
+[Exact kappa and layer-cake book identity, original GQ star-degree tail upper and explicit shared-star packing blocker](HYP-105-G5-E2-B3-E1K3E-WEIGHTED-CODEGREE-TAILS.md) · [reference](../../research/hyp105_g5e2b3e1k3e_weighted_codegrees.py) · [independent opposite-C4 diagonal and triple-book falsifiers](../../research/test_hyp105_g5e2b3e1k3e_weighted_codegrees.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_ALL_h_EXACT_WEIGHTED_TAIL / SOURCE_STAR_UPPER / SHARED_GQ_TAIL_PACKING_OPEN / NO_BRANCH_A_B_OR_ASET / CI_PENDING**.
+
 ## HYP-105 B3.2-E1-K3-D — mixed-coordinate compatibility and girth-eight book moments (2026-10-12)
 
 [All-h exact mixed compatibility, C4-free, C6-free Moore and 3-path-capacity lemmas; exact first/second codegree moments, M2=2C4, and explicit insufficient cubic book bounds](HYP-105-G5-E2-B3-E1K3D-MIXED-GIRTH8-BOOK-MOMENTS.md) · [reference](../../research/hyp105_g5e2b3e1k3d_mixed_girth8.py) · [independent original GQ and 3-path tests](../../research/test_hyp105_g5e2b3e1k3d_mixed_girth8.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_ALL_h_GIRTH8 / EXACT_GLOBAL_M1 / MIXED_CUBIC_PACKING_OPEN / NO_BRANCH_A_B_OR_ASET / CI_PENDING**.
