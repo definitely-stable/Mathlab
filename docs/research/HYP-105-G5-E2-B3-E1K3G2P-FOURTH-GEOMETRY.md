@@ -100,3 +100,34 @@ Required exact final HEAD dedicated Contract, INDEX and full Research SUCCESS pl
 **What this does not prove:** the universal all-h two-family conjecture U_BA+U_AB>=mu_f, the seven-family S>=mu_f, Branch A/B S=Omega(s^6), all-h charge K, full R3 upper or any ASET exponent. The new forbidden GQ tensor rows constrain the combinatorial **feasibility region**, but do not by themselves bound the signed C5+C6 enough to force P2.
 
 **Next K3-G2-Q:** exploit the true ORIGINAL incidence geometry of five and six original right-line endpoint sets (including concurrent-pencil/cycle exclusions) and both real dual source hypergraphs to derive feasible inequalities for C5+C6, or find a legitimate actual coherent f,g counterexample. Avoid claiming that a new rank decomposition is already a positive obstruction.
+
+## 6. First GitHub-hosted exact source and rank-four results (2026-10-12)
+
+Initial [Contract #38243351733](https://github.com/definitely-stable/Mathlab/actions/runs/38243351733) reported a **test-only** mismatch: at a=6 some of the eleven graphlet orbits require 7 or 8 occupied physical coordinates, so their populations are zero and a Counter excludes their keys. All other five tests passed, including full J(15,6) H4 projection, W32/W34 no-diamond, and original-dual H4 source oracle. Corrected the test to compare the independent nonzero observed populations against the nonzero symbolic orbit populations; did not change the theorem or reference computation.
+
+The corrected [GitHub-hosted Contract #38243491054](https://github.com/definitely-stable/Mathlab/actions/runs/38243491054) **SUCCESS** at intermediate P HEAD be66ac580a6b3f104138ee44058d13d4e65314c4 (six independent unit tests 13.721s, followed by two genuine B0/C0 original and dual complete source reports). It gave the exact physical target H4 and H5+H6 squared energies:
+
+    physical a=6:  E4=86/7,                  E5+E6=4020/77
+    physical a=9:  E4=1436/11,               E5+E6=5087680/899
+    physical a=14: E4=3853077228/2487593,  E5+E6=15007591521780/72140197
+
+For the genuine hard correlated W32 original labeling (same global f,g as K3-G2-M):
+
+    U_BA=36, U_AB=39, S=86, P2 margin=757/143
+    ORIGINAL B/A:           source mass=4984, C4=129/35, C5+C6=-56/11
+        exact source E5+E6=2285873/1386
+    TRUE ORIGINAL DUAL A/B: source mass=5302, C4=143/21, C5+C6=-167/42
+        exact source E5+E6=37570/21.
+
+Independent integer 11x11 original/physical tensor, full 5005-element target rank4 projector, and source-only rank4 harmonic inversion agree EXACTLY on all four tested original/dual models. The all-h original GQ diamond row is entirely zero for every finite case; original W32 K4 row also zero. On W34 all triangles and fourth-line adjacencies were independently checked for forbidden induced diamonds, and concurrent 4-cliques were correctly found.
+
+**Critical negative finding:** The residual C5+C6 is NEGATIVE on BOTH sides of the SAME hardest M labeling. Therefore the conjecture that high-rank residuals are nonnegative termwise is directly false even for a legal W32 coherent source. The still valid P2 margin is rescued by both means and other harmonics, not by rank5+6 positivity. This finite result is a sound negative falsifier for any proposed universal pointwise nonnegative C5+6 lemma, but not for P2 or P7 themselves.
+
+The exact squared Cauchy–Schwarz bounds are very weak relative to the signed values:
+
+    B/A: C56² <= 1531534910/17787; actual C56=-56/11
+    A/B: C56² <= 50343800/539; actual C56=-167/42.
+
+P should therefore NOT attempt to close P2 through the bare spectral source energy. The next K3-G2-Q must seek a coupled signed bound involving BOTH original incidence hypergraphs or a geometric restriction on the feasible 11x11 tensor beyond the forbidden rows. The status remains OPEN_WITH_FORMAL_BLOCKER; no ASET exponent or all-h S=Omega(s6) proof.
+
+After initial success, the dedicated Contract pinned the above physical energies and exact hard-source signed regressions. The CURRENT FINAL child HEAD must be separately accepted with exact-head Contract/INDEX/Research SUCCESS. This documented earlier run alone does NOT meet that gate. Independent mathematical review still outstanding. Main unchanged; all PRs Draft.
