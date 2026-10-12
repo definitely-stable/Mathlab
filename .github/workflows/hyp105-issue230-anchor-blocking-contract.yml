@@ -1,0 +1,85 @@
+name: hyp105-issue230-anchor-blocking-contract
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_anchor_blocking.py"
+      - "research/test_hyp105_issue230_anchor_blocking.py"
+      - "docs/research/HYP-105-ISSUE230-ANCHOR-BLOCKING-D1.md"
+      - ".github/workflows/hyp105-issue230-anchor-blocking-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-original-GQ-blocking:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Two independent exact 16-atom W32 W34 blocking oracles
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_anchor_blocking.py' -v
+      - name: Original W32 W34 W38 full coherent map ledger and parent comparison
+        run: |
+          python research/hyp105_issue230_anchor_blocking.py > /tmp/issue230-blocking-d1.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("/tmp/issue230-blocking-d1.json").read_text())
+          assert r["slice"]=="ISSUE230-PROJECTION-BLOCKING-D1"
+          assert r["root_230_Branch_A"]=="OPEN"
+          assert r["root_230_Branch_B"]=="OPEN"
+          assert r["weighted_or_uniform_blocking_theorem"]=="OPEN"
+          rows={(x["s"],x["scheme"]):x for x in r["records"]}
+          assert len(rows)==7
+          old={
+              (2,"lex"):(1346,0,400,942,4),
+              (2,"reverse"):(1154,0,256,898,0),
+              (2,"S68"):(678,0,72,606,0),
+              (2,"S72"):(738,0,80,658,0),
+              (4,"lex"):(83892,8860,4584,55384,15064),
+              (4,"random"):(78894,10198,4112,48542,16042),
+              (8,"random"):(5167090,175222,78136,1888776,3024956),
+          }
+          for key,expected in old.items():
+              x=rows[key]
+              assert tuple(x[k] for k in ("proper_P3","missing","incident","blocked","unblocked"))==expected
+              assert sum(x["exact_sixteen_mask_histogram"])==x["blocked"]+x["unblocked"]
+              assert x["exact_sixteen_mask_histogram"][0]==x["unblocked"]
+              assert x["endpoint_only_weight"]+x["internal_only_weight"]+x["mixed_endpoint_internal_weight"]==x["blocked"]
+              assert x["endpoint_bad_pair_weight"]==x["endpoint_only_weight"]+x["mixed_endpoint_internal_weight"]
+              assert x["left_endpoint_bad_pair_count"]==x["left_original_GQ_ordered_pencil_pair_formula"]
+              assert x["right_endpoint_bad_pair_count"]==x["right_true_dual_GQ_ordered_pencil_pair_formula"]
+              assert x["all_h_blocking_upper_proved"] is False
+              assert x["universal_S_lower_proved"] is False
+              if x["s"]<=4:
+                  assert x["independent_original_endpair_middle_edge_oracle"] is True
+          s68=rows[2,"S68"]
+          assert s68["synchronized_BB_overlap_sixsets"]==0
+          assert (s68["endpoint_only_weight"],s68["internal_only_weight"],
+                  s68["mixed_endpoint_internal_weight"])==(52,62,492)
+          assert s68["endpoint_bad_pair_weight"]==544
+          assert s68["union_endpoint_bad_pair_count"]==166
+          assert s68["max_bad_original_endpoint_pair_path_multiplicity"]==12
+          w34=rows[4,"random"]
+          assert (w34["endpoint_only_weight"],w34["internal_only_weight"],
+                  w34["mixed_endpoint_internal_weight"])==(18034,18348,12160)
+          assert w34["endpoint_bad_pair_weight"]==30194
+          assert w34["union_endpoint_bad_pair_count"]==3203
+          w38=rows[8,"random"]
+          assert (w38["endpoint_only_weight"],w38["internal_only_weight"],
+                  w38["mixed_endpoint_internal_weight"])==(851208,869548,168020)
+          assert w38["endpoint_bad_pair_weight"]==1019228
+          assert w38["union_endpoint_bad_pair_count"]==70174
+          assert w38["max_bad_original_endpoint_pair_path_multiplicity"]==54
+          assert w38["actual_original_nonincident_endpoint_pairs"]==336960
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY
