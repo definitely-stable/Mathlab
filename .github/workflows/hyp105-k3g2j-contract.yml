@@ -49,6 +49,24 @@ jobs:
           assert r["independent_pair_intersection_probes"]>=2
           assert len(r["envelope_rational_pieces"])>=1
           assert len(r["observations_sha256"])==64
+          # Exact full-W32 source-map census and rational supporting-line seal.
+          assert r["finite_distinct_S_J_pairs"]==198
+          assert r["independent_pair_intersection_probes"]==141
+          assert r["finite_K_necessary_lower"]==[13,47]
+          assert r["envelope_rational_pieces"]==[
+              {"J":21,"S":90,"active_source":"corr:5",
+               "alpha_intercept":[45,32],"alpha_slope":[21,64],
+               "beta_from":[0,1],"beta_to":[11,4]},
+              {"J":17,"S":101,"active_source":"corr:4",
+               "alpha_intercept":[101,64],"alpha_slope":[17,64],
+               "beta_from":[11,4],"beta_to":[8,1]},
+              {"J":15,"S":117,"active_source":"corr:3",
+               "alpha_intercept":[117,64],"alpha_slope":[15,64],
+               "beta_from":[8,1],"beta_to":None}
+          ]
+          assert r["observations_sha256"]==(
+              "2bed34a0fc5c6181ffc239f60e69cbd7682ee71d1585310c30f66996df89c461")
+
           intervals=r["envelope_rational_pieces"]
           assert intervals[0]["beta_from"]==[0,1]
           assert intervals[-1]["beta_to"] is None
