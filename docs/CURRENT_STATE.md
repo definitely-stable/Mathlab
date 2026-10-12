@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-G2-I — exact original-sixset transposition locality and correlated two-sided W32 Hall adversary (2026-10-12)
+
+[Proof, deterministic correlated source-label probe and complete accepted seven-S full Hall replay](research/HYP-105-G5-E2-B3-E1K3G2I-CORRELATED-DELTA.md) · [reference](../research/hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **STACKED_DRAFT_CHILD_OF_PR381 / EXACT_W32_DELTA / CORRELATED_BOTH_SIDES / EACH_COMMITTED_STATE_FULL_B0_AND_HALL / NO_ALL_H_CLAIM / CI_PENDING**. Main unchanged.
+
 ## HYP-105 B3.2-E1-K3-G2-H — complete W32 one-swap Hall falsifier (2026-10-12)
 
 [Complete genuine accepted seven-GF5 target W32 lex 210 single-swap exhaustive Hall/cut gate](research/HYP-105-G5-E2-B3-E1K3G2H-EXACT-SWAP-SHELL.md) · [reference](../research/hyp105_g5e2b3e1k3g2h_exact_swap_shell.py) · [tests](../research/test_hyp105_g5e2b3e1k3g2h_exact_swap_shell.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **PARENT_PR380_HEAD_8180230D / FULL_W32_210_ONE_SWAP_SHELL / COMPLETE_ACCEPTED_TARGET_NEGATIVE_PROOF_GATE / NO_ALL_H_PROOF / CONTRACT_210_OF_210_SUCCESS_AT_PREVIOUS_HEAD / EXACT_REGRESSION_PINNED / FINAL_HEAD_CI_REQUIRED**. New stacked Draft; no merge or main change.
