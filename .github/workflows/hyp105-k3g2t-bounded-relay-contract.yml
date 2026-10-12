@@ -1,0 +1,82 @@
+name: hyp105-k3g2t-bounded-relay-contract
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_g5e2b3e1k3g2t_bounded_relay_charging.py"
+      - "research/test_hyp105_g5e2b3e1k3g2t_bounded_relay_charging.py"
+      - "docs/research/HYP-105-G5-E2-B3-E1K3G2T-BOUNDED-RELAY-CHARGING.md"
+      - ".github/workflows/hyp105-k3g2t-bounded-relay-contract.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-original-GQ-twohop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original GQ relay conservation, two independent solvers and W32 falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1k3g2t_bounded_relay_charging.py' -v
+      - name: Pinned finite original/dual gate, exact Hall cut, relay thresholds
+        run: |
+          python research/hyp105_g5e2b3e1k3g2t_bounded_relay_charging.py > /tmp/hyp105-k3g2t.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("/tmp/hyp105-k3g2t.json").read_text())
+          assert r["slice"]=="HYP-105-E1-K3-G2-T"
+          assert r["universal_hypothesis_P2"]=="OPEN"
+          assert r["universal_hypothesis_P7"]=="OPEN"
+          assert r["true_original_GQ_typed_point_line_relay"] is True
+          cases=r["genuine_original_and_dual_complete_W32_cases"]
+          assert [x["name"] for x in cases]==["lex","hardest-M"]
+          for x in cases:
+              assert x["zero_relay"]["deficit"]==x["parent_S_Hall_shortfall"]
+              assert x["zero_relay"]["flow"]==x["zero_relay"]["independent_flow"]
+              assert x["one_physical_credit_per_line"]["flow"]==x["one_physical_credit_per_line"]["independent_flow"]
+              assert x["scalar_P2_margin"][0]>0
+              assert x["all_32768_old_Hall_cuts_independently_matched_at_kappa_zero"] is True
+              assert x["relay_budget_derived_from_GQ_theorem"] is False
+              assert x["all_h_P2_proved"] is False
+              m=x["minimal_uniform_relay_scaled"]
+              if m is not None:
+                  assert x["minimal_relay_certificate"]["feasible"] is True
+                  if m:
+                      assert x["minimal_minus_one_certificate"]["deficit"]>0
+          hard=cases[1]
+          assert hard["parent_S_original_point_cut"]==[1,2,3,5,8,13,14]
+          assert hard["zero_relay"]["deficit"]==530
+          assert hard["zero_relay"]["total_demand"]==9968
+          assert hard["scalar_P2_margin"]==[757,143]
+          assert hard["true_BA"]==36
+          assert hard["true_dual_AB"]==39
+          assert hard["joint_C5"]==[-2473,462]
+          assert hard["joint_C6"]==[-26,7]
+          assert hard["one_physical_credit_per_line"]["deficit"]==0
+          assert hard["minimal_uniform_relay_scaled"]==59
+          assert hard["minimal_uniform_relay_physical_units"]==[59,143]
+          assert hard["smallest_integer_physical_credit_cap"]==1
+          assert hard["minimal_minus_one_certificate"]["deficit"]==8
+          sharp=hard["independent_sharp_original_geometric_cut"]
+          assert sharp["original_demand_points"]==[1,2,3,5,8,13,14]
+          assert sharp["selected_activated_relay_lines"]==[3,11,13]
+          assert sharp["line_gate_count"]==9
+          assert sharp["exact_demand"]==4820
+          assert sharp["exact_own_BA_credit"]==1144
+          assert sharp["exact_incident_dual_AB_credit"]==3146
+          assert sharp["ungated_deficit"]==530
+          assert sharp["necessary_uniform_scaled_gate"]==59
+          assert (4820-1144-3146-9*58)==8
+          assert cases[0]["minimal_uniform_relay_scaled"]==0
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY
