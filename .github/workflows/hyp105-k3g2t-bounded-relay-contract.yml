@@ -62,5 +62,21 @@ jobs:
           assert hard["true_dual_AB"]==39
           assert hard["joint_C5"]==[-2473,462]
           assert hard["joint_C6"]==[-26,7]
+          assert hard["one_physical_credit_per_line"]["deficit"]==0
+          assert hard["minimal_uniform_relay_scaled"]==59
+          assert hard["minimal_uniform_relay_physical_units"]==[59,143]
+          assert hard["smallest_integer_physical_credit_cap"]==1
+          assert hard["minimal_minus_one_certificate"]["deficit"]==8
+          sharp=hard["independent_sharp_original_geometric_cut"]
+          assert sharp["original_demand_points"]==[1,2,3,5,8,13,14]
+          assert sharp["selected_activated_relay_lines"]==[3,11,13]
+          assert sharp["line_gate_count"]==9
+          assert sharp["exact_demand"]==4820
+          assert sharp["exact_own_BA_credit"]==1144
+          assert sharp["exact_incident_dual_AB_credit"]==3146
+          assert sharp["ungated_deficit"]==530
+          assert sharp["necessary_uniform_scaled_gate"]==59
+          assert (4820-1144-3146-9*58)==8
+          assert cases[0]["minimal_uniform_relay_scaled"]==0
           print(json.dumps(r,sort_keys=True,indent=2))
           PY
