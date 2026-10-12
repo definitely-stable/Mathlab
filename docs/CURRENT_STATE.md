@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-F1 — GQ shared source spectral star-tail (2026-10-12)
+
+[Proof and nonclosure](research/HYP-105-G5-E2-B3-E1K3F-SHARED-SOURCE-SPECTRUM.md) · [reference](../research/hyp105_g5e2b3e1k3f_shared_source_spectrum.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3f_shared_source_spectrum.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230). **ORIGINAL_D=P_M_L_TRANSPOSE / EXACT_ROW_COL_2(s+1)ALPHA_BETA / SINGULAR_NONTRIVIAL_SQRT_2s / ALL_h_FROBENIUS_LE_8sV_DELTA / JOINT_HSTAR_TAIL_BOUND / BOOK_POSITIVE_FLOOR_NOT_PROVED / PARENT_PR370_HEAD_841e6fb5 / CI_PENDING / NO_BRANCH_A_B**. Stacked Draft only; no main changes.
+
 ## HYP-105 B3.2-E1-K3-E — C4-weighted mixed codegree/physical star-tail (2026-10-12)
 
 [Exact mathematical scope](research/HYP-105-G5-E2-B3-E1K3E-WEIGHTED-CODEGREE-TAILS.md) · [reference](../research/hyp105_g5e2b3e1k3e_weighted_codegrees.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3e_weighted_codegrees.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230). **BMIXED=M2MIXED*(KAPPA-2)=SUM_C4_WEIGHTED_CODEGREE_TAIL / ORIGINAL_SOURCE_STAR_DEGREE_BOUND_UPPER / NO_UNIFORM_TAIL_SAVING / PARENT_369_HEAD_69eb52a4 / CI_PENDING / BRANCH_A_B_OPEN**. Separate stacked Draft; no main modification.
