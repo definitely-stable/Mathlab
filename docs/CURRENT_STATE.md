@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-G2-G — globally shared positive targets and quantitative finite charging (2026-10-12)
+
+[Finite full-Jcross adaptive Hall with distinct accepted seven-family targets and strictly positive S/R3 subrisk floors](research/HYP-105-G5-E2-B3-E1K3G2G-GLOBAL-ADAPTIVE.md) · [reference](../research/hyp105_g5e2b3e1k3g2g_global_adaptive.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2g_global_adaptive.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **PARENT_PR379_HEAD_71434182 / FULL_FINITE_W34_CHARGING_GATE / POSITIVE_ONLY_GF5_S_R3_LOWER / ALL_H_TWO_PROOF_OBLIGATIONS_OPEN / CI_PENDING**. Stacked Draft, main unchanged.
+
 ## HYP-105 B3.2-E1-K3-G2-F — W34 positive-only original pair-seeded accepted seven-GF5 targets (2026-10-12)
 
 [Exact general-a seven-family predicate, sound subset-completion and explicit incomplete-search semantics](research/HYP-105-G5-E2-B3-E1K3G2F-W34-SEEDED-TARGETS.md) · [reference](../research/hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2f_w34_seeded_targets.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **PARENT_PR378_HEAD_ef846731 / SOUND_POSITIVE_ONLY_SEEDED_W34 / NO_TRUNCATED_NO_GO / ALL_H_S_OPEN / CI_PENDING**. Stacked Draft, no main change.
