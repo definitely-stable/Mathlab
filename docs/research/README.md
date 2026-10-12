@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-F2 — weighted C4 diagonal operator and exact chorded motif extraction (2026-10-12)
+
+[Exact mixed-C4 diagonal quadratic form/cut identity, integer row/Frobenius bounds, and physical-proper vs six-distinct-original-column H-witness partition](HYP-105-G5-E2-B3-E1K3F2-WEIGHTED-DIAGONALS-MOTIFS.md) · [reference](../../research/hyp105_g5e2b3e1k3f2_diagonal_operator.py) · [independent C4 diagonal/wedge and chord oracle tests](../../research/test_hyp105_g5e2b3e1k3f2_diagonal_operator.py) · [root #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_EXACT_WEIGHTED_CUT / CONDITIONAL_CHORDED_D6_EXTRACTION / GLOBAL_BOOK_TO_MOTIF_PACKING_OPEN / BRANCH_A_B_OPEN / CI_PENDING**.
+
 ## HYP-105 B3.2-E1-K3-F1 — shared-source physical-star spectral transport and joint tails (2026-10-12)
 
 [Original W(3,s) strongly regular incidence spectrum, exact f/g physical-star row/column transport, all-h Frobenius mixing and high-degree joint C4-weighted tail envelope](HYP-105-G5-E2-B3-E1K3F-SHARED-SOURCE-SPECTRUM.md) · [reference](../../research/hyp105_g5e2b3e1k3f_shared_source_spectrum.py) · [independent original incidence matrix and SRG tests](../../research/test_hyp105_g5e2b3e1k3f_shared_source_spectrum.py) · [#230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C_ALL_h_SHARED_SOURCE_TRANSPORT_SPECTRUM / JOINT_C4_WEIGHTED_TAIL_UPPER / NO_UNIFORM_s6_SAVING / BRANCH_A_B_OPEN / CI_PENDING**.
