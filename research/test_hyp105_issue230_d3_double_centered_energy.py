@@ -19,6 +19,10 @@ class Issue230D3DoubleCenteredTests(unittest.TestCase):
     def test_coherent_S68_exact_mean_and_center_partition(self):
         x=double_centered_energy(fixture(1,"S68"))
         self.assertEqual(x["physical_full_G_endpoint_energy_W"],3289)
+        self.assertEqual(x["W_mean"],"3320/1")
+        self.assertEqual(x["W_centered_correlation"],"-31/1")
+        self.assertEqual(x["centered_B_Frobenius_squared"],"568/9")
+        self.assertEqual(x["original_GQ_residual_R_Frobenius_squared"],"30/1")
         self.assertEqual(x["union_bad_original_pair_count"],166)
         self.assertEqual(x["left_bad_pair_count"],2*x["s"]*x["left_concurrent_physical_Mf"])
         self.assertEqual(x["right_bad_pair_count"],2*x["s"]*x["true_dual_concurrent_physical_Mg"])
@@ -55,6 +59,10 @@ class Issue230D3DoubleCenteredTests(unittest.TestCase):
     def test_true_real_W38_all_h_small_fixture(self):
         x=double_centered_energy(fixture(3,"random"))
         self.assertEqual(x["physical_full_G_endpoint_energy_W"],4927736)
+        self.assertEqual(x["W_mean"],"313987787/65")
+        self.assertEqual(x["W_centered_correlation"],"6315053/65")
+        self.assertEqual(x["centered_B_Frobenius_squared"],"874968726/1225")
+        self.assertEqual(x["original_GQ_residual_R_Frobenius_squared"],"1120628/65")
         self.assertEqual(x["union_bad_original_pair_count"],70174)
         self.assertEqual(x["physical_full_G_endpoint_energy_W"],
                          frac(x["W_mean"])+frac(x["W_centered_correlation"]))
