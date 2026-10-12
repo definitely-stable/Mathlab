@@ -65,3 +65,31 @@ Concretely at beta=0 a tested correlated map has S=90 at s=2, giving **`alpha<=9
 GitHub-hosted 25-minute dedicated Contract runs lightweight rational hull tests, then ONCE full 219-map count and rational piece certificate. Report must provide finite model count, distinct S,J pairs, all rational breakpoints, independent intersection probes, finite necessary K lower, exact counterexample to (alpha,beta)=(2,0), source-count digest. INDEX and complete Research must be SUCCESS on exact PR child HEAD; Draft remains pending independent review.
 
 Next K3-G2-K: seek an actual ALL-H positive `S>=alpha*s^6-beta*J` theorem by deriving a source-incidence/physical-label tensor inequality whose failure has explicit finite counterexamples. The rational finite envelope is a NECESSARY-coefficient screen, not a proof of existence. The second independent all-h `J<=K*S` gate also remains open. No ASET exponent and no issue closure.
+
+
+## 6. Exact 219-map rational frontier, first hosted result (2026-10-12)
+
+[Dedicated GitHub-hosted Contract #38221690490](https://github.com/definitely-stable/Mathlab/actions/runs/38221690490) **SUCCESS** at original child HEAD `9609eed8de98057b6571fd37e36988b1f0102007`. All independently hosted rational-interval tests, exact original W32 B0 accepted GF5 S sixsets, and 210 true G2-H one-swap shell / seven real G2-I coherent-correlated maps agree. Exactly **219** named physical labelings, **198** distinct exact (S,J) pairs, and **141** independent rational pair-intersection/midpoint probes.
+
+**Finite necessary all-h upper envelope:** For EVERY proposed universal all-h `S_s>=alpha*s^6-beta*J_s`, beta>=0, a necessary (NOT sufficient) condition for the 219 checked W32 true-label corpus is:
+
+```
+              (90 + 21 beta)/64,     0 <= beta <= 11/4   [corr:5]
+alpha <=      (101 + 17 beta)/64,    11/4 <= beta <= 8  [corr:4]
+              (117 + 15 beta)/64,   beta >= 8           [corr:3]
+```
+
+At exact beta=11/4 and beta=8 adjacent lines agree. All 219 true original points lie ON OR ABOVE the three supporting segments (in S+beta J space), and every active line corresponds to the SAME actual coherent f,g used to count its S and J. The two breakpoints and every line inequality were verified using `fractions.Fraction` and independent all-intersection replays. No W34 partial discovered target count enters a negative coefficient certificate.
+
+The distinct source maps forcing these three lines are among the previously independently reproduced best G2-I path states:
+- `corr:5`: `S=90, J=21`, hence if beta=0, `alpha<=45/32`; proposal alpha=2,beta=0 is *FALSE*, with exact legal W32 counterexample `S=90<128`.
+- `corr:4`: `S=101, J=17`.
+- `corr:3`: `S=117, J=15`.
+
+**Additional universal charge-K necessity:** A genuine legal original W32 map `S=94,J=26` yields `J/S=13/47`. Any universal `J_s<=K*S_s` must have `K>=13/47` (a necessary lower floor on possible K; existence of ANY such finite universal K remains UNPROVED).
+
+Exact SHA256 over the ordered list of 219 complete original (name,S,J,certified GF5 floor numerator) counts:
+
+`2bed34a0fc5c6181ffc239f60e69cbd7682ee71d1585310c30f66996df89c461`.
+
+**Independently verifiable scientific scope:** The rational necessary frontier proof is universal as a logical implication from any legally labeled source map, while the explicit three-piece numerical envelope is ONLY the selected 219 finite W32 models. It is a rigorous elimination oracle for too-large proposed constants. It neither establishes positive universal constants nor gives `S_s=Omega(s^6)`, Branch A/B, entire full-R3 upper or any ASET exponent. After this report, regression invariants have been pinned in the dedicated Contract and must be rechecked at final exact PR child HEAD before acceptance.
