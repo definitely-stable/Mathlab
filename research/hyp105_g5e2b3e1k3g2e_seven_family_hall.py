@@ -13,6 +13,7 @@ for ALL capacities. This does not prove any all-h S_s lower bound.
 """
 from collections import Counter,defaultdict
 from math import ceil
+from hashlib import sha256
 import json
 
 from hyp105_g5e2b3e1k1_kikuchi_c6 import gq_pair_model,kikuchi_graph
@@ -76,6 +77,52 @@ def _rules_for(witness_support,target_support,anchor):
         "anchor_and_overlap_ge_2":repeated_present and intersection>=2,
         "anchor_and_overlap_ge_3":repeated_present and intersection>=3,
     }
+
+
+
+
+def explicit_injective_assignment(adjacency,number_targets):
+    """Deterministic explicit injective witness->accepted-target map, if any.
+
+    A matching construction INDEPENDENT of the Dinic/Hall max-flow
+    checker, with a deterministic SHA256 of its integer source-target pairs.
+    This certificate is finite-model-specific, NEVER all-h proof.
+    """
+    if type(number_targets) is not int or number_targets<0:
+        raise ValueError("valid number of target vertices required")
+    for row in adjacency:
+        if any(type(j) is not int or not 0<=j<number_targets for j in row):
+            raise ValueError("edge to nonexistent target")
+    owner=[None]*number_targets
+    def try_augment(i,seen):
+        for j in sorted(set(adjacency[i])):
+            if j in seen:
+                continue
+            seen.add(j)
+            prior=owner[j]
+            if prior is None or try_augment(prior,seen):
+                owner[j]=i
+                return True
+        return False
+    matched=sum(bool(try_augment(i,set())) for i in range(len(adjacency)))
+    assignment=[None]*len(adjacency)
+    for j,i in enumerate(owner):
+        if i is not None:
+            if assignment[i] is not None:
+                raise AssertionError("left witness charged more than once")
+            assignment[i]=j
+    if matched!=sum(v is not None for v in assignment):
+        raise AssertionError("constructive injection size mismatch")
+    if any(j is not None and j not in adjacency[i]
+           for i,j in enumerate(assignment)):
+        raise AssertionError("claimed charge edge absent")
+    digest=sha256(";".join(
+        str(i)+":"+str(j) for i,j in enumerate(assignment)
+        if j is not None).encode("ascii")).hexdigest()
+    return {"assigned":matched,
+            "complete":matched==len(adjacency),
+            "assignment":tuple(assignment),
+            "sha256_of_witness_to_target_indices":digest}
 
 
 def hall_capacity_certificate(adjacency,number_targets,*,search_capacity=True):
@@ -147,7 +194,8 @@ def seven_family_hall_certificate(model,*,max_witnesses=5000,
         witness_original_five_support(model,w,provenance,graph)
         for w in witnesses
     ]
-    assert all(len(S)==5 for S in source_supports)
+    if any(len(S)!=5 for S in source_supports):
+        raise AssertionError("invalid original five-column witness support")
     target_set=[S for S,_ in targets]
     seven_counts=Counter(kind for _,kind in targets)
     if dict(seven_counts)!=dict((k,v) for k,v
@@ -176,9 +224,25 @@ def seven_family_hall_certificate(model,*,max_witnesses=5000,
         all_stat=hall_capacity_certificate(adj,len(targets))
         heavy_stat=hall_capacity_certificate(
             [adj[i] for i in heavy_indexes],len(targets))
+        constructed=explicit_injective_assignment(adj,len(targets))
+        constructed_heavy=explicit_injective_assignment(
+            [adj[i] for i in heavy_indexes],len(targets))
+        if constructed["assigned"]!=all_stat["matched"] or (
+                constructed_heavy["assigned"]!=heavy_stat["matched"]):
+            raise AssertionError("constructive matching disagrees with exact Hall flow")
         stats[rule]={
             "all":all_stat,
             "heavy":heavy_stat,
+            "constructive_matching":{
+                "complete":constructed["complete"],
+                "assigned":constructed["assigned"],
+                "sha256":constructed["sha256_of_witness_to_target_indices"],
+            },
+            "heavy_constructive_matching":{
+                "complete":constructed_heavy["complete"],
+                "assigned":constructed_heavy["assigned"],
+                "sha256":constructed_heavy["sha256_of_witness_to_target_indices"],
+            },
             "charge_edges_by_accepted_family":dict(by_kind[rule]),
         }
     # Restriction of seven-family "same anchor" candidates to D6
