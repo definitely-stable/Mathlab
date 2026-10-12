@@ -133,7 +133,18 @@ def seed_pair_completion(model,first,second,*,max_nodes=20000,
             not _profiles_ok(degx,degy,4)):
         return {"seed":tuple(sorted(ids)),"targets":(),
                 "nodes":0,"complete":True,"reason":"incompatible_seed"}
-    others=tuple(i for i in range(N) if i not in ids)
+    # Closure-first is an ORDERING of all candidate column IDs, never
+    # a filter: lexicographic traversal in this fixed order still
+    # enumerates each four-element completion exactly once if uncut.
+    # Prefer edges connecting already touched coordinates in BOTH halves.
+    seed_x={v for col in ids for v in profiles[col][2]}
+    seed_y={v for col in ids for v in profiles[col][3]}
+    def relevance(col):
+        _,_,x,y=profiles[col]
+        share=sum(v in seed_x for v in x)+sum(v in seed_y for v in y)
+        return (-share,col)
+    others=tuple(sorted((i for i in range(N) if i not in ids),
+                        key=relevance))
     targets=[]
     nodes=0
     truncated=False
@@ -313,9 +324,17 @@ def report():
     for h,scheme,seed in ((1,"lex",None),(2,"lex",None),
                           (2,"random",20261012)):
         m=gq_pair_model(h,scheme,seed)
+        # Explicitly budgeted broader W34 exploration, not exhaustive:
+        # ten two-column seeds per sampled witness, a deterministic
+        # coordinate-closure-first completion order for each seed.
+        if h==2:
+            args=dict(witness_limit=8,seed_pairs_per_witness=10,
+                      max_nodes_per_seed=40000,max_targets_per_seed=12)
+        else:
+            args=dict(witness_limit=6,seed_pairs_per_witness=2,
+                      max_nodes_per_seed=20000,max_targets_per_seed=12)
         out["models"]["s%s-%s"%(m["s"],scheme)]=targeted_seven_hall_probe(
-            m,witness_limit=6,seed_pairs_per_witness=2,
-            max_nodes_per_seed=20000,max_targets_per_seed=12)
+            m,**args)
     return out
 
 if __name__=="__main__":
