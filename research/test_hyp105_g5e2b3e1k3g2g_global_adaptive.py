@@ -77,6 +77,44 @@ class K3G2GAdaptiveQuantitativeTests(unittest.TestCase):
                 self.assertEqual(generic_seven_family(model,ids),tag)
                 self.assertGreater(R3_CERTIFIED_FLOORS[tag],0)
 
+    def test_full_w34_exact_hosted_injections_are_pinned(self):
+        # All 128 lex and 75 random ORIGINAL cross-source witnesses are
+        # assigned to DISTINCT actual accepted positive seven-family
+        # six-column motifs with >=2 original columns in common.
+        # This is a FINITE two-map certificate, not an all-h theorem.
+        pinned=(
+            ("lex",None,128,374,16504153,
+             "e6b46c5a5c055c6100a39a7fba7096f16281fb5872d53437678b9987ab071b20"),
+            ("random",20261012,75,203,8814887,
+             "a00702adc2c12c67ee6885c27e3662f4ad5c2415677033e8f4cecae6889b801c"),
+        )
+        for scheme,seed,J,targets,risk,digest in pinned:
+            m=gq_pair_model(2,scheme,seed)
+            result=adaptive_complete_cross_probe(
+                m,first_pass_seed_count=1,
+                max_seeds_per_unmatched=10,
+                max_nodes_per_seed=30000,max_targets_per_seed=12)
+            self.assertEqual(result["global_Jcross_exact"],J)
+            self.assertEqual(result["source_witnesses_considered"],J)
+            self.assertEqual(result["matched_after_adaptive_recovery"],J)
+            self.assertEqual(result["unmatched_after_recovery"],0)
+            self.assertEqual(result["positive_seven_S_lower"],targets)
+            self.assertEqual(result[
+                "positive_risk_numerator_lower_51_pow_6"],risk)
+            self.assertEqual(
+                result["actual_constructed_assignment_sha256"],digest)
+            self.assertTrue(result["full_finite_Jcross_charge_into_true_S_proved"])
+            self.assertTrue(result[
+                "unit_capacity_S_charge_for_considered_witnesses_proved"])
+            self.assertFalse(result["all_h_Jcross_leq_S_proved"])
+            self.assertFalse(result["all_h_S_omega_s6_proved"])
+            # Every assigned target satisfies the exact accepted motif
+            # structural predicate, witnessed again without trusting
+            # the recorded family string.
+            for _,ids,tag in result["actual_assignment_samples"]:
+                self.assertEqual(generic_seven_family(m,ids),tag)
+                self.assertGreater(R3_CERTIFIED_FLOORS[tag],0)
+
     def test_quantitative_lower_strict_additivity_across_seven(self):
         # All selected original sixsets MUST be distinct globally. The
         # accepted per-family GF5 numerator lower is additive only then.
