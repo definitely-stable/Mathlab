@@ -1,3 +1,7 @@
+## HYP-105 E1-K3-G2-D — finite Hall charging no-go for Jcross→proper D6 (2026-10-12)
+
+[Exact model-specific Hall/mincut certificate, unit-charge obstruction, six-original-column proper-D6 provenance](HYP-105-G5-E2-B3-E1K3G2D-HALL-CHARGING.md) · [reference](../../research/hyp105_g5e2b3e1k3g2d_charging_hall.py) · [independent tests](../../research/test_hyp105_g5e2b3e1k3g2d_charging_hall.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **FINITE_NO_GO_FOR_UNIT_CHARGING / SEVEN_FAMILY_S_OPEN / CI_PENDING**.
+
 ## HYP-105 E1-K3-G2-C — seven exact GQ projection-fiber classes (2026-10-12)
 
 [All-h projection-fiber cardinalities, original GQ cross-source seven-bin partition, exact second-moment split](HYP-105-G5-E2-B3-E1K3G2C-PROJECTION-FIBERS.md) · [reference](../../research/hyp105_g5e2b3e1k3g2c_projection_fibers.py) · [independent tests](../../research/test_hyp105_g5e2b3e1k3g2c_projection_fibers.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **RESTRICTED_THEOREM_C / ALL_H_EXACT_PROJECTION_COUNTS / J_CROSS_O_S6_OPEN / CI_PENDING**.
