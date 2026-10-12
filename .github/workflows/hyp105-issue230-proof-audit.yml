@@ -22,6 +22,10 @@ jobs:
           python-version: "3.x"
       - name: Independent source, quartic, geometric and rational falsifiers
         run: python -m unittest discover -s research -p 'test_hyp105_issue230_proof_audit.py'
+      - name: Original GQ projection and exact closure multiplicity falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_projection.py'
+      - name: Complete original projection closure ledger for W32 W34 W38
+        run: python research/hyp105_issue230_projection.py
       - name: Exact same-map seven-Q4 report and true W34-W38 global fixtures
         run: python research/hyp105_issue230_proof_audit.py
       - name: Independent source-permanent controls without repository classifier imports

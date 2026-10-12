@@ -150,6 +150,14 @@ This follows because every positive source sixset contains an original concurren
 
 ## 8. What would actually close issue230
 
+The subsequent [universal projection theorem](HYP-105-ISSUE230-PROJECTION-CLOSURE.md)
+now proves a (16-o(1))*s^6 proper three-path reservoir for arbitrary correlated
+maps. The [degree-free mixed-book inequality](HYP-105-ISSUE230-INCIDENT-BOOK.md)
+resolves its incident-endpoint branch. This is new target-side progress,
+independent of the SOURCE cap. The remaining quantified gate is the count
+of nonincident unique-projection anchors sharing physical coordinates
+with the path; its required upper is still not proved.
+
 The original Branch A requires one positive c independent of h with S>=c*s^6 for ALL sufficiently large h and ALL coherent f,g. The finite P7 counterexample and local zero-source construction do not refute it. Branch B requires an infinite correlated global family with total seven S=o(s^6), which is not supplied here.
 
 The missing step is an original-incidence-specific sixth-order lower on the coupled target acceptance of (Q1) and the other six motif families. Improving SOURCE upper/spread bounds is not that step. Neither a mean, a generic norm estimate, nor a verified auxiliary max-flow identity may be promoted to it. The631 leading forest types and11032 subleading necessary shapes remain the existing full-risk context; this scoped PR does not reclassify them or assert a strict full-risk upper.
