@@ -1,6 +1,8 @@
 ## HYP-105 E1-K3-G2-M — dual original GQ sixth-order transfer and complete two-family counterexample gate (2026-10-12)
 
-[Proof of exact all-h A/B = dual original B/A weighted sixsource identity, complete W32 223-map and adversarial original f,g two-class-versus-seven-class falsifiers](HYP-105-G5-E2-B3-E1K3G2M-TWOFAMILY-DUAL-FALSIFIER.md) · [reference](../../research/hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py). **EXACT_ALL_H_DUAL_TRANSFER / TWO_FAMILY_STRONGER_THAN_S_TOTAL / TRUE_COMPLETE_W32_NEGATIVE_CERTIFICATES / NO_UNIVERSAL_POSITIVE_ALPHA_OR_K / CI_PENDING**.
+[Proof of exact all-h A/B = dual original B/A weighted sixsource identity, complete W32 223-map and adversarial original f,g two-class-versus-seven-class falsifiers](HYP-105-G5-E2-B3-E1K3G2M-TWOFAMILY-DUAL-FALSIFIER.md) · [reference](../../research/hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2m_twofamily_falsifier.py). **EXACT_ALL_H_DUAL_TRANSFER / TWO_FAMILY_STRONGER_THAN_S_TOTAL / TRUE_COMPLETE_W32_NEGATIVE_CERTIFICATES / NO_UNIVERSAL_POSITIVE_ALPHA_OR_K / EXACT_223_DUAL_SOURCE_AND_120_PROBE_CONTRACT_SUCCESS_EARLIER_HEAD / FINAL_HEAD_CI_REQUIRED**.
+
+**Verified first hosted finite result:** 223 true original+dual coherent W32 maps, 120 precisely sampled moves, 18 full-original B0/C0 dual replays. Zero finite P2/P7 violations; min observed two-family margin `757/143` at left swap (13,14), `S=86`, `U_B/A=36`, `U_A/B=39`, `mu_f=9968/143`. [Contract #38235039675](https://github.com/definitely-stable/Mathlab/actions/runs/38235039675) SUCCESS earlier HEAD; final-head CI required. Universal all-h bounds UNPROVED.
 
 ## HYP-105 E1-K3-G2-L — signed B/A deficit ledger and whole-original-right-sixset XOR transposition (2026-10-12)
 
