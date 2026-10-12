@@ -42,3 +42,22 @@ S_s >= (alpha/(1+beta*K))*s^6
 ```
 
 The existing Kikuchi full C6/R3 floor does not imply the second seven-family restricted inequality. Do not infer an all-h asymptotic statement from finite W32/W34 or alter the accepted original-family definition.
+
+## 6. Exact complete 210-case theorem (hosted result, 2026-10-12)
+
+[GitHub-hosted Contract #38216707775](https://github.com/definitely-stable/Mathlab/actions/runs/38216707775) **SUCCESS**, run over exact child HEAD `1c1e2b55c5df3a93e0a6ae13db183d31095c73c4` (checkout ephemeral PR merge ref whose parents include that head and pinned #380). Focused tests 4/4 in 7.35 seconds, then full 210-map W32 source-provenance, COMPLETE B0 accepted positive motif enumeration and independent exact Hall methods in about 121 seconds.
+
+**Finite one-transposition-shell theorem:** For EACH of the 105 whole-pair left swaps and 105 whole-pair right swaps of the fixed legal W(3,2) lex f0,g0, every original cross-source repeated-column C6 witness can be assigned a DIFFERENT, true accepted positive seven-family six-DISTINCT-original-column support with >=2 shared original incidence columns. All 210 unit-capacity Hall certificates succeed (210/210), with **zero** complete-target deficient cuts. This establishes the precise finitely quantified injection, NOT all-h K=1 charging.
+
+Exact shell extrema (each is a *separate* coherent map; never combine minima from different maps as simultaneous):
+- `min S_seven = 176` under RIGHT whole-pair swap (2,11).
+- `max Jcross = 47` under LEFT whole-pair swap (3,9).
+- `min (S_seven - Jcross) = 139` under LEFT whole-pair swap (1,14).
+- Minimum witness original-two-overlap target degree among all cases is **3** under RIGHT swap (1,8): in this shell no source is even close to a zero-target orphan.
+- Base W32 lex: `Jcross=36`, `S_seven=259`, exact accepted class GF5 numerator lower `51^6 R3 >= 11,225,795` for that base (not full R3).
+
+Regression SHA256 over all 210 ordered case labels, Jcross, complete S, maximum matching counts and constructive assignment fingerprints:
+
+`d841d5e6dfb31666df301297843806deb099b3388be842912c3d7658306fc8b7`
+
+**Interpretation:** This eliminates a local unit-overlap Hall counterexample anywhere in the *single-transposition shell* of the lex base. It is evidence of robust positive finite charging, but cannot justify an all-h Hall assertion, an all-h `S=Omega(s^6)` bound, or a claim that all legal W32 pair permutations were checked. Next falsification must use simultaneous/multi-step correlated source labeling changes or a symbolic proof valid for all labelings. Stronger exact assertions are sealed in the next Contract invocation on the final child HEAD; inherited Research must also pass.
