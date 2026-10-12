@@ -1,3 +1,7 @@
+## HYP-105 B3.2-E1-K3-G2-K — constructive all-h fixed-left B/A positive right injection (2026-10-12)
+
+[Exact partial-injection conditional probability, deterministic constructive high/low right maps and full genuine W32 checks](research/HYP-105-G5-E2-B3-E1K3G2K-CONDITIONAL-INJECTION.md) · [reference](../research/hyp105_g5e2b3e1k3g2k_conditional_injection.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2k_conditional_injection.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **STACKED_DRAFT_ON_PR383 / CLASSICAL_CONDITIONAL_EXPECTATION / CONSTRUCTIVE_FOR_EACH_F_SOME_G / ALL_F_G_UNPROVED / CI_PENDING**. Main untouched.
+
 ## HYP-105 B3.2-E1-K3-G2-J — exact rational necessary all-h seven-S surplus coefficient frontier (2026-10-12)
 
 [Universal coefficient necessity theorem, independently certified rational finite envelope and W32 original-label counterexample screen](research/HYP-105-G5-E2-B3-E1K3G2J-RATIONAL-SURPLUS.md) · [reference](../research/hyp105_g5e2b3e1k3g2j_surplus_frontier.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2j_surplus_frontier.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **STACKED_DRAFT_PR382 / ALL_H_NECESSARY_NOT_SUFFICIENT / EXACT_W32_219_LABEL_MAPS / RATIONAL_INTERVAL_CERTIFICATES / BRANCH_A_B_OPEN / 219_MAP_RATIONAL_FRONTIER_CONTRACT_SUCCESS_EARLIER_HEAD / FINAL_HEAD_RECHECK**. Main unchanged.
