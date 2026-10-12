@@ -82,6 +82,38 @@ class K3G2FW34TargetTests(unittest.TestCase):
                 self.assertFalse(result["search_complete_for_all_seed_pairs_tested"])
             self.assertFalse(result["search_complete_for_all_possible_seed_pairs"])
 
+    def test_genuine_w34_targets_have_strict_positive_exact_GF5_signed_mass(self):
+        # Independently pin true W(3,4) accepted targets, discovered by
+        # the first exact-head hosted seeded search, WITHOUT reusing its
+        # search output or its positive class score.
+        from hyp105_g5e2b3b1_critical_flows import SIGNS
+        from hyp105_g5e2b3b1b_five_six_flows import exact_dual_GF5_six_flow
+        cases=(
+            ("lex",None,(0,41,68,139,189,206),"B-left/A-right"),
+            ("random",20261012,(0,140,141,197,209,420),"A-left/B-right"),
+            ("random",20261012,(2,3,284,334,341,379),"B/B-disjoint"),
+        )
+        for scheme,seed,ids,expected in cases:
+            model=gq_pair_model(2,scheme,seed)
+            tag=generic_seven_family(model,ids)
+            self.assertEqual(tag,expected)
+            a=model["a"]
+            supports=[]
+            for col in ids:
+                p,l=model["incidences"][col]
+                support=tuple(sorted(model["left_labels"][p]+tuple(
+                    a+x for x in model["right_labels"][l])))
+                self.assertEqual(len(set(support)),4)
+                supports.append(support)
+            weights=[]
+            for mask in SIGNS:
+                sign=tuple(1 if mask>>j&1 else -1 for j in range(6))
+                weights.append(exact_dual_GF5_six_flow(
+                    supports,sign,dimension=2*a))
+            self.assertEqual(len(weights),10)
+            self.assertGreater(min(weights),0)
+            self.assertGreaterEqual(sum(weights),R3_CERTIFIED_FLOORS[tag])
+
     def test_large_model_canonical_physical_gauges(self):
         model=gq_pair_model(2,"lex")
         a=model["a"]
