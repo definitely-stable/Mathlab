@@ -1,6 +1,8 @@
 ## HYP-105 E1-K3-G2-I — exact swap-locality lemma and complete-target correlated W32 search (2026-10-12)
 
-[All-host transposition support invariance, W32 left-candidate-union delta update, and deterministic correlated both-half complete-B0 Hall adversary](HYP-105-G5-E2-B3-E1K3G2I-CORRELATED-DELTA.md) · [reference](../../research/hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **EXACT_LOCAL_DELTA / SELECTED_PATH_INDEPENDENT_FULL_B0_REPLAY / NOT_EXHAUSTIVE / BRANCH_A_B_OPEN / CI_PENDING**.
+[All-host transposition support invariance, W32 left-candidate-union delta update, and deterministic correlated both-half complete-B0 Hall adversary](HYP-105-G5-E2-B3-E1K3G2I-CORRELATED-DELTA.md) · [reference](../../research/hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [tests](../../research/test_hyp105_g5e2b3e1k3g2i_correlated_delta.py) · [issue #230](https://github.com/definitely-stable/Mathlab/issues/230). **EXACT_LOCAL_DELTA / SELECTED_PATH_INDEPENDENT_FULL_B0_REPLAY / NOT_EXHAUSTIVE / BRANCH_A_B_OPEN / EXACT_144_21_POSITIVE_CONTRACT_SUCCESS_AT_PREVIOUS_HEAD / FINAL_HEAD_CI_REQUIRED**.
+
+**Exact hosted finite result:** 144 precisely scored delta transitions; 21 complete original B0 accepted seven-family and entire Jcross/Hall independent checks; all 21 match. Best `S=94`, `Jcross=26`, margin 68; no all-h statement. [Contract #38219544548](https://github.com/definitely-stable/Mathlab/actions/runs/38219544548) SUCCESS at prior child HEAD; final HEAD CI required.
 
 ## HYP-105 E1-K3-G2-H — exhaustive W32 lex one-swap Hall/cut counterexample gate (2026-10-12)
 
