@@ -1,6 +1,8 @@
 ## HYP-105 B3.2-E1-K3-G2-L — exact signed compensation and six-source XOR swap transport (2026-10-12)
 
-[All-h XOR source support theorem, compensation-equivalence barrier and complete 223-map W32 positive-seven-family beta audit](research/HYP-105-G5-E2-B3-E1K3G2L-COMPENSATION-TRANSPORT.md) · [reference](../research/hyp105_g5e2b3e1k3g2l_compensation_transport.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2l_compensation_transport.py) · [root #230](https://github.com/definitely-stable/Mathlab/issues/230). **DRAFT_CHILD_PR384 / ALL_H_EXACT_XOR_IDENTITY / ALL_H_COMPENSATION_EQUIVALENCE_ONLY / 223_COMPLETE_W32_LABELS / NO_ALL_H_POSITIVE_BOUND / CI_PENDING**. Main unchanged.
+[All-h XOR source support theorem, compensation-equivalence barrier and complete 223-map W32 positive-seven-family beta audit](research/HYP-105-G5-E2-B3-E1K3G2L-COMPENSATION-TRANSPORT.md) · [reference](../research/hyp105_g5e2b3e1k3g2l_compensation_transport.py) · [independent tests](../research/test_hyp105_g5e2b3e1k3g2l_compensation_transport.py) · [root #230](https://github.com/definitely-stable/Mathlab/issues/230). **DRAFT_CHILD_PR384 / ALL_H_EXACT_XOR_IDENTITY / ALL_H_COMPENSATION_EQUIVALENCE_ONLY / 223_COMPLETE_W32_LABELS / NO_ALL_H_POSITIVE_BOUND / EXACT_223_SOURCE_CONTRACT_SUCCESS_EARLIER_HEAD / FINAL_HEAD_CI_REQUIRED**. Main unchanged.
+
+**First complete finite certificate:** [Contract #38232996122](https://github.com/definitely-stable/Mathlab/actions/runs/38232996122) SUCCESS: 223 TRUE original W32 coherent labels, 109 distinct left f sources, 11 positive signed B/A deficits, 0 S<fixed-left-mu, and sharp margin `2232/143` at `corr:5` (S=90,J=21,U=44,other-six=46,mu=10638/143). This is NOT an all-label theorem. SHA256 `ebfc121f04056fe0b6215633e1f93ab135a306ced5fb92213925f665e672f1d0`. Final-head CI rerun required.
 
 ## HYP-105 B3.2-E1-K3-G2-K — constructive all-h fixed-left B/A positive right injection (2026-10-12)
 
