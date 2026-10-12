@@ -178,12 +178,39 @@ def _independent_endpoint_threewalks(core,led):
     }
 
 
+
+def _independent_sparse_square_trace(led):
+    """Independent sparse A_H^2 then A_H^3 * A_Bbad, including W38.
+
+    Different from the original endpoint-first two-middle-vertex scan:
+    build the entire two-step adjacency tensor row by row, then contract
+    selected antipodal chord endpoints. Retained undirected H only.
+    """
+    H=led["H_adj"]
+    two=[]
+    for u in range(len(H)):
+        row=Counter()
+        for v in H[u]:
+            row.update(H[v])
+        two.append(row)
+    # Each ORIGINAL bad chord is unordered, trace visits both directions.
+    total=0
+    for a,b in led["chords"]:
+        forward=sum(two[v][b] for v in H[a])
+        reverse=sum(two[v][a] for v in H[b])
+        if forward!=reverse:
+            raise AssertionError("symmetric integer physical A^3 contraction failed")
+        total+=forward+reverse
+    return total
+
+
 def mixedbook_gate(model,*,verify_proper=False,retained_adjacency=None):
     core=ProjectionClosure(model)
     led=_chord_ledger(core,retained_adjacency)
     B=len(led["chords"])
     t=led["max_block"]
     W=led["W"]
+    trace=_independent_sparse_square_trace(led)
     # Exact integer upper, not an approximation or s^h extrapolation:
     # 24 t W is the small-book floor. Positive gap would force a D6
     # count by the already PROVED PR394 mixed-book inequality.
@@ -208,6 +235,8 @@ def mixedbook_gate(model,*,verify_proper=False,retained_adjacency=None):
         "max_H_physical_degree":max(led["Hdeg"],default=0),
         "physical_coordinate_neighbor_block_cap":t,
         "mixedbook_small_book_allowance_24tW":floor,
+        "independent_sparse_A2_A3_chord_trace":trace,
+        "independent_sparse_square_trace_computed":True,
         "positive_mixedbook_D6_lower_proved":False,
         "all_h_weighted_energy_bound_proved":False,
         "all_h_endpoint_mass_o_s6_proved":False,
@@ -217,6 +246,8 @@ def mixedbook_gate(model,*,verify_proper=False,retained_adjacency=None):
     }
     if verify_proper:
         x=_independent_endpoint_threewalks(core,led)
+        if x["all_oriented_threewalks_bad_endpoint_chords"]!=trace:
+            raise AssertionError("independent sparse A^2 tensor and endpoint-first full 3-walk census differ")
         result.update(x)
         result["mixedbook_certificate_nontrivial"]=x["exact_proper_original_endpoint_bad_paths"]>floor
         gap=max(0,x["exact_proper_original_endpoint_bad_paths"]-floor)
@@ -227,7 +258,7 @@ def mixedbook_gate(model,*,verify_proper=False,retained_adjacency=None):
         if not gap:
             result["mixedbook_D6_rational_lower_numerator"]=0
     else:
-        result["independent_threewalk_trace_computed"]=False
+        result["independent_endpoint_first_threewalk_census_computed"]=False
     return result
 
 
