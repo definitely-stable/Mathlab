@@ -48,3 +48,27 @@ GitHub-hosted path-limited Contract only; inherited Research and INDEX. No local
 ## 5. Next proof gate E1-K3-G2-G
 
 If bounded W34 search discovers only small positive sets, optimize using exact anchored physical two-factor closure joins and retain work budgets; DO NOT report unmatched selected witnesses as a scientific NO-GO. If it finds complete injections for selected W34 cases, inspect deterministic source→target mapping and identify a symbolic all-h positive motif extension preserving two original columns. Even a universal injection would at most yield `Jcross<=S_s`; establishing `S_s=Omega(s^6)` additionally requires a uniform lower bound on Jcross or a dichotomy yielding many accepted positives when Jcross is small. Branch A/B, full-R3 and the ASET exponent remain open.
+
+## Exact GitHub-hosted results: closure-first search and W(3,4) positive injections
+
+The original pilot [Contract #38210732248](https://github.com/definitely-stable/Mathlab/actions/runs/38210732248) proved the general-a predicate matches B0 across ALL 62,370 W32 left-eligible sixsets (both lex and reverse) and that fully uncapped fixed-seed W32 completions equal the exact B0 oracle. The *initial* W34 pilot used only 2 pair seeds and 20,000 candidate attempts per seed: selected heavy cross-source witnesses covered 1/6 (lex) and 5/6 (random). **These were incomplete searches; the unmatched counts were NOT counterexamples.**
+
+An algorithmic refinement reorders, but **does not filter**, all possible further original incidence columns by descending number of physical coordinates already touched by the seed pair, then original ID. The resulting DFS remains exhaustive if uncapped: changing traversal order does not change the set of four-column completions. For deterministic W34 research pilots, each of 8 selected heavy-class witnesses now receives ALL 10 possible pairs of its 5 distinct original columns, with a 40,000-candidate-node budget and at most 12 targets per seed. This yields the following exact finite positive results from [Contract #38210896197](https://github.com/definitely-stable/Mathlab/actions/runs/38210896197):
+
+| Coherent model | Entire Jcross | Heavy witnesses actually sampled | Genuine accepted S targets found | Distinct accepted target types | Capacity-1 matching |
+|---|---:|---:|---:|---|---:|
+| W(3,2) lex, small control | 36 | 6 | 58 | A/B; B/A; B/B; C/A; D6 | **6/6** |
+| W(3,4) lex | 128 | 8 | **221** | 7 families represented | **8/8** |
+| W(3,4) random(seed=20261012) | 75 | 8 | **249** | 6 families represented | **8/8** |
+
+In both W34 runs, all 80 seed-pair searches reached one explicit work/target cap, so **none of those 80 candidate neighborhoods is fully enumerated**. This is deliberately a **positive-only existential certificate**: both eight-witness injections are reproducible and true, while no claim about absent additional targets, full W34 target counts, all 128 or 75 Jcross witnesses, or universal s is licensed.
+
+Additional independent exact-head [Contract #38210952901](https://github.com/definitely-stable/Mathlab/actions/runs/38210952901) PASSED 6 tests, including three fixed REAL W34 six-original-column sets found by the first pilot, with DIRECT 782-dual-orbit GF5 counts over ALL TEN 3v3 sign patterns:
+
+- lex: `(0,41,68,139,189,206)`, class `B-left/A-right`;
+- random(seed=20261012): `(0,140,141,197,209,420)`, class `A-left/B-right`;
+- random(seed=20261012): `(2,3,284,334,341,379)`, class `B/B-disjoint`.
+
+The independently computed GF5 signed weights are strictly positive for all ten patterns in these cases, and their sum exceeds the accepted per-class 51-palette floor. These are true original W34 global f/g source labels, not standalone abstract templates.
+
+**Scientific conclusion of K3-G2-F:** The candidate rule `>=2` shared original incidence columns now admits honest finite capacity-one injections for sampled W34 witnesses in two coherent physical maps. The result strengthens the finite W32 evidence but leaves the two universal proof obligations open: extend charging uniformly to **all** witnesses and **all** coherent f/g at each h, and derive `S_s=Omega(s^6)` rather than only a conditional `Jcross<=S_s`. No extrapolation from 8 sampled sources.
