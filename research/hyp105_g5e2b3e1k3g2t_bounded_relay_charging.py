@@ -323,6 +323,50 @@ def exact_bounded_relay_gate(demand,own,dual,incidence,
     }
 
 
+
+def exact_geometric_uniform_gate_lower_bound(demand,own,dual,incidence,
+                                              U,J):
+    """One independent ORIGINAL point/line cut proves a sharp NECESSARY gate.
+
+    U: true original point subset; J: selected relay outputs in N(U).
+    All capacities are scaled integers. This is a finite-instance bound;
+    matching feasible flow is established by an independent algorithm.
+    """
+    n,incidence=_validate(demand,own,dual,incidence,[0]*len(demand))
+    U=set(U)
+    J=set(J)
+    if (any(type(p) is not int or not 0<=p<n for p in U) or
+            any(type(l) is not int or not 0<=l<n for l in J)):
+        raise ValueError("invalid original point or relay line in finite cut")
+    N=set(l for p in U for l in incidence[p])
+    if not J<=N:
+        raise ValueError("selected GQ relay must neighbor original demand subset")
+    neighbors=U | {q for q in range(n) if any(l in incidence[q] for l in J)}
+    demand_mass=sum(demand[p] for p in U)
+    BA_credit=sum(own[q] for q in neighbors)
+    AB_credit=sum(dual[l] for l in N)
+    gap_without_gate=demand_mass-BA_credit-AB_credit
+    gates=len(N-J)
+    if gap_without_gate>0 and gates==0:
+        threshold=None
+    else:
+        threshold=max(0,ceil(Fraction(gap_without_gate,gates))) if gates else 0
+    return {
+        "original_demand_points":sorted(U),
+        "original_incident_lines":sorted(N),
+        "selected_activated_relay_lines":sorted(J),
+        "remaining_capacity_limited_lines":sorted(N-J),
+        "expanded_BA_credit_points":sorted(neighbors),
+        "exact_demand":demand_mass,
+        "exact_own_BA_credit":BA_credit,
+        "exact_incident_dual_AB_credit":AB_credit,
+        "line_gate_count":gates,
+        "ungated_deficit":gap_without_gate,
+        "necessary_uniform_scaled_gate":threshold,
+        "mathematically_sufficient_for_P2":False,
+    }
+
+
 def report():
     old=parent_report()
     old_cases=old["original_and_true_dual_complete_W32_cases"]
@@ -339,8 +383,19 @@ def report():
         if (z["zero_relay"]["deficit"],z["scalar_P2_margin"])!=(
                 x["hall_shortfall"],x["scalar_P2_margin"]):
             raise AssertionError("parent exact original/dual Hall result changed")
+        cut_witness=None
+        if x["name"]=="hardest-M":
+            cut_witness=exact_geometric_uniform_gate_lower_bound(
+                demand,own,dual,incidence,
+                U=(1,2,3,5,8,13,14),J=(3,11,13))
+            if (cut_witness["ungated_deficit"]!=530 or
+                    cut_witness["line_gate_count"]!=9 or
+                    cut_witness["necessary_uniform_scaled_gate"]!=59 or
+                    z["minimal_uniform_relay_scaled"]!=59):
+                raise AssertionError("independent exact GQ 9-gate Hall lower bound changed")
         results.append({
             "name":x["name"],
+            "independent_sharp_original_geometric_cut":cut_witness,
             "parent_S_Hall_shortfall":x["hall_shortfall"],
             "parent_S_original_point_cut":x["min_cut_original_point_ids"],
             "true_BA":x["original_BA_target_hits"],
