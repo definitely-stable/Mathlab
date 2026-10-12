@@ -202,12 +202,14 @@ def _certificate(demand,own,dual,incidence,relay_capacity):
     actual_input={l for l in range(n) if 1+3*n+l in side}
     forced_BA=U | {q for q in range(n)
                      if any(l in incidence[q] for l in J)}
-    if (actual_AB!=forced_lines or actual_input!=forced_lines or
-            actual_BA!=forced_BA):
-        # The canonical cut from reachable residual nodes has only positive
-        # capacity outgoing credit arcs. Zero-credit sink nodes may be
-        # reachable but the compulsory sets remain exact by INF edges.
-        raise AssertionError("residual min cut is not a canonical GQ Hall cut")
+    if (not forced_BA<=actual_BA or not forced_lines<=actual_AB or
+            not forced_lines<=actual_input):
+        raise AssertionError("residual min cut violates mandatory infinite-capacity arcs")
+    # Residual reverse arcs can make additional zero-cost credit nodes or
+    # relay outputs reachable. The canonical source cut fixes precisely
+    # U, N(U), and J subset N(U), pruning all optional extra nodes.
+    # It is a valid ORIGINAL directed cut and cannot cost LESS than
+    # max-flow. Its measured equality is an independent certificate.
     demand_U=sum(demand[p] for p in U)
     BA_forced=sum(own[p] for p in forced_BA)
     AB_forced=sum(dual[l] for l in forced_lines)
