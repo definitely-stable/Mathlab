@@ -46,7 +46,7 @@ jobs:
                   "matching_3":[20,3003]}
           assert v["6"]["h3"]==expect
           assert v["6"]["E3"]==[710,1001]
-          assert Fraction(*v["6"]["E_ge4"])>0
+          assert v["6"]["E_ge4"]==[4966,77]
           assert len(v["14"]["h3"])==5
           result=r["original_true_GQ_models"]
           assert [x["name"] for x in result]==["lex","hardest-M"]
@@ -66,5 +66,27 @@ jobs:
           hard=result[1]
           assert (hard["U_BA"],hard["U_AB"],hard["S_seven"])==(36,39,86)
           assert hard["P2_margin"]==[757,143]
+          BA=hard["original_BA"]
+          AB=hard["actual_GQ_dual_AB"]
+          assert BA["third_J_harmonic_correlation"]==[2192,1001]
+          assert BA["remaining_four_to_six"]==[-541,385]
+          assert AB["third_J_harmonic_correlation"]==[-1211,858]
+          assert AB["remaining_four_to_six"]==[17,6]
+          assert BA["original_GQ_sixsource_guard"]["mass"]==4984
+          assert AB["original_GQ_sixsource_guard"]["mass"]==5302
+          assert BA["original_GQ_sixsource_guard"]["max_weight_over_GQ_cherry_cap"]==[2,135]
+          assert AB["original_GQ_sixsource_guard"]["max_weight_over_GQ_cherry_cap"]==[4,243]
+          assert BA["coupled_original_GQ_4x5_tensor"]["0"]["triangle"]==0
+          assert BA["coupled_original_GQ_4x5_tensor"]["1"]["triangle"]==3009
+          assert BA["coupled_original_GQ_4x5_tensor"]["2"]["triangle"]==2110
+          assert BA["coupled_original_GQ_4x5_tensor"]["3"]["triangle"]==0
+          assert AB["coupled_original_GQ_4x5_tensor"]["3"]["triangle"]==747
+          for c,mass,rows in ((BA,4984,[16678,39188,40502,3312]),
+                              (AB,5302,[18175,41797,42593,3475])):
+              assert [sum(c["coupled_original_GQ_4x5_tensor"][str(j)].values())
+                      for j in range(4)]==rows
+              assert c["tensor_triple_mass"]==20*mass
+          assert result[0]["original_BA"]["third_J_harmonic_correlation"]==[-16853,12012]
+          assert result[0]["actual_GQ_dual_AB"]["third_J_harmonic_correlation"]==[2342,3003]
           print(json.dumps(r,sort_keys=True,indent=2))
           PY
