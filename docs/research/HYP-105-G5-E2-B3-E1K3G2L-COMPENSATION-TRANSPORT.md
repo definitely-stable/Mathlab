@@ -67,3 +67,30 @@ Full-shell regression min S=176, max Jcross=47, min(S-Jcross)=139 is checked for
 - Independent unit tests directly reconcile C0 physical-source signed delta against full C0 weighted recount and genuine independent B0 seven accepted positive-family census for multiple whole-original right source label transpositions.
 - Independent full B0 S/positive GF5, entire original Jcross, and beta-equivalence checks for lex, swapped left and right W32 maps, best G2-I coherent correlation, and four G2-K constructed maps.
 - Run complete 223-map ledger **ONCE** in a dedicated GitHub-hosted 25m Contract; pin SHA256 and exact extrema only after a successful first hosted report; inherited full Research must not run the 223 cases redundantly. INDEX/Research/Contract SUCCESS at exact final PR HEAD. Keep Draft pending independent mathematical review, main unchanged, issue #230/#176/#169 OPEN.
+
+## 6. Exact 223-map signed compensation audit — first hosted Contract
+
+The [GitHub-hosted complete Contract #38232996122](https://github.com/definitely-stable/Mathlab/actions/runs/38232996122) **SUCCESS** at original child HEAD `f8a97ebe02716e4128b2e1dbf58332db0663b75a`. Four focused true-original tests PASS, followed by exactly **223** independently full-replayed true coherent W(3,2) global factor maps and **109 distinct fixed left f** hypergraph sources. Each includes exact C0 weighted B/A and independently full 62,370-candidate B0 accepted GF5 seven-family original-sixset count, all Jcross sources, exact rational signed deficit and six-class remainder.
+
+**New precise finite theorem for JUST the named 223 source maps:** exactly 11 have `D=mu_f-U_B/A>0`, yet **ZERO** satisfy `S_seven<mu_f`. Hence in THIS corpus the normalized compensation inequality `D<=S_other` holds at beta=0. That is a complete result on the specified 223 maps, NOT a uniform bound for all W32 physical bijections or all h. This result cannot be turned into positive universal alpha merely from the sampled minimum; full GQ sixth-order correlation remains unknown.
+
+The smallest observed signed compensation slack `S_seven-mu_f` occurs at the explicitly reconstructed genuine G2-I correlated path map `corr:5`:
+- S=90, all Jcross=21, true B/A U=44, other six accepted families R=46;
+- exact fixed-left B/A injection mean `mu_f=10638/143`;
+- signed deficit `D=4346/143`;
+- strictly POSITIVE net residual `R-D=2232/143` (~15.61).
+- Rest-family true-original split: A-left/B-right 37, B/B-disjoint 6, B/B-overlap 1, C/A 2, C/B 0, D6 0.
+
+At `corr:6`, same f, same U=44 and mu but S=94, Jcross=26, R=50, residual `2804/143`. For independently constructed K3-G2-K low B/A examples: lex U=33, mu=10000/143, S=101, R=68, signed D=5281/143 and net residual=4443/143; correlated-left U=40, mu=10638/143, S=104, R=64, D=4918/143 and net residual=4234/143. Every one of these figures was reproduced from the **same actual original f,g** used for B0 and C0. No simultaneous mixing of separate extremal maps.
+
+For these finite maps the rational necessary lower beta for the candidate `S+beta Jcross>=mu_f` is zero; there were no J=0, S<mu_f cases. **This is NOT a proof that universal beta=0 works.** The report also preserves the 210 shell H-G2 extrema min S=176, max J=47, min(S-J)=139 and checks all four complete K3-G2-K high/low original oracle results.
+
+Exact ordered full source-row SHA256, over (source-name, S, Jcross, B/A, mu, other-six, certified GF5 lower numerator):
+
+`ebfc121f04056fe0b6215633e1f93ab135a306ced5fb92213925f665e672f1d0`.
+
+After this success the extrema, 11 positive deficits, zero below-mean total S, exact rational worst map and digest were PINNED in the dedicated Contract. The final child HEAD must pass all Contract/INDEX/Research again. Root issue OPEN, main unchanged, all prior results remain FINITE versus ALL-h firewall.
+
+## 7. Next K3-G2-M research fork
+
+The data now motivate, but do NOT establish, the potentially strong proposition `S_seven(f,g)>=mu_f` for arbitrary legal ALL-h f,g, which together with B1-A's `mu_f=(140+o(1))s^6` would close Branch A. Focus on actual SOURCE SIXTH-ORDER positivity across seven GF5 families: pair/marginal-only arguments are invalidated by C0's exact 3-cube trade. A useful next step is a typed signed-transport *certificate* showing every negative B/A right swap gradient must be compensated by the gain in other original positive classes or by a globally bounded Jcross obstruction. The sign of an individual gradient is not enough, and a naive telescoping sum of absolute bounds loses the required s^6 scale. Before any universal claim, check exact adversarial correlates and per-GQ projection class source original incidences, and seek a true all-h inequality rather than extrapolating the 223 maps.
