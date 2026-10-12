@@ -73,3 +73,49 @@ Interpreting results:
 - If all finite two-hop relay capacities fail, collinear BA transfer is structurally insufficient; explore explicitly bounded new positive families (P7), without inferring P2 false.
 
 Root #230/#176/#169 remain OPEN. P2, P7, Branch A/B, full R3 upper, s^6 lower bound and ASET exponent remain OPEN. Dedicated Contract + INDEX + full Research must pass at exact FINAL HEAD. Independent mathematical proof review remains mandatory.
+
+
+## 6. Initial hosted finite result and SHARP nine-gate lower cut — 2026-10-12
+
+The first hosted correction (a synthetic 3-point fixture accidentally called S's intentionally W32-only 15-point validator) was confined to a test interface; the already passing full real W32 oracle was unchanged. The next hosted [Contract #38253966400](https://github.com/definitely-stable/Mathlab/actions/runs/38253966400) succeeded with both independent solvers and an exact complete original+dual W32 report.
+
+Exact finite data (each capacity multiplied by 143, physical target density rho=2/143):
+
+| Model | kappa=0 deficit | kappa=143 deficit | minimal uniform scaled kappa | minimum physical kappa |
+| --- | ---: | ---: | ---: | ---: |
+| lex ORIGINAL+DUAL | 0 | 0 | 0 | 0 |
+| genuine hardest-M ORIGINAL+DUAL | 530 | 0 | **59** | **59/143** |
+
+**Independent lower cut:** for the hardest-M genuine coherent original state, take exactly the original point subset
+
+    U={1,2,3,5,8,13,14}
+
+and select relay-output line set
+
+    J={3,11,13} subseteq N_GQ(U)
+    N_GQ(U)={0,1,3,4,5,6,7,8,10,11,12,13}.
+    |N_GQ(U) minus J| = 9.
+
+The true expanded BA-credit point set U union P(J) is
+
+    {1,2,3,5,6,8,13,14}.
+
+The point mass, BA resource and true incident AB resource are separately reconstructed from the original+dual 4x4-permanent source and target census:
+
+    D(U)=4820,
+    A(U union P(J))=1144,
+    B(N_GQ(U))=3146.
+
+Thus the candidate generalized Hall cut **requires**
+
+    4820 <= 1144 + 3146 + 9*kappa
+    9*kappa >= 530
+    kappa >= ceil(530/9) = 59     (integer-scaled units).
+
+At kappa=58, the independent full min-cut finds **deficit exactly 8** (4820-1144-3146-522=8), and maxflow=9960 < 9968 required. At kappa=59, both independent integer algorithms yield **exact maxflow=9968**, saturating all original BA demand. Therefore the minimum **uniform scaled relay capacity for THIS EXACT finite instance** is precisely 59. In physical fractional accounting it is **59/143 per original GQ line**, not 59 indivisible source witnesses; the Hall charging is allowed to split credit rationally.
+
+At kappa=143 (one physical target-hit-equivalent budget on each original line), full maxflow=9968 and total deficit=0. The actual possible relay usage per line is separately tracked and each gate and original BA/dual AB positive-credit sink arc is checked for conservation/no overdraw.
+
+The lower cut gives a necessary condition independent of the flow algorithm. The feasible flow gives a sufficient instance-specific witness independent of the cut derivation. Their agreement proves the sharp **finite-model** threshold, not a new universal P2 theorem.
+
+**Interpretation:** The S counterexample does not survive this specific two-hop relaxation with budget 1 per line on the two pinned W32 cases. But that budget is not justified for arbitrary s or arbitrary coherent physical f,g; there may exist other W32 maps where no finite uniform two-hop budget suffices. Main, root issue, and parent stacked PR remain unchanged. CI SUCCESS must be reestablished on the final documentation/test HEAD independently of peer review.
