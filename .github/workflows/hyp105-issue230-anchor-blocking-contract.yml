@@ -64,5 +64,22 @@ jobs:
                   assert x["independent_original_endpair_middle_edge_oracle"] is True
           s68=rows[2,"S68"]
           assert s68["synchronized_BB_overlap_sixsets"]==0
+          assert (s68["endpoint_only_weight"],s68["internal_only_weight"],
+                  s68["mixed_endpoint_internal_weight"])==(52,62,492)
+          assert s68["endpoint_bad_pair_weight"]==544
+          assert s68["union_endpoint_bad_pair_count"]==166
+          assert s68["max_bad_original_endpoint_pair_path_multiplicity"]==12
+          w34=rows[4,"random"]
+          assert (w34["endpoint_only_weight"],w34["internal_only_weight"],
+                  w34["mixed_endpoint_internal_weight"])==(18034,18348,12160)
+          assert w34["endpoint_bad_pair_weight"]==30194
+          assert w34["union_endpoint_bad_pair_count"]==3203
+          w38=rows[8,"random"]
+          assert (w38["endpoint_only_weight"],w38["internal_only_weight"],
+                  w38["mixed_endpoint_internal_weight"])==(851208,869548,168020)
+          assert w38["endpoint_bad_pair_weight"]==1019228
+          assert w38["union_endpoint_bad_pair_count"]==70174
+          assert w38["max_bad_original_endpoint_pair_path_multiplicity"]==54
+          assert w38["actual_original_nonincident_endpoint_pairs"]==336960
           print(json.dumps(r,sort_keys=True,indent=2))
           PY
