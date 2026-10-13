@@ -97,8 +97,10 @@ def _path_fibers(ctx,max_paths):
                               for x,y in ((u,b),(b,c),(c,v)))
                     fibers[(u,v)].append((b,c,name,ids))
                     labels[name]+=1
-    if sum(labels.values())!=bound:
-        raise AssertionError("oriented simple path counting bound mismatch")
+    # The degree-product count is NB3, which also includes 6*C3
+    # triangular closed three-walks. Simple paths are a subset.
+    if sum(labels.values())>bound:
+        raise AssertionError("oriented simple paths exceed nonbacktracking walk cap")
     return adj,fibers,labels
 
 
@@ -116,6 +118,19 @@ def collision_certificate(model,*,max_paths=2_000_000,
     energy=_path3_and_theta(adj)
     if sum(labels.values())!=energy["P3"]:
         raise AssertionError("independent all-P3 counter disagrees")
+    projection=ctx.census(max_paths=max_paths)
+    good_total=sum(labels[s] for s in GOOD)
+    if projection["proper_P3"]!=good_total:
+        raise AssertionError("independent ORIGINAL projection good-P3 total mismatch")
+    for name,expected in (
+        ("missing",labels["missing"]),
+        ("incident",labels["incident"]),
+        ("unblocked",labels["unblocked"]),
+        ("blocked",sum(labels[t] for t in (
+            "blocked_left_only","blocked_right_only","blocked_both"))),
+    ):
+        if projection[name]!=expected:
+            raise AssertionError("independent ORIGINAL projection subclass "+name+" mismatch")
     total_ordered=sum(len(paths)**2 for paths in fibers.values())
     if type(max_ordered_pairs) is not int or max_ordered_pairs<=0 or total_ordered>max_ordered_pairs:
         raise ValueError("complete endpoint collision-pair budget exceeded")
