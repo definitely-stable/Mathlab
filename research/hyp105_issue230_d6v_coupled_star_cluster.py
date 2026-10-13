@@ -235,10 +235,15 @@ def frozen_original_W32_coupling_report():
             raise AssertionError("not the full ORIGINAL W32 left-selected sixset census")
         cells={}
         for objective,fs in (("S_seven",S),("GF5_selected_numerator",Y)):
+            # D6-T tables use genuine ORIGINAL line identities (e.g. 3,11,12).
+            # Relabel ONLY the solver's variable-axis indices; retain every
+            # ORIGINAL physical cost row and its incidence-position meaning.
+            indexed=[{**factor, "R":tuple(triple.index(t) for t in factor["R"])}
+                     for factor in fs]
             lows={}
             for order in (1,2,3):
                 lows[order]=coupled_partition_certificate(
-                    fs,0,0,len(triple),3,max_cluster_size=order)
+                    indexed,0,0,len(triple),3,max_cluster_size=order)
             full=min(local_factor_objective(fs,triple,phi)
                      for phi in permutations(range(3)))
             if (not lows[1]["exact_coupled_cluster_lower"] <=
