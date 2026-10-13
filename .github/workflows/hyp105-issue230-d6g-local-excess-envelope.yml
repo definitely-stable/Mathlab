@@ -1,0 +1,55 @@
+name: hyp105-issue230-d6g-local-excess-envelope
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6g_local_excess_envelope.py"
+      - "research/test_hyp105_issue230_d6g_local_excess_envelope.py"
+      - "docs/research/HYP-105-ISSUE230-D6G-LOCAL-EXCESS-ENVELOPE.md"
+      - ".github/workflows/hyp105-issue230-d6g-local-excess-envelope.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  local-Hall-excess-envelope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: D6-G local Hall excess envelope tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6g_local_excess_envelope.py' -v
+      - name: Emit D6-G finite complete-W32 local excess report
+        run: |
+          python research/hyp105_issue230_d6g_local_excess_envelope.py > /tmp/hyp105-d6g.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/hyp105-d6g.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6G-LOCAL-HALL-EXCESS-ENVELOPE'
+          assert x['all_h_local_excess_bound']=='OPEN'
+          rows=x['W32_COMPLETE_positive_all_seven_local_excess_envelopes']
+          assert len(rows)==4
+          for row in rows:
+              assert row['E_endpoint_bad']+row['I_internal_only']==row['C_blocked_oriented']
+              km1=row['K_minus_one_local_excess']
+              assert km1['exact_exception_mass']==km1['global_capacity_deficit']
+              assert km1['local_Hall_excess_over_global_deficit']==0
+              assert row['K_zero_exception_row']['exact_exception_mass']==0
+              assert row['frontier']['local_excess_always_nonnegative']
+              print({'D6G-W32': row['scheme'],
+                     'C': row['C_blocked_oriented'],
+                     'S': row['full_seven_positive_S'],
+                     'K': row['D6D_exact_zero_exception_K'],
+                     'K-1-global-deficit': km1['global_capacity_deficit'],
+                     'K-1-local-excess': km1['local_Hall_excess_over_global_deficit'],
+                     'positive-local-excess-capacities': row['frontier']['capacities_with_positive_local_excess']})
+          PY
