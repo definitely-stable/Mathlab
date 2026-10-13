@@ -8,7 +8,7 @@ JPKC-005 J14 proved a safe but very wasteful generic **320** upper bound: choose
 
 JPKC-006 uses this compatibility and the TRUE source sixset's A/B/C half topology. Both proof and test use ONE same fully complete globally injective original point and line pair maps f,g and the actual ORIGINAL incidence matrix. No independent per-anchor maps, no made-up projected labels, no W34 full S enumeration.
 
-## 2. THEOREM J18 (ALL h): at most FOUR oriented proper physical P3s from a fixed original 3-ID source triple
+## 2. THEOREM J18 (ALL h): at most TWO oriented proper physical P3s from a fixed original 3-ID source triple
 
 Let T contain THREE DISTINCT ORIGINAL incidence IDs and let `P_T` be all coordinate-proper oriented graph P3s (simple four grid vertices, four different physical first and four different second symbols) using EXACTLY the three original physical graph incidence IDs T, each once. Then
 
@@ -16,44 +16,46 @@ Let T contain THREE DISTINCT ORIGINAL incidence IDs and let `P_T` be all coordin
 |P_T| <= 4.                         J18
 ```
 
-**Proof.** A coordinate-proper grid P3 projects on the first physical coordinate and separately on the second physical coordinate to an undirected SIMPLE three-edge P4, because its four row symbols and four column symbols are distinct. Consequently T's three physical first-factor edges and three second-factor edges, if they can support ANY such P3, are each a fixed undirected P4; in particular T has THREE distinct original point factors and THREE distinct original line factors. Each P4 has exactly TWO oriented traversals. A physical grid P3 determines one oriented traversal of the row P4 and one oriented traversal of the column P4, so there are at most `2*2=4` possibilities. For any pair of traversals the joint grid vertices are uniquely determined; each original incidence's physical graph diagonal is automatically the matching edge joining the corresponding pair of row/column transitions, when source incidence order agrees. If it doesn't agree no grid P3 exists. No global f/g occupancy assumptions beyond pair injection are needed. QED.
+**Proof.** A coordinate-proper grid P3 projects on the first physical coordinate and separately on the second physical coordinate to an undirected SIMPLE three-edge P4, because its four row symbols and four column symbols are distinct. Consequently T's three physical first-factor edges and three second-factor edges, if they can support ANY such P3, are each a fixed undirected P4; in particular T has THREE distinct original point factors and THREE distinct original line factors. Each P4 has exactly TWO oriented traversals, BUT the original source incidence IDs label the three edges distinctly on BOTH row and column paths. An oriented physical graph path must traverse the SAME sequence of three original incidence IDs in both projections: for any chosen row orientation, there is at most ONE column orientation whose three-ID edge sequence agrees. Thus at most two oriented grid paths exist (the physical path and its exact reversal), not four independently chosen directions. If the row/column source edge orders are incompatible, no such path exists. This argument works for ALL h, needs no probabilistic assumption, and is independently verified by the local graph-edge oracle. QED.
 
 **Implementation:** independent per-T local oracle enumerates both diagonal edges of all THREE original incidence IDs, all six edge orders, all eight diagonal choices, and independently tests graph-path connectivity and full coordinate properness; it MUST find <=4. This oracle neither imports nor trusts the global projection-path loop for its answer.
 
-## 3. THEOREM J19 (ALL h): 24, not 320, proper P3s per positive ORIGINAL sixset Q
+## 3. THEOREM J19 (ALL h): 12, not 320, proper P3s per positive ORIGINAL sixset Q
 
 For an accepted original six-incidence set Q, the physical first-side and second-side six edges are each two-regular on EXACTLY six physical coordinate symbols. The ORIGINAL source factor frequency partitions are A=(1,1,1,1,1,1), B=(2,1,1,1,1), or C=(2,2,2), with only the seven certified GF5 classes allowed.
 
 Each coordinate-proper P3 source triple T contained in Q projects to an undirected P4 on each side. The following **geometric restrictions are ALL-h**:
 
 - **A side:** six physically distinct edges form C6 or two disjoint C3s; since an embedded P4 uses 4 connected physical symbols, the C3+C3 possibility contains NO P4. Hence only an actual C6 can occur and its P4 3-edge subset must be one of the SIX consecutive 3-edge runs.
-- **B side:** the doubly occurring original factor edge contributes a 2-cycle between TWO vertices already of physical degree 2, disjoint from the four other singly occurring original edges. The four singles necessarily form a simple C4. A physical P4 cannot use the doubled factor edge and must use exactly three of the four C4 edges; at most FOUR candidate original 3-ID subsets.
+- **B side:** the doubly occurring original factor edge contributes a 2-cycle between TWO vertices already of physical degree 2, disjoint from the four other singly occurring original edges. The four singles necessarily form a simple C4. A physical P4 cannot use the doubled factor edge and must use exactly three of the four C4 edges; at most TWO candidate original 3-ID subsets.
 - **C side:** three disjoint doubled physical edges (three 2-cycles), each with only two physical vertices. NO connected four-symbol P4 is possible, so zero seeds.
 
 Combining J18 with the stronger half-side restriction yields an ALL-h charge independent of s:
 
 | Accepted ORIGINAL class | Source half pattern | Max source T P4 triples | Max oriented physical P3 seeds per Q |
 |---|---|---:|---:|
-| D6 | A/A | 6 | **24** |
-| B-left/A-right | B/A | 4 | **16** |
-| A-left/B-right | A/B | 4 | **16** |
-| B/B-overlap | B/B | 4 | **16** |
-| B/B-disjoint | B/B | 4 | **16** |
+| D6 | A/A | 6 | **12** |
+| B-left/A-right | B/A | 4 | **8** |
+| A-left/B-right | A/B | 4 | **8** |
+| B/B-overlap | B/B | 4 | **8** |
+| B/B-disjoint | B/B | 4 | **8** |
 | C/A | C/A | 0 | 0 |
 | C/B | C/B | 0 | 0 |
 
+These maxima are SAFE upper bounds. They are NOT necessarily attained by every assignment; however W32 lex attains the D6 upper 12, so the global J19 constant **12 is sharp for legal ORIGINAL maps**. The W32 source-triple maximum is exactly TWO, attaining J18. Every nonempty local source triple realization contains the two physical path reversals.
+
 These maxima are SAFE upper bounds, not necessarily achieved. The D6 source cycle must match across both physical sides, which may further reduce its feasible seed count.
 
-**THEOREM J19:** For ANY complete globally injected f,g at ANY h, every selected original sixset Q contains at most **24** oriented coordinate-proper physical P3 seeds, including endpoint-bad, nonincident original endpoints and any other special subclass:
+**THEOREM J19:** For ANY complete globally injected f,g at ANY h, every selected original sixset Q contains at most **12** oriented coordinate-proper physical P3 seeds, including endpoint-bad, nonincident original endpoints and any other special subclass:
 
 ```
 H_E = # {(P,Q): P is endpoint-bad coordinate-proper physical P3,
                    Q is selected original positive sixset,
                    T(P) subset Q}
-    <= 24 S.
+    <= 12 S.
 ```
 
-Hence `# endpoint-bad seeds admitting >=1 positive sixset <=24S`. This strictly sharpens 320 to 24, a factor `13 1/3`, without claiming a new unconditional lower for S.
+Hence `# endpoint-bad seeds admitting >=1 positive sixset <=12S`. This strictly sharpens 320 to 12, a factor `26 2/3`, without claiming a new unconditional lower for S.
 
 ## 4. THEOREM J20 (ALL h): COMPLETE non-GQ U source topology taxonomy
 
@@ -82,7 +84,7 @@ The dedicated runnable implementation `research/hyp105_issue230_jpkc006_source_t
 1. checks EVERY endpoint-bad proper physical seed in each W32 lex/reverse/S68/S72 input;
 2. independently constructs ALL possible true-original positive completions of the three permitted motif classes directly from physical A-cycle + original wedge geometry (does not query selected sixset census for candidate discovery);
 3. cross-checks its entire per-seed result with the separate **exhaustive 62,370 original-left candidate** seven-family GF5 positive-sixset index from JPKC005, with exact original Q incidence IDs;
-4. independently enumerates local source three-incidence diagonal assignments from scratch for all accepted sixsets and checks per-class bound 24/16/0 versus the pre-existing global P3 oracle;
+4. independently enumerates local source three-incidence diagonal assignments from scratch for all accepted sixsets and checks per-class bound 12/8/0 versus the pre-existing global P3 oracle;
 5. checks every successful U source graph is exactly matching / point wedge / line wedge as promised, with no GQ walk, repeated original incidences, or fake positive class.
 
 On W34 lex/random and genuine D4 symplectic-spread global complete f,g, the script performs **ALL permitted true ORIGINAL alternate Q completions for a deterministic prefix of 32 endpoint-bad proper seeds PER input** and records the actual accepted sources. This is a **complete per-seed** calculation on 32 seeds, NOT a complete W34 seven-family census, NOT a claim about all W34 endpoint-bad seeds, and NOT an all-h sampling theorem. The per-seed source query is physically and combinatorially complete in the three reachable classes, not a heuristic nearest-neighbor selection.
@@ -100,10 +102,10 @@ E_s >= (8-o(1))s^6.
 J19 charges at most 24 endpoint-bad physical seeds per selected true original sixset. Therefore at least
 
 ```
-E_s - 24 S_s = (8-o(1))s^6
+E_s - 12 S_s = (8-o(1))s^6
 ```
 
-endpoint-bad proper physical P3s have **ZERO** accepted ORIGINAL six-incidence completion whatsoever (not merely zero canonical/second-GQ completion). Indeed the fraction of seeds covered by ANY selected Q is <=24S/E=o(1). This conditional *isolation* theorem sharpens JPKC005 by 320/24 but is **not a contradiction**: the low-S adversarial maps could realize almost-completely isolated endpoint-bad seeds.
+endpoint-bad proper physical P3s have **ZERO** accepted ORIGINAL six-incidence completion whatsoever (not merely zero canonical/second-GQ completion). Indeed the fraction of seeds covered by ANY selected Q is <=12S/E=o(1). This conditional *isolation* theorem sharpens JPKC005 by 320/12 but is **not a contradiction**: the low-S adversarial maps could realize almost-completely isolated endpoint-bad seeds.
 
 An eventual proof of Root A would need an independent all-h **extension-existence** inequality (`# covered endpoint-bad seeds >= epsilon s^6`) on the endpoint branch, or a new joint global geometry/occupied-image moment inequality that eliminates simultaneous isolation and internal-only defect concentration. J18–J21 only give charge/obstruction, NOT positive existence.
 
