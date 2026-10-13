@@ -94,6 +94,18 @@ This is a **deterministically defined exploratory subset**; *no claim* is made a
 
 The hosted dedicated workflow runs independent 6-method tests first and the top-12 exact S68/S72 two-swap report only once, avoiding the excessive repeated 4×105-swap exhaustive CI in D6-P. Printed finite exact values are facts only after hosted execution returns SUCCESS and are then pinned as regression controls. W(3,4)/W(3,8) full original seven-positive counts are not generated.
 
+
+## 4a. Pinned genuine-original W(3,2) hosted measurements
+
+The initial hosted dedicated contract for PR #417 (commit `ed37c0e03ba99f6c370f2942f8ab6eafb080d42a`, run #38393223553) passed all six independent methods. Its second step computed all targeted disjoint pairs. The exact data below are now pinned by the dedicated workflow for fail-closed future reproducibility.
+
+| True original fixed mapping | S before | singleton swaps (all 105 strict >0) minimum | top-12 disjoint two-swap pairs scanned | negative mixed Hessians | minimum Hessian H_S | strictly improving pairs in scanned subset | best combined delta S | best combined delta GF5 selected numerator | best original swap pair |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| S68 | 68 | +7 | 49 | 19 | −14 | **0** | **+7** | +266353 | (1,13) and (10,12) |
+| S72 | 72 | +2 | 45 | 19 | −15 | **0** | **+6** | +287590 | (3,7) and (0,1) |
+
+The mixed Hessian at the best delta-S pair is −13 for S68 and −15 for S72. There were **zero** scanned two-swap compositions improving either the seven-family count or the certified GF5 necessary lower numerator. A negative Hessian is observable and correctly computed, but it was not sufficiently negative to offset BOTH individually positive singleton deltas among the **explicit top-12 disjoint candidates**. This is a **finite and subset-only non-escape result**. It does NOT prove that S68/S72 are locally optimal against all disjoint double swaps, against overlapping 3-cycles or against arbitrary right-image permutations.
+
 ## 5. Root theorem gate / next D6-S
 
 The new curvature identity describes nonlocal interactions of admissible right permutations and provides a rigorous obstruction to escaping local minima using selected pairs. It does NOT prove a nontrivial minimum of S over all right permutations, let alone all fixed f or all h. No all-g `Ω(s^6)`, no infinite coherent o(s^6) family, no full R3 upper and no new ASET exponent.
