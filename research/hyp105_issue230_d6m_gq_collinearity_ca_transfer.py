@@ -186,6 +186,24 @@ def _collinearity_type(point_lines, triple):
     )[hits]
 
 
+def _true_W32_actual_fixed_g_Cleft_Aright(model):
+    """Count actual directional W32 C-left/A-right ONLY, not aggregate tag."""
+    from hyp105_g5e2b3e1a_fixed_leading import selected_left_six
+    edges=model["incidences"]
+    right=model["right_labels"]
+    actual=0
+    for ids,typ in selected_left_six(model):
+        if typ!="C":
+            continue
+        rs=[edges[j][1] for j in ids]
+        if len(set(rs))!=6:
+            continue
+        physical_degrees=Counter(c for r in rs for c in right[r])
+        if len(physical_degrees)==6 and set(physical_degrees.values())=={2}:
+            actual+=1
+    return actual
+
+
 def exact_fixed_left_CA_profile(model):
     """TRUE original W32/W34 original point/line collinearity profile.
 
@@ -237,7 +255,10 @@ def exact_fixed_left_CA_profile(model):
         "universal_lower_expected_Cleft_Aright":universal["uniform_expected_Cleft_Aright_lower"],
         "universal_upper_expected_Cleft_Aright":universal["uniform_expected_Cleft_Aright_upper"],
         "all_h_mathematical_mean_formula":"PROVED-ALL-FINITE-H",
-        "actual_fixed_global_right_g_Cleft_Aright":None,
+        "actual_fixed_global_right_g_Cleft_Aright":(
+            _true_W32_actual_fixed_g_Cleft_Aright(model)
+            if s==2 else None),
+        "actual_fixed_right_g_value_IS_NOT_random_right_expectation":True,
         "expected_GF5_subclass_orientation":"C-left/A-right-ONLY",
         "all_right_g_lower_proved":False,
     }
@@ -267,6 +288,10 @@ def report():
         "all_h_for_EVERY_correlated_global_f_g":"OPEN",
         "root_Branch_A_or_B":"OPEN",
         "real_complete_GQ_fixed_left_profiles":actual,
+        "W32_fixed_left_lex_reverse_exactly_identical":(
+            fixture(1,"lex")["left_labels"]==
+            fixture(1,"reverse")["left_labels"]
+        ),
         "exact_all_h_rational_bound_checks":[
             universal_fixed_left_CA_expectation(s)
             for s in (2,4,8,16,32,64,128)
