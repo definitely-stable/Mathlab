@@ -76,6 +76,37 @@ class JointBlockingD6Tests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 finite_frontier(**kwargs)
 
+    def test_pinned_D6_same_map_real_original_coupling(self):
+        # Exact hosted D6-A Contract observed all six complete SAME-map rows.
+        pinned={
+            "W32-lex":(2977,786,156,942,2,259),
+            "W32-reverse":(2709,676,222,898,0,169),
+            "W32-S68":(3289,544,62,606,0,68),
+            "W32-S72":(3303,600,58,658,0,72),
+            "W34-D5-spread-balanced":(127932,35190,17570,52760,7649,None),
+            "W34-D5-spread-reverse":(131936,36014,17224,53238,7479,None),
+        }
+        for name,expected in pinned.items():
+            row=self.byname[name]
+            actual=tuple(row[k] for k in (
+                "D2_exact_bad_endpoint_energy_W",
+                "E_endpoint_bad_proper_P3",
+                "I_safe_endpoint_internal_only_proper_P3",
+                "C_joint_blocked_proper_P3",
+                "BB_sync_accepted_sixsets",
+                "full_seven_S",
+            ))
+            self.assertEqual(actual,expected)
+        # EXACT finite W32 order inversion disproves any naive strictly
+        # monotone S(W) rule. It is NOT an infinite-s asymptotic falsifier.
+        lex=self.byname["W32-lex"]
+        s68=self.byname["W32-S68"]
+        self.assertGreater(s68["D2_exact_bad_endpoint_energy_W"],
+                           lex["D2_exact_bad_endpoint_energy_W"])
+        self.assertLess(s68["full_seven_S"],lex["full_seven_S"])
+        self.assertLess(s68["C_joint_blocked_proper_P3"],
+                        lex["C_joint_blocked_proper_P3"])
+
     def test_reject_mislabeled_full_W34_seven_census(self):
         model,_,_,_=true_spread_global_model(2)
         with self.assertRaises(ValueError):
