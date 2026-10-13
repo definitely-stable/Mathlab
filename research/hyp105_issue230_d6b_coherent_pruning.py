@@ -388,6 +388,8 @@ def _one_case(core,retention,baseline,*,check_independent=True):
             raise AssertionError("removing genuine physical edges created new ORIGINAL proper paths")
     if row["W_retained_original_endpoint_energy"]>baseline["D2_exact_bad_endpoint_energy_W"]:
         raise AssertionError("nonnegative original degree energy grew after deletions")
+    row["s"]=core.s
+    row["scheme"]=baseline["scheme"]
     row.update({
         k:v for k,v in retention.items()
         if k not in ("adj","live_incidence_ids","deleted_physical_edges")
