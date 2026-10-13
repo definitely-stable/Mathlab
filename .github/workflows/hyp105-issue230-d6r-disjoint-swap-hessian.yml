@@ -1,0 +1,82 @@
+name: hyp105-issue230-d6r-disjoint-swap-hessian
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6r_disjoint_swap_hessian.py"
+      - "research/test_hyp105_issue230_d6r_disjoint_swap_hessian.py"
+      - "docs/research/HYP-105-ISSUE230-D6R-DISJOINT-SWAP-HESSIAN.md"
+      - ".github/workflows/hyp105-issue230-d6r-disjoint-swap-hessian.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-all-seven-disjoint-swap-hessian:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent original seven-GF5 double-swap full-census controls
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6r_disjoint_swap_hessian.py' -v
+      - name: Pin targeted S68 and S72 exact two-swap mixed curvature and root nonclaims
+        run: |
+          python research/hyp105_issue230_d6r_disjoint_swap_hessian.py > /tmp/hyp105-d6r.json
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          x=json.loads(Path('/tmp/hyp105-d6r.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6R-EXACT-DISJOINT-SWAP-HESSIAN'
+          assert x['theorem']=='ALL-H-EXACT-DISJOINT-ORIGINAL-CYLINDER-HESSIAN'
+          assert x['all_h_local_hessian_intersection_support_identity']
+          assert x['all_h_abs_curvature_upper_from_original_cylinder_intersection']
+          assert x['two_swap_search_scope']=='TOP-K-FIRST-SWAPS-ONLY-DISJOINT-PAIRS'
+          assert x['full_W34_W38_original_seven_S']=='NOT-CLAIMED'
+          assert x['Branch_A']=='OPEN' and x['Branch_B']=='OPEN'
+          rows=x['rows']
+          assert [r['scheme'] for r in rows]==['S68','S72']
+          assert [r['baseline_original_seven_S'] for r in rows]==[68,72]
+          assert [r['full_105_single_swap_min_delta_S'] for r in rows]==[7,2]
+          weights={'D6':5643,'B-left/A-right':45600,'A-left/B-right':45600,
+                   'C/A':43320,'C/B':49050,
+                   'B/B-overlap':51750,'B/B-disjoint':45010}
+          for r in rows:
+              assert r['all_105_singleton_swaps_strictly_worsen_S']
+              assert r['top_k_single_swap_ranked_moves']==12
+              assert 0<r['targeted_disjoint_two_swap_pairs_scanned']<=66
+              assert r['targeted_two_swap_improving_S']+r['targeted_two_swap_equal_S']+r['targeted_two_swap_worsening_S']==r['targeted_disjoint_two_swap_pairs_scanned']
+              assert r['all_disjoint_two_swaps_covered'] is False
+              assert r['overlapping_3cycles_covered'] is False
+              assert r['global_optimality_proved'] is False
+              best=r['best_targeted_two_swap']
+              worst=r['worst_targeted_two_swap']
+              assert len(set(best['first_swap']+best['second_swap']))==4
+              assert len(set(worst['first_swap']+worst['second_swap']))==4
+              assert best['two_disjoint_swaps_delta_S']<=worst['two_disjoint_swaps_delta_S']
+              for v in (best,worst):
+                  assert v['two_disjoint_swaps_delta_S']==(
+                      v['singleton_delta_S_first']+
+                      v['singleton_delta_S_second']+v['Hessian_S'])
+                  assert sum(v['Hessian_by_all_seven_positive_classes'].values())==v['Hessian_S']
+                  assert sum(weights[k]*v['Hessian_by_all_seven_positive_classes'][k] for k in weights)==v['Hessian_GF5_selected_lower_numerator']
+                  assert abs(v['Hessian_S'])<=v['deterministic_absolute_Hessian_S_upper']
+                  assert abs(v['Hessian_GF5_selected_lower_numerator'])<=v['deterministic_absolute_Hessian_GF5_upper']
+                  assert v['genuine_complete_right_injection_preserved']
+                  assert not v['root_all_h_lower_proved']
+              print({'scheme':r['scheme'],
+                     'baseline_S':r['baseline_original_seven_S'],
+                     'strict_singleton_min_delta':r['full_105_single_swap_min_delta_S'],
+                     'targeted_disjoint_two_swap_pairs':r['targeted_disjoint_two_swap_pairs_scanned'],
+                     'two_swap_improving_S':r['targeted_two_swap_improving_S'],
+                     'two_swap_improving_GF5':r['targeted_two_swap_improving_GF5_floor'],
+                     'negative_Hessian_count':r['targeted_negative_Hessian_pairs'],
+                     'minimum_targeted_Hessian':r['min_targeted_Hessian_S'],
+                     'best_targeted_pair':[best['first_swap'],best['second_swap']],
+                     'best_delta_S':best['two_disjoint_swaps_delta_S'],
+                     'best_delta_GF5':best['two_disjoint_swaps_delta_GF5_selected_lower_numerator'],
+                     'best_Hessian_S':best['Hessian_S']})
+          PY
