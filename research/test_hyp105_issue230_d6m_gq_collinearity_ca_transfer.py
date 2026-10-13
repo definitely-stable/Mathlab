@@ -205,6 +205,22 @@ class ExactOriginalGQCollinearityTransferTests(unittest.TestCase):
                 Fraction(case["uniform_expected_Cleft_Aright_lower"]),
                 Fraction(case["uniform_expected_Cleft_Aright_upper"]))
             self.assertFalse(case["all_g_or_root_Branch_A_proved"])
+            self.assertEqual(
+                (case["accepted_GF5_floor_C_over_A_each_sixset"],
+                 case["accepted_GF5_floor_B_left_A_right_each_sixset"]),
+                (43320,45600))
+            rightC=Fraction(case["uniform_expected_Cleft_Aright_lower"])
+            rightBA=Fraction(case[
+                "previous_B_left_A_right_expected_lower"])
+            self.assertEqual(
+                Fraction(case["selected_GF5_R3_expected_lower_numerator"]),
+                43320*rightC+45600*rightBA)
+            self.assertEqual(
+                Fraction(case["selected_GF5_R3_expected_lower"]),
+                (43320*rightC+45600*rightBA)/51**6)
+            self.assertEqual(case[
+                "new_asymptotic_selected_GF5_R3_expected_numerator_over_s6"],
+                "6889400")
             self.assertEqual(case[
                 "new_asymptotic_fixed_left_C_A_mean_coefficient"],"35/3")
         with self.assertRaises(ValueError):
