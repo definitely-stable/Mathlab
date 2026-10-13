@@ -184,7 +184,7 @@ def report():
     rows=[]
     for scheme,block in (("S68",(0,1,2,3)),("S72",(1,7,9,12))):
         model=fixture(1,scheme)
-        _,left,right,E=validated_small_model(model)
+        left,right,E,_=validated_small_model(model)
         compiled=compile_original_W32_cylinders(model)
         out=coherent_fiber(compiled,right,block)
         out["scheme"]=scheme
