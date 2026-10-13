@@ -13,7 +13,7 @@ JPKC-006 uses this compatibility and the TRUE source sixset's A/B/C half topolog
 Let T contain THREE DISTINCT ORIGINAL incidence IDs and let `P_T` be all coordinate-proper oriented graph P3s (simple four grid vertices, four different physical first and four different second symbols) using EXACTLY the three original physical graph incidence IDs T, each once. Then
 
 ```
-|P_T| <= 4.                         J18
+|P_T| <= 2.                         J18
 ```
 
 **Proof.** A coordinate-proper grid P3 projects on the first physical coordinate and separately on the second physical coordinate to an undirected SIMPLE three-edge P4, because its four row symbols and four column symbols are distinct. Consequently T's three physical first-factor edges and three second-factor edges, if they can support ANY such P3, are each a fixed undirected P4; in particular T has THREE distinct original point factors and THREE distinct original line factors. Each P4 has exactly TWO oriented traversals, BUT the original source incidence IDs label the three edges distinctly on BOTH row and column paths. An oriented physical graph path must traverse the SAME sequence of three original incidence IDs in both projections: for any chosen row orientation, there is at most ONE column orientation whose three-ID edge sequence agrees. Thus at most two oriented grid paths exist (the physical path and its exact reversal), not four independently chosen directions. If the row/column source edge orders are incompatible, no such path exists. This argument works for ALL h, needs no probabilistic assumption, and is independently verified by the local graph-edge oracle. QED.
