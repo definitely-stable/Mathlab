@@ -79,7 +79,38 @@ Every physical removal is paired via its single ORIGINAL incidence; the previous
 
 Models: two W32 complete maps (lex,S68), two *genuine* W34 D5 spread maps (balanced/reversed globally injective g), plus W38 D5 **literal PR394** retention and independent retained-energy validation. Full seven-family `S` is accepted and known ONLY for W32; it stays unchanged as a function of f,g regardless of H. For W34/W38 full S remains unknown, even if BB_sync(H) is computed exactly.
 
-## 5. What would prove the universal root statement (NOT accomplished here)
+## 5. First exact GitHub-hosted D6-B original GQ outcome
+
+Initial [D6-B focused Contract #38336898822](https://github.com/definitely-stable/Mathlab/actions/runs/38336898822) **SUCCESS** on initial child SHA `2b4dd23a0353a97b6fe031853722b2540fe9462d`: 6 tests in 5.618 seconds, 16 complete original pair-injective W32/W34 policy records and a separate true W38 literal-pruning/D5 retained-energy test. Final-head tests need to run again after pinning all 16 exact records.
+
+| Same complete ORIGINAL f,g | Policy | Physical H edges | W_H | E_H | I_H | C_H | BB_sync(H) |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| W32 lex | FULL | 90 | 2,977 | 786 | 156 | 942 | 2 |
+| W32 lex | PR394 literal | **0** | 0 | 0 | 0 | 0 | 0 |
+| W32 lex | finite calibration | 14 | 473 | 0 | 0 | 0 | 0 |
+| W32 lex | coherent every 19th incidence | 84 | 2,781 | 648 | 114 | 762 | 2 |
+| W32 S68 | FULL | 90 | 3,289 | 544 | 62 | 606 | 0 |
+| W32 S68 | PR394 literal | **0** | 0 | 0 | 0 | 0 | 0 |
+| W32 S68 | finite calibration | 48 | 1,759 | 76 | 8 | 84 | 0 |
+| W32 S68 | coherent every 19th incidence | 84 | 3,075 | 458 | 48 | 506 | 0 |
+| W34 D5 spread balanced | FULL | 850 | 127,932 | 35,190 | 17,570 | 52,760 | 7,649 |
+| W34 D5 spread balanced | PR394 literal | **0** | 0 | 0 | 0 | 0 | 0 |
+| W34 D5 spread balanced | finite calibration | 482 | 72,810 | 6,702 | 3,588 | 10,290 | 1,376 |
+| W34 D5 spread balanced | coherent witness-first | 818 | 122,953 | 31,230 | 15,652 | 46,882 | 6,695 |
+| W34 D5 spread reverse | FULL | 850 | 131,936 | 36,014 | 17,224 | 53,238 | 7,479 |
+| W34 D5 spread reverse | PR394 literal | **0** | 0 | 0 | 0 | 0 | 0 |
+| W34 D5 spread reverse | finite calibration | 464 | 72,094 | 6,170 | 3,016 | 9,186 | 1,234 |
+| W34 D5 spread reverse | coherent witness-first | 816 | 126,309 | 32,278 | 15,122 | 47,400 | 6,624 |
+
+**Decision 1 — actual literal finite PR394 collapse.** For all four fully observed original models W32/W34, the literal three-stage pruning with the intended spectral `T=s^(1/10)` yields `H=empty`. It *cannot* discriminate or empirically calibrate a positive eta/Lambda compensation when s is that small; both sides involving path mass become zero. It also cannot refute the proved (16-o(1))s^6 path reservoir because that theorem has an asymptotic h0 beyond these finite h.
+
+**Decision 2 — robust nontrivial diagnostics separate from the theorem.** With a separately named relaxed calibration, the actual original W34 D5 spread models still exhibit 10,290 and 9,186 blocked oriented proper P3; 3,588 and 3,016 are INTERNAL-only and would be missed by an endpoint-only energy treatment. A coherent adversarial removal of selected original D5 witness incidences (retaining 818/816 of 850 physical edges) gives C=46,882/47,400 rather than full 52,760/53,238; it preserves the need for simultaneous endpoint/internal accounting. These numbers have NO all-h epsilon implication.
+
+**Decision 3 — exact independence and full original geometry.** Every retained path is counted using the ORIGINAL (q,r)->(p,l) projection, not a projected incidence graph rebuilt after pruning. The independent endpoint-first physical middle-edge oracle confirms each of the sixteen masks. D5's separate retained bad-chord certificate agrees with exact W_H for literal W34 pruning, and W38 literal pruning passes the source geometry and D5 retained-energy test; no new W38 full P3 or S estimate is claimed.
+
+Finite data justify rejecting only a claimed *finite-h* surviving path reservoir or monotone scalar energy-to-motifs substitution, NOT rejecting a corrected asymptotic theorem or the still-open original Branch A/B.
+
+## 6. What would prove the universal root statement (NOT accomplished here)
 
 A new all-h theorem must use S or a bounded-multiplicity original GF5 sixset charging map to control **both** E and I jointly on this same coherently pruned H'. The sufficient form is
 
