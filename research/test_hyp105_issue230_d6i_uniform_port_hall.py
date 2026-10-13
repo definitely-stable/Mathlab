@@ -194,6 +194,17 @@ class UniformPortHallTests(unittest.TestCase):
                 self.assertEqual(
                     cut["mincut"]["six_M_minus_K_D"],
                     cut["exact_uniform_scaled_Hall_deficit_Delta6"])
+                if point["K"] == K - 1:
+                    # All 45 true ORIGINAL W(3,2) incidences, not
+                    # projected coordinate labels or fake GF5 signs.
+                    self.assertEqual(
+                        cut["mincut"]["source_closed_original_incidence_support_F"],
+                        list(range(45)))
+                    self.assertEqual(
+                        cut["mincut"]["original_positive_port_boundary_D"], 6*S)
+                    self.assertEqual(
+                        cut["exact_uniform_scaled_Hall_deficit_Delta6"],
+                        6*deficiency)
 
 
 if __name__ == "__main__":
