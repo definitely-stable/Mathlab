@@ -210,6 +210,11 @@ def _other_source_completion(ctx,path,T,qr):
             if len(set(Q))!=6:
                 raise AssertionError("positive source complement repeated incidence")
             actual=general_seven_original(ctx,Q)
+            if expected=="D6" and actual is None:
+                # A/A physical degree-2 candidates can have DIFFERENT
+                # left/right six-column cycles. Only matched connected
+                # ORIGINAL column duals are genuinely D6 selected.
+                continue
             if actual!=expected:
                 raise AssertionError(
                     "original topology completion generated a false seven class: "
