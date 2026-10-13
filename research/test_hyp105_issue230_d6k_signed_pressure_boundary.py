@@ -102,7 +102,7 @@ class SignedPressureBoundaryTests(unittest.TestCase):
         second={(0,1,2):3,(20,21,22):2}
         six={(0,3,4,5,6,7):"synthetic",
              (0,8,9,10,11,12):"synthetic"}
-        fail=signed_pressure_global_certificate(second,six,3)
+        fail=signed_pressure_global_certificate(second,six,10)
         self.assertGreater(fail["exact_local_Hall_excess_over_global_source_pressure"],0)
         self.assertFalse(fail["spectral_tree_global_only_Hall_deficit_CERTIFIED"])
         self.assertEqual(fail["exact_D6F_full_original_exception_mass"],2)
