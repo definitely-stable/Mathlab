@@ -272,10 +272,7 @@ def frozen_true_original_W32_report():
             indexed=[{**f,"R":tuple(triple.index(v) for v in f["R"])}
                      for f in source]
             cert,msg,aug=saturated_triple_anchor_certificate(indexed)
-            baseline=sum(f["costs"][((),tuple(t for t in range(3)
-                                           if triple[t] in f["R"]))]
-                         for f in []) if False else local_factor_objective(
-                             source,triple,(0,1,2))
+            baseline=local_factor_objective(source,triple,(0,1,2))
             if baseline!=expect:
                 raise AssertionError("independent true-ORIGINAL source census drift")
             partition=coupled_partition_certificate(
