@@ -27,6 +27,14 @@ class JPKC008Tests(unittest.TestCase):
             "S68":(544,2176,54,54,0),
             "S72":(600,2400,84,84,0),
         }
+        key_reuse={
+            # source factor (P,L) keys globally shared by multiple
+            # physical seeds, but NEVER across original GQ anchors.
+            "lex":(1380,1764),
+            "reverse":(1228,1476),
+            "S68":(1016,1160),
+            "S72":(1092,1308),
+        }
         for scheme,(E,total,feasible,unaligned,D6) in reference.items():
             with self.subTest(scheme=scheme):
                 r=hall_coherence_certificate(fixture(1,scheme))
@@ -35,13 +43,20 @@ class JPKC008Tests(unittest.TestCase):
                 self.assertTrue(r["J25_all_h_girth8_unique_3x3_matching"])
                 self.assertTrue(r["J26_all_h_Hall_3subset_exact"])
                 self.assertTrue(r["J27_all_h_source_matched_D6_telescope"])
-                self.assertTrue(r["J27_global_original_factor_key_shared_across_all_anchors"])
+                self.assertTrue(r["J27_global_original_factor_key_shared_across_all_seeds"])
+                self.assertTrue(r["J28_all_h_A_half_source_key_unique_GQ_anchor"])
+                self.assertTrue(r["J28_cross_original_anchor_sharing_is_impossible"])
+                self.assertEqual(r["keys_demanded_by_multiple_original_GQ_anchors"],0)
                 d=r["source_matching_deficit"]
                 self.assertEqual(d["source_triple_pairs"],total)
                 self.assertEqual(d["hall_deficient_pairs"],total-feasible)
                 self.assertEqual(d["hall_feasible_pairs"],feasible)
                 self.assertEqual(d["nonaligned_AA"],unaligned)
                 self.assertEqual(d["aligned_D6"],D6)
+                self.assertEqual((
+                    r["globally_distinct_original_3x3_factor_pair_keys"],
+                    r["source_demands_repeated_over_different_physical_P3"]),
+                    key_reuse[scheme])
                 self.assertFalse(r["root_A_proved"])
                 self.assertEqual(
                     r["unique_Hall_feasible_original_factor_pairs"]<=feasible,
