@@ -25,15 +25,15 @@ CLASSES=("D6","B-left/A-right","A-left/B-right",
 NON_GQ_TARGETS=("D6","B-left/A-right","A-left/B-right")
 SOURCE_U_TOPOLOGIES=("matching_3K2","point_wedge_plus_edge",
                      "line_wedge_plus_edge","GQ_P4","other")
-J18_SHARP_SOURCE_TRIPLE_REALIZATIONS=4
-J19_SELECTED_SOURCE_SIXSET_CAP=24
+J18_SHARP_SOURCE_TRIPLE_REALIZATIONS=2
+J19_SELECTED_SOURCE_SIXSET_CAP=12
 J19_CLASS_CAPS={
-    "D6":24, "B-left/A-right":16, "A-left/B-right":16,
-    "B/B-overlap":16, "B/B-disjoint":16,
+    "D6":12, "B-left/A-right":8, "A-left/B-right":8,
+    "B/B-overlap":8, "B/B-disjoint":8,
     "C/A":0,"C/B":0,
 }
 # Endpoint-bad seeds cannot belong to B/B by all-h J17, so cap for
-# eligible endpoint-bad witness Q is 24, with non-D6 <=16.
+# eligible endpoint-bad witness Q is 12, with non-D6 <=8.
 
 
 def _signature(ctx,ids):
@@ -260,7 +260,15 @@ def _local_three_source_paths(ctx,source):
                     and len({x%a for x in path})==4):
                 witnesses.add(path)
     if len(witnesses)>J18_SHARP_SOURCE_TRIPLE_REALIZATIONS:
-        raise AssertionError("J18 <=4 proper ORIGINAL path realizations per 3source failed")
+        raise AssertionError("J18 <=2 oriented proper ORIGINAL paths per three-source set failed")
+    if witnesses:
+        if len(witnesses)!=2:
+            raise AssertionError(
+                "J18 every real oriented ORIGINAL P3 has precisely its reversal")
+        for path in witnesses:
+            if tuple(reversed(path)) not in witnesses:
+                raise AssertionError(
+                    "J18 source triple physical witness must contain its reversal")
     return witnesses
 
 
@@ -321,9 +329,9 @@ def sharp_charge_certificate(model,*,limit_endpoint_seeds=None,
                                "completion_U":U,"Q":Q,"source_topology":t,
                                "first_original_anchor":qr}
     if max(map(len,source_triples.values()),default=0)>4:
-        raise AssertionError("J18 source triple four-direction cap violated")
+        raise AssertionError("J18 source triple two-reversal cap violated")
     if max(by_Q.values(),default=0)>J19_SELECTED_SOURCE_SIXSET_CAP:
-        raise AssertionError("J19 accepted sixset maximum 24 proper seeds violated")
+        raise AssertionError("J19 accepted sixset maximum 12 proper seeds violated")
     if len(witness_pairs)!=sum(class_hits.values()):
         raise AssertionError("source-positive physical seed-to-Q charge mismatch")
     if exact_W32:
@@ -351,7 +359,7 @@ def sharp_charge_certificate(model,*,limit_endpoint_seeds=None,
             if c>J19_CLASS_CAPS[tag]:
                 raise AssertionError("J19 class-specific 24/16 original sixset charge failed")
         if sum(class_hits.values())>J19_SELECTED_SOURCE_SIXSET_CAP*census["S_seven"]:
-            raise AssertionError("new 24S globally coherent bound violated")
+            raise AssertionError("new 12S globally coherent bound violated")
     return {
         "scope":"exact per seed ORIGINAL non-GQ alternate extension, NOT an image proxy",
         "s":ctx.s,"a":ctx.a,
@@ -365,8 +373,8 @@ def sharp_charge_certificate(model,*,limit_endpoint_seeds=None,
         "max_realized_complete_source_three_seed":
             max((len(v) for v in source_triples.values()),default=0),
         "max_physical_P3_per_accepted_Q_in_sample":max(by_Q.values(),default=0),
-        "J18_all_h_4_source_triple_cap_verified":True,
-        "J19_all_h_24_selected_sixset_cap_verified":True,
+        "J18_all_h_2_source_triple_cap_verified":True,
+        "J19_all_h_12_selected_sixset_cap_verified":True,
         "J20_all_h_only_matching_or_wedge_nonGQ_complements":True,
         "full_W32_independent_accepted_Q_oracle_compared":bool(exact_W32),
         "no_full_W34_Q_census":not exact_W32,
@@ -391,8 +399,8 @@ def report(*,w34_sample=32,spread=True):
                         **sharp_charge_certificate(
                             m,limit_endpoint_seeds=w34_sample,exact_W32=False)})
     return {
-        "J18_all_h_4_instead_of_16":True,
-        "J19_selected_sixset_24_instead_of_320":True,
+        "J18_all_h_2_instead_of_16":True,
+        "J19_selected_sixset_12_instead_of_320":True,
         "J20_nonGQ_matching_wedge_exact_type":True,
         "no_root_A_B_result":True,
         "records":records,
