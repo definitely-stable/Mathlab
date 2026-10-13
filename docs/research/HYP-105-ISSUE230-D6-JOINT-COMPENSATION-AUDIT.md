@@ -91,7 +91,26 @@ D6-A commits to the explicit primary metrics:
 | Entire seven-family S, accepted GF5 risk floor | Exact | **UNKNOWN**, not zero | OPEN |
 | S-conditional W small or C compensation | Not inferred | Not inferred | OPEN |
 
-## 5. Pre-registered GO/NO-GO for D6-B
+## 5. Exact first GitHub-hosted same-map D6-A outcome
+
+The **first** exact-head [D6-A GitHub-hosted Contract run #38335064707](https://github.com/definitely-stable/Mathlab/actions/runs/38335064707) passed all five original tests and its six-record complete report. Numbers are from entire genuine original physical G graphs, not synthetic shortcuts, and are now pinned as regression values (later final-head CI must pass again after pinning).
+
+| Same globally coherent ORIGINAL f,g | W_G | E | I | C=E+I | BB_sync | FULL accepted S |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| W32 lex | 2,977 | 786 | 156 | 942 | 2 | **259** |
+| W32 reverse | 2,709 | 676 | 222 | 898 | 0 | **169** |
+| W32 S68 | 3,289 | 544 | 62 | 606 | 0 | **68** |
+| W32 S72 | 3,303 | 600 | 58 | 658 | 0 | **72** |
+| W34 D5 spread / balanced g | 127,932 | 35,190 | 17,570 | 52,760 | 7,649 | **UNMEASURED** |
+| W34 D5 spread / reversed g | 131,936 | 36,014 | 17,224 | 53,238 | 7,479 | **UNMEASURED** |
+
+**Exact finite inversion, not an all-h theorem:** W32 S68 has **higher** unsigned W_G (3,289 > 2,977) than W32 lex, yet **lower** seven-family S (68 < 259) AND lower total true blocked mass C (606 < 942). Hence any global assertion that S, C or accepted original motif multiplicities must be monotone increasing as scalar W rises is **false already at s=2**. However this does not falsify a *one-sided asymptotic conditioned* statement `S=o(s6) ==> W=o(s^(59/10))`; no infinite small-S family is supplied, and finite s exponents/remainder terms cannot be inferred.
+
+At W34 the genuinely accepted synchronized BB sixset subclass by itself gives `S>=7649` or `S>=7479` for the respective complete original f,g; each is larger than `4^6=4096`. These are correct **finite lower bounds**, not a full seven-class count and NOT an asymptotic `Omega(s6)` theorem. The substantial internal-only mass (17,570 and 17,224) independently shows the D5 construction cannot be analyzed solely with endpoint-bad energy or endpoint-only congestion. Measured `W_G` and `E` also need not track one another monotonically across maps.
+
+Final-head CI acceptance on the pinned regression commit and an independent proof review must still be checked before treating D6-A as complete evidence.
+
+## 6. Pre-registered GO/NO-GO for D6-B
 
 1. **First:** inspect the completed exact-head D5 full Research run; its completion cannot be inherited from partial checks or an earlier SHA.
 2. **Then:** run independent D6-A Contract on GitHub-hosted runner; pin the emitted real W32/W34 values after successful run, not before. If D6-A is RED, correct only the independently diagnosed issue on the D6 branch.
