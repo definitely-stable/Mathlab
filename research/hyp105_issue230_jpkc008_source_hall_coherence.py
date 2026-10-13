@@ -75,6 +75,29 @@ def hall_certificate(ctx,points,lines,*,crosscheck_permutations=True):
     }
 
 
+def _P4_endpoint_pair(labels,source_triple):
+    """Recover uniquely BOTH degree-one endpoints from 3 physical Ka pair edges."""
+    degrees=Counter()
+    for source in source_triple:
+        degrees.update(labels[source])
+    if sorted(degrees.values())!=[1,1,2,2]:
+        raise AssertionError(
+            "J28 each physical A-half source triple must be a simple 3-edge P4")
+    endpoints=tuple(sorted(z for z,degree in degrees.items() if degree==1))
+    if len(endpoints)!=2:
+        raise AssertionError("J28 A-half source endpoints not uniquely determined")
+    return endpoints
+
+
+def source_key_original_anchor(ctx,P,L):
+    """J28 ALL h: the pair of A-half SOURCE triples fixes original (q,r)."""
+    q=ctx.fi.get(_P4_endpoint_pair(ctx.f,P))
+    r=ctx.gi.get(_P4_endpoint_pair(ctx.g,L))
+    if q is None or r is None or (q,r) not in ctx.projection:
+        raise AssertionError("J28 genuine original A-half key lacks a unique nonincident GQ anchor")
+    return q,r
+
+
 def _demand(ctx,path):
     """Exact complete source-point and source-line A-half candidate product."""
     src=set(_path_source(ctx,path))
@@ -123,6 +146,10 @@ def hall_coherence_certificate(model,*,limit_seeds=None,exact_W32=True,
         stage=Counter()
         for P,L,_ in _demand(ctx,path):
             key=(P,L)
+            recovered=source_key_original_anchor(ctx,P,L)
+            if recovered!=anchor:
+                raise AssertionError(
+                    "J28 original source A-half pair key demanded by a different GQ anchor")
             if key not in demand_cache:
                 demand_cache[key]=hall_certificate(ctx,P,L)
             c=demand_cache[key]
@@ -189,6 +216,9 @@ def hall_coherence_certificate(model,*,limit_seeds=None,exact_W32=True,
     # (when feasible) one fixed 3-incidence matching for ALL seed/anchor demands.
     repeat=sum(v-1 for v in demand_multiplicity.values())
     across=sum(len(demand_anchors[k])>1 for k in demand_cache)
+    if across:
+        raise AssertionError(
+            "J28 exact globally shared source A-half key cannot cross ORIGINAL GQ anchors")
     result={
         "s":ctx.s,"a":ctx.a,
         "full_true_original_endpoint_bad_P3_population":len(seeds),
@@ -197,7 +227,9 @@ def hall_coherence_certificate(model,*,limit_seeds=None,exact_W32=True,
         "J25_all_h_girth8_unique_3x3_matching":True,
         "J26_all_h_Hall_3subset_exact":True,
         "J27_all_h_source_matched_D6_telescope":True,
-        "J27_global_original_factor_key_shared_across_all_anchors":True,
+        "J27_global_original_factor_key_shared_across_all_seeds":True,
+        "J28_all_h_A_half_source_key_unique_GQ_anchor":True,
+        "J28_cross_original_anchor_sharing_is_impossible":True,
         "original_source_demand_pair_budget":totals["source_triple_pairs"],
         "globally_distinct_original_3x3_factor_pair_keys":len(demand_cache),
         "source_demands_repeated_over_different_physical_P3":repeat,
