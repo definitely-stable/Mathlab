@@ -80,6 +80,7 @@ class SignedPressureBoundaryTests(unittest.TestCase):
         self.assertEqual(case["signed_pressure_variance_numerator_v"],6)
         self.assertEqual(case["certified_maximum_spanning_tree_bottleneck_b"],4)
         self.assertTrue(case["spectral_tree_global_only_Hall_deficit_CERTIFIED"])
+        self.assertTrue(case["calibrated_pair_flow_global_only_Hall_deficit_CERTIFIED"])
         self.assertEqual(case["positive_source_incidence_pressure_count"],1)
         self.assertEqual(case["negative_source_incidence_pressure_count"],1)
         self.assertEqual(case["uniform_exact_scaled_Hall_deficit_Delta6"],0)
@@ -105,7 +106,56 @@ class SignedPressureBoundaryTests(unittest.TestCase):
         fail=signed_pressure_global_certificate(second,six,10)
         self.assertGreater(fail["exact_local_Hall_excess_over_global_source_pressure"],0)
         self.assertFalse(fail["spectral_tree_global_only_Hall_deficit_CERTIFIED"])
+        self.assertFalse(fail["calibrated_pair_flow_global_only_Hall_deficit_CERTIFIED"])
+        self.assertGreater(fail["centred_pair_pressure_calibration"][
+            "failed_pair_cut_witness"]["exact_positive_pair_cut_shortfall"],0)
         self.assertEqual(fail["exact_D6F_full_original_exception_mass"],2)
+
+    def test_centred_pair_flux_independent_divergence_and_bipartite_cut(self):
+        rng=Random(230612)
+        for i in range(32):
+            sources={}
+            while len(sources)<2+i%2:
+                T=tuple(sorted(rng.sample(range(14),3)))
+                sources[T]=rng.randint(1,5)
+            six={}
+            while len(six)<1+i%3:
+                Q=tuple(sorted(rng.sample(range(14),6)))
+                six[Q]="synthetic"
+            K=i%5
+            result=signed_pressure_global_certificate(sources,six,K)
+            calibration=result["centred_pair_pressure_calibration"]
+            active=sorted({e for T in sources for e in T})
+            n=len(active)
+            loads={e:sum(w for T,w in sources.items() if e in T)
+                   for e in active}
+            degrees={e:sum(e in Q for Q in six) for e in active}
+            pressure={e:2*loads[e]-K*degrees[e] for e in active}
+            G=sum(pressure.values())
+            q={e:n*pressure[e]-G for e in active}
+            if calibration["feasible"]:
+                divergence={e:0 for e in active}
+                for u,v,g,cap in calibration["centred_signed_edge_flux"]:
+                    self.assertLessEqual(abs(g),cap)
+                    self.assertEqual(cap,n*sum(
+                        w for T,w in sources.items() if u in T and v in T))
+                    divergence[u]+=g
+                    divergence[v]-=g
+                self.assertEqual(divergence,q)
+                self.assertEqual(
+                    result["exact_local_Hall_excess_over_global_source_pressure"],0)
+            else:
+                w=calibration["failed_pair_cut_witness"]
+                F=set(w["original_incidence_support_F"])
+                count=sum(q[e] for e in F)
+                pair=sum(v for T,v in sources.items()
+                         for u,t in combinations(T,2)
+                         if (u in F)!=(t in F))
+                self.assertEqual(count,w["sum_centred_integer_pressure"])
+                self.assertEqual(pair,w["original_pair_cut_weight"])
+                self.assertEqual(count-n*pair,
+                                 w["exact_positive_pair_cut_shortfall"])
+                self.assertGreater(count-n*pair,0)
 
     def test_empty_sources_zero_capacity_and_strict_input_validation(self):
         self.assertEqual(signed_pressure_global_certificate(
