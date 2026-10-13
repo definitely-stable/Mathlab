@@ -52,6 +52,92 @@ For an endpoint-bad physical P3, its canonical projection triple A(q,r) cannot m
 
 Do NOT claim a uniform requirement of two replacement incidences. The B-type positive projection may consist of a physical C4 plus a disjoint repeated-edge C2; an original endpoint chord can participate in that C4. The stronger "all q or r labels are forbidden" shortcut would be FALSE for B/B-overlap completions. The executable checks actual canonical intersections rather than assuming an unsupported fixed edit distance.
 
+## 4a. THEOREM J17 (ALL h): an accepted ORIGINAL GQ-walk completion is NECESSARILY CANONICAL
+
+This is an additional structural result exposed by the exact W32
+source-completion report: NONE of the successful alternate Q extensions
+use a second genuine ORIGINAL GQ three-incidence walk. This finite
+observation has a rigorous ALL-h explanation.
+
+**THEOREM J17.** Let T consist of the three TRUE original incidence
+positions of any coordinate-proper simple physical P3, with original
+physical endpoint pair labels q,r both present and nonincident.
+Suppose U, disjoint from T, is itself the THREE distinct incidence
+positions of a TRUE ORIGINAL GQ length-three walk
+`q'--ell'--p'--r'`:
+`(q',ell'),(p',ell'),(p',r')` with q'!=p', ell'!=r'.
+If the six-incidence set Q=T∪U has exactly six physical symbols of
+degree 2 on BOTH sides, then `q'=q`, `r'=r`, and U is EXACTLY
+the canonical unique ORIGINAL GQ closure `A(q,r)`.
+
+**Proof.** The three physical first-coordinate edges of T form a
+simple P4 on four distinct physical row symbols x0,x1,x2,x3 with
+degrees (1,2,2,1). In U, the physical label f(p') occurs TWICE (in
+(p',ell') and (p',r')), and f(q') occurs once. For Q to have degree
+2 on each of exactly six first-coordinate symbols, BOTH symbols of
+f(p') must lie OUTSIDE the four P4 row symbols: its two occurrences
+already have degree 2, so intersecting any P4 row symbol would
+create degree >=3. The remaining single edge f(q') is therefore
+forced to join the two degree-one P4 endpoints x0,x3, completing
+the physical C4 plus disjoint doubled physical edge (C2).
+Since q=f^-1({x0,x3}) and f is globally injective, q'=q.
+
+Dually, g(ell') occurs twice in the ORIGINAL right half of U and
+is forced outside the four physical P4 column symbols; the single
+right edge g(r') must join the two degree-one column endpoints
+y0,y3. Thus r'=r. By the UNIQUE original GQ projection axiom,
+the true source walk q'--ell'--p'--r' equals the canonical original
+q--ell--p--r. QED.
+
+If q,r are **endpoint-bad**, JPKC-004 J9 already excludes that
+canonical U. **Therefore no endpoint-bad proper P3 seed has a
+positive sixset completion where U is ANY true ORIGINAL GQ
+three-incidence walk, canonical OR noncanonical.** All actually
+successful alternate U must use an entirely different original
+three-incidence factor pattern (NOT another GQ 3walk). This strictly
+closes the 'second-GQ-anchor' route initially proposed for JPKC-005.
+
+The theorem requires U itself to be an ORIGINAL GQ length-three
+walk. It does NOT exclude arbitrary cross-anchor/higher-order
+source combinations or the other five classes obtained from
+non-walk alternate triples. When U is not a GQ walk, do not attempt
+to interpret it as a second q'--ell'--p'--r' witness.
+
+### Exhaustive ORIGINAL W32 experimental census (independent reference)
+
+| True f,g | Endpoint-bad P3 seeds E | Seeds with >=1 selected positive alternate U | No selected alternate | Ordered (P,Q) source-positive extension hits | Actual alternate true GQ walks |
+|---|---:|---:|---:|---:|---:|
+| W32 lex | 786 | 154 | 632 | 214 | 0 |
+| W32 reverse | 676 | 86 | 590 | 90 | 0 |
+| W32 S68 | 544 | **8** | **536** | 8 | **0** |
+| W32 S72 | 600 | **10** | **590** | 10 | **0** |
+
+Actual accepted alternate classes:
+- W32 lex: A-left/B-right 82; B-left/A-right 68; D6 64
+- W32 reverse: A-left/B-right 30; B-left/A-right 36; D6 24
+- W32 S68: A-left/B-right 2; B-left/A-right 6; D6 0
+- W32 S72: A-left/B-right 4; B-left/A-right 6; D6 0
+
+No observed endpoint-bad alternate seed has a B/B, C/A or C/B
+extension in these four W32 maps. This is ONLY a finite empirical
+absence for B/B; the J15 impossibility of C/A and C/B is an all-h
+theorem. The ALL-h impossibility of an alternate TRUE GQ THREE-WALK
+completion is Theorem J17 and does not follow merely from finite
+absence.
+
+For low-S maps S68 and S72, the valid additional incidence triples
+U have intersection counts with the canonical original anchor
+incidences `|U∩A(q,r)|`: S68: 6 zero-intersection and 2
+one-intersection; S72: 4 zero-intersection and 6 one-intersection.
+All of their alternate U are structurally non-GQ three-walks.
+
+On W34 lex, random and true D4 spread, the separately exact
+original closure structural checks independently verify 15,064,
+16,042 and 15,298 unblocked proper oriented P3, respectively,
+each with a true B/B-overlap canonical original sixset. The
+FULL alternate-positive original W34 sixset enumeration is
+NOT performed, and no W34 alternate-coverage percentage is claimed.
+
 ## 5. Exact true ORIGINAL W32 falsifier; truthful W34 boundary
 
 The new standalone `research/hyp105_issue230_jpkc005_alternate_three_completion.py`:
