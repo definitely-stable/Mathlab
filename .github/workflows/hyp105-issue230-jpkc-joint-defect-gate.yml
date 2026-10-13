@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "research/hyp105_issue230_jpkc_joint_defect_gate.py"
+      - "research/hyp105_issue230_jpkc_spread_adversary.py"
       - "research/test_hyp105_issue230_jpkc_joint_defect_gate.py"
       - "docs/research/HYP-105-ISSUE230-JPKC-001-JOINT-PROJECTION-KIKUCHI.md"
       - ".github/workflows/hyp105-issue230-jpkc-joint-defect-gate.yml"
