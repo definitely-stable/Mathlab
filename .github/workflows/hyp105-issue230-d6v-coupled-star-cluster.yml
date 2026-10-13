@@ -1,0 +1,51 @@
+name: hyp105-issue230-d6v-coupled-star-cluster
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6v_coupled_star_cluster.py"
+      - "research/test_hyp105_issue230_d6v_coupled_star_cluster.py"
+      - "docs/research/HYP-105-ISSUE230-D6V-COUPLED-STAR-CLUSTER.md"
+      - ".github/workflows/hyp105-issue230-d6v-coupled-star-cluster.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-coupled-star-cluster:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Star obstruction s=2,4,8; original W32 overlap; exact joint primal-dual cluster controls
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6v_coupled_star_cluster.py' -v
+      - name: Pinned all-h zero-cluster theorem and original seven-GF5 finite coupling report
+        run: |
+          python research/hyp105_issue230_d6v_coupled_star_cluster.py > /tmp/d6v.json
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          x=json.loads(Path('/tmp/d6v.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6V-COUPLED-STAR-CLUSTER-BOUND'
+          assert x['theorem']=='ALL-H-STAR-ZERO-FOR-SMALL-UNIONS-BOTH-SIDES'
+          assert x['all_h_any_t_le_floor_a_minus_one_over_six_joint_min']=='ZERO'
+          assert x['unconditional_local_block_size_required_asymptotic']=='OMEGA(s^(3/2))'
+          assert x['actual_global_min_positive_proved'] is False
+          assert x['general_Sherali_Adams_no_go'] is False
+          assert x['Branch_A']==x['Branch_B']=='OPEN'
+          assert [(p['s'],p['a'],p['guaranteed_zero_cluster_max_sixsets'])
+                  for p in x['parameters'][:3]]==[(2,6,0),(4,14,2),(8,35,5)]
+          assert len(x['W32_conditioned'])==2
+          for z in x['W32_conditioned']:
+              assert z['true_original_left_sixsets']==62370
+              for name,obj in z['objectives'].items():
+                  bounds=[obj['orders'][str(k)]['exact_coupled_cluster_lower']
+                          for k in (1,2,3)]
+                  assert bounds==sorted(bounds) and bounds[-1]<=obj['exact_full_three_permutation_min']
+                  assert obj['orders']['1']['exact_coupled_cluster_lower']==obj['orders']['1']['exact_singleton_minima_sum']
+                  print(z['scheme'],name,'singleton/pair/triple:',bounds,'exact:',obj['exact_full_three_permutation_min'])
+          PY
