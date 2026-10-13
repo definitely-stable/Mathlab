@@ -283,12 +283,17 @@ def sharp_charge_certificate(model,*,limit_endpoint_seeds=None,
         raise ValueError("positive selected endpoint-bad physical seed limit required")
     _,fibers,_=_path_fibers(ctx,max_paths)
     seeds=list(_bad_seed_paths(ctx,fibers))
-    if limit_endpoint_seeds is None:
+    if limit_endpoint_seeds is None or limit_endpoint_seeds>=len(seeds):
         selected=seeds
+    elif limit_endpoint_seeds==1:
+        # Deterministic middle representative; not a probability sample.
+        selected=[seeds[len(seeds)//2]]
     else:
-        # Deterministic SOURCE-genuine prefix of physically ordered seeds.
-        # Partial W34 results are never claimed as a full E census.
-        selected=seeds[:limit_endpoint_seeds]
+        # Deterministically cover the FULL genuine endpoint-bad population
+        # rather than a lexicographically clustered first-prefix. Every
+        # chosen seed receives an EXHAUSTIVE-per-seed original Q query.
+        selected=[seeds[(i*(len(seeds)-1))//(limit_endpoint_seeds-1)]
+                  for i in range(limit_endpoint_seeds)]
     source_triples=defaultdict(set)
     alternate=Counter()
     class_hits=Counter()
@@ -384,7 +389,7 @@ def sharp_charge_certificate(model,*,limit_endpoint_seeds=None,
     }
 
 
-def report(*,w34_sample=32,spread=True):
+def report(*,w34_sample=96,spread=True):
     records=[]
     for name in ("lex","reverse","S68","S72"):
         records.append({"scheme":name,**sharp_charge_certificate(fixture(1,name))})
@@ -409,7 +414,7 @@ def report(*,w34_sample=32,spread=True):
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser()
-    parser.add_argument("--w34-sample",type=int,default=32)
+    parser.add_argument("--w34-sample",type=int,default=96)
     parser.add_argument("--no-spread",action="store_true")
     args=parser.parse_args()
     print(json.dumps(report(w34_sample=args.w34_sample,spread=not args.no_spread),
