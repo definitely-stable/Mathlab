@@ -80,6 +80,44 @@ The finite scan reports, for S68 and S72 separately, how many 3-cycles decrease,
 
 The dedicated CI uses **parallel GitHub-hosted jobs** for the two frozen maps after a once-per-PR independent full-original seven-census test job. Each finite exhaustive job evaluates exactly one map's 910 cycles, with a hard runtime limit. This respects the constraint of GitHub-hosted only; it avoids duplicating the entire two-map enumeration inside the unit-test phase.
 
+## 4a. Exact hosted original W32 exhaustive result: S72 escapes; S68 resists ALL <=3-factor right permutations
+
+Initial specialized hosted [run #38395675172](https://github.com/definitely-stable/Mathlab/actions/runs/38395675172) returned SUCCESS on implementation HEAD `4d61bbccb825a2d354984c770a6a07be7f3a6211`. Its six independent ORIGINAL seven-GF5 classifier tests all passed. Separately on two GitHub-hosted matrix jobs, ALL 455 ORIGINAL right factor triples and BOTH orientations were checked per map (910 complete globally injective three-cycles per map, 1820 total), with the D6-P 105 exact right transpositions independently rechecked in the same job. The following exact data are now frozen as fail-closed regression assertions on the later PR HEAD.
+
+| Exact result (true original W32) | S68 | S72 |
+| --- | ---: | ---: |
+| Baseline positive seven-S | 68 | 72 |
+| Strictly worsening singleton transpositions | 105 of 105 | 105 of 105 |
+| Oriented three-cycles tested | 910 of 910 | 910 of 910 |
+| Decreasing S three-cycles | **0** | **1** |
+| Equal-S three-cycles | 0 | 0 |
+| Increasing S three-cycles | 910 | 909 |
+| Three-cycles decreasing selected necessary GF5 numerator | **0** | **1** |
+| Three-original-line supports with a NONZERO order commutator | 445 of 455 | 449 of 455 |
+| Minimum observed oriented three-cycle ΔS | **+8** | **−4** |
+| Maximum observed oriented three-cycle ΔS | +108 | +101 |
+| Best oriented original right triple | (3,11,12), forward | **(1,7,9), reverse** |
+| Exact Δ GF5 necessary floor numerator at best ΔS | +317513 | **−179530** |
+| Order commutator ΔS between orientations at best triple | −32 | +46 |
+
+**New genuine ORIGINAL finite falsifier.** For the frozen S72 scheme, rotate physical right pair labels on ORIGINAL line identities (1,7,9) in the **reverse orientation**: u receives old g(w), v receives old g(u), w receives old g(v). This preserves the entire same original symplectic GQ, the SAME fixed left map f, right global injectivity, and exactly the same physical right IMAGE. The count changes **S:72→68**. Full source ORIGINAL `seven_census` independently confirms the following **all-seven class count deltas** (new minus original):
+
+    D6                       0
+    B-left/A-right          +7
+    A-left/B-right          -9
+    C/A                     -1
+    C/B                      0
+    B/B-overlap              0
+    B/B-disjoint            -1
+    TOTAL S                 -4
+    certified GF5 lower numerator delta = -179530
+
+The one-swap strict local minimum S72 is therefore **NOT** a strict minimum once 3-factor-supported moves are admitted. D6-R's top-12-selected disjoint double-swap search did not include these overlapping 3-cycles, so there is no contradiction. This is a valid finite h=1 short witness; it does NOT construct an infinite Branch B family, and reaching the same count 68 does not establish equality of the resulting right map to the frozen S68 map.
+
+**New stronger finite positive certificate for S68.** All 105 single swaps and all 910 oriented three-cycles strictly increase S68, and also do not decrease the selected certified GF5 necessary lower numerator. Every nonidentity permutation on a support of at most three ORIGINAL right factor lines is either a transposition or a 3-cycle. Therefore **S68 is a strict right-permutation local minimum against EVERY move supported on at most three original right factors** for its fixed original W32 left map. It is NOT proved a global minimum against permutations of FOUR or more right factors, not an optimal value over changing f, and absolutely not an all-h positive lower bound.
+
+**Order matters empirically.** S68's two 3-cycle orientations have different S in 445/455 triple supports; for S72 this happens in 449/455 triple supports. This is direct finite evidence that oriented permutations cannot be collapsed to unordered three-factor supports or treated with D6-R's commuting Hessian. The synthetic noncommuting transfer-tail counterexample and independent source recount are retained as permanent regression controls.
+
 ## 5. Mathematical branch gate, limitations, acceptance
 
 The D6-P strict one-swap local minima, D6-R targeted double-swap non-escapes, and D6-S exhaustive <=3-factor right permutation certificate are all **finite W32 facts**, not all-h uniform lower bounds. Even a strict W32 minimum against all three-line-supported right permutations is not necessarily globally optimal for 15 right lines. The substantive root alternative remains:
