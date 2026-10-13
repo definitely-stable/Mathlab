@@ -18,7 +18,7 @@ Let T contain THREE DISTINCT ORIGINAL incidence IDs and let `P_T` be all coordin
 
 **Proof.** A coordinate-proper grid P3 projects on the first physical coordinate and separately on the second physical coordinate to an undirected SIMPLE three-edge P4, because its four row symbols and four column symbols are distinct. Consequently T's three physical first-factor edges and three second-factor edges, if they can support ANY such P3, are each a fixed undirected P4; in particular T has THREE distinct original point factors and THREE distinct original line factors. Each P4 has exactly TWO oriented traversals, BUT the original source incidence IDs label the three edges distinctly on BOTH row and column paths. An oriented physical graph path must traverse the SAME sequence of three original incidence IDs in both projections: for any chosen row orientation, there is at most ONE column orientation whose three-ID edge sequence agrees. Thus at most two oriented grid paths exist (the physical path and its exact reversal), not four independently chosen directions. If the row/column source edge orders are incompatible, no such path exists. This argument works for ALL h, needs no probabilistic assumption, and is independently verified by the local graph-edge oracle. QED.
 
-**Implementation:** independent per-T local oracle enumerates both diagonal edges of all THREE original incidence IDs, all six edge orders, all eight diagonal choices, and independently tests graph-path connectivity and full coordinate properness; it MUST find <=4. This oracle neither imports nor trusts the global projection-path loop for its answer.
+**Implementation:** independent per-T local oracle enumerates both diagonal edges of all THREE original incidence IDs, all six edge orders, all eight diagonal choices, and independently tests graph-path connectivity and full coordinate properness; it MUST find <=2. This oracle neither imports nor trusts the global projection-path loop for its answer.
 
 ## 3. THEOREM J19 (ALL h): 12, not 320, proper P3s per positive ORIGINAL sixset Q
 
@@ -27,7 +27,7 @@ For an accepted original six-incidence set Q, the physical first-side and second
 Each coordinate-proper P3 source triple T contained in Q projects to an undirected P4 on each side. The following **geometric restrictions are ALL-h**:
 
 - **A side:** six physically distinct edges form C6 or two disjoint C3s; since an embedded P4 uses 4 connected physical symbols, the C3+C3 possibility contains NO P4. Hence only an actual C6 can occur and its P4 3-edge subset must be one of the SIX consecutive 3-edge runs.
-- **B side:** the doubly occurring original factor edge contributes a 2-cycle between TWO vertices already of physical degree 2, disjoint from the four other singly occurring original edges. The four singles necessarily form a simple C4. A physical P4 cannot use the doubled factor edge and must use exactly three of the four C4 edges; at most TWO candidate original 3-ID subsets.
+- **B side:** the doubly occurring original factor edge contributes a 2-cycle between TWO vertices already of physical degree 2, disjoint from the four other singly occurring original edges. The four singles necessarily form a simple C4. A physical P4 cannot use the doubled factor edge and must use exactly three of the four C4 edges; at most FOUR candidate original 3-ID subsets.
 - **C side:** three disjoint doubled physical edges (three 2-cycles), each with only two physical vertices. NO connected four-symbol P4 is possible, so zero seeds.
 
 Combining J18 with the stronger half-side restriction yields an ALL-h charge independent of s:
@@ -99,7 +99,7 @@ Take any hypothetical unbounded family of legal complete f_s,g_s with `S_s=o(s^6
 E_s >= (8-o(1))s^6.
 ```
 
-J19 charges at most 24 endpoint-bad physical seeds per selected true original sixset. Therefore at least
+J19 charges at most 12 endpoint-bad physical seeds per selected true original sixset. Therefore at least
 
 ```
 E_s - 12 S_s = (8-o(1))s^6
