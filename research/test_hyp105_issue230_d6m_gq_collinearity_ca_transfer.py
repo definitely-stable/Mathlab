@@ -54,21 +54,28 @@ def independent_finite_W32_class_C_A(model):
     right=model["right_labels"]
     left_C=0
     right_distinct=0
-    ca_accepted=0
+    ca_directed_left_C_right_A=0
+    ca_reverse_left_A_right_C=0
     for ids,tag in selected_left_six(model):
-        if tag!="C":
+        if tag not in ("A","C"):
             continue
-        left_C+=1
+        if tag=="C":
+            left_C+=1
         ps=[incidence[i][0] for i in ids]
         rs=[incidence[i][1] for i in ids]
-        if len(set(ps))!=3 or set(Counter(ps).values())!={2}:
-            raise AssertionError("selected_left_six C pattern violated")
-        if len(set(rs))==6:
-            right_distinct+=1
-            degrees=Counter(v for i in ids for v in right[incidence[i][1]])
-            if len(degrees)==6 and set(degrees.values())=={2}:
-                ca_accepted+=1
-    return left_C,right_distinct,ca_accepted
+            if len(set(ps))!=3 or set(Counter(ps).values())!={2}:
+                raise AssertionError("selected_left_six C pattern violated")
+            if len(set(rs))==6:
+                right_distinct+=1
+                degrees=Counter(v for i in ids for v in right[incidence[i][1]])
+                if len(degrees)==6 and set(degrees.values())=={2}:
+                    ca_directed_left_C_right_A+=1
+        elif len(set(rs))==3 and set(Counter(rs).values())=={2}:
+            physical=tuple(right[j] for j in set(rs))
+            if len({v for pair in physical for v in pair})==6:
+                ca_reverse_left_A_right_C+=1
+    return (left_C,right_distinct,ca_directed_left_C_right_A,
+            ca_reverse_left_A_right_C)
 
 
 class ExactOriginalGQCollinearityTransferTests(unittest.TestCase):
@@ -104,7 +111,8 @@ class ExactOriginalGQCollinearityTransferTests(unittest.TestCase):
             with self.subTest(scheme=scheme):
                 model=fixture(1,scheme)
                 profile=exact_fixed_left_CA_profile(model)
-                left_C,right_distinct,CA=independent_finite_W32_class_C_A(model)
+                left_C,right_distinct,leftC_rightA,leftA_rightC=(
+                    independent_finite_W32_class_C_A(model))
                 all_seven=seven_census(
                     model,independent_checks=False,witness_sets=True)
                 self.assertEqual(left_C,405)
@@ -112,8 +120,11 @@ class ExactOriginalGQCollinearityTransferTests(unittest.TestCase):
                                  profile["physical_left_C_matching_point_triples"]*27)
                 self.assertEqual(right_distinct,
                     profile["exact_left_C_sixsets_with_six_distinct_original_right_lines"])
-                self.assertEqual(CA,
+                self.assertEqual(
+                    leftC_rightA+leftA_rightC,
                     all_seven["seven_class_motif_counts"]["C/A"])
+                self.assertLessEqual(
+                    leftC_rightA,all_seven["seven_class_motif_counts"]["C/A"])
                 self.assertEqual(
                     profile["exact_expected_g_random_CA"],
                     str(Fraction(right_distinct)*Fraction(70,5005)))
