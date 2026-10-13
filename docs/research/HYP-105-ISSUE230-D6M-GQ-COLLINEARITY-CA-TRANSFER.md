@@ -83,6 +83,23 @@ The original genuine W(3,2) lex/reverse/S68/S72 and original W(3,4) lex/random g
 
 At W34 the code evaluates *only* the actual ORIGINAL geometric left-triple profile and its expectation over a FUTURE UNIFORM right injection. It does **NOT** claim to enumerate the unknown COMPLETE original seven-positive W34 family, does NOT reuse BB-only as full S, and does NOT interpret a random-right expectation as an observed actual S on a given W34 map. A separate enumeration of the three ORIGINAL two-line choices for 4 representative geometric orbit types on W32/W34 is required to independently validate each Phi formula, with a fake nonconcurrent triangle rejected.
 
+### Confirmed true-original finite expectations vs FIXED right injections
+
+[Hosted D6-M Contract #38372684216](https://github.com/definitely-stable/Mathlab/actions/runs/38372684216) SUCCESS, including independent four-orbit true GQ original-line-pair enumeration (W32 and W34), 70 physical right six-edge simple 2-factors of K6, all 405 left-C ORIGINAL W32 subsets, and actual full seven-positive GF5 W32 aggregate C/A counts.
+
+| True original GQ and left f | Left physical C-template triples | True original left-C lifts with six DISTINCT right factor lines | EXACT E_g[C-left/A-right | f] |
+| --- | ---: | ---: | --- |
+| W32 lex | 15 | 209 | 38/13 |
+| W32 reverse | 15 | 209 | 38/13 |
+| W32 S68 | 15 | 297 | 54/13 |
+| W32 S72 | 15 | 297 | 54/13 |
+| W34 lex | 36,270 | 32,283,840 | 1,129,934,400/110,983 |
+| W34 random | 36,624 | 32,560,144 | 1,139,605,040/110,983 |
+
+These are **exact conditional expectations**, not observed full seven-positive S for the six right mappings. Genuine W34 enumerates only original GQ collinearity types; it does not count a fabricated full seven-positive GF5 S.
+
+**Actual fixed-right obstruction to promoting an expectation to a deterministic bound:** The original W32 lex and reverse models have EXACTLY the SAME globally injective left f. With this fixed f, the directional C-left/A-right expected count is 38/13 for a uniformly random right g, yet their ACTUAL right pair injections yield respectively **4** and **0** such directional accepted sixsets. Their aggregate C/A observed counts, counting both directions, are 13 and 1. This is a rigorous finite falsifier of the invalid assertion that a positive conditional mean forces a positive directional C-left/A-right count for every fixed right g. It is **NOT** an infinite Branch B counterfamily and the actual full seven S of reverse remains nonzero.
+
 ## 5. Scope and next mathematical gate
 
 - [Code](../../research/hyp105_issue230_d6m_gq_collinearity_ca_transfer.py): exact four-orbit symbolic polynomial, independently true-original GQ collinearity profiles, all-h universal template bound, p_A as Python Fraction, additive proven B/A+new C/A random-right expectation.
