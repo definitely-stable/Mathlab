@@ -124,6 +124,7 @@ row; no sampling per anchor and no unverified root extrapolation.
 | W32 S72 | 658 | 664 | 292 | 372 | 0 |
 | W34 lex | 55,384 | 161,256 | 40,836 | 63,144 | 57,276 |
 | W34 random(230+2) | 48,542 | 117,356 | 26,884 | 47,816 | 42,656 |
+| W34 D4 true symplectic spread | 52,760 | 149,716 | 38,972 | 57,316 | 53,428 |
 
 The entries in each row satisfy `sum b(b-1)=Theta_BB+I_BB+D_BB`
 exactly, not just asymptotically. W32 S68 and S72 demonstrate that
@@ -133,10 +134,15 @@ At W34 the proper term can be substantial, but the bad classes are
 also of the same order. Finite observations do NOT establish their
 asymptotic proportions.
 
-The dedicated report additionally emits the independent complete
-D4 Desarguesian symplectic-spread W34 witness using the `--spread`
-switch, recording its true original Mf and the same exact collision
-taxonomy. A positive finite CS bound does not imply a positive
+The dedicated report also emits the independent complete
+D4 Desarguesian symplectic-spread W34 witness using `--spread`. For this
+TRUE ORIGINAL GLOBAL assignment, the directly enumerated number of
+original collinear adjacent physical pairs is `M_f=259`, far above
+the all-h construction's finite guaranteed floor `30`. The exact
+blocked-only collision partition is `149716=38972+57316+53428`.
+This REAL symplectic concentration still has many proper-cycle
+collision witnesses at s=4; neither outcome certifies or refutes the
+uniform asymptotic compensation hypothesis. A positive finite CS bound does not imply a positive
 universal all-h S floor.
 
 ## 6. Next mathematically justified step
