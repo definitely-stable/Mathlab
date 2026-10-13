@@ -2,7 +2,7 @@
 
 **2026-10-13. RESTRICTED_THEOREM_C — new exact ALL-finite / ALL-h restriction equivalence. Root A/B OPEN.**
 
-Base: [D6-H Draft #407](https://github.com/definitely-stable/Mathlab/pull/407), pinned fully green parent \`9aa186a421e8890aecdc384fde6c3ae73d106c9a\`; strictly stacked. This step makes the original accepted sixset-to-incidence *uniform rational K/6 budget* mathematically explicit. It does **not** show that any fixed K suffices for every original correlated global f,g.
+Base: [D6-H Draft #407](https://github.com/definitely-stable/Mathlab/pull/407), pinned fully green parent `9aa186a421e8890aecdc384fde6c3ae73d106c9a`; strictly stacked. This step makes the original accepted sixset-to-incidence *uniform rational K/6 budget* mathematically explicit. It does **not** show that any fixed K suffices for every original correlated global f,g.
 
 ## 1. General exact restricted weighted-Hall theorem
 
@@ -82,7 +82,20 @@ The stronger condition Delta6=o(s^6) would provide coefficient 16/(K+2). D6-I pr
 
 The previous finite W32 exact full-original K values are (lex 4, reverse 6, S68 9, S72 10). Previous D6-H found uniform restricted zero-exception at these capacities and matching exact D6-F exceptions at K-1; D6-I explicitly recomputes the restricted mincut and verifies its own minimum K. This is FINITE EVIDENCE, never a uniform K proof.
 
-## 4. Non-claims and next proof gate
+## 4. Hosted true-original W32 restricted Hall cut result
+
+The first [GitHub-hosted D6-I Contract #38357406426](https://github.com/definitely-stable/Mathlab/actions/runs/38357406426) completed SUCCESS: five dedicated test methods, including 72 deterministic independent enumerations of all source subsets at five K each (360 exact Hall-dual falsifier comparisons), arbitrary 10^80-weight integer tests, and full original W32 true seven-family checks.
+
+| Complete TRUE ORIGINAL W32 f,g | C=E+I | Complete S | Exact D6-D min K | Uniform D6-I min K | D6-F exception at K-1 | Uniform cut F at K-1 |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| lex | 942 | 259 | 4 | **4** | 165 | All 45 original incidences |
+| reverse | 898 | 169 | 6 | **6** | 53 | All 45 original incidences |
+| S68 | 606 | 68 | 9 | **9** | 62 | All 45 original incidences |
+| S72 | 658 | 72 | 10 | **10** | 10 | All 45 original incidences |
+
+In these four *finite true ORIGINAL* models, the scaled uniform-port cut at K-1 is exactly 6(C-(K-1)S), with full support F={0,...,44} and D(F)=6S. The restricted uniform capacity K matches the full original minimum K on those instances. This establishes **no** all-h local expansion: the extremal finite witness was global, and the complete seven-positive family for s>=4 is still unknown. The original PR394 high-h coherently pruned H is a different asymptotic object from full-G W32.
+
+## 5. Non-claims and next proof gate
 
 - Not a proof of full original seven-class lower bound S=Omega(s^6), Branch A, or infinite Branch B counterfamily.
 - Not a proof of all-h map-independent uniform K or all-h small restricted Hall deficit.
