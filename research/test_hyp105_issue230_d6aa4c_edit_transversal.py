@@ -37,7 +37,7 @@ class OriginalFactorTransversalContract(unittest.TestCase):
                              sum(a==0 for a,b in naive))
         self.assertEqual(survivor_certificate(bits,weights,allmask,(3,4))[:2],(0,0))
         with self.assertRaises(ValueError):
-            survivor_certificate(bits,weights,allmask,(5,))
+            survivor_certificate(bits,weights,allmask,(len(bits),))
         with self.assertRaises(ValueError):
             scan_supports(bits,weights,allmask,(0,0,1),radius=2)
         with self.assertRaises(ValueError):
