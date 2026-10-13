@@ -302,7 +302,7 @@ def collision_certificate(model,*,max_paths=2_000_000,
     return classes
 
 
-def report():
+def report(*,include_spread=False):
     records=[]
     for scheme in ("lex","reverse","S68","S72"):
         records.append({"s":2,"scheme":scheme,**collision_certificate(
@@ -310,6 +310,16 @@ def report():
     for scheme in ("lex","random"):
         records.append({"s":4,"scheme":scheme,**collision_certificate(
             fixture(2,scheme))})
+    if include_spread:
+        # No import of the unmerged D4 PR: uses JPKC-001 independent
+        # complete f/g original symplectic-spread constructor.
+        from hyp105_issue230_jpkc_spread_adversary import spread_adversary_model
+        original,spread=spread_adversary_model(2)
+        records.append({
+            "s":4,"scheme":"D4-true-symplectic-spread",
+            "spread_original_Mf_floor":spread["M_f_D4_floor"],
+            "spread_original_Mf_actual":spread["M_f_original_exact"],
+            **collision_certificate(original)})
     return {
         "scope":"same-map original-injective full graph 3-path endpoint collision taxonomy",
         "J3_all_h_exact_identity":True,
@@ -323,8 +333,10 @@ if __name__=="__main__":
     parser=argparse.ArgumentParser()
     parser.add_argument("--full",action="store_true",
                         help="include full O(status^2) ordered collision tensor")
+    parser.add_argument("--spread",action="store_true",
+                        help="include true W34 D4 original symplectic-spread adversary")
     args=parser.parse_args()
-    record=report()
+    record=report(include_spread=args.spread)
     if not args.full:
         for row in record["records"]:
             row.pop("ordered_collision_tensor")
