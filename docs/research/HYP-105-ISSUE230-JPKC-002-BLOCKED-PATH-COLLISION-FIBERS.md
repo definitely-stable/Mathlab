@@ -109,6 +109,36 @@ Finite fixtures: original W32 lex/reverse/S68/S72; true original W34 lex/random;
 
 **No computational result establishes a uniform all-h LOWER on S.** The only uniform asymptotic statements are J4's *necessary consequences of hypothetical small S*, derived analytically from already proved PR #394 statements.
 
+## 5a. Exact jointly pinned full ORIGINAL blocked-collision ledger
+
+All entries are counts of ORIENTED blocked 3-paths, or ORDERED
+distinct pairs of such paths with the SAME oriented endpoints.
+They are computed on ONE genuine complete pair (f,g) in each
+row; no sampling per anchor and no unverified root extrapolation.
+
+| True original map | B_G | sum b_uv(b_uv-1) | Shared internal Theta_BB | Improper C6 I_BB | Proper C6 D_BB |
+|---|---:|---:|---:|---:|---:|
+| W32 lex | 942 | 1,872 | 880 | 912 | 80 |
+| W32 reverse | 898 | 1,432 | 740 | 664 | 28 |
+| W32 S68 | 606 | 512 | 196 | 316 | 0 |
+| W32 S72 | 658 | 664 | 292 | 372 | 0 |
+| W34 lex | 55,384 | 161,256 | 40,836 | 63,144 | 57,276 |
+| W34 random(230+2) | 48,542 | 117,356 | 26,884 | 47,816 | 42,656 |
+
+The entries in each row satisfy `sum b(b-1)=Theta_BB+I_BB+D_BB`
+exactly, not just asymptotically. W32 S68 and S72 demonstrate that
+**blocked-path collisions alone need not produce ANY proper D6** at
+the smallest scale: both `D_BB=0` while `S=68` or `72`.
+At W34 the proper term can be substantial, but the bad classes are
+also of the same order. Finite observations do NOT establish their
+asymptotic proportions.
+
+The dedicated report additionally emits the independent complete
+D4 Desarguesian symplectic-spread W34 witness using the `--spread`
+switch, recording its true original Mf and the same exact collision
+taxonomy. A positive finite CS bound does not imply a positive
+universal all-h S floor.
+
 ## 6. Next mathematically justified step
 
 The new key target is a **geometry-aware common-anchor anti-concentration/compensation** estimate, for all legal f,g:
