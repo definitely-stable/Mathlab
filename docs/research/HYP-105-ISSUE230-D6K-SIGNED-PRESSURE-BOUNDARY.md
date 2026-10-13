@@ -109,6 +109,8 @@ This is an obstruction only to the PAIR calibration, not evidence against D6-I, 
 | S68 | 68 | 62 | 0 | FAILS sufficient check | **PAIR CUT OBSTRUCTION** |
 | S72 | 72 | 10 | 0 | FAILS sufficient check | **PAIR CUT OBSTRUCTION** |
 
+The exact integer dual failures are now pinned: **S68** has an original support of size 44/45, pair-cut weight 28, centered scaled pressure 1,632, so the dual excess is 1,632-45*28=**372**. **S72** has support 42/45, pair-cut weight 128, centered scaled pressure 6,975, and dual excess 6,975-45*128=**1,215**. Both candidate supports are independently evaluated using the REAL directed original triple boundary (with 1-versus-2 selected incidence ports), not mistaken for actual Hall counterexamples.
+
 S68/S72 are NOT counterexamples to original full or uniform Hall expansion: the true original weighted 3-port boundary is strictly stronger than the coarse undirected pair-cut lower bound and indeed the exact uniform cut is globally tight in both. The pair calibration dual F is a witness **only** against the centered PAIR-flow sufficient certificate. These finite results advise **against** using pair-graph spectral or electrical constraints as *necessary* conditions in future high-h GQ arguments. Direct original directed 3-incidence hyperedge boundary is the mathematically faithful next object.
 
 ## 3. The circularity obstruction is explicit
