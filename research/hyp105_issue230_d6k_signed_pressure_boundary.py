@@ -254,7 +254,7 @@ def centred_pair_pressure_flow(active, p, pair):
         "feasible":fully_routed,
         "scaled_supply":positive,
         "routed_supply":achieved,
-        "nonzero_signed_original_pair_flux_count":len(flux),
+        "nonzero_signed_original_pair_flux_count":len(flux) if fully_routed else 0,
         "centred_signed_edge_flux":flux if fully_routed else [],
         "failed_pair_cut_witness":witness,
         "all_original_incidence_divergences_verified":fully_routed,
@@ -304,6 +304,14 @@ def signed_pressure_global_certificate(source_weights, accepted, K,
     global_pressure_deficit = max(0, G)
     if delta < global_pressure_deficit:
         raise AssertionError("global full source support must be candidate cut")
+    failed_pair_original_hypergraph_cut=None
+    if not calibration["feasible"]:
+        F_pair=calibration["failed_pair_cut_witness"][
+            "original_incidence_support_F"]
+        failed_pair_original_hypergraph_cut=original_signed_pressure_boundary(
+            source_weights,accepted,K,F_pair,splits)
+        if failed_pair_original_hypergraph_cut["six_M_minus_K_D"] > delta:
+            raise AssertionError("failed PAIR cut exceeds exact ORIGINAL cut")
     if calibration["feasible"] and delta != global_pressure_deficit:
         raise AssertionError("centred pair-flux Hall calibration falsified")
     if spectral_tree_sufficient and delta != global_pressure_deficit:
@@ -339,6 +347,9 @@ def signed_pressure_global_certificate(source_weights, accepted, K,
         "signed_pressure_variance_numerator_v": v,
         "source_pair_graph_weighted_edges": len(pair),
         "centred_pair_pressure_calibration":calibration,
+        "failed_pair_cut_evaluated_in_original_triple_hypergraph":(
+            failed_pair_original_hypergraph_cut
+        ),
         "calibrated_pair_flow_global_only_Hall_deficit_CERTIFIED":(
             calibration["feasible"]
         ),
