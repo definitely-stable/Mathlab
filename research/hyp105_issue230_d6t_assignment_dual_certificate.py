@@ -42,7 +42,7 @@ not Branch A/B. No W34/W38 complete seven-S is computed.
 """
 from collections import Counter, defaultdict
 from fractions import Fraction
-from itertools import permutations, product
+from itertools import combinations, permutations, product
 from math import factorial, lcm
 import json
 
@@ -86,9 +86,9 @@ def physical_non_two_regular_star_witness(original_factor_endpoints,a):
             any(type(i) is not int or i<0 for i in pts)):
         raise ValueError("requires six ORIGINAL factor endpoints and a>=6")
     ordered=tuple(dict.fromkeys(pts))
-    if len(ordered)>len(tuple(__import__("itertools").combinations(range(a),2))):
+    if len(ordered)>len(tuple(combinations(range(a),2))):
         raise AssertionError("original local injection physical K_a too small")
-    pairs=tuple(__import__("itertools").combinations(range(a),2))
+    pairs=tuple(combinations(range(a),2))
     counts=Counter(pts)
     selected={}
     if max(counts.values())<=2:
