@@ -63,6 +63,44 @@ Here `4N/a^2=(2+o(1))s`. The uniformly proved moment bound in PR #394 is `M2(G)=
 
 **Do not generalize J1 to all f,g as pointwise numeric inequalities with the asymptotic constants 16/48 at s=2,4,8.** This is a conditional sequence statement with asymptotic errors, not a finite threshold. In particular neither `B_G >= 16 s^6` nor `Theta+12C6_imp >= 48s^6` is asserted for finite W32.
 
+## 2a. New exact J2 identity: the scalar Kikuchi route pays endpoint VARIANCE
+
+For the FULL graph G put
+
+```
+V_end(G) = sum_(u,v) p_uv^2 - P3(G)^2/a^4 >= 0
+K(G) = L(P3(G)) - Theta(G) - 12 C6_imp(G).
+```
+
+**THEOREM J2 (all finite graph instances; exact equality):**
+
+```
+12 D6(G) = K(G) + V_end(G).
+```
+
+This is a pure rearrangement of K2 and the definition of L, independently
+verified by the finite JPKC oracle at each exact cycle-census fixture.
+It is important scientifically because the proposed sufficient
+"positive K(G)" side of the JPKC alternative is **stronger than a
+positive D6(G)**. Its weakness is exactly the endpoint-path variance,
+not an undiscovered cycle counting constant.
+
+Actual independent JPKC finite checks confirm that K(G) is NEGATIVE
+for W32 lex/reverse/S68/S72 and W34 lex/random, including cases with
+thousands of true proper D6 cycles. For W32 S68 and S72, D6=0 and
+K(G)=-V_end(G) exactly. This does NOT falsify an all-h alternative with
+a sufficiently large s0; it does refute the idea that positive K is
+a generic finite property of random-like or lexicographic legal maps.
+
+**Decision:** do NOT pursue only a universal scalar control
+`Theta+12C6_imp < L(P3)` without a quantitative endpoint variance
+argument. A better analytic follow-up should use the structured
+distribution of p_uv, weighted/multi-fiber collisions, or actual
+ORIGINAL-GQ geometric closure to recover otherwise lost variance.
+For a potential JPKC compensation theorem, the K-side should be
+evaluated together with `V_end`, not as an unqualified consequence of
+many three-paths. No new root theorem follows from J2 itself.
+
 ## 3. Exact finite JPKC gate and independent checks
 
 The executable `research/hyp105_issue230_jpkc_joint_defect_gate.py`:
