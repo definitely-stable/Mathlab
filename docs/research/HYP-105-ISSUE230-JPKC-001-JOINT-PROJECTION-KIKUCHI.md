@@ -82,6 +82,26 @@ reverse-line         3300     3316       485    3
 ```
 At s=4 lex, the separately published pin is `P3=132644; Theta=127684; C6=37320; D6=8481`. PR #394's independent geometrical census pins true-original closure classifications for lex/random at s=2,4.
 
+**D4 spread hard cases on the same true original geometry.** The independent
+`research/hyp105_issue230_jpkc_spread_adversary.py` reconstructs the
+Desarguesian symmetric-matrix symplectic spread using actual GF(2^h)
+multiplication and actual ORIGINAL W(3,s) line IDs. It builds the full
+minimal-alphabet f by assigning points on selected disjoint spread lines
+to disjoint star edges, completes f on every other original point, and
+independently builds the full right g by omitting the palette surplus
+along a simple physical cycle. It independently recounts original M_f
+by enumerating every original collinear point pair, checking the
+D4 exact floor 30 at s=4 and 288 at s=8.
+
+The dedicated gate runs the **complete original projection + exact
+proper/improper C6** comparison on this D4 witness for W34. For W38 it
+checks the full true spread and the separately computed K2 graph energy
+without claiming a completed projected-path or seven-family census:
+a hard adversarial graph may exceed PR #394's projected-path budget.
+These finite certificates are method stress cases, NOT an all-h
+estimate of S on the D4 family, and NOT a positive/negative test of
+the asymptotic JPKC alternative.
+
 The executable is *not* a full seven-family oracle for s=4/8. It refuses the W32-only seven-family cross-check outside s=2. A missing exact cycle census is never presented as zero cycles. No bound obtained on the full G is silently substituted for the retained H gate.
 
 ## 4. Falsifiable research conjecture (NOT proved)
@@ -110,7 +130,7 @@ Potential falsifier: on the actual symplectic-spread complete injections of D4, 
 
 - Dedicated GitHub-hosted JPKC tests must succeed at the FINAL PR HEAD; no local workstation required.
 - Independently verify exact K2 values against explicit cycle DFS (no identity used as its own test), and exact D6 against ORIGINAL seven-census.
-- Pin W32 S68/S72 and W34 lex/random closure controls.
+- Pin W32 S68/S72, W34 lex/random and true D4 spread W34 controls; W38 spread graph energy is partial by an explicit budget boundary.
 - Keep `main` unchanged. Do NOT merge without independent mathematical review.
 - Issue #230, #176 and #169 remain OPEN.
 - No `PROVED_A`, `COUNTEREXAMPLE_B`, new full R3 upper, or ASET exponent is authorized.
