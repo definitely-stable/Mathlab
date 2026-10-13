@@ -68,7 +68,7 @@ class D6AAPositionalTests(unittest.TestCase):
                 local_signature(tuple(left[i] for i in permutation)),
                 local_signature(tuple(right[i] for i in permutation))),first)
         # Nonaligned A/A 6-cycles are *not* D6.
-        shifted=((0,1),(1,2),(2,3),(3,5),(4,5),(0,4))
+        shifted=(left[0],left[1],left[3],left[2],left[4],left[5])
         self.assertIsNone(classify_position_signatures(
             local_signature(left),local_signature(shifted)))
 
