@@ -133,6 +133,12 @@ class IncidenceBudgetTests(unittest.TestCase):
             "lex": (942, 259, 4), "reverse": (898, 169, 6),
             "S68": (606, 68, 9), "S72": (658, 72, 10),
         }
+        finite_pinned = {
+            ("lex", 3): (165, 180), ("lex", 4): (0, 61),
+            ("reverse", 5): (53, 131), ("reverse", 6): (0, 63),
+            ("S68", 8): (62, 105), ("S68", 9): (0, 72),
+            ("S72", 9): (10, 119), ("S72", 10): (0, 90),
+        }
         for row in result["W32_true_original_complete_seven_cases"]:
             C, S, K = expected[row["scheme"]]
             self.assertEqual((row["blocked_C"], row["true_original_complete_seven_S"],
@@ -140,6 +146,15 @@ class IncidenceBudgetTests(unittest.TestCase):
             self.assertEqual(row["E"] + row["I"], C)
             for point in row["capacity_rows"]:
                 cert = point["certificates"]
+                # True original full-seven W32 pinned exact fractional allocation
+                # optimum; this is FINITE only and not an all-h theorem.
+                pinned_exact, pinned_equal = finite_pinned[(row["scheme"], point["K"])]
+                self.assertEqual(point["exact_D6F_exception"], pinned_exact)
+                self.assertEqual(
+                    cert["uniform"]["certified_integer_exception_upper"], pinned_exact)
+                self.assertEqual(cert["best_certified_exception_upper"], pinned_exact)
+                self.assertEqual(
+                    cert["uniform"]["equal_source_thirds_exception_upper"], pinned_equal)
                 self.assertGreaterEqual(
                     cert["best_certified_exception_upper"],
                     point["exact_D6F_exception"])
