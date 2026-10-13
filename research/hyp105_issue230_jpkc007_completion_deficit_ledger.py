@@ -239,7 +239,14 @@ def deficit_certificate(model,*,limit_seeds=None,exact_W32=True,
         right=_physical_half_palette(ctx,path,1)
         for side,ledger in (("L",left),("R",right)):
             for field,value in ledger.items():
-                totals[side+"_"+field]+=value
+                if value is None:
+                    # Conditional regular-endpoint palette certificate is
+                    # undefined outside its hypothesis, NOT zero.
+                    totals[side+"_"+field+"_not_applicable_count"]+=1
+                elif isinstance(value,(int,bool)):
+                    totals[side+"_"+field]+=int(value)
+                else:
+                    raise AssertionError("unexpected nonnumeric J22/J24 audit field")
         match,mp=_source_matching_stages(ctx,path)
         wedge_l,wp_l=_source_wedge_stages(ctx,path,0)
         wedge_r,wp_r=_source_wedge_stages(ctx,path,1)
