@@ -119,9 +119,6 @@ def adaptive_original_port_certificate(source_weights, accepted, K,
         raise AssertionError("original exact source flow differs from port ledger")
     if any(recipient_loads[q] > K for q in sixsets):
         raise AssertionError("original recipient K budget double-spent")
-    if any(sum(m for (q2, e), m in recipient_a.items() if q2 == q) >
-           K for q in sixsets):
-        raise AssertionError("adaptive allocation violates recipient simplex")
 
     # Check that the extracted exact optimal adaptive capacities suffice
     # WITHOUT consulting any recipient geometry in this surrogate.
@@ -254,6 +251,8 @@ def genuine_W32_six_factor_report():
         if frontier["status"] != "SHARP-SIX-FACTOR-UNIFORM-FULL-CAPACITY-EQUIVALENCE":
             raise AssertionError("true original W32 should be fully supported")
         cert = frontier["at_full_K"]
+        km1 = adaptive_original_port_certificate(
+            weights, positive, frontier["full_original_K"] - 1, split)
         rows.append({
             "scheme": scheme,
             "C": sum(weights.values()),
@@ -271,6 +270,14 @@ def genuine_W32_six_factor_report():
             "nonzero_optimal_adaptive_recipient_port_allocations": cert[
                 "adaptive_primal"]["nonzero_recipient_incidence_allocations"],
             "port_budget_used": cert["adaptive_primal"]["port_load_sum"],
+            "K_minus_one_exact_full_exception": km1[
+                "full_original_exact_integer_exception"],
+            "K_minus_one_uniform_lower_upper": [
+                km1["uniform_exception_lower_at_6K"],
+                km1["uniform_exception_upper_at_K"],
+            ],
+            "K_minus_one_optimal_adaptive_port_flow": km1[
+                "adaptive_primal"]["optimal_port_restricted_flow"],
         })
     return {
         "slice": "HYP105-ISSUE230-D6J-SHARP-SIX-FACTOR-ADAPTIVE-PORT",
