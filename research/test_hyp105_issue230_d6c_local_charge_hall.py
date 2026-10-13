@@ -108,6 +108,49 @@ class OriginalD6CLocalChargingTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             one_model(model,"not-an-accepted-full-W34-S")
 
+    def test_pinned_exact_hosted_W32_Hall_no_go_and_optimal_K(self):
+        # TRUE original W32 full all-seven exhaustive data from first hosted
+        # Contract: r3 fails for both, r2 fails for S68 (8 oriented paths),
+        # r1 is feasible with integral optimum 4 / 9 respectively.
+        pinned={
+            ("lex","FULL-TRUE-ORIGINAL-G"):(
+                (760,None),(0,4),(0,4)),
+            ("S68","FULL-TRUE-ORIGINAL-G"):(
+                (596,None),(8,None),(0,9)),
+            ("lex","COHERENT-EVERY-19-ORIGINAL-INCIDENCE"):(
+                (606,None),(0,None),(0,None)),
+            ("S68","COHERENT-EVERY-19-ORIGINAL-INCIDENCE"):(
+                (496,None),(8,None),(0,None)),
+            ("S68","CALIBRATION-NOT-PR394"):(
+                (84,None),(6,None),(0,None)),
+        }
+        for key,expected in pinned.items():
+            row=self.by_case[key]
+            for f,(uncovered,K) in zip(row["source_overlap_frontiers"],expected):
+                self.assertEqual(f["uncovered_oriented_source_paths"],uncovered)
+                self.assertEqual(f["min_max_congestion"],K)
+        lex=self.by_case["lex","FULL-TRUE-ORIGINAL-G"]
+        s68=self.by_case["S68","FULL-TRUE-ORIGINAL-G"]
+        self.assertEqual(lex["canonical_original_closure_outcomes"],{
+            "ACCEPTED_BB":4,"BAD_BOTH":758,"BAD_LEFT":50,
+            "BAD_RIGHT":46,"REPEATED_ORIGINAL_INCIDENCE":88})
+        self.assertEqual(s68["canonical_original_closure_outcomes"],{
+            "BAD_BOTH":474,"BAD_LEFT":22,
+            "BAD_RIGHT":36,"REPEATED_ORIGINAL_INCIDENCE":74})
+        self.assertEqual(
+            lex["source_overlap_frontiers"][1]["status"],
+            "EXACT-FINITE-INTEGRAL-HALL-OPTIMUM")
+        self.assertEqual(
+            s68["source_overlap_frontiers"][1]["status"],
+            "NO-GO-UNSUPPORTED-ORIGINAL-SOURCE")
+        self.assertEqual(
+            s68["source_overlap_frontiers"][2]["status"],
+            "EXACT-FINITE-INTEGRAL-HALL-OPTIMUM")
+        self.assertEqual(
+            s68["source_overlap_frontiers"][2]["unconstrained_global_congestion_floor"],9)
+        self.assertEqual(
+            lex["source_overlap_frontiers"][1]["unconstrained_global_congestion_floor"],4)
+
     def test_invalid_source_overlap_gate_fails_closed(self):
         with self.assertRaises(ValueError):
             capacity_frontier({(0,1,2):1},{(0,1,2,3,4,5):"D6"},0)
