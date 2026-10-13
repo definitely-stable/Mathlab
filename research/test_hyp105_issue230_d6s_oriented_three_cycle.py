@@ -190,6 +190,50 @@ class OrientedThreeCycleTests(unittest.TestCase):
             result["reverse"]["delta_S_seven"],
             result["order_commutator_S"])
 
+    def test_independent_original_S72_three_cycle_escape_and_S68_barrier_witness(self):
+        """Pinned full ORIGINAL six-incidence recount, not cylinder deltas."""
+        expected={
+            "S68": {
+                "triple":(3,11,12),"direction":1,"base_S":68,
+                "delta_S":8,"delta_GF5":317513,
+                "class_deltas":{
+                    "D6":1,"B-left/A-right":4,"A-left/B-right":2,
+                    "C/A":0,"C/B":0,"B/B-overlap":-1,
+                    "B/B-disjoint":2,
+                },
+            },
+            "S72": {
+                "triple":(1,7,9),"direction":-1,"base_S":72,
+                "delta_S":-4,"delta_GF5":-179530,
+                "class_deltas":{
+                    "D6":0,"B-left/A-right":7,"A-left/B-right":-9,
+                    "C/A":-1,"C/B":0,"B/B-overlap":0,
+                    "B/B-disjoint":-1,
+                },
+            },
+        }
+        for scheme,p in expected.items():
+            with self.subTest(scheme=scheme):
+                model=fixture(1,scheme)
+                base=original_full_recount(model,model["right_labels"])
+                after_labels=right_three_cycle_labels(
+                    model["right_labels"],p["triple"],p["direction"])
+                changed=original_full_recount(model,after_labels)
+                self.assertEqual(base["S_seven"],p["base_S"])
+                self.assertEqual(
+                    changed["S_seven"]-base["S_seven"],p["delta_S"])
+                self.assertEqual(
+                    changed["GF5_seven_lower_numerator"]-
+                    base["GF5_seven_lower_numerator"],p["delta_GF5"])
+                self.assertEqual(
+                    {k:changed["seven_class_motif_counts"][k]-
+                       base["seven_class_motif_counts"][k]
+                     for k in SEVEN_CLASSES},p["class_deltas"])
+                # Preserve the SAME original left map, ORIGINAL geometry
+                # and globally injective right image throughout.
+                self.assertEqual(set(after_labels),set(model["right_labels"]))
+                self.assertEqual(len(set(after_labels)),15)
+
     def test_bad_and_overlapping_cycles_fail_closed(self):
         model=fixture(1,"lex")
         for triple,orientation in (((0,0,1),1),
