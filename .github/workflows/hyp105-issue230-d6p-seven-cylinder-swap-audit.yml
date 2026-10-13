@@ -56,7 +56,10 @@ jobs:
                   'number_improving_one_swaps',
                   'number_worsening_one_swaps',
                   'number_stable_one_swaps'])==105
-              assert len(r['best_improving_swap'])==2
+              assert len(r['minimum_delta_swap'])==2
+              assert r['strict_right_one_swap_local_minimum'] == (r['min_delta_S_seven']>0)
+              assert r['right_one_swap_local_minimum'] == (r['min_delta_S_seven']>=0)
+              assert r['strict_right_one_swap_local_maximum'] == (r['max_delta_S_seven']<0)
               assert r['min_delta_S_seven']<=r['max_delta_S_seven']
               if r['number_improving_one_swaps']==0 and r['number_stable_one_swaps']==0:
                   assert r['min_delta_S_seven']>0  # finite strict 1-swap minimum is allowed
@@ -75,6 +78,8 @@ jobs:
                      'stable_swaps':r['number_stable_one_swaps'],
                      'worsening_swaps':r['number_worsening_one_swaps'],
                      'min_swap_delta_S':r['min_delta_S_seven'],
+                     'right_one_swap_strict_minimum':r['strict_right_one_swap_local_minimum'],
+                     'minimum_delta_swap':r['minimum_delta_swap'],
                      'max_swap_delta_S':r['max_delta_S_seven'],
                      'weighted_delta_min':r['min_delta_GF5_lower_numerator'],
                      'weighted_delta_max':r['max_delta_GF5_lower_numerator']})
