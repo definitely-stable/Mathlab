@@ -14,7 +14,6 @@ integral concentrated allocations choose one original incidence per Q.
 All source demands contain both E and internal-only I components.
 """
 from collections import Counter
-from math import floor
 import json
 
 from hyp105_issue230_d6c_local_charge_hall import _Dinic
@@ -62,13 +61,11 @@ def incidence_budget_certificate(source_weights, accepted, K, split_weights=None
     splits = _normalise_split(source_weights, split_weights)
     total = sum(source_weights.values())
     load = Counter()
-    component_loads = {}
     for name, masses in splits.items():
         part = Counter()
         for t, weight in masses.items():
             if weight:
                 part.update({e: weight for e in t})
-        component_loads[name] = part
         load.update(part)
     if sum(load.values()) != 3 * total:
         raise AssertionError("three-incidence mass identity violated")
