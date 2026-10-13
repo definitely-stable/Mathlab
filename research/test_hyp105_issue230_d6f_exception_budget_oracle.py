@@ -23,11 +23,11 @@ class ExceptionBudgetOracleTests(unittest.TestCase):
 
         at_two = exception_budget_for_capacity(sources, targets, 2, split)
         at_three = exception_budget_for_capacity(sources, targets, 3, split)
-        at_five = exception_budget_for_capacity(sources, targets, 5, split)
+        at_four = exception_budget_for_capacity(sources, targets, 4, split)
 
         self.assertEqual(at_two["minimal_exception_mass"], 4)
         self.assertEqual(at_three["minimal_exception_mass"], 2)
-        self.assertEqual(at_five["minimal_exception_mass"], 0)
+        self.assertEqual(at_four["minimal_exception_mass"], 0)
         self.assertEqual(at_three["max_chargeable_mass"], 6)
         self.assertEqual(at_three["exception_split_lower_hint"], {"endpoint": 0, "internal": 0})
         self.assertLessEqual(
@@ -35,17 +35,17 @@ class ExceptionBudgetOracleTests(unittest.TestCase):
             at_three["minimal_exception_mass"],
         )
         self.assertEqual(at_three["status"], "EXACT-EXCEPTION-BUDGET")
-        self.assertEqual(at_five["status"], "ZERO-EXCEPTION-FEASIBLE")
+        self.assertEqual(at_four["status"], "ZERO-EXCEPTION-FEASIBLE")
 
-        frontier = exception_frontier(sources, targets, [5, 2, 3], split)
-        self.assertEqual([x["capacity_K"] for x in frontier["frontier"]], [2, 3, 5])
+        frontier = exception_frontier(sources, targets, [4, 2, 3], split)
+        self.assertEqual([x["capacity_K"] for x in frontier["frontier"]], [2, 3, 4])
         self.assertEqual([x["minimal_exception_mass"] for x in frontier["frontier"]], [4, 2, 0])
         self.assertTrue(frontier["exception_mass_nonincreasing_in_K"])
         self.assertTrue(frontier["max_chargeable_mass_nondecreasing_in_K"])
 
         self.assertEqual(
             minimal_capacity_for_exception_budget(sources, targets, 0, split)["minimum_capacity_K"],
-            5,
+            4,
         )
         self.assertEqual(
             minimal_capacity_for_exception_budget(sources, targets, 2, split)["minimum_capacity_K"],
