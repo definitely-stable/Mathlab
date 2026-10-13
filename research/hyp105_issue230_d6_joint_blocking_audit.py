@@ -43,6 +43,8 @@ def finite_frontier(s, blocked, seven, lam=0):
 def joint_record(model, scheme, *, compute_full_seven, independent_paths=True):
     """Join independently implemented ORIGINAL geometric oracles on SAME f,g."""
     core=ProjectionClosure(model)
+    if compute_full_seven and core.s!=2:
+        raise ValueError("full seven-census is accepted only for W(3,2)")
     atoms=anchor_ledger(model, verify_middle_edges=independent_paths)
     chords=_chord_ledger(core)
     s=core.s
