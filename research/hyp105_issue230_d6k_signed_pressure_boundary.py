@@ -16,7 +16,7 @@ The uniform D6-I deficiency is the exact positive maximum over F.
 We give a NEW conditional, exact-arithmetic expansion/variance criterion
 under which ALL local positive Hall excess vanishes. It is sufficient,
 NOT asserted for all W(3,s) global correlated labelings. A pair-cooccurrence
-graph has pair cut >=2*boundary_w(F); a certified spanning-tree
+graph has pair cut <=2*boundary_w(F); a certified spanning-tree
 algebraic-connectivity lower bound yields one checkable stronger gate.
 
 A lower bound D(I)=Omega(s^6) would IMPLY S=Omega(s^6) immediately
