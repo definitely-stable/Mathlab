@@ -2,6 +2,7 @@
 import unittest
 from collections import Counter
 from fractions import Fraction
+from math import comb
 from itertools import combinations
 
 from hyp105_issue230_d6x_star_pseudomarginal_capacity import (
