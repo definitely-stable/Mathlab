@@ -121,7 +121,10 @@ class DirectedOriginalThreePortTests(unittest.TestCase):
         # Source with one unsupported ORIGINAL triple component.
         sources={(0,1,2):3,(7,8,9):2}
         targets={(0,3,4,5,6,10):"synthetic"}
-        r=compare_original_pair_and_directed(sources,targets,5)
+        # At K=30, global G=6*C-K*D(I)=0; the unsupported
+        # disconnected source triple gives a STRICT local obstruction.
+        # K=5 would instead have global G=25 and local excess zero.
+        r=compare_original_pair_and_directed(sources,targets,30)
         self.assertGreater(r["original_directed"][
             "directed_calibration_deficit_E"],0)
         self.assertGreater(r["true_original_exact_uniform_local_excess"],0)
@@ -132,7 +135,7 @@ class DirectedOriginalThreePortTests(unittest.TestCase):
         self.assertTrue(F)
         self.assertEqual(
             r["original_directed"]["directed_calibration_deficit_E"],
-            independent_raw_directed_deficit(sources,targets,5)[0])
+            independent_raw_directed_deficit(sources,targets,30)[0])
 
     def test_zero_capacity_empty_source_validation(self):
         target={(0,1,2,3,4,5):"synthetic"}
