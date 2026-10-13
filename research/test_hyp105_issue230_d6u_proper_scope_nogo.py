@@ -61,7 +61,7 @@ class ProperScopeZeroTests(unittest.TestCase):
                         result = w["labels"]
                         self.assertTrue(all(result[v] == e for v, e in pinned.items()))
                         self.assertEqual(len(set(result.values())), len(ordered))
-                        self.assertTrue(independently_bad_projection(ends, result))
+                        self.assertTrue(independent_bad_projection(ends, result))
                         self.assertFalse(physical_two_regular(ends, result))
                         self.assertLessEqual(w["candidates_tested"], 2)
                         n += 1
