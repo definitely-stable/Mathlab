@@ -435,6 +435,8 @@ def frozen_W32_assignment_dual_report():
         "slice":"HYP105-ISSUE230-D6T-GLOBAL-ASSIGNMENT-DUAL-CERTIFICATE",
         "theorem":"ALL-H-TWO-SIDED-GLOBAL-INJECTION-PROJECTED-MARGINAL-DUAL",
         "all_h_sound_sufficient_dual_for_original_S_and_selected_GF5":True,
+        "all_h_UNCONDITIONED_TWO_SIDED_degree_one_dual":"IDENTICALLY_ZERO",
+        "root_degree_one_dual_NO_GO_not_Branch_B":True,
         "all_h_full_original_12_local_factor_truth_tables":"NOT-ENUMERATED",
         "W32_only_three_factor_frozen_complement":"EXACT_FINITE_CONTROL",
         "global_all_f_g_theorem_PROVED_A":False,
