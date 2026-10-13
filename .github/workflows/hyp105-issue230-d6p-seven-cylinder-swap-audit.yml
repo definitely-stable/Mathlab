@@ -57,7 +57,11 @@ jobs:
                   'number_worsening_one_swaps',
                   'number_stable_one_swaps'])==105
               assert len(r['best_improving_swap'])==2
-              assert r['min_delta_S_seven']<=0<=r['max_delta_S_seven']
+              assert r['min_delta_S_seven']<=r['max_delta_S_seven']
+              if r['number_improving_one_swaps']==0 and r['number_stable_one_swaps']==0:
+                  assert r['min_delta_S_seven']>0  # finite strict 1-swap minimum is allowed
+              if r['number_worsening_one_swaps']==0 and r['number_stable_one_swaps']==0:
+                  assert r['max_delta_S_seven']<0  # finite strict 1-swap maximum is allowed
               classes=r['base']['seven_class_motif_counts']
               assert set(classes)==set(source_weights)
               assert sum(classes.values())==r['base']['S_seven']
