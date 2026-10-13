@@ -58,6 +58,125 @@ For W32, the full original seven-census and selected GF5 lower numerator are cro
 
 This is an **UPPER** multiplicity bound, not a proof that many endpoint collisions yield ANY accepted Q. It does not apply to shared-internal-vertex pairs, which may fail to form a simple C6; those are separately classified. The bound allows a future certified positive accepted-witness submass T to imply at least `T/768` distinct original sixsets, but it says nothing useful unless one first proves a lower bound for **TRUE accepted** T (including signed GF5 conditions), not just all endpoint collisions.
 
+## 3a. Stronger all-h structural theorem J11/J12: ONLY D6 can survive direct two-path sixset transport
+
+The initial exact original sixset transport gate revealed a much sharper
+statement, which is independently provable for **every** h, not an
+extrapolation of the W32/W34 tables.
+
+**THEOREM J11 (ALL h, disjoint internal vertices).** Let P and P' be
+distinct simple length-three paths in the TRUE Kikuchi physical graph G,
+with identical ordered endpoints, and disjoint sets of internal graph
+vertices. Their six physical graph edges form a simple graph C6.
+Suppose all six ORIGINAL incidence IDs of these edges are distinct,
+so they define a genuine ORIGINAL six-incidence set Q. Then:
+
+```
+Q has exactly SIX physical coordinates of degree TWO on EACH side
+                 if and only if
+the physical six-cycle is coordinate-proper (six distinct rows
+AND six distinct columns).
+```
+
+**Proof.** The six original point-label pair edges `f(p_i)` are
+exactly the six FIRST-coordinate transitions of the physical C6,
+with multiplicity of the six ORIGINAL incidence positions preserved.
+They therefore form a connected six-edge multigraph because the
+physical graph C6 projects to a closed walk traversing all six
+edges. If this multigraph is 2-regular on six vertices, it is a
+connected simple C6; the six-coordinate projected CLOSED six-step
+walk traverses that cycle and visits each projected vertex exactly once.
+Hence the six original graph vertices of the physical C6 have six
+different first coordinates. Conversely, six distinct first
+coordinates on the physical C6 obviously imply exactly degree 2
+on each of those six coordinates. The second-coordinate argument
+is identical. By the independently proved Kikuchi K1 identity,
+a coordinate-proper physical C6 of the ORIGINAL graph is precisely
+the accepted ORIGINAL **D6** class. QED.
+
+**THEOREM J12 (ALL h, shared internal graph vertex).** Two distinct
+length-three paths with identical ordered graph endpoints and
+sharing at least one internal graph vertex have at most FIVE distinct
+physical graph vertices in their union (two common endpoints and
+at most three distinct internal vertices). Each first-coordinate
+or second-coordinate physical projection therefore has at most
+five touched distinct symbols. Consequently their six ORIGINAL
+incidence positions, even if pairwise distinct, CANNOT have exactly
+six physical coordinates of degree 2 on either side. QED.
+
+These two cases are exhaustive. Repeated ORIGINAL incidence IDs
+are not a sixset at all. Thus **no** direct union of two physical
+three-paths with identical oriented endpoints can be one of the
+OTHER SIX accepted GF5 seven-family classes. The ONLY possible
+genuine positive-class sixset is D6 arising from a physical
+coordinate-proper C6.
+
+This no-go is NOT the claim that other six classes are impossible
+in the full ORIGINAL model: those classes do exist. It says
+that the PARTICULAR two-path endpoint collision witness map used
+by JPKC-001/002/003 cannot supply them.
+
+**THEOREM J13 (ALL h exact accepted witness identity and necessary
+loss).** Let T_E be the number of ORDERED endpoint-bad BLOCKED
+three-path-pair collisions whose union is SIX DISTINCT ORIGINAL
+incidences and whose left and right physical projections are
+both six-coordinate 2-regular. Theorems J11/J12 show
+
+```
+T_E = K_E(proper physical C6) <= 12 D6 <= 12 S.
+K_E - T_E = K_E(shared internal) + K_E(improper physical C6).
+```
+
+This is an EXACT identity of oriented ordered witness counts for
+every legal complete original f,g, not an assertion that all
+original S seven-family motifs are represented in the collision
+system. If a HYPOTHETICAL small-S counterfamily follows JPKC-003's
+endpoint branch (`K_E >= (4-o(1))s^7` and `S=o(s^6)`), then
+
+```
+0 <= T_E/K_E <= 12S/[(4-o(1))s^7] = o(1/s).
+```
+
+That is, essentially the ENTIRE leading endpoint storm is
+*provably nonconvertible by the direct six-incidence two-path
+union*. This does not rule out a NEW higher-order witness map
+using extra ORIGINAL incidences or multiple GQ anchors, and
+does not prove Root A/B.
+
+### Exact true ORIGINAL finite controls
+
+All values below are ORIENTED ORDERED endpoint-bad BLOCKED
+three-path collision counts on the SAME complete f,g. Both J9
+and J11/J12 hold for ALL h; the finite values merely independently
+falsify an incorrect implementation.
+
+| TRUE original f,g | K_E total | Source-positive direct T_E (ONLY D6) | Unconvertible direct source collisions |
+|---|---:|---:|---:|
+| W32 lex | 1,456 | 64 | 1,392 |
+| W32 reverse | 1,060 | 24 | 1,036 |
+| W32 S68 | 444 | 0 | 444 |
+| W32 S72 | 624 | 0 | 624 |
+| W34 lex | 128,912 | 47,400 | 81,512 |
+| W34 random | 87,996 | 33,400 | 54,596 |
+| W34 D4 real symplectic spread | 116,600 | 42,940 | 73,660 |
+
+On W32, actual FULL original GF5 seven-class oracle certifies that
+the only accepted collision-union sixset tag is D6. On W34, the
+all-h J11/J12 structural proof certifies D6 for source-distinct
+coordinate-proper cycles WITHOUT misrepresenting that as execution
+of a full W34 seven-class GF5 enumeration. The W34 code marks
+the OTHER class evaluation as unavailable, and refuses to infer
+any additional positive motifs from its broader ORIGINAL
+six-incidence population.
+
+**Research decision:** the naive JPKC-004 idea of using endpoint
+storm pairs to produce the OTHER SIX classes is a rigorously
+**closed restricted route**. Do not keep enlarging its finite
+collision tables. Next study a NEW original witness architecture
+using at least one extra source incidence or a second ORIGINAL
+GQ anchor, and prove nontrivial bounded multiplicity before
+claiming any root all-h compensation.
+
 ## 4. Computational independent falsification contract
 
 `research/hyp105_issue230_jpkc004_original_sixset_transport.py`:
