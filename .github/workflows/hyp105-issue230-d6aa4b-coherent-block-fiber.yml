@@ -48,6 +48,13 @@ jobs:
               assert r["frozen_left_original_sixsets"]==62370
               assert r["min_affected_coherent_S"] >= r["sum_affected_independent_cylinder_min_S"]
               assert r["min_affected_coherent_GF5_floor_numerator"] >= r["sum_affected_independent_cylinder_min_GF5"]
+              verified={"S68":(68,3112510,58,1,57,2604760,1),
+                        "S72":(68,3104080,68,0,68,3104080,4)}
+              assert (r["min_global_fiber_S"],r["min_global_fiber_GF5_floor_numerator"],
+                      r["min_affected_coherent_S"],r["sum_affected_independent_cylinder_min_S"],
+                      r["exact_coherence_gap_S"],r["exact_coherence_gap_GF5_numerator"],
+                      r["source_cylinder_cover_count"])==verified[r["scheme"]]
+              assert r["source_cylinder_cover_complete"]
               if r["source_cylinder_cover_complete"]:
                   mask=0
                   for z in r["source_cylinder_cover"]:

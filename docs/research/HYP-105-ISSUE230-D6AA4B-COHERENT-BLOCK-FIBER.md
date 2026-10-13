@@ -72,3 +72,26 @@ STOP if the coherent gap is zero: report that no strict improvement was establis
 A dedicated GitHub-hosted workflow must (i) independently validate global physical injection in each of all 24 completions; (ii) compare actual historical seven_census on multiple different globally assigned completed maps; (iii) verify the exact min/sum inequalities and recompute the source-cylinder cover; (iv) run the heavier two-scheme finite 24-completion machine-report exactly once; (v) retain no future claim of all-h positive GF5 S. Shared INDEX, Proof Audit and Research must pass on the same exact final PR head. Independent mathematical review remains required.
 
 This is a finite conditional exact constraint and computable obstruction to a stated relaxation, not a claimed novel general combinatorial theorem or result on total GF(5) R3.
+
+
+## 5. Hosted original W32 exact pinned result — 13 October 2026
+
+The initial specialized hosted [run #38442101572](https://github.com/definitely-stable/Mathlab/actions/runs/38442101572) returned **SUCCESS** on implementation SHA \`f00c1f7369eab5d62b3be08f706c8bbc2593f800\`: 4/4 independent test methods and a complete single exact report of all 24 valid fixed-image completions for BOTH predeclared blocks.
+
+| True ORIGINAL W32 result | S68, block (0,1,2,3) | S72, block (1,7,9,12) |
+|---|---:|---:|
+| Baseline seven class S | 68 | 72 |
+| Minimum S over 24 global injection completions | 68 | 68 |
+| Minimum selected GF5 lower numerator in whole fiber | 3,112,510 | 3,104,080 |
+| Min coherent affected-only seven count | 58 | 68 |
+| Sum separately minimized affected original cylinder counts | 1 | 0 |
+| Exact count coherence gap \(\Gamma_B\) | **57** | **68** |
+| Exact weighted GF5 coherence gap (numerator) | **2,604,760** | **3,104,080** |
+| Greedy exact 24-completion cover cylinders | 1 | 4 |
+| All 24 completions covered | YES | YES |
+
+In particular, for frozen S72, **every affected cylinder has at least one avoiding permutation**, but **no common physically injective permutation of the same four ORIGINAL right factor labels avoids all affected cylinders simultaneously**. The explicit four ORIGINAL right-cylinder signatures and 24-bit bitmasks are included in the machine-readable report and independently verified for complete coverage of exactly the 24 legal completions. This is an exact pinned-label/source **conditional** result and does not transfer to other complete assignments without further proof.
+
+Important nuance: the minimum GF5 numerator may occur at a different global completion than the minimum unweighted S; both objective minima were independently evaluated on the same complete set of 24 right injections.
+
+All measurements are about previously accepted **necessary** seven-family GF5 counts / floor, not total GF5 R3 or a universal ASET obstruction. Strict positive \(\Gamma_B\) for these two original finite blocks is a rigorous incompatibility result for the specified reduced independent-cylinder choice relaxation. General Branch A/B remain OPEN.
