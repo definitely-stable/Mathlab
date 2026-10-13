@@ -92,6 +92,19 @@ This stage **must not** conclude that the directed calibration is universally su
 
 **Circularity gate:** D_A(I)=sum_(Q in A) |Q intersect I|<=6S, so any supposed independent bound D_A(I)>=c*s^6 already proves S>=c*s^6/6, the original Branch A scale. Neither D6-L nor the directed flow supplies a genuine all-h GQ seven-positive GF5 lower bound, a uniform K for arbitrary correlated original f,g, an o(s^6) high-h exception bound, Branch A/B or the ASET exponent.
 
+## 5a. Hosted TRUE W32 directed transport result — two real pair bottlenecks eliminated
+
+[GitHub-hosted D6-L Contract #38365828118](https://github.com/definitely-stable/Mathlab/actions/runs/38365828118) passed 5/5 focused test methods, including 48 deterministic synthetic three-port systems × four K (192 independently exhaustively enumerated support-mincut comparisons). Genuine complete positive seven-family same-map W32 results at K_full-1:
+
+| TRUE ORIGINAL W32 | C | Complete seven S | K_full | True D6-F exception K-1 | Centered PAIR deficit E_pair | New directed original TRIPLE deficit E_dir | Nonzero integer triple-port primal flows |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| lex | 942 | 259 | 4 | 165 | 0 | **0 — CERTIFIED** | 148 |
+| reverse | 898 | 169 | 6 | 53 | 0 | **0 — CERTIFIED** | 179 |
+| S68 | 606 | 68 | 9 | 62 | 372 | **0 — CERTIFIED** | 123 |
+| S72 | 658 | 72 | 10 | 10 | 1215 | **0 — CERTIFIED** | 180 |
+
+**Main finite scientific observation:** S68/S72 strictly distinguish genuine directed ORIGINAL source-triple connectivity from any equal-pressure PAIR-graph circulation. In both cases the original-pair calibration has a mathematically valid positive mincut shortage, but a separately reconstructed and verified positive integer *directed three-port primal flow* routes all of the centered source pressure. This supports study of ORIGINAL oriented hypergraph expansion rather than undirected pair spectral expansion. It is NOT an all-h correlation-independent GF5 geometry result.
+
 ## 6. Exact hosted evidence and next gate
 
 - [Algorithm](../../research/hyp105_issue230_d6l_directed_triple_calibration.py): ORIGINAL 3-port auxiliary directed integer maxflow, exact dual original F and b_dir(F), explicit integer primal port certificates, D6-K pair comparison, D6-I uniform Hall and D6-F exact exception checks.
