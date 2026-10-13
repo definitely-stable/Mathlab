@@ -35,7 +35,7 @@ with this directional expectation. Therefore
 
 This is EXACT for EVERY finite h and EVERY left f, not a fixed-g lower.
 A uniform all-h lower is
-  E_g U_C/A >= p_A*T_C_lower*Phi_min,
+  E_g U_C-left/A-right >= p_A*T_C_lower*Phi_min,
 with Phi_min=Z^3+3*A*Z^2. Also refined GQ-specific lower
   p_A*[T_C_lower B^3 - A^2*B * P_coll*(V-2)]_+
 where P_coll=V*s*(s+1)/2 exact ORIGINAL collinear point-pairs.
