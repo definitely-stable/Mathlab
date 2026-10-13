@@ -42,8 +42,14 @@ class D6VCoupledStarTests(unittest.TestCase):
             p=parameters(2**h)
             edges=tuple(tuple(x) for x in model["incidences"])
             self.assertEqual(len(edges),p["V"]*(p["s"]+1))
-            cluster=tuple(tuple(edges[k*6:k*6+6])
-                          for k in range(cluster_count))
+            if h == 1:
+                # At a=6 the star has five edges: use a true ORIGINAL
+                # B-left sixset with exactly five distinct left sites.
+                ids=next(ids for ids,kind in selected_left_six(model) if kind=="B")
+                cluster=(tuple(edges[i] for i in ids),)
+            else:
+                cluster=tuple(tuple(edges[k*6:k*6+6])
+                              for k in range(cluster_count))
             w=star_zero_family(2**h,cluster)
             self.assertEqual(w["star_side"],"left")
             self.assertEqual(len(w["complete_left_injection"]),p["V"])
@@ -57,7 +63,10 @@ class D6VCoupledStarTests(unittest.TestCase):
                     Q,0,w["complete_left_injection"]))
             self.assertTrue(w["all_seven_GF5_contributions_zero"])
             self.assertTrue(w["selected_nonnegative_GF5_numerator_zero"])
-            self.assertGreaterEqual(p["a"]-1,6*cluster_count)
+            if h>=2:
+                self.assertGreaterEqual(p["a"]-1,6*cluster_count)
+            else:
+                self.assertEqual(w["union_original_points"],5)
 
     def test_real_W32_two_B_original_sixsets_share_five_original_points(self):
         model=fixture(1,"S68")
