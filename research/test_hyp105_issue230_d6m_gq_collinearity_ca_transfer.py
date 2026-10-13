@@ -123,10 +123,17 @@ class ExactOriginalGQCollinearityTransferTests(unittest.TestCase):
                 self.assertEqual(
                     leftC_rightA+leftA_rightC,
                     all_seven["seven_class_motif_counts"]["C/A"])
+                if scheme=="lex":
+                    self.assertEqual((leftC_rightA,leftA_rightC),(4,9))
+                if scheme=="reverse":
+                    self.assertEqual((leftC_rightA,leftA_rightC),(0,1))
+                self.assertEqual(
+                    profile["expected_GF5_subclass_orientation"],
+                    "C-left/A-right-ONLY")
                 self.assertLessEqual(
                     leftC_rightA,all_seven["seven_class_motif_counts"]["C/A"])
                 self.assertEqual(
-                    profile["exact_expected_g_random_CA"],
+                    profile["exact_expected_g_random_Cleft_Aright"],
                     str(Fraction(right_distinct)*Fraction(70,5005)))
                 self.assertEqual(profile["s"],2)
 
@@ -141,15 +148,15 @@ class ExactOriginalGQCollinearityTransferTests(unittest.TestCase):
                     count,bound["uniform_lower_physical_C_templates"])
                 self.assertLessEqual(
                     count,bound["full_physical_C_templates"])
-                expected=Fraction(profile["exact_expected_g_random_CA"])
+                expected=Fraction(profile["exact_expected_g_random_Cleft_Aright"])
                 self.assertGreaterEqual(
-                    expected,Fraction(bound["uniform_expected_CA_lower"]))
+                    expected,Fraction(bound["uniform_expected_Cleft_Aright_lower"]))
                 self.assertLessEqual(
-                    expected,Fraction(bound["uniform_expected_CA_upper"]))
+                    expected,Fraction(bound["uniform_expected_Cleft_Aright_upper"]))
                 self.assertEqual(profile["original_GQ_incidences"],425)
                 # This is an expectation over right g. Actual complete
                 # seven-positive W34 target pool remains unknown.
-                self.assertIsNone(profile["actual_fixed_global_right_g_CA"])
+                self.assertIsNone(profile["actual_fixed_global_right_g_Cleft_Aright"])
                 # Independently sample actual W34 original point triples:
                 # the exact Phi must not depend on physical labels.
                 by_point=independent_original_point_line_sets(model)
@@ -171,10 +178,10 @@ class ExactOriginalGQCollinearityTransferTests(unittest.TestCase):
                 case["phi"]["phi_min_all_original_GQ_point_triples"],
                 phi["phi_min_all_original_GQ_point_triples"])
             self.assertGreater(
-                Fraction(case["uniform_expected_CA_lower"]),0)
+                Fraction(case["uniform_expected_Cleft_Aright_lower"]),0)
             self.assertLessEqual(
-                Fraction(case["uniform_expected_CA_lower"]),
-                Fraction(case["uniform_expected_CA_upper"]))
+                Fraction(case["uniform_expected_Cleft_Aright_lower"]),
+                Fraction(case["uniform_expected_Cleft_Aright_upper"]))
             self.assertFalse(case["all_g_or_root_Branch_A_proved"])
             self.assertEqual(case[
                 "new_asymptotic_fixed_left_C_A_mean_coefficient"],"35/3")
