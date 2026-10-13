@@ -133,9 +133,29 @@ class ExactOriginalGQCollinearityTransferTests(unittest.TestCase):
                 self.assertLessEqual(
                     leftC_rightA,all_seven["seven_class_motif_counts"]["C/A"])
                 self.assertEqual(
+                    profile["actual_fixed_global_right_g_Cleft_Aright"],
+                    leftC_rightA)
+                self.assertEqual(
                     profile["exact_expected_g_random_Cleft_Aright"],
                     str(Fraction(right_distinct)*Fraction(70,5005)))
                 self.assertEqual(profile["s"],2)
+
+    def test_same_fixed_left_can_have_zero_directional_C_A_for_one_right_g(self):
+        lex=fixture(1,"lex")
+        reverse=fixture(1,"reverse")
+        self.assertEqual(lex["left_labels"],reverse["left_labels"])
+        self.assertNotEqual(lex["right_labels"],reverse["right_labels"])
+        a=exact_fixed_left_CA_profile(lex)
+        b=exact_fixed_left_CA_profile(reverse)
+        self.assertEqual(a["exact_expected_g_random_Cleft_Aright"],
+                         b["exact_expected_g_random_Cleft_Aright"])
+        self.assertEqual((a["actual_fixed_global_right_g_Cleft_Aright"],
+                          b["actual_fixed_global_right_g_Cleft_Aright"]),
+                         (4,0))
+        # This is a finite falsifier of the illegitimate inference
+        # E_g[U]>0 ==> U(f,g)>0 for EVERY fixed right injection g.
+        self.assertGreater(
+            Fraction(b["exact_expected_g_random_Cleft_Aright"]),0)
 
     def test_true_original_W34_collinearity_profile_and_all_left_bounds(self):
         for scheme in ("lex","random"):
