@@ -128,6 +128,14 @@ class DirectedOriginalThreePortTests(unittest.TestCase):
         self.assertGreater(r["original_directed"][
             "directed_calibration_deficit_E"],0)
         self.assertGreater(r["true_original_exact_uniform_local_excess"],0)
+        self.assertEqual(r["original_directed"]["G"],0)
+        self.assertEqual(
+            r["original_directed"]["directed_calibration_deficit_E"],
+            r["original_directed"]["N"]*
+            r["true_original_exact_uniform_Delta6"])
+        # Balanced pressure G=0 makes directed calibration EXACTLY
+        # equivalent to original restricted uniform Hall, not merely
+        # a one-sided sufficient bound.
         self.assertGreaterEqual(r["original_pair"]["centred_pair_deficit_E"],
                                 r["original_directed"][
                                     "directed_calibration_deficit_E"])
