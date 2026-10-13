@@ -1,0 +1,32 @@
+name: hyp105-issue230-jpkc003-anchor-diagonal-concentration
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc003_anchor_channel_concentration.py"
+      - "research/test_hyp105_issue230_jpkc003_anchor_channel_concentration.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-003-ANCHOR-DIAGONAL-ENDPOINT-STORM.md"
+      - ".github/workflows/hyp105-issue230-jpkc003-anchor-diagonal-concentration.yml"
+      - "research/hyp105_issue230_jpkc002_path_collision_taxonomy.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-source-anchor-diagonals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Exact original GQ two-channel source capacities and s7 branch falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc003_anchor_channel_concentration.py' -v
+      - name: Archive true-original W32 W34 and symplectic spread exact source-anchor ledger
+        run: python research/hyp105_issue230_jpkc003_anchor_channel_concentration.py --spread
