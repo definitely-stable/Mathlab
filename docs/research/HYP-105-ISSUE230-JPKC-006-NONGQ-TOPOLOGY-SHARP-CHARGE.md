@@ -91,6 +91,48 @@ On W34 lex/random and genuine D4 symplectic-spread global complete f,g, the scri
 
 All finite tests run on GitHub-hosted runners; never run self-hosted hardware. Invalid global injections, full seven-Q scope outside W32, missing physical labels and path budgets fail closed.
 
+## 5a. Exact source-positive completion controls and the crucial finite-size contrast
+
+Every W32 row below is an **exhaustive** source-original survey of ALL
+endpoint-bad coordinate-proper physical three-path seeds on that complete
+original GQ. Every accepted completion was independently found twice:
+once by the new matching/wedge constructive source algorithm, and
+again by looking up all actual source-positive Q in the independent
+62,370-candidate ORIGINAL W32 seven-family census.
+
+| ORIGINAL map | Full endpoint-bad E | Physically checked | Seeds with >=1 selected Q | Accepted ordered (P,Q) hits | Max seed paths per accepted original Q |
+|---|---:|---:|---:|---:|---:|
+| W32 lex | 786 | 786 | 154 | 214 | **12** |
+| W32 reverse | 676 | 676 | 86 | 90 | 8 |
+| W32 S68 | 544 | 544 | **8** | 8 | 2 |
+| W32 S72 | 600 | 600 | **10** | 10 | 2 |
+
+The W32 lex attains J19's 12-charge upper bound, while every
+nonempty true-original source triple checked has exactly two
+physical oriented path realizations (the path and its reversal),
+attaining J18's universal bound 2.
+
+On W34, the new constructive oracle fully enumerates the permissible
+source-completions for **96 deterministically evenly distributed**
+eligible physical seeds from each complete original map, without
+claiming either a random sample or a full original seven-family census:
+
+| TRUE original W34 map | Full E (for context ONLY) | EXACT selected seed count | Seeds with >=1 accepted Q | Accepted (P,Q) hits | A-left/B-right | B-left/A-right | D6 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| lex | 38,020 | 96 | 94 | 545 | 182 | 222 | 141 |
+| random | 30,194 | 96 | 95 | 430 | 172 | 162 | 96 |
+| genuine D4 symplectic spread | 35,190 | 96 | 94 | 537 | 212 | 193 | 132 |
+
+The selected 96 source seeds are **not probabilistic observations**;
+selection is uniformly spaced in the enumerator's deterministic
+ordered full genuine endpoint-bad seed sequence. Every selected
+seed receives a COMPLETE constructive all-target source completion
+search, but NO inference about all unexamined W34 seeds, about
+uniform extension coverage for s>=8, or about `S=Omega(s^6)`
+is authorized. The W32 S68/S72 severe extension isolation
+demonstrates why a naive universal pointwise extension claim is
+unsafe despite these W34 finite targeted positive examples.
+
 ## 6. CONDITIONAL all-h isolation consequence J21 (NOT Root A/B)
 
 Take any hypothetical unbounded family of legal complete f_s,g_s with `S_s=o(s^6)`, and suppose it falls into JPKC003's endpoint-dominated branch:
