@@ -69,6 +69,17 @@ def _physical_half_palette(ctx,path,side):
     missing=comb(a,2)-ctx.v
     if len(missing_inside)>missing:
         raise AssertionError("J22 physical missing Ka edges exceed global deficit")
+    # For each missing undirected interior edge there are at most TWO
+    # oriented (z4,z5) assignments. This is a legitimate all-h
+    # palette-only lower bound, never an ORIGINAL GF5 witness.
+    guaranteed=max(0,len(F)*len(L)-len(F&L)-2*missing)
+    if full<guaranteed:
+        raise AssertionError("J24 original global physical pair deficit inequality failed")
+    regular_endpoints=(len(F)==len(outside) and len(L)==len(outside))
+    if regular_endpoints:
+        universal_regular=max(0,initial-2*missing)
+        if full<universal_regular:
+            raise AssertionError("J24 regular-endpoint physical palette guarantee failed")
     return {
         "all_physical_A_half_candidates":initial,
         "missing_first_chord":entry,
@@ -80,6 +91,10 @@ def _physical_half_palette(ctx,path,side):
         "physical_endpoint_neighborhood_L":len(L),
         "physical_missing_edges_inside_P4_complement":len(missing_inside),
         "physical_global_missing_Ka_edges":missing,
+        "J24_local_palette_guaranteed_A_half":guaranteed,
+        "J24_P4_endpoints_have_no_missing_outside_chord":regular_endpoints,
+        "J24_regular_endpoint_guaranteed_A_half":
+            max(0,initial-2*missing) if regular_endpoints else None,
     }
 
 
@@ -278,6 +293,7 @@ def deficit_certificate(model,*,limit_seeds=None,exact_W32=True,
         "actual_source_positive_Q_class_counts":dict(byclass),
         "J22_exact_A_half_palette_hole_identity":True,
         "J23_exact_geometry_matching_wedge_dual_deficit_telescope":True,
+        "J24_palette_only_A_half_lower_verified":True,
         "J24_palette_only_all_h_positive_extension_proved":False,
         "full_original_W32_seven_GF5_index_compared":bool(exact_W32),
         "scope_no_full_W34_seven_S":not exact_W32,
