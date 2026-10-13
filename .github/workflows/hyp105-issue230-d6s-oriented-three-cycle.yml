@@ -1,0 +1,129 @@
+name: hyp105-issue230-d6s-oriented-three-cycle
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6s_oriented_three_cycle.py"
+      - "research/test_hyp105_issue230_d6s_oriented_three_cycle.py"
+      - "docs/research/HYP-105-ISSUE230-D6S-ORIENTED-THREE-CYCLE-COMMUTATOR.md"
+      - ".github/workflows/hyp105-issue230-d6s-oriented-three-cycle.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-oriented-three-cycle-independent-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent ORIGINAL seven-GF5 full recount and noncommuting tail falsifier
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6s_oriented_three_cycle.py' -v
+
+  complete-original-W32-oriented-three-cycle-census:
+    needs: original-oriented-three-cycle-independent-controls
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaustively check 455 triples x 2 orientations on one frozen genuine ORIGINAL W32 model
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6s_oriented_three_cycle.py --scheme "$SCHEME" > "/tmp/hyp105-d6s-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          from fractions import Fraction
+          scheme=os.environ['SCHEME']
+          data=json.loads(Path(f'/tmp/hyp105-d6s-{scheme}.json').read_text())
+          assert data['slice']=='HYP105-ISSUE230-D6S-ORIENTED-3CYCLE-ORDER-DEFECT'
+          assert data['theorem']=='ALL-H-ORIGINAL-SEVEN-CYLINDER-ORIENTED-3CYCLE-COMMUTATOR'
+          assert data['genuine_original_W32_complete_injections']
+          assert data['full_W32_two_orientations_all_455_right_factor_triples_per_map']
+          assert data['no_W34_W38_full_seven_S']=='NOT-CLAIMED'
+          assert data['all_h_global_lower']=='NOT-PROVED'
+          assert data['infinite_B_counterfamily']=='NOT-PROVED'
+          assert data['Branch_A']=='OPEN' and data['Branch_B']=='OPEN'
+          assert len(data['rows'])==1
+          r=data['rows'][0]
+          assert r['scheme']==scheme
+          assert r['baseline_true_original_S']=={'S68':68,'S72':72}[scheme]
+          assert r['all_105_single_transpositions_strictly_increase_S']
+          assert r['min_singleton_delta_S']=={'S68':7,'S72':2}[scheme]
+          assert r['unique_original_right_line_triples']==455
+          assert r['all_910_oriented_three_cycles_checked']
+          assert (r['oriented_three_cycles_improving_S']+
+                  r['oriented_three_cycles_equal_S']+
+                  r['oriented_three_cycles_increasing_S'])==910
+          assert 0<=r['oriented_three_cycles_improving_GF5_selected_lower']<=910
+          pinned={
+              'S68': {'n_improve':0,'n_equal':0,'n_worse':910,
+                      'n_GF5_improve':0,'n_noncommutative':445,
+                      'best':[3,11,12],'orientation':'forward',
+                      'best_delta':8,'best_GF5_delta':317513,
+                      'best_order_defect':-32,'worst_delta':108},
+              'S72': {'n_improve':1,'n_equal':0,'n_worse':909,
+                      'n_GF5_improve':1,'n_noncommutative':449,
+                      'best':[1,7,9],'orientation':'reverse',
+                      'best_delta':-4,'best_GF5_delta':-179530,
+                      'best_order_defect':46,'worst_delta':101},
+          }
+          p=pinned[scheme]
+          assert r['oriented_three_cycles_improving_S']==p['n_improve']
+          assert r['oriented_three_cycles_equal_S']==p['n_equal']
+          assert r['oriented_three_cycles_increasing_S']==p['n_worse']
+          assert r['oriented_three_cycles_improving_GF5_selected_lower']==p['n_GF5_improve']
+          assert r['triple_supports_with_nonzero_order_commutator']==p['n_noncommutative']
+          assert r['best_oriented_three_cycle']['triple_original_right_factors']==p['best']
+          assert r['best_oriented_three_cycle']['orientation']==p['orientation']
+          assert r['best_oriented_three_cycle']['delta_S_seven']==p['best_delta']
+          assert r['best_oriented_three_cycle']['delta_GF5_selected_lower_numerator']==p['best_GF5_delta']
+          assert r['best_oriented_three_cycle']['order_commutator_S']==p['best_order_defect']
+          assert r['worst_oriented_three_cycle']['delta_S_seven']==p['worst_delta']
+          assert 0<=r['triple_supports_with_nonzero_order_commutator']<=455
+          assert r['S_local_minimum_for_ALL_right_permutations_supported_on_at_most_3_original_lines']==(
+              r['oriented_three_cycles_improving_S']==0)
+          assert r['S_strict_local_minimum_for_ALL_nonidentity_right_permutations_supported_on_at_most_3_original_lines']==(
+              r['oriented_three_cycles_improving_S']==0 and
+              r['oriented_three_cycles_equal_S']==0)
+          assert r['NOT_full_permutation_global_minimum']
+          weights={'D6':5643,'B-left/A-right':45600,'A-left/B-right':45600,
+                   'C/A':43320,'C/B':49050,
+                   'B/B-overlap':51750,'B/B-disjoint':45010}
+          for field in ['best_oriented_three_cycle','worst_oriented_three_cycle',
+                        'best_weighted_GF5_three_cycle']:
+              row=r[field]
+              assert len(set(row['triple_original_right_factors']))==3
+              assert row['orientation'] in ('forward','reverse')
+              assert set(row['delta_by_seven_class'])==set(weights)
+              assert row['delta_S_seven']==sum(row['delta_by_seven_class'].values())
+              assert row['delta_GF5_selected_lower_numerator']==sum(
+                  weights[k]*row['delta_by_seven_class'][k] for k in weights)
+          assert r['best_oriented_three_cycle']['delta_S_seven']<=r[
+              'worst_oriented_three_cycle']['delta_S_seven']
+          print({'scheme':scheme,'S_baseline':r['baseline_true_original_S'],
+                 'all_oriented_three_cycles':910,
+                 '3cycle_improving_S':r['oriented_three_cycles_improving_S'],
+                 '3cycle_equal_S':r['oriented_three_cycles_equal_S'],
+                 '3cycle_worsening_S':r['oriented_three_cycles_increasing_S'],
+                 '3cycle_improving_GF5':r['oriented_three_cycles_improving_GF5_selected_lower'],
+                 'order_sensitive_triples':r['triple_supports_with_nonzero_order_commutator'],
+                 'best_three_cycle':r['best_oriented_three_cycle'],
+                 'worst_three_cycle':r['worst_oriented_three_cycle'],
+                 'min_over_all_three_line_supported_permutations':
+                    r['S_local_minimum_for_ALL_right_permutations_supported_on_at_most_3_original_lines'],
+                 'strict_min_over_all_three_line_supported_permutations':
+                    r['S_strict_local_minimum_for_ALL_nonidentity_right_permutations_supported_on_at_most_3_original_lines']})
+          PY
