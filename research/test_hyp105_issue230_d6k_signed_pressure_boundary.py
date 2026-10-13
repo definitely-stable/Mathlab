@@ -204,6 +204,29 @@ class SignedPressureBoundaryTests(unittest.TestCase):
                 self.assertGreater(
                     pair_cert["failed_pair_cut_witness"][
                         "exact_positive_pair_cut_shortfall"],0)
+                # Independent exact dual cuts on TRUE ORIGINAL W32, not
+                # failures of the full or uniform original transport.
+                pinned_pair_witness={
+                    "S68":(372,28,1632,44),
+                    "S72":(1215,128,6975,42),
+                }
+                shortage,cut,pressure,size=pinned_pair_witness[row["scheme"]]
+                w=pair_cert["failed_pair_cut_witness"]
+                self.assertEqual(
+                    (w["exact_positive_pair_cut_shortfall"],
+                     w["original_pair_cut_weight"],
+                     w["sum_centred_integer_pressure"],
+                     len(w["original_incidence_support_F"])),
+                    (shortage,cut,pressure,size))
+                self.assertEqual(pressure-45*cut,shortage)
+                original=prev[
+                    "failed_pair_cut_evaluated_in_original_triple_hypergraph"]
+                self.assertEqual(original["k"],size)
+                self.assertLessEqual(original["six_M_minus_K_D"],
+                                     prev["uniform_exact_scaled_Hall_deficit_Delta6"])
+                self.assertGreaterEqual(
+                    2*original["original_partial_source_boundary"],
+                    original["original_pair_projection_cut_weight"])
             self.assertEqual(prev["uniform_exact_scaled_Hall_deficit_Delta6"],
                              6*deficit)
             self.assertEqual(prev["exact_local_Hall_excess_over_global_source_pressure"],0)
