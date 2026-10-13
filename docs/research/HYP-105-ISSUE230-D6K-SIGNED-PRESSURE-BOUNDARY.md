@@ -98,6 +98,19 @@ Implementation reconstructs each nonzero signed integer pair flux and checks exa
 
 This is an obstruction only to the PAIR calibration, not evidence against D6-I, full D6-D, or the GF5 theorem. No external numerical spectral library is needed; GitHub-hosted Python standard library suffices. Synthetic primal and dual witnesses are independently recomputed by explicit subset arithmetic.
 
+### New actual original W32 discrimination: pair-flow certification is strictly incomplete
+
+[Hosted D6-K Contract #38363137958](https://github.com/definitely-stable/Mathlab/actions/runs/38363137958) passed all six focused methods, including independent primal edge-divergence and dual failing-cut tests. For TRUE SAME-MAP complete GF5-positive original W32 at K_full-1:
+
+| Coherent W32 map | Complete seven S | Exact full exception | Exact ORIGINAL uniform local Hall excess | Tree-only spectral gate | Centered ORIGINAL pair-flow calibration |
+| --- | ---: | ---: | ---: | --- | --- |
+| lex | 259 | 165 | 0 | FAILS sufficient check | **CERTIFIED** (131 nonzero signed pair edges) |
+| reverse | 169 | 53 | 0 | FAILS sufficient check | **CERTIFIED** (169 nonzero signed pair edges) |
+| S68 | 68 | 62 | 0 | FAILS sufficient check | **PAIR CUT OBSTRUCTION** |
+| S72 | 72 | 10 | 0 | FAILS sufficient check | **PAIR CUT OBSTRUCTION** |
+
+S68/S72 are NOT counterexamples to original full or uniform Hall expansion: the true original weighted 3-port boundary is strictly stronger than the coarse undirected pair-cut lower bound and indeed the exact uniform cut is globally tight in both. The pair calibration dual F is a witness **only** against the centered PAIR-flow sufficient certificate. These finite results advise **against** using pair-graph spectral or electrical constraints as *necessary* conditions in future high-h GQ arguments. Direct original directed 3-incidence hyperedge boundary is the mathematically faithful next object.
+
 ## 3. The circularity obstruction is explicit
 
 For every true positive recipient pool, without any geometric assumptions,
