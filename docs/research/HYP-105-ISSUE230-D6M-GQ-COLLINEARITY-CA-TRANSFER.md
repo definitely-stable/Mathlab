@@ -75,6 +75,17 @@ B/A and C/A count **disjoint ORIGINAL sixsets** because a left half cannot be si
 
 The exact finite rational lower equals the sum of the previous original B/A lower and the new exact directed C-left/A-right lower, in the executable report. This uniform-in-left-f result is NEW but **NOT** a lower bound for an arbitrary fixed adversarial right injection g. A positive expectation proves some right g have high S; it does NOT prove all right g do, and does not close universal Branch A. Nor does it establish a counterfamily for Branch B or strict full GF5 R3/R2 upper bounds.
 
+### Conditional expected GF5 risk floor for TWO positive directional subclasses
+
+The accepted seven-family GF5 R3 necessary lower numerator gives each B-left/A-right sixset weight 45,600 and each C/A sixset (either orientation) weight 43,320. For any fixed complete original globally injective left f and a UNIFORMLY random complete original right injection g, the selected nonnegative GF5 risk floor satisfies
+
+    E_g[R3_selected_positive_lower | f] >=
+      (45600*lower_E_g U_B-left/A-right
+       +43320*lower_E_g U_C-left/A-right)/51^6
+      >= ((6,889,400-o(1))/51^6)*s^6.
+
+The leading integer is exactly 45,600*140+43,320*(35/3)=6,889,400. The executable certificate retrieves the exact weights from the existing GF5 seven-signature registry and checks this weighted rational inequality. This is a necessary *selected positive contribution* to R3 **in expectation**; it is NEITHER the full R3 upper bound NOR a deterministic lower for every correlated fixed-right g.
+
 **Critical dual-orientation audit:** The existing fixed-g W32 classifier reports the union of left-C/right-A and left-A/right-C. The independent finite falsifier counts both separately and checks that they sum to the classifier's "C/A" tag. For lex the directed C-left/A-right count is 4 and the reversed A-left/C-right count is 9 (aggregate 13); for reverse they are 0 and 1 (aggregate 1). Hence it is mathematically invalid to equate the new right-random directional expectation with the aggregate C/A expectation. The all-seven S inequality is nevertheless valid because this directed subset is contained in its accepted positive GF5 class.
 
 ## 4. Independent original finite evidence
