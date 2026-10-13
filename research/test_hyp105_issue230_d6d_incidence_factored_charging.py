@@ -13,9 +13,9 @@ class FactorizationTests(unittest.TestCase):
     def test_original_W32_complete_all_seven_and_W34_BB_subset_only(self):
         rows=self.data["W32_COMPLETE_positive_all_seven"]
         self.assertEqual(len(rows),4)
-        expected={"lex":(942,259),"reverse":(898,169),"S68":(606,68),"S72":(658,72)}
+        expected={"lex":(942,259,4),"reverse":(898,169,6),"S68":(606,68,9),"S72":(658,72,10)}
         for row in rows:
-            C,S=expected[row["scheme"]]
+            C,S,K=expected[row["scheme"]]
             self.assertEqual((row["C_blocked_oriented"],row["full_seven_positive_S"]),(C,S))
             self.assertEqual(row["E_endpoint_bad"]+row["I_internal_only"],C)
             self.assertEqual(sum(row["real_positive_class_counts"].values()),S)
@@ -23,6 +23,11 @@ class FactorizationTests(unittest.TestCase):
             result=row["r1_incidence_factorized"]
             self.assertEqual(result["status"],"EXACT-INCIDENCE-FACTORED-INTEGRAL-HALL-OPTIMUM")
             self.assertEqual(result["optimal_K"],row["independent_D6C_direct_min_K"])
+            self.assertEqual(result["optimal_K"],K)
+            self.assertEqual(result["extra_local_K_over_pigeonhole"],0)
+            self.assertEqual(result["global_pigeonhole_K_floor"],K)
+            self.assertTrue(all(x["one_overlap_source_uncovered_oriented_paths"]==0
+                                for x in row["one_class_deleted_coverage_diagnostics"]))
             witness=result["K_minus_one_strict_Hall_witness"]
             self.assertEqual(witness["strict_hall_deficit"],witness["flow_shortfall"])
             self.assertGreater(witness["strict_hall_deficit"],0)
@@ -35,6 +40,23 @@ class FactorizationTests(unittest.TestCase):
             self.assertEqual(row["E_endpoint_bad"]+row["I_internal_only"],
                              row["original_blocked_oriented"])
             self.assertGreater(row["full_synchronised_positive_BB_target_sixsets"],0)
+            pinned={
+                ("balanced","FULL-TRUE-ORIGINAL-G"):(52760,7649,7),
+                ("reverse","FULL-TRUE-ORIGINAL-G"):(53238,7479,8),
+                ("balanced","CALIBRATION-NOT-PR394"):(10290,7649,2),
+                ("reverse","CALIBRATION-NOT-PR394"):(9186,7479,2),
+            }
+            C,BB,K=pinned[(row["mode"],row["policy"])]
+            self.assertEqual((row["original_blocked_oriented"],
+                              row["full_synchronised_positive_BB_target_sixsets"]),(C,BB))
+            partial=row["r1_BB_subset_incidence_factorized"]
+            self.assertEqual(partial["status"],
+                             "EXACT-INCIDENCE-FACTORED-INTEGRAL-HALL-OPTIMUM")
+            self.assertEqual(partial["optimal_K"],K)
+            self.assertEqual(partial["extra_local_K_over_pigeonhole"],0)
+            self.assertEqual(partial["uncovered_oriented_blocked_paths"],0)
+            self.assertEqual(partial["factorized_flow_certificate"]["source_total"],C)
+            self.assertEqual(partial["factorized_flow_certificate"]["value"],C)
         self.assertEqual(self.data["all_h_original_seven_lower"],"OPEN")
 
     def test_exact_factored_and_direct_synthetic_maxflow_mincut(self):
