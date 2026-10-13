@@ -4,7 +4,7 @@ from fractions import Fraction
 import unittest
 
 from hyp105_issue230_jpkc002_path_collision_taxonomy import (
-    GOOD, STATUS, KINDS, collision_certificate, _edge_incidence_map,
+    GOOD, BLOCKED, STATUS, KINDS, collision_certificate, _edge_incidence_map,
 )
 from hyp105_issue230_projection import ProjectionClosure, fixture
 
@@ -24,6 +24,15 @@ class JPKC002Tests(unittest.TestCase):
                 self.assertEqual(r["proper_D6_from_collision"],d6)
                 self.assertEqual(r["true_original_seven_S"],S)
                 self.assertTrue(r["J3_exact_identity_verified"])
+                self.assertTrue(r["J4_exact_blocked_only_identity_verified"])
+                self.assertEqual(r["J4_blocked_original_P3"],
+                                 sum(r["proper_P3_status_counts"][t]
+                                     for t in BLOCKED))
+                self.assertEqual(r["J4_blocked_only_falling2"],
+                                 sum(r["J4_blockedblocked_ordered_distinct"].values()))
+                self.assertGreaterEqual(
+                    Fraction(r["J4_blocked_only_falling2"]),
+                    Fraction(r["J4_blocked_only_CS_floor"]))
                 self.assertTrue(r["full_K2_Theta_checked"])
                 self.assertFalse(r["universal_S_lower_PROVED_A"])
                 self.assertEqual(
@@ -55,6 +64,11 @@ class JPKC002Tests(unittest.TestCase):
                     r["goodgood_ordered_distinct"]["shared_internal"]+
                     r["goodgood_ordered_distinct"]["improper_C6"])
                 self.assertGreaterEqual(Fraction(r["J3_goodgood_endpoint_variance"]),0)
+                self.assertEqual(r["J4_blocked_only_falling2"],
+                                 sum(r["J4_blockedblocked_ordered_distinct"].values()))
+                self.assertLessEqual(
+                    r["J4_blockedblocked_ordered_distinct"]["proper_C6"],
+                    12*D6)
                 self.assertGreaterEqual(
                     Fraction(r["J3_goodgood_falling2"]),
                     Fraction(r["J3_proper_only_CS_floor"]))
