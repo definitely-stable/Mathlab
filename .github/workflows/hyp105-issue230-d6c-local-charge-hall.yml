@@ -54,6 +54,11 @@ jobs:
                   "original_blocked_oriented_P3":r["total_true_original_oriented_blocked_paths"],
                   "full_original_seven_positive_S":r["complete_original_seven_positive_S"],
                   "canonical_closure":r["canonical_original_closure_outcomes"],
+                  "first_UNSUPPORTED_true_original_witnesses":[
+                    r.get("r3_unsupported_TRUE_original_source"),
+                    r.get("r2_unsupported_TRUE_original_source"),
+                    r.get("r1_unsupported_TRUE_original_source"),
+                  ],
                   "local_Hall":[
                     {
                       "r":f["required_original_source_incidence_overlap"],
