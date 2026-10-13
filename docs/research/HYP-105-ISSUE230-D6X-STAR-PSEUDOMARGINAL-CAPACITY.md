@@ -129,6 +129,48 @@ nor disproves existence of OTHER feasible SA pseudo-solutions of
 zero GF5 cost. It does NOT show fixed-rank SA is insufficient,
 nor prove positive GF5 obstruction for all f,g.
 
+## 4. COROLLARY X3 — no-go for unanchored D6-W local-separator duals
+
+Take the **complete** family of true ORIGINAL six-incidence GF5-positive
+nonnegative factors F_Q and any finite set of signed typed ORIGINAL
+separator reparameterization messages of D6-W, of any separator rank
+within the a-1 projective horizon, balanced **pointwise** across
+factors for every separator value. Crucially suppose there are NO
+additional global physical label-column capacity cuts, no full-V
+anchor, and no nonlocal constraints not represented by those local
+factor tables and separators.
+
+Write G_Q=F_Q+sum_T theta_(Q,T). Every Q star pseudomarginal has
+E_mu F_Q=0 by X1. For a given separator T, projective consistency
+means every containing Q sees the SAME distribution mu_T, so
+
+    sum_Q E_mu theta_(Q,T) = E_mu_T sum_Q theta_(Q,T) = 0.
+
+Therefore the exact D6-W-style certificate necessarily satisfies
+
+    sum_Q min_local G_Q <= sum_Q E_mu_Q G_Q = 0.
+
+For all h>=2, **NO POSSIBLE SET** of such unanchored overlap-only
+separator messages can certify a positive universal root S lower
+bound, even if the allowed separator rank grows up to a-1 and
+even if every original sixset factor is present. This is a theorem
+about a specified separable cost-shift/region-consistency relaxation,
+NOT a general claim about SA or arbitrary nonlinear geometric
+inequalities. In particular it does not apply to the conditional
+D6-W saturated 3-site anchor or global lifted occupancy cuts.
+
+A small exact signed-message checksum is implemented: for two
+local factors sharing one ORIGINAL point, choose opposite +17/-17
+potentials indicating whether that point's physical pair contains
+coordinate zero. The star marginal of this indicator is 2/a,
+and their exact rational expectations cancel. The all-Q proof
+above is algebraic and not inferred from this finite checksum.
+
+**Significance:** X3 rules out an entire unconditioned D6-W-style
+separator-only proof route rather than a particular failed
+choice of messages. A genuine global occupancy-conditioned
+certificate is now mathematically necessary for that route.
+
 ## 4. Independent true-ORIGINAL finite falsification
 
 The hosted verifier checks full original W(3,4) (V=85, a=14,
@@ -161,7 +203,7 @@ Thus the projective pseudo satisfies E(sum_p x_p,e')=85/91<=1
 but violates the VALID lifted capacity cut, whose conditional
 right-hand side is 1.
 
-## 5. Scientific interpretation and D6-Y gate
+## 6. Scientific interpretation and D6-Y gate
 
 An enormous collection of mutually consistent finite-dimensional
 zero-cost local marginal distributions can be globally impossible,

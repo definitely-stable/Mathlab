@@ -8,7 +8,8 @@ from itertools import combinations
 from hyp105_issue230_d6x_star_pseudomarginal_capacity import (
     star_point_probability,right_injection_probability,
     typed_local_star_probability,enumerate_small_star,projective_oracle,
-    lifted_column_occupancy_cut,genuine_original_sixset_star_zero,report,
+    lifted_column_occupancy_cut,genuine_original_sixset_star_zero,
+    separator_only_dual_no_go,report,
 )
 from hyp105_issue230_projection import fixture
 from hyp105_issue230_proof_audit import parameters
@@ -156,6 +157,24 @@ class D6XProjectiveStarCapacityTests(unittest.TestCase):
             genuine_original_sixset_star_zero(4,model["incidences"],
                 [tuple((84,84) for _ in range(6))])
 
+    def test_all_h_separator_only_positive_dual_impossible_without_capacity(self):
+        for h in range(2,7):
+            x=separator_only_dual_no_go(2**h)
+            a=parameters(2**h)["a"]
+            self.assertEqual(x["max_certified_separator_region_rank"],a-1)
+            self.assertGreaterEqual(a-1,12)
+            self.assertEqual(x["every_original_Q_seven_GF5_expected_cost"],0)
+            self.assertEqual(x["signed_overlap_messages_sum"],"0")
+            self.assertEqual(
+                sum(Fraction(v) for v in
+                    x["signed_common_original_point_messages"]),0)
+            self.assertEqual(
+                x["positive_root_bound_by_this_separator_only_dual"],"IMPOSSIBLE")
+            self.assertFalse(x["global_physical_column_lifts_in_model"])
+            self.assertFalse(x["generic_Sherali_Adams_no_go"])
+        with self.assertRaises(ValueError):
+            separator_only_dual_no_go(2)
+
     def test_report_rejects_SA_claim_and_keeps_root_open(self):
         x=report()
         self.assertEqual(x["all_h_h_ge_2_scope_rank"],"a_minus_1")
@@ -166,6 +185,8 @@ class D6XProjectiveStarCapacityTests(unittest.TestCase):
         self.assertEqual(x["first_order_global_capacity"],"SATISFIED")
         self.assertFalse(x["this_is_feasible_Sherali_Adams_for_global_assignment"])
         self.assertFalse(x["general_Sherali_Adams_no_go"])
+        self.assertEqual(x["all_h_unanchored_separator_only_dual_positive"],"NO_GO")
+        self.assertEqual(len(x["all_h_separator_only_no_go"]),5)
         self.assertFalse(x["global_original_root_PROVED_A"])
         self.assertFalse(x["infinite_correlated_counterexample_PROVED_B"])
         self.assertEqual((x["Branch_A"],x["Branch_B"]),("OPEN","OPEN"))

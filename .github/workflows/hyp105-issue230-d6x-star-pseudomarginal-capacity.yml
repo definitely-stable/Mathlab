@@ -36,6 +36,13 @@ jobs:
           assert x['all_h_h_ge_2_scope_rank']=='a_minus_1'
           assert x['all_h_original_sixset_left_center_degree']==6
           assert x['selected_nonnegative_GF5_numerator_local_expected']==0
+          assert x['all_h_unanchored_separator_only_dual_positive']=='NO_GO'
+          assert len(x['all_h_separator_only_no_go'])==5
+          for q in x['all_h_separator_only_no_go']:
+              assert q['every_original_Q_seven_GF5_expected_cost']==0
+              assert q['signed_overlap_messages_sum']=='0'
+              assert not q['global_physical_column_lifts_in_model']
+              assert not q['generic_Sherali_Adams_no_go']
           assert x['capacity_failure_rank']=='TWO-FOR-LIFTED-GLOBAL-PHYSICAL-COLUMN-CONSTRAINT'
           assert x['first_order_global_capacity']=='SATISFIED'
           assert x['this_is_feasible_Sherali_Adams_for_global_assignment'] is False

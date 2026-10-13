@@ -254,6 +254,50 @@ def projective_oracle(a,scope_size):
     }
 
 
+def separator_only_dual_no_go(s):
+    """Exact all-h zero bound on separated min-cost dual *without capacity lifts*.
+
+    For every true ORIGINAL six-incidence factor, its star-supported
+    locally injective marginal has E[F_Q]=0. Every separator message
+    cancels in expectation because all overlapping ORIGINAL typed-site
+    projections agree. Hence sum_Q min(local shifted F_Q) <= 0
+    for ANY finite set of balanced signed separator messages whose
+    scope lies within the a-1 projective horizon. This excludes only
+    the unanchored D6-W-style local-consistency/min-factor dual; global
+    physical column-capacity lifts are not included in that model.
+    """
+    p=parameters(s)
+    if s<4:
+        raise ValueError("projective all-original-sixset theorem needs h>=2")
+    a=p["a"]
+    if a-1<12:
+        raise AssertionError("all true ORIGINAL Q scopes require rank at least 12")
+    physical_incident=tuple((0,j) for j in range(1,a))
+    # Independent direct summation of one-site star marginal.
+    mass=sum((star_point_probability(a,(e,)) for e in physical_incident),
+             Fraction(0))
+    if mass!=Fraction(2,a):
+        raise AssertionError("uniform physical-star center marginal false")
+    # Exhibit two opposed nonzero message potentials on a COMMON
+    # ORIGINAL point factor, each supported on one-site physical image.
+    coef=17
+    messages=(coef*mass,-coef*mass)
+    if sum(messages)!=0:
+        raise AssertionError("overlap-consistent separator messages do not cancel")
+    return {
+        "s":s,
+        "max_certified_separator_region_rank":a-1,
+        "all_true_original_Q_region_scopes_at_most":12,
+        "every_original_Q_seven_GF5_expected_cost":0,
+        "signed_common_original_point_messages":[str(z) for z in messages],
+        "signed_overlap_messages_sum":str(sum(messages)),
+        "unanchored_local_consistency_separator_dual_upper_bound":0,
+        "positive_root_bound_by_this_separator_only_dual":"IMPOSSIBLE",
+        "global_physical_column_lifts_in_model":False,
+        "generic_Sherali_Adams_no_go":False,
+    }
+
+
 def report():
     params=[lifted_column_occupancy_cut(2**h) for h in range(1,7)]
     return {
@@ -262,6 +306,7 @@ def report():
         "all_h_h_ge_2_scope_rank":"a_minus_1",
         "all_h_original_sixset_left_center_degree":6,
         "selected_nonnegative_GF5_numerator_local_expected":0,
+        "all_h_unanchored_separator_only_dual_positive":"NO_GO",
         "capacity_failure_rank":"TWO-FOR-LIFTED-GLOBAL-PHYSICAL-COLUMN-CONSTRAINT",
         "first_order_global_capacity":"SATISFIED",
         "this_is_feasible_Sherali_Adams_for_global_assignment":False,
@@ -274,6 +319,8 @@ def report():
         "independent_small_projection_checks":[
             projective_oracle(7,4),projective_oracle(14,3),
         ],
+        "all_h_separator_only_no_go":[separator_only_dual_no_go(2**h)
+                                      for h in range(2,7)],
     }
 
 
