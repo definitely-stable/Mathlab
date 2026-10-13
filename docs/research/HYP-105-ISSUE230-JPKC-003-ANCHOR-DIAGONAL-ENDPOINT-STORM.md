@@ -122,6 +122,36 @@ J8 is a genuine sharpening of the NECESSARY structural conditions for a hypothet
 
 All fixtures use ONE coherent f,g; nothing is resampled per (q,r) anchor or denominator. W38 full path enumeration is not represented as a complete tested census. Dedicated hosted tests use explicit fail-closed path budgets and reject illegal global injections. No W34 full seven-family census is claimed.
 
+## 5a. Independent exact finite numerical controls (not asymptotic evidence)
+
+The dedicated final-head runner emits these **true original globally injective**
+same-map counts. Here B=E+I and K=K_E+K_I **exactly**; K counts ordered
+distinct blocked three-path pairs sharing identical oriented physical
+endpoints.
+
+| Real original f,g | B | E (original endpoint) | I (internal only) | K | K_E | K_I |
+|---|---:|---:|---:|---:|---:|---:|
+| W32 lex | 942 | 786 | 156 | 1,872 | 1,456 | 416 |
+| W32 reverse | 898 | 676 | 222 | 1,432 | 1,060 | 372 |
+| W32 S68 | 606 | 544 | 62 | 512 | 444 | 68 |
+| W32 S72 | 658 | 600 | 58 | 664 | 624 | 40 |
+| W34 lex | 55,384 | 38,020 | 17,364 | 161,256 | 128,912 | 32,344 |
+| W34 random | 48,542 | 30,194 | 18,348 | 117,356 | 87,996 | 29,360 |
+| W34 REAL D4 symplectic spread | 52,760 | 35,190 | 17,570 | 149,716 | 116,600 | 33,116 |
+
+These numerical pins are additional to the exact JPKC-002 3-way
+shared-interior/improper/proper cycle partition. The new E/I classification
+is SOURCE-anchored, so it is *not* merely a new coding of proper vs
+improper physical C6. For W32 S68, `E/B=544/606` while for W34 D4
+spread `E/B=35190/52760`. The fact that both are sizable does not
+give a uniform asymptotic lower bound E/B; the J8 alternative permits
+all large instances to be dominated instead by internal-only I.
+
+Near-complete image capacity is checked on both sides. At s=4 the
+sharp physical all-pairs adjacency maximum is 963; true W34 lex
+occupies 960 and random occupies 952 on the left. This image-level
+quantity is **not** M_f, which concerns only collinear original points.
+
 ## 6. Next permitted research gate (JPKC-004)
 
 - Prove/falsify a **GEOMETRY + globally occupied-image capacity** restriction on the *bad* J8 collision terms, not on their sum with correct D6.
