@@ -137,6 +137,43 @@ class TrueOriginalD6BPruningTests(unittest.TestCase):
                                          witness["robust_removed_edges_lower_den"]))
         self.assertFalse(witness["universal_S_six_positive_lower_proved"])
 
+    def test_pinned_true_original_sixteen_retained_W32_W34_ledgers(self):
+        # First exact GitHub-hosted PR401 Contract independently printed 16
+        # complete ORIGINAL same-map policy cases, frozen here after success.
+        pinned={
+            ("W32-lex","FULL-TRUE-ORIGINAL-G"):(90,2977,1346,786,156,942,2),
+            ("W32-lex","PR394-EXACT-AS-WRITTEN"):(0,0,0,0,0,0,0),
+            ("W32-lex","CALIBRATION-NOT-PR394"):(14,473,0,0,0,0,0),
+            ("W32-lex","COHERENT-EVERY-19-ORIGINAL-INCIDENCE"):(84,2781,1058,648,114,762,2),
+            ("W32-S68","FULL-TRUE-ORIGINAL-G"):(90,3289,678,544,62,606,0),
+            ("W32-S68","PR394-EXACT-AS-WRITTEN"):(0,0,0,0,0,0,0),
+            ("W32-S68","CALIBRATION-NOT-PR394"):(48,1759,96,76,8,84,0),
+            ("W32-S68","COHERENT-EVERY-19-ORIGINAL-INCIDENCE"):(84,3075,578,458,48,506,0),
+            ("W34-D5-spread-balanced","FULL-TRUE-ORIGINAL-G"):(850,127932,82322,35190,17570,52760,7649),
+            ("W34-D5-spread-balanced","PR394-EXACT-AS-WRITTEN"):(0,0,0,0,0,0,0),
+            ("W34-D5-spread-balanced","CALIBRATION-NOT-PR394"):(482,72810,15892,6702,3588,10290,1376),
+            ("W34-D5-spread-balanced","COHERENT-D5-SELECTED-WITNESS-FIRST-20PCT"):(818,122953,72942,31230,15652,46882,6695),
+            ("W34-D5-spread-reverse","FULL-TRUE-ORIGINAL-G"):(850,131936,82288,36014,17224,53238,7479),
+            ("W34-D5-spread-reverse","PR394-EXACT-AS-WRITTEN"):(0,0,0,0,0,0,0),
+            ("W34-D5-spread-reverse","CALIBRATION-NOT-PR394"):(464,72094,14270,6170,3016,9186,1234),
+            ("W34-D5-spread-reverse","COHERENT-D5-SELECTED-WITNESS-FIRST-20PCT"):(816,126309,73314,32278,15122,47400,6624),
+        }
+        assert len(pinned)==len(self.rows)
+        for row in self.rows:
+            pair=row["scheme"],row["policy"]
+            self.assertIn(pair,pinned)
+            got=tuple(row[k] for k in (
+                "retained_physical_edges","W_retained_original_endpoint_energy",
+                "proper_P3","E_endpoint_bad_proper_P3",
+                "I_safe_endpoint_internal_only_proper_P3",
+                "C_joint_blocked_proper_P3","BB_sync_accepted_sixsets"))
+            self.assertEqual(got,pinned[pair])
+        # Literal PR394 at tiny finite s has no nontrivial path reservoir,
+        # which cannot falsify its asymptotic theorem or prove root A.
+        self.assertTrue(all(
+            r["proper_P3"]==0 and r["retained_physical_edges"]==0
+            for r in self.rows if r["policy"]=="PR394-EXACT-AS-WRITTEN"))
+
     def test_invalid_policies_fail_closed(self):
         model,_,_,_=true_spread_global_model(2)
         core=ProjectionClosure(model)
