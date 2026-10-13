@@ -120,7 +120,7 @@ class SharpSixFactorAdaptiveOriginalPortTests(unittest.TestCase):
                 self.assertEqual(
                     row["uniform_exception_lower_at_6K"], max(0, N-K))
                 self.assertEqual(
-                    row["uniform_exception_upper_at_K"], max(0, N-K//6))
+                    row["uniform_exception_upper_at_K"], max(0, N-(K+5)//6))
                 self.verify_primal(source, accepted, row, K)
 
     def test_joint_E_I_support_and_unsupported_original_targets(self):
