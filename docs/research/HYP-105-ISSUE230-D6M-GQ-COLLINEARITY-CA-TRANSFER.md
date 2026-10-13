@@ -29,9 +29,9 @@ Let M_f be the family of unordered triples {p1,p2,p3} of ORIGINAL points with pa
 
 The numerator counts all assignments of six DISTINCT physical unordered pairs that form one of the 70 labelled simple physical six-edge 2-factors on six physical symbols. The denominator counts ordered distinct physical-pair images of six distinct right factor lines. For a UNIFORMLY RANDOM INJECTION g of all ORIGINAL right lines into K physical pair labels, any six distinct fixed right lines map to an ordered distinct physical six-tuple uniformly, independent of which six right lines were chosen.
 
-The accepted ORIGINAL positive GF5 class C/A is characterized by exactly this left physical C and right physical A (all six distinct right factor lines). Every original six-incidence set is counted EXACTLY ONCE (one original doubled left point triple and one unordered pair of distinct original lines per point). Therefore **for every s=2^h and every fixed globally injective left f**,
+The **directional subclass C-left/A-right** of the accepted ORIGINAL positive GF5 class C/A is characterized by exactly this left physical C and right physical A (all six distinct right factor lines). The existing seven-class classifier aggregates BOTH orientations, C-left/A-right AND A-left/C-right, into the single tag "C/A". Our equality is for the DIRECTIONAL subclass only, hence supplies a lower bound — NOT an exact expectation — for the aggregate tag. Every directional original six-incidence set is counted EXACTLY ONCE (one original doubled left point triple and one unordered pair of distinct original lines per point). Therefore **for every s=2^h and every fixed globally injective left f**,
 
-    E_g[U_C/A(f,g) | f]
+    E_g[U_C-left/A-right(f,g) | f]
       = p_A * sum_{T in M_f} Phi_d(T).                         (1)
 
 This is an EXACT rational formula, not a random experiment or finite-h asymptotic extrapolation. The GF5 coefficient of each accepted C/A sixset in the seven-class R3 lower numerator is 43320 (accepted prior seven-GF5 certificate). Hence the expected **nonnegative selected seven-class GF5 lower numerator** includes at least 43320 times expression (1). No full R3 upper claim follows.
@@ -44,7 +44,7 @@ The existing proven one-sided E1-B1A physical C template lower is
 
 using EXACT integer per-omitted-edge edge-transitivity and missing=K-V<a; the source library supplies the integer expression and checks divisibility. Regardless of f, from the four types above
 
-    E_g U_C/A >= p_A * M_C^lower * Phi_min,
+    E_g U_C-left/A-right >= p_A * M_C^lower * Phi_min,
     Phi_min=Z³+3AZ².
 
 A stronger ALL-f bound comes from ORIGINAL W(3,s) point collinearity. There are exactly
@@ -58,7 +58,7 @@ unordered collinear ORIGINAL point pairs. For any pair at most V-2 third points 
 
 Both bounds hold simultaneously; take their MAXIMUM. They are integer-only symbolic for all h. As s grows, a~sqrt(2)*s^(3/2), B~s²/2, p_A~560*s^-9, M_C^lower~s^9/6; their product yields
 
-    E_g U_C/A(f,g) >= (35/3-o(1))*s^6                 (2)
+    E_g U_C-left/A-right(f,g) >= (35/3-o(1))*s^6                 (2)
 
 UNIFORMLY IN THE FIXED LEFT f. The refined pair penalty is asymptotically O(s^12) versus the principal C-lift term Theta(s^15), a relative O(s^-3), whereas the universal Phi_min alone loses relative O(s^-2).
 
@@ -70,10 +70,12 @@ Previously proved E1-B1A:
 
 B/A and C/A count **disjoint ORIGINAL sixsets** because a left half cannot be simultaneously physical type B and type C. They involve the very SAME g, so linearity of expectation gives the strengthened original seven-positive S lower **in the RIGHT-RANDOM model**:
 
-    E_g[S_seven(f,g) | f] >= E_g[U_B/A+U_C/A | f]
+    E_g[S_seven(f,g) | f] >= E_g[U_B-left/A-right+U_C-left/A-right | f]
                          >= (455/3-o(1))*s^6.         (3)
 
-The exact finite rational lower equals the sum of the previous original B/A lower and the new exact C/A lower, in the executable report. This uniform-in-left-f result is NEW but **NOT** a lower bound for an arbitrary fixed adversarial right injection g. A positive expectation proves some right g have high S; it does NOT prove all right g do, and does not close universal Branch A. Nor does it establish a counterfamily for Branch B or strict full GF5 R3/R2 upper bounds.
+The exact finite rational lower equals the sum of the previous original B/A lower and the new exact directed C-left/A-right lower, in the executable report. This uniform-in-left-f result is NEW but **NOT** a lower bound for an arbitrary fixed adversarial right injection g. A positive expectation proves some right g have high S; it does NOT prove all right g do, and does not close universal Branch A. Nor does it establish a counterfamily for Branch B or strict full GF5 R3/R2 upper bounds.
+
+**Critical dual-orientation audit:** The existing fixed-g W32 classifier reports the union of left-C/right-A and left-A/right-C. The independent finite falsifier counts both separately and checks that they sum to the classifier's "C/A" tag. For lex the directed C-left/A-right count is 4 and the reversed A-left/C-right count is 9 (aggregate 13); for reverse they are 0 and 1 (aggregate 1). Hence it is mathematically invalid to equate the new right-random directional expectation with the aggregate C/A expectation. The all-seven S inequality is nevertheless valid because this directed subset is contained in its accepted positive GF5 class.
 
 ## 4. Independent original finite evidence
 
