@@ -27,6 +27,12 @@ class JPKC004Tests(unittest.TestCase):
                 self.assertEqual(sum(sum(rec.values()) for rec in
                                      row["original_sixset_provenance_partition"].values()),KE)
                 self.assertTrue(row["J9_direct_GQ_closure_no_GF5_2reg"])
+                self.assertTrue(row["J11_J12_all_h_two_regular_only_proper_D6_verified"])
+                self.assertTrue(row["J13_selected_collision_upper_12D6_verified"])
+                self.assertEqual(row["J13_endpoint_sixset_positive_witnesses_only_D6"],
+                                 row["physical_collision_kinds"]["proper_C6"])
+                self.assertEqual(row["J13_unconvertible_endpoint_collisions"],
+                                 KE-row["physical_collision_kinds"]["proper_C6"])
                 self.assertTrue(row["JPKC003_endpoint_moment_independently_reconciled"])
                 self.assertLessEqual(
                     row["max_disjoint_cycle_ordered_witnesses_per_original_sixset"],768)
@@ -42,6 +48,15 @@ class JPKC004Tests(unittest.TestCase):
                 self.assertEqual(row["endpoint_bad_ordered_collisions"],KE)
                 self.assertIsNone(row["GF5_seven_W32_exact_accepted_witnesses"])
                 self.assertFalse(row["GF5_seven_all_h_classifier_available"])
+                self.assertTrue(row["J11_J12_all_h_two_regular_only_proper_D6_verified"])
+                self.assertEqual(row["J13_endpoint_sixset_positive_witnesses_only_D6"],
+                                 row["physical_collision_kinds"]["proper_C6"])
+                self.assertEqual(
+                    row["original_sixset_provenance_partition"]["proper_C6"]["all_h_D6_proved"],
+                    row["physical_collision_kinds"]["proper_C6"])
+                self.assertTrue(all(
+                    row["original_sixset_provenance_partition"][k]["all_h_D6_proved"]==0
+                    for k in ("shared_internal","improper_C6")))
                 self.assertEqual(sum(row["physical_collision_kinds"].values()),KE)
                 self.assertLessEqual(
                     row["max_disjoint_cycle_ordered_witnesses_per_original_sixset"],768)
@@ -54,6 +69,9 @@ class JPKC004Tests(unittest.TestCase):
         self.assertEqual(row["endpoint_bad_original_path_count"],35190)
         self.assertEqual(row["endpoint_bad_ordered_collisions"],116600)
         self.assertTrue(row["J9_direct_GQ_closure_no_GF5_2reg"])
+        self.assertTrue(row["J11_J12_all_h_two_regular_only_proper_D6_verified"])
+        self.assertEqual(row["J13_endpoint_sixset_positive_witnesses_only_D6"],42940)
+        self.assertEqual(row["J13_unconvertible_endpoint_collisions"],73660)
 
     def test_J9_original_GQ_endpoint_shared_coordinate_forces_degree_three(self):
         # Checks all original nonincident projection anchors, without
