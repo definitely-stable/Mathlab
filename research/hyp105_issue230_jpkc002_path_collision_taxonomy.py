@@ -26,6 +26,7 @@ STATUS = (
     "unblocked",
 )
 GOOD = frozenset(STATUS[1:])
+BLOCKED = frozenset(("blocked_left_only","blocked_right_only","blocked_both"))
 KINDS = ("identical", "shared_internal", "proper_C6", "improper_C6")
 
 
@@ -138,6 +139,7 @@ def collision_certificate(model,*,max_paths=2_000_000,
     matrix=Counter()
     orig_repeated=Counter()
     by_goodgood=Counter()
+    by_blockedblocked=Counter()
     six_candidates=Counter()
     for (u,v),paths in fibers.items():
         for (b,c,tag,ids) in paths:
@@ -172,6 +174,8 @@ def collision_certificate(model,*,max_paths=2_000_000,
                 _ordered_add(matrix,tag,other,kind)
                 if tag in GOOD and other in GOOD:
                     by_goodgood[kind]+=2
+                if tag in BLOCKED and other in BLOCKED:
+                    by_blockedblocked[kind]+=2
 
     if bykind["identical"]!=energy["P3"]:
         raise AssertionError("diagonal path pairs not exactly P3")
@@ -187,13 +191,19 @@ def collision_certificate(model,*,max_paths=2_000_000,
         raise AssertionError("proper cycle repeated original incidence")
     Pgood=sum(labels[t] for t in GOOD)
     diag_good=Counter()
+    diag_blocked=Counter()
     for (_, _),paths in fibers.items():
         ng=sum(t in GOOD for _,_,t,_ in paths)
         diag_good["sum_good_sq"]+=ng*ng
         diag_good["sum_good_falling2"]+=ng*(ng-1)
+        nb=sum(t in BLOCKED for _,_,t,_ in paths)
+        diag_blocked["sum_blocked_sq"]+=nb*nb
+        diag_blocked["sum_blocked_falling2"]+=nb*(nb-1)
     collision_good=sum(by_goodgood[k] for k in KINDS[1:])
     if collision_good!=diag_good["sum_good_falling2"]:
         raise AssertionError("all-h J3 good-good endpoint falling factorial identity fails")
+    if sum(by_blockedblocked[k] for k in KINDS[1:])!=diag_blocked["sum_blocked_falling2"]:
+        raise AssertionError("all-h J4 blocked-blocked endpoint falling factorial identity fails")
     proper=by_goodgood["proper_C6"]
     if proper!=bykind["proper_C6"]:
         raise AssertionError("all proper-C6 collisions must be good-good")
@@ -208,6 +218,9 @@ def collision_certificate(model,*,max_paths=2_000_000,
         len([1 for _,_,tag,_ in paths if tag in GOOD]) for paths in fibers.values()):
         raise AssertionError("status histogram inconsistent with actual path fibers")
 
+    B=sum(labels[t] for t in BLOCKED)
+    if Fraction(diag_blocked["sum_blocked_sq"])<Fraction(B*B,ctx.a**4):
+        raise AssertionError("blocked-only Cauchy-Schwarz inequality violated")
     classes={
         "proper_P3_status_counts":{s:labels[s] for s in STATUS},
         "P3_all":energy["P3"],"P3_good_coordinate_proper":Pgood,
@@ -225,6 +238,12 @@ def collision_certificate(model,*,max_paths=2_000_000,
         "J3_goodgood_endpoint_variance":str(
             Fraction(diag_good["sum_good_sq"])-Fraction(Pgood*Pgood,ctx.a**4)),
         "J3_exact_identity_verified":True,
+        "J4_blocked_original_P3":B,
+        "J4_blocked_only_falling2":diag_blocked["sum_blocked_falling2"],
+        "J4_blocked_only_CS_floor":str(Fraction(B*B,ctx.a**4)-B),
+        "J4_blockedblocked_ordered_distinct":{
+            k:by_blockedblocked[k] for k in KINDS[1:]},
+        "J4_exact_blocked_only_identity_verified":True,
         "full_K2_Theta_checked":True,
         "proper_D6_from_collision":bykind["proper_C6"]//12,
         "improper_C6_from_collision":bykind["improper_C6"]//12,
