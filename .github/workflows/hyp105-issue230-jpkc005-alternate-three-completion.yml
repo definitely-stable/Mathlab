@@ -1,0 +1,31 @@
+name: hyp105-issue230-jpkc005-alternate-three-completion
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc005_alternate_three_completion.py"
+      - "research/test_hyp105_issue230_jpkc005_alternate_three_completion.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-005-ALTERNATE-THREE-COMPLETION.md"
+      - ".github/workflows/hyp105-issue230-jpkc005-alternate-three-completion.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-original-alternate-three-completion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate all-original W32 seven-class census and J14 J15 J16 seed transport
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc005_alternate_three_completion.py' -v
+      - name: Publish exact W32 alternate completion and honest W34 D4 structural report
+        run: python research/hyp105_issue230_jpkc005_alternate_three_completion.py --spread
