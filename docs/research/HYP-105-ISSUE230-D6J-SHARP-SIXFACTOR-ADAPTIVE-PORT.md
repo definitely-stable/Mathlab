@@ -2,7 +2,7 @@
 
 **2026-10-13. NEW RESTRICTED_THEOREM_C. Root Branch A/B OPEN; not a positive-sixset asymptotic lower bound.**
 
-Stacked strictly above [D6-I Draft #408](https://github.com/definitely-stable/Mathlab/pull/408) HEAD \`b3c4a5300d08457018c845b89242498bd5102d5c\`, without merging or changing main. The D6-I parent was certified by the dedicated original-port Hall Contract and INDEX/Proof Audit; final whole-research CI is an independent required check.
+Stacked strictly above [D6-I Draft #408](https://github.com/definitely-stable/Mathlab/pull/408) HEAD `b3c4a5300d08457018c845b89242498bd5102d5c`, without merging or changing main. The D6-I parent was certified by the dedicated original-port Hall Contract and INDEX/Proof Audit; final whole-research CI is an independent required check.
 
 ## 1. Exact ALL-h six-factor comparison
 
@@ -63,7 +63,20 @@ For *zero exceptions*, K_uniform<=6K_full means a map-independent full bounded-c
 
 No uniform bounded K, no o(s^6) exception bound, no actual GQ positive port-degree lower bound and no Ω(s^6) Branch A proof is obtained in D6-J. The next stage D6-K should probe the **real** ORIGINAL positive boundary vs source demand (or falsify a restricted port assumption) with geometric GQ identities and globally coherent injective labelings; simply reformulating maxflow again is not productive.
 
-## 4. Engineering and independent falsification
+## 4. True-original complete-seven W32 finite pinned evidence
+
+The initial GitHub-hosted [D6-J Contract #38358961078](https://github.com/definitely-stable/Mathlab/actions/runs/38358961078) succeeded with 5/5 test methods and 192 independent small-system exhaustive comparisons. The full original flow was independently reconstructed as integer positive-sixset Q-to-original incidence e slots, with exactly conserved endpoint/internal joint source mass.
+
+| Genuine globally coherent W32 mapping | Original C=E+I | Complete accepted S | K_full | K_uniform | Exact FULL exception at K-1 | Nonzero optimal adaptive Q-to-e pairs at K |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| lex | 942 | 259 | 4 | 4 | 165 | 253 |
+| reverse | 898 | 169 | 6 | 6 | 53 | 167 |
+| S68 | 606 | 68 | 9 | 9 | 62 | 105 |
+| S72 | 658 | 72 | 10 | 10 | 10 | 103 |
+
+At K_full, original exception, uniform upper U(K), and uniform lower U(6K) all vanish. At K_full-1, the original exact exception agrees with the UNIFORM upper U(K-1), while U(6(K-1))=0. The new PR assertions pin these *nonzero-exception* cases and verify the adaptive reduced network routes exactly C-D_full(K-1) original paths. No W34 full-seven S or s-growth extrapolation is claimed.
+
+## 5. Engineering and independent falsification
 
 - [Implementation](../../research/hyp105_issue230_d6j_sixfactor_adaptive_port.py): full original integer-flow reconstruction from residual arcs, typed original Q/e/T slot assignments, explicit conservation of Q budgets and shared endpoint/internal demand; adaptive reduced-network recheck, both six-factor inequalities and exact capacity frontier. Fails closed on every inconsistency.
 - [Tests](../../research/test_hyp105_issue230_d6j_sixfactor_adaptive_port.py): 48 deterministic non-geometric finite systems and four K each checked against an INDEPENDENT unit-by-unit combinatorial exhaustive assignment (192 tests), sharp 6N/N singleton overlap, large 5-recipient example, unsupported and empty cases, explicit E+I sharing, and four genuine true original W32 globally coherent complete seven-positive GF5 maps.
