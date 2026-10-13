@@ -15,6 +15,7 @@ from hyp105_issue230_d6t_assignment_dual_certificate import (
     complete_true_original_W32_three_factor_tables,
     local_factor_objective,
     frozen_W32_assignment_dual_report,
+    physical_non_two_regular_star_witness,
 )
 from hyp105_issue230_d6p_seven_cylinder_swap_audit import (
     cylinder_census, R3_CERTIFIED_FLOORS,
@@ -140,6 +141,47 @@ class GlobalProjectedAssignmentDualTests(unittest.TestCase):
             dual["minimum_right_injective_assignment_potential_scaled"],
             DUAL_SCALE)
         self.assertEqual(dual["local_truth_rows_verified"],8)
+
+    def test_constructive_all_h_original_two_sided_one_site_dual_no_go(self):
+        """Every site projection has a zero via the OPPOSITE side.
+
+        Check actual W32 original incidences with physical A/B/C left
+        types. The construction is valid for arbitrary h with a>=6.
+        This invalidates sitewise-only global certification, NOT Branch A.
+        """
+        from hyp105_g5e2b3e1a_fixed_leading import selected_left_six
+        for scheme in ("lex","S68"):
+            model=fixture(1,scheme)
+            chosen={}
+            for ids,kind in selected_left_six(model):
+                if kind not in chosen:
+                    chosen[kind]=ids
+                if len(chosen)==3:
+                    break
+            self.assertEqual(set(chosen),{"A","B","C"})
+            for kind,ids in chosen.items():
+                original_points=tuple(model["incidences"][i][0]
+                                      for i in ids)
+                original_lines=tuple(model["incidences"][i][1]
+                                     for i in ids)
+                for side,indices in (("left",original_points),
+                                     ("right",original_lines)):
+                    with self.subTest(scheme=scheme,kind=kind,side=side):
+                        for a in (6,14,35):
+                            witness=physical_non_two_regular_star_witness(
+                                indices,a)
+                            self.assertTrue(witness[
+                                "all_seven_GF5_classes_on_this_side_impossible"])
+                            degrees=witness["physical_degree_multiset"]
+                            self.assertFalse(len(degrees)==6 and
+                                             all(d==2 for d in degrees))
+                            self.assertEqual(
+                                witness["root_two_sided_single_site_projection_min"],
+                                "ZERO")
+        with self.assertRaises(ValueError):
+            physical_non_two_regular_star_witness((0,1),6)
+        with self.assertRaises(ValueError):
+            physical_non_two_regular_star_witness((0,1,2,3,4,5),5)
 
     def test_full_truth_table_verification_is_fail_closed(self):
         valid={
