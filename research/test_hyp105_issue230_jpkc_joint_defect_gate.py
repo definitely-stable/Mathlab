@@ -82,6 +82,34 @@ class JPKCGates(unittest.TestCase):
         self.assertEqual(k["C6_from_K2"],k["C6_DFS"])
         self.assertGreaterEqual(k["C6_DFS"],k["D6_proper_DFS"])
 
+    def test_original_symplectic_spread_W34_joint_adversarial_gate(self):
+        from hyp105_issue230_jpkc_spread_adversary import spread_adversary_model
+        model,cert=spread_adversary_model(2)
+        self.assertEqual(cert["s"],4)
+        self.assertGreaterEqual(cert["M_f_original_exact"],cert["M_f_D4_floor"])
+        self.assertEqual(cert["M_f_D4_floor"],30)
+        row=joint_record(model,max_cycles=1_000_000)
+        self.assertEqual(row["kikuchi"]["C6_DFS"],row["kikuchi"]["C6_from_K2"])
+        self.assertEqual(row["s"],4)
+        self.assertTrue(row["global_injections_both_sides"])
+        self.assertFalse(row["joint"]["finite_JPKC_dichotomy_proved"])
+
+    def test_original_symplectic_spread_W38_graph_energy_stress(self):
+        # W38 full projected path census may exceed its independent path
+        # budget on an adversarial star; do NOT report it as a completed
+        # JPKC classification or a seven-family exact census.
+        from hyp105_issue230_jpkc_spread_adversary import spread_adversary_model
+        from hyp105_issue230_jpkc_joint_defect_gate import _graph
+        model,cert=spread_adversary_model(3)
+        self.assertEqual(cert["s"],8)
+        self.assertEqual(cert["M_f_D4_floor"],288)
+        ctx=ProjectionClosure(model)
+        graph=_graph(ctx)
+        k=_path3_and_theta(graph)
+        self.assertGreaterEqual(k["C6_from_K2"],0)
+        self.assertEqual(k["sum_P3_squared"],
+                         k["P3"]+k["Theta"]+12*k["C6_from_K2"])
+
     def test_fail_closed_and_no_fake_global_proof(self):
         ctx=ProjectionClosure(fixture(1,"lex"))
         with self.assertRaisesRegex(ValueError,"direct C6 budget"):
