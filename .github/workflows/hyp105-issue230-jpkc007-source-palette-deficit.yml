@@ -1,0 +1,31 @@
+name: hyp105-issue230-jpkc007-source-palette-deficit
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc007_completion_deficit_ledger.py"
+      - "research/test_hyp105_issue230_jpkc007_completion_deficit_ledger.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-007-SOURCE-PALETTE-DEFICIT-LEDGER.md"
+      - ".github/workflows/hyp105-issue230-jpkc007-source-palette-deficit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  source-deficit-telescopes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Exactly audit ORIGINAL J22 J23 J24 palette versus GQ source-completion losses
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc007_completion_deficit_ledger.py' -v
+      - name: Emit exhaustive W32 and 32-real-seed W34 D4 source deficit report
+        run: python research/hyp105_issue230_jpkc007_completion_deficit_ledger.py
