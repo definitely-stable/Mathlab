@@ -25,10 +25,13 @@ symbols with probability
     p_A = 6!*70*binom(a,6)/(binom(a,2))_6,
 
 independent of f, right factor identity, or the complete remaining
-right labeling. Every such C/A is a previously CERTIFIED positive GF5
-seven-class ORIGINAL sixset, counted once. Therefore
+right labeling. Every such C-left/A-right is a previously CERTIFIED positive GF5
+seven-class ORIGINAL sixset, counted once; the preexisting aggregate
+"C/A" GF5 tag also includes A-left/C-right and MUST NOT be identified
+with this directional expectation. Therefore
 
-    E_g[U_C/A | f] = p_A sum_{disjoint physical f-point triples}Phi_d.
+    E_g[U_C-left/A-right | f] =
+      p_A sum_{disjoint physical f-point triples}Phi_d.
 
 This is EXACT for EVERY finite h and EVERY left f, not a fixed-g lower.
 A uniform all-h lower is
@@ -143,7 +146,7 @@ def universal_fixed_left_CA_expectation(s):
         "refined_GQ_pair_collinearity_C_lifts_floor":refined_num,
         "uniform_C_lifts_lower":safe_lower,
         "uniform_C_lifts_upper":upper,
-        "uniform_expected_CA_lower":str(safe_lower*probability),
+        "uniform_expected_Cleft_Aright_lower":str(safe_lower*probability),
         "previous_B_left_A_right_expected_lower":str(
             BA["expected_U_Bleft_Aright_lower"]),
         "new_joint_disjoint_BA_plus_CA_expected_lower":str(
@@ -152,12 +155,14 @@ def universal_fixed_left_CA_expectation(s):
             Fraction(safe_lower*probability+
                      BA["expected_U_Bleft_Aright_lower"],s**6)),
         "new_asymptotic_BA_plus_CA_mean_coefficient":"455/3",
-        "uniform_expected_CA_upper":str(upper*probability),
-        "uniform_expected_CA_lower_over_s6":str(Fraction(
+        "uniform_expected_Cleft_Aright_upper":str(upper*probability),
+        "uniform_expected_Cleft_Aright_lower_over_s6":str(Fraction(
             safe_lower*probability,s**6)),
         "new_asymptotic_fixed_left_C_A_mean_coefficient":"35/3",
         "uniform_over_ALL_globally_injective_fixed_left_f":True,
         "right_g_uniform_random_injection_ONLY":True,
+        "expected_GF5_subclass_orientation":"C-left/A-right-ONLY",
+        "aggregate_GF5_tag_C_over_A_includes_both_orientations":True,
         "all_g_or_root_Branch_A_proved":False,
         "infinite_correlated_Branch_B_counterexample_proved":False,
     }
@@ -213,8 +218,8 @@ def exact_fixed_left_CA_profile(model):
     right_distinct=sum(types[k]*phi[k] for k in phi)
     exact=Fraction(right_distinct)*exact_right_A_probability(s)
     universal=universal_fixed_left_CA_expectation(s)
-    if not (Fraction(universal["uniform_expected_CA_lower"])
-            <=exact<=Fraction(universal["uniform_expected_CA_upper"])):
+    if not (Fraction(universal["uniform_expected_Cleft_Aright_lower"])
+            <=exact<=Fraction(universal["uniform_expected_Cleft_Aright_upper"])):
         raise AssertionError("true GQ C/A expectation violated ALL-h inequality")
     return {
         "scheme":model.get("scheme","unknown"),
@@ -227,12 +232,13 @@ def exact_fixed_left_CA_profile(model):
         },
         "exact_left_C_sixsets_with_six_distinct_original_right_lines":
             right_distinct,
-        "exact_expected_g_random_CA":str(exact),
-        "exact_expected_g_random_CA_over_s6":str(Fraction(exact,s**6)),
-        "universal_lower_expected_CA":universal["uniform_expected_CA_lower"],
-        "universal_upper_expected_CA":universal["uniform_expected_CA_upper"],
+        "exact_expected_g_random_Cleft_Aright":str(exact),
+        "exact_expected_g_random_Cleft_Aright_over_s6":str(Fraction(exact,s**6)),
+        "universal_lower_expected_Cleft_Aright":universal["uniform_expected_Cleft_Aright_lower"],
+        "universal_upper_expected_Cleft_Aright":universal["uniform_expected_Cleft_Aright_upper"],
         "all_h_mathematical_mean_formula":"PROVED-ALL-FINITE-H",
-        "actual_fixed_global_right_g_CA":None,
+        "actual_fixed_global_right_g_Cleft_Aright":None,
+        "expected_GF5_subclass_orientation":"C-left/A-right-ONLY",
         "all_right_g_lower_proved":False,
     }
 
@@ -253,9 +259,10 @@ def report():
         "slice":"HYP105-ISSUE230-D6M-EXACT-GQ-COLLINEARITY-CA-TRANSFER",
         "all_h_exact_fixed_left_random_right_CA_expectation":
             "PROVED-ONE-SIDED-RANDOM-RIGHT",
-        "all_h_uniform_expected_CA_coefficient":"35/3",
+        "all_h_uniform_expected_Cleft_Aright_coefficient":"35/3",
         "all_h_uniform_expected_BA_plus_CA_coefficient":"455/3",
         "right_model":"UNIFORM-INJECTION-G-CONDITIONAL-ON-ANY-LEFT-F",
+        "new_C_A_mean_scope":"C-left/A-right-ONLY-not-aggregate-C/A",
         "full_seven_S_for_W34_W38":"UNKNOWN-NO-BB-SUBSTITUTION",
         "all_h_for_EVERY_correlated_global_f_g":"OPEN",
         "root_Branch_A_or_B":"OPEN",
