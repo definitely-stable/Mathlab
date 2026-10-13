@@ -26,6 +26,7 @@ from collections import Counter
 from itertools import combinations
 import json
 
+from hyp105_issue230_d6c_local_charge_hall import _Dinic
 from hyp105_issue230_d6d_incidence_factored_charging import _validated
 from hyp105_issue230_d6e_support_expansion_profile import _normalise_split
 from hyp105_issue230_d6i_uniform_port_hall import uniform_port_hall_cut
@@ -160,6 +161,106 @@ def _max_spanning_tree_bottleneck(active, weighted_edges):
     return bottleneck if connected else 0, connected
 
 
+def centred_pair_pressure_flow(active, p, pair):
+    """EXACT integral capacitated calibration of the centered vertex pressure.
+
+    Put q(e)=N*p(e)-G, where sum q=0, and capacity N*w(e,f)
+    in BOTH directions of each source-cooccurrence pair. The calibrated
+    pair edge flux is an exact divergence-q witness iff every original
+    incidence F satisfies |sum_F q| <= N*B_pair(F). This is the exact
+    oriented cut condition by ordinary integer maxflow/mincut; it is
+    SUFFICIENT, not NECESSARY, for no extra ORIGINAL hypergraph Hall cut.
+    """
+    N=len(active)
+    if N<=1:
+        return {
+            "status":"TRIVIAL-CENTRED-PRESSURE",
+            "feasible":True,
+            "scaled_supply":0,
+            "routed_supply":0,
+            "nonzero_signed_original_pair_flux_count":0,
+            "centred_signed_edge_flux":[]
+        }
+    G=sum(p.values())
+    q={e:N*p[e]-G for e in active}
+    if sum(q.values())!=0:
+        raise AssertionError("centred integer pressure must have zero sum")
+    positive=sum(max(0,x) for x in q.values())
+    index={e:i+1 for i,e in enumerate(active)}
+    sink=N+1
+    flow=_Dinic(sink+1)
+
+    def recorded(u,v,cap):
+        i=len(flow.graph[u])
+        flow.edge(u,v,cap)
+        return (u,i,cap)
+
+    def used(record):
+        u,j,original=record
+        sent=original-flow.graph[u][j][1]
+        if not 0<=sent<=original:
+            raise AssertionError("invalid calibrated directed residual flow")
+        return sent
+
+    edges=[]
+    for (u,v),w in sorted(pair.items()):
+        a=recorded(index[u],index[v],N*w)
+        rev=recorded(index[v],index[u],N*w)
+        edges.append((u,v,w,a,rev))
+    source_arcs=[]
+    sink_arcs=[]
+    for e in active:
+        if q[e]>0:
+            source_arcs.append(recorded(0,index[e],q[e]))
+        elif q[e]<0:
+            sink_arcs.append(recorded(index[e],sink,-q[e]))
+    achieved=flow.maxflow(0,sink)
+    if not 0<=achieved<=positive:
+        raise AssertionError("centred pair pressure routing exceeds supply")
+    flux=[]
+    divergence=Counter()
+    for u,v,w,a,rev in edges:
+        g=used(a)-used(rev)
+        if abs(g)>N*w:
+            raise AssertionError("pair capacity exceeded in calibration")
+        divergence[u]+=g
+        divergence[v]-=g
+        if g:
+            flux.append([u,v,g,N*w])
+    if sum(used(x) for x in source_arcs)!=achieved or sum(
+        used(x) for x in sink_arcs)!=achieved:
+        raise AssertionError("pair calibration source or sink flow conservation")
+    fully_routed=achieved==positive
+    witness=None
+    if fully_routed:
+        if any(divergence[e]!=q[e] for e in active):
+            raise AssertionError("centred calibration divergence incorrect")
+    else:
+        reach=flow.reachable(0)
+        F={e for e in active if index[e] in reach}
+        pair_cut=sum(w for (u,v),w in pair.items() if (u in F)!=(v in F))
+        excess=sum(q[e] for e in F)-N*pair_cut
+        if excess!=positive-achieved or excess<=0:
+            raise AssertionError("calibration cut dual did not expose obstruction")
+        witness={
+            "original_incidence_support_F":sorted(F),
+            "sum_centred_integer_pressure":sum(q[e] for e in F),
+            "original_pair_cut_weight":pair_cut,
+            "exact_positive_pair_cut_shortfall":excess,
+        }
+    return {
+        "status":("CERTIFIED-CENTRED-PAIR-CALIBRATION" if fully_routed
+                  else "PAIR-CALIBRATION-FAILED-NOT-GQ-COUNTEREXAMPLE"),
+        "feasible":fully_routed,
+        "scaled_supply":positive,
+        "routed_supply":achieved,
+        "nonzero_signed_original_pair_flux_count":len(flux),
+        "centred_signed_edge_flux":flux if fully_routed else [],
+        "failed_pair_cut_witness":witness,
+        "all_original_incidence_divergences_verified":fully_routed,
+    }
+
+
 def signed_pressure_global_certificate(source_weights, accepted, K,
                                        split_weights=None):
     """Exact all-F max Hall cut, plus independently sufficient spectral gate.
@@ -182,6 +283,7 @@ def signed_pressure_global_certificate(source_weights, accepted, K,
     if v < 0:
         raise AssertionError("integer pressure variance cannot be negative")
     bottleneck, connected = _max_spanning_tree_bottleneck(active, pair)
+    calibration=centred_pair_pressure_flow(active,p,pair)
     # lambda2 >= 4*b/[N(N-1)]. For any nontrivial k-cut, Cauchy
     # gives sqrt(v*k*(N-k))/N pressure discrepancy. Rayleigh gives
     # lambda2*k*(N-k)/N on the pair cut, so global-only follows if
@@ -202,6 +304,8 @@ def signed_pressure_global_certificate(source_weights, accepted, K,
     global_pressure_deficit = max(0, G)
     if delta < global_pressure_deficit:
         raise AssertionError("global full source support must be candidate cut")
+    if calibration["feasible"] and delta != global_pressure_deficit:
+        raise AssertionError("centred pair-flux Hall calibration falsified")
     if spectral_tree_sufficient and delta != global_pressure_deficit:
         raise AssertionError("spectral/tree global-only guarantee falsified")
     exact_full = exception_budget_for_capacity(
@@ -234,6 +338,10 @@ def signed_pressure_global_certificate(source_weights, accepted, K,
         "nonnegative_global_restricted_scaled_deficit": global_pressure_deficit,
         "signed_pressure_variance_numerator_v": v,
         "source_pair_graph_weighted_edges": len(pair),
+        "centred_pair_pressure_calibration":calibration,
+        "calibrated_pair_flow_global_only_Hall_deficit_CERTIFIED":(
+            calibration["feasible"]
+        ),
         "source_pair_graph_connected": connected,
         "certified_maximum_spanning_tree_bottleneck_b": bottleneck,
         "certified_fiedler_lower_bound_fraction_4b_over_N_Nminus1": (
