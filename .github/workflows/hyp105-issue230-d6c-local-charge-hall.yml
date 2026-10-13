@@ -1,0 +1,67 @@
+name: hyp105-issue230-d6c-local-charge-hall
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6c_local_charge_hall.py"
+      - "research/test_hyp105_issue230_d6c_local_charge_hall.py"
+      - "docs/research/HYP-105-ISSUE230-D6C-CANONICAL-CLOSURE-NOGO-LOCAL-HALL.md"
+      - ".github/workflows/hyp105-issue230-d6c-local-charge-hall.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  true-original-GQ-local-charge-hall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original GQ canonical closure obstruction and seven-GF5 Hall tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6c_local_charge_hall.py' -v
+      - name: Emit complete original blocked triple to all-seven GF5 sixsets exact Hall ledger
+        run: |
+          python research/hyp105_issue230_d6c_local_charge_hall.py > /tmp/hyp105-d6c.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/hyp105-d6c.json').read_text())
+          assert x["slice"]=="HYP105-ISSUE230-D6C-ORIGINAL-SEVEN-LOCAL-HALL"
+          assert x["all_h_direct_unique_projection_closure_for_blocked_paths"]=="NO-GO-PROVED"
+          assert x["finite_exact_all_seven_positive_recipients_ONLY_W32"] is True
+          assert x["original_root_A_and_B"]=="OPEN"
+          assert x["bounded_congestion_all_h"]=="OPEN"
+          assert len(x["records"])==8
+          for r in x["records"]:
+              assert r["s"]==2
+              assert r["same_complete_globally_injective_original_f_g"] is True
+              assert r["retained_paired_physical_edges"]==2*r["retained_true_original_incidences"]
+              assert sum(r["sixteen_original_mask_histogram"])==r["total_true_original_oriented_blocked_paths"]
+              assert r["canonical_original_closure_outcomes"].get("ACCEPTED_BB",0)==r["total_true_original_unblocked_proper_paths"]
+              assert sum(r["actual_seven_positive_classes"].values())==r["complete_original_seven_positive_S"]
+              assert all(t["required_original_source_incidence_overlap"] in (1,2,3)
+                         for t in r["source_overlap_frontiers"])
+              print({
+                  "scheme":r["scheme"],"policy":r["policy"],
+                  "original_blocked_oriented_P3":r["total_true_original_oriented_blocked_paths"],
+                  "full_original_seven_positive_S":r["complete_original_seven_positive_S"],
+                  "canonical_closure":r["canonical_original_closure_outcomes"],
+                  "local_Hall":[
+                    {
+                      "r":f["required_original_source_incidence_overlap"],
+                      "status":f["status"],
+                      "uncovered":f.get("uncovered_oriented_source_paths"),
+                      "min_K":f.get("min_max_congestion"),
+                      "hall":f.get("optimal_capacity_lower_hall_cut"),
+                    } for f in r["source_overlap_frontiers"]
+                  ],
+              })
+          PY
