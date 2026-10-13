@@ -109,6 +109,27 @@ This gives an EXACT local-table factorization of full original positive seven-S 
 - TRUE original complete W32 right maps S68/S72, all six complete right assignments on specified T; exact equality of every local-factor sum with compiled seven-cylinder census. Independently cross-check initial and S72 72→68 three-cycle witness against original full incidence `seven_census`. Exact rational dual floor must NEVER exceed any actual global assignment cost.
 - Require final HEAD D6-T dedicated Contract, INDEX, Proof Audit, full Research GitHub-hosted SUCCESS, and separate independent mathematical review before accepting. No main mutation, no PR merges, #230/#176/#169 remain OPEN.
 
+### 5a. True-original hosted numerical result and exact conditional duality gaps
+
+The initial dedicated GitHub-hosted [D6-T run #38400711139](https://github.com/definitely-stable/Mathlab/actions/runs/38400711139) completed SUCCESS on implementation HEAD `d3ce8250666682034ab88250069a13c8dc82c2e5`: eight independently implemented tests passed, including Hungarian versus brute-force, constructive all-h no-go on TRUE W32 A/B/C ORIGINAL incidence patterns, and true-original full-seven GF5 suborbit controls. A subsequent exact-head run permanently pins the results below with rational arithmetic.
+
+| Real ORIGINAL W32 frozen map | right ORIGINAL triple T | unweighted S on all SIX complete legal right permutations (lex image indices) | exact conditional min S | proven conditional lower L_dual | certified integer S floor | exact conditional min GF5 numerator | certified conditional GF5 numerator floor |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
+| S68 | (3,11,12) | 68, 83, 92, 76, 108, 82 | **68** | **131/2 = 65.5** | **66** | **3112510** | **2994550** |
+| S72 | (1,7,9) | 72, 87, 84, 114, 68, 88 | **68** | **121/2 = 60.5** | **61** | **3104080** | **2760940** |
+
+The six right assignments use image-index permutations in exact order `(0,1,2),(0,2,1),(1,0,2),(1,2,0),(2,0,1),(2,1,0)`. Their full GF5 necessary-floor numerators are, respectively:
+
+- S68: `3112510, 3706986, 4227460, 3430023, 4940790, 3741890`.
+- S72: `3283610, 3937673, 3830810, 5203680, 3104080, 4017080`.
+
+S72's fifth orbit assignment `(2,0,1)` is exactly the D6-S reverse-oriented original right 3-cycle (1,7,9), and independent full ORIGINAL six-incidence `seven_census` verifies `72→68` and selected necessary GF5 numerator `3283610→3104080` (decrease 179530). Every one of the 62,370 ORIGINAL left-selected sixsets is accounted for in each factor table or frozen-constant group. The projected-marginal dual is strictly lower than the exact six-state primal minimum in both cases:
+
+- S68 gap for S: `68−131/2=5/2`; GF5 gap `3112510−2994550=117960`.
+- S72 gap for S: `68−121/2=15/2`; GF5 gap `3104080−2760940=343140`.
+
+These numerical gaps demonstrate that the new linear assignment relaxation is independently checkable and nontrivial after conditioning, but **not exact** even in the finite three-factor true GQ orbit. None of these conditional lower floors is a lower bound for all 15! right permutations or for the two-sided original issue #230 minimum. The unconditioned ALL-h one-site root floor remains identically zero by Theorem T2.
+
 ## 6. Next genuinely viable global theorem gate — D6-U
 
 T2 eliminates **unconditioned single-site projected-marginal positivity** as a route to Branch A. Meaningful next methods must preserve simultaneous left/right assignment geometry at minimum degree 2 or higher: e.g., cross-side paired factor marginals, a higher-level Sherali–Adams/Lasserre feasibility relaxation on BOTH typed permutation matrices, an exact global dual with jointly evaluated pair coordinates, or a coherent explicit infinite small-S family. Such attempts MUST supply a sound positive certificate or an explicit no-go against a precise relaxation; continuing to enumerate small W32 orbit local minima alone will not resolve #230.
