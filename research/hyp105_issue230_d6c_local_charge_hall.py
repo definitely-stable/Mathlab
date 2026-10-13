@@ -40,6 +40,10 @@ class _Dinic:
 
     def maxflow(self,source,sink):
         graph=self.graph
+        # A finite upper bound once per invocation. Recomputing the total
+        # inside every augmentation would add O(outdegree(source)) work
+        # to each path in the large ORIGINAL GQ networks.
+        send_limit=sum(cap for _,cap,_ in graph[source] if cap>0)
         total=0
         while True:
             level=[-1]*len(graph)
@@ -73,7 +77,7 @@ class _Dinic:
                 # constant: original integer source demand is unbounded.
                 # The remaining residual capacity out of the source is a
                 # safe finite upper bound for this augmentation.
-                delta=dfs(source,sum(cap for _,cap,_ in graph[source] if cap>0))
+                delta=dfs(source,send_limit)
                 if not delta:
                     break
                 total+=delta
