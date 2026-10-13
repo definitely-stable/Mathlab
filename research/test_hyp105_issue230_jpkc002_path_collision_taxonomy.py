@@ -25,6 +25,14 @@ class JPKC002Tests(unittest.TestCase):
                 self.assertEqual(r["true_original_seven_S"],S)
                 self.assertTrue(r["J3_exact_identity_verified"])
                 self.assertTrue(r["J4_exact_blocked_only_identity_verified"])
+                self.assertTrue(r["J5_single_original_projection_anchor_verified"])
+                self.assertEqual(r["J5_original_nonincident_qr_anchors"],180)
+                self.assertEqual(r["J5_possible_oriented_endpoint_fibers"],720)
+                self.assertLessEqual(r["J5_active_blocked_endpoint_fibers"],720)
+                self.assertGreaterEqual(Fraction(r["J4_blocked_only_falling2"]),
+                                        Fraction(r["J5_anchored_CS_floor_exact"]))
+                self.assertGreaterEqual(Fraction(r["J5_anchored_CS_floor_exact"]),
+                                        Fraction(r["J4_blocked_only_CS_floor"]))
                 self.assertEqual(r["J4_blocked_original_P3"],
                                  sum(r["proper_P3_status_counts"][t]
                                      for t in BLOCKED))
@@ -69,6 +77,10 @@ class JPKC002Tests(unittest.TestCase):
                 self.assertLessEqual(
                     r["J4_blockedblocked_ordered_distinct"]["proper_C6"],
                     12*D6)
+                self.assertEqual(r["J5_original_nonincident_qr_anchors"],6800)
+                self.assertEqual(r["J5_possible_oriented_endpoint_fibers"],27200)
+                self.assertGreaterEqual(Fraction(r["J4_blocked_only_falling2"]),
+                                        Fraction(r["J5_anchored_CS_floor_exact"]))
                 self.assertGreaterEqual(
                     Fraction(r["J3_goodgood_falling2"]),
                     Fraction(r["J3_proper_only_CS_floor"]))
