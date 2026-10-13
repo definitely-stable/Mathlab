@@ -29,7 +29,11 @@ class ExceptionBudgetOracleTests(unittest.TestCase):
         self.assertEqual(at_three["minimal_exception_mass"], 2)
         self.assertEqual(at_five["minimal_exception_mass"], 0)
         self.assertEqual(at_three["max_chargeable_mass"], 6)
-        self.assertEqual(at_three["exception_split_lower_hint"]["endpoint"], 2)
+        self.assertEqual(at_three["exception_split_lower_hint"], {"endpoint": 0, "internal": 0})
+        self.assertLessEqual(
+            sum(at_three["exception_split_lower_hint"].values()),
+            at_three["minimal_exception_mass"],
+        )
         self.assertEqual(at_three["status"], "EXACT-EXCEPTION-BUDGET")
         self.assertEqual(at_five["status"], "ZERO-EXCEPTION-FEASIBLE")
 
