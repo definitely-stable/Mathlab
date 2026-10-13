@@ -221,6 +221,33 @@ def collision_certificate(model,*,max_paths=2_000_000,
     B=sum(labels[t] for t in BLOCKED)
     if Fraction(diag_blocked["sum_blocked_sq"])<Fraction(B*B,ctx.a**4):
         raise AssertionError("blocked-only Cauchy-Schwarz inequality violated")
+    # J5: every blocked endpoint fiber has exactly ONE ORIGINAL GQ
+    # nonincident anchor pair (q,r), hence one projection q-l-p-r.
+    # Each such (q,r) has exactly FOUR possible ORIENTED physical
+    # endpoint pairs: two incidence diagonals and both orientations.
+    nonincident_anchor_capacity=4*(ctx.v*ctx.v-len(ctx.edges))
+    blocked_anchor_hist=Counter()
+    blocked_active_endpoint_fibers=0
+    for (u,v),paths in fibers.items():
+        n_block=sum(tag in BLOCKED for _,_,tag,_ in paths)
+        if not n_block:
+            continue
+        q=ctx.fi.get(tuple(sorted((u//ctx.a,v//ctx.a))))
+        r=ctx.gi.get(tuple(sorted((u%ctx.a,v%ctx.a))))
+        if q is None or r is None or (q,r) in ctx.edge_id:
+            raise AssertionError("blocked endpoint lacks a unique ORIGINAL nonincident anchor")
+        if (q,r) not in ctx.projection:
+            raise AssertionError("blocked endpoint projection not unique or incomplete")
+        if sum(tag in BLOCKED for _,_,tag,_ in fibers[(v,u)])!=n_block:
+            raise AssertionError("physical three-path reversal changes ORIGINAL blocker count")
+        blocked_anchor_hist[(q,r)]+=n_block
+        blocked_active_endpoint_fibers+=1
+    if sum(blocked_anchor_hist.values())!=B:
+        raise AssertionError("ORIGINAL nonincident anchor masses omit blocked paths")
+    if blocked_active_endpoint_fibers>nonincident_anchor_capacity:
+        raise AssertionError("more blocked endpoint fibers than four per ORIGINAL anchor")
+    if Fraction(diag_blocked["sum_blocked_sq"])<Fraction(B*B,nonincident_anchor_capacity):
+        raise AssertionError("J5 ORIGINAL anchor-improved Cauchy floor violated")
     classes={
         "proper_P3_status_counts":{s:labels[s] for s in STATUS},
         "P3_all":energy["P3"],"P3_good_coordinate_proper":Pgood,
@@ -241,6 +268,13 @@ def collision_certificate(model,*,max_paths=2_000_000,
         "J4_blocked_original_P3":B,
         "J4_blocked_only_falling2":diag_blocked["sum_blocked_falling2"],
         "J4_blocked_only_CS_floor":str(Fraction(B*B,ctx.a**4)-B),
+        "J5_original_nonincident_qr_anchors":ctx.v*ctx.v-len(ctx.edges),
+        "J5_possible_oriented_endpoint_fibers":nonincident_anchor_capacity,
+        "J5_active_blocked_endpoint_fibers":blocked_active_endpoint_fibers,
+        "J5_original_anchors_with_blockers":len(blocked_anchor_hist),
+        "J5_max_original_anchor_blocked_paths":max(blocked_anchor_hist.values(),default=0),
+        "J5_anchored_CS_floor_exact":str(Fraction(B*B,nonincident_anchor_capacity)-B),
+        "J5_single_original_projection_anchor_verified":True,
         "J4_blockedblocked_ordered_distinct":{
             k:by_blockedblocked[k] for k in KINDS[1:]},
         "J4_exact_blocked_only_identity_verified":True,
