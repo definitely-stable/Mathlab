@@ -256,10 +256,15 @@ def exact_ordered_three_cycle_curvature(compiled,right_labels,triple):
     }
 
 
-def real_W32_complete_oriented_three_cycle_report():
-    """ALL 910 oriented right 3-cycles for EACH W32 S68 and S72 fixed f,g."""
+def real_W32_complete_oriented_three_cycle_report(schemes=("S68","S72")):
+    """ALL 910 oriented 3-cycles for EACH requested true W32 S68/S72 map."""
+    if (not schemes or len(set(schemes))!=len(schemes) or
+            any(k not in ("S68","S72") for k in schemes)):
+        raise ValueError("choose distinct frozen S68/S72 original W32 maps")
+    settings={"S68":(68,7),"S72":(72,2)}
     cases=[]
-    for scheme,known_S,known_single in (("S68",68,7),("S72",72,2)):
+    for scheme in schemes:
+        known_S,known_single=settings[scheme]
         model=fixture(1,scheme)
         compiled=compile_original_W32_cylinders(model)
         labels=tuple(model["right_labels"])
@@ -316,10 +321,6 @@ def real_W32_complete_oriented_three_cycle_report():
         }
         weighted_improve=sum(v[
             "delta_GF5_selected_lower_numerator"]<0 for v in oriented)
-        defects=sum(
-            exact_three_cycle_pair_delta(compiled,labels,t,baseline_tags)[
-                "order_commutator_S"]!=0 for t in ()
-        )  # deliberate no duplicate census, filled via paired records below
         commutator_nonzero=sum(
             oriented[2*j]["order_commutator_S"]!=0 for j in range(455))
         if (sum(deficit_counts.values())!=910 or
@@ -367,5 +368,10 @@ def real_W32_complete_oriented_three_cycle_report():
 
 
 if __name__=="__main__":
-    print(json.dumps(real_W32_complete_oriented_three_cycle_report(),
+    import argparse
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--scheme",choices=("S68","S72"),default=None)
+    args=parser.parse_args()
+    requested=(args.scheme,) if args.scheme else ("S68","S72")
+    print(json.dumps(real_W32_complete_oriented_three_cycle_report(requested),
                      sort_keys=True,indent=2))
