@@ -96,8 +96,8 @@ class JPKC006ProofGates(unittest.TestCase):
         for scheme in ("lex","random"):
             with self.subTest(scheme=scheme):
                 c=sharp_charge_certificate(
-                    fixture(2,scheme),limit_endpoint_seeds=32,exact_W32=False)
-                self.assertEqual(c["endpoint_bad_physical_seeds_examined"],32)
+                    fixture(2,scheme),limit_endpoint_seeds=96,exact_W32=False)
+                self.assertEqual(c["endpoint_bad_physical_seeds_examined"],96)
                 self.assertFalse(c["complete_endpoint_bad_coverage"])
                 self.assertTrue(c["no_full_W34_Q_census"])
                 self.assertFalse(c["full_W32_independent_accepted_Q_oracle_compared"])
@@ -109,8 +109,8 @@ class JPKC006ProofGates(unittest.TestCase):
         from hyp105_issue230_jpkc_spread_adversary import spread_adversary_model
         model,proof=spread_adversary_model(2)
         self.assertEqual(proof["M_f_original_exact"],259)
-        c=sharp_charge_certificate(model,limit_endpoint_seeds=32,exact_W32=False)
-        self.assertEqual(c["endpoint_bad_physical_seeds_examined"],32)
+        c=sharp_charge_certificate(model,limit_endpoint_seeds=96,exact_W32=False)
+        self.assertEqual(c["endpoint_bad_physical_seeds_examined"],96)
         self.assertFalse(c["complete_endpoint_bad_coverage"])
         self.assertTrue(c["J19_all_h_12_selected_sixset_cap_verified"])
         self.assertFalse(c["Root_B_constructed"])
