@@ -1,0 +1,65 @@
+name: hyp105-issue230-d6x-star-pseudomarginal-capacity
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6x_star_pseudomarginal_capacity.py"
+      - "research/test_hyp105_issue230_d6x_star_pseudomarginal_capacity.py"
+      - "docs/research/HYP-105-ISSUE230-D6X-STAR-PSEUDOMARGINAL-CAPACITY.md"
+      - ".github/workflows/hyp105-issue230-d6x-star-pseudomarginal-capacity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-star-pseudomarginal-lift-cut:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact original W34/W38 zero-GF5 star distributions, finite exhaustive projective checks, global lifted-capacity violation
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6x_star_pseudomarginal_capacity.py' -v
+      - name: All-h method NO-GO with exact rational lifted physical-column occupancy falsifier
+        run: |
+          python research/hyp105_issue230_d6x_star_pseudomarginal_capacity.py > /tmp/d6x.json
+          python - <<'PY'
+          from fractions import Fraction
+          from pathlib import Path
+          import json
+          x=json.loads(Path('/tmp/d6x.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6X-LOCAL-STAR-PSEUDOMARGINAL-CAPACITY-CUT'
+          assert x['all_h_h_ge_2_zero']=='PROJECTIVELY_CONSISTENT-INJECTIVE-LOCAL-REGIONS'
+          assert x['all_h_h_ge_2_scope_rank']=='a_minus_1'
+          assert x['all_h_original_sixset_left_center_degree']==6
+          assert x['selected_nonnegative_GF5_numerator_local_expected']==0
+          assert x['all_h_unanchored_separator_only_dual_positive']=='NO_GO'
+          assert len(x['all_h_separator_only_no_go'])==5
+          for q in x['all_h_separator_only_no_go']:
+              assert q['every_original_Q_seven_GF5_expected_cost']==0
+              assert q['signed_overlap_messages_sum']=='0'
+              assert not q['global_physical_column_lifts_in_model']
+              assert not q['generic_Sherali_Adams_no_go']
+          assert x['capacity_failure_rank']=='TWO-FOR-LIFTED-GLOBAL-PHYSICAL-COLUMN-CONSTRAINT'
+          assert x['first_order_global_capacity']=='SATISFIED'
+          assert x['this_is_feasible_Sherali_Adams_for_global_assignment'] is False
+          assert x['general_Sherali_Adams_no_go'] is False
+          assert x['not_actual_complete_correlated_f_g_witness']
+          assert not x['global_original_root_PROVED_A']
+          assert not x['infinite_correlated_counterexample_PROVED_B']
+          assert (x['Branch_A'],x['Branch_B'])==('OPEN','OPEN')
+          assert len(x['exact'])==6
+          s4=x['exact'][1]
+          assert (s4['s'],s4['a'],s4['V'],s4['K'])==(4,14,85,91)
+          assert Fraction(s4['conditional_other_original_point_occupancy'])==Fraction(7,2)
+          assert Fraction(s4['lifted_capacity_slack'])==Fraction(-5,182)
+          for rec in x['exact']:
+              assert rec['unlifted_column_capacity_satisfied']
+              assert rec['lifted_column_capacity_strictly_violated']
+              assert Fraction(rec['lifted_capacity_slack'])<0
+          assert len(x['independent_small_projection_checks'])==2
+          print({'s4':s4,'checks':x['independent_small_projection_checks']})
+          PY
