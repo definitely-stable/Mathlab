@@ -19,7 +19,6 @@ true same-map W(3,2) cases in the accompanying report. No fabricated S
 for W(3,4) or W(3,8).
 """
 from collections import Counter
-from math import ceil
 import json
 
 from hyp105_issue230_d6c_local_charge_hall import _Dinic
@@ -75,7 +74,7 @@ def source_closed_port_profile(source_weights, accepted, incidence_support,
             bool(active_union.intersection(q)) for q in sixsets
         ),
         "exact_port_capacity_floor_K": (
-            0 if not M else ceil(6 * M / D) if D else None
+            0 if not M else (6 * M + D - 1) // D if D else None
         ),
         "zero_denominator_positive_mass": M > 0 and D == 0,
         "candidate_K": candidate_K,
