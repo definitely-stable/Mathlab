@@ -1,4 +1,4 @@
-"""Independent true ORIGINAL JPKC-006 4/24 seed-charge and U topology gates."""
+"""Independent true ORIGINAL JPKC-006 2/12 seed-charge and U topology gates."""
 from collections import Counter
 from itertools import combinations
 import unittest
