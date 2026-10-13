@@ -104,3 +104,40 @@ The all-h theorem is a direct source-support preservation argument. The exact W3
 **Next genuinely global gate:** find a lower bound on \(E_b(f,g)\) that is uniform over ALL globally injective f,g and grows at least c s^6 for appropriately chosen source-block families, or devise a source-support-independent capacity forcing theorem. Local resilience around low-S fixed maps alone cannot substitute for existence of positive motifs across all maps.
 
 Accept implementation only after dedicated AA4-C, INDEX, Proof Audit and full Research GitHub-hosted SUCCESS on the exact final PR SHA, plus independent mathematical review. Never merge the draft stack or close #230/#176/#169 automatically.
+
+
+## 5. Exact hosted original W32 finite result — 13 October 2026
+
+The implementation [dedicated GitHub-hosted run #38454883036](https://github.com/definitely-stable/Mathlab/actions/runs/38454883036) completed SUCCESS on head \`b313857d7e6b65cd73ff7de72391578ac7b9234d\`, including 4/4 independent tests and one complete source-support machine report. Its accepted seven-set census retains the previously fixed S68/S72 values and GF5 numerator floors. The **final** PR head subsequently strengthens independent negative-case comparisons and pins these data as CI regressions; check CI anew on final head before acceptance.
+
+### Exact original source-factor transversal numbers
+
+| Source ORIGINAL edit supports | S68 transversal \(\tau\) | S72 transversal \(\tau\) | Exhaustively tested supports per map |
+|---|---:|---:|---:|
+| Only ORIGINAL points, 15 candidates | **4** | **4** | 32,768 |
+| Only ORIGINAL lines, 15 candidates | **4** | **4** | 32,768 |
+| Both original types, 30 candidates (b≤5 tested) | **4** | **4** | 174,437 |
+
+**Consequently:** against any simultaneous legal reassignments of **at most three original factors** (points/lines in arbitrary combination), the seven-positive count remains ≥4 for S68 and ≥1 for S72; the retained selected GF5 necessary numerator remains ≥182,400 and ≥45,600 respectively. This is uniform over **which three factors are changed and what legal new pair labels they receive**, including changes to physical image sets. It is explicitly **not uniform over the initial map**.
+
+### Exact worst-case unchanged positive Q across all typed edit supports
+
+| Number changed ORIGINAL factors | S68: points only | S68: lines only | S68: mixed | S72: points only | S72: lines only | S72: mixed |
+|---|---:|---:|---:|---:|---:|---:|
+| 0 | 68 | 68 | 68 | 72 | 72 | 72 |
+| 1 | 35 | 37 | 35 | 38 | 41 | 38 |
+| 2 | 16 | 16 | 15 | 17 | 14 | 14 |
+| 3 | 4 | 4 | 4 | 4 | 2 | 1 |
+| 4 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+At exactly four changed source factors, the numbers of support sets that intersect **every previously accepted positive Q** are, respectively: S68 points **2**, lines **22**, mixed **53**; S72 points **4**, lines **27**, mixed **119**. These witnesses are only *hitting sets of old positives*, not necessarily actual reassignments eliminating all positives; newly created positive Q can dominate.
+
+### The precise bridge to AA4-B (two distinct mechanisms)
+
+For previously predeclared four ORIGINAL right-line edits:
+- S68 block B=(0,1,2,3): **10** originally positive ORIGINAL Q remain untouched regardless of any legal changes to the four lines, with retained GF5 numerator **462,150**. AA4-B's complete fixed-image 24-permutation coherent minimum was **68** in total and **58** among affected Q, so its stronger fiber bound uses NEW/forced positive correlations in addition to the retained ten.
+- S72 block B=(1,7,9,12): **zero** previously positive ORIGINAL Q remain untouched, and retained GF5 lower numerator is **zero**. Yet AA4-B's complete 24 globally legal fixed-image permutations yield global S minimum **68** and a coherent affected-only minimum **68** (compared to sum of independent cylinder minima zero). This is an exact finite **strict separation** between an unconditioned old-positive source-support survivor argument and a conditionally coherent fixed-image reassignment certificate.
+
+It would be false to promote that latter S72 68-count to **arbitrary** physical images at higher s or to all exterior assignments: in W32 the complete K6 image and exterior original line labels were fixed; the 24 fiber completions are a constrained subset of all 15! right bijections, not all possible f,g.
+
+The source hitting set calculation is standard finite hypergraph theory; this is a scoped exact computational characterization of two actual low-S ORIGINAL W32 instances, not claimed novel as an abstract combinatorial theorem. Branch A/B still OPEN.

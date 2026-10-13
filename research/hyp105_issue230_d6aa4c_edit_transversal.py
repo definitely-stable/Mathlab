@@ -38,12 +38,14 @@ def genuine_original_positive_hypergraph(model):
             raise AssertionError("distinct original incidence sixsets only")
         seen.add(ids)
         tag=classify_seven_prechecked(ids,left,right,incidences)
-        if not tag:
-            continue
         six=tuple(incidences[i] for i in ids)
         independent=classify_original_six(six,left,right)
-        if tag!=independent or tag not in WEIGHTS:
-            raise AssertionError("historical and independent original classifiers diverged")
+        if tag!=independent:
+            raise AssertionError("historical and independent original classifiers diverged on ANY sixset")
+        if not tag:
+            continue
+        if tag not in WEIGHTS:
+            raise AssertionError("unrecognized positive GF5 necessary class")
         p=tuple(sorted({q for q,l in six}))
         l=tuple(sorted({t for q,t in six}))
         both=sum(1<<i for i in p)|sum(1<<(V32+i) for i in l)
