@@ -219,6 +219,19 @@ def alternate_completion_certificate(model,*,max_paths=2_000_000,
                 if U==canon:
                     raise AssertionError("J9 endpoint-bad canonical GQ closure falsely selected")
                 second=_other_gq_anchor(ctx,U)
+                # J17 all-h: an ORIGINAL GQ length-three path
+                # completing a physical coordinate-proper P4 to
+                # a selected two-sided 2-regular Q must be the UNIQUE
+                # original endpoint (q,r) projection. Because our
+                # endpoint is BAD, canonical completion is forbidden.
+                if second is not None:
+                    if second!=(q,r) or U!=canon:
+                        raise AssertionError(
+                            "J17: noncanonical original GQ three-walk falsely "
+                            "converted a source P3 to a positive sixset")
+                    raise AssertionError(
+                        "J9/J17: canonical endpoint-bad original GQ completion "
+                        "cannot produce a positive selected sixset")
                 second_gq_anchor_hits+=int(second is not None)
                 alternate_anchor["second_true_original_GQ_walk" if second else
                                  "not_three_incidence_GQ_walk"]+=1
@@ -263,6 +276,7 @@ def alternate_completion_certificate(model,*,max_paths=2_000_000,
         "J14_universal_path_seeds_per_accepted_original_sixset":320,
         "J14_universal_physical_path_realizations_per_source_triple":16,
         "J15_all_h_C_left_or_right_forbidden_from_proper_P3_seed":True,
+        "J17_all_h_only_canonical_original_GQ_three_walk_if_positive":True,
         "J9_endpoint_bad_canonical_completion_excluded":True,
         "all_h_universal_seven_lower_PROVED_A":False,
         "all_h_counterexample_B_constructed":False,
@@ -280,6 +294,7 @@ def alternate_completion_certificate(model,*,max_paths=2_000_000,
             "observed_max_physical_P3_seed_hits_per_accepted_Q":max_mult,
             "accepted_extension_by_true_original_seven_class":
                 {t:per_class[t] for t in ALL_CLASSES},
+            "J17_noncanonical_second_GQ_anchor_positive_completions":second_gq_anchor_hits,
             "completion_options_per_oriented_physical_seed":
                 dict(sorted(histogram.items())),
             "alternate_three_incidence_completion_GQ_walk_types":
