@@ -69,7 +69,11 @@ class _Dinic:
                     indices[u]+=1
                 return 0
             while True:
-                delta=dfs(source,10**20)
+                # Never cap an augmenting path at an arbitrary numerical
+                # constant: original integer source demand is unbounded.
+                # The remaining residual capacity out of the source is a
+                # safe finite upper bound for this augmentation.
+                delta=dfs(source,sum(cap for _,cap,_ in graph[source] if cap>0))
                 if not delta:
                     break
                 total+=delta
