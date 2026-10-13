@@ -8,6 +8,41 @@ Branch A and B remain OPEN. The result is geometry-independent
 physical-image capacity mathematics VALID for all typed ORIGINAL
 W(3,s) injections, but is NOT a positive GF5 root bound.
 
+## Prior art and scientific novelty gate (MANDATORY)
+
+**The extremal graph result is NOT claimed as an original new theorem
+in graph theory.** The general problem of maximizing the number
+of adjacent pairs of edges in a graph with a fixed number of
+vertices and edges was solved by:
+
+* Rudolf Ahlswede and Gyula O. H. Katona, **Graphs with maximal
+  number of adjacent pairs of edges**, Acta Mathematica Academiae
+  Scientiarum Hungaricae **32** (1978), 97–120,
+  DOI [10.1007/BF01902206](https://doi.org/10.1007/BF01902206).
+  Open bibliographic record:
+  https://real.mtak.hu/21103/
+* Stephan G. Wagner and Hua Wang, **On a Problem of Ahlswede
+  and Katona**, Studia Scientiarum Mathematicarum Hungarica
+  **46** (2009), 423–435,
+  DOI [10.1556/SScMath.2009.1107](https://doi.org/10.1556/SScMath.2009.1107).
+
+D6-Y proves a self-contained **special near-complete K_a regime**
+of this known extremal graph phenomenon, with exactly
+m=C(a,2)-V<=a-2 missing physical edges, and expresses it as a
+global typed ORIGINAL-W(3,s) assignment constraint. This exact
+specialization is useful and must be retained as a proved lemma,
+but **must not** be promoted as a novel graph-theory discovery
+or used as evidence of Branch A progress by itself.
+
+The distinct result specific to THIS research pipeline is the
+explicit construction and exact gap computation for the
+selected two-original-site, lifted-column-capacity marginal
+relaxation against the SHARP image inequality. We have not
+established that this gap is previously unpublished; novelty
+requires a separate literature audit. We have not established
+an all-h positive seven-GF5 lower bound or a contradiction to
+general Sherali–Adams.
+
 ## 1. Why D6-X left a missing global constraint
 
 D6-X constructed projectively consistent common-star local zero-GF5
