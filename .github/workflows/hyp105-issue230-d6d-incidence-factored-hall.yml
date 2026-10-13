@@ -1,0 +1,65 @@
+name: hyp105-issue230-d6d-incidence-factored-hall
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6d_incidence_factored_charging.py"
+      - "research/test_hyp105_issue230_d6d_incidence_factored_charging.py"
+      - "docs/research/HYP-105-ISSUE230-D6D-FACTORED-INCIDENCE-HALL.md"
+      - ".github/workflows/hyp105-issue230-d6d-incidence-factored-hall.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  all-seven-W32-partial-W34-factorized-Hall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact original incidence network and independent uncompressed flow
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6d_incidence_factored_charging.py' -v
+      - name: Emit original W32 full all-seven versus strictly BB-only W34 flow certificates
+        run: |
+          python research/hyp105_issue230_d6d_incidence_factored_charging.py > /tmp/hyp105-d6d.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("/tmp/hyp105-d6d.json").read_text())
+          assert x["slice"]=="HYP105-ISSUE230-D6D-ALL-h-FACTORED-ONE-INCIDENCE-HALL"
+          assert x["all_h_transport_factorization_and_exact_Hall_identity"]=="PROVED"
+          assert x["all_h_uniform_bounded_congestion"]=="OPEN"
+          assert x["all_h_original_seven_lower"]=="OPEN"
+          assert len(x["W32_COMPLETE_positive_all_seven"])==4
+          assert len(x["W34_ONLY_true_positive_sync_BB_subsets"])==4
+          for row in x["W32_COMPLETE_positive_all_seven"]:
+              result=row["r1_incidence_factorized"]
+              assert result["status"]=="EXACT-INCIDENCE-FACTORED-INTEGRAL-HALL-OPTIMUM"
+              assert result["optimal_K"]==row["independent_D6C_direct_min_K"]
+              assert row["E_endpoint_bad"]+row["I_internal_only"]==row["C_blocked_oriented"]
+              print({"FULL-ALL-SEVEN-W32":row["scheme"],
+                     "C":row["C_blocked_oriented"],"S":row["full_seven_positive_S"],
+                     "E":row["E_endpoint_bad"],"I":row["I_internal_only"],
+                     "K":result["optimal_K"],
+                     "global_K_floor":result["global_pigeonhole_K_floor"],
+                     "local_excess_K":result["extra_local_K_over_pigeonhole"],
+                     "target_class_deletions":row["one_class_deleted_coverage_diagnostics"],
+                     "Hall_cut":result["K_minus_one_strict_Hall_witness"]})
+          for row in x["W34_ONLY_true_positive_sync_BB_subsets"]:
+              assert row["all_seven_positive_S"] is None
+              assert row["BB_subset_is_entire_S"] is False
+              print({"STRICT-BB-ONLY-W34":row["mode"],
+                     "policy":row["policy"],
+                     "C":row["original_blocked_oriented"],
+                     "BB_subset":row["full_synchronised_positive_BB_target_sixsets"],
+                     "E":row["E_endpoint_bad"],"I":row["I_internal_only"],
+                     "flow":row["r1_BB_subset_incidence_factorized"]})
+          PY
