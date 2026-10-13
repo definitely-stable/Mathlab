@@ -52,6 +52,44 @@ class JPKC007Tests(unittest.TestCase):
                 self.assertEqual(sum(r["actual_source_positive_Q_class_counts"].values()),
                                  hits)
 
+    def test_exact_W32_lowS_original_source_loss_partition_pins(self):
+        # These are ACTUAL complete W32 globally injected ORIGINAL f,g.
+        # The entire physical K6 palette is filled on both sides;
+        # losses are source-incidence / positional, NOT missing Ka labels.
+        pins={
+            "S68":{
+                "E":544,"D6_raw":13056,"no_inc":13002,"unaligned":54,
+                "D6":0,
+                "Aleft":(3264,2594,380,288,2),
+                "Aright":(3264,2682,318,258,6),
+            },
+            "S72":{
+                "E":600,"D6_raw":14400,"no_inc":14316,"unaligned":84,
+                "D6":0,
+                "Aleft":(3600,2816,462,318,4),
+                "Aright":(3600,2984,364,246,6),
+            },
+        }
+        for scheme,p in pins.items():
+            with self.subTest(scheme=scheme):
+                r=deficit_certificate(fixture(1,scheme))
+                b=r["loss_budget"]
+                self.assertEqual(r["true_full_endpoint_bad_seed_population"],p["E"])
+                self.assertEqual(b["match_raw_matching_bijections"],p["D6_raw"])
+                self.assertEqual(b["match_missing_original_incidence_matching"],p["no_inc"])
+                self.assertEqual(b["match_nonaligned_AA_original_duals"],p["unaligned"])
+                self.assertEqual(b.get("match_source_positive_D6",0),p["D6"])
+                fields=("source_wedge_proposals",
+                        "missing_original_endpoint_incidence",
+                        "missing_original_collinearity",
+                        "global_physical_pair_interference",
+                        "source_positive_wedges")
+                for name,pin in (("A_left",p["Aleft"]),
+                                 ("A_right",p["Aright"])):
+                    self.assertEqual(tuple(b.get(name+"_"+key,0) for key in fields),pin)
+                self.assertEqual(b["isolation_despite_both_physical_A_halves"],
+                                 p["E"]-r["seeds_with_positive_true_source_Q"])
+
     def test_W32_independently_enumerated_complete_two_sided_palette(self):
         for scheme in ("S68","S72"):
             ctx=ProjectionClosure(fixture(1,scheme))
