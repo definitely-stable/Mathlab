@@ -68,6 +68,30 @@ jobs:
                   r['oriented_three_cycles_equal_S']+
                   r['oriented_three_cycles_increasing_S'])==910
           assert 0<=r['oriented_three_cycles_improving_GF5_selected_lower']<=910
+          pinned={
+              'S68': {'n_improve':0,'n_equal':0,'n_worse':910,
+                      'n_GF5_improve':0,'n_noncommutative':445,
+                      'best':[3,11,12],'orientation':'forward',
+                      'best_delta':8,'best_GF5_delta':317513,
+                      'best_order_defect':-32,'worst_delta':108},
+              'S72': {'n_improve':1,'n_equal':0,'n_worse':909,
+                      'n_GF5_improve':1,'n_noncommutative':449,
+                      'best':[1,7,9],'orientation':'reverse',
+                      'best_delta':-4,'best_GF5_delta':-179530,
+                      'best_order_defect':46,'worst_delta':101},
+          }
+          p=pinned[scheme]
+          assert r['oriented_three_cycles_improving_S']==p['n_improve']
+          assert r['oriented_three_cycles_equal_S']==p['n_equal']
+          assert r['oriented_three_cycles_increasing_S']==p['n_worse']
+          assert r['oriented_three_cycles_improving_GF5_selected_lower']==p['n_GF5_improve']
+          assert r['triple_supports_with_nonzero_order_commutator']==p['n_noncommutative']
+          assert r['best_oriented_three_cycle']['triple_original_right_factors']==p['best']
+          assert r['best_oriented_three_cycle']['orientation']==p['orientation']
+          assert r['best_oriented_three_cycle']['delta_S_seven']==p['best_delta']
+          assert r['best_oriented_three_cycle']['delta_GF5_selected_lower_numerator']==p['best_GF5_delta']
+          assert r['best_oriented_three_cycle']['order_commutator_S']==p['best_order_defect']
+          assert r['worst_oriented_three_cycle']['delta_S_seven']==p['worst_delta']
           assert 0<=r['triple_supports_with_nonzero_order_commutator']<=455
           assert r['S_local_minimum_for_ALL_right_permutations_supported_on_at_most_3_original_lines']==(
               r['oriented_three_cycles_improving_S']==0)
