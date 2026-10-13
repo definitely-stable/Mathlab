@@ -1,0 +1,77 @@
+name: hyp105-issue230-d6p-seven-cylinder-swap-audit
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6p_seven_cylinder_swap_audit.py"
+      - "research/test_hyp105_issue230_d6p_seven_cylinder_swap_audit.py"
+      - "docs/research/HYP-105-ISSUE230-D6P-SEVEN-CYLINDER-SWAP-AUDIT.md"
+      - ".github/workflows/hyp105-issue230-d6p-seven-cylinder-swap-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-all-seven-right-cylinders:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently check seven ORIGINAL GF5 classes and complete W32 right-label swaps
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6p_seven_cylinder_swap_audit.py' -v
+      - name: Pin exact seven-class original incidence cylinders and swap profiles
+        run: |
+          python research/hyp105_issue230_d6p_seven_cylinder_swap_audit.py > /tmp/hyp105-d6p.json
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          x=json.loads(Path('/tmp/hyp105-d6p.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6P-ORIGINAL-SEVEN-CYLINDER-SWAP'
+          assert x['all_finite_h_exact_seven_cylinder_identity'] is True
+          assert x['D6_original_column_position_information']=='REQUIRED'
+          assert x['finite_W32_independent_original_seven_GF5_classifier']=='MATCHED'
+          assert x['finite_W32_all_105_right_line_swaps_each']=='EXACT-LOCAL-CYLINDER-DELTAS'
+          assert x['Branch_A']=='OPEN' and x['Branch_B']=='OPEN'
+          assert x['deterministic_all_h_lower_bound_proved'] is False
+          assert x['infinite_correlated_Branch_B_proved'] is False
+          assert x['complete_W34_W38_seven_S']=='UNKNOWN-NOT-CLAIMED'
+          rows=x['records']
+          assert [r['scheme'] for r in rows]==['lex','reverse','S68','S72']
+          assert [r['base']['S_seven'] for r in rows]==[259,169,68,72]
+          source_weights={
+              'D6':5643,'B-left/A-right':45600,'A-left/B-right':45600,
+              'C/A':43320,'C/B':49050,
+              'B/B-overlap':51750,'B/B-disjoint':45010
+          }
+          for r in rows:
+              assert r['original_left_sixset_counts']=={'A':51030,'B':10935,'C':405}
+              assert r['base']['number_original_left_candidates']==62370
+              assert 0<r['compressed_original_cylinders']<62370
+              assert r['all_105_original_right_pair_label_transpositions_checked']
+              assert sum(r[k] for k in [
+                  'number_improving_one_swaps',
+                  'number_worsening_one_swaps',
+                  'number_stable_one_swaps'])==105
+              assert len(r['best_improving_swap'])==2
+              assert r['min_delta_S_seven']<=0<=r['max_delta_S_seven']
+              classes=r['base']['seven_class_motif_counts']
+              assert set(classes)==set(source_weights)
+              assert sum(classes.values())==r['base']['S_seven']
+              assert sum(classes[k]*source_weights[k] for k in source_weights)==(
+                  r['base']['GF5_seven_lower_numerator'])
+              assert r['base']['uses_independent_right_physical_classifier']
+              print({'scheme':r['scheme'],
+                     'S_seven':r['base']['S_seven'],
+                     'original_right_cylinders':r['compressed_original_cylinders'],
+                     'improving_swaps':r['number_improving_one_swaps'],
+                     'stable_swaps':r['number_stable_one_swaps'],
+                     'worsening_swaps':r['number_worsening_one_swaps'],
+                     'min_swap_delta_S':r['min_delta_S_seven'],
+                     'max_swap_delta_S':r['max_delta_S_seven'],
+                     'weighted_delta_min':r['min_delta_GF5_lower_numerator'],
+                     'weighted_delta_max':r['max_delta_GF5_lower_numerator']})
+          PY
