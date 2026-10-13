@@ -1,6 +1,6 @@
 # HYP-105 #230 — JPKC-008: exact 3×3 ORIGINAL source Hall matching and globally shared demand coherence
 
-**2026-10-14. RESTRICTED_THEOREM_C (J25–J28 universal exact structure; Root A/B remain OPEN).**
+**2026-10-14. RESTRICTED_THEOREM_C (J25–J29 universal exact structure; Root A/B remain OPEN).**
 Strict research-only Draft child of [JPKC-007 #435](https://github.com/definitely-stable/Mathlab/pull/435), parent final HEAD `6816514f70f7a6d76e50c4066a284f9eb6ab23bd` (4/4 GitHub-hosted CI SUCCESS). No merges, no `main` change. Use only globally consistent ORIGINAL point/line injection f,g.
 
 ## 1. Why Hall is the next proper test and what D6-AA4-B already covers
@@ -94,6 +94,56 @@ This conclusively closes the naive "deduplicate exact 3×3 A-half source keys an
 Every tested W32 key has exactly **ZERO** repeated demand across distinct original (q,r) GQ anchors, as J28 requires. The full independent W32 experiment additionally tested **ALL 207,025** arbitrary ORIGINAL 3×3 source factor pairs against the seven Hall subsets and all six perfect-matching permutations.
 
 On genuine W34 lex/random and original D4 symplectic spread, the bounded full-per-seed census of eight genuine endpoint-bad physical P3s yielded respectively 47, 43 and 55 Hall-feasible occurrences out of 44,055; 40,506; 41,697 source triple-pair occurrences. Of those, only 9, 4 and 9, respectively, have true selected ORIGINAL D6 positional alignment. These are strictly targeted finite source checks, not full W34 seven-Q census or an asymptotic estimate.
+
+## 4b. NEW THEOREM J29 — ALL h exact global ORIGINAL three-matching capacity
+
+Let `d=s+1`, `V=(s+1)(s²+1)`, `N=Vd` be the number
+of ORIGINAL incidence edges. Denote by `M_3(GQ)` the number of
+UNORDERED original three-edge matchings (three mutually disjoint
+point–line incidences). Since a 3×3 ORIGINAL source factor pair has
+at most one perfect matching by J25, `M_3` also counts EXACTLY the
+distinct Hall-feasible pairs of three original point factors and
+three original line factors, among `binom(V,3)²` possibilities.
+
+The line graph of the ORIGINAL regular bipartite incidence graph has
+`N` vertices, degree `2(d−1)`, `N(d−1)` edges, and exactly
+`2V*binom(d,3)` triangles (each consists of three original
+incidences through the same original point or same original line).
+The count of independent triples in ANY graph with n vertices,
+m edges, degrees D_v and t triangles equals
+`binom(n,3)−m(n−2)+sum_v binom(D_v,2)−t`.
+Its independent triples are exactly the three-matchings of the
+ORIGINAL bipartite incidence graph, giving the closed formula
+
+```
+M_3(GQ) = binom(N,3)
+          − N(d−1)(N−2)
+          + N*binom(2(d−1),2)
+          − 2V*binom(d,3).                      (J29)
+```
+
+**Proof:** the independent-triple identity is inclusion–exclusion
+over conflicting edge pairs, two-conflict wedges, and three-conflict
+triangles in the original line graph. The displayed degree and
+triangle counts follow from ORIGINAL bipartite d-regularity.
+J25 gives the required bijection with Hall-feasible 3×3 factor keys.
+No physical pair-label model is used. QED.
+
+For W(3,2), `V=15,d=3,N=45`, so `M_3=10560`.
+The exact 207,025-pair W32 Hall oracle independently obtains
+**10,560 Hall-feasible** source factor pairs, verifying the formula.
+The rest `207025−10560=196465` are original-Hall-deficient.
+Unlike a local independent-incidence heuristic, this is a
+TRUE universal ORIGINAL global source matching capacity.
+
+**Limit:** J29 counts Hall-feasible factor triples *before* the
+physical source triples are selected by f/g A-half occupancy,
+before restriction to endpoint-bad three-paths, and before
+positional D6 alignment. It does NOT imply a positive lower
+bound on the number of Hall-feasible keys *demanded* by the
+endpoint seed population. The independence of physical f/g
+from GQ incidences is neither assumed nor asserted. Thus
+J29 alone does not prove S=Ω(s⁶).
 
 ## 5. Reproducible exact ORIGINAL checks
 
