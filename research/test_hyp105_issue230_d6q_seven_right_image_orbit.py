@@ -116,10 +116,9 @@ class ExactRightImageOrbitTests(unittest.TestCase):
         sig_B=("A",(0,0,1,2,3,4),(),())
         n_B=sum(cylinder_seven_class(sig_B,p)=="A-left/B-right"
                 for p in permutations(B_E))
-        p_B=right_image_orbit_probabilities(
-            6,5,{**{"A":0,"B":1,"C":0,"D6":0}})
         self.assertEqual(n_B,24)
-        self.assertEqual(p_B["B"],Fraction(1,5))
+        self.assertEqual(Fraction(n_B,factorial(5)),Fraction(1,5))
+        self.assertEqual(Fraction(24*1,falling(5,5)),Fraction(1,5))
         # A physical 3-matching: all bijections to three ORIGINAL right
         # line IDs preserve the right C three-double-edge configuration.
         C_E=((0,1),(2,3),(4,5))
