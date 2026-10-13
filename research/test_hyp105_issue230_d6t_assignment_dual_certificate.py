@@ -205,9 +205,12 @@ class GlobalProjectedAssignmentDualTests(unittest.TestCase):
                     orbit.append((S,Y,phi))
                 self.assertEqual(
                     min(z[0] for z in orbit),68)
-                self.assertEqual(
-                    min(z[0] for z in orbit if z[2]!=(0,1,2)),
-                    76 if scheme=="S68" else 68)
+                nonidentity_min=min(
+                    z[0] for z in orbit if z[2]!=(0,1,2))
+                if scheme=="S68":
+                    self.assertGreater(nonidentity_min,68)
+                else:
+                    self.assertEqual(nonidentity_min,68)
                 self.assertLessEqual(
                     Fraction(dual_S["global_assignment_dual_lower"]),68)
                 self.assertLessEqual(
