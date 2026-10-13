@@ -164,14 +164,14 @@ class SharpSixFactorAdaptiveOriginalPortTests(unittest.TestCase):
         self.assertEqual(report["W34_W38_full_seven_original_positive_S"],
                          "UNKNOWN-NO-BB-SUBSTITUTION")
         expected = {
-            "lex": (942, 259, 786, 156, 4),
-            "reverse": (898, 169, 676, 222, 6),
-            "S68": (606, 68, 544, 62, 9),
-            "S72": (658, 72, 600, 58, 10),
+            "lex": (942, 259, 786, 156, 4, 165),
+            "reverse": (898, 169, 676, 222, 6, 53),
+            "S68": (606, 68, 544, 62, 9, 62),
+            "S72": (658, 72, 600, 58, 10, 10),
         }
         self.assertEqual(len(report["genuine_complete_seven_W32_cases"]), 4)
         for row in report["genuine_complete_seven_W32_cases"]:
-            C,S,E,I,K=expected[row["scheme"]]
+            C,S,E,I,K,deficiency=expected[row["scheme"]]
             self.assertEqual(
                 (row["C"],row["S"],row["E"],row["I"]),(C,S,E,I))
             self.assertEqual(row["K_full"],K)
@@ -179,6 +179,11 @@ class SharpSixFactorAdaptiveOriginalPortTests(unittest.TestCase):
             self.assertEqual(row["port_budget_used"],C)
             self.assertEqual(row["full_exact_exception_at_K_full"],0)
             self.assertEqual(row["six_factor_lower_upper_at_K_full"],[0,0])
+            self.assertEqual(row["K_minus_one_exact_full_exception"], deficiency)
+            self.assertEqual(
+                row["K_minus_one_uniform_lower_upper"], [0, deficiency])
+            self.assertEqual(
+                row["K_minus_one_optimal_adaptive_port_flow"], C-deficiency)
 
 
 if __name__ == "__main__":
