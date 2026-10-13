@@ -177,6 +177,20 @@ class DirectedOriginalThreePortTests(unittest.TestCase):
             self.assertLessEqual(row["original_directed"][
                 "directed_calibration_deficit_E"],
                 row["original_pair"]["centred_pair_deficit_E"])
+            # Genuine GF5-positive complete-seven W32: directed ORIGINAL
+            # triple calibration succeeds even where PAIR fails.
+            empirical_pair={"lex":0,"reverse":0,"S68":372,"S72":1215}
+            active_triples={"lex":148,"reverse":179,"S68":123,"S72":180}
+            self.assertEqual(
+                row["original_pair"]["centred_pair_deficit_E"],
+                empirical_pair[x["scheme"]])
+            self.assertEqual(
+                row["original_directed"]["directed_calibration_deficit_E"],0)
+            self.assertTrue(row["original_directed"][
+                "certified_zero_directed_calibration_deficit"])
+            self.assertEqual(
+                row["original_directed"]["triple_primal_nonzero_count"],
+                active_triples[x["scheme"]])
 
 
 if __name__=="__main__":
