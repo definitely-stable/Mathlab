@@ -362,7 +362,7 @@ def sharp_charge_certificate(model,*,limit_endpoint_seeds=None,
             for t in combinations(Q,3):
                 c+=len(_local_three_source_paths(ctx,t))
             if c>J19_CLASS_CAPS[tag]:
-                raise AssertionError("J19 class-specific 24/16 original sixset charge failed")
+                raise AssertionError("J19 class-specific 12/8 original sixset charge failed")
         if sum(class_hits.values())>J19_SELECTED_SOURCE_SIXSET_CAP*census["S_seven"]:
             raise AssertionError("new 12S globally coherent bound violated")
     return {
