@@ -117,3 +117,25 @@ remains formally true; it has simply become **vacuous as an unconditional small-
 The centered ||B^0|| upper from D3 remains independently open. D5 alone does not invalidate that auxiliary hypothesis, though together with the mean and full-energy lower it makes any naïve two-term Cauchy proof of small W more implausible.
 
 **NO CLAIMS:** no original `S=Omega(s6)` universal theorem, no `S=o(s6)` infinite Branch B, no ASET exponent, no general GF5 R3. Retain Draft; no main merge; separate mathematical proof audit and exact-head GitHub-hosted Contract, INDEX and full Research required.
+
+
+## 6. GitHub-hosted exact eight-case ORIGINAL GQ result
+
+The first dedicated GitHub-hosted [D5 Contract #38333790969](https://github.com/definitely-stable/Mathlab/actions/runs/38333790969) finished **SUCCESS** on the initial child HEAD; its exact ORIGINAL finite numbers were frozen into source-level targeted tests and a dedicated full report gate at a subsequent child HEAD. These cases use all TRUE original f,g labels; they are not edge samples from any generated surrogate GQ.
+
+| TRUE original graph | Entire original line map g | Physical H edge-deletion policy | Deleted real G edges | Retained selected witness edges | Exact actual weighted energy W_H |
+| --- | --- | --- | ---: | ---: | ---: |
+| W(3,4), m=850 | balanced | none | 0 | 120 | 127,932 |
+| W(3,4), m=850 | reverse | none | 0 | 120 | 131,936 |
+| W(3,4), m=850 | balanced | every 19th | 45 | 117 | 121,234 |
+| W(3,4), m=850 | balanced | adversarially remove selected witness edges | 24 | 96 | 124,146 |
+| W(3,8), m=10,530 | balanced | none | 0 | 1,152 | 6,614,488 |
+| W(3,8), m=10,530 | reverse | none | 0 | 1,152 | 6,663,027 |
+| W(3,8), m=10,530 | balanced | every 19th | 555 | 1,099 | 6,267,591 |
+| W(3,8), m=10,530 | balanced | adversarially remove selected witness edges | 230 | 922 | 6,474,532 |
+
+The full-G finite integer lower bounds from D5.1 are W34 `9600/7`, W38 `1327104/35`. For W38 with every nineteenth actual physical edge removed, the coarse deletion-budget lower becomes `356409/35` while the actual W_H is `6,267,591`. The bound is deliberately very loose in these small finite dimensions: it is a **rigorously valid all-h power-exponent obstruction**, not a useful finite numeric approximation to the real energy.
+
+Different globally injective original right labelings do produce different full W_H, yet *both* satisfy the same symbolic lower. Selected-first adversarial physical deletions explicitly exercise the claimed `R_s` dependence. The finite records are complete 0/1 graph scans; no extrapolation from eight values is used in the all-h `9/32` proof. W(3,4) and W(3,8) are true finite original geometries; power >=4 parameter checks remain **symbolic only**. All original-root A/B claims remain OPEN.
+
+The original all-h theorem proof and exact finite ledgers are independent acceptance dimensions. As usual the final child HEAD also needs dedicated Contract, INDEX, parent proof audit, and full Research SUCCESS; independent mathematical proof review remains outstanding.
