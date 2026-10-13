@@ -96,6 +96,28 @@ class JPKC002Tests(unittest.TestCase):
             12*r["proper_D6_from_collision"])
         self.assertTrue(r["J3_exact_identity_verified"])
 
+    def test_report_pinned_original_blocked_collision_tensor(self):
+        # Explicit original-GQ endpoint path pairs, not a degree-only
+        # synthetic or an averaged independently sampled g.
+        expected={
+            (2,"lex"):(942,1872,880,912,80),
+            (2,"reverse"):(898,1432,740,664,28),
+            (2,"S68"):(606,512,196,316,0),
+            (2,"S72"):(658,664,292,372,0),
+            (4,"lex"):(55384,161256,40836,63144,57276),
+            (4,"random"):(48542,117356,26884,47816,42656),
+        }
+        for (s,scheme),(blocked,pairs,shared,improper,proper) in expected.items():
+            with self.subTest(s=s,scheme=scheme):
+                r=collision_certificate(fixture(1 if s==2 else 2,scheme))
+                self.assertEqual(r["J4_blocked_original_P3"],blocked)
+                self.assertEqual(r["J4_blocked_only_falling2"],pairs)
+                self.assertEqual(tuple(
+                    r["J4_blockedblocked_ordered_distinct"][k]
+                    for k in ("shared_internal","improper_C6","proper_C6")),
+                    (shared,improper,proper))
+                self.assertEqual(shared+improper+proper,pairs)
+
     def test_independent_canonical_original_edge_reconstruction(self):
         for scheme in ("lex","reverse","S68"):
             c=ProjectionClosure(fixture(1,scheme))
