@@ -2,6 +2,9 @@
 
 ALL-h, ALL correlated ORIGINAL typed globally injective physical-pair maps:
 s=2^h,h>=1; V=(s+1)(s²+1), K=C(a,2)>=V minimal; m=K-V<=a-2.
+The next sharp extremal count is a near-complete special case of
+Ahlswede--Katona (1978), Graphs with maximal number of adjacent pairs
+of edges, DOI 10.1007/BF01902206; NOT a novel standalone graph theorem.
 The V occupied edges E of the physical K_a graph obey
  A(E)=sum_c C(deg_E(c),2)
    <= a*C(a-1,2) - 2*m*(a-2) + C(m,2) = A_max.
