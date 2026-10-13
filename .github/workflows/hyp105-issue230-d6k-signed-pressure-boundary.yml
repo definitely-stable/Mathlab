@@ -55,7 +55,16 @@ jobs:
               assert p["exact_D6F_full_original_exception_mass"]==deficit
               assert p["calibrated_pair_flow_global_only_Hall_deficit_CERTIFIED"]==(x["scheme"] in ("lex","reverse"))
               if x["scheme"] in ("S68","S72"):
-                  assert p["centred_pair_pressure_calibration"]["failed_pair_cut_witness"]["exact_positive_pair_cut_shortfall"]>0
+                  w=p["centred_pair_pressure_calibration"]["failed_pair_cut_witness"]
+                  expected_pair={"S68":(372,28,1632,44),"S72":(1215,128,6975,42)}
+                  assert (w["exact_positive_pair_cut_shortfall"],
+                          w["original_pair_cut_weight"],
+                          w["sum_centred_integer_pressure"],
+                          len(w["original_incidence_support_F"]))==expected_pair[x["scheme"]]
+                  assert w["sum_centred_integer_pressure"]-45*w["original_pair_cut_weight"]==w["exact_positive_pair_cut_shortfall"]
+                  hyper=p["failed_pair_cut_evaluated_in_original_triple_hypergraph"]
+                  assert hyper["k"]==len(w["original_incidence_support_F"])
+                  assert hyper["six_M_minus_K_D"]<=p["uniform_exact_scaled_Hall_deficit_Delta6"]
               assert x["at_K"]["uniform_exact_scaled_Hall_deficit_Delta6"]==0
               print({"scheme":x["scheme"],"K":K,"C":C,"S_full_seven":S,
                      "active_original_incidence_N":45,
