@@ -11,7 +11,6 @@ the same ORIGINAL incidence-factored network. This is a finite certificate
 layer only. It does NOT prove an all-h exception bound, a uniform K, Branch A,
 Branch B, or any ASET exponent.
 """
-from math import ceil
 import json
 
 from hyp105_issue230_projection import ProjectionClosure, fixture
@@ -40,7 +39,7 @@ def exception_budget_for_capacity(source_weights, accepted, capacity,
     """
     if type(capacity) is not int or capacity < 0:
         raise ValueError("capacity must be a nonnegative integer")
-    triples, sixsets = _validated(source_weights, accepted)
+    _, sixsets = _validated(source_weights, accepted)
     split = _normalise_split(source_weights, split_weights)
     total = sum(source_weights.values())
     audit = factored_cut_profile(source_weights, accepted, capacity, split)
@@ -65,10 +64,13 @@ def exception_budget_for_capacity(source_weights, accepted, capacity,
     hint = {}
     if audit["status"] == "EXACT-HALL-OBSTRUCTION":
         residual = audit["residual_cut_split_demand"]
-        # This is a lower-hint from one exact mincut, not a canonical split of
-        # the removable exception set. It is still useful: each component can
-        # be inspected in the same source-closed obstruction profile.
-        hint = dict(residual)
+        residual_capacity = capacity * audit["residual_cut_neighbor_positive_sixsets"]
+        # Conservative component-wise lower hints: if one component alone
+        # exceeds the whole residual recipient capacity, at least that excess
+        # must stay exceptional in any compensation proof focused on this cut.
+        # This is not a canonical split of the removable exception set.
+        hint = {name: max(0, mass - residual_capacity)
+                for name, mass in residual.items()}
         profile = audit["source_closed_profile"]
         if profile["excess_over_candidate_K"] < exception:
             raise AssertionError("source-closed excess must dominate maxflow exception")
