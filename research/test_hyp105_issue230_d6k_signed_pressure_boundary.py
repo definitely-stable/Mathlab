@@ -188,6 +188,22 @@ class SignedPressureBoundaryTests(unittest.TestCase):
             self.assertEqual(prev["active_original_incidence_N"],45)
             self.assertEqual(prev["positive_port_degree_sum_on_active_source_I"],6*S)
             self.assertEqual(prev["global_signed_pressure_G"],6*deficit)
+            # Lex/reverse admit a true original pair-flow certificate.
+            # S68/S72 do not, EVEN THOUGH the original 3-port Hall
+            # minimum cut is globally tight: pair calibration is strict.
+            expected_pair=(row["scheme"] in ("lex","reverse"))
+            self.assertEqual(
+                prev["calibrated_pair_flow_global_only_Hall_deficit_CERTIFIED"],
+                expected_pair)
+            pair_cert=prev["centred_pair_pressure_calibration"]
+            if expected_pair:
+                self.assertTrue(pair_cert[
+                    "all_original_incidence_divergences_verified"])
+                self.assertIsNone(pair_cert["failed_pair_cut_witness"])
+            else:
+                self.assertGreater(
+                    pair_cert["failed_pair_cut_witness"][
+                        "exact_positive_pair_cut_shortfall"],0)
             self.assertEqual(prev["uniform_exact_scaled_Hall_deficit_Delta6"],
                              6*deficit)
             self.assertEqual(prev["exact_local_Hall_excess_over_global_source_pressure"],0)
