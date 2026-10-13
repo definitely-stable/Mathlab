@@ -70,7 +70,24 @@ The strongest target is an all-h overload o(s^6), but NO such analytic estimate 
 
 Uniform 1/6 allocation can be very conservative: an integral concentrated assignment may close a case where the uniform bound is nonzero. No W32 finite congestion is extrapolated all-h. W34 and W38 full seven-positive S remain unmeasured.
 
-## 4. Strict status
+## 4. Pinned genuine W32 complete-seven exact finite certificates
+
+The first GitHub-hosted D6-H Contract [#38353460351](https://github.com/definitely-stable/Mathlab/actions/runs/38353460351) succeeded with four independent tests. Its original same-map W32 complete-seven report yielded the following, now pinned to prevent accidental changes:
+
+| Original W32 scheme | K | D6-F exact exception | D6-H uniform 6-scaled exception upper | Simpler equal-thirds overflow upper |
+| --- | ---: | ---: | ---: | ---: |
+| lex | 3 | 165 | **165** | 180 |
+| lex | 4 | 0 | **0** | 61 |
+| reverse | 5 | 53 | **53** | 131 |
+| reverse | 6 | 0 | **0** | 63 |
+| S68 | 8 | 62 | **62** | 105 |
+| S68 | 9 | 0 | **0** | 72 |
+| S72 | 9 | 10 | **10** | 119 |
+| S72 | 10 | 0 | **0** | 90 |
+
+In each of these eight *finite* complete-seven true-original W32 cases, the uniform 1/6 fractional incidence allocation is **exactly optimal** after integrality, while the easier pointwise source-thirds overflow is not always sharp. This is not evidence of all-h equality: the actual high-h complete positive-recipient incidence degrees d(e) are analytically unconstrained.
+
+## 5. Strict status
 
 Proved as mathematics (pending independent review): the universally quantified sufficient incidence-allocation theorem and its local overload corollary. Finite source data and CI do not replace proof.
 
