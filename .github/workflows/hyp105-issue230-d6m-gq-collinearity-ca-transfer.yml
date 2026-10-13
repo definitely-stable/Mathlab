@@ -52,6 +52,8 @@ jobs:
               if s==2:
                   assert type(row["actual_fixed_global_right_g_Cleft_Aright"]) is int
                   assert row["actual_fixed_global_right_g_Cleft_Aright"]>=0
+                  assert row["actual_fixed_global_right_g_Cleft_Aright"]=={
+                      "lex":4,"reverse":0,"S68":0,"S72":2}[row["scheme"]]
               else:
                   assert row["actual_fixed_global_right_g_Cleft_Aright"] is None
               assert row["expected_GF5_subclass_orientation"]=="C-left/A-right-ONLY"
