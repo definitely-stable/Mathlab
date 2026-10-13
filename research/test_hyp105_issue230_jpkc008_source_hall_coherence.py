@@ -7,6 +7,7 @@ from hyp105_issue230_projection import ProjectionClosure,fixture
 from hyp105_issue230_jpkc008_source_hall_coherence import (
     hall_certificate,hall_coherence_certificate,
     all_W32_factor_triples_hall_theorem,
+    all_h_original_3matching_capacity,source_key_original_anchor,
 )
 
 
@@ -17,6 +18,9 @@ class JPKC008Tests(unittest.TestCase):
         self.assertEqual(result["entire_original_3x3_source_factor_grid"],207025)
         self.assertEqual(sum(result["true_GQ_hall_deficiency_histogram"].values()),207025)
         self.assertTrue(result["all_h_unique_original_perfect_matching_verified"])
+        self.assertEqual(result["original_three_edge_matchings_exact_formula"],10560)
+        self.assertEqual(result["true_GQ_hall_deficiency_histogram"][0],10560)
+        self.assertTrue(result["J29_all_h_exact_matching_capacity"])
 
     def test_true_W32_all_four_original_shared_source_demand_moments(self):
         reference={
@@ -46,6 +50,9 @@ class JPKC008Tests(unittest.TestCase):
                 self.assertTrue(r["J27_global_original_factor_key_shared_across_all_seeds"])
                 self.assertTrue(r["J28_all_h_A_half_source_key_unique_GQ_anchor"])
                 self.assertTrue(r["J28_cross_original_anchor_sharing_is_impossible"])
+                self.assertEqual(
+                    r["J29_global_original_3matching_capacity"][
+                        "original_three_edge_matchings_exact_formula"],10560)
                 self.assertEqual(r["keys_demanded_by_multiple_original_GQ_anchors"],0)
                 d=r["source_matching_deficit"]
                 self.assertEqual(d["source_triple_pairs"],total)
@@ -74,6 +81,11 @@ class JPKC008Tests(unittest.TestCase):
                 self.assertFalse(r["full_W34_original_seven_GF5_census"])
                 self.assertTrue(r["J25_all_h_girth8_unique_3x3_matching"])
                 self.assertGreater(r["original_source_demand_pair_budget"],0)
+                self.assertTrue(r["J28_all_h_A_half_source_key_unique_GQ_anchor"])
+                self.assertEqual(r["keys_demanded_by_multiple_original_GQ_anchors"],0)
+                self.assertTrue(
+                    r["J29_global_original_3matching_capacity"][
+                        "J29_all_h_exact_matching_capacity"])
                 d=r["source_matching_deficit"]
                 self.assertEqual(d["source_triple_pairs"],
                                  d["hall_deficient_pairs"]+d["hall_feasible_pairs"])
