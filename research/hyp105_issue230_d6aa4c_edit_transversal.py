@@ -12,7 +12,8 @@ from itertools import combinations
 from math import comb
 
 from hyp105_g5e2b3e1a_fixed_leading import (
-    _classify_six_prechecked, selected_left_six, validated_small_model)
+    selected_left_six, validated_small_model)
+from hyp105_g5e2b3e1b0_seven_signature import classify_seven_prechecked
 from hyp105_issue230_d6aa_positional_tensor import (
     WEIGHTS, classify_original_six)
 
@@ -36,7 +37,7 @@ def genuine_original_positive_hypergraph(model):
         if len(ids)!=6 or len(set(ids))!=6 or ids in seen:
             raise AssertionError("distinct original incidence sixsets only")
         seen.add(ids)
-        tag=_classify_six_prechecked(ids,left,right,incidences)
+        tag=classify_seven_prechecked(ids,left,right,incidences)
         if not tag:
             continue
         six=tuple(incidences[i] for i in ids)
