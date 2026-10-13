@@ -1,0 +1,58 @@
+name: hyp105-issue230-d6z-original-incidence-wedge
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6z_original_incidence_wedge_moment.py"
+      - "research/test_hyp105_issue230_d6z_original_incidence_wedge_moment.py"
+      - "docs/research/HYP-105-ISSUE230-D6Z-ORIGINAL-INCIDENCE-WEDGE.md"
+      - ".github/workflows/hyp105-issue230-d6z-original-incidence-wedge.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-incidence-wedge-moment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact all-h six-incidence wedge transport, W32/W34 independent incidence-pair sums and seven-GF5 false-positive witnesses
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6z_original_incidence_wedge_moment.py' -v
+      - name: Real ORIGINAL W32 S68/S72 image-only nonidentifiability and strict GF5 2-regular proxy gap
+        run: |
+          python research/hyp105_issue230_d6z_original_incidence_wedge_moment.py > /tmp/d6z.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/d6z.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6Z-ORIGINAL-INCIDENCE-WEDGE-MOMENT'
+          assert x['theorem']=='ALL-H-EXACT-ORIGINAL-SIXSET-WEDGE-TRANSPORT'
+          assert x['original_point_and_line_typed_images']=='BOTH-EXACT-ALL-H'
+          assert x['all_h_wedge_moment_envelope']=='TWO-SIDED-SHARP'
+          assert not x['global_image_only_determines_original_seven_GF5_S']
+          assert not x['two_sided_physical_regular_proxy_sufficient_for_GF5_seven']
+          assert x['not_new_graph_extremal_theory']
+          assert x['not_universal_positive_GF5_bound']
+          assert x['Branch_A']==x['Branch_B']=='OPEN'
+          assert len(x['all_h_envelopes'])==6
+          rows=x['true_original_W32']
+          assert [r['scheme'] for r in rows]==['S68','S72']
+          assert [r['true_original_seven_GF5_positive_count'] for r in rows]==[68,72]
+          for r in rows:
+              assert r['left_right_global_image_adjacency']==[60,60]
+              assert r['original_sixsets_left_candidate_census']==62370
+              assert r['proxy_false_positives']>0
+              assert r['two_sided_physical_degree_two_proxy']>r['true_original_seven_GF5_positive_count']
+              assert sum(r['seven_positive_by_exact_class'].values())==r['true_original_seven_GF5_positive_count']
+              assert r['all_left_original_incidences_preserved']
+              assert not r['full_R3_or_universal_omega_proved']
+              print(r['scheme'],'true positive:',r['true_original_seven_GF5_positive_count'],
+                    'two-sided physical proxy:',r['two_sided_physical_degree_two_proxy'],
+                    'false-positives:',r['proxy_false_positives'],
+                    'source geometry:',r['source_incidence_collinearity'])
+          PY
