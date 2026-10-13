@@ -1,0 +1,55 @@
+name: hyp105-issue230-d6e-support-expansion-profile
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6e_support_expansion_profile.py"
+      - "research/test_hyp105_issue230_d6e_support_expansion_profile.py"
+      - "docs/research/HYP-105-ISSUE230-D6E-SUPPORT-EXPANSION-PROFILE.md"
+      - ".github/workflows/hyp105-issue230-d6e-support-expansion-profile.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  source-closed-Hall-profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: D6-E source-closed Hall support profile tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6e_support_expansion_profile.py' -v
+      - name: Emit D6-E finite complete-W32 profile report
+        run: |
+          python research/hyp105_issue230_d6e_support_expansion_profile.py > /tmp/hyp105-d6e.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/hyp105-d6e.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6E-SOURCE-SUPPORT-EXPANSION-PROFILE'
+          assert x['all_h_uniform_support_expansion_bound']=='OPEN'
+          rows=x['W32_COMPLETE_positive_all_seven_source_closed_profiles']
+          assert len(rows)==4
+          for row in rows:
+              assert row['scope']=='COMPLETE-ALL-SEVEN-ORIGINAL-W32'
+              assert row['E_endpoint_bad']+row['I_internal_only']==row['C_blocked_oriented']
+              g=row['global_source_closed_profile']
+              assert g['source_closed_oriented_demand']==row['C_blocked_oriented']
+              assert g['eligible_positive_original_sixsets_B']==row['full_seven_positive_S']
+              assert g['minimal_K_required_by_this_F']==row['D6D_exact_optimal_K']
+              assert row['K_profile']['status']=='COMPLETE-HALL-FEASIBLE'
+              assert row['K_minus_one_profile']['status']=='EXACT-HALL-OBSTRUCTION'
+              print({'D6E-W32': row['scheme'], 'C': row['C_blocked_oriented'],
+                     'E': row['E_endpoint_bad'], 'I': row['I_internal_only'],
+                     'S': row['full_seven_positive_S'],
+                     'K': row['D6D_exact_optimal_K'],
+                     'closed_F_excess_at_K_minus_1': row['K_minus_one_profile']['source_closed_profile']['excess_over_candidate_K']})
+          PY
