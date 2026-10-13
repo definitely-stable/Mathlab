@@ -1,0 +1,31 @@
+name: hyp105-issue230-jpkc004-original-sixset-transport
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc004_original_sixset_transport.py"
+      - "research/test_hyp105_issue230_jpkc004_original_sixset_transport.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-004-ORIGINAL-SIXSET-TRANSPORT.md"
+      - ".github/workflows/hyp105-issue230-jpkc004-original-sixset-transport.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  original-sixset-transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Audit J9 endpoint GQ closure no-go, original GF5 transport, J10 cap
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc004_original_sixset_transport.py' -v
+      - name: Emit complete true original W32 W34 and D4-spread endpoint provenance report
+        run: python research/hyp105_issue230_jpkc004_original_sixset_transport.py --spread
