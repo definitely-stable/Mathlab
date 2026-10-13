@@ -115,6 +115,8 @@ def collision_certificate(model,*,max_paths=2_000_000,
                           compare_seven=False):
     """Exact ORIGINAL GQ path-pair collision partition, never sample/reweight."""
     ctx=ProjectionClosure(model)
+    if compare_seven and ctx.s!=2:
+        raise ValueError("complete seven-census cross-check is W32 only")
     adj,fibers,labels=_path_fibers(ctx,max_paths)
     energy=_path3_and_theta(adj)
     if sum(labels.values())!=energy["P3"]:
