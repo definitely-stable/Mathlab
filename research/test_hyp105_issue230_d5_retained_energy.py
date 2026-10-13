@@ -123,7 +123,24 @@ class Issue230D5RetainedEndpointTests(unittest.TestCase):
         self.assertEqual(r["all_h_original_seven_family_S_lower"],"OPEN")
         self.assertEqual(r["all_h_small_S_branch_B"],"OPEN")
         self.assertFalse(r["adversarial_all_maps_counterexample_to_original_root"])
+        pinned={
+            (4,"balanced","none"):(127932,0,120),
+            (4,"reverse","none"):(131936,0,120),
+            (4,"balanced","every-19"):(121234,45,117),
+            (4,"balanced","adversarial-original-selected"):(124146,24,96),
+            (8,"balanced","none"):(6614488,0,1152),
+            (8,"reverse","none"):(6663027,0,1152),
+            (8,"balanced","every-19"):(6267591,555,1099),
+            (8,"balanced","adversarial-original-selected"):(6474532,230,922),
+        }
         for x in r["real_true_original_witnesses"]:
+            case=(x["s"],x["right_global_original_label_mode"],
+                  x["physical_edge_removal_scheme"])
+            self.assertIn(case,pinned)
+            self.assertEqual(
+                (x["exact_original_bad_chord_energy_W_H"],
+                 x["arbitrarily_deleted_TRUE_physical_edges"],
+                 x["selected_kept_TRUE_physical_edges"]), pinned[case])
             self.assertGreaterEqual(
                 Fraction(x["exact_original_bad_chord_energy_W_H"]),
                 Fraction(x["robust_removed_edges_lower_num"],
