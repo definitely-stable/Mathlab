@@ -1,0 +1,34 @@
+name: hyp105-issue230-jpkc-joint-defect-gate
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc_joint_defect_gate.py"
+      - "research/test_hyp105_issue230_jpkc_joint_defect_gate.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-001-JOINT-PROJECTION-KIKUCHI.md"
+      - ".github/workflows/hyp105-issue230-jpkc-joint-defect-gate.yml"
+      - "research/hyp105_issue230_projection.py"
+      - "research/hyp105_issue230_proof_audit.py"
+      - "research/hyp105_g5e2b3e1b0_seven_signature.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  jpkc-exact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Independently check same-original W32/W34 projection and six-cycle identities
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc_joint_defect_gate.py' -v
+      - name: Emit exact joint W32 four-map plus true W34 two-map falsification ledger
+        run: python research/hyp105_issue230_jpkc_joint_defect_gate.py --w34
