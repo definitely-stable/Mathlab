@@ -61,7 +61,31 @@ For every source P, reconstruct its 3 distinct ORIGINAL edge IDs independently v
 
 For repair, compare all accepted seven-class target **true original six-incidence supports** with source triple intersection, not precomputed per-pair scores or signed GF5 events. The classifier/target count is independently pinned. Require exact integer deficits and per-mask conservation. The finite output includes explicit W32 first-obstruction witnesses and a Hall cut when optimal K exists.
 
-## 4. What remains OPEN
+## 4. First exact ORIGINAL hosted local Hall results (scope: only s=2)
+
+First [dedicated D6-C Contract run #38338769216](https://github.com/definitely-stable/Mathlab/actions/runs/38338769216) completed **SUCCESS** (5 independent regression/falsifier tests). Original lex and S68 full G and actual paired-retention controls agree with D6B's COMPLETE independent original q-l-p-r mask census. Results below have been pinned as exact assertions; fresh final-head CI after the pins is required.
+
+| Same ORIGINAL W32 map and H policy | C oriented blocked | Full accepted S | r=3 uncovered | r=2 uncovered / K | r=1 uncovered / K |
+| --- | ---: | ---: | ---: | --- | --- |
+| lex, FULL G | 942 | 259 | **760** | 0 / **K=4** | 0 / **K=4** |
+| S68, FULL G | 606 | 68 | **596** | **8 / IMPOSSIBLE** | 0 / **K=9** |
+| lex, coherent every 19th ORIGINAL incidence | 762 | 259 | 606 | 0 / K not solved | 0 / K not solved |
+| S68, coherent every 19th ORIGINAL incidence | 506 | 68 | 496 | **8 / IMPOSSIBLE** | 0 / K not solved |
+| S68, relaxed finite calibration (NOT PR394) | 84 | 68 | 84 | **6 / IMPOSSIBLE** | 0 / K not solved |
+| lex/S68, literal PR394 finite s=2 | 0 | 259/68 | no source | no source | no source |
+
+**Exact local no-go (S68 r=2).** Even after considering ALL 68 accepted original positive six-incidence sets, EIGHT oriented blocked source paths (four reversals) on the SAME complete S68 f,g have no valid target sharing two of their original three incidences. Therefore every purported *all-s* map `P -> accepted Q` that preserves at least two of the three source incidence IDs and is defined on every blocked path is FALSE. This is stronger than just the unique-canonical-closure no-go, since every possible accepted seven-family Q is considered. For large h only, the same claim could still be true or false; s=2 cannot decide it.
+
+**Optimal finite integer K for overlap-one.** In lex FULL G, exact flow with overlap>=2 or >=1 admits maximum target load **4**, and integer capacity K=3 is impossible; the mincut deficit is **165 = 942-3*259**. In S68 FULL G, overlap>=1 admits maximum load **9**, while K=8 is impossible with Hall deficit **62 = 606-8*68**. Both mincuts are the global pigeonhole obstruction `K>=ceil(C/S)`, and the feasible flows show that these *particular* source-support restrictions impose NO ADDITIONAL finite congestion penalty over that trivial lower bound. This equality does NOT imply an h-independent bound K for any family. The source-to-recipient flow is an integer allocation proof for these finite models only, not a geometrically explicit uniform all-h constructive charge.
+
+**Exact canonical projection classification:**
+- W32 lex FULL: 4 accepted zero-mask ORIENTED paths = 2 BB-sync original sixsets, 758 BAD_BOTH, 50 BAD_LEFT, 46 BAD_RIGHT, 88 REPEATED_ORIGINAL_INCIDENCE; 942 blocked total.
+- W32 S68 FULL: 474 BAD_BOTH, 22 BAD_LEFT, 36 BAD_RIGHT, 74 REPEATED_ORIGINAL_INCIDENCE; 606 blocked total, no zero-mask accepted closure.
+- A blocked path **never** has an accepted canonical sixset, independently of how many other positive original targets might exist.
+
+The nontrivial lesson is negative and positive in a carefully restricted sense: keeping two or three source incidences is too rigid even for selected W32 maps, while keeping one can admit an exact finite allocation with K given by the global cardinality ratio. Neither situation supplies `eta,Lambda` in the all-h compensation inequality. Extending to higher s must avoid falsely treating W34's known BB-sync subclass as the complete positive seven-family S.
+
+## 5. What remains OPEN
 
 The source-to-target overlap rule is **not** itself a universal compensated inequality, even if a finite K is found. To establish `C(H)<= (16-eta)s^6+Lambda S+o(s^6)` for the original coherently pruned large-s H, one must derive a uniform bound for all globally correlated original f,g and independently certify that the charge handles both endpoint and INTERNAL-only masks with h-independent congestion. Alternatively find a rigorous all-h **source-mass deficit** for families with no local recipient, or a new nonlocal transfer with a legitimate original-support witness and quantified multiplicity.
 
