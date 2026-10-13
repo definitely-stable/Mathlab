@@ -93,11 +93,22 @@ class JPKC006ProofGates(unittest.TestCase):
                         len(_local_three_source_paths(ctx,T)),2)
 
     def test_targeted_true_original_W34_not_falsely_full_census(self):
-        for scheme in ("lex","random"):
+        controls={
+            # Full E; exact-covered among 96; (P,Q) hits; (A/B,B/A,D6)
+            "lex":(38020,94,545,(182,222,141)),
+            "random":(30194,95,430,(172,162,96)),
+        }
+        for scheme,(E,covered,hits,classes) in controls.items():
             with self.subTest(scheme=scheme):
                 c=sharp_charge_certificate(
                     fixture(2,scheme),limit_endpoint_seeds=96,exact_W32=False)
+                self.assertEqual(c["full_endpoint_bad_population"],E)
                 self.assertEqual(c["endpoint_bad_physical_seeds_examined"],96)
+                self.assertEqual(c["seeds_with_true_original_positive_alternates"],covered)
+                self.assertEqual(c["accepted_seed_sixset_pairs"],hits)
+                self.assertEqual(tuple(c["selected_class_positive_source_hits"][name]
+                                       for name in ("A-left/B-right","B-left/A-right","D6")),
+                                 classes)
                 self.assertFalse(c["complete_endpoint_bad_coverage"])
                 self.assertTrue(c["no_full_W34_Q_census"])
                 self.assertFalse(c["full_W32_independent_accepted_Q_oracle_compared"])
@@ -110,7 +121,13 @@ class JPKC006ProofGates(unittest.TestCase):
         model,proof=spread_adversary_model(2)
         self.assertEqual(proof["M_f_original_exact"],259)
         c=sharp_charge_certificate(model,limit_endpoint_seeds=96,exact_W32=False)
+        self.assertEqual(c["full_endpoint_bad_population"],35190)
         self.assertEqual(c["endpoint_bad_physical_seeds_examined"],96)
+        self.assertEqual(c["seeds_with_true_original_positive_alternates"],94)
+        self.assertEqual(c["accepted_seed_sixset_pairs"],537)
+        self.assertEqual(tuple(c["selected_class_positive_source_hits"][name]
+                               for name in ("A-left/B-right","B-left/A-right","D6")),
+                         (212,193,132))
         self.assertFalse(c["complete_endpoint_bad_coverage"])
         self.assertTrue(c["J19_all_h_12_selected_sixset_cap_verified"])
         self.assertFalse(c["Root_B_constructed"])
