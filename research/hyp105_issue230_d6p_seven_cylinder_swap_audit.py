@@ -295,8 +295,11 @@ def original_W32_seven_cylinder_report():
             "max_delta_S_seven":max(deltas),
             "min_delta_GF5_lower_numerator":min(weighted_deltas),
             "max_delta_GF5_lower_numerator":max(weighted_deltas),
-            "best_improving_swap":swaps[deltas.index(min(deltas))][
+            "minimum_delta_swap":swaps[deltas.index(min(deltas))][
                 "swap_original_lines"],
+            "strict_right_one_swap_local_minimum":min(deltas)>0,
+            "right_one_swap_local_minimum":min(deltas)>=0,
+            "strict_right_one_swap_local_maximum":max(deltas)<0,
             "all_swaps_local_only":True,
         })
     return {
