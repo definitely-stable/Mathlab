@@ -51,6 +51,7 @@ import json
 
 from hyp105_g5e2b3e1b1a_one_sided import left_six_mass, uniform_right_completion_BA
 from hyp105_issue230_projection import ProjectionClosure, fixture
+from hyp105_g5e2b3e1b0_seven_signature import R3_CERTIFIED_FLOORS
 
 
 def _choose(n,k):
@@ -131,6 +132,17 @@ def universal_fixed_left_CA_expectation(s):
     refined_num=max(0,nC*B**3-A*A*B*P*(V-2))
     safe_lower=max(naive_lower,refined_num)
     upper=upper_C*B**3
+    C_weight=R3_CERTIFIED_FLOORS["C/A"]
+    BA_weight=R3_CERTIFIED_FLOORS["B-left/A-right"]
+    if (C_weight,BA_weight)!=(43320,45600):
+        raise AssertionError("accepted seven GF5 class-specific risk floors changed")
+    # This lower-bounds a selected NONNEGATIVE subset of the GF5
+    # seven-class R3 contribution IN EXPECTATION OVER RIGHT g ONLY.
+    weighted_risk_num_floor=(
+        C_weight*safe_lower*probability+
+        BA_weight*BA["expected_U_Bleft_Aright_lower"]
+    )
+    weighted_risk_expected_floor=weighted_risk_num_floor/(51**6)
     if not 0<=safe_lower<=upper:
         raise AssertionError("all-left C/A expectation bounds malformed")
     return {
@@ -155,6 +167,15 @@ def universal_fixed_left_CA_expectation(s):
             Fraction(safe_lower*probability+
                      BA["expected_U_Bleft_Aright_lower"],s**6)),
         "new_asymptotic_BA_plus_CA_mean_coefficient":"455/3",
+        "accepted_GF5_floor_C_over_A_each_sixset":C_weight,
+        "accepted_GF5_floor_B_left_A_right_each_sixset":BA_weight,
+        "selected_GF5_R3_expected_lower_numerator":str(
+            weighted_risk_num_floor),
+        "selected_GF5_R3_expected_lower":str(
+            weighted_risk_expected_floor),
+        "new_asymptotic_selected_GF5_R3_expected_numerator_over_s6":
+            "6889400",
+        "not_a_strict_full_GF5_R3_upper":True,
         "uniform_expected_Cleft_Aright_upper":str(upper*probability),
         "uniform_expected_Cleft_Aright_lower_over_s6":str(Fraction(
             safe_lower*probability,s**6)),
@@ -282,6 +303,8 @@ def report():
             "PROVED-ONE-SIDED-RANDOM-RIGHT",
         "all_h_uniform_expected_Cleft_Aright_coefficient":"35/3",
         "all_h_uniform_expected_BA_plus_CA_coefficient":"455/3",
+        "all_h_selected_GF5_R3_expected_lower_numerator_coefficient":
+            "6889400",
         "right_model":"UNIFORM-INJECTION-G-CONDITIONAL-ON-ANY-LEFT-F",
         "new_C_A_mean_scope":"C-left/A-right-ONLY-not-aggregate-C/A",
         "full_seven_S_for_W34_W38":"UNKNOWN-NO-BB-SUBSTITUTION",
