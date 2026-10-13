@@ -70,7 +70,7 @@ jobs:
               assert r['projected_marginal_global_dual_S']['global_assignment_dual_integer_floor']==p['S_integer_floor']
               assert r['projected_marginal_global_dual_GF5']['global_assignment_dual_lower']==p['GF5_dual']
               assert r['exact_suborbit_min_GF5_selected_lower_numerator']==p['GF5_min']
-              assert r['independent_true_ORIGINAL_seven_GF5_baseline']['GF5_seven_lower_numerator']==p['GF5_baseline']
+              assert r['independent_true_ORIGINAL_seven_GF5_baseline']['GF5_selected_lower_numerator']==p['GF5_baseline']
               assert r['true_ORIGINAL_left_sixsets_accounted']==62370
               assert r['six_legal_fixed_IMAGE_three_line_assignments_exhaustively_checked']
               assert r['right_image_outside_three_original_factor_ids']=='FROZEN'
