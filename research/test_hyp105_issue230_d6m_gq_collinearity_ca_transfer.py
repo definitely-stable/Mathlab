@@ -136,6 +136,8 @@ class ExactOriginalGQCollinearityTransferTests(unittest.TestCase):
                     profile["actual_fixed_global_right_g_Cleft_Aright"],
                     leftC_rightA)
                 self.assertEqual(
+                    leftC_rightA,{"lex":4,"reverse":0,"S68":0,"S72":2}[scheme])
+                self.assertEqual(
                     profile["exact_expected_g_random_Cleft_Aright"],
                     str(Fraction(right_distinct)*Fraction(70,5005)))
                 self.assertEqual(profile["s"],2)
