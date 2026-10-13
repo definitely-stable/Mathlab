@@ -46,7 +46,7 @@ from itertools import combinations
 from math import comb, factorial
 import json
 
-from hyp105_g5e2b3e1b1a_one_sided import left_six_mass
+from hyp105_g5e2b3e1b1a_one_sided import left_six_mass, uniform_right_completion_BA
 from hyp105_issue230_projection import ProjectionClosure, fixture
 
 
@@ -112,6 +112,10 @@ def universal_fixed_left_CA_expectation(s):
     A=phi["line_inclusion_choices_A"]
     phi_min=phi["phi_min_all_original_GQ_point_triples"]
     probability=exact_right_A_probability(s)
+    # A genuine GF5-positive seven-class different from C/A was already
+    # proved by E1-B1A. The two accepted classes are disjoint ORIGINAL
+    # sixsets, so expectations ADD on the SAME random right g.
+    BA=uniform_right_completion_BA(s)
     # Exact GQ point collinearity: every original point is collinear with
     # s*(s+1) other points, because s+1 lines each contain s others.
     if V*s*(s+1)%2:
@@ -140,6 +144,14 @@ def universal_fixed_left_CA_expectation(s):
         "uniform_C_lifts_lower":safe_lower,
         "uniform_C_lifts_upper":upper,
         "uniform_expected_CA_lower":str(safe_lower*probability),
+        "previous_B_left_A_right_expected_lower":str(
+            BA["expected_U_Bleft_Aright_lower"]),
+        "new_joint_disjoint_BA_plus_CA_expected_lower":str(
+            safe_lower*probability+BA["expected_U_Bleft_Aright_lower"]),
+        "new_joint_disjoint_BA_plus_CA_expected_lower_over_s6":str(
+            Fraction(safe_lower*probability+
+                     BA["expected_U_Bleft_Aright_lower"],s**6)),
+        "new_asymptotic_BA_plus_CA_mean_coefficient":"455/3",
         "uniform_expected_CA_upper":str(upper*probability),
         "uniform_expected_CA_lower_over_s6":str(Fraction(
             safe_lower*probability,s**6)),
@@ -242,6 +254,7 @@ def report():
         "all_h_exact_fixed_left_random_right_CA_expectation":
             "PROVED-ONE-SIDED-RANDOM-RIGHT",
         "all_h_uniform_expected_CA_coefficient":"35/3",
+        "all_h_uniform_expected_BA_plus_CA_coefficient":"455/3",
         "right_model":"UNIFORM-INJECTION-G-CONDITIONAL-ON-ANY-LEFT-F",
         "full_seven_S_for_W34_W38":"UNKNOWN-NO-BB-SUBSTITUTION",
         "all_h_for_EVERY_correlated_global_f_g":"OPEN",
