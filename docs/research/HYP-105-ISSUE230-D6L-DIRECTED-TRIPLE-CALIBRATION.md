@@ -59,6 +59,12 @@ In particular E_dir=0 is a CONSTRUCTIVE certificate that the true
 original UNIFORM-port Hall network has NO extra local obstruction
 beyond global active-source pressure G.
 
+**Balanced-pressure exactness:** if the TRUE active-source global pressure G=0 (e.g. a particular integral K exactly balances the sum of active port capacities), then q(e)=N*p_K(e) and the identity above directly gives
+
+    E_dir=N*Delta6(K).
+
+This is a fully exact equivalence between directed centered hyperedge calibration and uniform-port Hall in the balanced case, rather than only a sufficient gate. An independent synthetic disconnected-source regression pins this arithmetic, without claiming such a balanced K exists in high-h genuine GF5 cases.
+
 D6-K's centered UNDIRECTED pair-flow shortfall E_pair is
 
     E_pair=max_F [sum_F q(e)-N*B_pair(F)]_+,
