@@ -30,4 +30,4 @@ jobs:
       - name: Independently check exact original GQ collision fibers and all-h identity instances
         run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc002_path_collision_taxonomy.py' -v
       - name: Emit full original W32 and W34 joint collision report (bounded exact census)
-        run: python research/hyp105_issue230_jpkc002_path_collision_taxonomy.py
+        run: python research/hyp105_issue230_jpkc002_path_collision_taxonomy.py --spread
