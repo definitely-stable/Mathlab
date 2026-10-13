@@ -1,0 +1,31 @@
+name: hyp105-issue230-jpkc006-source-topology-sharp-charge
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc006_source_topology_sharp_charge.py"
+      - "research/test_hyp105_issue230_jpkc006_source_topology_sharp_charge.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-006-NONGQ-TOPOLOGY-SHARP-CHARGE.md"
+      - ".github/workflows/hyp105-issue230-jpkc006-source-topology-sharp-charge.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  source-sharp-charge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Exact ORIGINAL J18 J19 J20 J21 source topology and W32 independent census
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc006_source_topology_sharp_charge.py' -v
+      - name: Emit full W32 and explicitly bounded W34 D4 true ORIGINAL alternate witnesses
+        run: python research/hyp105_issue230_jpkc006_source_topology_sharp_charge.py --w34-sample 96
