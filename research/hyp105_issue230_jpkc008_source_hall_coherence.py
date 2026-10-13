@@ -247,10 +247,44 @@ def hall_coherence_certificate(model,*,limit_seeds=None,exact_W32=True,
         "no_all_h_source_matching_existence_lower_PROVED":True,
         "root_A_proved":False,"root_B_constructed":False,
         "full_W34_original_seven_GF5_census":False,
+        "J29_global_original_3matching_capacity":
+            all_h_original_3matching_capacity(ctx),
     }
     if record_examples:
         result["actual_original_examples"]=sample
     return result
+
+
+def all_h_original_3matching_capacity(ctx):
+    """J29 closed count of original 3edge matchings in regular bipartite GQ.
+
+    Original line graph has N vertices, degree 2*(d-1),
+    N*(d-1) edges and 2*V*choose(d,3) triangles (only original
+    source point/line stars). Independent triples there correspond
+    exactly to size-three incidence matchings.
+    """
+    V=ctx.v
+    d=ctx.delta
+    N=len(ctx.edges)
+    if N!=V*d:
+        raise AssertionError("J29 true GQ original incidence regularity violated")
+    adjacent_original_incidence_pairs=N*(d-1)
+    conflict_wedges=N*comb(2*(d-1),2)
+    conflict_triangles=2*V*comb(d,3)
+    result=(comb(N,3)-adjacent_original_incidence_pairs*(N-2)
+            +conflict_wedges-conflict_triangles)
+    if result<0 or result>comb(V,3)**2:
+        raise AssertionError("J29 exact original matching capacity out of range")
+    return {
+        "original_three_edge_matchings_exact_formula":result,
+        "source_triple_pair_choices":comb(V,3)**2,
+        "source_incidence_edges":N,
+        "source_incidence_degree":d,
+        "line_graph_adjacent_pairs":adjacent_original_incidence_pairs,
+        "line_graph_wedges":conflict_wedges,
+        "line_graph_triangles":conflict_triangles,
+        "J29_all_h_exact_matching_capacity":True,
+    }
 
 
 def all_W32_factor_triples_hall_theorem(model,*,max_checks=300000):
@@ -270,7 +304,13 @@ def all_W32_factor_triples_hall_theorem(model,*,max_checks=300000):
                 raise AssertionError("original GQ forbidden alternating cycle appeared")
     if sum(hist.values())!=total:
         raise AssertionError("full original point/line factor triple grid incomplete")
+    capacity=all_h_original_3matching_capacity(ctx)
+    if hist[0]!=capacity["original_three_edge_matchings_exact_formula"]:
+        raise AssertionError(
+            "J29 exhaustive TRUE GQ Hall-feasible source pairs do not match "
+            "independent 3-edge matching line-graph closed formula")
     return {"entire_original_3x3_source_factor_grid":total,
+            **capacity,
             "all_h_unique_original_perfect_matching_verified":True,
             "true_GQ_hall_deficiency_histogram":dict(sorted(hist.items()))}
 
