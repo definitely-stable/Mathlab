@@ -1,7 +1,9 @@
 """D6-C: exact original blocked P3 -> accepted seven-class local Hall tests."""
 import unittest
 
-from hyp105_issue230_projection import fixture
+from hyp105_issue230_projection import ProjectionClosure, fixture
+from hyp105_g5e2b3e1b0_seven_signature import seven_census
+from hyp105_issue230_d6b_coherent_pruning import original_diagonals, _edge
 from hyp105_issue230_d5_retained_energy import true_spread_global_model
 from hyp105_issue230_d6c_local_charge_hall import (
     capacity_frontier, one_model, report,
@@ -150,6 +152,43 @@ class OriginalD6CLocalChargingTests(unittest.TestCase):
             s68["source_overlap_frontiers"][2]["unconstrained_global_congestion_floor"],9)
         self.assertEqual(
             lex["source_overlap_frontiers"][1]["unconstrained_global_congestion_floor"],4)
+
+    def test_exact_S68_unrepairable_true_original_r2_witness_direct_seven_enumeration(self):
+        # Source from the final exact-head hosted ORIGINAL full-G report.
+        row=self.by_case["S68","FULL-TRUE-ORIGINAL-G"]
+        witness=row["r2_unsupported_TRUE_original_source"]
+        self.assertEqual(witness,{
+            "four_original_grid_vertices":[26,15,7,34],
+            "mask":13,
+            "original_endpoint_line":13,
+            "original_endpoint_point":3,
+            "original_projection_line":8,
+            "original_projection_point":13,
+            "source_three_original_incidences":[5,16,35],
+        })
+        model=fixture(1,"S68")
+        core=ProjectionClosure(model)
+        _,owner=original_diagonals(core)
+        path=witness["four_original_grid_vertices"]
+        original_source=tuple(sorted(
+            owner[_edge(u,v)] for u,v in zip(path,path[1:])))
+        self.assertEqual(original_source,(5,16,35))
+        a=core.a
+        self.assertEqual(len({v//a for v in path}),4)
+        self.assertEqual(len({v%a for v in path}),4)
+        q=core.fi[_edge(path[0]//a,path[3]//a)]
+        r=core.gi[_edge(path[0]%a,path[3]%a)]
+        self.assertEqual((q,r,core.projection[q,r]),(3,13,(13,8)))
+        targets=seven_census(model,independent_checks=True,witness_sets=True)["sets"]
+        self.assertEqual(len(targets),68)
+        histogram={}
+        for target in targets:
+            k=len(set(original_source)&set(target))
+            histogram[k]=histogram.get(k,0)+1
+        self.assertEqual(sum(histogram.values()),68)
+        self.assertLessEqual(max(histogram),1)
+        self.assertEqual(histogram.get(2,0),0)
+        self.assertEqual(histogram.get(3,0),0)
 
     def test_invalid_source_overlap_gate_fails_closed(self):
         with self.assertRaises(ValueError):
