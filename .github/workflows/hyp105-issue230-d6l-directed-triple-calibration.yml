@@ -60,6 +60,12 @@ jobs:
                       assert d["dual_exact_deficit"]==0
                   else:
                       assert d["dual_exact_deficit"]==d["directed_calibration_deficit_E"]>0
+              pair_expected={"lex":0,"reverse":0,"S68":372,"S72":1215}
+              primal_expected={"lex":148,"reverse":179,"S68":123,"S72":180}
+              assert minus["original_pair"]["centred_pair_deficit_E"]==pair_expected[x["scheme"]]
+              assert minus["original_directed"]["directed_calibration_deficit_E"]==0
+              assert minus["original_directed"]["certified_zero_directed_calibration_deficit"]
+              assert minus["original_directed"]["triple_primal_nonzero_count"]==primal_expected[x["scheme"]]
               print({"original_W32":x["scheme"],"S_full_seven":S,
                      "original_K_min":K,"K_minus_one_exception":exception,
                      "directed_E":minus["original_directed"]["directed_calibration_deficit_E"],
