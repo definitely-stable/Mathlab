@@ -1,0 +1,65 @@
+name: hyp105-issue230-d6aa4b-coherent-block-fiber
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4b_coherent_block_fiber.py"
+      - "research/test_hyp105_issue230_d6aa4b_coherent_block_fiber.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4B-COHERENT-BLOCK-FIBER.md"
+      - ".github/workflows/hyp105-issue230-d6aa4b-coherent-block-fiber.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-global-four-factor-fiber:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent true-original GF5 classifier and global injection completion tests
+        run: python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4b_coherent_block_fiber.py" -v
+      - name: Complete exact 24-assignment global coherence fiber reports for S68 and S72
+        run: |
+          python research/hyp105_issue230_d6aa4b_coherent_block_fiber.py > /tmp/issue230-d6aa4b.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("/tmp/issue230-d6aa4b.json").read_text())
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-B-COHERENT-RIGHT-FOUR-FACTOR-FIBER"
+          assert x["exact_conditional_all_h_identity"]
+          assert x["global_injectivity_enforced_at_every_completion"]
+          assert x["cross_sixset_original_factor_reuse_enforced"]
+          assert not x["all_h_global_S_lower_proved"]
+          assert not x["full_GF5_R3_computed"]
+          assert x["Branch_A"]==x["Branch_B"]=="OPEN"
+          assert [r["scheme"] for r in x["pinned_W32_fibers"]]==["S68","S72"]
+          for r,S,weighted in zip(x["pinned_W32_fibers"],(68,72),(3112510,3283610)):
+              assert r["baseline_seven_count"]==S
+              assert r["baseline_GF5_floor_numerator"]==weighted
+              assert r["complete_global_injection_completions"]==24
+              assert len(r["all_24_exact_global_completion_results"])==24
+              assert r["exact_coherence_gap_S"]>=0
+              assert r["exact_coherence_gap_GF5_numerator"]>=0
+              assert r["frozen_left_original_sixsets"]==62370
+              assert r["min_affected_coherent_S"] >= r["sum_affected_independent_cylinder_min_S"]
+              assert r["min_affected_coherent_GF5_floor_numerator"] >= r["sum_affected_independent_cylinder_min_GF5"]
+              if r["source_cylinder_cover_complete"]:
+                  mask=0
+                  for z in r["source_cylinder_cover"]:
+                      assert z["original_sixset_multiplicity"]>0
+                      mask|=z["completion_mask"]
+                  assert mask==(1<<24)-1
+              print(r["scheme"],"S_min",r["min_global_fiber_S"],
+                    "selected_GF5_floor_num_min",r["min_global_fiber_GF5_floor_numerator"],
+                    "affected_min",r["min_affected_coherent_S"],
+                    "independent_Q_min",r["sum_affected_independent_cylinder_min_S"],
+                    "coherence_gap",r["exact_coherence_gap_S"],
+                    "GF5_gap",r["exact_coherence_gap_GF5_numerator"],
+                    "source_cover_size",r["source_cylinder_cover_count"],
+                    "cover_complete",r["source_cylinder_cover_complete"])
+          PY
