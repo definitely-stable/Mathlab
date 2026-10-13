@@ -59,10 +59,10 @@ def independent_finite_W32_class_C_A(model):
     for ids,tag in selected_left_six(model):
         if tag not in ("A","C"):
             continue
-        if tag=="C":
-            left_C+=1
         ps=[incidence[i][0] for i in ids]
         rs=[incidence[i][1] for i in ids]
+        if tag=="C":
+            left_C+=1
             if len(set(ps))!=3 or set(Counter(ps).values())!={2}:
                 raise AssertionError("selected_left_six C pattern violated")
             if len(set(rs))==6:
