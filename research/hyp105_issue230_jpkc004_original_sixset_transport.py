@@ -24,7 +24,7 @@ from hyp105_g5e2b3e1b0_seven_signature import (
 KINDS=("shared_internal","improper_C6","proper_C6")
 STATES=("original_incidence_repeat","left_not_2reg",
         "right_not_2reg","seven_selected","two_reg_nonseven",
-        "two_reg_unresolved")
+        "all_h_D6_proved")
 
 
 def _degrees(ctx,ids,side):
@@ -144,9 +144,23 @@ def transport_certificate(model,*,compare_seven=False,max_paths=2_000_000,
                             tag=classify_seven_prechecked(source,ctx.f,ctx.g,ctx.edges)
                             meta=("seven_selected" if tag is not None else "two_reg_nonseven",tag)
                         else:
-                            meta=("two_reg_unresolved",None)
+                            # J11/J12 all-h: two physically 2-regular
+                            # projections of six distinct ORIGINAL incidence
+                            # edges in a pair of P3s imply their six graph
+                            # edges form a coordinate-proper SIMPLE C6,
+                            # hence exact D6 by the ORIGINAL Kikuchi theorem.
+                            # Never pretend to classify the other 6 families.
+                            meta=("all_h_D6_proved","D6")
                         source_tag_cache[source]=meta
                     state,tag=source_tag_cache[source]
+                    if (state in ("seven_selected","two_reg_nonseven","all_h_D6_proved")
+                            and kind!="proper_C6"):
+                        raise AssertionError(
+                            "J11/J12: six distinct true original two-regular incidences "
+                            "cannot arise from shared-internal or coordinate-improper physical paths")
+                    if kind=="proper_C6" and state not in ("seven_selected","all_h_D6_proved"):
+                        raise AssertionError(
+                            "J11: proper six-cycle of distinct original incidences must be D6")
                     source_seen[(kind,state)].add(source)
                     if kind!="shared_internal":
                         separate_cycles_by_sixset[source]+=2
@@ -170,6 +184,12 @@ def transport_certificate(model,*,compare_seven=False,max_paths=2_000_000,
                                    "path2_grid":(u,d,e,v)}
     if sum(moment.values())!=counted or sum(provenance.values())!=counted:
         raise AssertionError("endpoint-only ordered collision ledger incomplete")
+    certified=sum(provenance[(k,state)] for k in KINDS
+                  for state in ("seven_selected","all_h_D6_proved"))
+    if certified!=moment["proper_C6"]:
+        raise AssertionError("J13 exact source witness transfer equals ONLY proper D6")
+    if counted and certified>counted:
+        raise AssertionError("J13 valid source incidence witnesses exceed all endpoint collisions")
     if sum(closure[k] for k in ("bad_left","bad_right"))<closure["original_paths_endpoint_bad"]:
         raise AssertionError("each original endpoint-bad path fails J9 on at least one side")
     if compare_seven:
@@ -212,6 +232,10 @@ def transport_certificate(model,*,compare_seven=False,max_paths=2_000_000,
         "max_disjoint_cycle_ordered_witnesses_per_original_sixset":
             max(separate_cycles_by_sixset.values(),default=0),
         "J10_universal_disjoint_per_sixset_cap":768,
+        "J11_J12_all_h_two_regular_only_proper_D6_verified":True,
+        "J13_selected_collision_upper_12D6_verified":True,
+        "J13_endpoint_sixset_positive_witnesses_only_D6":certified,
+        "J13_unconvertible_endpoint_collisions":counted-certified,
         "J9_direct_GQ_closure_no_GF5_2reg":True,
         "J9_closure_original_six_distinct_paths":closure["original_six_distinct"],
         "J9_endpoint_bad_left_paths":closure["bad_left"],
@@ -248,6 +272,7 @@ def report(*,spread=False):
         "scope":"true ORIGINAL GQ endpoint-bad blocked collisions source sixset transport",
         "all_h_J9_closure_no_go":True,
         "all_h_J10_disjoint_sixset_cap":768,
+        "all_h_J11_J12_only_D6_from_two_colliding_P3s":True,
         "no_all_h_S_lower_proof":True,
         "records":records}
 
