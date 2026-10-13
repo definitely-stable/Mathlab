@@ -34,6 +34,8 @@ jobs:
           assert x['slice']=='HYP105-ISSUE230-D6T-GLOBAL-ASSIGNMENT-DUAL-CERTIFICATE'
           assert x['theorem']=='ALL-H-TWO-SIDED-GLOBAL-INJECTION-PROJECTED-MARGINAL-DUAL'
           assert x['all_h_sound_sufficient_dual_for_original_S_and_selected_GF5']
+          assert x['all_h_UNCONDITIONED_TWO_SIDED_degree_one_dual']=='IDENTICALLY_ZERO'
+          assert x['root_degree_one_dual_NO_GO_not_Branch_B']
           assert x['all_h_full_original_12_local_factor_truth_tables']=='NOT-ENUMERATED'
           assert x['W32_only_three_factor_frozen_complement']=='EXACT_FINITE_CONTROL'
           assert x['global_all_f_g_theorem_PROVED_A'] is False
@@ -41,7 +43,34 @@ jobs:
           assert (x['Branch_A'],x['Branch_B'])==('OPEN','OPEN')
           rows=x['rows']
           assert len(rows)==2 and [r['scheme'] for r in rows]==['S68','S72']
+          pinned={
+              'S68':{
+                  'S_primal':[68,83,92,76,108,82],
+                  'GF5_primal':[3112510,3706986,4227460,3430023,4940790,3741890],
+                  'S_dual':'131/2','S_integer_floor':66,
+                  'GF5_dual':'2994550','GF5_min':3112510,
+                  'GF5_baseline':3112510,
+              },
+              'S72':{
+                  'S_primal':[72,87,84,114,68,88],
+                  'GF5_primal':[3283610,3937673,3830810,5203680,3104080,4017080],
+                  'S_dual':'121/2','S_integer_floor':61,
+                  'GF5_dual':'2760940','GF5_min':3104080,
+                  'GF5_baseline':3283610,
+              },
+          }
+          expected_permutation_order=[[0,1,2],[0,2,1],[1,0,2],
+                                      [1,2,0],[2,0,1],[2,1,0]]
           for r in rows:
+              p=pinned[r['scheme']]
+              assert [x['permutation_image_indices'] for x in r['right_suborbit']]==expected_permutation_order
+              assert [x['S_seven'] for x in r['right_suborbit']]==p['S_primal']
+              assert [x['GF5_selected_lower_numerator'] for x in r['right_suborbit']]==p['GF5_primal']
+              assert r['projected_marginal_global_dual_S']['global_assignment_dual_lower']==p['S_dual']
+              assert r['projected_marginal_global_dual_S']['global_assignment_dual_integer_floor']==p['S_integer_floor']
+              assert r['projected_marginal_global_dual_GF5']['global_assignment_dual_lower']==p['GF5_dual']
+              assert r['exact_suborbit_min_GF5_selected_lower_numerator']==p['GF5_min']
+              assert r['independent_true_ORIGINAL_seven_GF5_baseline']['GF5_seven_lower_numerator']==p['GF5_baseline']
               assert r['true_ORIGINAL_left_sixsets_accounted']==62370
               assert r['six_legal_fixed_IMAGE_three_line_assignments_exhaustively_checked']
               assert r['right_image_outside_three_original_factor_ids']=='FROZEN'
