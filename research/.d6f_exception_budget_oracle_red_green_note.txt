@@ -1,6 +1,0 @@
-D6-F implementation note, 2026-10-13.
-
-RED: test_hyp105_issue230_d6f_exception_budget_oracle.py was committed first and required a non-existing hyp105_issue230_d6f_exception_budget_oracle module.
-GREEN: hyp105_issue230_d6f_exception_budget_oracle.py implements the exact finite exception-budget oracle using the existing D6-E/D6-D factored Hall maxflow certificate.
-
-This note is intentionally small and can be deleted in a later cleanup slice if desired.
