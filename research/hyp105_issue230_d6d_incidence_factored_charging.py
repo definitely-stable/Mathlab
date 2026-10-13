@@ -19,7 +19,7 @@ import json
 
 from hyp105_issue230_projection import ProjectionClosure, fixture
 from hyp105_issue230_d5_retained_energy import true_spread_global_model
-from hyp105_g5e2b3e1b0_seven_signature import seven_census
+from hyp105_g5e2b3e1b0_seven_signature import seven_census, R3_CERTIFIED_FLOORS
 from hyp105_issue230_d6b_coherent_pruning import (
     full_retention, prune_original_incidences,
 )
@@ -222,7 +222,7 @@ def w32_case(scheme):
     elif (main["optimal_K"]!=direct["min_max_congestion"]
           or main["status"]!="EXACT-INCIDENCE-FACTORED-INTEGRAL-HALL-OPTIMUM"):
         raise AssertionError("independent T-Q and T-e-Q min-K disagreed")
-    classes=sorted(set(recipients.values()))
+    classes=sorted(R3_CERTIFIED_FLOORS)  # include zero-count accepted GF5 families in ablations
     drop=[]
     for classname in classes:
         remaining={q:label for q,label in recipients.items() if label!=classname}
