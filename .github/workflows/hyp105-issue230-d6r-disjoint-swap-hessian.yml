@@ -44,7 +44,28 @@ jobs:
           weights={'D6':5643,'B-left/A-right':45600,'A-left/B-right':45600,
                    'C/A':43320,'C/B':49050,
                    'B/B-overlap':51750,'B/B-disjoint':45010}
+          pinned={
+              'S68': {'scanned':49,'improving':0,'negative_hessian':19,
+                      'min_hessian':-14,'best_delta':7,
+                      'best_pair':[[1,13],[10,12]],'best_GF5_delta':266353,
+                      'best_hessian':-13,'weighted_escapes':0},
+              'S72': {'scanned':45,'improving':0,'negative_hessian':19,
+                      'min_hessian':-15,'best_delta':6,
+                      'best_pair':[[3,7],[0,1]],'best_GF5_delta':287590,
+                      'best_hessian':-15,'weighted_escapes':0},
+          }
           for r in rows:
+              p=pinned[r['scheme']]
+              assert r['targeted_disjoint_two_swap_pairs_scanned']==p['scanned']
+              assert r['targeted_two_swap_improving_S']==p['improving']
+              assert r['targeted_two_swap_improving_GF5_floor']==p['weighted_escapes']
+              assert r['targeted_negative_Hessian_pairs']==p['negative_hessian']
+              assert r['min_targeted_Hessian_S']==p['min_hessian']
+              assert r['best_targeted_two_swap']['two_disjoint_swaps_delta_S']==p['best_delta']
+              assert [r['best_targeted_two_swap']['first_swap'],
+                      r['best_targeted_two_swap']['second_swap']]==p['best_pair']
+              assert r['best_targeted_two_swap']['two_disjoint_swaps_delta_GF5_selected_lower_numerator']==p['best_GF5_delta']
+              assert r['best_targeted_two_swap']['Hessian_S']==p['best_hessian']
               assert r['all_105_singleton_swaps_strictly_worsen_S']
               assert r['top_k_single_swap_ranked_moves']==12
               assert 0<r['targeted_disjoint_two_swap_pairs_scanned']<=66
