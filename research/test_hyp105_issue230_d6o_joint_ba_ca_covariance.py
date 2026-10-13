@@ -221,9 +221,38 @@ class ExactJointBACACovarianceTests(unittest.TestCase):
         self.assertEqual(report["Branch_B"],"OPEN")
         self.assertEqual(report["complete_W34_W38_seven_S"],"NOT-CLAIMED")
         self.assertEqual(len(report["cases"]),4)
+        expected = {
+            "lex": (5000,209,98,4,259,Fraction(8704054,1366365),
+                    Fraction(19943255535,20391115316),
+                    Fraction(474107760,143)),
+            "reverse": (5000,209,77,0,169,Fraction(8704054,1366365),
+                        Fraction(19943255535,20391115316),
+                        Fraction(474107760,143)),
+            "S68": (6098,297,44,0,68,Fraction(6438466,455455),
+                    Fraction(60117156750,61572718493),
+                    Fraction(581869680,143)),
+            "S72": (6098,297,36,2,72,Fraction(6438466,455455),
+                    Fraction(60117156750,61572718493),
+                    Fraction(581869680,143))
+        }
         for row in report["cases"]:
             self.assertLessEqual(row["B_plus_C_actual_fixed_g"],
                                  row["true_full_seven_S"])
+            b,c,obs_b,obs_c,S,cov,pz,risk_mean=expected[row["scheme"]]
+            self.assertEqual(
+                (row["B"]["original_sixsets_with_distinct_right_lines"],
+                 row["C"]["original_sixsets_with_distinct_right_lines"],
+                 row["B"]["actual_fixed_g_directional_sixsets"],
+                 row["C"]["actual_fixed_g_directional_sixsets"],
+                 row["true_full_seven_S"]), (b,c,obs_b,obs_c,S))
+            self.assertEqual(Fraction(row["joint_BC_covariance"]),cov)
+            self.assertGreater(cov,0)  # PINNED FINITE W32 only
+            self.assertEqual(
+                Fraction(row["B_plus_C_random_right_P_positive_Paley_Zygmund"]),
+                pz)
+            self.assertEqual(
+                Fraction(row["GF5_selected_numerator_right_random_mean"]),
+                risk_mean)
 
 
 if __name__ == "__main__":
