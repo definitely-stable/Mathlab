@@ -1,0 +1,33 @@
+name: hyp105-issue230-jpkc002-proper-path-collisions
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc002_path_collision_taxonomy.py"
+      - "research/test_hyp105_issue230_jpkc002_path_collision_taxonomy.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-002-BLOCKED-PATH-COLLISION-FIBERS.md"
+      - ".github/workflows/hyp105-issue230-jpkc002-proper-path-collisions.yml"
+      - "research/hyp105_issue230_jpkc_joint_defect_gate.py"
+      - "research/hyp105_issue230_jpkc_spread_adversary.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-original-blocked-collisions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Independently check exact original GQ collision fibers and all-h identity instances
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc002_path_collision_taxonomy.py' -v
+      - name: Emit full original W32 and W34 joint collision report (bounded exact census)
+        run: python research/hyp105_issue230_jpkc002_path_collision_taxonomy.py --spread
