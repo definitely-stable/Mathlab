@@ -176,12 +176,20 @@ def joint_record(model, *, exact_cycles=True, seven=False, max_cycles=3_000_000)
             raise AssertionError("Kikuchi proper-C6 conditional floor invalid")
         if k_defect < L-12*D6:
             raise AssertionError("Kikuchi defect necessary condition invalid")
+        # J2: the exact gap in the scalar K1/K2 Cauchy-Schwarz route
+        # is precisely the nonnegative variance over ALL a^4 ordered
+        # endpoint pairs, not an unexplained loss of graph cycles.
+        endpoint_variance=Fraction(energy["sum_P3_squared"])-Fraction(P3*P3,a**4)
+        if 12*D6-k_gap != endpoint_variance:
+            raise AssertionError("J2 exact endpoint variance identity violated")
         out["kikuchi"].update(cycles)
         out["joint"]={
             "full_graph_anchor_blocked_P3":projection["blocked"],
             "kikuchi_coincidence_plus_12_improper":k_defect,
             "kikuchi_exact_surplus_K":str(k_gap),
             "kikuchi_lower_bound_slack_exact":str(12*D6-k_gap),
+            "J2_endpoint_variance_exact":str(endpoint_variance),
+            "J2_exact_variance_identity_verified":True,
             "blocked_is_full_G_not_retained_H":True,
             "finite_JPKC_dichotomy_proved":False,
         }
