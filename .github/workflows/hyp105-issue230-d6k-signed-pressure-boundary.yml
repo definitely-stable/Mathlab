@@ -58,5 +58,7 @@ jobs:
                      "active_original_incidence_N":45,
                      "K_minus_one_exact_exception":deficit,
                      "pressure_variance_numerator":p["signed_pressure_variance_numerator_v"],
-                     "tree_spectral_gate":p["spectral_tree_global_only_Hall_deficit_CERTIFIED"]})
+                     "tree_spectral_gate":p["spectral_tree_global_only_Hall_deficit_CERTIFIED"],
+                     "calibrated_pair_flux":p["calibrated_pair_flow_global_only_Hall_deficit_CERTIFIED"],
+                     "flux_nonzero_pair_edges":p["centred_pair_pressure_calibration"]["nonzero_signed_original_pair_flux_count"]})
           PY
