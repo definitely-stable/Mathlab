@@ -36,14 +36,33 @@ class JPKC005Tests(unittest.TestCase):
                     {k:v for k,v in source["seven_class_motif_counts"].items() if v})
 
     def test_true_original_W32_all_eligible_endpoint_bad_seeds_and_GQ_alternates(self):
-        expected={"lex":(786,259),"reverse":(676,169),
-                  "S68":(544,68),"S72":(600,72)}
-        for scheme,(E,S) in expected.items():
+        expected={
+            # E, true S, path coverage, accepted (P,Q) hits,
+            # exact source-positive class hits (A/B, B/A, D6)
+            "lex":(786,259,154,214,(82,68,64)),
+            "reverse":(676,169,86,90,(30,36,24)),
+            "S68":(544,68,8,8,(2,6,0)),
+            "S72":(600,72,10,10,(4,6,0)),
+        }
+        for scheme,(E,S,coverage,hits,classes) in expected.items():
             with self.subTest(scheme=scheme):
                 row=alternate_completion_certificate(fixture(1,scheme),
                                                      include_examples=True)
                 self.assertEqual(row["endpoint_bad_oriented_proper_P3"],E)
                 self.assertEqual(row["W32_true_original_S"],S)
+                self.assertEqual(
+                    row["endpoint_bad_physical_seeds_with_accepted_alternate_completion"],
+                    coverage)
+                self.assertEqual(row["accepted_seed_completion_pairs"],hits)
+                self.assertEqual(
+                    tuple(row["accepted_extension_by_true_original_seven_class"][t]
+                          for t in ("A-left/B-right","B-left/A-right","D6")),
+                    classes)
+                self.assertTrue(row["J17_all_h_only_canonical_original_GQ_three_walk_if_positive"])
+                self.assertEqual(row["J17_noncanonical_second_GQ_anchor_positive_completions"],0)
+                self.assertEqual(
+                    row["alternate_three_incidence_completion_GQ_walk_types"].get(
+                        "second_true_original_GQ_walk",0),0)
                 self.assertTrue(row["full_seven_enumeration_executed"])
                 self.assertTrue(row["J14_witness_320S_verified"])
                 self.assertEqual(
@@ -74,12 +93,13 @@ class JPKC005Tests(unittest.TestCase):
                 self.assertFalse(row["all_h_universal_seven_lower_PROVED_A"])
 
     def test_true_original_W34_lex_random_unblocked_positive_closure(self):
-        for scheme in ("lex","random"):
+        for scheme,unblocked in (("lex",15064),("random",16042)):
             row=_honest_W34_structural_stress(fixture(2,scheme))
             self.assertEqual(row["s"],4)
             self.assertFalse(row["full_seven_enumeration_executed"])
             self.assertFalse(row["full_W34_seven_census_PROVED"])
-            self.assertGreater(row["unblocked_original_sixset_structural_crosscheck"],0)
+            self.assertEqual(row["unblocked_original_sixset_structural_crosscheck"],unblocked)
+            self.assertTrue(row["J17_all_h_only_canonical_original_GQ_three_walk_if_positive"])
             self.assertEqual(row["unblocked_Q_classes"],
                              {"B/B-overlap":row["unblocked_original_sixset_structural_crosscheck"]})
 
@@ -89,7 +109,8 @@ class JPKC005Tests(unittest.TestCase):
         row=_honest_W34_structural_stress(model)
         self.assertEqual(proof["M_f_original_exact"],259)
         self.assertFalse(row["full_seven_enumeration_executed"])
-        self.assertGreater(row["unblocked_original_sixset_structural_crosscheck"],0)
+        self.assertEqual(row["unblocked_original_sixset_structural_crosscheck"],15298)
+        self.assertTrue(row["J17_all_h_only_canonical_original_GQ_three_walk_if_positive"])
 
     def test_original_alt_GQ_three_incidence_recovery_exact(self):
         c=ProjectionClosure(fixture(1,"S68"))
