@@ -1,5 +1,8 @@
 """D6-H independent falsifiers for all-h sufficient incidence budgets."""
 import unittest
+from random import Random
+
+from hyp105_issue230_d6c_local_charge_hall import _Dinic
 
 from hyp105_issue230_d6h_incidence_budget_certificate import (
     incidence_budget_certificate, finite_w32_certificate_report,
@@ -124,6 +127,42 @@ class IncidenceBudgetTests(unittest.TestCase):
                 sources, accepted, 6, {"endpoint": {(0, 1, 2): 1}})
         with self.assertRaises(ValueError):
             incidence_budget_certificate(sources, accepted, -1)
+
+    def test_big_integer_maxflow_not_limited_to_10_power_20(self):
+        # Exact integer transport must not scale linearly in the number
+        # of artificial 10**20 augmentations for a single large arc.
+        huge = 10**65 + 37
+        flow = _Dinic(4)
+        flow.edge(0, 1, huge)
+        flow.edge(1, 2, huge)
+        flow.edge(2, 3, huge)
+        self.assertEqual(flow.maxflow(0, 3), huge)
+        self.assertEqual(flow.maxflow(0, 3), 0)
+
+        source = {(0, 1, 2): huge}
+        targets = {(0, 1, 2, 3, 4, 5): "D6"}
+        certificate = incidence_budget_certificate(source, targets, huge)
+        self.assertEqual(certificate["best_certified_exception_upper"], 0)
+        exact = exception_budget_for_capacity(source, targets, huge)
+        self.assertEqual(exact["minimal_exception_mass"], 0)
+        self.assertEqual(certificate["source_incidence_load_sum"], 3 * huge)
+
+    def test_deterministic_independent_small_incidence_property_cases(self):
+        # Independent exhaustive assignment on non-geometric synthetic
+        # incidence systems, including zero capacity and fractional rounding.
+        rng = Random(230)
+        for index in range(48):
+            source = {}
+            while len(source) < 2 + index % 2:
+                t = tuple(sorted(rng.sample(range(15), 3)))
+                source[t] = 1 + rng.randrange(2)
+            target = {}
+            while len(target) < 1 + index % 3:
+                q = tuple(sorted(rng.sample(range(15), 6)))
+                target[q] = "D6"
+            for K in (0, 1, 2, 3):
+                with self.subTest(index=index, K=K):
+                    self.check_certificate(source, target, K)
 
     def test_complete_original_W32_full_seven_exact_D6F_comparator(self):
         result = finite_w32_certificate_report()
