@@ -57,6 +57,62 @@ DUAL_SCALE=lcm(*range(1,13))
 assert DUAL_SCALE==27720
 
 
+def physical_non_two_regular_star_witness(original_factor_endpoints,a):
+    """Construct physical injection forcing a six-incidence side to FAIL.
+
+    Uniform ALL-h lemma: for ANY six ORIGINAL factor endpoint positions
+    and a>=6, there exists a locally injective assignment of their
+    distinct ORIGINAL factor vertices to physical K_a edges, such that
+    the resulting six physical edges (with repeats by ORIGINAL factor
+    incidence) do NOT occupy exactly six coordinates each twice.
+
+    If any ORIGINAL factor repeats >=3 times, its edge already forces
+    physical coordinate degree >=3 for EVERY injection. Otherwise
+    at least three ORIGINAL factor vertices are distinct; assign the
+    first three the edges (0,1),(0,2),(0,3), contributing degree>=3
+    at coordinate 0, and extend injectively on the other vertices.
+
+    Hence for a fixed SINGLE original vertex physical label on one
+    side, the OPPOSITE side may always be chosen to fail. Every
+    single-site projection min of each two-sided ORIGINAL GF5-positive
+    sixset indicator, and likewise its certified nonnegative GF5
+    coefficient, is zero. The unrestricted two-sided degree-one
+    projected-marginal dual (as constructed here) is IDENTICALLY ZERO.
+    This is an all-h NO-GO for that particular certificate family,
+    NOT an all-h counterexample to actual S(f,g)>=c*s**6.
+    """
+    pts=tuple(original_factor_endpoints)
+    if (len(pts)!=6 or type(a) is not int or a<6 or
+            any(type(i) is not int or i<0 for i in pts)):
+        raise ValueError("requires six ORIGINAL factor endpoints and a>=6")
+    ordered=tuple(dict.fromkeys(pts))
+    if len(ordered)>len(tuple(__import__("itertools").combinations(range(a),2))):
+        raise AssertionError("original local injection physical K_a too small")
+    pairs=tuple(__import__("itertools").combinations(range(a),2))
+    counts=Counter(pts)
+    selected={}
+    if max(counts.values())<=2:
+        if len(ordered)<3:
+            raise AssertionError("six positions with multiplicity<=2 require >=3 factors")
+        for v,pair in zip(ordered[:3],((0,1),(0,2),(0,3))):
+            selected[v]=pair
+    remaining=(p for p in pairs if p not in set(selected.values()))
+    for orig in ordered:
+        if orig not in selected:
+            selected[orig]=next(remaining)
+    physical=Counter(coord for orig in pts for coord in selected[orig])
+    is_2regular=(len(physical)==6 and all(n==2 for n in physical.values()))
+    if is_2regular or len(set(selected.values()))!=len(ordered):
+        raise AssertionError("star-pattern local GF5 zero oracle failed")
+    return {
+        "original_distinct_factor_count":len(ordered),
+        "physical_factor_pairs":{str(k):list(v) for k,v in selected.items()},
+        "physical_degree_multiset":sorted(physical.values(),reverse=True),
+        "all_seven_GF5_classes_on_this_side_impossible":True,
+        "root_two_sided_single_site_projection_min":"ZERO",
+    }
+
+
 def integer_injective_assignment_min(cost):
     """Exact min-weight rectangular injection; pure integer Hungarian.
 
