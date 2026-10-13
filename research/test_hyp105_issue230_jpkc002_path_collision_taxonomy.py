@@ -95,6 +95,12 @@ class JPKC002Tests(unittest.TestCase):
             r["collision_kinds"]["proper_C6"],
             12*r["proper_D6_from_collision"])
         self.assertTrue(r["J3_exact_identity_verified"])
+        self.assertEqual(cert["M_f_original_exact"],259)
+        self.assertEqual(r["J4_blocked_original_P3"],52760)
+        self.assertEqual(r["J4_blocked_only_falling2"],149716)
+        self.assertEqual(tuple(r["J4_blockedblocked_ordered_distinct"][k]
+                               for k in ("shared_internal","improper_C6","proper_C6")),
+                         (38972,57316,53428))
 
     def test_report_pinned_original_blocked_collision_tensor(self):
         # Explicit original-GQ endpoint path pairs, not a degree-only
