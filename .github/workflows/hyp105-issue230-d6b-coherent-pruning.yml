@@ -1,0 +1,72 @@
+name: hyp105-issue230-d6b-coherent-pruning
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6b_coherent_pruning.py"
+      - "research/test_hyp105_issue230_d6b_coherent_pruning.py"
+      - "docs/research/HYP-105-ISSUE230-D6B-COHERENT-PRUNING.md"
+      - ".github/workflows/hyp105-issue230-d6b-coherent-pruning.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-original-incidence-pr394-retention:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original incidence-paired exact PR394 coherent pruning and 16-atom proof gates
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6b_coherent_pruning.py' -v
+      - name: Independently serialize all original retained H physical degrees and blocked paths
+        run: |
+          python research/hyp105_issue230_d6b_coherent_pruning.py > /tmp/hyp105-d6b.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('/tmp/hyp105-d6b.json').read_text())
+          assert r['slice']=="ISSUE230-D6-B-TRUE-ORIGINAL-COHERENT-PR394-RETENTION"
+          assert r['exact_PR394_integer_thresholds'] is True
+          assert r['finite_pruning_survival_NOT_asymptotic_theorem'] is True
+          assert r['calibrated_and_selected_first_NOT_theorem_PR394'] is True
+          assert r['all_h_original_seven_S_lower']=="OPEN"
+          assert r['all_h_C_compensation']=="OPEN"
+          assert r['branch_B_infinite_small_S']=="OPEN"
+          rows=r['same_complete_original_global_maps']
+          assert len(rows)==16
+          for row in rows:
+              assert row['retained_physical_edges']==2*row['retained_original_incidences']
+              assert row['removed_physical_edges']==2*row['removed_original_incidences']
+              assert row['C_joint_blocked_proper_P3']==row['E_endpoint_bad_proper_P3']+row['I_safe_endpoint_internal_only_proper_P3']
+              assert sum(row['exact_sixteen_mask_histogram'])==row['nonincident_endpoint_complete']
+              assert row['proper_P3']==row['missing']+row['incident']+row['nonincident_endpoint_complete']
+              if row['policy']=="PR394-EXACT-AS-WRITTEN":
+                  assert row['max_retained_coordinate_block']**10<=row['s']
+                  d=row['min_positive_retained_degree']
+                  assert d==0 or d**32>=row['s']**31
+              if row['s']==4:
+                  assert row['full_global_original_seven_S'] is None
+              print({k:row[k] for k in (
+                  's','scheme','policy','retained_physical_edges',
+                  'W_retained_original_endpoint_energy','proper_P3',
+                  'E_endpoint_bad_proper_P3','I_safe_endpoint_internal_only_proper_P3',
+                  'C_joint_blocked_proper_P3','BB_sync_accepted_sixsets')})
+              if row['policy']=='PR394-EXACT-AS-WRITTEN':
+                  print({'s':row['s'],'scheme':row['scheme'],
+                    'PR394_incidence_stage_deletions':[
+                      row['deleted_stage1_orig_incidences'],
+                      row['deleted_stage2_orig_incidences'],
+                      row['deleted_stage3_orig_incidences']],
+                    'remaining_incidence_count':row['retained_original_incidences'],
+                    'bad_coordinate_rows':row['bad_rows'],
+                    'bad_coordinate_columns':row['bad_columns']})
+          PY
