@@ -11,18 +11,22 @@ from hyp105_issue230_projection import fixture, ProjectionClosure
 class JPKC003Tests(unittest.TestCase):
     def test_all_four_true_W32_source_anchor_channels(self):
         known={
-            "lex":(942,1872),
-            "reverse":(898,1432),
-            "S68":(606,512),
-            "S72":(658,664),
+            # blocked B, collisions K, endpoint E, internal I, KE, KI
+            "lex":(942,1872,786,156,1456,416),
+            "reverse":(898,1432,676,222,1060,372),
+            "S68":(606,512,544,62,444,68),
+            "S72":(658,664,600,58,624,40),
         }
-        for scheme,(B,K) in known.items():
+        for scheme,(B,K,E,I,KE,KI) in known.items():
             with self.subTest(scheme=scheme):
                 c=anchor_concentration_certificate(
                     fixture(1,scheme),compare_pair_ledger=True,
                     include_anchor_rows=True)
                 self.assertEqual((c["J6_total_blocked_paths"],
                                   c["J6_total_ordered_blocked_collisions"]),(B,K))
+                self.assertEqual((c["J7_endpoint_E"],c["J7_internal_only_I"],
+                                  c["J7_endpoint_region_collisions"],
+                                  c["J7_internal_region_collisions"]), (E,I,KE,KI))
                 self.assertTrue(c["J6_exact_identity_verified"])
                 self.assertTrue(c["J7_region_separation_no_mixed_anchor_pairs"])
                 self.assertTrue(c["independent_JPKC002_fully_reconciled"])
@@ -50,12 +54,18 @@ class JPKC003Tests(unittest.TestCase):
                 self.assertEqual(c["occupied_point_image"]["missing_physical_edges"],0)
 
     def test_true_original_W34_geometry_lex_random_and_source_caps(self):
-        for scheme,B,K in (("lex",55384,161256),("random",48542,117356)):
+        for scheme,B,K,E,I,KE,KI in (
+            ("lex",55384,161256,38020,17364,128912,32344),
+            ("random",48542,117356,30194,18348,87996,29360),
+        ):
             with self.subTest(scheme=scheme):
                 c=anchor_concentration_certificate(fixture(2,scheme),
                                                    compare_pair_ledger=True)
                 self.assertEqual((c["J6_total_blocked_paths"],
                                   c["J6_total_ordered_blocked_collisions"]),(B,K))
+                self.assertEqual((c["J7_endpoint_E"],c["J7_internal_only_I"],
+                                  c["J7_endpoint_region_collisions"],
+                                  c["J7_internal_region_collisions"]), (E,I,KE,KI))
                 self.assertEqual(c["original_nonincident_anchors"],6800)
                 self.assertLessEqual(c["endpoint_bad_union_original_anchors"],
                                      2*4*(c["M_f_original_collinear"]+
@@ -76,6 +86,10 @@ class JPKC003Tests(unittest.TestCase):
         self.assertEqual(c["M_f_original_collinear"],259)
         self.assertEqual(c["J6_total_blocked_paths"],52760)
         self.assertEqual(c["J6_total_ordered_blocked_collisions"],149716)
+        self.assertEqual((c["J7_endpoint_E"],c["J7_internal_only_I"],
+                          c["J7_endpoint_region_collisions"],
+                          c["J7_internal_region_collisions"]),
+                         (35190,17570,116600,33116))
         self.assertEqual(c["J7_endpoint_region_collisions"]+
                          c["J7_internal_region_collisions"],149716)
 
