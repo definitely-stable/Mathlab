@@ -6,6 +6,7 @@ No Root A/B theorem; a Hall-feasible A/A is NOT automatically a positive D6.
 """
 from collections import Counter, defaultdict
 from itertools import combinations, permutations
+from math import comb
 import argparse
 import json
 
