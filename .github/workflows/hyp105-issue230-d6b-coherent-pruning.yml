@@ -60,4 +60,13 @@ jobs:
                   'W_retained_original_endpoint_energy','proper_P3',
                   'E_endpoint_bad_proper_P3','I_safe_endpoint_internal_only_proper_P3',
                   'C_joint_blocked_proper_P3','BB_sync_accepted_sixsets')})
+              if row['policy']=='PR394-EXACT-AS-WRITTEN':
+                  print({'s':row['s'],'scheme':row['scheme'],
+                    'PR394_incidence_stage_deletions':[
+                      row['deleted_stage1_orig_incidences'],
+                      row['deleted_stage2_orig_incidences'],
+                      row['deleted_stage3_orig_incidences']],
+                    'remaining_incidence_count':row['retained_original_incidences'],
+                    'bad_coordinate_rows':row['bad_rows'],
+                    'bad_coordinate_columns':row['bad_columns']})
           PY
