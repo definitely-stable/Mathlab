@@ -85,6 +85,57 @@ Thus the naive implication “rich or even PERFECT physical Ka palette completio
 
 The exact J23 partition identifies whether the missing transfer is (a) genuine ORIGINAL GQ incidence, (b) physical doubled-factor interference, or (c) nonaligned genuine source A/A cycles. The next stage may exploit these source-specific deficits, but cannot discard them as lower-order errors without a proof.
 
+## 4a. Exact 2026-10-13 GitHub-hosted ORIGINAL loss certificates
+
+On the TRUE original W32 S68 and S72 global f,g, the physical
+image on EACH side is EXACTLY K6. Consequently the physical
+A-half deficit from missing palette edges is ZERO for all
+endpoint-bad seeds (two occupied completions per physical half).
+
+The exact ORIGINAL source matching (D6) loss telescope counts
+ATTEMPTED MATCHINGS of three source point factors against three
+source line factors; these are NOT 6sets until all three ORIGINAL
+point-line incidences actually exist:
+
+| True ORIGINAL W32 map | Eligible endpoint-bad P3 | 6LR source-matching attempts | Absent ORIGINAL incidence | All ORIGINAL incidences exist, but nonaligned A/A | Accepted D6 |
+|---|---:|---:|---:|---:|---:|
+| S68 | 544 | 13,056 | **13,002** | 54 | **0** |
+| S72 | 600 | 14,400 | **14,316** | 84 | **0** |
+
+The two separately enumerated wedge transfer loss telescopes count
+LABELED choices of one distinguished original endpoint-chord factor
+among the three additional physical A-side factors:
+
+| W32 | A-side | Physical 3L or 3R proposals | Source endpoint incidence missing | Source pair not collinear / not concurrent | GQ partner physical label conflicts | Real positive selected Q |
+|---|---|---:|---:|---:|---:|---:|
+| S68 | A-left / B-right | 3,264 | 2,594 | 380 | 288 | **2** |
+| S68 | B-left / A-right | 3,264 | 2,682 | 318 | 258 | **6** |
+| S72 | A-left / B-right | 3,600 | 2,816 | 462 | 318 | **4** |
+| S72 | B-left / A-right | 3,600 | 2,984 | 364 | 246 | **6** |
+
+These numbers were checked by a dedicated exact GitHub-hosted
+source oracle against JPKC-006's independent construction and the
+entire 62,370-left-candidate true ORIGINAL W32 seven-family census.
+
+**Precise limitation:** these are counts of SOURCE-FACTOR PROPOSALS
+and their reasons for failure, not counts of sixsets of independent
+randomly sampled incidence patterns. The large absence of
+ORIGINAL point-line matches is perfectly compatible with
+genuine W(3,2) incidence sparsity. The observation shows why an
+attempt to bound the final selected GF5 cell solely by physical
+Ka occupancy cannot work pointwise. It is NOT an infinite
+globally realizable Branch-B construction and does not exclude
+a sophisticated global source-geometry compensation theorem.
+
+The W34 checks use only **32 deterministic spread-out real
+endpoint-bad physical source seeds** for lex, random, and true
+D4 symplectic-spread maps, with complete PER-SELECTED-SEED
+matching and wedge constructions. Their positive counts were,
+respectively, 31/32, 30/32 and 31/32 covered; they are NOT
+a full W34 seven-family census or a statistical/asymptotic
+estimate, and are not directly comparable as probability
+estimates to the exhaustive low-S W32 rows.
+
 ## 5. Implemented original finite truth gates
 
 `research/hyp105_issue230_jpkc007_completion_deficit_ledger.py` and its six dedicated GitHub-hosted tests:
