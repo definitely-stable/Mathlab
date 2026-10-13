@@ -93,7 +93,7 @@ def joint_record(model, scheme, *, compute_full_seven, independent_paths=True):
     # The bound from D2 is E <= 24 t W + sqrt(192 |B_bad| D6).
     # 24 t W is a NONNEGATIVE sufficient upper term, not a lower bound.
     # If already >=E it yields no useful E control even when D6=0.
-    t=chords["t_H"]
+    t=chords["max_block"]
     if t < 0:
         raise AssertionError("negative original physical coordinate block degree")
     small_book=24*t*w
