@@ -43,6 +43,9 @@ class JPKCGates(unittest.TestCase):
                                         row["kikuchi"]["P3"])
                 self.assertEqual(row["kikuchi"]["C6_DFS"],
                                  row["kikuchi"]["C6_from_K2"])
+                self.assertTrue(row["joint"]["J2_exact_variance_identity_verified"])
+                self.assertEqual(row["joint"]["J2_endpoint_variance_exact"],
+                                 row["P3_Cauchy_Schwarz_slack_exact"])
                 self.assertEqual(row["kikuchi"]["C6_DFS"],
                                  row["kikuchi"]["D6_proper_DFS"]+
                                  row["kikuchi"]["C6_improper_DFS"])
