@@ -76,6 +76,28 @@ If Delta6=max(0,G) AND every accepted original recipient port belongs to active 
 
 Both hypotheses are necessary for claiming this conclusion. Exact source-only G must not be confused with ordinary global pigeonhole loss without full port coverage.
 
+## 2b. Stronger exact integral pair-flow calibration — avoids crude tree eigenvalue lower bound
+
+The spectral tree condition may fail even when the true restricted Hall obstruction is *global only*. There is a strictly stronger, still exact-arithmetic CONSTRUCTIVE sufficient certificate on the same original source-pair graph.
+
+For N>=2, set q(e)=N*p_K(e)-G, so sum_I q(e)=0. Replace each undirected original source-pair edge (u,v) of weight w_uv by two directed transport arcs of capacity N*w_uv in opposite directions. Source supplies are max(q(e),0), sinks absorb max(-q(e),0). Standard integral flow/mincut (with original pair capacities only) proves the following **if and only if** for this centered-pair requirement:
+
+    an integer centered-pair flux exists, with div(g)=q
+      iff for every F subset I,
+        |sum_(e in F) q(e)| <= N*B_pair(F).
+
+If it exists, sum_F p_K(e) <= (G/N)*|F|+B_pair(F) and B_pair(F)<=2*boundary(F); therefore
+
+    Delta6(K)=max(0,G).
+
+This is an ALL-finite sufficient theorem for uniform ORIGINAL-port Hall, stronger than the conservative tree gate. It is NOT necessary for no local Hall excess, because the ORIGINAL three-incidence boundary can exceed the symmetric pair projection.
+
+Implementation reconstructs each nonzero signed integer pair flux and checks exact centered divergence and capacity. If infeasible, the residual cut F is a **fail-closed independent dual witness** with
+
+    sum_(e in F)q(e) - N*B_pair(F) > 0.
+
+This is an obstruction only to the PAIR calibration, not evidence against D6-I, full D6-D, or the GF5 theorem. No external numerical spectral library is needed; GitHub-hosted Python standard library suffices. Synthetic primal and dual witnesses are independently recomputed by explicit subset arithmetic.
+
 ## 3. The circularity obstruction is explicit
 
 For every true positive recipient pool, without any geometric assumptions,
