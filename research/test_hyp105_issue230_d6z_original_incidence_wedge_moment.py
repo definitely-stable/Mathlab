@@ -85,8 +85,7 @@ class D6ZOriginalWedgeTests(unittest.TestCase):
                     expected=sharp_two_sided_wedge_moment_envelope(s)[
                         f"physical_image_adjacency_{ext}_sharp"]
                     self.assertEqual(graph_adjacency_count(
-                        labels,witness["s"] if False else
-                        parameters(s)["a"]),expected)
+                        labels,parameters(s)["a"]),expected)
 
     def test_independent_every_incidence_pair_W32_W34_moment_identity(self):
         for h in (1,2):
@@ -196,8 +195,8 @@ class D6ZOriginalWedgeTests(unittest.TestCase):
         self.assertNotEqual(result[0]["true_original_seven_GF5_positive_count"],
                             result[1]["true_original_seven_GF5_positive_count"])
         # Same FULL physical K6 image on each typed side, and same left f.
-        l0,r0,_,_=validated_original_regular_model(fixture(1,"S68"))
-        l1,r1,_,_=validated_original_regular_model(fixture(1,"S72"))
+        _,l0,r0,_=validated_original_regular_model(fixture(1,"S68"))
+        _,l1,r1,_=validated_original_regular_model(fixture(1,"S72"))
         self.assertEqual(l0,l1)
         self.assertEqual(set(r0),set(r1))
         self.assertEqual(set(l0),set(r1))
