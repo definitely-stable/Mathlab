@@ -62,3 +62,29 @@ This is a **restricted theorem C / finite exact structural decomposition**, not 
 Acceptance: exact FINAL-HEAD GitHub-hosted dedicated, INDEX, Proof Audit, full Research all SUCCESS, independent mathematical audit. Root #230/#176/#169 OPEN. No merge.
 
 **2026-10-14 CI-found source-vs-physical subtlety:** original endpoint factor-pair intersections are narrower than full physical 4-coordinate projection blocks. This was independently exposed by the initial failed regression; both are now separate true-original strata with no claim about asymptotic sizes.
+
+## 8. Frozen TRUE ORIGINAL W32 exact full-Q results (GitHub-hosted, 14 October)
+
+Full complete W32 exact enumeration at implementation SHA `e094e836339e1c8e2f2bba9014f19bc78697b164`: dedicated 5-test job and BOTH full 24-state right-factor fiber matrix jobs SUCCESS. Before claiming final acceptance, revalidate at the later exact pinned regression HEAD, and wait for INDEX/Proof Audit/full Research.
+
+| Map | All accepted original Q | JPKC010 factor-endpoint-bad visible | Internal physical projection blocked only | Other coordinate-proper only | **NO coordinate-proper P3** | Full necessary GF5 numerator |
+|---|---:|---:|---:|---:|---:|---:|
+| W32 lex | 259 | 68 | 5 | 17 | **169** | 11,225,795 |
+| W32 reverse | 169 | 31 | 4 | 4 | **130** | 7,627,209 |
+| W32 S68 | 68 | 4 | 1 | 0 | **63** | 3,112,510 |
+| W32 S72 | 72 | 5 | 0 | 1 | **66** | 3,283,610 |
+
+The older statement "S68 has 64 positive Q not reached by JPKC010" remains exactly valid; it is now refined into **1 projection-only + 0 other + 63 without any coordinate-proper P3**. Analogously S72 has **67** not reached by JPKC010, split into **0 + 1 + 66**. Numerically, **92.65%** of the full S68 and **91.67%** of the full S72 original positive Q cannot be accessed through *any* coordinate-proper P3.
+
+**Most important class-specific falsifier:** S68 has no C/A, no C/B and no D6, yet among the 63 proper-P3-invisible accepted sixsets, **41** are genuine B-left/A-right, **19** are genuine A-left/B-right, and **3** are B/B. For S72 the invisible 66 split into **33 B-left/A-right, 28 A-left/B-right, 3 B/B, 2 C/A**. Thus not only C (structurally unable to host a P3), but even overwhelmingly the B/A wedge classes can be completely undetectable to coordinate-proper P3 paths under globally realizable source labeling.
+
+This is a FINITE exact method obstruction, NOT an all-h theorem asserting invisible fraction tends to 1, nor an all-h Ω(s^6) seven-S estimate. Counting more copies of detected physical paths cannot recover invisible sixsets. The next rational line is a **direct ORIGINAL incidence support tensor / sixfactor polynomial coefficient extraction**, stratified by side A/B/C and physical cycle constraints, that never requires existence of a synchronized coordinate-proper P3.
+
+## 9. Frozen complete coherent 24-state original-right fourfactor fibers
+
+| Complete frozen family | Complete legal globally injected states | min full S | min JPKC010-visible Q | min entirely P3-invisible Q | min not JPKC010-visible Q | max not JPKC010-visible Q |
+|---|---:|---:|---:|---:|---:|---:|
+| W32 S68 | 24 | 68 | 4 | 63 | 64 | 126 |
+| W32 S72 | 24 | 68 | 3 | 61 | 61 | 121 |
+
+Each minimum is computed over ALL 24 *same-source* globally injective states but may be attained at a different state. DO NOT add separate minima as though they occurred jointly. Both original block assignment sets are precisely those used in D6-AA4-B; no independently optimized per-original-Q physical labels. Full W34 seven-census or infinite asymptotic inference not attempted.

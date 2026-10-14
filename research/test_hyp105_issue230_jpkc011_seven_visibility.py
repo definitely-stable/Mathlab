@@ -16,9 +16,14 @@ from hyp105_g5e2b3e1b0_seven_signature import R3_CERTIFIED_FLOORS
 
 class OriginalSevenVisibilityTests(unittest.TestCase):
     def test_complete_W32_true_original_all_seven_GF5_classes(self):
-        expected_bad = {"lex": 68, "reverse": 31, "S68": 4, "S72": 5}
-        expected_S = {"S68": 68, "S72": 72}
-        for scheme, bad in expected_bad.items():
+        # Frozen FULL ORIGINAL seven-class W32 exact hosted visibility pins.
+        expected = {
+            "lex": (259,68,5,17,169,11225795),
+            "reverse": (169,31,4,4,130,7627209),
+            "S68": (68,4,1,0,63,3112510),
+            "S72": (72,5,0,1,66,3283610),
+        }
+        for scheme, (full,bad,physical,other,invisible,weighted) in expected.items():
             with self.subTest(scheme=scheme):
                 x = visibility_certificate(fixture(1, scheme),
                                            direct_local_oracle=True)
@@ -26,8 +31,11 @@ class OriginalSevenVisibilityTests(unittest.TestCase):
                 self.assertTrue(x["all_positive_Q_local_diagonal_equals_global_path_oracle"])
                 self.assertGreater(x["source_triples_independently_verified"], 0)
                 self.assertTrue(x["true_original_f_g_globally_injective"])
-                self.assertEqual(x["J38_complete_original_Q_visibility_partition"][
-                    VISIBLE_BAD], bad)
+                self.assertEqual(x["J38_complete_original_Q_visibility_partition"],{
+                    VISIBLE_BAD:bad, PROJECTION_ONLY:physical,
+                    VISIBLE_OTHER:other, INVISIBLE:invisible})
+                self.assertEqual(x["complete_original_positive_seven_S"],full)
+                self.assertEqual(x["J40_full_original_GF5_floor_numerator"],weighted)
                 self.assertEqual(sum(x["J38_complete_original_Q_visibility_partition"].values()),
                                  x["complete_original_positive_seven_S"])
                 self.assertEqual(sum(x["J40_GF5_floor_by_visibility"].values()),
@@ -46,9 +54,14 @@ class OriginalSevenVisibilityTests(unittest.TestCase):
                         {"lex": 73, "reverse":35, "S68":5}[scheme])
                     self.assertGreater(
                         x["J38_complete_original_Q_visibility_partition"][PROJECTION_ONLY], 0)
-                if scheme in expected_S:
-                    self.assertEqual(x["complete_original_positive_seven_S"],
-                                     expected_S[scheme])
+                if scheme in ("S68","S72"):
+                    classes=x["J38_exact_seven_class_visibility"]
+                    missing_wedges=(
+                        classes["A-left/B-right"][INVISIBLE]+
+                        classes["B-left/A-right"][INVISIBLE])
+                    self.assertEqual(missing_wedges,{"S68":60,"S72":61}[scheme])
+                self.assertTrue(
+                    x["J38_distinguishes_internal_physical_projection_block_from_factor_bad"])
                 self.assertFalse(x["root_A_proved"])
 
     def test_structural_C_half_P3_invisible_and_BB_endpoint_bad_exclusion(self):
