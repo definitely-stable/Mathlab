@@ -1,0 +1,91 @@
+name: hyp105-issue230-d6aa4d-mixed-transversal-fibers
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4d_mixed_transversal_fibers.py"
+      - "research/test_hyp105_issue230_d6aa4d_mixed_transversal_fibers.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4D-MIXED-TRANSVERSAL-FIBERS.md"
+      - ".github/workflows/hyp105-issue230-d6aa4d-mixed-transversal-fibers.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-block-independent-oracle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Complete original 27405 source-block partition and independent typed GF5 oracle
+        run: python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4d_mixed_transversal_fibers.py" -v
+  full-mixed-injection-fibers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaust ALL genuine ORIGINAL four-source-transversal global two-type completions
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4d_mixed_transversal_fibers.py --scheme "$SCHEME" > "/tmp/issue230-aa4d-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from math import comb,factorial
+          from pathlib import Path
+          scheme=os.environ["SCHEME"]
+          x=json.loads(Path(f"/tmp/issue230-aa4d-{scheme}.json").read_text())
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-D-TWO-TYPE-FOUR-FACTOR-GLOBAL-FIBER"
+          assert x["all_h_conditional_global_completion_identity"]
+          assert x["all_h_frozen_outside_original_block"]
+          assert not x["all_h_universal_S_lower"] and not x["full_GF5_R3"]
+          assert x["Branch_A"]==x["Branch_B"]=="OPEN"
+          assert len(x["W32"])==1
+          r=x["W32"][0]
+          assert r["scheme"]==scheme and r["not_arbitrary_starting_f_g"] and r["not_all_h"]
+          p=r["source_support_partition"]
+          expected={"S68":(53,68,3112510),"S72":(119,72,3283610)}
+          count,S,Y=expected[scheme]
+          assert (r["base_seven_S"],r["base_GF5_floor_numerator"])==(S,Y)
+          assert p["source_blocks_checked"]==comb(30,4)==27405
+          assert p["number_transversal_blocks"]==count
+          assert p["nontransversal_blocks"]==27405-count
+          assert len(p["transversal_original_factor_blocks"])==count
+          assert p["minimum_unchanged_old_S_on_nontransversal_blocks"]>=1
+          b=r["globally_consistent_transversal_fibers"]
+          assert b["original_source_transversal_blocks"]==count
+          assert b["baseline"]==[S,Y]
+          assert b["globally_injective_two_typed_completions_checked"]==sum(
+              factorial(sum(i<15 for i in z))*factorial(sum(i>=15 for i in z))
+              for z in p["transversal_original_factor_blocks"])
+          assert len(b["all_block_minima"])==count
+          assert b["positive_S_completions"]+b["zero_S_completions"]==b["globally_injective_two_typed_completions_checked"]
+          assert len(b["independent_full_original_classification_checks"])>=2
+          assert r["uniform_all_legal_typed_edits_radius_at_most_four_S_floor"]==min(
+              p["minimum_unchanged_old_S_on_nontransversal_blocks"],
+              b["minimum_S_in_all_transversal_fibers"])
+          assert r["positive_for_every_radius_four_edit"]==(
+              r["uniform_all_legal_typed_edits_radius_at_most_four_S_floor"]>0)
+          print("SCHEME",scheme,"BASE S",S,"GF5",Y)
+          print("original typed source blocks",p["source_blocks_checked"],"transversals",count)
+          print("globally legal completed assignments",b["globally_injective_two_typed_completions_checked"])
+          print("ZERO S completions",b["zero_S_completions"])
+          print("min S on transversals",b["minimum_S_in_all_transversal_fibers"])
+          print("min selected GF5 floor",b["minimum_GF5_floor_numerator_in_all_transversal_fibers"])
+          print("uniform all global injections <=4 typed source edits S bound",
+                r["uniform_all_legal_typed_edits_radius_at_most_four_S_floor"])
+          print("by point/line split",b["by_point_factor_split"])
+          print("independent original classifier spotchecks",
+                len(b["independent_full_original_classification_checks"]))
+          if b["zero_S_completions"]:
+              print("CRITICAL: genuine W32 finite S=0 witness; independent mathematical audit required",
+                    b["example_global_minimum_completion"])
+          PY
