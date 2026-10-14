@@ -8,7 +8,7 @@ Research only; neither physical squares nor cross anchors imply GF5 positivity.
 """
 from collections import Counter
 from fractions import Fraction
-from itertools import combinations
+from itertools import combinations, permutations
 import json
 
 from hyp105_issue230_nb_rectangles import OriginalNBRectangle
@@ -34,7 +34,7 @@ def source_girth_four_by_four(point_ids, line_ids, incidence_ids):
             raise AssertionError('SOURCE ORIGINAL GQ forbidden four-cycle')
     # A length-six cycle necessarily uses three distinct points and lines.
     for p0,p1,p2 in combinations(range(4),3):
-        for l0,l1,l2 in __import__('itertools').permutations(range(4),3):
+        for l0,l1,l2 in permutations(range(4),3):
             if (all(e in edges for e in
                     ((p0,l0),(p0,l1),(p1,l1),(p1,l2),(p2,l2),(p2,l0)))):
                 raise AssertionError('SOURCE ORIGINAL GQ forbidden six-cycle')
@@ -103,6 +103,7 @@ class OriginalPlaquette:
         plaquettes=complete=eligible=blocked_squares=unblocked_squares=0
         four_corner_missing=0
         weighted_squareable=Fraction()
+        sampler_complete=sampler_eligible=sampler_blocked=Fraction()
         squareable_missing=Fraction()
         squareable_blocked=Fraction()
         squareable_eligible=Fraction()
@@ -169,6 +170,9 @@ class OriginalPlaquette:
                 got_unblocked=all_four_count(row_status,{4})
                 complete+=got_complete
                 eligible+=got_eligible
+                sampler_complete+=Fraction(got_complete,count)
+                sampler_eligible+=Fraction(got_eligible,count)
+                sampler_blocked+=Fraction(got_blocked,count)
                 blocked_squares+=got_blocked
                 unblocked_squares+=got_unblocked
                 if got_complete < count - missing*(nr-1)*(nc-1):
@@ -237,9 +241,9 @@ class OriginalPlaquette:
             miss=Fraction(squareable_missing,denominator)
             blocked_ratio=Fraction(squareable_blocked,denominator)
             eligible_ratio=Fraction(squareable_eligible,denominator)
-            complete_prob=Fraction(complete,plaquettes)
-            blocked_prob=Fraction(blocked_squares,plaquettes)
-            eligible_prob=Fraction(eligible,plaquettes)
+            complete_prob=sampler_complete/weighted_squareable
+            blocked_prob=sampler_blocked/weighted_squareable
+            eligible_prob=sampler_eligible/weighted_squareable
             if complete_prob < 1-4*miss:
                 raise AssertionError('E4 global sampled-plaquette missing union bound')
             if blocked_prob < 4*blocked_ratio-3:
@@ -259,7 +263,7 @@ class OriginalPlaquette:
             if Fraction(category[0],Z)>Fraction(2*unused,(dmin-1)**2):
                 raise AssertionError('E4 stationary original endpoint missing asymptotic bound')
             if plaquettes:
-                if Fraction(complete,plaquettes)<1-Fraction(8*unused,(dmin-1)**2):
+                if sampler_complete/weighted_squareable<1-Fraction(8*unused,(dmin-1)**2):
                     raise AssertionError('E4 stationary quartet label completeness violated')
         return {
             's':ctx.s,'a':ctx.a,'N':ctx.N,
@@ -283,8 +287,10 @@ class OriginalPlaquette:
             'squareable_mean_missing_cell_fraction':str(miss) if miss is not None else None,
             'squareable_mean_blocked_cell_fraction':str(blocked_ratio) if blocked_ratio is not None else None,
             'squareable_mean_eligible_cell_fraction':str(eligible_ratio) if eligible_ratio is not None else None,
-            'E4_global_complete_fraction':str(Fraction(complete,plaquettes)) if plaquettes else None,
-            'E4_global_allblocked_fraction':str(Fraction(blocked_squares,plaquettes)) if plaquettes else None,
+            'E4_orientation_uniform_complete_fraction':str(sampler_complete/weighted_squareable) if weighted_squareable else None,
+            'E4_orientation_uniform_allblocked_fraction':str(sampler_blocked/weighted_squareable) if weighted_squareable else None,
+            'E4_orientation_uniform_eligible_fraction':str(sampler_eligible/weighted_squareable) if weighted_squareable else None,
+            'E4_size_weighted_complete_fraction':str(Fraction(complete,plaquettes)) if plaquettes else None,
             'original_cross_incidence_histogram':dict(sorted(cross_hist.items())),
             'original_cross_girth8_cap':8,
             'source_gf5_sixset_from_cross_pairs_proved':False,
