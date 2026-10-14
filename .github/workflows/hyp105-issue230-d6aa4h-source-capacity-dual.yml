@@ -111,5 +111,11 @@ jobs:
                 exact["exact_minimum_cover_masks"])
           assert __import__("functools").reduce(
               int.__or__,exact["exact_minimum_cover_masks"],0)==(1<<24)-1
+          expected_masks={63,4032,258048,16515072}
+          assert set(masks)==expected_masks
+          assert all(m.bit_count()==6 for m in masks)
+          assert sum(masks)==(1<<24)-1
+          assert all(not (a&b) for i,a in enumerate(masks) for b in masks[i+1:])
+          assert len(exact["exact_minimum_cover_named_profiles"])==4
           print("W32 exact zero-slack SCALAR capacity cut NO-GO PASS")
           PY
