@@ -1,0 +1,31 @@
+name: hyp105-issue230-jpkc009-original-cross-key-hall-stars
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc009_cross_key_overlap.py"
+      - "research/test_hyp105_issue230_jpkc009_cross_key_overlap.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-009-ORIGINAL-CROSS-KEY-HALL-STARS.md"
+      - ".github/workflows/hyp105-issue230-jpkc009-original-cross-key-hall-stars.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  original-cross-key-hall-stars:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: All original W32 source factor stars and cross-key original-anchor coupling
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc009_cross_key_overlap.py' -v
+      - name: Archive true-original W32 full and W34 targeted cross-key overlap certificates
+        run: python research/hyp105_issue230_jpkc009_cross_key_overlap.py --w34-seeds 8
