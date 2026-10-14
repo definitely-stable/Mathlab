@@ -1,0 +1,92 @@
+name: hyp105-issue230-jpkc016-d6-pair-overlap
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc016_d6_pair_overlap.py"
+      - "research/test_hyp105_issue230_jpkc016_d6_pair_overlap.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-016-D6-PAIR-OVERLAP.md"
+      - ".github/workflows/hyp105-issue230-jpkc016-d6-pair-overlap.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  original-source-overlap-and-joint-c6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Five independent source overlap, graph and exact joint kernel regressions
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc016_d6_pair_overlap.py' -v
+      - name: Pin actual ORIGINAL source anchored second-moment sector
+        run: |
+          python research/hyp105_issue230_jpkc016_d6_pair_overlap.py > /tmp/jpkc016.json
+          python - <<'PY'
+          from fractions import Fraction
+          import json
+          d=json.load(open("/tmp/jpkc016.json"))
+          assert d["slice"]=="JPKC-016"
+          assert d["independent_swapped_source_overlap_row_verified"]
+          row=d["exact_W32_one_anchor_source_overlap_row"]
+          assert row["source_original_six_matching_population"]==1566360
+          assert row["source_diagonal_original_six_matching_count"]==1
+          assert row["source_factor_disjoint_six_matching_count"]==1556
+          assert row["nonempty_overlap_signatures"]==120
+          assert d["physical_avoidance_counts"]["6"]==3
+          p=d["W32_exact_source_disjoint_joint"]
+          assert Fraction(p["joint_two_D6_events_source_factor_disjoint"])==Fraction(1,19639219600)
+          assert Fraction(p["joint_over_independent_product"])==Fraction(20449,2304)
+          for x in d["all_h_proved_lower_sector"]:
+              assert not x["full_exact_D6_second_moment_computed"]
+              assert Fraction(x["all_h_rigorous_second_moment_disjoint_sector_lower"])>0
+          assert not d["full_exact_second_moment_claimed"]
+          print(json.dumps({
+              "W32_source_matching_population":row["source_original_six_matching_population"],
+              "W32_source_factor_disjoint_Qprime_for_one_Q":row["source_factor_disjoint_six_matching_count"],
+              "W32_original_overlap_signature_count":row["nonempty_overlap_signatures"],
+              "W32_source_factor_disjoint_pair_joint":p["joint_two_D6_events_source_factor_disjoint"],
+              "W32_pair_correlation_over_independence":p["joint_over_independent_product"],
+              "s_values":[x["s"] for x in d["all_h_proved_lower_sector"]],
+              "full_second_moment_claimed":d["full_exact_second_moment_claimed"],
+          },sort_keys=True,indent=2))
+          PY
+
+  physical-C6-complement-cross-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        a: [6, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent direct physical graph brute C6 against exact inclusion-exclusion
+        env:
+          PHYSICAL_A: ${{ matrix.a }}
+        run: |
+          python - <<'PY'
+          import sys,os,json
+          sys.path.insert(0,"research")
+          from hyp105_issue230_jpkc016_d6_pair_overlap import (
+              physical_cycle_avoidance_count,physical_cycle_avoidance_bruteforce,
+          )
+          a=int(os.environ["PHYSICAL_A"])
+          expected={6:3,7:45,8:327,9:1509}[a]
+          brut=physical_cycle_avoidance_bruteforce(a)
+          fast=physical_cycle_avoidance_count(a)
+          assert fast==brut["physical_cycles_avoiding_first_C6"]==expected
+          print(json.dumps({"physical_a":a,"avoiding_prior_D6_C6":fast,
+                            "all_physical_C6":brut["physical_cycles_total"]}))
+          PY
