@@ -157,6 +157,8 @@ def cross_key_certificate(model,*,limit_seeds=None,max_paths=2_000_000,
     right_neighbors=defaultdict(set)
     matched_left=defaultdict(set)
     matched_right=defaultdict(set)
+    selected_left=defaultdict(set)
+    selected_right=defaultdict(set)
     hall_cache={}
     totals=Counter()
 
@@ -200,6 +202,8 @@ def cross_key_certificate(model,*,limit_seeds=None,max_paths=2_000_000,
                 from hyp105_issue230_jpkc005_alternate_three_completion import general_seven_original
                 if general_seven_original(ctx,Q)=="D6":
                     totals["original_selected_D6_occurrences"]+=1
+                    selected_left[P].add(L)
+                    selected_right[L].add(P)
                     direct_D6+=1
                 else:
                     totals["original_AA_nonaligned_occurrences"]+=1
@@ -246,6 +250,17 @@ def cross_key_certificate(model,*,limit_seeds=None,max_paths=2_000_000,
 
     left=overlap_by_side(left_neighbors,"left")
     right=overlap_by_side(right_neighbors,"right")
+    left_hall=overlap_by_side(matched_left,"left")
+    right_hall=overlap_by_side(matched_right,"right")
+    left_d6=overlap_by_side(selected_left,"left")
+    right_d6=overlap_by_side(selected_right,"right")
+    for all_row,hall_row,selected_row in (
+        (left,left_hall,left_d6),(right,right_hall,right_d6)):
+        for suffix in ("distinct_key_pairs_same_source_triple_DIFFERENT_original_anchors",
+                       "distinct_key_pairs_same_source_triple_same_original_anchor"):
+            if not 0<=selected_row[suffix]<=hall_row[suffix]<=all_row[suffix]:
+                raise AssertionError(
+                    "J34 ORIGINAL source graph D6 ⊆ Hall ⊆ all demand cross-anchor coupling broken")
     raw=len(key_weight)
     if sum(len(z) for z in left_neighbors.values())!=raw:
         raise AssertionError("J33 left source demand graph edge mismatch")
@@ -281,6 +296,11 @@ def cross_key_certificate(model,*,limit_seeds=None,max_paths=2_000_000,
         "all_h_J33_cross_key_demand_graph_double_count_exact":True,
         "left_point_triple_source_overlap":left,
         "right_line_triple_source_overlap":right,
+        "left_Hall_feasible_source_overlap":left_hall,
+        "right_Hall_feasible_source_overlap":right_hall,
+        "left_actual_GF5_D6_source_overlap":left_d6,
+        "right_actual_GF5_D6_source_overlap":right_d6,
+        "J34_exact_nested_Hall_vs_positive_overlap_certified":True,
         "original_demand_stage":dict(sorted(totals.items())),
         "source_triple_Hall_capacity_observed_max_left":max(left_capacity.values(),default=0),
         "source_triple_Hall_capacity_observed_max_right":max(right_capacity.values(),default=0),
