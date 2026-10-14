@@ -45,6 +45,30 @@ For each pinned ORIGINAL S68 and S72 model:
 
 Also check true W32 lex/reverse/S68/S72 source assignments with all seven original Q and their necessary selected GF5 weights, random globally injected W32 mappings and malformed source-Q data. No W34 complete positive GF5 sixset census.
 
+
+## 3A. Exact complete-original W32 hosted findings and pinned NEGATIVE witnesses
+
+The dedicated full 24-state GitHub-hosted matrix passed its two independent W32 branches, each with full historical seven-class GF5 classification of 62,370 actual ORIGINAL six-incidence candidate Q per complete global typed injection. Every Q-major source pair charge agrees with the separately coded pair-major re-enumeration from true original six-incidence IDs.
+
+| Statistic over 24 actual four-POINT complete-map completions | S68 source P | S68 source L | S72 source P | S72 source L |
+|---|---:|---:|---:|---:|
+| True source-collinear physically DISJOINT pair count | 9..16 | 21 | 10..17 | 20 |
+| Min over pairs of accepted ORIGINAL Q cooccurrence; range over 24 maps | 3..11 | 6..14 | 4..15 | **0..17** |
+| Eligible source pairs missing ALL accepted Q; maximum over maps | 0 | 0 | 0 | **1** |
+| Eligible pairs missing same-ORIGINAL-pencil accepted Q; range over 24 maps | 1..4 | 1..4 | 1..5 | 1..6 |
+| Min over eligible pairs of genuine same-pencil accepted Q multiplicity | 0 | 0 | 0 | 0 |
+
+**Pinned actual stronger SOURCE pair-to-GF5 transfer NO-GO, directly checked on baseline S72:**
+
+- TRUE ORIGINAL source LINE factors: `l=5` and `l=10`; the original line-concurrency graph confirms they intersect at a true original source point (no physical-overlap surrogate).
+- Their physical pair images in the globally separately injective original S72 map are exactly `g(5)=(1,3)` and `g(10)=(0,4)`; the images are DISJOINT.
+- Complete historical seven-family GF5-positive census has `S=72`, but **ZERO** accepted ORIGINAL positive Q includes BOTH original line factors 5 and 10, let alone their two incidences at the common original point. The independently written direct pair-major checker agrees.
+- This falsifies a universal assertion `C_L(p,q)>=1` for every eligible source pair and every s=2^h **including h=1**. It does NOT, without additional investigation, falsify a statement restricted to h>=2 / s>=4, nor one restricted to a structured subset of eligible pairs. Hence this single example is a strict methodological NO-GO, not the root infinite Branch B.
+
+**Pinned weaker SOURCE cooccurrence versus exact common-ORIGINAL-pencil NO-GO, baseline S68:** true original POINT factors `p=3, p=9` are original collinear. Their physically disjoint labels are `f(3)=(4,5)` and `f(9)=(1,3)`. In the complete historical S68 seven-family census **10** positive ORIGINAL Q contain BOTH source points, yet **ZERO** of those ten Q contain the two actual original point-line incidences on their unique common source line. Thus a pair cooccurrence result cannot be used as a genuine original-GQ-pencil anchor without a separate proof.
+
+These named negative witnesses and original physical pair images are reproduced as explicit assertions in the independent test suite, not inferred just from positive-sixset totals. At W32, all source collinear physically disjoint pairs of type P in these pinned fibers happen to have some weak Q cooccurrence; the S72 line case provides a genuine counterexample. This is a finite claim only.
+
 ## 4. Prior art, limitations, and needed theorem
 
 The counting identity and 15 bound are elementary extremal double-counting, not a novel general graph result. Its research value is to locate the exact missing source-to-seven GF5 transfer hypothesis and independently falsify it on genuine global ORIGINAL injections, rather than quietly importing s^5 source pair abundance as s^6 positive-sixset count.
