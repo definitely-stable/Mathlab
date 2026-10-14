@@ -40,6 +40,13 @@ class JPKC012Tests(unittest.TestCase):
                 self.assertGreater(compiled["source_line_profile_count"],0)
                 self.assertGreater(compiled["distinct_sparse_right_profile_cylinder_rows"],0)
                 self.assertGreater(compiled["distinct_source_line_AA_dual_rows"],0)
+                # Precise SOURCE-line tensor dimensions from independent hosted oracle:
+                expected_profiles, expected_rows, expected_duals = (
+                    (21950,29523,20317) if scheme in ("lex","reverse")
+                    else (17890,25032,21369))
+                self.assertEqual(compiled["source_line_profile_count"],expected_profiles)
+                self.assertEqual(compiled["distinct_sparse_right_profile_cylinder_rows"],expected_rows)
+                self.assertEqual(compiled["distinct_source_line_AA_dual_rows"],expected_duals)
                 self.assertTrue(compiled["independent_no_P3_left_generator"])
                 result=independent_comparison(model,compiled)
                 self.assertEqual(result["complete_W32_true_original_S"],s)
@@ -78,6 +85,11 @@ class JPKC012Tests(unittest.TestCase):
                                  row["sum_of_independent_right_source_profile_minima"])
                 self.assertGreaterEqual(row["exact_global_source_profile_coherence_gap"],0)
                 self.assertTrue(row["all_results_one_global_g_per_state"])
+                self.assertTrue(row["greedy_profile_cover_exactly_covers_examined_global_states"])
+                self.assertFalse(row["greedy_profile_cover_optimality_claimed"])
+                self.assertEqual(sum(p["new_globally_legal_fiber_states_covered"]
+                                     for p in row["greedy_all_global_states_positive_source_profile_cover"]),
+                                 2)
 
     def test_fail_closed_input_global_injection_and_exact_population_budget(self):
         model=fixture(1,"S72")

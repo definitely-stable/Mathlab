@@ -69,3 +69,29 @@ The nonnegative *source-profile coherence gap* measures how much independently f
 Four files: `research/hyp105_issue230_jpkc012_incidence_tensor.py`, five fail-closed tests, this note, dedicated GitHub-hosted workflow with W32 full four-map exact oracle and two independently pinned 24-global-map matrix jobs. Exact final-HEAD dedicated + INDEX + Proof Audit + full Research all SUCCESS and independent math review required. Source input injection errors, missing maps, W34 full attempts, budget overflows and incomplete fibers fail closed.
 
 **Open nontrivial question:** can genuine W(3,s) original incidence/physical capacity enforce a universal positive lower bound on this direct right-factor profile tensor contraction, or on its connected D6 dual sector, under all globally injective f,g? The exact factorization alone neither proves `S_s=Omega(s^6)` nor supplies an infinite correlated counterexample. It is a better algebraic object for a global positivity inequality than a graph of proper P3 demands.
+
+## 7. Exact GitHub-hosted original tensor results
+
+The initial dedicated original tensor run completed all five exact tests and both 24-state global right-factor matrix jobs successfully. The compiler counts ORIGINAL left physical 2-regular incidence candidates **without importing historical left generator or any proper-P3 condition**. Each six-source factor tensor contraction matched the independent previously accepted fixed-map `seven_census` exactly, by all seven classes and GF5 necessary weights.
+
+| Genuine W32 original global map | Original left Q candidates | Distinct right ORIGINAL line multiset profiles | Sparse non-D6 profile rows | Named A/A positional D6 dual rows | Exact seven-S |
+|---|---:|---:|---:|---:|---:|
+| lex | 62,370 | 21,950 | 29,523 | 20,317 | 259 |
+| reverse | 62,370 | 21,950 | 29,523 | 20,317 | 169 |
+| S68 | 62,370 | 17,890 | 25,032 | 21,369 | 68 |
+| S72 | 62,370 | 17,890 | 25,032 | 21,369 | 72 |
+
+Distinct right source profiles share true ORIGINAL line factors. The source tensor is sparse compared with individually named Q, yet still retains enough positional structure in A/A to recover exact D6, and cannot be replaced by independent right profile assignments.
+
+**J43 coherent original profile gap over ALL 24 true four-line globally injected right-map states:**
+
+| Pinned complete W32 source block fiber | Independent source-profile count minima summed | Coherent minimum of full seven-S | **Exact profile coherence gap** |
+|---|---:|---:|---:|
+| S68 | **11** | **68** | **57** |
+| S72 | **0** | **68** | **68** |
+
+This is a direct **ORIGINAL right-factor-profile** coupling, not a source P3 matching Hall proxy. In particular, the zero independent S72 profile-min sum does NOT produce a globally legal zero-positive map; all 24 complete legally injected states have S≥68. This is a fixed finite fiber result, not any asymptotic theorem or universal bound over all f,g.
+
+The compiler now additionally emits a deterministic non-optimal greedy **source profile coverage certificate**: each listed original right-line multiset profile is positive on an exact bitmask of 24 complete globally legal states. The union of these bitmasks must cover all 24 states. Its length is a reproducible sufficient cover, NOT a proven minimum cover size. An individually unavoidable profile is separately counted using full 24-state masks. This makes nonzero coherent positivity auditable at the source-profile layer without reciting all accepted Q.
+
+Do not claim J41/J42 as a newly discovered GF5 lower-bound theorem: they are exact structural decompositions of the existing accepted seven-family class definitions. A future proof requires a NONTRIVIAL bound on this tensor contraction over **all** admissible global maps, beyond the finite 24-state fiber.
