@@ -39,6 +39,23 @@ def list_information_lower_bound(theta, midpoint_sources, max_block_list):
     return theta*log(midpoint_sources/max_block_list)-binary
 
 
+
+def binary_relative_entropy(p,q):
+    """Bernoulli KL in nats, with continuous endpoint conventions."""
+    if not (0 <= p <= 1 and 0 <= q <= 1):
+        raise ValueError('invalid Bernoulli probabilities')
+    if p==q:
+        return 0.0
+    if q==0 or q==1:
+        return float('inf')
+    value=0.0
+    if p:
+        value+=p*log(p/q)
+    if p<1:
+        value+=(1-p)*log((1-p)/(1-q))
+    return value
+
+
 class OriginalMiddleTransport:
     """Joint endpoint/source-midpoint weighted NB3 tensor with typed provenance."""
 
@@ -205,6 +222,7 @@ class OriginalMiddleTransport:
         # (the all-h inequality is proved analytically in the document).
         info_nats=None
         info_lower_nats=None
+        info_binary_kl_nats=None
         if is_stationary:
             row_source_eligible=defaultdict(Fraction)
             for (q,r,e),wt in joint.items():
@@ -226,6 +244,10 @@ class OriginalMiddleTransport:
                         info_nats += float(w/Z)*log(float(Fraction(w*M,bottom_mass)))
             info_lower_nats=list_information_lower_bound(
                 float(theta/Z),M,source_row_bound)
+            info_binary_kl_nats=binary_relative_entropy(
+                float(theta/Z),float(beta_weight/Z))
+            if info_nats+1e-10 < info_binary_kl_nats:
+                raise AssertionError('C7 true ORIGINAL Bernoulli data-processing KL invalid')
             if info_nats+1e-10 < info_lower_nats:
                 raise AssertionError('C6 original midpoint Shannon list bound invalid')
 
@@ -261,6 +283,7 @@ class OriginalMiddleTransport:
             'middle_uniform_alone_proves_gap':False,
             'C6_info_nats_diagnostic':info_nats,
             'C6_list_lower_nats_diagnostic':info_lower_nats,
+            'C7_binary_data_processing_kl_nats':info_binary_kl_nats,
             'C6_log_base':'natural',
             'C6_info_theorem_requires_unconditional_stationary':True,
             'root_Branch_A_proved':False,
