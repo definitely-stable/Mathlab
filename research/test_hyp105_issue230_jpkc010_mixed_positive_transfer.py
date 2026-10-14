@@ -87,7 +87,7 @@ class JPKC010Tests(unittest.TestCase):
         corrupt["right_labels"] = tuple(labels)
         with self.assertRaises(ValueError):
             mixed_positive_certificate(corrupt)
-        with self.assertRaisesRegex(ValueError, "source witness pair budget"):
+        with self.assertRaisesRegex(ValueError, "seed-to-Q witness pair budget"):
             mixed_positive_certificate(model, max_pairs=1)
         with self.assertRaisesRegex(ValueError, "restricted to W32"):
             mixed_positive_certificate(fixture(2, "lex"))
