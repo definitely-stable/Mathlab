@@ -84,3 +84,23 @@ The source-profile populations with exactly k moving original lines and positive
 The S72-only original line #7 4-way disjoint mask partition seen in JPKC-013 therefore extends to **all four original factor anchors**. The new structural observation is that the whole four-line source block has full per-image positive cylinders, not just one line; and those per-anchor Q witnesses are pairwise ORIGINAL-line-support-disjoint, enabling a sum of four guaranteed charges.
 
 **Important generalization barrier:** for W(3,s), the number of original lines is Θ(s³); if every line contributes just O(1), even perfect disjointness only gives O(s³), not the target Ω(s⁶). Future work must prove Ω(s³) positive Q per anchor on average for Ω(s³) eligible anchors, or find a different amplifier. No universal existence of a choice-star has been proved.
+
+## 8. J50 — true ORIGINAL globally injective factor IMAGE matching cost (ALL-h conditional theorem)
+
+J48's sum `Σ_r min_e c_{r,e}` independently minimizes each source factor image cost. But a legal globally injected ORIGINAL right assignment may not reuse one physical pair image between two original source lines. Retain each complete one-factor choice-star's true ORIGINAL positive-sixset cost `c_{r,e}`, with profile `m_(r,e)` whose ORIGINAL right-line support intersects moving block B exactly at r.
+
+By J47 locality, every cost depends only on g(r) and is invariant under all other legal source factor labels. By J48 incidence support disjointness, the charged ORIGINAL Q sets for distinct r are pairwise disjoint. For every legal globally injective assignment:
+
+```
+S(f,g) >= Σ_(r∈R) c_(r,g(r))
+       >= min_(injective σ:R→E) Σ_(r∈R) c_(r,σ(r))
+       >= Σ_(r∈R) min_(e∈E) c_(r,e).
+```
+
+If |E|≥|B|, any injection of the selected anchors R⊆B into E extends to a complete injection B→E, so this is the **exact source-factor assignment minimum** for this portfolio over the complete legal block fiber. This is an all-h CONDITIONAL lemma; existence of all these positive source profile choices under arbitrary f,g is not proved.
+
+J50 adds an independent exact minimum-cost bipartite injection assignment dynamic program over physical-pair image bitmasks; this does NOT enumerate original Q sixsets or physical P3 inside its solver. Fail-closed malformed costs, incomplete image rows, noncanonical or repeated physical images. Synthetic independent brute force permutation instances test strict global injection conflicts. The original true seven-family GF5 census verifies the optimizer's finite optimum on 24 full genuinely injected right-factor states.
+
+**Full pinned W32 original S68 and S72 four-factor fibers:** rowwise guaranteed sum **7**, but exact min-cost injective image assignment **8** (+1 from compulsory global image distinctness); minimum independently enumerated actual selected distinct true ORIGINAL Q **8**, full original seven-family S minimum **68**. Thus JPKC-014 now certifies **S≥8** on both these exact finite 24-state fibers, not merely 7. Neither 8 nor the finite injection uplift establishes a universal all-h Ω(s⁶) result.
+
+The next mathematical task is to quantify genuine image-assignment uplift and true source-profile positive Q mass for blocks growing with s, not extrapolate the single W32 4×4 cost matrix.
