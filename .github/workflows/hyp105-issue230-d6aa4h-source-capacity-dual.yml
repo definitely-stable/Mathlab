@@ -80,6 +80,8 @@ jobs:
           exact=r["certified_exact_minimum_line_profile_cover"]
           assert 1<=exact["exact_minimum_original_line_profiles"]<=cover["greedy_profiles_used"]<=4
           assert exact["complete_search_for_all_smaller_cover_sizes"]
+          assert exact["exact_minimum_original_line_profiles"]==4
+          assert exact["undominated_original_profile_masks"]==34
           assert exact["dominance_pruning_is_exact_for_unit_cover"]
           assert exact["full_true_original_state_mask"]==(1<<24)-1
           masks=exact["exact_minimum_cover_masks"]
@@ -103,5 +105,11 @@ jobs:
                 exact["exact_minimum_original_line_profiles"],
                 "undominated masks",exact["undominated_original_profile_masks"],
                 "verified exhaustive smaller-cover exclusions")
+          print("EXACT VERIFIED ORIGINAL SOURCE PROFILE WITNESSES",
+                exact["exact_minimum_cover_named_profiles"])
+          print("EXACT VERIFIED ORIGINAL 24-STATE COVER MASKS",
+                exact["exact_minimum_cover_masks"])
+          assert __import__("functools").reduce(
+              int.__or__,exact["exact_minimum_cover_masks"],0)==(1<<24)-1
           print("W32 exact zero-slack SCALAR capacity cut NO-GO PASS")
           PY
