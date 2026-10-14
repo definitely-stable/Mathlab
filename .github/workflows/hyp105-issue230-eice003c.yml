@@ -1,0 +1,30 @@
+name: hyp105-issue230-eice003c-middle-transport
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  true-original-middle-transport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: EICE-003-C exact true ORIGINAL midpoint Gram and transport tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_middle_transport.py' -v
+      - name: Full ORIGINAL W32 midpoint source transport exact diagnostic
+        run: python research/hyp105_issue230_middle_transport.py
+      - name: EICE-003-B centered original-anchor correction regression
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_centered_anchor.py'
+      - name: EICE-002 whole-source G* original regularizer regression
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_paired_gstar.py'
