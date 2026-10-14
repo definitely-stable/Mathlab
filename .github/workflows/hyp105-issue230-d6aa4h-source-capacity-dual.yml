@@ -1,0 +1,95 @@
+name: hyp105-issue230-d6aa4h-source-capacity-dual
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4h_source_capacity_dual.py"
+      - "research/test_hyp105_issue230_d6aa4h_source_capacity_dual.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4H-SOURCE-CAPACITY-DUAL.md"
+      - ".github/workflows/hyp105-issue230-d6aa4h-source-capacity-dual.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-rational-cut-and-cover-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact rational multiplier independent randomized regression and X Y falsifiers
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4h_source_capacity_dual.py" -v
+          python research/hyp105_issue230_d6aa4h_source_capacity_dual.py > /tmp/aa4h-rational.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          o=json.load(open("/tmp/aa4h-rational.json"))
+          assert o["slice"]=="HYP105-ISSUE230-D6-AA4-H-SOURCE-CAPACITY-DUAL"
+          assert o["root_A"]==o["root_B"]=="OPEN"
+          assert o["all_h_weak_dual_only_for_valid_complete_coverage"]
+          assert not o["full_GF5_R3_proved"] and not o["ASET_exponent_proved"]
+          x=o["toy_s4"]
+          assert (x["true_physical_adjacency_upper"],x["D6Y_false_expected_adjacency"])==(963,1020)
+          assert x["D6Y_valid_cut_violation"]==57
+          assert x["image_cut_dual"]["optimal_one_cut_dual_lower"]=="1"
+          assert Fraction(x["image_cut_dual"]["nonnegative_exact_cut_multiplier"])==Fraction(1,57)
+          assert Fraction(x["lifted_column_cut_dual"]["nonnegative_exact_cut_multiplier"])==Fraction(182,5)
+          assert x["all_GF5_objectives_in_toys_are_synthetic"]
+          print("AA4-H EXACT RATIONAL D6-X/Y TOY CAPACITY DUAL PASS; NO ORIGINAL GF5 CLAIM")
+          PY
+  full-original-W32-source-line-profile-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaust full 24-state same-g ORIGINAL GF5 and independent named-line profile covers
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4h_source_capacity_dual.py --scheme "$SCHEME" > "/tmp/aa4h-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from fractions import Fraction
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4h-"+os.environ["SCHEME"]+".json").read_text())
+          r=x["true_original_W32"]
+          assert r["scheme"]==os.environ["SCHEME"]
+          assert r["complete_global_typed_injection_states"]==24
+          assert r["original_Q_candidates_evaluated_per_complete_state"]==62370
+          assert len(r["four_original_factor_ids"])==4
+          assert r["minimum_exact_complete_global_S"]==68
+          assert 0<=r["sum_independent_original_profile_minima"]<=68
+          assert r["sum_independent_original_profile_GF5_numerator_minima"]<=r["minimum_exact_complete_global_GF5_numerator"]
+          assert len(r["complete_all_24_true_original_S_scores"])==24
+          assert len(r["complete_all_24_true_GF5_numerator_scores"])==24
+          assert r["W32_full_physical_image_adjacent_pairs"]==60
+          cover=r["greedy_original_line_profile_cover"]
+          assert cover["complete_states_covered"]==24
+          assert cover["independently_verified_cover_mask"]==(1<<24)-1
+          assert cover["greedy_profiles_used"]==len(cover["greedy_selected_original_line_multisets"])
+          assert cover["minimum_size_NOT_claimed"]
+          scalar=r["scalar_image_capacity_dual_inability_to_close_relaxation_gap"]
+          assert Fraction(scalar["optimal_one_cut_dual_lower"])==r["sum_independent_original_profile_minima"]
+          assert scalar["nonnegative_exact_cut_multiplier"]=="0"
+          assert r["no_claim_about_multivariate_ORIGINAL_source_capacity_joint_LP"]
+          assert r["no_all_W32_or_all_h_universal_positive_result"]
+          print("SCHEME",r["scheme"],"block",r["four_original_factor_ids"])
+          print("S: independent line-profile min",r["sum_independent_original_profile_minima"],
+                "full globally coherent 24-state min",r["minimum_exact_complete_global_S"])
+          print("GF5 selected 51-column numerator: independent",r["sum_independent_original_profile_GF5_numerator_minima"],
+                "full globally coherent",r["minimum_exact_complete_global_GF5_numerator"])
+          print("ORIGINAL distinct accepted Q",r["distinct_original_Q_positive_in_any_state"],
+                "active named line profiles",r["active_original_six_incidence_line_profiles"])
+          print("Sparse verified greedy original-line profile cover",cover["greedy_profiles_used"],
+                "profiles, true complete 24 states covered")
+          print("W32 exact zero-slack SCALAR capacity cut NO-GO PASS")
+          PY
