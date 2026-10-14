@@ -233,7 +233,8 @@ def visibility_certificate(model, *, max_paths=2_000_000, max_sixsets=50_000,
             census["GF5_seven_lower_numerator"],
         "J40_exact_seven_GF5_necessary_weight_telescope": True,
         "positive_Q_invisible_to_JPKC010_bad_seed_ledger":
-            visibility[VISIBLE_OTHER] + visibility[INVISIBLE],
+            visibility[PROJECTION_ONLY] + visibility[VISIBLE_OTHER] +
+            visibility[INVISIBLE],
         "positive_Q_invisible_to_ALL_proper_P3":
             visibility[INVISIBLE],
         "original_positive_Q_with_broad_blocked_projection_P3":
@@ -304,9 +305,11 @@ def visibility_right_four_factor_fiber(scheme, *, states=None,
         "min_no_proper_P3_Q": min(
             row["partition"][INVISIBLE] for row in rows),
         "min_positive_Q_not_detected_by_endpoint_bad": min(
+            row["partition"][PROJECTION_ONLY] +
             row["partition"][VISIBLE_OTHER] + row["partition"][INVISIBLE]
             for row in rows),
         "max_positive_Q_not_detected_by_endpoint_bad": max(
+            row["partition"][PROJECTION_ONLY] +
             row["partition"][VISIBLE_OTHER] + row["partition"][INVISIBLE]
             for row in rows),
         "all_states": rows,
