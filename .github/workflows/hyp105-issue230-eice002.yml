@@ -1,0 +1,28 @@
+name: hyp105-issue230-eice002-paired-gstar
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  coherent-paired-gstar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: EICE-002 exact W32-W34 original provenance and all-h bounds
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_paired_gstar.py' -v
+      - name: Exact W32 paired regularizer diagnostic census
+        run: python research/hyp105_issue230_paired_gstar.py
+      - name: EICE-001 previous exact endpoint energy regression
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_endpoint_energy.py'
