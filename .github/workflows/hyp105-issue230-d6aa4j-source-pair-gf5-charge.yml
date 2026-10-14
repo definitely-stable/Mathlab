@@ -94,6 +94,10 @@ jobs:
                   assert weak is not None
                   assert weak["genuine_positive_seven_GF5_Q_with_both_source_factors"]==0
                   assert weak["independent_original_six_incidence_membership_oracle"]=="PASS"
+                  assert weak["original_source_pair"]==[5,10]
+                  assert weak["actual_global_physical_pair_labels_for_source_pair"]==[[1,3],[0,4]]
+                  assert weak["complete_global_source_state_index"]==0
+                  assert weak["historical_complete_original_seven_Q"]==72
                   print("PINNED TRUE ORIGINAL S72 LINE PAIR GF5 TRANSFER NO-GO",weak)
               print("PINNED TRUE ORIGINAL SAME PENCIL NO-GO",strong)
               print(r["scheme"],typ,"S min",r["minimum_original_seven_positive_Q"])
