@@ -18,6 +18,10 @@ class AnchorLiftTests(unittest.TestCase):
                 self.assertEqual(a['theta_internal_only'],
                                  old['theta_internal_only'])
                 self.assertEqual(a['anchor_carrier_size_each'],360)
+                self.assertLessEqual(a['clean_carrier_size_each'],360)
+                self.assertEqual(a['clean_carrier_size_each'],2*a['clean_original_endpoint_pairs'])
+                self.assertGreaterEqual(Fraction(a['A1_clean_slack']),0)
+                self.assertLessEqual(Fraction(a['A1_clean_slack']),Fraction(a['A1_slack']))
                 self.assertEqual(a['original_incidences_selected'],45)
                 self.assertEqual(a['physical_edges'],90)
                 self.assertGreaterEqual(Fraction(a['A1_slack']),0)
@@ -46,6 +50,8 @@ class AnchorLiftTests(unittest.TestCase):
                 self.assertEqual(row['physical_edges'],
                                  2*len(reg['original_incidence_ids']))
                 self.assertGreaterEqual(Fraction(row['A1_slack']),0)
+                self.assertGreaterEqual(Fraction(row['A1_clean_slack']),0)
+                self.assertGreaterEqual(Fraction(row['A1_clean_slack']),0)
 
     def test_real_eligible_anchor_carrier_count_all_h_finite(self):
         for s in (2,4,8,16,32,64):
