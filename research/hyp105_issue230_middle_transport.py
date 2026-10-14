@@ -6,6 +6,7 @@ No universal theta_I < 1-eta, no Branch A or ASET exponent.
 from collections import Counter, defaultdict
 from fractions import Fraction
 import json
+from math import log
 
 from hyp105_issue230_endpoint_energy import EndpointEnergy
 
@@ -18,6 +19,24 @@ def original_overlap(left, right):
 def original_overlap_gram(left, right, same_factor):
     """H H^T - I exact source intersection identity (including diagonal)."""
     return sum(int(x in right) for x in left) - int(same_factor)
+
+
+
+def list_information_lower_bound(theta, midpoint_sources, max_block_list):
+    """C6: Shannon list-decoding obstruction in nats, NOT a spectral bound.
+
+    Requires uniform true middle-original-source marginal. theta is the
+    full-law probability of being in the actual blocker list of the
+    eligible ORIGINAL endpoint row, with ineligible paths assigned ⊥.
+    """
+    if not (0 <= theta <= 1) or midpoint_sources < 1 or not (
+            1 <= max_block_list <= midpoint_sources):
+        raise ValueError('invalid source list information parameters')
+    if theta == 0 or theta == 1:
+        binary=0.0
+    else:
+        binary=-theta*log(theta)-(1-theta)*log(1-theta)
+    return theta*log(midpoint_sources/max_block_list)-binary
 
 
 class OriginalMiddleTransport:
@@ -179,6 +198,37 @@ class OriginalMiddleTransport:
         if theta!=signed_raw+beta_weight:
             raise AssertionError('C4 exact centered source-middle identity invalid')
 
+        # C6: exact ORIGINAL endpoint-symbol/middle-source joint law.
+        # Every ineligible physical path is grouped into a special ⊥ row.
+        # For *stationary* G* the column marginal is uniformly 1/M; apply
+        # Shannon's list bound, with float logs used ONLY for diagnostics
+        # (the all-h inequality is proved analytically in the document).
+        info_nats=None
+        info_lower_nats=None
+        if is_stationary:
+            row_source_eligible=defaultdict(Fraction)
+            for (q,r,e),wt in joint.items():
+                row_source_eligible[e] += wt
+            bottom={e:source_middle[e]-row_source_eligible[e] for e in E}
+            if any(w<0 for w in bottom.values()):
+                raise AssertionError('eligible ORIGINAL midpoint mass > all NB midpoint mass')
+            bottom_mass=Z-elig
+            if bottom_mass != sum(bottom.values(),Fraction()):
+                raise AssertionError('ineligible endpoint ⊥ row marginal wrong')
+            info_nats=0.0
+            for (q,r,e),wt in joint.items():
+                if wt:
+                    m_row=end_t[q,r]
+                    info_nats += float(wt/Z)*log(float(Fraction(wt*M,m_row)))
+            if bottom_mass:
+                for e,w in bottom.items():
+                    if w:
+                        info_nats += float(w/Z)*log(float(Fraction(w*M,bottom_mass)))
+            info_lower_nats=list_information_lower_bound(
+                float(theta/Z),M,source_row_bound)
+            if info_nats+1e-10 < info_lower_nats:
+                raise AssertionError('C6 original midpoint Shannon list bound invalid')
+
         # A stationary full-graph midpoint marginal is exactly 1/M, but
         # the TRUE conditional endpoint/source transport can be correlated.
         # No theorem bounds its signed covariance on valid G*.
@@ -209,6 +259,10 @@ class OriginalMiddleTransport:
             'all_h_source_gram_rank_upper':a,
             'source_gram_shift_eigenvalue':'-1 on kernel(H^T), multiplicity >= V-a',
             'middle_uniform_alone_proves_gap':False,
+            'C6_info_nats_diagnostic':info_nats,
+            'C6_list_lower_nats_diagnostic':info_lower_nats,
+            'C6_log_base':'natural',
+            'C6_info_theorem_requires_unconditional_stationary':True,
             'root_Branch_A_proved':False,
         }
 
