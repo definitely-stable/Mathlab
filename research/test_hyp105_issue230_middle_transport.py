@@ -8,6 +8,7 @@ from hyp105_issue230_anchor_lift import AnchorLiftedEnergy
 from hyp105_issue230_endpoint_energy import EndpointEnergy
 from hyp105_issue230_middle_transport import (
     OriginalMiddleTransport, midpoint_only_no_go, list_information_lower_bound,
+    binary_relative_entropy,
     original_overlap, original_overlap_gram, report
 )
 from hyp105_issue230_paired_gstar import paired_gstar
@@ -139,6 +140,9 @@ class OriginalMiddleTransportTests(unittest.TestCase):
         self.assertTrue(isclose(list_information_lower_bound(1.0,8,8),0.0))
         with self.assertRaisesRegex(ValueError,'invalid source list'):
             list_information_lower_bound(.5,8,9)
+        self.assertTrue(isclose(binary_relative_entropy(1.0,.25),log(4)))
+        self.assertEqual(binary_relative_entropy(0.0,0.0),0)
+        self.assertEqual(binary_relative_entropy(1.0,1.0),0)
 
     def test_stationary_real_W32_information_ledger(self):
         for scheme in ('lex','reverse','S68','S72'):
@@ -150,9 +154,14 @@ class OriginalMiddleTransportTests(unittest.TestCase):
                     row['C6_info_nats_diagnostic']+1e-10,
                     row['C6_list_lower_nats_diagnostic'])
                 self.assertEqual(row['C6_log_base'],'natural')
+                self.assertGreaterEqual(
+                    row['C6_info_nats_diagnostic']+1e-10,
+                    row['C7_binary_data_processing_kl_nats'])
+                self.assertGreaterEqual(row['C7_binary_data_processing_kl_nats'],0)
             else:
                 self.assertIsNone(row['C6_info_nats_diagnostic'])
                 self.assertIsNone(row['C6_list_lower_nats_diagnostic'])
+                self.assertIsNone(row['C7_binary_data_processing_kl_nats'])
 
     def test_standalone_report_honest_root_gate(self):
         data=report()
