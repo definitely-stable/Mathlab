@@ -82,6 +82,26 @@ On two **different frozen-outside all-four-original-LINE blocks** selected by AA
 
 The earlier JPKC-012 PR #443 found a positive independent source-profile floor for one pinned S68 block (11) and zero for another S72 block; the different selected S68 block here has independent floor ZERO. These statements are not contradictory: ORIGINAL source factor blocks and frozen outside labelings differ. Never conflate the two experimental protocols.
 
+
+### Explicit four-by-six ORIGINAL source profile partition witnesses
+
+The final dedicated GitHub-hosted exact census recorded the following complete witnesses. Each six-integer tuple is the sorted multiset of **SIX ORIGINAL right-line incidence IDs** in actual accepted source Q (repeated line factors must NOT be deduplicated). Each integer mask records which of the 24 genuine globally coherent full K6 label assignments has at least one positive ORIGINAL Q in that source line profile.
+
+| Scheme | True original SIX right-line factor multiset | Exact 24-state mask | Number of covered maps |
+|---|---|---:|---:|
+| S68 | (0,0,3,5,6,7) | 16515072 | 6 |
+| S68 | (0,0,3,10,11,14) | 4032 | 6 |
+| S68 | (0,2,4,5,6,9) | 63 | 6 |
+| S68 | (0,2,9,11,12,12) | 258048 | 6 |
+| S72 | (0,0,3,5,8,14) | 16515072 | 6 |
+| S72 | (0,0,6,11,13,14) | 258048 | 6 |
+| S72 | (0,2,3,4,10,11) | 4032 | 6 |
+| S72 | (0,2,5,6,12,13) | 63 | 6 |
+
+For BOTH real original W32 schemes the selected four masks are exactly the disjoint collection 63, 4032, 258048 and 16515072. Each has SIX set bits, each pairwise bitwise AND is ZERO, and their bitwise OR equals 16777215 = 2^24-1. This yields a **constructive exact partition of all 24 completed source assignments into four distinct six-state witness families**; the masked sets coincide with the four possible physical images of the FIRST changed ORIGINAL right-line factor in the deterministic permutation ordering, with 3!=6 states per image.
+
+**Separate exact MINIMALITY:** after reducing the active source-profile masks by legitimate dominance, BOTH S68/S72 have 34 inclusion-maximal candidate state masks. An independent exhaustive search over all size 1,2,3 subsets of these masks found no complete cover; the displayed size-4 partition proves that the minimum is EXACTLY FOUR. This is a stronger *finite combinatorial hitting certificate* than mere greedy upper bound. No claim is made that four positive Q always coexist in any single state: on each complete state only its matching selected profile is guaranteed active.
+
 ## 5. Acceptance and next stage
 
 Files: research/hyp105_issue230_d6aa4h_source_capacity_dual.py; research/test_hyp105_issue230_d6aa4h_source_capacity_dual.py; dedicated GitHub-hosted workflow and this proof note. Independent rational tests compare optimum against every feasible candidate in random rational samples, demand exact price/cut signs, and reject missing valid rows, malformed source profiles, false universal scope and zero-slack W32 positive-inference.
