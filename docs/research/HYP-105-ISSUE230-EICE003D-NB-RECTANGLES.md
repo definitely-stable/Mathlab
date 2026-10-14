@@ -77,7 +77,34 @@ If P=0 then I(X;E)=0, and the formula is interpreted continuously. This is an AL
 
 For the explicit EICE-002 all-h constants d_*>=(10^(-6))s and C_clean<=V²=O(s^6), the D4 upper is at best (4+o(1))*log(s)+O(1) when P=1, while EICE-003-C C6 forces only (3/2-o(1))*log s-O(1) if theta_I=1-o(1). **The entropy gap is too large to prove Branch A.** Thus it is INVALID to claim that merely finding an information upper bound settles HYP-105: this particular bound demonstrably does not.
 
-## D5 — limits of the local matching improvement
+## D5 — near-complete TRUE ORIGINAL endpoint decoding on every rectangle
+
+The physical alphabet size a is MINIMAL with binom(a,2)>=V. Both globally injective original maps f,g use exactly V distinct physical pairs each, so on either side the number of absent physical pairs is
+
+    u=binom(a,2)-V,           0<=u<a-1=O(s^(3/2)).
+
+For any fixed oriented middle edge u0→v0 in the EICE-002 coherent graph, put A=N(u0)\{v0}, B=N(v0)\{u0}. By the SAME bichromatic coordinate cuts and neighbor-coordinate injectivity used to prove D2, distinct cells (w,z)∈A×B create DISTINCT left physical pairs {x(w),x(z)}, and also distinct right physical pairs {y(w),y(z)} — this remains true even for physical pairs NOT used by f or g. Thus:
+
+- at most u cells have an absent true ORIGINAL endpoint point q=f^-1({x(w),x(z)});
+- at most u cells have an absent true ORIGINAL endpoint line r=g^-1({y(w),y(z)});
+- at most 2u cells lack one or both ORIGINAL endpoints.
+
+Each rectangle has exactly (deg(u0)-1)(deg(v0)-1) cells. Hence its fraction with an undefined true original endpoint is at most
+
+    min(1, 2u/[(deg(u0)-1)(deg(v0)-1)]).            (D5-local)
+
+Under the genuine stationary law and active d_*>=2, averaging across the four equally weighted oriented middle edges per ORIGINAL middle incidence gives
+
+    Pr[at least one ORIGINAL endpoint absent]
+       <= min(1, 2u/(d_*-1)^2).                    (D5)
+
+This also holds under the *surviving*-walk conditional law if one replaces d_*-1 by the minimum positive number of outward choices among middle edges having a nonempty rectangle; do NOT use the stationary expression when d_*=1.
+
+For EICE-002's all-h d_*>=delta*s and a<=2s^(3/2) with fixed delta>0, D5 is O(s^(-1/2)) as h→∞. This is a real asymptotically negligible source of failure of original endpoint closure even under COMPLETELY adversarial correlated f,g. At W(3,2), a=6 and V=15=binom(6,2), so u=0: every coordinate-proper rectangle cell has BOTH original endpoint labels. This does NOT imply the endpoint factors are nonincident or their unique GQ projection end-clean; D5 does NOT bound endpoint incidence, end-dirty anchor, or internal blocking.
+
+Implementation separately counts missing left/right/either endpoints by exact Fraction weights, checks true distinct complete-K_a physical pairs per rectangle (including unused labels), checks local u/u/2u source-pair capacity and the stationary D5 inequality.
+
+## D6 — limits of the local matching improvement
 
 The EICE-003-C relaxed transport with one original endpoint pair for each middle source e, uniformly, has a degree-one endpoint matching column and can still have 100% abstract blocked mass. Therefore **D2 matching columns + C3 uniform middle marginal + C2 sparse original overlap rows** are NOT, by themselves, a valid proof of a gap. The additional simultaneous physical rectangle-product origin and end-clean conditions in D1 remain essential.
 
@@ -91,8 +118,8 @@ None of these three is solved here.
 
 ## Implementation and acceptance
 
-- \`research/hyp105_issue230_nb_rectangles.py\`: deterministic validation of two actual coordinate cuts, source-pair provenance, exact independent-neighbour rectangle product weights and original endpoint decoders, D2 injective per-oriented-edge q/r matching, D3 strict stationary atom ceiling, optional true D4 information diagnostic.
-- \`research/test_hyp105_issue230_nb_rectangles.py\`: four real original W(3,2) global injection fixtures, genuine W(3,4) lex/random, independent full NB3 path enumeration that must match original rectangle transport exactly in Fraction arithmetic, strict negative tests for full-G cherries / incorrect coordinate cuts / bad global injections, and small abstract D4 scaling checks.
+- \`research/hyp105_issue230_nb_rectangles.py\`: deterministic validation of two actual coordinate cuts, source-pair provenance, exact independent-neighbour rectangle product weights and original endpoint decoders, D2 injective per-oriented-edge q/r matching, D3 strict stationary atom ceiling, true D5 minimal-alphabet original endpoint completion, optional D4 information diagnostic.
+- \`research/test_hyp105_issue230_nb_rectangles.py\`: four real original W(3,2) global injection fixtures, genuine W(3,4) lex/random, independent full NB3 path enumeration that must match original rectangle transport exactly in Fraction arithmetic, strict negative tests for full-G cherries / incorrect coordinate cuts / bad global injections, D5 full K6 original label coverage and W34 missing true original endpoint tests, and small abstract D4 scaling checks.
 - \`docs/research/HYP-105-ISSUE230-EICE003D-NB-RECTANGLES.md\`: mathematical proofs and limitations.
 - \`.github/workflows/hyp105-issue230-eice003d.yml\`: GitHub-hosted focused CI and unchanged-parent regressions.
 
