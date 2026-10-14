@@ -146,6 +146,59 @@ class AnchorLiftedEnergy:
             raise AssertionError('A3 nonnegative conditional-coordinate residual violated')
         if clean_pairs and T2 < (eligible/total)**2/len(clean_pairs):
             raise AssertionError('original end-clean marginal CS lower violated')
+        # B1/B2: CENTERED source-anchor covariance. End-clean proper paths
+        # have x1 outside f(q), y1 outside g(r): use n=a-2, NOT a.
+        # The following quantities are EXACT rationals, no sqrt/roundoff.
+        P = eligible/total
+        n = ctx.a-2
+        if n < 2:
+            raise AssertionError('proper endpoint coordinate alphabet too small')
+        delta_f = Cf - Fraction(2,n)*P
+        delta_g = Cg - Fraction(2,n)*P
+        reduced_residual_f = Af - T2/n
+        reduced_residual_g = Ag - T2/n
+        if reduced_residual_f < 0 or reduced_residual_g < 0:
+            raise AssertionError('reduced-support source-coordinate Parseval invalid')
+        reduced_R = reduced_residual_f + reduced_residual_g
+        uncentered_baseline = Fraction(8,n)*P
+        centered_excess = max(Fraction(), theta-uncentered_baseline)
+        centered_covariance = delta_f+delta_g
+        if theta > uncentered_baseline+2*centered_covariance:
+            raise AssertionError('reversal-invariant anchor union versus signed covariance')
+        # Delta_f + Delta_g is the EXACT projection against the centered
+        # 2-coordinate ORIGINAL GQ anchor indicator on the a-2 legal labels.
+        # Its Gram norm squared is 2*C_clean*(2-4/n)*reduced_R.
+        covariance_budget = 2*len(clean_pairs)*(2-Fraction(4,n))*reduced_R
+        if centered_covariance**2 > covariance_budget:
+            raise AssertionError('B1 centered anchor covariance CS violation')
+        excess_budget = 16*len(clean_pairs)*(1-Fraction(2,n))*reduced_R
+        if centered_excess**2 > excess_budget:
+            raise AssertionError('B1 centered anchor energy obstruction violated')
+        # B2: a weighted conditional chi-square residual. Handles
+        # concentration of endpoint masses without multiplying by C_clean.
+        raw_squares_f = defaultdict(Fraction)
+        raw_squares_g = defaultdict(Fraction)
+        for (q,r,x),mass in raw_f.items():
+            raw_squares_f[q,r] += mass*mass
+        for (q,r,y),mass in raw_g.items():
+            raw_squares_g[q,r] += mass*mass
+        Qf = (sum(raw_squares_f[key]/t for key,t in endpoint_mass.items())
+              / total - P/n)
+        Qg = (sum(raw_squares_g[key]/t for key,t in endpoint_mass.items())
+              / total - P/n)
+        if Qf < 0 or Qg < 0:
+            raise AssertionError('B2 negative conditional chi-square residual')
+        q_excess_budget = 16*P*(1-Fraction(2,n))*(Qf+Qg)
+        if centered_excess**2 > q_excess_budget:
+            raise AssertionError('B2 weighted conditional chi-square CS violated')
+        if not (reduced_R <= residual_f+residual_g):
+            raise AssertionError('reduced-support residual must improve A3')
+        # Full-a version follows as a consequence from reduced-support
+        # centered inequality and can also be checked independently.
+        excess_a = max(Fraction(),theta-Fraction(8,ctx.a)*P)
+        a_budget = 16*len(clean_pairs)*(1-Fraction(2,ctx.a))*(residual_f+residual_g)
+        if excess_a**2 > a_budget:
+            raise AssertionError('A4 full-alphabet centered energy violated')
         return {
             's':ctx.s, 'N':ctx.N,
             'original_incidences_selected':len(ctx.selected),
@@ -168,6 +221,23 @@ class AnchorLiftedEnergy:
             'left_coordinate_residual':str(residual_f),
             'right_coordinate_residual':str(residual_g),
             'A3_parseval_validated':True,
+            'B1_B2_centered_validated':True,
+            'proper_internal_alphabet_n':n,
+            'proper_endpoint_uniform_baseline_2T2_over_n':str(Fraction(2,n)*T2),
+            'proper_left_coordinate_residual':str(reduced_residual_f),
+            'proper_right_coordinate_residual':str(reduced_residual_g),
+            'anchor_covariance_left':str(delta_f),
+            'anchor_covariance_right':str(delta_g),
+            'anchor_covariance_total':str(centered_covariance),
+            'proper_uniform_union_baseline':str(uncentered_baseline),
+            'centered_excess':str(centered_excess),
+            'B1_excess_budget':str(excess_budget),
+            'B1_slack':str(excess_budget-centered_excess**2),
+            'conditional_chisquare_Q_f':str(Qf),
+            'conditional_chisquare_Q_g':str(Qg),
+            'B2_excess_budget':str(q_excess_budget),
+            'B2_slack':str(q_excess_budget-centered_excess**2),
+            'A4_full_a_slack':str(a_budget-excess_a**2),
             'N_s2_times_anchor_energy':str(ctx.N*ctx.s**2*(Af+Ag)),
             'unlifted_same_restricted_f':str(unlifted_f),
             'unlifted_same_restricted_g':str(unlifted_g),
