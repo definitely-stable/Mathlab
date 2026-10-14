@@ -1,0 +1,95 @@
+name: hyp105-issue230-jpkc012-original-incidence-tensor
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc012_incidence_tensor.py"
+      - "research/test_hyp105_issue230_jpkc012_incidence_tensor.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-012-INCIDENCE-TENSOR.md"
+      - ".github/workflows/hyp105-issue230-jpkc012-original-incidence-tensor.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  full-W32-original-incidence-tensor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original left exact cover independent seven GF5 class tests, fail closed
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc012_incidence_tensor.py' -v
+      - name: Exact independent source incidence tensor W32 class/floor report
+        run: |
+          python research/hyp105_issue230_jpkc012_incidence_tensor.py > /tmp/jpkc012.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/jpkc012.json"))
+          assert x["slice"]=="JPKC-012" and len(x["records"])==4
+          assert x["direct_tensor_no_physical_P3_needed"] and not x["root_A_proved"]
+          pins={"lex":259,"reverse":169,"S68":68,"S72":72}
+          for r in x["records"]:
+              assert r["left_candidate_original_Q"]==62370
+              assert r["left_pattern_histogram"]=={"left_pattern_A":70,"left_pattern_B":45,"left_pattern_C":15}
+              assert r["complete_W32_true_original_S"]==pins[r["scheme"]]
+              dims=(21950,29523,20317) if r["scheme"] in ("lex","reverse") else (17890,25032,21369)
+              assert (r["source_line_profiles"],r["sparse_right_profile_rows"],r["positional_D6_dual_rows"])==dims
+              assert r["independent_original_seven_census_confirmed"]
+              assert r["one_global_right_factor_assignment_shared_by_all_original_Q"]
+          print(json.dumps([{
+              "scheme":r["scheme"],"S":r["complete_W32_true_original_S"],
+              "classes":r["original_seven_classes"],
+              "GF5":r["GF5_51_column_certified_floor_numerator"],
+              "line_source_profiles":r["source_line_profiles"],
+              "tensor_rows":r["sparse_right_profile_rows"],
+              "D6_dual_rows":r["positional_D6_dual_rows"],
+          } for r in x["records"]],indent=2,sort_keys=True))
+          PY
+
+  coherent-source-profile-fiber:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All 24 globally injected ORIGINAL right factor states and tensor minimax
+        run: |
+          python research/hyp105_issue230_jpkc012_incidence_tensor.py --fiber ${{ matrix.scheme }} > /tmp/jpkc012-fiber.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/jpkc012-fiber.json"))["fiber"]
+          assert x["complete_24_state_global_fiber"]
+          assert x["actual_globally_injective_right_maps"]==24
+          assert x["exact_min_full_seven_S"]==68
+          expected={"S68":(11,57),"S72":(0,68)}[x["scheme"]]
+          assert (x["sum_of_independent_right_source_profile_minima"],
+                  x["exact_global_source_profile_coherence_gap"])==expected
+          assert x["greedy_profile_cover_exactly_covers_examined_global_states"]
+          assert sum(row["new_globally_legal_fiber_states_covered"] for row in
+                     x["greedy_all_global_states_positive_source_profile_cover"])==24
+          assert x["exact_min_full_seven_S"]==x["sum_of_independent_right_source_profile_minima"]+x["exact_global_source_profile_coherence_gap"]
+          print(json.dumps({
+              "scheme":x["scheme"],"maps":24,
+              "min_true_S":x["exact_min_full_seven_S"],
+              "sum_profile_min":x["sum_of_independent_right_source_profile_minima"],
+              "coherence_gap":x["exact_global_source_profile_coherence_gap"],
+              "forced_single_original_line_profiles":
+                  x["globally_unavoidable_single_right_source_profiles"],
+              "greedy_cover_size":
+                  len(x["greedy_all_global_states_positive_source_profile_cover"])
+          },indent=2,sort_keys=True))
+          PY
