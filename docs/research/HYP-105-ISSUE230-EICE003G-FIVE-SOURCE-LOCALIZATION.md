@@ -8,7 +8,7 @@ For the genuine original W(3,s), globally injective original point/line maps f,g
 
     (w_i,u,v,z_j),  i,j∈{0,1}.
 
-The physical edges in these four 3-paths are **exactly five**: \`{u,v}, {u,w0}, {u,w1}, {v,z0}, {v,z1}\`. Each physical edge has exactly one TRUE original source incidence ID under the global f,g injection. Moreover these five IDs are **different**: a single original (p,l) yields only two opposite physical diagonals, which have no shared physical vertex; the five edges here all share either u or v with another selected edge. Consequently, all five original source IDs are distinct (this is independently checked, not silently assumed).
+The physical edges in these four 3-paths are **exactly five**: \`{u,v}, {u,w0}, {u,w1}, {v,z0}, {v,z1}\`. Each physical edge has exactly one TRUE original source incidence ID under the global f,g injection. Moreover these five IDs are **different**. An original (p,l) has two vertex-disjoint physical diagonals, so source repetitions cannot occur among edges sharing u or among those sharing v, nor between the middle edge and an arm. The only remaining possible repetition would pair one u-arm (u,w_i) with one disjoint v-arm (v,z_j); their ORIGINAL point physical labels would then satisfy f(p)={x(u),x(w_i)}={x(v),x(z_j)}. But the NB3 path w_i-u-v-z_j is coordinate-proper, so its four x-coordinates are distinct, a contradiction. Thus all five source IDs are distinct, including across opposite arms (checked explicitly in CI).
 
 Take the **paired source restriction** consisting of these five true original incidences and **BOTH** their physical diagonals. It still satisfies:
 - both globally fixed physical coordinate cuts used by G*;
