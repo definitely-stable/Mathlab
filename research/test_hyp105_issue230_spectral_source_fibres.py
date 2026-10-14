@@ -72,6 +72,11 @@ class OriginalSpectralFibresTests(unittest.TestCase):
                     topology['original_point_count']+
                     topology['original_line_count']-
                     topology['original_components'],5)
+                self.assertEqual(topology['original_point_degree_sequence'],
+                                 (1,1,1,1,1))
+                self.assertEqual(topology['original_line_degree_sequence'],
+                                 (1,1,1,1,1))
+                self.assertEqual(topology['original_components'],5)
                 self.assertTrue(row['original_middle_source_ids'])
                 for e in row['original_middle_source_ids']:
                     if e not in middle_cache:
@@ -98,8 +103,26 @@ class OriginalSpectralFibresTests(unittest.TestCase):
                     'max_spectral_source_fibre_size_used_by_blocked_family'],
                     data['max_spectral_source_fibre_size_ALL_true_middle_incidences'])
                 self.assertEqual(sum(data['source_forest_profiles'].values()),expected)
+                self.assertTrue(data[
+                    'H2_all_blocked_five_source_families_true_original_matchings_verified'])
+                self.assertEqual(len(data['source_forest_profiles']),1)
                 self.assertFalse(data['empirical_middle_fibre_uniform_o_s4_cap_proved'])
                 self.assertFalse(data['universal_GF5_sixset_transfer_proved'])
+
+    def test_H2_matching_restriction_is_NOT_all_five_original_GQ_edges(self):
+        # Arbitrary true source incidences can share a GQ point. The
+        # stronger matching is asserted ONLY for actual coherent physical
+        # 2x2 NB3 source footprints, never for all five-edge GQ forests.
+        ctx=EndpointEnergy(fixture(2,'lex'))
+        original_p=0
+        lines=sorted(ctx.point_lines[original_p])
+        self.assertEqual(len(lines),5)
+        ids=[ctx.edge_id[original_p,l] for l in lines]
+        topology=source_forest_signature(ctx,ids)
+        self.assertTrue(topology['acyclic_original_forest'])
+        self.assertEqual(topology['original_point_degree_sequence'],(5,))
+        self.assertEqual(topology['original_line_degree_sequence'],(1,1,1,1,1))
+        self.assertEqual(topology['original_components'],1)
 
     def test_H3_W32_finite_absence_is_only_map_specific(self):
         for scheme in ('lex','reverse','S68','S72'):
