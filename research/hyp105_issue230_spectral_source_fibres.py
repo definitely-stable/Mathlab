@@ -203,6 +203,15 @@ def finite_fibre_and_family_report(model, *, exact_polynomial=True,
     for fam in families:
         ids=tuple(fam["original_incidence_ids"])
         fs=source_forest_signature(ctx,ids)
+        # H2-MATCH: a coherent 2x2 physical NB3 five-source footprint
+        # is not merely an ORIGINAL GQ forest; it is an ORIGINAL MATCHING.
+        # Same-side shared factors violate neighbor-coordinate uniqueness;
+        # opposite-side ones force a central factor repeated, destroying
+        # physical coordinate-properness.
+        if (fs["original_point_degree_sequence"]!=(1,1,1,1,1) or
+                fs["original_line_degree_sequence"]!=(1,1,1,1,1) or
+                fs["original_components"]!=5):
+            raise AssertionError("H2-MATCH five ORIGINAL source incidence IDs not a matching")
         profile=(fs["original_point_degree_sequence"],
                  fs["original_line_degree_sequence"],
                  fs["original_components"])
@@ -253,6 +262,7 @@ def finite_fibre_and_family_report(model, *, exact_polynomial=True,
         "max_spectral_source_fibre_size_used_by_blocked_family":max_used,
         "max_comb_four_arm_capacity_per_used_middle":max_possible_four,
         "source_forest_profiles":dict(sorted(profile_counts.items())),
+        "H2_all_blocked_five_source_families_true_original_matchings_verified":True,
         "top_10_shared_outer_original_source_ids":role_counts.most_common(10),
         "empirical_middle_fibre_uniform_o_s4_cap_proved":False,
         "universal_GF5_sixset_transfer_proved":False,
