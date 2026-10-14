@@ -12,13 +12,16 @@ JPKC-011 must count ORIGINAL six-incidence sets Q (not source-demand pairs, sign
 
 Fix actual original W(3,s), s=2^h, and complete globally injective f,g into unordered physical coordinate pairs. Given an accepted ORIGINAL six-incidence set Q, let `P(Q)` be its set of **oriented, distinct 4-vertex physical graph 3-paths** whose three distinct ORIGINAL incidence IDs T are a subset of Q and whose four row AND four column coordinates are both distinct. Status of a path is determined by the **same** genuine original projection (q,r): `missing`, `incident`, `blocked_left_only`, `blocked_right_only`, `blocked_both`, or `unblocked`.
 
-Partition each positive Q into mutually exclusive classes:
+Partition each positive Q into FOUR mutually exclusive classes with strict priority:
 
-- `endpoint_bad_visible`: P(Q) contains a `blocked_*` original GQ projection path.
-- `other_proper_only`: P(Q) is nonempty but contains **no** blocked path.
+- `endpoint_factor_bad_visible`: P(Q) contains a path with genuine ORIGINAL nonincident anchor q,r and an endpoint factor-label collision `f[q] ∩ f[p] != ∅` or `g[r] ∩ g[l] != ∅`, where (p,l) is the unique ORIGINAL GQ projection. This is the **exact JPKC-005/JPKC-010** endpoint-bad definition.
+- `projection_blocked_but_not_endpoint_factor_bad`: P(Q) has a GQ path with `blocked_*` status because p/l intersects one of the four path coordinates, but NO endpoint-factor-bad witness. The collision can be purely internal.
+- `other_proper_only`: P(Q) is nonempty but has no blocked projection path.
 - `no_proper_P3`: P(Q) is empty.
 
-For every fixed globally coherent original labeling, and every accepted seven-class j, `S_j = S_j,bad + S_j,other + S_j,invisible`; therefore `S = S_bad + S_other + S_invisible`. This is all-h **exact partition algebra**, not a lower bound on the value of any term.
+For every fixed globally coherent original labeling and each accepted seven-class j, `S_j = S_j,factor_bad + S_j,projection_only + S_j,other + S_j,invisible`. This is all-h **exact partition algebra**, not a lower bound on any term.
+
+**Critical independently falsified distinction:** the original JPKC-010 endpoint-bad seed has a source-factor endpoint collision, whereas the JPKC-002 broad projection `blocked_*` checks intersections with **all four** physical path symbols. On the first GitHub-hosted W32 scan the broader projection caught 73 (lex), 35 (reverse), 5 (S68) original positive Q, versus JPKC010 only 68/31/4. We now separate these cases and require strict equality of the factor-bad bin with independent JPKC010. This is a genuine new physical/source visibility nuance, not merely a spelling correction.
 
 ## 3. J39 — all-h structural C-half proper-P3 invisibility
 
@@ -57,3 +60,5 @@ W(3,4) selected physical seeds from JPKC-010 are **not** a full original W34 sev
 This is a **restricted theorem C / finite exact structural decomposition**, not Root A or B. If most positive ORIGINAL Q are `no_proper_P3`, next develop a direct GF5 six-factor source tensor counting argument rather than revisiting Hall star demand counts. If many are `other_proper_only`, investigate incident/unblocked physical P3 seed charging and BB original GQ canonical closure; keep f,g globally coherent. Do not promote W32 24-state positivity to an all-h theorem.
 
 Acceptance: exact FINAL-HEAD GitHub-hosted dedicated, INDEX, Proof Audit, full Research all SUCCESS, independent mathematical audit. Root #230/#176/#169 OPEN. No merge.
+
+**2026-10-14 CI-found source-vs-physical subtlety:** original endpoint factor-pair intersections are narrower than full physical 4-coordinate projection blocks. This was independently exposed by the initial failed regression; both are now separate true-original strata with no claim about asymptotic sizes.

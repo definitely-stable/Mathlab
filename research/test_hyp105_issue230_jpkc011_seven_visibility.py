@@ -8,7 +8,7 @@ from hyp105_issue230_jpkc010_mixed_positive_transfer import (
 )
 from hyp105_issue230_jpkc011_seven_visibility import (
     visibility_certificate, visibility_right_four_factor_fiber,
-    STATES, ALL_TAGS, C_HALF_TAGS, BB_TAGS, VISIBLE_BAD,
+    STATES, ALL_TAGS, C_HALF_TAGS, BB_TAGS, VISIBLE_BAD, PROJECTION_ONLY,
     VISIBLE_OTHER, INVISIBLE,
 )
 from hyp105_g5e2b3e1b0_seven_signature import R3_CERTIFIED_FLOORS
@@ -34,8 +34,18 @@ class OriginalSevenVisibilityTests(unittest.TestCase):
                                  x["J40_full_original_GF5_floor_numerator"])
                 self.assertEqual(x["positive_Q_invisible_to_JPKC010_bad_seed_ledger"],
                                  x["complete_original_positive_seven_S"]-bad)
+                self.assertEqual(
+                    x["original_positive_Q_with_broad_blocked_projection_P3"],
+                    x["J38_complete_original_Q_visibility_partition"][VISIBLE_BAD] +
+                    x["J38_complete_original_Q_visibility_partition"][PROJECTION_ONLY])
                 self.assertEqual(x["accepted_original_sixsets_exactly_once"],
                                  x["complete_original_positive_seven_S"])
+                if scheme in ("lex", "reverse", "S68"):
+                    self.assertEqual(
+                        x["original_positive_Q_with_broad_blocked_projection_P3"],
+                        {"lex": 73, "reverse":35, "S68":5}[scheme])
+                    self.assertGreater(
+                        x["J38_complete_original_Q_visibility_partition"][PROJECTION_ONLY], 0)
                 if scheme in expected_S:
                     self.assertEqual(x["complete_original_positive_seven_S"],
                                      expected_S[scheme])
@@ -50,6 +60,7 @@ class OriginalSevenVisibilityTests(unittest.TestCase):
                 self.assertEqual(set(tags), set(ALL_TAGS))
                 for cls in C_HALF_TAGS:
                     self.assertEqual(tags[cls][VISIBLE_BAD], 0)
+                    self.assertEqual(tags[cls][PROJECTION_ONLY], 0)
                     self.assertEqual(tags[cls][VISIBLE_OTHER], 0)
                     self.assertEqual(tags[cls][INVISIBLE],
                                      tags[cls]["all_positive_original_Q"])

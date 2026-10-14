@@ -2,8 +2,8 @@
 
 A global actual ORIGINAL incidence sixset Q, not a selected physical path,
 is the counting unit. For each legally globally injected f,g, stratify
-every positive W32 Q into endpoint-bad-visible, other-proper-only, or
-completely proper-P3-invisible. Full W32 census ONLY.
+every positive W32 Q into source-endpoint-factor-bad-visible, projection-blocked-only,
+other-proper-only, or completely proper-P3-invisible. Full W32 census ONLY.
 
 J38 is the all-h exact partition identity, J39 the all-h C-half structural
 invisibility (and endpoint-bad B/B exclusion via J15/J17), J40 the exact
@@ -27,10 +27,11 @@ from hyp105_g5e2b3e1b0_seven_signature import (
     seven_census, R3_CERTIFIED_FLOORS,
 )
 
-VISIBLE_BAD = "endpoint_bad_visible"
+VISIBLE_BAD = "endpoint_factor_bad_visible"
+PROJECTION_ONLY = "projection_blocked_but_not_endpoint_factor_bad"
 VISIBLE_OTHER = "other_proper_only"
 INVISIBLE = "no_proper_P3"
-STATES = (VISIBLE_BAD, VISIBLE_OTHER, INVISIBLE)
+STATES = (VISIBLE_BAD, PROJECTION_ONLY, VISIBLE_OTHER, INVISIBLE)
 ALL_TAGS = tuple(R3_CERTIFIED_FLOORS)
 C_HALF_TAGS = frozenset(("C/A", "C/B"))
 BB_TAGS = frozenset(("B/B-overlap", "B/B-disjoint"))
@@ -62,6 +63,26 @@ def _global_proper_source_path_index(ctx, *, max_paths):
     if any(len(v) != 2 for v in by_T.values()):
         raise AssertionError("J18 valid source triple must have exactly two oriented reversals")
     return by_T, {k: status_counts[k] for k in GOOD}
+
+
+def _is_jpkc010_endpoint_factor_bad(ctx, path, status):
+    """EXACT JPKC-005/010 source anchor badness, NOT broad projection status.
+
+    A projection may be blocked because p/l intersects an INTERNAL physical
+    path coordinate, yet the original endpoint q/r physical pair label
+    is disjoint from p/l. Such paths are NOT JPKC-010 endpoint-bad seeds.
+    """
+    if status not in BLOCKED:
+        return False
+    u, _, _, v = path
+    a = ctx.a
+    q = ctx.fi.get(tuple(sorted((u // a, v // a))))
+    r = ctx.gi.get(tuple(sorted((u % a, v % a))))
+    if q is None or r is None or (q, r) not in ctx.projection:
+        return False
+    p, l = ctx.projection[q, r]
+    return bool(set(ctx.f[q]) & set(ctx.f[p])) or bool(
+        set(ctx.g[r]) & set(ctx.g[l]))
 
 
 def visibility_certificate(model, *, max_paths=2_000_000, max_sixsets=50_000,
@@ -129,7 +150,17 @@ def visibility_certificate(model, *, max_paths=2_000_000, max_sixsets=50_000,
             raise AssertionError("J39 physical C-half cannot contain proper synchronized P3")
         if tag in BB_TAGS and any(s in BLOCKED for s in actual.values()):
             raise AssertionError("J39 J15/J17 B/B cannot contain endpoint-bad P3")
-        state = (VISIBLE_BAD if any(s in BLOCKED for s in actual.values())
+        # JPKC-010 endpoint-factor badness is STRICTLY narrower than
+        # JPKC-002 path-projection blocked status; preserving both avoids
+        # falsely equating different positive ORIGINAL Q populations.
+        bad_factor = any(
+            _is_jpkc010_endpoint_factor_bad(ctx, path, status)
+            for path, status in actual.items())
+        broad_blocked = any(s in BLOCKED for s in actual.values())
+        if bad_factor and not broad_blocked:
+            raise AssertionError("factor-endpoint bad physical P3 must be projection blocked")
+        state = (VISIBLE_BAD if bad_factor
+                 else PROJECTION_ONLY if broad_blocked
                  else VISIBLE_OTHER if actual else INVISIBLE)
         counts_by_class[tag][state] += 1
         visibility[state] += 1
@@ -142,6 +173,9 @@ def visibility_certificate(model, *, max_paths=2_000_000, max_sixsets=50_000,
                 "oriented_proper_physical_P3_count": len(actual),
                 "source_original_3ID_subsets": len(source_subtriples),
                 "actual_original_GQ_path_statuses": dict(Counter(actual.values())),
+                "exact_JPKC010_endpoint_factor_bad_path_count": sum(
+                    _is_jpkc010_endpoint_factor_bad(ctx, path, status)
+                    for path, status in actual.items()),
             })
 
     if sum(visibility.values()) != census["S_seven"]:
@@ -202,6 +236,10 @@ def visibility_certificate(model, *, max_paths=2_000_000, max_sixsets=50_000,
             visibility[VISIBLE_OTHER] + visibility[INVISIBLE],
         "positive_Q_invisible_to_ALL_proper_P3":
             visibility[INVISIBLE],
+        "original_positive_Q_with_broad_blocked_projection_P3":
+            visibility[VISIBLE_BAD] + visibility[PROJECTION_ONLY],
+        "J38_distinguishes_internal_physical_projection_block_from_factor_bad":
+            True,
         "original_examples": examples if sample_Q else None,
         "root_A_proved": False, "root_B_constructed": False,
         "not_full_R3": True, "no_W34_full_census": True,
@@ -259,6 +297,8 @@ def visibility_right_four_factor_fiber(scheme, *, states=None,
         "min_full_seven_S": min(row["full_original_S"] for row in rows),
         "min_endpoint_bad_visible_Q": min(
             row["partition"][VISIBLE_BAD] for row in rows),
+        "min_projection_blocked_not_factor_bad_Q": min(
+            row["partition"][PROJECTION_ONLY] for row in rows),
         "min_other_proper_only_Q": min(
             row["partition"][VISIBLE_OTHER] for row in rows),
         "min_no_proper_P3_Q": min(
