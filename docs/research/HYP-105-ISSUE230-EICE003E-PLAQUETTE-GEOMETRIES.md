@@ -88,6 +88,12 @@ For genuinely stationary NB3 on G* with active d_min>=3, **every oriented middle
 
 Thus if a hypothetical S=o(s^6) forces theta_I=1-o(1) by a SEPARATELY ACCEPTED complete version of Opus theorem R, then under the valid high-degree EICE-002 regularizer, a 1-o(1) proportion of source plaquette samples consists of FOUR simultaneously internally blocked *genuine ORIGINAL endpoint paths*. This is a structural **necessary** condition for a counterexample, NOT a contradiction. It may give a promising input for JPKC-014 coherent source assignment / multi-anchor overlap and GF(5) accepted sixsets.
 
+### Finite nonvacuity: canonical G* versus a different coherent W32 source choice
+
+The canonical EICE-002 regularizer at W(3,2) has 6–10 original source IDs and in all four frozen schemes has ZERO 2×2 plaquettes. Consequently the empty cross-incidence histograms on those specific graphs are **not** empirical evidence for any four-corner source theorem beyond its algebraic proof.
+
+A separate test now searches genuine complete ORIGINAL W(3,2) global maps for five true original incidence IDs that preserve BOTH physical diagonals, satisfy both global physical coordinate cuts and the local no-cherry conditions, and nevertheless create at least one true 2×2 outer-neighbor plaquette. It independently re-evaluates the four original point/line endpoint labels, two physical K2,2 structures and every genuine 4×4 GQ incidence. This is a **nonvacuous finite validation** of E1/E2; it neither gives the positive uniform density/min-degree guaranteed asymptotically by EICE-002 nor automatically produces accepted GF5 positive sixsets.
+
 ## E5 — geometrically meaningful no-go and precise next proof gate
 
 Neither E2 nor E4 implies that the ORIGINAL cross pairs (q_ij,r_kl) appear as actual endpoints of a path. E2 only guarantees their unique source projections, and the four **diagonal** actual paths may be all blocked. An argument that '>=8 nonincident cross anchors -> >=8 newly positive sixsets' would be INVALID, repeating the physical-vs-original adjacency confusion identified in JPKC-004 J11–J13 and JPKC-005 J17.
@@ -97,7 +103,7 @@ The missing theorem for **EICE-003-F** is now specific: show that, among 2×2 pl
 ## Executable tests and provenance
 
 - \`research/hyp105_issue230_source_plaquettes.py\`: exact Fraction true original status of every physical NB3 path, true q/r decode, true GQ unique projection, true source-midpoint internal block, actual coordinate K2,2, E2 original 4×4 incidence girth, exact co-degree plaquette formulas, and independent brute-force full enumeration under explicit budgets.
-- \`research/test_hyp105_issue230_source_plaquettes.py\`: genuine W(3,2) lex/reverse/S68/S72 and W(3,4) lex/random paired coherent source IDs, independent NB3 source status vs EICE-003-D, original C8 tightness in true W(3,2), separate exhaustive 2^16 source 4×4 matrices (including C4-free max 9 vs true girth8 max 8), and negative input/path/cut tests.
+- \`research/test_hyp105_issue230_source_plaquettes.py\`: genuine W(3,2) lex/reverse/S68/S72 and W(3,4) lex/random paired coherent source IDs, independent NB3 source status vs EICE-003-D, a **NONVACUOUS** true W32 five-source coherent paired-diagonal 2x2 plaquette (located by bounded deterministic source-ID search and checked independently), original C8 tightness in true W(3,2), separate exhaustive 2^16 source 4×4 matrices (including C4-free max 9 vs true girth8 max 8), and negative input/path/cut tests.
 - \`docs/research/HYP-105-ISSUE230-EICE003E-PLAQUETTE-GEOMETRIES.md\`: mathematical proofs, all-h scopes and next falsifier gate.
 - \`.github/workflows/hyp105-issue230-eice003e.yml\`: single focused GitHub-hosted \`ubuntu-latest\` independent source/geometry test; all parent checks remain separate.
 
