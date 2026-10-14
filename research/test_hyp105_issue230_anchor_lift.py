@@ -30,6 +30,17 @@ class AnchorLiftTests(unittest.TestCase):
                 self.assertLessEqual(Fraction(a['A_g']),
                                      Fraction(a['unlifted_same_restricted_g']))
                 self.assertFalse(a['root_Branch_A_proved'])
+                self.assertTrue(a['A3_parseval_validated'])
+                af,ag=Fraction(a['A_f']),Fraction(a['A_g'])
+                T2=Fraction(a['original_endpoint_collision_T2'])
+                resf=Fraction(a['left_coordinate_residual'])
+                resg=Fraction(a['right_coordinate_residual'])
+                self.assertEqual(af+ag, 2*T2/model['a']+resf+resg)
+                self.assertGreaterEqual(resf,0)
+                self.assertGreaterEqual(resg,0)
+                if a['clean_original_endpoint_pairs']:
+                    P=Fraction(a['eligible_end_clean_mass'])
+                    self.assertGreaterEqual(T2,P*P/a['clean_original_endpoint_pairs'])
 
     def test_true_original_W34_reduced_source_provenance(self):
         for scheme in ('lex','random'):
