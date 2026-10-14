@@ -32,6 +32,18 @@ jobs:
           assert r["all_h_joint_P_plus_L_charge_le_18S"]
           assert not r["all_h_nonzero_total_charge_lower_proved"]
           assert r["root_A"]==r["root_B"]=="OPEN"
+          for typ in ("P","L"):
+              q=r["exact_genuine_W38_D6_sharpness_"+typ]
+              assert q["s"]==8 and q["V"]==585
+              assert q["source_type"]==typ
+              assert q["globally_injective_complete_both_type_maps"]
+              assert q["historical_genuine_original_positional_seven_class"]=="D6"
+              assert q["selected_GF5_certified_D6_numerator"]==5643
+              assert q["positive_Q_source_collinear_disjoint_pair_count"]==9
+              assert q["projection_capacity_upper_9_ATTAINED"]
+              assert q["entire_W38_GF5_seven_census_NOT_done"]
+              print("TRUE ORIGINAL W38 SHARP NINE GF5 D6",typ,
+                    q["original_six_incidence_IDs"],q["original_six_distinct_pencil_source_factor_IDs"])
           assert not r["full_R3_proved"] and not r["ASET_exponent_proved"]
           x=r["all_h_conditional_average_multiplicity"]
           assert x["s"]==4 and not x["any_global_positive_average_claim_ESTABLISHED"]
