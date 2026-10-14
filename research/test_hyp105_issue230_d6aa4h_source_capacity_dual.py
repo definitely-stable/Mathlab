@@ -5,7 +5,7 @@ from fractions import Fraction
 
 from hyp105_issue230_d6aa4h_source_capacity_dual import (
     exact_one_cut_lagrangian,toy_capacity_source_coupling,
-    greedy_original_profile_cover,
+    greedy_original_profile_cover, certified_minimum_original_profile_cover,
 )
 
 
@@ -96,6 +96,53 @@ class SourceCapacityDualTests(unittest.TestCase):
         self.assertEqual(c["complete_states_covered"],4)
         self.assertEqual(c["greedy_selected_original_line_multisets"],
                          ((1,2,3,4,5,6),))
+
+
+    def test_minimum_source_profile_cover_exhaustively_certified_up_to_four(self):
+        cases=[
+            ([((1,),15),((2,),7)],1),
+            ([((1,),3),((2,),12)],2),
+            ([((1,),1),((2,),2),((3,),4)],3),
+            ([((1,),1),((2,),2),((3,),4),((4,),8)],4),
+            ([((1,),3),((2,),12),((3,),1)],2),
+        ]
+        for rows,expected in cases:
+            c=certified_minimum_original_profile_cover(rows)
+            self.assertEqual(c["exact_minimum_original_line_profiles"],expected)
+            self.assertTrue(c["dominance_pruning_is_exact_for_unit_cover"])
+            self.assertTrue(c["complete_search_for_all_smaller_cover_sizes"])
+            witness=0
+            for mask in c["exact_minimum_cover_masks"]:
+                witness |= mask
+            self.assertEqual(witness,c["full_true_original_state_mask"])
+        with self.assertRaises(ValueError):
+            certified_minimum_original_profile_cover(
+                [((i,),1<<i) for i in range(5)])
+
+    def test_independent_brute_small_random_exact_minimum_profile_cover(self):
+        from itertools import combinations
+        rng=random.Random(23048)
+        for nstates in range(2,7):
+            full=(1<<nstates)-1
+            for _ in range(24):
+                rows=[((j,),rng.randrange(1,1<<nstates))
+                      for j in range(6)]
+                # Guarantee every state has a positive original profile.
+                rows.extend([((100+i,),1<<i) for i in range(nstates)])
+                # Only request bounded proof when a greedy cover of <=4 exists.
+                greedy=greedy_original_profile_cover(rows)
+                if greedy["greedy_profiles_used"]>4:
+                    continue
+                witness=certified_minimum_original_profile_cover(rows)
+                observed=witness["exact_minimum_original_line_profiles"]
+                brute=None
+                for k in range(1,greedy["greedy_profiles_used"]+1):
+                    if any((__import__("functools").reduce(
+                        int.__or__, (rows[i][1] for i in ix),0)==full)
+                       for ix in combinations(range(len(rows)),k)):
+                        brute=k
+                        break
+                self.assertEqual(observed,brute)
 
     def test_original_profile_cover_fails_if_any_actual_state_has_no_witness(self):
         with self.assertRaises(ValueError):
