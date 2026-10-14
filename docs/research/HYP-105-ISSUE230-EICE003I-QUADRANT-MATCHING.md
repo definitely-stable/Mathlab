@@ -45,17 +45,22 @@ Both sums are independent of the ORIGINAL GQ anchor and GF5 positivity; they cou
 
 The I2 upper is NOT a universal o(s⁴) estimate. Each F_e still may contain O(s²) arm incidences, allowing pair-product upper of order O(s⁸). A finite large gap between A_e and H_e does not justify extrapolating it to all h.
 
-## I3 — a STRICT stronger all-h source multiplicity: 2 per middle, 10 total
+## I3 — sharper all-h theorem: EXACTLY TWO orientations, UNIQUE original middle source
 
-Fix e and an unordered five-incidence original source set F containing it. Every external source a∈F\\{e} belongs to exactly ONE quadrant by H2-MATCH, independently of orientation. For a physical 2×2 square with e as the middle, all four source arms must occupy ONE opposite quadrant pair 2+2. This choice uniquely determines WHICH one of the TWO physical diagonals of e is the actual middle edge. The two external arm pairs are then fixed by the TRUE provenance IDs, so there is precisely ONE unordered physical 2×2 square and at most TWO directed-middle representations (forward/backward). Therefore
+Fix a set F of exactly five TRUE original incidence IDs which satisfies the I1 template criterion for some central original e. The full physical graph H(F) retaining BOTH diagonals of EVERY source has exactly TEN undirected physical edges, and in fact decomposes into:
 
-    multiplicity_oriented(F;fixed original middle e) <=2.
+- exactly ONE connected five-edge **double-star TREE**: its two central physical vertices u,v have physical degrees THREE; they are joined by the unique middle physical edge from e, and have two distinct degree-one outer physical neighbors apiece;
+- FIVE further isolated undirected physical edges: the other physical diagonal of e, plus the complementary physical diagonal of each of the four outer source incidences.
 
-A five-source set can have at most five different true original incidence IDs eligible as middle sources, so the universal bound across all possible central sources sharpens EICE-003-G G4's conservative 20 to
+**All 16 nonisolated physical vertices are distinct.** The five main edges form a tree on six physical vertices. Complementary diagonal endpoints have one central left or right coordinate and one external opposite coordinate; they cannot be any main outside corner (which has BOTH coordinates external), nor either main center (both coordinates central), nor the other physical diagonal of e (both coordinates central but cross-paired). The four external left coordinates and four external right coordinates are pairwise distinct by I1, so all eight complementary outer-diagonal endpoints are distinct from each other and from the other middle diagonal's two endpoints.
 
-    multiplicity_oriented(F;any middle) <=10.       (I3)
+Hence exactly TWO physical vertices have degree>=2, namely u and v, and they have degree three. Their connecting edge is the **only physical edge capable of being the middle of ANY 2×2 NB3 plaquette** supported on these exact five original source IDs. Its TRUE original incidence ID is e, uniquely determined by F. Reversing u→v yields the only other oriented representation. Thus:
 
-No assumption that every five-source set attains ten is made. Observed W34 five-source families each have multiplicity exactly two in the frozen lex/random maps, but this does not prove that two is universal for varying central source.
+    multiplicity_oriented(F; all possible true original middle IDs) = EXACTLY 2.   (I3)
+
+The prior G4 all-h bound 20, and the preliminary I3 bound 10, were valid but unnecessarily weak. The empirical two-to-one incidence from W34 lex/random is now an independently proved all-h theorem FOR I1-valid five-source templates. This statement does not claim every arbitrary five-original-incidence set admits a source template, and does not yield a positive original GF(5) sixset.
+
+The code reconstructs the complete ten-edge, five-source graph and checks precisely two degree-three vertices, fourteen degree-one vertices, one genuine central middle source and exactly five disconnected paired diagonals, besides the true physical four-path square. These are executable falsifiers of the all-h proof, not substitutes for it.
 
 ## I4 — sharpened all-h \u03a9(s\u2078) and heavy-middle implications
 
@@ -64,16 +69,16 @@ Prior F5+F6 (on a FIXED same-map high-degree stationary paired G* with \`delta=1
     P4 >= [delta^4*s^8/1,280,000]*
           q,  q=max(0,4theta_I-3,theta_I^4-2/(delta*s-1)).
 
-Use I3's NEW all-h <=10 rather than <=20 to obtain
+Use I3's NEW all-h exact TWO rather than older <=20 (or preliminary <=10) to obtain
 
     # DISTINCT true original blocked five-incidence sets
-      >= [delta^4*s^8/12,800,000]*q.              (I4-GLOBAL)
+      >= [delta^4*s^8/2,560,000]*q.               (I4-GLOBAL)
 
-Even without dividing by ten first, direct averaging over N=(s+1)^2(s²+1) middle TRUE original incidence IDs, and using the sharper at-most-TWO oriented physical 2×2 representations PER FIXED middle incidence/FIVE-source set, gives
+With the same unique middle source and exactly TWO orientations, pigeonhole over N=(s+1)^2(s²+1) middle TRUE original incidence IDs gives
 
     max_e H_e >= [delta^4*s^8/(2,560,000*N)]*q.    (I4-HEAVY)
 
-For any fixed \`theta_I>=epsilon>0\`, I4-HEAVY implies a genuine middle original incidence supports Omega_epsilon(s⁴) distinct physical-source-compatible blocked original five-incidence sets. This is ten times the earlier H3 middle-pigeonhole constant because the latter unnecessarily divided first by 20 before assigning a middle.
+For any fixed \`theta_I>=epsilon>0\`, I4-HEAVY implies a genuine middle original incidence supports Omega_epsilon(s⁴) distinct physical-source-compatible blocked original five-incidence sets. Both global source diversity and heavy-middle constants improve TENFOLD over the original G4/H3 bound 20, without claiming the missing uniform upper on the realized blocked-source load.
 
 A sufficient missing theorem would still be
 
