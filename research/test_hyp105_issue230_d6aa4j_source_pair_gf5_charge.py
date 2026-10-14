@@ -138,6 +138,44 @@ class OriginalSourcePairGF5TransferTests(unittest.TestCase):
                     "sharp_unconditional_capacity_15_Q_lower_from_weak_charges"],
                     c["S_seven"])
 
+    def test_008_pinned_true_S72_original_line_pair_no_accepted_seven_Q(self):
+        model=fixture(1,"S72")
+        g=geometry(2,model["incidences"])
+        assert 10 in g["source_line_neighbors"][5]
+        self.assertEqual(tuple(model["right_labels"][5]),(1,3))
+        self.assertEqual(tuple(model["right_labels"][10]),(0,4))
+        full=seven_census(model,independent_checks=False,witness_sets=True)
+        self.assertEqual(full["S_seven"],72)
+        # Two true concurrent ORIGINAL lines with disjoint physical
+        # labels. Independent direct Q source-factor membership oracle.
+        count=0
+        for Q in full["sets"]:
+            lines={model["incidences"][i][1] for i in Q}
+            count+=int(5 in lines and 10 in lines)
+        self.assertEqual(count,0)
+        cert=charge_original_sixsets(g,model,full["sets"],source_type="L")
+        self.assertIn((5,10),cert["sample_uncovered_source_pair_ids"])
+        self.assertGreaterEqual(cert["original_pairs_not_covered_by_any_positive_sixset"],1)
+
+    def test_009_pinned_true_S68_point_weak_but_not_original_pencil(self):
+        model=fixture(1,"S68")
+        g=geometry(2,model["incidences"])
+        self.assertIn(9,g["source_point_neighbors"][3])
+        self.assertEqual(tuple(model["left_labels"][3]),(4,5))
+        self.assertEqual(tuple(model["left_labels"][9]),(1,3))
+        full=seven_census(model,independent_checks=False,witness_sets=True)
+        self.assertEqual(full["S_seven"],68)
+        weak=strict=0
+        for Q in full["sets"]:
+            source=[model["incidences"][i] for i in Q]
+            a={l for p,l in source if p==3}
+            b={l for p,l in source if p==9}
+            weak+=bool(a and b)
+            strict+=bool(a&b)
+        self.assertEqual((weak,strict),(10,0))
+        cert=charge_original_sixsets(g,model,full["sets"],source_type="P")
+        self.assertIn((3,9),cert["sample_strict_uncovered_source_pair_ids"])
+
 
 if __name__=="__main__":
     unittest.main()
