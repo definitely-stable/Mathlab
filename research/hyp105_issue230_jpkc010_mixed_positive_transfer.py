@@ -8,7 +8,7 @@ Neither a positive all-h witness lower bound nor Root A/B is asserted.
 """
 from collections import Counter, defaultdict
 from itertools import combinations, permutations
-from math import ceil
+from math import ceil, comb
 import argparse
 import json
 
@@ -65,6 +65,7 @@ def mixed_positive_certificate(model, *, limit_seeds=None, max_paths=2_000_000,
     seed_types = Counter()
     hall_stage = Counter()
     seen_original_keys = {}
+    selected_D6_original_keys = set()
     positive_D6_matches = 0
 
     for path, T, anchor in selected:
@@ -90,6 +91,7 @@ def mixed_positive_certificate(model, *, limit_seeds=None, max_paths=2_000_000,
             Q = tuple(sorted((*T, *ids)))
             if general_seven_original(ctx, Q) == "D6":
                 hall_D6.add(Q)
+                selected_D6_original_keys.add(key)
                 hall_stage["AA_selected_D6_occurrences"] += 1
             else:
                 hall_stage["AA_nonaligned_occurrences"] += 1
@@ -192,6 +194,40 @@ def mixed_positive_certificate(model, *, limit_seeds=None, max_paths=2_000_000,
     if sum(by_class.values()) != len(class_of_Q):
         raise AssertionError("distinct original sixset counted in multiple classes")
 
+    # JPKC-009 D/H/A cross-anchor ORIGINAL source-demand edges,
+    # recomputed from this EXACT SAME f,g and selected physical seeds.
+    # The new positive-Q cross-anchor graph is a DIFFERENT graph and
+    # must never be substituted for Hall cross-key edges.
+    demanded_keys = set(seen_original_keys)
+    hall_keys = {k for k, h in seen_original_keys.items() if h["hall_feasible"]}
+    if not selected_D6_original_keys <= hall_keys <= demanded_keys:
+        raise AssertionError("JPKC-009 source D6/Hall/demand graph nesting failed")
+    anchor_cache = {k: source_key_original_anchor(ctx, *k) for k in demanded_keys}
+    def source_cross(support, side):
+        vertices = defaultdict(list)
+        for P, L in support:
+            q, r = anchor_cache[P, L]
+            if side == "left":
+                vertices[P].append(r)
+            else:
+                vertices[L].append(q)
+        return sum(
+            comb(len(others), 2)
+            - sum(comb(n, 2) for n in Counter(others).values())
+            for others in vertices.values())
+    cross_stages = {}
+    for side in ("left", "right"):
+        raw = source_cross(demanded_keys, side)
+        hall = source_cross(hall_keys, side)
+        d6 = source_cross(selected_D6_original_keys, side)
+        if not 0 <= d6 <= hall <= raw:
+            raise AssertionError("JPKC-009 cross-anchor source Hall nesting failed")
+        cross_stages[side] = {
+            "JPKC009_raw_original_source_demand_cross": raw,
+            "JPKC009_Hall_original_source_demand_cross": hall,
+            "JPKC009_selected_D6_original_source_demand_cross": d6,
+        }
+
     oracle_S = None
     if independent_W32:
         census = seven_census(model, independent_checks=False, witness_sets=True)
@@ -212,6 +248,7 @@ def mixed_positive_certificate(model, *, limit_seeds=None, max_paths=2_000_000,
         "J35_exact_Hall_D6_equals_source_topology_D6": True,
         "J35_true_original_incidence_ids_and_GF5_positions": True,
         "AA_original_source_stage": dict(sorted(hall_stage.items())),
+        "original_JPKC009_cross_key_stages_on_same_f_g": cross_stages,
         "seed_positive_type_partition": dict(sorted(seed_types.items())),
         "positive_original_seed_Q_witness_pairs": len(unique_seed_Q),
         "class_witness_pairs": {tag: hits[tag] for tag in REACHABLE},

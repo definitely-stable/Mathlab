@@ -57,6 +57,20 @@ class JPKC010Tests(unittest.TestCase):
                     wedge_only)
                 self.assertEqual(
                     c["seed_positive_type_partition"].get("D6_and_wedge", 0), mixed)
+                cross_pins = {
+                    "lex": (4616, 47, 5, 4792, 59, 5),
+                    "reverse": (3912, 13, 0, 3784, 10, 0),
+                    "S68": (2632, 1, 0, 2696, 4, 0),
+                    "S72": (2928, 7, 0, 3312, 3, 0),
+                }
+                self.assertEqual(tuple(
+                    c["original_JPKC009_cross_key_stages_on_same_f_g"][side][stage]
+                    for side in ("left", "right")
+                    for stage in (
+                        "JPKC009_raw_original_source_demand_cross",
+                        "JPKC009_Hall_original_source_demand_cross",
+                        "JPKC009_selected_D6_original_source_demand_cross",
+                    )), cross_pins[scheme])
                 self.assertFalse(c["root_A_proved"])
 
     def test_original_source_cross_Q_pair_is_incidence_not_physical_proxy(self):

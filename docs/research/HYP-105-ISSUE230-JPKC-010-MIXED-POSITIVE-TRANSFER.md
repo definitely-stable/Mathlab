@@ -87,3 +87,18 @@ Both fibers have legal states with D6=0 and other legal states with D6>0. Theref
 
 **Scientific interpretation:** W32 supplies a *real finite wedge rescue* (8/10 wedge-only positive seeds) but **disproves sufficiency of the proposed mixed charge to obtain the observed magnitude of S without an additional lower bound on original-positive witness multiplicity**: the sharp J19-derived integer certificate detects only 2 when full S is 68. No asymptotic no-go follows from these finite counts. An all-h transfer must additionally control seedless accepted sixsets or introduce a stronger global physical-occupancy/original-source coupling beyond Hall/J19.
 
+
+## 7. JPKC-009 demand graph joined to JPKC-010 positive source witness graph
+
+The JPKC-010 executable now **reconstructs** all three JPKC-009 cross-key graph layers from the SAME actual f,g and actual physical seed list as its wedge and D6-positive witnesses. This is not an independently selected probability coupling. For each distinct demanded ORIGINAL key (P,L), cache its original q,r and its unique Hall status; for each P (or dual L), count pairs of *different* opposite original anchors among distinct source graph edges, via the J33 combination identity. Restrict first to Hall keys and then to actual selected D6 keys. Independently retain the positive Q-pair cross-anchor overlap indexed by shared ORIGINAL incidence ID. The Q-graph is **not** interchangeable with the source demand graph.
+
+The fail-closed full genuine W32 regression pins, now checked ON THE SAME f,g as the mixed GF5 witnesses:
+
+| W32 map | Left raw→Hall→D6 source cross | Right raw→Hall→D6 source cross | Wedge-only positive seeds | Reached distinct positive Q |
+|---|---|---|---:|---:|
+| lex | 4616→47→5 | 4792→59→5 | 94 | 68 |
+| reverse | 3912→13→0 | 3784→10→0 | 62 | 31 |
+| S68 | 2632→1→0 | 2696→4→0 | 8 | 4 |
+| S72 | 2928→7→0 | 3312→3→0 | 10 | 5 |
+
+This validates the *existence* of mixed-class local rescue for the chosen finite maps while exposing the missing all-h positive transfer inequality. A numerical juxtaposition of cross-key counts with wedge witness counts does not imply cross-key edges cause those witnesses or produce a uniform lower bound.
