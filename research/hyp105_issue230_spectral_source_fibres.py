@@ -109,6 +109,17 @@ def exact_middle_double_star_fibre(ctx, e):
     band={i for i,(p,l) in enumerate(ctx.inc) if p in P and l in L}
     if e not in band:
         raise AssertionError('middle ORIGINAL source absent from own fibre')
+    # H2-MATCH proves all four external true ORIGINAL incidences have
+    # original point and original line DISTINCT from the central source.
+    # Restrict the actual four-arm candidate pool accordingly; the
+    # four selected arms form a size-four ORIGINAL source matching.
+    external_arm_pool={i for i in band if
+                       ctx.inc[i][0]!=p2 and ctx.inc[i][1]!=l2}
+    point_pencil_star={i for i in band if ctx.inc[i][0]==p2}
+    line_pencil_star={i for i in band if ctx.inc[i][1]==l2}
+    if len(external_arm_pool)!=(len(band)-
+            len(point_pencil_star)-len(line_pencil_star)+1):
+        raise AssertionError('true middle-source point/line pencil inclusion-exclusion')
     if len(P)>2*ctx.a-3 or len(L)>2*ctx.a-3:
         raise AssertionError('minimal injective K_a pair-star bound broken')
     corners={x*ctx.a+y for x in fp2 for y in gl2}
@@ -147,6 +158,10 @@ def exact_middle_double_star_fibre(ctx, e):
         true_original_point_star_size=x,
         true_original_line_star_size=y,
         original_double_star_incidence_count=observed,
+        eligible_four_arm_matching_pool_size=len(external_arm_pool),
+        eligible_four_arm_matching_pool_original_incidence_ids=tuple(sorted(external_arm_pool)),
+        removed_middle_point_pencil_sources=len(point_pencil_star),
+        removed_middle_line_pencil_sources=len(line_pencil_star),
         original_double_star_incidence_ids=tuple(sorted(band)),
         original_point_star_ids=tuple(sorted(P)),
         original_line_star_ids=tuple(sorted(L)),
@@ -222,8 +237,10 @@ def finite_fibre_and_family_report(model, *, exact_polynomial=True,
             if e not in fibre_cache:
                 fibre_cache[e]=exact_middle_double_star_fibre(ctx,e)
             band=set(fibre_cache[e]["original_double_star_incidence_ids"])
-            if not set(ids).issubset(band):
-                raise AssertionError('H2 every 5-source arm must lie in middle double star')
+            arms=set(ids)-{e}
+            arm_pool=set(fibre_cache[e]["eligible_four_arm_matching_pool_original_incidence_ids"])
+            if not set(ids).issubset(band) or not arms.issubset(arm_pool):
+                raise AssertionError('H2-MATCH every four original arms must lie in filtered double star')
             middle_counts[e]+=1
             for other in ids:
                 if other!=e:
