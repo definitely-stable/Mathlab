@@ -11,6 +11,7 @@ from hyp105_issue230_d6aa4i_original_spectral_coordinate import geometry
 from hyp105_issue230_d6aa4k_projection_aware_charge import (
     PATTERN_CAP,TAG_TYPES,six_incidence_projection_capacity,
     conditional_average_transfer,true_original_projection_charge,_ceil,
+    genuine_W38_D6_original_source_pair_sharpness,
 )
 
 
@@ -156,6 +157,26 @@ class OriginalProjectionChargeTests(unittest.TestCase):
             true_original_projection_charge(g,m,{(0,1,2,3,4):"D6"})
         with self.assertRaises(ValueError):
             true_original_projection_charge(g,m,{Q:"FAKE-SEVEN-CLASS"})
+
+
+    def test_009_real_original_W38_D6_positive_Q_sharp_nine_source_pairs(self):
+        for typ in ("P","L"):
+            z=genuine_W38_D6_original_source_pair_sharpness(typ)
+            self.assertEqual(z["s"],8)
+            self.assertEqual(z["V"],585)
+            self.assertEqual(z["source_type"],typ)
+            self.assertTrue(z["globally_injective_complete_both_type_maps"])
+            self.assertEqual(z["historical_genuine_original_positional_seven_class"],"D6")
+            self.assertEqual(z["selected_GF5_certified_D6_numerator"],5643)
+            self.assertEqual(z["positive_Q_source_collinear_disjoint_pair_count"],9)
+            self.assertTrue(z["projection_capacity_upper_9_ATTAINED"])
+            self.assertEqual(len(z["original_six_incidence_IDs"]),6)
+            self.assertEqual(len(set(z["original_six_distinct_pencil_source_factor_IDs"])),6)
+            self.assertEqual(len(set(tuple(x) for x in z["physical_6cycle_source_factor_images"])),6)
+            self.assertTrue(z["entire_W38_GF5_seven_census_NOT_done"])
+            self.assertTrue(z["all_h_total_charge_positive_bound_NOT_proved"])
+        with self.assertRaises(ValueError):
+            genuine_W38_D6_original_source_pair_sharpness("BAD")
 
     def test_008_explicit_proper_six_coordinate_necessity(self):
         m=fixture(1,"S68")
