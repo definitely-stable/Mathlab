@@ -39,6 +39,8 @@ jobs:
           assert finite["independent_swapped_source_matching_dp_equal"]
           assert finite["independent_graph_cycle_vs_dual_cycle_count_equal"]
           assert finite["physical_sixcycle_named_edge_assignment_count"]==43200
+          assert finite["true_original_W32_6_matching_count"]==1566360
+          assert finite["exact_uniform_GLOBAL_injection_ensemble_D6_expectation"]=="3759264/1002001"
           assert Fraction(finite["exact_uniform_GLOBAL_injection_ensemble_D6_expectation"])>0
           for row in d["ensemble_bounds"]:
               lower=Fraction(row["all_h_rigorous_ensemble_E_D6_lower"])
@@ -84,6 +86,8 @@ jobs:
           assert d["independent_swapped_source_matching_dp_equal"]
           assert d["independent_graph_cycle_vs_dual_cycle_count_equal"]
           assert d["physical_sixcycle_named_edge_assignment_count"]==43200
+          assert d["true_original_W32_6_matching_count"]==1566360
+          assert d["exact_uniform_GLOBAL_injection_ensemble_D6_expectation"]=="3759264/1002001"
           assert Fraction(d["exact_uniform_GLOBAL_injection_ensemble_D6_expectation"])>0
           assert d["mean_not_worst_case"]
           print(json.dumps(d,indent=2,sort_keys=True))

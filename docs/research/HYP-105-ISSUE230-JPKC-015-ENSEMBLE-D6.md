@@ -67,3 +67,20 @@ Original W34 *full* seven-GF5 Q census is deliberately not invoked or asserted. 
 A mathematical theorem about **expectation** proves existence of some high-S legal maps, but cannot preclude other very-low-S globally correlated maps. To move toward Root A, the next task is a UNIFORM lower-tail guarantee (or a deterministic all-label source capacity inequality), which cannot follow from the first moment alone. Exact second moments must account for genuine ORIGINAL 6-matching overlaps, shared source points and lines, and both complete globally injective pair label maps. Even a small second moment alone does not show every assignment has S>=c*s^6. Independent minimax/adversarial f,g is the genuine blocker.
 
 Required: 5 fail-closed hosted tests, dedicated independent source-DP and asymptotic bounds CI, INDEX, Proof Audit, Full Research SUCCESS on EXACT final HEAD and separate mathematical proof audit. No main merge, no new ASET exponent, no all-label universal S lower, no infinite correlated counterfamily.
+
+## 6. Independently hosted exact finite validation (W32)
+
+The initial final-current specialized GitHub-hosted workflow completed **5/5 jobs SUCCESS**: five fail-closed structural tests; four true W32 physical-label fixture jobs, each independently counting ORIGINAL six-edge incidence matchings with the left/right bipartitions swapped.
+
+The exact W(3,2) ORIGINAL incidence host has **1,566,360** distinct six-edge bipartite matchings, as independently computed by both orientations of the original incidence DP; this number is invariant under the lex, reverse, S68 and S72 physical-label fixtures because it belongs to the source geometry, not the physical injection.
+
+With a=6 and N=C(6,2)=15, the physical connected D6 left/right dual alignment numerator counts 60*(6)_6=43,200 named six-edge physical C6 labelings per side, independently reproduced by physical graph C6 vertex/edge slot counting. Therefore the **exact ensemble expectation** is
+
+`E[D6]=1,566,360 * 60 * ((6)_6/(15)_6)^2 = 3,759,264 / 1,002,001 ≈ 3.75175673477.`
+
+This finite positive expectation coexists with admissible fixed globally injected S68/S72 maps having **D6=0**, so it CANNOT be cited as a universal worst-case positive D6 claim. The average D6 count is not expected to equal any particular physical labeling's observed D6 count.
+
+At s=2 the analytic greedy-matching interval (before independent exact matching calculation) yields
+`6561/4004 <= E[D6] <= 253872/13013`; the exact expectation lies inside. At s=4,8,16 the analytic bounds remain positive, with minimal physical coordinate alphabets a=14,35,94 respectively, and both bound sequences divided by s^6 converge to 16/3 as shown algebraically in J52.
+
+**Acceptable conclusion:** we have a bona fide all-h Ω(s^6) **FIRST-MOMENT** theorem in one specified random globally injected physical-pair ensemble. The critical all-label obstruction to issue #230 Root A, or a genuine infinite low-S correlated Root B counterfamily, remains unsolved; worst-case cannot be inferred from an average.

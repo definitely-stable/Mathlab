@@ -28,6 +28,7 @@ class JPKC015Tests(unittest.TestCase):
                 vals.append(forward["true_original_W32_6_matching_count"])
                 self.assertGreater(vals[-1],0)
         self.assertEqual(len(set(vals)),1)
+        self.assertEqual(vals[0],1566360)
 
     def test_physical_connected_D6_dual_formula_independent_graph_cycles(self):
         for a in (6,7,8,12,20):
@@ -80,6 +81,10 @@ class JPKC015Tests(unittest.TestCase):
             self.assertEqual(c["physical_sixcycle_named_edge_assignment_count"],43200)
             self.assertTrue(c["mean_not_worst_case"])
         p=exact_D6_probability_minimal_alphabet(2)
+        self.assertEqual(cases[0]["true_original_W32_6_matching_count"],1566360)
+        self.assertEqual(Fraction(cases[0][
+            "exact_uniform_GLOBAL_injection_ensemble_D6_expectation"]),
+                         Fraction(3759264,1002001))
         self.assertEqual(Fraction(cases[0][
             "exact_uniform_GLOBAL_injection_ensemble_D6_expectation"]),
                          cases[0]["true_original_W32_6_matching_count"]*p)
