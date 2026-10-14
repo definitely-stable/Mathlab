@@ -29,6 +29,7 @@ class AnchorLiftedEnergy:
         # which may have an absent/incident endpoint or bad anchor.
         raw_f, raw_g = defaultdict(Fraction), defaultdict(Fraction)
         pair_f, pair_g = defaultdict(Fraction), defaultdict(Fraction)
+        endpoint_mass = defaultdict(Fraction)
         collision_f = collision_g = Fraction()
         total = eligible = internal = left_hit = right_hit = Fraction()
         improper = 0
@@ -55,6 +56,7 @@ class AnchorLiftedEnergy:
                     set(ctx.g[ell]).isdisjoint(ctx.g[r])):
                 continue
             eligible += weight
+            endpoint_mass[q,r] += weight
             kf=(q,r,x1)
             kg=(q,r,y1)
             if independent_collision:
@@ -126,6 +128,24 @@ class AnchorLiftedEnergy:
         unlifted_g=sum(m*m for m in marginal_g.values())/total**2
         if Af>unlifted_f or Ag>unlifted_g:
             raise AssertionError('lifting original endpoint unexpectedly increased L2')
+        # A3: exact orthogonal/Parseval decomposition relative to each
+        # ORIGINAL q,r endpoint fiber. The common endpoint marginal t(q,r)
+        # is shared by both coordinate sides.
+        end_from_f = defaultdict(Fraction)
+        end_from_g = defaultdict(Fraction)
+        for (q,r,x), v in raw_f.items():
+            end_from_f[q,r] += v
+        for (q,r,y), v in raw_g.items():
+            end_from_g[q,r] += v
+        if dict(end_from_f) != dict(endpoint_mass) or dict(end_from_g) != dict(endpoint_mass):
+            raise AssertionError('original endpoint marginal mismatch')
+        T2 = sum(t*t for t in endpoint_mass.values()) / total**2
+        residual_f = Af - T2/ctx.a
+        residual_g = Ag - T2/ctx.a
+        if residual_f < 0 or residual_g < 0:
+            raise AssertionError('A3 nonnegative conditional-coordinate residual violated')
+        if clean_pairs and T2 < (eligible/total)**2/len(clean_pairs):
+            raise AssertionError('original end-clean marginal CS lower violated')
         return {
             's':ctx.s, 'N':ctx.N,
             'original_incidences_selected':len(ctx.selected),
@@ -143,6 +163,11 @@ class AnchorLiftedEnergy:
             'anchor_first_left_mass':str(Cf),
             'anchor_first_right_mass':str(Cg),
             'A_f':str(Af),'A_g':str(Ag),
+            'original_endpoint_collision_T2':str(T2),
+            'endpoint_uniform_baseline_2T2_over_a':str(2*T2/ctx.a),
+            'left_coordinate_residual':str(residual_f),
+            'right_coordinate_residual':str(residual_g),
+            'A3_parseval_validated':True,
             'N_s2_times_anchor_energy':str(ctx.N*ctx.s**2*(Af+Ag)),
             'unlifted_same_restricted_f':str(unlifted_f),
             'unlifted_same_restricted_g':str(unlifted_g),
