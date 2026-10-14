@@ -38,6 +38,25 @@ class JPKC010Tests(unittest.TestCase):
                     self.assertEqual(
                         c["AA_original_source_stage"].get(
                             "AA_selected_D6_occurrences", 0), 0)
+                pins = {
+                    "lex": (786, 68, 26, 94, 24),
+                    "reverse": (676, 31, 11, 62, 2),
+                    "S68": (544, 4, 2, 8, 0),
+                    "S72": (600, 5, 2, 10, 0),
+                }
+                population, reached, charge, wedge_only, mixed = pins[scheme]
+                self.assertEqual(
+                    c["examined_real_endpoint_bad_physical_seeds"], population)
+                self.assertEqual(
+                    c["distinct_positive_original_sixsets_reached"], reached)
+                self.assertEqual(
+                    c["J36_class_sensitive_ceil_charge_lower_for_full_S"], charge)
+                self.assertEqual(
+                    c["seed_positive_type_partition"].get("single_wedge_no_D6", 0)
+                    + c["seed_positive_type_partition"].get("both_wedges_no_D6", 0),
+                    wedge_only)
+                self.assertEqual(
+                    c["seed_positive_type_partition"].get("D6_and_wedge", 0), mixed)
                 self.assertFalse(c["root_A_proved"])
 
     def test_original_source_cross_Q_pair_is_incidence_not_physical_proxy(self):

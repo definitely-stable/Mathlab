@@ -59,3 +59,31 @@ The dedicated Python program outputs exact W32 lex/reverse/S68/S72 class-conditi
 **Research blocker:** no inequality currently transfers `Cross(H)>0` or `Cross(D)>0` to `W_D6+W_BA+W_AB >= c*s^6`. Nor do the original-factor finite fiber gaps from D6-AA4-D imply this uniform bound. Finite family-class distribution may demonstrate that three-class seed-local transfer remains too weak and requires the B/B/C families or a genuinely new cross-seed/global occupancy inequality.
 
 Status must remain `RESTRICTED_THEOREM_C / OPEN_WITH_FORMAL_BLOCKER` until independent proof review plus focused GitHub-hosted, INDEX, Proof Audit and full Research SUCCESS on the *exact final PR HEAD*. Do not modify `main`, #176 or #169.
+
+## 6. Actual GitHub-hosted exact results on JPKC-010 initial implementation (14 Oct)
+
+Independent original-W32/targeted-W34 **specialized oracle succeeded** after a regression-test message-pattern correction; the full two-matrix 24-state experiment was already successful before that correction. Recheck *final* commit CI again after updating these exact pins.
+
+| Genuine scheme | Real endpoint-bad P3 examined | Positive seeds with wedge and no D6 | Positive seeds with D6 and wedge | DISTINCT reached original Q | J36 integer floor |
+|---|---:|---:|---:|---:|---:|
+| W32 lex | 786 (complete) | 94 | 24 | 68 | 26 |
+| W32 reverse | 676 (complete) | 62 | 2 | 31 | 11 |
+| W32 S68 | 544 (complete) | 8 | 0 | **4** | **2** |
+| W32 S72 | 600 (complete) | 10 | 0 | **5** | **2** |
+| W34 lex | 4 (selected only) | 2 | 2 | 17 | 3 |
+| W34 random | 4 (selected only) | 3 | 1 | 29 | 5 |
+| W34 original D4 symplectic spread | 4 (selected only) | 1 | 2 | 20 | 4 |
+
+The seed-positive categories above classify **seeds**, whereas the reached-Q column deduplicates ORIGINAL six-incidence sets. Baseline complete seven-S is **68 for S68** and **72 for S72**: only 4/68 or 5/72 positive Q are seen through this particular endpoint-bad seed ledger. It is incorrect to identify all unobserved Q as B/B or C: even a three-class Q might simply have no eligible endpoint-bad P3 witness.
+
+The **complete** coherent fiber matrix for both pinned four-original-line blocks, run independently on GitHub-hosted workers:
+
+| Actual full fiber | All legal global completions | min complete seven-S | min seed-reached DISTINCT original Q | min J36 class-sensitive floor |
+|---|---:|---:|---:|---:|
+| S68 | 24 | 68 | 4 | 2 |
+| S72 | 24 | 68 | 3 | 2 |
+
+Both fibers have legal states with D6=0 and other legal states with D6>0. Therefore "no D6 on the starting S68/S72 map" is not a fiber-invariant, and the all-h argument cannot freeze the D6-zero property under coherent source-factor edits.
+
+**Scientific interpretation:** W32 supplies a *real finite wedge rescue* (8/10 wedge-only positive seeds) but **disproves sufficiency of the proposed mixed charge to obtain the observed magnitude of S without an additional lower bound on original-positive witness multiplicity**: the sharp J19-derived integer certificate detects only 2 when full S is 68. No asymptotic no-go follows from these finite counts. An all-h transfer must additionally control seedless accepted sixsets or introduce a stronger global physical-occupancy/original-source coupling beyond Hall/J19.
+

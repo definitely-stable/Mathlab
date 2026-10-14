@@ -45,7 +45,8 @@ jobs:
               "D6_and_wedge":r["seed_positive_type_partition"].get("D6_and_wedge",0),
               "wedge_no_D6":r["seed_positive_type_partition"].get("single_wedge_no_D6",0)+r["seed_positive_type_partition"].get("both_wedges_no_D6",0),
               "positive_Q":r["distinct_positive_original_sixsets_reached"],
-              "charge":r["J36_class_sensitive_ceil_charge_lower_for_full_S"]
+              "charge":r["J36_class_sensitive_ceil_charge_lower_for_full_S"],
+              "cross_anchor_Q_pairs":sum(r["positive_original_Q_cross_anchor_pairs_by_GF5_class"].values())
           } for r in x["records"]],indent=2))
           PY
 
@@ -69,7 +70,9 @@ jobs:
           x=json.load(open("/tmp/jpkc010-fiber.json"))["fiber"]
           assert x["entire_24_state_right_factor_fiber_exhausted"]
           assert x["legally_globally_injected_states_examined"]==24
-          assert x["min_full_original_seven_S_on_examined_states"] >= 1
+          assert x["min_full_original_seven_S_on_examined_states"] == 68
+          assert x["min_class_charge_on_examined_states"] == 2
+          assert x["min_reached_positive_original_Q_on_examined_states"] == {"S68":4,"S72":3}[x["scheme"]]
           assert all(t["mixed_class_charge"] <= t["mixed_reached_distinct_Q"] <= t["full_original_seven_S"] for t in x["states"])
           print(json.dumps({
               "scheme":x["scheme"],"states":len(x["states"]),
