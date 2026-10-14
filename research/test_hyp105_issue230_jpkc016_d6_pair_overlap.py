@@ -41,6 +41,12 @@ class JPKC016Tests(unittest.TestCase):
         self.assertGreater(
             Fraction(c["covariance_for_two_source_factor_disjoint_events"]),0)
         self.assertGreater(Fraction(c["joint_over_independent_product"]),8)
+        self.assertEqual(Fraction(c["joint_over_independent_product"]),
+                         Fraction(20449,2304))
+        self.assertLess(Fraction(disjoint_original_source_D6_joint(8)[
+            "joint_over_independent_product"]),1)
+        self.assertGreater(Fraction(disjoint_original_source_D6_joint(14)[
+            "joint_over_independent_product"]),1)
         self.assertFalse(c["different_original_matchings_pairwise_independence_claimed"])
         for a in (7,8,14,35):
             with self.subTest(a=a):
@@ -64,7 +70,8 @@ class JPKC016Tests(unittest.TestCase):
         self.assertEqual(a["source_diagonal_original_six_matching_count"],1)
         self.assertEqual(a["overlap_signature_to_number_of_original_six_matchings"],
                          b["overlap_signature_to_number_of_original_six_matchings"])
-        self.assertGreater(a["source_factor_disjoint_six_matching_count"],0)
+        self.assertEqual(a["source_factor_disjoint_six_matching_count"],1556)
+        self.assertEqual(a["nonempty_overlap_signatures"],120)
         self.assertEqual(sum(a["overlap_signature_to_number_of_original_six_matchings"].values()),
                          1566360)
         self.assertFalse(a["complete_PAIR_source_overlap_histogram_over_ALL_Q0_claimed"])

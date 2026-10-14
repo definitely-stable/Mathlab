@@ -39,11 +39,12 @@ jobs:
           row=d["exact_W32_one_anchor_source_overlap_row"]
           assert row["source_original_six_matching_population"]==1566360
           assert row["source_diagonal_original_six_matching_count"]==1
-          assert row["source_factor_disjoint_six_matching_count"]>0
+          assert row["source_factor_disjoint_six_matching_count"]==1556
+          assert row["nonempty_overlap_signatures"]==120
           assert d["physical_avoidance_counts"]["6"]==3
           p=d["W32_exact_source_disjoint_joint"]
           assert Fraction(p["joint_two_D6_events_source_factor_disjoint"])==Fraction(1,19639219600)
-          assert Fraction(p["joint_over_independent_product"])>8
+          assert Fraction(p["joint_over_independent_product"])==Fraction(20449,2304)
           for x in d["all_h_proved_lower_sector"]:
               assert not x["full_exact_D6_second_moment_computed"]
               assert Fraction(x["all_h_rigorous_second_moment_disjoint_sector_lower"])>0

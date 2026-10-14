@@ -84,3 +84,17 @@ An exact second-moment LOWER bound does not supply an upper variance/concentrati
 Five+ hosted fail-closed tests, physical independent graph C6 oracles, exact Fraction pair probabilities, genuine true original W32 anchor histogram and swapped-bipartition verification, all-h analytic disjoint-source matching floors, dedicated matrix and INDEX/Proof Audit/Research workflows MUST be SUCCESS on exact HEAD. No merges or main edits, independent mathematical review required.
 
 Next JPKC-017 should classify two-matching **union bipartite incidence gluing graphs** beyond the crude (i,j,k) summary, derive physical pair-embedding kernels for shared original factor supports with guaranteed original global injection, then combine exact source overlap multiplicities. A full E[D6²], lower-tail concentration and Root A/B remain OPEN.
+
+## 7. First hosted cross-checks and nonmonotone covariance sign
+
+The initial pinned single-anchored source overlap row, obtained INDEPENDENTLY in the two true original bipartition orientations of the exact W32 source incidence graph, contains **1,556** original Q' with completely disjoint point and line supports from the selected genuine original six-incidence anchor Q0. It partitions all **1,566,360** source matchings into **120** nonempty anchored (common points, common lines, common original incidence IDs) cells; unique diagonal cell (6,6,6)=1. The number **1,556** is not claimed independent of which Q0 is selected; a different true original matching could have a different source overlap row, so it is NOT the full two-matching pair population N00.
+
+The a=6 exact source-factor-disjoint D6 joint-to-independence ratio is
+
+`p_joint/p^2 = 20,449/2,304 ≈ 8.87543402777778`.
+
+**Important new finite fact:** the covariance can CHANGE SIGN as a grows, even with completely disjoint genuine ORIGINAL source factor supports. The very same all-h exact kernel gives `p_joint/p² < 1` at a=8 and `p_joint/p² > 1` at a=14. It tends to 1 as a→∞ but is **not** a uniform positive-correlation or negative-correlation theorem at finite a. This defeats both naive independent-event variance approximations and unsupported sign-based FKG/negative-association shortcuts for these composite D6 events.
+
+The exact W32 anchored source-disjoint sector contributes **two** ordered pairs per each of its 1,556 source-factor-disjoint Q' (the fixed Q0 in first or second position) to the complete second moment; these have joint probability `1/19,639,219,600` each. The huge remaining set of ordered pairs includes other fully disjoint anchors not enumerated here and source-overlapping pairs with as-yet UNCOMPUTED physical kernels. Neither `E[D6²]` nor `Var(D6)` has been computed; a first/second-moment concentration theorem or all-label Root A remains absent.
+
+**Pinned independent acceptance:** physically enumerated H_a=3,45,327,1509 for a=6,7,8,9 respectively; exact old JPKC-015 W32 M6=1,566,360 checked as row sum and symmetric bipartition transpose; H_a and joint kernels calculated with exact integer/Fraction arithmetic; mixed overlap gluing sectors deliberately fail closed rather than receiving p².
