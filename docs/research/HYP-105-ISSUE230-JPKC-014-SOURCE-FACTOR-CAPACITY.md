@@ -61,3 +61,26 @@ Before claiming a new theorem, test whether larger original geometric blocks adm
 ## 6. Acceptance gate
 
 Exact GitHub-hosted 5-test suite, independent 24-state original-seven census and exact Q-set comparison for S68/S72 matrix jobs, INDEX, Proof Audit, full Research all required SUCCESS on exact final HEAD. Independent mathematical review required before theorem acceptance. No main merges and no ASET exponent assertions.
+
+## 7. Exact first hosted JPKC-014 results and frozen numerical falsifiers
+
+The initial dedicated JPKC-014 GitHub-hosted check on SHA `12ffa4b22339007fccccbc84744f51bd4bc2b1b8` passed **all three jobs**: five negative/source-incidence tests plus both COMPLETE true-original 24-state seven-GF5-Q-set jobs.
+
+**Four single-ORIGINAL-line stars were found in BOTH complete frozen four-line right blocks.** The value listed below is the minimum across ALL FOUR possible physical pair images of the anchor line of the **maximum count of genuine GF5-positive distinct ORIGINAL six-incidence Q** in any available one-moving-factor source-profile cylinder:
+
+| Pinned globally injected original W32 fiber | Source line anchor r | Minimum genuine ORIGINAL Q per physical image q_r | True ORIGINAL Q disjoint from different anchors |
+|---|---|---:|---|
+| S68 | 0, 1, 2, 3 | **2, 2, 2, 1**, respectively | YES |
+| S72 | 1, 7, 9, 12 | **2, 2, 2, 1**, respectively | YES |
+
+For each of the two 24-state fibers the all-h-valid **conditional** block-disjoint factor choice theorem certifies **S ≥ 7** without a /6 loss. Across all 24 states, the actual **minimum number of selected distinct positive ORIGINAL sixsets is 8**, a stronger true-finite observed minimum but not the frozen uniform min-over-images bound. The independent FULL seven-family W32 minimum in both fibers is **68**. The 7 is thus a nontrivial strictly positive factor-choice-derived necessary bound, but it is much weaker than 68; do not conflate it with full S, all-h Ω(s^6), or exact GF5 R3.
+
+Each independent seven_census gives **exact ORIGINAL Q six-ID sets** at each legal global image state. Group by the true original right-line multiset m, require complete equality with all JPKC-012 source profile integer scores; extract only profiles whose source-line support meets the movable four-line block in exactly one line; prove each image-cylinder's profile count invariant across the other 3!=6 legal permutations; finally check all chosen Q sets at their genuine source factor endpoints and their total incidence-ID deduplication. This is not 24 independent Q-wise solutions and not a local path charge.
+
+The source-profile populations with exactly k moving original lines and positive on at least one legal state are:
+- S68: k=0:6; k=1:93; k=2:175; k=3:36; k=4:1.
+- S72: k=1:97; k=2:181; k=3:21 (k=0 and k=4 have zero active profiles).
+
+The S72-only original line #7 4-way disjoint mask partition seen in JPKC-013 therefore extends to **all four original factor anchors**. The new structural observation is that the whole four-line source block has full per-image positive cylinders, not just one line; and those per-anchor Q witnesses are pairwise ORIGINAL-line-support-disjoint, enabling a sum of four guaranteed charges.
+
+**Important generalization barrier:** for W(3,s), the number of original lines is Θ(s³); if every line contributes just O(1), even perfect disjointness only gives O(s³), not the target Ω(s⁶). Future work must prove Ω(s³) positive Q per anchor on average for Ω(s³) eligible anchors, or find a different amplifier. No universal existence of a choice-star has been proved.

@@ -60,7 +60,12 @@ class SourceFactorCapacityTests(unittest.TestCase):
         self.assertTrue(all(m.bit_count()==6 for m in values))
         self.assertEqual(sum(values),(1<<24)-1)
         self.assertEqual(cert["full_original_seven_S_min"],68)
-        self.assertGreaterEqual(cert["J48_all_h_conditional_block_disjoint_original_Q_lower"],1)
+        self.assertEqual(cert["J48_distinct_original_block_line_stars"],4)
+        self.assertEqual(cert["J48_all_h_conditional_block_disjoint_original_Q_lower"],7)
+        self.assertEqual(cert["J48_finite_exact_min_selected_true_original_Q_by_state"],8)
+        self.assertEqual({int(r):x["min_true_original_Q_per_legal_image"]
+                          for r,x in stars.items()},
+                         {1:2,7:2,9:2,12:1})
         self.assertEqual(cert["J48_disjoint_Q_charge_summaries"]["max_actual_multiplicity"],1)
         self.assertTrue(cert["J49_true_original_incidence_census_reverified_every_state"])
         self.assertFalse(cert["all_h_universal_star_existence_proved"])
@@ -69,7 +74,12 @@ class SourceFactorCapacityTests(unittest.TestCase):
         cert=single_factor_choice_certificate("S68")
         self.assertEqual(cert["full_original_seven_S_min"],68)
         self.assertTrue(cert["complete_24_state_true_original_injection_fiber"])
-        self.assertLessEqual(cert["J48_all_h_conditional_block_disjoint_original_Q_lower"],68)
+        self.assertEqual(cert["J48_all_h_conditional_block_disjoint_original_Q_lower"],7)
+        self.assertEqual(cert["J48_distinct_original_block_line_stars"],4)
+        self.assertEqual(cert["J48_finite_exact_min_selected_true_original_Q_by_state"],8)
+        self.assertEqual({int(r):x["min_true_original_Q_per_legal_image"]
+                          for r,x in cert["J47_single_factor_original_image_stars"].items()},
+                         {0:2,1:2,2:2,3:1})
         self.assertGreaterEqual(
             cert["J48_finite_exact_min_selected_true_original_Q_by_state"],
             cert["J48_all_h_conditional_block_disjoint_original_Q_lower"])

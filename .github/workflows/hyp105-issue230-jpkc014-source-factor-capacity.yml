@@ -52,7 +52,13 @@ jobs:
           assert x["J49_true_original_incidence_census_reverified_every_state"]
           assert x["full_original_seven_S_min"]==68
           assert x["J48_independent_true_original_Q_set_capacity_checked"]
-          assert x["J48_all_h_conditional_block_disjoint_original_Q_lower"]<=68
+          assert x["J48_distinct_original_block_line_stars"]==4
+          assert x["J48_all_h_conditional_block_disjoint_original_Q_lower"]==7
+          assert x["J48_finite_exact_min_selected_true_original_Q_by_state"]==8
+          expected=({"S68":{"0":2,"1":2,"2":2,"3":1},
+                     "S72":{"1":2,"7":2,"9":2,"12":1}})[x["scheme"]]
+          assert {r:star["min_true_original_Q_per_legal_image"]
+                  for r,star in x["J47_single_factor_original_image_stars"].items()}==expected
           assert x["J48_disjoint_Q_charge_summaries"]["max_actual_multiplicity"]<=1
           assert x["J48_finite_exact_min_selected_true_original_Q_by_state"]>=x["J48_all_h_conditional_block_disjoint_original_Q_lower"]
           if x["scheme"]=="S72":
