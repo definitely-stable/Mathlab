@@ -97,7 +97,7 @@ class GlobalTwoTypeW32FiberTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             coherent_mixed_transversal_census(self.model,(),expected_blocks=1)
         with self.assertRaises(ValueError):
-            block_legal_completions(self.model["left_labels"],self.model["right_labels"],(0,))
+            tuple(block_legal_completions(self.model["left_labels"],self.model["right_labels"],(0,)))
 
 
 if __name__=="__main__":
