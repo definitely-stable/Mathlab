@@ -85,6 +85,31 @@ class JPKC009Tests(unittest.TestCase):
                 self.assertTrue(row["all_h_J31_exact_left_and_dual_Hall_star_capacity"])
                 self.assertTrue(row["all_h_J32_global_capacity_equals_J29"])
                 self.assertTrue(row["all_h_J33_cross_key_demand_graph_double_count_exact"])
+                self.assertTrue(row["J34_exact_nested_Hall_vs_positive_overlap_certified"])
+                for side in ("left","right"):
+                    raw=row[side+"_point_triple_source_overlap"] if side=="left" else row["right_line_triple_source_overlap"]
+                    hall=row[side+"_Hall_feasible_source_overlap"]
+                    positive=row[side+"_actual_GF5_D6_source_overlap"]
+                    for key in (
+                        "distinct_key_pairs_same_source_triple_DIFFERENT_original_anchors",
+                        "distinct_key_pairs_same_source_triple_same_original_anchor"):
+                        self.assertLessEqual(positive[key],hall[key])
+                        self.assertLessEqual(hall[key],raw[key])
+                if scheme in ("S68","S72"):
+                    self.assertGreater(
+                        row["left_point_triple_source_overlap"][
+                            "distinct_key_pairs_same_source_triple_DIFFERENT_original_anchors"],0)
+                    self.assertGreater(
+                        row["right_line_triple_source_overlap"][
+                            "distinct_key_pairs_same_source_triple_DIFFERENT_original_anchors"],0)
+                    self.assertEqual(
+                        row["original_demand_stage"].get("original_selected_D6_occurrences",0),0)
+                    self.assertEqual(
+                        row["left_actual_GF5_D6_source_overlap"][
+                            "distinct_key_pairs_same_source_triple_DIFFERENT_original_anchors"],0)
+                    self.assertEqual(
+                        row["right_actual_GF5_D6_source_overlap"][
+                            "distinct_key_pairs_same_source_triple_DIFFERENT_original_anchors"],0)
                 self.assertTrue(row["complete_source_triple_star_capacity_checked"])
                 self.assertEqual(
                     row["global_original_source_Hall_capacity"][
