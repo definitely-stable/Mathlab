@@ -45,6 +45,14 @@ class OriginalSpectralFibresTests(unittest.TestCase):
                         row['exact_integer_expander_mixing_lhs'],
                         row['exact_integer_expander_mixing_rhs'])
                     self.assertIn(e,row['original_double_star_incidence_ids'])
+                    p2,l2=ctx.inc[e]
+                    for arm in row['eligible_four_arm_matching_pool_original_incidence_ids']:
+                        self.assertNotEqual(ctx.inc[arm][0],p2)
+                        self.assertNotEqual(ctx.inc[arm][1],l2)
+                    self.assertEqual(row['eligible_four_arm_matching_pool_size'],
+                        row['original_double_star_incidence_count']-
+                        row['removed_middle_point_pencil_sources']-
+                        row['removed_middle_line_pencil_sources']+1)
                     self.assertEqual(row['physical_coordinate_corner_count'],4)
                     self.assertLessEqual(row['true_original_point_star_size'],2*ctx.a-3)
                     self.assertLessEqual(row['true_original_line_star_size'],2*ctx.a-3)
@@ -84,6 +92,9 @@ class OriginalSpectralFibresTests(unittest.TestCase):
                     self.assertTrue(
                         set(ids).issubset(
                             middle_cache[e]['original_double_star_incidence_ids']))
+                    self.assertTrue(
+                        (set(ids)-{e}).issubset(middle_cache[e][
+                            'eligible_four_arm_matching_pool_original_incidence_ids']))
             with self.assertRaisesRegex(ValueError,'unique nonempty'):
                 source_forest_signature(ctx,[0,0,1,2,3])
 
