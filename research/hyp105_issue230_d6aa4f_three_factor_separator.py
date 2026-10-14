@@ -198,7 +198,7 @@ def true_original_w32_three_factor_census(scheme):
                 raise AssertionError("GF5 numerator and ORIGINAL Q unit mass diverge")
             censuses.append(actual)
             all_tags.update(tags)
-        if len(censuses) != len(states) != 6:
+        if len(censuses) != len(states) or len(states) != 6:
             raise AssertionError("expected all six pure-type permutations")
         rows, weighted_rows = [], []
         scopes = Counter()
