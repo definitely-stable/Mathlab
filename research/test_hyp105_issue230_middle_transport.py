@@ -2,11 +2,12 @@
 from collections import Counter
 from fractions import Fraction
 import unittest
+from math import log, isclose
 
 from hyp105_issue230_anchor_lift import AnchorLiftedEnergy
 from hyp105_issue230_endpoint_energy import EndpointEnergy
 from hyp105_issue230_middle_transport import (
-    OriginalMiddleTransport, midpoint_only_no_go,
+    OriginalMiddleTransport, midpoint_only_no_go, list_information_lower_bound,
     original_overlap, original_overlap_gram, report
 )
 from hyp105_issue230_paired_gstar import paired_gstar
@@ -128,6 +129,30 @@ class OriginalMiddleTransportTests(unittest.TestCase):
         bad['left_labels'][0]=bad['left_labels'][1]
         with self.assertRaisesRegex(ValueError,'global injective'):
             OriginalMiddleTransport(bad)
+
+    def test_sharp_abstract_uniform_midpoint_list_channel(self):
+        # SHARP C6 abstract list channel, not a genuine GQ physical path.
+        # E uniform on 8 IDs; endpoint X=E//2 (four rows, two possible E).
+        # Every path is blocked; I(X;E)=log(4)=theta log(M/b).
+        self.assertTrue(isclose(list_information_lower_bound(1.0,8,2),log(4)))
+        self.assertTrue(isclose(list_information_lower_bound(0.0,8,2),0.0))
+        self.assertTrue(isclose(list_information_lower_bound(1.0,8,8),0.0))
+        with self.assertRaisesRegex(ValueError,'invalid source list'):
+            list_information_lower_bound(.5,8,9)
+
+    def test_stationary_real_W32_information_ledger(self):
+        for scheme in ('lex','reverse','S68','S72'):
+            ctx=EndpointEnergy(fixture(1,scheme))
+            row=OriginalMiddleTransport(fixture(1,scheme)).census()
+            if row['stationary_midpoint']:
+                self.assertIsNotNone(row['C6_info_nats_diagnostic'])
+                self.assertGreaterEqual(
+                    row['C6_info_nats_diagnostic']+1e-10,
+                    row['C6_list_lower_nats_diagnostic'])
+                self.assertEqual(row['C6_log_base'],'natural')
+            else:
+                self.assertIsNone(row['C6_info_nats_diagnostic'])
+                self.assertIsNone(row['C6_list_lower_nats_diagnostic'])
 
     def test_standalone_report_honest_root_gate(self):
         data=report()
