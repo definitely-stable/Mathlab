@@ -96,14 +96,45 @@ Suppose one discards the requirements that T arise from coordinate-proper physic
 
 This is a counterexample to the **relaxed transportation argument only**. It does NOT impose true physical path realizability or end-clean constraints, is not a valid globally blocked physical G*, and is **NOT** a counterexample to Branch A or the stationary endpoint/middle transport theorem. It proves why the actual source provenance and endpoint constraints must enter any spectral route.
 
-## 7. Independent finite evidence and proof gates
+## 7. C6 — Shannon list-information necessity for near-total blocking
+
+This is an additional **NEW all-h, unconditional-for-stationary-G*** consequence of C2-SPARSE and C3, not merely the tautological rearrangement C4.
+
+In the full normalized stationary NB3 probability space (the one with uniform original middle-source marginal), let E denote the true selected ORIGINAL middle incidence ID, so H(E)=log M in natural units by C3. Define the ORIGINAL endpoint symbol X to be the true pair (q,r) when the full path is coordinate-proper, the endpoints exist and are nonincident, and its unique original anchor is end-clean; otherwise set X=⊥. This makes X a valid deterministic statistic of the true random path, WITHOUT conditioning away ineligible mass.
+
+For every true endpoint row i=(q,r), define the ORIGINAL midpoint blocking list L(i)={e in I*: B[i,e]=1}. Put L(⊥)=empty. By C2, |L(i)|<=b with
+
+    b=min(M, 2*(2a-3)*(s+1)).
+
+Let Z be the indicator E∈L(X); thus **Pr(Z=1)=theta_I exactly**. Because Z is a function of (X,E),
+
+    H(E|X) = H(Z|X) + H(E|X,Z)
+           <= h_2(theta_I) + theta_I log b + (1-theta_I) log M,
+
+where h_2(t)=-t log t-(1-t) log(1-t), h_2(0)=h_2(1)=0. The conditional entropy bound uses only the fact that when Z=1 the ORIGINAL middle source E is among at most b allowed IDs, and otherwise among at most M. Subtracting from H(E)=log M proves **C6 (Shannon list information obstruction):**
+
+    I(X;E) >= theta_I log(M/b) - h_2(theta_I).      (C6)
+
+The bound is valid for all-h stationary coherent physical H with active min degree>=2, arbitrary globally injected f,g, no independence or expansion assumption. It is not generally valid with log M if the NB law is *conditioned on survival from degree-1 vertices*.
+
+**Asymptotic consequence in EICE-002 G*.** There M>=s^4/80000 and a<=2s^(3/2), hence b/M=O(s^-3/2). For any hypothetical sequence of admissible f,g and appropriate stationary dense G* with theta_I=1-o(1),
+
+    I(X;E) >= (3/2-o(1))*log(s) - O(1).           (C6-NECESSARY)
+
+In particular a true **upper** bound I(X;E)<=(3/2-eta)*log s+O(1) on at least one valid G* per f,g (eta>0), under the already separately required path-counting theorem R, would exclude theta_I=1-o(1). No such upper bound has been established. Ordinary GQ spectral gap, C2 rank bound, and uniform E marginal do NOT imply it without actual path-realizability constraints.
+
+**Sharpness and NO-GO:** In the abstract relaxation, take M=8, E uniform, X=floor(E/2) with four endpoint symbols, each list L(X) containing exactly its two source IDs. Then theta_I=1 and I(X;E)=log 4=log(M/b): equality in C6. This is NOT a physical GQ path or a counterexample to Branch A. It shows C6's constant is optimal for generic list channels and why one must exploit ORIGINAL physical-path/geometric constraints.
+
+The finite Python diagnostic computes I(X;E) from the complete original joint source-path tensor, including the ⊥ row, and checks the C6 lower bound in floating-point for inspection. The all-h theorem is the algebraic entropy chain above, not the numeric log checks. C1–C4 and all source identities remain exact-Fraction checks.
+
+## 8. Independent finite evidence and proof gates
 
 New files:
-- \`research/hyp105_issue230_middle_transport.py\`: true original middle source ID per physical 3-path, stationary exact midpoint uniformity audit, full C1–C4 transport and source Gram/diagonal correction, independent transport-tensor oracle, source-row cap, and explicit C5 relaxed witness.
-- \`research/test_hyp105_issue230_middle_transport.py\`: true original W32 all four global maps and W34 lex/random; independent C1-C4 vs previously pinned EICE-003-B B3/source correction; complete bit-level Gram matrices; stationary-vs-leaf law; coherent paired-G* finite checks; explicit positive-relaxation witness.
+- \`research/hyp105_issue230_middle_transport.py\`: true original middle source ID per physical 3-path, stationary exact midpoint uniformity audit, full C1–C4 transport and C6 Shannon list ledger and source Gram/diagonal correction, independent transport-tensor oracle, source-row cap, and explicit C5 relaxed witness.
+- \`research/test_hyp105_issue230_middle_transport.py\`: true original W32 all four global maps and W34 lex/random; independent C1-C4 vs previously pinned EICE-003-B B3/source correction; complete bit-level Gram matrices; stationary-vs-leaf law; coherent paired-G* finite checks; explicit positive-relaxation witness; independent sharp abstract C6 list-channel equality and real stationary GQ midpoint information audit.
 - \`docs/research/HYP-105-ISSUE230-EICE003C-MIDDLE-TRANSPORT.md\`: this all-h proof, assumptions, no-go and next theorem gate.
 - \`.github/workflows/hyp105-issue230-eice003c.yml\`: separate GitHub-hosted runner, no self-hosted runners or user PC dependency.
 
-**Next EICE-003-D:** prove a genuinely non-tautological bound on source-transport correlations using path realizability and GQ spectral/representation structure (not middle uniformity alone), or construct a genuine globally injected family exhibiting near-total internal blocking in every permitted G*. A finite W32 graph or an artificial coupling from C5 is not such a family.
+**Next EICE-003-D:** prove a genuinely non-tautological upper bound on true ORIGINAL endpoint/middle information I(X;E) below (3/2-eta) log(s), or directly on source-transport correlations using path realizability and GQ spectral/representation structure (not middle uniformity alone), or construct a genuine globally injected family exhibiting near-total internal blocking in every permitted G*. A finite W32 graph or an artificial coupling from C5 is not such a family.
 
 **Status:** Branch A OPEN, Branch B OPEN, ASET exponent OPEN. Research PR DRAFT, main untouched, all-h analytic proofs independent of finite CI checks.
