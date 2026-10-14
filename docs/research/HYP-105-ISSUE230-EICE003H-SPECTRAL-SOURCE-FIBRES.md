@@ -67,6 +67,20 @@ This is all-h, deterministic, and survives arbitrarily correlated labels f,g. Th
 
 The source bipartite subgraph induced by ANY five such genuine incidences is a **forest**, since the ORIGINAL GQ incidence girth is 8 and five edges cannot contain a cycle. The finite oracle explicitly reconstructs point/line degree sequences, connected components, and the exact forest identity \`#edges=#vertices-#components\`. This forest property is a standard GQ consequence, not a positive original GF5 motif proof.
 
+### H2-MATCH — five genuine ORIGINAL incidence sources form a matching
+
+The five distinct true ORIGINAL source incidence IDs of **any** coordinate-proper paired-coherent physical 2×2 NB3 plaquette form an ORIGINAL GQ **matching**: five pairwise distinct original point factors and five pairwise distinct original line factors. This is strictly stronger than the arbitrary-source girth-eight forest property above.
+
+**Proof.** Write the genuine directed middle physical edge u→v, with x(u)≠x(v) and y(u)≠y(v). Its true middle source e=(p2,ell2) has f(p2)={x(u),x(v)} and g(ell2)={y(u),y(v)}. Any arm e'=(p',ell') at u uses physical left x(u) and right y(u). If p'=p2, its other endpoint has left coordinate x(v), violating the genuine outer-to-middle coordinate-proper three-path; the dual argument excludes ell'=ell2. The same holds at v.
+
+Two distinct arms at the same physical vertex cannot share original point p, since their physical partner left coordinates would coincide, violating the coherent no-left-cherry condition. Likewise they cannot share original line ell, by the no-right-cherry condition.
+
+If an arm at u and an arm at v shared the same original point p, then f(p) contains BOTH x(u),x(v) and therefore equals f(p2); global f-injectivity gives p=p2, already excluded. If they shared the same original line, identical reasoning with y(u),y(v) and g-injectivity contradicts ell≠ell2. Therefore all five original point IDs and all five original line IDs are distinct. QED.
+
+The source footprint consequently has **ten original vertices, five components and five disjoint original incidences**. This proof uses paired source provenance, coordinate properness and the actual local no-cherry conditions, not GF5 positivity. It applies also when four decoded original endpoints are incident or the anchor is dirty, provided the physical 2×2 source plaquette itself remains coherent and coordinate-proper. The W34 exact census validates this topology on all 467+575 actual all-blocked true original five-source sets.
+
+Crucially this is NOT a statement about arbitrary five ORIGINAL GQ incidence edges: five incidences through one original point give a perfectly valid GQ forest with point degree five. A separate negative test checks that the general source forest oracle does not incorrectly classify this star as a matching.
+
 ## H3 — rigorously isolated HEAVY-MIDDLE condition for Branch A
 
 EICE-003-F F5/F6 and EICE-003-G G4 proved, on a fixed EICE-002 source-coherent **stationary high-degree** G* with the SAME globally injective f,g, and \`δ=10^-6\`, for \`s=2^h>=2^22\`:
@@ -103,7 +117,7 @@ For the real W32 lex/reverse/S68/S72 and W34 lex/random global fixtures it compu
 - H2 exact true source double physical-star incidence fibre for EVERY one of the N original incidence IDs;
 - independent line-point-pencil census for every true fibre and squared integer expander mixing;
 - full G2 true five-source blocked families from the COMPLETE source graph, **not merely empty canonical small G***;
-- true original forest degree sequences and components for each distinct five-source set;
+- true original forest degree sequences and components for each distinct five-source set, plus the true five-original-incidence source MATCHING (distinct five original point and five line factors);
 - count/size of true middle-source fibres carrying these families; signed source role participation and top-heavy middle source ID lists;
 - no all-h entropy, spectral o(s^4) source count, global seven-GF5 compensation or Branch A claim.
 
