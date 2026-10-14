@@ -96,6 +96,30 @@ Now suppose a genuinely new theorem constructs a map from EVERY counted all-four
 
 This is a precise quantitative TARGET, **not a result**: no such map, all-h accepted-seven classifier, positivity certificate, or multiplicity ≤K*s² exists in this PR. A finite W32 source square with zero blocked corners cannot validate F5's all-h reservoir; the proof above is symbolic for large s. The executable exact Fraction helper \`all_h_blocked_plaquette_reservoir\` deliberately labels the optional K as a NOT-PROVED hypothesis and refuses s below the stated threshold.
 
+### F6 — positive four-corner reservoir already at fixed θ>0 (standard C4 + Jensen)
+
+The local F4 known C4 bound also yields a stronger GLOBAL stationary estimate. Let ρ_e be the fraction of blocked cells in the rectangle of the uniformly sampled oriented middle edge e. Under the genuine stationary NB3 measure (min active degree d_*>=3),
+
+    theta_I = mean_e rho_e.
+
+The F4 bound is at least \`rho_e^4-1/r_e-1/c_e\` (the additional r_e*c_e/[(r_e-1)(c_e-1)] factor is >=1 whenever its inner term is positive; negative terms are handled by the probability floor zero). As r_e,c_e>=d_*-1, average and apply Jensen to the convex fourth power:
+
+    Pr_orient_uniform[all four blocked]
+       >= max(0, theta_I^4 - 2/(d_*-1)).        (F6)
+
+Combining with EICE-003-E four-event union bound gives
+
+    q = max(0,4*theta_I-3, theta_I^4-2/(d_*-1)).
+
+Using EICE-002 d_*>=delta*s, the explicit F5 count can be sharpened for
+s=2^h>=4,000,000 to
+
+    # oriented all-blocked TRUE ORIGINAL 2×2 plaquettes
+       >= max(0,4θ-3,θ^4-2/(delta*s-1))
+          * delta^4*s^8 / 1,280,000.             (F5+F6)
+
+Consequently, if θ_I>=ε>0 along an all-h family, then for all sufficiently large s (depending on ε and delta), the all-blocked true four-anchor reservoir is Ω_ε(s^8) even when θ is FAR BELOW 3/4. This is a stronger quantitative profile than E4 alone. It uses the **standard**, previously known C4 Sidorenko/Cauchy–Schwarz inequality and Jensen, and is NOT an original graph-theoretic discovery. Nor is it the missing positive-GF5 transfer; arbitrary all-blocked quadruples could still fail to produce accepted original sixsets.
+
 ## 6. Rigorous limits and acceptance gates
 
 - **No false original incidence relation.** Adjacent physical NB3 path factors need not be adjacent ORIGINAL GQ incidences.
@@ -109,7 +133,7 @@ The NEXT actual EICE-003-G proof gate is therefore a **quantitative TRUE source-
 ## Implementation
 
 - \`research/hyp105_issue230_four_anchor_capacity.py\`: all-h algebraic F1/F2, exact W32-specific source GF5 classification, independent provenance and footprint validation, known C4 supersaturation, explicit F5 asymptotic Ω(s⁸) reservoir and strictly hypothetical O(s²) sixset transfer, deterministic nonvacuous W32 fixture.
-- \`research/test_hyp105_issue230_four_anchor_capacity.py\`: exhaustive 3^4 mask signatures, exhaustive binary 2×2/2×3/3×3/3×4 quartic C4 lower falsifiers, exact rational F5 s=2^22..2^26 threshold tests, exact real W32 four schemes + W34 lex/random full maps, nonvacuous genuine five-original-source W32 plaquette, canonical six-source closure, independent frozen seven GF5 global index check, fail-closed invalid source/cut/budget tests.
+- \`research/test_hyp105_issue230_four_anchor_capacity.py\`: exhaustive 3^4 mask signatures, exhaustive binary 2×2/2×3/3×3/3×4 quartic C4 lower falsifiers, exact rational F5/F6 s=2^22..2^26 threshold and positive moderate-blocking tests, exact real W32 four schemes + W34 lex/random full maps, nonvacuous genuine five-original-source W32 plaquette, canonical six-source closure, independent frozen seven GF5 global index check, fail-closed invalid source/cut/budget tests.
 - \`docs/research/HYP-105-ISSUE230-EICE003F-FOUR-ANCHOR-CAPACITY.md\`: this proof and scope.
 - \`.github/workflows/hyp105-issue230-eice003f.yml\`: only GitHub-hosted \`ubuntu-latest\`, no local PC or self-hosted runner.
 
