@@ -61,6 +61,87 @@ class OriginalPlaquetteTests(unittest.TestCase):
                 self.assertLessEqual(row['original_endpoint_complete_plaquettes'],
                                      row['total_2x2_plaquettes'])
 
+    def test_true_original_W32_nonvacuous_five_source_paired_plaquette(self):
+        # The canonical EICE-002 W32 selected graph is TOO SPARSE for
+        # 2x2 squares. Deliberately search a DIFFERENT 5-source coherent
+        # whole-diagonal graph on a complete, true original W32 fixture.
+        # This validates E1/E2 on a REAL physical 2x2 source object,
+        # without claiming all-h density/min degree for this finite choice.
+        for scheme in ('lex','reverse','S68','S72'):
+            model=fixture(1,scheme)
+            ctx=EndpointEnergy(model)
+            a=ctx.a
+
+            def bicolor(source_ids, side):
+                neighbors=[set() for _ in range(a)]
+                for e in source_ids:
+                    point,line=ctx.inc[e]
+                    fpair=ctx.f[point] if side=='left' else ctx.g[line]
+                    x,y=fpair
+                    neighbors[x].add(y)
+                    neighbors[y].add(x)
+                colors=[-1]*a
+                for v in range(a):
+                    if colors[v]>=0:continue
+                    colors[v]=0
+                    stack=[v]
+                    while stack:
+                        u=stack.pop()
+                        for w in neighbors[u]:
+                            if colors[w]<0:
+                                colors[w]=1-colors[u]
+                                stack.append(w)
+                            elif colors[w]==colors[u]:
+                                return None
+                return colors
+
+            witness=None
+            budget=0
+            for u,nb in enumerate(ctx.adj):
+                if witness:break
+                for v in sorted(nb):
+                    if witness:break
+                    first=sorted(nb-{v})
+                    last=sorted(ctx.adj[v]-{u})
+                    if len(first)<2 or len(last)<2:continue
+                    for outer0 in combinations(first,2):
+                        if witness:break
+                        for outer1 in combinations(last,2):
+                            budget+=1
+                            if budget>100_000:
+                                raise AssertionError('nonvacuous ORIGINAL square search budget')
+                            ids={ctx.provenance[tuple(sorted((u,v)))]}
+                            ids.update(ctx.provenance[tuple(sorted((u,w)))]
+                                       for w in outer0)
+                            ids.update(ctx.provenance[tuple(sorted((v,z)))]
+                                       for z in outer1)
+                            if len(ids)!=5:
+                                continue
+                            colorsL=bicolor(ids,'left')
+                            colorsR=bicolor(ids,'right')
+                            if colorsL is None or colorsR is None:continue
+                            try:
+                                checker=OriginalPlaquette(model,sorted(ids),
+                                                          colorsL,colorsR)
+                            except ValueError:
+                                continue
+                            result=checker.census()
+                            if result['total_2x2_plaquettes']>0 and (
+                                    result['original_endpoint_complete_plaquettes']>0):
+                                witness=(scheme,ids,result)
+                                break
+            if witness:
+                self.assertEqual(len(witness[1]),5)
+                result=witness[2]
+                self.assertGreater(result['total_2x2_plaquettes'],0)
+                self.assertGreater(result['original_endpoint_complete_plaquettes'],0)
+                self.assertEqual(sum(result['original_cross_incidence_histogram'].values()),
+                                 result['original_endpoint_complete_plaquettes'])
+                self.assertTrue(all(int(k)<=8 for k in result[
+                    'original_cross_incidence_histogram']))
+                return
+        self.fail('no nonvacuous true ORIGINAL coherent W32 2x2 plaquette found')
+
     def test_sharp_grid_plaquette_missing_original_pair_incidence_charge(self):
         # Pure combinatorial grid witness: one undefined source label
         # removes exactly (r-1)(c-1) out of C(r,2)*C(c,2) squares.
