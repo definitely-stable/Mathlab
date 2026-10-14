@@ -35,6 +35,9 @@ class OriginalRectangleTests(unittest.TestCase):
                 self.assertLessEqual(row['max_original_r_per_middle_source_q'],4)
                 self.assertLessEqual(row['max_original_q_per_middle_source_r'],4)
                 self.assertTrue(row['four_partial_matchings_verified'])
+                self.assertTrue(row['D5_near_complete_decoder_verified'])
+                self.assertEqual(row['unused_physical_label_pairs_each_side'],0)
+                self.assertEqual(Fraction(row['D5_either_original_endpoint_absent_mass']),0)
                 self.assertFalse(row['universal_branch_A_proved'])
 
     def test_W34_complete_original_source_labels_and_cuts(self):
@@ -47,6 +50,12 @@ class OriginalRectangleTests(unittest.TestCase):
                     self.assertIn('no valid physical nonbacktracking rectangles',str(exc))
                     continue
                 self.assertEqual(row['N'],425)
+                self.assertTrue(row['D5_near_complete_decoder_verified'])
+                self.assertEqual(row['unused_physical_label_pairs_each_side'],
+                                 model['a']*(model['a']-1)//2-85)
+                self.assertLessEqual(Fraction(row['D5_either_original_endpoint_absent_mass']),
+                    Fraction(row['D5_left_original_endpoint_absent_mass'])+
+                    Fraction(row['D5_right_original_endpoint_absent_mass']))
                 self.assertEqual(row['oriented_middle_rectangles'],
                                  4*reg['final_original_count'])
                 self.assertLessEqual(row['max_original_q_per_middle_source_r'],4)
@@ -100,12 +109,16 @@ class OriginalRectangleTests(unittest.TestCase):
                                  4*M)
                 self.assertEqual(Fraction(row['D3_stationary_atom_cap']),
                                  Fraction(1,M*(d-1)**2))
+                self.assertLessEqual(
+                    Fraction(row['D5_either_original_endpoint_absent_mass']),
+                    Fraction(row['D5_stationary_missing_upper']))
                 self.assertIsNotNone(row['D4_info_upper_nats_diagnostic'])
                 self.assertLessEqual(row['D4_info_nats_diagnostic'],
                                      row['D4_info_upper_nats_diagnostic']+1e-9)
             else:
                 self.assertTrue(row['conditional_on_survival'])
                 self.assertIsNone(row['D3_stationary_atom_cap'])
+                self.assertIsNone(row['D5_stationary_missing_upper'])
                 self.assertIsNone(row['D4_info_nats_diagnostic'])
 
     def test_D4_information_ceiling_analytic_scaling(self):
