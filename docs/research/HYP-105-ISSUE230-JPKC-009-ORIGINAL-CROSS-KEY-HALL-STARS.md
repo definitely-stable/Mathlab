@@ -125,6 +125,36 @@ same full key are counted ONCE before forming edge pairs.
 | S68 | **2,632** | **2,696** | 1,016 | **0** |
 | S72 | **2,928** | **3,312** | 1,092 | **0** |
 
+### Three-level independently audited ORIGINAL cross-anchor loss tensor
+
+| Real W32 f/g | Left raw | Left Hall | Left selected D6 | Right raw | Right Hall | Right selected D6 |
+|---|---:|---:|---:|---:|---:|---:|
+| lex | 4,616 | 47 | 5 | 4,792 | 59 | 5 |
+| reverse | 3,912 | 13 | 0 | 3,784 | 10 | 0 |
+| S68 | **2,632** | **1** | **0** | **2,696** | **4** | **0** |
+| S72 | **2,928** | **7** | **0** | **3,312** | **3** | **0** |
+
+These numbers count pairs of DISTINCT source-demand full keys, never
+duplicate physical paths, and every pair shares one ORIGINAL
+three-factor source vertex but uses different original (q,r) anchors.
+For each map, the Hall-only pairs are obtained by deleting the
+source edges whose ORIGINAL 3×3 point-line graph has no perfect matching.
+The final selected-D6 pairs require actual ORIGINAL six-incidence
+positional dual alignment on at least one real physical P3 for EACH
+retained demanded source edge. All are checked using the SAME
+globally complete f,g and independently reconciled with JPKC-006.
+
+Thus W32 S68/S72 demonstrate an even stricter finite method
+obstruction: **even nonzero truly Hall-feasible cross-anchor source
+overlap does not guarantee a single selected D6 extension**.
+
+On the bounded genuine W34 D4 spread 8-seed source graph, raw
+right cross-anchor pairs 186,543 reduce to **1** Hall-feasible
+pair and **0** selected D6 cross-anchor pairs. The corresponding
+eight-seed lex/random source graphs have zero raw cross-anchor
+pairs. None of these partial W34 counts is a full original W34
+seven-family census or a statistical estimate.
+
 S68 and S72 are **finite globally realizable counterexamples** to
 the naive implication `Cross(D)>0 => at least one selected D6`.
 This does not construct an all-h counterfamily for Root B and
