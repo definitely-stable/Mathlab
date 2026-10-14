@@ -110,8 +110,16 @@ class FourAnchorTests(unittest.TestCase):
             "allblocked_original_scope_sizes"]))
         self.assertEqual(sum(row["observed_blocker_signatures"].values()),
                          row["all_four_blocked_plaquettes"])
-        self.assertGreaterEqual(
+        self.assertGreater(
+            row["complete_source_plaquettes_verified_against_W32_index"],0)
+        self.assertGreater(
             row["independent_W32_full_seven_index_comparisons"],0)
+        self.assertEqual(row["all_four_blocked_plaquettes"],0)
+        self.assertEqual(row["observed_scope_seven_hits"],{})
+        # Any accepted motif on a merely endpoint-complete plaquette is
+        # diagnostic and MUST NOT be counted as blocked-square transfer.
+        self.assertIsInstance(
+            row["complete_source_scope_seven_hits_NOT_compensation"],dict)
         independent=seven_census(model,independent_checks=False,
                                  witness_sets=True)
         for tag,ids in independent["witnesses"].items():
