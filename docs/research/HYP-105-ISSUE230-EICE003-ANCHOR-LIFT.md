@@ -59,6 +59,36 @@ All-h, every correlated f,g and every reversible mu. This is an actual mathemati
 
 The first inequality is sharper than a uniform coefficient by a factor \`C_clean/(N*s^2)\`, which depends on the SAME actual f,g, not on any random labeling. If \`C_clean=0\`, \`theta_I=0\` automatically.
 
+
+## Theorem A3 — exact conditional-anchor Parseval decomposition
+
+For each ORIGINAL end-clean nonincident pair (q,r), let
+
+    t(q,r) = sum_x pi_f(q,r,x) = sum_y pi_g(q,r,y).
+
+Both sums are exactly equal because every eligible path contributes exactly one internal x1 and one internal y1. Define the true-original endpoint-collision energy
+
+    T2 = sum_(q,r) t(q,r)^2,
+
+and the orthogonal internal-coordinate residuals
+
+    R_f = sum_(q,r,x) [pi_f(q,r,x)-t(q,r)/a]^2,
+    R_g = sum_(q,r,y) [pi_g(q,r,y)-t(q,r)/a]^2.
+
+Then the following identity is exact for ALL f,g and every reversible normalized mu:
+
+    A_f + A_g = (2/a)*T2 + R_f + R_g,         (A3)
+
+with R_f,R_g >= 0. Proof: for each (q,r), sum_x pi_f=t, hence in the expansion of
+sum_x [pi_f-t/a]^2 the cross term cancels and sum_x(t/a)^2=t^2/a. Repeat
+independently for right internal coordinates and add.
+
+Moreover, the t-mass is supported only on the EXACT C_clean true original endpoint pairs. For P_eligible=sum_(q,r)t(q,r),
+
+    T2 >= P_eligible^2/C_clean       (C_clean>0).
+
+This provides a genuine **mechanism dichotomy**, not a Branch A proof. If A2-CLEAN requires large A_f+A_g, it must arise from collision concentration among ORIGINAL endpoint pairs (large T2) and/or conditional internal-coordinate imbalance (large R_f+R_g). Future EICE-003-B can attack these **two independently testable quantities** using the original GQ spectrum; a bound on T2 alone is insufficient without the residual bound and vice versa. No universal upper for either term is claimed.
+
 ## Comparison with EICE-001, and what does NOT follow
 
 The eligible \`pi_f\` tensor includes q as an additional original index. If we sum over q first, its squared L2 energy can only grow; hence
