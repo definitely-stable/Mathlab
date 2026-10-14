@@ -51,6 +51,18 @@ def mixed_positive_certificate(model, *, limit_seeds=None, max_paths=2_000_000,
         raise ValueError("positive source witness pair budget required")
     if type(max_cross_pairs) is not int or max_cross_pairs < 1:
         raise ValueError("positive cross-source pair budget required")
+    # An independent ORIGINAL 62,370-sixset W32 oracle must compare the
+    # WHOLE extension set for every true seed, not just membership of hits.
+    # Build once per coherent f,g, reused by all selected seed triples.
+    full_census = None
+    census_source_index = None
+    if independent_W32:
+        full_census = seven_census(
+            model, independent_checks=False, witness_sets=True)
+        census_source_index = defaultdict(dict)
+        for source_Q, tag in full_census["sets"].items():
+            for T3 in combinations(source_Q, 3):
+                census_source_index[T3][source_Q] = tag
     _, fibers, _ = _path_fibers(ctx, max_paths)
     seeds = list(_bad_seed_paths(ctx, fibers))
     if not seeds:
@@ -71,6 +83,10 @@ def mixed_positive_certificate(model, *, limit_seeds=None, max_paths=2_000_000,
     for path, T, anchor in selected:
         T = tuple(sorted(T))
         found = _other_source_completion(ctx, path, T, anchor)
+        if census_source_index is not None and found != census_source_index.get(T, {}):
+            raise AssertionError(
+                "J35 independent W32 ORIGINAL full seven-census source-extension "
+                "set EQUALITY failed (a missed or spurious positive Q)")
         selected_D6 = {Q for Q, tag in found.items() if tag == "D6"}
         hall_D6 = set()
         for P, L, _ in _demand(ctx, path):
@@ -230,7 +246,7 @@ def mixed_positive_certificate(model, *, limit_seeds=None, max_paths=2_000_000,
 
     oracle_S = None
     if independent_W32:
-        census = seven_census(model, independent_checks=False, witness_sets=True)
+        census = full_census
         accepted = census["sets"]
         for Q, tag in class_of_Q.items():
             if accepted.get(Q) != tag:
@@ -247,6 +263,8 @@ def mixed_positive_certificate(model, *, limit_seeds=None, max_paths=2_000_000,
         "complete_endpoint_bad_seed_census": len(selected) == len(seeds),
         "J35_exact_Hall_D6_equals_source_topology_D6": True,
         "J35_true_original_incidence_ids_and_GF5_positions": True,
+        "J35_W32_full_source_three_extension_set_equality":
+            bool(independent_W32),
         "AA_original_source_stage": dict(sorted(hall_stage.items())),
         "original_JPKC009_cross_key_stages_on_same_f_g": cross_stages,
         "seed_positive_type_partition": dict(sorted(seed_types.items())),

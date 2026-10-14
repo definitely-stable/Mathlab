@@ -20,6 +20,7 @@ class JPKC010Tests(unittest.TestCase):
                 self.assertTrue(c["one_complete_globally_injective_original_f_g"])
                 self.assertTrue(c["J35_exact_Hall_D6_equals_source_topology_D6"])
                 self.assertTrue(c["J35_true_original_incidence_ids_and_GF5_positions"])
+                self.assertTrue(c["J35_W32_full_source_three_extension_set_equality"])
                 self.assertEqual(
                     sum(c["seed_positive_type_partition"].values()),
                     c["examined_real_endpoint_bad_physical_seeds"])
@@ -110,6 +111,7 @@ class JPKC010Tests(unittest.TestCase):
                 self.assertFalse(c["complete_endpoint_bad_seed_census"])
                 self.assertIsNone(c["independent_full_original_W32_seven_S"])
                 self.assertFalse(c["full_W34_seven_census"])
+                self.assertFalse(c["J35_W32_full_source_three_extension_set_equality"])
                 self.assertTrue(c["J35_exact_Hall_D6_equals_source_topology_D6"])
 
     def test_fail_closed_bad_global_map_incomplete_fiber_and_budgets(self):

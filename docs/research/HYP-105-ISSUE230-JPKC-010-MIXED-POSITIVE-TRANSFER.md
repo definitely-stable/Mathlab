@@ -102,3 +102,7 @@ The fail-closed full genuine W32 regression pins, now checked ON THE SAME f,g as
 | S72 | 2928→7→0 | 3312→3→0 | 10 | 5 |
 
 This validates the *existence* of mixed-class local rescue for the chosen finite maps while exposing the missing all-h positive transfer inequality. A numerical juxtaposition of cross-key counts with wedge witness counts does not imply cross-key edges cause those witnesses or produce a uniform lower bound.
+
+## 8. Final independent completeness gate
+
+For full W32 only, the historical independent original seven-family census enumerates every accepted original six-incidence Q before interpreting endpoint-bad physical seeds. Build a direct incidence-indexed lookup `I(T) = {(Q, class): T subset Q}` for every original 3-incidence T, iterating ALL `C(6,3)=20` subsets per accepted Q. For **each** actually selected physical seed source T, require strict equality of the complete `I(T)` dictionary to `_other_source_completion` — not just that every computed hit is found in the independent census. This excludes both omitted B/A/A/B positives and fabricated positives. D6 has a second independent strict equality to the Hall-source matching path. W34 never invokes a false complete seven-family census.

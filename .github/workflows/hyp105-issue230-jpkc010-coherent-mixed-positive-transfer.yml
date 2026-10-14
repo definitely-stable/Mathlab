@@ -38,6 +38,7 @@ jobs:
           assert len(x["records"])==7
           for r in x["records"]:
               assert r["J35_exact_Hall_D6_equals_source_topology_D6"]
+              assert r["J35_W32_full_source_three_extension_set_equality"] == (r["s"] == 2)
               assert r["J36_class_sensitive_ceil_charge_lower_for_full_S"] <= r["distinct_positive_original_sixsets_reached"]
               assert not r["root_A_proved"] and not r["root_B_constructed"]
           print(json.dumps([{
