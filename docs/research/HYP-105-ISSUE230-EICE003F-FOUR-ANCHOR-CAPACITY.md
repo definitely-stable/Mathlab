@@ -68,7 +68,35 @@ In the EICE-002 high-degree G* regime \`r,c>=delta*s-1\`, F4 asymptotically read
 
 For an orientation-uniform sampler over squareable middle edges, take the AVERAGE of the LOCAL F4 lower bounds, NEVER replace it by an unsupported global plaquette size-weighted mean. The finite oracle compares this exact Fraction lower against direct enumeration of true original blocker statuses.
 
-## 5. Rigorous limits and acceptance gates
+## 5. F5 — explicit all-h Ω(s^8) true blocked-plaquette reservoir (conditional on θ)
+
+A quantitative implication of PREVIOUSLY ACCEPTED EICE-002 density/min-degree and EICE-003-E four-corner union sampling is worth stating with its CONSTANTS; it is a valid all-h combinatorial theorem, **NOT a sixset-compensation proof**.
+
+For s=2^h>=4,000,000, let δ=10^-6, and choose the EICE-002 coherent paired G* guaranteed to satisfy
+
+    m=|E(G*)|>=s^4/40000,
+    d_*=min_positive_degree(G*)>=δ*s>=4.
+
+Let θ=θ_I∈[0,1] be the ACTUAL stationary true ORIGINAL end-clean internal-blocked NB3 probability for the SAME G*. Every oriented physical middle edge has r,c>=δ*s-1 outer neighbors. Since δ*s>=4,
+
+    binom(r,2) >= δ²*s²/8,
+    binom(c,2) >= δ²*s²/8.
+
+Thus each of the exactly 2m oriented middle edges supports at least δ⁴*s⁴/64 **distinct-index 2×2** original physical plaquettes. EICE-003-E E4 gives an orientation-uniform probability at least \`q=max(0,4θ-3)\` that all four ACTUAL endpoints are original nonincident, end-clean and internally blocked. Multiplying the uniform-orientation probability by the MINIMUM number of physical squares per orientation (never by an incorrect globally size-weighted probability) yields
+
+    # oriented all-four-blocked TRUE ORIGINAL plaquettes
+       >= q * (2m) * (δ⁴*s⁴/64)
+       >= q * δ⁴*s⁸ / 1,280,000.                 (F5)
+
+When θ=1-o(1), this is \`Ω(s^8)\` with an ABSOLUTE explicit though exceedingly small constant. The lower bound is on **ORIENTED physical middle-edge plaquettes**, which may represent the same unordered object multiple times; a future map must preserve this convention or divide by its rigorously bounded multiplicity.
+
+Now suppose a genuinely new theorem constructs a map from EVERY counted all-four-blocked TRUE original plaquette to one of the accepted POSITIVE GF5 six-ORIGINAL-incidence sets with no more than \`K*s²\` oriented plaquettes per target, with absolute K. THEN pure counting would imply the desired
+
+    S_s(f,g) >= q * δ⁴*s⁶ / (1,280,000*K).      (F5-IF-TRANSFER)
+
+This is a precise quantitative TARGET, **not a result**: no such map, all-h accepted-seven classifier, positivity certificate, or multiplicity ≤K*s² exists in this PR. A finite W32 source square with zero blocked corners cannot validate F5's all-h reservoir; the proof above is symbolic for large s. The executable exact Fraction helper \`all_h_blocked_plaquette_reservoir\` deliberately labels the optional K as a NOT-PROVED hypothesis and refuses s below the stated threshold.
+
+## 6. Rigorous limits and acceptance gates
 
 - **No false original incidence relation.** Adjacent physical NB3 path factors need not be adjacent ORIGINAL GQ incidences.
 - **No false motif closure.** A physical K2,2, physical C6, or eight nonincident original cross pairs is not a seven-family positive sixset.
@@ -76,12 +104,12 @@ For an orientation-uniform sampler over squareable middle edges, take the AVERAG
 - **No false all-blocked witness.** The experiment reports the count of truly four-times internally blocked source plaquettes, whether zero or positive; it does NOT assert existence when none was observed.
 - **No unproved transfer.** F1–F4 remain compatible with nearly all corners being blocked, and an all-h source-compensation Hall or bounded-multiplicity map to positive sixsets is still open.
 
-The NEXT actual EICE-003-G proof gate is therefore a **quantitative TRUE source-fibre theorem**: among all-four-blocked 2×2 plaquettes with complete nonincident end-clean original endpoints, rule out high density of BOTH the adjacent-shared-side channel and the strict alternating channel, OR construct a bounded-multiplicity map from these genuine plaquettes to positive six-incidence ORIGINAL witnesses in the seven accepted GF5 families. Such a map must carry all original IDs and a proof of the multiplicity bound uniform in s.
+The NEXT actual EICE-003-G proof gate is therefore a **quantitative TRUE source-fibre theorem** of scale O(s²) preimages per accepted positive original sixset, or a genuine all-h exclusion of near-total four-blocking: among all-four-blocked 2×2 plaquettes with complete nonincident end-clean original endpoints, rule out high density of BOTH the adjacent-shared-side channel and the strict alternating channel, OR construct a bounded-multiplicity map from these genuine plaquettes to positive six-incidence ORIGINAL witnesses in the seven accepted GF5 families. Such a map must carry all original IDs and a proof of the multiplicity bound uniform in s.
 
 ## Implementation
 
-- \`research/hyp105_issue230_four_anchor_capacity.py\`: all-h algebraic F1/F2, exact W32-specific source GF5 classification, independent provenance and footprint validation, known C4 supersaturation, deterministic nonvacuous W32 fixture.
-- \`research/test_hyp105_issue230_four_anchor_capacity.py\`: exhaustive 3^4 mask signatures, exhaustive binary 2×2/2×3/3×3/3×4 quartic C4 lower falsifiers, exact real W32 four schemes + W34 lex/random full maps, nonvacuous genuine five-original-source W32 plaquette, canonical six-source closure, independent frozen seven GF5 global index check, fail-closed invalid source/cut/budget tests.
+- \`research/hyp105_issue230_four_anchor_capacity.py\`: all-h algebraic F1/F2, exact W32-specific source GF5 classification, independent provenance and footprint validation, known C4 supersaturation, explicit F5 asymptotic Ω(s⁸) reservoir and strictly hypothetical O(s²) sixset transfer, deterministic nonvacuous W32 fixture.
+- \`research/test_hyp105_issue230_four_anchor_capacity.py\`: exhaustive 3^4 mask signatures, exhaustive binary 2×2/2×3/3×3/3×4 quartic C4 lower falsifiers, exact rational F5 s=2^22..2^26 threshold tests, exact real W32 four schemes + W34 lex/random full maps, nonvacuous genuine five-original-source W32 plaquette, canonical six-source closure, independent frozen seven GF5 global index check, fail-closed invalid source/cut/budget tests.
 - \`docs/research/HYP-105-ISSUE230-EICE003F-FOUR-ANCHOR-CAPACITY.md\`: this proof and scope.
 - \`.github/workflows/hyp105-issue230-eice003f.yml\`: only GitHub-hosted \`ubuntu-latest\`, no local PC or self-hosted runner.
 
