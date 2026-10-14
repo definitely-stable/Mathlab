@@ -186,6 +186,8 @@ class FourAnchorCapacity:
         degenerate_closures=Counter()
         source_scopes=Counter()
         scope_six_hits=Counter()
+        complete_scope_seven_hits=Counter()
+        complete_scope_indexed_count=0
         blocked_scopes_without_witness=0
         exact_index=None
         confirmed_index_entries=0
@@ -253,6 +255,37 @@ class FourAnchorCapacity:
                         statuses=[a[0] for a in corners]
                         if all(st!=0 for st in statuses):
                             proper_complete+=1
+                            # Nonvacuous independent INDEX comparison is
+                            # allowed even for squares that are NOT all
+                            # blocked. Do not present those motif hits as
+                            # four-blocker compensation witnesses.
+                            if exact_index is not None:
+                                complete_scope_indexed_count+=1
+                                scope=set()
+                                for corner in corners:
+                                    scope.update(corner[4])
+                                    q0,r0=corner[1],corner[2]
+                                    if (q0,r0) in ctx.anchor:
+                                        p0,l0=ctx.anchor[q0,r0]
+                                        scope.update((
+                                            ctx.edge_id[q0,l0],
+                                            ctx.edge_id[p0,l0],
+                                            ctx.edge_id[p0,r0],
+                                        ))
+                                if len(scope)>17:
+                                    raise AssertionError("original W32 complete-square scope >17")
+                                if len(scope)>=6:
+                                    combos=__import__('math').comb(len(scope),6)
+                                    if combos>max_scope_sets:
+                                        raise ValueError("true GF5 source six-subset scope budget exceeded")
+                                    for ids in combinations(sorted(scope),6):
+                                        tag=classify_seven_prechecked(ids,ctx.f,ctx.g,ctx.inc)
+                                        if exact_index.get(ids)!=tag:
+                                            raise AssertionError(
+                                                "independent full-W32 seven-index scope mismatch")
+                                        confirmed_index_entries+=1
+                                        if tag is not None:
+                                            complete_scope_seven_hits[tag]+=1
                         if all(st in (3,4) for st in statuses):
                             eligible+=1
                         if not all(st==3 for st in statuses):
@@ -292,11 +325,6 @@ class FourAnchorCapacity:
                                         raise AssertionError("nonaccepted original GF5 class found")
                                     hits.add((ids,tag))
                                     scope_six_hits[tag]+=1
-                                if exact_index is not None:
-                                    if exact_index.get(ids)!=tag:
-                                        raise AssertionError(
-                                            "W32 independently enumerated seven-index mismatch")
-                                    confirmed_index_entries+=1
                             if not hits:
                                 blocked_scopes_without_witness+=1
                         elif ctx.s==2:
@@ -344,6 +372,8 @@ class FourAnchorCapacity:
             "accepted_seven_class_oracle_scope":"W(3,2)/K6 only; W34 IDs not classified",
             "frozen_W32_seven_classifier_available":ctx.s==2,
             "observed_scope_seven_hits":dict(scope_six_hits),
+            "complete_source_plaquettes_verified_against_W32_index":complete_scope_indexed_count,
+            "complete_source_scope_seven_hits_NOT_compensation":dict(complete_scope_seven_hits),
             "allblocked_scopes_without_seven_hit":blocked_scopes_without_witness,
             "independent_W32_full_seven_index_comparisons":confirmed_index_entries,
             "squareable_uniform_mean_blocked_corner":str(weighted_blocked_cells/z) if z else None,
