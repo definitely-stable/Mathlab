@@ -1,0 +1,88 @@
+name: hyp105-issue230-d6aa4g-overlap-capacity
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4g_overlap_capacity.py"
+      - "research/test_hyp105_issue230_d6aa4g_overlap_capacity.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4G-OVERLAP-CAPACITY.md"
+      - ".github/workflows/hyp105-issue230-d6aa4g-overlap-capacity.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-cluster-and-capacity-oracle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently test sound triad overlap and adversarial D6-X/Y capacity
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4g_overlap_capacity.py" -v
+          python research/hyp105_issue230_d6aa4g_overlap_capacity.py > /tmp/issue230-aa4g-capacity.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/issue230-aa4g-capacity.json"))
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-G-OVERLAPPING-TRIADS-CAPACITY"
+          assert x["theorem"]=="ALL_H_CONDITIONAL_FROZEN_OUTSIDE"
+          assert not x["universal_positive_seven_GF5"] and not x["full_R3"] and not x["ASET_exponent"]
+          assert x["Branch_A"]==x["Branch_B"]=="OPEN"
+          z=next(y for y in x["physical_capacity_regressions"] if y["s"]==4)
+          assert (z["V"],z["a"],z["K"],z["m"])==(85,14,91,6)
+          assert z["D6X_star_pseudo_column_lift_slack"]=="-5/182"
+          assert z["D6Y_selected_two_site_gap"]==57
+          assert z["all_real_images_max_adjacent_pairs"]==963
+          assert z["D6Y_selected_two_site_pseudo_adjacent_pairs"]==1020
+          print("AA4G independently verified X/Y physical capacity NO-GO PASS")
+          PY
+  original-full-seven-fiber-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All 24 globally coherent ORIGINAL K6 four-factor states and GF5 classes
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4g_overlap_capacity.py --scheme "$SCHEME" > "/tmp/aa4g-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          r=json.loads(Path("/tmp/aa4g-"+os.environ["SCHEME"]+".json").read_text())
+          s=r["W32"]
+          assert s["scheme"]==os.environ["SCHEME"]
+          assert s["Branch_A"]==s["Branch_B"]=="OPEN"
+          for typ in ("P","L"):
+              item=s["by_type"][typ]
+              assert item["complete_maps"]==24
+              assert item["original_candidate_Q_per_map"]==62370
+              assert item["no_all_label_lower_claim"]
+              assert len(item["original_source_block"])==4
+              for name in ("seven","selected_GF5_numerator"):
+                  z=item[name]
+                  assert z["complete_globally_injective_states"]==24
+                  assert len(z["all_twelve_covers"])==12
+                  assert (0<=z["independent_Q_lower"]<=z["best_separate_triad_lower"]
+                          <=z["best_shared_pair_separator_lower"]
+                          <=z["true_joint_four_factor_minimum"])
+                  assert z["true_joint_four_factor_minimum"]==min(z["all_full_state_costs"])
+              assert item["seven"]["true_joint_four_factor_minimum"]>0
+              print(s["scheme"],typ,"S",{k:item["seven"][k] for k in (
+                "independent_Q_lower","best_separate_triad_lower",
+                "best_shared_pair_separator_lower","true_joint_four_factor_minimum",
+                "unresolved_shared_pair_to_full_gap")})
+              print(s["scheme"],typ,"GF5",{k:item["selected_GF5_numerator"][k] for k in (
+                "independent_Q_lower","best_separate_triad_lower",
+                "best_shared_pair_separator_lower","true_joint_four_factor_minimum")})
+              print("ORIGINAL Q across all 24 states:",item["original_Q_positive_in_any_state"])
+          print("FULL ORIGINAL W32 COMPLETE GLOBAL K6 FOUR-SOURCE GF5 PASS")
+          PY
