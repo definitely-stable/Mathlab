@@ -1,0 +1,107 @@
+name: hyp105-issue230-d6aa4j-source-pair-gf5-charge
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4j_source_pair_gf5_charge.py"
+      - "research/test_hyp105_issue230_d6aa4j_source_pair_gf5_charge.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4J-SOURCE-PAIR-GF5-TRANSFER.md"
+      - ".github/workflows/hyp105-issue230-d6aa4j-source-pair-gf5-charge.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-original-source-pair-Q-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test independent true ORIGINAL source P and L pair charge, strict pencil distinction and s6 conditional theorem
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4j_source_pair_gf5_charge.py" -v
+          python research/hyp105_issue230_d6aa4j_source_pair_gf5_charge.py > /tmp/aa4j-theorem.json
+          python - <<'PY'
+          import json
+          r=json.load(open("/tmp/aa4j-theorem.json"))
+          assert r["slice"]=="HYP105-ISSUE230-D6-AA4-J-ORIGINAL-SOURCE-PAIR-GF5-CHARGE"
+          assert r["all_h_exact_pair_to_positive_sixset_capacity"]==15
+          assert r["all_h_s5_original_source_pair_spectral_bound"]
+          assert r["root_A"]==r["root_B"]=="OPEN"
+          assert not r["all_h_GF5_positive_lower_proven"]
+          assert not r["full_R3_proven"] and not r["ASET_exponent_proven"]
+          h=r["conditional_all_h_linear_per_pair_multiplicity_yields_s6"]
+          assert h["s"]==4 and h["maximum_original_same_type_source_pairs_per_sixset"]==15
+          assert not h["hypothesis_established_for_all_labels"]
+          print("AA4J TRUE all-h conditional 15-capacity and missing s-linear multiplicity VERIFIED")
+          PY
+  full-original-W32-P-and-L-source-Q-transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaust 24 complete maps times 62370 ORIGINAL Q, independent Q-major/pair-major GF5 original source-pair charging
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4j_source_pair_gf5_charge.py --scheme "$SCHEME" > "/tmp/aa4j-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4j-"+os.environ["SCHEME"]+".json").read_text())
+          r=x["true_original_W32"]
+          assert r["scheme"]==os.environ["SCHEME"]
+          assert r["complete_true_global_injective_assignments"]==24
+          assert len(r["original_source_four_point_block"])==4
+          assert r["historical_original_sixset_candidates_per_complete_map"]==62370
+          assert r["minimum_original_seven_positive_Q"]=={"S68":68,"S72":72}[os.environ["SCHEME"]]
+          assert r["maximum_source_pair_Q_multiplicity_per_Q_all_h"]==15
+          for typ in ("P","L"):
+              z=r["original_point_and_line_pair_charge"][typ]
+              assert z["all_24_original_sixset_pair_charge_oracles"]=="PASS"
+              assert len(z["per_complete_state"])==24
+              for row in z["per_complete_state"]:
+                  n=row["original_gq_collinear_physically_disjoint_pair_count"]
+                  assert n>=9
+                  assert row["source_type"]==typ
+                  assert row["independent_pair_major_original_incidence_oracle"]=="PASS"
+                  assert row["original_pairs_covered_by_any_positive_sixset"]+row[
+                        "original_pairs_not_covered_by_any_positive_sixset"]==n
+                  assert row["original_pairs_covered_by_same_pencil_positive_sixset"]+row[
+                        "original_pairs_not_covered_by_same_pencil_positive_sixset"]==n
+                  assert row["maximum_physically_disjoint_source_pair_charges_in_one_Q"]<=15
+                  assert row["all_genuine_original_pair_to_positive_Q_same_pencil_charges"]<=row[
+                        "all_genuine_original_pair_to_positive_Q_weak_charges"]
+                  assert row["sharp_unconditional_capacity_15_Q_lower_from_weak_charges"]<=row[
+                        "original_seven_positive_sixsets"]
+                  assert row["complete_seven_GF5_original_Q_not_P3_filtered"]
+                  assert row["no_all_h_pair_to_GF5_transfer_established"]
+              strong=z["same_original_pencil_uncovered_true_source_pair_witness"]
+              assert strong is not None
+              assert strong["genuine_positive_seven_GF5_Q_with_same_original_pencil"]==0
+              assert strong["independent_original_six_incidence_membership_oracle"]=="PASS"
+              if r["scheme"]=="S72" and typ=="L":
+                  assert z["ranges"]["original_pairs_not_covered_by_any_positive_sixset"]["max"]>=1
+                  weak=z["weak_uncovered_true_source_pair_witness"]
+                  assert weak is not None
+                  assert weak["genuine_positive_seven_GF5_Q_with_both_source_factors"]==0
+                  assert weak["independent_original_six_incidence_membership_oracle"]=="PASS"
+                  assert weak["original_source_pair"]==[5,10]
+                  assert weak["actual_global_physical_pair_labels_for_source_pair"]==[[1,3],[0,4]]
+                  assert weak["complete_global_source_state_index"]==0
+                  assert weak["historical_complete_original_seven_Q"]==72
+                  print("PINNED TRUE ORIGINAL S72 LINE PAIR GF5 TRANSFER NO-GO",weak)
+              print("PINNED TRUE ORIGINAL SAME PENCIL NO-GO",strong)
+              print(r["scheme"],typ,"S min",r["minimum_original_seven_positive_Q"])
+              for field,range in z["ranges"].items():
+                  print("ORIGINAL PAIR/Q",field,range)
+          print("COMPLETE ORIGINAL W32 24-state P/L source-pair GF5 Q-major vs independent pair-major PASS")
+          PY
