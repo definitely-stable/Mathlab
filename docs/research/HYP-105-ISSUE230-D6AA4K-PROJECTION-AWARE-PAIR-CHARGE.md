@@ -54,6 +54,19 @@ S_s\ge\lceil I_t/9\rceil\ge c s^6/36.
 ]
 The average hypothesis is NOT PROVED in this PR; no ASET exponent.
 
+
+## 2A. Sharpness of 9 for genuine ORIGINAL symplectic W(3,8), not just toy multigraphs
+
+The per-accepted-Q upper 9 is **actually attained** within the true ORIGINAL symplectic generalized quadrangle, independently for each source type, at s=8 (and the same abstract construction works for s>=8, since every line has s+1>=9 original points and every point has s+1>=9 original lines). This is stronger evidence for the tightness of the all-h combinatorial cap than an abstract physical graph witness.
+
+**P version:** select any genuine original line L0 in W(3,8), choose six distinct original points p0,...,p5 on it, and through each pi choose an original line li different from L0. Distinct pi yield distinct li because the unique original line through pi,pj is L0. Thus Q={(pi,li)} consists of SIX distinct true ORIGINAL source incidences with six distinct original point factors and six distinct original line factors.
+
+**L version:** dualize: select a genuine original point P0, choose six different original lines li through P0, and choose another source point pi on each li, different from P0. The pi are necessarily distinct by the GQ partial linear space axioms.
+
+For E_i={i,(i+1) mod 6}, i=0,...,5 (canonical unordered physical edge), assign f(pi)=E_i and g(li)=E_i for each of the six original incidences. The pairs E_i are six different globally compatible physical edges forming C6. Because minimal physical K_a has at least V pair labels, complete f and g separately to FULL injective assignments by assigning all remaining source factors unused pair labels, independently in each type. The exact ORIGINAL positional D6 six-incidence classifier reads these six shared physical-coordinate edges as aligned C6/C6 and accepts Q as **D6**, with certified selected GF5 numerator weight **5643**. All six original point factors are collinear (respectively all six original line factors concurrent) and their physical E_i pair images have exactly **9** disjoint edge pairs.
+
+**Consequent SHARPNESS:** no universal per-positive-Q upper smaller than 9 is possible for arbitrary genuine ORIGINAL W(3,2^h), even when the sources are forced to be collinear/concurrent in the genuine source geometry, unless one imposes genuinely additional restrictions on accepted classes, selected original factor positions, or the surrounding assignment beyond the current hypotheses. This is ONE deliberately constructed positive true-original GF5 Q within a complete global mapping, not a complete W38 seven-census and not an Ω(s^6) theorem. The implementation constructs and checks BOTH P and L versions from the exact full original W38 incidence host, independent of W32-only sixset census.
+
 ## 3. Class-sensitive selected 51-palette GF5 numerator
 
 For the seven true accepted GF5 original sixset tags, let `w(Q)` be the ALREADY CERTIFIED nonnegative per-Q selected numerator floor stored in `R3_CERTIFIED_FLOORS`. The true selected six-motif numerator is `W=sum_(Q>0) w(Q)`. The exact tag-specific cap `d(k_P)+d(k_L)` is at most 18 for D6, 15 for B/A, 12 for C/A or B/B, and 9 for C/B. All seven known certified weights satisfy
