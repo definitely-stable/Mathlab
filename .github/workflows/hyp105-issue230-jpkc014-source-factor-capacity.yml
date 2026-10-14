@@ -1,0 +1,86 @@
+name: hyp105-issue230-jpkc014-source-factor-capacity
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc014_source_factor_capacity.py"
+      - "research/test_hyp105_issue230_jpkc014_source_factor_capacity.py"
+      - "research/hyp105_issue230_jpkc014_choice_matching_bound.py"
+      - "research/test_hyp105_issue230_jpkc014_choice_matching_bound.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-014-SOURCE-FACTOR-CAPACITY.md"
+      - ".github/workflows/hyp105-issue230-jpkc014-source-factor-capacity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  true-original-source-incidence-capacity-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Five rigorous original incidence support and full W32 24-state tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc014_*.py' -v
+
+  complete-right-image-factor-star:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All 24 TRUE ORIGINAL source-incidence Q-set star certificates
+        env:
+          SOURCE_SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_jpkc014_source_factor_capacity.py --scheme "${SOURCE_SCHEME}" > /tmp/jpkc014.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/jpkc014.json"))
+          assert x["complete_24_state_true_original_injection_fiber"]
+          assert x["J49_true_original_incidence_census_reverified_every_state"]
+          assert x["full_original_seven_S_min"]==68
+          assert x["J48_independent_true_original_Q_set_capacity_checked"]
+          assert x["J48_distinct_original_block_line_stars"]==4
+          assert x["J48_all_h_conditional_block_disjoint_original_Q_lower"]==7
+          assert x["J48_finite_exact_min_selected_true_original_Q_by_state"]==8
+          matching=x["J50_exact_injective_original_source_star_matching"]
+          assert matching["exact_injective_min_original_Q_lower"]==8
+          assert matching["sum_of_independent_original_source_star_row_minima"]==7
+          assert matching["strict_injection_assignment_gain"]==1
+          assert matching["J50_all_h_conditional_injection_assignment_lemma"]
+          expected=({"S68":{"0":2,"1":2,"2":2,"3":1},
+                     "S72":{"1":2,"7":2,"9":2,"12":1}})[x["scheme"]]
+          assert {r:star["min_true_original_Q_per_legal_image"]
+                  for r,star in x["J47_single_factor_original_image_stars"].items()}==expected
+          assert x["J48_disjoint_Q_charge_summaries"]["max_actual_multiplicity"]<=1
+          assert x["J48_finite_exact_min_selected_true_original_Q_by_state"]>=x["J48_all_h_conditional_block_disjoint_original_Q_lower"]
+          if x["scheme"]=="S72":
+              assert "7" in x["J47_single_factor_original_image_stars"]
+          print(json.dumps({
+              "scheme":x["scheme"],
+              "minimum_complete_original_S":x["full_original_seven_S_min"],
+              "single_line_choice_stars":x["J47_single_factor_original_image_stars"],
+              "block_disjoint_all_h_conditional_charge":x["J48_all_h_conditional_block_disjoint_original_Q_lower"],
+              "min_actual_selected_original_Q":x["J48_finite_exact_min_selected_true_original_Q_by_state"],
+              "J50_strict_injective_matching_Q_floor":
+                  matching["exact_injective_min_original_Q_lower"],
+              "J50_only_injection_constraint_gain":
+                  matching["strict_injection_assignment_gain"],
+              "source_profile_support_histogram":x["profiles_intersection_size_with_moving_original_block"],
+              "independent_original_Q_sets_verified":x["J49_true_original_incidence_census_reverified_every_state"],
+          },indent=2,sort_keys=True))
+          PY
