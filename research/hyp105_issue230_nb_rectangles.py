@@ -71,6 +71,10 @@ class OriginalNBRectangle:
             raise ValueError("no selected original source incidences")
         npaths=rectangles=0
         Z=eligible=blocked=Fraction()
+        missing_left_mass=missing_right_mass=missing_either_mass=Fraction()
+        physical_unused_pairs=(a:=ctx.a)*(a-1)//2-ctx.v
+        if not (0<=physical_unused_pairs<a-1):
+            raise AssertionError("minimal physical alphabet or injection capacity invalid")
         raw_joint=defaultdict(Fraction)
         mid=defaultdict(Fraction)
         left_marg=defaultdict(Fraction)
@@ -95,6 +99,9 @@ class OriginalNBRectangle:
                     max_rectangle_cell_weight=weight
                 qs=set()
                 rs=set()
+                physical_left_pairs=set()
+                physical_right_pairs=set()
+                missing_left_count=missing_right_count=missing_either_count=0
                 for w in first:
                     for z in last:
                         npaths+=1
@@ -109,8 +116,24 @@ class OriginalNBRectangle:
                         if (len({x0,x1,x2,x3})!=4 or
                                 len({y0,y1,y2,y3})!=4):
                             raise AssertionError("improper path survived paired G* certificate")
-                        q=ctx.fi.get(tuple(sorted((x0,x3))))
-                        r=ctx.gi.get(tuple(sorted((y0,y3))))
+                        left_pair=tuple(sorted((x0,x3)))
+                        right_pair=tuple(sorted((y0,y3)))
+                        if (left_pair in physical_left_pairs or
+                                right_pair in physical_right_pairs):
+                            raise AssertionError("D5 physical K_a rectangle endpoint pair duplicated")
+                        physical_left_pairs.add(left_pair)
+                        physical_right_pairs.add(right_pair)
+                        q=ctx.fi.get(left_pair)
+                        r=ctx.gi.get(right_pair)
+                        if q is None:
+                            missing_left_count+=1
+                            missing_left_mass+=weight
+                        if r is None:
+                            missing_right_count+=1
+                            missing_right_mass+=weight
+                        if q is None or r is None:
+                            missing_either_count+=1
+                            missing_either_mass+=weight
                         if q is not None:
                             if q in qs:
                                 raise AssertionError("D2 left endpoint decoder not injective")
@@ -136,6 +159,12 @@ class OriginalNBRectangle:
                         if (original_overlap(ctx.f[p],ctx.f[p2]) or
                                 original_overlap(ctx.g[l],ctx.g[l2])):
                             blocked+=weight
+                if (len(physical_left_pairs)!=d1*d2 or
+                        len(physical_right_pairs)!=d1*d2 or
+                        missing_left_count>physical_unused_pairs or
+                        missing_right_count>physical_unused_pairs or
+                        missing_either_count>2*physical_unused_pairs):
+                    raise AssertionError("D5 true physical near-complete decoder failed")
                 max_oriented_q=max(max_oriented_q,len(qs))
                 max_oriented_r=max(max_oriented_r,len(rs))
 
@@ -156,6 +185,12 @@ class OriginalNBRectangle:
             atom_limit=Fraction(4,(min_positive-1)**2)
             if any(mass>atom_limit for mass in raw_joint.values()):
                 raise AssertionError("D3 stationary endpoint-source atom cap violated")
+        if missing_either_mass>missing_left_mass+missing_right_mass:
+            raise AssertionError("D5 unassigned original endpoint union violated")
+        if stationary:
+            denominator=(min_positive-1)**2
+            if missing_either_mass/Z>Fraction(2*physical_unused_pairs,denominator):
+                raise AssertionError("D5 stationary missing ORIGINAL factor bound violated")
         if independent_oracle:
             direct=defaultdict(Fraction)
             raw_source=defaultdict(Fraction)
@@ -232,6 +267,14 @@ class OriginalNBRectangle:
             'conditional_on_survival':not stationary,
             'minimum_positive_physical_degree':min_positive,
             'eligible_end_clean_mass':str(eligible/Z),
+            'unused_physical_label_pairs_each_side':physical_unused_pairs,
+            'D5_left_original_endpoint_absent_mass':str(missing_left_mass/Z),
+            'D5_right_original_endpoint_absent_mass':str(missing_right_mass/Z),
+            'D5_either_original_endpoint_absent_mass':str(missing_either_mass/Z),
+            'D5_stationary_missing_upper':str(
+                Fraction(2*physical_unused_pairs,(min_positive-1)**2)
+            ) if stationary else None,
+            'D5_near_complete_decoder_verified':True,
             'theta_internal_only':str(blocked/Z),
             'nonzero_true_transport_cells':len(raw_joint),
             'distinct_original_endpoint_pairs':len(end_mass),
