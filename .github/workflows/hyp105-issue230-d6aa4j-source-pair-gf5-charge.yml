@@ -84,6 +84,18 @@ jobs:
                         "original_seven_positive_sixsets"]
                   assert row["complete_seven_GF5_original_Q_not_P3_filtered"]
                   assert row["no_all_h_pair_to_GF5_transfer_established"]
+              strong=z["same_original_pencil_uncovered_true_source_pair_witness"]
+              assert strong is not None
+              assert strong["genuine_positive_seven_GF5_Q_with_same_original_pencil"]==0
+              assert strong["independent_original_six_incidence_membership_oracle"]=="PASS"
+              if r["scheme"]=="S72" and typ=="L":
+                  assert z["ranges"]["original_pairs_not_covered_by_any_positive_sixset"]["max"]>=1
+                  weak=z["weak_uncovered_true_source_pair_witness"]
+                  assert weak is not None
+                  assert weak["genuine_positive_seven_GF5_Q_with_both_source_factors"]==0
+                  assert weak["independent_original_six_incidence_membership_oracle"]=="PASS"
+                  print("PINNED TRUE ORIGINAL S72 LINE PAIR GF5 TRANSFER NO-GO",weak)
+              print("PINNED TRUE ORIGINAL SAME PENCIL NO-GO",strong)
               print(r["scheme"],typ,"S min",r["minimum_original_seven_positive_Q"])
               for field,range in z["ranges"].items():
                   print("ORIGINAL PAIR/Q",field,range)
