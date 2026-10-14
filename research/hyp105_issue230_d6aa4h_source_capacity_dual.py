@@ -154,6 +154,87 @@ def greedy_original_profile_cover(profile_rows):
     }
 
 
+
+
+def certified_minimum_original_profile_cover(profile_rows):
+    """EXACT smallest 24-state profile cover, when greedy witness uses <=4.
+
+    Enumerates ALL cardinalities 1,2,3 after sound dominated-mask removal.
+    If none cover and greedy exhibits four, the exact optimum is FOUR.
+    This is a genuinely finite certificate, never an all-h positivity bound.
+    """
+    rows=tuple((tuple(p),int(m)) for p,m in profile_rows)
+    greedy=greedy_original_profile_cover(rows)
+    if greedy["greedy_profiles_used"]>4:
+        raise ValueError("exact minimum source cover budget is four profiles")
+    full=greedy["independently_verified_cover_mask"]
+    repr_for_mask={}
+    for profile,m in rows:
+        if m not in repr_for_mask or profile<repr_for_mask[m]:
+            repr_for_mask[m]=profile
+    masks=tuple(sorted(repr_for_mask,key=lambda m:(-m.bit_count(),m)))
+    maximal=tuple(m for m in masks if not any(
+        m!=other and (m & other)==m for other in masks))
+    if not maximal or len(maximal)>1000:
+        raise ValueError("maximal mask input exceeds exact minimum search budget")
+    candidate=None
+    size=None
+    for m in maximal:
+        if m==full:
+            candidate=(m,)
+            size=1
+            break
+    checked_pair=0
+    checked_triple=0
+    if size is None:
+        for i,a in enumerate(maximal):
+            for b in maximal[i+1:]:
+                checked_pair+=1
+                if (a|b)==full:
+                    candidate=(a,b)
+                    size=2
+                    break
+            if size is not None:
+                break
+    if size is None:
+        for i,a in enumerate(maximal):
+            for j in range(i+1,len(maximal)):
+                ab=a|maximal[j]
+                for c in maximal[j+1:]:
+                    checked_triple+=1
+                    if (ab|c)==full:
+                        candidate=(a,maximal[j],c)
+                        size=3
+                        break
+                if size is not None:
+                    break
+            if size is not None:
+                break
+    if size is None:
+        if greedy["greedy_profiles_used"]!=4:
+            raise AssertionError("exhaustive no-shorter certificate inconsistent")
+        candidate=tuple(greedy["selected_original_profile_24bit_masks"])
+        size=4
+    selected=tuple(repr_for_mask[m] for m in candidate)
+    actual=0
+    for m in candidate:
+        actual|=m
+    if actual!=full or size>greedy["greedy_profiles_used"]:
+        raise AssertionError("exact ORIGINAL line-profile cover unsound")
+    return {
+        "exact_minimum_original_line_profiles":size,
+        "exact_minimum_cover_named_profiles":selected,
+        "exact_minimum_cover_masks":candidate,
+        "full_true_original_state_mask":full,
+        "distinct_original_profile_masks":len(masks),
+        "undominated_original_profile_masks":len(maximal),
+        "exhausted_pair_candidates_until_found":checked_pair,
+        "exhausted_triple_candidates_until_found":checked_triple,
+        "dominance_pruning_is_exact_for_unit_cover":True,
+        "complete_search_for_all_smaller_cover_sizes":True,
+        "only_this_24_state_frozen_outside_fiber":True,
+    }
+
 def _original_w32_line_profile_fiber(scheme):
     """One globally shared g for ALL true-original six-incidence Q in each state."""
     from hyp105_issue230_projection import fixture
@@ -240,6 +321,7 @@ def _original_w32_line_profile_fiber(scheme):
         1<<k for k,n in enumerate(row) if n>0))
         for profile,row in profile_counts.items()))
     cover=greedy_original_profile_cover(active_masks)
+    exact_cover=certified_minimum_original_profile_cover(active_masks)
     if cover["complete_states_covered"]!=24:
         raise AssertionError("false coherent 24-state original source profile cover")
     for k in range(24):
@@ -280,6 +362,7 @@ def _original_w32_line_profile_fiber(scheme):
         "complete_all_24_true_original_S_scores":true_costs,
         "complete_all_24_true_GF5_numerator_scores":weighted,
         "greedy_original_line_profile_cover":cover,
+        "certified_exact_minimum_line_profile_cover":exact_cover,
         "W32_full_physical_image_adjacent_pairs":60,
         "scalar_image_capacity_dual_inability_to_close_relaxation_gap":scalar,
         "no_claim_about_multivariate_ORIGINAL_source_capacity_joint_LP":True,
