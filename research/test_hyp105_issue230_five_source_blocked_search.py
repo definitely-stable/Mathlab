@@ -9,6 +9,7 @@ from hyp105_issue230_four_anchor_capacity import find_true_nonvacuous_w32
 from hyp105_issue230_five_source_blocked_search import (
     FiveSourceSearch, five_source_ids, exact_five_source_coherence,
     conditional_no_local_square_theta_bound,
+    conditional_all_h_distinct_five_source_lower,
 )
 from hyp105_issue230_paired_gstar import paired_gstar
 from hyp105_issue230_projection import fixture
@@ -47,6 +48,11 @@ class FiveSourceBlockedSearchTests(unittest.TestCase):
                     row['locally_coherent_allfour_original_plaquettes'])
                 self.assertEqual(row['finite_map_no_coherent_allblocked_square'],
                                  row['locally_coherent_allfour_original_plaquettes']==0)
+                self.assertLessEqual(
+                    row['locally_coherent_allfour_original_plaquettes'],
+                    20*row['distinct_original_five_incidence_blocked_source_families'])
+                self.assertLessEqual(
+                    row['max_oriented_allblocked_plaquettes_per_five_source_family'],20)
                 self.assertFalse(row['universal_all_h_forbidden_five_source_theorem_proved'])
                 self.assertFalse(row['bounded_multiplicity_GF5_transfer_proved'])
                 for witness in row['witnesses']:
@@ -66,6 +72,15 @@ class FiveSourceBlockedSearchTests(unittest.TestCase):
                     independent_witness_oracle=True)
                 self.assertEqual(row['oriented_middle_edges_examined'],2*ctx.m)
                 self.assertEqual(row['original_incidences'],425)
+                self.assertGreater(
+                    row['locally_coherent_allfour_original_plaquettes'],0)
+                self.assertGreater(
+                    row['distinct_original_five_incidence_blocked_source_families'],0)
+                self.assertLessEqual(
+                    row['max_oriented_allblocked_plaquettes_per_five_source_family'],20)
+                self.assertLessEqual(
+                    row['locally_coherent_allfour_original_plaquettes'],
+                    20*row['distinct_original_five_incidence_blocked_source_families'])
                 self.assertFalse(row['branch_A_proved'])
 
     def test_frozen_W32_deterministic_shuffled_original_line_maps(self):
@@ -83,6 +98,27 @@ class FiveSourceBlockedSearchTests(unittest.TestCase):
                 self.assertEqual(row['oriented_middle_edges_examined'],180)
                 self.assertEqual(row['finite_map_no_coherent_allblocked_square'],
                                  not bool(row['locally_coherent_allfour_original_plaquettes']))
+
+    def test_G4_exact_all_h_20_to_one_true_original_five_source_lower(self):
+        for s,theta in ((2**22,Fraction(1)),
+                        (2**26,Fraction(1,2)),
+                        (2**26,Fraction(3,4))):
+            from hyp105_issue230_four_anchor_capacity import (
+                all_h_blocked_plaquette_reservoir
+            )
+            row=conditional_all_h_distinct_five_source_lower(s,theta)
+            prior=all_h_blocked_plaquette_reservoir(s,theta)
+            self.assertEqual(row[
+                "max_oriented_plaquettes_per_five_source_id_set"],20)
+            self.assertEqual(Fraction(row[
+                "distinct_true_original_five_incidence_sets_lower"]),
+                Fraction(prior[
+                "explicit_oriented_allblocked_true_GQ_plaquette_count_lower"])/20)
+            self.assertFalse(row["universal_GF5_sixset_lower_proved"])
+        self.assertGreater(Fraction(
+            conditional_all_h_distinct_five_source_lower(
+                2**26,Fraction(1,2))[
+                "distinct_true_original_five_incidence_sets_lower"]),0)
 
     def test_analytic_if_absence_fourth_power_bound_and_fail_closed(self):
         for d in (3,4,100,2_000_000):
