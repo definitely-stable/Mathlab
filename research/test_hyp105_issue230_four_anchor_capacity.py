@@ -6,7 +6,8 @@ import unittest
 from hyp105_issue230_endpoint_energy import EndpointEnergy
 from hyp105_issue230_four_anchor_capacity import (
     FourAnchorCapacity, blocked_checkerboard_or_adjacent,
-    find_true_nonvacuous_w32, original_closure, quartic_c4_lower, report,
+    find_true_nonvacuous_w32, original_closure, quartic_c4_lower,
+    all_h_blocked_plaquette_reservoir, report,
 )
 from hyp105_issue230_source_plaquettes import OriginalPlaquette, status_of_cell
 from hyp105_issue230_paired_gstar import paired_gstar
@@ -60,6 +61,40 @@ class FourAnchorTests(unittest.TestCase):
         self.assertEqual(quartic_c4_lower(2,2,0),0)
         with self.assertRaisesRegex(ValueError,"valid binary"):
             quartic_c4_lower(2,3,7)
+
+    def test_F5_exact_all_h_omega_s8_to_conditional_s6_transfer(self):
+        # Numeric Fraction tests for the independently proved symbolic
+        # EICE-002 density/degree + EICE-003-E orientation sampling lemma.
+        # Absolutely no assumption that a GF5 transfer actually exists.
+        delta=Fraction(1,1_000_000)
+        for s in (2**22,2**23,2**26):
+            row=all_h_blocked_plaquette_reservoir(s,Fraction(1))
+            expected=delta**4*Fraction(s**8,1_280_000)
+            self.assertEqual(
+                Fraction(row["explicit_oriented_allblocked_true_GQ_plaquette_count_lower"]),
+                expected)
+            self.assertFalse(row["universal_four_anchor_transfer_proved"])
+            self.assertFalse(row["unconditional_positive_GF5_sixset_lower_proved"])
+            if s==2**22:
+                # This is a PURE HYPOTHETICAL mapping with at most 7*s²
+                # preimages per actual positive original six-incidence set.
+                only_if=all_h_blocked_plaquette_reservoir(
+                    s,Fraction(1),proposed_transfer_K=7)
+                self.assertEqual(
+                    Fraction(only_if["ONLY_IF_TRANSFER_EXISTS_S_lower"]),
+                    expected/(7*s*s))
+                self.assertFalse(only_if["universal_four_anchor_transfer_proved"])
+        for theta in (Fraction(),Fraction(1,2),Fraction(3,4)):
+            row=all_h_blocked_plaquette_reservoir(2**22,theta)
+            self.assertEqual(Fraction(
+                row["explicit_oriented_allblocked_true_GQ_plaquette_count_lower"]),0)
+        near=all_h_blocked_plaquette_reservoir(2**22,Fraction(7,8))
+        self.assertEqual(Fraction(
+            near["uniform_oriented_square_allblocked_probability_lower"]),Fraction(1,2))
+        with self.assertRaisesRegex(ValueError,"exact stationary"):
+            all_h_blocked_plaquette_reservoir(64,Fraction(1))
+        with self.assertRaisesRegex(ValueError,"hypothetical transfer"):
+            all_h_blocked_plaquette_reservoir(2**22,Fraction(1),proposed_transfer_K=0)
 
     def test_true_W32_four_canonical_Gstar_scopes_and_status(self):
         for scheme in ("lex","reverse","S68","S72"):
