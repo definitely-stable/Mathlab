@@ -1,0 +1,72 @@
+name: hyp105-issue230-jpkc013-global-injection-compatibility
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc013_injection_compatibility.py"
+      - "research/test_hyp105_issue230_jpkc013_injection_compatibility.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-013-INJECTION-COMPATIBILITY.md"
+      - ".github/workflows/hyp105-issue230-jpkc013-global-injection-compatibility.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-source-injection-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Five fail-closed exact matching cover and original GF5 tensor tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc013_injection_compatibility.py' -v
+
+  complete-source-injection-cover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full original true 24-map 7-class GF5 exact injection proof and cover
+        env:
+          SOURCE_SCHEME: ${{ matrix.scheme }}
+        run: |
+          python - <<'PY'
+          import json,os,sys
+          sys.path.insert(0,"research")
+          from hyp105_issue230_jpkc013_injection_compatibility import coherent_original_injection_certificate
+          x=coherent_original_injection_certificate(os.environ["SOURCE_SCHEME"])
+          assert x["complete_24_state_injection_fiber_exhausted"]
+          assert x["independent_GF5_seven_class_oracle_checked_for_every_state"]
+          assert x["J44_original_factor_cylinder_locality_verified"]
+          assert x["J45_exact_injection_no_simultaneous_zero_clause_certificate"]
+          assert x["J45_minimal_positive_cover"]["minimality_proved_over_ALL_positive_profile_masks"]
+          assert x["full_seven_S_min_over_examined_maps"]==68
+          assert x["exact_source_profile_coherence_gap"]=={"S68":57,"S72":68}[x["scheme"]]
+          assert x["J45_min_sum_of_cover_original_Q_on_one_global_map"]>=1
+          print(json.dumps({
+              "scheme":x["scheme"],
+              "maps":x["globally_injective_states_examined"],
+              "all_original_Q_min":x["full_seven_S_min_over_examined_maps"],
+              "independent_profile_min_sum":x["independent_original_source_profile_minima_sum"],
+              "coherence_gap":x["exact_source_profile_coherence_gap"],
+              "exact_minimum_profile_cover":x["J45_minimal_positive_cover"]["exact_optimum_cover_cardinality"],
+              "greedy_cover_bound":x["J45_minimal_positive_cover"]["greedy_upper_bound_cover_size"],
+              "covered_source_Q_min":x["J45_min_sum_of_cover_original_Q_on_one_global_map"],
+              "cover_rows":x["J45_positive_original_profile_cover_rows"],
+              "local_cylinder_checks":x["J44_locality_checked_original_profile_state_pairs"],
+          },sort_keys=True,indent=2))
+          PY
