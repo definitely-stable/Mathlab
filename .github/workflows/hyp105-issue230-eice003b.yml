@@ -1,0 +1,30 @@
+name: hyp105-issue230-eice003b-centered-anchor
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  centered-anchor-exact-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Exact ORIGINAL centered anchor covariance B0-B2 and independent explicit tensor
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_centered_anchor.py' -v
+      - name: Previous EICE-003-A original projection and energy oracle regression
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_anchor_lift.py'
+      - name: Exact ORIGINAL W32 centered covariance and conditional chi-square ledger
+        run: python research/hyp105_issue230_anchor_lift.py
+      - name: EICE-002 paired original provenance regression
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_paired_gstar.py'
