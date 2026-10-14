@@ -1,0 +1,28 @@
+name: hyp105-issue230-eice003g-five-source-localization
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exhaustive-true-original-five-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: EICE-003-G local ORIGINAL five-source geometry and source exhaustive scans
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_five_source_blocked_search.py' -v
+      - name: W32 W34 exact FULL ORIGINAL source block-square search report
+        run: python research/hyp105_issue230_five_source_blocked_search.py
+      - name: EICE-003-F four-anchor scoped seven-GF5 and quartic reservoir
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_four_anchor_capacity.py'
