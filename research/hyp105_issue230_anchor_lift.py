@@ -84,6 +84,12 @@ class AnchorLiftedEnergy:
                                               collision_g/total**2):
             raise AssertionError('independent pair collision recurrence mismatch')
 
+        clean_pairs = {
+            (q,r) for (q,r),(p,ell) in ctx.anchor.items()
+            if set(ctx.f[p]).isdisjoint(ctx.f[q]) and
+               set(ctx.g[ell]).isdisjoint(ctx.g[r])
+        }
+        clean_carrier_size = 2*len(clean_pairs)
         carrier_size = 2*len(ctx.anchor)
         if carrier_size != 2*ctx.N*ctx.s**2:
             raise AssertionError('ORIGINAL GQ anchor fiber support identity false')
@@ -101,12 +107,13 @@ class AnchorLiftedEnergy:
         if not (theta <= theta_left+theta_right and
                 theta_left <= 2*Cf and theta_right <= 2*Cg):
             raise AssertionError('anchor event to reversible first-inner-event failed')
-        if not (Cf*Cf <= carrier_size*Af and
-                Cg*Cg <= carrier_size*Ag):
+        if not (Cf*Cf <= clean_carrier_size*Af and
+                Cg*Cg <= clean_carrier_size*Ag):
             raise AssertionError('GQ anchor support Cauchy bound failed')
         gap=16*ctx.N*ctx.s**2*(Af+Ag)-theta**2
-        if gap < 0:
-            raise AssertionError('A1 universal anchor-lifted inequality failed')
+        clean_gap=16*len(clean_pairs)*(Af+Ag)-theta**2
+        if clean_gap < 0 or gap < clean_gap:
+            raise AssertionError('A1-CLEAN all-h anchor-lifted inequality failed')
         # More discriminating but still only a necessary obstruction.
         # Compare with energies after forgetting one original endpoint:
         marginal_f=defaultdict(Fraction)
@@ -131,6 +138,8 @@ class AnchorLiftedEnergy:
             'theta_internal_only':str(theta),
             'theta_left':str(theta_left),'theta_right':str(theta_right),
             'anchor_carrier_size_each':carrier_size,
+            'clean_original_endpoint_pairs':len(clean_pairs),
+            'clean_carrier_size_each':clean_carrier_size,
             'anchor_first_left_mass':str(Cf),
             'anchor_first_right_mass':str(Cg),
             'A_f':str(Af),'A_g':str(Ag),
@@ -138,8 +147,8 @@ class AnchorLiftedEnergy:
             'unlifted_same_restricted_f':str(unlifted_f),
             'unlifted_same_restricted_g':str(unlifted_g),
             'A1_slack':str(gap),
-            'theta_I_upper_A1':str(4*ctx.s*Fraction(ctx.N).__pow__(1,2)) if False else
-                 'theta_I^2 <= 16*N*s^2*(A_f+A_g)',
+            'A1_clean_slack':str(clean_gap),
+            'A1_clean_bound': 'theta_I^2 <= 16*C_clean*(A_f+A_g)',
             'root_Branch_A_proved':False,
         }
 
