@@ -68,6 +68,13 @@ class JPKC015Tests(unittest.TestCase):
                     self.assertLess(abs(Fraction(d["all_h_rigorous_ensemble_E_D6_upper"])
                                         /s**6-target),Fraction(1,3))
 
+        # Integer square-root inversion must work for huge all-h source
+        # alphabets without a linear physical-coordinate scan or floats.
+        large=finite_original_geometry(2**20)
+        a=large["minimal_physical_coordinate_symbols"]
+        self.assertGreaterEqual(comb(a,2),large["original_points"])
+        self.assertLess(comb(a-1,2),large["original_points"])
+
     def test_exact_finite_W32_uniform_global_injection_mean_independent_of_scheme(self):
         cases=[finite_W32_exact_expectation(x) for x in
                ("lex","reverse","S68","S72")]
