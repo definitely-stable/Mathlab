@@ -12,7 +12,7 @@ NOT a universal all-label minimum; Root A/B and ASET remain OPEN.
 """
 from collections import Counter, defaultdict
 from fractions import Fraction
-from math import comb, factorial, prod
+from math import comb, factorial, isqrt, prod
 import argparse
 import json
 
@@ -31,13 +31,15 @@ def finite_original_geometry(s):
         raise ValueError("true prime-power family s=2^h, h>=1 required")
     v=(s+1)*(s*s+1)
     m=v*(s+1)
-    a=6
-    while comb(a,2)<v:
+    # Integer quadratic inversion, O(1) arithmetic operations rather
+    # than an O(s^1.5) incremental alphabet scan. Exact for any integer V.
+    a=max(6,(1+isqrt(1+8*v))//2)
+    if comb(a,2)<v:
         a+=1
     N=comb(a,2)
     if not (a>=6 and N>=v and (a==6 or comb(a-1,2)<v)):
         raise AssertionError("not minimal physical pair label alphabet")
-    if not (v>=15 and v-10>=v/3 and N<2*v):
+    if not (v>=15 and 3*(v-10)>=v and N<2*v):
         raise AssertionError("all-h large physical alphabet bounds failed")
     return {"s":s,"original_points":v,"original_lines":v,
             "original_degree":s+1,"original_incidence_columns":m,
