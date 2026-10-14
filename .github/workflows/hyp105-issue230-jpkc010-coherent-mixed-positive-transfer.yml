@@ -1,0 +1,85 @@
+name: hyp105-issue230-jpkc010-coherent-mixed-positive-transfer
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc010_mixed_positive_transfer.py"
+      - "research/test_hyp105_issue230_jpkc010_mixed_positive_transfer.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-010-MIXED-POSITIVE-TRANSFER.md"
+      - ".github/workflows/hyp105-issue230-jpkc010-coherent-mixed-positive-transfer.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  original-mixed-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact original W32 ledger and targeted real W34 mixed topology, negative controls
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc010_mixed_positive_transfer.py' -v
+      - name: Archive independent original mixed witness and cross-anchor data
+        run: |
+          python research/hyp105_issue230_jpkc010_mixed_positive_transfer.py --w34-seeds 4 > /tmp/jpkc010.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/jpkc010.json"))
+          assert x["slice"]=="JPKC-010"
+          assert not x["all_h_global_positive_lower_proved"]
+          assert len(x["records"])==7
+          for r in x["records"]:
+              assert r["J35_exact_Hall_D6_equals_source_topology_D6"]
+              assert r["J35_W32_full_source_three_extension_set_equality"] == (r["s"] == 2)
+              assert r["J36_class_sensitive_ceil_charge_lower_for_full_S"] <= r["distinct_positive_original_sixsets_reached"]
+              assert not r["root_A_proved"] and not r["root_B_constructed"]
+          print(json.dumps([{
+              "scheme":r["scheme"], "s":r["s"], "seeds":r["examined_real_endpoint_bad_physical_seeds"],
+              "D6_and_wedge":r["seed_positive_type_partition"].get("D6_and_wedge",0),
+              "wedge_no_D6":r["seed_positive_type_partition"].get("single_wedge_no_D6",0)+r["seed_positive_type_partition"].get("both_wedges_no_D6",0),
+              "positive_Q":r["distinct_positive_original_sixsets_reached"],
+              "charge":r["J36_class_sensitive_ceil_charge_lower_for_full_S"],
+              "cross_anchor_Q_pairs":sum(r["positive_original_Q_cross_anchor_pairs_by_GF5_class"].values())
+          } for r in x["records"]],indent=2))
+          PY
+
+  complete-coherent-fiber:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All 24 globally injected exact ORIGINAL source-factor fiber maps
+        run: |
+          python research/hyp105_issue230_jpkc010_mixed_positive_transfer.py --fiber ${{ matrix.scheme }} > /tmp/jpkc010-fiber.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/jpkc010-fiber.json"))["fiber"]
+          assert x["entire_24_state_right_factor_fiber_exhausted"]
+          assert x["legally_globally_injected_states_examined"]==24
+          assert x["min_full_original_seven_S_on_examined_states"] == 68
+          assert x["min_class_charge_on_examined_states"] == 2
+          assert x["min_reached_positive_original_Q_on_examined_states"] == {"S68":4,"S72":3}[x["scheme"]]
+          assert all(t["mixed_class_charge"] <= t["mixed_reached_distinct_Q"] <= t["full_original_seven_S"] for t in x["states"])
+          print(json.dumps({
+              "scheme":x["scheme"],"states":len(x["states"]),
+              "min_exact_full_S":x["min_full_original_seven_S_on_examined_states"],
+              "min_mixed_charge":x["min_class_charge_on_examined_states"],
+              "min_reached_Q":x["min_reached_positive_original_Q_on_examined_states"],
+              "D6_on_24":[t["selected_D6_Hall"] for t in x["states"]],
+          },indent=2))
+          PY
