@@ -91,6 +91,19 @@ class FourAnchorTests(unittest.TestCase):
         near=all_h_blocked_plaquette_reservoir(2**22,Fraction(7,8))
         self.assertEqual(Fraction(
             near["uniform_oriented_square_allblocked_probability_lower"]),Fraction(1,2))
+        # At fixed positive theta, F6 becomes positive once active
+        # degree is sufficiently high, unlike 4*theta-3.
+        s=2**26
+        moderate=all_h_blocked_plaquette_reservoir(s,Fraction(1,2))
+        floor=Fraction(1,16)-Fraction(2,delta*s-1)
+        self.assertGreater(floor,0)
+        self.assertEqual(Fraction(moderate["F6_C4_Jensen_quartic_lower"]),floor)
+        self.assertEqual(Fraction(moderate[
+            "uniform_oriented_square_allblocked_probability_lower"]),floor)
+        self.assertEqual(Fraction(moderate[
+            "explicit_oriented_allblocked_true_GQ_plaquette_count_lower"]),
+            floor*delta**4*s**8/Fraction(1_280_000))
+        self.assertEqual(Fraction(moderate["F5_four_union_lower"]),0)
         with self.assertRaisesRegex(ValueError,"exact stationary"):
             all_h_blocked_plaquette_reservoir(64,Fraction(1))
         with self.assertRaisesRegex(ValueError,"hypothetical transfer"):
