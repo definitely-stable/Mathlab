@@ -138,36 +138,44 @@ class OriginalMiddleTransport:
                     raise AssertionError('physical K_a line-graph source capacity violated')
         source_row_bound = min(M, 2*(2*a-3)*(ctx.s+1))
         seen_endpoints=sorted({(q,r) for q,r,e in joint})
-        row_counts=[]
-        beta_weight=Fraction()
         end_t=defaultdict(Fraction)
         for (q,r,e),wt in joint.items():
             end_t[q,r] += wt
+        # Precompute sparse ORIGINAL middle incidence masks per source
+        # anchor factor; many distinct (q,r) endpoint fibers share one
+        # projected original anchor (p,ell). The mask is built from the
+        # original source IDs, never from fictitious physical adjacency.
+        anchor_points={ctx.anchor[q,r][0] for q,r in seen_endpoints}
+        anchor_lines={ctx.anchor[q,r][1] for q,r in seen_endpoints}
+        left_source_masks={
+            p:{e for e in E if original_overlap(ctx.f[p],ctx.f[ctx.inc[e][0]])}
+            for p in anchor_points
+        }
+        right_source_masks={
+            l:{e for e in E if original_overlap(ctx.g[l],ctx.g[ctx.inc[e][1]])}
+            for l in anchor_lines
+        }
+        full_anchor_masks={}
+        row_counts=[]
+        beta_weight=Fraction()
         for q,r in seen_endpoints:
             p,l=ctx.anchor[q,r]
-            blocked=sum(1 for e in E if
-                original_overlap(ctx.f[p],ctx.f[ctx.inc[e][0]]) or
-                original_overlap(ctx.g[l],ctx.g[ctx.inc[e][1]]))
+            if (p,l) not in full_anchor_masks:
+                full_anchor_masks[p,l]=left_source_masks[p] | right_source_masks[l]
+            blocked=len(full_anchor_masks[p,l])
             if blocked>source_row_bound:
                 raise AssertionError('original source overlap sparsity row bound failed')
             row_counts.append(blocked)
             beta_weight+=end_t[q,r]*Fraction(blocked,M)
 
-        # C4: exact centered source-incidence transport identity, whose
-        # baseline is small on EICE-002 dense paired G*, but whose signed
-        # covariance remains entirely OPEN in the all-h hypothesis.
-        source_t=defaultdict(Fraction)
-        for (q,r,e),wt in joint.items():
-            source_t[q,r] += wt
+        # C4: exact centered original source-incidence transport. The
+        # uniformly averaged kernel B row is computed ONCE per true anchor,
+        # not for every observed middle source cell.
         signed_raw=Fraction()
         for (q,r,e),wt in joint.items():
             p,l=ctx.anchor[q,r]
-            b=int(original_overlap(ctx.f[p],ctx.f[ctx.inc[e][0]]) or
-                  original_overlap(ctx.g[l],ctx.g[ctx.inc[e][1]]))
-            count=sum(1 for mid in E if
-                original_overlap(ctx.f[p],ctx.f[ctx.inc[mid][0]]) or
-                original_overlap(ctx.g[l],ctx.g[ctx.inc[mid][1]]))
-            signed_raw+=wt*(b-Fraction(count,M))
+            blocked_mask=full_anchor_masks[p,l]
+            signed_raw+=wt*(int(e in blocked_mask)-Fraction(len(blocked_mask),M))
         if theta!=signed_raw+beta_weight:
             raise AssertionError('C4 exact centered source-middle identity invalid')
 
