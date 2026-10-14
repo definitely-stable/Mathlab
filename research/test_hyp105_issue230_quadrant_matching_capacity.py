@@ -11,7 +11,8 @@ from hyp105_issue230_five_source_blocked_search import (
 from hyp105_issue230_quadrant_matching_capacity import (
     original_midpoint_quadrants, valid_original_two_arm_pairs,
     exact_local_middle_capacity, true_five_source_middle_template,
-    conditional_improved_source_packing, finite_quadrant_report, report,
+    conditional_improved_source_packing, finite_quadrant_report,
+    paired_five_source_component_certificate, report,
 )
 from hyp105_issue230_four_anchor_capacity import all_h_blocked_plaquette_reservoir
 
@@ -60,6 +61,10 @@ class TrueOriginalQuadrantPackingTests(unittest.TestCase):
                         self.assertTrue(true_five_source_middle_template(ctx,e,ids))
                         o=exact_five_source_coherence(model,ids,ctx=ctx)
                         self.assertIsNotNone(o)
+                        shape=paired_five_source_component_certificate(o[0].ctx,e)
+                        self.assertEqual(shape["oriented_two_by_two_plaquettes"],2)
+                        self.assertEqual(shape["five_disconnected_paired_diagonals"],5)
+                        self.assertTrue(shape["I3_all_h_original_middle_unique"])
                         proper=o[0].census(max_paths=2000,max_plaquettes=50)
                         self.assertGreater(proper["total_2x2_plaquettes"],0)
                         validated+=1
@@ -108,6 +113,10 @@ class TrueOriginalQuadrantPackingTests(unittest.TestCase):
                             if len(A)>=2 and len(B)>=2:
                                 physical_orientations+=1
                     self.assertEqual(physical_orientations,2)
+                    certificate=paired_five_source_component_certificate(subset,e)
+                    self.assertEqual(certificate["active_physical_vertices"],16)
+                    self.assertEqual(certificate["five_disconnected_paired_diagonals"],5)
+                    self.assertEqual(certificate["unique_original_middle_source_id"],e)
                     total_checked+=1
             self.assertGreater(total_checked,0)
 
@@ -122,9 +131,9 @@ class TrueOriginalQuadrantPackingTests(unittest.TestCase):
             self.assertEqual(row[
                 "max_oriented_plaquettes_per_fixed_middle_and_five_source_family"],2)
             self.assertEqual(row[
-                "max_oriented_plaquettes_per_five_source_family_all_middles"],10)
+                "max_oriented_plaquettes_per_five_source_family_all_middles"],2)
             self.assertEqual(Fraction(row[
-                "distinct_true_original_five_source_families_lower"]),P/10)
+                "distinct_true_original_five_source_families_lower"]),P/2)
             self.assertEqual(Fraction(row[
                 "at_least_one_middle_original_source_families_lower"]),P/(2*N))
             self.assertFalse(row["o_s4_capacity_or_GF5_transfer_proved"])
@@ -148,6 +157,9 @@ class TrueOriginalQuadrantPackingTests(unittest.TestCase):
         valid=valid_original_two_arm_pairs(source)
         self.assertEqual(len(valid),4)
         self.assertEqual(len(valid_original_two_arm_pairs(((1,10,20),))),0)
+        with self.assertRaisesRegex(ValueError,'exactly five'):
+            paired_five_source_component_certificate(
+                EndpointEnergy(fixture(1,'lex'),selected=[0]),0)
         ctx=EndpointEnergy(fixture(2,'lex'))
         with self.assertRaisesRegex(ValueError,'nonnegative exact'):
             exact_local_middle_capacity(ctx,0,max_pair_comparisons=-1)
