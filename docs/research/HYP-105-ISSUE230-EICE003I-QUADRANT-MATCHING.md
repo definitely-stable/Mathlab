@@ -91,6 +91,19 @@ Nothing proved here supplies this upper. I1/I2 are exact *physical-possibility p
 
 Frozen true ORIGINAL globally injective maps W32 lex/reverse/S68/S72 and W34 lex/random are used to audit every middle source, all four quadrants, partner coordinates and exact pair-product/coordinate-cross disjointness. Every observed G2 allblocked five-source family and every actually realized middle original source ID must belong to I1's exact template candidate set. Additional independent reconstruction verifies sample new I1 candidates on the TRUE original five-incidence paired-diagonal subgraph with the existing EICE-003-E original endpoint/anchor oracle.
 
+**Exact finite all-middle-source report on GitHub-hosted W32/W34** (candidate totals count TRUE five-original-incidence source-ID sets per unique physically realizable original middle e, not positive GF5 sixsets):
+
+| Actual globally injected source map | I2 pair-product pre-cross upper | I1/I2 exact physical coherent 5-source templates | Internally all-four-blocked TRUE original 5-source templates | Max per-middle physical capacity | Max observed per-middle allblocked |
+|---|---:|---:|---:|---:|---:|
+| W32 Lex | 1 247 | 44 | 0 | 5 | 0 |
+| W32 Reverse | 1 028 | 24 | 0 | 3 | 0 |
+| W32 S68 | 270 | 2 | 0 | 1 | 0 |
+| W32 S72 | 358 | 6 | 0 | 2 | 0 |
+| W34 Lex | 537 091 | **251 962** | **467** | 3 526 | 18 |
+| W34 Random | 460 315 | **212 905** | **575** | 1 689 | 13 |
+
+These values are independently derived by the all-source four-quadrant ORIGINAL GQ incidence enumerator, with strict coordinate collision rejection, and the frozen EICE-003-G complete-original physical blocked-square census. For W34 the observed proportions blocked among feasible 5-source template families are 467/251962 and 575/212905, respectively. These small FINITE ratios DO NOT constitute an all-h o(s⁴) upper on H_e. Note that an asymptotic theorem would have to hold for adversarial correlated global labelings, not merely lex/random finite fixtures.
+
 No GF5 classification on W34: the frozen seven-class sixset verifier is W32/K6-specific. All local results are source templates and exact finite counting; no fictitious GF5 witness and no promotion of any finite observed o(s⁴) ratio to a universal theorem.
 
 Research-only files:
