@@ -20,6 +20,7 @@ def independent_explicit_centered_tensor(model, selected=None, *, max_paths=900_
     per_right=defaultdict(Fraction)
     end_mass=defaultdict(Fraction)
     z=p=internal=gamma_left=gamma_right=Fraction()
+    dl_raw=dr_raw=joint_raw=both_raw=Fraction()
     for (u,v,w,t),weight in ctx._iter_nb(max_paths):
         z += weight
         x0,y0=divmod(u,ctx.a)
@@ -48,6 +49,24 @@ def independent_explicit_centered_tensor(model, selected=None, *, max_paths=900_
         if (x1 in ctx.f[anchor_p] or x2 in ctx.f[anchor_p] or
                 y1 in ctx.g[anchor_l] or y2 in ctx.g[anchor_l]):
             internal += weight
+        lf=(x1 in ctx.f[anchor_p] or x2 in ctx.f[anchor_p])
+        rg=(y1 in ctx.g[anchor_l] or y2 in ctx.g[anchor_l])
+        if lf and rg:
+            joint_raw += weight
+        dl=(x1 in ctx.f[anchor_p] and x2 in ctx.f[anchor_p])
+        dr=(y1 in ctx.g[anchor_l] and y2 in ctx.g[anchor_l])
+        if dl or dr:
+            source_id=ctx.provenance[tuple(sorted((v,w)))]
+            pp,ll=ctx.inc[source_id]
+            if dl:
+                assert pp==anchor_p
+                dl_raw += weight
+            if dr:
+                assert ll==anchor_l
+                dr_raw += weight
+            if dl and dr:
+                assert (pp,ll)==(anchor_p,anchor_l)
+                both_raw += weight
     if not z:
         raise ValueError('no nonbacktracking paths')
     n=ctx.a-2
@@ -81,7 +100,8 @@ def independent_explicit_centered_tensor(model, selected=None, *, max_paths=900_
                 rg=gamma_right/z,Rf=rf/z**2,Rg=rg/z**2,
                 Qf=qf/z,Qg=qg/z,
                 Df=dlf/z,Dg=drg/z,
-                endpoint_T2=sum(t*t for t in end_mass.values())/z**2)
+                endpoint_T2=sum(t*t for t in end_mass.values())/z**2,
+                DL=dl_raw/z,DR=dr_raw/z,Joint=joint_raw/z,Both=both_raw/z)
 
 
 class CenteredAnchorTests(unittest.TestCase):
@@ -102,6 +122,13 @@ class CenteredAnchorTests(unittest.TestCase):
                 self.assertEqual(Fraction(row['original_endpoint_collision_T2']),independent['endpoint_T2'])
                 self.assertEqual(Fraction(row['anchor_first_left_mass']),independent['lf'])
                 self.assertEqual(Fraction(row['anchor_first_right_mass']),independent['rg'])
+                self.assertEqual(Fraction(row['middle_source_double_left']),independent['DL'])
+                self.assertEqual(Fraction(row['middle_source_double_right']),independent['DR'])
+                self.assertEqual(Fraction(row['simultaneous_left_right_internal']),independent['Joint'])
+                self.assertEqual(Fraction(row['middle_source_both_double']),independent['Both'])
+                self.assertTrue(row['B3_exact_inclusion_exclusion'])
+                self.assertEqual(Fraction(row['theta_internal_only']),
+                     Fraction(row['B3_union_identity_rhs']))
                 self.assertTrue(row['B1_B2_centered_validated'])
                 self.assertFalse(row['root_Branch_A_proved'])
 
@@ -134,6 +161,9 @@ class CenteredAnchorTests(unittest.TestCase):
             self.assertGreaterEqual(Fraction(r['A4_full_a_slack']),0)
             self.assertLessEqual(excess*excess,Fraction(r['B1_excess_budget']))
             self.assertLessEqual(excess*excess,Fraction(r['B2_excess_budget']))
+            self.assertEqual(theta,
+                base+2*cov-Fraction(r['B3_total_nonnegative_correction']))
+            self.assertGreaterEqual(Fraction(r['B3_total_nonnegative_correction']),0)
 
     def test_original_W34_full_graph_without_independence(self):
         # The real W(3,4) source has 85 original typed points and lines;
