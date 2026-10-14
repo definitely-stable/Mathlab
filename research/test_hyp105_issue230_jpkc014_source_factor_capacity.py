@@ -25,8 +25,9 @@ class SourceFactorCapacityTests(unittest.TestCase):
         self.assertEqual(cert["exact_original_incidence_capacity_lower_bound"],2)
         self.assertEqual(cert["max_actual_anchor_multiplicity_of_an_original_Q"],1)
         self.assertTrue(cert["single_moving_source_factor_disjoint_charge_verified"])
+        Q01=tuple(sorted((a,b)+others[:4]))
         with self.assertRaisesRegex(AssertionError,"single-factor"):
-            incidence_capacity_certificate({0:[Q0],1:[Q0]},edges,
+            incidence_capacity_certificate({0:[Q01]},edges,
                                            disjoint_block=(0,1,2))
 
     def test_overlapping_true_original_Q_capacity_at_most_six(self):
