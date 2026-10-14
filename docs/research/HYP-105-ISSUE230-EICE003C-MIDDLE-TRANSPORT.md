@@ -127,11 +127,37 @@ In particular a true **upper** bound I(X;E)<=(3/2-eta)*log s+O(1) on at least on
 
 The finite Python diagnostic computes I(X;E) from the complete original joint source-path tensor, including the ⊥ row, and checks the C6 lower bound in floating-point for inspection. The all-h theorem is the algebraic entropy chain above, not the numeric log checks. C1–C4 and all source identities remain exact-Fraction checks.
 
-## 8. Independent finite evidence and proof gates
+## 8. C7 — stronger Bernoulli KL certificate by data processing
+
+There is a stronger, MAP-SPECIFIC entropy obstruction than C6. Keep exactly the same true ORIGINAL full-law endpoint symbol X (including ⊥), original uniform source-middle ID E and true blocking indicator Z=1[E∈L(X)].
+
+Write
+
+    theta=Pr_true[Z=1]=theta_I,
+    beta=Pr_{P_X ⊗ Uniform(E)}[Z=1]
+        =sum_(i valid endpoint) Pr_true[X=i]*(|L(i)|/M).
+
+This beta is the EXACT C4 independent-source baseline (including ineligible endpoint ⊥ with empty list), not the worst-case b/M.
+
+The mutual information is precisely the KL divergence between the true joint law P_{X,E} and its product law P_X ⊗ Uniform(E). Under the deterministic measurable map (X,E)→Z, KL data processing gives the **ALL-h true-source theorem**
+
+    I(X;E) >= d_Bern(theta || beta),               (C7)
+
+where
+
+    d_Bern(theta||beta)
+      = theta log(theta/beta)
+       +(1-theta) log((1-theta)/(1-beta))
+
+with continuous conventions at theta,beta=0,1. For θ≈1 and β=O(s^-3/2) the RHS is \`(3/2-o(1))*log s-O(1)\`. Unlike C6, C7 uses the *actual* source overlap frequency and can improve substantially on the universal b bound. It is sharp whenever Z is a sufficient statistic for the dependence between X and E.
+
+The numerical finite oracle checks C7 using double-precision logarithms ONLY as a diagnostic, while the proof is the exact standard KL data-processing inequality applied to a finite discrete true original GQ source probability space. C7 still **does not bound I(X;E) above** and hence does not establish Branch A. Low-rank source Gram or GQ spectrum alone does not supply such an information upper bound.
+
+## 9. Independent finite evidence and proof gates
 
 New files:
-- \`research/hyp105_issue230_middle_transport.py\`: true original middle source ID per physical 3-path, stationary exact midpoint uniformity audit, full C1–C4 transport and C6 Shannon list ledger and source Gram/diagonal correction, independent transport-tensor oracle, source-row cap, and explicit C5 relaxed witness.
-- \`research/test_hyp105_issue230_middle_transport.py\`: true original W32 all four global maps and W34 lex/random; independent C1-C4 vs previously pinned EICE-003-B B3/source correction; complete bit-level Gram matrices; stationary-vs-leaf law; coherent paired-G* finite checks; explicit positive-relaxation witness; independent sharp abstract C6 list-channel equality and real stationary GQ midpoint information audit.
+- \`research/hyp105_issue230_middle_transport.py\`: true original middle source ID per physical 3-path, stationary exact midpoint uniformity audit, full C1–C4 transport and C6 Shannon list and C7 data-processing KL ledgers and source Gram/diagonal correction, independent transport-tensor oracle, source-row cap, and explicit C5 relaxed witness.
+- \`research/test_hyp105_issue230_middle_transport.py\`: true original W32 all four global maps and W34 lex/random; independent C1-C4 vs previously pinned EICE-003-B B3/source correction; complete bit-level Gram matrices; stationary-vs-leaf law; coherent paired-G* finite checks; explicit positive-relaxation witness; independent sharp abstract C6 list-channel equality and C7 Bernoulli KL information audit.
 - \`docs/research/HYP-105-ISSUE230-EICE003C-MIDDLE-TRANSPORT.md\`: this all-h proof, assumptions, no-go and next theorem gate.
 - \`.github/workflows/hyp105-issue230-eice003c.yml\`: separate GitHub-hosted runner, no self-hosted runners or user PC dependency.
 
