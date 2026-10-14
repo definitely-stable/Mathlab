@@ -57,6 +57,31 @@ For pinned true ORIGINAL W32 S68 and S72 separately:
 
 The profile masks and independent original source line profiles enable future import into a verified JPKC-012 named-line tensor relaxation. JPKC-012 [PR #443](https://github.com/definitely-stable/Mathlab/pull/443) independently reported original source-line-profile gaps S68 11 vs 68 and S72 0 vs 68 across pinned 24-state fibers, but this branch does NOT import unmerged code or assume exact equality until reproduced on the branch's own genuinely selected four-LINE blocks.
 
+
+## 4A. Independently reproduced EXACT W32 minimal ORIGINAL profile covers (final hosted evidence)
+
+On two **different frozen-outside all-four-original-LINE blocks** selected by AA4-G's first actual critical-source-transversal rule, the dedicated GitHub-hosted full 24-state six-position original-Q census reconstructed:
+
+| Property | S68 | S72 |
+|---|---:|---:|
+| ORIGINAL global source factor IDs | (15,16,23,28) | (15,16,22,24) |
+| Original W32 candidate Q classifications per each complete state | 62,370 | 62,370 |
+| Distinct positive actual ORIGINAL Q over all 24 states | 544 | 555 |
+| Active SIX original LINE incidence-multiset profiles | 307 | 294 |
+| Sum of independent per-line-profile S minima | **0** | **0** |
+| Exact coherent common-right-g S minimum | **68** | **68** |
+| Sum of independent GF5 necessary numerator minima | **0** | **0** |
+| Exact coherent common-right-g GF5 numerator minimum | **3,112,510** | **3,104,080** |
+| Distinct undominated nonempty true 24-state profile masks | **34** | **34** |
+| Greedy upper-bound source profile cover size | 4 | 4 |
+| EXACT minimum source-profile cover cardinality | **4** | **4** |
+
+**Exact finite cover theorem for these frozen W32 fibers:** no one, two or three true ORIGINAL line profiles suffice to meet every one of the 24 complete globally injected assignments. Four true-original line profiles DO suffice. The minimum is exactly four, independently for both S68 and S72. The algorithm first coalesces identical 24-state positive-profile masks and removes masks properly contained in another. This loses no minimum-cardinality covering solution: a dominated set can always be replaced by the dominating superset without increasing the number of selected profiles. The remaining 34 masks are exhaustively checked across all 1-, 2-, and 3-subsets. Since none covers the 24 states while an actual four-profile witness is checked and exists, the exact optimum is four. The hosted proof logs also print the four selected ORIGINAL source line profiles and their precise 24-bit coverage masks for independent review.
+
+**Critical distinction:** a four-profile cover proves only that at least one positive ORIGINAL sixset exists in these 24 states. It does NOT imply S>=4 or S>=68 just from the set-cover cardinality. Exact S>=68 on these frozen outside assignments follows separately from classifying all Q on all 24 complete maps. The profile minima-zero versus global S=68 gap is REAL but remains *conditional finite*. It is NOT an all-W32 minimum, a global W34 bound, or Branch A.
+
+The earlier JPKC-012 PR #443 found a positive independent source-profile floor for one pinned S68 block (11) and zero for another S72 block; the different selected S68 block here has independent floor ZERO. These statements are not contradictory: ORIGINAL source factor blocks and frozen outside labelings differ. Never conflate the two experimental protocols.
+
 ## 5. Acceptance and next stage
 
 Files: research/hyp105_issue230_d6aa4h_source_capacity_dual.py; research/test_hyp105_issue230_d6aa4h_source_capacity_dual.py; dedicated GitHub-hosted workflow and this proof note. Independent rational tests compare optimum against every feasible candidate in random rational samples, demand exact price/cut signs, and reject missing valid rows, malformed source profiles, false universal scope and zero-slack W32 positive-inference.
