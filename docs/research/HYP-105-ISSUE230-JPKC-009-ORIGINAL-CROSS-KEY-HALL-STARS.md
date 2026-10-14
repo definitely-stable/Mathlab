@@ -86,6 +86,61 @@ The implementation checks one immutable Hall status per globally shared full key
 
 **Limitation:** Positive Cross_left/ Cross_right is NOT itself a positive selected-GF5 motif count. Cross-key sharing creates genuine coupling that could be exploited by a future joint geometric constraint, but the exact overlap identities and local Hall capacity UPPER bounds do not prove selected positivity.
 
+## 5a. J34 exact nested support: true original cross-anchor overlap does NOT force positive D6
+
+Let \(D\) be the set of distinct demanded source factor edges (P,L),
+let \(H\subseteq D\) be the subset for which the TRUE ORIGINAL induced
+3×3 incidence graph satisfies Hall, and let \(A\subseteq H\) be the
+subset for which **at least one real seed** using that key forms a
+genuinely selected ORIGINAL D6. The nested edge sets are finite,
+entirely globally coherent and depend on the original f/g labeling.
+For either side of the source demand graph the cross-anchor
+edge-pair count from J33 is monotone under edge deletion:
+
+```
+0 <= Cross(A) <= Cross(H) <= Cross(D).                 (J34)
+```
+
+**Proof:** each cross-anchor unordered pair of distinct edges in a
+subgraph is also a pair in the supergraph, and the original endpoint
+factor functions q(P),r(L) remain fixed under deletion. The labels
+are ORIGINAL incidence factor triples, not merely physical slots. QED.
+
+This is an EXACT monotonicity certificate, NOT a lower bound on
+the selected positive graph. It prevents the opposite inference:
+the presence of arbitrarily many raw original cross-anchor source
+demands does not itself imply any selected D6.
+
+### First full W32 true ORIGINAL raw cross-anchor data
+
+Counts below are unordered pairs of DISTINCT full keys sharing one
+source factor triple vertex and lying on DIFFERENT original nonincident
+GQ endpoint anchors. Multiple physical P3 requests for one and the
+same full key are counted ONCE before forming edge pairs.
+
+| Genuine ORIGINAL W32 f,g | Left cross-anchor pairs | Right cross-anchor pairs | Unique ORIGINAL source demand keys | Positive original D6 occurrences |
+|---|---:|---:|---:|---:|
+| lex | 4,616 | 4,792 | 1,380 | 64 |
+| reverse | 3,912 | 3,784 | 1,228 | 24 |
+| S68 | **2,632** | **2,696** | 1,016 | **0** |
+| S72 | **2,928** | **3,312** | 1,092 | **0** |
+
+S68 and S72 are **finite globally realizable counterexamples** to
+the naive implication `Cross(D)>0 => at least one selected D6`.
+This does not construct an all-h counterfamily for Root B and
+does not exclude positive OTHER GF5 classes (indeed both fixtures
+have nonzero true original total S). The new executable measures
+Cross(H) and Cross(A) separately, exposing exactly which filter
+causes the raw cross-anchor source overlap to disappear.
+
+At genuine W34, the 8-seed explicitly targeted lex/random/true
+D4 spread calculations are NOT a complete cross-anchor census.
+The selected true D4 W34 8-seed source demand graph already
+contains **186,543** distinct RIGHT-side cross-anchor demand
+edge pairs, while the selected lex/random 8-seed graphs happen
+to have none. This contrast is a property of the PINNED finite
+seed choices, not a guarantee or a trend with s.
+
 ## 6. Independent verification scope and epistemic contract
 
 `research/hyp105_issue230_jpkc009_cross_key_overlap.py` and dedicated six tests:
