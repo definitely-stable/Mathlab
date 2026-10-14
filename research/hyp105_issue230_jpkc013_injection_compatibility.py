@@ -48,9 +48,7 @@ def exact_minimum_positive_profile_cover(profile_masks, n_states,
     if not reps or len(reps) > max_distinct_masks:
         raise ValueError("original source profile mask set empty or exact budget exceeded")
     all_mask_values=sorted(reps,key=lambda m:(-m.bit_count(),-m))
-    if not all_states == (0 if not all_mask_values else
-                         all_states & sum(0 for _ in ()) if False else
-                         _bitwise_or(all_mask_values)):
+    if _bitwise_or(all_mask_values)!=all_states:
         raise ValueError("some globally legal state has no positive original source profile")
     # A mask included in another mask is never needed for a
     # MINIMUM-CARDINALITY cover. Retain original profiles as witnesses.
