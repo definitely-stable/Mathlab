@@ -82,7 +82,29 @@ Weighted Cauchy–Schwarz on t(i) gives
 
 Unlike B1, B2 carries no explicit C factor. It measures average per-anchor deviation rather than squared endpoint masses. **There is no assumption that B2 is always tighter than B1.**
 
-## 5. New strict sufficient targets (still OPEN)
+## 5. B3 — exact positive original middle-incidence correction
+
+The preceding B1-direct estimate remains an upper bound because it used a union bound. There is an EXACT, more informative equality on the SAME true ORIGINAL source, without any spectral estimates.
+
+For an eligible oriented proper physical 3-path define `L1={x1 in f(p)}`, `L2={x2 in f(p)}`, `R1={y1 in g(ell)}`, `R2={y2 in g(ell)}`. Let `L=L1 union L2` and `R=R1 union R2`. These refer to the TRUE unique ORIGINAL GQ anchor q--ell--p--r, not invented source incidence adjacency.
+
+Set
+
+    Jf = Pr_mu[eligible AND L1 AND L2],
+    Jg = Pr_mu[eligible AND R1 AND R2],
+    JLR = Pr_mu[eligible AND L AND R].
+
+All three are nonnegative. By exact inclusion-exclusion and reversal-invariance
+
+    theta_I = 2*Gamma_f + 2*Gamma_g - Jf - Jg - JLR
+            = 8P/n + 2*(Delta_f+Delta_g) - D,       (B3)
+    D=Jf+Jg+JLR >= 0.
+
+These are EQUALITIES, not upper estimates. Original source provenance supplies additional structure: in the event L1 AND L2, properness ensures x1 != x2 and the anchor f(p) has EXACTLY two physical coordinates. Therefore the physical middle edge of the 3-path has left pair {x1,x2}=f(p); by global injectivity its **actual ORIGINAL middle source point equals p**. Dually R1 AND R2 forces its actual ORIGINAL middle source line to equal ell. If both occur, the middle edge carries precisely the ORIGINAL incidence (p,ell). No illicit additional GQ 6-cycle, wrong physical-to-original vertex identification or extra GF5-positive motif is claimed.
+
+**Proof significance:** the exact correction D can compensate an otherwise large positive centered covariance. B1 and B2 discard D and so can fail even when the actual internal blocking mass is small. A future structural proof can either bound the *signed* covariance or show that the positive correction D is necessarily large whenever covariance concentration occurs, using true middle-incidence provenance and the seven approved GF5 source profiles.
+
+## 6. New strict sufficient targets (still OPEN)
 
 By EICE-002, there exists a coherent paired-diagonal G* of positive s^4 density and Ω(s) active min degree for all large s, and by the conditional Opus R/projection closure if S=o(s^6) its eligible end-clean mass would have to carry theta_I=1-o(1).
 
@@ -102,11 +124,11 @@ because B1-direct then forces theta_I≤1-2η+o(1). All three targets are **OPEN
 
 A path law concentrated on one eligible path and its reverse can make t highly concentrated even though the original endpoint pair and GQ source are legitimate; thus reversal invariance **alone** never bounds the old C*T2 quantity. This does not falsify the stationary law on high-degree G* or the root conjecture.
 
-## 6. Executable evidence and acceptance
+## 7. Executable evidence and acceptance
 
 - Reuse exact true ORIGINAL W32 lex/reverse/S68/S72 / W34 original symplectic incidence fixtures, and whole-incidence paired G* source selections.
-- The EICE-003 exact original path tensor now verifies B0, B1 direct covariance, B1 squared rational bound, B2 weighted chi-square, and original full-a A4 using no floating-point operations. Low s can have conditioned-on-survival NB law; strict stationary requirement is independently fail-closed.
-- The new independent regression recomputes source-anchor covariance and coordinate-centered residual by enumerating all a-2 legal internal coordinates on each original eligible endpoint fiber and checks exact equality, rather than trusting the implemented aggregated tensor formulas.
+- The EICE-003 exact original path tensor now verifies B0, B1 direct covariance, B1 squared rational bound, B2 weighted chi-square, B3 exact inclusion-exclusion with ORIGINAL middle-source IDs, and original full-a A4 using no floating-point operations. Low s can have conditioned-on-survival NB law; strict stationary requirement is independently fail-closed.
+- The new independent regression recomputes B3 original middle-incidence double-anchor corrections, source-anchor covariance and coordinate-centered residual by enumerating all a-2 legal internal coordinates on each original eligible endpoint fiber and checks exact equality, rather than trusting the implemented aggregated tensor formulas.
 - No finite W32/W34 result is advertised as proof for every h. CI tests establish implementation regressions, while B0-B2 have separate algebraic all-h proofs.
 
-**Next proof gate EICE-003-C:** investigate the **signed centered anchor covariance kernel** Δ_f+Δ_g using the real GQ incidence spectrum, the globally injective endpoint maps and physical coordinate-block matching constraints, with dedicated adversarial symplectic-spread/Baer original fixtures. If spectral cancellation cannot be proved, seek a true globally coherent counterfamily to TARGET-COV (not just a single finite W32 map). No merge of research Draft PRs without independent proof review.
+**Next proof gate EICE-003-C:** investigate the **signed centered anchor covariance-minus-correction kernel** 2*(Δ_f+Δ_g)-D using the real GQ incidence spectrum, the globally injective endpoint maps and physical coordinate-block matching constraints, with dedicated adversarial symplectic-spread/Baer original fixtures. If spectral cancellation cannot be proved, seek a true globally coherent counterfamily to TARGET-COV (not just a single finite W32 map). No merge of research Draft PRs without independent proof review.
