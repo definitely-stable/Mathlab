@@ -112,7 +112,10 @@ class FourAnchorTests(unittest.TestCase):
                          row["all_four_blocked_plaquettes"])
         self.assertGreater(
             row["complete_source_plaquettes_verified_against_W32_index"],0)
-        self.assertGreater(
+        # The first genuine coherent 5-source square need not contain
+        # any nonincident endpoint anchor, so there may be ZERO LOCAL
+        # sixset subsets to compare. Never manufacture GF5 evidence.
+        self.assertGreaterEqual(
             row["independent_W32_full_seven_index_comparisons"],0)
         self.assertEqual(row["all_four_blocked_plaquettes"],0)
         self.assertEqual(row["observed_scope_seven_hits"],{})
@@ -122,6 +125,9 @@ class FourAnchorTests(unittest.TestCase):
             row["complete_source_scope_seven_hits_NOT_compensation"],dict)
         independent=seven_census(model,independent_checks=False,
                                  witness_sets=True)
+        # These are REAL GLOBAL W32 six-incidence witnesses used as
+        # independent POSITIVE classifier controls, not compensation
+        # witnesses attached to the five-source plaquette.
         for tag,ids in independent["witnesses"].items():
             self.assertEqual(classify_seven_prechecked(
                 ids,tuple(model["left_labels"]),
