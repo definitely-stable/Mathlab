@@ -241,6 +241,51 @@ def genuine_original_W32_pair_to_Q_audit(scheme):
     summarized={}
     for typ in ("P","L"):
         tmp=[r[1 if typ=="P" else 2] for r in all_results]
+        # A pinned actual ORIGINAL source/physical witness to either direct
+        # cooccurrence-transfer failure or stricter same-pencil failure.
+        # Compare against the actual historical full accepted sixsets again.
+        for weakness,kind in (
+                ("sample_uncovered_source_pair_ids","weak"),
+                ("sample_strict_uncovered_source_pair_ids","same_original_pencil")):
+            witness=next(((i,tuple(row[weakness][0]))
+                          for i,row in enumerate(tmp) if row[weakness]),None)
+            if witness is None:
+                summarized.setdefault(typ,{}).update({
+                    kind+"_uncovered_true_source_pair_witness":None})
+                continue
+            i,pair=witness
+            left=list(tuple(tuple(x) for x in model["left_labels"]))
+            for point,label in zip(block,states[i]):
+                left[point]=label
+            this_labels=left if typ=="P" else fixed_right
+            if set(this_labels[pair[0]]) & set(this_labels[pair[1]]):
+                raise AssertionError("negative witness is not a PHYSICALLY DISJOINT source pair")
+            all_inc=tuple(tuple(x) for x in g["original_incidences"])
+            pos=0 if typ=="P" else 1
+            other=1-pos
+            same_pencil=0
+            weak_Q=0
+            for Q in all_results[i][0]["sets"]:
+                endpoints=tuple(all_inc[q] for q in Q)
+                u={e[other] for e in endpoints if e[pos]==pair[0]}
+                v={e[other] for e in endpoints if e[pos]==pair[1]}
+                if u and v:
+                    weak_Q+=1
+                    same_pencil+=bool(u&v)
+            if ((kind=="weak" and weak_Q!=0) or
+                    (kind=="same_original_pencil" and same_pencil!=0)):
+                raise AssertionError("negative pair-to-ORIGINAL Q witness invalid")
+            summarized.setdefault(typ,{})[kind+"_uncovered_true_source_pair_witness"]={
+                "complete_global_source_state_index":i,
+                "four_original_point_block_physical_labels":states[i],
+                "original_source_pair":pair,
+                "actual_global_physical_pair_labels_for_source_pair":
+                    (this_labels[pair[0]],this_labels[pair[1]]),
+                "genuine_positive_seven_GF5_Q_with_both_source_factors":weak_Q,
+                "genuine_positive_seven_GF5_Q_with_same_original_pencil":same_pencil,
+                "historical_complete_original_seven_Q":all_results[i][0]["S_seven"],
+                "independent_original_six_incidence_membership_oracle":"PASS",
+            }
         measures=("original_gq_collinear_physically_disjoint_pair_count",
             "original_pairs_not_covered_by_any_positive_sixset",
             "original_pairs_not_covered_by_same_pencil_positive_sixset",
@@ -249,14 +294,14 @@ def genuine_original_W32_pair_to_Q_audit(scheme):
             "minimum_actual_positive_Q_multiplicity_per_eligible_pair",
             "minimum_actual_same_pencil_Q_multiplicity_per_eligible_pair",
             "original_positive_Q_without_any_eligible_source_pair")
-        summarized[typ]={
+        summarized[typ].update({
             "per_complete_state":tuple(tmp),
             "ranges":{name:{"min":min(r[name] for r in tmp),
                              "max":max(r[name] for r in tmp)}
                       for name in measures},
             "all_24_original_sixset_pair_charge_oracles":"PASS",
             "all_true_source_pair_occupancy_independent_of_physical_P3":True,
-        }
+        })
     return {
         "scheme":scheme,"original_source_four_point_block":block,
         "complete_true_global_injective_assignments":24,
