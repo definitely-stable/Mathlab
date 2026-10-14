@@ -1,0 +1,85 @@
+name: hyp105-issue230-jpkc011-seven-visibility
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc011_seven_visibility.py"
+      - "research/test_hyp105_issue230_jpkc011_seven_visibility.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-011-SEVEN-VISIBILITY.md"
+      - ".github/workflows/hyp105-issue230-jpkc011-seven-visibility.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  full-original-W32-visibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full original W32 seven-class per-Q physical P3 visibility independent tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc011_seven_visibility.py' -v
+      - name: Emit complete W32 class visibility tensors and exact GF5 necessary floors
+        run: |
+          python research/hyp105_issue230_jpkc011_seven_visibility.py > /tmp/jpkc011.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/jpkc011.json"))
+          assert x["slice"]=="JPKC-011" and len(x["records"])==4
+          assert not x["all_h_S_omega_proved"] and not x["root_B_constructed"]
+          for r in x["records"]:
+              v=r["J38_complete_original_Q_visibility_partition"]
+              assert r["all_positive_Q_local_diagonal_equals_global_path_oracle"]
+              assert sum(v.values())==r["complete_original_positive_seven_S"]
+              assert sum(r["J40_GF5_floor_by_visibility"].values())==r["J40_full_original_GF5_floor_numerator"]
+              assert r["J39_all_h_C_half_invisible_to_proper_P3"]
+              assert r["J39_all_h_BB_invisible_to_endpoint_bad_P3"]
+          print(json.dumps([{
+              "scheme":r["scheme"],
+              "S":r["complete_original_positive_seven_S"],
+              "visibility":r["J38_complete_original_Q_visibility_partition"],
+              "GF5_by_visibility":r["J40_GF5_floor_by_visibility"],
+              "by_class":r["J38_exact_seven_class_visibility"]
+          } for r in x["records"]],sort_keys=True,indent=2))
+          PY
+
+  coherent-24-state-visibility-fiber:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Complete original 24-state right-source globally injected visibility tensor
+        run: |
+          python research/hyp105_issue230_jpkc011_seven_visibility.py --fiber ${{ matrix.scheme }} > /tmp/jpkc011-fiber.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/jpkc011-fiber.json"))["fiber"]
+          assert x["all_24_globally_injective_states_exhausted"]
+          assert x["legal_complete_global_maps_examined"]==24
+          assert x["min_full_seven_S"]==68
+          assert all(sum(r["partition"].values())==r["full_original_S"] for r in x["all_states"])
+          print(json.dumps({
+              "scheme":x["scheme"], "global_maps":24,
+              "min_full_S":x["min_full_seven_S"],
+              "min_endpoint_bad":x["min_endpoint_bad_visible_Q"],
+              "min_other_proper":x["min_other_proper_only_Q"],
+              "min_no_proper_P3":x["min_no_proper_P3_Q"],
+              "min_not_endpoint_bad":x["min_positive_Q_not_detected_by_endpoint_bad"],
+              "max_not_endpoint_bad":x["max_positive_Q_not_detected_by_endpoint_bad"],
+          },sort_keys=True,indent=2))
+          PY
