@@ -58,13 +58,22 @@ def all_h_blocked_plaquette_reservoir(s, theta, *, proposed_transfer_K=None):
     # For delta*s>=4, each physical vertex has degree >=delta*s,
     # binom(deg-1,2) >= delta²*s²/8. Each source middle physical edge
     # contributes two orientations; m >= s^4/40000 by EICE-002.
-    fraction=max(Fraction(),4*Fraction(theta)-3)
+    theta=Fraction(theta)
+    four_union=max(Fraction(),4*theta-3)
+    # F6: F4's C4 hom bound in each rectangle, then Jensen across the
+    # uniform directed-middle-edge distribution. Since all outward
+    # degrees >=delta*s-1, the degeneracy loss is <=2/(delta*s-1).
+    quartic_jensen=max(Fraction(),theta**4-Fraction(2,delta*s-1))
+    fraction=max(four_union,quartic_jensen)
     oriented_allblocked_lower=(
         fraction*delta**4*s**8/Fraction(1_280_000))
     result={
         "s":s,
         "original_stationary_internal_blocking_theta":str(Fraction(theta)),
         "uniform_oriented_square_allblocked_probability_lower":str(fraction),
+        "F5_four_union_lower":str(four_union),
+        "F6_C4_Jensen_quartic_lower":str(quartic_jensen),
+        "F6_standard_C4_supersaturation_not_novel":True,
         "explicit_oriented_allblocked_true_GQ_plaquette_count_lower":
             str(oriented_allblocked_lower),
         "EICE_002_min_degree_factor":str(delta),
