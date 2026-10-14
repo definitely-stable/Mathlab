@@ -88,6 +88,8 @@ class FourAnchorTests(unittest.TestCase):
                     p["colors_left"],p["colors_right"]).census(
                         max_paths=400_000,max_plaquettes=90_000)
                 self.assertEqual(row["N"],425)
+                self.assertFalse(row["frozen_W32_seven_classifier_available"])
+                self.assertEqual(row["canonical_path_seven_classes"],{})
                 self.assertLessEqual(row["all_four_blocked_plaquettes"],
                                      row["all_four_end_clean_plaquettes"])
                 self.assertTrue(row["F4_quartic_is_standard_C4_supersaturation"])
@@ -102,6 +104,7 @@ class FourAnchorTests(unittest.TestCase):
                                  witness["colors_right"])
         row=audit.census(exact_W32_GF5_index=True,independent=True)
         self.assertGreater(row["true_original_2x2_plaquettes"],0)
+        self.assertTrue(row["frozen_W32_seven_classifier_available"])
         self.assertGreater(row["all_endpoint_complete_plaquettes"],0)
         self.assertTrue(all(int(x)<=17 for x in row[
             "allblocked_original_scope_sizes"]))
