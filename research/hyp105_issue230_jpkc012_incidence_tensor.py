@@ -382,11 +382,42 @@ def coherent_right_fiber_tensor(scheme, *, states=None,
         })
     N=len(rows)
     independent_profile_min=0
+    profile_masks={}
+    universally_positive_profiles=0
     for profile,hits in by_profile.items():
         vec=[0]*N
         for k,n in hits:
+            if vec[k]:
+                raise AssertionError("one original source profile repeated in a fiber state")
             vec[k]=n
         independent_profile_min+=min(vec)
+        mask=sum(1<<i for i,n in enumerate(vec) if n)
+        if not mask:
+            raise AssertionError("inactive right source profile inserted into positive tensor")
+        profile_masks[profile]=mask
+        universally_positive_profiles+=int(mask==(1<<N)-1)
+    # Small reproducible finite source-profile cover. This is explicitly
+    # greedy, NOT an unsupported optimal minimum-cardinality cover.
+    remaining=(1<<N)-1
+    greedy_cover=[]
+    while remaining:
+        if not profile_masks:
+            raise AssertionError("some globally legal fiber state has no positive profile")
+        chosen=max(profile_masks,key=lambda p:(
+            (profile_masks[p]&remaining).bit_count(),tuple(-v for v in p)))
+        fresh=remaining&profile_masks[chosen]
+        if not fresh:
+            raise AssertionError("no original positive source-profile covers remaining states")
+        greedy_cover.append({
+            "original_right_line_factor_multiset":chosen,
+            "positive_state_bitmask":profile_masks[chosen],
+            "new_globally_legal_fiber_states_covered":fresh.bit_count(),
+        })
+        remaining &= ~fresh
+        if len(greedy_cover)>N:
+            raise AssertionError("greedy finite-state positive-profile cover too large")
+    if sum(x["new_globally_legal_fiber_states_covered"] for x in greedy_cover)!=N:
+        raise AssertionError("original profile greedy-cover states are not disjointly charged")
     coherent_min=min(x["S"] for x in rows)
     gap=coherent_min-independent_profile_min
     if gap<0:
@@ -400,6 +431,12 @@ def coherent_right_fiber_tensor(scheme, *, states=None,
         "exact_min_full_seven_S":coherent_min,
         "sum_of_independent_right_source_profile_minima":independent_profile_min,
         "exact_global_source_profile_coherence_gap":gap,
+        "globally_unavoidable_single_right_source_profiles":
+            universally_positive_profiles,
+        "greedy_all_global_states_positive_source_profile_cover":
+            greedy_cover,
+        "greedy_profile_cover_exactly_covers_examined_global_states":True,
+        "greedy_profile_cover_optimality_claimed":False,
         "all_results_one_global_g_per_state":True,
         "all_states":rows,
         "J43_conditional_coherent_profile_minimax_all_h":True,
