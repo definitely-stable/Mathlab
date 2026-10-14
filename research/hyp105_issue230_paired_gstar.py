@@ -72,10 +72,8 @@ def _matching_pass(ids, inc, labels, group_index, label_index, degree_limit):
         'input': len(ids), 'survivors': len(selected),
         'high_degree_deleted': heavy, 'collision_energy': collisions,
         'degree_limit': degree_limit,
-        'guaranteed_matching_floor': str(
-            Fraction(len(ids)-2*collisions/degree_limit,
-                     2*degree_limit-1)) if False else str(Fraction(len(ids), 2*degree_limit-1) -
-                       Fraction(2*collisions, degree_limit*(2*degree_limit-1))),
+        'guaranteed_matching_floor': str(Fraction(len(ids), 2*degree_limit-1) -
+                    Fraction(2*collisions, degree_limit*(2*degree_limit-1))),
     }
 
 
@@ -146,14 +144,18 @@ def verify_paired_regularizer(model, ids, colors_left, colors_right, *,
         y0,y1=ctx.g[l]
         if colors_left[x0] == colors_left[x1] or colors_right[y0] == colors_right[y1]:
             raise AssertionError('unbichromatic original incidence survived')
+    by_point = defaultdict(set)
+    by_line = defaultdict(set)
     for i in ids:
-        p,l=ctx.inc[i]
-        for j in ids:
-            q,r=ctx.inc[j]
-            if i != j and p == q and set(ctx.g[l]) & set(ctx.g[r]):
+        p, l = ctx.inc[i]
+        for y in ctx.g[l]:
+            if y in by_point[p]:
                 raise AssertionError('original point has physical right cherry')
-            if i != j and l == r and set(ctx.f[p]) & set(ctx.f[q]):
+            by_point[p].add(y)
+        for x in ctx.f[p]:
+            if x in by_line[l]:
                 raise AssertionError('original line has physical left cherry')
+            by_line[l].add(x)
     for u, ns in enumerate(adj):
         if len({divmod(v,a)[0] for v in ns}) != len(ns):
             raise AssertionError('physical block-row degree >1')
@@ -202,8 +204,7 @@ def paired_gstar(model, *, min_degree=None, verify_paths=False,
     details=verify_paired_regularizer(model,final,colors_left,colors_right,
                                      require_paths=verify_paths,
                                      walk_budget=verification_budget)
-    if any(len(_graph(inc,f,g,final,a)[0][u]) < threshold
-           for u in range(a*a) if _graph(inc,f,g,final,a)[0][u]):
+    if details['min_positive_degree'] and details['min_positive_degree'] < threshold:
         raise AssertionError('minimum active degree certificate violated')
     return {
         's':s, 'a':a, 'N':context.N,
