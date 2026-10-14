@@ -5,9 +5,11 @@ four arms have a unique middle-corner contact, arranged 2+2 in one of
 two opposite pairs, with four DISTINCT outer left and right coordinates.
 I2: exact bipartite pair-match candidate capacity; every true allblocked
 source family is one of these templates, with its ORIGINAL identities.
-I3: at most TWO oriented physical 2x2 squares for one fixed middle
-source e and unordered 5-source set; at most TEN across all 5 possible
-middle sources. Better than the previous all-h coarse 20.
+I3: EXACTLY TWO oriented physical 2x2 square representations for
+each five-source coherent template, with a UNIQUE possible middle
+ORIGINAL source e. Its full paired 10-edge physical graph consists of
+a five-edge double-star tree plus five isolated complementary diagonals.
+This improves the previous loose all-h bound 20 to TWO globally.
 I4: exact per-middle heavy-source necessary counting from F5/F6.
 
 This does NOT establish o(s^4) per-middle allblocked sources, an all-h
@@ -170,16 +172,63 @@ def true_five_source_middle_template(ctx,e,ids):
             and len({r[2] for bucket in buckets.values() for r in bucket})==4)
 
 
+def paired_five_source_component_certificate(ctx, actual_middle_id):
+    """I3: graph of BOTH diagonals has one 5-edge tree + five isolated edges.
+
+    This applies to an actual five ORIGINAL source-ID set satisfying I1
+    with central ID actual_middle_id, not to arbitrary five-incidence sets.
+    No finite witness is substituted for the all-h proof.
+    """
+    if len(ctx.selected)!=5 or len(ctx.provenance)!=10:
+        raise ValueError("exactly five true original incidence sources / ten physical diagonals required")
+    vertices={u for u,d in enumerate(ctx.degree) if d}
+    d3={u for u in vertices if ctx.degree[u]==3}
+    if len(d3)!=2:
+        raise AssertionError("I3 paired physical five-source tree must have exactly two degree-three vertices")
+    if any(ctx.degree[u] not in (1,3) for u in vertices):
+        raise AssertionError("I3 unexpected physical degree of paired source 5-ID graph")
+    if len(vertices)!=16:
+        raise AssertionError("I3 exact physical vertex count 16 failed")
+    a,b=sorted(d3)
+    if b not in ctx.adj[a]:
+        raise AssertionError("I3 degree-three centers do not share the genuine middle edge")
+    if ctx.provenance[tuple(sorted((a,b)))]!=actual_middle_id:
+        raise AssertionError("I3 physical middle provenance does not match original source")
+    squares=[]
+    for u in vertices:
+        for v in ctx.adj[u]:
+            if len(ctx.adj[u]-{v})>=2 and len(ctx.adj[v]-{u})>=2:
+                squares.append((u,v))
+    if sorted(squares)!=[(a,b),(b,a)]:
+        raise AssertionError("I3 actual five-source square has not exactly two middle orientations")
+    # An edge with a degree-one endpoint is among the four connected
+    # pendant arms or the other five isolated original physical diagonals.
+    isolated_edges=sum(1 for u in vertices for v in ctx.adj[u]
+                       if u<v and ctx.degree[u]==ctx.degree[v]==1)
+    if isolated_edges!=5:
+        raise AssertionError("I3 missing five disconnected complementary diagonals")
+    return {
+        "true_source_ids":tuple(sorted(ctx.selected)),
+        "unique_original_middle_source_id":actual_middle_id,
+        "connected_five_edge_tree_center_vertices":(a,b),
+        "five_disconnected_paired_diagonals":isolated_edges,
+        "active_physical_vertices":len(vertices),
+        "oriented_two_by_two_plaquettes":len(squares),
+        "I3_all_h_original_middle_unique":True,
+    }
+
+
 def conditional_improved_source_packing(s,theta):
-    """I3/I4 all-h source bound with exact 2 orientations per fixed middle."""
+    """I3/I4 all-h TWO orientations total, unique actual original middle."""
     q=all_h_blocked_plaquette_reservoir(s,theta)
     P=Fraction(q["explicit_oriented_allblocked_true_GQ_plaquette_count_lower"])
     N=(s+1)**2*(s*s+1)
     return {
         "s":s,"theta":str(Fraction(theta)),
         "max_oriented_plaquettes_per_fixed_middle_and_five_source_family":2,
-        "max_oriented_plaquettes_per_five_source_family_all_middles":10,
-        "distinct_true_original_five_source_families_lower":str(P/10),
+        "max_oriented_plaquettes_per_five_source_family_all_middles":2,
+        "I3_unique_original_middle_source_for_each_valid_five_source_set":True,
+        "distinct_true_original_five_source_families_lower":str(P/2),
         "at_least_one_middle_original_source_families_lower":str(P/(2*N)),
         "valid_only_on_same_EICE002_stationary_Gstar_and_source_global_maps":True,
         "o_s4_capacity_or_GF5_transfer_proved":False,
@@ -240,6 +289,9 @@ def finite_quadrant_report(model, *, max_path_cells=3_000_000,
         if coherent is None:
             raise AssertionError("I1 source quadrant template failed paired coherence")
         oracle,_,_=coherent
+        component=paired_five_source_component_certificate(oracle.ctx,e)
+        if component["oriented_two_by_two_plaquettes"]!=2:
+            raise AssertionError("I3 unique true original source middle template disproved")
         sq=oracle.census(max_plaquettes=50,max_paths=2000,
                          independent_paths=True,independent_plaquettes=True)
         if sq["total_2x2_plaquettes"]<1:
@@ -260,7 +312,7 @@ def finite_quadrant_report(model, *, max_path_cells=3_000_000,
         "largest_observed_true_blocked_family_count_per_middle":max(observed_counts.values(),default=0),
         "top_five_exact_capacity_middle_original_ids":sorted(top,key=lambda a:(-a[1],a[0]))[:5],
         "independent_both_diagonals_proper_square_template_validations":checked,
-        "I3_sharpened_five_source_orientation_ceiling":10,
+        "I3_sharpened_five_source_orientation_ceiling":2,
         "actual_GF5_positive_sixset_capacity_proved":False,
         "uniform_o_s4_true_blocking_capacity_proved":False,
         "root_Branch_A_proved":False,
