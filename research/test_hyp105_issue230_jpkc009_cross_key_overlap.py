@@ -70,6 +70,14 @@ class JPKC009Tests(unittest.TestCase):
             "S68":(544,2176,1016,27),
             "S72":(600,2400,1092,35),
         }
+        overlap_pins={
+            # (raw left, Hall left, positive D6 left,
+            #  raw right, Hall right, positive D6 right)
+            "lex":(4616,47,5,4792,59,5),
+            "reverse":(3912,13,0,3784,10,0),
+            "S68":(2632,1,0,2696,4,0),
+            "S72":(2928,7,0,3312,3,0),
+        }
         for scheme,(E,demand,unique,feasible) in references.items():
             with self.subTest(scheme=scheme):
                 row=cross_key_certificate(
@@ -110,6 +118,16 @@ class JPKC009Tests(unittest.TestCase):
                     self.assertEqual(
                         row["right_actual_GF5_D6_source_overlap"][
                             "distinct_key_pairs_same_source_triple_DIFFERENT_original_anchors"],0)
+                observed=tuple(
+                    row[field]["distinct_key_pairs_same_source_triple_DIFFERENT_original_anchors"]
+                    for field in (
+                        "left_point_triple_source_overlap",
+                        "left_Hall_feasible_source_overlap",
+                        "left_actual_GF5_D6_source_overlap",
+                        "right_line_triple_source_overlap",
+                        "right_Hall_feasible_source_overlap",
+                        "right_actual_GF5_D6_source_overlap"))
+                self.assertEqual(observed,overlap_pins[scheme])
                 self.assertTrue(row["complete_source_triple_star_capacity_checked"])
                 self.assertEqual(
                     row["global_original_source_Hall_capacity"][
@@ -137,6 +155,14 @@ class JPKC009Tests(unittest.TestCase):
                 self.assertGreater(row["distinct_original_bipartite_source_demand_edges"],0)
                 self.assertTrue(row["all_h_J32_global_capacity_equals_J29"])
                 self.assertTrue(row["does_not_prove_cross_anchor_positive_extension"])
+                if name=="D4-true-spread":
+                    for field,exact in (
+                        ("right_line_triple_source_overlap",186543),
+                        ("right_Hall_feasible_source_overlap",1),
+                        ("right_actual_GF5_D6_source_overlap",0)):
+                        self.assertEqual(
+                            row[field]["distinct_key_pairs_same_source_triple_DIFFERENT_original_anchors"],
+                            exact)
 
     def test_fail_closed_original_maps_source_triples_and_budgets(self):
         ctx=ProjectionClosure(fixture(1,"lex"))
