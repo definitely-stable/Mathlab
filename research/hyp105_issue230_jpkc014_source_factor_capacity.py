@@ -25,6 +25,9 @@ from hyp105_issue230_jpkc012_incidence_tensor import (
     compile_incidence_tensor, contract_incidence_tensor,
 )
 from hyp105_g5e2b3e1b0_seven_signature import seven_census
+from hyp105_issue230_jpkc014_choice_matching_bound import (
+    exact_injective_choice_star_lower,
+)
 
 
 def incidence_capacity_certificate(anchor_witnesses, original_incidences,
@@ -246,6 +249,17 @@ def single_factor_choice_certificate(scheme, *, states=None,
         if selected_by_state[i]>totals[i]:
             raise AssertionError("J48 source-factor block-disjoint charge exceeds true full S")
     guaranteed_lower=sum(stars.values())
+    q_matrix={
+        r:{e:portfolios[r][e]["number_of_true_positive_original_Q"]
+           for e in images}
+        for r in stars}
+    matching=exact_injective_choice_star_lower(q_matrix,images)
+    if (matching["sum_of_independent_original_source_star_row_minima"]
+            !=guaranteed_lower):
+        raise AssertionError("J50 row minima do not equal genuine source stars")
+    if (matching["exact_injective_min_original_Q_lower"]
+            !=min(selected_by_state.values())):
+        raise AssertionError("J50 independent dynamic matching optimum differs from 24 full global injections")
     if any(v<guaranteed_lower for v in selected_by_state.values()):
         raise AssertionError("J48 globally consistent source line stars violate disjoint lower bound")
     if any(v>totals[i] for i,v in selected_by_state.items()):
@@ -286,6 +300,7 @@ def single_factor_choice_certificate(scheme, *, states=None,
             guaranteed_lower,
         "J48_finite_exact_min_selected_true_original_Q_by_state":
             min(selected_by_state.values()),
+        "J50_exact_injective_original_source_star_matching":matching,
         "J48_independent_true_original_Q_set_capacity_checked":
             bool(independent_seven_Q),
         "J48_disjoint_Q_charge_summaries":(
