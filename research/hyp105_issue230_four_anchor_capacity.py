@@ -39,6 +39,46 @@ def quartic_c4_lower(r, c, ones):
     return max(Fraction(),value)
 
 
+def all_h_blocked_plaquette_reservoir(s, theta, *, proposed_transfer_K=None):
+    """F5 explicit CONDITIONAL Ω(s^8) count from EICE-002+EICE-003-E.
+
+    theta must be the stationary true ORIGINAL end-clean internal blocking
+    mass of the SAME coherent paired G*, not an arbitrary probability.
+    K, if supplied, is an UNPROVEN multiplicity assumption <= K*s².
+    This function does NOT certify the missing four-anchor->GF5 map.
+    """
+    if (type(s) is not int or s < 4_000_000 or s&(s-1)
+            or not isinstance(theta,(int,Fraction))
+            or not Fraction(0)<=Fraction(theta)<=Fraction(1)):
+        raise ValueError("s=2^h>=4e6 and exact stationary blocking mass required")
+    if proposed_transfer_K is not None and (
+            type(proposed_transfer_K) is not int or proposed_transfer_K<1):
+        raise ValueError("positive integer hypothetical transfer K required")
+    delta=Fraction(1,1_000_000)
+    # For delta*s>=4, each physical vertex has degree >=delta*s,
+    # binom(deg-1,2) >= delta²*s²/8. Each source middle physical edge
+    # contributes two orientations; m >= s^4/40000 by EICE-002.
+    fraction=max(Fraction(),4*Fraction(theta)-3)
+    oriented_allblocked_lower=(
+        fraction*delta**4*s**8/Fraction(1_280_000))
+    result={
+        "s":s,
+        "original_stationary_internal_blocking_theta":str(Fraction(theta)),
+        "uniform_oriented_square_allblocked_probability_lower":str(fraction),
+        "explicit_oriented_allblocked_true_GQ_plaquette_count_lower":
+            str(oriented_allblocked_lower),
+        "EICE_002_min_degree_factor":str(delta),
+        "all_h_EICE_002_EICE_003E_conditional_theorem":True,
+        "unconditional_positive_GF5_sixset_lower_proved":False,
+        "universal_four_anchor_transfer_proved":False,
+    }
+    if proposed_transfer_K is not None:
+        result["ASSUMED_NOT_PROVED_transfer_max_preimages_K_s2"]=proposed_transfer_K
+        result["ONLY_IF_TRANSFER_EXISTS_S_lower"]=str(
+            oriented_allblocked_lower/(proposed_transfer_K*s*s))
+    return result
+
+
 def blocked_checkerboard_or_adjacent(masks):
     """F2 dichotomy for four simultaneously blocked real paths.
 
