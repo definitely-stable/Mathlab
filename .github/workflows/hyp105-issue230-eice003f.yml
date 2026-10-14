@@ -1,0 +1,28 @@
+name: hyp105-issue230-eice003f-four-anchor-capacity
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  true-original-four-anchor-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: EICE-003-F true original four-anchor masks, canonical six-source and seven GF5 classes
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_four_anchor_capacity.py' -v
+      - name: W32 real original nonvacuous source square and accepted GF5 scope report
+        run: python research/hyp105_issue230_four_anchor_capacity.py
+      - name: EICE-003-E double K2,2 source girth and geometry regression
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_source_plaquettes.py' -v
