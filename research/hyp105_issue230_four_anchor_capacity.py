@@ -74,11 +74,16 @@ def original_closure(ctx, source_ids, q, r):
     if len(six)>6 or len(six)<3:
         raise AssertionError("invalid source six-position trace")
     tag=None
-    if len(six)==6:
+    checked=len(six)==6 and ctx.s==2
+    if checked:
+        # This frozen exact seven-class oracle is specifically W32/K6.
+        # It uses 6-coordinate arrays internally and MUST NOT be invoked
+        # for W34/W38; there None would falsely mean a negative GF5 result.
         tag=classify_seven_prechecked(six,ctx.f,ctx.g,ctx.inc)
     return dict(path_source_ids=sources, anchor_source_ids=anchor_ids,
                 distinct_original_incidences=six,
-                source_union_size=len(six), certified_seven_class=tag)
+                source_union_size=len(six), certified_seven_class=tag,
+                frozen_W32_seven_class_checked=checked)
 
 
 def _colors_for_source(ctx, ids, factor):
@@ -275,7 +280,7 @@ class FourAnchorCapacity:
                         # GF5 accepted certificate is observed only when
                         # EXACT SIX DISTINCT ORIGINAL incidence IDs occur
                         # and pass the actual seven-family classifier.
-                        if len(footprint)>=6:
+                        if len(footprint)>=6 and ctx.s==2:
                             candidates=__import__('math').comb(len(footprint),6)
                             if candidates>max_scope_sets:
                                 raise ValueError("true GF5 source six-subset scope budget exceeded")
@@ -294,7 +299,7 @@ class FourAnchorCapacity:
                                     confirmed_index_entries+=1
                             if not hits:
                                 blocked_scopes_without_witness+=1
-                        else:
+                        elif ctx.s==2:
                             blocked_scopes_without_witness+=1
                 # In each squareable middle orientation, the uniform
                 # distinct-index 2x2 sampler gives exactly the local count.
@@ -336,6 +341,8 @@ class FourAnchorCapacity:
             "allblocked_original_scope_sizes":dict(sorted(source_scopes.items())),
             "canonical_path_closure_source_sizes":dict(sorted(degenerate_closures.items())),
             "canonical_path_seven_classes":dict(corners_seven),
+            "accepted_seven_class_oracle_scope":"W(3,2)/K6 only; W34 IDs not classified",
+            "frozen_W32_seven_classifier_available":ctx.s==2,
             "observed_scope_seven_hits":dict(scope_six_hits),
             "allblocked_scopes_without_seven_hit":blocked_scopes_without_witness,
             "independent_W32_full_seven_index_comparisons":confirmed_index_entries,
