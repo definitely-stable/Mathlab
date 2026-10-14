@@ -79,6 +79,18 @@ If an arm at u and an arm at v shared the same original point p, then f(p) conta
 
 The source footprint consequently has **ten original vertices, five components and five disjoint original incidences**. This proof uses paired source provenance, coordinate properness and the actual local no-cherry conditions, not GF5 positivity. It applies also when four decoded original endpoints are incident or the anchor is dirty, provided the physical 2×2 source plaquette itself remains coherent and coordinate-proper. The W34 exact census validates this topology on all 467+575 actual all-blocked true original five-source sets.
 
+The matching theorem also produces a sharper **typed original arm pool** for each central source e=(p2,ell2):
+
+    F_e^arm = { (p,ell)∈F_e : p≠p2 and ell≠ell2 }.
+
+Every actual external source of a coherent five-source physical 2×2 plaquette lies in F_e^arm, and the FOUR selected external ORIGINAL incidences form a size-four original point–line matching. The exact original source-pencil inclusion-exclusion gives
+
+    |F_e^arm| = |F_e|
+      - #{(p2,ell)∈F_e}
+      - #{(p,ell2)∈F_e} + 1.
+
+All of these identities are checked on every finite original W32/W34 source e, and on all genuine blocked W34 five-source families, without treating an arbitrary physical adjacency as an original incidence. This improves the structural characterization of actual feasible arms but does NOT yet reduce the naive four-arm candidate count below O(s^8) per middle e.
+
 Crucially this is NOT a statement about arbitrary five ORIGINAL GQ incidence edges: five incidences through one original point give a perfectly valid GQ forest with point degree five. A separate negative test checks that the general source forest oracle does not incorrectly classify this star as a matching.
 
 ## H3 — rigorously isolated HEAVY-MIDDLE condition for Branch A
