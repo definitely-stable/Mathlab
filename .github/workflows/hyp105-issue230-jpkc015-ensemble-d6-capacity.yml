@@ -1,0 +1,90 @@
+name: hyp105-issue230-jpkc015-ensemble-d6-capacity
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_jpkc015_ensemble_d6_capacity.py"
+      - "research/test_hyp105_issue230_jpkc015_ensemble_d6_capacity.py"
+      - "docs/research/HYP-105-ISSUE230-JPKC-015-ENSEMBLE-D6.md"
+      - ".github/workflows/hyp105-issue230-jpkc015-ensemble-d6-capacity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-ensemble-source-matching-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent W32 original matching DP, physical C6, ensemble bounds, fail closed
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_jpkc015_ensemble_d6_capacity.py' -v
+      - name: Exact global-injection mean and all-h analytic 16/3 asymptotic
+        run: |
+          python research/hyp105_issue230_jpkc015_ensemble_d6_capacity.py > /tmp/hyp105-jpkc015.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          d=json.load(open("/tmp/hyp105-jpkc015.json"))
+          assert d["slice"]=="JPKC-015" and not d["root_A_proved"]
+          finite=d["finite_W32"]
+          assert finite["independent_swapped_source_matching_dp_equal"]
+          assert finite["independent_graph_cycle_vs_dual_cycle_count_equal"]
+          assert finite["physical_sixcycle_named_edge_assignment_count"]==43200
+          assert Fraction(finite["exact_uniform_GLOBAL_injection_ensemble_D6_expectation"])>0
+          for row in d["ensemble_bounds"]:
+              lower=Fraction(row["all_h_rigorous_ensemble_E_D6_lower"])
+              high=Fraction(row["all_h_rigorous_ensemble_E_D6_upper"])
+              explicit=Fraction(row["all_h_simple_explicit_ensemble_E_D6_Omega_s6_lower"])
+              assert high>=lower>=explicit>0
+              assert row["asymptotic_exact_ensemble_E_D6_over_s6_limit"]=="16/3"
+              assert not row["all_h_minimum_over_labelings_proved"]
+          print(json.dumps({"W32_exact_original_six_matchings":
+              finite["true_original_W32_6_matching_count"],
+              "W32_exact_mean_D6":
+              finite["exact_uniform_GLOBAL_injection_ensemble_D6_expectation"],
+              "ensemble_rows":[{
+                  "s":r["s"],
+                  "minimal_physical_a":r["minimal_physical_coordinate_symbols"],
+                  "proved_E_D6_lower":r["all_h_rigorous_ensemble_E_D6_lower"],
+                  "proved_E_D6_upper":r["all_h_rigorous_ensemble_E_D6_upper"],
+                  "asymptotic_mean_div_s6":"16/3"}
+                  for r in d["ensemble_bounds"]]},indent=2,sort_keys=True))
+          PY
+
+  independent-physical-and-source-bipartitions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse, S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual ORIGINAL W32 point-line symmetric exact matching DP
+        env:
+          SOURCE_SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_jpkc015_ensemble_d6_capacity.py --scheme "${SOURCE_SCHEME}" >/tmp/jpkc015-finite.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          d=json.load(open("/tmp/jpkc015-finite.json"))
+          assert d["independent_swapped_source_matching_dp_equal"]
+          assert d["independent_graph_cycle_vs_dual_cycle_count_equal"]
+          assert d["physical_sixcycle_named_edge_assignment_count"]==43200
+          assert Fraction(d["exact_uniform_GLOBAL_injection_ensemble_D6_expectation"])>0
+          assert d["mean_not_worst_case"]
+          print(json.dumps(d,indent=2,sort_keys=True))
+          PY
