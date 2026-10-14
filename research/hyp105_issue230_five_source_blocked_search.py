@@ -124,7 +124,8 @@ class FiveSourceSearch:
                max_physical_nb3_cells=3_000_000,
                max_allblocked_candidates=150_000,
                witness_limit=1,
-               independent_witness_oracle=True):
+               independent_witness_oracle=True,
+               export_true_five_source_families=False):
         if any(type(x) is not int or x<0 for x in (
                 max_middle_orientations,max_physical_nb3_cells,
                 max_allblocked_candidates,witness_limit)):
@@ -139,6 +140,8 @@ class FiveSourceSearch:
         masks=Counter()
         classifications=Counter()
         coherent_five_source_families=Counter()
+        source_family_middle_ids=__import__("collections").defaultdict(set)
+        source_family_channels=__import__("collections").defaultdict(set)
         witness_rows=[]
         allblocked_by_mid=Counter()
         raw_by_mid=Counter()
@@ -213,6 +216,10 @@ class FiveSourceSearch:
                                         else "adjacent_common_side"]+=1
                         fully_coherent+=1
                         coherent_five_source_families[source_ids]+=1
+                        source_family_middle_ids[source_ids].add(e)
+                        source_family_channels[source_ids].add(
+                            "checkerboard" if cls["strict_checkerboard"]
+                            else "adjacent_common_side")
                         if coherent_five_source_families[source_ids]>20:
                             raise AssertionError(
                                 "G4 exactly-five-source oriented square multiplicity exceeds 20")
@@ -288,6 +295,13 @@ class FiveSourceSearch:
             "locally_coherent_blocking_channels":dict(classifications),
             "physical_middle_edges_with_no_raw_allfour":no_block_mid,
             "witnesses":witness_rows,
+            **({"TRUE_ORIGINAL_five_source_families":[
+                {"original_incidence_ids":list(ids),
+                 "original_middle_source_ids":sorted(source_family_middle_ids[ids]),
+                 "oriented_fourblock_multiplicity":n,
+                 "mask_channels":sorted(source_family_channels[ids])}
+                for ids,n in sorted(coherent_five_source_families.items())]}
+                if export_true_five_source_families else {}),
             "finite_map_no_coherent_allblocked_square":fully_coherent==0,
             "universal_all_h_forbidden_five_source_theorem_proved":False,
             "bounded_multiplicity_GF5_transfer_proved":False,
