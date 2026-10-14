@@ -312,6 +312,119 @@ def genuine_original_W32_projection_charge_fiber(scheme):
     }
 
 
+
+def genuine_W38_D6_original_source_pair_sharpness(source_type):
+    """CONSTRUCTIVE actual W(3,8) original D6 Q with exactly 9 eligible pairs.
+
+    Six chosen ORIGINAL points share ONE ORIGINAL line (for P), or six
+    chosen ORIGINAL lines share ONE ORIGINAL point (for L). Select one
+    incident counterpart not through the pencil's common source factor
+    per chosen factor: all six ORIGINAL point-line incidences distinct
+    and both original factor types distinct. Assign a common 6-cycle
+    of physical pair labels to corresponding source factors, then
+    complete both typed maps injectively from the full physical K_a
+    alphabet. Historical original positional D6 classifier receives
+    the genuine W38 original incidence IDs, NOT W32-only census.
+    """
+    from hyp105_issue230_projection import fixture
+    from hyp105_g5e2b3e1b0_seven_signature import (
+        classify_seven_prechecked,R3_CERTIFIED_FLOORS)
+    from itertools import combinations
+    if source_type not in ("P","L"):
+        raise ValueError("genuine W38 sharpness source type P or L required")
+    model=fixture(3,"lex")
+    v=len(model["left_labels"])
+    a=model["a"]
+    inc=tuple(tuple(x) for x in model["incidences"])
+    if model["s"]!=8 or v!=585 or len(inc)!=5265 or a<6:
+        raise AssertionError("actual symplectic original W38 host missing")
+    all_edges=tuple(combinations(range(a),2))
+    if len(all_edges)<v:
+        raise AssertionError("cannot globally inject original factors")
+    chosen=[]
+    if source_type=="P":
+        line=0
+        pts=tuple(sorted(p for p,l in inc if l==line))
+        if len(pts)!=9:
+            raise AssertionError("true original W38 line must have nine points")
+        for p in pts[:6]:
+            other=next((l for q,l in inc if q==p and l!=line),None)
+            if other is None:
+                raise AssertionError("no true original nonpencil line")
+            chosen.append((p,other))
+    else:
+        point=0
+        lines=tuple(sorted(l for p,l in inc if p==point))
+        if len(lines)!=9:
+            raise AssertionError("true original W38 point must have nine lines")
+        for l in lines[:6]:
+            other=next((p for p,q in inc if q==l and p!=point),None)
+            if other is None:
+                raise AssertionError("no true original nonpencil point")
+            chosen.append((other,l))
+    if len(chosen)!=6 or len(set(chosen))!=6 or (
+       len({p for p,l in chosen})!=6 or len({l for p,l in chosen})!=6):
+        raise AssertionError("six true ORIGINAL incidences not a simple matching")
+    index={edge:i for i,edge in enumerate(inc)}
+    Q=tuple(sorted(index[x] for x in chosen))
+    # Use six distinct physical source images forming a SIX-CYCLE.
+    cyc=tuple(tuple(sorted((j,(j+1)%6))) for j in range(6))
+    if len(set(cyc))!=6 or any(e not in all_edges for e in cyc):
+        raise AssertionError("canonical physical six-cycle missing")
+    def assign(slot):
+        ids=tuple(edge[slot] for edge in chosen)
+        if len(set(ids))!=6:
+            raise AssertionError("ORIGINAL chosen pencil source factors not distinct")
+        fixed=dict(zip(ids,cyc))
+        remaining=(e for e in all_edges if e not in set(cyc))
+        labels=[fixed.get(i) for i in range(v)]
+        for i in range(v):
+            if labels[i] is None:
+                labels[i]=next(remaining)
+        labels=tuple(labels)
+        if len(set(labels))!=v:
+            raise AssertionError("complete original typed map not injective")
+        return labels
+    left,right=assign(0),assign(1)
+    tag=classify_seven_prechecked(Q,left,right,inc)
+    if tag!="D6":
+        raise AssertionError("full true ORIGINAL W38 positional classifier rejects six-cycle D6")
+    cp=six_incidence_projection_capacity(tuple(inc[i][0] for i in Q),left,a)
+    cl=six_incidence_projection_capacity(tuple(inc[i][1] for i in Q),right,a)
+    if cp["true_original_source_projection_kind"]!="A" or (
+       cl["true_original_source_projection_kind"]!="A"):
+        raise AssertionError("true ORIGINAL W38 constructed D6 not A/A")
+    if cp["exact_A_B_C_source_pair_disjoint_capacity"]!=9 or (
+       cl["exact_A_B_C_source_pair_disjoint_capacity"]!=9):
+        raise AssertionError("sharp source physical disjoint 9 construction failed")
+    source_ids=tuple(edge[0 if source_type=="P" else 1] for edge in chosen)
+    core=0
+    if source_type=="P":
+        if any((p,core) not in index for p in source_ids):
+            raise AssertionError("not six original points on common line")
+    else:
+        if any((core,l) not in index for l in source_ids):
+            raise AssertionError("not six original lines on common point")
+    images=left if source_type=="P" else right
+    if sum(not(set(images[u])&set(images[w]))
+           for u,w in combinations(source_ids,2))!=9:
+        raise AssertionError("nine physically disjoint genuinely concurrent source pairs failed")
+    return {
+        "s":8,"V":v,"a":a,
+        "source_type":source_type,
+        "original_shared_pencil_factor_ID":core,
+        "original_six_incidence_IDs":Q,
+        "original_six_distinct_pencil_source_factor_IDs":source_ids,
+        "physical_6cycle_source_factor_images":cyc,
+        "globally_injective_complete_both_type_maps":True,
+        "historical_genuine_original_positional_seven_class":tag,
+        "selected_GF5_certified_D6_numerator":R3_CERTIFIED_FLOORS[tag],
+        "positive_Q_source_collinear_disjoint_pair_count":9,
+        "projection_capacity_upper_9_ATTAINED":True,
+        "entire_W38_GF5_seven_census_NOT_done":True,
+        "all_h_total_charge_positive_bound_NOT_proved":True,
+    }
+
 def report(scheme=None):
     r={
         "slice":"HYP105-ISSUE230-D6-AA4-K-PROJECTION-AWARE-PAIR-CHARGE",
@@ -321,6 +434,8 @@ def report(scheme=None):
         "all_h_conditional_average_multiplicity":conditional_average_transfer(4,4),
         "universal_GF5_risk_ratio_for_certified_class_floors_only":True,
         "all_h_nonzero_total_charge_lower_proved":False,
+        "exact_genuine_W38_D6_sharpness_P":genuine_W38_D6_original_source_pair_sharpness("P"),
+        "exact_genuine_W38_D6_sharpness_L":genuine_W38_D6_original_source_pair_sharpness("L"),
         "root_A":"OPEN","root_B":"OPEN",
         "full_R3_proved":False,"ASET_exponent_proved":False,
     }
