@@ -32,6 +32,7 @@ class AnchorLiftedEnergy:
         endpoint_mass = defaultdict(Fraction)
         collision_f = collision_g = Fraction()
         total = eligible = internal = left_hit = right_hit = Fraction()
+        double_left = double_right = joint_lr = double_both = Fraction()
         improper = 0
         path_count = 0
         for (u, v, w, z), weight in ctx._iter_nb(max_paths):
@@ -74,6 +75,25 @@ class AnchorLiftedEnergy:
                 left_hit += weight
             if gr:
                 right_hit += weight
+            if fl and gr:
+                joint_lr += weight
+            dl = x1 in ctx.f[p] and x2 in ctx.f[p]
+            dr = y1 in ctx.g[ell] and y2 in ctx.g[ell]
+            if dl or dr:
+                source_id = ctx.provenance[tuple(sorted((v,w)))]
+                source_point,source_line = ctx.inc[source_id]
+                if dl:
+                    if source_point != p:
+                        raise AssertionError('both-left anchor match must be true original middle point')
+                    double_left += weight
+                if dr:
+                    if source_line != ell:
+                        raise AssertionError('both-right anchor match must be true original middle line')
+                    double_right += weight
+                if dl and dr:
+                    if (source_point,source_line)!=(p,ell):
+                        raise AssertionError('double original anchor middle incidence mismatch')
+                    double_both += weight
         if not total:
             raise ValueError('no nonbacktracking paths exist in selected graph')
         if require_stationary and total != 2*ctx.m:
@@ -165,6 +185,19 @@ class AnchorLiftedEnergy:
         centered_covariance = delta_f+delta_g
         if theta > uncentered_baseline+2*centered_covariance:
             raise AssertionError('reversal-invariant anchor union versus signed covariance')
+        # B3 EXACT ORIGINAL middle-incidence accounting, not just union bound.
+        # For the left event: P[x1 or x2 in f(p)] = 2*Gamma_f - P[both].
+        # Same on right; subtract the joint left/right union intersection.
+        D_left = double_left/total
+        D_right = double_right/total
+        D_overlap = joint_lr/total
+        D_total = D_left+D_right+D_overlap
+        if theta != 2*(Cf+Cg)-D_total:
+            raise AssertionError('B3 exact original anchor inclusion-exclusion failed')
+        if theta != uncentered_baseline+2*centered_covariance-D_total:
+            raise AssertionError('B3 centered source-anchor exact identity failed')
+        if double_both > min(double_left,double_right):
+            raise AssertionError('source middle intersection tally impossible')
         # Delta_f + Delta_g is the EXACT projection against the centered
         # 2-coordinate ORIGINAL GQ anchor indicator on the a-2 legal labels.
         # Its Gram norm squared is 2*C_clean*(2-4/n)*reduced_R.
@@ -222,6 +255,13 @@ class AnchorLiftedEnergy:
             'right_coordinate_residual':str(residual_g),
             'A3_parseval_validated':True,
             'B1_B2_centered_validated':True,
+            'B3_exact_inclusion_exclusion':True,
+            'middle_source_double_left':str(D_left),
+            'middle_source_double_right':str(D_right),
+            'simultaneous_left_right_internal':str(D_overlap),
+            'middle_source_both_double':str(double_both/total),
+            'B3_total_nonnegative_correction':str(D_total),
+            'B3_union_identity_rhs':str(uncentered_baseline+2*centered_covariance-D_total),
             'proper_internal_alphabet_n':n,
             'proper_endpoint_uniform_baseline_2T2_over_n':str(Fraction(2,n)*T2),
             'proper_left_coordinate_residual':str(reduced_residual_f),
