@@ -23,7 +23,7 @@ from hyp105_issue230_source_plaquettes import (
 )
 from hyp105_issue230_four_anchor_capacity import (
     FourAnchorCapacity, blocked_checkerboard_or_adjacent,
-    _colors_for_source
+    _colors_for_source, all_h_blocked_plaquette_reservoir
 )
 
 
@@ -62,6 +62,26 @@ def exact_five_source_coherence(model, source_ids, *, ctx=None):
     except (ValueError,AssertionError):
         return None
     return (original,tuple(left),tuple(right))
+
+
+def conditional_all_h_distinct_five_source_lower(s, theta):
+    """G4: rigorous 20-to-1 oriented square => original 5-source family count.
+
+    Requires exactly the already-certified EICE-002/E/F5 hypotheses
+    on the SAME actual original f,g,G*. Does NOT prove positive GF5.
+    """
+    counted=all_h_blocked_plaquette_reservoir(s,theta)
+    return {
+        "s":s,
+        "theta":str(Fraction(theta)),
+        "max_oriented_plaquettes_per_five_source_id_set":20,
+        "distinct_true_original_five_incidence_sets_lower":str(
+            Fraction(counted[
+                "explicit_oriented_allblocked_true_GQ_plaquette_count_lower"])/20),
+        "universal_GF5_sixset_lower_proved":False,
+        "six_incidence_compensation_proved":False,
+        "all_h_counting_assumes_valid_EICE002_Gstar_and_same_stationary_theta":True,
+    }
 
 
 def conditional_no_local_square_theta_bound(min_active_degree,
@@ -118,6 +138,7 @@ class FiveSourceSearch:
         fully_coherent=0
         masks=Counter()
         classifications=Counter()
+        coherent_five_source_families=Counter()
         witness_rows=[]
         allblocked_by_mid=Counter()
         raw_by_mid=Counter()
@@ -191,6 +212,10 @@ class FiveSourceSearch:
                         classifications["checkerboard" if cls["strict_checkerboard"]
                                         else "adjacent_common_side"]+=1
                         fully_coherent+=1
+                        coherent_five_source_families[source_ids]+=1
+                        if coherent_five_source_families[source_ids]>20:
+                            raise AssertionError(
+                                "G4 exactly-five-source oriented square multiplicity exceeds 20")
                         allblocked_by_mid[e]+=1
                         if len(witness_rows)<witness_limit:
                             corner_sources=[]
@@ -237,6 +262,10 @@ class FiveSourceSearch:
                 raw_by_mid[e]+=local_candidate
                 if not local_candidate:
                     no_block_mid+=1
+        if sum(coherent_five_source_families.values())!=fully_coherent:
+            raise AssertionError("G4 original five-source family ledger lost squares")
+        if fully_coherent>20*len(coherent_five_source_families):
+            raise AssertionError("G4 five-source 20-to-1 packing failed")
         return {
             "status":"RESTRICTED_THEOREM_G",
             "scope":"finite EXACT full original W(3,s) global map; exhaustive oriented middle source search under strict budgets",
@@ -249,6 +278,11 @@ class FiveSourceSearch:
             "raw_allfour_blocked_plaquettes_before_coherence":raw_allblocked,
             "raw_allfour_with_five_distinct_original_source_ids":distinct_five_source,
             "locally_coherent_allfour_original_plaquettes":fully_coherent,
+            "distinct_original_five_incidence_blocked_source_families":len(
+                coherent_five_source_families),
+            "max_oriented_allblocked_plaquettes_per_five_source_family":max(
+                coherent_five_source_families.values(),default=0),
+            "G4_exact_five_source_family_oriented_multiplicity_ceiling":20,
             "source_five_subset_cache_size":len(self._coherence_cache),
             "locally_coherent_mask_signatures":dict(sorted(masks.items())),
             "locally_coherent_blocking_channels":dict(classifications),
