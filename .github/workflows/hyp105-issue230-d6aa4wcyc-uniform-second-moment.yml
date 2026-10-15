@@ -1,0 +1,121 @@
+name: hyp105-issue230-d6aa4wcyc-uniform-second-moment
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4wcyc_uniform_second_moment.py"
+      - "research/test_hyp105_issue230_d6aa4wcyc_uniform_second_moment.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4WCYC-UNIFORM-SECOND-MOMENT.md"
+      - ".github/workflows/hyp105-issue230-d6aa4wcyc-uniform-second-moment.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  every-fixed-TRUE-GQ-global-f-all-h-analytic-D6-second-moment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All-h symbolic seven ORIGINAL source LINE-overlap capacities and genuinely globally coupled right-side pair probabilities
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4wcyc_uniform_second_moment.py" -v
+          python research/hyp105_issue230_d6aa4wcyc_uniform_second_moment.py > /tmp/aa4wcyc-theorem.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          x=json.load(open("/tmp/aa4wcyc-theorem.json"))
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-W-CYC-UNIFORM-GQ-SECOND-MOMENT"
+          c=x["elementary_ALL_h_certificate"]
+          assert c["exact_constant_from_all_seven_TRUE_original_source_LINE_overlap_sectors"]==25793703936
+          assert c["uniform_original_E2_upper_30b_s12_proof"]
+          assert c["uniform_original_P_D6_positive_at_least_1_over_1920000000000"]
+          assert x["all_h_original_fixed_f_uniform_injected_g_D6_E2_at_most_30b_s12"]
+          assert x["all_h_fixed_f_P_g_D6_positive_lower"]=="1/1920000000000"
+          for r in x["finite_exact_rational_original_GQ_order_regressions"]:
+              assert r["s"]>=8
+              assert Fraction(r["exact_Bs_over_s12"])<30000000000
+              assert Fraction(r["new_ALL_h_every_fixed_f_one_uniform_GLOBAL_g_D6_positive_probability_lower"])==Fraction(1,1920000000000)
+              assert Fraction(r["true_original_PZ_improved_specific_s_lower"])>=Fraction(1,1920000000000)
+              assert r["all_h_E2_bound_uniform_in_f_PROVED"]
+              assert not r["all_h_for_every_f_g_seven_GF5_S_omega_s6_PROVED"]
+              print("TRUE ORIGINAL GQ ORDER",r["s"],"a",r["a"],
+                    "UNIFORM COMPLETE-G E2/s12 BOUND",r["exact_Bs_over_s12"],
+                    "UNIFORM CONDITIONAL P_g D6>0 LOWER",r["true_original_PZ_improved_specific_s_lower"])
+          assert x["root_A"]==x["root_B"]=="OPEN"
+          assert not x["all_h_every_f_g_S_omega_s6_PROVED"]
+          print("GENUINE ALL-h ORIGINAL GQ EVERY fixed f DIRECT D6 E2<=30b*s12 AND P_g(D6>0)>=1/1920000000000 PASS; ADVERSARIAL ROOT OPEN")
+          PY
+  full-source-real-W32-21186-original-six-ID-capacity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real original W32 fixed complete f 21186 actual point-line flags source LINE subset capacity vs uniform all-h Delta_r
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python - <<'PY'
+          import os,sys
+          from collections import Counter
+          from itertools import combinations
+          sys.path.insert(0,"research")
+          from hyp105_issue230_d6aa4tcyc_fixed_f_d6_pair import genuine_W32_fixed_f_original_connected_left_Q
+          from hyp105_issue230_d6aa4wcyc_uniform_second_moment import source_line_overlap_pair_capacity
+          scheme=os.environ["SCHEME"]
+          m,rows=genuine_W32_fixed_f_original_connected_left_Q(scheme)
+          assert len(rows)==21186 and len(m["incidences"])==45
+          for r in range(1,7):
+              source_exact=Counter()
+              for Q,(p_mask,l_mask) in rows.items():
+                  true_lines=tuple(l for l in range(15) if (l_mask>>l)&1)
+                  assert len(true_lines)==6
+                  for subset in combinations(true_lines,r):
+                      source_exact[subset]+=1
+              cap=source_line_overlap_pair_capacity(2,r,6)
+              mx=max(source_exact.values())
+              assert 0<mx<=cap
+              print("REAL ORIGINAL",scheme,"SOURCE LINE r",r,
+                    "ACTUAL MAX ORIGINAL SIX-ID Q containing fixed r source lines",mx,
+                    "GENERAL ALL-h SOURCE CAP",cap)
+          print("TRUE ORIGINAL REAL W32 ALL 21186 SOURCE-Q LINE-SUBSET CAPACITY CERTIFICATE PASS")
+          PY
+  exact-all-h-direct-previous-gluing-kernel-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact shared-global-g D6 two-source-line-overlap conditional q_r bounded by new analytical all-h upper
+        run: |
+          python - <<'PY'
+          import sys
+          from fractions import Fraction
+          sys.path.insert(0,"research")
+          from hyp105_issue230_d6aa4r_quenched_original_d6 import _params
+          from hyp105_issue230_d6aa4ucyc_shared_line_gluing import exact_two_D6_gluing_kernel
+          from hyp105_issue230_d6aa4wcyc_uniform_second_moment import same_global_g_second_D6_conditional_bound
+          tested=0
+          for s in (2,4,8,16):
+              V,a,K,m=_params(s)
+              for second in ((6,7,8,9,10,11),(0,6,7,8,9,10),
+                             (0,6,3,7,8,9),(0,1,2,6,7,8),
+                             (0,1,2,3,4,5),(0,1,2,3,5,4)):
+                  r=exact_two_D6_gluing_kernel(s,tuple(range(6)),second)
+                  actual=Fraction(r["conditional_second_probability_after_first_D6"])
+                  upper=same_global_g_second_D6_conditional_bound(s,r["source_line_shared_count"],a,K)
+                  assert Fraction(0)<=actual<=upper<=Fraction(1)
+                  tested+=1
+          assert tested==24
+          print("ALL 24 genuine physical source LINE gluing vs new analytical q_r positional bound PASS")
+          PY
