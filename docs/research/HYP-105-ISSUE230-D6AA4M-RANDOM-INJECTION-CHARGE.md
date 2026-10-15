@@ -88,6 +88,22 @@ Additionally for pinned S68 and S72 choose the genuine first four-POINT ORIGINAL
 
 **Protocol separation:** these 24 maps are a tiny fixed-outside fiber. Their AVERAGE is NOT the mathematical random expectation across ALL (15!)² complete W32 type bijections, and CI must assert no equivalence. The all-h probabilistic identity holds for fully independent uniform complete maps on the whole original geometry, not finite 24-state restricted labels or an independently chosen map per Q.
 
+
+### Exact complete ORIGINAL W32 source count — independently hosted result
+
+The independently implemented brute combinatorial source-incidence enumerator (NO physical GF5 classification in this count) verified that the genuine 45-incidence W(3,2) contains EXACTLY **1,666,980 distinct six-incidence sets of original point multiplicity B and original line multiplicity A**. There are 45 original choices of the repeated point and its pair of incident lines; all 45 root selections have EXACTLY **37,044** legal unordered four-flag completions. The valid all-h conservative greedy bound specializes to M_2=874,800, strictly below this true exact count. This is a count of potential ORIGINAL source configurations, not a claim that all are positive simultaneously.
+
+Substituting EXACT fully uniform K6 physical-bijection probabilities gives independently checkable exact true-original W32 random-map expectations:
+
+[
+mathbb E_{mathrm{uniform FULL} (15!)^2} S_{BA}
+=rac{1,428,840}{20,449}approx69.8733,qquad
+mathbb E I_L^{BA,mathrm{int}}
+=rac{857,304}{20,449}approx41.9240.
+]
+
+These are expectations over ALL full separately type-injective physical K6 edge-label bijections, NOT over the 24-source-factor frozen-outside fibers. Since any full map includes one shared injection f and one g across all Q, these expectations remain valid without assuming independent positive sixsets. The exact count supplements but does NOT improve the all-h leading 140/84 coefficients; the all-h formula uses only conservative M_s.
+
 ## 6. Limits and next research
 
 This is a rigorous new use of exact random global injection probabilities for the specific accepted original B/A GF5 class; elementary enumerative probability and probabilistic method are standard and not claimed newly discovered general mathematics. Scientific value is an explicit all-h leading 84s⁶ lower for the AVERAGE actual original source-pair charge, showing the required scale is naturally present in real globally injected maps. It does not solve the adversarial minimum and supplies NO lower `I_P+I_L=Ω(s⁶)` for EVERY map.
