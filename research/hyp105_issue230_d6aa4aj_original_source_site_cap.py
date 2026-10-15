@@ -213,6 +213,83 @@ def independently_check_genuine_original_hall_site_cap(
     }
 
 
+
+def constructed_SHARP_genuine_W34_original_site_witness():
+    """Construct one genuine W(3,4) global f,g with |Y_{0,1}|=d=5.
+
+    The true original incidence graph is NEVER changed; we only
+    reassigned BOTH complete typed physical maps as globally injected
+    original-factor-to-K14-edge permutations. The relevant two distinct
+    source points have DISJOINT actual original line neighborhoods;
+    two physical endpoint stars independently realize ALL d real
+    incidence flags, each at a distinct auxiliary site.
+    """
+    from hyp105_issue230_projection import fixture
+    model=fixture(2,"lex")
+    V,a,inc=_valid_original_model(model)
+    original=tuple(tuple(e) for e in model["incidences"])
+    root=0
+    flags=tuple(i for i,e in enumerate(original) if e[0]==root)
+    pinned=flags[:2]
+    l0,l1=(original[i][1] for i in pinned)
+    point_neighbors=[set() for _ in range(V)]
+    for p,l in original:point_neighbors[p].add(l)
+    candidates=[q for q in range(V) if q!=root and l0 not in
+                point_neighbors[q] and l1 not in point_neighbors[q]]
+    q0=q1=None
+    for i,first in enumerate(candidates):
+        for second in candidates[i+1:]:
+            if point_neighbors[first].isdisjoint(point_neighbors[second]):
+                q0,q1=first,second;break
+        if q0 is not None:break
+    if q0 is None:
+        raise AssertionError("genuine W34 must have two suitable noncollinear original source points")
+    others=tuple(q for q in range(V) if q not in (root,q0,q1))[:2]
+    q2,q3=others
+    four=(q0,q1,q2,q3)
+    palette=tuple(combinations(range(a),2))
+    B={root:(0,1),q0:(4,5),q1:(5,6),q2:(6,7),q3:(4,7)}
+    b_used=set(B.values())
+    b_other=iter(e for e in palette if e not in b_used)
+    f=tuple(B.get(i) if i in B else next(b_other) for i in range(V))
+    d=model["s"]+1
+    A={l0:(0,1),l1:(2,3)}
+    for y,l in zip(range(4,4+d),sorted(point_neighbors[q0])):
+        A[l]=(0,y)
+    for y,l in zip(range(4,4+d),sorted(point_neighbors[q1])):
+        A[l]=(1,y)
+    a_used=set(A.values())
+    if len(A)!=2+2*d or len(a_used)!=len(A):
+        raise AssertionError("sharp source-site source/pair assignments not globally injective")
+    a_other=iter(e for e in palette if e not in a_used)
+    g=tuple(A.get(i) if i in A else next(a_other) for i in range(V))
+    result=dict(model,left_labels=f,right_labels=g)
+    result["supports"]=tuple(
+        tuple(sorted(f[p]+tuple(a+t for t in g[l])))
+        for p,l in original)
+    _valid_original_model(result)
+    original_pair_offset=tuple(combinations(flags,2)).index(pinned)
+    cert=_pairwise_source_site_witnesses(
+        result,side=0,root=root,pair_offset=original_pair_offset,
+        four_sources=four)
+    S=next(c for c in cert["channel_site_sets"]
+           if c["real_original_row_pair"]==(0,1))
+    if (S["left_site_count"]!=d or
+        S["left_actual_ORIGINAL_source_line_factor_IDs"]!=
+            tuple(sorted(point_neighbors[q0]))):
+        raise AssertionError("constructed true W34 2-rook channel has not saturated source degree")
+    return {
+        "model":result,
+        "certificate":cert,
+        "root":root,"pinned_original_source_flag_IDs":pinned,
+        "four_distinct_actual_original_B_source_factors":four,
+        "sharp_site_degree":S["left_site_count"],
+        "sharp_actual_original_source_neighbors":
+            S["left_actual_ORIGINAL_source_line_factor_IDs"],
+        "actual_source_points_noncollinear":True,
+        "one_complete_globally_injected_original_point_map_and_line_map":True,
+    }
+
 if __name__=="__main__":
     import argparse,json
     from hyp105_issue230_projection import fixture
