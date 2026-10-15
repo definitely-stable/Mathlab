@@ -1,0 +1,26 @@
+{
+  "schema": "mathlab.rcp.no-go.v1",
+  "id": "HYP105-NG-SWAP-OPTIMUM",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "kind": "INVALID_INFERENCE",
+  "related_claim_ids": [
+    "HYP105-AA4O-QUINTIC-IDENTITY",
+    "HYP105-AA4O-SWAP-IDENTITY"
+  ],
+  "evidence_ids": [
+    "HYP105-EV-AA4O"
+  ],
+  "rejected_inference": "A complete injection with nonnegative charge gradient under every two-label transposition certifies the global minimum of the nonnegative B/A quintic objective.",
+  "witness_scope": "Finite and all-h exact one-transposition neighborhood on coherent complete f, with g fixed.",
+  "mathematical_basis": "AA4-O establishes an exact local delta formula, but does not establish a discrete-convexity theorem making all one-swap local minima global.",
+  "does_not_refute": [
+    "Potential future global minimum certificate with a proved exchange or convexity property.",
+    "Finite search as evidence for candidate constructions."
+  ],
+  "reopen_only_if": "Prove a global exchange property, matching optimization dual certificate, or exhaustive classification valid for the complete legal assignment space.",
+  "do_not_repeat": "Do not claim that local steepest descent resolves inf_(f,g) or gives an infinite all-h counterfamily.",
+  "root_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "prior_registry_ref": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json",
+  "review_status": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+}
