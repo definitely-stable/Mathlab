@@ -1,0 +1,93 @@
+name: hyp105-issue230-d6aa4ai-sharp-line-pencil-prehall
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ai_sharp_line_pencil_prehall.py"
+      - "research/test_hyp105_issue230_d6aa4ai_sharp_line_pencil_prehall.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AI-SHARP-ORIGINAL-LINE-PENCIL-PREHALL.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ai-sharp-line-pencil-prehall.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true-original-full-mathematical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: "Eight source-GQ independent tests - original line-pencil, all h<=39, true W34/W38 and actual common transvection"
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ai_sharp_line_pencil_prehall.py" -v
+  independent-analytic-global-GQ-line-pencil:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact every-global-map all-h s14/256 count 16+, compare AG 2^19 and clear Hall scope
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from math import comb
+          from hyp105_issue230_d6aa4ai_sharp_line_pencil_prehall import improved_all_h_original_line_pencil_preHall
+          from hyp105_issue230_d6aa4ag_deterministic_triangle_hall import analytic_triangle_hall_barrier
+          for h in range(1,40):
+              s=1<<h
+              z=improved_all_h_original_line_pencil_preHall(s)
+              old=analytic_triangle_hall_barrier(s)
+              assert z["NEW_genuine_GQ_line_pencil_hot_touch_upper"]<=old[
+                  "high_hole_vertices_upper"]*(z["a"]-1)*(z["V"]-1)
+              assert z["indexed_original_global_preHall_physical_mass_lower"]>=old[
+                  "indexed_occupied_pre_Hall_lower"]
+              if s>=16:
+                  assert z["exact_s14_over_256_PROVED_for_all_h_ge4"]
+                  assert 256*z["indexed_original_global_preHall_physical_mass_lower"]>=s**14
+              if s>=128:
+                  assert 2*z["total_original_bad_rootpairs_upper"]<=z[
+                      "actual_original_root_two_lines_indexed_N"]
+              assert not z["original_four_rook_Hall_positive_lower_PROVED"]
+              assert not z["issue230_universal_seven_GF5_lower_PROVED"]
+          print("all powers 2^1 .. 2^39 exact original line-pencil proof PASS; no GF5 all-map lower")
+          PY
+  true-original-W34-W38-independent-physical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        power: [2, 3]
+        scheme: [lex, random]
+        side: [0, 1]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine symplectic source W34/W38 full-global physical map rooted safety independent y-z 2triangle proof
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+          SIDE: ${{ matrix.side }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4ai_sharp_line_pencil_prehall import (
+              original_true_rootpair_physical_safety_census)
+          h=int(os.environ["POWER"])
+          model=fixture(h,os.environ["SCHEME"])
+          result=original_true_rootpair_physical_safety_census(
+              model,side=int(os.environ["SIDE"]),
+              probe_good_pairs=8,probe_C4_root=h==2,
+              independent_physical_triangle_check=True)
+          assert result["actual_true_original_rootpairs"][
+              "all_true_original_root_line_pairs"]=={2:850,3:21060}[h]
+          assert result["missing_global_physical_edges"]=={2:6,3:10}[h]
+          assert result["actual_source_GQ_incidences_and_single_global_typed_maps_used"]
+          assert result["all_map_source_Hall_positive_lower_NOT_PROVED"]
+          print(json.dumps(result,sort_keys=True,indent=2))
+          PY
