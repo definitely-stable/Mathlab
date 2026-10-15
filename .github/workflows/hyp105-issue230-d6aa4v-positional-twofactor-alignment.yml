@@ -1,0 +1,76 @@
+name: hyp105-issue230-d6aa4v-positional-twofactor-alignment
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4v_positional_twofactor_alignment.py"
+      - "research/test_hyp105_issue230_d6aa4v_positional_twofactor_alignment.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4V-POSITIONAL-TWOFACTOR-ALIGNMENT.md"
+      - ".github/workflows/hyp105-issue230-d6aa4v-positional-twofactor-alignment.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-six-original-position-70x70-template:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All h exact 70x70 K6 column twofactor and eight original-GQ regression tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4v_positional_twofactor_alignment.py" -v
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4v_positional_twofactor_alignment import all_h_positional_twofactor_overlap_theorem
+          for h in range(1,13):
+              o=all_h_positional_twofactor_overlap_theorem(1<<h)
+              assert o["full_70_by_70_ordered_positional_factor_pairs"]==4900
+              assert o["num_connected_C6_positional_factors"]==60
+              assert o["num_disconnected_2C3_positional_factors"]==10
+              assert o["no_five_edge_connected_cycle_mismatch_ALL_H"]
+              assert not o["uniform_positive_minimum_s6_PROVED"]
+          print("All-h six-ORIGINAL-column C6/T 70x70 kernel certified; root Branch A still OPEN")
+          PY
+  genuine-original-global-six-ID-positional-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original 45-flag globally injected same-Q C6 positional alignment against full historical seven-GF5
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4v_positional_twofactor_alignment.py --scheme "$SCHEME" > "/tmp/aa4v-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4v-"+os.environ["SCHEME"]+".json").read_text())
+          name=os.environ["SCHEME"]
+          expect={"S68":(331,263,68),"S72":(358,286,72)}[name]
+          assert (x["same_original_Q_two_sided_joint"],
+                  x["actual_A_A_original_sixset_count"],
+                  x["real_full_selected_original_seven_S"])==expect
+          assert x["actual_A_A_genuine_connected_D6"]==0
+          assert x["CC_overlap_histogram"]["6"]==0
+          assert x["deterministic_all_h_D6_lower_by_CC_adjacency_threshold"]==0
+          assert x["actual_A_A_rejected"]==x["actual_A_A_original_sixset_count"]
+          assert x["exact_D6_from_E_minus_4M_plus_surplus_numerator"]==0
+          assert x["original_51palette_weighted_conditional_lower"]<=x["original_51palette_weighted_selected_seven"]
+          assert x["independent_full_seven_history"]=="PASS"
+          assert x["strict_true_original_GQ_and_global_injections"]
+          assert not x["certifies_uniform_all_h_root_omega_s6"]
+          print(name,"original matched AA six-Q",x["actual_A_A_original_sixset_count"],
+                "both-connected M",x["actual_A_A_two_connected_C6_count"],
+                "common-edges E",x["actual_A_A_two_connected_C6_common_adjacency_sum"],
+                "overlap bins",x["AA_physical_dual_type_and_positional_overlap_histogram"],
+                "actual D6",x["actual_A_A_genuine_connected_D6"],
+                "seven S",x["real_full_selected_original_seven_S"])
+          PY
