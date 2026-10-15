@@ -1,0 +1,29 @@
+{
+  "independent_uniform_expected_upper_powers": {
+    "0": 482,
+    "3": 4630,
+    "3/2": 3180,
+    "6": 631,
+    "9/2": 2740
+  },
+  "indexed_rows": 11663,
+  "leading_original_profile_pairs": {
+    "(1, 1, 1, 1, 1, 1)/(1, 1, 1, 1, 1, 1)": 1,
+    "(1, 1, 1, 1, 1, 1)/(2, 1, 1, 1, 1)": 15,
+    "(1, 1, 1, 1, 1, 1)/(2, 2, 2)": 15,
+    "(2, 1, 1, 1, 1)/(1, 1, 1, 1, 1, 1)": 15,
+    "(2, 1, 1, 1, 1)/(2, 1, 1, 1, 1)": 210,
+    "(2, 1, 1, 1, 1)/(2, 2, 2)": 180,
+    "(2, 2, 2)/(1, 1, 1, 1, 1, 1)": 15,
+    "(2, 2, 2)/(2, 1, 1, 1, 1)": 180
+  },
+  "ledger_sha256": "9bdf2652ef0ce211c739c6b1dc39702c3656e984c821674a51372dd9cfc04b7a",
+  "named_endpoint_partitions_per_side": 203,
+  "source_partition_pairs_checked_by_two_forest_methods": 41209,
+  "source_partitions_are_not_physical_projection_signatures": true,
+  "stratum_counts": {
+    "leading": 631,
+    "subleading_necessary": 11032
+  },
+  "universal_correlated_risk_bound_proved": false
+}

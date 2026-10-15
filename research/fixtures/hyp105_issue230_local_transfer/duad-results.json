@@ -1,0 +1,167 @@
+{
+  "status": "RESTRICTED_CONSTRUCTION_NO_GO_ONLY",
+  "quadratic_two_method_falsifiers": [
+    {
+      "s": 2,
+      "direct_maximal_singular_planes": 15,
+      "independent_true_source_pencils": 15,
+      "common_neighbor_lemma_exhaustive": true,
+      "pointwise_plane_set_identity": true
+    },
+    {
+      "s": 4,
+      "direct_maximal_singular_planes": 85,
+      "independent_true_source_pencils": 85,
+      "common_neighbor_lemma_exhaustive": true,
+      "pointwise_plane_set_identity": true
+    }
+  ],
+  "all_w32_point_subsets_spectral_bound": 32768,
+  "affine_true_source_chart": [
+    {
+      "s": 2,
+      "affine_chart_original_points": 8,
+      "affine_chart_original_lines": 8,
+      "pointwise_true_original_incidence_identity": true,
+      "affine_chart_incidence_count": 16
+    },
+    {
+      "s": 4,
+      "affine_chart_original_points": 64,
+      "affine_chart_original_lines": 64,
+      "pointwise_true_original_incidence_identity": true,
+      "affine_chart_incidence_count": 256
+    }
+  ],
+  "affine_three_wedge_exact_falsifiers": [
+    {
+      "s": 2,
+      "left_C_same_first_parameter_solutions": 0,
+      "right_C_same_first_parameter_solutions": 0,
+      "nonzero_three_differences_exhaustive": true
+    },
+    {
+      "s": 4,
+      "left_C_same_first_parameter_solutions": 24,
+      "right_C_same_first_parameter_solutions": 24,
+      "nonzero_three_differences_exhaustive": true
+    },
+    {
+      "s": 8,
+      "left_C_same_first_parameter_solutions": 336,
+      "right_C_same_first_parameter_solutions": 336,
+      "nonzero_three_differences_exhaustive": true
+    }
+  ],
+  "exact_palette_arithmetic": [
+    {
+      "h": 1,
+      "s": 2,
+      "V": 15,
+      "a": 6,
+      "holes": 0,
+      "literal_source_duad_line_upper": 9,
+      "V_fraction_geometric_line_upper": 0.6
+    },
+    {
+      "h": 2,
+      "s": 4,
+      "V": 85,
+      "a": 14,
+      "holes": 6,
+      "literal_source_duad_line_upper": 40,
+      "V_fraction_geometric_line_upper": 0.47058823529411764
+    },
+    {
+      "h": 3,
+      "s": 8,
+      "V": 585,
+      "a": 35,
+      "holes": 10,
+      "literal_source_duad_line_upper": 190,
+      "V_fraction_geometric_line_upper": 0.3247863247863248
+    },
+    {
+      "h": 4,
+      "s": 16,
+      "V": 4369,
+      "a": 94,
+      "holes": 2,
+      "literal_source_duad_line_upper": 964,
+      "V_fraction_geometric_line_upper": 0.22064545662623025
+    },
+    {
+      "h": 5,
+      "s": 32,
+      "V": 33825,
+      "a": 261,
+      "holes": 105,
+      "literal_source_duad_line_upper": 5077,
+      "V_fraction_geometric_line_upper": 0.1500960827790096
+    },
+    {
+      "h": 6,
+      "s": 64,
+      "V": 266305,
+      "a": 731,
+      "holes": 510,
+      "literal_source_duad_line_upper": 27136,
+      "V_fraction_geometric_line_upper": 0.10189819943298098
+    },
+    {
+      "h": 7,
+      "s": 128,
+      "V": 2113665,
+      "a": 2057,
+      "holes": 931,
+      "literal_source_duad_line_upper": 147019,
+      "V_fraction_geometric_line_upper": 0.06955643396659357
+    },
+    {
+      "h": 8,
+      "s": 256,
+      "V": 16843009,
+      "a": 5805,
+      "holes": 3101,
+      "literal_source_duad_line_upper": 805697,
+      "V_fraction_geometric_line_upper": 0.04783569254163552
+    },
+    {
+      "h": 9,
+      "s": 512,
+      "V": 134480385,
+      "a": 16401,
+      "holes": 7815,
+      "literal_source_duad_line_upper": 4452631,
+      "V_fraction_geometric_line_upper": 0.03310989182548815
+    },
+    {
+      "h": 10,
+      "s": 1024,
+      "V": 1074791425,
+      "a": 46365,
+      "holes": 42005,
+      "literal_source_duad_line_upper": 24764338,
+      "V_fraction_geometric_line_upper": 0.02304106399062497
+    },
+    {
+      "h": 11,
+      "s": 2048,
+      "V": 8594130945,
+      "a": 131105,
+      "holes": 64015,
+      "literal_source_duad_line_upper": 138380335,
+      "V_fraction_geometric_line_upper": 0.016101725222200464
+    },
+    {
+      "h": 12,
+      "s": 4096,
+      "V": 68736258049,
+      "a": 370774,
+      "holes": 236102,
+      "literal_source_duad_line_upper": 775937084,
+      "V_fraction_geometric_line_upper": 0.011288613986621994
+    }
+  ],
+  "Branch_B_constructed": false
+}
