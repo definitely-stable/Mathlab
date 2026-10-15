@@ -301,6 +301,76 @@ s=2,\quad T_{f_{\mathrm{S68}}}=T_{f_{\mathrm{S72}}}=21186,\quad \mathbb E_g[D_6\
 
 **Pinned source:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
 
+## HYP105-F-022 — True original all-h six-edge source forests and nine eligible cells
+
+\[
+Q\subseteq E(W(3,2^h)),\ |Q|=6\Longrightarrow Q\ \text{is acyclic};\quad \mathcal F=\{AA,AB,BA,AC,CA,BC,CB,BB_{\rm overlap},BB_{\rm disjoint}\},\quad CC=\varnothing.
+\]
+
+**Applies under:** h>=1, every six DISTINCT actual source incidence ID. The nine cells partition only Q whose BOTH source endpoint multiplicity profiles are in A/B/C; other Q are outside the eligible grid.
+
+**Cannot conclude:** A forest source type alone does not assert any physically accepted original six-GF5 motif.
+
+**Linked claim:** HYP105-AA4U-NINE-ORIGINAL-FOREST
+
+**Pinned source:** [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md)
+
+## HYP105-F-023 — Deterministic source-forest conditioned two-side Fréchet lower
+
+\[
+X_F(f,g)=|L_F(f)\cap R_F(g)|\ge\max\{0,|L_F(f)|+|R_F(g)|-|U_F|\},\qquad LB_{\mathrm{nonAA}}=\sum_{F\in\mathcal F\setminus\{AA\}}\max\{0,|L_F|+|R_F|-|U_F|\}.
+\]
+
+**Applies under:** all h>=1, every complete original globally injected f,g, SAME original six-incidence Q on two sides, each eligible ORIGINAL forest cell F. Applies as lower to the accepted NON-AA count.
+
+**Cannot conclude:** Abstract subset Fréchet sharpness does not supply a legal adversarial global injection attaining a zero floor; AA needs aligned D6 and is not certified.
+
+**Linked claim:** HYP105-AA4U-FOREST-FRECHET-LOWER
+
+**Pinned source:** [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md)
+
+## HYP105-F-024 — Complete finite original W32 eligible forest source census
+
+\[
+|E(W(3,2))|=45,\quad \binom{45}{6}=8\,145\,060;\qquad \sum_{F\in\mathcal F}|U_F|=6\,540\,870,\quad 8\,145\,060-6\,540\,870=1\,604\,190.
+\]
+
+**Applies under:** FINITE genuine ORIGINAL W(3,2) only, full 45 choose 6 six-DISTINCT source original incidence-ID sets; 1,604,190 have source profiles outside the both-sides A/B/C eligibility filter.
+
+**Cannot conclude:** Counts of physical projected sixsets are not source-only totals; nothing about s>=4 follows from this finite census.
+
+**Linked claim:** HYP105-AA4U-W32-NINE-FOREST-CENSUS
+
+**Pinned source:** [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md)
+
+## HYP105-F-025 — W32 genuine nine-cell S68 joined count and zero marginal certificate
+
+\[
+s=2,\quad \sum_F X_F(S68)=331,\quad X_{AA}(S68)=263,\quad D_6(S68)=0,\quad S(S68)=331-263=68,\quad LB_{\rm nonAA}(S68)=0.
+\]
+
+**Applies under:** Finite genuine source W(3,2) S68 single pair of complete global point/line maps, exact common original-ID nine-cell physically joined sets and true D6 classifier.
+
+**Cannot conclude:** Zero relaxed lower for eight non-AA source cells does not imply zero real non-AA charge; no infinite minimax counterfamily.
+
+**Linked claim:** HYP105-AA4U-W32-ZERO-MARGINAL-POSITIVE-JOINT
+
+**Pinned source:** [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md)
+
+## HYP105-F-026 — W32 genuine nine-cell S72 joined count and zero marginal certificate
+
+\[
+s=2,\quad \sum_F X_F(S72)=358,\quad X_{AA}(S72)=286,\quad D_6(S72)=0,\quad S(S72)=358-286=72,\quad LB_{\rm nonAA}(S72)=0.
+\]
+
+**Applies under:** Finite genuine source W(3,2) S72 single pair of complete global point/line maps, exact common original-ID nine-cell physically joined sets and true D6 classifier.
+
+**Cannot conclude:** An AA/A source joint candidate is not an accepted aligned physical D6, and zero marginal Fréchet cannot characterize real joint S.
+
+**Linked claim:** HYP105-AA4U-W32-ZERO-MARGINAL-POSITIVE-JOINT
+
+**Pinned source:** [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md)
+
 ## Formula review protocol
 
 Verify original six-incidence constraints, alphabet, all-h range, global injection semantics, and quantifier order against the cited proof commit. CI does not mechanically check the algebra.

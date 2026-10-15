@@ -1,0 +1,54 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 486,
+    "commit": "f49dcef044e8a4f1bb17f080ffa11c7b365a077a",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md",
+    "proof_blob_sha": "364f95d0dfd94d693d0152abf571a1312532ba14",
+    "stage": "OPEN_DRAFT_PR"
+  },
+  "id": "HYP105-AA4U-FOREST-FRECHET-LOWER",
+  "title": "All-h deterministic nine-cell source-conditioned Fréchet transportation relaxation",
+  "mode": "DETERMINISTIC_BOUND",
+  "statement": "For every s=2^h>=2, every complete separately globally injected original point-map f and original line-map g, and each of the nine eligible genuine original source forest cells F, let U_F be the actual source-only six-incidence-ID universe, N_F=|U_F|, L_F(f)=U_F∩H_P(f) and R_F(g)=U_F∩H_L(g). The ACTUAL shared original-ID intersection X_F=|L_F(f)∩R_F(g)| satisfies X_F>=max(0, |L_F(f)|+|R_F(g)|-N_F). Summing these nonnegative floors over the eight NON-AA source forest cells yields a deterministic lower for the actual non-AA accepted positive GF5 count. The sum of floors is the exact optimum of a RELAXATION allowing arbitrary independent subsets in each U_F, NOT an assertion that a corresponding global pair of injections f,g exists. The AA cell requires the common aligned connected original-column D6 positional tensor and receives NO unconditional positive D6 certificate from this coarse source-cell marginal formula alone.",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=1, s=2^h, genuine original W(3,s)"
+    },
+    {
+      "op": "forall",
+      "variable": "f,g",
+      "domain": "any complete separately typed globally injected ORIGINAL point and line maps shared across all true source six-ID sets"
+    }
+  ],
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN"
+  ],
+  "depends_on_claims": [
+    "HYP105-AA4U-NINE-ORIGINAL-FOREST",
+    "HYP105-AA4Q-SEVEN-ORIGINAL-JOIN",
+    "HYP105-AA4T-POSITIONAL-D6-TENSOR"
+  ],
+  "external_dependencies": [
+    "Elementary inclusion-exclusion for subsets of the SAME finite source-only U_F: |L∩R|>=|L|+|R|-|U_F|.",
+    "A/A accepted D6 requires identical positional six-column physical connected C6 dual H, separately registered in AA4-T."
+  ],
+  "limitations": [
+    "A zero relaxed non-AA floor does not entail an actual zero non-AA joint intersection for complete original f,g.",
+    "Sharpness is only in the ABSTRACT arbitrary-subset model; global physical pair-label injections can impose higher-order correlations.",
+    "The A/A source forest sector is NOT fully accepted merely because the two one-sided physical A constraints hold; connected aligned D6 remains mandatory."
+  ],
+  "falsification_boundary": "Both source subsets use exactly identical six ACTUAL original incidence IDs, and each one-sided physical mapping is a single coherent global injection across all Q. Do not promote relaxed extremizers to physical counterlabels."
+}

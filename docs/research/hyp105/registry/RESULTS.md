@@ -7,7 +7,7 @@
 
 ## Coverage and acceptance
 
-The table indexes **19 specific results** from **9 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
+The table indexes **23 specific results** from **10 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
 
 | Stable claim | Scope / logical mode | Mathematical status | Pinned proof |
 |---|---|---|---|
@@ -27,6 +27,10 @@ The table indexes **19 specific results** from **9 research PRs**. It does not c
 | HYP105-AA4T-POSITIONAL-D6-TENSOR | ALL_H_IDENTITY | DOCUMENTED_IN_DRAFT | [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md) |
 | HYP105-AA4T-QUENCHED-TENSOR-IDENTITY | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md) |
 | HYP105-AA4T-W32-POSITIVE-MEAN-ZERO-D6 | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md) |
+| HYP105-AA4U-FOREST-FRECHET-LOWER | DETERMINISTIC_BOUND | DOCUMENTED_IN_DRAFT | [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md) |
+| HYP105-AA4U-NINE-ORIGINAL-FOREST | ALL_H_IDENTITY | DOCUMENTED_IN_DRAFT | [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md) |
+| HYP105-AA4U-W32-NINE-FOREST-CENSUS | DETERMINISTIC_BOUND | DOCUMENTED_IN_DRAFT | [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md) |
+| HYP105-AA4U-W32-ZERO-MARGINAL-POSITIVE-JOINT | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md) |
 | HYP105-EICE003K-DIRTY-ANCHOR | DETERMINISTIC_BOUND | DOCUMENTED_IN_DRAFT | [PR #469 @ 73cfebed8042](https://github.com/definitely-stable/Mathlab/blob/73cfebed8042f0f9b6592bd318295fb0bdf69a5b/docs/research/HYP-105-ISSUE230-EICE003K-CLEAN-ANCHOR-CONCENTRATION.md) |
 | HYP105-JPKC015-D6-ENSEMBLE | ENSEMBLE_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #455 @ c02188a4d4f2](https://github.com/definitely-stable/Mathlab/blob/c02188a4d4f2e4e07440c4d7b25fc25c6dd31b3e/docs/research/HYP-105-ISSUE230-JPKC-015-ENSEMBLE-D6.md) |
 | HYP105-LT-LOCAL-COUNTEREXAMPLE | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #466 @ 5d2c70e3adeb](https://github.com/definitely-stable/Mathlab/blob/5d2c70e3adeb1779904401f88161c9e71c884892/docs/research/HYP-105-ISSUE230-LOCAL-CYCLE-BARRIER.md) |
@@ -303,6 +307,74 @@ The table indexes **19 specific results** from **9 research PRs**. It does not c
 **Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
 
 **Does not imply:** Actual D6=0 at s=2 does not imply all-seven S_s=0 or an infinite family with S_s=o(s^6). Positive conditional mean at each fixed f does not force positivity at the particular fixed g. A finite example does not prove or disprove the all-h scientific root conjecture.
+
+
+### HYP105-AA4U-FOREST-FRECHET-LOWER — All-h deterministic nine-cell source-conditioned Fréchet transportation relaxation
+
+**Claim:** For every s=2^h>=2, every complete separately globally injected original point-map f and original line-map g, and each of the nine eligible genuine original source forest cells F, let U_F be the actual source-only six-incidence-ID universe, N_F=|U_F|, L_F(f)=U_F∩H_P(f) and R_F(g)=U_F∩H_L(g). The ACTUAL shared original-ID intersection X_F=|L_F(f)∩R_F(g)| satisfies X_F>=max(0, |L_F(f)|+|R_F(g)|-N_F). Summing these nonnegative floors over the eight NON-AA source forest cells yields a deterministic lower for the actual non-AA accepted positive GF5 count. The sum of floors is the exact optimum of a RELAXATION allowing arbitrary independent subsets in each U_F, NOT an assertion that a corresponding global pair of injections f,g exists. The AA cell requires the common aligned connected original-column D6 positional tensor and receives NO unconditional positive D6 certificate from this coarse source-cell marginal formula alone.
+
+**Ordered quantifiers:** forall h (integer h>=1, s=2^h, genuine original W(3,s)) ; forall f,g (any complete separately typed globally injected ORIGINAL point and line maps shared across all true source six-ID sets)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN
+
+**Claim dependencies:** HYP105-AA4U-NINE-ORIGINAL-FOREST, HYP105-AA4Q-SEVEN-ORIGINAL-JOIN, HYP105-AA4T-POSITIONAL-D6-TENSOR
+
+**Proof provenance:** [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** A zero relaxed non-AA floor does not entail an actual zero non-AA joint intersection for complete original f,g. Sharpness is only in the ABSTRACT arbitrary-subset model; global physical pair-label injections can impose higher-order correlations. The A/A source forest sector is NOT fully accepted merely because the two one-sided physical A constraints hold; connected aligned D6 remains mandatory.
+
+
+### HYP105-AA4U-NINE-ORIGINAL-FOREST — All-h original six-incidence source-forest classification into nine eligible path cells
+
+**Claim:** For every genuine W(3,2^h), h>=1, any set Q of six distinct ACTUAL original source point-line incidence IDs induces an acyclic bipartite source subgraph, since GQ girth is eight. Among Q whose original point-side and line-side factor multiplicities BOTH belong to A=(1^6), B=(2,1^4), or C=(2^3), maximum original source degree is two, and Q is a disjoint union of source paths. Exactly NINE feasible source forest cells are A/A (path lengths 1^6); A/B,B/A (2,1^4); A/C,C/A (2,2,2); B/C,C/B (4,2); B/B-overlap (3,1,1,1); B/B-disjoint (2,2,1,1). C/C is impossible by GQ girth. Sets with other original source multiplicities fall OUTSIDE the nine eligible cells, not into an invented tenth GF5 positive class.
+
+**Ordered quantifiers:** forall h (integer h>=1, s=2^h, genuine original W(3,s)) ; forall f,g (any complete separately typed globally injected ORIGINAL point and line maps shared across all true source six-ID sets)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN
+
+**Claim dependencies:** HYP105-AA4Q-CC-GIRTH-OBSTRUCTION
+
+**Proof provenance:** [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** The nine path types classify eligible genuine SOURCE multiplicity supports; they do not guarantee any physically positive GF(5) class under fixed f,g. A/A is only accepted when both physical positional duals share the same connected aligned D6. Other original sixsets with multiplicities outside A/B/C exist and must not be silently relabeled into this nine-cell universe.
+
+
+### HYP105-AA4U-W32-NINE-FOREST-CENSUS — Finite exhaustive genuine W32 six-incidence original nine-cell forest universe census
+
+**Claim:** For h=1 only, genuine original W(3,2) has 45 distinct original incidences and binom(45,6)=8145060 actual six-incidence-ID subsets. Exhaustive source-only enumeration, independent of physical injections f,g, partitions the eligible A/B/C-on-both-sides sixsets into nine path cells of sizes A/A 1566360, A/B 1666980, B/A 1666980, A/C 6225, C/A 6225, B/C 5220, C/B 5220, B/B-overlap 910080, and B/B-disjoint 707580. These sum to 6540870 eligible source forest sixsets; 1604190 of the original 8145060 have source profiles outside the nine-cell A/B/C grid. The original A-side and B-side SOURCE totals are each 3648645, C-side 12285; these are not physical-half acceptance counts.
+
+**Ordered quantifiers:** forall h (integer h=1, s=2^h=2; finite genuine original W(3,2) ONLY, not all h) ; forall Q (all binom(45,6)=8145060 six-DISTINCT actual original incidence-ID subsets of the finite W(3,2))
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN
+
+**Claim dependencies:** HYP105-AA4U-NINE-ORIGINAL-FOREST
+
+**Proof provenance:** [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** The complete finite source universe is NOT the 62370 physically admissible one-side candidates. Some original sixsets have point or line source multiplicities outside A/B/C and are not any eligible nine source cells. No finite source-only count certifies a uniform all-h positive physical GF5 minimax.
+
+
+### HYP105-AA4U-W32-ZERO-MARGINAL-POSITIVE-JOINT — Finite genuine W32 nine-cell positive actual joins with zero relaxed non-AA certificates
+
+**Claim:** For h=1 genuine W(3,2), specific source point/line complete globally injected K6 maps S68 and S72 exhibit zero in EACH eight NON-AA source-forest Fréchet marginal-only lower floor and hence zero summed relaxed non-AA bound, but ACTUAL original six-incidence-ID non-AA joint accepted positive GF5 counts are 68 and 72. The nine physically jointly admissible source-cell counts S68 are A/A=263, A/B=21, B/A=44, B/B-overlap=2, B/B-disjoint=1 and zeros otherwise; S72 A/A=286,A/B=31,B/A=36,B/B-overlap=1,B/B-disjoint=2,C/A=2 and zeros otherwise. All A/A joint sets in these particular two global fixtures have zero aligned D6, so the true total seven-class accepted counts are respectively 68 and 72, not their raw joined sums 331 and 358. This finite method certificate is not an all-h adversarial counterfamily.
+
+**Ordered quantifiers:** forall h (integer h=1, s=2^h=2; finite genuine original W(3,2) ONLY, not all h) ; exists f,g (the actual finite globally injected genuine W(3,2) source K6 assignments S68 and S72) ; finite_witness Q (original 45-flag W32 sixset source forest stratification and the same-incidence-ID physical dual joined seven-GF5 census)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-SELECTED-LOCAL-PATTERN
+
+**Claim dependencies:** HYP105-AA4U-FOREST-FRECHET-LOWER, HYP105-AA4U-W32-NINE-FOREST-CENSUS
+
+**Proof provenance:** [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** A zero relaxed source-cell floor does NOT mean the true non-AA intersection can be zero for some globally coherent f,g. Finite S68/S72 have genuine POSITIVE S_s=68/72, so they do not disprove universal all-h S=Omega(s^6). The 263/286 A/A joined sets are NOT accepted D6 in these fixtures; actual D6 is zero.
 
 
 ### HYP105-EICE003K-DIRTY-ANCHOR — Original GQ source-anchor dirty-pencil identity and uniform marginal

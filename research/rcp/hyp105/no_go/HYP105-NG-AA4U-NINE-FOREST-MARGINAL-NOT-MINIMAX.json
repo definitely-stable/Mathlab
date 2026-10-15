@@ -1,0 +1,28 @@
+{
+  "schema": "mathlab.rcp.no-go.v1",
+  "id": "HYP105-NG-AA4U-NINE-FOREST-MARGINAL-NOT-MINIMAX",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "kind": "INVALID_INFERENCE",
+  "related_claim_ids": [
+    "HYP105-AA4U-FOREST-FRECHET-LOWER",
+    "HYP105-AA4U-W32-ZERO-MARGINAL-POSITIVE-JOINT"
+  ],
+  "evidence_ids": [
+    "HYP105-EV-AA4U"
+  ],
+  "rejected_inference": "Nine source forest cell universe totals and separately observed one-sided physical marginal counts alone imply positive original seven-GF5 joint S for every complete globally injected f,g, or a zero nine-cell relaxed floor exhibits actual legal zero-S global labels.",
+  "witness_scope": "True original W(3,2) 45 incidence-ID complete source-only binom(45,6) census, independently joined original complete K6 source point/line injections S68/S72. All eight non-AA cellwise abstract Frechet floors are zero while actual accepted seven-class S=68/72, A/A joint=263/286 but aligned D6=0.",
+  "mathematical_basis": "Elementary Fréchet min over arbitrary subsets of a finite U_F is sharp only in the RELAXED abstract subset space. Original complete global maps constrain all cell memberships, and AA requires identical connected positional six-column D6 dual. Source #486 W32 exact finite matrix separates the abstract floor from actual nonzero joint.",
+  "does_not_refute": [
+    "A universal seven-GF5 lower bound for every complete original global pair of maps based on higher-order incidence-position/physical coupling.",
+    "Nonlinear or global-injection-realizable lower certificates beyond the nine independent marginal cardinalities.",
+    "Actual positive non-AA original GF5 charge as in genuine finite S68/S72.",
+    "Any true all-h source forest theorem or all-h conditional expectation theorem."
+  ],
+  "reopen_only_if": "Provide a new hypothesis or proof controlling original flag positions, physical dual alignment, cross-cell dependence, or realizability of global injections; marginal source forest population counts alone are insufficient.",
+  "do_not_repeat": "Do not treat zero abstract forest-cell Fréchet lower as a globally realizable zero-S pair, nor accept all source A/A physical overlaps as aligned D6.",
+  "root_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "prior_registry_ref": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json",
+  "review_status": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+}

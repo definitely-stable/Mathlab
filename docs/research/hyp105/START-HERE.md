@@ -79,3 +79,7 @@ See [AA4-S original source no-go import](AA4S-IMPORT.md): registered all-h true 
 ## Original 60-position aligned D6 tensor and all-h conditional bound
 
 [AA4-T provenance and exact-scope protocol](AA4T-IMPORT.md) registers the genuine original six-incidence positional 60-cycle tensor from scientific Draft PR #484. Five source-pinned claims separate the exact deterministic D6 inner product, one-complete-global-map expectation, every-fixed-side conditional lower for all h>=1, its original GQ dual, and true finite W(3,2) mean-versus-realization witness. The 1/98304 all-h bound is **weaker** than the earlier 1/8 AA4-R-CYC bound for h>=3. None implies an every-(f,g) seven-class minimax. Permanent formulas F-017..021 and proof links are generated into `registry/*.md` and validated by read-only CI after initial synchronization.
+
+## Original six-forest nine-cell transportation and source corpus
+
+See [AA4-U original source-forest evidence import](AA4U-IMPORT.md), pinned to scientific Draft PR #486: all-h genuine source six-edge forests, exactly nine BOTH-sides A/B/C eligible path cells (C/C forbidden), deterministic abstract per-cell Fréchet lower, and finite full W32 original 45-choose-6 source census. The finite S68/S72 zero-relaxed-bound but positive original seven-GF5 charge is a **proof-method limitation**, not a minimax counterfamily. Four scoped claims, five formulas, one new no-go and original Git-escrow SHA256 are mirrored to `registry/*.md` from canonical structured JSON. Independent scientific review and root #230 remain OPEN.
