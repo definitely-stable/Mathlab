@@ -1,0 +1,57 @@
+# HYP-105 / issue #230 — D6-AA4-Y2: universal original seven-mode Gram and sign-robust charge
+
+Scientific status: rigorous ALL-h deterministic factorization and mixed-change estimate. NOT a proof of the root universal Omega(s^6) obstruction. Strict research-only child of Y-CYC PR #497 at d6991ac288add1cb64ac55952b35d6d712430259; main untouched, issue #230 OPEN.
+
+## 1. Quantifiers and ORIGINAL mode space
+
+For EVERY genuine symplectic original generalized quadrangle W(3,s), s=2^h>=2, and arbitrary complete globally injective typed source point/line physical unordered-edge maps f,g into the minimal physical K_a alphabet, index the same actual sets Q of six distinct ORIGINAL point-line incidence IDs on both sides. Immutable source endpoint profiles A=(1^6), B=(2,1^4), C=(2^3) determine the feasible source forest cell, with source C/C forbidden by GQ girth eight.
+
+For each of the six accepted NON-AA historical positive GF5 source forest classes, attach ONE scalar feature mode to a Q of that immutable source class. For each original AA Q, attach 60 alternative connected positional C6 modes H, each a 6-edge 2-factor on the SAME sorted six ORIGINAL Q incidence positions; the 10 disconnected two-triangle modes have NO D6 feature. Source-ineligible Q have none.
+
+Define L_(Q,t,m)(f), R_(Q,t,m)(g) as 0/1 physical half-projection indicators: six physical coordinates of degree exactly 2, and for AA connected dual exactly m. Each half occupies at most one mode per Q. Both typed maps are SINGLE globally coherent injections, not per-Q relabelings.
+
+Historical AA4-Q original six-incidence classification implies EXACTLY, for all h and all f,g:
+
+    C_t(f,g) = sum_(Q,m : tag=t) L_(Q,t,m)(f) * R_(Q,t,m)(g)
+    S(f,g) = <L(f),R(g)> = N_nonAA(f,g) + D6(f,g).
+
+For the historical selected positive 51-palette GF5 lower numerator W(f,g) = sum_t w_t C_t(f,g), weights are D6 5643; B-left/A-right 45600; A-left/B-right 45600; C/A 43320; C/B 49050; B/B-overlap 51750; B/B-disjoint 45010. Hence W=<sqrt(w)L,sqrt(w)R>. W is a selected seven-family lower numerator only, NOT full R3.
+
+## 2. NEW ALL-h signed-gradient theorem
+
+Choose ANY four admissible full global maps f0,f1 and g0,g1, not necessarily source swaps. Define mode differences dL=L(f1)-L(f0), dR=R(g1)-R(g0), and integer per-tag energies E_P,t=sum_(mode tag t) dL^2, E_L,t=sum_(mode tag t) dR^2. Every component belongs to {-1,0,+1}; energy is exactly the symmetric difference cardinality of the two original half-mode index sets. AA switching between two different connected C6 modes costs TWO energy units, while switching to disconnected/ineligible costs ONE.
+
+Define four-corner mixed differences Delta C_t=C_t(f1,g1)-C_t(f1,g0)-C_t(f0,g1)+C_t(f0,g0), similarly Delta S and Delta W. Then
+
+    Delta C_t = <dL_t,dR_t>.
+    (Delta C_t)^2 <= E_P,t * E_L,t.
+    |Delta S| <= sum_t sqrt(E_P,t * E_L,t) <= sqrt(sum_t E_P,t * sum_t E_L,t).
+    |Delta W| <= sum_t w_t sqrt(E_P,t * E_L,t)
+              <= sqrt(sum_t w_t E_P,t * sum_t w_t E_L,t).
+
+Therefore, for ALL admissible f0,f1,g0,g1,
+
+    S(f1,g1) >= S(f1,g0)+S(f0,g1)-S(f0,g0)
+                - sum_t sqrt(E_P,t * E_L,t).
+
+An analogous lower for W holds with w_t times each charge. PROOF: expand the exact original seven-mode Gram identity at four corners; the mixed difference is precisely the inner product of the two signed gradients. Apply Cauchy-Schwarz on each disjoint tag-mode family and then on their direct sum. This handles arbitrary negative, zero, and positive mixed interactions and does not assume statistical independence. It also strictly generalizes the preceding Y-CYC original swap-locality lemma: if physical images change only for swapped original source factors, dL*dR has support only on Q touching both original source supports.
+
+These are exact unconditional ALL-h inequalities but can be quantitatively WEAK: they do not furnish a positive c*s^6 without an additional all-h lower for base intersections and control of original gradient charges. Do not mark root #230 Branch A/B/C solved.
+
+## 3. Independent original W32 finite falsifiers
+
+Native C++20 engine reuses the previously successful true ORIGINAL 62,370-per-half six-ID enumerator, constructs one-hot non-AA and connected C6 ORIGINAL position modes independently for each side and each 106 global source swap variants, and computes EXACT seven-tag integer symmetric difference energies against the full complete baseline typed map. Its output is a 212-row TSV: point/line side, move ID, seven integer energies. No synthetic source Q or physical-label orbits.
+
+The separate Y-CYC C++ original 106x106 global pair enumerator regenerates all 11,236 historical accepted original seven-GF5 motif counts per pinned S68/S72. Python audits EVERY one of 11,236 four-corner per-class signed differences using integer squares against each seven-class exact Cauchy energy product; the aggregate S and historical weighted W bounds are also checked. Sectorwise sqrt bounds are conservatively rounded UP using integer isqrt. A separate Python ORIGINAL per-Q mode builder compares its product exactly with the independent historical seven-GF5 classifier under one and jointly swapped complete global f,g. Extremal genuine negative interactions from Y-CYC are preserved and must satisfy the charge inequality.
+
+Reproduce on GitHub-hosted ubuntu-latest with Python 3.12 and C++20:
+
+    python -m unittest discover -s research -p test_hyp105_issue230_d6aa4y2_original_mode_gram.py -v
+    g++ -std=c++20 -O3 -Wall -Wextra -pedantic -o /tmp/y research/hyp105_issue230_d6aa4ycyc_bilateral_original_join.cpp
+    g++ -std=c++20 -O3 -Wall -Wextra -pedantic -o /tmp/y2 research/hyp105_issue230_d6aa4y2_original_mode_gradient.cpp
+    python research/hyp105_issue230_d6aa4y2_original_mode_gram.py --scheme S68 --native-matrix /tmp/y --native-gradient /tmp/y2 --summary /tmp/S68-gram.json
+    python research/hyp105_issue230_d6aa4y2_original_mode_gram.py --scheme S72 --native-matrix /tmp/y --native-gradient /tmp/y2 --summary /tmp/S72-gram.json
+
+## 4. Decision and limitations
+
+The theorem is a universal sign-robust quantitative transfer identity, not a Branch A obstruction or model-equivalent Branch C reduction. Next research gate: establish strong all-h controls on true-original source forest baseline mass and C6 alignment versus negative gradient energy; first assess numerical tightness in the complete W32 local grids. A finite tightness observation does NOT imply a general bound. Retain research Draft; require exact-head Dedicated, INDEX, Proof Audit, Full Research SUCCESS and independent mathematical review before integration. Keep issue #230 OPEN.
