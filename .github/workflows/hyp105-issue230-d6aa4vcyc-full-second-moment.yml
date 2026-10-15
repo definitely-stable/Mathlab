@@ -1,0 +1,98 @@
+name: hyp105-issue230-d6aa4vcyc-full-second-moment
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4vcyc_full_moment.cpp"
+      - "research/hyp105_issue230_d6aa4vcyc_full_moment.py"
+      - "research/test_hyp105_issue230_d6aa4vcyc_full_moment.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4VCYC-FULL-SECOND-MOMENT.md"
+      - ".github/workflows/hyp105-issue230-d6aa4vcyc-full-second-moment.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-LINE-C6-all13327-gluing-and-independent-GF5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact 13327 original source LINE partial C6 pair positional kernels and historical true GF5 independent full-g tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4vcyc_full_moment.py" -v
+          g++ -std=c++20 -Wall -Wextra -Werror -O3 -o /tmp/hyp105-vcyc-second \
+            research/hyp105_issue230_d6aa4vcyc_full_moment.cpp
+          test -x /tmp/hyp105-vcyc-second
+          echo "ALL 13327 GLUE / 125 ABSTRACT TYPES / ORIGINAL GF5 COMPLETE-G ORACLES PASS"
+  genuine-original-W32-exact-all-448846596-pair-moment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile exact 128-bit integer original shared-line C6 pair accumulator, hosted runner only
+        run: |
+          g++ -std=c++20 -Wall -Wextra -Werror -O3 -o /tmp/hyp105-vcyc-second \
+            research/hyp105_issue230_d6aa4vcyc_full_moment.cpp
+      - name: FULL 448846596 genuine ORIGINAL D6 ordered-Q-pair conditional second moment, all shared LINE overlap sectors, five historical GF5 oracles
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4vcyc_full_moment.py \
+            --scheme "$SCHEME" --engine /tmp/hyp105-vcyc-second > "/tmp/vcyc-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from fractions import Fraction
+          from pathlib import Path
+          x=json.loads(Path("/tmp/vcyc-"+os.environ["SCHEME"]+".json").read_text())
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-V-CYC-FULL-W32-CONDITIONAL-SECOND-MOMENT"
+          assert x["scheme"]==os.environ["SCHEME"]
+          assert x["original_TRUE_left_C6_six_incidence_Q_count"]==21186
+          assert x["complete_g_all_TRUE_original_Q_ordered_pairs"]==21186**2==448846596
+          assert x["compressed_original_sixset_C6_total_multiplicity"]==21186
+          assert x["distinct_source_line_C6_event_groups"]==17811
+          assert x["pair_kernel_precomputed"]["number_valid_original_LINE_relative_partial_gluing_diagrams"]==13327
+          assert x["pair_kernel_precomputed"]["nonisomorphic_original_LINE_C6_pair_gluing_types"]==125
+          assert x["actual_original_source_LINE_gluing_full_weighted_counts"]["full_original_ordered_Q_pairs"]==448846596
+          r=x["actual_original_source_LINE_gluing_full_weighted_counts"]
+          assert r["source_line_overlap_ordered_pair_counts"]==[
+              7884072,68447208,167701496,149522840,49756320,5411082,123578]
+          assert sum(r["source_line_overlap_ordered_pair_counts"])==448846596
+          assert sum(r["source_line_overlap_second_moment_numerators"])==r[
+              "full_conditional_D6_second_moment_numerator"]
+          assert r["positive_joint_original_ordered_pairs"]+r[
+              "zero_joint_original_ordered_pairs"]==448846596
+          assert Fraction(x["predecessor_one_actual_original_Q_anchored_joint_row"])==Fraction(19457,10810800)
+          mu=Fraction(x["exact_conditional_E_g_D6"])
+          E2=Fraction(x["exact_conditional_E_g_D6_squared"])
+          var=Fraction(x["exact_conditional_Var_g_D6"])
+          assert mu==Fraction(1926,455)
+          assert E2==Fraction(122607599,3783780)
+          assert var==Fraction(3562636447,245945700)
+          assert E2>mu>0
+          assert var==E2-mu**2 and var>=0
+          assert Fraction(x["exact_P_g_D6_positive_by_Cauchy_Paley_Zygmund_lower"])==mu**2/E2
+          assert mu**2/E2==Fraction(4406857488,7969493935)
+          assert len(x["independent_historical_five_complete_global_g_GF5_D6_oracles"])==5
+          assert all(z["exact_match"] for z in x["independent_historical_five_complete_global_g_GF5_D6_oracles"])
+          assert x["complete_true_original_W32_conditional_second_moment_PROVED"]
+          assert not x["all_h_uniform_variance_bound_PROVED"]
+          assert not x["universal_every_complete_f_g_S_omega_s6_PROVED"]
+          assert x["root_A"]==x["root_B"]=="OPEN"
+          print("GENUINE ORIGINAL",x["scheme"],
+                "TRUE SIX-ID SOURCE C6 EVENT GROUPS",x["distinct_source_line_C6_event_groups"],
+                "ALL EXACT ORDERED PAIRS",r["full_original_ordered_Q_pairs"],
+                "SOURCE LINE OVERLAP FULL HIST",r["source_line_overlap_ordered_pair_counts"])
+          print("COMPLETE EXACT ONE GLOBAL RIGHT g E[D6]",str(mu),
+                "E[D6^2]",str(E2),"Var(D6)",str(var),
+                "P(D6>0) LOWER",x["exact_P_g_D6_positive_by_Cauchy_Paley_Zygmund_lower"])
+          print("TRUE 448846596 ORIGINAL QxQ PAIRS, HISTORICAL GF5 AND FULL CONDITIONAL SECOND MOMENT PASS; UNIVERSAL ROOT OPEN")
+          PY
