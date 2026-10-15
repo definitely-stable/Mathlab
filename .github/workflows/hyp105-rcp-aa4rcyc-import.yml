@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pull-requests: read
 
 concurrency:
@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  generate-docs-and-verify:
+  source-docs-and-math-verification:
     if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-24.04
     timeout-minutes: 20
@@ -36,29 +36,7 @@ jobs:
         run: |
           python -m research.rcp.claim_registry
           python -m research.rcp.evidence_ledger --output /tmp/hyp105-aa4rcyc-ledger
-          python -m research.rcp.structured_docs --write
           python -m research.rcp.structured_docs --check
-      - name: Commit derived documentation only on the internal draft branch
-        shell: bash
-        env:
-          PR_BRANCH: ${{ github.head_ref || github.ref_name }}
-        run: |
-          git add docs/research/hyp105/registry/
-          if ! git diff --cached --quiet; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "RCP-AA4R: regenerate exact structured Markdown from pinned original D6 claims"
-            git push origin "HEAD:refs/heads/$PR_BRANCH"
-          fi
-      - name: Delete only verified accidental temporary branch
-        shell: bash
-        run: |
-          actual="$(git ls-remote origin refs/heads/__HEAD_REF__ | cut -f1)"
-          if [[ "$actual" == "e784bc79e766967c5bfc2cf91e44e1384c5197bb" ]]; then
-            git push origin --delete __HEAD_REF__
-          elif [[ -n "$actual" ]]; then
-            echo "Temporary branch moved unexpectedly; refusing to delete" >&2
-            exit 1
-          fi
+          python -m research.rcp.structured_docs --check
       - name: Verify all registered scientific Markdown is in sync
         run: python -m research.rcp.structured_docs --check
