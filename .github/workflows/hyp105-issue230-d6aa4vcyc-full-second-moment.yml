@@ -58,11 +58,13 @@ jobs:
           assert x["original_TRUE_left_C6_six_incidence_Q_count"]==21186
           assert x["complete_g_all_TRUE_original_Q_ordered_pairs"]==21186**2==448846596
           assert x["compressed_original_sixset_C6_total_multiplicity"]==21186
-          assert x["distinct_source_line_C6_event_groups"]>0
+          assert x["distinct_source_line_C6_event_groups"]==17811
           assert x["pair_kernel_precomputed"]["number_valid_original_LINE_relative_partial_gluing_diagrams"]==13327
           assert x["pair_kernel_precomputed"]["nonisomorphic_original_LINE_C6_pair_gluing_types"]==125
           assert x["actual_original_source_LINE_gluing_full_weighted_counts"]["full_original_ordered_Q_pairs"]==448846596
           r=x["actual_original_source_LINE_gluing_full_weighted_counts"]
+          assert r["source_line_overlap_ordered_pair_counts"]==[
+              7884072,68447208,167701496,149522840,49756320,5411082,123578]
           assert sum(r["source_line_overlap_ordered_pair_counts"])==448846596
           assert sum(r["source_line_overlap_second_moment_numerators"])==r[
               "full_conditional_D6_second_moment_numerator"]
@@ -73,9 +75,12 @@ jobs:
           E2=Fraction(x["exact_conditional_E_g_D6_squared"])
           var=Fraction(x["exact_conditional_Var_g_D6"])
           assert mu==Fraction(1926,455)
+          assert E2==Fraction(122607599,3783780)
+          assert var==Fraction(3562636447,245945700)
           assert E2>mu>0
           assert var==E2-mu**2 and var>=0
           assert Fraction(x["exact_P_g_D6_positive_by_Cauchy_Paley_Zygmund_lower"])==mu**2/E2
+          assert mu**2/E2==Fraction(4406857488,7969493935)
           assert len(x["independent_historical_five_complete_global_g_GF5_D6_oracles"])==5
           assert all(z["exact_match"] for z in x["independent_historical_five_complete_global_g_GF5_D6_oracles"])
           assert x["complete_true_original_W32_conditional_second_moment_PROVED"]
