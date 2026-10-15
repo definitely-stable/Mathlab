@@ -108,3 +108,4 @@ I_L^{BA,\mathrm{int}}(f,g)=\sum_{p,A:\,|A|=4}w_g(p,A)\,\chi_B\bigl(f(p);f(A)\big
 ## Formula review protocol
 
 Verify original six-incidence constraints, alphabet, all-h range, global injection semantics, and quantifier order against the cited proof commit. CI does not mechanically check the algebra.
+
