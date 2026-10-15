@@ -18,6 +18,9 @@
     "research/rcp/hyp105/archive/PR470/proof.md": "cf62bc27a6ab1978bbbb3a27309bcd54eebffa293cb4db7536740bcf28bbdf52",
     "research/rcp/hyp105/archive/PR471/independent_test.py.txt": "c4b508ac2ea8abea14d526fe0a2c8b369186b133160137b96e37c18fbd98f506",
     "research/rcp/hyp105/archive/PR471/oracle.py.txt": "eb7bd15375535202569838ddd481c33dc01faecdacfa84f92b2537dd13053908",
-    "research/rcp/hyp105/archive/PR471/proof.md": "0367bd4f644fc0e9f60659bc2b54464885979789a24f7682db6ff0e23aef5d1a"
+    "research/rcp/hyp105/archive/PR471/proof.md": "0367bd4f644fc0e9f60659bc2b54464885979789a24f7682db6ff0e23aef5d1a",
+    "research/rcp/hyp105/archive/PR476/proof.md": "047f8f91ef4afac850765c7131abdb83366f4d7196805ff4785e1b4b92cde387",
+    "research/rcp/hyp105/archive/PR476/oracle.py.txt": "ad23c12c48ae42f3156563b1444249b59d0be69fc77b15e7337ec43c5ab4d17e",
+    "research/rcp/hyp105/archive/PR476/independent_test.py.txt": "033b2b382e2b50617dbe97bd5d078b0f6a876136c5a3e17e7f95ab6951746eaf"
   }
 }

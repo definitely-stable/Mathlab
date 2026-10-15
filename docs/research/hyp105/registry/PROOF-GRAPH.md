@@ -12,6 +12,7 @@ Only explicitly registered edges are included. An unregistered historical proof 
 | HYP105-AA4N-QUENCHED-IDENTITY | HYP105-AA4N-QUENCHED-LOWER |
 | HYP105-AA4N-QUENCHED-IDENTITY | HYP105-AA4O-QUINTIC-IDENTITY |
 | HYP105-AA4O-QUINTIC-IDENTITY | HYP105-AA4O-SWAP-IDENTITY |
+| HYP105-AA4Q-CC-GIRTH-OBSTRUCTION | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN |
 
 ## Explicit external proof inputs
 
@@ -30,6 +31,16 @@ Only explicitly registered edges are included. An unregistered historical proof 
 ### HYP105-AA4O-SWAP-IDENTITY
 
 - Global bijective transposition of two assigned physical labels preserves typed injection.
+
+### HYP105-AA4Q-CC-GIRTH-OBSTRUCTION
+
+- Genuine original GQ W(3,s) point-line incidence graph has girth eight; original incidence graph simple; both source C profiles force degree two on three distinct point and line factors.
+
+### HYP105-AA4Q-SEVEN-ORIGINAL-JOIN
+
+- Previously pinned historical seven positive GF(5) positional classifier: A/B and B/A; A/C and C/A; B/C and C/B; B/B overlapped and disjoint; connected aligned A/A D6 only.
+- Original source incidence factor multiplicities A=(1^6), B=(2,1^4), C=(2^3), computed independently on the two sides but evaluated on the SAME original Q.
+- Original 3x3 two-half join from pinned AA4-Q source proof, not a product of independent one-half marginal populations.
 
 ### HYP105-EICE003K-DIRTY-ANCHOR
 

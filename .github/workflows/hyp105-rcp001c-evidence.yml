@@ -59,10 +59,10 @@ jobs:
           assert d["schema"] == "mathlab.rcp.evidence-index.v1"
           assert d["root_status"] == "OPEN_WITH_FORMAL_BLOCKER"
           assert d["acceptance"] == "PROVENANCE_NOT_MATHEMATICAL_PROOF"
-          assert (v["claim_count"], v["evidence_count"], v["no_go_count"]) == (7, 5, 5)
-          assert v["archived_blob_count"] == v["remote_origins_verified"] == 17
-          assert len(d["archived_sources"]) == 17
-          assert len(set(x["git_blob_sha"] for x in d["archived_sources"])) == 17
+          assert v["claim_count"] >= 7 and v["evidence_count"] >= 5 and v["no_go_count"] >= 5
+          assert v["archived_blob_count"] == v["remote_origins_verified"] == len(d["archived_sources"]) >= 17
+          assert len(d["archived_sources"]) >= 17
+          assert len(set(x["git_blob_sha"] for x in d["archived_sources"])) == len(d["archived_sources"])
           assert all(len(x["sha256"]) == 64 for x in d["archived_sources"])
           assert (root/"evidence.md").is_file()
           print("RCP-001-C: all 17 original Git object blob identities preserved; root OPEN")

@@ -1,0 +1,54 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 476,
+    "commit": "a51ce5aeb7883dcd029b9275ce44eaca9a60370f",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md",
+    "proof_blob_sha": "2618aab8a4e57ee6b71eb2746c65bc9757984828",
+    "stage": "OPEN_DRAFT_PR"
+  },
+  "id": "HYP105-AA4Q-SEVEN-ORIGINAL-JOIN",
+  "title": "Exact all-h joint ORIGINAL six-incidence seven-GF5 count from physical two-sided projections",
+  "statement": "For every genuine W(3,s), s=2^h>=2, and every pair of complete globally injected original maps f,g, let H_P(f) and H_L(g) be the independently built source-half physical-degree-two candidate SETS of six DISTINCT genuine ORIGINAL incidence IDs, with each side original source profile A/B/C. Let J=H_P(f) INTERSECT H_L(g) on the same original IDs, AA the Q in J whose two source profiles are A, and D6 the Q in AA whose two physical coordinate-to-six-original-column dual graphs coincide as a connected six-cycle. Then the count S_s(f,g) of the seven historically accepted positive GF(5) original six-incidence classes satisfies EXACTLY S_s(f,g)=|J|-|AA|+|D6|. The C/C source sector is empty by genuine GQ girth eight.",
+  "mode": "ALL_H_IDENTITY",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=1, s=2^h"
+    },
+    {
+      "op": "forall",
+      "variable": "f,g",
+      "domain": "arbitrary complete separate globally injected ORIGINAL point and line maps, reused across all six-incidence sets"
+    }
+  ],
+  "depends_on_claims": [
+    "HYP105-AA4Q-CC-GIRTH-OBSTRUCTION"
+  ],
+  "external_dependencies": [
+    "Previously pinned historical seven positive GF(5) positional classifier: A/B and B/A; A/C and C/A; B/C and C/B; B/B overlapped and disjoint; connected aligned A/A D6 only.",
+    "Original source incidence factor multiplicities A=(1^6), B=(2,1^4), C=(2^3), computed independently on the two sides but evaluated on the SAME original Q.",
+    "Original 3x3 two-half join from pinned AA4-Q source proof, not a product of independent one-half marginal populations."
+  ],
+  "limitations": [
+    "A positive one-side projection marginal population does not force a positive simultaneous join intersection.",
+    "The identity does not yield an all-f,g lower bound S_s(f,g)>=c*s^6 or independently solve root Branch A, B or C.",
+    "The aligned original-column A/A connected D6 subset is essential; retaining all A/A would overcount.",
+    "Source H_P/H_L must be derived from complete globally coherent f/g, never separately resampled per Q."
+  ],
+  "falsification_boundary": "Use six distinct actual original source incidence IDs and both physical projections on exactly those IDs. Any comparison using physical P3 paths, artificial Q, or independent per-Q relabeling does not test this claim."
+}

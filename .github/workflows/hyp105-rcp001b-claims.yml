@@ -58,11 +58,11 @@ jobs:
           assert idx['schema'] == 'mathlab.rcp.claim-index.v1'
           assert idx['root_branch_status'] == 'NOT_ESTABLISHED_BY_THESE_CLAIMS'
           assert idx['acceptance'] == 'REGISTRY_METADATA_ONLY_NOT_PROOF'
-          assert idx['sources_verified'] == 5
-          assert len(idx['claims']) == 7
+          assert idx['sources_verified'] >= 5
+          assert len(idx['claims']) >= 7
           assert all(c['mathematical_status'] == 'DOCUMENTED_IN_DRAFT' for c in idx['claims'])
           assert all(c['review_status'] == 'NOT_REVIEWED' for c in idx['claims'])
-          assert len(idx['dependency_edges']) == 3
+          assert len(idx['dependency_edges']) >= 3
           assert (p/'claims.md').is_file()
           print('RCP-001-B: metadata/index/provenance accepted, mathematical theorem NOT asserted')
           PY

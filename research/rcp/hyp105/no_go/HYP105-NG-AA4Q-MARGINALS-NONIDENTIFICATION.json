@@ -1,0 +1,27 @@
+{
+  "schema": "mathlab.rcp.no-go.v1",
+  "id": "HYP105-NG-AA4Q-MARGINALS-NONIDENTIFICATION",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "kind": "INVALID_INFERENCE",
+  "related_claim_ids": [
+    "HYP105-AA4Q-SEVEN-ORIGINAL-JOIN"
+  ],
+  "evidence_ids": [
+    "HYP105-EV-AA4Q"
+  ],
+  "rejected_inference": "A one-side count of A/B/C physically admissible ORIGINAL six-incidence populations on each typed side determines or lower-bounds the simultaneous seven-class original count S_s(f,g) for every complete globally injected f,g, without inspecting their actual common incidence-ID intersection.",
+  "witness_scope": "True original W(3,2), 45 distinct genuine original incidence IDs; complete K6 globally injected typed maps. Every one-side population has (A,B,C)=(51030,10935,405), whereas historical lex and S68 assignments have different joint seven-class S (259 versus 68) under the same valid model.",
+  "mathematical_basis": "Pinned AA4-Q source constructs both half projection candidate sets directly from real W32 source factors, fixes unilateral sizes for all complete K6 pair-label maps, and independently compares the genuine original sixset two-sided intersection and historical seven-class census on lex and S68 global assignments.",
+  "does_not_refute": [
+    "A possible uniform positive global min_(f,g) S_s(f,g) via valid JOINT original-ID information.",
+    "A valid lower bound on joint seven-class counts using additional physical-position correlations or source geometry.",
+    "The exact all-h seven-class incidence-ID join identity.",
+    "Independent conditional or ensemble expectation bounds with their stated quantifier order."
+  ],
+  "reopen_only_if": "Provide a valid extra hypothesis, full original-ID coupling information or constructive transport relating left and right actual incidence sets; one-side marginal totals alone cannot distinguish even the pinned W32 global assignments.",
+  "do_not_repeat": "Never infer common-original-sixset intersection positivity or a global seven-GF5 minimax from one-side population sizes, a product of one-half marginal counts, or independent-per-Q relabeling.",
+  "root_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "prior_registry_ref": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json",
+  "review_status": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+}

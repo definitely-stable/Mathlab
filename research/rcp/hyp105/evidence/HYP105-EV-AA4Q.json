@@ -1,0 +1,43 @@
+{
+  "schema": "mathlab.rcp.evidence.v1",
+  "id": "HYP105-EV-AA4Q",
+  "claim_ids": [
+    "HYP105-AA4Q-CC-GIRTH-OBSTRUCTION",
+    "HYP105-AA4Q-SEVEN-ORIGINAL-JOIN"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 476,
+    "commit": "a51ce5aeb7883dcd029b9275ce44eaca9a60370f",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md",
+    "proof_blob_sha": "2618aab8a4e57ee6b71eb2746c65bc9757984828"
+  },
+  "artifacts": [
+    {
+      "role": "ORACLE_SOURCE",
+      "path": "research/hyp105_issue230_d6aa4q_two_sided_seven_join.py",
+      "git_blob_sha": "1dbdd1172a0776e53cac42a2655268d84b85fcbc"
+    },
+    {
+      "role": "INDEPENDENT_TEST",
+      "path": "research/test_hyp105_issue230_d6aa4q_two_sided_seven_join.py",
+      "git_blob_sha": "c85c97a070e814294f7d24484aa9a0237804ea13"
+    }
+  ],
+  "reproduction": {
+    "runner": "GITHUB_HOSTED",
+    "environment": "ubuntu-24.04 / Python 3.12 (requested baseline)",
+    "checkout_commit": "a51ce5aeb7883dcd029b9275ce44eaca9a60370f",
+    "command": "python -m unittest research.test_hyp105_issue230_d6aa4q_two_sided_seven_join -v",
+    "execution_status": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+  },
+  "ci": {
+    "status": "NOT_ARCHIVED_AS_PROOF",
+    "note": "Byte hashes and pinned commit provenance are checked independently. No new independent mathematical theorem review or universal lower bound certified."
+  },
+  "retention": "Three original byte-identical proof/oracle/test Git blobs are referenced by retained main ancestry after merge; independent SHA256 pins detect accidental content drift.",
+  "limitations": [
+    "Exact all-h identity only; global minimax across adversarial f,g is still open.",
+    "W(3,2) enumerations and selected weighted GF5 floors are not an all-h universal lower bound."
+  ]
+}

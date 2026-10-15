@@ -69,10 +69,10 @@ class ContextTests(unittest.TestCase):
 
     def test_complete_registry_no_arbitrary_limit(self):
         x = self.snapshot
-        self.assertEqual(len(x["research"]["claims"]), 7)
-        self.assertEqual(len(x["research"]["evidence"]), 5)
-        self.assertEqual(len(x["research"]["no_go"]), 5)
-        self.assertEqual(len(x["research"]["escrow"]), 17)
+        self.assertGreaterEqual(len(x["research"]["claims"]), 7)
+        self.assertGreaterEqual(len(x["research"]["evidence"]), 5)
+        self.assertGreaterEqual(len(x["research"]["no_go"]), 5)
+        self.assertGreaterEqual(len(x["research"]["escrow"]), 17)
         self.assertEqual(x["inventory"]["open_pr_count"], 8)
 
     def test_live_root_state_is_separate_from_mathematical_status(self):

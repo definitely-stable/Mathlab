@@ -7,7 +7,7 @@
 
 ## Coverage and acceptance
 
-The table indexes **7 specific results** from **5 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
+The table indexes **9 specific results** from **6 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
 
 | Stable claim | Scope / logical mode | Mathematical status | Pinned proof |
 |---|---|---|---|
@@ -15,6 +15,8 @@ The table indexes **7 specific results** from **5 research PRs**. It does not cl
 | HYP105-AA4N-QUENCHED-LOWER | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #470 @ 2af74df348a9](https://github.com/definitely-stable/Mathlab/blob/2af74df348a9c0921497757356199a609252f2c2/docs/research/HYP-105-ISSUE230-D6AA4N-QUENCHED-RIGHT-TRANSFER.md) |
 | HYP105-AA4O-QUINTIC-IDENTITY | ALL_H_IDENTITY | DOCUMENTED_IN_DRAFT | [PR #471 @ b086566d8be1](https://github.com/definitely-stable/Mathlab/blob/b086566d8be17307b102e7bd89d28d4167af86a6/docs/research/HYP-105-ISSUE230-D6AA4O-QUINTIC-ADVERSARIAL-SWAP.md) |
 | HYP105-AA4O-SWAP-IDENTITY | ALL_H_IDENTITY | DOCUMENTED_IN_DRAFT | [PR #471 @ b086566d8be1](https://github.com/definitely-stable/Mathlab/blob/b086566d8be17307b102e7bd89d28d4167af86a6/docs/research/HYP-105-ISSUE230-D6AA4O-QUINTIC-ADVERSARIAL-SWAP.md) |
+| HYP105-AA4Q-CC-GIRTH-OBSTRUCTION | ALL_H_IDENTITY | DOCUMENTED_IN_DRAFT | [PR #476 @ a51ce5aeb788](https://github.com/definitely-stable/Mathlab/blob/a51ce5aeb7883dcd029b9275ce44eaca9a60370f/docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md) |
+| HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | ALL_H_IDENTITY | DOCUMENTED_IN_DRAFT | [PR #476 @ a51ce5aeb788](https://github.com/definitely-stable/Mathlab/blob/a51ce5aeb7883dcd029b9275ce44eaca9a60370f/docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md) |
 | HYP105-EICE003K-DIRTY-ANCHOR | DETERMINISTIC_BOUND | DOCUMENTED_IN_DRAFT | [PR #469 @ 73cfebed8042](https://github.com/definitely-stable/Mathlab/blob/73cfebed8042f0f9b6592bd318295fb0bdf69a5b/docs/research/HYP-105-ISSUE230-EICE003K-CLEAN-ANCHOR-CONCENTRATION.md) |
 | HYP105-JPKC015-D6-ENSEMBLE | ENSEMBLE_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #455 @ c02188a4d4f2](https://github.com/definitely-stable/Mathlab/blob/c02188a4d4f2e4e07440c4d7b25fc25c6dd31b3e/docs/research/HYP-105-ISSUE230-JPKC-015-ENSEMBLE-D6.md) |
 | HYP105-LT-LOCAL-COUNTEREXAMPLE | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #466 @ 5d2c70e3adeb](https://github.com/definitely-stable/Mathlab/blob/5d2c70e3adeb1779904401f88161c9e71c884892/docs/research/HYP-105-ISSUE230-LOCAL-CYCLE-BARRIER.md) |
@@ -87,6 +89,40 @@ The table indexes **7 specific results** from **5 research PRs**. It does not cl
 **Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
 
 **Does not imply:** A one-transposition local optimum need not be globally optimal. Finite adversarial W32 search does not yield all-h global counterfamily. Does not establish a universal lower bound for all maps.
+
+
+### HYP105-AA4Q-CC-GIRTH-OBSTRUCTION — All-h original C/C source sector is empty by generalized-quadrangle girth eight
+
+**Claim:** For every genuine original W(3,2^h), h>=1, and every pair of complete separately globally injected original point/line physical-pair maps f,g, there is NO set Q of six distinct original point-line incidence IDs with point source multiplicity C=(2,2,2) AND line source multiplicity C=(2,2,2). Such a six-edge original simple bipartite incidence graph would be a 6-cycle, impossible in the GQ incidence graph of girth 8.
+
+**Ordered quantifiers:** forall h (integer h>=1, s=2^h) ; forall f,g (arbitrary complete separate globally injected ORIGINAL point and line maps, reused across all six-incidence sets)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN
+
+**Claim dependencies:** none registered
+
+**Proof provenance:** [PR #476 @ a51ce5aeb788](https://github.com/definitely-stable/Mathlab/blob/a51ce5aeb7883dcd029b9275ce44eaca9a60370f/docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** Absence of genuine ORIGINAL C/C source motifs does not prohibit physically overlapping cycles on independently selected columns. GQ girth alone does not establish a lower bound on any of the seven positive GF(5) classes. The model excludes synthetic physical six-column patterns that are not genuine original incidence IDs.
+
+
+### HYP105-AA4Q-SEVEN-ORIGINAL-JOIN — Exact all-h joint ORIGINAL six-incidence seven-GF5 count from physical two-sided projections
+
+**Claim:** For every genuine W(3,s), s=2^h>=2, and every pair of complete globally injected original maps f,g, let H_P(f) and H_L(g) be the independently built source-half physical-degree-two candidate SETS of six DISTINCT genuine ORIGINAL incidence IDs, with each side original source profile A/B/C. Let J=H_P(f) INTERSECT H_L(g) on the same original IDs, AA the Q in J whose two source profiles are A, and D6 the Q in AA whose two physical coordinate-to-six-original-column dual graphs coincide as a connected six-cycle. Then the count S_s(f,g) of the seven historically accepted positive GF(5) original six-incidence classes satisfies EXACTLY S_s(f,g)=|J|-|AA|+|D6|. The C/C source sector is empty by genuine GQ girth eight.
+
+**Ordered quantifiers:** forall h (integer h>=1, s=2^h) ; forall f,g (arbitrary complete separate globally injected ORIGINAL point and line maps, reused across all six-incidence sets)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN
+
+**Claim dependencies:** HYP105-AA4Q-CC-GIRTH-OBSTRUCTION
+
+**Proof provenance:** [PR #476 @ a51ce5aeb788](https://github.com/definitely-stable/Mathlab/blob/a51ce5aeb7883dcd029b9275ce44eaca9a60370f/docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** A positive one-side projection marginal population does not force a positive simultaneous join intersection. The identity does not yield an all-f,g lower bound S_s(f,g)>=c*s^6 or independently solve root Branch A, B or C. The aligned original-column A/A connected D6 subset is essential; retaining all A/A would overcount. Source H_P/H_L must be derived from complete globally coherent f/g, never separately resampled per Q.
 
 
 ### HYP105-EICE003K-DIRTY-ANCHOR — Original GQ source-anchor dirty-pencil identity and uniform marginal
