@@ -133,9 +133,12 @@ def exact_distance_k_derangement_frontier(tensor,labels,k):
     if len(f)!=15 or len(set(f))!=15:
         raise ValueError("must start from complete true ORIGINAL W32 K6 edge bijection")
     old=exact_sparse_original_BA_energy(tensor,f)
-    best=(old,(),f)
+    # EXACT distance k excludes the unchanged baseline. Initialize
+    # with no candidate, never accidentally report the baseline as a
+    # "distance-k winner" if every actual k-exchange is more expensive.
+    best=None
     examined=0
-    min_delta=0
+    min_delta=None
     histogram=Counter()
     for source in combinations(range(15),k):
         images=tuple(f[p] for p in source)
@@ -148,13 +151,13 @@ def exact_distance_k_derangement_frontier(tensor,labels,k):
             examined+=1
             delta=val-old
             histogram["lower" if delta<0 else "equal" if delta==0 else "higher"]+=1
-            if (val,source,tuple(new))<(best[0],best[1],best[2]):
+            if best is None or (val,source,tuple(new))<best:
                 best=(val,source,tuple(new))
-            min_delta=min(min_delta,delta)
+            min_delta=delta if min_delta is None else min(min_delta,delta)
     expected={2:105,3:910,4:12285}[k]
     if examined!=expected or sum(histogram.values())!=examined:
         raise AssertionError("missing exact complete permutation-neighborhood assignments")
-    if old+min_delta!=best[0]:
+    if best is None or min_delta is None or old+min_delta!=best[0]:
         raise AssertionError("exact min delta not equal best actual global f score")
     if len(set(best[2]))!=15 or exact_sparse_original_BA_energy(tensor,best[2])!=best[0]:
         raise AssertionError("all candidate source maps must be full globally injected")
