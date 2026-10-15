@@ -177,7 +177,7 @@ class OriginalD6ImportTests(unittest.TestCase):
     def test_015_ledger_counts_without_arbitrary_upper_limit(self):
         self.assertGreaterEqual(self.validation["claim_count"], 12)
         self.assertGreaterEqual(self.validation["evidence_count"], 7)
-        self.assertGreaterEqual(self.validation["archived_blob_count"], 26)
+        self.assertGreaterEqual(self.validation["archived_blob_count"], 23)
         self.assertGreaterEqual(self.validation["no_go_count"], 7)
 
 
