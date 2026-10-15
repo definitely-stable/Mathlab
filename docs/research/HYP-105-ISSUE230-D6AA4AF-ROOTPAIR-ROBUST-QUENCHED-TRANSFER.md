@@ -134,6 +134,22 @@ This final sum is a corollary, not the main new result. The prior \((140+o(1))s^
 - Strict negative controls fail malformed injections, source incidence truncations, invalid original source root/pinned pair index; preserve original six source flag distinctness. Real-source transvection and independent physical coordinate permutations keep each rooted population invariant when transporting p and its pinned incident flag pair together.
 - No finite W(3,8) exhaustive full six-Q run needed; symbolic all-h theorem covers every order, while TRUE W32/W34 exact finite tests validate physical/source definitions.
 
+
+### Hosted original W(3,4) independent root certificate (first exact scientific data)
+
+TRUE W(3,4), minimal physical K14, V=85 actual original points/lines of degree d=5, K=91 physical coordinate pairs and exactly 6 unoccupied physical pair images. On **one actual root=0** on each original typed side, for global lex and globally shuffled random typed injection fixtures, independently counting all occupied physical complement C4 by (i) direct 4-vertex/three-matchings inverse-source-label construction and (ii) entirely independent simple oriented 4-step adjacency-walk/8 gives:
+
+| Global complete original labels | Original rooted type | Actually occupied physical complement C4 | Every-f physical universal floor | Every-C4 actual original source 4-rook guaranteed floor | Per root+actual two flags source-Q floor |
+|---|---|---:|---:|---:|---:|
+| lex | point (B-left/A-source) | **1,050** | 945 | 106 | 100,170 |
+| lex | line (B-right/A-source) | **1,050** | 945 | 106 | 100,170 |
+| random | point (B-left/A-source) | **1,083** | 945 | 106 | 100,170 |
+| random | line (B-right/A-source) | **1,081** | 945 | 106 | 100,170 |
+
+These **are true W34 occupied physical-image counts for root=0**, not all-root extrema or s→∞ averages. Independent explicit actual original-neighbor line/point four-rook choices for the first 12 occupied C4s per true root and pinned flag pair each satisfy the per-C4 bound 106 (directly tested with all at most 5⁴ choices; no fake independent redrawing of the global point/line edge injections). Additional standalone unittests exercise root=17, multiple root-flag pairs and true Sp(4,4) source transvection plus independent physical relabels. The universal source support floor 945×106=**100,170 actual distinct original Q per prescribed root-flag pair** holds analytically at s=4 for *every* physically injected original map, including ones not included in the finite test fixtures. No all-adversarial-g positive GF5 second-gate assertion follows.
+
+**Exact all-h CI cost discipline:** the preexisting older random-global probability helper uses a *linear-in-physical-alphabet-size* search for minimal a; high orders s=2^18 would make repeated use impractical. The new theorem obtains a by \`math.isqrt\` in O(1) large-integer steps and validates the exact six-term Fraction probability independently for h=1..18; the legacy baseline is cross-checked only for bounded h≤7, without relaxing any theorem or f/g global-injection requirements. GitHub-hosted runners only.
+
 ## 6. Scientific decision, next blocker, research acceptance
 
 **PROVED (all-h, restricted):** every physically complete globally injected original f has per-each-actual-root-and-two-original-flags a uniformly large occupied complementary physical C4 population; GQ 4-cycle-free source-neighbor structure then forces at least \(\mathcal C_s\mathcal R_s\) distinct true source B/A forests for *each* pinned pair; one globally uniformly random full opposite injection has exact **local** mean ≥\(\alpha_s\mathcal C_s\mathcal R_s\), and ≥s/128 for s≥8. Dual result holds.
