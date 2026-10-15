@@ -108,3 +108,30 @@ The enhanced independent falsifier (following this initial dedicated run) explic
 The naive optimization approach of testing all single source-label swaps AND all pairs of simultaneous one-point-transposition plus one-line-transposition is now exhausted for BOTH pinned anchors, with no improvement. The candidate universal sign claim Delta S>=0 is simultaneously falsified by genuine original finite negative Hessians. The remaining mathematical gap is to quantitatively bound the *negative* mixed coupling relative to the one-sided penalties under SOURCE forest and physical-column cyclic constraints, or to look beyond the radius-one-per-side neighborhood (multi-step permutation cycles and changes to the initial f,g).
 
 Neither the observed local minima nor the observed negative interactions proves the root all-h minimax bound S>=c*s^6 or an infinite adversarial o(s^6) family.
+
+
+## 8. Historical-independent four-corner mixed-sign falsifiers
+
+The enhanced full-grid [hosted run #38706330479](https://github.com/definitely-stable/Mathlab/actions/runs/38706330479) passed all THREE dedicated jobs. The runner now independently verifies the ENTIRE historical seven-tag GF5 census at all FOUR true ORIGINAL globally complete f/g corners for BOTH extremal signed mixed interactions, not only the native C++ calculations.
+
+### Most negative exact mixed interactions (finite W32)
+
+| Genuine original original-source point swap / line swap | Original S00 | Point-only S10 | Line-only S01 | Both S11 | Exact Delta S |
+|---|---:|---:|---:|---:|---:|
+| S68: points (4,14), lines (4,11) | 68 | 107 | 127 | 96 | **-70** |
+| S72: points (2,5), lines (6,11) | 72 | 126 | 129 | 107 | **-76** |
+
+For S68, exact delta is 96−107−127+68=−70. Its selected weighted 51-palette GF5 mixed delta is −3,182,800, with mixed D6 delta 0.
+
+For S72, exact delta is 107−126−129+72=−76. Its selected weighted 51-palette GF5 mixed delta is −3,383,549, with mixed D6 delta −3.
+
+### Most positive exact mixed interactions (finite W32)
+
+| Genuine original original-source point swap / line swap | Original S00 | Point-only S10 | Line-only S01 | Both S11 | Exact Delta S |
+|---|---:|---:|---:|---:|---:|
+| S68: points (1,14), lines (3,9) | 68 | 95 | 83 | 141 | **+31** |
+| S72: points (3,8), lines (6,7) | 72 | 95 | 104 | 159 | **+32** |
+
+These are exact ORIGINAL six-incidence event counts under COMPLETE global f/g. Thus the strongest possible universal sign rule for mixed D6+nonAA acceptance is refuted already at true W32, in BOTH directions. The signless all-h source-intersection-support theorem remains valid. Importantly, negative ΔS does not itself mean S11<S00: in each negative extreme case the both-swapped S remains strictly ABOVE the original S00.
+
+The final mathematical gate is therefore not to force positivity of every mixed coupling, but to prove a lower bound on total selected S that survives negative mixed interaction, or to exhibit an explicitly infinite all-h globally coherent family violating it. The finite results provide independent real-original falsification instances for candidate inequalities that incorrectly assert separability or sign-definiteness.
