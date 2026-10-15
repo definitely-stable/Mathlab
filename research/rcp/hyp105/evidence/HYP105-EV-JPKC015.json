@@ -1,0 +1,42 @@
+{
+  "schema": "mathlab.rcp.evidence.v1",
+  "id": "HYP105-EV-JPKC015",
+  "claim_ids": [
+    "HYP105-JPKC015-D6-ENSEMBLE"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 455,
+    "commit": "c02188a4d4f2e4e07440c4d7b25fc25c6dd31b3e",
+    "proof_path": "docs/research/HYP-105-ISSUE230-JPKC-015-ENSEMBLE-D6.md",
+    "proof_blob_sha": "831fd78cbad404bec86b402c8b9f48ddf8bcbfda"
+  },
+  "artifacts": [
+    {
+      "role": "ORACLE_SOURCE",
+      "path": "research/hyp105_issue230_jpkc015_ensemble_d6_capacity.py",
+      "git_blob_sha": "385a0e638a0192774d271ab6bb413f70c5d55e30"
+    },
+    {
+      "role": "INDEPENDENT_TEST",
+      "path": "research/test_hyp105_issue230_jpkc015_ensemble_d6_capacity.py",
+      "git_blob_sha": "f79dae09b36ba38d927171edb73dee103a3b90b5"
+    }
+  ],
+  "reproduction": {
+    "runner": "GITHUB_HOSTED",
+    "environment": "ubuntu-24.04 / Python 3.12 (requested baseline)",
+    "checkout_commit": "c02188a4d4f2e4e07440c4d7b25fc25c6dd31b3e",
+    "command": "python -m unittest research.test_hyp105_issue230_jpkc015_ensemble_d6_capacity -v",
+    "execution_status": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+  },
+  "ci": {
+    "status": "NOT_ARCHIVED_AS_PROOF",
+    "note": "RCP-C verifies byte identities on exact Git commit; it does not claim a fresh execution of original PR CI or mathematical correctness."
+  },
+  "retention": "Source commit and Git blob identities are permanent Git provenance as long as repository retains the objects; GitHub Actions logs/artifacts can expire.",
+  "limitations": [
+    "Ensemble expectation is not a universal minimum.",
+    "No independent mathematical review is asserted."
+  ]
+}
