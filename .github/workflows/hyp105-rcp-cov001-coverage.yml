@@ -1,0 +1,86 @@
+name: hyp105-rcp-cov001-coverage
+
+on:
+  pull_request:
+    paths:
+      - "research/rcp/coverage_audit.py"
+      - "research/test_rcp_coverage_audit.py"
+      - "docs/research/hyp105/COVERAGE-BACKFILL.md"
+      - "docs/research/hyp105/START-HERE.md"
+      - ".github/workflows/hyp105-rcp-cov001-coverage.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+  checks: read
+
+concurrency:
+  group: hyp105-rcp-cov001-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  adversarial-coverage-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check open-PR coverage, source evidence, no false merge and >200 PRs
+        run: python -m unittest research.test_rcp_coverage_audit -v
+
+  live-unregistered-research-pr-audit:
+    needs: adversarial-coverage-tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch complete live HYP-105 inventory and registered research evidence
+        run: |
+          python -m research.rcp.context_builder \
+            --output /tmp/hyp105-rcp-cov-snapshot --check-claim-prs
+      - name: Detect unregistered research PRs without mathematical classification
+        run: |
+          python -m research.rcp.coverage_audit \
+            --snapshot /tmp/hyp105-rcp-cov-snapshot/snapshot.json \
+            --output /tmp/hyp105-rcp-cov-report
+      - name: Assert full tagged PR partition and epistemic boundaries
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          d = json.loads(Path("/tmp/hyp105-rcp-cov-report/coverage.json").read_text(encoding="utf-8"))
+          assert d["schema"] == "mathlab.rcp.coverage.v1"
+          assert d["mathematical_root_acceptance"] == "NOT_INFERRED_FROM_GITHUB_STATE_OR_CI"
+          assert d["coverage_is_exhaustive"] is False
+          assert d["registered_claim_count"] >= 7
+          assert d["registered_source_pr_count"] >= 5
+          assert d["open_hyp105_pr_count"] == (
+              d["registered_open_hyp105_source_pr_count"] +
+              d["unregistered_open_hyp105_pr_count"]
+          )
+          assert d["unregistered_open_hyp105_pr_count"] == len(d["coverage_queue"])
+          assert all(row["proof_status"] == "NOT_INSPECTED_BY_COVERAGE_AUDIT"
+                     for row in d["coverage_queue"])
+          assert all(v["merge_status"] == "UNVERIFIED_DO_NOT_INFER_MERGED"
+                     for v in d["registered_source_prs_absent_from_open_inventory"])
+          assert Path("/tmp/hyp105-rcp-cov-report/coverage.md").exists()
+          print("COV-001: full tagged PR partition checked; no proof or merge promotion")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-rcp-cov001-backfill-audit
+          path: |
+            /tmp/hyp105-rcp-cov-report/
+            /tmp/hyp105-rcp-cov-snapshot/snapshot.json
+          if-no-files-found: warn
+          retention-days: 30
