@@ -79,3 +79,11 @@ jobs:
                 "D6zero",x["D6_zero_labelings_in_exact_neighborhood"],
                 "Pareto",x["pareto_frontier"])
           PY
+
+      - name: Archive exact true-original six-incidence seven-class Pareto certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4xcyc-seven-original-${dol}{{ matrix.scheme }}
+          path: /tmp/aa4xcyc-original-seven.json
+          retention-days: 90
+          if-no-files-found: error
