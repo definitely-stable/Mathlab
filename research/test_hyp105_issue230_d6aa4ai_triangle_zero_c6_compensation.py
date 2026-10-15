@@ -44,8 +44,15 @@ class CompleteOriginalTriangleCounterexample(unittest.TestCase):
 
     def test_03_both_orientations_zero_split_but_original_C6_or_same_tris(self):
         m=zero_split_original_W32()
+        exact_source_A={
+            0:({"split_two_triangles":0,"same_triangle_pins":6,"connected_C6":40},
+               {"split_two_triangles":84,"same_triangle_pins":93,"connected_C6":1062}),
+            1:({"split_two_triangles":0,"same_triangle_pins":3,"connected_C6":58},
+               {"split_two_triangles":126,"same_triangle_pins":72,"connected_C6":1188})}
         for side in (0,1):
             z=full_original_W32_sector_certificate(m,side=side)
+            self.assertEqual(z["original_GF5_A_accepted_by_sector"],exact_source_A[side][0])
+            self.assertEqual(z["occupied_opposite_A_physical_H_by_sector"],exact_source_A[side][1])
             self.assertEqual(z["complete_actual_original_roots"],15)
             self.assertEqual(z["real_original_root_flag_pairs"],45)
             self.assertEqual(z["original_B_root_C4_cohorts"],135)
@@ -74,8 +81,11 @@ class CompleteOriginalTriangleCounterexample(unittest.TestCase):
         seven=historical["accepted_seven_GF5_original_Q_by_tag"]
         self.assertEqual(left["full_original_BA_or_AB_accepted"],seven["B-left/A-right"])
         self.assertEqual(right["full_original_BA_or_AB_accepted"],seven["A-left/B-right"])
-        self.assertGreater(historical["accepted_seven_GF5_original_S"],0)
-        self.assertGreater(historical["selected_GF5_51palette_certified_numerator"],0)
+        self.assertEqual(historical["accepted_seven_GF5_original_S"],123)
+        self.assertEqual(historical["selected_GF5_51palette_certified_numerator"],5591983)
+        self.assertEqual(seven,{
+            "D6":1,"B-left/A-right":46,"A-left/B-right":61,
+            "C/A":5,"C/B":0,"B/B-overlap":6,"B/B-disjoint":4})
 
     def test_06_existing_original_S68_and_lex_subset_calibration(self):
         expected={"S68":((1,0),(44,21)),"lex":((3,12),(98,110))}
