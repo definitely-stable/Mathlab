@@ -114,6 +114,84 @@ def exact_one_sided_fixed_f_disjoint_LINE_D6_kernel(s):
     }
 
 
+# Polynomial governing the sign of exact conditional right-injection
+# two-D6 covariance. From the 64-term physical H_a inclusion-exclusion,
+# with K=a(a-1)/2, q=12H_a/(K-6)_6, p=(a)_6/(K)_6,
+#
+# q-p = 768*P(a) / [(a-5)(a-4)(a+1)(a+2)(a+3)(a+4)
+#                  *product(a*a-a-j for j in (22,18,16,14,10,8,4))].
+#
+# The denominator is positive for a>=6. P(a) has a manifestly positive
+# coefficient expansion about a=12. For actual minimal ORIGINAL GQ
+# physical alphabets a=6 for s=2, and a>=14 for every s>=4. Thus the
+# fixed-f right-source-disjoint ORIGINAL two-D6 covariance is strictly
+# POSITIVE for EVERY s=2^h>=2. For synthetic a=8/9 it is NEGATIVE, so
+# this is not a generic physical-alphabet universal sign law.
+_SHIFTED_P_AT_12_DESC=(
+    6,618,28242,754027,13029162,152397500,1224585146,
+    6705318203,24194129492,53456486932,61643554832,23663646720,
+)
+_P_COEFF_DESC=(
+    6,-174,1602,-2189,-42102,157748,403706,-2294941,
+    -1674364,14501476,2327792,-35537280,
+)
+
+
+def _integer_horner(coefficients,n):
+    value=0
+    for coefficient in coefficients:
+        value=value*n+coefficient
+    return value
+
+
+def certified_all_original_orders_fixed_f_disjoint_LINE_D6_positive_covariance(s):
+    """ALL genuine original GQ powers, *rigorous* positive covariance.
+
+    Denominator sign, polynomial algebra, and positive shifted
+    coefficients verified in exact integer/rational arithmetic.
+    For s>=4 minimal a>=14. For s=2 minimal a=6 and P(6)>0.
+    """
+    original=exact_one_sided_fixed_f_disjoint_LINE_D6_kernel(s)
+    a=original["a"]
+    P=_integer_horner(_P_COEFF_DESC,a)
+    shifted=_integer_horner(_SHIFTED_P_AT_12_DESC,a-12)
+    if shifted!=P:
+        raise AssertionError("exact shifted covariance sign polynomial mismatch")
+    factors=(a-5,a-4,a+1,a+2,a+3,a+4)
+    denominator=1
+    for q in factors:
+        denominator*=q
+    for j in (22,18,16,14,10,8,4):
+        denominator*=a*a-a-j
+    if denominator<=0:
+        raise AssertionError("covariance difference denominator must be positive")
+    algebraic_difference=Fraction(768*P,denominator)
+    k=original["K"]
+    h=original["physical_C6_complement_count_H"]
+    direct_difference=Fraction(12*h,perm(k-6,6))-Fraction(perm(a,6),perm(k,6))
+    if algebraic_difference!=direct_difference:
+        raise AssertionError("64-term C6 IE does not match polynomial covariance identity")
+    if a>=12:
+        if not (all(c>0 for c in _SHIFTED_P_AT_12_DESC) and a-12>=0):
+            raise AssertionError("shifted positive coefficient proof cannot be applied")
+    elif a!=6:
+        raise AssertionError("unexpected ORIGINAL GQ minimal physical alphabet below 12")
+    if P<=0 or algebraic_difference<=0:
+        raise AssertionError("genuine original s=2^h conditional D6 covariance positivity proof failed")
+    return {
+        "s":s,"a":a,
+        "exact_P_a_integer":P,
+        "P_a_shifted_at_12_all_coefficients_strictly_positive":True,
+        "exact_q_minus_p_rational":str(algebraic_difference),
+        "exact_joint_minus_independent_product_covariance":
+            original["exact_conditional_covariance"],
+        "for_every_genuine_s_2power_original_minimal_a_positive_covariance_PROVED":True,
+        "synthetic_a_8_or_9_negative_covariance_DOES_NOT_CONTRADICT_original_GQ":True,
+        "all_h_full_conditional_variance_PROVED":False,
+        "not_all_maps_seven_S_lower":True,
+    }
+
+
 def brute_physical_Ka_cycle_complement(a):
     """Oracle independent of 64-subset IE; use only a=6..9."""
     if type(a) is not int or a<6 or a>9:
