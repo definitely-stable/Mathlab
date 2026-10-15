@@ -1,0 +1,25 @@
+{
+  "schema": "mathlab.rcp.no-go.v1",
+  "id": "HYP105-NG-ENSEMBLE-WORST",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "kind": "INVALID_INFERENCE",
+  "related_claim_ids": [
+    "HYP105-JPKC015-D6-ENSEMBLE"
+  ],
+  "evidence_ids": [
+    "HYP105-EV-JPKC015"
+  ],
+  "rejected_inference": "Positive ensemble E_(f,g) D6=Omega(s^6) forces positive inf_(f,g) D6 for globally injected maps.",
+  "witness_scope": "Independent uniform complete global pair-label injections in the minimal physical pair alphabet, not arbitrary fixed injections.",
+  "mathematical_basis": "The JPKC-015 expectation theorem concerns the ensemble. Genuine W32 fixed legal assignments with D6=0 are explicitly documented in the proof.",
+  "does_not_refute": [
+    "An all-f,g universal seven-class S lower bound through classes other than D6.",
+    "The stated expected D6 asymptotic (16/3)s^6."
+  ],
+  "reopen_only_if": "Develop an adversarially uniform charge compensation across all seven accepted ORIGINAL sixset classes, beyond ensemble averaging.",
+  "do_not_repeat": "Never treat expectation over both maps as a deterministic lower bound on every map.",
+  "root_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "prior_registry_ref": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json",
+  "review_status": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+}

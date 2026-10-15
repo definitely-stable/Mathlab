@@ -1,0 +1,25 @@
+{
+  "schema": "mathlab.rcp.no-go.v1",
+  "id": "HYP105-NG-ANCHOR-MARGINAL",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "kind": "INVALID_INFERENCE",
+  "related_claim_ids": [
+    "HYP105-EICE003K-DIRTY-ANCHOR"
+  ],
+  "evidence_ids": [
+    "HYP105-EV-EICE003K"
+  ],
+  "rejected_inference": "Uniform original nonincident (q,r) anchor end-cleanliness is asymptotically rare, therefore conditioned four-correlated source-anchor capacity C_e must be o(s^4).",
+  "witness_scope": "Uniformly chosen genuine original GQ nonincident source point-line pairs under arbitrary fixed legal complete global f,g.",
+  "mathematical_basis": "EICE-003-K proves end-dirty P<=4(a-2)/(s(s+1))=O(s^-1/2), so original uniform end-clean approaches 1; conditioned physical I1 four-anchor distribution is not this law.",
+  "does_not_refute": [
+    "The still-open conditioned four-source-anchor capacity C_e=o(s^4).",
+    "Existence of a nontrivial global GF(5) compensator under new valid hypotheses."
+  ],
+  "reopen_only_if": "Prove a valid source-to-conditioned-physical-template transport with explicit bias or derive new conditioned joint estimates independently.",
+  "do_not_repeat": "Do not transfer unconditional uniform original endpoint probabilities into the correlated physical I1/J endpoint law.",
+  "root_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "prior_registry_ref": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json",
+  "review_status": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "mathlab.rcp.evidence.v1",
+  "id": "HYP105-EV-LOCAL",
+  "claim_ids": [
+    "HYP105-LT-LOCAL-COUNTEREXAMPLE"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 466,
+    "commit": "5d2c70e3adeb1779904401f88161c9e71c884892",
+    "proof_path": "docs/research/HYP-105-ISSUE230-LOCAL-CYCLE-BARRIER.md",
+    "proof_blob_sha": "853c65cc2223a642d2417793a605d8bde720f7a6"
+  },
+  "artifacts": [
+    {
+      "role": "ORACLE_SOURCE",
+      "path": "research/hyp105_issue230_local_cycle_barrier.py",
+      "git_blob_sha": "9e928fb287805f8caa3d206d52e32ad216d6df54"
+    },
+    {
+      "role": "INDEPENDENT_TEST",
+      "path": "research/test_hyp105_issue230_local_transfer_barriers.py",
+      "git_blob_sha": "325135cb42a2fcad155d9e1f0c43312a7c3c7d59"
+    },
+    {
+      "role": "FROZEN_FIXTURE",
+      "path": "research/fixtures/hyp105_issue230_local_transfer/capacity_results.json",
+      "git_blob_sha": "a5fb156fe3042e38f6875aa54ae009c4f0d5ea44"
+    },
+    {
+      "role": "FROZEN_FIXTURE",
+      "path": "research/fixtures/hyp105_issue230_local_transfer/anchor-patch-results.json",
+      "git_blob_sha": "30c416785ed7adba6ba4ae2944bacf73ad9ea17b"
+    }
+  ],
+  "reproduction": {
+    "runner": "GITHUB_HOSTED",
+    "environment": "ubuntu-24.04 / Python 3.12 (requested baseline)",
+    "checkout_commit": "5d2c70e3adeb1779904401f88161c9e71c884892",
+    "command": "python -m unittest research.test_hyp105_issue230_local_transfer_barriers -v",
+    "execution_status": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+  },
+  "ci": {
+    "status": "NOT_ARCHIVED_AS_PROOF",
+    "note": "RCP-C verifies byte identities on exact Git commit; it does not claim a fresh execution of original PR CI or mathematical correctness."
+  },
+  "retention": "Source commit and Git blob identities are permanent Git provenance as long as repository retains the objects; GitHub Actions logs/artifacts can expire.",
+  "limitations": [
+    "An induced sparse local counterexample is not a full-model S counterfamily.",
+    "Does not refute the dense EICE-002 hypotheses."
+  ]
+}

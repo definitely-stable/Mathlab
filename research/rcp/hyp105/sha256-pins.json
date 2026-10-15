@@ -1,0 +1,23 @@
+{
+  "schema": "mathlab.rcp.sha256-pins.v1",
+  "purpose": "Independent SHA-256 content integrity pins, calculated on GitHub-hosted RCP-001-C audit of the original source aliases. Git blob SHA-1 pins are retained separately in evidence receipts.",
+  "digests": {
+    "research/rcp/hyp105/archive/PR455/independent_test.py.txt": "68060f6da3671b0e8413e8c781bab5d17e5d4bd122d144a8596cceae1a421a45",
+    "research/rcp/hyp105/archive/PR455/oracle.py.txt": "352e03e3dfc3d29b15db99d1544e5037e4a4ff52de70b9b15fd27cdf88259c7d",
+    "research/rcp/hyp105/archive/PR455/proof.md": "edbdd05a65d5ae43c3c2fcd1d04c1157f22325a0c2ef365355204a05888435f5",
+    "research/rcp/hyp105/archive/PR466/fixtures/anchor-patch-results.json": "fd03977aea03f1dfe4239a1997cadbf9f8be436bd46c99d34340ede65a1946f5",
+    "research/rcp/hyp105/archive/PR466/fixtures/capacity_results.json": "f45e92e2b9de1f046e07a69d790920be38014641a8f8ce49c8404734061f9921",
+    "research/rcp/hyp105/archive/PR466/independent_test.py.txt": "8d480d6392a46731fa14b7866f4d787eeb995527e42003c7e74d842fc07e663d",
+    "research/rcp/hyp105/archive/PR466/oracle.py.txt": "df483f95a9a58c98d8f7376017651ce89d4ce5408e6895151fb4820dec4837ea",
+    "research/rcp/hyp105/archive/PR466/proof.md": "3afd1b7edf2453324893cccf799b775a5193f5e03e86243dc4687c41430bcb7f",
+    "research/rcp/hyp105/archive/PR469/independent_test.py.txt": "dd8f792227321eccbd522a698e2965c0a70920f99cd5c0927ea83a3a450dfb9c",
+    "research/rcp/hyp105/archive/PR469/oracle.py.txt": "fafd92edaf1aa9ae6f613acf27f92a7e2a2f438a9e6e698981afb4fadfb354f2",
+    "research/rcp/hyp105/archive/PR469/proof.md": "aad2150e35f159511bf0a13e49ce4e7afd764a66a9b8ea6e483e5e8cf1d01d30",
+    "research/rcp/hyp105/archive/PR470/independent_test.py.txt": "e2e3fffc9474023cf0927c14a3c3864ffdc1328a6731e7d28bd9bf010afd3c5b",
+    "research/rcp/hyp105/archive/PR470/oracle.py.txt": "70435dabbde71233a4bccb700a6946ecb686787b7136791a4a9f201297ba405d",
+    "research/rcp/hyp105/archive/PR470/proof.md": "cf62bc27a6ab1978bbbb3a27309bcd54eebffa293cb4db7536740bcf28bbdf52",
+    "research/rcp/hyp105/archive/PR471/independent_test.py.txt": "c4b508ac2ea8abea14d526fe0a2c8b369186b133160137b96e37c18fbd98f506",
+    "research/rcp/hyp105/archive/PR471/oracle.py.txt": "eb7bd15375535202569838ddd481c33dc01faecdacfa84f92b2537dd13053908",
+    "research/rcp/hyp105/archive/PR471/proof.md": "0367bd4f644fc0e9f60659bc2b54464885979789a24f7682db6ff0e23aef5d1a"
+  }
+}

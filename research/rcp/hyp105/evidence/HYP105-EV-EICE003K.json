@@ -1,0 +1,41 @@
+{
+  "schema": "mathlab.rcp.evidence.v1",
+  "id": "HYP105-EV-EICE003K",
+  "claim_ids": [
+    "HYP105-EICE003K-DIRTY-ANCHOR"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 469,
+    "commit": "73cfebed8042f0f9b6592bd318295fb0bdf69a5b",
+    "proof_path": "docs/research/HYP-105-ISSUE230-EICE003K-CLEAN-ANCHOR-CONCENTRATION.md",
+    "proof_blob_sha": "c07ac7c9e90e4e56afc3165482d68eab633001bb"
+  },
+  "artifacts": [
+    {
+      "role": "ORACLE_SOURCE",
+      "path": "research/hyp105_issue230_clean_anchor_concentration.py",
+      "git_blob_sha": "f9d8e005c925a40b34e4d0e20adb171d22e7dcf7"
+    },
+    {
+      "role": "INDEPENDENT_TEST",
+      "path": "research/test_hyp105_issue230_clean_anchor_concentration.py",
+      "git_blob_sha": "9102ca54fe101e18d6069bc022a677b3d96d0547"
+    }
+  ],
+  "reproduction": {
+    "runner": "GITHUB_HOSTED",
+    "environment": "ubuntu-24.04 / Python 3.12 (requested baseline)",
+    "checkout_commit": "73cfebed8042f0f9b6592bd318295fb0bdf69a5b",
+    "command": "python -m unittest research.test_hyp105_issue230_clean_anchor_concentration -v",
+    "execution_status": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+  },
+  "ci": {
+    "status": "NOT_ARCHIVED_AS_PROOF",
+    "note": "RCP-C verifies byte identities on exact Git commit; it does not claim a fresh execution of original PR CI or mathematical correctness."
+  },
+  "retention": "Source commit and Git blob identities are permanent Git provenance as long as repository retains the objects; GitHub Actions logs/artifacts can expire.",
+  "limitations": [
+    "Uniform original anchor marginals do not imply conditioned four-anchor bounds."
+  ]
+}

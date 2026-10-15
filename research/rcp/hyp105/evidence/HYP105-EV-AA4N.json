@@ -1,0 +1,42 @@
+{
+  "schema": "mathlab.rcp.evidence.v1",
+  "id": "HYP105-EV-AA4N",
+  "claim_ids": [
+    "HYP105-AA4N-QUENCHED-IDENTITY",
+    "HYP105-AA4N-QUENCHED-LOWER"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 470,
+    "commit": "2af74df348a9c0921497757356199a609252f2c2",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4N-QUENCHED-RIGHT-TRANSFER.md",
+    "proof_blob_sha": "6435ed6e9c84134eb9adaf5edfe78f7b6c652bd4"
+  },
+  "artifacts": [
+    {
+      "role": "ORACLE_SOURCE",
+      "path": "research/hyp105_issue230_d6aa4n_quenched_right_transfer.py",
+      "git_blob_sha": "860f5c2b216b1d2f4c44d45c8960ade0fea18354"
+    },
+    {
+      "role": "INDEPENDENT_TEST",
+      "path": "research/test_hyp105_issue230_d6aa4n_quenched_right_transfer.py",
+      "git_blob_sha": "5529714859cd59bf8bad93896341dc52a2206777"
+    }
+  ],
+  "reproduction": {
+    "runner": "GITHUB_HOSTED",
+    "environment": "ubuntu-24.04 / Python 3.12 (requested baseline)",
+    "checkout_commit": "2af74df348a9c0921497757356199a609252f2c2",
+    "command": "python -m unittest research.test_hyp105_issue230_d6aa4n_quenched_right_transfer -v",
+    "execution_status": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+  },
+  "ci": {
+    "status": "NOT_ARCHIVED_AS_PROOF",
+    "note": "RCP-C verifies byte identities on exact Git commit; it does not claim a fresh execution of original PR CI or mathematical correctness."
+  },
+  "retention": "Source commit and Git blob identities are permanent Git provenance as long as repository retains the objects; GitHub Actions logs/artifacts can expire.",
+  "limitations": [
+    "min_g E_f and min_g max_f do not imply min_(f,g)."
+  ]
+}

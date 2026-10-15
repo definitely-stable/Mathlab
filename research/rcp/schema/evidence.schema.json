@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RCP-001-C immutable proof and oracle evidence receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "claim_ids",
+    "source",
+    "artifacts",
+    "reproduction",
+    "ci",
+    "retention",
+    "limitations"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mathlab.rcp.evidence.v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^HYP105-EV-[A-Z0-9-]+$"
+    },
+    "claim_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "pr",
+        "commit",
+        "proof_path",
+        "proof_blob_sha"
+      ],
+      "properties": {
+        "repository": {
+          "const": "definitely-stable/Mathlab"
+        },
+        "pr": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "proof_path": {
+          "type": "string",
+          "pattern": "^docs/research/"
+        },
+        "proof_blob_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "role",
+          "path",
+          "git_blob_sha"
+        ],
+        "properties": {
+          "role": {
+            "enum": [
+              "ORACLE_SOURCE",
+              "INDEPENDENT_TEST",
+              "FROZEN_FIXTURE"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "git_blob_sha": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          }
+        }
+      }
+    },
+    "reproduction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runner",
+        "environment",
+        "checkout_commit",
+        "command",
+        "execution_status"
+      ],
+      "properties": {
+        "runner": {
+          "const": "GITHUB_HOSTED"
+        },
+        "environment": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checkout_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "command": {
+          "type": "string",
+          "minLength": 1
+        },
+        "execution_status": {
+          "const": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+        }
+      }
+    },
+    "ci": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "note"
+      ],
+      "properties": {
+        "status": {
+          "const": "NOT_ARCHIVED_AS_PROOF"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "retention": {
+      "type": "string",
+      "minLength": 1
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

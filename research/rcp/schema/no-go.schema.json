@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RCP-001-C scoped no-go research event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "program",
+    "root_issue",
+    "kind",
+    "related_claim_ids",
+    "evidence_ids",
+    "rejected_inference",
+    "witness_scope",
+    "mathematical_basis",
+    "does_not_refute",
+    "reopen_only_if",
+    "do_not_repeat",
+    "root_status",
+    "prior_registry_ref",
+    "review_status"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mathlab.rcp.no-go.v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^HYP105-NG-[A-Z0-9-]+$"
+    },
+    "program": {
+      "const": "HYP-105"
+    },
+    "root_issue": {
+      "const": 230
+    },
+    "kind": {
+      "enum": [
+        "SCOPED_COUNTEREXAMPLE",
+        "INVALID_INFERENCE",
+        "MODEL_MISMATCH"
+      ]
+    },
+    "related_claim_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "evidence_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "rejected_inference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "witness_scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mathematical_basis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "does_not_refute": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "reopen_only_if": {
+      "type": "string",
+      "minLength": 1
+    },
+    "do_not_repeat": {
+      "type": "string",
+      "minLength": 1
+    },
+    "root_status": {
+      "const": "OPEN_WITH_FORMAL_BLOCKER"
+    },
+    "prior_registry_ref": {
+      "const": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json"
+    },
+    "review_status": {
+      "const": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+    }
+  }
+}
