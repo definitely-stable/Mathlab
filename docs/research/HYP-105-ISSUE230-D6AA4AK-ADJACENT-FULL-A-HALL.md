@@ -111,6 +111,25 @@ The dedicated four hosted CI groups include:
 
 The dual-zero example explicitly demonstrates complete compensation of the split-triangle zero by valid original accepted A subtypes under one SAME complete globally fixed f,g, not fake source forests or physical orbital averaging.
 
+### Full W(3,2) all-five globally coherent maps, exact four physical A sectors
+
+From the initial dedicated independent W32 source-permanent root-by-root suite [run #38775093579](https://github.com/definitely-stable/Mathlab/actions/runs/38775093579), every row below counts actual six DIFFERENT original incidence IDs, not physical candidate H or quotient orbits. Columns are split-two-triangles / same-component-two-triangles / connected-C6 disjoint physical pins / connected-C6 adjacent physical pins:
+
+| Complete globally fixed (f,g) | Typed original doubled B side | split | same | C6 disjoint | C6 adjacent | Full original B/A |
+|---|---|---:|---:|---:|---:|---:|
+| dual-zero | point | 0 | 6 | 17 | 23 | **46** |
+| dual-zero | line | 0 | 3 | 41 | 17 | **61** |
+| lex | point | 3 | 11 | 28 | 56 | **98** |
+| lex | line | 12 | 5 | 43 | 50 | **110** |
+| reverse | point | 2 | 3 | 54 | 18 | **77** |
+| reverse | line | 4 | 5 | 46 | 19 | **74** |
+| S68 | point | 1 | 1 | 35 | 7 | **44** |
+| S68 | line | 0 | 0 | 15 | 6 | **21** |
+| S72 | point | 1 | 2 | 22 | 11 | **36** |
+| S72 | line | 2 | 3 | 15 | 11 | **31** |
+
+The complete exhaustive actual original 135-rooted-cohort-per-side source Hall decomposition was independently compared on EACH cohort to the earlier physical H × 4x4 genuine original perfect matching reference, not fitted to these aggregate totals. For every map and orientation the four disjoint subcounts sum to its prior independently verified total selected original B/A or A/B class. In S68 dual orientation, BOTH triangle sectors are zero, but two genuine connected-C6 pin sectors still supply 15+6=21 original Q. This is a stronger caution against triangle-only density claims, not a counterexample to full GF5 Branch A.
+
 4. TRUE ORIGINAL W(3,4) over actual symplectic GF(4) GQ and both typed orientations, lex/random complete globally injected but non-surjective K14 pair maps (exactly six missing physical edges per type), several real roots, flags and original actually occupied complementary C4. Every anchored cohort checked against earlier independent literal H and 24-permutation actual original source rook oracle.
 5. Actual symplectic original source automorphism and TWO independently selected physical point and line coordinate relabelings preserve four-sector accepted true original totals. Malformed partial/fake originals, non-injective physical source factor maps and impossible physical C4 are rejected. Exact all-h integer degree-cap tests at h up to 25 do not simulate nonexistent large finite projective geometry.
 
