@@ -163,6 +163,34 @@ The analytic all-h proof does **not** depend on brute finite W3s runs. To guard 
 
 The TRUE ORIGINAL W(3,4) (a=14,K=91,V=85) finite fixtures lex and random each have 850 actual source root flag pairs per typed orientation; W(3,8) (a=35,K=595,V=585) each have exactly 21,060. **Neither s=4 nor s=8 falls in the NEW 16+ theorem's scope**, so we never require a positive universal pre-Hall s14/256 in these finite source fixtures. They are model falsifiers only. Original symplectic automorphisms (one common ORIGINAL point/line transport) and independent physical point/line coordinate permutations preserve full global indexed class totals, HOT counts, SAFE source rooted counts and physical occupancy counts up to relabeling. Negative controls reject noninjective physical source maps, incorrect actual original incidence graph and invalid input s.
 
+
+### Exact independent hosted authentic GQ finite safety ledger
+
+Actual true-original symplectic incidence flags, rootpair IDs, globally fixed f/g physical edge labels and missing physical edges were independently enumerated for the following fixed complete global schemes. On each source typed side all real source root+pinned two-flag pairs were counted **once**, then disjoint non-HOT physical images tested. Counts are neither abstract complete K_a pair counts nor all-h estimates.
+
+| Genuine source order | Full source labels | Repeated original B-root type | ALL indexed true source rootpairs | Physically adjacent opposite pinned pairs | Touching hot physical coordinates | Exact SAFE rootpairs |
+|---|---|---|---:|---:|---:|---:|
+| W(3,4) | lex | point | 850 | 305 | 599 | **140** |
+| W(3,4) | lex | line | 850 | 235 | 605 | **148** |
+| W(3,4) | random | point | 850 | 237 | 822 | **11** |
+| W(3,4) | random | line | 850 | 226 | 838 | **6** |
+| W(3,8) | lex | point | 21,060 | 3,682 | 9,324 | **9,302** |
+| W(3,8) | lex | line | 21,060 | 2,360 | 9,422 | **10,104** |
+| W(3,8) | random | point | 21,060 | 2,341 | 0 | **18,719** |
+| W(3,8) | random | line | 21,060 | 2,298 | 0 | **18,762** |
+
+Physical adjacency and touching-HOT sets OVERLAP, so their sizes must NOT simply be added to obtain the number of bad rootpairs. The exact verified identity is SAFE = TOTAL − |adjacent union HOT|. The random global map has no high-hole-degree physical vertices in W(3,8), hence its hot-touch count vanishes. W(3,4) physical a=14 is below the a≥32 uniform two-triangle capacity proof; W(3,8) also lies below the all-s≥16 mass theorem, so their many actual SAFE rootpairs are finite validation rather than the universal proof.
+
+On W(3,4), the independently measured occupied physical B-complement C4 populations at the selected first SAFE original source root were:
+- lex point root 6: 1,050 C4;
+- lex line root 2: 1,050 C4;
+- random point root 1: 1,144 C4;
+- random line root 18: 1,151 C4.
+
+These source-root-specific counts are all ≥the all-h W34 C4 floor 945. **They are deliberately not identified with the AA4-AF root-0 values** (which have a different source root and may therefore differ). The code now returns the selected actual original root ID and independently verifies its C4 using a separate oriented adjacency-walk/8 oracle.
+
+The final theorem does NOT need any of these finite measurements. It follows algebraically from the original line-pencil incidence bound plus exact exceptional orders 16,32,64 and the uniform analytic inequality at all s≥128.
+
 ## 5. Relation to genuine original Hall / six-channel acceptance
 
 The parallel and stacked AA4-AH theorem exactly computes the ACCEPTED two-triangle source GF5 subset as six nonnegative 2-by-2 original rook channels, whereas AG/AI physical mass P_triangle counts candidate physical e/f/g patterns **before** checking any actual source-neighborhood Hall constraints. If every accepted original six-incidence-Q is counted once, its true source four-rook permanent lies in {0,1,2} by AA4-AE, but an indexed physical pattern may have permanent ZERO.
