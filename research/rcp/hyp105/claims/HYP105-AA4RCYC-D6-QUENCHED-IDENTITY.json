@@ -1,0 +1,58 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "mode": "CONDITIONAL_EXPECTATION",
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN",
+    "MODEL-UNIFORM-GLOBAL-ENSEMBLE"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 480,
+    "commit": "53af9d2f03ef4fec147b633558a0e7bb96aea070",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md",
+    "proof_blob_sha": "5f360465a324acd606e632142aa4795c559c0d9a",
+    "stage": "OPEN_DRAFT_PR"
+  },
+  "id": "HYP105-AA4RCYC-D6-QUENCHED-IDENTITY",
+  "title": "Exact true ORIGINAL D6 fixed-point-map global right-injection expected count",
+  "statement": "For every s=2^h>=8 and every fixed complete globally injected ORIGINAL point mapping f, let N_left_C6_AA(f) count genuine SIX-DISTINCT-INCIDENCE Q with six distinct point factors and SIX distinct original line factors whose fixed physical left projection yields a simple connected coordinate C6. For ONE uniformly random complete globally injected ORIGINAL right-line mapping g, E_g[D6(f,g)|f]=((a)_6/(K)_6)*N_left_C6_AA(f), K=C(a,2)>=V minimal, V=(s+1)(s^2+1). The same g is reused across all Q, never sampled independently per Q.",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=3, s=2^h>=8"
+    },
+    {
+      "op": "forall",
+      "variable": "f",
+      "domain": "any fixed complete original point globally injected unordered physical-pair map"
+    },
+    {
+      "op": "expectation",
+      "variable": "g",
+      "domain": "one independently uniformly sampled COMPLETE globally injected original line physical-pair map, shared across ALL original Q"
+    }
+  ],
+  "depends_on_claims": [
+    "HYP105-AA4Q-SEVEN-ORIGINAL-JOIN"
+  ],
+  "external_dependencies": [
+    "Exact original seven-family positional D6 criterion on six identical original incidence IDs from AA4-Q.",
+    "Finite combinatorial uniform six-label marginal of ONE complete globally injected right map."
+  ],
+  "limitations": [
+    "A positive E_g D6 for every f does NOT imply positive D6 for every pair f,g.",
+    "No assumption of independent D6 indicators for different Q with the SAME g.",
+    "No unconditional simultaneous two-sided minimax lower is proved."
+  ],
+  "falsification_boundary": "Count only true six original incidences with six distinct source point and source line factors, and align connected ORIGINAL COLUMN physical C6. The distribution is a single complete globally injected g."
+}
