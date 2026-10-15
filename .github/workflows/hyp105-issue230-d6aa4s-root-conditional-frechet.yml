@@ -1,0 +1,70 @@
+name: hyp105-issue230-d6aa4s-root-conditional-frechet
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4s_root_conditional_frechet.py"
+      - "research/test_hyp105_issue230_d6aa4s_root_conditional_frechet.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md"
+      - ".github/workflows/hyp105-issue230-d6aa4s-root-conditional-frechet.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-original-root-strict-inequality-and-source-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact integer all-h independent source-root proof and actual 45-incidence universe
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4s_root_conditional_frechet.py" -v
+          python - <<'PY'
+          from math import comb
+          from research.hyp105_issue230_d6aa4s_root_conditional_frechet import all_h_root_conditional_frechet_no_go
+          for h in range(1,12):
+              s=1<<h
+              x=all_h_root_conditional_frechet_no_go(s)
+              assert x["strict_universe_minus_both_marginal_caps"]>0
+              assert x["best_possible_root_conditional_Frechet_lower"]==0
+              assert not x["all_h_seven_S_omega_s6_PROVED"]
+          print("ALL h exact source-root half-marginal Frechet zero, analytical s>=32 and integer h<5: PASS")
+          PY
+  genuine-real-W32-root-frechet-versus-positive-BA-joint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently count 15 original point-root source universes and exact real B/A intersections
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4s_root_conditional_frechet.py --scheme "$SCHEME" > "/tmp/aa4s-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          v=json.loads(Path("/tmp/aa4s-"+os.environ["SCHEME"]+".json").read_text())
+          r=v["actual"];x=r["per_true_original_root"]
+          assert r["scope"].startswith("genuine ORIGINAL W32")
+          assert r["source_universe_exactly_enumerated"]
+          assert r["all_15_root_frechet_floors_zero"]
+          assert len(x)==15
+          assert r["actual_total_B_left_A_right"]>0
+          assert sum(c["real_coupled_B_left_A_right_joint"] for c in x.values())==r["actual_total_B_left_A_right"]
+          for p,c in x.items():
+              assert c["root_conditional_Frechet_lower"]==0
+              assert c["true_source_universe_BA_root"]>c["actual_left_B_source_root_margin"]+c["actual_right_A_source_B_root_margin"]
+          print("REAL W32",os.environ["SCHEME"],
+                "TRUE source root universe sizes",sorted({c["true_source_universe_BA_root"] for c in x.values()}),
+                "ROOT Frechet all zero, REAL coupled GF5 B/A positive",
+                r["actual_total_B_left_A_right"])
+          PY
