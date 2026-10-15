@@ -77,6 +77,31 @@ then theta_I=o(1) would follow on every valid EICE-002 same-map high-degree G*, 
 
 In particular, the I2 physical template count A_e can be much larger than its filtered H_e. Observing H_e/A_e small for W34 Lex/Random cannot be extrapolated to adversarial correlated f,g at arbitrary s. The accepted seven GF(5) original positive-sixset classification for W34 is not available from frozen K6-specific oracle; J does NOT classify or produce a single such new positive motif.
 
+### J4-C — a simpler candidate proof gate: FOUR original end-clean anchors
+
+Since H_e <= C_e, the stronger (but OPEN) all-h theorem
+
+    max_e C_e = o(s⁴)   uniformly for all actual global injections f,g
+
+would force the needed \`max_e H_e=o(s⁴)\`, without even analyzing the final interior-blocking predicate. Here C_e is the exact count of five-incidence original source templates with ALL FOUR genuine nonincident end-clean anchors (original status in {3,4} at all four corners). An alternate sufficient global upper is \`sum_e C_e=o(s⁸)\`. Neither candidate is established. The finite cascade merely identifies this as a promising place to focus true source geometry.
+
+## J5 — exact finite source cascade, independently verified
+
+Every original source incidence e is exhausted for the four globally injected W32 schemes and W34 Lex/Random. The TRUE original source 2×2 five-incidence capacity and four-anchor cascade is:
+
+| TRUE source map | Physical templates A | Four endpoints decoded D | Four nonincident N | Four end-clean anchors C | Four internally blocked H |
+|---|---:|---:|---:|---:|---:|
+| W32 Lex | 44 | 44 | 6 | 0 | 0 |
+| W32 Reverse | 24 | 24 | 12 | 0 | 0 |
+| W32 S68 | 2 | 2 | 1 | 0 | 0 |
+| W32 S72 | 6 | 6 | 6 | 0 | 0 |
+| W34 Lex | **251 962** | **164 602** | **127 831** | **6 421** | **467** |
+| W34 Random | **212 905** | **120 908** | **94 876** | **7 968** | **575** |
+
+The maximum same-middle original source counts in W34 Lex are respectively \`3526,2634,2021,129,18\`; W34 Random \`1689,1132,1021,133,13\`. In Lex only 6421/127831≈5.02% of fully nonincident physical templates have all FOUR true anchors end-clean, then only 467/6421≈7.27% of those are all-four internally blocked. In Random the corresponding fractions are 7968/94876≈8.40% and 575/7968≈7.22%.
+
+These are finite true original globally injected source observations, NOT uniform all-h estimates. The independent complete ORIGINAL physical-NB3 G oracle yields 934 and 1150 ORIENTED allblocked squares, exactly twice the 467 and 575 original five-sets. Both mask channels agree exactly. The independent direct original four-arm enumeration checks the pair-codegree identity for every W32 middle source e and selected W34 e, and all true source-status evaluations are checked against a separately implemented original GQ anchor oracle.
+
 ## J5 — reproducible exact finite W32/W34 pipeline
 
 - \`research/hyp105_issue230_anchor_filtered_codegrees.py\`: exact source quadrant four-corner GQ anchor codegree identity, monotone cascade with clear failure stages, complete finite W32/W34 globally injected original map counts, actual original GQ girth, L/R/B typed masks and separate physical G oracle equality.
