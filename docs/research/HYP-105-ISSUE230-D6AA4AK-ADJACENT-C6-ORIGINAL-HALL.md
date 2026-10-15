@@ -102,6 +102,23 @@ Compared with the O(1/s) Hall success upper in disjoint pinned physical sectors 
 5. An actual common symplectic source automorphism of W(3,2), plus independently arbitrary point/line physical alphabet permutations, must preserve counts when following the SAME actual original pinned source flags and original four-C4-factor IDs, NOT comparing arbitrary first chosen C4 after reindexing.
 6. All exact powers s=2^h through h=43: physical missing-edge union-bound integer/Fraction thresholds, source-degree cap, conditional upper 48d²/a³ and no invalid assertion of all-map Hall success. Invalid source incidences and noninjective source physical map IDs fail closed.
 
+
+### Exact finite TRUE W(3,2) adjacent physical pins sector ledger
+
+On the true indexed original symplectic W(3,2), each tested typed pair map is a separately complete K6 pair-edge bijection and source incidence has exactly 45 actual original flags. For each of five fixed global pair-map models and EACH of the point-B/line-A and line-B/point-A orientations, the dedicated independent oracle evaluates ALL 15 original roots ×3 ACTUAL pinned original flag-pairs ×3 globally occupied point/line physical source C4s = 135 cohorts per typed orientation. The numbers below are **only ADJACENT opposite pinned physical** connected C6 contributions, not all GF5 or disjoint pinned counts. The two independent algorithms are (i) sparse 12 ordered internal original source row pairs + their actual GQ neighbor edges and (ii) all physical genuine A twofactors + true original 4×4 source girth-eight permanent.
+
+| Fixed complete true W32 typed pair map | Accepted original six-ID B/A adjacent C6 | Accepted original six-ID A/B adjacent C6 | Occupied physical opposite adjacent C6 H, B/A | Occupied physical opposite adjacent C6 H, A/B |
+|---|---:|---:|---:|---:|
+| zero-split original-global pair | 23 | 17 | 558 | 432 |
+| lex | 56 | 50 | 576 | 468 |
+| reverse | 18 | 19 | 378 | 468 |
+| S68 | 7 | 6 | 432 | 630 |
+| S72 | 11 | 11 | 450 | 630 |
+
+The zero-split W32 pair has **17/41 accepted** disjoint pinned connected C6 source Q in earlier AJ #521, plus **23/17 adjacent** from this AK theorem, exactly **40/58** full genuine ORIGINAL connected C6 accepted Q reported by earlier AA4-AI #519. The same physical occupied sectors add **504+558=1062** (point-B) and **756+432=1188** (line-B). Consequently every nonzero finite adjacent class is REAL genuine W32 accepted incidence, not an assumed missing pattern, and each is checked against the unmodified historical globally injected source model.
+
+This table does not establish a positive all-global-map accepted count at arbitrarily large s. It is finite strict original geometry regression evidence for the all-h transfer identity and an explicit confirmation that disconnected-pins-only formulas were incomplete for connected-C6 GF5.
+
 ## 6. Acceptance, nonimplications and actual next proof gate
 
 **Proved restricted all-h:** the genuine original adjacent physical pins imply a unique physical C6 oriented path; the sparse two-anchored-source-edge original 12×2 channel formula is an EXACT true-original six-ID GF5 count under every complete global f/g; its per-source-root upper 24d²; conditional on only two nonshared pinned physical missing degrees <a/16, physically occupied C6 count ≥a³/2 (s≥16) and actual Hall-positive physical fraction O(s^-5/2). Dual point/line roles hold.
