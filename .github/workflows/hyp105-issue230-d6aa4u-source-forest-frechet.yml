@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4u-source-forest-frechet
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4u_source_forest_frechet.py"
+      - "research/test_hyp105_issue230_d6aa4u_source_forest_frechet.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md"
+      - ".github/workflows/hyp105-issue230-d6aa4u-source-forest-frechet.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-genuine-GQ-forest-and-exhaustive-45choose6-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaustive TRUE original source 8,145,060 sixsets, forest topology and independent seven-GF5 tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4u_source_forest_frechet.py" -v
+  true-original-independent-source-forest-transport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual globally injected source six-ID two-half join with ALL nine source-forest universes
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4u_source_forest_frechet.py --scheme "$SCHEME" > "/tmp/aa4u-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          z=json.loads(Path("/tmp/aa4u-"+os.environ["SCHEME"]+".json").read_text())
+          t=z["forest_cells"]
+          assert z["source_population_from_all_45_choose_6"]==8145060
+          assert len(t)==9 and sum(c["point_physical_half_in_source_cell"] for c in t.values())==62370
+          assert sum(c["line_physical_half_in_source_cell"] for c in t.values())==62370
+          assert z["actual_full_seven_GF5_S"]=={"S68":68,"S72":72}[os.environ["SCHEME"]]
+          assert z["actual_genuine_D6"]==0
+          assert z["actual_full_seven_GF5_S"]==z["actual_accepted_non_A_A_seven"]+z["actual_genuine_D6"]
+          assert z["all_h_geometric_forest_partition_PROVED"]
+          assert not z["forest_conditioned_frechet_proves_all_h_S_omega_s6"]
+          assert not z["true_GLOBAL_injection_realising_relaxed_empty_intersection_PROVED"]
+          for key,cell in t.items():
+              assert cell["sharp_abstract_subset_Frechet_lower"]<=cell["actual_global_two_side_join"]
+          print("TRUE ORIGINAL W32",os.environ["SCHEME"],
+                "source forest", {k:v["true_original_source_universe"] for k,v in t.items()},
+                "real joint", {k:v["actual_global_two_side_join"] for k,v in t.items()},
+                "relaxed zero-versus-positive",z["forest_stratified_abstract_nonaligned_seven_lower"],
+                z["actual_accepted_non_A_A_seven"])
+          PY
