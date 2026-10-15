@@ -76,6 +76,9 @@ jobs:
               assert t["rooted_cohorts_exhaustively_checked"]==45
               assert t["true_original_B_physical_C4_patterns_examined"]==135
               assert t["historical_GF5_independent_Y5_and_AA4Q_agree"]
+              assert t["all_135_B_C4_independent_literal_ORIGINAL_six_ID_checks"]=="PASS"
+              assert len(t["all_45_root_two_original_flag_cohort_certificates"])==45
+              assert sum(row["accepted_by_literal_AND_4rook"] for row in t["all_45_root_two_original_flag_cohort_certificates"])==t["accepted_historical_GF5_by_exact_four_rook_2factor"]
               assert t["rooted_cohorts_with_zero_historical_GF5"]+t["rooted_cohorts_with_positive_historical_GF5"]==45
               assert set(t["nonzero_permanent_1_2_3_histogram"])=={"1","2","3"}
               assert t["physically_possible_K6_A_2factors_checked"]>=135*7
