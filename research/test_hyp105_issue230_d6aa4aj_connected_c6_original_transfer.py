@@ -98,8 +98,8 @@ class ConnectedC6OriginalTrueGQ(unittest.TestCase):
                                      old["occupied_opposite_A_physical_H_by_sector"]["connected_C6"])
                 self.assertGreaterEqual(total,0)
                 if m is maps[0]:
-                    self.assertGreater(total,0)
-                    self.assertGreater(physical,0)
+                    self.assertEqual(total,(17,41)[side])
+                    self.assertEqual(physical,(504,756)[side])
                 print("AA4AJ_W32_DISJOINT_C6",m["s"],side,total,physical,
                       "full_adjacent_plus_disjoint",
                       old["original_GF5_A_accepted_by_sector"]["connected_C6"])
@@ -124,10 +124,16 @@ class ConnectedC6OriginalTrueGQ(unittest.TestCase):
                                          sum(physical.values()))
                         old=single_original_A_sector_permanent(
                             m,side=side,root=root,pair_offset=off,four=four)
-                        self.assertEqual(z["accepted_original_connected_C6_Q"],
-                                         old["accepted"]["connected_C6"])
-                        self.assertEqual(z["occupied_physical_connected_C6_H"],
-                                         old["occupied_physical_H"]["connected_C6"])
+                        if z["pinned_physical_disjoint"]:
+                            self.assertEqual(z["accepted_original_connected_C6_Q"],
+                                             old["accepted"]["connected_C6"])
+                            self.assertEqual(z["occupied_physical_connected_C6_H"],
+                                             old["occupied_physical_H"]["connected_C6"])
+                        else:
+                            # Actual adjacent physical pinned A/C6 is
+                            # genuine, but outside AJ's disjoint domain.
+                            self.assertEqual(z["accepted_original_connected_C6_Q"],0)
+                            self.assertEqual(z["occupied_physical_connected_C6_H"],0)
 
     def test_04_symplectic_actual_source_and_independent_physical_relabels(self):
         m=zero_split_original_W32()
