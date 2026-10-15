@@ -293,7 +293,7 @@ def full_original_W32_all_four_schemes_girth8_report(scheme):
                 "actual_two_factor_completions_passing_original_Hall"]
         assert x["fully_occupied_physical_A_2factor_completions"]==old[
             "per_B_A_historical_GF5_tag"][tag][
-                "fully_occupied_opposite_physical_two_factors"]
+                "fully_occupied_opposite_physical_2factors"]
         result[tag]=x
     return {"scheme":scheme, "true_original_W32_GF5_S":historical[
                 "accepted_seven_GF5_original_S"],
