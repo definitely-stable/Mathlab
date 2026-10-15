@@ -101,6 +101,36 @@ For each true ORIGINAL S68/S72 frozen global point source f:
 
 The full second moment output also includes exact ordered pair counts by number r=0..6 of common **original source LINE IDs**, counts by sector of pairs whose conditional D6 joint probability is strictly positive, and each sector's own exact second-moment integer numerator. These are full all-ordered-pairs source histograms, unlike the single anchored line-source overlap row of #485/#487.
 
+## 3A. EXACT hosted final W32 full conditional second moments (both genuine S68 and S72)
+
+The initial GitHub-hosted dedicated [run #38692975228](https://github.com/definitely-stable/Mathlab/actions/runs/38692975228) completed **SUCCESS 3/3**, including all exact complete-original-Q S68/S72 matrix jobs and an independently coded historical-seven GF5 oracle. Both true pinned complete global f fixtures give the SAME verified exact entire finite conditional distribution first two moments; no claim of universal invariance for arbitrary f is intended.
+
+| FULL genuine original W32 source quantity | Exact verified result |
+|---|---:|
+| TRUE original LEFT six-incidence candidates Q | **21,186** |
+| DISTINCT undirected original LINE C6 D6-event types under fixed f | **17,811** |
+| Complete TRUE original ordered Q×Q source pair count | **448,846,596** |
+| Exact all-r original LINE gluing abstract relative diagrams | 13,327 |
+| Abstract dihedral cyclic gluing types in full potential diagram universe | 125 |
+| Dihedral cyclic gluing types witnessed in earlier fixed ORIGINAL single-anchor row | 112 |
+| \(\mathbb E_g[D_6(f,g)]\) | \(\boxed{1926/455}\approx4.23296703\) |
+| \(\mathbb E_g[D_6(f,g)^2]\) | \(\boxed{122607599/3783780}\approx32.40346928\) |
+| \(\operatorname{Var}_g(D_6(f,g))\) | \(\boxed{3562636447/245945700}\approx14.48545938\) |
+| Exact finite \(\Pr_g[D_6(f,g)>0]\) **lower bound**, not its true value | \(\boxed{4406857488/7969493935}\approx0.55296579\) |
+| Independently checked anchored ORIGINAL Q0 sum \(\sum_{Q'}P(D6(Q0)\land D6(Q'))\) | \(\boxed{19457/10810800}\) |
+
+**Complete genuinely original LINE-source overlap sector counts**, counting ALL distinct true ORIGINAL Q ordered pairs (not merely distinct compressed C6 event pairs), both pinned schemes:
+
+| \(|L(Q)\cap L(Q')|\) | r=0 | r=1 | r=2 | r=3 | r=4 | r=5 | r=6 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Number of ordered original Q×Q pairs | **7,884,072** | **68,447,208** | **167,701,496** | **149,522,840** | **49,756,320** | **5,411,082** | **123,578** |
+
+Their sum equals exactly **448,846,596**. The integer engine separately computes the positive/zero-joint event counts and second-moment numerator for EACH of the seven source-LINE overlap sectors; all reconcile exactly to the global second-moment numerator. All five complete original right-g checks per scheme were verified against the independent historical 62,370-original-sixset seven-class GF5 classifier (not the two-D6 kernel). The original pinned complete right g of S68/S72 has D6=0 despite the strictly positive full-uniform-g expectation and the positive Paley–Zygmund lower on the probability of some D6.
+
+This full finite conditional variance is a **new exact W32 result**, not a mathematical consequence of one anchored row alone. It relies on every true original Q's exact six-incidence-ID contribution, one single shared global g, correct all-shared-line cyclic gluing probability, and full weighted original source-LINE C6 event-class multiplicities. Original f injectivity is preserved and no per-Q right-map choice is performed.
+
+**Scientific significance:** Before V-CYC, only a uniform-in-f conditional expected D6 order \(s^6\) and one anchored second-moment row had been verified. Now at s=2 the entire distribution's first two moments are certified exactly. The strict conditional lower \(>55.2\%\) says that, for each of the TWO particular pinned real f, sampling one uniformly random complete original line map g yields at least one true D6 with probability >=0.55296. It says nothing about a deliberately chosen worst-case complete g, the true \(\Pr(D6>0)\) exact value, all s all f variance, or the root seven-class minimax.
+
 ## 4. Hard limitations and independent acceptance
 
 **OPEN_WITH_FORMAL_BLOCKER**: A true finite W32 \(D_6\) variance is not the theorem \(\min_{f,g}S_s(f,g)=\Omega(s^6)\). The all-seven exact two-sided join of #476 still requires a deterministic original geometry/physical global assignment inequality guaranteeing either many true D6 aligned Q or many NON-AA original incidence-ID joined positive GF5 sixsets. Positive \(D_6\) conditional expectation and second-moment concentration/probability cannot exclude a carefully constructed bad complete g. Do not conflate the 15-line W32 source problem with arbitrary s or a physical proper P3 motif proxy.
