@@ -41,3 +41,7 @@ python -m unittest research.test_rcp_inventory -v
 ## Structured claims and proof links
 
 RCP-001-B adds the [Claim Registry](CLAIM-REGISTRY.md): explicit mathematical quantifiers, shared model definitions, immutable identifiers, SHA-pinned source proof blobs, DAG dependencies and non-implication boundaries. Rebuild the current deterministic research claim index with `python -m research.rcp.claim_index --output /tmp/rcp-claims --verify-sources` (GitHub API read token recommended). The claim index records draft-stage mathematics, **not** independent acceptance; the open PR ancestry/CI inventory is provided by RCP-001-A above.
+
+## Durable evidence and negative results
+
+RCP-001-C adds the [Evidence & No-Go Ledger](EVIDENCE-AND-NOGO.md): permanently identifiable Git object escrow of selected five proof documents, corresponding oracle and test sources and two frozen witness fixtures, as well as five machine-linked non-implication/no-go records. Run `python -m research.rcp.evidence_ledger --output /tmp/rcp001c` for an offline SHA-verified index or add `--verify-originals` to cross-check the 17 original files at their exact GitHub commit references. These gates verify byte identity, not the correctness or novelty of mathematical assertions; root #230 stays OPEN.
