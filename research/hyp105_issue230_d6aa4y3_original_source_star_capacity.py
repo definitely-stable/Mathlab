@@ -33,8 +33,11 @@ def original_parameters(s):
     if type(s) is not int or s<2 or s&(s-1):
         raise ValueError("only genuine original W(3,2^h), h>=1")
     V=(s+1)*(s*s+1)
-    a=6
-    while a*(a-1)//2<V:
+    # Exact integer quadratic inverse; no linear iteration up to
+    # millions of physical coordinates at large genuine GQ orders.
+    from math import isqrt
+    a=max(6,(1+isqrt(1+8*V))//2)
+    if a*(a-1)//2<V:
         a+=1
     return s,s+1,V,a,a*(a-1)//2
 
