@@ -1,0 +1,96 @@
+name: hyp105-issue230-d6aa4ucyc-shared-line-gluing
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ucyc_shared_line_gluing.py"
+      - "research/test_hyp105_issue230_d6aa4ucyc_shared_line_gluing.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4UCYC-SHARED-LINE-GLUING.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ucyc-shared-line-gluing.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-exact-quenched-actual-original-shared-source-LINE-kernels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact all-h 13327-color C6 cyclic source-line gluing, independent brute6, and full true-original W32 anchored conditional joint rows
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ucyc_shared_line_gluing.py" -v
+          python research/hyp105_issue230_d6aa4ucyc_shared_line_gluing.py > /tmp/aa4ucyc-basic.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/aa4ucyc-basic.json"))
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-U-CYC-SHARED-LINE-GLUING"
+          assert x["all_h_two_C6_original_SHARED_SOURCE_LINE_gluing_polynomial_exact"]
+          assert x["one_GLOBAL_complete_right_g_and_one_FIXED_source_point_f"]
+          assert x["shared_line_C6_cyclic_positions_required_NOT_just_cardinality"]
+          assert x["all_h_exact_gluing_k0_to_k6_falling_factorial_form"]
+          assert x["disjoint_original_lines_reduces_to_earlier_AA4_T_CYC"]
+          assert x["real_physical_SIX_color_brute_crosschecks"]=={
+              "r0":36,"r2_possible":2,"r2_impossible":0,
+              "r6_identical":1,"r6_incompatible":0}
+          assert not x["all_h_minimax_original_S_Omega_s6_PROVED"]
+          assert not x["full_fixed_f_conditional_second_moment_PROVED"]
+          assert x["root_A"]==x["root_B"]=="OPEN"
+          print("ALL-h ORIGINAL D6 right-LINE-shared C6 falling-factorial gluing exact PASS")
+          PY
+  TRUE-ORIGINAL-W32-full-anchored-line-gluing-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full genuine W32 21186-Q fixed-f anchored two-D6 all-r kernel and r2 incompatible/compatible global-right GF5 witness
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4ucyc_shared_line_gluing.py --scheme "$SCHEME" > "/tmp/aa4ucyc-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from fractions import Fraction
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4ucyc-"+os.environ["SCHEME"]+".json").read_text())
+          m=x["true_original_W32_anchor"]
+          yes=x["true_original_W32_joint_r2_positive"]
+          no=x["true_original_W32_joint_r2_zero"]
+          assert m["scheme"]==yes["scheme"]==no["scheme"]==os.environ["SCHEME"]
+          assert m["source_Q_in_true_original_anchored_row"]==21186
+          assert {int(k):v for k,v in m["source_right_LINE_overlap_counts"].items()}=={
+              0:305,1:3061,2:7934,3:7173,4:2426,5:279,6:8}
+          assert sum(m["exact_original_gluing_type_counts"].values())==21186
+          assert (m["number_positive_joint_probability_pairs_from_this_anchor"]+
+                  m["number_zero_joint_probability_pairs_from_this_anchor"])==21186
+          assert m["distinct_two_C6_gluing_isomorphism_types"]>=6
+          assert Fraction(m["exact_all_21186_genuine_Q_anchored_joint_D6_probability_sum"])>Fraction(1,5005)
+          assert m["partial_anchored_row_NOT_full_conditional_second_moment"]
+          assert yes["shared_original_LINE_source_factors"]==no["shared_original_LINE_source_factors"]==2
+          assert yes["exact_independent_SIX_physical_color_bruteforce_count"]>0
+          assert no["exact_independent_SIX_physical_color_bruteforce_count"]==0
+          assert yes["historical_original_Q_two_GF5_tags"]==["D6","D6"]
+          assert yes["one_complete_g_construction"] is not None
+          assert len({tuple(e) for e in yes["one_complete_g_construction"]})==15
+          assert no["one_complete_g_construction"] is None
+          print("TRUE ORIGINAL",os.environ["SCHEME"],
+                "21,186 ANCHORED Q GLUING TYPES",m["distinct_two_C6_gluing_isomorphism_types"],
+                "ANCHORED JOINT D6 SUM",m["exact_all_21186_genuine_Q_anchored_joint_D6_probability_sum"],
+                "POSITIVE",m["number_positive_joint_probability_pairs_from_this_anchor"],
+                "INCOMPATIBLE",m["number_zero_joint_probability_pairs_from_this_anchor"])
+          print("TRUE ORIGINAL TWO COMMON LINE R2 POSITIVE Q",yes["Q0_original_six_incidence_IDs"],
+                yes["Q1_original_six_incidence_IDs"],
+                "COMPLETE RIGHT g",yes["one_complete_g_construction"])
+          print("TRUE ORIGINAL TWO COMMON LINE R2 IMPOSSIBLE Q",no["Q0_original_six_incidence_IDs"],
+                no["Q1_original_six_incidence_IDs"],
+                "CANONICAL CYCLIC TYPE",no["original_line_C6_gluing_signature"])
+          print("GENUINE ORIGINAL REAL W32 ALL-r ANCHORED D6 JOINT KERNEL AND GLOBAL GF5 WITNESS PASS; FULL VARIANCE OPEN")
+          PY
