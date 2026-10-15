@@ -119,6 +119,26 @@ The zero-split W32 pair has **17/41 accepted** disjoint pinned connected C6 sour
 
 This table does not establish a positive all-global-map accepted count at arbitrarily large s. It is finite strict original geometry regression evidence for the all-h transfer identity and an explicit confirmation that disconnected-pins-only formulas were incomplete for connected-C6 GF5.
 
+### NEW AK-4: complete all-h TRUE-original connected-C6 sparse acceptance theorem
+
+With the adjacent source-incidence/Hall contraction now proved, the companion original-GQ disjoint-pinned connected-C6 formulas from [AA4-AJ #521](https://github.com/definitely-stable/Mathlab/pull/521) can be combined **without any missing physical pin overlap sector**. Every two *different* globally injected opposite pinned physical edge labels are uniquely either ADJACENT or DISJOINT. Thus for the same ACTUAL source B-root, the same TWO pinned original incidence IDs, the same REAL four singleton source factors forming an occupied physical B-C4 and the SAME two globally complete injected typed f/g maps, the exact accepted genuine six-incidence-Q connected-C6 count is
+
+\[
+T_{\mathrm{connected\ C6}}^{\mathrm{original}}=
+\begin{cases}
+T_{\mathrm{AK,\ adjacent,\ 12\ ordered\ internal\ source\ pairs}},&
+|e_0\cap e_1|=1,\\
+T_{\mathrm{AJ,\ disjoint,\ 2\ crossed\ spoke+4\ internal\ links}},&
+|e_0\cap e_1|=0.
+\end{cases}
+\]
+
+This is an **EXHAUSTIVE deterministic all-h same-original-Q formula** for the entire *connected-C6* B/A or A/B subfamily, with no independence of global f/g, and without O(a³) brute enumeration of physical C6 paths. The parent AJ handles disjoint pins with two crossed spoke channels and four auxiliary-link patterns; new AK supplies the missing adjacent case with the actual source-two-interior-edge 12 channels. The two cases are disjoint at the level of the fixed actual ORIGINAL pinned factors and cover every valid complete typed physical opposite injection.
+
+**Algorithmic guarantee per rooted actual source B-C4 cohort:** the adjacent branch needs at most 24d² genuine original incidence assignments, and the disjoint branch uses parent AJ's independently validated source-sparse transfer with at most 48d²+192d accepted original six-Q (not a time bound on the original source-validation preprocessing). Original source C8 perfect matching double contributions survive both branches.
+
+A NEW executable \`exact_full_connected_C6_original_transfer\` dispatcher in this slice combines both mathematical proofs and records the actual adjacent/disjoint physical pin relation and proof-specific source-degree bound. Its independent test runs ALL 135 real W32 rooted cohorts on each typed source side for both a ZERO-SPLIT genuine complete globally injected pair-map model and the standard lex pair-map model, comparing EVERY cohort against an unrelated exhaustive physical six-edge twofactor enumeration followed by actual GQ 4×4 source perfect-matching permanent. The true zero-split W32 totals are **40 original B/A connected-C6 six-Q** and **58 original A/B connected-C6 six-Q**; the adjacent and disjoint constituents 23+17 and 17+41 are explicitly checked in the same source model. This is full connected-C6 closure only, NOT an all-seven-class lower or Branch A/B/C acceptance.
+
 ## 6. Acceptance, nonimplications and actual next proof gate
 
 **Proved restricted all-h:** the genuine original adjacent physical pins imply a unique physical C6 oriented path; the sparse two-anchored-source-edge original 12×2 channel formula is an EXACT true-original six-ID GF5 count under every complete global f/g; its per-source-root upper 24d²; conditional on only two nonshared pinned physical missing degrees <a/16, physically occupied C6 count ≥a³/2 (s≥16) and actual Hall-positive physical fraction O(s^-5/2). Dual point/line roles hold.
