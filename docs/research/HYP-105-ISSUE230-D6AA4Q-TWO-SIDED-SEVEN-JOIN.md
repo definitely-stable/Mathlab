@@ -92,6 +92,24 @@ Intersect the TWO dictionaries \`{true_original_6_ids: kindP}\` and \`{same_true
 
 The complete 3×3 joint matrix is evidence about ORIGINAL two-sided source/physical coupling; it must not be interpreted as independent Bernoulli half events, source-girth-only geometric control, or a universal lower across all s.
 
+
+### Exact genuine ORIGINAL W32 3×3 joint-veto numerical certificates
+
+Independent dedicated GitHub-hosted first run [#38680578506](https://github.com/definitely-stable/Mathlab/actions/runs/38680578506) is **SUCCESS all 3 jobs**, including seven independently coded tests, the separately evaluated full S68/S72 two-half matrices, and independent historical full 62,370 original GF5 classification. The exact separately recalculated 3×3 source joint and D6 veto scalar data are:
+
+| Genuine globally injected W32 scheme | ORIGINAL six-ID two-half join | A/A joint | true connected coincident A/A D6 | rejected unaligned A/A | accepted seven S | certified 51-palette numerator |
+|---|---:|---:|---:|---:|---:|---:|
+| S68 | 331 | 263 | 0 | 263 | 68 | 3,112,510 |
+| S72 | 358 | 286 | 0 | 286 | 72 | 3,283,610 |
+| lex | 623 | 379 | 15 | 364 | 259 | 11,225,795 |
+| reverse | 478 | 312 | 3 | 309 | 169 | 7,627,209 |
+
+For S68: exact A/B=21, B/A=44, B/B=3, all A/C,C/A,B/C,C/B,C/C=0, true D6=0. Thus total S=21+44+3=68, but the *pure join* count is 331, almost FIVE times larger. For S72: A/B=31, B/A=36, B/B=3, C/A=2, all remaining non-AA cells zero, D6=0. Hence exact S=31+36+3+2=72 from the intersection 358. For lex, the A/A population 379 includes exactly 15 truly aligned D6, with remaining 364 rejected, and total S=259.
+
+This is a particularly important new **mathematical transfer obstruction**: even if one could prove a large all-h bound on the RAW intersection \(|\mathcal H_P(f)\cap\mathcal H_L(g)|\), subtracting up to almost all of its unaligned A/A members can destroy its contribution to the seven-GF5 lower. One must bound either the **NON-AA joint** contribution or the exact connected coincident D6 agreement mass (or both), not merely the raw joined-sixset count. Large, exact per-side source physical A/B/C marginals do not help without the true original six-ID cross-correlations.
+
+The independent fail-closed test also uses a SYNTHETIC **non-GQ** six-incidence cycle \((p,\ell)=(0,0),(1,0),(1,1),(2,1),(2,2),(0,2)\). Separate true-injective physical source labels \(0\mapsto(0,1),1\mapsto(2,3),2\mapsto(4,5)\) produce **C/C** physical degree-two projections on six coordinates for this fake source triangle. Therefore C/C is NOT excluded by physical half degree-two constraints or injections alone: the **genuine ORIGINAL GQ girth-eight axiom is necessary**. The fake source 6-cycle is never passed off as an actual original W(3,s) witness or proof about actual GF5 risk.
+
 ## 5. Acceptance, negative controls, and next rigorous research
 
 Four additive research files: two-sided independent source join algorithm, independently authored unit tests, this all-h symbolic proof and scientific scope note, and dedicated three-job GitHub-hosted workflow with S68/S72 matrix jobs plus independent global all-seven oracle unit tests. All work remains on a new stacked D6-AA4-Q research branch; main untouched, draft only. Final exact SHA must pass dedicated, INDEX, Proof Audit, and full Research before technical acceptance, and independent mathematical peer review must still audit the general GQ incidence-girth argument and the all-h GF5 seven-tag structural definition.
