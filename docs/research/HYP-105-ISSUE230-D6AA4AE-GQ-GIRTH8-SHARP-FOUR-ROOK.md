@@ -84,6 +84,44 @@ For **true ORIGINAL W(3,2)**, iterate all 45 genuine original root/two-distinct-
 
 For real W(3,4), inspect genuine physical B/C4 root patterns where the minimal physical K_a has K>V occupied source edges; never treat an unoccupied physical pair as a realizable original GQ opposite source factor. Use one full typed globally injected original pair map, direct source-graph incidence for all H. Strict negatives reject fake source Q flag sets, duplicate labels, malformed 4×4 matrices and invalid original factors; a fake K2,2-free C6 with permanent3 must be rejected.
 
+
+### Complete executable finite results, original witnesses and exact provenance (15 Oct 2026)
+
+The independent 65,536 binary 4×4 census, separated into disjoint source-C4/source-C6 obstruction classes, produced:
+
+| Binary 4×4 local-source category | Exact count |
+|---|---:|
+| Contains forbidden original C4 | 47,015 |
+| C4-free but contains forbidden original C6 | 2,304 |
+| C4/C6-free, four-rook permanent 0 | 11,321 |
+| C4/C6-free, four-rook permanent 1 | 4,824 |
+| C4/C6-free, four-rook permanent 2 | **72** |
+| Total | **65,536** |
+
+These are binary local incidence-matrix counts, **not** counts of four-point/four-line selections in real W(3,s) or claims that all locally valid matrices embed into any fixed GQ.
+
+A concrete selected **REAL original W(3,2) lex A-left/B-right source C8 witness**, reconstructed under the same complete globally injected original lex pair maps and cross-checked against the historical AA4-Q true original six-Q join, is:
+
+- B-side typed factor: original LINE; repeated B root original factor ID **11**; pinned ACTUAL original six-incidence IDs **(34,35)**.
+- Four other different original B (line) factor IDs: **(0,3,6,12)**.
+- Four different original A (point) factor IDs: **(1,2,5,12)**.
+- REAL ORIGINAL four-by-four GQ incidence row masks in the written order: **(3,5,10,12)**. This is an induced **source eight-cycle** with exactly two alternating perfect matchings and no 4/6 source cycle.
+- Their one globally fixed physical six-edge 2factor: **(02,03,12,15,34,45)** (unordered physical coordinate pairs; not new source incidences).
+- This is the **only** two-matching original B/A or A/B completion among the four FULL W32 map fixtures S68/S72/lex/reverse under test; all other Hall-positive physical completions contribute exactly ONE original perfect matching.
+
+| Actual complete W32 global pair | Source GF5 original tag | Hall-positive physical 2factors | Original C8 double matchings | Accepted six-distinct-original-ID GF5 |
+|---|---|---:|---:|---:|
+| S68 | B-left/A-right | 44 | 0 | 44 |
+| S68 | A-left/B-right | 21 | 0 | 21 |
+| S72 | B-left/A-right | 36 | 0 | 36 |
+| S72 | A-left/B-right | 31 | 0 | 31 |
+| lex | B-left/A-right | 98 | 0 | 98 |
+| lex | A-left/B-right | **109** | **1** | **110** |
+| reverse | B-left/A-right | 77 | 0 | 77 |
+| reverse | A-left/B-right | 74 | 0 | 74 |
+
+This yields **exact** original-rooted finite data and a physical selected source-C8 witness for the sharp genuine GQ permanent bound. The comparison against abstract sibling Y6's sharp K2,2-free permanent THREE is a strict GQ-girth-eight correction, **not** a mistake in the sibling's stated abstract upper bound. Every true W32 row also independently satisfies the older physical-2factor counts and full-seven historical weighted GF5 lower numerator; no R3/ASET inference or h→∞ extrapolation is made.
+
 ## 5. Scientific follow-up: all-h globally correlated Hall-positive completion MASS
 
 The new ALL-h exact source girth8 decomposition makes the next genuine obstacle even clearer:
