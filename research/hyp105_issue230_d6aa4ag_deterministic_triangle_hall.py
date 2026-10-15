@@ -93,7 +93,8 @@ def independent_common_neighbors(occupied,e0,e1,a):
 
 def original_triangle_hall_cohort(model,*,side=0,root=0,pair_offset=0,max_C4=3):
     """TRUE GQ source incidence, one f,g, exact triangle Hall/C8 identity."""
-    V,a,inc=_valid_original_model(model)
+    V,a,_=_valid_original_model(model)
+    inc=tuple(tuple(z) for z in model["incidences"])
     if type(side) is not int or side not in (0,1):
         raise ValueError("typed side must be point=0/line=1")
     if type(root) is not int or not 0<=root<V:
