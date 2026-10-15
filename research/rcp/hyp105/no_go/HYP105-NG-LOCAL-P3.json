@@ -1,0 +1,25 @@
+{
+  "schema": "mathlab.rcp.no-go.v1",
+  "id": "HYP105-NG-LOCAL-P3",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "kind": "SCOPED_COUNTEREXAMPLE",
+  "related_claim_ids": [
+    "HYP105-LT-LOCAL-COUNTEREXAMPLE"
+  ],
+  "evidence_ids": [
+    "HYP105-EV-LOCAL"
+  ],
+  "rejected_inference": "An end-clean original three-incidence anchor plus several coordinate-proper physical P3 paths forces an accepted positive ORIGINAL six-incidence GF(5) motif inside the selected physical pattern.",
+  "witness_scope": "A selected induced 18-original-incidence sparse subuniverse embedded for every s=2^h>=8, not the full global incidence graph.",
+  "mathematical_basis": "True original construction has five end-clean proper P3 sharing endpoints but all ten selected C6 improper and all seven positive sixset counts zero.",
+  "does_not_refute": [
+    "The global dense high-minimum-degree EICE-002 transfer target.",
+    "The universal root A/B/C alternatives for the complete full-map S."
+  ],
+  "reopen_only_if": "Add a genuinely global density, cut or extension hypothesis and establish a model-preserving transfer that excludes this local sparse witness.",
+  "do_not_repeat": "Do not reuse this local pattern as a counterexample to universal full-map S or as a proof that all original anchor transfer is impossible.",
+  "root_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "prior_registry_ref": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json",
+  "review_status": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+}
