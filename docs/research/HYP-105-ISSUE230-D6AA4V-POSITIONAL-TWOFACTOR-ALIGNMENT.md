@@ -101,6 +101,42 @@ Check the full histograms for S68/S72/lex/reverse and four seeded independent fu
 6. fake regular no-C4 but true-GQ-C6 countermodel rejection, and source-factor global non-injection rejection,
 7. no false acceptance of \(\rho=6\) disconnected T/T as D6.
 
+### Independently hosted exact TRUE ORIGINAL W32 complete AA positional histograms
+
+The two genuine-original S68/S72 GitHub-hosted matrix jobs passed and independently cross-checked the same-Q, full-history selected GF5 tags. They yielded:
+
+| Verified true original exact item | S68 | S72 |
+|---|---:|---:|
+| All joint actual original Q, J | 331 | 358 |
+| Physical A/A genuine Q | 263 | 286 |
+| Both original-column duals connected C6, M_CC | **191** | **200** |
+| Total common original-column edges of these C6 pairs, E_CC | **301** | **362** |
+| Deterministic overlap threshold E_CC−4M_CC | **−463** | **−438** |
+| Actual positive aligned D6 | **0** | **0** |
+| All seven selected GF5 S | **68** | **72** |
+
+For reproducibility, the exact physical dual-shape/overlap histograms on the ORIGINAL same source Q are:
+
+| Positional types, rho | S68 | S72 |
+|---|---:|---:|
+| C/C:0 | 35 | 26 |
+| C/C:1 | 65 | 59 |
+| C/C:2 | 42 | 53 |
+| C/C:3 | 44 | 51 |
+| C/C:4 | 5 | 11 |
+| C/C:6 (accepted D6) | 0 | 0 |
+| C/T:0 | 11 | 10 |
+| C/T:2 | 18 | 19 |
+| C/T:4 | 2 | 6 |
+| T/C:0 | 8 | 6 |
+| T/C:2 | 24 | 29 |
+| T/C:4 | 1 | 5 |
+| T/T:2 | 8 | 11 |
+| T/T:6 (unaccepted) | 0 | 0 |
+| **All A/A** | **263** | **286** |
+
+These exact numbers are frozen as an independent regression. The large negative thresholds show that the new every-f,g condition is mathematically valid but does NOT prove positivity on these particular globally coherent real W32 pairs. The actual FULL seven S remains nonzero due to the separately positively accepted non-AA classes. They do not disprove all-h Branch A.
+
 ### Source and physical scope of the proof
 
 The 70×70 matrix itself is a finite six-position combinatorial identity with universal applicability for all s; it is NOT a finite W32-only statistical pattern. The identity and the conditional lower are every-f,g, all-h exact. The tested ORIGINAL S68/S72 full-global failure of a coarse *unconditional* D6 lower remains valid and shows why the new threshold is conditional.
