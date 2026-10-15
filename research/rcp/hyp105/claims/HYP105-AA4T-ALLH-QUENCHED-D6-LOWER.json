@@ -43,13 +43,13 @@
   ],
   "statement": "For every h>=1, s=2^h>=2 and EVERY complete globally injected original point map f, with a minimal binom(a,2)>=V=(s+1)(s^2+1), K=binom(a,2), m=K-V and d=s+1, the occupied physical C6 count is at least (a)_6/12-m(a-2)_4>0. True original GQ d-regularity and Hall's theorem give at least max(1,(d)_6) distinct-source-line assignments to six distinct original point factors. Thus T_f>=[(a)_6/12-m(a-2)_4]*max(1,(d)_6), yielding E_g D6(f,g)>=s^6/98304 under ONE uniformly sampled complete globally injected original line map g. At s>=8 the previously registered AA4R bound E_g D6>=s^6/8 is quantitatively stronger; this result contributes h=1,2 coverage and the explicit tensor bridge.",
   "depends_on_claims": [
-    "HYP105-AA4T-QUENCHED-TENSOR-IDENTITY",
-    "HYP105-AA4RCYC-D6-QUENCHED-LOWER"
+    "HYP105-AA4T-QUENCHED-TENSOR-IDENTITY"
   ],
   "external_dependencies": [
     "Minimal physical alphabet missing-edge cycle union bound and exact (a)_6/12 unoriented connected K_a six-cycle count.",
     "True d-regular original GQ bipartite point-line incidence graph, Hall's theorem for d<6 and greedy distinct-line choices for d>=6.",
-    "Exact rational s=2,4 boundary and elementary analytic inequalities for s>=8, pinned in source PR484."
+    "Exact rational s=2,4 boundary and elementary analytic inequalities for s>=8, pinned in source PR484.",
+    "Previously independently registered AA4R quenched D6 bound s^6/8 for h>=3 is quantitative comparison only, not used to prove the weaker all-h 1/98304 floor."
   ],
   "limitations": [
     "This weaker all-h 1/98304 estimate must not replace AA4R's stronger s>=8 1/8 estimate.",
