@@ -41,7 +41,7 @@ jobs:
       - name: Commit derived documentation only on the internal draft branch
         shell: bash
         env:
-          PR_BRANCH: __HEAD_REF__
+          PR_BRANCH: ${{ github.head_ref || github.ref_name }}
         run: |
           git add docs/research/hyp105/registry/
           if ! git diff --cached --quiet; then
