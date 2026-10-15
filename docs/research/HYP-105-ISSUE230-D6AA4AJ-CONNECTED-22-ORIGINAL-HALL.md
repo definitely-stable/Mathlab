@@ -100,6 +100,22 @@ Versioned code: `research/hyp105_issue230_d6aa4aj_connected_22_hall.py`. Indepen
 
 Reproduce via `PYTHONPATH=research python -m unittest -v research/test_hyp105_issue230_d6aa4aj_connected_22_hall.py` or dedicated hosted workflow. Record exact PR-head GitHub-hosted checks **after they finish**, never before; record independent mathematical review distinctly from CI. Do not close #230.
 
+
+### Exact hosted frozen partial-original table (45 selected cohorts per orientation)
+
+The hosted [AA4-AJ dedicated run #38771102935](https://github.com/definitely-stable/Mathlab/actions/runs/38771102935), on commit `36ee01caa534ab45eb91cb9ab0fd7494f1c10a9c`, ran both methods on **each of 45 selected genuine W32 cohorts** (first actual occupied C4 for every one of 15 source roots and each of its three genuine flag pairs) under the SAME complete `f,g` for each fixed scheme. These are selected-cohort counts, **not** the full 135-cohort sector counts, not optimized minima, and not all-h Hall densities.
+
+| Global original W32 label fixture | Source B orientation | Cohorts | Occupied physical 2+2 C6 | Accepted original six-ID GF5 |
+|---|---|---:|---:|---:|
+| lex | point | 45 | 52 | 5 |
+| lex | line | 45 | 76 | 3 |
+| S68 | point | 45 | 84 | 4 |
+| S68 | line | 45 | 40 | 4 |
+| S72 | point | 45 | 80 | 4 |
+| S72 | line | 45 | 40 | 3 |
+
+The eight dedicated independent-original tests also exhaust **all 135 C4 cohorts** on the dual split-zero true W32 witness from PR #519 and compare directly against an unrelated complete original-cycle/24-permutation enumeration and its previously certified full connected-C6 totals. The selected 45-cohort table is supplementary auditable evidence; each run's `AA4_AJ_GENUINE_ORIGINAL` JSON is available in the hosted matrix job log.
+
 ## 6. Next missing lemma and integration
 
 The decisive unresolved statement is an **all-map true-original connected-2+2 Hall-positive density** `rho22(f,g)>=c*s^-8` for all sufficiently large `s=2^h`, *or a rigorously quantified counterfamily to that restricted claim*. An additional alternative is direct global S control via the other two-thirds of connected C6 and the six other GF(5) modes. The new finite evidence should be examined for which route is credible; **no expectation-to-minimum inference** is allowed.
