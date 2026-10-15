@@ -28,8 +28,8 @@
   "quantifiers": [
     {
       "op": "forall",
-      "variable": "s",
-      "domain": "single finite original W(3,2) source geometry; NOT an all-h assertion"
+      "variable": "h",
+      "domain": "integer h=1, s=2^h=2; single FINITE original W(3,2) geometry, NOT all h"
     },
     {
       "op": "exists",
