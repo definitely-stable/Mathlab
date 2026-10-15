@@ -133,6 +133,62 @@ S_s(f,g)=\bigl|\mathcal{H}_P(f)\cap\mathcal{H}_L(g)\bigr|-\bigl|\mathcal{A}_{AA}
 
 **Pinned source:** [PR #476 @ a51ce5aeb788](https://github.com/definitely-stable/Mathlab/blob/a51ce5aeb7883dcd029b9275ce44eaca9a60370f/docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md)
 
+## HYP105-F-010 — Exact fixed-point-map original D6 conditional alignment probability and count
+
+\[
+K=\binom a2,\quad V=(s+1)(s^2+1),\quad p_{D_6}(a,K)=\frac{(a)_6}{(K)_6},\qquad \mathbb E_{g}[D_6(f,g)\mid f]=p_{D_6}(a,K)\,N_{\mathrm{left\,C6,AA}}(f).
+\]
+
+**Applies under:** s=2^h>=8; every fixed complete global original point injection f, one uniformly sampled complete globally injected original line map g, shared across all genuine six-distinct-incidence sets.
+
+**Cannot conclude:** A positive expectation does not imply D6(f,g)>0 under an adversarially fixed right g.
+
+**Linked claim:** HYP105-AA4RCYC-D6-QUENCHED-IDENTITY
+
+**Pinned source:** [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md)
+
+## HYP105-F-011 — Deterministic occupied coordinate C6 and true original distinct-source-flag bound
+
+\[
+m=K-V,\quad 0\le m\le a-2,\quad C_s=\frac{(a)_6}{12}-m(a-2)_4,\quad N_{\mathrm{left\,C6,AA}}(f)\ge C_s(s+1)_6.
+\]
+
+**Applies under:** s=2^h>=8, physical alphabet a minimal with binom(a,2)>=V; fixed full globally injected original point map f; (s+1)_6 counts distinct original line choices via the true source incidence degree.
+
+**Cannot conclude:** Occupied physical six-cycles are only left candidates, not individually accepted D6 motifs for every fixed globally injected g.
+
+**Linked claim:** HYP105-AA4RCYC-D6-QUENCHED-LOWER
+
+**Pinned source:** [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md)
+
+## HYP105-F-012 — Every fixed f direct original D6 conditional mean lower
+
+\[
+\forall f,\ s=2^h\ge8:\quad \mathbb E_g[D_6(f,g)\mid f]\ge\frac{(a)_6}{(K)_6}\left[\frac{(a)_6}{12}-(K-V)(a-2)_4\right](s+1)_6\ge\frac{s^6}{8}.
+\]
+
+**Applies under:** h>=3; fixed arbitrary complete original global point injection f and a SINGLE uniformly random complete original global line injection g; exact finite s=8..128 checks plus all s>=256 source inequalities.
+
+**Cannot conclude:** min_f max_g S>=s^6/8 is not min_(f,g) S>=s^6/8; no probability concentration is asserted.
+
+**Linked claim:** HYP105-AA4RCYC-D6-QUENCHED-LOWER
+
+**Pinned source:** [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md)
+
+## HYP105-F-013 — True original GQ-dual fixed g direct D6 conditional lower
+
+\[
+\forall g,\ s=2^h\ge8:\quad \mathbb E_f[D_6(f,g)\mid g]\ge\frac{s^6}{8},\qquad \min_g\max_f S_s(f,g)\ge\frac{s^6}{8}.
+\]
+
+**Applies under:** h>=3; every fixed complete original globally injected line map g; f uniformly sampled from complete globally injected original point physical-edge maps using true original W(3,s) point-line incidence duality.
+
+**Cannot conclude:** Does not imply a universal pointwise bound for every f,g nor a full seven-class root theorem.
+
+**Linked claim:** HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER
+
+**Pinned source:** [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md)
+
 ## Formula review protocol
 
 Verify original six-incidence constraints, alphabet, all-h range, global injection semantics, and quantifier order against the cited proof commit. CI does not mechanically check the algebra.

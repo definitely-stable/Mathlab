@@ -19,8 +19,11 @@
     "research/rcp/hyp105/archive/PR471/independent_test.py.txt": "c4b508ac2ea8abea14d526fe0a2c8b369186b133160137b96e37c18fbd98f506",
     "research/rcp/hyp105/archive/PR471/oracle.py.txt": "eb7bd15375535202569838ddd481c33dc01faecdacfa84f92b2537dd13053908",
     "research/rcp/hyp105/archive/PR471/proof.md": "0367bd4f644fc0e9f60659bc2b54464885979789a24f7682db6ff0e23aef5d1a",
-    "research/rcp/hyp105/archive/PR476/proof.md": "047f8f91ef4afac850765c7131abdb83366f4d7196805ff4785e1b4b92cde387",
+    "research/rcp/hyp105/archive/PR476/independent_test.py.txt": "033b2b382e2b50617dbe97bd5d078b0f6a876136c5a3e17e7f95ab6951746eaf",
     "research/rcp/hyp105/archive/PR476/oracle.py.txt": "ad23c12c48ae42f3156563b1444249b59d0be69fc77b15e7337ec43c5ab4d17e",
-    "research/rcp/hyp105/archive/PR476/independent_test.py.txt": "033b2b382e2b50617dbe97bd5d078b0f6a876136c5a3e17e7f95ab6951746eaf"
+    "research/rcp/hyp105/archive/PR476/proof.md": "047f8f91ef4afac850765c7131abdb83366f4d7196805ff4785e1b4b92cde387",
+    "research/rcp/hyp105/archive/PR480/independent_test.py.txt": "9a018f5552244f2aad5a9f285257c961ef5b37a44964d5d0870ae962534cfb93",
+    "research/rcp/hyp105/archive/PR480/oracle.py.txt": "80b49d705787e4c72f8e4b9e3e7f0ed71c5c062aac1e9e4e805f1d42e42b2dd4",
+    "research/rcp/hyp105/archive/PR480/proof.md": "56978955a12739e4b0fd250712aaa4b10036d35ac0dda638907defabd3c8420c"
   }
 }

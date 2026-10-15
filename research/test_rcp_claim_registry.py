@@ -114,8 +114,10 @@ class RegistryTests(unittest.TestCase):
         sources = {c["source"]["commit"] for c in claims}
         self.assertGreaterEqual(len(sources), 5)
         self.assertTrue(all(len(s) == 40 for s in sources))
-        self.assertEqual(sum(1 for c in claims if c["mode"] ==
-                             "CONDITIONAL_EXPECTATION"), 2)
+        self.assertEqual(sum(1 for c in claims if c["source"]["pr"] == 470
+                             and c["mode"] == "CONDITIONAL_EXPECTATION"), 2)
+        self.assertGreaterEqual(sum(1 for c in claims if
+                                    c["mode"] == "CONDITIONAL_EXPECTATION"), 2)
 
     def test_verified_source_blobs_match_pinned_hash(self):
         _, claims = read_registry(self.root)

@@ -1,0 +1,45 @@
+{
+  "schema": "mathlab.rcp.evidence.v1",
+  "id": "HYP105-EV-AA4RCYC",
+  "claim_ids": [
+    "HYP105-AA4RCYC-D6-QUENCHED-IDENTITY",
+    "HYP105-AA4RCYC-D6-QUENCHED-LOWER",
+    "HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 480,
+    "commit": "53af9d2f03ef4fec147b633558a0e7bb96aea070",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md",
+    "proof_blob_sha": "5f360465a324acd606e632142aa4795c559c0d9a"
+  },
+  "artifacts": [
+    {
+      "role": "ORACLE_SOURCE",
+      "path": "research/hyp105_issue230_d6aa4r_quenched_original_d6.py",
+      "git_blob_sha": "ba0d47134dad74bfc8ff9acf7dea8556400c60af"
+    },
+    {
+      "role": "INDEPENDENT_TEST",
+      "path": "research/test_hyp105_issue230_d6aa4r_quenched_original_d6.py",
+      "git_blob_sha": "582850332c7c1252e3d669e74980625527dbd0ee"
+    }
+  ],
+  "reproduction": {
+    "runner": "GITHUB_HOSTED",
+    "environment": "ubuntu-24.04 Python 3.12 documented source baseline",
+    "checkout_commit": "53af9d2f03ef4fec147b633558a0e7bb96aea070",
+    "command": "python -m unittest research.test_hyp105_issue230_d6aa4r_quenched_original_d6 -v",
+    "execution_status": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+  },
+  "ci": {
+    "status": "NOT_ARCHIVED_AS_PROOF",
+    "note": "The research PR #480 recorded CI SUCCESS on pinned head. Provenance and checksum verification does not independently prove all-h inequality."
+  },
+  "retention": "Three exact Git blobs are escrowed in this infrastructure child branch; they become durable via integration into retained main history. CI artifacts are temporary.",
+  "limitations": [
+    "All-h claim concerns the conditional expectation under one independently uniform FULL source-side global injection, never worst-case inf_(f,g).",
+    "Finite W(3,2) calibration confirms the exact distribution only at the selected finite original source geometry; analytic all-h proof is pinned in original source PR480.",
+    "The source research PR #480 remains independent Draft and no mathematical peer-review acceptance is assumed."
+  ]
+}

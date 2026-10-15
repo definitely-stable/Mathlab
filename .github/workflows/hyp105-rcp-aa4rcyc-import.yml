@@ -1,0 +1,42 @@
+name: hyp105-rcp-aa4rcyc-import
+
+on:
+  pull_request:
+    paths:
+      - "research/rcp/**"
+      - "research/test_rcp_aa4rcyc_import.py"
+      - "docs/research/hyp105/**"
+      - ".github/workflows/hyp105-rcp-aa4rcyc-import.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: hyp105-rcp-aa4rcyc-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  source-docs-and-math-verification:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify original proof files, mathematical quantifiers and exact rational bounds
+        run: python -m unittest research.test_rcp_aa4rcyc_import -v
+      - name: Verify full evidence/claim sources and emit four updated structured Markdown views
+        run: |
+          python -m research.rcp.claim_registry
+          python -m research.rcp.evidence_ledger --output /tmp/hyp105-aa4rcyc-ledger
+          python -m research.rcp.structured_docs --check
+          python -m research.rcp.structured_docs --check
+      - name: Verify all registered scientific Markdown is in sync
+        run: python -m research.rcp.structured_docs --check

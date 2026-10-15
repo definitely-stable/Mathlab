@@ -1,0 +1,57 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "mode": "CONDITIONAL_EXPECTATION",
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN",
+    "MODEL-UNIFORM-GLOBAL-ENSEMBLE"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 480,
+    "commit": "53af9d2f03ef4fec147b633558a0e7bb96aea070",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md",
+    "proof_blob_sha": "5f360465a324acd606e632142aa4795c559c0d9a",
+    "stage": "OPEN_DRAFT_PR"
+  },
+  "id": "HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER",
+  "title": "GQ-dual every-fixed-original-line-map direct D6 conditional expectation lower",
+  "statement": "By genuine W(3,s) original point-line incidence duality, for every s=2^h>=8 and every fixed complete globally injected ORIGINAL line map g, one uniformly random COMPLETE globally injected ORIGINAL point map f satisfies E_f[D6(f,g)|g]>=s^6/8. Therefore min_g max_f S_s(f,g)>=s^6/8. This is the quantified dual of the fixed-f theorem and does not imply min_(f,g) S_s(f,g)>=c s^6.",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=3, s=2^h>=8"
+    },
+    {
+      "op": "forall",
+      "variable": "g",
+      "domain": "any fixed complete original line globally injected unordered physical-pair map"
+    },
+    {
+      "op": "expectation",
+      "variable": "f",
+      "domain": "one independently uniformly sampled COMPLETE globally injected original point physical-pair map, shared across ALL original Q"
+    }
+  ],
+  "depends_on_claims": [
+    "HYP105-AA4RCYC-D6-QUENCHED-LOWER"
+  ],
+  "external_dependencies": [
+    "True original symplectic generalized quadrangle W(3,s) is self-dual under point-line incidence duality; same minimal physical alphabet and D6 positional classifier."
+  ],
+  "limitations": [
+    "Symmetry swaps fixed/averaged typed source maps but does not remove the expectation quantifier.",
+    "There is no deterministic all-f,g lower bound or ROOT_BRANCHES proof.",
+    "This conditional D6 bound is different from AA4-N's auxiliary B/A charge expectation."
+  ],
+  "falsification_boundary": "Preserve point-line duality on actual original W(3,s) factors and independently uniform complete global point map. Does not hold for arbitrary nondual source structures without proof."
+}

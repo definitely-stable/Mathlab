@@ -67,3 +67,7 @@ The A→E provenance and proof-impact infrastructure is integrated into `main`. 
 ## Newly registered scientific AA4-Q source (proof status remains draft)
 
 [RCP-AA4Q original seven-GF(5) join and C/C girth import](AA4Q-IMPORT.md) stores two separately scoped all-h deterministic claims, the original proof/oracle/test Git blobs from [scientific PR #476](https://github.com/definitely-stable/Mathlab/pull/476), exact independent SHA-256 pins, two formula entries, and a W32 one-side-marginal non-identification no-go. The five [permanent structured research Markdown registers](registry/RESULTS.md) are regenerated and GitHub-hosted CI verifies byte parity. Mathematical status remains `DOCUMENTED_IN_DRAFT / NOT_REVIEWED`; no claim of root Branch A/B/C proof acceptance is made.
+
+## Original D6 fixed-side conditional theorem import
+
+See [AA4-R-CYC provenance](AA4RCYC-IMPORT.md): source [research PR #480](https://github.com/definitely-stable/Mathlab/pull/480) is pinned by original Git blob SHA-1 and independently computed SHA-256, with three scoped mathematical claims, four LaTeX formulas and an explicit expectation-to-pointwise no-go. In particular, `forall f, E_g[D6(f,g)|f] >= s^6/8` and its genuine GQ dual are NOT claims about `inf_(f,g) S_s(f,g)`. Rebuild `registry/*.md` using `python -m research.rcp.structured_docs --write` and check the exact bytes using `--check`. The original scientific PR remains separate and unreviewed.
