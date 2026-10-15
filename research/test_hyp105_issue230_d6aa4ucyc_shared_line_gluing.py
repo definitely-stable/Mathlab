@@ -99,7 +99,12 @@ class TrueOriginalSharedLineCycleGluingTests(unittest.TestCase):
             self.assertEqual(z["source_Q_in_true_original_anchored_row"],21186)
             self.assertEqual(z["source_right_LINE_overlap_counts"],{
                 0:305,1:3061,2:7934,3:7173,4:2426,5:279,6:8})
-            self.assertGreater(z["distinct_two_C6_gluing_isomorphism_types"],5)
+            self.assertEqual(z["distinct_two_C6_gluing_isomorphism_types"],112)
+            self.assertEqual(z["number_positive_joint_probability_pairs_from_this_anchor"],6192)
+            self.assertEqual(z["number_zero_joint_probability_pairs_from_this_anchor"],14994)
+            self.assertEqual(
+                Fraction(z["exact_all_21186_genuine_Q_anchored_joint_D6_probability_sum"]),
+                Fraction(19457,10810800))
             self.assertEqual(
                 z["number_positive_joint_probability_pairs_from_this_anchor"]+
                 z["number_zero_joint_probability_pairs_from_this_anchor"],21186)
