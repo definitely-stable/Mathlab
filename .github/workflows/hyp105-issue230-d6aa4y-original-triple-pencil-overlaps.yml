@@ -1,0 +1,77 @@
+name: hyp105-issue230-d6aa4y-original-triple-pencil-overlaps
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4y_original_triple_pencil_overlaps.py"
+      - "research/test_hyp105_issue230_d6aa4y_original_triple_pencil_overlaps.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4Y-ORIGINAL-TRIPLE-PENCIL-OVERLAPS.md"
+      - ".github/workflows/hyp105-issue230-d6aa4y-original-triple-pencil-overlaps.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-exact-three-pencil-geometry-and-selected-GF5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact ALL-h source triple-pencil original-GQ collision IE and 10 independent tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4y_original_triple_pencil_overlaps.py" -v
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4y_original_triple_pencil_overlaps import (
+              all_h_true_original_triple_pencil_capacity,
+              full_global_uniform_AC_CA_selected_GF5)
+          for s,src,mean in ((2,6225,Fraction(74700,13013)),
+                             (4,87808400,Fraction(202837404000,9877487))):
+              obj=full_global_uniform_AC_CA_selected_GF5(s)
+              assert all_h_true_original_triple_pencil_capacity(s)["source_original_A/C_six_incidence_Q"]==src
+              assert obj["two_UNIFORM_complete_global_maps_expected_selected_C/A"]==mean
+              assert obj["leading_three_selected_tag_expected_over_s6"]==Fraction(160,3)
+              assert obj["does_NOT_imply_adversarial_infimum"]
+              print("TRUE original all-h triple-pencil source A/C",s,src,
+                    "both-global-ensemble selected GF5 C/A",mean)
+          PY
+  independent-real-original-GQ-three-pencil-triples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        source_s: [2, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaust ALL true source GQ 15/85 original line-center triples and independent local point-neighbor choices
+        env:
+          SOURCE_S: ${{ matrix.source_s }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import os
+          from math import comb
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4y_original_triple_pencil_overlaps import (
+              all_h_true_original_triple_pencil_capacity,
+              independent_real_original_line_triple_census,
+              real_original_W32_bruteforce_all_three_pencils)
+          s=int(os.environ["SOURCE_S"])
+          model=fixture({2:1,4:2}[s],"lex")
+          exact=all_h_true_original_triple_pencil_capacity(s)
+          data=independent_real_original_line_triple_census(model,max_weighted_trials=200)
+          assert data["actual_original_line_triple_cell_counts"]==exact[
+              "three_source_line_center_triple_type_counts"]
+          assert data["number_actual_source_line_triples"]==comb(exact["V"],3)
+          assert data["direct_source_local_triples_checked"]==200
+          if s==2:
+              x=real_original_W32_bruteforce_all_three_pencils(model)
+              assert x["actual_original_A/C_sixset_count"]==6225
+          print("TRUE original W(3,s)",s,"line center types",
+                data["actual_original_line_triple_cell_counts"],
+                "ORIGINAL SOURCE A/C",exact["source_original_A/C_six_incidence_Q"])
+          PY
