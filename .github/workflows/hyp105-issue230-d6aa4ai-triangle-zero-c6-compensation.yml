@@ -1,0 +1,66 @@
+name: hyp105-issue230-d6aa4ai-triangle-zero-c6-compensation
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.py"
+      - "research/test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AI-TRIANGLE-ZERO-C6-COMPENSATION.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ai-triangle-zero-c6-compensation.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-A-sectors-physical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All K6 K7 K8 pinned A 1-to-6 sector exact capacities and both physical bridge oracle methods
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_01_all_pair_complete_K6_K7_K8_physical_1_to_6_sectors \
+            test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_09_all_h_global_two_distinct_A_sectors_analytic \
+            test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_10_occupied_connected_C6_bridge_two_independent_oracles
+  true-original-W32-both-directions-zero:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full original symplectic W32 map bijections + all 135 real root-C4 cohorts both sides + literal original six flags
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_02_concrete_global_injective_true_symplectic_W32_witness \
+            test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_03_both_orientations_zero_split_but_original_C6_or_same_tris \
+            test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_04_independent_literal_original_six_ID_exact_sector_join
+  historical-full-original-GF5-not-zero:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W32 exact SAME-label historical 62370 complete seven-GF5 selected original Q and S68 lex baseline
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_05_historical_full_62370_seven_GF5_original_S_stays_positive \
+            test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_06_existing_original_S68_and_lex_subset_calibration
+  source-automorphism-and-negative-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual joint symplectic GQ source isometry, independent physical permutations, invalid source and physical controls
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_07_actual_source_automorphism_and_independent_physical_relabels \
+            test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_08_invalid_physical_original_and_pinned_domains
