@@ -10,6 +10,7 @@ strengthens source-indexed pre-Hall mass but does not prove genuine Hall.
 """
 from itertools import combinations, permutations
 from math import comb, isqrt
+from fractions import Fraction
 
 from hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation import (
     _source_cohort, classify_physical_A_twofactor,
@@ -231,6 +232,19 @@ def original_internal_link_prehall_floor(s):
     physical = active*C4*per_direct
     if s>=16:
         assert 384*physical >= s**14
+    # Parent AJ #521 supplies accepted genuine original internal-link
+    # Q <= 192*d per fixed root/pins/B-C4. Every active safe cohort has
+    # occupied internal-link physical H >= ceil(a^2/4), so its fraction
+    # of Hall-positive physical patterns is at most 192*d/ceil(a^2/4).
+    # Since a^2>=2(s+1)(s^2+1), this is <=384/(s^2+1).
+    source_cap = 192*d
+    source_success_fraction = Fraction(source_cap, per_direct) if per_direct else None
+    source_success_s_bound = Fraction(384, s*s+1)
+    Hall_failed_lower = (
+        Fraction(physical)*(1-source_success_s_bound) if s>=32 else Fraction(0))
+    if s>=32:
+        assert source_success_fraction <= source_success_s_bound < 1
+        assert Hall_failed_lower >= Fraction(s**14,384)*(1-source_success_s_bound)
     return dict(s=s, a=a, V=V, missing_global_opposite_pairs=m,
                 original_rootpairs_total=N, source_pencil_safe_lower=safe,
                 missing_four_cross_bad_upper=dead,
@@ -239,4 +253,9 @@ def original_internal_link_prehall_floor(s):
                 occupied_internal_link_C6_per_safe_active_pair_lower=per_direct,
                 all_map_indexed_internal_link_preHall_lower=physical,
                 original_internal_link_preHall_s14_over384_PROVED=s>=16,
+                original_source_internal_link_accepted_Q_per_cohort_UPPER=source_cap,
+                original_Hall_positive_fraction_UPPER=source_success_fraction,
+                original_success_fraction_s_only_UPPER=source_success_s_bound,
+                all_map_true_original_Hall_FAILED_indexed_physical_lower=Hall_failed_lower,
+                all_map_true_original_Hall_FAILED_Omega_s14_PROVED=s>=32,
                 accepted_original_Hall_positive_lower_NOT_PROVED=True)
