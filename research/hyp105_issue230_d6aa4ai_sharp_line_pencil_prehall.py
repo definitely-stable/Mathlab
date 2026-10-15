@@ -177,8 +177,10 @@ def original_true_rootpair_physical_safety_census(
             "safe_original_rootpairs_lower"]:
         raise AssertionError("true original safe rootpairs below global pencil lower")
     occupied_C4=None
+    measured_C4_root=None
     if probe_C4_root:
         root=first_safe_root if first_safe_root is not None else 0
+        measured_C4_root=root
         occupied_C4=len(occupied_root_C4_source_factors(model,side=side,root=root))
         if occupied_C4<analytic["universal_occupied_point_C4_per_root_lower"]:
             raise AssertionError("source physical global B-C4 complement occupancy violated")
@@ -194,6 +196,7 @@ def original_true_rootpair_physical_safety_census(
             analytic["total_original_bad_rootpairs_upper"],
         "independently_enumerated_safe_rootpair_triangle_probes":probes,
         "one_complete_B_global_image_C4_count":occupied_C4,
+        "one_complete_B_global_image_C4_true_source_root":measured_C4_root,
         "uniform_all_map_s14_over_256_PROVED_by_analytic_not_finite":
             analytic["exact_s14_over_256_PROVED_for_all_h_ge4"],
         "actual_source_GQ_incidences_and_single_global_typed_maps_used":True,
