@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4ak-adjacent-full-a-hall
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ak_adjacent_full_a_hall.py"
+      - "research/test_hyp105_issue230_d6aa4ak_adjacent_full_a_hall.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AK-ADJACENT-FULL-A-HALL.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ak-adjacent-full-a-hall.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-adjacent-K6-K8-physical-A-topology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every actual adjacent physical pin pair K6-K8, independent 70 physical A factor oracle
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ak_adjacent_full_a_hall.AdjacentGenuineOriginalFullA.test_01_every_K6_K7_K8_adjacent_pins_topological_exhaustion
+  complete-original-W32-five-global-labelings:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Complete original 5 globally fixed W32 f,g maps, both types, 135 real anchored B source C4 per side, independent original 4-rook reference
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ak_adjacent_full_a_hall.AdjacentGenuineOriginalFullA.test_02_original_W32_all_five_global_maps_full_135_cohorts_per_side
+  actual-original-W34-partial-physical-K14:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True GF4 source W34 global physical 6 holes, lex/random, independent old literal physical H and ORIGINAL permanent
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ak_adjacent_full_a_hall.AdjacentGenuineOriginalFullA.test_03_true_original_W34_actual_global_holes_both_typed_sides
+  genuine-symplectic-automorphisms-and-true-all-h-bounds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual symplectic source automorphisms, independent physical coordinate maps, h25 source-degree integer cap and fake-source negative guards
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ak_adjacent_full_a_hall.AdjacentGenuineOriginalFullA.test_04_genuine_W32_original_symplectic_and_independent_physical_relabels \
+            test_hyp105_issue230_d6aa4ak_adjacent_full_a_hall.AdjacentGenuineOriginalFullA.test_05_all_h_real_gq_source_upper_and_adjacent_zero_domain \
+            test_hyp105_issue230_d6aa4ak_adjacent_full_a_hall.AdjacentGenuineOriginalFullA.test_06_negative_original_graph_and_physical_domains
