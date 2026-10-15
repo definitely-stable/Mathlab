@@ -1,0 +1,106 @@
+name: hyp105-issue230-d6aa4r-quenched-original-d6
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4r_quenched_original_d6.py"
+      - "research/test_hyp105_issue230_d6aa4r_quenched_original_d6.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md"
+      - ".github/workflows/hyp105-issue230-d6aa4r-quenched-original-d6.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-true-original-D6-global-injection-conditional-theorem:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Seven independently coded all-h C6 source-matching rational and real original GF5 720-map checks
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4r_quenched_original_d6.py" -v
+          python research/hyp105_issue230_d6aa4r_quenched_original_d6.py > /tmp/aa4r-all-h.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from math import comb,perm
+          x=json.load(open("/tmp/aa4r-all-h.json"))
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-R-QUENCHED-ORIGINAL-D6"
+          assert x["new_all_h_s_ge_8_all_fixed_side_conditional_expected_D6_lower"]=="s^6/8"
+          assert x["all_h_original_seven_D6_strong_one_sided_stochastic_theorem"]
+          assert x["both_quantifier_orders_by_original_GQ_duality"]
+          assert x["all_h_exact_original_C6_missing_edge_occupancy_bound"]
+          assert x["all_h_fixed_left_uniform_right_6edge_D6_align_probability"]
+          assert x["root_A"]==x["root_B"]=="OPEN"
+          assert not x["all_h_root_minimax_seven_positive_PROVED"]
+          assert not x["full_GF5_R3_PROVED"] and not x["ASET_exponent_PROVED"]
+          for r in x["rows"]:
+              s=r["s"];a=r["a"];K=r["K"]
+              assert K==comb(a,2) and r["missing_edges_K_minus_V"]==K-r["V"]
+              assert Fraction(r["uniform_COMPLETE_right_injection_true_D6_probability"])==Fraction(
+                  perm(a,6),perm(K,6))
+              if s>=8:
+                  expect=Fraction(r["conditional_E_g_true_original_seven_GF5_D6_lower_for_EVERY_f"])
+                  assert expect>=Fraction(s**6,8)
+                  assert r["all_h_two_sided_s_ge_8_quenched_D6_theorem"]
+                  print("GENUINE ORIGINAL D6 COND EXPECTED / s6",s,
+                        r["conditional_expected_D6_lower_over_s6"])
+              assert not r["all_h_original_S_minimax_omega_s6_PROVED"]
+          for name,z in x["true_original_W32_fixed_left_conditional_cases"].items():
+              assert z["s"]==2 and z["physical_complete_K6_C6_source_cycles"]==60
+              assert z["one_f_across_ALL_Q"] and z["all_45_genuine_source_incidence_IDs"]
+              assert Fraction(z["conditional_E_g_true_D6_given_this_fixed_global_f"])==Fraction(
+                  z["genuine_source_AA_original_C6_left_with_six_distinct_lines"],5005)
+              print("REAL ORIGINAL FIXED f",name,
+                    "N_C6_source_AA",z["genuine_source_AA_original_C6_left_with_six_distinct_lines"],
+                    "EXACT E_g D6",z["conditional_E_g_true_D6_given_this_fixed_global_f"])
+          for name,z in x["independently_checked_historical_one_Q_720_aligned_right_maps"].items():
+              assert z["distinct_global_injection_aligned_assignments"]==720
+              assert z["right_global_completion_classified_historical_GF5_D6"]==720
+              assert z["exact_uniform_complete_right_D6_probability"]=="1/5005"
+              print("TRUE ORIGINAL",name,"6 ORIGINAL Q",z["actual_original_six_incidence_witness"],
+                    "ALL 720 GENUINE D6 GF5 GLOBAL RIGHT INJECTIONS PASS")
+          print("ALL-h REAL ORIGINAL DIRECT GF5 D6 E_g LOWER >= s^6/8: PASS; MINIMAX OPEN")
+          PY
+  original-W32-fixed-f-all720-independent-D6-classifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real original same-point-map source line AA injection count and 720 separate complete right-g GF5 D6 exact certificates
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4r_quenched_original_d6.py --scheme "$SCHEME" > "/tmp/aa4r-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from fractions import Fraction
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4r-"+os.environ["SCHEME"]+".json").read_text())
+          assert x["s"]==2
+          assert x["physical_complete_K6_C6_source_cycles"]==60
+          assert x["all_45_genuine_source_incidence_IDs"]
+          assert x["one_f_across_ALL_Q"]
+          assert x["genuine_source_AA_original_C6_left_with_six_distinct_lines"]==x[
+              "independent_unique_true_original_six_incidence_Q_count"]
+          assert Fraction(x["conditional_E_g_true_D6_given_this_fixed_global_f"])==Fraction(
+              x["independent_unique_true_original_six_incidence_Q_count"],5005)
+          y=x["historical_720"]
+          assert len(y["actual_original_six_incidence_witness"])==6
+          assert y["right_global_completion_classified_historical_GF5_D6"]==720
+          assert y["distinct_global_injection_aligned_assignments"]==720
+          assert y["exact_uniform_complete_right_D6_probability"]=="1/5005"
+          print("GENUINE ORIGINAL",os.environ["SCHEME"],
+                "LEFT C6 TRUE SOURCE AA Q COUNT",x["independent_unique_true_original_six_incidence_Q_count"],
+                "EXACT UNIFORM ONE FULL g E D6",x["conditional_E_g_true_D6_given_this_fixed_global_f"])
+          print("COMPLETE ORIGINAL right f/g GLOBAL INJECTIVITY + HISTORICAL GF5 D6 verified for all 720 aligned six-column assignments")
+          PY
