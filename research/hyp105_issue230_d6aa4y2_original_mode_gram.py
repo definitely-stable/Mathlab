@@ -227,7 +227,110 @@ def audit_original_signed_gram(matrix,energy):
     }
 
 
-def report(scheme,native_matrix,native_gradient,matrix_output=None,energy_output=None):
+CONFLICT_COLUMNS=("point_move","line_move","pp","nn","pn","np",
+                  "wpp","wnn","wpn","wnp")
+
+
+def parse_exact_signed_conflict_tsv(text):
+    """Independent parsing of 11,236 nonnegative ORIGINAL shared-mode
+    quadrant counts. +/+ and -/- are helpful; +/- and -/+ are harmful."""
+    records=text.splitlines()
+    if len(records)!=11237 or tuple(records[0].split("\t"))!=CONFLICT_COLUMNS:
+        raise AssertionError("full original signed-mode conflict TSV schema/row count failed")
+    out={}
+    for line in records[1:]:
+        cells=line.split("\t")
+        if len(cells)!=10:
+            raise AssertionError("original signed-mode conflict row width invalid")
+        values=tuple(int(x) for x in cells)
+        i,j=values[:2]
+        if not 0<=i<106 or not 0<=j<106 or (i,j) in out:
+            raise AssertionError("duplicate or out-of-range original source paired move")
+        payload=dict(zip(CONFLICT_COLUMNS[2:],values[2:]))
+        if any(q<0 for q in payload.values()):
+            raise AssertionError("true original source-mode conflict counts must be nonnegative")
+        if (i==0 or j==0) and any(payload.values()):
+            raise AssertionError("no signed joint mode collision if one side unchanged")
+        out[i,j]=payload
+    if len(out)!=11236:
+        raise AssertionError("incomplete full original 106x106 sign-separated collision matrix")
+    return out
+
+
+def audit_exact_original_conflict_charge(matrix,energies,conflicts):
+    """ALL-h deterministic exact ORIGINAL conflict/compensation identity
+    audited on the entire genuine W32 11,236-pair paired-swap grid.
+
+    This is strictly sharper than generic Cauchy for each actual finite
+    pair, but its harmful budget needs NEW all-h structural control
+    before a root seven-class minimax lower can follow.
+    """
+    if len(matrix)!=11236 or len(energies)!=212 or len(conflicts)!=11236:
+        raise AssertionError("full genuine original matrix, energies and collisions needed")
+    base=matrix[0,0]
+    worst=None
+    best_lower=None
+    stats=Counter()
+    for (i,j),row in matrix.items():
+        c=conflicts[i,j]
+        favor=c["pp"]+c["nn"]
+        harm=c["pn"]+c["np"]
+        favorable_weight=c["wpp"]+c["wnn"]
+        harmful_weight=c["wpn"]+c["wnp"]
+        ds=row["S"]-matrix[i,0]["S"]-matrix[0,j]["S"]+base["S"]
+        dw=row["weight"]-matrix[i,0]["weight"]-matrix[0,j]["weight"]+base["weight"]
+        if ds!=favor-harm or dw!=favorable_weight-harmful_weight:
+            raise AssertionError(f"historical original seven-GF5 signed transport equality violated {i,j}")
+        if i and j:
+            stats["checked"]+=1
+            if harm>0:stats["nonzero_harm"]+=1
+            if favor>0:stats["nonzero_favor"]+=1
+            if ds<0:stats["negative"]+=1
+            if ds>0:stats["positive"]+=1
+            if ds==0:stats["zero"]+=1
+        original_lower=(matrix[i,0]["S"]+matrix[0,j]["S"]-
+                        base["S"]-harm)
+        if row["S"]<original_lower or row["S"]-original_lower!=favor:
+            raise AssertionError("original signed harmful-charge lower and exact compensating surplus failed")
+        if best_lower is None or original_lower<best_lower:
+            best_lower=original_lower
+        if i and j and (worst is None or ds<worst["mixed_delta_S"]):
+            Eleft=energies[0,i]
+            Eright=energies[1,j]
+            sector_cs=sum(ceil_sqrt(Eleft[t]*Eright[t]) for t in TAGS)
+            if harm>sector_cs:
+                raise AssertionError("original harmful signed matches exceed class Cauchy energy budget")
+            worst={
+                "point_source_swap":MOVES[i],
+                "line_source_swap":MOVES[j],
+                "mixed_delta_S":ds,
+                "favorable_same_sign_original_modes":favor,
+                "harmful_opposite_sign_original_modes":harm,
+                "favorable_GF5_weighted":favorable_weight,
+                "harmful_GF5_weighted":harmful_weight,
+                "sector_energy_Cauchy_rounded_budget":sector_cs,
+                "exact_charge_lower_at_witness":original_lower,
+                "true_original_full_S_at_witness":row["S"],
+                "original_baseline_S":base["S"],
+            }
+    if stats["checked"]!=11025:
+        raise AssertionError("missed true original 105x105 simultaneous source mapping pairs")
+    return {
+        "genuine_original_mixed_pairs":stats["checked"],
+        "exact_original_same_mode_signed_quad_separation_ALL_H_THEOREM":True,
+        "finite_all_11236_original_conflicts_and_historical_GF5_51palette_exact":"PASS",
+        "harmful_nonzero_mixed_pairs":stats["nonzero_harm"],
+        "favorable_nonzero_mixed_pairs":stats["nonzero_favor"],
+        "negative_mixed_S_pairs":stats["negative"],
+        "positive_mixed_S_pairs":stats["positive"],
+        "zero_mixed_S_pairs":stats["zero"],
+        "worst_negative_original_signed_mode_transport_witness":worst,
+        "minimum_sign_robust_exact_conflict_lower_over_11236":best_lower,
+        "universal_omega_s6_root_from_conflict_bound_PROVED":False,
+    }
+
+
+def report(scheme,native_matrix,native_gradient,native_conflicts=None,matrix_output=None,energy_output=None,conflict_output=None):
     if scheme not in ("S68","S72"):
         raise ValueError("true original pinned W32 S68/S72 models only")
     model=fixture(1,scheme)
@@ -247,6 +350,16 @@ def report(scheme,native_matrix,native_gradient,matrix_output=None,energy_output
     if energy_output:Path(energy_output).write_text(energy_run.stdout,encoding="utf8")
     matrix=parse_exact_native_tsv(matrix_run.stdout)
     energy=parse_gradient_native_tsv(energy_run.stdout)
+    conflict_certificate=None
+    if native_conflicts is not None:
+        conflict_run=subprocess.run([str(native_conflicts)],input=data,text=True,
+                                    capture_output=True,check=True)
+        if "GENUINE ORIGINAL 11236 EXACT SIGNED MODE CONFLICTS COMPLETE" not in conflict_run.stderr:
+            raise AssertionError("full original nonnegative signed conflict mode engine not completed")
+        if conflict_output:
+            Path(conflict_output).write_text(conflict_run.stdout,encoding="utf8")
+        conflicts=parse_exact_signed_conflict_tsv(conflict_run.stdout)
+        conflict_certificate=audit_exact_original_conflict_charge(matrix,energy,conflicts)
     original_gq=fixture(1,scheme)
     for moves in ((0,0),(1,1),(7,11),(35,78),(105,105)):
         historical_verify(original_gq,matrix[moves])
@@ -258,6 +371,7 @@ def report(scheme,native_matrix,native_gradient,matrix_output=None,energy_output
         "all_h_unconditional_original_seven_source_mode_gram_and_sign_robust_cauchy":True,
         "raw_actual_original_W32_106_by_106_historical_seven_matrix_verified":True,
         "signed_original_gradient":result,
+        "exact_original_conflicts":conflict_certificate,
         "root_A":"OPEN","root_B":"OPEN","root_C":"OPEN",
     }
 
@@ -267,12 +381,14 @@ if __name__=="__main__":
     ap.add_argument("--scheme",choices=("S68","S72"),required=True)
     ap.add_argument("--native-matrix",type=Path,required=True)
     ap.add_argument("--native-gradient",type=Path,required=True)
+    ap.add_argument("--native-conflicts",type=Path,required=True)
     ap.add_argument("--matrix-output",type=Path)
     ap.add_argument("--energy-output",type=Path)
+    ap.add_argument("--conflict-output",type=Path)
     ap.add_argument("--summary",type=Path)
     a=ap.parse_args()
-    out=report(a.scheme,a.native_matrix,a.native_gradient,
-               a.matrix_output,a.energy_output)
+    out=report(a.scheme,a.native_matrix,a.native_gradient,a.native_conflicts,
+               a.matrix_output,a.energy_output,a.conflict_output)
     text=json.dumps(out,sort_keys=True,indent=2)+"\n"
     if a.summary:a.summary.write_text(text,encoding="utf8")
     print(text)
