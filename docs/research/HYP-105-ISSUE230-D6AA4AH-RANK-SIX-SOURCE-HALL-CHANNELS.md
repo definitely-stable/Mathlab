@@ -73,6 +73,21 @@ Conversely a uniform >=c/s^8 Hall-positive fraction among P_triangle physical ca
 - Actual common-source geometry and independent point/line physical relabeling invariance for a fixed selected original C4; invalid source and abstract-signature domains rejected.
 - Eight independent regression tests and dedicated GitHub-hosted CI. The hosted CI tests must be checked on the EXACT final PR HEAD; unit tests and Proof Audit alone are NOT independent mathematical acceptance.
 
+### Entire genuine W(3,2) triangle-A subtype, all original roots (GitHub-hosted initial run)
+
+Using the full 15 actual original point roots / 15 line roots, every three pairs of two distinct real original flags through each root and **all three** physically occupied complementary C4 per original root, the exact six-channel formula yielded:
+
+| Complete global source labeling | B(point)/A(line) two-triangle only | A(point)/B(line) dual two-triangle only | Full historical B/A | Full historical A/B |
+|---|---:|---:|---:|---:|
+| S68 | **1** | **0** | 44 | 21 |
+| S72 | **1** | **2** | 36 | 31 |
+| lex | **3** | **12** | 98 | 110 |
+| reverse | **2** | **4** | 77 | 74 |
+
+All numbers count six DIFFERENT actual original incidence-ID Q, not signed GF5 event counts or source automorphism orbits. The two-triangle family is a strict subclass of the physical A sector of 70 total accepted 6-coordinate 2-factors (10 two-C3, 60 C6 on a fixed six-physical-coordinate vertex set). Hence it is expected to be much smaller for these finite labeling instances. This table is from the first hosted successful W32 job of [AA4-AH dedicated run #38763145628](https://github.com/definitely-stable/Mathlab/actions/runs/38763145628); the initial run had an unrelated physical C4 *ordering*-sensitive fixture check in the W34 relabel-invariance test, which was fixed by validating the set of four actual original source factors rather than the physical-enumeration order. The full eight-test final HEAD must still pass.
+
+**Importantly:** S68 has ZERO genuine original dual two-triangle A/B Q over ALL actual original line roots, but has 21 accepted dual A/B in the full original GF5 class. Thus claiming that *this restricted subclass by itself* has positive all-map mass on every finite original root or typed side is false. No conclusion follows about large-h full-seven-class obstruction without additional proof.
+
 ## 6. Integration protocol
 
 Strict Draft child on AA4-AG PR #516. Maintain parent/child merge chain; do not merge to main, register accepted claims in RCP JSON or hand edit generated five Markdown registries until all exact-HEAD dedicated/INDEX/Proof Audit/Full Research checks and an independent mathematical referee. The parent AA4-AF and AA4-AG Full Research runs are CANCELLED, not SUCCESS, and must be treated as acceptance blockers. Main issue #230 remains OPEN; no Branch A/B/C, full seven-GF5 all-h or R3/ASET result is claimed.
