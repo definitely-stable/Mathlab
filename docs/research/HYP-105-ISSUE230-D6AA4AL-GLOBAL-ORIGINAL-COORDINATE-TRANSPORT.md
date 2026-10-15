@@ -131,6 +131,26 @@ Consequently \`D>=2s^5\` is a valid all-f,g progress theorem on a NEW global inv
 
 **Next mathematical frontier AA4-AM:** Build the EXACT local-to-global extension/charging incidence tensor of one D-counted two-flag pair into real accepted six-ID B/A,A/B (four-sector AA4-AK), D6 and other five GF5 classes; seek a lower on extendible pairs with an explicit bound on the number of extension witnesses charged to one accepted six-Q. As a falsification route, exhibit full globally injected f,g with many D pairs that are NOT extendible into ANY of the seven positive six-GF5 classes. Only such a new lifting theorem or infinite all-label obstruction would advance Branch A/B/C beyond an auxiliary invariant.
 
+### Finite full-global exact source evidence and direct lifting obstruction
+
+The first GitHub-hosted dedicated [AA4-AL run #38782843269](https://github.com/definitely-stable/Mathlab/actions/runs/38782843269) independently enumerated every unordered pair of TRUE ORIGINAL W(3,2) incidence flag IDs under five different complete globally injected SAME f,g maps and W(3,4) under two globally injected SAME f,g maps with K14 physical holes. It cross-checked the literal source-flag oracle (does not form M) against the exact original F^T B G matrix-source degeneracy equality, all-marginal ANOVA and universal lower:
+
+| ORIGINAL GQ | complete global typed f,g | unordered good source flag pairs D/2 |
+|---|---|---:|
+| W(3,2) | dual-zero full map from AA4-AI | **277** |
+| W(3,2) | lex | **307** |
+| W(3,2) | reverse | **300** |
+| W(3,2) | S68 | **257** |
+| W(3,2) | S72 | **261** |
+| W(3,4) | lex, six physical holes per type | **6,529** |
+| W(3,4) | random globally fixed full injection, six holes per type | **6,327** |
+
+For W(3,2), a=6 and K6 has exactly 15 globally occupied original source factor physical edges on each type, so physical center fiber degrees are all exactly a-1=5: **the ANOVA imbalance improvement vanishes**, making this an important zero-variance baseline. The uniform global lower is D>=360 ORDERED, i.e. at least 180 unordered; the actual respective D above are 554, 614, 600, 514 and 522 ordered, satisfying it without pretending to be tight.
+
+For W(3,4), a=14, V=85, physical K14 has 91 pairs, so exactly six missing physical point-side images and six missing physical line-side images under either map. The chosen lex map has center-fiber sizes (13,13,13,13,13,13,13,13,13,13,10,10,10,10) on both types, and the random map has nonuniform distinct point and line fibers. The nonnegative ANOVA correction is separately checked exactly.
+
+**Concrete falsifier of a naive lifting lemma**: The very SAME full original W(3,2) dual-zero globally injected f,g maps giving **277** compatible genuine original two-flag pairs have **ZERO** accepted original B/A split-two-triangle Q **AND ZERO** accepted original A/B split-two-triangle Q, as independently exhaustively established in AA4-AI. Thus \`D>0\` (indeed large) cannot imply \`T_split_BA+T_split_AB>0\`, even for all genuine original source roots aggregated together. FULL accepted B/A and A/B on this map remain 46 and 61 and full seven-class S remains 123; this is explicitly **not a finite example with S=0 and not an infinite Branch B counterfamily**. Any useful AA4-AM lifting must account for all FOUR physical A modes and other five GF5/D6 tags, not only the split triangles.
+
 ## 6. Independent validation, publication and integration protocol
 
 Versioned proof implementation:
