@@ -73,7 +73,7 @@ class ExactTrueOriginalD6FullSecondMomentTests(unittest.TestCase):
             model,rows,count,anchor,anchor_event=actual_original_line_C6_multiplicities(name)
             self.assertEqual(len(rows),TRUE_ORIGINAL_Q)
             self.assertEqual(sum(count.values()),TRUE_ORIGINAL_Q)
-            self.assertLessEqual(len(count),TRUE_ORIGINAL_Q)
+            self.assertEqual(len(count),17811)
             self.assertIn(anchor_event,count)
             self.assertTrue(all(len(x)==6 and len(set(x))==6 and multiplicity>=1
                                 for x,multiplicity in count.items()))
