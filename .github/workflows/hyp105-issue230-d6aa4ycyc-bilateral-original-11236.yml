@@ -57,6 +57,20 @@ jobs:
           assert q["mixed_all_h_source_intersection_support_identity_PROVED"]
           assert q["finite_complete_106_by_106_original_bilateral_matrix_VERIFIED"]
           assert q["all_h_minimum_S_Omega_s6_NOT_PROVED"]
+          assert q["mixed_second_difference_nonzero_S"]>0
+          assert q["mixed_second_difference_negative_S"]>0
+          assert q["mixed_second_difference_positive_S"]>0
+          negative=q["most_negative_mixed_delta_S"]
+          positive=q["most_positive_mixed_delta_S"]
+          assert negative["delta_S"]<0 and positive["delta_S"]>0
+          for extreme in (negative,positive):
+              t=extreme["corner_S"]
+              assert extreme["delta_S"]==t["both"]-t["point_only"]-t["line_only"]+t["baseline"]
+              assert extreme["actual_source_POINT_swap"] and extreme["actual_source_LINE_swap"]
+          assert q["minimum_S_full_11236"]["S"]==q["baseline"]["S"]
+          assert q["minimum_S_strictly_mixed"]["S"]>=q["baseline"]["S"]
+          assert q["minimum_selected_GF5_weighted_full"]["weight"]==q["baseline"]["weight"]
+          print("MIXED HESSIAN EXTREMA",q["scheme"],"negative",negative,"positive",positive)
           assert q["root_A"]==q["root_B"]==q["root_C"]=="OPEN"
           assert q["baseline"]["S"]=={"S68":68,"S72":72}[os.environ["SCHEME"]]
           assert q["baseline"]["D6"]==0
