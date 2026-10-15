@@ -4,6 +4,7 @@ on:
     paths:
       - "research/hyp105_issue230_d6aa4y2_original_mode_gradient.cpp"
       - "research/hyp105_issue230_d6aa4y2_original_mode_gram.py"
+      - "research/hyp105_issue230_d6aa4y2_original_signed_conflicts.cpp"
       - "research/test_hyp105_issue230_d6aa4y2_original_mode_gram.py"
       - "docs/research/HYP-105-ISSUE230-D6AA4Y2-SIGN-ROBUST-ORIGINAL-MODE-GRAM.md"
       - ".github/workflows/hyp105-issue230-d6aa4y2-sign-robust-original-mode-gram.yml"
@@ -38,11 +39,12 @@ jobs:
         run: |
           g++ -std=c++20 -O3 -Wall -Wextra -pedantic -o /tmp/hyp105-y-original research/hyp105_issue230_d6aa4ycyc_bilateral_original_join.cpp
           g++ -std=c++20 -O3 -Wall -Wextra -pedantic -o /tmp/hyp105-y2-grad research/hyp105_issue230_d6aa4y2_original_mode_gradient.cpp
+          g++ -std=c++20 -O3 -Wall -Wextra -pedantic -o /tmp/hyp105-y2-conflict research/hyp105_issue230_d6aa4y2_original_signed_conflicts.cpp
       - name: Verify every original six-incidence seven-mode signed Hessian against exact integer Cauchy for every complete global pair
         env:
           SCHEME: ${{ matrix.scheme }}
         run: |
-          python research/hyp105_issue230_d6aa4y2_original_mode_gram.py --scheme "$SCHEME" --native-matrix /tmp/hyp105-y-original --native-gradient /tmp/hyp105-y2-grad --matrix-output /tmp/y2-original-matrix.tsv --energy-output /tmp/y2-original-energy.tsv --summary /tmp/y2-original-gram.json > /tmp/y2-stdout.json
+          python research/hyp105_issue230_d6aa4y2_original_mode_gram.py --scheme "$SCHEME" --native-matrix /tmp/hyp105-y-original --native-gradient /tmp/hyp105-y2-grad --native-conflicts /tmp/hyp105-y2-conflict --conflict-output /tmp/y2-original-conflicts.tsv --matrix-output /tmp/y2-original-matrix.tsv --energy-output /tmp/y2-original-energy.tsv --summary /tmp/y2-original-gram.json > /tmp/y2-stdout.json
           python - <<'PY'
           import csv,json,os
           scheme=os.environ["SCHEME"]
@@ -65,6 +67,17 @@ jobs:
               assert len(list(csv.DictReader(fp,delimiter="\t")))==11236
           with open("/tmp/y2-original-energy.tsv",newline="") as fp:
               assert len(list(csv.DictReader(fp,delimiter="\t")))==212
+          c=r["exact_original_conflicts"]
+          assert c["exact_original_same_mode_signed_quad_separation_ALL_H_THEOREM"]
+          assert c["finite_all_11236_original_conflicts_and_historical_GF5_51palette_exact"]=="PASS"
+          assert c["genuine_original_mixed_pairs"]==11025
+          assert c["negative_mixed_S_pairs"]==z["signed_original_mixed_negative_count"]
+          assert c["worst_negative_original_signed_mode_transport_witness"]["mixed_delta_S"]=={"S68":-70,"S72":-76}[scheme]
+          assert c["worst_negative_original_signed_mode_transport_witness"]["harmful_opposite_sign_original_modes"]>=abs(c["worst_negative_original_signed_mode_transport_witness"]["mixed_delta_S"])
+          assert c["worst_negative_original_signed_mode_transport_witness"]["harmful_opposite_sign_original_modes"]<c["worst_negative_original_signed_mode_transport_witness"]["sector_energy_Cauchy_rounded_budget"]
+          with open("/tmp/y2-original-conflicts.tsv",newline="") as fp:
+              assert len(list(csv.DictReader(fp,delimiter="\t")))==11236
+          print("EXACT ORIGINAL SIGNED HARMFUL VERSUS FAVORABLE MODES",scheme,c)
           print("GENUINE ORIGINAL ALL-H SIGN-ROBUST SOURCE MODE GRAM PASS",
               "scheme",scheme,"negative mixed interactions",
               z["signed_original_mixed_negative_count"],
@@ -80,6 +93,7 @@ jobs:
           path: |
             /tmp/y2-original-matrix.tsv
             /tmp/y2-original-energy.tsv
+            /tmp/y2-original-conflicts.tsv
             /tmp/y2-original-gram.json
           retention-days: 90
           if-no-files-found: error
