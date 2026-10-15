@@ -12,7 +12,7 @@ Crucial: min_f max_g (or min_g max_f), NOT min_(f,g).
 """
 from fractions import Fraction
 from itertools import combinations,permutations,product
-from math import comb,perm
+from math import comb,perm,isqrt
 from collections import Counter
 
 from hyp105_issue230_projection import fixture
@@ -22,9 +22,14 @@ def _params(s):
     if type(s) is not int or s<2 or s&(s-1):
         raise ValueError("true original GQ order s=2^h>=2 only")
     V=(s+1)*(s*s+1)
-    a=6
-    while comb(a,2)<V:
+    # Exact integer-square-root initialization: large research powers
+    # can have physical alphabets with billions of symbols, so an O(a)
+    # linear search is a nonterminating-looking CI performance bug.
+    a=max(6,(1+isqrt(1+8*V))//2)
+    if comb(a,2)<V:
         a+=1
+    if a>6 and comb(a-1,2)>=V:
+        raise AssertionError("physical alphabet is not genuinely minimal")
     K=comb(a,2);m=K-V
     if not 0<=m<=a-2:
         raise AssertionError("not minimal globally injected physical K_a alphabet")
