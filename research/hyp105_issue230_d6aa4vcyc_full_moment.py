@@ -130,7 +130,7 @@ def exact_13327_relative_original_LINE_gluing_weight_table():
                     raise AssertionError("conditional two-D6 original probability out of [0,1]")
                 lookup[key]=numerator
                 by_r[r]+=1
-    if sum(by_r.values())!=RELATIVE_GLUE_DIAGRAMS!=13327:
+    if sum(by_r.values())!=RELATIVE_GLUE_DIAGRAMS or RELATIVE_GLUE_DIAGRAMS!=13327:
         raise AssertionError("source line gluing partial bijection count not exactly 13327")
     if len(iso)!=112:
         raise AssertionError("expected 112 nonisomorphic C6 pair gluing diagrams across all r")
