@@ -1,0 +1,89 @@
+name: hyp105-issue230-d6aa4xcyc-seven-joint-swap-frontier
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4xcyc_seven_joint_swap_frontier.py"
+      - "research/test_hyp105_issue230_d6aa4xcyc_seven_joint_swap_frontier.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4XCYC-SEVEN-JOINT-SWAP-FRONTIER.md"
+      - ".github/workflows/hyp105-issue230-d6aa4xcyc-seven-joint-swap-frontier.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-original-six-ID-sparse-derivative:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact original GQ six-ID swap derivative with independent historical GF5 and all 105 swaps
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4xcyc_seven_joint_swap_frontier.py" -v
+  exact-original-seven-class-105-neighbor-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Entire 105 true-original full-global-g line-label transposition neighborhood
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4xcyc_seven_joint_swap_frontier.py --scheme "$SCHEME" > /tmp/aa4xcyc-original-seven.json
+          python - <<'PY'
+          import json, os
+          o=json.load(open("/tmp/aa4xcyc-original-seven.json"))
+          assert o["slice"]=="HYP105-ISSUE230-D6-AA4-X-CYC-SEVEN-CLASS-LOCAL-SWAP-FRONTIER"
+          assert o["all_h_exact_sparse_swap_derivative_identity"]
+          assert o["finite_true_original_W32_exact_full_105_transpositions"]
+          assert o["finite_true_original_W32_exact_full_210_two_sided_transpositions"]
+          assert o["root_A"]==o["root_B"]==o["root_C"]=="OPEN"
+          scheme=os.environ["SCHEME"]
+          x=o["schemes"][scheme]
+          assert x["neighbors_checked"]==105
+          assert x["complete_global_line_bijections_compared"]==106
+          assert x["baseline"]["S_seven"]=={"S68":68,"S72":72}[scheme]
+          assert x["baseline"]["D6"]==0
+          assert x["D6_zero_labelings_in_exact_neighborhood"]+x["D6_positive_labelings_in_exact_neighborhood"]==106
+          assert x["min_S_witness"]["S_seven"]<=x["baseline"]["S_seven"]
+          assert x["min_D6_zero_nonAA_witness"]["non_AA"]<=x["baseline"]["non_AA"]
+          assert all(r["S_seven"]==r["D6"]+r["non_AA"] for r in x["pareto_frontier"])
+          assert x["min_S_over_one_swap_neighborhood_only_NOT_global"]
+          assert not x["all_h_adversarial_seven_class_obstruction_PROVED"]
+          assert not x["all_h_counterexample_family_PROVED"]
+          b=x["two_sided_210_local_neighborhood"]
+          assert b["source_POINT_swaps"]==105 and b["source_LINE_swaps"]==105
+          assert b["complete_global_map_pairs_in_neighborhood"]==211
+          assert b["D6_zero_label_pairs"]+b["D6_positive_label_pairs"]==211
+          assert b["minimum_S_witness"]["S_seven"]<=x["baseline"]["S_seven"]
+          assert b["every_single_one_side_swap_exhausted"]
+          assert not b["simultaneous_two_side_swaps_exhausted"]
+          assert not b["all_h_min_f_g_seven_S_lower_PROVED"]
+          print("GENUINE ORIGINAL TWO-SIDED 210 SWAPS",scheme,
+                "best S",b["minimum_S_witness"],
+                "best D6zero",b["minimum_D6_zero_witness"],
+                "best weighted risk",b["minimum_weighted_51palette_numerator_witness"],
+                "D6zero count",b["D6_zero_label_pairs"],
+                "Pareto",b["pareto_frontier"])
+          print("EXACT ORIGINAL",scheme,"105 GLOBAL SWAPS PASS",
+                "min_S",x["min_S_witness"],
+                "min_D6_zero",x["min_D6_zero_nonAA_witness"],
+                "D6zero",x["D6_zero_labelings_in_exact_neighborhood"],
+                "Pareto",x["pareto_frontier"])
+          PY
+
+      - name: Archive exact true-original six-incidence seven-class Pareto certificate
+        uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4xcyc-seven-original-${{ matrix.scheme }}
+          path: /tmp/aa4xcyc-original-seven.json
+          retention-days: 90
+          if-no-files-found: error
