@@ -1,0 +1,63 @@
+name: hyp105-issue230-d6aa4al-global-original-coordinate-transport
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4al_global_original_coordinate_transport.py"
+      - "research/test_hyp105_issue230_d6aa4al_global_original_coordinate_transport.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AL-GLOBAL-ORIGINAL-COORDINATE-TRANSPORT.md"
+      - ".github/workflows/hyp105-issue230-d6aa4al-global-original-coordinate-transport.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-symbolic-global-transport-spectral-no-go:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact all h=1..50 original two-flag guaranteed s5 order, genuine K_a and spectral single-cell no-go
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4al_global_original_coordinate_transport.GlobalOriginalTransportTest.test_01_exact_all_h_symbolic_coefficient_and_spectral_local_no_go
+  all-five-complete-real-W32-global-map-pair-oracle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every actual original 2-flag pair brute force on 5 fully globally injected W32 maps and gf5 false-positive guard
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4al_global_original_coordinate_transport.GlobalOriginalTransportTest.test_02_all_five_true_original_W32_globally_injected_maps_pairwise_oracle \
+            test_hyp105_issue230_d6aa4al_global_original_coordinate_transport.GlobalOriginalTransportTest.test_07_show_all_f_g_tensor_pair_lower_is_not_six_GF5_gate
+  real-original-W34-holes-and-BBT-GQ-SRG:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: TRUE original W34 source and nonsurjective K14 global maps, independent pair oracle plus original BBT/SRG exact identities
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4al_global_original_coordinate_transport.GlobalOriginalTransportTest.test_03_true_original_W34_nonsurjective_K14_lex_random_pairwise_oracle \
+            test_hyp105_issue230_d6aa4al_global_original_coordinate_transport.GlobalOriginalTransportTest.test_04_exact_original_symplectic_BBT_SRG_and_singular_values
+  original-symplectic-invariance-invalid-source-rejection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual original source symplectic automorphism, two independent physical coordinate permutations, malformed source data
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4al_global_original_coordinate_transport.GlobalOriginalTransportTest.test_05_independent_source_automorphism_and_typed_physical_coordinate_permutations \
+            test_hyp105_issue230_d6aa4al_global_original_coordinate_transport.GlobalOriginalTransportTest.test_06_no_fake_source_flags_and_invalid_global_physical_maps
