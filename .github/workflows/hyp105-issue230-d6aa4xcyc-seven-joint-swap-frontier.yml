@@ -44,6 +44,7 @@ jobs:
           assert o["slice"]=="HYP105-ISSUE230-D6-AA4-X-CYC-SEVEN-CLASS-LOCAL-SWAP-FRONTIER"
           assert o["all_h_exact_sparse_swap_derivative_identity"]
           assert o["finite_true_original_W32_exact_full_105_transpositions"]
+          assert o["finite_true_original_W32_exact_full_210_two_sided_transpositions"]
           assert o["root_A"]==o["root_B"]==o["root_C"]=="OPEN"
           scheme=os.environ["SCHEME"]
           x=o["schemes"][scheme]
@@ -58,6 +59,20 @@ jobs:
           assert x["min_S_over_one_swap_neighborhood_only_NOT_global"]
           assert not x["all_h_adversarial_seven_class_obstruction_PROVED"]
           assert not x["all_h_counterexample_family_PROVED"]
+          b=x["two_sided_210_local_neighborhood"]
+          assert b["source_POINT_swaps"]==105 and b["source_LINE_swaps"]==105
+          assert b["complete_global_map_pairs_in_neighborhood"]==211
+          assert b["D6_zero_label_pairs"]+b["D6_positive_label_pairs"]==211
+          assert b["minimum_S_witness"]["S_seven"]<=x["baseline"]["S_seven"]
+          assert b["every_single_one_side_swap_exhausted"]
+          assert not b["simultaneous_two_side_swaps_exhausted"]
+          assert not b["all_h_min_f_g_seven_S_lower_PROVED"]
+          print("GENUINE ORIGINAL TWO-SIDED 210 SWAPS",scheme,
+                "best S",b["minimum_S_witness"],
+                "best D6zero",b["minimum_D6_zero_witness"],
+                "best weighted risk",b["minimum_weighted_51palette_numerator_witness"],
+                "D6zero count",b["D6_zero_label_pairs"],
+                "Pareto",b["pareto_frontier"])
           print("EXACT ORIGINAL",scheme,"105 GLOBAL SWAPS PASS",
                 "min_S",x["min_S_witness"],
                 "min_D6_zero",x["min_D6_zero_nonAA_witness"],
