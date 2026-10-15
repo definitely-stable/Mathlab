@@ -76,3 +76,31 @@ While Y6 closes the exact algebraic **physical-A gate** for ONE already realized
 Next scientific gate: derive a nonzero lower on the **sum of these four-rook permanents** across all true original rooted B-C4 cohorts OR a compensating quantified contribution from other accepted source forest classes, under arbitrary globally coherent f,g; alternatively find an explicit infinite adversarial correlated family. The new precise 4×4 matrices provide exact finite falsifiers for proposed positive charge-transfer inequalities.
 
 **Acceptance:** keep this child PR Draft; require exact-head Dedicated/INDEX/Proof Audit/Full Research SUCCESS, retained full numerical JSON evidence, and independent mathematical referee. Do not modify main or close issue #230.
+## 7. Executed genuine W32 results: independent root-by-root six-flag physical-A equality
+
+On exact source HEAD `d9319beefff92ca7057929aea6ef42c286f69265`, dedicated hosted [run #38738055001](https://github.com/definitely-stable/Mathlab/actions/runs/38738055001) **SUCCESS 5/5**. The all-h K2,2-free exact matrix universe, physical K6/K7 independent 2factor tests, and each of four complete real ORIGINAL W32 global source map schemes passed. ALL 135 realized B-root physical C4 patterns per typed source side were independently verified AGAINST DIRECT literal original six-incidence neighbor assignments and opposite physical degree-two acceptance, plus the separately implemented Y5 root-pair source forest census and AA4-Q full original historical GF5 selected 51-palette seven-tag classifier. The full 45 cohorts on BOTH sides per scheme are stored as true-original source-flag-ID JSON certificates, not just aggregate summary values.
+
+### 7.1 Exact physical completion decomposition by genuine original source tag
+
+| Global original map / immutable GF5 tag | Candidate occupied K6 2-factor H completions across all 135 rooted B C4s | H with nonzero genuine 4x4 incidence permanent | Accepted historical GF5 original Q (sum of permanents) | Root/two-flag cohorts with **zero** accepted Q |
+|---|---:|---:|---:|---:|
+| S68, B-left/A-right | 1,386 | 44 | **44** | 20 / 45 |
+| S68, A-left/B-right | 1,155 | 21 | **21** | 32 / 45 |
+| S72, B-left/A-right | 1,365 | 36 | **36** | 21 / 45 |
+| S72, A-left/B-right | 1,155 | 31 | **31** | 28 / 45 |
+| lex, B-left/A-right | 1,218 | 98 | **98** | 9 / 45 |
+| lex, A-left/B-right | 1,344 | 109 | **110** | 5 / 45 |
+| reverse, B-left/A-right | 1,449 | 77 | **77** | 11 / 45 |
+| reverse, A-left/B-right | 1,344 | 74 | **74** | 9 / 45 |
+
+The complete physical 2-factor counts include every physical H containing the two pinned opposite source labels for each of the three B C4s per actual original root-flag cohort; the FULL K6 opposite source edge alphabet is occupied, so none of these H fails the physical edge-occupancy check. The overwhelming rejection comes from REAL original incidence 4x4 submatrices with **zero perfect matchings**, not from missing physical edges. This is a finite true-original observation on four globally complete W32 maps, not an all-h statement.
+
+### 7.2 Exact nonzero 4x4 GQ rook multiplicities
+
+On S68, S72 and reverse, **every** nonzero rooted incidence matching permanent equals 1, independently on both historical typed source orientations. On lex, B-left/A-right likewise has 98 nonzero permanents, each 1. Only lex, A-left/B-right contains a nontrivial multiplicity: **108** physically completed 4x4 matrices have permanent 1 and exactly **one** has permanent 2, giving 109 occupied physical 2factors with positive original GQ matching but 110 accepted ORIGINAL six-flag Q. None of these four globally complete W32 examples realizes permanent 3, although the K2,2-free universal upper 3 is sharp among abstract compatible 4x4 matrices.
+
+For S68, 44 of 1,386 physical B-left/A-right 2-factor completions have even one valid four-rook matching, and for its dual A-left/B-right the figure is only 21 of 1,155. S72 analogues are 36/1,365 and 31/1,155. Consequently neither hundreds/thousands of physically complete K6 six-edge patterns nor thousands of original Y5 source B/A forest potentials imply a useful deterministic lower on their JOINT physical/original overlap.
+
+### 7.3 Scientific implication
+
+The Y6 exact identity localizes the B/A bottleneck as the **occupied physical two-factor × actual original 4x4 incidence perfect-matching collision**. The GQ no-four-cycle property sharply limits multiplicity to at most 3, but the important unresolved direction for Branch A is a strictly POSITIVE global lower on how many of those incidence matrices have a perfect matching, or an unavoidable compensating contribution from other six-positive historical GF5 tags when adversarial complete f,g suppress them. The data above do not prove an all-h `S_s=Omega(s^6)`. The next slice should analyze unavoidable global source-neighborhood/physical completion overlap, not infer positivity from the universal upper bound or finite W32 rates.
