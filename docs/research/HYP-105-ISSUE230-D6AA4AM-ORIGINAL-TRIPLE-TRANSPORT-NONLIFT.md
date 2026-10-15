@@ -148,6 +148,34 @@ This is the central **formal blocker**: reaching an auxiliary original-coordinat
 - Negative controls: fake truncated original incidence flag set, repeated/invalid globally injected physical labels and non-dyadic s rejected. Direct degree-two finite K6 two C3, one C6 and repeated-root edge + four-cycle patterns have NO three physical edges sharing one coordinate, confirming the explicitly restricted no-lift scope.
 - The finite-only stronger **three different point IDs AND three different line IDs** count is measured and explicitly stored as exploratory evidence; NO universal positive theorem about it follows from the present source degeneracy subtraction.
 
+
+### Exact TRUE original finite data — pinned reproducible source witnesses
+
+The following **UNORDERED** triple counts are independently counted via **one globally fixed** original source point map f and line map g, re-used for every one of the genuine original incidence flags. The mixed class means at least **TWO different original point IDs AND TWO different original line IDs** within each three-flag subset, with a common physical coordinate on BOTH typed sides. The parenthesized stronger class (all THREE actual source points and all THREE actual source lines pairwise distinct) is **FINITE-ONLY exploratory data, NOT an all-h theorem**.
+
+| Genuine ORIGINAL symplectic GQ | Complete global typed map scheme | Unordered MIXED original triples (new theorem class) | Finite-only THREE-distinct points AND lines | Guaranteed MIXED lower from \(4Vd³/6\) |
+|---|---|---:|---:|---:|
+| W(3,2) | dual-zero | **466** | 152 | 270 |
+| W(3,2) | lex | **605** | 202 | 270 |
+| W(3,2) | reverse | **486** | 199 | 270 |
+| W(3,2) | S68 | **409** | 118 | 270 |
+| W(3,2) | S72 | **439** | 124 | 270 |
+| W(3,4) | lex | **23,534** | 14,590 | ≥7,084 |
+| W(3,4) | random | **20,048** | 13,219 | ≥7,084 |
+| W(3,8) | lex | **1,165,246** | 939,764 | 284,310 |
+| W(3,8) | random | **1,006,839** | 858,278 | 284,310 |
+
+At s=4, \(4Vd³/6=42500/6\), so the integer unordered lower is its CEILING 7,084. At s=2 the ordered floor 1,620 is divisible by six, and at s=8 the ordered floor 1,705,860 is divisible by six. Actual numbers above are NOT assertions of the minimum over all f,g at fixed s.
+
+For every W(3,2) row the values were simultaneously checked by:
+1. factorial third transport with both actual original source degeneracies explicitly subtracted;
+2. independent direct cell-based three-actual-flag-ID combinations, without M or those degeneracy formulas;
+3. independent source-FIRST enumeration of all 14,190 unordered triples among the 45 TRUE original incidence flag IDs, testing global point and line physical coordinate intersections directly, without any coordinate-cell data structure.
+
+For W(3,4) and W(3,8) the first two independent methods agree exactly on every row including genuine non-surjective K14 (six pair holes per type) and K35 (ten pair holes per type). The W(3,8) tests enumerate only compatible source-flag triples within physically occupied cells and do NOT attempt \(\binom{5265}{3}\) brute triples. Literal common ORIGINAL symplectic-source automorphism plus separate physical typed coordinate permutations preserves all exact transport and degeneracy counts; malformed globally injected source label maps and fake source incidences are rejected.
+
+The finite stronger three-points/three-lines positivity is encouraging but logically **not established for arbitrary global f,g or every order** by this third-moment proof. Equally importantly, even three all-distinct original factors can still share a physical point-coordinate on all three point labels and a physical line-coordinate on all three line labels, so **the degree-three obstruction to direct physically 2-regular GF5 lifting remains**.
+
 ## 8. Decision and next allowed mathematical gate
 
 **PROVED as restricted all-h genuine-original all-global-map statement subject to independent proof review:** new third factorial actual FᵀBG identity, exact globally consistent original-source p/l triple subtraction, \(\mathcal T_{\ge2,\ge2}(f,g)\ge4V(s+1)^3\ge4s^6\), dual-typed physical center uniqueness for mixed triple, and impossibility of direct containment into any 6-original-flag degree-two physical factor class.
