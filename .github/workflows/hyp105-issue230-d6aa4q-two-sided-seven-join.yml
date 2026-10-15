@@ -1,0 +1,95 @@
+name: hyp105-issue230-d6aa4q-two-sided-seven-join
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4q_two_sided_seven_join.py"
+      - "research/test_hyp105_issue230_d6aa4q_two_sided_seven_join.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md"
+      - ".github/workflows/hyp105-issue230-d6aa4q-two-sided-seven-join.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true-original-independent-two-sided-seven-GF5-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All-h genuine GQ girth C/C elimination and exact independent original 3x3 all-seven GF5 join
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4q_two_sided_seven_join.py" -v
+          python research/hyp105_issue230_d6aa4q_two_sided_seven_join.py > /tmp/aa4q-all-seven.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/aa4q-all-seven.json"))
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-Q-TWO-SIDED-ORIGINAL-SEVEN-JOIN"
+          assert x["all_h_exact_half_A_B_C_candidate_count_formula"]
+          assert x["all_h_original_GQ_C_C_forbidden_by_incidence_girth_eight"]
+          assert x["global_full_injection_same_ORIGINAL_six_id_two_sided_intersection"]
+          assert x["full_original_W32_one_side_A_B_C_marginals_constant_for_all_full_K6_maps"]
+          assert x["full_original_W32_joint_seven_classes_NOT_constant"]
+          assert x["root_A"]==x["root_B"]=="OPEN" and not x["full_GF5_R3"]
+          known={"lex":259,"reverse":169,"S68":68,"S72":72}
+          for name,z in x["cases"].items():
+              assert z["accepted_seven_GF5_original_S"]==known[name]
+              assert z["forbidden_original_GQ_C_C_sixsets"]==0
+              assert z["candidate_P_total"]==z["candidate_L_total"]==62370
+              assert z["all_h_exact_two_side_joint_minus_unaligned_A_A_formula_verified"]
+              assert z["accepted_seven_GF5_original_S"]==(
+                  z["exact_source_original_Q_double_projection_intersection"]-
+                  z["physical_A_A_nonD6_rejected"])
+              assert z["independent_historical_62370_original_Q_oracle"]=="PASS"
+              print("TRUE ORIGINAL",name,"MATRIX",z["physical_projection_source_3x3_joint_matrix"],
+                    "S",z["accepted_seven_GF5_original_S"],
+                    "JOIN",z["exact_source_original_Q_double_projection_intersection"],
+                    "AA REJECTED",z["physical_A_A_nonD6_rejected"],
+                    "51PALETTE NUMERATOR",z["selected_GF5_51palette_certified_numerator"])
+          print("REAL ORIGINAL SEVEN GF5 two-sided six-ID join all seven & NO original C/C PASS")
+          PY
+  true-original-seven-GF5-each-mapping-independent-join:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently enumerate right AND left original 62370 source sixsets and joint all-seven GF5 classifier
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4q_two_sided_seven_join.py --scheme "$SCHEME" > "/tmp/aa4q-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4q-"+os.environ["SCHEME"]+".json").read_text())
+          assert x["accepted_seven_GF5_original_S"]=={"S68":68,"S72":72}[os.environ["SCHEME"]]
+          assert x["candidate_P_total"]==x["candidate_L_total"]==62370
+          assert x["exact_independent_half_marginal_counts"]=={
+              "P":{"A":51030,"B":10935,"C":405},
+              "L":{"A":51030,"B":10935,"C":405}}
+          assert x["forbidden_original_GQ_C_C_sixsets"]==0
+          assert x["all_h_exact_two_side_joint_minus_unaligned_A_A_formula_verified"]
+          assert x["physical_A_A_joint_candidates"]==(
+              x["physical_A_A_genuine_D6_only"]+
+              x["physical_A_A_nonD6_rejected"])
+          assert len(x["accepted_seven_GF5_original_Q_by_tag"])==7
+          assert sum(x["accepted_seven_GF5_original_Q_by_tag"].values())==x[
+              "accepted_seven_GF5_original_S"]
+          assert x["independent_historical_62370_original_Q_oracle"]=="PASS"
+          assert x["same_global_complete_f_g_both_side_join"]
+          assert not x["S_full_root_all_h_omega_s6_PROVED"]
+          print("REAL TRUE ORIGINAL",os.environ["SCHEME"],
+                "ALL SEVEN CLASSES",x["accepted_seven_GF5_original_Q_by_tag"],
+                "3x3 JOINT",x["physical_projection_source_3x3_joint_matrix"],
+                "ACTUAL ORIGINAL DOUBLE-SIDED JOIN",x["exact_source_original_Q_double_projection_intersection"],
+                "UNALIGNED AA",x["physical_A_A_nonD6_rejected"])
+          print("PASS: independent physical P and L original incidence sixsets JOIN reproduces full historical GF5")
+          PY
