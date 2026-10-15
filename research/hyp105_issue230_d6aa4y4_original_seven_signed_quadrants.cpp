@@ -4,9 +4,28 @@
 // line physical-edge-label swap grid; each of 7 immutable source tags
 // gets exact four signed-mode quadrants ++,--,+-,-+.
 // Reuse preceding independently verified Y2 ORIGINAL feature generator.
-#define main hyp105_y2_original_signed_conflict_main
-#include "hyp105_issue230_d6aa4y2_original_signed_conflicts.cpp"
-#undef main
+#define HYP105_Y2_GRAD_LIBRARY_ONLY
+#include "hyp105_issue230_d6aa4y2_original_mode_gradient.cpp"
+#undef HYP105_Y2_GRAD_LIBRARY_ONLY
+
+struct SignedMode { Mode feature; int sign; };
+// Deliberately independent of Y2's aggregated four-quadrant collision
+// implementation; only the previously proven ORIGINAL Q feature index
+// is reused. The complete comparator is separately tested against Y2.
+static vector<SignedMode> signed_diff(const vector<Mode>& old_modes,
+                                      const vector<Mode>& new_modes) {
+    vector<SignedMode> out;
+    size_t i=0,j=0;
+    while(i<old_modes.size()||j<new_modes.size()) {
+        if(j==new_modes.size()||
+           (i<old_modes.size()&&old_modes[i]<new_modes[j])) {
+            out.push_back({old_modes[i],-1});++i;
+        } else if(i==old_modes.size()||new_modes[j]<old_modes[i]) {
+            out.push_back({new_modes[j],1});++j;
+        } else {++i;++j;}
+    }
+    return out;
+}
 
 using Quadrants=array<array<uint64_t,4>,7>;
 
@@ -36,7 +55,8 @@ static Quadrants true_original_seven_signed_quadrants(
 int main() {
     try {
         const Model m=load_model();
-        const auto two=two_factors(m),matching=matchings(m);
+        const auto two=two_factors(m);
+        const auto matching=matchings(m);
         vector<pair<int,int>> moves={{-1,-1}};
         for(int p=0;p<15;p++) for(int q=p+1;q<15;q++)
             moves.push_back({p,q});
