@@ -4,6 +4,8 @@ on:
     paths:
       - "research/hyp105_issue230_d6aa4y3_original_source_star_capacity.py"
       - "research/test_hyp105_issue230_d6aa4y3_original_source_star_capacity.py"
+      - "research/hyp105_issue230_d6aa4y3_original_cross_source_capacity.py"
+      - "research/test_hyp105_issue230_d6aa4y3_original_cross_source_capacity.py"
       - "docs/research/HYP-105-ISSUE230-D6AA4Y3-ORIGINAL-SOURCE-STAR-CAPACITY.md"
       - ".github/workflows/hyp105-issue230-d6aa4y3-original-source-star-capacity.yml"
   workflow_dispatch:
@@ -21,7 +23,9 @@ jobs:
       - name: All-h original source factor and actual incidence pattern formulae with independent complete physical K6 K7 enumeration
         run: |
           python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4y3_original_source_star_capacity.py" -v
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4y3_original_cross_source_capacity.py" -v
           python research/hyp105_issue230_d6aa4y3_original_source_star_capacity.py > /tmp/y3-original-all-h-capacity.json
+          python research/hyp105_issue230_d6aa4y3_original_cross_source_capacity.py > /tmp/y3-original-cross-source.json
           python - <<'PY'
           import json,sys
           x=json.load(open("/tmp/y3-original-all-h-capacity.json"))
@@ -39,12 +43,20 @@ jobs:
           for entry in x["per_order_single_anchored"]:
               assert entry["K"]>=entry["V"]
               assert entry["all_h_true_original_source_factor_half_capacity_PROVED"]
-          print("GENUINE ALL-h ORIGINAL GQ PHYSICAL STAR/FLAG/PAIR CAPACITY PASS",len(x["per_order_single_anchored"]),"powers")
+          z=json.load(open("/tmp/y3-original-cross-source.json"))
+          assert z["all_h_genuine_GQ_two_by_two_source_incidence_girth_four_forbidden"]
+          assert z["all_h_exact_source_cross_star_anchored_true_flag_bound"]
+          assert z["all_h_harmful_GF5_mode_capacity_improves_to_O_s11"]
+          assert z["root_A"]==z["root_B"]==z["root_C"]=="OPEN"
+          assert len(z["orders"])>=12
+          print("GENUINE ALL-h ORIGINAL GQ PHYSICAL STAR/FLAG/PAIR AND O(s11) CROSS-STAR CAPACITY PASS",len(x["per_order_single_anchored"]),"powers")
           PY
       - uses: actions/upload-artifact@v4
         with:
           name: hyp105-aa4y3-all-h-original-source-star
-          path: /tmp/y3-original-all-h-capacity.json
+          path: |
+            /tmp/y3-original-all-h-capacity.json
+            /tmp/y3-original-cross-source.json
           retention-days: 90
           if-no-files-found: error
   genuine-original-W32-all-sources-flags-physical-pairs:
@@ -64,6 +76,7 @@ jobs:
           SCHEME: ${{ matrix.scheme }}
         run: |
           python research/hyp105_issue230_d6aa4y3_original_source_star_capacity.py --scheme "$SCHEME" > /tmp/y3-real-original-W32-stars.json
+          python research/hyp105_issue230_d6aa4y3_original_cross_source_capacity.py --scheme "$SCHEME" > /tmp/y3-real-original-W32-cross.json
           python - <<'PY'
           import os,json
           z=json.load(open("/tmp/y3-real-original-W32-stars.json"))
@@ -80,12 +93,22 @@ jobs:
               assert q["pair_classes"]=={"adjacent":60,"disjoint":45}
               assert q["all_62370_TRUE_original_half_Q_exhaustively_visited"]
           assert z["root_A"]==z["root_B"]=="OPEN"
-          print("TRUE ORIGINAL",z["scheme"],"ALL 45 FLAG & 15 SOURCE & 105 PAIR PHYSICAL CAPACITIES PASS")
+          cross=json.load(open("/tmp/y3-real-original-W32-cross.json"))
+          assert cross["scheme"]==z["scheme"]
+          assert cross["full_11025_real_original_2point_x_2line_source_layouts_checked"]
+          assert sum(cross["true_original_GQ_2by2_marked_source_incidence_class_counts"].values())==11025
+          assert cross["true_original_GQ_2by2_marked_source_incidence_class_counts"].get("4",0)==0
+          for side in ("point","line"):
+              assert cross["per_typed_side"][side]["actual_source_OPPOSITE_source_cross_stars_checked"]==225
+              assert cross["per_typed_side"][side]["all_225_real_original_source_cross_caps_PASS"]
+          print("TRUE ORIGINAL",z["scheme"],"ALL 45 FLAG & 15 SOURCE & 105 PAIR PLUS 225 POINT-LINE CROSSED STARS PASS")
           PY
       - uses: actions/upload-artifact@v4
         with:
           name: hyp105-aa4y3-W32-star-${{ matrix.scheme }}
-          path: /tmp/y3-real-original-W32-stars.json
+          path: |
+            /tmp/y3-real-original-W32-stars.json
+            /tmp/y3-real-original-W32-cross.json
           retention-days: 90
           if-no-files-found: error
   genuine-original-11236-paired-modes-harm-upper:
@@ -115,6 +138,8 @@ jobs:
           assert z["mixed_true_original_global_complete_pairs_audited"]==11025
           assert z["historical_Y2_signed_original_mode_11236_rows_read"]==11236
           assert z["all_h_analytical_source_star_harm_upper_verified_on_original_W32"]
+          assert z["all_h_genuine_no4cycle_point_line_cross_refinement_verified"]
+          assert isinstance(z["pairs_with_strict_original_point_line_cross_star_refinement"],int)
           assert z["max_harmful_original_modes"]>0
           assert z["max_harmful_original_modes"]<=2*42444
           assert not z["all_h_original_seven_minimax_Omega_s6_PROVED"]
