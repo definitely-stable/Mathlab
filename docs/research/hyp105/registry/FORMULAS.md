@@ -105,6 +105,34 @@ I_L^{BA,\mathrm{int}}(f,g)=\sum_{p,A:\,|A|=4}w_g(p,A)\,\chi_B\bigl(f(p);f(A)\big
 
 **Pinned source:** [PR #471 @ b086566d8be1](https://github.com/definitely-stable/Mathlab/blob/b086566d8be17307b102e7bd89d28d4167af86a6/docs/research/HYP-105-ISSUE230-D6AA4O-QUINTIC-ADVERSARIAL-SWAP.md)
 
+## HYP105-F-008 — Exact all-h seven-positive-class same-original-ID two-sided join
+
+\[
+S_s(f,g)=\bigl|\mathcal{H}_P(f)\cap\mathcal{H}_L(g)\bigr|-\bigl|\mathcal{A}_{AA}(f,g)\bigr|+\bigl|\mathcal{D}_6(f,g)\bigr|.
+\]
+
+**Applies under:** h>=1; every genuine original W(3,2^h) and every pair of separately globally injective complete f,g; intersections are sets of SAME six genuine original incidence IDs; D6 requires physical original-column cycle alignment.
+
+**Cannot conclude:** Exact join identity is not an all-maps lower bound on simultaneous seven-GF5 positive original motifs.
+
+**Linked claim:** HYP105-AA4Q-SEVEN-ORIGINAL-JOIN
+
+**Pinned source:** [PR #476 @ a51ce5aeb788](https://github.com/definitely-stable/Mathlab/blob/a51ce5aeb7883dcd029b9275ce44eaca9a60370f/docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md)
+
+## HYP105-F-009 — GQ original-incidence source C/C impossibility
+
+\[
+\mathcal{J}_{CC}(f,g)=\varnothing\qquad(\text{genuine ORIGINAL GQ girth }8>6).
+\]
+
+**Applies under:** h>=1; six DISTINCT genuine original incidence IDs, both typed ORIGINAL source multiplicity profiles C=(2,2,2), arbitrary complete physical global injections.
+
+**Cannot conclude:** Forbids genuine original source C/C only; not a generic physical coordinate C/C intersection or a deterministic positive seven-GF5 minimum.
+
+**Linked claim:** HYP105-AA4Q-CC-GIRTH-OBSTRUCTION
+
+**Pinned source:** [PR #476 @ a51ce5aeb788](https://github.com/definitely-stable/Mathlab/blob/a51ce5aeb7883dcd029b9275ce44eaca9a60370f/docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md)
+
 ## Formula review protocol
 
 Verify original six-incidence constraints, alphabet, all-h range, global injection semantics, and quantifier order against the cited proof commit. CI does not mechanically check the algebra.

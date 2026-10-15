@@ -30,17 +30,8 @@ jobs:
         run: |
           python -m research.rcp.structured_docs --destination /tmp/rcp-aa4q-md --write
           python -m research.rcp.structured_docs --destination /tmp/rcp-aa4q-md --check
-      - name: Emit GitHub-readable encoded Markdown solely for exact-parity checked commit
-        run: |
-          python - <<'PY'
-          import base64
-          from pathlib import Path
-          for name in ('RESULTS.md','FORMULAS.md','PROOF-GRAPH.md',
-                       'PROTOCOLS.md','RESEARCH-MATRIX.md'):
-              path = Path('/tmp/rcp-aa4q-md') / name
-              print('AA4Q_DOC_EXPORT|' + name + '|' +
-                    base64.b64encode(path.read_bytes()).decode('ascii'), flush=True)
-          PY
+      - name: Verify permanent five-register Markdown matches source
+        run: python -m research.rcp.structured_docs --check
       - uses: actions/upload-artifact@v4
         with:
           name: hyp105-aa4q-md-generated
