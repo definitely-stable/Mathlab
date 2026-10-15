@@ -1,5 +1,16 @@
 # HYP-105 — start here
 
+**Assign or resume mathematical research:** give the reader **one link** — [HYP-105 Research Work Brief](AGENT-BRIEF.md). It defines the root A/B/C objective, how to inspect the *current* GitHub research frontier (including parallel Draft stacks), which scientific evidence to retain, and what verified handoff to return. A separate prompt only needs to specify a particular slice/PR if one is intended; otherwise the brief instructs selection of the next unresolved mathematical step.
+
+**Use this page as a reference index**, not as the assignment or a live status board. Details below describe research infrastructure and source imports, some historically: they do **not** prove that the most recently mentioned Draft PR is still the active frontier.
+
+| Need | Go to |
+|---|---|
+| Delegate the next mathematical step | [AGENT-BRIEF.md](AGENT-BRIEF.md) |
+| Verify live branches, heads, CI and status | [Living Context](LIVING-CONTEXT.md) |
+| Read durable proof statements, formulas, dependencies and no-go scopes | [Results](registry/RESULTS.md), [Formulas](registry/FORMULAS.md), [Proof Graph](registry/PROOF-GRAPH.md) |
+| Review provenance or decide how to integrate stacked PRs | [Evidence & No-Go](EVIDENCE-AND-NOGO.md), [Integration Plan](INTEGRATION-PLAN.md) |
+
 Root mathematics: [#230](https://github.com/definitely-stable/Mathlab/issues/230); parents [#176](https://github.com/definitely-stable/Mathlab/issues/176), [#169](https://github.com/definitely-stable/Mathlab/issues/169). The issue text is the normative model and Branch A/B/C gate. A CI success is not a theorem proof.
 
 ## Live branch and PR inventory
