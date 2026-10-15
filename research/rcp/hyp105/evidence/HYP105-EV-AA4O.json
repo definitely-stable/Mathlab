@@ -1,0 +1,42 @@
+{
+  "schema": "mathlab.rcp.evidence.v1",
+  "id": "HYP105-EV-AA4O",
+  "claim_ids": [
+    "HYP105-AA4O-QUINTIC-IDENTITY",
+    "HYP105-AA4O-SWAP-IDENTITY"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 471,
+    "commit": "b086566d8be17307b102e7bd89d28d4167af86a6",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4O-QUINTIC-ADVERSARIAL-SWAP.md",
+    "proof_blob_sha": "374e4c3ae2be46fff9f93b0ab1e87b9d697c2e0e"
+  },
+  "artifacts": [
+    {
+      "role": "ORACLE_SOURCE",
+      "path": "research/hyp105_issue230_d6aa4o_quintic_adversarial_swap.py",
+      "git_blob_sha": "658b5a27eed0a7bfa7e61618312d0336f78aba8e"
+    },
+    {
+      "role": "INDEPENDENT_TEST",
+      "path": "research/test_hyp105_issue230_d6aa4o_quintic_adversarial_swap.py",
+      "git_blob_sha": "cc055673f36b638d540fdda9dcff29096822cd5c"
+    }
+  ],
+  "reproduction": {
+    "runner": "GITHUB_HOSTED",
+    "environment": "ubuntu-24.04 / Python 3.12 (requested baseline)",
+    "checkout_commit": "b086566d8be17307b102e7bd89d28d4167af86a6",
+    "command": "python -m unittest research.test_hyp105_issue230_d6aa4o_quintic_adversarial_swap -v",
+    "execution_status": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+  },
+  "ci": {
+    "status": "NOT_ARCHIVED_AS_PROOF",
+    "note": "RCP-C verifies byte identities on exact Git commit; it does not claim a fresh execution of original PR CI or mathematical correctness."
+  },
+  "retention": "Source commit and Git blob identities are permanent Git provenance as long as repository retains the objects; GitHub Actions logs/artifacts can expire.",
+  "limitations": [
+    "One-swap local optimum is not a globally minimal energy certificate."
+  ]
+}
