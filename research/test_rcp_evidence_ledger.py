@@ -52,6 +52,23 @@ class EvidenceTests(unittest.TestCase):
         self.assertTrue(all(len(row["sha256"]) == 64 for row in x))
         self.assertTrue(any("capacity_results.json" in row["archive"] for row in x))
 
+    def test_modified_sha256_pin_rejected(self):
+        path = self.root / "sha256-pins.json"
+        obj = json.loads(path.read_text(encoding="utf-8"))
+        k = sorted(obj["digests"])[0]
+        obj["digests"][k] = "0" * 64
+        path.write_text(json.dumps(obj), encoding="utf-8")
+        validate_ledgers(self.root)
+        with self.assertRaisesRegex(RegistryError, "SHA-256 digest mismatch"):
+            verify_archives(self.root, self.project_root)
+
+    def test_missing_sha256_pin_is_fail_closed(self):
+        path = self.root / "sha256-pins.json"
+        obj = json.loads(path.read_text(encoding="utf-8"))
+        del obj["digests"][sorted(obj["digests"])[0]]
+        path.write_text(json.dumps(obj), encoding="utf-8")
+        self.fail("SHA-256 pin coverage differs")
+
     def test_git_hash_includes_blob_header_not_raw_sha1(self):
         b = b"hello\n"
         self.assertEqual(git_blob_sha(b),
