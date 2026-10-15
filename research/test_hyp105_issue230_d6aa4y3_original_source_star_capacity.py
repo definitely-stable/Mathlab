@@ -74,7 +74,8 @@ class OriginalSourceStarCapacityTests(unittest.TestCase):
                                     "C":comb(a-4,2)},
                     }[relation]
                     for tag in expected:
-                        self.assertEqual(got,expected[tag])
+                        actual=sum(e1 in P and e2 in P for P in physical[tag])
+                        self.assertEqual(actual,expected[tag])
             self.assertEqual(
                 sum((0,1) in p for p in physical["A"]),
                 28*__import__("math").comb(a-2,4))
