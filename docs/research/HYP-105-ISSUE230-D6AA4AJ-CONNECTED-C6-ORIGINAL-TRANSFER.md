@@ -81,13 +81,28 @@ This separates the **very large physical pre-Hall index mass** from the much sma
 
 A. For all disjoint pinned pairs in complete K6/K7/K8, literally enumerate all C6 physical 2factors containing them using pre-existing independent AA4-AD oracle. Every H has exactly one non-yz or yz physical template; per pinned pair counts are **2(a-4)(a-5)** and **4(a-4)(a-5)**. Detect duplicate templates and missing patterns.
 
-B. True ORIGINAL W(3,2): five actual full globally bijective physical mappings including the AA4-AI dual split-zero witness, lex, reverse, S68 and S72; BOTH typed source sides, ALL 15 original roots, 3 pairs of different genuine root incidences per root, ALL 3 physical genuine first-side C4s per root. For every one of these original cohorts, compare new decomposed EXACT accepted connected C6 source-Hall counts to an **independent** literal original four-row × actual four opposite-factor permutation over physically complete H. Compare the sum with pre-existing full original W32 A-sector accepted connected C6 census. The frozen dual-zero witness must give **40 B/A** and **58 A/B** accepted original C6 Q on actual 135 rooted cohorts per type, against **1,062/1,188** globally occupied physical C6 H respectively.
+B. True ORIGINAL W(3,2): five actual full globally bijective physical mappings including the AA4-AI dual split-zero witness, lex, reverse, S68 and S72; BOTH typed source sides, ALL 15 original roots, 3 pairs of different genuine root incidences per root, ALL 3 physical genuine first-side C4s per root. For every one of these original cohorts, compare new decomposed EXACT accepted connected C6 source-Hall counts to an **independent** literal original four-row × actual four opposite-factor permutation over physically complete H. Compare the sum with pre-existing full original W32 A-sector accepted connected C6 census. The earlier AA4-AI FULL connected C6 count includes adjacent physical pins: **40 B/A** and **58 A/B** accepted original C6 Q, against **1,062/1,188** occupied physical C6 H. This AA4-AJ theorem is strictly limited to DISJOINT pinned physical pairs and its new exact counts are **17 B/A**, **41 A/B** genuine original accepted six-ID Q, against **504/756** occupied physical disjoint-pinned H. The remainder is **23/17** accepted actual original adjacent-pinned C6 Q, against **558/432** physically occupied adjacent-pinned H. NEVER compare AJ disjoint-only counts directly to AI full connected sector as if their domains coincide.
 
 C. True ORIGINAL W(3,4): actual symplectic GF(4) point-line incidence, complete globally injective lex/random physical maps with m=6 physical holes in K14, both source orientations, several true source roots, actual flag pairs and real physically occupied first-side C4. Compare each individual decomposed true Hall count with separate AA4-AI \`single_original_A_sector_permanent\` as well as an independent literal H×all 24 genuine original four-column matchings.
 
 D. True original source symplectic automorphism and two independent physical coordinate permutations must preserve exact full C6 accepted 40/58. Reject malformed noninjective source, fake C4s, invalid physical 2factors and non-powers of two. Integer upper bounds evaluated for h up to 25 with no finite fake W(3,2^h) construction.
 
 Four GitHub-hosted Jobs on EXACT final PR HEAD; independently compare to earlier AA4-AI; ensure INDEX, Proof Audit, and Full Research statuses distinguished from proof acceptance.
+
+## 5.1 Exact genuine W(3,2) split of CONNECTED C6 by physical pin relation
+
+The genuine globally bijective W(3,2) AA4-AI counterexample is an important independent guard. For one fixed pair of complete global point/line physical maps, summing all actual original point and line roots, actual flag pairs and first-side occupied C4s gives:
+
+| True ORIGINAL connected-C6 cohort | Point-B / Line-A | Line-B / Point-A |
+|---|---:|---:|
+| **Physical disjoint-pins H** counted by THIS AJ theorem | **504** | **756** |
+| **Original accepted disjoint-pins Q** counted by THIS AJ theorem | **17** | **41** |
+| Physical adjacent-pins H — NOT counted by this AJ theorem | 558 | 432 |
+| Original accepted adjacent-pins Q — NOT counted by this AJ theorem | 23 | 17 |
+| All physical connected-C6 H, independently established by AI | **1,062** | **1,188** |
+| All original accepted connected-C6 Q, independently established by AI | **40** | **58** |
+
+All table cells are indexed original source cohort counts with six distinct genuine original incidence IDs in selected Q. The 40/58 FULL connected-sector figure is NOT a theorem of the disjoint-pinned AJ transfer alone. The difference is a well-posed AA4-AK adjacent-pins source transfer and must NOT be implicitly assigned to either of the two AJ disjoint templates. The exact 17/41 and 504/756 disjoint totals were independently checked by the old AA4-AD complete physical A-twofactor H enumeration crossed with all source 4-rook perfect matchings, plus invariance under a genuine source symplectic automorphism and two independent physical coordinate relabelings.
 
 ## 6. Integration and future theorem gate
 
