@@ -20,6 +20,23 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  structured-document-preview:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate canonical structured Markdown
+        run: python -m research.rcp.structured_docs --destination /tmp/rcp001e-generated --write
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rcp001e-generated-md
+          path: /tmp/rcp001e-generated/
+          if-no-files-found: error
+          retention-days: 30
+
   independent-impact-oracles:
     runs-on: ubuntu-24.04
     timeout-minutes: 15
