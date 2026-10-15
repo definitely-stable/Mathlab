@@ -56,6 +56,29 @@ For S68, S72, lex and reverse, independently build the ORIGINAL point physical h
 
 Exactly computed relaxed lower floors and actual positive joint counts MUST be reported separately. A zero value certifies insufficiency of this particular independently stratified marginal-only lower, **not** the existence of globally injected counterlabels attaining zero.
 
+### Exact hosted REAL W32 nine-cell source/physical joint matrix
+
+The two independent GitHub-hosted true-W32 jobs S68/S72 and the third eight-test source-only job completed with all specialized checks passing. The exhaustive 8,145,060-source-Q census yields this **exact immutable ORIGINAL source-forest universe table** and actual joint projection counts for globally complete typed K6 injections:
+
+| True ORIGINAL forest cell | Source-only U_F (physical-independent) | Actual S68 physical P/L join | Actual S72 physical P/L join |
+|---|---:|---:|---:|
+| A/A | 1,566,360 | 263 | 286 |
+| A/B | 1,666,980 | 21 | 31 |
+| A/C | 6,225 | 0 | 0 |
+| B/A | 1,666,980 | 44 | 36 |
+| B/B-overlap | 910,080 | 2 | 1 |
+| B/B-disjoint | 707,580 | 1 | 2 |
+| B/C | 5,220 | 0 | 0 |
+| C/A | 6,225 | 0 | 2 |
+| C/B | 5,220 | 0 | 0 |
+| **All nine-source-forest physically joined** | — | **331** | **358** |
+
+For both real maps, every source-forest-conditioned relaxed non-AA Fréchet floor **max(0, |L_F|+|R_F|-|U_F|)** is **zero**, and the total non-AA relaxed positive lower is exactly ZERO, while the actual accepted seven-GF5 original S is **68** (S68) or **72** (S72). Actual A/A has 263 or 286 jointly physically admissible original Q, but none have matching connected D6 for S68/S72, reproducing historical D6=0. All nine actual joint cells reconcile with independent AA4-Q same-six-ID classifier; the certified seven-tag selected 51-palette numerator is separately checked against historical original GF5.
+
+The left and right candidate populations before conditioning on the OPPOSITE ORIGINAL source type are each exactly 62,370, but some physically good one-sided Q have source multiplicity other than A/B/C on the opposite original type. Such Q are tracked in explicit \`point_physical_half_outside_joint_source_grid\` / \`line_physical_half_outside_joint_source_grid\` counters, never falsely placed into the nine cells. Their intersection is necessarily empty because a true two-sided physically admissible Q requires both source types A/B/C. This is a fail-closed source-domain distinction, not a missing contribution to S.
+
+**Exact finite NO-GO for one stated proof technique:** even the complete nine original source-forest universes and actual separately typed physical one-half populations do not produce a positive Fréchet lower for these globally coherent W32 maps. This is a finite counterexample to claims that THAT lower method automatically yields positivity; it is NOT an actual pair of globally injected maps with S=0, and it is NOT an all-h refutation of Branch A.
+
 ## 4. Proof status, falsification and next AA4-V gate
 
 The all-h forest structural lemma is exact by original GQ girth. The all-h nine-cell intersection/Fréchet formula is an exact elementary relaxation. The W32 full source census is a finite exact result and may falsify a proposed *intermediate inequality on such coarse margins*. There is NO all-h positive min over both global physical maps and no infinite counterlabel family.
