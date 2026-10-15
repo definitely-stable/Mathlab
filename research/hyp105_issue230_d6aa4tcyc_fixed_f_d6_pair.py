@@ -383,6 +383,9 @@ def report(scheme=None):
         "all_h_fixed_side_one_global_g_kernel_rows":
             [exact_one_sided_fixed_f_disjoint_LINE_D6_kernel(1<<h)
              for h in range(1,12)],
+        "all_h_genuine_original_GQ_positive_conditional_D6_covariance_certificates":
+            [certified_all_original_orders_fixed_f_disjoint_LINE_D6_positive_covariance(1<<h)
+             for h in range(1,12)],
         "full_conditional_second_moment_and_variance_PROVED":False,
         "universal_all_labels_S_omega_s6_PROVED":False,
         "root_A":"OPEN","root_B":"OPEN",
