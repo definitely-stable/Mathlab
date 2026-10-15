@@ -58,7 +58,7 @@ class OriginalFourAnchorCodegreeTests(unittest.TestCase):
                        for a,b in combinations(records,2))
             self.assertEqual(two_arm_matching_count(records),actual)
         self.assertEqual(two_arm_matching_count([(1,3,7),(2,3,8),(3,4,7)]),1)
-        with self.assertRaisesRegex(ValueError,"distinct original"):
+        with self.assertRaisesRegex(ValueError,"distinct true ORIGINAL"):
             two_arm_matching_count([(1,3,7),(1,4,8)])
         with self.assertRaisesRegex(ValueError,"distinct original arm"):
             two_arm_matching_count([(1,3,7),(2,3,7)])
@@ -143,7 +143,7 @@ class OriginalFourAnchorCodegreeTests(unittest.TestCase):
             exact_original_anchor_middle_census(ctx,0,max_source_pair_checks=-1)
         with self.assertRaisesRegex(ValueError,"nonnegative"):
             exact_original_anchor_middle_census(ctx,0,max_blocked_expansions=-1)
-        with self.assertRaisesRegex(ValueError,"distinct original"):
+        with self.assertRaisesRegex(ValueError,"distinct true ORIGINAL"):
             two_arm_matching_count([(1,2,3),(1,4,5)])
         # True actual G source paths are proper only after coordinate
         # quartet validation. Independent original status must refuse
