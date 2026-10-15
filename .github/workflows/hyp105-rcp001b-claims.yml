@@ -1,0 +1,75 @@
+name: hyp105-rcp001b-claims
+
+on:
+  pull_request:
+    paths:
+      - "research/rcp/claim_registry.py"
+      - "research/rcp/claim_index.py"
+      - "research/rcp/hyp105/**"
+      - "research/rcp/schema/**"
+      - "research/test_rcp_claim_registry.py"
+      - "docs/research/hyp105/**"
+      - ".github/workflows/hyp105-rcp001b-claims.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rcp001b-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  independent-claim-registry-oracles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Registry adversarial validation
+        run: python -m unittest research.test_rcp_claim_registry -v
+      - name: Validate pinned model and quantifier metadata
+        run: python -m research.rcp.claim_registry
+
+  pinned-source-and-proof-index:
+    needs: independent-claim-registry-oracles
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Re-verify proof file blob hashes at five pinned commit SHAs
+        run: python -m research.rcp.claim_registry --verify-sources
+      - name: Rebuild proof index with stable model and dependency links
+        run: python -m research.rcp.claim_index --output /tmp/rcp001b-claims --verify-sources
+      - name: Verify indexed outputs are never promoted to mathematical proof
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p = Path('/tmp/rcp001b-claims')
+          idx = json.loads((p/'claims.json').read_text(encoding='utf-8'))
+          assert idx['schema'] == 'mathlab.rcp.claim-index.v1'
+          assert idx['root_branch_status'] == 'NOT_ESTABLISHED_BY_THESE_CLAIMS'
+          assert idx['acceptance'] == 'REGISTRY_METADATA_ONLY_NOT_PROOF'
+          assert idx['sources_verified'] == 5
+          assert len(idx['claims']) == 7
+          assert all(c['mathematical_status'] == 'DOCUMENTED_IN_DRAFT' for c in idx['claims'])
+          assert all(c['review_status'] == 'NOT_REVIEWED' for c in idx['claims'])
+          assert len(idx['dependency_edges']) == 3
+          assert (p/'claims.md').is_file()
+          print('RCP-001-B: metadata/index/provenance accepted, mathematical theorem NOT asserted')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rcp001b-claim-registry
+          path: /tmp/rcp001b-claims/
+          if-no-files-found: warn
+          retention-days: 30
