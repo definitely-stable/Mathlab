@@ -32,7 +32,7 @@ class OriginalFullSevenQuenchedKernelTests(unittest.TestCase):
             a,K=p["a"],p["K"]
             self.assertLess(comb(a-1,2),(s+1)*(s*s+1))
             self.assertGreaterEqual(K,(s+1)*(s*s+1))
-            F=lambda n,k:factorial(n)//factorial(n-k)
+            F=lambda n,k:__import__('math').prod(range(n-k+1,n+1))
             ph=Fraction(F(a,6),F(K,6))
             pa=70*ph
             pb=Fraction(K*3*comb(a-2,4)*24,F(K,5))
