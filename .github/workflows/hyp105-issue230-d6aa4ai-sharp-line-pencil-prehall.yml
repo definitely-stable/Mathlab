@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Eight source-GQ independent tests: original line-pencil, all h<=39, true W34/W38 and actual common transvection
+      - name: "Eight source-GQ independent tests - original line-pencil, all h<=39, true W34/W38 and actual common transvection"
         run: |
           python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ai_sharp_line_pencil_prehall.py" -v
   independent-analytic-global-GQ-line-pencil:
