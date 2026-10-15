@@ -1,0 +1,67 @@
+name: hyp105-rcp001a-inventory
+on:
+  pull_request:
+    paths:
+      - "research/rcp/**"
+      - "research/test_rcp_inventory.py"
+      - "docs/research/hyp105/**"
+      - ".github/workflows/hyp105-rcp001a-inventory.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  independent-offline-oracles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fail-closed pagination, SHA, DAG and fork falsifiers
+        run: python -m unittest research.test_rcp_inventory -v
+
+  live-hyp105-open-pr-inventory:
+    needs: independent-offline-oracles
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Live full open-PR pagination and research DAG
+        run: python -m research.rcp.github_inventory --output /tmp/rcp001a-inventory
+      - name: Check inventory provenance and completeness
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("/tmp/rcp001a-inventory/inventory.json")
+          d = json.loads(p.read_text(encoding="utf-8"))
+          assert d["schema"] == "mathlab.rcp.inventory.v1"
+          assert d["complete_open_pr_pagination"] is True
+          assert d["consistency"] == "NON_ATOMIC_GITHUB_API_OBSERVATION"
+          assert d["main_head"] and len(d["main_head"]) == 40
+          assert d["open_pr_count"] == len(d["open_prs"])
+          assert d["hyp105_direct_count"] > 0
+          assert len({x["number"] for x in d["open_prs"]}) == len(d["open_prs"])
+          assert Path("/tmp/rcp001a-inventory/inventory.md").is_file()
+          print("RCP-001-A live GitHub open-PR inventory accepted (NOT theorem proof)")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rcp001a-github-inventory
+          path: /tmp/rcp001a-inventory/
+          if-no-files-found: warn
+          retention-days: 30
