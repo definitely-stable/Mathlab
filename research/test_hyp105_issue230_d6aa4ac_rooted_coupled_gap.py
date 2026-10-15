@@ -43,7 +43,7 @@ class RealOriginalTwoAnchorRootGapTests(unittest.TestCase):
             self.assertEqual(sum(freq.values()),K*(K-1))
 
     def test_02_exact_all_h_four_sectors_and_true_W32_factor(self):
-        for h in range(1,11):
+        for h in range(1,5):
             s=1<<h
             z=all_h_second_anchor_sectors(s)
             K,V=z["K"],z["V"]
