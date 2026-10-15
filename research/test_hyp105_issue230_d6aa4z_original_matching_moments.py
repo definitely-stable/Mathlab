@@ -154,7 +154,7 @@ class SixOriginalMatchingAndP2CavityTests(unittest.TestCase):
         self.assertEqual(z["exact_both_complete_global_uniform_selected_AB_plus_BA"],
                          Fraction(93889474896000,286447123))
 
-    def test_009_five_selected_GF5_asymptotic_contributions_scope(self):
+    def test_009_six_selected_GF5_asymptotic_contributions_scope(self):
         for h in range(1,19):
             s=1<<h
             z=all_h_two_new_selected_GF5_ensemble_sectors(s)
