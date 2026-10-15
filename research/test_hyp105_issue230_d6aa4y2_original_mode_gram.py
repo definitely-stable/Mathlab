@@ -12,7 +12,8 @@ from hyp105_issue230_d6aa4ycyc_bilateral_original_matrix import (
     source_model_at,TAGS)
 from hyp105_issue230_d6aa4y2_original_mode_gram import (
     original_source_cell, original_half_feature, verify_original_mode_product,
-    ceil_sqrt,parse_gradient_native_tsv,ENERGY_HEADER,N_MOVES)
+    ceil_sqrt,parse_gradient_native_tsv,ENERGY_HEADER,N_MOVES,
+    parse_exact_signed_conflict_tsv,CONFLICT_COLUMNS)
 
 
 def sparse_delta(base,changed):
@@ -141,6 +142,56 @@ class ActualOriginalSevenModeGramTests(unittest.TestCase):
             Eleft=25;Eright=1
             self.assertLessEqual(x*x,Eleft*Eright)
             self.assertLessEqual(y*y,Eleft*Eright)
+
+
+    def test_008_independent_original_mode_four_signed_quadrants(self):
+        inc=self.m["incidences"]
+        for pi,li in ((1,1),(35,78),(60,57)):
+            variants={
+                (0,0):self.m,
+                (1,0):source_model_at(self.m,pi,0),
+                (0,1):source_model_at(self.m,0,li),
+                (1,1):source_model_at(self.m,pi,li)}
+            joint=Counter()
+            for Q in self.rows[::241]:
+                left0=original_half_feature(
+                    Q,inc,variants[0,0]["left_labels"],0)
+                left1=original_half_feature(
+                    Q,inc,variants[1,0]["left_labels"],0)
+                right0=original_half_feature(
+                    Q,inc,variants[0,0]["right_labels"],1)
+                right1=original_half_feature(
+                    Q,inc,variants[0,1]["right_labels"],1)
+                dl=sparse_delta(left0,left1);dr=sparse_delta(right0,right1)
+                for mode,sign in dl.items():
+                    if mode in dr:
+                        joint[(sign,dr[mode])]+=1
+                previous=[]
+                for x in ((0,0),(1,0),(0,1),(1,1)):
+                    m=variants[x]
+                    previous.append(int(classify_seven_prechecked(
+                        Q,m["left_labels"],m["right_labels"],inc) is not None))
+                actual=previous[3]-previous[1]-previous[2]+previous[0]
+                calc=sum(sign*dr.get(mode,0) for mode,sign in dl.items())
+                self.assertEqual(actual,calc)
+            self.assertEqual(
+                sum(x*y*n for (x,y),n in joint.items()),
+                joint[(1,1)]+joint[(-1,-1)]-
+                joint[(1,-1)]-joint[(-1,1)])
+
+    def test_009_complete_conflict_schema_and_false_positive_rejected(self):
+        h="\t".join(CONFLICT_COLUMNS)
+        records=["\t".join(map(str,(i,j,*([0]*8))))
+                 for i in range(106) for j in range(106)]
+        correct=h+"\n"+"\n".join(records)
+        parsed=parse_exact_signed_conflict_tsv(correct)
+        self.assertEqual(len(parsed),11236)
+        with self.assertRaises(AssertionError):
+            parse_exact_signed_conflict_tsv(h+"\n"+"\n".join(records[:-1]))
+        changed=records.copy()
+        changed[0]="\t".join(map(str,(0,0,1,0,0,0,0,0,0,0)))
+        with self.assertRaises(AssertionError):
+            parse_exact_signed_conflict_tsv(h+"\n"+"\n".join(changed))
 
 
 if __name__=="__main__":
