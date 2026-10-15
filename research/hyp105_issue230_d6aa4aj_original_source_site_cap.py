@@ -34,6 +34,9 @@ from math import comb
 from hyp105_issue230_d6aa4ag_deterministic_triangle_hall import (
     minimal_alphabet,independent_common_neighbors,
 )
+from hyp105_issue230_d6aa4ai_sharp_line_pencil_prehall import (
+    improved_all_h_original_line_pencil_preHall,
+)
 from hyp105_issue230_d6aa4af_rootpair_robust_quench import (
     occupied_root_C4_source_factors,
 )
@@ -63,6 +66,12 @@ def all_h_original_site_cap_certificate(s):
         assert a>=32
         assert physical_min>max_accepted_per_root_C4
         assert geometry_density<1
+        earlier=improved_all_h_original_line_pencil_preHall(s)
+        prehall=earlier["indexed_original_global_preHall_physical_mass_lower"]
+        forced_rejected=prehall*(Fraction(1)-geometry_density)
+        assert forced_rejected>=Fraction(s**14,256)*(Fraction(1)-geometry_density)
+    else:
+        prehall=forced_rejected=0
     return {
         "s":s,"a":a,"V":V,"d":d,"K":comb(a,2),"holes":m,
         "six_original_two_rook_channel_count":6,
@@ -81,6 +90,10 @@ def all_h_original_site_cap_certificate(s):
         "simpler_real_GQ_fraction_ceiling_12d_over_s2plus1":
             str(geometry_density),
         "uniform_strict_Hall_rejection_fraction_for_s_ge16_PROVED":s>=16,
+        "all_map_safe_rooted_original_physical_preHall_lower":prehall,
+        "all_map_TRUE_original_Hall_FAILED_physical_candidate_lower":
+            str(forced_rejected),
+        "all_map_original_Hall_FAILURE_Omega_s14_16plus_PROVED":s>=16,
         "each_true_source_channel_site_injection_for_ALL_global_maps":True,
         "genuine_GQ_no_SOURCE_C4_needed_for_unique_two_rook":True,
         "positive_Hall_mass_for_all_global_maps_NOT_PROVED":True,
