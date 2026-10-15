@@ -1,0 +1,82 @@
+name: hyp105-issue230-d6aa4ycyc-bilateral-original-11236
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ycyc_bilateral_original_join.cpp"
+      - "research/hyp105_issue230_d6aa4ycyc_bilateral_original_matrix.py"
+      - "research/test_hyp105_issue230_d6aa4ycyc_bilateral_original_matrix.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4YCYC-BILATERAL-CORRELATED-11236.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ycyc-bilateral-original-11236.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-mixed-support-mathematical-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual ORIGINAL six-incidence mixed-Hessian vanishing support and fail-closed checks
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ycyc_bilateral_original_matrix.py" -v
+  full-11236-genuine-original-GF5-correlated-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile exact original six-flag C++20 physical projection sort-merge oracle
+        run: |
+          g++ -std=c++20 -O3 -Wall -Wextra -pedantic -o /tmp/hyp105-aa4ycyc-native research/hyp105_issue230_d6aa4ycyc_bilateral_original_join.cpp
+      - name: Exact 106 x 106 original global point-line transpositions, 51palette seven-GF5 historical verification
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4ycyc_bilateral_original_matrix.py --engine /tmp/hyp105-aa4ycyc-native --scheme "$SCHEME" --matrix /tmp/aa4ycyc-original-full.tsv --summary /tmp/aa4ycyc-original-summary.json > /tmp/aa4ycyc-stdout.json
+          python - <<'PY'
+          import json, os
+          x=json.load(open("/tmp/aa4ycyc-original-summary.json"))
+          q=x["case"]
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-Y-CYC-TRUE-ORIGINAL-CORRELATED-BILATERAL-11236"
+          assert x["all_h_mixed_locality_exact_but_NO_sign"]
+          assert x["global_injections_only"] and x["no_independent_motif_relabeling"]
+          assert q["scheme"]==os.environ["SCHEME"]
+          assert q["complete_global_pairs"]==11236
+          assert q["genuinely_mixed_point_plus_line_swaps"]==11025
+          assert q["full_210_one_side_crosschecks"]=="PASS"
+          assert q["historical_original_51palette_independent_witnesses_checked"]>=5
+          assert q["mixed_all_h_source_intersection_support_identity_PROVED"]
+          assert q["finite_complete_106_by_106_original_bilateral_matrix_VERIFIED"]
+          assert q["all_h_minimum_S_Omega_s6_NOT_PROVED"]
+          assert q["root_A"]==q["root_B"]==q["root_C"]=="OPEN"
+          assert q["baseline"]["S"]=={"S68":68,"S72":72}[os.environ["SCHEME"]]
+          assert q["baseline"]["D6"]==0
+          assert q["D6_zero_total"]+sum(1 for s in open("/tmp/aa4ycyc-original-full.tsv") if False)==q["D6_zero_total"]
+          print("EXACT GENUINE ORIGINAL",q["scheme"],"11236 complete paired global maps PASS",
+                "BASE",q["baseline"]["S"],
+                "BEST S",q["minimum_S_full_11236"],
+                "BEST MIXED",q["minimum_S_strictly_mixed"],
+                "BEST D6ZERO",q["minimum_S_while_D6_zero"],
+                "BEST WEIGHTED",q["minimum_selected_GF5_weighted_full"],
+                "D6zero count",q["D6_zero_total"],
+                "negative mixed second differences",q["mixed_second_difference_negative_S"],
+                "Pareto",q["pareto_frontier"])
+          PY
+      - name: Preserve all 11236 exact historical GF5 seven-class counts and independent certified summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4ycyc-11236-original-${{ matrix.scheme }}
+          path: |
+            /tmp/aa4ycyc-original-full.tsv
+            /tmp/aa4ycyc-original-summary.json
+          retention-days: 90
+          if-no-files-found: error
