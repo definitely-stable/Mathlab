@@ -132,8 +132,8 @@ def exact_13327_relative_original_LINE_gluing_weight_table():
                 by_r[r]+=1
     if sum(by_r.values())!=RELATIVE_GLUE_DIAGRAMS or RELATIVE_GLUE_DIAGRAMS!=13327:
         raise AssertionError("source line gluing partial bijection count not exactly 13327")
-    if len(iso)!=112:
-        raise AssertionError("expected 112 nonisomorphic C6 pair gluing diagrams across all r")
+    if len(iso)!=125:
+        raise AssertionError("expected 125 physically admissible abstract C6 gluing diagrams across all r")
     if sum(x>=0 for x in lookup)!=13327:
         raise AssertionError("sparse source-line gluing lookup uninitialized")
     # Known independent exact predecessor kernels for r0, r6.
