@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RCP-001-B shared model registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "program",
+    "root_issue",
+    "models"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mathlab.rcp.models.v1"
+    },
+    "program": {
+      "const": "HYP-105"
+    },
+    "root_issue": {
+      "const": 230
+    },
+    "models": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "definition",
+          "sources"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z0-9]+(?:-[A-Z0-9]+)+$"
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
