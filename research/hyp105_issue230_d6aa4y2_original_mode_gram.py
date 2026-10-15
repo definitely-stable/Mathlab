@@ -270,6 +270,7 @@ def audit_exact_original_conflict_charge(matrix,energies,conflicts):
     base=matrix[0,0]
     worst=None
     best_lower=None
+    best_weighted_lower=None
     stats=Counter()
     for (i,j),row in matrix.items():
         c=conflicts[i,j]
@@ -294,6 +295,12 @@ def audit_exact_original_conflict_charge(matrix,energies,conflicts):
             raise AssertionError("original signed harmful-charge lower and exact compensating surplus failed")
         if best_lower is None or original_lower<best_lower:
             best_lower=original_lower
+        weighted_lower=(matrix[i,0]["weight"]+matrix[0,j]["weight"]-
+                        base["weight"]-harmful_weight)
+        if row["weight"]<weighted_lower or row["weight"]-weighted_lower!=favorable_weight:
+            raise AssertionError("historical weighted signed harmful-charge equality invalid")
+        if best_weighted_lower is None or weighted_lower<best_weighted_lower:
+            best_weighted_lower=weighted_lower
         if i and j and (worst is None or ds<worst["mixed_delta_S"]):
             Eleft=energies[0,i]
             Eright=energies[1,j]
@@ -326,6 +333,9 @@ def audit_exact_original_conflict_charge(matrix,energies,conflicts):
         "zero_mixed_S_pairs":stats["zero"],
         "worst_negative_original_signed_mode_transport_witness":worst,
         "minimum_sign_robust_exact_conflict_lower_over_11236":best_lower,
+        "minimum_weighted_GF5_sign_robust_exact_conflict_lower_over_11236":
+            best_weighted_lower,
+        "all_11236_complete_global_pair_original_seven_S_positive_CERTIFIED_BY_CHARGE":best_lower>0,
         "universal_omega_s6_root_from_conflict_bound_PROVED":False,
     }
 
