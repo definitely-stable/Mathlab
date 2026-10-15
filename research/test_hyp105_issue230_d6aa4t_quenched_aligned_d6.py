@@ -79,6 +79,14 @@ class AlignedOriginalPositionalQuenchedD6Tests(unittest.TestCase):
             out=W32_point_first_60_position_D6_tensor(model)
             self.assertEqual(out["D6_matched_exact_two_sided_original_count"],d6)
             self.assertEqual(out["physical_full_K6_connected_C6_count"],60)
+            if scheme in ("S68","S72"):
+                # Two genuine globally injected maps show actual D6=0
+                # despite the exact strictly positive conditional mean.
+                self.assertEqual(out["T_f_connected_60_position_C6_tensor_total"],21186)
+                self.assertEqual(
+                    Fraction(out["uniform_complete_right_global_injection_D6_expectation_num"],
+                             out["uniform_complete_right_global_injection_D6_expectation_den"]),
+                    Fraction(1926,455))
             self.assertGreaterEqual(out["T_f_connected_60_position_C6_tensor_total"],
                                     60)
             self.assertGreaterEqual(out["occupied_positional_H_fibres"],1)
