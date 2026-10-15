@@ -106,6 +106,18 @@ class GenuineOriginalOppositePhysicalAHallTests(unittest.TestCase):
         self.assertEqual((a["B-left/A-right"]["source_only_distinct_original_flag_forests"],
                           a["A-left/B-right"]["source_only_distinct_original_flag_forests"]),
                          (6098,4740))
+        self.assertEqual(
+            (a["B-left/A-right"]["all_physical_candidate_2factors"],
+             a["A-left/B-right"]["all_physical_candidate_2factors"]),
+            (1386,1155))
+        self.assertEqual(
+            (a["B-left/A-right"]["actual_two_factor_completions_passing_original_Hall"],
+             a["A-left/B-right"]["actual_two_factor_completions_passing_original_Hall"]),
+            (44,21))
+        self.assertEqual(
+            (a["B-left/A-right"]["zero_accepted_cohorts"],
+             a["A-left/B-right"]["zero_accepted_cohorts"]),
+            (100,119))
         for row in a.values():
             self.assertEqual(row["actual_original_B_root_two_flag_C4_cohorts"],135)
             self.assertEqual(row["independent_original_direct_four_choice_confirmations"],135)
@@ -124,13 +136,21 @@ class GenuineOriginalOppositePhysicalAHallTests(unittest.TestCase):
         self.assertEqual((a["B-left/A-right"]["source_only_distinct_original_flag_forests"],
                           a["A-left/B-right"]["source_only_distinct_original_flag_forests"]),
                          (6098,4864))
+        self.assertEqual(
+            (a["B-left/A-right"]["all_physical_candidate_2factors"],
+             a["A-left/B-right"]["all_physical_candidate_2factors"]),
+            (1365,1155))
+        self.assertEqual(
+            (a["B-left/A-right"]["actual_two_factor_completions_passing_original_Hall"],
+             a["A-left/B-right"]["actual_two_factor_completions_passing_original_Hall"]),
+            (36,31))
         self.assertTrue(all(x["all_actual_original_Q_and_full_global_label_constraints_checked"]
                             for x in a.values()))
 
     def test_06_TRUE_W32_lex_reverse_independent_original_counts(self):
-        for scheme,forests,accepted in (
-            ("lex",(5000,5793),(98,110)),
-            ("reverse",(5000,4428),(77,74))
+        for scheme,forests,accepted,hall,physical in (
+            ("lex",(5000,5793),(98,110),(98,109),(1218,1344)),
+            ("reverse",(5000,4428),(77,74),(77,74),(1449,1344))
         ):
             z=independent_W32_original_second_gate_census(scheme)
             x=z["per_B_A_historical_GF5_tag"]
@@ -140,6 +160,12 @@ class GenuineOriginalOppositePhysicalAHallTests(unittest.TestCase):
             self.assertEqual(tuple(x[k]["accepted_actual_original_GF5_BA"]
                                    for k in ("B-left/A-right","A-left/B-right")),
                              accepted)
+            self.assertEqual(tuple(x[k]["actual_two_factor_completions_passing_original_Hall"]
+                                   for k in ("B-left/A-right","A-left/B-right")),
+                             hall)
+            self.assertEqual(tuple(x[k]["all_physical_candidate_2factors"]
+                                   for k in ("B-left/A-right","A-left/B-right")),
+                             physical)
 
     def test_07_genuine_original_W34_incomplete_physical_Ka_transfer(self):
         model=fixture(2,"lex")
