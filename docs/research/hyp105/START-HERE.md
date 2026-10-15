@@ -55,3 +55,7 @@ GITHUB_TOKEN=... python -m research.rcp.context_builder \
 ```
 
 The resulting `snapshot.json` has a SHA-256 self-integrity check and non-atomic provenance flags. Compare with a previous `snapshot.json` using `python -m research.rcp.context_delta --before OLD --after NEW --output DIR`. Do not substitute a cached snapshot for a current GitHub query; do not infer global mathematical acceptance, merge, or CI success from a changed timestamp.
+
+## Proof impact, structured mathematical documentation and integration
+
+RCP-001-E introduces the [Proof Impact audit](PROOF-IMPACT.md), five versioned [structured research Markdown registers](registry/RESULTS.md), the [formula catalog](registry/FORMULAS.md) and an [ordered integration plan](INTEGRATION-PLAN.md). Unlike the transient L0/L1/L2 GitHub snapshots, the registered formulas, quantifiers, proof dependencies, source SHA pins, limitations and research protocol are retained in Git. After editing the mathematical JSON sources, regenerate via `python -m research.rcp.structured_docs --write`; CI checks parity with `--check`. Proof impact can identify registered downstream re-review obligations but does not independently diagnose contradictions or establish Root A/B/C.

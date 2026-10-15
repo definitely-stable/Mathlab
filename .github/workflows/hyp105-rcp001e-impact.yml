@@ -1,0 +1,117 @@
+name: hyp105-rcp001e-impact
+
+on:
+  pull_request:
+    paths:
+      - "research/rcp/**"
+      - "research/test_rcp_proof_impact.py"
+      - "docs/research/hyp105/**"
+      - ".github/workflows/hyp105-rcp001e-impact.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+  checks: read
+
+concurrency:
+  group: hyp105-rcp001e-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  structured-document-preview:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate canonical structured Markdown
+        run: python -m research.rcp.structured_docs --destination /tmp/rcp001e-generated --write
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rcp001e-generated-md
+          path: /tmp/rcp001e-generated/
+          if-no-files-found: error
+          retention-days: 30
+
+  independent-impact-oracles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run proof graph, semantic impact and formula-catalog adversarial tests
+        run: python -m unittest research.test_rcp_proof_impact -v
+      - name: Generate the reproducible Markdown registers and verify parity
+        run: |
+          python -m research.rcp.structured_docs --destination /tmp/rcp001e-structured --write
+          python -m research.rcp.structured_docs --destination /tmp/rcp001e-structured --check
+      - name: Require committed Markdown parity
+        run: python -m research.rcp.structured_docs --check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rcp001e-structured-md
+          path: /tmp/rcp001e-structured/
+          if-no-files-found: warn
+          retention-days: 30
+
+  live-scoped-proof-impact:
+    needs: independent-impact-oracles
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Live non-atomic GitHub snapshot
+        run: |
+          python -m research.rcp.context_builder \
+            --output /tmp/rcp001e-live --check-claim-prs --check-pr "$PR_NUMBER"
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+      - name: Baseline impact analysis and offline replay
+        run: |
+          python -m research.rcp.proof_impact \
+            --snapshot /tmp/rcp001e-live/snapshot.json \
+            --output /tmp/rcp001e-impact
+          python -m research.rcp.proof_impact \
+            --snapshot /tmp/rcp001e-live/snapshot.json \
+            --previous /tmp/rcp001e-live/snapshot.json \
+            --output /tmp/rcp001e-self
+      - name: Validate true scope, review-only flags and exact 7-claim DAG
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          d = json.loads(Path("/tmp/rcp001e-impact/impact.json").read_text(encoding="utf-8"))
+          assert d["schema"] == "mathlab.rcp.impact.v1"
+          assert d["registered_claim_count"] == 7
+          assert d["registered_source_pr_count"] == 5
+          assert len(d["proof_edges"]) == 3
+          assert d["coverage"] == "REGISTERED_CLAIMS_ONLY_NOT_ALL_OPEN_RESEARCH_PRS"
+          assert d["diagnosed_contradictions"] == "NONE_ESTABLISHED_AUTOMATICALLY"
+          assert d["acceptance"] == "CANDIDATE_REVIEW_NOT_MATHEMATICAL_CONTRADICTION"
+          x = json.loads(Path("/tmp/rcp001e-self/impact.json").read_text(encoding="utf-8"))
+          assert not x["possibly_impacted_claim_ids"]
+          assert x["observed_operational_events"] == 0
+          assert Path("/tmp/rcp001e-impact/impact.md").is_file()
+          print("RCP-001-E validated: 7 scoped claims, 3 proof edges, no automatic contradictions")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rcp001e-live-proof-impact
+          path: |
+            /tmp/rcp001e-impact/
+            /tmp/rcp001e-live/snapshot.json
+          if-no-files-found: warn
+          retention-days: 30
