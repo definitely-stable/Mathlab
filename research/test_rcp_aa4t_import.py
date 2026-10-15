@@ -158,7 +158,7 @@ class PositionalD6ImportTests(unittest.TestCase):
 
     def test_11_relative_constants_do_not_downgrade_existing_stronger_bound(self):
         self.assertLess(Fraction(1,98304),Fraction(1,8))
-        self.assertIn("1/8",self.by_id[LOWER]["statement"])
+        self.assertIn("s^6/8",self.by_id[LOWER]["statement"])
         self.assertIn("h=1,2",self.by_id[LOWER]["statement"])
         self.assertIn("s>=8",self.by_id[LOWER]["statement"])
 
