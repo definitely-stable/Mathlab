@@ -1,0 +1,149 @@
+{
+  "C6_coordinate_profiles": {
+    "5/6": 5,
+    "6/5": 5
+  },
+  "coordinate_bicolor_cuts": false,
+  "degree_histogram": {
+    "1": 22,
+    "2": 17,
+    "3": 2,
+    "5": 2
+  },
+  "fixed_endpoint_proper_P3": 5,
+  "leafless_uncharged_sixsets": [
+    [
+      "A0",
+      "C0",
+      "A1",
+      "B2",
+      "C2",
+      "E"
+    ],
+    [
+      "B0",
+      "A1",
+      "B2",
+      "C2",
+      "D",
+      "F"
+    ]
+  ],
+  "original_sixsets_checked": 18564,
+  "path_anchor_blockers": [
+    {
+      "i": 0,
+      "left": true,
+      "right": true
+    },
+    {
+      "i": 1,
+      "left": true,
+      "right": true
+    },
+    {
+      "i": 2,
+      "left": true,
+      "right": false
+    },
+    {
+      "i": 3,
+      "left": false,
+      "right": true
+    },
+    {
+      "i": 4,
+      "left": true,
+      "right": true
+    }
+  ],
+  "physical_edges": 36,
+  "physical_vertices_active": 43,
+  "real_W38_embedding": {
+    "a_minimal": 35,
+    "anchor_ids": {
+      "ell": 0,
+      "p": 0,
+      "q": 8,
+      "r": 1
+    },
+    "complete_f_size": 585,
+    "complete_g_size": 585,
+    "induced_selected_incidence_count": 18,
+    "s": 8,
+    "selected_matching": [
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        18
+      ],
+      [
+        3,
+        27
+      ],
+      [
+        4,
+        36
+      ],
+      [
+        5,
+        45
+      ],
+      [
+        6,
+        54
+      ],
+      [
+        7,
+        63
+      ],
+      [
+        65,
+        160
+      ],
+      [
+        66,
+        96
+      ],
+      [
+        67,
+        88
+      ],
+      [
+        68,
+        112
+      ],
+      [
+        69,
+        104
+      ],
+      [
+        70,
+        128
+      ],
+      [
+        71,
+        120
+      ],
+      [
+        72,
+        81
+      ]
+    ],
+    "source_line_count": 585,
+    "source_point_count": 585
+  },
+  "scope": "18-incidence induced source subuniverse only; full S uncomputed",
+  "seven_counts": {
+    "BB_disjoint": 0,
+    "BB_overlap": 0,
+    "B_left": 0,
+    "B_right": 0,
+    "CA": 0,
+    "CB": 0,
+    "D6": 0
+  }
+}
