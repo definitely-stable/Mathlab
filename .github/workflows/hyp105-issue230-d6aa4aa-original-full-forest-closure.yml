@@ -1,0 +1,83 @@
+name: hyp105-issue230-d6aa4aa-original-full-forest-closure
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4aa_original_full_forest_closure.py"
+      - "research/test_hyp105_issue230_d6aa4aa_original_full_forest_closure.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AA-ALL-NINE-ORIGINAL-FOREST-CLOSURE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4aa-original-full-forest-closure.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-all-nine-source-and-complete-seven-GF5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Ten all-h true ORIGINAL source forest and complete historical seven-tag GF5 mathematical regression tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4aa_original_full_forest_closure.py" -v
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4aa_original_full_forest_closure import (
+              all_h_BB_disjoint_two_P2_source_capacity,
+              exact_all_h_nine_source_forest_universes,
+              full_seven_all_h_two_complete_global_uniform_expectation)
+          for s,U,last,full in (
+              (2,707580,Fraction(6368220,1002001),Fraction(165129984,1002001)),
+              (4,54176606400,Fraction(121897364400,6661561),Fraction(4960589766387600,12317226289))):
+              u=all_h_BB_disjoint_two_P2_source_capacity(s)
+              x=exact_all_h_nine_source_forest_universes(s)
+              z=full_seven_all_h_two_complete_global_uniform_expectation(s)
+              assert u["source_original_B/B_disjoint_six_incidence_count"]==U
+              assert x["all_nine_original_source_forest_cell_populations"]["B/B-disjoint"]==U
+              assert z["new_seventh_selected_BB_disjoint_mean"]==last
+              assert z["exact_full_seven_historical_GF5_selected_S_mean"]==full
+              assert len(z["exact_all_seven_GF5_tag_means"])==7
+              assert z["leading_all_seven_GF5_selected_S_over_s6"]==Fraction(1070,3)
+              assert z["both_maps_complete_uniform_global_NOT_adversarial_all_f_g"]
+              print("TRUE original W(3,s) all nine cells and complete seven GF5",s,U,full)
+          PY
+  independent-genuine-original-double-P2-geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        source_s: [2, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original true GQ all opposite source P2 root placements and direct residual two-edge ORIGINAL matching witnesses
+        env:
+          ORIGINAL_S: ${{ matrix.source_s }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4aa_original_full_forest_closure import (
+              TYPES,all_h_BB_disjoint_two_P2_source_capacity,
+              independent_actual_true_GQ_two_P2_original_placement)
+          s=int(os.environ["ORIGINAL_S"])
+          z=independent_actual_true_GQ_two_P2_original_placement(
+              fixture({2:1,4:2}[s],"lex"),
+              sample_fixed_P2_roots=45 if s==2 else 35,
+              brute_force_first_roots=3)
+          ref=all_h_BB_disjoint_two_P2_source_capacity(s)
+          assert z["universal_BB_disjoint_source_count"]==ref[
+              "source_original_B/B_disjoint_six_incidence_count"]
+          assert set(z["source_root_placement_witnesses_per_type"])==set(TYPES)
+          assert z["strict_true_original_GQ_projection_validator"]
+          assert len(z["actual_original_root_rows"])==(45 if s==2 else 35)
+          print("TRUE original double P2 rooted placements",s,
+                "SOURCE B/B-disjoint",z["universal_BB_disjoint_source_count"],
+                "partner classes",ref["three_exact_second_opposite_original_P2_types_per_first_root"],
+                "residual actual original M2",
+                ref["three_exact_residual_original_2matching_counts"])
+          PY
