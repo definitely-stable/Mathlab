@@ -118,7 +118,7 @@ class OriginalLineGluingImportTests(unittest.TestCase):
 
     def test_10_same_r_two_types_do_not_define_one_probability(self):
         c=self.claims[KERNEL]
-        self.assertIn("same",c["statement"].lower())
+        self.assertIn("identical",c["statement"].lower())
         self.assertIn("tau",c["statement"])
         self.assertTrue(any("cardinality" in z.lower()
                             for z in c["limitations"]))
