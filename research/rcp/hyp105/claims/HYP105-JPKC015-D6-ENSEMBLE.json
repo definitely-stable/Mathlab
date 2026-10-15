@@ -1,0 +1,49 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "id": "HYP105-JPKC015-D6-ENSEMBLE",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "title": "All-h expected genuine D6 original sixset count",
+  "statement": "For s=2^h (h>=1), with V=(s+1)(s^2+1), N=C(a,2)>=V minimal, independent uniform complete global injections f,g: E[D6]=M6(s)*60*((a)_6/(N)_6)^2 and E[D6]~(16/3)*s^6 as s->infinity. This is an ensemble expectation, not a worst-case bound.",
+  "mode": "ENSEMBLE_EXPECTATION",
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=1, s=2^h"
+    },
+    {
+      "op": "expectation",
+      "variable": "(f,g)",
+      "domain": "independent uniformly sampled complete original point and line global injections"
+    }
+  ],
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN",
+    "MODEL-UNIFORM-GLOBAL-ENSEMBLE"
+  ],
+  "depends_on_claims": [],
+  "external_dependencies": [
+    "Actual original W(3,s) six-edge bipartite source matching count M6(s) and complete physical Hamiltonian C6 enumeration (see pinned proof)."
+  ],
+  "limitations": [
+    "The expectation does not imply inf_(f,g) D6 or S >= c*s^6.",
+    "Does not close Branch A, B or C and does not derive ASET R2/R3 exponents."
+  ],
+  "falsification_boundary": "Check exact matching combinatorics and uniform full injection law; fixed maps may have D6=0.",
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 455,
+    "commit": "c02188a4d4f2e4e07440c4d7b25fc25c6dd31b3e",
+    "proof_path": "docs/research/HYP-105-ISSUE230-JPKC-015-ENSEMBLE-D6.md",
+    "proof_blob_sha": "831fd78cbad404bec86b402c8b9f48ddf8bcbfda",
+    "stage": "OPEN_DRAFT_PR"
+  }
+}

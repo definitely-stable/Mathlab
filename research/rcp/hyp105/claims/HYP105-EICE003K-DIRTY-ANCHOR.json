@@ -1,0 +1,48 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "id": "HYP105-EICE003K-DIRTY-ANCHOR",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "title": "Original GQ source-anchor dirty-pencil identity and uniform marginal",
+  "statement": "For genuine W(3,s), fixed arbitrary complete globally injected f,g: D_left=s*sum_q t_f(q) and D_right=s*sum_r t_g(r), each <=2*s*(a-2)*V. For uniformly chosen original nonincident (q,r), P(anchor end-dirty)<=min(1,4*(a-2)/(s*(s+1)))=O(s^-1/2). Probability is over original nonincident endpoint pairs, not over f,g or a conditioned physical-template law.",
+  "mode": "DETERMINISTIC_BOUND",
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=1, s=2^h"
+    },
+    {
+      "op": "forall",
+      "variable": "f,g",
+      "domain": "complete globally injected original point and line physical-edge maps"
+    }
+  ],
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-TRUE-GQ-ANCHOR"
+  ],
+  "depends_on_claims": [],
+  "external_dependencies": [
+    "Genuine GQ uniqueness and source-pencil combinatorics from pinned EICE-003-K proof."
+  ],
+  "limitations": [
+    "Does not prove conditioned four-correlated-anchor capacity C_e=o(s^4).",
+    "Does not transfer clean-anchor marginal to an accepted original GF5 sixset.",
+    "Does not establish Branch A or B."
+  ],
+  "falsification_boundary": "Uniformly sampled original nonincident pairs are a different probability measure than source-conditioned I1/J physical five-incidence templates.",
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 469,
+    "commit": "73cfebed8042f0f9b6592bd318295fb0bdf69a5b",
+    "proof_path": "docs/research/HYP-105-ISSUE230-EICE003K-CLEAN-ANCHOR-CONCENTRATION.md",
+    "proof_blob_sha": "c07ac7c9e90e4e56afc3165482d68eab633001bb",
+    "stage": "OPEN_DRAFT_PR"
+  }
+}

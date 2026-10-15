@@ -1,0 +1,50 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "id": "HYP105-LT-LOCAL-COUNTEREXAMPLE",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "title": "All-h local obstruction to pathwise GF5 transfer",
+  "statement": "For every s=2^h>=8, legal complete global typed injections f,g and an induced 18-ORIGINAL-incidence subuniverse exist with five end-clean coordinate-proper 3-edge paths sharing endpoints, ten improper physical C6 and zero original six-incidence accepted seven-GF5 positive counts on that selected subuniverse. This falsifies local pathwise positivity without further global hypotheses.",
+  "mode": "LOCAL_CONSTRUCTION",
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=3, s=2^h"
+    },
+    {
+      "op": "exists",
+      "variable": "f,g,I",
+      "domain": "legal complete globally injected original typed pair label maps and an induced local 18-incidence subuniverse"
+    }
+  ],
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN",
+    "MODEL-SELECTED-LOCAL-PATTERN"
+  ],
+  "depends_on_claims": [],
+  "external_dependencies": [
+    "Explicit 18-original-incidence construction and finite oracle certificate on pinned proof/code."
+  ],
+  "limitations": [
+    "Does not estimate full-model S for the completed injections.",
+    "Does not refute high-minimum-degree EICE-002 transfer or Root Branch A.",
+    "Not an infinite global correlated low-S counterfamily for Branch B."
+  ],
+  "falsification_boundary": "Witness applies only to a selected sparse local pattern with degree-one vertices, not arbitrary dense global graphs.",
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 466,
+    "commit": "5d2c70e3adeb1779904401f88161c9e71c884892",
+    "proof_path": "docs/research/HYP-105-ISSUE230-LOCAL-CYCLE-BARRIER.md",
+    "proof_blob_sha": "853c65cc2223a642d2417793a605d8bde720f7a6",
+    "stage": "OPEN_DRAFT_PR"
+  }
+}

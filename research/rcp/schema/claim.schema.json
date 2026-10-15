@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/definitely-stable/Mathlab/blob/main/research/rcp/schema/claim.schema.json",
+  "title": "RCP-001-B mathematical claim manifest",
+  "description": "Syntax contract only: passing JSON Schema or CI does not prove a mathematical claim.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "program",
+    "root_issue",
+    "title",
+    "statement",
+    "mode",
+    "mathematical_status",
+    "review_status",
+    "novelty_status",
+    "root_impact",
+    "quantifiers",
+    "model_ids",
+    "depends_on_claims",
+    "external_dependencies",
+    "limitations",
+    "falsification_boundary",
+    "source"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mathlab.rcp.claim.v1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9]+(?:-[A-Z0-9]+)+$"
+    },
+    "program": {
+      "const": "HYP-105"
+    },
+    "root_issue": {
+      "const": 230
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "enum": [
+        "ENSEMBLE_EXPECTATION",
+        "CONDITIONAL_EXPECTATION",
+        "ALL_H_IDENTITY",
+        "LOCAL_CONSTRUCTION",
+        "DETERMINISTIC_BOUND"
+      ]
+    },
+    "mathematical_status": {
+      "enum": [
+        "DOCUMENTED_IN_DRAFT",
+        "REVIEWED",
+        "FORMALLY_VERIFIED",
+        "REFUTED",
+        "SUPERSEDED"
+      ]
+    },
+    "review_status": {
+      "enum": [
+        "NOT_REVIEWED",
+        "INDEPENDENTLY_REVIEWED"
+      ]
+    },
+    "novelty_status": {
+      "enum": [
+        "NOT_ASSESSED",
+        "KNOWN",
+        "POTENTIALLY_NEW",
+        "AUDITED"
+      ]
+    },
+    "root_impact": {
+      "enum": [
+        "ROOT_BRANCHES_OPEN",
+        "ROOT_A_CANDIDATE",
+        "ROOT_B_CANDIDATE",
+        "ROOT_C_CANDIDATE",
+        "ROOT_A_PROVED",
+        "ROOT_B_PROVED",
+        "ROOT_C_PROVED"
+      ]
+    },
+    "quantifiers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "op",
+          "variable",
+          "domain"
+        ],
+        "properties": {
+          "op": {
+            "enum": [
+              "forall",
+              "exists",
+              "expectation",
+              "finite_witness"
+            ]
+          },
+          "variable": {
+            "type": "string",
+            "minLength": 1
+          },
+          "domain": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "model_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "depends_on_claims": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "external_dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "falsification_boundary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "acceptance_evidence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "pr",
+        "commit",
+        "proof_path",
+        "proof_blob_sha",
+        "stage"
+      ],
+      "properties": {
+        "repository": {
+          "const": "definitely-stable/Mathlab"
+        },
+        "pr": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "proof_path": {
+          "type": "string",
+          "pattern": "^docs/research/.+"
+        },
+        "proof_blob_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "stage": {
+          "enum": [
+            "OPEN_DRAFT_PR",
+            "OPEN_PR",
+            "MERGED",
+            "ARCHIVED"
+          ]
+        }
+      }
+    }
+  }
+}

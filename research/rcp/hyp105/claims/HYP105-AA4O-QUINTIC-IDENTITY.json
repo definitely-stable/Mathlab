@@ -1,0 +1,57 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "id": "HYP105-AA4O-QUINTIC-IDENTITY",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "title": "Exact five-original-point deterministic B/A charge polynomial",
+  "statement": "For s=2^h>=2 and arbitrary complete right g and left f global injections, I_L^(BA,int)(f,g)=sum_{p,A:|A|=4} w_g(p,A)*chi_B(f(p),f(A)), with w_g counting actual original six-incidence Q sharing exactly five genuine original point factor IDs, nonnegative integer coefficients and one globally coherent pair of maps.",
+  "mode": "ALL_H_IDENTITY",
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=1, s=2^h"
+    },
+    {
+      "op": "forall",
+      "variable": "g",
+      "domain": "any complete original globally injected right-line map"
+    },
+    {
+      "op": "forall",
+      "variable": "f",
+      "domain": "any complete original globally injected left-point map"
+    }
+  ],
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN",
+    "MODEL-BA-INTERNAL-CHARGE"
+  ],
+  "depends_on_claims": [
+    "HYP105-AA4N-QUENCHED-IDENTITY"
+  ],
+  "external_dependencies": [
+    "True original positional GF5 B/A classifier with physical C4 and disjoint root physical pair."
+  ],
+  "limitations": [
+    "Nonnegative quintic representation need not have a uniform positive minimum.",
+    "This is not a degree-two pair-charge lower bound.",
+    "Does not settle the root Branch A/B/C."
+  ],
+  "falsification_boundary": "w_g counts genuine original sixset multiplicity and chi_B uses physical simple C4; physical P3 surrogates are invalid.",
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 471,
+    "commit": "b086566d8be17307b102e7bd89d28d4167af86a6",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4O-QUINTIC-ADVERSARIAL-SWAP.md",
+    "proof_blob_sha": "374e4c3ae2be46fff9f93b0ab1e87b9d697c2e0e",
+    "stage": "OPEN_DRAFT_PR"
+  }
+}

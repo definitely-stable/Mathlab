@@ -37,3 +37,7 @@ Validate locally or on GitHub-hosted CI:
 ```bash
 python -m unittest research.test_rcp_inventory -v
 ```
+
+## Structured claims and proof links
+
+RCP-001-B adds the [Claim Registry](CLAIM-REGISTRY.md): explicit mathematical quantifiers, shared model definitions, immutable identifiers, SHA-pinned source proof blobs, DAG dependencies and non-implication boundaries. Rebuild the current deterministic research claim index with `python -m research.rcp.claim_index --output /tmp/rcp-claims --verify-sources` (GitHub API read token recommended). The claim index records draft-stage mathematics, **not** independent acceptance; the open PR ancestry/CI inventory is provided by RCP-001-A above.

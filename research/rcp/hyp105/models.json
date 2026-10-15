@@ -1,0 +1,63 @@
+{
+  "schema": "mathlab.rcp.models.v1",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "models": [
+    {
+      "id": "MODEL-GQ-ORIGINAL",
+      "definition": "Genuine original symplectic generalized quadrangle W(3,s), s=2^h, h>=1; V=(s+1)(s^2+1) original points and original lines; only genuine original incidences count.",
+      "sources": [
+        "https://github.com/definitely-stable/Mathlab/issues/230"
+      ]
+    },
+    {
+      "id": "MODEL-TYPED-GLOBAL-INJECTION",
+      "definition": "Complete separately typed source-point and source-line injections f,g into the unordered physical pair labels of K_a, with a minimal such that C(a,2)>=V. Maps are shared across all original incidence sets.",
+      "sources": [
+        "https://github.com/definitely-stable/Mathlab/issues/230"
+      ]
+    },
+    {
+      "id": "MODEL-ORIGINAL-SIXSET",
+      "definition": "Six DISTINCT genuine original point-line incidence IDs, counted as original sets (not signed events, physical-label automorphism orbits, nor independently relabeled six-tuples).",
+      "sources": [
+        "https://github.com/definitely-stable/Mathlab/issues/230"
+      ]
+    },
+    {
+      "id": "MODEL-POSITIVE-GF5-SEVEN",
+      "definition": "Accepted seven physical six-coordinate positive GF(5) positional projection classes under the fixed historical classifier; not arbitrary physical paths nor signed event counts.",
+      "sources": [
+        "https://github.com/definitely-stable/Mathlab/issues/230"
+      ]
+    },
+    {
+      "id": "MODEL-UNIFORM-GLOBAL-ENSEMBLE",
+      "definition": "Uniform sampling of complete globally injective ORIGINAL point/line pair-label maps, independently on the two typed sides only where explicitly stated.",
+      "sources": [
+        "https://github.com/definitely-stable/Mathlab/pull/455"
+      ]
+    },
+    {
+      "id": "MODEL-TRUE-GQ-ANCHOR",
+      "definition": "For genuine nonincident original point q and original line r, the unique original three-incidence GQ anchor q--ell--p--r, with left/right end-dirty physical-pair overlap events.",
+      "sources": [
+        "https://github.com/definitely-stable/Mathlab/pull/469"
+      ]
+    },
+    {
+      "id": "MODEL-SELECTED-LOCAL-PATTERN",
+      "definition": "Selected induced original-incidence subuniverse and physical graph; a local nontransfer construction does not by itself determine full-map S or a dense global minimum-degree graph.",
+      "sources": [
+        "https://github.com/definitely-stable/Mathlab/pull/466"
+      ]
+    },
+    {
+      "id": "MODEL-BA-INTERNAL-CHARGE",
+      "definition": "True original B(point)/A(line) six-incidence positive GF(5) charge with right-line A projection and disjoint physical labels of the two genuine original root lines; source support is one repeated original point plus four other distinct points.",
+      "sources": [
+        "https://github.com/definitely-stable/Mathlab/pull/470"
+      ]
+    }
+  ]
+}
