@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 import re
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlparse
+from urllib.parse import urlparse, parse_qsl, urlencode
 from urllib.request import Request, urlopen
 
 SHA = re.compile(r"^[0-9a-f]{40}$")
@@ -51,11 +51,11 @@ class GitHubAPI:
         except (ValueError, UnicodeDecodeError) as e:
             raise InventoryError("GitHub returned invalid JSON") from e
 
-    def pages(self, path, key=None):
+    def pages(self, path, key=None, query=""):
         expected = "/repos/" + self.repo + "/"
         if not path.startswith(expected):
             raise InventoryError("unexpected API path")
-        url = "https://api.github.com" + path + "?per_page=100"
+        url = "https://api.github.com" + path + "?" + (query + "&" if query else "") + "per_page=100"
         seen, rows = set(), []
         while url:
             parsed = urlparse(url)
@@ -75,15 +75,20 @@ class GitHubAPI:
             match = NEXT.search(link)
             if not match and 'rel="next"' in link:
                 raise InventoryError("malformed next link")
-            url = match.group(1) if match else ""
+            if match:
+                url = match.group(1)
+            elif len(page) == 100:
+                # On an unlinked full page, probe the next page explicitly.
+                params = dict(parse_qsl(parsed.query))
+                params["page"] = str(int(params.get("page", "1")) + 1)
+                url = "https://api.github.com" + path + "?" + urlencode(params)
+            else:
+                url = ""
         return rows
 
     def open_pulls(self):
-        rows = self.pages("/repos/" + self.repo + "/pulls?state=open".replace(
-            "?state=open", "")) if False else self.pages(
-                "/repos/" + self.repo + "/pulls", key=None
-            )
-        # The request must explicitly specify state=open (GitHub default is open).
+        rows = self.pages("/repos/" + self.repo + "/pulls",
+                          query="state=open")
         nums = [r.get("number") for r in rows if isinstance(r, dict)]
         if len(nums) != len(rows) or any(type(n) is not int or n < 1 for n in nums):
             raise InventoryError("malformed pull request identity")
