@@ -100,9 +100,11 @@ class OriginalSixForestTransportationTests(unittest.TestCase):
             z=exact_W32_forest_stratified_frechet(
                 x,source_universe=self.source,independent_historical=True)
             self.assertEqual(sum(c["point_physical_half_in_source_cell"]
-                                 for c in z["forest_cells"].values()),62370)
+                                 for c in z["forest_cells"].values())+
+                             z["point_physical_half_outside_joint_source_grid"],62370)
             self.assertEqual(sum(c["line_physical_half_in_source_cell"]
-                                 for c in z["forest_cells"].values()),62370)
+                                 for c in z["forest_cells"].values())+
+                             z["line_physical_half_outside_joint_source_grid"],62370)
             self.assertEqual(z["source_population_from_all_45_choose_6"],comb(45,6))
             for c in z["forest_cells"].values():
                 self.assertLessEqual(c["sharp_abstract_subset_Frechet_lower"],
