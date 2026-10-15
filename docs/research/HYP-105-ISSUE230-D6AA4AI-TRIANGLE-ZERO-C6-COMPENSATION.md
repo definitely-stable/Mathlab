@@ -44,6 +44,39 @@ The physical split triangle candidates are not vacuous; their complete physicall
 
 **Precise scope restriction:** a finite s=2 witness does **NOT** disprove an asymptotic \`forall sufficiently large 2^h\` lower, and does **NOT** yield an infinite globally injected all-h counterfamily or Branch B of #230. The FULL original B/A, A/B and entire seven selected GF5 classes MUST be checked separately under the SAME maps, using prior \`exact_two_sided_original_seven_join(..., independent_history=True)\` before claiming compensation counts. No total strict R3 or ASET consequence.
 
+### SHA-pinned full true-original W(3,2) data / independent historical validation
+
+The true ORIGINAL W32 finite dedicated [GitHub-hosted run #38767918768](https://github.com/definitely-stable/Mathlab/actions/runs/38767918768) produced the **complete** indexed 135-cohort-per-side original source-Hall 4x4 permanent count, separately independently verified by literal 6 original incidence flags and the 62,370-based historical full seven-GF5 original oracle:
+
+| Selected actual original Q / physically occupied full opposite H | Original B-point / A-line | Original B-line / A-point |
+|---|---:|---:|
+| Physically OCCUPIED split-two-triangle H | **84** | **126** |
+| Real ORIGINAL accepted split-two-triangle Q | **0** | **0** |
+| Physically OCCUPIED adjacent-pins same-triangle H | 93 | 72 |
+| Real ORIGINAL accepted same-triangle Q | 6 | 3 |
+| Physically OCCUPIED connected-C6 H | 1,062 | 1,188 |
+| Real ORIGINAL accepted connected-C6 Q | **40** | **58** |
+| TOTAL accepted actual ORIGINAL B/A or A/B Q | **46** | **61** |
+
+This is a strictly NONVACUOUS zero: 84 and 126 truly occupied physical split triangle completions, distributed over actual real original root/flag/C4 cohorts, each with true original 4x4 permanent zero. The real accepted motif mass is compensated by **connected physical C6 (40/58)** and by the **same-component two-triangle** physical sector (6/3). All source-permanent-two induced original C8 charges in this finite witness are zero. Thus \`T_BA_split=T_AB_split=0\` is compatible with \`T_BA_full=46,T_AB_full=61\`. A proof based solely on split triangle sectors would miss these valid GF5 contributions.
+
+Historical true-original seven selected positive GF5 classes on those **same frozen global f,g maps**:
+
+| Selected original six-ID GF5 tag | Exact count |
+|---|---:|
+| D6 | 1 |
+| B-left/A-right | 46 |
+| A-left/B-right | 61 |
+| C/A | 5 |
+| C/B | 0 |
+| B/B-overlap | 6 |
+| B/B-disjoint | 4 |
+| **ALL seven original classes S** | **123** |
+
+Exact certified weighted GF5 numerator: **5,591,983** over \`51^6\` for the frozen historical selected lower-floor expression. The full two-sided original projection intersection has **397** six-ID Q candidates, of which the selected GF5 seven-class S is 123. The full historical 62,370 original six-set oracle was compared independently; no fake physically surjective model or six-ID orbit quotient is used.
+
+**Crucial quantifier:** This is a finite true-original s=2 witness. It does not disprove a hypothetical lower valid only for sufficiently large s, nor an all-seven Branch A obstruction, nor produce a strict ASET exponent.
+
 ## 3. AA4-AI2: NEW all-h physical occupied connected C6 bridge theorem under EVERY global map
 
 For genuine W(3,s), s=2^h>=2^19, every globally injected typed f,g pair, AA4-AG constructs at least N_good>=N/2 actual original intersecting source line pairs \`{l0,l1}\` through their unique real source point p, such that their two physically opposite pinned edges e0={u,v}, e1={w,x} are disjoint and each of their FOUR physical endpoints has opposite-map missing-edge degree <a/16. The minimal physical alphabet has K=C(a,2), exactly m=K-V<=a-2 missing physical images. AA4-AF guarantees for every actual original point p at least C4_floor>=a^4/128 occupied first-side complementary C4.
