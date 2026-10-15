@@ -104,7 +104,9 @@ def all_h_two_type_support_ceiling(incidences, point_swap, line_swap):
     If N genuine original incidence IDs exist, U is the set incident to
     either changed point and V to either changed line. Every sixset Q
     touching both contains a pair (e in U, j in V); e=j is possible.
-    Union bound: r*C(N-1,5)+(len(U)*len(V)-r)*C(N-2,4).
+    Exact capacity: C(N,6)-C(N-|U|,6)-C(N-|V|,6)
+                     +C(N-|U|-|V|+r,6).
+    The previous pairwise union bound is retained only for independent QA.
     In a genuine GQ r<=3: two points cannot share two original lines.
     """
     inc = tuple(incidences)
@@ -115,13 +117,22 @@ def all_h_two_type_support_ceiling(incidences, point_swap, line_swap):
     U = {i for i, (p, _) in enumerate(inc) if p in point_swap}
     V = {i for i, (_, l) in enumerate(inc) if l in line_swap}
     r = len(U & V)
-    ceiling = min(comb(len(inc), 6),
-                  r*comb(len(inc)-1, 5) +
-                  (len(U)*len(V)-r)*comb(len(inc)-2, 4))
-    return {"N": len(inc), "point_incidence_support": len(U),
-            "line_incidence_support": len(V),
+    N, u, v = len(inc), len(U), len(V)
+    # Inclusion-exclusion is EXACT for the universe of all six-ID sets,
+    # regardless of physical labels or which are valid GF5 projections.
+    exact_capacity = (comb(N,6)-comb(N-u,6)-comb(N-v,6)
+                      +comb(N-u-v+r,6))
+    union_ceiling = min(comb(N, 6),
+                        r*comb(N-1, 5) +
+                        (u*v-r)*comb(N-2, 4))
+    if not 0 <= exact_capacity <= union_ceiling:
+        raise AssertionError("exact mixed source-support inclusion-exclusion failed")
+    return {"N": N, "point_incidence_support": u,
+            "line_incidence_support": v,
             "shared_original_incidence_ids": r,
-            "mixed_original_sixset_ceiling": ceiling,
+            "mixed_original_sixset_exact_capacity": exact_capacity,
+            "mixed_original_sixset_union_ceiling": union_ceiling,
+            "mixed_original_sixset_ceiling": exact_capacity,
             "GQ_no_C4_r_at_most_three": r <= 3}
 
 
