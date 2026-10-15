@@ -65,7 +65,7 @@ int main() {
         for(int side=0;side<2;side++) {
             const auto origin=(side==0?m.f:m.g);
             const auto rows=make_half(m,side,origin,physical_two,perfect);
-            const auto baseline=feature_index(m,const_cast<vector<Row>&>(rows),side);
+            const auto baseline=feature_index(m,rows,side);
             derivatives[size_t(side)].reserve(106);
             for(auto [u,v]:swaps) {
                 auto labels=origin;
