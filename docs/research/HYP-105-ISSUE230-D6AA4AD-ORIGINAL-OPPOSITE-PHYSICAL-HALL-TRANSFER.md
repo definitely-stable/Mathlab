@@ -112,7 +112,34 @@ The algorithm must NOT treat a partial physical injection image as full E(K_a). 
 
 This supplies reproducible exact tables, formulas, tests and a versioned mathematical record; no generated RCP Markdown is hand-edited.
 
-## 6. Acceptance and next true research gate
+## 6. NEW hosted finite obstruction localization: complete physical K6, original Hall is bottleneck
+
+Exact original W(3,2) physical alphabet E(K6) has K=V=15, so every full original type-specific map is a physical-edge **bijection**. Consequently EVERY six-edge physical two-factor H containing the two pinned opposite images is occupied; F_occ=F_all in ALL cohorts, not merely on average. Still very few physical completions survive the **original source-neighborhood Hall constraints** under actual global f/g.
+
+The following table is the exact summation of 135 actual original B-root/two-flag/C4 cohorts per historical type, derived by this slice's standalone opposite physical 2factor/permanent oracle and **independently verified by direct authentic opposite original neighbor incidence assignments**, plus the preexisting original seven-tag GF5 join:
+
+| TRUE W(3,2) original global scheme | Historical immutable GF5 tag | Genuine original B/A or A/B source-only forests | All physical 2factor completions | Occupied physical 2factors | Hall-positive original completions | Accepted actual six-original-flag GF5 | Cohorts with NO GF5 acceptance /135 |
+|---|---|---:|---:|---:|---:|---:|---:|
+| S68 | B-left/A-right | 6,098 | 1,386 | 1,386 | **44** | **44** | 100 |
+| S68 | A-left/B-right | 4,740 | 1,155 | 1,155 | **21** | **21** | 119 |
+| S72 | B-left/A-right | 6,098 | 1,365 | 1,365 | **36** | **36** | 106 |
+| S72 | A-left/B-right | 4,864 | 1,155 | 1,155 | **31** | **31** | 113 |
+| lex | B-left/A-right | 5,000 | 1,218 | 1,218 | **98** | **98** | 73 |
+| lex | A-left/B-right | 5,793 | 1,344 | 1,344 | **109** | **110** | 55 |
+| reverse | B-left/A-right | 5,000 | 1,449 | 1,449 | **77** | **77** | 78 |
+| reverse | A-left/B-right | 4,428 | 1,344 | 1,344 | **74** | **74** | 75 |
+
+**Precise interpretation:**
+- Original source-only forests are a different pre-physical reservoir from the physical completion counts; do NOT divide one by the other as a probability.
+- For TRUE W32 *all* full-K6 physical second-side completions are occupied, therefore the observed rejection of almost all H is strictly due to original source-neighborhood **Hall incompatibility** under the jointly fixed original GQ and physical point/line map pair, not vacant physical labels.
+- The lex A-left/B-right row gives **110 accepted original Q from only 109 Hall-positive 2factors** because at least one 4×4 incidence matrix has more than one perfect matching. Counting Hall-positive H instead of permanents loses multiplicity: the exact formula requires **permanents**, while Hall provides only the positivity/zero certificate and bounds F_Hall ≤ T ≤ 24F_Hall.
+- W32 Hall-zero cohort counts are exact for the 135 cohorts in each tag, NOT all-h zero fractions or asymptotic evidence. These finite observations do not prove a universal positive bound (or global counterexample) for s→∞.
+
+This explicitly isolates the mathematical object that the next research slice must control: the **globally correlated abundance of occupied Hall-positive completion 2factors** across real original roots and physical sectors. No original-source-only counting extension is needed.
+
+---
+
+## 7. Acceptance and next true research gate
 
 **PROVED RESTRICTED ALL-h:** exact opposite-physical-A GF5 accepted original-B-root count via occupied same-H four-rook permanents; exact Hall obstruction iff zero; physical 2-factor capacities (prior known); and explicit per-root finite physical/source-loss taxonomy. These are exact genuine ORIGINAL six-Q statements for all global injections, not abstract random source subsets. The finite experimental tables are **support**, not proof of all-h positivity.
 
