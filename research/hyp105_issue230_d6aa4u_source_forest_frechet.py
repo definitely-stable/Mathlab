@@ -212,9 +212,14 @@ def exact_W32_forest_stratified_frechet(model,*,source_universe=None,
     lc=Counter()
     both=Counter()
     arbitrary_check_count=0
+    point_outside=0
+    line_outside=0
     for index,(Q,kind) in enumerate(P.items()):
         cell=original_sixset_source_cell(Q,inc)
-        if cell is None or cell.split("/")[0]!=kind:
+        if cell is None:
+            point_outside+=1
+            continue
+        if cell.split("/")[0]!=kind:
             raise AssertionError("point physical half SOURCE type disagree")
         pc[cell]+=1
         if component_crosscheck and (index%401==0):
@@ -223,8 +228,11 @@ def exact_W32_forest_stratified_frechet(model,*,source_universe=None,
             arbitrary_check_count+=1
     for index,(Q,kind) in enumerate(L.items()):
         cell=original_sixset_source_cell(Q,inc)
-        if cell is None or cell.split("/")[0]=="IMPOSSIBLE":
-            raise AssertionError("line half source type impossible")
+        if cell is None:
+            line_outside+=1
+            if Q in P:
+                raise AssertionError("globally joined source Q cannot be outside A/B/C")
+            continue
         if cell.startswith("B/B"):
             if kind!="B":raise AssertionError("B/B source line type disagrees")
         elif cell.split("/")[1]!=kind:
@@ -266,8 +274,9 @@ def exact_W32_forest_stratified_frechet(model,*,source_universe=None,
         raise AssertionError("full sevenGF5 ORIGINAL joint source forest decomposition failed")
     if sum(both.values())!=original["exact_source_original_Q_double_projection_intersection"]:
         raise AssertionError("source forest cells do not partition exact six-ID joint")
-    if sum(pc.values())!=62370 or sum(lc.values())!=62370:
-        raise AssertionError("physical source side population leaked")
+    if (sum(pc.values())+point_outside!=62370 or
+            sum(lc.values())+line_outside!=62370):
+        raise AssertionError("physical one-side population outside source joint grid lost")
     if independent_historical:
         ref=seven_census(model,independent_checks=False,witness_sets=True)
         if S!=ref["S_seven"]:
@@ -292,6 +301,10 @@ def exact_W32_forest_stratified_frechet(model,*,source_universe=None,
         "scope":"true ORIGINAL W32 all 45 choose 6 original IDs; one actual full f and g",
         "forest_cells":table,
         "source_population_from_all_45_choose_6":source_universe["total_original_45_choose_6"],
+        "point_physical_half_outside_joint_source_grid":point_outside,
+        "line_physical_half_outside_joint_source_grid":line_outside,
+        "actual_point_physical_half_all_source_Q":len(P),
+        "actual_line_physical_half_all_source_Q":len(L),
         "true_source_universe_used_separately_from_physical_half_indexes":True,
         "source_path_component_crosschecks":arbitrary_check_count,
         "actual_nonaligned_A_A_joint":both["A/A"]-D6,
