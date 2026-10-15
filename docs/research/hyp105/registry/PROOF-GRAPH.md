@@ -50,3 +50,4 @@ Only explicitly registered edges are included. An unregistered historical proof 
 - **MODEL_SCOPE_BRIDGE_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4O-QUINTIC-IDENTITY. Dependency may use an independent deterministic proof or a model-preserving reduction; inspect source.
 
 A model difference is not itself a contradiction. Review the original proof or record a valid reduction.
+
