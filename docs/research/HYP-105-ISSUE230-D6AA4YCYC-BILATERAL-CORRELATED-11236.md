@@ -75,3 +75,36 @@ Hosted dedicated workflow: .github/workflows/hyp105-issue230-d6aa4ycyc-bilateral
 ## 6. Acceptance and formal blocker
 
 This slice establishes an exact all-h signless support identity and independently checked finite actual-original matrix, not a positive all-h deterministic transfer bound. Root #230 Branch A (all pairs S>=c*s^6), Branch B (infinite correlated S=o(s^6) family) and Branch C (model-equivalent quantified restricted theorem) remain OPEN_WITH_FORMAL_BLOCKER. Require exact HEAD Dedicated/INDEX/Proof Audit/Full Research SUCCESS and independent mathematical referee before research Draft integration. Keep main unchanged. Next stage should trace any negative nonadditive interaction to true source forest cells and connected AA positional duals, then formulate a falsifiable all-h charge-transfer inequality; alternatively test higher-radius global permutations if no paired swap improves.
+
+
+## 7. Verified genuine-original finite results: first exact grid CI
+
+Initial full-grid GitHub-hosted dedicated run: https://github.com/definitely-stable/Mathlab/actions/runs/38705972846 ; three out of three jobs SUCCESS. Independent actual ORIGINAL tests, S68 11,236 configurations and S72 11,236 configurations independently PASS with native half-index plus historical class census for all nominated minima and fixed mixed probes. The numerical table below was read directly from hosted logs, not extrapolated from source or earlier PRs.
+
+| Genuine ORIGINAL finite field | S68 | S72 |
+|---|---:|---:|
+| Baseline S | 68 | 72 |
+| Baseline D6 | 0 | 0 |
+| Complete global point-line pairs checked | 11,236 | 11,236 |
+| Strictly simultaneous point+line swaps checked | 11,025 | 11,025 |
+| Minimum S over all 11,236 | **68 (unchanged baseline)** | **72 (unchanged baseline)** |
+| Minimum S among strictly simultaneous pairs | 70 | 74 |
+| Representative best strictly-mixed source POINT swap | (3,8) | (1,14) |
+| Representative best strictly-mixed source LINE swap | (0,14) | (4,10) |
+| D6 for representative strictly-mixed winner | 0 | 0 |
+| Number of all 11,236 pairs with D6=0 | 6,014 | 4,562 |
+| Minimum selected historical 51-palette weighted numerator | **3,112,510 (unchanged baseline)** | **3,283,610 (unchanged baseline)** |
+| Number of mixed pairs with negative exact Delta S | **8,286 / 11,025** | **8,642 / 11,025** |
+| Nondominated objective (D6,N_nonAA) frontier | {(0,68)} | {(0,72)} |
+
+**Finite proposition (exhaustive matrix, independently falsified):** The original S68 and S72 globally coherent complete W32 maps are *weak local minima* of selected S and selected historical weighted GF5 numerator over the entire 106×106 box of source-factor physical label permutations obtained by at most one transposition on EACH typed side, including all simultaneous point+line changes. In both cases their original objective pair is the unique nondominated (D6,N_nonAA) value over this finite box.
+
+**First separate nonadditivity observation:** Thousands of true-original mixed pairs have Delta S < 0 even though NO complete paired map in this box has S below its anchor. Thus the stronger candidate claim that mixed finite differences are always nonnegative is false already on the genuine ORIGINAL W(3,2) 51-palette seven-class model. Negative interactions DO NOT imply an improvement below the baseline; one-sided costs can offset them. This is a finite all-seven same-Q fact, not a random expectation or independent projection effect.
+
+The enhanced independent falsifier (following this initial dedicated run) explicitly verifies all FOUR historical same-global-map corners for the most negative and most positive native mixed finite-difference witnesses, and records the literal swapped source IDs and exact four S corner counts in both JSON and hosted job logs. Final exact-head CI acceptance must be checked on the last code/documentation revision. Do not confuse a previous green run with green checks on a newer HEAD.
+
+### Consequence and next possible Y2 scope
+
+The naive optimization approach of testing all single source-label swaps AND all pairs of simultaneous one-point-transposition plus one-line-transposition is now exhausted for BOTH pinned anchors, with no improvement. The candidate universal sign claim Delta S>=0 is simultaneously falsified by genuine original finite negative Hessians. The remaining mathematical gap is to quantitatively bound the *negative* mixed coupling relative to the one-sided penalties under SOURCE forest and physical-column cyclic constraints, or to look beyond the radius-one-per-side neighborhood (multi-step permutation cycles and changes to the initial f,g).
+
+Neither the observed local minima nor the observed negative interactions proves the root all-h minimax bound S>=c*s^6 or an infinite adversarial o(s^6) family.
