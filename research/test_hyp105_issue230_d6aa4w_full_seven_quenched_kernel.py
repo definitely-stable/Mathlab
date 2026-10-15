@@ -112,6 +112,14 @@ class OriginalFullSevenQuenchedKernelTests(unittest.TestCase):
                                  62370)
                 self.assertEqual(set(d["expected_full_seven_tag_counts"]),set(TAGS))
                 self.assertGreater(d["expected_full_seven_S"],0)
+                if scheme in ("S68","S72"):
+                    expected={
+                        ("S68",0):Fraction(870476,5005),
+                        ("S72",0):Fraction(870476,5005),
+                        ("S68",1):Fraction(162908,1001),
+                        ("S72",1):Fraction(818106,5005),
+                    }[(scheme,fixed_side)]
+                    self.assertEqual(d["expected_full_seven_S"],expected)
                 self.assertGreater(d["expected_full_selected_51palette_numerator"],0)
                 self.assertTrue(d["all_h_conditional_exact_full_seven_kernel"])
                 self.assertFalse(d["uniform_all_h_adversarial_pair_lower_PROVED"])
