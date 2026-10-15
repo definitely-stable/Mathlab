@@ -1,0 +1,28 @@
+name: hyp105-issue230-eice003j-original-anchor-codegrees
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  true-original-four-GQ-anchor-capacity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: J exact ORIGINAL row pair GQ anchor codegree and independent direct quad tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_anchor_filtered_codegrees.py' -v
+      - name: W32 W34 true ORIGINAL GQ four-anchor global source count and blockers
+        run: python research/hyp105_issue230_anchor_filtered_codegrees.py
+      - name: I original quadrant matching independent regressions
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_quadrant_matching_capacity.py' -v
