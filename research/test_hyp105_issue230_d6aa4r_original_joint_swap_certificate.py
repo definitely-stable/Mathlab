@@ -54,6 +54,9 @@ class OriginalTwoTypeGlobalSwapTests(unittest.TestCase):
         actual=sum(bool(U.intersection(Q)) and bool(V.intersection(Q))
                    for Q in combinations(range(len(inc)),6))
         self.assertLessEqual(actual,cert["mixed_original_sixset_ceiling"])
+        self.assertEqual(actual,cert["mixed_original_sixset_exact_capacity"])
+        self.assertLessEqual(cert["mixed_original_sixset_exact_capacity"],
+                             cert["mixed_original_sixset_union_ceiling"])
         self.assertEqual(cert["N"],8)
         self.assertLessEqual(cert["shared_original_incidence_ids"],3)
         for bad in (((0,0),(0,0)),):
