@@ -1,0 +1,28 @@
+{
+  "schema": "mathlab.rcp.no-go.v1",
+  "id": "HYP105-NG-AA4RCYC-QUENCHED-NOT-POINTWISE",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "kind": "INVALID_INFERENCE",
+  "related_claim_ids": [
+    "HYP105-AA4RCYC-D6-QUENCHED-IDENTITY",
+    "HYP105-AA4RCYC-D6-QUENCHED-LOWER",
+    "HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER"
+  ],
+  "evidence_ids": [
+    "HYP105-EV-AA4RCYC"
+  ],
+  "rejected_inference": "Uniform every-fixed-f/g positive conditional expectation of genuine direct original D6 implies a positive bound on D6 or the full seven-GF5 S for every jointly adversarially fixed pair f,g.",
+  "witness_scope": "One global typed mapping fixed and the opposite mapping sampled as ONE complete uniform global injection shared across all true original six-incidence sets; real original W(3,2) complete maps can have D6=0 even though expected D6>0. The all-h lower applies only s>=8.",
+  "mathematical_basis": "The source proof explicitly distinguishes min_f max_g and min_g max_f from min_(f,g); expectation linearity does not control the minimum of jointly adversarial maps or the shared-event lower tail.",
+  "does_not_refute": [
+    "All-h every-fixed-map conditional D6 expectation theorem for s>=8.",
+    "Potential universal all-f,g lower bound on TOTAL seven-class S through a separate adversarial compensation theorem.",
+    "Exact AA4-Q original six-ID join and true source C/C girth exclusion."
+  ],
+  "reopen_only_if": "Establish a new genuinely deterministic every-(f,g) argument, e.g. a source-to-physical joint charge dichotomy controlling the AA veto and non-AA accepted positive classes without converting a conditional expectation into pointwise positivity.",
+  "do_not_repeat": "Do not infer min_(f,g) S>=c*s^6 from min_f E_g S>=c*s^6, min_g E_f S>=c*s^6, nor from both simultaneously.",
+  "root_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "prior_registry_ref": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json",
+  "review_status": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+}
