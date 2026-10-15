@@ -1,0 +1,94 @@
+name: hyp105-issue230-d6aa4y5-original-rooted-ba-forest-matching
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4y5_rooted_BA_forest_matching.py"
+      - "research/test_hyp105_issue230_d6aa4y5_rooted_BA_forest_matching.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4Y5-ORIGINAL-ROOTED-BA-FOREST-MATCHING.md"
+      - ".github/workflows/hyp105-issue230-d6aa4y5-original-rooted-ba-forest-matching.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-all-h-B-root-matching-lattice-and-independent-rook-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent original 4-neighbor partition permanent, actual W32 source flags, fail-closed bounds
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4y5_rooted_BA_forest_matching.py" -v
+          python research/hyp105_issue230_d6aa4y5_rooted_BA_forest_matching.py > /tmp/y5-all-h-rooted-BA.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/y5-all-h-rooted-BA.json"))
+          assert x["all_h_exact_BA_source_forest_injective_4_neighbor_matching_PROVED"]
+          assert x["all_h_GQ_pencil_no_4cycle_root_two_flag_lower_PROVED"]
+          assert x["all_h_opposite_physical_A_acceptance_NOT_GUARANTEED"]
+          assert x["root_A"]==x["root_B"]==x["root_C"]=="OPEN"
+          assert len(x["per_order"])==14
+          for row in x["per_order"]:
+              d=row["d"]
+              assert row["max_true_original_B_A_source_forest_six_Q_per_root_flag_pair"]==row["physical_Ka_C4_candidates_per_prescribed_root_edge"]*d**4
+              assert row["per_REALIZED_root_C4_pattern_distinct_opposite_A_source_lower"]<=d**4
+              assert row["all_h_exact_source_BA_A_B_forest_permanent_PROVED"]
+              assert not row["root_all_h_seven_S_omega_s6_PROVED"]
+          print("ALL-H ORIGINAL GQ ROOTED B/A MATCHING SOURCE FOREST FORMULA PASS")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-y5-all-h-rooted-source-forest
+          path: /tmp/y5-all-h-rooted-BA.json
+          retention-days: 90
+          if-no-files-found: error
+  actual-original-W32-all-45-root-cohorts-two-sides:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72, lex, reverse]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Complete ORIGINAL 45-root-pair source GQ pencil/permanent, 10935 physical B half Q and independent 51palette GF5 join
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4y5_rooted_BA_forest_matching.py --scheme "$SCHEME" > /tmp/y5-original-rooted-BA.json
+          python - <<'PY'
+          import json,os
+          x=json.load(open("/tmp/y5-original-rooted-BA.json"))
+          assert x["scheme"]==os.environ["SCHEME"]
+          assert x["all_h_mathematical_exact_partition_permanent_for_realized_B_patterns"]
+          assert x["genuine_complete_GLOBAL_point_line_maps_not_independent_per_Q"]
+          assert x["true_original_GQ_W32_incidence_flags"]==45
+          assert x["root_A"]==x["root_B"]==x["root_C"]=="OPEN"
+          for tag in ("B-left/A-right","A-left/B-right"):
+              q=x["per_historical_GF5_BA_tag"][tag]
+              assert q["root_fixed_two_distinct_flag_pairs"]==45
+              assert q["physical_B_candidate_original_six_IDs"]==10935
+              assert q["all_45_true_original_root_flag_pairs_independently_brute_checked"]
+              assert q["all_10935_original_B_half_Q_checked"]
+              assert q["original_BA_rooted_51palette_historical_GF5_crosscheck"]=="PASS"
+              assert q["true_source_opposite_A_failures"]+q["true_source_BA_forest_opposite_physical_A_failures"]+q["historical_positive_GF5_accepted_BA_six_IDs"]==10935
+              assert q["true_source_BA_forest_potential_six_IDs"]>=q["historical_positive_GF5_accepted_BA_six_IDs"]
+          if x["scheme"]=="S68":
+              assert x["per_historical_GF5_BA_tag"]["B-left/A-right"]["historical_positive_GF5_accepted_BA_six_IDs"]==44
+              assert x["per_historical_GF5_BA_tag"]["A-left/B-right"]["historical_positive_GF5_accepted_BA_six_IDs"]==21
+          if x["scheme"]=="S72":
+              assert x["per_historical_GF5_BA_tag"]["B-left/A-right"]["historical_positive_GF5_accepted_BA_six_IDs"]==36
+              assert x["per_historical_GF5_BA_tag"]["A-left/B-right"]["historical_positive_GF5_accepted_BA_six_IDs"]==31
+          print("TRUE ORIGINAL",x["scheme"],"ROOTED B/A FOREST PERMANENT AND 51PALETTE TWO GATES PASS",x["per_historical_GF5_BA_tag"])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-y5-original-rooted-BA-${{ matrix.scheme }}
+          path: /tmp/y5-original-rooted-BA.json
+          retention-days: 90
+          if-no-files-found: error
