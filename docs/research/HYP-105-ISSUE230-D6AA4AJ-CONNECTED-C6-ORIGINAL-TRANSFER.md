@@ -104,6 +104,26 @@ The genuine globally bijective W(3,2) AA4-AI counterexample is an important inde
 
 All table cells are indexed original source cohort counts with six distinct genuine original incidence IDs in selected Q. The 40/58 FULL connected-sector figure is NOT a theorem of the disjoint-pinned AJ transfer alone. The difference is a well-posed AA4-AK adjacent-pins source transfer and must NOT be implicitly assigned to either of the two AJ disjoint templates. The exact 17/41 and 504/756 disjoint totals were independently checked by the old AA4-AD complete physical A-twofactor H enumeration crossed with all source 4-rook perfect matchings, plus invariance under a genuine source symplectic automorphism and two independent physical coordinate relabelings.
 
+## 5.2 AA4-AJ4: universal **upper** O(1/s) good-root Hall dilution
+
+There is a new precise asymptotic all-f,g statement that is **not** an all-global lower. Fix s=2^h, h>=19 and ANY complete globally injected genuine original pair f,g. Fix ONE of the source intersecting line pairs selected by AA4-AG as *good*: its two globally labeled opposite physical edges are disjoint, and each of their four physical endpoints has missing-edge degree less than a/16 in the one globally fixed opposite physical map g. Fix ANY actual first-side physically occupied complementary C4 representing four distinct genuine original source singleton factors.
+
+AA4-AI established at least a²/4 **globally OCCUPIED physical connected C6** completions of this actual pinned pair (using the single cross-bridge physical cycle \`u-v-y-w-x-z-u\`). The new AA4-AJ3 degree bound applies to **all** disjoint-pinned connected C6 source-Hall completions with the same root/C4 pair, not merely those physical bridge cycles. Therefore for this actual globally fixed rooted source cohort,
+
+    accepted_original_Q_connected_C6 / occupied_physical_H_connected_C6
+         <= [48(s+1)²+192(s+1)] / (a²/4)
+         = 4[48(s+1)²+192(s+1)]/a².
+
+The ratio counts source SIX-ID accepted Q with actual GQ matching multiplicity (0/1/2) over distinct occupied physical completion H. The *Hall-positive physical H fraction* is also <= this expression since each Hall-positive H contributes at least one selected original Q. For minimal a with C(a,2)>=V=(s+1)(s²+1), a²=(2+o(1))s³, hence
+
+    limsup_(s->infinity, s=2^h)  s *
+        [accepted_original_Q_connected_C6 / occupied_physical_H_connected_C6]
+    <= 96.
+
+In particular this ratio is O(1/s) for **every** complete f,g and every AA4-AG good pinned source cohort at h>=19. The exact rational bound is implemented in \`good_original_rootpair_hall_dilution_upper(s)\` and tested at powers h=19,20,22,26 with exact integers, no floating point.
+
+This explains why even an extremely large universal PHYSICAL pre-Hall mass can coexist with source-Hall failures. **The estimate is an UPPER bound on Hall success density, never a LOWER bound, and does not establish or refute original issue #230 Branch A.** It neither produces an all-h globally injected counterfamily nor proves global S=o(s^6); many distinct source root/C4 cohorts can compensate despite sparse genuine Hall successes in each.
+
 ## 6. Integration and future theorem gate
 
 Draft PR atop #519. The parent #519 is itself stacked on #517, #516, #514 and earlier. Do NOT merge or edit main, do NOT mark accepted in formal RCP JSON or generated research catalogs without separate independent mathematical review and all required final-HEAD CI. Original issue #230 stays OPEN.
