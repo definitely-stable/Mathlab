@@ -67,3 +67,31 @@ CI runs all these checks for TRUE ORIGINAL S68/S72/lex/reverse complete global m
 The universal result is an exact rooted source forest matching identity, a conditional positive lower for every realized B C4 at s>=4, and a two-rejection-gate decomposition. It is **not** a Branch A proof of S_s(f,g)>=c*s^6 for every complete globally injected f,g, **not** a Branch B infinite correlated o(s^6) counterfamily, and **not** a complete/full R3 or ASET exponent. No global positive lower on historical B/A is inferred by multiplying independent point and line marginals. The next scientific gate must quantify the second, opposite-physical-A rejection gate under SAME global f,g or construct an actual correlated infinite family that suppresses it. An attempt to assert that source forest positivity forces physical joint positivity would be false without this bridge.
 
 Keep root issue #230 OPEN and this research PR Draft atop exact-head green Y4. Require exact-head Dedicated + INDEX + Proof Audit + Full Research SUCCESS, independent mathematical referee, and matching Markdown/JSON source records before deciding integration. No direct main changes.
+## 7. Independently hosted exact original W32 results — full source / physical-A separation
+
+Initial pinned-code [dedicated CI run #38734461367](https://github.com/definitely-stable/Mathlab/actions/runs/38734461367) **SUCCESS 5/5**: one independent all-h 15-partition permanent/girth test job including real W32 S68/S72 checks, and 4 separate complete global original-anchor jobs S68, S72, lex, reverse. Each source-side case checks all 45 original root/pinned-two-flag cohorts, 135 physical-root C4 patterns, independent literal 3^4 incidence assignments per pattern, all 10,935 original six-ID B half Q, distinct source forest gate, and independent true-original 51palette GF5 seven-tag physical-opposite-A acceptance. These are actual full global f/g maps, not independent per-Q relabelings.
+
+### 7.1 Per tagged historical B/A source cell: exact disjoint loss partition
+
+| Genuine original complete anchor / immutable historical tag | All physical B half Q R | Genuine opposite source-A forests F | Rejected by original source collisions R-F | Rejected by opposite physical-A gate F-A | Historical GF5 accepted A |
+|---|---:|---:|---:|---:|---:|
+| S68, B-left/A-right | 10,935 | 6,098 | 4,837 | 6,054 | **44** |
+| S68, A-left/B-right | 10,935 | 4,740 | 6,195 | 4,719 | **21** |
+| S72, B-left/A-right | 10,935 | 6,098 | 4,837 | 6,062 | **36** |
+| S72, A-left/B-right | 10,935 | 4,864 | 6,071 | 4,833 | **31** |
+| lex, B-left/A-right | 10,935 | 5,000 | 5,935 | 4,902 | **98** |
+| lex, A-left/B-right | 10,935 | 5,793 | 5,142 | 5,683 | **110** |
+| reverse, B-left/A-right | 10,935 | 5,000 | 5,935 | 4,923 | **77** |
+| reverse, A-left/B-right | 10,935 | 4,428 | 6,507 | 4,354 | **74** |
+
+Here R-F and F-A are DISJOINT rejection categories and satisfy R=(R-F)+(F-A)+A exactly on every anchored complete map and each of 45 true source-root flag cohorts. Historical A counts are independently attested by the separately implemented full original 62,370/62,370 six-ID two-sided seven-GF5 join AND historical selected 51-palette classifier. The rooted Möbius matching formula independently matches literal exhaustive four-opposite-neighbor assignments and all genuine B-side six-Q cohorts.
+
+### 7.2 Source forests survive in every cohort, but almost all fail the opposite physical gate
+
+Every one of 45 pinned genuine ORIGINAL B-root/two-flag cohorts on BOTH sides in each of these four pinned W32 schemes has at least one original B/A source forest, despite the universal s=2 conditional floor being zero. For S68, 6,098 genuinely possible B-left/A-right source forests yield only 44 accepted historical GF5 positive Q: 6,054 pass source geometry but fail the right physical-A gate. Its dual 4,740 source A/B forests yield only 21 accepted: 4,719 fail the physical gate. S72 shows the same phenomenon: 6,098→36 and 4,864→31. This is a FINITE observation that prioritizes the **opposite physical-A alignment** bottleneck over further sharpening the source-forest matching formula alone.
+
+The full global right physical labeling differs between S68 and S72; identical 6,098 B-left source potentials reflect their pinned original POINT map f, whereas accepted counts 44 versus 36 differ under their right physical line map g. Conversely their A-left potentials differ due to original LINE-side physical assignments. This demonstrates mechanically that source-forest counts and GF5 acceptance are distinct, noninterchangeable quantities.
+
+### 7.3 What has NOT been proved
+
+The all-h rooted permanent gives conditional source-A forest existence for every realized B-root C4 when s>=4. It does not show even one such C4 exists for every adversarial physically occupied globally injected edge set, nor that any source-A forest lands in the opposite physical 2-regular six-edge index. A naive uniform per-Q acceptance, independence assumption, or multiplication of two high source forest counts would be mathematically invalid. The exact 45-cohort finite censuses on W32 are not an all-h universal S_s lower. The next research gate must establish a nontrivial all-h opposite physical-A intersection/charge, or a globally coherent counterfamily that suppresses it.
