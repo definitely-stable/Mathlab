@@ -272,7 +272,8 @@ def independent_actual_true_GQ_two_P2_original_placement(model, *,
                     tag=({(1,0):TYPES[0],(0,1):TYPES[1],(0,0):TYPES[2]})[key]
                     cnt[tag]+=1
                     witnessed_types.setdefault(tag,(L,a,b,p,M,N))
-                    if len(roots)<brute_force_first_roots:
+                    if (len(roots)<brute_force_first_roots and
+                            not any(k[0]==tag for k in m2hist)):
                         residual=[(pt,ell) for pt,ell in original_edges
                                   if pt not in removedP and ell not in removedL]
                         # DIRECT enumeration of pairs of original edge IDs,
