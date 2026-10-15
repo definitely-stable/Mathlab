@@ -1,0 +1,30 @@
+{
+  "schema": "mathlab.rcp.no-go.v1",
+  "id": "HYP105-NG-AA4T-POSITIVE-TENSOR-MARGINAL-NOT-POINTWISE",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "kind": "INVALID_INFERENCE",
+  "related_claim_ids": [
+    "HYP105-AA4T-POSITIONAL-D6-TENSOR",
+    "HYP105-AA4T-QUENCHED-TENSOR-IDENTITY",
+    "HYP105-AA4T-ALLH-QUENCHED-D6-LOWER",
+    "HYP105-AA4T-W32-POSITIVE-MEAN-ZERO-D6"
+  ],
+  "evidence_ids": [
+    "HYP105-EV-AA4T"
+  ],
+  "rejected_inference": "A nonnegative aligned original incidence-ID positional C6 tensor with a uniformly positive one-sided quenched expected inner product forces that inner product positive for every pair of jointly adversarially fixed complete f,g, or forces a universal all-seven original S_s minimax bound.",
+  "witness_scope": "True original W(3,2), two fully globally injected K6 typed maps in S68 and S72, 60 labelled source-six-column C6 fibres; T_f=21186 and E_g D6=1926/455 despite actual D6=0 under each fixed right g. Seven-positive S is 68 or 72, not zero.",
+  "mathematical_basis": "Exact original same-Q/H D6 positional tensor, uniform full-g six-line marginal and independent genuine W32 source enumeration exhibit positive quenched mean with zero realized D6 for the same fixed point map.",
+  "does_not_refute": [
+    "The exact all-h positional D6 tensor identity or its every-fixed-side conditional mean lower.",
+    "Any universal positive lower for the TOTAL seven accepted GF(5) classes via non-AA compensation and correlated positional constraints.",
+    "A genuinely deterministic all-(f,g) bound based on coupled original source incidence rather than individual tensors' cardinalities.",
+    "The stronger s>=8 conditional D6 lower from AA4R."
+  ],
+  "reopen_only_if": "Derive a new source/position preserving deterministic correlation or non-AA compensation theorem for every complete globally injected f,g, with actual original six-incidence IDs, controlling D6 and the AA veto jointly; test against W32 S68/S72 and larger orders.",
+  "do_not_repeat": "Do not replace the exact common-original-Q/H tensor inner product with products of positive physical left and right marginals or with expected D6; neither enforces pointwise positivity.",
+  "root_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "prior_registry_ref": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json",
+  "review_status": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+}
