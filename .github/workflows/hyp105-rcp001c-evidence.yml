@@ -1,0 +1,76 @@
+name: hyp105-rcp001c-evidence
+
+on:
+  pull_request:
+    paths:
+      - "research/rcp/evidence_ledger.py"
+      - "research/rcp/hyp105/evidence/**"
+      - "research/rcp/hyp105/no_go/**"
+      - "research/rcp/hyp105/archive/**"
+      - "research/rcp/schema/evidence.schema.json"
+      - "research/rcp/schema/no-go.schema.json"
+      - "research/test_rcp_evidence_ledger.py"
+      - "docs/research/hyp105/**"
+      - ".github/workflows/hyp105-rcp001c-evidence.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hyp105-rcp001c-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  independent-evidence-oracles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Scope and integrity adversarial falsifiers
+        run: python -m unittest research.test_rcp_evidence_ledger -v
+      - name: Full offline Git object escrow validation
+        run: python -m research.rcp.evidence_ledger --output /tmp/rcp001c-evidence
+
+  original-commit-crosscheck:
+    needs: independent-evidence-oracles
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify all original GitHub commit-path bytes against local pinned escrow
+        run: python -m research.rcp.evidence_ledger --verify-originals --output /tmp/rcp001c-evidence
+      - name: Assert complete receipt and witness inventory without scientific promotion
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          root = Path("/tmp/rcp001c-evidence")
+          d = json.loads((root/"evidence.json").read_text(encoding="utf-8"))
+          v = d["validation"]
+          assert d["schema"] == "mathlab.rcp.evidence-index.v1"
+          assert d["root_status"] == "OPEN_WITH_FORMAL_BLOCKER"
+          assert d["acceptance"] == "PROVENANCE_NOT_MATHEMATICAL_PROOF"
+          assert (v["claim_count"], v["evidence_count"], v["no_go_count"]) == (7, 5, 5)
+          assert v["archived_blob_count"] == v["remote_origins_verified"] == 17
+          assert len(d["archived_sources"]) == 17
+          assert len(set(x["git_blob_sha"] for x in d["archived_sources"])) == 17
+          assert all(len(x["sha256"]) == 64 for x in d["archived_sources"])
+          assert (root/"evidence.md").is_file()
+          print("RCP-001-C: all 17 original Git object blob identities preserved; root OPEN")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rcp001c-durable-evidence-audit
+          path: /tmp/rcp001c-evidence/
+          if-no-files-found: warn
+          retention-days: 30
