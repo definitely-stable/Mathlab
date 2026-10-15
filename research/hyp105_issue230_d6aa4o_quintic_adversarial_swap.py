@@ -211,7 +211,7 @@ def descend_true_original_W32(tensor,labels,*,max_steps=150):
     frontier=exhaustive_one_swap_frontier(tensor,cur)
     if frontier["minimum_exact_swap_delta"]<0:
         raise AssertionError("swap descent truncated before one-swap stationarity")
-    if any(a<=b for a,b in zip(trace[1:],trace[:-1])):
+    if any(new >= old for new,old in zip(trace[1:],trace[:-1])):
         raise AssertionError("nonmonotone true ORIGINAL GF5 source B/A energy descent")
     if len(set(cur))!=15:
         raise AssertionError("optimized original point map ceased to be injective")
