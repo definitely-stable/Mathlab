@@ -1,0 +1,46 @@
+{
+  "schema": "mathlab.rcp.evidence.v1",
+  "id": "HYP105-EV-AA4U",
+  "claim_ids": [
+    "HYP105-AA4U-NINE-ORIGINAL-FOREST",
+    "HYP105-AA4U-FOREST-FRECHET-LOWER",
+    "HYP105-AA4U-W32-NINE-FOREST-CENSUS",
+    "HYP105-AA4U-W32-ZERO-MARGINAL-POSITIVE-JOINT"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 486,
+    "commit": "f49dcef044e8a4f1bb17f080ffa11c7b365a077a",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md",
+    "proof_blob_sha": "364f95d0dfd94d693d0152abf571a1312532ba14"
+  },
+  "artifacts": [
+    {
+      "role": "ORACLE_SOURCE",
+      "path": "research/hyp105_issue230_d6aa4u_source_forest_frechet.py",
+      "git_blob_sha": "9eb84d4b7798ee5e7b524977257b3f53cb034d95"
+    },
+    {
+      "role": "INDEPENDENT_TEST",
+      "path": "research/test_hyp105_issue230_d6aa4u_source_forest_frechet.py",
+      "git_blob_sha": "e53c9c77bf378eef354e6ac383761f7e022cf6fd"
+    }
+  ],
+  "reproduction": {
+    "runner": "GITHUB_HOSTED",
+    "environment": "ubuntu-24.04 Python 3.12, documented source baseline",
+    "checkout_commit": "f49dcef044e8a4f1bb17f080ffa11c7b365a077a",
+    "command": "python -m unittest research.test_hyp105_issue230_d6aa4u_source_forest_frechet -v",
+    "execution_status": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+  },
+  "ci": {
+    "status": "NOT_ARCHIVED_AS_PROOF",
+    "note": "Original scientific PR #486 head had 10/10 CI. Archive preserves proof and oracle bytes with independent hashes, not scientific peer review."
+  },
+  "retention": "Three exact source proof/oracle/test Git blobs retained in infrastructure branch; archived in main once integrated. Separate SHA256 protects independent byte identity.",
+  "limitations": [
+    "GQ forest classification and cellwise relaxed inequality are all-h, but the source census and S68/S72 rows are finite original W32 only.",
+    "Fréchet abstract extremizers do not necessarily correspond to complete globally injected maps.",
+    "Seven-positive GF5 simultaneous adversarial minimax root Branch A/B/C remains OPEN."
+  ]
+}
