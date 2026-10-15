@@ -123,6 +123,15 @@ For s=2 check V=15,d=3,a=6: 225≤400. For s≥4, the minimal physical alphabet 
 
 **NO-GO scope:** Using only THIS standard point/line spectral mixing lower for each individual coordinate-center-pair cannot prove a single genuine original source incidence in ANY selected one cell, much less the four-row Hall positivity of physical B/A. It does NOT prove that the actual cell M[c,e] is zero, and does NOT rule out stronger global spectral tensor/energy inequalities coupling MANY physical center cells. Indeed the new second-moment theorem above proves Ω(s^5) global TRUE original distinct flag PAIRS precisely by such multi-cell accounting.
 
+### Prior-art check (independent external source)
+
+Classical W(q) incidence spectral statements in this slice are NOT claimed new. In particular, Michael William Newman's 2004 University of Waterloo PhD thesis *Independent Sets and Eigenspaces*, Section 3.12, printed pp. 52–53 (PDF pages 63–64), explicitly derives the generalized-quadrangle identity \`N²=(q+1)I+A\`, the SRG equation \`A²=(q²−1)I−2A+(q+1)J\`, the two nontrivial original collinearity eigenvalues \`q−1\` and \`−q−1\`, and \`N²\` squared eigenvalues \`(q+1)²,2q,0\`. This is a direct literature precedent for the spectral input, independently checked here against actual finite ORIGINAL GQ matrices without treating it as a new spectral theorem.
+
+- [Michael William Newman, *Independent Sets and Eigenspaces*, University of Waterloo (2004), original thesis PDF](https://dspacemainprd01.lib.uwaterloo.ca/server/api/core/bitstreams/3609ef01-c1e4-44a5-9d01-66a495af811b/content).
+- [Generalized quadrangle point-graph eigenvalue derivation, UCSD lecture notes, pp. 17–18](https://www.math.ucsd.edu/~jmoneill/abacus_winter2020.pdf).
+
+New AA4-AL content remains only the specialized TWO-TYPED-global-physical-map ORIGINAL \(F^T B G\) pair-energy source-degeneracy identity, its deterministic \`D>=2s^5\` lower and exact ANOVA variance strengthening, and the precise no-lift warning to #230 seven-GF5 sixsets.
+
 ## 5. Precise GF5 six-ID barrier and non-equivalence statement
 
 An ordered pair of genuine original source flags counted in D uses distinct point and line source IDs with at least ONE common physical point-coordinate and ONE common physical line-coordinate. This is a valid TRUE original two-flag incidence configuration under both same global maps. It is NOT necessarily a selected positive GF5 six-flag configuration; THREE chosen original flags sharing a single physical coordinate already violate the degree-two rule of six-physical-coordinate GF5 A patterns. Also the four-sector AA4-AK Hall decompositions require one genuine source doubled B center, four source singleton factors in an occupied physical C4 and additional TRUE original opposite-factor assignments. D counts a different two-ID coincidence and provides no automatic extension through the stringent globally correlated 4-row source Hall gates.
