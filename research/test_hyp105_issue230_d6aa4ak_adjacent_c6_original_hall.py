@@ -73,9 +73,18 @@ class GenuineOriginalAdjacentC6Hall(unittest.TestCase):
                 full=full_original_W32_sector_certificate(m,side=side)
                 self.assertLessEqual(
                     accepted,full["original_GF5_A_accepted_by_sector"]["connected_C6"])
-                if index==0:
-                    self.assertEqual(accepted,(23,17)[side])
-                    self.assertEqual(physical,(558,432)[side])
+                # Eight independent strict true-ORIGINAL W32 checks,
+                # including the special two-typed split-triangle ZERO
+                # physical map and four historical globally complete maps.
+                W32_ADJACENT_COUNTS=(
+                    ((23,17),(558,432)),  # zero_split
+                    ((56,50),(576,468)),  # lex
+                    ((18,19),(378,468)),  # reverse
+                    ((7,6),(432,630)),    # S68
+                    ((11,11),(450,630)),  # S72
+                )
+                self.assertEqual(accepted,W32_ADJACENT_COUNTS[index][0][side])
+                self.assertEqual(physical,W32_ADJACENT_COUNTS[index][1][side])
                 print("AA4AK ORIGINAL W32 ADJACENT",index,side,
                       "accepted",accepted,"physically_occupied",physical)
 
