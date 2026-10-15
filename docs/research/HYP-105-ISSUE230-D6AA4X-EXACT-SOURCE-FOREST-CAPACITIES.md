@@ -132,7 +132,7 @@ At s=2,d=3,V=15,N=45 (all actual source incidences):
 | **Source U_B/B-overlap** | **910,080** | independent AA4-U full original \(\binom{45}{6}\) source-sixset census |
 
 At s=4, d=5, V=85, N=425:
-- Four-edge point-ended original P4 roots: **6,800**; admissible source line-centered P2 per root: **1,572**, giving **U_B/C=U_C/B=10,689,600**;
+- Four-edge point-ended original P4 roots: **13,600**; admissible source line-centered P2 per root: **786**, giving **U_B/C=U_C/B=10,689,600**;
 - Three-edge source P3 roots: **6,800**; true-original residual edge count **408**, lower/high vertex counts **14/152**, lower/high residual incidence-edge count **56**; universal actual source 3-matching count **10,594,688**, giving **U_B/B-overlap=72,043,878,400**.
 
 The actual W(3,4) GQ fixture is used for independent root-specific local original graph deletions, but **NOT** a complete six-source census of \(\binom{425}6\) (infeasible for exhaustive CI). This is explicitly an independent local original-model crosscheck combined with the all-h derivation, not a finite census-to-asymptotic inference.
