@@ -1,0 +1,41 @@
+name: hyp105-aa4ak-independent-referee
+on:
+  pull_request:
+    paths:
+      - "research/test_hyp105_aa4ak_referee.py"
+      - "docs/research/hyp105/AA4AK-REFEREE-20261015.md"
+      - ".github/workflows/hyp105-aa4ak-independent-referee.yml"
+      - "docs/research/hyp105/START-HERE.md"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-stdlib-mathematical-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Standalone authentic original W32 and K6-K8 adversarial referee
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_aa4ak_referee.py" -v
+      - name: Print independent exact original W32 and global rational checkpoints
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json
+          from fractions import Fraction
+          from test_hyp105_aa4ak_referee import (
+              independent_true_original_13_W32,independent_integer_gate)
+          print("REFEREE_TRUE_ORIGINAL_W32="+json.dumps(
+              independent_true_original_13_W32(),sort_keys=True))
+          for h in (4,5,6,7,42,60):
+              c=independent_integer_gate(1<<h)
+              print("REFEREE_ALL_H="+json.dumps({
+                  "h":h,"a":c["a"],"m":c["m"],
+                  "safe":c["safe"],"dead":c["dead"],"active":c["active"],
+                  "preHall_s14_over384": c["physical"]*384>=c["s"]**14,
+                  "source_hall_positive_lower_PROVED":False
+              },sort_keys=True))
+          PY
