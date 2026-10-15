@@ -63,7 +63,7 @@ static int source_class_tag(const Model& m,const Row& row,int side) {
         throw runtime_error("GQ girth 8 forbids ORIGINAL source C/C");
     throw runtime_error("unrecognized genuine ORIGINAL seven source cell");
 }
-static vector<Mode> feature_index(const Model& m,vector<Row>& rows,int side) {
+static vector<Mode> feature_index(const Model& m,const vector<Row>& rows,int side) {
     vector<Mode> index;
     index.reserve(rows.size());
     for(const Row& row:rows) {
