@@ -1,0 +1,88 @@
+name: hyp105-issue230-d6aa4w-full-seven-quenched-kernel
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4w_full_seven_quenched_kernel.py"
+      - "research/test_hyp105_issue230_d6aa4w_full_seven_quenched_kernel.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4W-FULL-SEVEN-QUENCHED-KERNEL.md"
+      - ".github/workflows/hyp105-issue230-d6aa4w-full-seven-quenched-kernel.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-exact-full-seven-typed-quenched-source-kernel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine ORIGINAL full-seven all-h single-global-map transfer theorem, eight independent tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4w_full_seven_quenched_kernel.py" -v
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4w_full_seven_quenched_kernel import (
+              all_h_full_seven_one_global_map_transfer_probabilities,
+              two_uniform_complete_global_maps_full_seven_expectation)
+          U={"A/A":1566360,"A/B":1666980,"B/A":1666980,
+             "A/C":6225,"C/A":6225,"B/C":5220,"C/B":5220,
+             "B/B-overlap":910080,"B/B-disjoint":707580}
+          x=two_uniform_complete_global_maps_full_seven_expectation(2,U)
+          assert x["exact_expected_seven_S"]==Fraction(165129984,1002001)
+          assert x["exact_tag_expectations"]["D6"]==Fraction(3759264,1002001)
+          print("All seven exact original full two-map W32 expectation:",
+                x["exact_expected_seven_S"],"real S68/S72 are 68/72")
+          for h in range(1,14):
+              s=1<<h
+              p=all_h_full_seven_one_global_map_transfer_probabilities(s)
+              assert p["A_any_connected_or_disconnected_physical_2factor"]==70*p["D6_position_matched_connected_H"]
+              assert not p["all_h_root_minimin_proved"]
+              print("ALL-h one global typed source transfer",s,
+                    p["A_any_connected_or_disconnected_physical_2factor"],
+                    p["B_same_source_repeated_plus_physical_C4"],
+                    p["C_three_source_repeats_physical_matching"])
+          PY
+  true-original-W32-all-seven-global-map-expectation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full global original f or g conditional all seven 51-palette GF5 source-forest transfer
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4w_full_seven_quenched_kernel.py --scheme "$SCHEME" > "/tmp/aa4w-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from fractions import Fraction
+          from pathlib import Path
+          name=os.environ["SCHEME"]
+          x=json.loads(Path("/tmp/aa4w-"+name+".json").read_text())["cases"][name]
+          for key in ("fix_original_point","fix_original_line"):
+              z=x[key]
+              score={"S68":68,"S72":72}[name]
+              assert z["actual_one_specified_global_pair_seven_S"]==score
+              assert z["independent_true_global_pair_GF5_history"]=="PASS"
+              assert z["all_h_conditional_exact_full_seven_kernel"]
+              assert not z["uniform_all_h_adversarial_pair_lower_PROVED"]
+              assert len(z["expected_full_seven_tag_counts"])==7
+              total=z["expected_full_seven_S"]
+              mean=Fraction(total["numerator"],total["denominator"])
+              tags=z["expected_full_seven_tag_counts"]
+              assert sum((Fraction(p["numerator"],p["denominator"])
+                          for p in tags.values()),Fraction(0))==mean
+              assert sum(z["true_FIXED_original_source_forest_half"].values())+z[
+                  "genuine_fixed_one_half_source_Q_OUTSIDE_joint_nine_grid"]==62370
+              print(name,key,"one typed full global random map full seven expectation",mean,
+                    "ACTUAL particular typed pair score",score,
+                    "source AA-C6",z["fixed_connected_C6_original_AA_Q"])
+          PY
