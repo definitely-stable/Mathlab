@@ -50,6 +50,9 @@ class GenuineOriginalGirthEightFourRookTests(unittest.TestCase):
         self.assertEqual(z["maximum_PERMANENT_for_valid_true_GQ_local_matrix"],2)
         self.assertGreater(z["C4free_but_C6_forbidden_non_GQ_matrices"],0)
         hist=z["girth_at_least_eight_local_matrix_histogram"]
+        self.assertEqual(z["C4_forbidden_non_GQ_matrices"],47015)
+        self.assertEqual(z["C4free_but_C6_forbidden_non_GQ_matrices"],2304)
+        self.assertEqual(hist,{0:11321,1:4824,2:72})
         self.assertEqual(set(hist),{0,1,2})
         self.assertGreater(hist[2],0)
         self.assertEqual(sum(hist.values())+
@@ -128,6 +131,11 @@ class GenuineOriginalGirthEightFourRookTests(unittest.TestCase):
                                      {1:108,2:1})
                     witness=row["first_true_original_induced_C8_witness"]
                     self.assertIsNotNone(witness)
+                    self.assertEqual(witness["B_root_original_factor"],11)
+                    self.assertEqual(tuple(witness["actual_source_flag_IDs"]),(34,35))
+                    self.assertEqual(tuple(witness["four_other_actual_original_B_factors"]),(0,3,6,12))
+                    self.assertEqual(tuple(witness["four_actual_original_A_factors"]),(1,2,5,12))
+                    self.assertEqual(tuple(witness["true_original_incidence_row_masks"]),(3,5,10,12))
                     self.assertEqual(independent_gq_local_cycle_check(
                         witness["true_original_incidence_row_masks"]),
                         {4:False,6:False,8:True})
