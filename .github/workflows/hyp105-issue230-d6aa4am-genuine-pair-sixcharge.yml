@@ -1,0 +1,63 @@
+name: hyp105-issue230-d6aa4am-genuine-pair-sixcharge
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4am_genuine_pair_sixcharge.py"
+      - "research/test_hyp105_issue230_d6aa4am_genuine_pair_sixcharge.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AM-GENUINE-PAIR-SIXCHARGE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4am-genuine-pair-sixcharge.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-seven-physical-projection-structural-anchors:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All seven genuine-original six-Q source 6/4/0 D anchor caps, proper s5 to s6 nonlift falsifier
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4am_genuine_pair_sixcharge.GenuineOriginalPairSixcharge.test_01_all_h_source_pattern_capacities_and_unanchored_C \
+            test_hyp105_issue230_d6aa4am_genuine_pair_sixcharge.GenuineOriginalPairSixcharge.test_07_positivity_of_D_does_not_force_split_triangle_sixsets
+  five-real-original-W32-all-seven-extension-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Five full globally fixed W32 true original K6 map pairs, all historical 62370 six-Q 7-class census vs D source flags, exact E/U/C
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4am_genuine_pair_sixcharge.GenuineOriginalPairSixcharge.test_02_W32_exact_5_maps_full_seven_selected_source_extension
+  true-original-independent-D-first-and-symplectic-invariance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Separate two-sided physical-A B C original six-ID join and D-FIRST source-flag pair-degree referee, actual symplectic isometry
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4am_genuine_pair_sixcharge.GenuineOriginalPairSixcharge.test_03_direct_TRUE_original_D_first_independent_seven_sixQ_referee \
+            test_hyp105_issue230_d6aa4am_genuine_pair_sixcharge.GenuineOriginalPairSixcharge.test_04_same_complete_original_W32_symplectic_and_typed_physical_relabels
+  genuine-original-W34-physical-holes-and-negative-scope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual GF4 W34 source incidences, globally injected K14 physical holes, literal source four-row Hall, fake-source rejection
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4am_genuine_pair_sixcharge.GenuineOriginalPairSixcharge.test_05_actual_original_W34_partial_global_hole_local_BA_A_B_Q \
+            test_hyp105_issue230_d6aa4am_genuine_pair_sixcharge.GenuineOriginalPairSixcharge.test_06_original_six_Q_rejects_fabrications_and_wrong_scope
