@@ -1,0 +1,87 @@
+name: hyp105-issue230-d6aa4ab-minimax-orbit-normalform
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ab_minimax_orbit_normalform.py"
+      - "research/test_hyp105_issue230_d6aa4ab_minimax_orbit_normalform.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AB-ADVERSARIAL-ORBIT-NORMAL-FORM.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ab-minimax-orbit-normalform.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-proof-and-true-GQ-finite-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Eight independent genuine original W32/W34 exact minimax symmetry tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ab_minimax_orbit_normalform.py" -v
+  independent-W32-original-full-seven-orbit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        source_scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact globally coherent original 62,370 plus 62,370 GF5 and 51-palette joint orbit comparison
+        env:
+          SOURCE_SCHEME: ${{ matrix.source_scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from hyp105_issue230_d6aa4ab_minimax_orbit_normalform import finite_W32_symmetry_certificate
+          z=finite_W32_symmetry_certificate(os.environ["SOURCE_SCHEME"])
+          assert z["true_original_global_coherence_checked"]
+          assert z["S"]=={"S68":68,"S72":72}[z["scheme"]]
+          assert z["D6"]==0
+          print(json.dumps(z,sort_keys=True,indent=2))
+          PY
+  strict-counterfeits-and-anchored-counts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Algebraic orbit index, strict source automorphism and anchored injection counts
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from math import factorial
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4ab_minimax_orbit_normalform import (
+              anchored_pair_normal_form,normalized_search_cardinality,
+              symplectic_transvection_source,transform_model)
+          x=normalized_search_cardinality(2)
+          assert x["anchored_per_side"]==factorial(14)
+          assert x["two_sided_exact_search_reduction_factor"]==225
+          m=fixture(1,"S68")
+          t=anchored_pair_normal_form(m,2,5)
+          assert t["left_labels"][2]==(0,1)
+          assert t["right_labels"][5]==(0,1)
+          p,l=symplectic_transvection_source(m,3)
+          assert len(set(p))==len(set(l))==15
+          assert len(set(transform_model(m,point_sources=p,
+                                         line_sources=l)["left_labels"]))==15
+          bad=list(range(15));bad[0],bad[1]=bad[1],bad[0]
+          try:
+              transform_model(m,point_sources=bad)
+          except ValueError:
+              pass
+          else:
+              raise AssertionError("FAKE independent point-source permutation accepted")
+          for s in (2,4,8,16,32):
+              z=normalized_search_cardinality(s)
+              assert not z["root_A_proved"] and not z["root_B_proved"]
+          print("All-h anchored exact two-map algebra and true-original counterfeits PASS")
+          PY
