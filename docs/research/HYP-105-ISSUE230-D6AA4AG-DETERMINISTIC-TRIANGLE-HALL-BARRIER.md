@@ -80,6 +80,21 @@ Genuine original W(3,2) S68/S72/lex (both typed directions, actual original root
 
 Eight independent regression tests and a dedicated GitHub-hosted workflow are included in this stack child. CI passing is engineering evidence, not proof acceptance. Keep draft; require exact-head dedicated, INDEX, Proof Audit, Full Research and separate math review before RCP JSON claims and regeneration of the five derived Markdown registries. Do not merge to main or close #230 based on this restricted result.
 
+### Finite genuine W(3,4) anchored evidence (run #38753778481 on the prior code HEAD)
+
+These rows use ONE completely injected point/line map pair per scheme, original root 0, original pinned flag pair offset 0, and the FIRST SIX actual occupied point-side physical C4. Counts below are for the restricted TWO-TRIANGLE physical A type only and **must not** be misreported as full original GF5 BA/AB totals.
+
+| Original global typed map | B source side | Occupied physical C4 at root | Triangle H per selected C4 | Indexed occupied H (six C4s) | True original Hall-positive H | True original accepted Q |
+|---|---|---:|---:|---:|---:|---:|
+| lex | point | 1050 | 0 (pinned physical edges adjacent) | 0 | 0 | 0 |
+| lex | line | 1050 | 0 (pinned physical edges adjacent) | 0 | 0 | 0 |
+| random | point | 1083 | 0 (pinned physical edges adjacent) | 0 | 0 | 0 |
+| random | line | 1081 | 73 | 438 | 0 | 0 |
+
+The last row is a useful independently realized genuine-source **local Hall bottleneck**: 438 indexed physically occupied two-triangle completions for one actual original root and pinned flag pair, yet ALL 438 original 4x4 matrices fail Hall, each with a singleton-row zero-neighbor witness. It falsifies the tempting intermediate statement that occupied physical completions automatically yield accepted GF5 Q for every individual original rootpair. It does not falsify a global all-f,all-g S>=c*s^6 lower: the table counts only six selected C4s and s=4, below the universal AG-1 threshold.
+
+These values originate from two independent GitHub-hosted W34 jobs (point and line) and the literal physical triangles / common-neighbor agreement, with true original incidence permanent checks. The hardened eight-test suite also freezes the random-line two-C4 subcase: 146 physical completions and 146 distinct Hall failures. The final PR-head CI must be checked again after that test amendment.
+
 ## 5. Next mathematical milestone
 
 Aim for a true all-h **Hall-positive lower** of order c/s^8 across this guaranteed indexed candidate mass under arbitrary correlated global f,g; or prove compensated positivity using the full seven accepted GF5 classes plus genuine D6. If such a lower fails, an infinite genuine complete-global-map counterfamily to the restricted Hall lemma is informative but by itself neither Branch B (requires full S=o(s^6)) nor a final R3/ASET upper bound.
