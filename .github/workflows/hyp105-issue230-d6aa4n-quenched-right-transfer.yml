@@ -1,0 +1,76 @@
+name: hyp105-issue230-d6aa4n-quenched-right-transfer
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4n_quenched_right_transfer.py"
+      - "research/test_hyp105_issue230_d6aa4n_quenched_right_transfer.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4N-QUENCHED-RIGHT-TRANSFER.md"
+      - ".github/workflows/hyp105-issue230-d6aa4n-quenched-right-transfer.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-all-h-min-right-max-left-conditional-theorem:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent source spectral, missing-image and C6 extension all-h inequalities
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4n_quenched_right_transfer.py" -v
+          python research/hyp105_issue230_d6aa4n_quenched_right_transfer.py > /tmp/aa4n.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          x=json.load(open("/tmp/aa4n.json"))
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-N-QUENCHED-RIGHT-TRANSFER"
+          assert x["all_s_ge_8_explicit_conditional_omega_s6_constant"]=="3/65536"
+          assert x["all_right_maps_uniform_conditional_stochastic_theorem"]
+          assert x["root_A"]==x["root_B"]=="OPEN"
+          assert not x["full_R3"] and not x["ASET_exponent"]
+          assert x["quantifier_order"]=="min_g max_f >= c*s^6, NOT min_(f,g)"
+          for r in x["all_h_quenched_bounds"]:
+              if r["s"]>=8:
+                  assert r["all_power_two_s_ge_8_every_fixed_complete_g_bound"]
+                  assert Fraction(r["conditional_E_f_true_seven_GF5_BA_internal_line_charge_lower"])>=Fraction(
+                      r["explicit_3s6_over_65536"])
+                  assert r["remaining_good_original_source_line_pairs_lower"]>0
+                  assert r["actual_physical_C6_extensions_per_good_pair_lower"]>0
+                  print("REAL original s",r["s"],"all-g lower",
+                        r["conditional_E_f_true_seven_GF5_BA_internal_line_charge_lower"],
+                        "explicit",r["explicit_3s6_over_65536"])
+              assert r["not_universal_GF5_s6_lower"]
+          print("D6-AA4-N EXACT REAL ALL-h MIN_g EXPECTATION_f GF5 TRANSFER PASS")
+          PY
+  true-original-W32-fixed-g-conditional-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exactly count same-g 70 right physical 2factors, 45 true pencils and internal source-line charge
+        run: |
+          python research/hyp105_issue230_d6aa4n_quenched_right_transfer.py > /tmp/aa4n-orig.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          x=json.load(open("/tmp/aa4n-orig.json"))
+          for name,r in x["exact_true_W32_fixed_complete_right_maps"].items():
+              assert r["physical_A_2factor_sixline_sets"]==70
+              assert r["actual_original_point_pencil_two_line_roots"]==45
+              assert r["strictly_same_complete_right_mapping_across_every_original_Q"]
+              assert r["four_point_frozen_outside_fiber_NOT_a_uniform_f_sample"]
+              assert r["right_A_source_BA_sixsets_T_g_plus_noncharged"]>=r[
+                  "right_A_internal_concurrent_disjoint_original_line_pair_Q_T_g"]>0
+              assert Fraction(r["exact_E_uniform_COMPLETE_point_f_INTERNAL_line_charge_given_g"])==(
+                  Fraction(3,1001)*r["right_A_internal_concurrent_disjoint_original_line_pair_Q_T_g"])
+              print("TRUE ORIGINAL",name,"T_g",
+                    r["right_A_internal_concurrent_disjoint_original_line_pair_Q_T_g"],
+                    "E_f I_int(g)",r["exact_E_uniform_COMPLETE_point_f_INTERNAL_line_charge_given_g"])
+          print("AA4N SAME COMPLETE RIGHT MAP SOURCE PENCIL ORACLE PASS")
+          PY
