@@ -234,6 +234,68 @@ def genuine_W32_star_oracle(scheme):
             "root_A":"OPEN","root_B":"OPEN"}
 
 
+def genuine_W32_signed_harm_vs_source_star(scheme,native_conflict_engine):
+    """Check every real W32 mixed-source signed GF5 mode harm vs all-h star cap."""
+    import subprocess
+    from hyp105_issue230_projection import fixture
+    from hyp105_issue230_d6aa4ycyc_bilateral_original_matrix import engine_input,MOVES
+    from hyp105_issue230_d6aa4y2_original_mode_gram import parse_exact_signed_conflict_tsv
+    model=fixture(1,scheme)
+    run=subprocess.run([str(native_conflict_engine)],input=engine_input(model),
+                       text=True,capture_output=True,check=True)
+    if "GENUINE ORIGINAL 11236 EXACT SIGNED MODE CONFLICTS COMPLETE" not in run.stderr:
+        raise AssertionError("native true ORIGINAL GF5 harmful quadrant census incomplete")
+    conflicts=parse_exact_signed_conflict_tsv(run.stdout)
+    labels=(model["left_labels"],model["right_labels"])
+    max_h=0
+    max_ratio=(0,1)
+    best=None
+    detail=Counter()
+    for i in range(1,106):
+        for j in range(1,106):
+            kind=[]
+            for physical,swap_id in ((labels[0],i),(labels[1],j)):
+                u,v=MOVES[swap_id]
+                relation=("adjacent" if set(physical[u])&set(physical[v])
+                          else "disjoint")
+                kind.append(relation)
+            upper=original_swapped_source_harm_capacity(2,kind[0],kind[1])
+            cap=upper["harmful_opposite_sign_original_shared_mode_count_upper"]
+            c=conflicts[i,j]
+            harm=c["pn"]+c["np"]
+            favor=c["pp"]+c["nn"]
+            if not 0<=harm<=cap:
+                raise AssertionError(f"REAL ORIGINAL source-star mode harmful capacity violated {i,j}")
+            detail[(kind[0],kind[1])]+=1
+            if harm>max_h:
+                max_h=harm
+                best={"point_swap":MOVES[i],"line_swap":MOVES[j],
+                      "point_physical_relation":kind[0],
+                      "line_physical_relation":kind[1],
+                      "harmful_original_mode_count":harm,
+                      "favorable_original_mode_count":favor,
+                      "physical_pair_star_all_h_upper":cap,
+                      "witness_slack":cap-harm}
+            if harm*max_ratio[1]>max_ratio[0]*cap:
+                max_ratio=(harm,cap)
+    if sum(detail.values())!=11025:
+        raise AssertionError("real original 105x105 source two-factor harms missed")
+    return {
+        "scheme":scheme,"true_original_GQ_W32":True,
+        "historical_Y2_signed_original_mode_11236_rows_read":len(conflicts),
+        "mixed_true_original_global_complete_pairs_audited":11025,
+        "max_harmful_original_modes":max_h,
+        "max_harmful_relative_to_analytic_source_star_upper":
+            f"{max_ratio[0]}/{max_ratio[1]}",
+        "max_harmful_original_global_witness":best,
+        "point_line_physical_source_pair_relation_matrix_counts":{
+            f"{p}/{l}":detail[p,l] for p in ("adjacent","disjoint")
+            for l in ("adjacent","disjoint")},
+        "all_h_analytical_source_star_harm_upper_verified_on_original_W32":True,
+        "all_h_original_seven_minimax_Omega_s6_PROVED":False,
+    }
+
+
 def report():
     orders=[original_single_factor_pattern_capacity(1<<h)
             for h in range(1,13)]
@@ -255,6 +317,11 @@ if __name__=="__main__":
     import argparse,json
     parser=argparse.ArgumentParser()
     parser.add_argument("--scheme",choices=("lex","reverse","S68","S72"))
+    parser.add_argument("--native-conflicts")
     args=parser.parse_args()
-    value=genuine_W32_star_oracle(args.scheme) if args.scheme else report()
+    if args.native_conflicts and not args.scheme:
+        parser.error("--native-conflicts requires --scheme")
+    value=(genuine_W32_signed_harm_vs_source_star(args.scheme,args.native_conflicts)
+           if args.native_conflicts else
+           genuine_W32_star_oracle(args.scheme) if args.scheme else report())
     print(json.dumps(value,sort_keys=True,indent=2))
