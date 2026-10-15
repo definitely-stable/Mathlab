@@ -7,7 +7,7 @@
 
 ## Coverage and acceptance
 
-The table indexes **12 specific results** from **7 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
+The table indexes **14 specific results** from **8 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
 
 | Stable claim | Scope / logical mode | Mathematical status | Pinned proof |
 |---|---|---|---|
@@ -20,6 +20,8 @@ The table indexes **12 specific results** from **7 research PRs**. It does not c
 | HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md) |
 | HYP105-AA4RCYC-D6-QUENCHED-IDENTITY | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md) |
 | HYP105-AA4RCYC-D6-QUENCHED-LOWER | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md) |
+| HYP105-AA4S-ROOT-FRECHET-ZERO | DETERMINISTIC_BOUND | DOCUMENTED_IN_DRAFT | [PR #479 @ 357b3d201e14](https://github.com/definitely-stable/Mathlab/blob/357b3d201e14713668fbd045b450ffd279610081/docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md) |
+| HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #479 @ 357b3d201e14](https://github.com/definitely-stable/Mathlab/blob/357b3d201e14713668fbd045b450ffd279610081/docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md) |
 | HYP105-EICE003K-DIRTY-ANCHOR | DETERMINISTIC_BOUND | DOCUMENTED_IN_DRAFT | [PR #469 @ 73cfebed8042](https://github.com/definitely-stable/Mathlab/blob/73cfebed8042f0f9b6592bd318295fb0bdf69a5b/docs/research/HYP-105-ISSUE230-EICE003K-CLEAN-ANCHOR-CONCENTRATION.md) |
 | HYP105-JPKC015-D6-ENSEMBLE | ENSEMBLE_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #455 @ c02188a4d4f2](https://github.com/definitely-stable/Mathlab/blob/c02188a4d4f2e4e07440c4d7b25fc25c6dd31b3e/docs/research/HYP-105-ISSUE230-JPKC-015-ENSEMBLE-D6.md) |
 | HYP105-LT-LOCAL-COUNTEREXAMPLE | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #466 @ 5d2c70e3adeb](https://github.com/definitely-stable/Mathlab/blob/5d2c70e3adeb1779904401f88161c9e71c884892/docs/research/HYP-105-ISSUE230-LOCAL-CYCLE-BARRIER.md) |
@@ -177,6 +179,40 @@ The table indexes **12 specific results** from **7 research PRs**. It does not c
 **Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
 
 **Does not imply:** The probabilistic statement does not control adversarially jointly selected f,g. The bound certifies direct seven-positive original D6 expected charge, not full GF5 R3/ASET exponents. Positive expectation does not imply D6>0 for all fixed g or stochastic concentration.
+
+
+### HYP105-AA4S-ROOT-FRECHET-ZERO — All-h source-root-conditioned unilateral Fréchet lower is identically zero
+
+**Claim:** For each h>=1, s=2^h, each pair of separately typed COMPLETE globally injected original W(3,s) physical pair-label maps f,g, and each TRUE original point p, define U_p as genuine six-DISTINCT-original-incidence sets with source point profile B=(2,1,1,1,1) repeated exactly at p and source line profile A=(1^6). Let L_p(f)=U_p intersect the original point-side physical B-projection and R_p(g)=U_p intersect the original line-side physical A-projection. With d=s+1, V=(s+1)(s^2+1), a minimal binom(a,2)>=V, source universe lower M_p=binom(d,2)*prod_{j=0}^3[d(V-3-2j)]/24, left B cap B_p=3*binom(a-2,4)*binom(d,2)*d^4 and right A cap A=70*binom(a,6)*d^6, one has |U_p|>=M_p>B_p+A>=|L_p|+|R_p|. Therefore the Fréchet marginal-only lower max(0,|L_p|+|R_p|-|U_p|) is EXACTLY ZERO, for every p,f,g. The dual original line-root A/B statement holds. This is a limitation of marginals, not a zero real intersection.
+
+**Ordered quantifiers:** forall h (integer h>=1, s=2^h) ; forall f,g (arbitrary separately typed COMPLETE globally injected original point/line physical-pair mappings shared across all actual original six-incidence sets) ; forall p (any genuine ORIGINAL source point root of W(3,s), with dual source-line-root result by true GQ point-line duality)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN
+
+**Claim dependencies:** HYP105-AA4Q-SEVEN-ORIGINAL-JOIN
+
+**Proof provenance:** [PR #479 @ 357b3d201e14](https://github.com/definitely-stable/Mathlab/blob/357b3d201e14713668fbd045b450ffd279610081/docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** This theorem does NOT assert that the genuine globally coherent B/A intersection L_p(f) intersect R_p(g) vanishes. Zero Fréchet floor does NOT imply the universal seven-class lower conjecture is false or any global low-S counterfamily. Adding original incidence position correlations or full two-sided joint constraints may overcome this marginal-only obstruction.
+
+
+### HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL — True W(3,2) globally coherent B/A joints positive despite zero point-root Fréchet floors
+
+**Claim:** In genuine W(3,2) with 15 original points, 15 lines and 45 original incidence IDs, under documented fully coherent global K6 injections S68 and S72, the true source-only U_p has exactly 111132 original incidence sixsets for each of all 15 original point roots p. All 15 point-root marginal-only Fréchet lower bounds vanish, yet the ACTUAL jointly classified positive original B(point)/A(line) sixset counts for the complete injected maps are respectively 44 (S68) and 36 (S72). These are finite positive-joint versus zero relaxed-certificate witnesses; no infinite low-S family.
+
+**Ordered quantifiers:** forall h (integer h=1, s=2^h=2; single FINITE original W(3,2) geometry, NOT all h) ; exists f,g (fully globally injected original point and line K6 edge assignments frozen as S68 and S72 fixtures) ; finite_witness p (all 15 genuine original source point roots, checked with original six-incidence positional classifier)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-SELECTED-LOCAL-PATTERN
+
+**Claim dependencies:** HYP105-AA4S-ROOT-FRECHET-ZERO
+
+**Proof provenance:** [PR #479 @ 357b3d201e14](https://github.com/definitely-stable/Mathlab/blob/357b3d201e14713668fbd045b450ffd279610081/docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** Positive finite joint intersections do NOT prove a positive universal minimax over all W(3,2^h). The finite W(3,2) result is not a counterfamily to the all-h root bound or a proof of root Branch B. The source universe U_p=111132 is a genuine W(3,2) exact count, not the lower estimate M_p=58320.
 
 
 ### HYP105-EICE003K-DIRTY-ANCHOR — Original GQ source-anchor dirty-pencil identity and uniform marginal

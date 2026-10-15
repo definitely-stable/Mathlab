@@ -71,3 +71,7 @@ The A→E provenance and proof-impact infrastructure is integrated into `main`. 
 ## Original D6 fixed-side conditional theorem import
 
 See [AA4-R-CYC provenance](AA4RCYC-IMPORT.md): source [research PR #480](https://github.com/definitely-stable/Mathlab/pull/480) is pinned by original Git blob SHA-1 and independently computed SHA-256, with three scoped mathematical claims, four LaTeX formulas and an explicit expectation-to-pointwise no-go. In particular, `forall f, E_g[D6(f,g)|f] >= s^6/8` and its genuine GQ dual are NOT claims about `inf_(f,g) S_s(f,g)`. Rebuild `registry/*.md` using `python -m research.rcp.structured_docs --write` and check the exact bytes using `--check`. The original scientific PR remains separate and unreviewed.
+
+## Root-conditioned Fréchet method barrier (AA4-S)
+
+See [AA4-S original source no-go import](AA4S-IMPORT.md): registered all-h true original point-root B/A (and dual A/B) unilateral Fréchet lower **equals zero** for every full legal global f,g,p, while the true finite W(3,2) source can retain positive jointly accepted GF5 motifs. The result limits a *proof method*, not the conjectured universal seven-class lower. Evidence and three LaTeX formulas flow into `registry/{RESULTS,FORMULAS,PROOF-GRAPH,PROTOCOLS,RESEARCH-MATRIX}.md` through `python -m research.rcp.structured_docs --write` and `--check`; source scientific PR #479 stays independently unreviewed.

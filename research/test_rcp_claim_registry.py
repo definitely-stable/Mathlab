@@ -142,7 +142,7 @@ class RegistryTests(unittest.TestCase):
 
     def test_local_counterexample_is_not_root_counterfamily(self):
         models, claims = read_registry(self.root)
-        local = next(x for x in claims if x["mode"] == "LOCAL_CONSTRUCTION")
+        local = next(x for x in claims if x["id"] == "HYP105-LT-LOCAL-COUNTEREXAMPLE")
         self.assertIn("MODEL-SELECTED-LOCAL-PATTERN", local["model_ids"])
         self.assertEqual(local["root_impact"], "ROOT_BRANCHES_OPEN")
         self.assertEqual([q["op"] for q in local["quantifiers"]],

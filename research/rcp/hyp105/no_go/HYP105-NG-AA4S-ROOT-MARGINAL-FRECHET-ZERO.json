@@ -1,0 +1,28 @@
+{
+  "schema": "mathlab.rcp.no-go.v1",
+  "id": "HYP105-NG-AA4S-ROOT-MARGINAL-FRECHET-ZERO",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "kind": "INVALID_INFERENCE",
+  "related_claim_ids": [
+    "HYP105-AA4S-ROOT-FRECHET-ZERO",
+    "HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL"
+  ],
+  "evidence_ids": [
+    "HYP105-EV-AA4S"
+  ],
+  "rejected_inference": "For each fixed genuine original source point root, positive one-sided B point-projection and A line-projection counts by themselves force a strictly positive original B/A six-incidence intersection via the standard root-wise Fréchet lower max(0,|L_p|+|R_p|-|U_p|).",
+  "witness_scope": "All h>=1, every true W(3,2^h) original source point root p and arbitrary complete separately globally injected original f,g, with same six original incidence IDs; the pure cardinality Fréchet floor is provably zero, although true original W(3,2) S68/S72 B/A joint counts can be 44/36.",
+  "mathematical_basis": "Source PR479 constructs explicit all-h rigorous M_p>B_p+A for the true original source U_p and maximum unilateral physical half-capacity, so max(0,|L_p|+|R_p|-|U_p|)=0 identically for all globally coherent maps. Exact finite original W32 oracle separates zero certificate from positive true intersection.",
+  "does_not_refute": [
+    "A universal lower bound on the FULL seven-GF5 original S_s by a higher-order original-ID/physical correlation inequality.",
+    "All-h genuinely coupled root-position tensors or non-AA compensation, with correlations unavailable to root-wise marginals.",
+    "Positive original B/A intersections for globally injected f,g, including observed finite W32 S68/S72.",
+    "Any independently scoped all-h conditional D6 expectation theorem."
+  ],
+  "reopen_only_if": "Supply extra original incidence-position, physical dual, source root interaction or globally coupled information beyond two unilateral marginal cardinalities; derive a correct model-preserving joint intersection bound under the additional hypotheses.",
+  "do_not_repeat": "Do not equate zero relaxed Fréchet lower with zero true physical-source joint or treat this model-specific method no-go as a global minimax counterexample.",
+  "root_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "prior_registry_ref": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json",
+  "review_status": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+}

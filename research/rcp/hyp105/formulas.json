@@ -133,6 +133,36 @@
       "latex": "\\forall g,\\ s=2^h\\ge8:\\quad \\mathbb E_f[D_6(f,g)\\mid g]\\ge\\frac{s^6}{8},\\qquad \\min_g\\max_f S_s(f,g)\\ge\\frac{s^6}{8}.",
       "scope": "h>=3; every fixed complete original globally injected line map g; f uniformly sampled from complete globally injected original point physical-edge maps using true original W(3,s) point-line incidence duality.",
       "not_implies": "Does not imply a universal pointwise bound for every f,g nor a full seven-class root theorem."
+    },
+    {
+      "id": "HYP105-F-014",
+      "title": "True original B/A rooted universe lower and unilateral physical marginal capacities",
+      "claim_ids": [
+        "HYP105-AA4S-ROOT-FRECHET-ZERO"
+      ],
+      "latex": "d=s+1,\\quad V=(s+1)(s^2+1),\\quad M_p=\\binom d2\\frac{\\prod_{j=0}^3d(V-3-2j)}{24},\\quad B_p=3\\binom{a-2}{4}\\binom d2 d^4,\\quad A=70\\binom a6d^6.",
+      "scope": "All h>=1; a is the minimal physical coordinate alphabet with binom(a,2)>=V, each p is a TRUE repeated original point root; M_p is a SOURCE UNIVERSE LOWER, B_p,A are unilateral PROJECTION UPPER bounds.",
+      "not_implies": "M_p is not exact |U_p| in general, and unilateral upper bounds do not determine actual globally coherent intersections."
+    },
+    {
+      "id": "HYP105-F-015",
+      "title": "All-h genuine original point-root Fréchet-only certificate is zero",
+      "claim_ids": [
+        "HYP105-AA4S-ROOT-FRECHET-ZERO"
+      ],
+      "latex": "\\forall h\\ge1,\\ \\forall f,g,\\ \\forall p:\\quad |U_p|\\ge M_p>B_p+A\\ge|L_p(f)|+|R_p(g)|,\\quad \\max\\{0,|L_p|+|R_p|-|U_p|\\}=0.",
+      "scope": "Genuine W(3,2^h) and six distinct ORIGINAL incidence IDs; all p, arbitrary COMPLETE globally injected f and g. The analogous original line-root A/B floor is zero by GQ duality.",
+      "not_implies": "The Fréchet lower bound zero is NOT an assertion that actual B/A physical-source intersections vanish for any global injection."
+    },
+    {
+      "id": "HYP105-F-016",
+      "title": "Finite true W32 root counts versus genuine positive joint B/A seven-GF5 motifs",
+      "claim_ids": [
+        "HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL"
+      ],
+      "latex": "s=2,\\quad |U_p|=111132\\ (15\\ \\mathrm{true\\ roots}),\\quad \\mathrm{FrechetFloor}_p=0,\\quad |J^{BA}(f_{\\mathrm{S68}},g_{\\mathrm{S68}})|=44,\\quad |J^{BA}(f_{\\mathrm{S72}},g_{\\mathrm{S72}})|=36.",
+      "scope": "FINITE W(3,2) only; all 45 true original incidence IDs and two fixed globally injected source f/g fixtures S68,S72, actual original seven-class census.",
+      "not_implies": "Finite genuine positive intersections do not extend to all-h minimax positivity; root-conditioned marginal-only zero does not imply actual zero."
     }
   ]
 }

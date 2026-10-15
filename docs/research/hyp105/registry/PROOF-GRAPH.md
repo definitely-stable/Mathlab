@@ -14,8 +14,10 @@ Only explicitly registered edges are included. An unregistered historical proof 
 | HYP105-AA4O-QUINTIC-IDENTITY | HYP105-AA4O-SWAP-IDENTITY |
 | HYP105-AA4Q-CC-GIRTH-OBSTRUCTION | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN |
 | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | HYP105-AA4RCYC-D6-QUENCHED-IDENTITY |
+| HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | HYP105-AA4S-ROOT-FRECHET-ZERO |
 | HYP105-AA4RCYC-D6-QUENCHED-IDENTITY | HYP105-AA4RCYC-D6-QUENCHED-LOWER |
 | HYP105-AA4RCYC-D6-QUENCHED-LOWER | HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER |
+| HYP105-AA4S-ROOT-FRECHET-ZERO | HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL |
 
 ## Explicit external proof inputs
 
@@ -60,6 +62,17 @@ Only explicitly registered edges are included. An unregistered historical proof 
 - True GQ original source incidence degree s+1; distinct-line SDR count at least (s+1)_6.
 - Finite integer-rational cases s=8,16,32,64,128 plus analytic estimates s>=256 as pinned in PR480 proof.
 
+### HYP105-AA4S-ROOT-FRECHET-ZERO
+
+- Genuine W(3,s) source incidence graph and point-line duality; original six distinct incidence-ID constraint.
+- Exact source combinatorial counting from AA4-S pinned document, cases s=2,4,8,16 exact and analytic s>=32.
+- Fréchet lower formula is sharp only in the relaxed arbitrary-subsets-with-prescribed-marginals model, not necessarily among globally injective physical maps.
+
+### HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL
+
+- Frozen genuine W(3,2) source model, S68/S72 global original injections and pinned historical seven-GF5 original positional classifier.
+- Independent source-only U_p enumeration compared with true two-sided original ID join; original PR479 Python tests document replay command.
+
 ### HYP105-EICE003K-DIRTY-ANCHOR
 
 - Genuine GQ uniqueness and source-pencil combinatorics from pinned EICE-003-K proof.
@@ -76,6 +89,7 @@ Only explicitly registered edges are included. An unregistered historical proof 
 
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4N-QUENCHED-LOWER. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4Q-SEVEN-ORIGINAL-JOIN -> HYP105-AA4RCYC-D6-QUENCHED-IDENTITY. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
+- **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4S-ROOT-FRECHET-ZERO -> HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **EXPECTATION_TO_DETERMINISTIC_BRIDGE_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4O-QUINTIC-IDENTITY. The dependency link must not use averaging as a pointwise proof without an explicit argument.
 - **MODEL_SCOPE_BRIDGE_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4O-QUINTIC-IDENTITY. Dependency may use an independent deterministic proof or a model-preserving reduction; inspect source.
 
