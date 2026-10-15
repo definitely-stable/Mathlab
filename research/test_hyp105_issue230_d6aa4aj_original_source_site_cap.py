@@ -165,15 +165,20 @@ class GenuineOriginalHallSiteCapTests(unittest.TestCase):
         flags2=tuple(i for i,e in enumerate(altered) if e[0]==dest)
         newoffset=next(i for i,p in enumerate(combinations(flags2,2))
                        if frozenset(p)==mapped_ids)
-        post=independently_check_genuine_original_hall_site_cap(
-            changed,side=0,root=dest,pair_offset=newoffset,max_C4=1)
-        self.assertEqual(original["disjoint_pinned_original_root_pair_physical"],
-                         post["disjoint_pinned_original_root_pair_physical"])
+        # Preserve SAME original four source factor IDs under the true
+        # source automorphism, not the first arbitrary C4 in a new
+        # physical coordinate ordering.
+        four=original["per_realized_original_B_C4_verification"][0][
+            "four_original_C4_source_factors"]
+        mapped_four=tuple(transP[q] for q in four)
+        transported=_pairwise_source_site_witnesses(
+            changed,side=0,root=dest,pair_offset=newoffset,
+            four_sources=mapped_four)
+        self.assertTrue(transported["disjoint"])
         self.assertEqual(
             original["per_realized_original_B_C4_verification"][0][
                 "accepted_original_Q"],
-            post["per_realized_original_B_C4_verification"][0][
-                "accepted_original_Q"])
+            transported["accepted_original_Q"])
 
     def test_08_negative_fake_original_and_invalid_selected_source_C4(self):
         model=fixture(1,"S68")
