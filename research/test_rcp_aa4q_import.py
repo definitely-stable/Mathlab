@@ -107,7 +107,7 @@ class AA4QImportTests(unittest.TestCase):
         self.assertEqual(len({q for _, q in edges}), 15)
         self.assertTrue(all(sum(p == x for x, _ in edges) == 3
                             for p in range(1, 16)))
-        self.assertTrue(all(sum(q == lid for _, q in edges) == 3
+        self.assertTrue(all(sum(q0 == q for _, q0 in edges) == 3
                             for q in range(15)))
 
     def test_07_no_genuine_original_w32_source_cc(self):
