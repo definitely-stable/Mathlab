@@ -1,0 +1,78 @@
+{
+  "schema": "mathlab.rcp.formula-catalog.v1",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "acceptance": "PINNED_DRAFT_SOURCES_NOT_INDEPENDENTLY_REVIEWED",
+  "formulas": [
+    {
+      "id": "HYP105-F-001",
+      "title": "Genuine source geometry and minimal physical alphabet",
+      "claim_ids": [
+        "HYP105-JPKC015-D6-ENSEMBLE"
+      ],
+      "latex": "s=2^h,\\quad V_s=(s+1)(s^2+1),\\quad a_s=\\min\\{a:\\binom{a}{2}\\ge V_s\\},\\quad N_s=\\binom{a_s}{2}.",
+      "scope": "Common original W(3,s) typed global-injection model; h>=1. This defines the minimal alphabet, not an inequality about S_s.",
+      "not_implies": "A count of source vertices or physical labels alone is not a GF(5) obstruction."
+    },
+    {
+      "id": "HYP105-F-002",
+      "title": "D6 ensemble probability and expectation",
+      "claim_ids": [
+        "HYP105-JPKC015-D6-ENSEMBLE"
+      ],
+      "latex": "p_{D_6}(a)=60\\left(\\frac{(a)_6}{(N)_6}\\right)^2,\\qquad \\mathbb E_{f,g}[D_6]=M_6(s)\\,p_{D_6}(a)\\sim\\frac{16}{3}s^6.",
+      "scope": "h>=1, expectation over two independent UNIFORM COMPLETE globally injected original typed maps; M_6 is the original source six-edge matching count.",
+      "not_implies": "Positive average does NOT imply \\inf_{f,g}D_6>0 or \\inf_{f,g}S_s=\\Omega(s^6)."
+    },
+    {
+      "id": "HYP105-F-003",
+      "title": "Original GQ anchor dirty-pencil identities",
+      "claim_ids": [
+        "HYP105-EICE003K-DIRTY-ANCHOR"
+      ],
+      "latex": "D_{\\mathrm{left}}=s\\sum_q t_f(q),\\quad D_{\\mathrm{right}}=s\\sum_r t_g(r),\\quad \\Pr_{(q,r)\\,\\mathrm{unif}}[\\mathrm{dirty}]\\le\\min\\left\\{1,\\frac{4(a-2)}{s(s+1)}\\right\\}.",
+      "scope": "Every fixed legal globally injected f,g; probability ONLY over uniformly sampled ORIGINAL nonincident GQ point-line pairs.",
+      "not_implies": "Does not control four correlated original anchors conditional on a physical I1 template."
+    },
+    {
+      "id": "HYP105-F-004",
+      "title": "Quenched right-map exact B/A conditional identity",
+      "claim_ids": [
+        "HYP105-AA4N-QUENCHED-IDENTITY"
+      ],
+      "latex": "\\forall g:\\quad \\mathbb E_f\\!\\left[I_L^{BA,\\mathrm{int}}(f,g)\\mid g\\right]=p_B(s)\\,T_g,\\quad p_B(s)=\\frac{K\\binom{a-2}{4}\\,3\\,4!}{(K)_5},\\quad K=\\binom{a}{2}.",
+      "scope": "h>=1; for each FIXED complete global right injection g, average over ONE independently drawn uniform complete global left injection f.",
+      "not_implies": "No individual-f or all-f,g guarantee follows from the identity."
+    },
+    {
+      "id": "HYP105-F-005",
+      "title": "All-right-map conditional expected B/A lower bound",
+      "claim_ids": [
+        "HYP105-AA4N-QUENCHED-LOWER"
+      ],
+      "latex": "s=2^h\\ge8:\\quad \\forall g,\\quad \\mathbb E_f[I_L^{BA,\\mathrm{int}}(f,g)\\mid g]\\ge\\frac{3s^6}{65536}.",
+      "scope": "h>=3; every fixed g, uniform random globally injected f. Implies min_g max_f lower; does NOT imply min_(f,g) lower.",
+      "not_implies": "Does not establish Root Branch A or bound the simultaneous adversarial minimax."
+    },
+    {
+      "id": "HYP105-F-006",
+      "title": "Deterministic all-h five-original-point quintic charge",
+      "claim_ids": [
+        "HYP105-AA4O-QUINTIC-IDENTITY"
+      ],
+      "latex": "I_L^{BA,\\mathrm{int}}(f,g)=\\sum_{p,A:\\,|A|=4}w_g(p,A)\\,\\chi_B\\bigl(f(p);f(A)\\bigr),\\qquad w_g(p,A)\\in\\mathbb Z_{\\ge0}.",
+      "scope": "h>=1; EVERY fixed coherent legal f,g, original six-incidence supports; quintic in constrained one-hot assignments.",
+      "not_implies": "Nonnegative coefficients do not imply the polynomial has a uniformly positive minimum."
+    },
+    {
+      "id": "HYP105-F-007",
+      "title": "Exact global-injection-preserving two-label swap",
+      "claim_ids": [
+        "HYP105-AA4O-SWAP-IDENTITY"
+      ],
+      "latex": "\\Delta_{u,v}I=\\sum_{(p,A):\\,\\{u,v\\}\\cap(\\{p\\}\\cup A)\\ne\\varnothing}w_g(p,A)\\,\\left[\\chi_B\\bigl(f^{u\\leftrightarrow v}(p);f^{u\\leftrightarrow v}(A)\\bigr)-\\chi_B\\bigl(f(p);f(A)\\bigr)\\right].",
+      "scope": "h>=1; global swap of assigned physical pair labels on two distinct original points u,v with same fixed g.",
+      "not_implies": "One-transposition local optimality is not a global minimax or counterfamily certificate."
+    }
+  ]
+}
