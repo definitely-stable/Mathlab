@@ -157,7 +157,7 @@ class EvidenceTests(unittest.TestCase):
             "HYP105-NG-ENSEMBLE-WORST"}
         md = index_markdown(report, sorted(ng, key=lambda x: x["id"]),
                             validate_ledgers(self.root))
-        self.assertIn("does NOT refute", md)
+        self.assertIn("Does NOT refute", md)
         self.assertIn("Root #230: OPEN_WITH_FORMAL_BLOCKER", md)
 
     def test_remote_pinned_source_mock_same_bytes(self):
