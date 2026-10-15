@@ -136,6 +136,8 @@ def validate_ledgers(root):
                 isinstance(e.get("limitations"), list) and e["limitations"],
                 rid + " must state retention and mathematical limits")
         artifact_count += 1 + len(arts)
+    require(set(load_pins(root)) == archive_paths,
+            "SHA-256 pin coverage differs from escrow inventory")
     require(set(cmap) == {i for e in evidence for i in e["claim_ids"]},
             "some registered claims are missing evidence receipts")
 
@@ -203,9 +205,25 @@ def expected_blobs(root):
     return sorted(items)
 
 
+def load_pins(root):
+    doc = parse_json(Path(root) / "sha256-pins.json")
+    require(isinstance(doc, dict) and
+            doc.get("schema") == "mathlab.rcp.sha256-pins.v1" and
+            isinstance(doc.get("digests"), dict),
+            "missing or invalid SHA-256 pin registry")
+    pins = doc["digests"]
+    require(all(isinstance(k, str) and
+                k.startswith(PREFIX + "/") and
+                isinstance(v, str) and
+                re.fullmatch(r"[0-9a-f]{64}", v) for k, v in pins.items()),
+            "malformed SHA-256 pins")
+    return pins
+
+
 def verify_archives(root, repo_root):
     """Independently validate byte-for-byte escrow copies without any API."""
     report = []
+    pins = load_pins(root)
     for rel, blob, commit, origin in expected_blobs(root):
         path = Path(repo_root) / rel
         try:
@@ -213,10 +231,12 @@ def verify_archives(root, repo_root):
         except OSError as exc:
             raise RegistryError("archive bytes unavailable: " + rel) from exc
         require(git_blob_sha(payload) == blob, "archive Git blob mismatch: " + rel)
+        digest = hashlib.sha256(payload).hexdigest()
+        require(digest == pins.get(rel), "archive SHA-256 digest mismatch: " + rel)
         report.append({
             "archive": rel, "origin": origin, "source_commit": commit,
             "git_blob_sha": blob,
-            "sha256": hashlib.sha256(payload).hexdigest(),
+            "sha256": digest,
             "size": len(payload),
         })
     return report
@@ -252,12 +272,14 @@ def github_contents_bytes(url):
 def verify_originals(root, *, get=None):
     """Optional independent API cross-check; does not assert original CI PASS."""
     read_bytes = get or github_contents_bytes
+    pins = load_pins(root)
     checked = []
     for rel, blob, commit, source_path in expected_blobs(root):
         url = ("https://api.github.com/repos/" + REPO + "/contents/" +
                quote(source_path, safe="/") + "?ref=" + commit)
         payload = read_bytes(url)
-        require(isinstance(payload, bytes) and git_blob_sha(payload) == blob,
+        require(isinstance(payload, bytes) and git_blob_sha(payload) == blob and
+                hashlib.sha256(payload).hexdigest() == pins.get(rel),
                 "remote pinned origin content mismatch: " + source_path)
         checked.append(rel)
     return checked
