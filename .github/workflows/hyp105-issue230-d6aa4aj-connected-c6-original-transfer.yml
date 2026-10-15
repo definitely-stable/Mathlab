@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4aj-connected-c6-original-transfer
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4aj_connected_c6_original_transfer.py"
+      - "research/test_hyp105_issue230_d6aa4aj_connected_c6_original_transfer.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AJ-CONNECTED-C6-ORIGINAL-TRANSFER.md"
+      - ".github/workflows/hyp105-issue230-d6aa4aj-connected-c6-original-transfer.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exhaustive-K6-K8-physical-topology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every disjoint pinned K6-K8 pair, 2 spoke and 4 linked physical C6 sector topology
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aj_connected_c6_original_transfer.ConnectedC6OriginalTrueGQ.test_01_physical_complete_K6_K7_K8_disjoint_pair_2plus4
+  full-original-W32-both-sides-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All 15 genuine original W32 roots, 45 flag pairs and all 135 C4 per side on 5 complete physical maps
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aj_connected_c6_original_transfer.ConnectedC6OriginalTrueGQ.test_02_all_original_W32_labels_both_types_every_actual_rootpair_and_C4
+  true-original-W34-partial-physical-holes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True W34 original source, both typed orientations, lex/random full global injection with 6 physical holes
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aj_connected_c6_original_transfer.ConnectedC6OriginalTrueGQ.test_03_W34_real_original_partial_K14_occupancy_and_holes
+  genuine-symplectic-invariance-and-all-h-bounds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real source symplectic and typed physical invariance, exact algebraic arbitrary-h source-degree upper and bad-input falsifiers
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aj_connected_c6_original_transfer.ConnectedC6OriginalTrueGQ.test_04_symplectic_actual_source_and_independent_physical_relabels \
+            test_hyp105_issue230_d6aa4aj_connected_c6_original_transfer.ConnectedC6OriginalTrueGQ.test_05_all_h_source_degree_bound_and_finite_rooted_slices \
+            test_hyp105_issue230_d6aa4aj_connected_c6_original_transfer.ConnectedC6OriginalTrueGQ.test_06_reject_fabricated_original_factors_and_bad_physical_patterns
