@@ -19,7 +19,7 @@ Archival oracle/test files are stored as `.py.txt`: they are verbatim byte copie
 
 ## Exactly what is certified
 
-**Byte identity, not mathematical proof.** The local verifier recomputes the *Git blob object SHA-1* on each escrow file from its bytes using Git's object header and compares it to the independently pinned original blob SHA. It additionally computes ordinary SHA-256 digests for archive inspection and future external deposition. These hashes establish exact byte identity with a pinned repository object; they do NOT establish that the proof is correct, that an oracle is independent, or that CI ran.
+**Byte identity, not mathematical proof.** The local verifier recomputes the *Git blob object SHA-1* on each escrow file from its bytes using Git's object header and compares it to the independently pinned original blob SHA. It additionally compares ordinary SHA-256 against **17 independently pinned digests** in `research/rcp/hyp105/sha256-pins.json`, computed from the first successful GitHub-hosted archive audit. Missing pins, altered digests or changed bytes fail closed. The generated index exports these SHA-256 values for future external deposition. These hashes establish exact byte identity with a pinned repository object; they do NOT establish that the proof is correct, that an oracle is independent, or that CI ran.
 
 An optional GitHub-hosted read-only remote verifier also downloads each original source file at the **exact original commit** using the GitHub contents API, recomputes its Git blob object identity and compares it to the archive. This is independent evidence of original-to-escrow correspondence; no new mathematical theorem is implied.
 
