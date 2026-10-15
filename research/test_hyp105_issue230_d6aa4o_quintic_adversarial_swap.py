@@ -141,6 +141,31 @@ class TrueOriginalQuinticSwapTests(unittest.TestCase):
         self.assertTrue(better["not_claimed_globally_optimal"])
         self.assertTrue(r["not_a_global_minimum_certificate"])
 
+    def test_008_LITERAL_original_W32_S72_point_assignment_local_min_failure(self):
+        """Fixed complete real f witness independent of swap-search execution."""
+        model=fixture(1,"S72")
+        g=model["right_labels"]
+        t=true_original_W32_fixed_g_weighted_tensor(model)
+        witness=((1,3),(3,5),(1,4),(0,2),(1,2),
+                 (0,3),(2,3),(2,5),(4,5),(0,5),
+                 (3,4),(1,5),(0,4),(0,1),(2,4))
+        self.assertEqual(len(witness),15)
+        self.assertEqual(set(witness),set(combinations(range(6),2)))
+        base=model["left_labels"]
+        self.assertEqual(exact_original_BA_energy(t,base),23)
+        self.assertEqual(exact_original_BA_energy(t,witness),14)
+        self.assertGreaterEqual(min(
+            exact_swap_gradient(t,base,u,v)
+            for u,v in combinations(range(15),2)),0)
+        self.assertGreaterEqual(min(
+            exact_swap_gradient(t,witness,u,v)
+            for u,v in combinations(range(15),2)),0)
+        self.assertEqual(seven_census(model,independent_checks=False)["S_seven"],72)
+        self.assertEqual(seven_census({**model,"left_labels":witness},
+                                      independent_checks=False)["S_seven"],102)
+        # Same globally injected original RIGHT physical line map g.
+        self.assertEqual(model["right_labels"],g)
+
 
 if __name__=="__main__":
     unittest.main()
