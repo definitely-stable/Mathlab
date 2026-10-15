@@ -1,0 +1,105 @@
+name: hyp105-issue230-d6aa4aj-original-source-site-cap
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4aj_original_source_site_cap.py"
+      - "research/test_hyp105_issue230_d6aa4aj_original_source_site_cap.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AJ-ORIGINAL-SOURCE-SITE-HALL-FAILURE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4aj-original-source-site-cap.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  strict-original-GQ-executable-mathematics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Eight independent original-GQ site-injection tests, sharp real W34, W32-W38, all-h
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4aj_original_source_site_cap.py" -v
+  all-h-global-rejection-and-fraction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All-h exact rational original Hall site cap, 1-O(1/s) forced failure and source geometry scope
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4aj_original_source_site_cap import all_h_original_site_cap_certificate
+          from hyp105_issue230_d6aa4ai_sharp_line_pencil_prehall import improved_all_h_original_line_pencil_preHall
+          for h in range(1,44):
+              s=1<<h
+              c=all_h_original_site_cap_certificate(s)
+              assert c["each_channel_site_set_cap_actual_original_degree"]==s+1
+              assert c["each_fixed_actual_rootpair_B_C4_accepted_split_GF5_upper"]==6*(s+1)**2
+              assert c["positive_Hall_mass_for_all_global_maps_NOT_PROVED"]
+              assert c["root_issue230_universal_S_lower_NOT_PROVED"]
+              if s>=16:
+                  past=improved_all_h_original_line_pencil_preHall(s)
+                  factor=1-Fraction(12*(s+1),s*s+1)
+                  exact=Fraction(c["all_map_TRUE_original_Hall_FAILED_physical_candidate_lower"])
+                  assert exact==factor*past["indexed_original_global_preHall_physical_mass_lower"]
+                  assert exact>=factor*Fraction(s**14,256)>0
+                  assert c["all_map_original_Hall_FAILURE_Omega_s14_16plus_PROVED"]
+          print("all h=1..43, same globally fixed original GQ point/line maps, exact original Hall forced-rejection fraction PASS")
+          PY
+  true-original-globally-injected-maps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {power: 1, scheme: S68, side: 0}
+          - {power: 1, scheme: S72, side: 1}
+          - {power: 1, scheme: lex, side: 0}
+          - {power: 1, scheme: reverse, side: 1}
+          - {power: 2, scheme: lex, side: 0}
+          - {power: 2, scheme: random, side: 1}
+          - {power: 3, scheme: lex, side: 1}
+          - {power: 3, scheme: random, side: 0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Strict actual-original W32-W38 global pair maps and independent original source neighbor injection vs prior 24-permutation join
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+          SIDE: ${{ matrix.side }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from itertools import combinations
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4aj_original_source_site_cap import independently_check_genuine_original_hall_site_cap
+          model=fixture(int(os.environ["POWER"]),os.environ["SCHEME"])
+          side=int(os.environ["SIDE"])
+          inc=tuple(model["incidences"])
+          labels=tuple(model["right_labels" if side==0 else "left_labels"])
+          pair=None
+          for root in range(len(model["left_labels"])):
+              flags=[k for k,e in enumerate(inc) if e[side]==root]
+              for offset,ids in enumerate(combinations(flags,2)):
+                  if not(set(labels[inc[ids[0]][1-side]]) & set(labels[inc[ids[1]][1-side]])):
+                      pair=root,offset
+                      break
+              if pair is not None:break
+          assert pair is not None
+          z=independently_check_genuine_original_hall_site_cap(
+              model,side=side,root=pair[0],pair_offset=pair[1],max_C4=2)
+          assert z["actual_all_six_ORIGINAL_GF5_accepted_Q"]==z[
+              "expected_preexisting_AH_original_cohort_total"]
+          assert z["six_source_channels_degree_capped_all_tested"]
+          assert z["globally_complete_typed_injection_fixed_across_six_Q"]
+          print(json.dumps(z,sort_keys=True,indent=2))
+          PY
