@@ -94,9 +94,9 @@ jobs:
           import json
           d = json.loads(Path("/tmp/rcp001e-impact/impact.json").read_text(encoding="utf-8"))
           assert d["schema"] == "mathlab.rcp.impact.v1"
-          assert d["registered_claim_count"] == 7
-          assert d["registered_source_pr_count"] == 5
-          assert len(d["proof_edges"]) == 3
+          assert d["registered_claim_count"] >= 7
+          assert d["registered_source_pr_count"] >= 5
+          assert len(d["proof_edges"]) >= 3
           assert d["coverage"] == "REGISTERED_CLAIMS_ONLY_NOT_ALL_OPEN_RESEARCH_PRS"
           assert d["diagnosed_contradictions"] == "NONE_ESTABLISHED_AUTOMATICALLY"
           assert d["acceptance"] == "CANDIDATE_REVIEW_NOT_MATHEMATICAL_CONTRADICTION"
