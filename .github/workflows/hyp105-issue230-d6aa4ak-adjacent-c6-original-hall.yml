@@ -1,0 +1,93 @@
+name: hyp105-issue230-d6aa4ak-adjacent-c6-original-hall
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ak_adjacent_c6_original_hall.py"
+      - "research/test_hyp105_issue230_d6aa4ak_adjacent_c6_original_hall.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AK-ADJACENT-C6-ORIGINAL-HALL.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ak-adjacent-c6-original-hall.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  strict-independent-true-original-GQ-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Seven independent real W32/W34/W38 source-Hall and adjacent physical K6-K8 tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ak_adjacent_c6_original_hall.py" -v
+  all-h-exact-conditional-occupancy-source-upper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All-h exact conditional adjacent-C6 physical cube floor and true original Hall dilution
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4ak_adjacent_c6_original_hall import adjacent_low_hole_occupied_C6_all_h
+          for h in range(1,44):
+              s=1<<h
+              r=adjacent_low_hole_occupied_C6_all_h(s)
+              assert r["raw_complete_adjacent_C6"]==(r["a"]-3)*(r["a"]-4)*(r["a"]-5)
+              assert r["genuine_original_C6_accept_upper_per_root_B_C4"]==24*(s+1)**2
+              assert r["all_global_f_g_positive_GF5_lower_NOT_PROVED"]
+              if s>=16:
+                  assert Fraction(r["all_global_opposite_maps_physical_occupied_C6_floor"])>=Fraction(r["a"]**3,2)
+                  assert Fraction(r["Hall_positive_fraction_upper_under_low_holes"])<1
+          print("all genuine W3(2^h) h1..43 source and conditional physical math exact PASS")
+          PY
+  strict-global-real-GQ-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {power: 1, scheme: S68, side: 0}
+          - {power: 1, scheme: S72, side: 1}
+          - {power: 1, scheme: lex, side: 0}
+          - {power: 1, scheme: reverse, side: 1}
+          - {power: 2, scheme: lex, side: 0}
+          - {power: 2, scheme: random, side: 1}
+          - {power: 3, scheme: lex, side: 1}
+          - {power: 3, scheme: random, side: 0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Same globally injected W32-W38 physical images and TWO independent original six-flag C6 Hall methods
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+          SIDE: ${{ matrix.side }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4af_rootpair_robust_quench import occupied_root_C4_source_factors
+          from hyp105_issue230_d6aa4ak_adjacent_c6_original_hall import (
+              adjacent_original_rootpair,exact_adjacent_C6_original_transfer,
+              independent_complete_physical_adjacent_C6_oracle)
+          m=fixture(int(os.environ["POWER"]),os.environ["SCHEME"])
+          side=int(os.environ["SIDE"])
+          root,pair=adjacent_original_rootpair(m,side)
+          four=occupied_root_C4_source_factors(m,side=side,root=root)[0]
+          a=exact_adjacent_C6_original_transfer(m,side=side,root=root,pair_offset=pair,four=four)
+          b=independent_complete_physical_adjacent_C6_oracle(m,side=side,root=root,pair_offset=pair,four=four)
+          assert a["adjacent"] and b["adjacent"]
+          assert a["accepted_actual_original_six_Q"]==b["accepted_original_Q"]
+          assert b["accepted_original_Q"]==b["Hall_positive_C6"]+b["real_original_C8_extra"]
+          assert a["accepted_actual_original_six_Q"]<=24*(m["s"]+1)**2
+          print(json.dumps({"scheme":os.environ["SCHEME"],"side":side,"root":root,"pins":pair,
+              "accepted":a["accepted_actual_original_six_Q"],"occupied":b["occupied_C6"]},sort_keys=True))
+          PY
