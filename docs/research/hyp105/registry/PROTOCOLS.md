@@ -40,3 +40,4 @@ python -m research.rcp.proof_impact --snapshot /tmp/hyp105-live/snapshot.json --
 
 No averaging-to-adversarial-minimum inference, local-to-global transfer, W32-to-all-h promotion, or conflation of CI and proofs.
 No cap on claim count, PR count or stack depth.
+
