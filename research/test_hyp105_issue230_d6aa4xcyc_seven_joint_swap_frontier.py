@@ -8,6 +8,8 @@ from hyp105_issue230_d6aa4q_two_sided_seven_join import _K6_2factors
 from hyp105_issue230_d6aa4xcyc_seven_joint_swap_frontier import (
     ExactRightLineSwapFrontier, packed_physical_edge,
     original_line_swap_support, DEGREE_TWO_PACKED,
+    dual_original_W32_model, exhaustive_bilateral_210_original_source_swaps,
+    independent_bilateral_witness_historical,
 )
 
 
@@ -122,6 +124,44 @@ class OriginalSevenSwapFrontierTests(unittest.TestCase):
         duplicate = tuple(m["right_labels"][:-1]) + (m["right_labels"][0],)
         with self.assertRaises(ValueError):
             ExactRightLineSwapFrontier({**m, "right_labels": duplicate})
+
+    def test_008_true_original_point_line_dual_baseline_and_one_swaps(self):
+        m = fixture(1, "S68")
+        dual = ExactRightLineSwapFrontier(dual_original_W32_model(m))
+        self.assertEqual(dual.base["S_seven"], 68)
+        self.assertEqual(dual.base["D6"], 0)
+        self.assertEqual(dual.base["true_original_seven_classes"]["B-left/A-right"], 21)
+        self.assertEqual(dual.base["true_original_seven_classes"]["A-left/B-right"], 44)
+        for source_swap in ((0, 1), (0, 14)):
+            changed = dual.swap(*source_swap)
+            actual = {**m, "left_labels": tuple(
+                m["left_labels"][v] if i == u else
+                m["left_labels"][u] if i == v else m["left_labels"][i]
+                for i in range(15)
+                for u, v in (source_swap,))}
+            history = ExactRightLineSwapFrontier(actual).base
+            self.assertEqual(changed["S_seven"], history["S_seven"])
+            self.assertEqual(changed["D6"], history["D6"])
+            self.assertEqual(changed["selected_GF5_51palette_certified_numerator"],
+                             history["selected_GF5_51palette_certified_numerator"])
+
+    def test_009_exact_bilateral_210_original_one_side_swaps(self):
+        m = fixture(1, "S68")
+        both = exhaustive_bilateral_210_original_source_swaps(m)
+        self.assertEqual(both["source_POINT_swaps"], 105)
+        self.assertEqual(both["source_LINE_swaps"], 105)
+        self.assertEqual(both["complete_global_map_pairs_in_neighborhood"], 211)
+        self.assertEqual(
+            both["D6_zero_label_pairs"] + both["D6_positive_label_pairs"], 211)
+        self.assertLessEqual(both["minimum_S_witness"]["S_seven"], 68)
+        self.assertTrue(both["every_single_one_side_swap_exhausted"])
+        self.assertFalse(both["simultaneous_two_side_swaps_exhausted"])
+        self.assertFalse(both["all_h_min_f_g_seven_S_lower_PROVED"])
+        for key in ("minimum_S_witness", "minimum_D6_zero_witness",
+                    "minimum_weighted_51palette_numerator_witness"):
+            witness = both[key]
+            self.assertTrue(independent_bilateral_witness_historical(m, witness))
+
 
 
 if __name__ == "__main__":
