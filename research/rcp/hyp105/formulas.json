@@ -213,6 +213,56 @@
       "latex": "s=2,\\quad T_{f_{\\mathrm{S68}}}=T_{f_{\\mathrm{S72}}}=21186,\\quad \\mathbb E_g[D_6\\mid f]=\\frac{21186}{5005}=\\frac{1926}{455}>0,\\quad D_6(f,g_{\\mathrm{S68/S72}})=0,\\quad S_{\\mathrm{S68/S72}}\\in\\{68,72\\}.",
       "scope": "FINITE true original W(3,2), six distinct original incidence IDs, 60 fixed source-column C6 fibres, full K6 global injection fixtures S68 and S72; conditional expectation differs from actual fixed g outcome.",
       "not_implies": "D6=0 at s=2 does not establish S_s=0 (actually 68/72 here) or an infinite original low-S family."
+    },
+    {
+      "id": "HYP105-F-022",
+      "title": "True original all-h six-edge source forests and nine eligible cells",
+      "claim_ids": [
+        "HYP105-AA4U-NINE-ORIGINAL-FOREST"
+      ],
+      "latex": "Q\\subseteq E(W(3,2^h)),\\ |Q|=6\\Longrightarrow Q\\ \\text{is acyclic};\\quad \\mathcal F=\\{AA,AB,BA,AC,CA,BC,CB,BB_{\\rm overlap},BB_{\\rm disjoint}\\},\\quad CC=\\varnothing.",
+      "scope": "h>=1, every six DISTINCT actual source incidence ID. The nine cells partition only Q whose BOTH source endpoint multiplicity profiles are in A/B/C; other Q are outside the eligible grid.",
+      "not_implies": "A forest source type alone does not assert any physically accepted original six-GF5 motif."
+    },
+    {
+      "id": "HYP105-F-023",
+      "title": "Deterministic source-forest conditioned two-side Fréchet lower",
+      "claim_ids": [
+        "HYP105-AA4U-FOREST-FRECHET-LOWER"
+      ],
+      "latex": "X_F(f,g)=|L_F(f)\\cap R_F(g)|\\ge\\max\\{0,|L_F(f)|+|R_F(g)|-|U_F|\\},\\qquad LB_{\\mathrm{nonAA}}=\\sum_{F\\in\\mathcal F\\setminus\\{AA\\}}\\max\\{0,|L_F|+|R_F|-|U_F|\\}.",
+      "scope": "all h>=1, every complete original globally injected f,g, SAME original six-incidence Q on two sides, each eligible ORIGINAL forest cell F. Applies as lower to the accepted NON-AA count.",
+      "not_implies": "Abstract subset Fréchet sharpness does not supply a legal adversarial global injection attaining a zero floor; AA needs aligned D6 and is not certified."
+    },
+    {
+      "id": "HYP105-F-024",
+      "title": "Complete finite original W32 eligible forest source census",
+      "claim_ids": [
+        "HYP105-AA4U-W32-NINE-FOREST-CENSUS"
+      ],
+      "latex": "|E(W(3,2))|=45,\\quad \\binom{45}{6}=8\\,145\\,060;\\qquad \\sum_{F\\in\\mathcal F}|U_F|=6\\,540\\,870,\\quad 8\\,145\\,060-6\\,540\\,870=1\\,604\\,190.",
+      "scope": "FINITE genuine ORIGINAL W(3,2) only, full 45 choose 6 six-DISTINCT source original incidence-ID sets; 1,604,190 have source profiles outside the both-sides A/B/C eligibility filter.",
+      "not_implies": "Counts of physical projected sixsets are not source-only totals; nothing about s>=4 follows from this finite census."
+    },
+    {
+      "id": "HYP105-F-025",
+      "title": "W32 genuine nine-cell S68 joined count and zero marginal certificate",
+      "claim_ids": [
+        "HYP105-AA4U-W32-ZERO-MARGINAL-POSITIVE-JOINT"
+      ],
+      "latex": "s=2,\\quad \\sum_F X_F(S68)=331,\\quad X_{AA}(S68)=263,\\quad D_6(S68)=0,\\quad S(S68)=331-263=68,\\quad LB_{\\rm nonAA}(S68)=0.",
+      "scope": "Finite genuine source W(3,2) S68 single pair of complete global point/line maps, exact common original-ID nine-cell physically joined sets and true D6 classifier.",
+      "not_implies": "Zero relaxed lower for eight non-AA source cells does not imply zero real non-AA charge; no infinite minimax counterfamily."
+    },
+    {
+      "id": "HYP105-F-026",
+      "title": "W32 genuine nine-cell S72 joined count and zero marginal certificate",
+      "claim_ids": [
+        "HYP105-AA4U-W32-ZERO-MARGINAL-POSITIVE-JOINT"
+      ],
+      "latex": "s=2,\\quad \\sum_F X_F(S72)=358,\\quad X_{AA}(S72)=286,\\quad D_6(S72)=0,\\quad S(S72)=358-286=72,\\quad LB_{\\rm nonAA}(S72)=0.",
+      "scope": "Finite genuine source W(3,2) S72 single pair of complete global point/line maps, exact common original-ID nine-cell physically joined sets and true D6 classifier.",
+      "not_implies": "An AA/A source joint candidate is not an accepted aligned physical D6, and zero marginal Fréchet cannot characterize real joint S."
     }
   ]
 }
