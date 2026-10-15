@@ -84,8 +84,15 @@ class RandomTrueGlobalInjectionChargeTests(unittest.TestCase):
         self.assertEqual(z["s"],2)
         self.assertEqual(z["all_true_original_incidence_ID_count"],45)
         self.assertEqual(z["source_two_star_roots"],15*3)
+        self.assertEqual(z["independently_enumerated_original_B_point_A_line_Q_exact"],1666980)
+        self.assertEqual(z["minimum_completion_count_per_two_star_root"],37044)
+        self.assertEqual(z["maximum_completion_count_per_two_star_root"],37044)
         self.assertGreater(z["independently_enumerated_original_B_point_A_line_Q_exact"],
                            Fraction(z["all_h_greedy_source_lower"]))
+        px=exact_random_projection_probabilities(2)
+        expected=1666980*px["pB_exact"]*px["pA_exact"]
+        self.assertEqual(expected,Fraction(1428840,20449))
+        self.assertEqual(Fraction(3,5)*expected,Fraction(857304,20449))
         self.assertTrue(z["no_physical_GF5_classification_in_original_source_count"])
 
     def test_006_true_original_W32_24_complete_state_BA_internal_charge(self):
