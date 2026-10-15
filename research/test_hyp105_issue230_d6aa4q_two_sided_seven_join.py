@@ -153,6 +153,42 @@ class AllSevenTwoSidedOriginalJoinTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             all_h_source_girth_and_side_count_identity(4,6,1,1,1)
 
+    def test_008_true_original_W32_PINNED_join_AA_veto_and_D6_ranges(self):
+        expected={
+            "S68":(331,263,0,68,3112510),
+            "S72":(358,286,0,72,3283610),
+            "lex":(623,379,15,259,11225795),
+            "reverse":(478,312,3,169,7627209),
+        }
+        for scheme,nums in expected.items():
+            m=fixture(1,scheme)
+            z=exact_two_sided_original_seven_join(m)
+            self.assertEqual((
+               z["exact_source_original_Q_double_projection_intersection"],
+               z["physical_A_A_joint_candidates"],
+               z["physical_A_A_genuine_D6_only"],
+               z["accepted_seven_GF5_original_S"],
+               z["selected_GF5_51palette_certified_numerator"]),nums)
+            self.assertEqual(nums[0]-nums[1]+nums[2],nums[3])
+            self.assertEqual(z["physical_projection_source_3x3_joint_matrix"]["C/C"],0)
+        self.assertGreater(expected["lex"][3],expected["S68"][3])
+
+    def test_009_SOURCE_GQ_girth_is_needed_for_no_C_C_projection(self):
+        # Synthetic *NON-GQ* incidence triangle: physical projections
+        # permit C/C, proving the GQ girth-eight axiom is essential.
+        fake_source_six=((0,0),(1,0),(1,1),(2,1),(2,2),(0,2))
+        self.assertEqual(len(set(fake_source_six)),6)
+        self.assertEqual(Counter(p for p,l in fake_source_six),
+                         Counter({0:2,1:2,2:2}))
+        self.assertEqual(Counter(l for p,l in fake_source_six),
+                         Counter({0:2,1:2,2:2}))
+        physical=((0,1),(2,3),(4,5))
+        for side in (0,1):
+            degree=Counter()
+            for endpoints in fake_source_six:
+                degree.update(physical[endpoints[side]])
+            self.assertEqual(degree,Counter({i:2 for i in range(6)}))
+
 
 if __name__=="__main__":
     unittest.main()
