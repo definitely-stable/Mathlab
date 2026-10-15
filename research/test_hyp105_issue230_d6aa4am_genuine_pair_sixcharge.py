@@ -53,8 +53,8 @@ class GenuineOriginalPairSixcharge(unittest.TestCase):
         x=all_h_seven_class_anchor_capacity()
         self.assertEqual(x[
             "accepted_true_original_seven_GF5_tag_max_D_two_flag_anchors"],{
-              "D6":6,"B-left/A-right":4,"A-left/B-right":4,
-              "C/A":0,"C/B":0,"B/B-overlap":4,"B/B-disjoint":4})
+              "D6":6,"B-left/A-right":3,"A-left/B-right":3,
+              "C/A":0,"C/B":0,"B/B-overlap":2,"B/B-disjoint":1})
         self.assertEqual(x["true_original_D6_Q_anchors_EXACT"],6)
         self.assertTrue(x["all_complete_global_label_maps_all_h_structural_theorem"])
         self.assertTrue(x["seven_class_S_omega_s6_NOT_PROVED"])
@@ -103,6 +103,12 @@ class GenuineOriginalPairSixcharge(unittest.TestCase):
             self.assertLessEqual(
                 z["S_selected_original_seven_GF5_sixsets"],
                 z["exact_energy_anchor_sandwich_upper"])
+            self.assertLessEqual(z["E_original_extension_incidences"],
+                                 z["all_h_tag_weighted_original_extension_E_upper"])
+            self.assertEqual(z["all_h_tag_weighted_original_extension_E_upper"],
+                  sum(all_h_seven_class_anchor_capacity()[
+                      "accepted_true_original_seven_GF5_tag_max_D_two_flag_anchors"][tag]*n
+                      for tag,n in z["seven_original_S_by_tag"].items()))
             self.assertEqual(z["seven_original_D_extension_E_by_tag"]["C/A"],0)
             self.assertEqual(z["seven_original_D_extension_E_by_tag"]["C/B"],0)
             self.assertEqual(
@@ -118,6 +124,7 @@ class GenuineOriginalPairSixcharge(unittest.TestCase):
                   "uncovered_D",z["D_UNCOVERED_by_ALL_SEVEN_selected_six_Q"],
                   "tagsE",z["seven_original_D_extension_E_by_tag"],
                   "tagsU",z["seven_original_zero_D_anchor_U_by_tag"],
+                  "weightedEcap",z["all_h_tag_weighted_original_extension_E_upper"],
                   "kHist",z["selected_six_Q_anchored_D_pair_histogram"])
 
     def test_03_direct_TRUE_original_D_first_independent_seven_sixQ_referee(self):
@@ -178,7 +185,7 @@ class GenuineOriginalPairSixcharge(unittest.TestCase):
                             self.assertEqual(_projection_source_type(Q,inc,1-side),"A")
                             k=six_Q_anchored_D_pairs(Q,inc,left,right)
                             self.assertTrue(k.issubset(D))
-                            self.assertLessEqual(len(k),4)
+                            self.assertLessEqual(len(k),3)
                         count+=len(Qs)
             print("AA4AM_W34_LOCAL",scheme,"selected_original_BA_AB_Q",count,
                   "D_all_original_two_flag_pairs",len(D))
