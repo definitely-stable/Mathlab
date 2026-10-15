@@ -230,3 +230,41 @@ def sparse_true_original_C6_upper_bound(s):
                 connected_C6_upper=48*(s+1)**2+192*(s+1),
                 source_girth_eight_and_degree_bound_PROVED=True,
                 accepted_global_S_lower_NOT_PROVED=True)
+
+
+def good_original_rootpair_hall_dilution_upper(s):
+    """ALL-f,g upper bound on genuine C6 acceptance / physical candidates.
+
+    Applies ONLY to AA4-AG good TRUE original intersecting source-line
+    rootpairs at h>=19 (disjoint pinned physical edges; ALL four actual
+    pinned physical endpoint missing degrees below a/16), and ANY
+    physically occupied genuine first-side original C4 at that root.
+    The earlier AA4-AI explicitly constructed at least a²/4 occupied
+    connected physical C6 bridge completions for such pinned pairs.
+    All genuine original accepted disjoint-pinned connected C6 are
+    <=48(s+1)²+192(s+1) for one rooted cohort (AJ exact transfer).
+    Hence TRUE accepted original Q divided by all physically occupied
+    connected C6 H is <=4*cap/a²; so is Hall-positive H density.
+    Ratio is O(1/s), with limsup s*ratio <=96 since a²~2s³.
+    This is an UPPER DILUTION, emphatically NOT an S lower.
+    """
+    from fractions import Fraction
+    from hyp105_issue230_proof_audit import parameters
+    if type(s) is not int or s<1<<19 or s&(s-1):
+        raise ValueError("requires AA4-AG good rootpair theorem h>=19")
+    p=parameters(s)
+    a=p["a"]
+    cap=sparse_true_original_C6_upper_bound(s)["connected_C6_upper"]
+    result=Fraction(4*cap,a*a)
+    assert result<1
+    return dict(s=s,a=a,global_original_source_degree=s+1,
+                pinned_physical_good_required=True,
+                original_C4_occupied_required=True,
+                all_global_f_g_scope=True,
+                connected_C6_occupied_physical_lower_rational=Fraction(a*a,4),
+                accepted_original_Q_upper=cap,
+                genuine_original_accepted_to_physical_ratio_upper=result,
+                genuine_original_hall_positive_fraction_upper=result,
+                limsup_s_times_ratio_at_most=96,
+                this_is_NOT_a_positive_Hall_lower=True,
+                this_is_NOT_Branch_A=True)
