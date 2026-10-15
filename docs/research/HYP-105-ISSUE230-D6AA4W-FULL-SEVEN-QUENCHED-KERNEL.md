@@ -129,6 +129,19 @@ The research executable works on the actual W32 45 immutable original source fla
 
 The source code and tests use pure standard Python 3.12 integer combinatorics/Fraction, with no per-Q independent artificial labeling, no numeric approximations in proofs, no local W32-to-infinity statistical inference. Three dedicated GitHub-hosted jobs, plus INDEX, Proof Audit and full Research, must succeed at the exact final child HEAD. A green automated CI is NOT an external mathematical review.
 
+### Verified exact fixed-side W32 conditional versus actual seven-GF5 scores
+
+The first hosted TRUE ORIGINAL W32 jobs S68 and S72 passed full independently recomputed Q-tag and 51-palette GF5 checks. These exact rational results are conditioned on one original factor type's **entire fixed global injection**:
+
+| Genuine original W32 fixed map | Exact expectation of seven S with OTHER entire map uniformly random | Actual S under the specified OTHER complete global map | Fixed AA-connected original Q |
+|---|---:|---:|---:|
+| S68: fix complete point map f, random complete line g | 870476/5005 ≈173.92 | 68 | 21,186 |
+| S72: fix complete point map f, random complete line g | 870476/5005 ≈173.92 | 72 | 21,186 |
+| S68: fix complete line map g, random complete point f | 162908/1001 ≈162.75 | 68 | 18,310 |
+| S72: fix complete line map g, random complete point f | 818106/5005 ≈163.46 | 72 | 18,616 |
+
+Every number is from the same source-exact 45 original incidences, not artificially independent sixset projections. The conditional f-fixed expectations coincide for S68 and S72 because their FIXED complete point map and source-half forest data are the same; their ACTUAL seven S differ because their specified complete right global line images differ. That is an explicit finite genuine-original example of the precise **probabilistic-vs-adversarial quantifier separation**. All four exact fractions are frozen as independent regression test golden values; they must remain separate from actual full seven S and from the both-random-global expectation 165129984/1002001.
+
 ## 6. Scope, RCP retention, and next deterministic compensation gate
 
 **What this result closes:** a seven-tag all-h first-moment/weighted-GF5 **bookkeeping** gap between true source-forest marginal populations and physical pair-image injection probabilities. It yields reference values against which a proposed coupled deterministic JPKC/EICE positional all-f,g lower can be audited.
