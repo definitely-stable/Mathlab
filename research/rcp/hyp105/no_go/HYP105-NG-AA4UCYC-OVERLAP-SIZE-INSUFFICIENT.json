@@ -1,0 +1,28 @@
+{
+  "schema": "mathlab.rcp.no-go.v1",
+  "id": "HYP105-NG-AA4UCYC-OVERLAP-SIZE-INSUFFICIENT",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "kind": "INVALID_INFERENCE",
+  "related_claim_ids": [
+    "HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL",
+    "HYP105-AA4UCYC-W32-ANCHORED-ROW"
+  ],
+  "evidence_ids": [
+    "HYP105-EV-AA4UCYC"
+  ],
+  "rejected_inference": "The number r of shared ORIGINAL source line IDs between two eligible genuine original D6 six-incidence Q determines their joint conditional D6 acceptance probability under one uniform COMPLETE globally injected opposite source-line map.",
+  "witness_scope": "For r=2 at genuine W(3,2), two original incidence-support pairs with identical original-line overlap cardinality can be cyclically incompatible with zero joint acceptance probability or compatible with positive probability; both rely on the SAME global source right map.",
+  "mathematical_basis": "Pinned source PR #487 exact all-h canonical cycle signature tau and nonnegative falling-factorial coefficients c_(tau,k) prove joint probability depends on original line cyclic positions; genuine W32 original-ID compatible and incompatible r=2 witnesses exist, not merely physical edge-label surrogate pairs.",
+  "does_not_refute": [
+    "An exact all-h joint two-D6 conditional kernel using the full canonical cyclic gluing signature tau.",
+    "Full finite W32 second moment from all original Q0,Q1 pairs, if independently computed as a separate theorem.",
+    "A possible universal all-f,g total seven-GF5 positive lower obtained through genuinely correlated source-physical compensation.",
+    "Every-fixed-f conditional expectation lower in source PR #480."
+  ],
+  "reopen_only_if": "Establish and check strong additional original incidence and physical cyclic-position hypotheses that make joint probabilities constant within an r-class, or explicitly retain tau and its c_(tau,k) coefficients.",
+  "do_not_repeat": "Never collapse original sixset pair gluing to r-only covariance, treat a single anchored row as a full second moment, or infer pointwise D6 from a positive conditional mean.",
+  "root_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "prior_registry_ref": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json",
+  "review_status": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+}

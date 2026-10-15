@@ -7,7 +7,7 @@
 
 ## Coverage and acceptance
 
-The table indexes **23 specific results** from **10 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
+The table indexes **25 specific results** from **11 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
 
 | Stable claim | Scope / logical mode | Mathematical status | Pinned proof |
 |---|---|---|---|
@@ -31,6 +31,8 @@ The table indexes **23 specific results** from **10 research PRs**. It does not 
 | HYP105-AA4U-NINE-ORIGINAL-FOREST | ALL_H_IDENTITY | DOCUMENTED_IN_DRAFT | [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md) |
 | HYP105-AA4U-W32-NINE-FOREST-CENSUS | DETERMINISTIC_BOUND | DOCUMENTED_IN_DRAFT | [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md) |
 | HYP105-AA4U-W32-ZERO-MARGINAL-POSITIVE-JOINT | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md) |
+| HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #487 @ 1502844a49ce](https://github.com/definitely-stable/Mathlab/blob/1502844a49cea1631206b2b68144c65f879fc4c0/docs/research/HYP-105-ISSUE230-D6AA4UCYC-SHARED-LINE-GLUING.md) |
+| HYP105-AA4UCYC-W32-ANCHORED-ROW | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #487 @ 1502844a49ce](https://github.com/definitely-stable/Mathlab/blob/1502844a49cea1631206b2b68144c65f879fc4c0/docs/research/HYP-105-ISSUE230-D6AA4UCYC-SHARED-LINE-GLUING.md) |
 | HYP105-EICE003K-DIRTY-ANCHOR | DETERMINISTIC_BOUND | DOCUMENTED_IN_DRAFT | [PR #469 @ 73cfebed8042](https://github.com/definitely-stable/Mathlab/blob/73cfebed8042f0f9b6592bd318295fb0bdf69a5b/docs/research/HYP-105-ISSUE230-EICE003K-CLEAN-ANCHOR-CONCENTRATION.md) |
 | HYP105-JPKC015-D6-ENSEMBLE | ENSEMBLE_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #455 @ c02188a4d4f2](https://github.com/definitely-stable/Mathlab/blob/c02188a4d4f2e4e07440c4d7b25fc25c6dd31b3e/docs/research/HYP-105-ISSUE230-JPKC-015-ENSEMBLE-D6.md) |
 | HYP105-LT-LOCAL-COUNTEREXAMPLE | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #466 @ 5d2c70e3adeb](https://github.com/definitely-stable/Mathlab/blob/5d2c70e3adeb1779904401f88161c9e71c884892/docs/research/HYP-105-ISSUE230-LOCAL-CYCLE-BARRIER.md) |
@@ -375,6 +377,40 @@ The table indexes **23 specific results** from **10 research PRs**. It does not 
 **Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
 
 **Does not imply:** A zero relaxed source-cell floor does NOT mean the true non-AA intersection can be zero for some globally coherent f,g. Finite S68/S72 have genuine POSITIVE S_s=68/72, so they do not disprove universal all-h S=Omega(s^6). The 263/286 A/A joined sets are NOT accepted D6 in these fixtures; actual D6 is zero.
+
+
+### HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL — Exact all-h shared ORIGINAL line D6 cycle-gluing probability polynomial
+
+**Claim:** For each h>=1 and genuine original W(3,s), s=2^h, with minimal unordered physical-pair alphabet a, K=binom(a,2), any ONE fixed complete globally injected original source point map f and any two TRUE eligible distinct-six-original-incidence Q0,Q1 each having six distinct original point and line factors and a connected physical left C6, let r be the number of common ORIGINAL line source IDs (0<=r<=6), and tau their CANONICAL joint cyclic original-line-support signature. Under ONE uniformly sampled complete globally injected source line map g shared by both Q, E_g[1_D6(Q0,g) * 1_D6(Q1,g) | f,Q0,Q1]=((a)_6/(K)_(12-r))*sum_{k=0}^6 c_(tau,k)*(a-6)_k, where c_(tau,k) counts valid canonical second-cycle physical coordinate assignments with k new colors, exact shared original line pair-label equality and global injection. Coefficients are nonnegative integers. The joint probability depends on tau, not merely r. For r=6 identical cyclic adjacency the two events coincide; for r=6 different adjacency the joint probability is zero.
+
+**Ordered quantifiers:** forall h (integer h>=1, s=2^h, original W(3,s)) ; forall f (any fixed COMPLETE globally injected original point physical-pair map shared by all candidate Q) ; forall Q0,Q1 (two eligible actual six-distinct-original-incidence Q with six distinct original point and six distinct original line factors per Q and fixed physical-left connected C6) ; expectation g (ONE uniformly random COMPLETE globally injected original source line physical-pair map, shared across BOTH original Q and all other candidates)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-UNIFORM-GLOBAL-ENSEMBLE
+
+**Claim dependencies:** HYP105-AA4Q-SEVEN-ORIGINAL-JOIN
+
+**Proof provenance:** [PR #487 @ 1502844a49ce](https://github.com/definitely-stable/Mathlab/blob/1502844a49cea1631206b2b68144c65f879fc4c0/docs/research/HYP-105-ISSUE230-D6AA4UCYC-SHARED-LINE-GLUING.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** The identity is a pair probability for two selected original Q under uniform complete g, NOT a nonzero lower bound for each individual fixed globally injected pair f,g. The joint pair kernel does NOT by itself provide a complete conditional second moment, variance, concentration estimate, or universal root Branch A/B/C proof. Line-overlap cardinality r alone does not determine the joint D6 probability; original relative cycle position tau matters. Some tau have probability exactly zero despite a positive one-event D6 conditional mean.
+
+
+### HYP105-AA4UCYC-W32-ANCHORED-ROW — Finite genuine W32 one-anchored-row exact pair-D6 probability census
+
+**Claim:** At the single finite original W(3,2) model and frozen full globally injected original left-point maps S68 and S72, for one fixed genuine original incidence set Q0=(0,5,7,10,13,39), the set of left connected C6 candidate ORIGINAL six-incidence Q1 has exactly 21186 elements. The anchored joint D6 expectation row under ONE uniform full global original line injection g contains 112 cyclic original-line gluing signatures, 6192 strictly positive pair probabilities, 14994 zero probabilities and exact sum over Q1 of P_g(D6(Q0) and D6(Q1)|f)=19457/10810800. Consequently E_g[D6(f,g)|D6(Q0),f]=19457/2160 for this frozen row. Genuine Q1 with r=2 shared original line factors can have either compatible positive or provably zero joint probability according to tau. This is ONE anchored row, not the FULL 21186 by 21186 pair matrix nor a second moment of D6.
+
+**Ordered quantifiers:** forall h (integer h=1, s=2^h=2; single FINITE ORIGINAL W(3,2) only) ; exists f,Q0 (f is either documented full original point map S68 or S72 and Q0=(0,5,7,10,13,39) actual six-incidence anchor) ; finite_witness Q1,g (all 21186 valid original Q1 and exact uniform complete global source-line map g distribution counted by canonical signatures, not a new all-h theorem)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-SELECTED-LOCAL-PATTERN
+
+**Claim dependencies:** HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL
+
+**Proof provenance:** [PR #487 @ 1502844a49ce](https://github.com/definitely-stable/Mathlab/blob/1502844a49cea1631206b2b68144c65f879fc4c0/docs/research/HYP-105-ISSUE230-D6AA4UCYC-SHARED-LINE-GLUING.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** An anchored row is not the full conditional E_g[D6(f,g)^2] summed over all Q0,Q1 and is not a variance or covariance of total D6. Finite W(3,2) witness cannot certify an all-h universal positive all-f,g lower bound or an infinite counterfamily. All counts are tied to genuine original source incidence IDs, a single complete globally injected f and one coherent uniformly random complete g.
 
 
 ### HYP105-EICE003K-DIRTY-ANCHOR — Original GQ source-anchor dirty-pencil identity and uniform marginal

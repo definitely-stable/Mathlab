@@ -1,0 +1,65 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 487,
+    "commit": "1502844a49cea1631206b2b68144c65f879fc4c0",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4UCYC-SHARED-LINE-GLUING.md",
+    "proof_blob_sha": "ccb294cb90b50a58a5751c087b2e75f33f16bf4b",
+    "stage": "OPEN_DRAFT_PR"
+  },
+  "id": "HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL",
+  "title": "Exact all-h shared ORIGINAL line D6 cycle-gluing probability polynomial",
+  "mode": "CONDITIONAL_EXPECTATION",
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN",
+    "MODEL-UNIFORM-GLOBAL-ENSEMBLE"
+  ],
+  "statement": "For each h>=1 and genuine original W(3,s), s=2^h, with minimal unordered physical-pair alphabet a, K=binom(a,2), any ONE fixed complete globally injected original source point map f and any two TRUE eligible distinct-six-original-incidence Q0,Q1 each having six distinct original point and line factors and a connected physical left C6, let r be the number of common ORIGINAL line source IDs (0<=r<=6), and tau their CANONICAL joint cyclic original-line-support signature. Under ONE uniformly sampled complete globally injected source line map g shared by both Q, E_g[1_D6(Q0,g) * 1_D6(Q1,g) | f,Q0,Q1]=((a)_6/(K)_(12-r))*sum_{k=0}^6 c_(tau,k)*(a-6)_k, where c_(tau,k) counts valid canonical second-cycle physical coordinate assignments with k new colors, exact shared original line pair-label equality and global injection. Coefficients are nonnegative integers. The joint probability depends on tau, not merely r. For r=6 identical cyclic adjacency the two events coincide; for r=6 different adjacency the joint probability is zero.",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=1, s=2^h, original W(3,s)"
+    },
+    {
+      "op": "forall",
+      "variable": "f",
+      "domain": "any fixed COMPLETE globally injected original point physical-pair map shared by all candidate Q"
+    },
+    {
+      "op": "forall",
+      "variable": "Q0,Q1",
+      "domain": "two eligible actual six-distinct-original-incidence Q with six distinct original point and six distinct original line factors per Q and fixed physical-left connected C6"
+    },
+    {
+      "op": "expectation",
+      "variable": "g",
+      "domain": "ONE uniformly random COMPLETE globally injected original source line physical-pair map, shared across BOTH original Q and all other candidates"
+    }
+  ],
+  "depends_on_claims": [
+    "HYP105-AA4Q-SEVEN-ORIGINAL-JOIN"
+  ],
+  "external_dependencies": [
+    "Predecessor scientific PR #485 disjoint original-line-factor pair kernel, historical 64-term H_a complement count; not newly proved by this import.",
+    "Original AA4-U-CYC scientific source PR #487 canonical 13,327-pattern coefficient enumeration and original source-line cycle-signature normalization.",
+    "Physical D6 original-column aligned GF5 positional classifier from AA4-Q and exact globally injective marginal assignment distribution."
+  ],
+  "limitations": [
+    "The identity is a pair probability for two selected original Q under uniform complete g, NOT a nonzero lower bound for each individual fixed globally injected pair f,g.",
+    "The joint pair kernel does NOT by itself provide a complete conditional second moment, variance, concentration estimate, or universal root Branch A/B/C proof.",
+    "Line-overlap cardinality r alone does not determine the joint D6 probability; original relative cycle position tau matters.",
+    "Some tau have probability exactly zero despite a positive one-event D6 conditional mean."
+  ],
+  "falsification_boundary": "Reject per-Q independently sampled right physical labels, shared coordinate-only overlaps without SAME ORIGINAL line source IDs, reused labels for distinct source lines, nonoriginal sixsets, and physical path surrogates."
+}
