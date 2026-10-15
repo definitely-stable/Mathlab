@@ -140,9 +140,9 @@ class SixOriginalMatchingAndP2CavityTests(unittest.TestCase):
             z["exact_both_complete_global_uniform_selected_AB_plus_BA"],
             whole["exact_tag_expectations"]["B-left/A-right"]+
             whole["exact_tag_expectations"]["A-left/B-right"])
-        self.assertEqual(z["five_distinct_selected_GF5_tag_expectation"],
+        self.assertEqual(z["six_distinct_selected_GF5_tag_expectation"],
                          Fraction(158761764,1002001))
-        self.assertLess(z["five_distinct_selected_GF5_tag_expectation"],
+        self.assertLess(z["six_distinct_selected_GF5_tag_expectation"],
                         whole["exact_expected_seven_S"])
 
     def test_008_exact_true_W34_source_AND_GF5_expected_AB_AA_fractions(self):
@@ -163,10 +163,10 @@ class SixOriginalMatchingAndP2CavityTests(unittest.TestCase):
             self.assertEqual(z["leading_selected_D6_over_s6"],Fraction(16,3))
             self.assertEqual(z["leading_selected_AB_plus_BA_over_s6"],280)
             self.assertEqual(z["leading_three_previous_tags_over_s6"],Fraction(160,3))
-            self.assertEqual(z["leading_five_selected_tags_over_s6"],Fraction(1016,3))
+            self.assertEqual(z["leading_six_selected_tags_over_s6"],Fraction(1016,3))
             self.assertTrue(z["ensemble_not_adversarial_minimum"])
             self.assertTrue(z["source_original_BB_disjoint_still_UNCLOSED"])
-            self.assertGreater(z["five_distinct_selected_GF5_tag_expectation"],0)
+            self.assertGreater(z["six_distinct_selected_GF5_tag_expectation"],0)
             if s>=2048:
                 self.assertLess(abs(z["exact_both_complete_global_uniform_selected_D6"]
                                     /s**6-Fraction(16,3)),Fraction(1,2))
