@@ -7,7 +7,7 @@
 
 ## Coverage and acceptance
 
-The table indexes **9 specific results** from **6 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
+The table indexes **12 specific results** from **7 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
 
 | Stable claim | Scope / logical mode | Mathematical status | Pinned proof |
 |---|---|---|---|
@@ -17,6 +17,9 @@ The table indexes **9 specific results** from **6 research PRs**. It does not cl
 | HYP105-AA4O-SWAP-IDENTITY | ALL_H_IDENTITY | DOCUMENTED_IN_DRAFT | [PR #471 @ b086566d8be1](https://github.com/definitely-stable/Mathlab/blob/b086566d8be17307b102e7bd89d28d4167af86a6/docs/research/HYP-105-ISSUE230-D6AA4O-QUINTIC-ADVERSARIAL-SWAP.md) |
 | HYP105-AA4Q-CC-GIRTH-OBSTRUCTION | ALL_H_IDENTITY | DOCUMENTED_IN_DRAFT | [PR #476 @ a51ce5aeb788](https://github.com/definitely-stable/Mathlab/blob/a51ce5aeb7883dcd029b9275ce44eaca9a60370f/docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md) |
 | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | ALL_H_IDENTITY | DOCUMENTED_IN_DRAFT | [PR #476 @ a51ce5aeb788](https://github.com/definitely-stable/Mathlab/blob/a51ce5aeb7883dcd029b9275ce44eaca9a60370f/docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md) |
+| HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md) |
+| HYP105-AA4RCYC-D6-QUENCHED-IDENTITY | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md) |
+| HYP105-AA4RCYC-D6-QUENCHED-LOWER | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md) |
 | HYP105-EICE003K-DIRTY-ANCHOR | DETERMINISTIC_BOUND | DOCUMENTED_IN_DRAFT | [PR #469 @ 73cfebed8042](https://github.com/definitely-stable/Mathlab/blob/73cfebed8042f0f9b6592bd318295fb0bdf69a5b/docs/research/HYP-105-ISSUE230-EICE003K-CLEAN-ANCHOR-CONCENTRATION.md) |
 | HYP105-JPKC015-D6-ENSEMBLE | ENSEMBLE_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #455 @ c02188a4d4f2](https://github.com/definitely-stable/Mathlab/blob/c02188a4d4f2e4e07440c4d7b25fc25c6dd31b3e/docs/research/HYP-105-ISSUE230-JPKC-015-ENSEMBLE-D6.md) |
 | HYP105-LT-LOCAL-COUNTEREXAMPLE | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #466 @ 5d2c70e3adeb](https://github.com/definitely-stable/Mathlab/blob/5d2c70e3adeb1779904401f88161c9e71c884892/docs/research/HYP-105-ISSUE230-LOCAL-CYCLE-BARRIER.md) |
@@ -123,6 +126,57 @@ The table indexes **9 specific results** from **6 research PRs**. It does not cl
 **Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
 
 **Does not imply:** A positive one-side projection marginal population does not force a positive simultaneous join intersection. The identity does not yield an all-f,g lower bound S_s(f,g)>=c*s^6 or independently solve root Branch A, B or C. The aligned original-column A/A connected D6 subset is essential; retaining all A/A would overcount. Source H_P/H_L must be derived from complete globally coherent f/g, never separately resampled per Q.
+
+
+### HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER — GQ-dual every-fixed-original-line-map direct D6 conditional expectation lower
+
+**Claim:** By genuine W(3,s) original point-line incidence duality, for every s=2^h>=8 and every fixed complete globally injected ORIGINAL line map g, one uniformly random COMPLETE globally injected ORIGINAL point map f satisfies E_f[D6(f,g)|g]>=s^6/8. Therefore min_g max_f S_s(f,g)>=s^6/8. This is the quantified dual of the fixed-f theorem and does not imply min_(f,g) S_s(f,g)>=c s^6.
+
+**Ordered quantifiers:** forall h (integer h>=3, s=2^h>=8) ; forall g (any fixed complete original line globally injected unordered physical-pair map) ; expectation f (one independently uniformly sampled COMPLETE globally injected original point physical-pair map, shared across ALL original Q)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-UNIFORM-GLOBAL-ENSEMBLE
+
+**Claim dependencies:** HYP105-AA4RCYC-D6-QUENCHED-LOWER
+
+**Proof provenance:** [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** Symmetry swaps fixed/averaged typed source maps but does not remove the expectation quantifier. There is no deterministic all-f,g lower bound or ROOT_BRANCHES proof. This conditional D6 bound is different from AA4-N's auxiliary B/A charge expectation.
+
+
+### HYP105-AA4RCYC-D6-QUENCHED-IDENTITY — Exact true ORIGINAL D6 fixed-point-map global right-injection expected count
+
+**Claim:** For every s=2^h>=8 and every fixed complete globally injected ORIGINAL point mapping f, let N_left_C6_AA(f) count genuine SIX-DISTINCT-INCIDENCE Q with six distinct point factors and SIX distinct original line factors whose fixed physical left projection yields a simple connected coordinate C6. For ONE uniformly random complete globally injected ORIGINAL right-line mapping g, E_g[D6(f,g)|f]=((a)_6/(K)_6)*N_left_C6_AA(f), K=C(a,2)>=V minimal, V=(s+1)(s^2+1). The same g is reused across all Q, never sampled independently per Q.
+
+**Ordered quantifiers:** forall h (integer h>=3, s=2^h>=8) ; forall f (any fixed complete original point globally injected unordered physical-pair map) ; expectation g (one independently uniformly sampled COMPLETE globally injected original line physical-pair map, shared across ALL original Q)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-UNIFORM-GLOBAL-ENSEMBLE
+
+**Claim dependencies:** HYP105-AA4Q-SEVEN-ORIGINAL-JOIN
+
+**Proof provenance:** [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** A positive E_g D6 for every f does NOT imply positive D6 for every pair f,g. No assumption of independent D6 indicators for different Q with the SAME g. No unconditional simultaneous two-sided minimax lower is proved.
+
+
+### HYP105-AA4RCYC-D6-QUENCHED-LOWER — Every-fixed-original-point-map direct D6 quenched lower at least s^6/8
+
+**Claim:** For every s=2^h>=8 and EVERY fixed complete original globally injected point map f, with physical alphabet a minimal and K=C(a,2), V=(s+1)(s^2+1), m=K-V, the occupied left connected C6 count is bounded below by C_s=(a)_6/12 - m(a-2)_4>0. At least C_s(s+1)_6 genuine original Q have distinct original points/lines and physical left C6. Therefore E_g D6(f,g) >= ((a)_6/(K)_6) * C_s * (s+1)_6 >= s^6/8, with g a SINGLE uniformly random full globally injected line map. Hence min_f max_g S_s(f,g)>=s^6/8; not min_(f,g)S_s.
+
+**Ordered quantifiers:** forall h (integer h>=3, s=2^h>=8) ; forall f (any fixed complete original point globally injected unordered physical-pair map) ; expectation g (one independently uniformly sampled COMPLETE globally injected original line physical-pair map, shared across ALL original Q)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-UNIFORM-GLOBAL-ENSEMBLE
+
+**Claim dependencies:** HYP105-AA4RCYC-D6-QUENCHED-IDENTITY
+
+**Proof provenance:** [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** The probabilistic statement does not control adversarially jointly selected f,g. The bound certifies direct seven-positive original D6 expected charge, not full GF5 R3/ASET exponents. Positive expectation does not imply D6>0 for all fixed g or stochastic concentration.
 
 
 ### HYP105-EICE003K-DIRTY-ANCHOR — Original GQ source-anchor dirty-pencil identity and uniform marginal

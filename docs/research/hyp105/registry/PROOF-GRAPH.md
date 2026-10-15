@@ -13,6 +13,9 @@ Only explicitly registered edges are included. An unregistered historical proof 
 | HYP105-AA4N-QUENCHED-IDENTITY | HYP105-AA4O-QUINTIC-IDENTITY |
 | HYP105-AA4O-QUINTIC-IDENTITY | HYP105-AA4O-SWAP-IDENTITY |
 | HYP105-AA4Q-CC-GIRTH-OBSTRUCTION | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN |
+| HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | HYP105-AA4RCYC-D6-QUENCHED-IDENTITY |
+| HYP105-AA4RCYC-D6-QUENCHED-IDENTITY | HYP105-AA4RCYC-D6-QUENCHED-LOWER |
+| HYP105-AA4RCYC-D6-QUENCHED-LOWER | HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER |
 
 ## Explicit external proof inputs
 
@@ -42,6 +45,21 @@ Only explicitly registered edges are included. An unregistered historical proof 
 - Original source incidence factor multiplicities A=(1^6), B=(2,1^4), C=(2^3), computed independently on the two sides but evaluated on the SAME original Q.
 - Original 3x3 two-half join from pinned AA4-Q source proof, not a product of independent one-half marginal populations.
 
+### HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER
+
+- True original symplectic generalized quadrangle W(3,s) is self-dual under point-line incidence duality; same minimal physical alphabet and D6 positional classifier.
+
+### HYP105-AA4RCYC-D6-QUENCHED-IDENTITY
+
+- Exact original seven-family positional D6 criterion on six identical original incidence IDs from AA4-Q.
+- Finite combinatorial uniform six-label marginal of ONE complete globally injected right map.
+
+### HYP105-AA4RCYC-D6-QUENCHED-LOWER
+
+- Minimal physical-pair alphabet leaves m<=a-2 unoccupied edges; deletion union bound for simple K_a cycles.
+- True GQ original source incidence degree s+1; distinct-line SDR count at least (s+1)_6.
+- Finite integer-rational cases s=8,16,32,64,128 plus analytic estimates s>=256 as pinned in PR480 proof.
+
 ### HYP105-EICE003K-DIRTY-ANCHOR
 
 - Genuine GQ uniqueness and source-pencil combinatorics from pinned EICE-003-K proof.
@@ -57,6 +75,7 @@ Only explicitly registered edges are included. An unregistered historical proof 
 ## Scope-review flags (not proven contradictions)
 
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4N-QUENCHED-LOWER. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
+- **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4Q-SEVEN-ORIGINAL-JOIN -> HYP105-AA4RCYC-D6-QUENCHED-IDENTITY. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **EXPECTATION_TO_DETERMINISTIC_BRIDGE_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4O-QUINTIC-IDENTITY. The dependency link must not use averaging as a pointwise proof without an explicit argument.
 - **MODEL_SCOPE_BRIDGE_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4O-QUINTIC-IDENTITY. Dependency may use an independent deterministic proof or a model-preserving reduction; inspect source.
 
