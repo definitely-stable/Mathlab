@@ -63,14 +63,26 @@ class GenuineOriginalPairSixcharge(unittest.TestCase):
         maps=[("dual_zero",zero_split_original_W32())]+[
             (scheme,fixture(1,scheme))
             for scheme in ("lex","reverse","S68","S72")]
-        totals={"dual_zero":(277,123),"lex":(307,None),
-                "reverse":(300,None),"S68":(257,68),"S72":(261,72)}
+        # Independently frozen exact ORIGINAL source Q -> true D-pair
+        # extension witness values from first 4/4-success hosted run.
+        # Columns: D, S, E, U, covered D, uncovered D.
+        totals={"dual_zero":(277,123,164,17,115,162),
+                "lex":(307,259,517,23,212,95),
+                "reverse":(300,169,246,23,166,134),
+                "S68":(257,68,79,10,64,193),
+                "S72":(261,72,75,16,59,202)}
         for scheme,m in maps:
             z=exact_W32_original_seven_pair_extension_certificate(
                 m,independent_oracle=scheme in ("dual_zero","S68"))
-            D,S=totals[scheme]
+            D,S,E,U,C,uncovered=totals[scheme]
             self.assertEqual(z["D_unordered_actual_original_bilateral_two_flag_pairs"],D)
-            if S is not None:self.assertEqual(z["S_selected_original_seven_GF5_sixsets"],S)
+            self.assertEqual(z["S_selected_original_seven_GF5_sixsets"],S)
+            self.assertEqual(z["E_original_extension_incidences"],E)
+            self.assertEqual(z["U_selected_sixsets_with_ZERO_original_D_pair_anchors"],U)
+            self.assertEqual(z["D_covered_by_at_least_one_selected_original_six_Q"],C)
+            self.assertEqual(z["D_UNCOVERED_by_ALL_SEVEN_selected_six_Q"],uncovered)
+            self.assertGreater(uncovered,0)
+            self.assertGreater(U,0)
             self.assertEqual(z["seven_original_S_by_tag"],
                 seven_census(m,independent_checks=False)["seven_class_motif_counts"])
             self.assertEqual(z["D_covered_by_at_least_one_selected_original_six_Q"]+
@@ -104,7 +116,9 @@ class GenuineOriginalPairSixcharge(unittest.TestCase):
                   "U",z["U_selected_sixsets_with_ZERO_original_D_pair_anchors"],
                   "covered_D",z["D_covered_by_at_least_one_selected_original_six_Q"],
                   "uncovered_D",z["D_UNCOVERED_by_ALL_SEVEN_selected_six_Q"],
-                  "tagsE",z["seven_original_D_extension_E_by_tag"])
+                  "tagsE",z["seven_original_D_extension_E_by_tag"],
+                  "tagsU",z["seven_original_zero_D_anchor_U_by_tag"],
+                  "kHist",z["selected_six_Q_anchored_D_pair_histogram"])
 
     def test_03_direct_TRUE_original_D_first_independent_seven_sixQ_referee(self):
         for scheme,m in (("dual_zero",zero_split_original_W32()),
