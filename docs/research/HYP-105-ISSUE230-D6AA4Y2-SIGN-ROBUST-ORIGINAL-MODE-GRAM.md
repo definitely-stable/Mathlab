@@ -84,3 +84,29 @@ Similarly W11 >= W10+W01-W00 - (weighted H_pn+weighted H_np) with exact nonnegat
 Native independent C++20 signed-conflict engine reconstructs 106 complete point half-mode sets and 106 complete line half-mode sets per anchored W32 true original mapping, forms signed half-mode symmetric differences, then counts ALL four quadrants on EVERY 106x106 paired corner. It emits a FULL 11,236-row TSV including pp/nn/pn/np AND their exact selected historical 51palette positive GF5 weighted sums. Python verifies the exact literal original seven GF5 Delta S and Delta W from the SEPARATELY computed full Y-CYC two-sided original 62,370/62,370 incidence-index joined matrix. Each sampled true-original Q is independently checked with historical GF5 classification. The full certificate is retained as hosted workflow artifact.
 
 Do not infer a lower bound S_s>=c*s^6 from this exact decomposition. It converts the root science blocker into a precise task: prove genuine all-h harmful mode intersections cannot overwhelm unavoidable original forest/AA positive structure. Quantitative strength and finite gap must be assessed from last exact-head GREEN CI.
+
+## 6. Independent exact W32 signed-mode charge results
+
+Verified source-run https://github.com/definitely-stable/Mathlab/actions/runs/38711231772 : specialized three-job workflow SUCCESS, including two separate original all-11,236-pair matrix and seven-mode C++ signed-quadrant reconstruction passes. The following measured counts derive from the hosted executed ORIGINAL full global-map certificates, not from simulations or inferred asymptotic scaling:
+
+| Exact true-original W32 quantity | S68 anchor | S72 anchor |
+|---|---:|---:|
+| Number full globally coherent paired source maps | 11,236 | 11,236 |
+| Strictly mixed maps | 11,025 | 11,025 |
+| Mixed Delta S negative/positive/zero | 8,286 / 2,396 / 343 | 8,642 / 2,096 / 287 |
+| Worst negative Delta S | -70 | -76 |
+| Harmful original same-mode conflicts H at worst Delta S | 103 | 106 |
+| Favorable same-mode coincidences F at worst Delta S | 33 | 30 |
+| Earlier seven-sector Gram rounded CS upper on abs(Delta S) at this witness | 53,105 | 52,099 |
+| Exactly charged lower S11 at worst Delta S witness | 63 | 77 |
+| Actual S11 at this witness | 96 | 107 |
+| Smallest sharp signed-conflict lower S11 over all 11,236 | **6** | **2** |
+| Actual minimum selected S over all 11,236 from original independent Y-CYC | 68 | 72 |
+
+Exact four-corner witness S68: swap actual original POINT source factors (4,14) and LINE source factors (4,11), with (S00,S10,S01,S11)=(68,107,127,96), Delta S=-70, F=33,H=103. GF5 weighted signed interactions: favorable 1,510,360 and harmful 4,693,160, giving exact mixed Delta W=-3,182,800.
+
+Exact four-corner witness S72: swap actual original POINT source factors (2,5) and LINE source factors (6,11), (72,126,129,107), Delta S=-76, F=30,H=106. Weighted favorable 1,379,120 and harmful 4,762,669, Delta W=-3,383,549.
+
+**NEW finite positive certificate from a general ALL-h-valid transfer principle:** For EVERY member of the explicitly enumerated 106×106 global original source point/line swap box around S68, independent sign-segregated original feature sets certify S>=6; around S72, S>=2. This proof does NOT use the full two-sided pair count S11 as an input to the lower bound; it uses S00,S10,S01 and independent original source mode harmful intersection H per joint pair. The separate complete two-sided Y-CYC original GF5 classification checks these lower bounds and records the stronger actual finite minima.
+
+The new finite charge certificate is genuinely nonvacuous (positive), unlike the earlier minimum Cauchy-charge lower values -58,880 and -59,113. It remains far weaker than actual S minima and DOES NOT prove a uniform lower in arbitrary s=2^h or arbitrary full global f,g outside these finite boxes. Its value is demonstrating a sound, sign-robust transfer primitive and identifying the specific harmful original source-mode intersections that require quantitative all-h control.
