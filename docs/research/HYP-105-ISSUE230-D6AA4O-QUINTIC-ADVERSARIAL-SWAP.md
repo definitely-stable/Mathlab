@@ -82,6 +82,16 @@ I(f_1,g)=14<23=I(f_0,g).
 
 This rigorously **FALSIFIES "all 105 two-label swaps nonimproving implies global optimum" on an actual ORIGINAL globally injected W32 source/physical model**. It also demonstrates concretely that suppressing *one* B/A source-charge component can **increase** the full seven-class GF5 positive motif count (72→102). Neither the B/A scalar objective nor swap local minima can be treated as the root S minimax certificate without a new charge-transfer theorem. The test suite pins both numbers and separately independent full-original seven GF5 classifications. The complete final point-label f1 is emitted by the dedicated workflow as a reproducible witness (not merely described by its scalar objective).
 
+**Permanent literal complete-map witness:** enumerate the ORIGINAL source point factor IDs p=0,...,14 in their historical fixture order. The alternative global point-map physical K6 edge labels, in that SAME source order, are
+
+\[
+f_1=[(1,3),(3,5),(1,4),(0,2),(1,2),
+(0,3),(2,3),(2,5),(4,5),(0,5),
+(3,4),(1,5),(0,4),(0,1),(2,4)].
+\]
+
+These are all fifteen distinct K6 physical edges used exactly once. The original line-map \(g\) stays the untouched S72 baseline, so both \((f_0,g)\) and \((f_1,g)\) are globally coherent and typed-injective. Exact independent regression computes all 105 swap-gradient signs from the original five-factor tensor, and full original seven-GF5 census directly from this literal physical assignment; it does NOT need to trust the heuristic optimizer. This witness certifies a strict local-versus-global **cost ordering**, not that f1 attains the true global minimum.
+
 The other true S68 global fixed-right run reduces original B/A internal charge from 36 to 17 with four globally injective point-label swaps, while the complete historical true seven-class S increases from 68 to 103. Two additional independent seeded starting full point maps per scheme independently obtain other exact one-swap local minima; all are finite source-correct maps, never an all-W32 or all-h global optimum claim.
 
 **Consequent next proof gate:** promote the quintic tensor into a valid global assignment relaxation/certificate or add source-factor multi-swap/orbit constraints; do NOT infer universal all-h GF5 charge positivity from one-swap stationarity, local gradient signs, or random conditional expectation alone.
