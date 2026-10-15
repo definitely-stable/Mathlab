@@ -59,7 +59,7 @@ class QuenchedRightSourceTransferTests(unittest.TestCase):
                 "a","m",
                 "spectral_all_right_original_concurrent_physically_disjoint_pairs_D",
                 "remaining_good_original_source_line_pairs_lower",
-                "legal_extra_physical_connector_symbols_per_side_lower"
+                "extra_physical_connector_symbols_per_side_lower"
             )),expected)
 
     def test_004_real_W32_frozen_right_direct_original_pencil_oracle(self):
