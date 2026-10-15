@@ -75,7 +75,7 @@ def edge_to_zero_one_permutation(edge, a):
     u, v = edge
     image = [None] * a
     image[u], image[v] = 0, 1
-    for index, x in enumerate(k for k in range(a) if k not in (u, v)), 2):
+    for index, x in enumerate((k for k in range(a) if k not in (u, v)), 2):
         image[x] = index
     return _permutation(image, a, "physical anchor")
 
