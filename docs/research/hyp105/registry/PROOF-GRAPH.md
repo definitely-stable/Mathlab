@@ -18,7 +18,6 @@ Only explicitly registered edges are included. An unregistered historical proof 
 | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | HYP105-AA4T-POSITIONAL-D6-TENSOR |
 | HYP105-AA4RCYC-D6-QUENCHED-IDENTITY | HYP105-AA4RCYC-D6-QUENCHED-LOWER |
 | HYP105-AA4RCYC-D6-QUENCHED-LOWER | HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER |
-| HYP105-AA4RCYC-D6-QUENCHED-LOWER | HYP105-AA4T-ALLH-QUENCHED-D6-LOWER |
 | HYP105-AA4S-ROOT-FRECHET-ZERO | HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL |
 | HYP105-AA4T-ALLH-QUENCHED-D6-LOWER | HYP105-AA4T-ALLH-DUAL-QUENCHED-LOWER |
 | HYP105-AA4T-POSITIONAL-D6-TENSOR | HYP105-AA4T-QUENCHED-TENSOR-IDENTITY |
@@ -88,6 +87,7 @@ Only explicitly registered edges are included. An unregistered historical proof 
 - Minimal physical alphabet missing-edge cycle union bound and exact (a)_6/12 unoriented connected K_a six-cycle count.
 - True d-regular original GQ bipartite point-line incidence graph, Hall's theorem for d<6 and greedy distinct-line choices for d>=6.
 - Exact rational s=2,4 boundary and elementary analytic inequalities for s>=8, pinned in source PR484.
+- Previously independently registered AA4R quenched D6 bound s^6/8 for h>=3 is quantitative comparison only, not used to prove the weaker all-h 1/98304 floor.
 
 ### HYP105-AA4T-POSITIONAL-D6-TENSOR
 
@@ -121,7 +121,6 @@ Only explicitly registered edges are included. An unregistered historical proof 
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4N-QUENCHED-LOWER. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4Q-SEVEN-ORIGINAL-JOIN -> HYP105-AA4RCYC-D6-QUENCHED-IDENTITY. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4Q-SEVEN-ORIGINAL-JOIN -> HYP105-AA4T-POSITIONAL-D6-TENSOR. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
-- **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4RCYC-D6-QUENCHED-LOWER -> HYP105-AA4T-ALLH-QUENCHED-D6-LOWER. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4S-ROOT-FRECHET-ZERO -> HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4T-QUENCHED-TENSOR-IDENTITY -> HYP105-AA4T-W32-POSITIVE-MEAN-ZERO-D6. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **EXPECTATION_TO_DETERMINISTIC_BRIDGE_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4O-QUINTIC-IDENTITY. The dependency link must not use averaging as a pointwise proof without an explicit argument.

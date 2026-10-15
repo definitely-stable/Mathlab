@@ -245,7 +245,7 @@ The table indexes **19 specific results** from **9 research PRs**. It does not c
 
 **Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-UNIFORM-GLOBAL-ENSEMBLE
 
-**Claim dependencies:** HYP105-AA4T-QUENCHED-TENSOR-IDENTITY, HYP105-AA4RCYC-D6-QUENCHED-LOWER
+**Claim dependencies:** HYP105-AA4T-QUENCHED-TENSOR-IDENTITY
 
 **Proof provenance:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
 
