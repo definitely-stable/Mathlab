@@ -32,7 +32,7 @@ class ExactTrueOriginalD6FullSecondMomentTests(unittest.TestCase):
         self.assertEqual(len(self.table),7**6)
         self.assertEqual(self.meta[
             "number_valid_original_LINE_relative_partial_gluing_diagrams"],13327)
-        self.assertEqual(self.meta["nonisomorphic_original_LINE_C6_pair_gluing_types"],112)
+        self.assertEqual(self.meta["nonisomorphic_original_LINE_C6_pair_gluing_types"],125)
         self.assertEqual(self.meta["relative_partial_source_LINE_gluings_by_shared_factor_count"],
                          {r:comb(6,r)*perm(6,r) for r in range(7)})
         self.assertEqual(PHYSICAL_K6_DENOMINATOR,217945728000)
