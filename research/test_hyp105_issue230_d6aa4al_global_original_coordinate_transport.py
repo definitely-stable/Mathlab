@@ -35,9 +35,12 @@ class GlobalOriginalTransportTest(unittest.TestCase):
     def test_02_all_five_true_original_W32_globally_injected_maps_pairwise_oracle(self):
         maps=[("dual_zero",zero_split_original_W32())]+[
             (scheme,fixture(1,scheme)) for scheme in ("lex","reverse","S68","S72")]
+        exact_counts={"dual_zero":277,"lex":307,"reverse":300,
+                      "S68":257,"S72":261}
         for scheme,m in maps:
             z=exact_original_global_transport(m)
             literal=independent_original_flag_pair_oracle(m)
+            self.assertEqual(literal,exact_counts[scheme])
             self.assertEqual(z[
                 "exact_UNORDERED_DISTINCT_source_flag_pair_bilateral_physical_collision"],literal)
             self.assertGreaterEqual(
@@ -68,6 +71,7 @@ class GlobalOriginalTransportTest(unittest.TestCase):
             self.assertEqual(z["s"],4)
             self.assertEqual(z[
                 "exact_UNORDERED_DISTINCT_source_flag_pair_bilateral_physical_collision"],literal)
+            self.assertEqual(literal,{"lex":6529,"random":6327}[scheme])
             self.assertEqual(z["total_four_per_original_flag_transport"],4*425)
             self.assertLessEqual(
                 z["ordered_source_same_original_point_subtraction"],2*85*5*4)
@@ -126,8 +130,18 @@ class GlobalOriginalTransportTest(unittest.TestCase):
         m=zero_split_original_W32()
         z=exact_original_global_transport(m)
         self.assertTrue(z["positive_seven_GF5_sixset_lower_NOT_PROVED"])
-        self.assertGreater(z[
-            "exact_UNORDERED_DISTINCT_source_flag_pair_bilateral_physical_collision"],0)
+        self.assertEqual(z[
+            "exact_UNORDERED_DISTINCT_source_flag_pair_bilateral_physical_collision"],277)
+        from hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation import (
+            full_original_W32_sector_certificate)
+        # A STRONG finite blocker against an invalid naive lift:
+        # D>0 is universally true, but one concrete FULL global f,g
+        # can have ZERO accepted original split-two-triangle B/A AND A/B.
+        for side in (0,1):
+            z6=full_original_W32_sector_certificate(m,side=side)
+            self.assertEqual(z6["original_GF5_A_accepted_by_sector"][
+                "split_two_triangles"],0)
+            self.assertGreater(z6["full_original_BA_or_AB_accepted"],0)
         from hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation import (
             classify_physical_A_twofactor)
         with self.assertRaises(ValueError):
