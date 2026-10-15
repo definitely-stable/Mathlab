@@ -1,0 +1,44 @@
+{
+  "schema": "mathlab.rcp.evidence.v1",
+  "id": "HYP105-EV-AA4UCYC",
+  "claim_ids": [
+    "HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL",
+    "HYP105-AA4UCYC-W32-ANCHORED-ROW"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 487,
+    "commit": "1502844a49cea1631206b2b68144c65f879fc4c0",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4UCYC-SHARED-LINE-GLUING.md",
+    "proof_blob_sha": "ccb294cb90b50a58a5751c087b2e75f33f16bf4b"
+  },
+  "artifacts": [
+    {
+      "role": "ORACLE_SOURCE",
+      "path": "research/hyp105_issue230_d6aa4ucyc_shared_line_gluing.py",
+      "git_blob_sha": "ef0d82fc09c88f1c7465e85d2fc67792d185c24d"
+    },
+    {
+      "role": "INDEPENDENT_TEST",
+      "path": "research/test_hyp105_issue230_d6aa4ucyc_shared_line_gluing.py",
+      "git_blob_sha": "a27a82787550ab7c1bceb4c63d0146dd8ddf391b"
+    }
+  ],
+  "reproduction": {
+    "runner": "GITHUB_HOSTED",
+    "environment": "ubuntu-24.04 Python 3.12 (recorded original research baseline)",
+    "checkout_commit": "1502844a49cea1631206b2b68144c65f879fc4c0",
+    "command": "python -m unittest research.test_hyp105_issue230_d6aa4ucyc_shared_line_gluing -v",
+    "execution_status": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+  },
+  "ci": {
+    "status": "NOT_ARCHIVED_AS_PROOF",
+    "note": "Byte-identical original Git artifacts, finite exact-rational sanity and proof metadata verified. Original source CI and full W32 21186-row runtime not rerun by import, independent mathematical peer review is not inferred."
+  },
+  "retention": "Three original Git blob source bytes archived in immutable commit-linked registry branch, independent SHA-256 manifest, persistent in main ancestry after merge.",
+  "limitations": [
+    "This is an exact conditional two-original-Q D6 gluing formula, not an all-f,g universal positive GF5 S lower bound.",
+    "The finite anchored row contains 21186 Q1 but is not all 21186x21186 ordered pairs; source #489 studies later full W32 second moment.",
+    "The source branch #487 stays separate as research Draft and new claim metadata remains NOT_REVIEWED."
+  ]
+}
