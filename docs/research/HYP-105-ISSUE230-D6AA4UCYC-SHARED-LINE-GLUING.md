@@ -64,6 +64,30 @@ This is an **entire anchored row** of the 21,186×21,186 pair matrix, including 
 
 The dedicated tests independently enumerate all 6! physical right coordinate assignments for fixed first six colors, **without using the 13,327 canonical old/new pattern enumeration**, on selected r=0,1,2,3,6 types, and demand equality with the polynomial constant \(c_{\tau,0}\) at a=6. For a selected genuine W32 r=2 type with positive kernel, construct ONE COMPLETE globally injected right K6 map g, assigning all TRUE original source line factors consistently, and require the historical ORIGINAL seven-GF5 classifier \`classify_seven_prechecked\` to return D6 for BOTH original six-incidence Q0 and Q1. For another genuine r=2 type with zero kernel, prove impossible to accept both by the zero nonnegative-coefficient polynomial (not by failure of randomized search). Both examples have exactly TWO shared ORIGINAL line factors, thus prove rigorously that overlap cardinality is insufficient.
 
+## 3A. Hosted verified exact REAL W32 21,186-source-Q anchored pair result
+
+The initial corrected dedicated [GitHub-hosted #38690494064](https://github.com/definitely-stable/Mathlab/actions/runs/38690494064) completed **SUCCESS 3/3 jobs**, including seven independent tests, actual real S68/S72 all-original six-ID source geometry, and a true globally injected right map under which two actual r=2 Q have D6 simultaneously. On both S68 and S72, with the frozen exact same genuine original anchor \(Q_0=(0,5,7,10,13,39)\), the complete **one-anchored-row** values are:
+
+| Source-statistic on 21,186 genuine Q' | EXACT |
+|---|---:|
+| Actual left-connected C6 source Q' in this anchored row | 21,186 |
+| Non-isomorphic cyclic line-gluing signatures under 12×12 dihedral symmetry | **112** |
+| Genuine Q' for which the joint historical GF5 D6 probability is strictly positive | **6,192** |
+| Genuine Q' for which the joint historical GF5 D6 probability is provably zero | **14,994** |
+| \(\displaystyle\sum_{Q'}\Pr_g(D6(Q_0)\land D6(Q')\mid f)\) | \(\boxed{19457/10810800}\) |
+| \(\displaystyle\mathbb E_g[D6(f,g)\mid D6(Q_0),f]\) | \(\boxed{19457/2160}\) |
+| Expected total \(D6\) under uniform complete right map from predecessor #480 | \(1926/455\) |
+
+The positive count includes the true diagonal Q'=Q0, with probability p=1/5005. The 112 gluing-class exact-signature weighted row covers r=0,...,6 and is not a second-moment or covariance of total D6. The conditional expected count given this **specific** original Q0 accepted is ≈9.00787 versus the unconditional expected D6 count ≈4.23297. These conditional numbers depend on holding the ENTIRE globally injected original point map f fixed and using ONE random complete global right map g.
+
+**Actual compatible/incompatible same-r=2 original six-incidence pair witnesses:**
+
+- Fixed Q0 original incidence IDs \([0,5,7,10,13,39]\).
+- Compatible Q1 original incidence IDs \([0,14,21,25,27,34]\), with exactly two common original LINE source IDs, and a COMPLETE globally injected right physical K6 source-line map \`[(0,5),(3,4),(0,1),(4,5),(1,2),(0,2),(0,3),(0,4),(3,5),(1,3),(1,4),(2,4),(1,5),(2,3),(2,5)]\` assigned in original source line ID order l=0..14. The historical original six-ID GF5 classifier returns **D6 for BOTH Q0 and Q1** using ONE f and this same g.
+- Incompatible Q1 original incidence IDs \([0,13,21,25,34,42]\), also exactly two shared actual original LINE source IDs, but with canonical cyclic type \(\tau=(0,6,2,7,8,9)\). The corresponding \(c_{\tau,k}\) are all zero. **No physical alphabet and no globally injected g can make both original Q D6 simultaneously**, despite the matching overlap cardinality r=2. This is a genuine ORIGINAL W32 positional obstruction.
+
+The numbers and complete-map witness are pinned in independent dedicated tests. The first initial CI attempt exposed and fixed a source-line-cycle adjacency validator bug (iterating dict vertex keys instead of adjacency sets); only corrected all-three-success runner evidence is accepted.
+
 ## 4. Limits, independent acceptance, and next research
 
 This is a new ALL-h exact **pair gluing** formula across every possible shared-original-LINE source support positional pattern, generalizing the previously known disjoint sector #485. It does NOT establish a positive universal lower on original seven GF5 S_s for every f,g and does NOT prove original Branch A/B, full R3 or ASET exponent. It does NOT establish the complete conditional \(\mathbb E_g D6(f,g)^2\) for arbitrary fixed f, because an anchored row or a partial original source family is not an all-source-pair histogram; the full W32 source family pair count 21,186² remains unaggregated.
