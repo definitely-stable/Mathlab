@@ -19,7 +19,8 @@ from hyp105_issue230_d6aa4ab_minimax_orbit_normalform import (
 from hyp105_issue230_d6aa4ak_adjacent_c6_original_hall import (
     edge,adjacent_pin_vertices,exact_adjacent_C6_original_transfer,
     independent_complete_physical_adjacent_C6_oracle,
-    adjacent_low_hole_occupied_C6_all_h,adjacent_original_rootpair)
+    adjacent_low_hole_occupied_C6_all_h,adjacent_original_rootpair,
+    exact_full_connected_C6_original_transfer)
 
 
 class GenuineOriginalAdjacentC6Hall(unittest.TestCase):
@@ -183,7 +184,39 @@ class GenuineOriginalAdjacentC6Hall(unittest.TestCase):
             self.assertEqual(before["accepted_actual_original_six_Q"],
                              after["accepted_actual_original_six_Q"])
 
-    def test_07_reject_invalid_actual_source_physical_models_and_pins(self):
+    def test_07_COMPLETE_true_original_connected_C6_both_pin_orbits(self):
+        """Complete disjoint AJ + adjacent AK transfer; no physical H
+        enumeration used by algorithm, unlike independent real-Q oracle.
+        """
+        for name,m in (("zero",zero_split_original_W32()),
+                       ("lex",fixture(1,"lex"))):
+            for side in (0,1):
+                total=0;sector_counts={"adjacent":0,"disjoint":0}
+                for root in range(15):
+                    for offset in range(3):
+                        for four in occupied_root_C4_source_factors(
+                                m,side=side,root=root):
+                            fresh=exact_full_connected_C6_original_transfer(
+                                m,side=side,root=root,pair_offset=offset,four=four)
+                            brute=single_original_A_sector_permanent(
+                                m,side=side,root=root,pair_offset=offset,four=four)
+                            val=fresh["accepted_full_CONNECTED_C6_actual_original_six_Q"]
+                            self.assertEqual(val,brute["accepted"]["connected_C6"])
+                            self.assertTrue(
+                                fresh["adjacent_and_disjoint_exhaust_original_connected_C6"])
+                            self.assertLessEqual(
+                                val,fresh["actual_original_source_degree_upper_for_chosen_sector"])
+                            total+=val
+                            sector_counts[fresh["pinned_opposite_physical_relation"]]+=val
+                old=full_original_W32_sector_certificate(m,side=side)
+                self.assertEqual(
+                    total,old["original_GF5_A_accepted_by_sector"]["connected_C6"])
+                if name=="zero":
+                    self.assertEqual(total,(40,58)[side])
+                    self.assertEqual(sector_counts["adjacent"],(23,17)[side])
+                    self.assertEqual(sector_counts["disjoint"],(17,41)[side])
+
+    def test_08_reject_invalid_actual_source_physical_models_and_pins(self):
         m=fixture(1,"lex")
         root,flag=adjacent_original_rootpair(m,0)
         four=occupied_root_C4_source_factors(m,side=0,root=root)[0]
