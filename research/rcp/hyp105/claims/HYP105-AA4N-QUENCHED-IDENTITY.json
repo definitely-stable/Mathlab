@@ -1,0 +1,56 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "id": "HYP105-AA4N-QUENCHED-IDENTITY",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "title": "Fixed-right-map exact B/A expected internal charge identity",
+  "statement": "For every h>=1 and every complete original right-line global injection g, E_f[I_L^(BA,int)(f,g) | g]=p_B(s)*T_g where f is sampled ONCE uniformly from complete original point global injections, p_B(s)=K*C(a-2,4)*3*4!/(K)_5; all genuine original six-incidence sets Q share the same f,g.",
+  "mode": "CONDITIONAL_EXPECTATION",
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=1, s=2^h"
+    },
+    {
+      "op": "forall",
+      "variable": "g",
+      "domain": "arbitrary fixed complete globally injected original line map"
+    },
+    {
+      "op": "expectation",
+      "variable": "f",
+      "domain": "one uniformly sampled complete globally injected original point map; fixed same g"
+    }
+  ],
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN",
+    "MODEL-UNIFORM-GLOBAL-ENSEMBLE",
+    "MODEL-BA-INTERNAL-CHARGE"
+  ],
+  "depends_on_claims": [],
+  "external_dependencies": [
+    "AA4-M original full injection five-factor marginal and exact seven GF(5) positional classifier."
+  ],
+  "limitations": [
+    "Expectation does not imply all-f individual lower bound.",
+    "Identity alone does not imply a positive T_g lower bound.",
+    "No universal inf_(f,g) positive motif result."
+  ],
+  "falsification_boundary": "Conditioning holds g fixed and draws a single coherent global f; per-Q independent physical relabeling is forbidden.",
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 470,
+    "commit": "2af74df348a9c0921497757356199a609252f2c2",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4N-QUENCHED-RIGHT-TRANSFER.md",
+    "proof_blob_sha": "6435ed6e9c84134eb9adaf5edfe78f7b6c652bd4",
+    "stage": "OPEN_DRAFT_PR"
+  }
+}
