@@ -1,0 +1,99 @@
+name: hyp105-rcp001d-context
+
+on:
+  pull_request:
+    paths:
+      - "research/rcp/**"
+      - "research/test_rcp_context.py"
+      - "docs/research/hyp105/**"
+      - ".github/workflows/hyp105-rcp001d-context.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+  checks: read
+
+concurrency:
+  group: hyp105-rcp001d-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  independent-context-oracles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fail-closed provenance, no false merge/CI/theorem, semantic delta tests
+        run: python -m unittest research.test_rcp_context -v
+
+  live-research-context:
+    needs: independent-context-oracles
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build live SHA-scoped context and selected PR check-runs
+        shell: bash
+        run: |
+          extra=()
+          if [[ "$GITHUB_EVENT_NAME" == "pull_request" ]]; then
+            extra=(--check-pr "$PR_NUMBER")
+          fi
+          python -m research.rcp.context_builder \
+            --output /tmp/rcp001d-live --check-claim-prs "${extra[@]}"
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+      - name: Replay sealed live snapshot offline and produce zero self-delta
+        run: |
+          python -m research.rcp.context_builder \
+            --output /tmp/rcp001d-replay \
+            --snapshot-in /tmp/rcp001d-live/snapshot.json \
+            --previous /tmp/rcp001d-live/snapshot.json
+          cmp /tmp/rcp001d-live/L0.md /tmp/rcp001d-replay/L0.md
+          cmp /tmp/rcp001d-live/L1.md /tmp/rcp001d-replay/L1.md
+          cmp /tmp/rcp001d-live/L2.md /tmp/rcp001d-replay/L2.md
+      - name: Validate issue state, scoped models, full PR coverage and delta semantics
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path("/tmp/rcp001d-live")
+          d = json.loads((root/"snapshot.json").read_text(encoding="utf-8"))
+          assert d["schema"] == "mathlab.rcp.snapshot.v1"
+          assert d["observation"]["mode"] == "LIVE_GITHUB"
+          assert d["observation"]["atomicity"] == "NON_ATOMIC_GITHUB_API_OBSERVATION"
+          assert d["observation"]["root_mathematical_acceptance"] == "NOT_INFERABLE_FROM_ISSUE_STATE_OR_CI"
+          assert d["issues"]["root"]["number"] == 230
+          assert d["issues"]["operations"]["number"] == 474
+          assert d["inventory"]["complete_open_pr_pagination"] is True
+          assert d["inventory"]["open_pr_count"] == len(d["inventory"]["open_prs"])
+          assert len(d["research"]["claims"]) == 7
+          assert len(d["research"]["evidence"]) == 5
+          assert len(d["research"]["no_go"]) == 5
+          assert len(d["research"]["escrow"]) == 17
+          assert all(c["root_impact"] == "ROOT_BRANCHES_OPEN"
+                     for c in d["research"]["claims"])
+          assert all(c["review_status"] == "NOT_REVIEWED"
+                     for c in d["research"]["claims"])
+          output = json.loads(Path("/tmp/rcp001d-replay/delta.json").read_text(encoding="utf-8"))
+          assert output["operational_event_count"] == 0
+          assert output["scientific_registry_event_count"] == 0
+          print("RCP-001-D live GitHub + claim provenance + exact replay accepted; NOT theorem proof")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rcp001d-living-context
+          path: /tmp/rcp001d-live/
+          if-no-files-found: warn
+          retention-days: 30
