@@ -1,0 +1,95 @@
+name: hyp105-issue230-d6aa4ak-adjacent-c6-full-closure
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ak_adjacent_c6_full_closure.py"
+      - "research/test_hyp105_issue230_d6aa4ak_adjacent_c6_full_closure.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AK-ADJACENT-C6-FULL-CLOSURE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ak-adjacent-c6-full-closure.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-original-mathematical-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Eight independent original GQ source, physical, all-h tests
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ak_adjacent_c6_full_closure.AdjacentC6TrueOriginal
+  all-h-cross-hole-integer-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact h 1 through 42 and s 16,32,64 direct exceptional proof
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4ak_adjacent_c6_full_closure import (
+              original_internal_link_prehall_floor, adjacent_complete_capacity)
+          from math import comb
+          assert [original_internal_link_prehall_floor(s)[
+              "safe_with_at_least_one_occupied_cross_lower"] for s in (16,32,64)] == [
+                  187866,4022933,224930885]
+          for h in range(1,43):
+              s=1<<h
+              z=original_internal_link_prehall_floor(s)
+              assert z["accepted_original_Hall_positive_lower_NOT_PROVED"]
+              if s>=16:
+                  assert 384*z["all_map_indexed_internal_link_preHall_lower"]>=s**14
+          for a in range(6,200):
+              assert adjacent_complete_capacity(a)==6*comb(a-3,3)
+          print("AA4-AK ALL-h ORIGINAL physical preHall certificate PASS; GF5 all-map Hall lower NOT PROVED")
+          PY
+  real-original-W32-W34-finite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {power: 1, scheme: lex, side: 0}
+          - {power: 1, scheme: S68, side: 1}
+          - {power: 1, scheme: S72, side: 0}
+          - {power: 2, scheme: lex, side: 1}
+          - {power: 2, scheme: random, side: 0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True W3 genuine original full typed map and independent source 24-matchings
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+          SIDE: ${{ matrix.side }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4af_rootpair_robust_quench import occupied_root_C4_source_factors
+          from hyp105_issue230_d6aa4ak_adjacent_c6_full_closure import original_connected_full_join
+          h=int(os.environ["POWER"]); scheme=os.environ["SCHEME"]; side=int(os.environ["SIDE"])
+          m=fixture(h,scheme)
+          checked=accepted=occupied=0
+          for root in range(min(4,len(m["left_labels"]))):
+              for pair_offset in range(min(3,m["s"]*(m["s"]+1)//2)):
+                  for four in occupied_root_C4_source_factors(m,side=side,root=root)[:2]:
+                      z=original_connected_full_join(
+                          m,side=side,root=root,pair_offset=pair_offset,
+                          four=four,independent=True)
+                      checked+=1;accepted+=z["accepted_original_full_C6_Q"]
+                      occupied+=z["occupied_physical_full_C6_H"]
+          assert checked>0
+          print("AA4AK_TRUE_ORIGINAL="+json.dumps({
+              "s":m["s"],"scheme":scheme,"side":side,"cohorts":checked,
+              "accepted":accepted,"occupied":occupied},sort_keys=True))
+          PY
