@@ -60,7 +60,12 @@ jobs:
           assert q["root_A"]==q["root_B"]==q["root_C"]=="OPEN"
           assert q["baseline"]["S"]=={"S68":68,"S72":72}[os.environ["SCHEME"]]
           assert q["baseline"]["D6"]==0
-          assert q["D6_zero_total"]+sum(1 for s in open("/tmp/aa4ycyc-original-full.tsv") if False)==q["D6_zero_total"]
+          import csv
+          with open("/tmp/aa4ycyc-original-full.tsv",newline="") as matrix_file:
+              records=list(csv.DictReader(matrix_file,delimiter="\t"))
+          assert len(records)==11236
+          assert sum(int(z["D6"])==0 for z in records)==q["D6_zero_total"]
+          assert sum(int(z["point_move"])>0 and int(z["line_move"])>0 for z in records)==11025
           print("EXACT GENUINE ORIGINAL",q["scheme"],"11236 complete paired global maps PASS",
                 "BASE",q["baseline"]["S"],
                 "BEST S",q["minimum_S_full_11236"],
