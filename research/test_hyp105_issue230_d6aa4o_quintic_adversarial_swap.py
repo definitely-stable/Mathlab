@@ -125,6 +125,22 @@ class TrueOriginalQuinticSwapTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             descend_true_original_W32(t,m["left_labels"],max_steps=0)
 
+    def test_007_real_W32_S72_one_swap_stationarity_not_GLOBAL_minimum(self):
+        """A rigorous ACTUAL ORIGINAL seven-GF5 counterexample to swap optimality."""
+        r=true_W32_quintic_swap_report("S72",random_starts=2)
+        base,_,better=r["search_results"]
+        self.assertEqual(base["initial_real_BA_charge"],23)
+        self.assertEqual(base["final_real_BA_charge"],23)
+        self.assertEqual(base["strictly_decreasing_steps"],0)
+        self.assertGreaterEqual(base["certified_final_minimum_exact_swap_delta"],0)
+        self.assertEqual(base["full_historical_final_original_positive_seven_Q"],72)
+        self.assertEqual(better["final_real_BA_charge"],14)
+        self.assertEqual(better["full_historical_final_original_positive_seven_Q"],102)
+        self.assertLess(better["final_real_BA_charge"],base["final_real_BA_charge"])
+        self.assertEqual(better["independent_62370_original_sixsets_before_after"],"PASS")
+        self.assertTrue(better["not_claimed_globally_optimal"])
+        self.assertTrue(r["not_a_global_minimum_certificate"])
+
 
 if __name__=="__main__":
     unittest.main()
