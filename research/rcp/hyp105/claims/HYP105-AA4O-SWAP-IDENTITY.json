@@ -1,0 +1,57 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "id": "HYP105-AA4O-SWAP-IDENTITY",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "title": "Exact transposition-local delta for globally injective B/A charge",
+  "statement": "For s=2^h>=2 and any fixed complete globally injected f,g and two distinct original point factors u,v, swap the global assigned physical pair labels f(u),f(v). The exact B/A charge difference equals the quintic sum over supports {p} union A intersecting {u,v}; all other terms cancel exactly.",
+  "mode": "ALL_H_IDENTITY",
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=1, s=2^h"
+    },
+    {
+      "op": "forall",
+      "variable": "f,g",
+      "domain": "complete original globally injected point and line maps"
+    },
+    {
+      "op": "forall",
+      "variable": "u,v",
+      "domain": "two distinct original point factors of W(3,s)"
+    }
+  ],
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN",
+    "MODEL-BA-INTERNAL-CHARGE"
+  ],
+  "depends_on_claims": [
+    "HYP105-AA4O-QUINTIC-IDENTITY"
+  ],
+  "external_dependencies": [
+    "Global bijective transposition of two assigned physical labels preserves typed injection."
+  ],
+  "limitations": [
+    "A one-transposition local optimum need not be globally optimal.",
+    "Finite adversarial W32 search does not yield all-h global counterfamily.",
+    "Does not establish a universal lower bound for all maps."
+  ],
+  "falsification_boundary": "Only swap moves in one complete global f, not per-Q relabeling nor an exhaustive global search.",
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 471,
+    "commit": "b086566d8be17307b102e7bd89d28d4167af86a6",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4O-QUINTIC-ADVERSARIAL-SWAP.md",
+    "proof_blob_sha": "374e4c3ae2be46fff9f93b0ab1e87b9d697c2e0e",
+    "stage": "OPEN_DRAFT_PR"
+  }
+}
