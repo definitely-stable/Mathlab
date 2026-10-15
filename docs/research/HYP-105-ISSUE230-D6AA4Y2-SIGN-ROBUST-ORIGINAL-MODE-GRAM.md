@@ -55,3 +55,32 @@ Reproduce on GitHub-hosted ubuntu-latest with Python 3.12 and C++20:
 ## 4. Decision and limitations
 
 The theorem is a universal sign-robust quantitative transfer identity, not a Branch A obstruction or model-equivalent Branch C reduction. Next research gate: establish strong all-h controls on true-original source forest baseline mass and C6 alignment versus negative gradient energy; first assess numerical tightness in the complete W32 local grids. A finite tightness observation does NOT imply a general bound. Retain research Draft; require exact-head Dedicated, INDEX, Proof Audit, Full Research SUCCESS and independent mathematical review before integration. Keep issue #230 OPEN.
+
+## 5. Stronger NEW exact harmful-versus-favorable signed transport
+
+The generic Cauchy estimate is analytically valid but numerically loose: the genuine original S68 worst negative mixed delta is -70 against a conservatively rounded seven-sector Gram upper 53,105; S72 is -76 against 52,099. These are TRUE original independent hosted initial-check outputs, not all-h lower bounds. A more informative sign-robust charge must retain signed mode coincidences rather than lose cancellation in the energy norm.
+
+For each ORIGINAL feature k=(Q,tag,mode), its true signed point-side change dL_k and line-side change dR_k belong to {-1,0,+1}. Define FOUR **nonnegative integer** counts per historical original seven-mode feature space:
+
+    F_pp = #{k : dL_k=+1, dR_k=+1},
+    F_nn = #{k : dL_k=-1, dR_k=-1},
+    H_pn = #{k : dL_k=+1, dR_k=-1},
+    H_np = #{k : dL_k=-1, dR_k=+1}.
+
+These are shared mode intersections on the SAME original six-incidence Q and same connected AA positional C6 pattern, not loosely overlapping physical label sets. EXACT universal all-h equality:
+
+    Delta S = (F_pp+F_nn) - (H_pn+H_np).
+    Delta W = sum_k w_tag * (+1 for pp/nn, -1 for pn/np).
+
+Consequently the **exact sign-robust harmful-charge transfer** is
+
+    S11 >= S10 + S01 - S00 - (H_pn+H_np),
+    S11 - [S10+S01-S00-(H_pn+H_np)] = F_pp+F_nn >= 0.
+
+Similarly W11 >= W10+W01-W00 - (weighted H_pn+weighted H_np) with exact nonnegative weighted favorable surplus. This is strictly sharper than an arbitrary Cauchy upper for the sampled cases, though still NOT a positive all-h root obstruction unless harmful conflicts are bounded relative to baseline source-forest mass. The equality is universally valid for arbitrary four globally complete maps, not merely transpositions.
+
+**Proof:** for one mode k, the integer product (dL_k)(dR_k) is 0 if either difference vanishes; otherwise it is +1 when the signs agree and -1 when they disagree. Partition the finite original shared mode set into the four possible nonzero sign classes and sum. Historical tag weights are nonnegative integers and constant across map corners for immutable source Q profiles. No independence assumptions or sign-of-Hessian restrictions. For point/line source swaps, Y-CYC's true original support theorem applies to each intersection.
+
+Native independent C++20 signed-conflict engine reconstructs 106 complete point half-mode sets and 106 complete line half-mode sets per anchored W32 true original mapping, forms signed half-mode symmetric differences, then counts ALL four quadrants on EVERY 106x106 paired corner. It emits a FULL 11,236-row TSV including pp/nn/pn/np AND their exact selected historical 51palette positive GF5 weighted sums. Python verifies the exact literal original seven GF5 Delta S and Delta W from the SEPARATELY computed full Y-CYC two-sided original 62,370/62,370 incidence-index joined matrix. Each sampled true-original Q is independently checked with historical GF5 classification. The full certificate is retained as hosted workflow artifact.
+
+Do not infer a lower bound S_s>=c*s^6 from this exact decomposition. It converts the root science blocker into a precise task: prove genuine all-h harmful mode intersections cannot overwhelm unavoidable original forest/AA positive structure. Quantitative strength and finite gap must be assessed from last exact-head GREEN CI.
