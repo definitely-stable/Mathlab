@@ -1,0 +1,96 @@
+name: hyp105-issue230-d6aa4p-sparse-root-kexchange
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4p_sparse_root_kexchange.py"
+      - "research/test_hyp105_issue230_d6aa4p_sparse_root_kexchange.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4P-SPARSE-ROOT-KEXCHANGE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4p-sparse-root-kexchange.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-physical-C4-quintic-sparse-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent brute 15015 source supports vs 45 physical dual, S6 orbit and coherent 13300 f swaps
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4p_sparse_root_kexchange.py" -v
+          python research/hyp105_issue230_d6aa4p_sparse_root_kexchange.py > /tmp/aa4p-theorem.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/aa4p-theorem.json"))
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-P-SPARSE-ROOT-KEXCHANGE"
+          assert x["all_h_exact_root_C4_source_support_duality"]
+          assert x["all_h_sparse_physical_B_support_limit"]=="3*V*binom(a-2,4)"
+          assert x["complete_original_W32_K6_exact_45_active_five_factor_supports"]
+          assert x["full_original_W32_hamming_exchange_counts"]=={
+              "k2":105,"k3":910,"k4":12285,"all":13300}
+          assert not x["global_assignment_minimum_PROVED"]
+          assert x["root_A"]==x["root_B"]=="OPEN"
+          print("HYP105 original K6 physical-root dual 45-support ALL-13300 exchange count PASS")
+          PY
+  true-original-62370-GF5-full-kexchange:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All 13300 full global source point assignments and independent original 62370-sixset GF5 winners
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4p_sparse_root_kexchange.py --scheme "$SCHEME" > "/tmp/aa4p-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4p-"+os.environ["SCHEME"]+".json").read_text())
+          assert x["scheme"]==os.environ["SCHEME"]
+          assert x["original_right_g_UNCHANGED_across_all_complete_point_maps"]
+          assert x["original_incidence_ids"]==45
+          assert x["physical_B_supports_per_complete_K6_point_map"]==45
+          assert x["source_root_C4_candidates_per_actual_original_point"]==3
+          assert x["all_source_coordinate_S6_orbit_size"]==720
+          assert x["source_coordinate_action_exact_BA_charge_invariance"]=="PASS"
+          assert x["all_13300_nonidentity_k_le_4_full_injections_checked"]
+          assert not x["all_15_source_global_minimum_certified"]
+          assert x["root_A"]==x["root_B"]=="OPEN"
+          assert x["baseline_full_original_positive_GF5_seven_S"]=={"S68":68,"S72":72}[x["scheme"]]
+          assert x["baseline_internal_BA_charge"]=={"S68":36,"S72":23}[x["scheme"]]
+          rows=x["exact_distances_2_3_4_full_injection_neighborhood"]
+          assert [r["number_of_complete_globally_injective_point_maps_checked"] for r in rows]==[105,910,12285]
+          for r in rows:
+              assert r["full_exact_k_permutation_neighborhood_checked"]
+              assert r["full_dense_5_source_quintic_oracle"]=="PASS"
+              assert r["full_original_62370_sixset_GF5_oracle"]=="PASS"
+              assert r["global_original_all_15_factor_assignment_minimum_NOT_proved"]
+              assert len(r["best_global_point_labels"])==15
+              assert len({tuple(e) for e in r["best_global_point_labels"]})==15
+              assert (r["strictly_improving_full_maps"]+
+                      r["equal_cost_full_maps"]+r["worse_full_maps"]==
+                      r["number_of_complete_globally_injective_point_maps_checked"])
+              print("TRUE ORIGINAL GF5",x["scheme"],"EXACT CHANGED",r["exact_support_changed_source_points"],
+                    "CHECKED",r["number_of_complete_globally_injective_point_maps_checked"],
+                    "MIN",r["best_neighborhood_BA_internal_charge"],
+                    "IMPROVING",r["strictly_improving_full_maps"],
+                    "POSITIVE FULL SEVEN S",r["historical_full_original_seven_GF5_positive_Q_at_k_frontier"],
+                    "SOURCE CHANGE",r["best_changed_original_source_point_IDs"])
+              print("FULL SOURCE POINT EDGE ASSIGNMENT",r["best_global_point_labels"])
+          if x["scheme"]=="S72":
+              assert rows[0]["best_neighborhood_BA_internal_charge"]==23
+              assert rows[0]["strictly_improving_full_maps"]==0
+          print("MINIMAL IMPROVING EXCHANGE SUPPORT SIZE WITHIN <=4",
+                x["scheme"],x["minimum_improving_source_exchange_support_size_within_2_3_4"])
+          print("COMPLETE VALID SOURCE Hamming <=4 GF5 ORIGINAL INJECTION NEIGHBORHOOD VERIFIED")
+          PY
