@@ -83,7 +83,7 @@ jobs:
       - name: Archive exact true-original six-incidence seven-class Pareto certificate
         uses: actions/upload-artifact@v4
         with:
-          name: hyp105-aa4xcyc-seven-original-${dol}{{ matrix.scheme }}
+          name: hyp105-aa4xcyc-seven-original-${{ matrix.scheme }}
           path: /tmp/aa4xcyc-original-seven.json
           retention-days: 90
           if-no-files-found: error
