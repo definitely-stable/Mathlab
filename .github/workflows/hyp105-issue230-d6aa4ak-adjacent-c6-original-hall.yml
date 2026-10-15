@@ -39,7 +39,7 @@ jobs:
               r=adjacent_low_hole_occupied_C6_all_h(s)
               assert r["raw_complete_adjacent_C6"]==(r["a"]-3)*(r["a"]-4)*(r["a"]-5)
               assert r["genuine_original_C6_accept_upper_per_root_B_C4"]==24*(s+1)**2
-              assert r["all_global_f_g_positive_GF5_lower_NOT_PROVED"]
+              assert r["unconditional_positive_Hall_mass_NOT_PROVED"]
               if s>=16:
                   assert Fraction(r["all_global_opposite_maps_physical_occupied_C6_floor"])>=Fraction(r["a"]**3,2)
                   assert Fraction(r["Hall_positive_fraction_upper_under_low_holes"])<1
