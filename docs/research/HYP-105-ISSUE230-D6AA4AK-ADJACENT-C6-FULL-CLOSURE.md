@@ -148,6 +148,28 @@ FOR ALL h>=4, s=2^h, EVERY complete genuinely original global f,g:
 
 **IMPORTANT:** This P_link counts **physically occupied 1+3 connected-C6 patterns before checking the real original 4x4 Hall permanent**. It does **NOT** bound the accepted GF5 six-ID counts below. An adversarial original source matching can vanish locally even when P_link is huge. The previous sibling #521 even bounds original accepted 1+3 internal-link motifs by `192(s+1)` PER fixed source C4/root/pinned pair, highlighting this source/physical discrepancy. No positive all-map S, no Branch B infinite counterfamily, no strict R3/ASET follows.
 
+### AK-4 — NEW all-global genuine-original Hall-FAILED INTERNAL-LINK mass theorem (NON-Hall lower)
+
+The separate exact original-incidence source transfer of parent #521 bounds accepted genuine original *internal-link* 1+3 Q per fixed root/true-flags/occupied B-C4 by **`192d`**, where d=s+1. Each of the newly certified `N_link*C4_floor` genuinely original global-map-safe ACTIVE cohorts from AK-3 has **at least `ceil(a²/4)` occupied 1+3 physical C6 patterns**. Each Hall-positive physical H contributes at least one distinct genuine original accepted source Q; thus the number of Hall-positive H is at most the accepted Q and
+
+```text
+fraction(Hall-positive physical internal-link H in each ACTIVE cohort)
+   <= 192d / ceil(a²/4)
+   <= 768d / a²
+   <= 384/(s²+1),
+```
+
+using only `a² >= 2V =2(s+1)(s²+1)`. This is an **UPPER on positive original Hall incidence**, NOT an all-map positive lower. Summing the nonnegative complementary Hall-FAILED counts over every safe-active original-indexed root/pins/C4 cohort gives
+
+```text
+FOR EVERY complete original globally injected f,g, EVERY s=2^h>=32:
+  R_link,Hall-FAILED(f,g)
+    >= (1-384/(s²+1)) * P_link,certified
+    >= (1-384/(s²+1))*s^14/384 > 0.
+```
+
+This is a new unconditional all-global-map genuine ORIGINAL **Hall-FAILED** candidate lower `Omega(s^14)` in the specific internally linked connected-C6 physical sector, with a stronger forced failure fraction `1-O(s^-2)`. It improves the explanatory source-vs-physical barrier: despite guaranteed physical occupancy for arbitrary correlated maps, almost all of these indexed candidates are necessarily source-Hall rejected. It **cannot** establish `S_s>=Omega(s^6)`; even an all-map physical Hall success fraction as small as `Theta(s^-8)` remains compatible with the upper bound. The earlier parallel #523 establishes a separate forced Hall failure on the split-two-triangle sector with different `1-O(s^-1)` factor. Neither result implies Branch A/B/C. The code provides exact `fractions.Fraction` certificates for every power h up to 42 and the analytic bound holds for all larger h.
+
 ## Verification and next missing lemma
 
 Versioned code: `research/hyp105_issue230_d6aa4ak_adjacent_c6_full_closure.py`, tests: `research/test_hyp105_issue230_d6aa4ak_adjacent_c6_full_closure.py`, dedicated hosted workflow.
