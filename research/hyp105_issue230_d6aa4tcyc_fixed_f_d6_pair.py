@@ -259,8 +259,8 @@ def independent_real_W32_two_Q_one_complete_g(scheme):
     if second is None:
         raise AssertionError("no physically edge-disjoint second C6 completing first actual original Q")
     right=[None]*15
-    for l,e in list(zip(*first)) if False else (
-        list(zip(first[0],first[1]))+list(zip(second[0],second[1]))):
+    for l,e in (list(zip(first[0],first[1]))+
+                list(zip(second[0],second[1]))):
         if right[l] is not None and right[l]!=e:
             raise AssertionError("two original line supports should be disjoint")
         right[l]=e
