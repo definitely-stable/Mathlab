@@ -11,6 +11,7 @@ from hyp105_issue230_d6aa4tcyc_fixed_f_d6_pair import (
     genuine_W32_fixed_f_anchored_line_overlap,
     independent_real_W32_two_Q_one_complete_g,
     genuine_W32_fixed_f_original_connected_left_Q,
+    certified_all_original_orders_fixed_f_disjoint_LINE_D6_positive_covariance,
 )
 
 
@@ -116,6 +117,29 @@ class GenuineFixedFConditionalTwoD6Tests(unittest.TestCase):
         for s in (-4,0,1,3,6,True,False):
             with self.assertRaises(ValueError):
                 exact_one_sided_fixed_f_disjoint_LINE_D6_kernel(s)
+
+    def test_007_ALL_h_original_GQ_positive_fixed_f_D6_covariance(self):
+        for h in range(1,30):
+            s=1<<h
+            r=certified_all_original_orders_fixed_f_disjoint_LINE_D6_positive_covariance(s)
+            self.assertTrue(r["for_every_genuine_s_2power_original_minimal_a_positive_covariance_PROVED"])
+            self.assertTrue(r["P_a_shifted_at_12_all_coefficients_strictly_positive"])
+            self.assertGreater(r["exact_P_a_integer"],0)
+            self.assertGreater(Fraction(r["exact_q_minus_p_rational"]),0)
+            self.assertGreater(Fraction(r["exact_joint_minus_independent_product_covariance"]),0)
+            self.assertFalse(r["all_h_full_conditional_variance_PROVED"])
+            self.assertTrue(r["not_all_maps_seven_S_lower"])
+            if s==2:
+                self.assertEqual(r["a"],6)
+                self.assertEqual(r["exact_q_minus_p_rational"],"19/48048")
+            else:
+                self.assertGreaterEqual(r["a"],14)
+        # The *physical-only* alphabet 8 has NEGATIVE covariance; the
+        # original theorem is for genuine minimal a=6 or a>=14.
+        a=8;K=comb(a,2)
+        H=physical_C6_complement_inclusion_exclusion(a)["physical_Ka_C6_avoiding_fixed_C6_H"]
+        q_minus_p=Fraction(12*H,perm(K-6,6))-Fraction(perm(a,6),perm(K,6))
+        self.assertLess(q_minus_p,0)
 
 
 if __name__=="__main__":
