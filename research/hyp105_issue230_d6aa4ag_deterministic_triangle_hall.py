@@ -36,7 +36,7 @@ def analytic_triangle_hall_barrier(s):
     C4=max(0,3*comb(a-2,4)-m*(a-4)*(a-5))
     # Every four GOOD pinned physical endpoints have hole-degree <a/16.
     # Two disjoint occupied triangles are then constructible.
-    triangles=a*a//4
+    triangles=(a*a+3)//4
     lower=good*C4*triangles
     if s>=1<<19:
         assert a>=32 and 2*V<=a*a<=4*s**3
