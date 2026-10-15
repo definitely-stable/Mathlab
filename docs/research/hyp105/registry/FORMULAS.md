@@ -189,6 +189,48 @@ m=K-V,\quad 0\le m\le a-2,\quad C_s=\frac{(a)_6}{12}-m(a-2)_4,\quad N_{\mathrm{l
 
 **Pinned source:** [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md)
 
+## HYP105-F-014 — True original B/A rooted universe lower and unilateral physical marginal capacities
+
+\[
+d=s+1,\quad V=(s+1)(s^2+1),\quad M_p=\binom d2\frac{\prod_{j=0}^3d(V-3-2j)}{24},\quad B_p=3\binom{a-2}{4}\binom d2 d^4,\quad A=70\binom a6d^6.
+\]
+
+**Applies under:** All h>=1; a is the minimal physical coordinate alphabet with binom(a,2)>=V, each p is a TRUE repeated original point root; M_p is a SOURCE UNIVERSE LOWER, B_p,A are unilateral PROJECTION UPPER bounds.
+
+**Cannot conclude:** M_p is not exact |U_p| in general, and unilateral upper bounds do not determine actual globally coherent intersections.
+
+**Linked claim:** HYP105-AA4S-ROOT-FRECHET-ZERO
+
+**Pinned source:** [PR #479 @ 357b3d201e14](https://github.com/definitely-stable/Mathlab/blob/357b3d201e14713668fbd045b450ffd279610081/docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md)
+
+## HYP105-F-015 — All-h genuine original point-root Fréchet-only certificate is zero
+
+\[
+\forall h\ge1,\ \forall f,g,\ \forall p:\quad |U_p|\ge M_p>B_p+A\ge|L_p(f)|+|R_p(g)|,\quad \max\{0,|L_p|+|R_p|-|U_p|\}=0.
+\]
+
+**Applies under:** Genuine W(3,2^h) and six distinct ORIGINAL incidence IDs; all p, arbitrary COMPLETE globally injected f and g. The analogous original line-root A/B floor is zero by GQ duality.
+
+**Cannot conclude:** The Fréchet lower bound zero is NOT an assertion that actual B/A physical-source intersections vanish for any global injection.
+
+**Linked claim:** HYP105-AA4S-ROOT-FRECHET-ZERO
+
+**Pinned source:** [PR #479 @ 357b3d201e14](https://github.com/definitely-stable/Mathlab/blob/357b3d201e14713668fbd045b450ffd279610081/docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md)
+
+## HYP105-F-016 — Finite true W32 root counts versus genuine positive joint B/A seven-GF5 motifs
+
+\[
+s=2,\quad |U_p|=111132\ (15\ \mathrm{true\ roots}),\quad \mathrm{FrechetFloor}_p=0,\quad |J^{BA}(f_{\mathrm{S68}},g_{\mathrm{S68}})|=44,\quad |J^{BA}(f_{\mathrm{S72}},g_{\mathrm{S72}})|=36.
+\]
+
+**Applies under:** FINITE W(3,2) only; all 45 true original incidence IDs and two fixed globally injected source f/g fixtures S68,S72, actual original seven-class census.
+
+**Cannot conclude:** Finite genuine positive intersections do not extend to all-h minimax positivity; root-conditioned marginal-only zero does not imply actual zero.
+
+**Linked claim:** HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL
+
+**Pinned source:** [PR #479 @ 357b3d201e14](https://github.com/definitely-stable/Mathlab/blob/357b3d201e14713668fbd045b450ffd279610081/docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md)
+
 ## Formula review protocol
 
 Verify original six-incidence constraints, alphabet, all-h range, global injection semantics, and quantifier order against the cited proof commit. CI does not mechanically check the algebra.
