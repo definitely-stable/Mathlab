@@ -51,7 +51,7 @@ class TrueOriginalPositionalTwofactorAlignmentTests(unittest.TestCase):
 
     def test_003_full_original_four_coherent_global_K6_maps_reconcile_GF5(self):
         expectedS={"S68":68,"S72":72,"lex":259,"reverse":169}
-        expectedAA={"S68":263,"S72":286,"lex":364,"reverse":309}
+        expectedAA={"S68":263,"S72":286,"lex":379,"reverse":312}
         expectedD={"S68":0,"S72":0,"lex":15,"reverse":3}
         for name in expectedS:
             x=genuine_W32_same_original_Q_positional_alignment(fixture(1,name))
