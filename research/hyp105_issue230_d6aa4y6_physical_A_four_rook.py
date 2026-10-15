@@ -161,8 +161,9 @@ def independent_historical_BA_rooted_gate(
         raise ValueError("root uses TWO distinct actual original flags")
     if len(other_labels)!=len(set(map(tuple,other_labels))):
         raise ValueError("global physical opposite pair map must be injected")
-    if any(q not in neighbors for q in q_sources):
-        raise ValueError("all four source factors need real original neighbor sets")
+    if any(type(q) is not int or not 0<=q<len(neighbors)
+           for q in q_sources):
+        raise ValueError("all four actual source IDs must index real original neighbor sets")
     g=tuple(tuple(edge) for edge in other_labels)
     e1,e2=(g[q] for q in pinned_opposite)
     if not 0<=e1[0]<e1[1] or not 0<=e2[0]<e2[1] or e1==e2:
