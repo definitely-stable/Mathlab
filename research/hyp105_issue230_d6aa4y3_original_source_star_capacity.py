@@ -246,11 +246,15 @@ def genuine_W32_signed_harm_vs_source_star(scheme,native_conflict_engine):
     if "GENUINE ORIGINAL 11236 EXACT SIGNED MODE CONFLICTS COMPLETE" not in run.stderr:
         raise AssertionError("native true ORIGINAL GF5 harmful quadrant census incomplete")
     conflicts=parse_exact_signed_conflict_tsv(run.stdout)
+    from hyp105_issue230_d6aa4y3_original_cross_source_capacity import (
+        original_two_plus_two_actual_GQ_harm_upper)
+    original_source_incidence_set=set(tuple(x) for x in model["incidences"])
     labels=(model["left_labels"],model["right_labels"])
     max_h=0
     max_ratio=(0,1)
     best=None
     detail=Counter()
+    strict_cross_improvements=0
     for i in range(1,106):
         for j in range(1,106):
             kind=[]
@@ -260,7 +264,15 @@ def genuine_W32_signed_harm_vs_source_star(scheme,native_conflict_engine):
                           else "disjoint")
                 kind.append(relation)
             upper=original_swapped_source_harm_capacity(2,kind[0],kind[1])
-            cap=upper["harmful_opposite_sign_original_shared_mode_count_upper"]
+            marked_points=MOVES[i]
+            marked_lines=MOVES[j]
+            n=sum((p,l) in original_source_incidence_set
+                  for p in marked_points for l in marked_lines)
+            refined=original_two_plus_two_actual_GQ_harm_upper(
+                2,n,kind[0],kind[1])
+            cap=refined["harmful_shared_original_seven_GF5_mode_upper"]
+            if cap<upper["harmful_opposite_sign_original_shared_mode_count_upper"]:
+                strict_cross_improvements+=1
             c=conflicts[i,j]
             harm=c["pn"]+c["np"]
             favor=c["pp"]+c["nn"]
@@ -275,6 +287,8 @@ def genuine_W32_signed_harm_vs_source_star(scheme,native_conflict_engine):
                       "harmful_original_mode_count":harm,
                       "favorable_original_mode_count":favor,
                       "physical_pair_star_all_h_upper":cap,
+                      "actual_original_two_by_two_cross_incidence_count":n,
+                      "point_line_cross_star_capacity_refinement_APPLIED":True,
                       "witness_slack":cap-harm}
             if harm*max_ratio[1]>max_ratio[0]*cap:
                 max_ratio=(harm,cap)
@@ -285,6 +299,8 @@ def genuine_W32_signed_harm_vs_source_star(scheme,native_conflict_engine):
         "historical_Y2_signed_original_mode_11236_rows_read":len(conflicts),
         "mixed_true_original_global_complete_pairs_audited":11025,
         "max_harmful_original_modes":max_h,
+        "pairs_with_strict_original_point_line_cross_star_refinement":
+            strict_cross_improvements,
         "max_harmful_relative_to_analytic_source_star_upper":
             f"{max_ratio[0]}/{max_ratio[1]}",
         "max_harmful_original_global_witness":best,
@@ -292,6 +308,7 @@ def genuine_W32_signed_harm_vs_source_star(scheme,native_conflict_engine):
             f"{p}/{l}":detail[p,l] for p in ("adjacent","disjoint")
             for l in ("adjacent","disjoint")},
         "all_h_analytical_source_star_harm_upper_verified_on_original_W32":True,
+        "all_h_genuine_no4cycle_point_line_cross_refinement_verified":True,
         "all_h_original_seven_minimax_Omega_s6_PROVED":False,
     }
 
