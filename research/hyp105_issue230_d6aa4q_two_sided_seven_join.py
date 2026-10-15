@@ -245,6 +245,10 @@ def exact_two_sided_original_seven_join(model,*,independent_history=True,collect
         raise AssertionError("7 family original AA and prohibited CC structural check failed")
     if sum(cross.values())!=len(common):
         raise AssertionError("true original full two-sided 3x3 projection intersection lost Q")
+    # GQ source C/C is impossible. All other 3x3 structural cells
+    # except UNALIGNED A/A are accepted historical seven classes.
+    if S!=len(common)-(aa_total-aa_positive):
+        raise AssertionError("exact two-sided original seven-GF5 join-minus-AA-remainder identity false")
     for tag in R3_CERTIFIED_FLOORS:
         seven.setdefault(tag,0)
     if independent_history:
@@ -271,6 +275,7 @@ def exact_two_sided_original_seven_join(model,*,independent_history=True,collect
         "physical_A_A_joint_candidates":aa_total,
         "physical_A_A_genuine_D6_only":aa_positive,
         "physical_A_A_nonD6_rejected":aa_total-aa_positive,
+        "all_h_exact_two_side_joint_minus_unaligned_A_A_formula_verified":True,
         "forbidden_original_GQ_C_C_sixsets":cross["C/C"],
         "accepted_seven_GF5_original_Q_by_tag":dict(seven),
         "accepted_seven_GF5_original_S":S,
