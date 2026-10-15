@@ -73,3 +73,51 @@ The finite algorithm gives a *complete radius-one right-source-line-label transp
 After numerical results are independently checked, the mathematically consequential next problem is a quantified all-h deterministic inequality tying the true-original positional C6 alignment deficit to at least one non-AA forest-cell excess under the same global map pair. Existing AA4-V positional two-factor identity and AA4-U actual source forest transport provide necessary formal building blocks, but neither supplies that inequality. Formalize any candidate, search adversarial finite counterexamples first, then require an actual all-h proof before marking issue #230 Branch A/B/C accepted.
 
 **Publication/provenance:** all mathematical claims above are limited to the all-h support identity and exact finite exhaustive transposition procedure. Reported outcome numbers must come from successful exact-head hosted workflow or independent run; do not extrapolate the 105-local results to global deterministic quantifiers.
+
+
+## 6. Completed point-line dual extension: all 210 single-side swaps
+
+**A stronger finite X-CYC certificate, NOT a new all-h quantitative lower.** The actual source incidence structure of W(3,s) has point-line duality. To score a true-original POINT-label transposition without changing the original six-incidence universe, exchange actual point and line source endpoints and the two complete typed maps, then apply the independent right-swap oracle. Convert A-left/B-right and B-left/A-right tags back to the ORIGINAL typing. Their certified GF5 positive weights are equal (45,600), and all other accepted tags and their weights are symmetric. The full historical GF5 classifier is applied once again in the ORIGINAL typing to independently check each selected optimum.
+
+Thus per frozen original complete W32 f,g, the **closed radius-one two-sided neighborhood** consists exactly of identity, 105 swaps of original line labels with f fixed, and 105 swaps of original point labels with g fixed: 211 distinct full global mapping pairs. A simultaneous alteration of both sides is NOT included.
+
+### Exact results verified on GitHub-hosted dedicated CI
+
+Dedicated parent-of-results run: https://github.com/definitely-stable/Mathlab/actions/runs/38701781145 . All three jobs SUCCESS, including independent tests and separate S68/S72 exact 105+105 matrices; the printed numerical certificates correspond to code HEAD 640a78fe73eb01f60e079e50029518cc7c317272. Unit tests independently passed 9/9. The following table contains **literal finite results**, not probabilistic or asymptotic estimates.
+
+| Genuine original quantity | S68 | S72 |
+| --- | ---: | ---: |
+| Baseline S = N_nonAA + D6 | 68 | 72 |
+| Baseline D6 | 0 | 0 |
+| Right-original-line transpositions checked | 105 | 105 |
+| Both typed side transpositions checked | 210 | 210 |
+| Full global pairs incl. unchanged original | 211 | 211 |
+| D6-zero complete mapping pairs among the 211 | 164 | 124 |
+| Minimum S among all 211 | 68 | 72 |
+| Minimum N_nonAA with D6=0 among all 211 | 68 | 72 |
+| Minimum weighted GF5 numerator among all 211 | 3,112,510 | 3,283,610 |
+| Distinct nondominated (D6,N_nonAA) pairs | 1 | 1 |
+
+In BOTH 211-neighborhoods the unchanged baseline itself attains the minimum unweighted full S, the minimum subject to D6=0, AND the minimum historical selected 51-palette risk numerator. The only nondominated objective pair is (0,68) for S68 and (0,72) for S72. This establishes **exact weak local optimality under every single within-one-typed-side source-label transposition**, simultaneously for the full seven-class S and for the selected certified GF5 risk contribution. Equality with another neighbor is not excluded; there is no strict local minimum claim.
+
+### Original seven-class vectors at local minima
+
+| Accepted original GF5 class | S68 | S72 |
+| --- | ---: | ---: |
+| D6 | 0 | 0 |
+| B-left/A-right | 44 | 36 |
+| A-left/B-right | 21 | 31 |
+| C/A | 0 | 2 |
+| C/B | 0 | 0 |
+| B/B-overlap | 2 | 1 |
+| B/B-disjoint | 1 | 2 |
+| TOTAL selected S | 68 | 72 |
+| Certified selected weighted numerator | 3,112,510 | 3,283,610 |
+
+The independent canonical ORIGINAL-orientation AA4-Q exact full two-sided join and historical seven-GF5 oracles checked each retained minimum. The proven analytical content is still the exact all-h support derivative lemma, not the assertion that these locally optimal W32 examples lower-bound all maps at W32 or all larger powers of two.
+
+### Research decision
+
+These results reject the naive strategy of obtaining a smaller seven-class count from S68/S72 via **one** global source-factor label transposition on either typed side; they do not rule out higher-radius cycles, correlated simultaneous point-line moves, or other anchors. A follow-up should explicitly test genuine multi-swap or simultaneous moves and search for counterexamples to a PRECISE all-h deterministic charge-transfer inequality tying suppressed D6 to additional non-AA source forest-cell mass.
+
+**Acceptance category for issue #230:** OPEN_WITH_FORMAL_BLOCKER (not PROVED_A, COUNTEREXAMPLE_B or RESTRICTED_THEOREM_C), until the all-h deterministic statement is independently proved. Current finite X-CYC is a reproducible local optimization certificate only.
