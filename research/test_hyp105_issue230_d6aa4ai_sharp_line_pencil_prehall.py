@@ -101,16 +101,20 @@ class OriginalTrueGQLinePencilImprovedBarrierTests(unittest.TestCase):
         self.assertFalse(z["exact_s14_over_256_PROVED_for_all_h_ge4"])
 
     def test_05_real_W34_lex_and_random_global_point_and_line_labelings(self):
-        for scheme,expect in (
-            ("lex",(1050,1050)),("random",(1083,1081))
-        ):
+        from hyp105_issue230_d6aa4af_rootpair_robust_quench import (
+            independent_physical_C4_cycle_trace)
+        for scheme in ("lex","random"):
             m=fixture(2,scheme)
             for side in (0,1):
                 z=original_true_rootpair_physical_safety_census(
                     m,side=side,probe_good_pairs=4)
                 self.assertEqual(z["missing_global_physical_edges"],6)
-                self.assertEqual(z["one_complete_B_global_image_C4_count"],
-                                 expect[side])
+                c4=z["one_complete_B_global_image_C4_count"]
+                source_root=z["one_complete_B_global_image_C4_true_source_root"]
+                self.assertGreaterEqual(c4,945)
+                self.assertEqual(
+                    c4,independent_physical_C4_cycle_trace(
+                        m,side=side,root=source_root))
                 actual=z["actual_true_original_rootpairs"]
                 self.assertEqual(actual["all_true_original_root_line_pairs"],850)
                 self.assertEqual(actual["actual_bad_union"]+
