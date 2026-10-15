@@ -69,12 +69,20 @@ jobs:
         run: |
           PYTHONPATH=research python - <<'PY'
           from fractions import Fraction
+          from math import prod
           from hyp105_issue230_d6aa4af_rootpair_robust_quench import rootpair_robust_all_h
           from hyp105_g5e2b3e1b1a_one_sided import uniform_right_completion_BA
           for h in range(1,19):
               s=1<<h
               z=rootpair_robust_all_h(s)
-              assert Fraction(z["exact_uniform_COMPLETE_global_opposite_A_probability"])==uniform_right_completion_BA(s)["right_2factor_probability"]
+              a,K=z["a"],z["K"]
+              independent=Fraction(70*prod(a-j for j in range(6)),
+                                   prod(K-j for j in range(6)))
+              assert Fraction(z["exact_uniform_COMPLETE_global_opposite_A_probability"])==independent
+              # Legacy helper enumerates candidate a with a linear from-2
+              # loop, so limit its independent baseline to bounded h.
+              if h<=7:
+                  assert independent==uniform_right_completion_BA(s)["right_2factor_probability"]
               if s>=8:
                   assert Fraction(z["per_rootpair_eligible_opposite_A_mean_lower"])>=Fraction(s,128)
                   assert Fraction(z["aggregate_over_actual_GQ_roots_and_flags_mean_lower"])>=Fraction(s**6,256)
