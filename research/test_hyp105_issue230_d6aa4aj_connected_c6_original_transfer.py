@@ -6,7 +6,7 @@ from math import comb
 
 from hyp105_issue230_d6aa4aj_connected_c6_original_transfer import (
     exact_original_connected_C6_transfer,sector_shapes_by_literal_edges,
-    sparse_true_original_C6_upper_bound)
+    sparse_true_original_C6_upper_bound,good_original_rootpair_hall_dilution_upper)
 from hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation import (
     zero_split_original_W32,single_original_A_sector_permanent,
     full_original_W32_sector_certificate,classify_physical_A_twofactor)
@@ -172,6 +172,17 @@ class ConnectedC6OriginalTrueGQ(unittest.TestCase):
             self.assertEqual(z["internal_aux_link_upper"],192*(s+1))
             self.assertEqual(z["connected_C6_upper"],
                              48*(s+1)**2+192*(s+1))
+        # Universal GOOD-PAIR Hall-density upper, not an acceptance lower.
+        for h in (19,20,22,26):
+            bound=good_original_rootpair_hall_dilution_upper(1<<h)
+            self.assertTrue(bound["all_global_f_g_scope"])
+            self.assertLess(bound["genuine_original_accepted_to_physical_ratio_upper"],1)
+            self.assertTrue(bound["this_is_NOT_a_positive_Hall_lower"])
+            self.assertEqual(
+                bound["genuine_original_accepted_to_physical_ratio_upper"],
+                4*bound["accepted_original_Q_upper"]/(bound["a"]**2))
+        self.assertGreater(good_original_rootpair_hall_dilution_upper(1<<19)[
+            "genuine_original_hall_positive_fraction_upper"],0)
         for scheme in ("random","lex"):
             m=fixture(2,scheme)
             cap=sparse_true_original_C6_upper_bound(m["s"])
@@ -198,6 +209,9 @@ class ConnectedC6OriginalTrueGQ(unittest.TestCase):
             sector_shapes_by_literal_edges(((0,1),(1,2)),((0,1),(1,2)))
         with self.assertRaises(ValueError):
             sparse_true_original_C6_upper_bound(3)
+        for invalid in (2,16,(1<<19)-1,True):
+            with self.assertRaises(ValueError):
+                good_original_rootpair_hall_dilution_upper(invalid)
         with self.assertRaises(ValueError):
             exact_original_connected_C6_transfer(
                 dict(m,right_labels=((0,1),)*15),four=(1,2,3,4))
