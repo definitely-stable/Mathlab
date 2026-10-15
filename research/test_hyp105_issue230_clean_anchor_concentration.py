@@ -157,8 +157,13 @@ class TrueOriginalCleanAnchorConcentrationTests(unittest.TestCase):
             exact_middle_dirty_pullback(model,0,max_templates=-1)
         with self.assertRaisesRegex(ValueError,"true original middle"):
             exact_middle_dirty_pullback(model,-1)
+        from hyp105_issue230_quadrant_matching_capacity import exact_local_middle_capacity
+        ctx=EndpointEnergy(model)
+        nonzero=next(e for e in range(ctx.N) if
+            exact_local_middle_capacity(ctx,e)[
+                "unique_x_y_coordinate_disjoint_five_source_templates"]>0)
         with self.assertRaisesRegex(ValueError,"template enumeration budget"):
-            exact_middle_dirty_pullback(model,0,max_templates=0)
+            exact_middle_dirty_pullback(model,nonzero,max_templates=0)
         corrupt=dict(model)
         corrupt["left_labels"]=list(model["left_labels"])
         corrupt["left_labels"][0]=corrupt["left_labels"][1]
