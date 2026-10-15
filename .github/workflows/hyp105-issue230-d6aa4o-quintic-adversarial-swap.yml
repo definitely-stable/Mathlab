@@ -1,0 +1,107 @@
+name: hyp105-issue230-d6aa4o-quintic-adversarial-swap
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4o_quintic_adversarial_swap.py"
+      - "research/test_hyp105_issue230_d6aa4o_quintic_adversarial_swap.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4O-QUINTIC-ADVERSARIAL-SWAP.md"
+      - ".github/workflows/hyp105-issue230-d6aa4o-quintic-adversarial-swap.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-original-quintic-and-swap-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original full globally injected point-map tensor, all 105 pair swaps and 62370-GF5 complete oracles
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4o_quintic_adversarial_swap.py" -v
+          python research/hyp105_issue230_d6aa4o_quintic_adversarial_swap.py > /tmp/aa4o-identity.json
+          python - <<'PY'
+          import json
+          d=json.load(open("/tmp/aa4o-identity.json"))
+          assert d["slice"]=="HYP105-ISSUE230-D6-AA4-O-QUINTIC-ADVERSARIAL-SWAP"
+          assert d["all_h_exact_nonnegative_five_source_factor_BA_tensor_identity"]
+          assert not d["all_h_global_injective_minimum_GF5_s6_PROVED"]
+          assert d["root_A"]==d["root_B"]=="OPEN"
+          print("GENUINE ORIGINAL GF5 EXACT ALL-h QUINTIC SUPPORT AND 105 LOCAL SWAP IDENTITY PASS")
+          PY
+  genuine-original-W32-quantified-adversarial-swap-frontier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full 62370 original GF5 sixsets before and after 105-swap-exhaustive descent on three complete injected f maps
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4o_quintic_adversarial_swap.py --scheme "$SCHEME" --random-starts 2 > "/tmp/aa4o-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from fractions import Fraction
+          from pathlib import Path
+          r=json.loads(Path("/tmp/aa4o-"+os.environ["SCHEME"]+".json").read_text())
+          assert r["scheme"]==os.environ["SCHEME"]
+          assert r["one_true_complete_fixed_original_line_mapping"]
+          assert r["all_45_original_incidence_IDs"]
+          assert r["all_70_physical_right_A_2factors"]
+          assert r["all_15_global_source_point_labels_are_distinct"]
+          assert r["not_a_global_minimum_certificate"]
+          assert r["nonnegative_genuine_original_five_source_tensor_monomials"]>0
+          assert r["source_weighted_right_Q_multiplicity_max"]>=1
+          assert len(r["search_results"])==3
+          assert Fraction(r["full_uniform_complete_left_charge_expectation_given_g"])==(
+              Fraction(3,1001)*r["genuine_original_right_T_g"])
+          for j,rec in enumerate(r["search_results"]):
+              assert rec["source"]=="ONE complete globally type-injective ORIGINAL point map"
+              assert 0<=rec["final_real_BA_charge"]<=rec["initial_real_BA_charge"]
+              assert rec["all_105_original_point_pair_label_swap_gradient_nonnegative"]
+              assert rec["certified_final_minimum_exact_swap_delta"]>=0
+              assert len(rec["final_globally_injective_point_labels"])==15
+              assert len({tuple(x) for x in rec["final_globally_injective_point_labels"]})==15
+              assert rec["not_claimed_globally_optimal"] and rec["not_claimed_all_h_charge_zero"]
+              assert rec["independent_62370_original_sixsets_before_after"]=="PASS"
+              assert rec["independent_historical_full_original_GF5_final_internal_charge"]==rec[
+                  "final_real_BA_charge"]
+              assert rec["independent_historical_full_original_GF5_initial_internal_charge"]==rec[
+                  "initial_real_BA_charge"]
+              assert all(a>b for a,b in zip(rec["score_trace"],rec["score_trace"][1:]))
+              print("TRUE ORIGINAL SCHEME",r["scheme"],"START",j,
+                    "INITIAL",rec["initial_real_BA_charge"],
+                    "FINAL",rec["final_real_BA_charge"],
+                    "STRICT SWAPS",rec["strictly_decreasing_steps"],
+                    "ALL 105 swap gradients >=0","GF5 seven S",rec["full_historical_final_original_positive_seven_Q"])
+          best=min(r["search_results"],key=lambda z:z["final_real_BA_charge"])
+          print("BEST ORIGINAL GF5 B/A INTERNAL CHARGE CERTIFIED BY INDEPENDENT FULL Q CENSUS",
+                r["scheme"],r["min_found_after_valid_complete_injection_swaps"])
+          print("PINNED COMPLETE ORIGINAL SOURCE POINT EDGE MAP",
+                r["scheme"],best["final_globally_injective_point_labels"])
+          if r["scheme"]=="S72":
+              base=r["search_results"][0]
+              assert base["initial_real_BA_charge"]==base["final_real_BA_charge"]==23
+              assert base["strictly_decreasing_steps"]==0
+              assert base["certified_final_minimum_exact_swap_delta"]>=0
+              assert base["full_historical_final_original_positive_seven_Q"]==72
+              assert best["final_real_BA_charge"]==14
+              assert best["full_historical_final_original_positive_seven_Q"]==102
+              print("CERTIFIED ACTUAL S72 FULL-GQ SWAP-LOCAL NOT GLOBAL",
+                    "LOCAL",base["final_real_BA_charge"],
+                    "BETTER COMPLETE F",best["final_real_BA_charge"])
+          if r["scheme"]=="S68":
+              assert r["search_results"][0]["initial_real_BA_charge"]==36
+              assert r["search_results"][0]["final_real_BA_charge"]==17
+              assert r["search_results"][0]["full_historical_final_original_positive_seven_Q"]==103
+          print("FINITE ADVERSARIAL COMPLETE TRUE ORIGINAL K6 POINT MAPS PASS; NO GLOBAL MIN CLAIM")
+          PY
