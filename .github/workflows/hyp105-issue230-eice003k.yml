@@ -1,0 +1,28 @@
+name: hyp105-issue230-eice003k-original-clean-anchor-concentration
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  true-original-GQ-clean-anchor-concentration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: K exact true ORIGINAL GQ pencil dirty identity and nonuniform 5-source pullbacks
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_clean_anchor_concentration.py' -v
+      - name: True original W32 W34 global clean anchors versus J five-source selection
+        run: python research/hyp105_issue230_clean_anchor_concentration.py
+      - name: J exact source four-anchor codegree regression
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_anchor_filtered_codegrees.py' -v
