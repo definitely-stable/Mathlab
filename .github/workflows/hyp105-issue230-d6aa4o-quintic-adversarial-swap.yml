@@ -83,7 +83,25 @@ jobs:
                     "FINAL",rec["final_real_BA_charge"],
                     "STRICT SWAPS",rec["strictly_decreasing_steps"],
                     "ALL 105 swap gradients >=0","GF5 seven S",rec["full_historical_final_original_positive_seven_Q"])
+          best=min(r["search_results"],key=lambda z:z["final_real_BA_charge"])
           print("BEST ORIGINAL GF5 B/A INTERNAL CHARGE CERTIFIED BY INDEPENDENT FULL Q CENSUS",
                 r["scheme"],r["min_found_after_valid_complete_injection_swaps"])
+          print("PINNED COMPLETE ORIGINAL SOURCE POINT EDGE MAP",
+                r["scheme"],best["final_globally_injective_point_labels"])
+          if r["scheme"]=="S72":
+              base=r["search_results"][0]
+              assert base["initial_real_BA_charge"]==base["final_real_BA_charge"]==23
+              assert base["strictly_decreasing_steps"]==0
+              assert base["certified_final_minimum_exact_swap_delta"]>=0
+              assert base["full_historical_final_original_positive_seven_Q"]==72
+              assert best["final_real_BA_charge"]==14
+              assert best["full_historical_final_original_positive_seven_Q"]==102
+              print("CERTIFIED ACTUAL S72 FULL-GQ SWAP-LOCAL NOT GLOBAL",
+                    "LOCAL",base["final_real_BA_charge"],
+                    "BETTER COMPLETE F",best["final_real_BA_charge"])
+          if r["scheme"]=="S68":
+              assert r["search_results"][0]["initial_real_BA_charge"]==36
+              assert r["search_results"][0]["final_real_BA_charge"]==17
+              assert r["search_results"][0]["full_historical_final_original_positive_seven_Q"]==103
           print("FINITE ADVERSARIAL COMPLETE TRUE ORIGINAL K6 POINT MAPS PASS; NO GLOBAL MIN CLAIM")
           PY
