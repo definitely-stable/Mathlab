@@ -51,6 +51,11 @@ class GenuineOriginalHallSiteCapTests(unittest.TestCase):
             self.assertFalse(c["positive_Hall_mass_for_all_global_maps_NOT_PROVED"] is False)
             if s>=16:
                 self.assertTrue(c["uniform_strict_Hall_rejection_fraction_for_s_ge16_PROVED"])
+                self.assertTrue(c["all_map_original_Hall_FAILURE_Omega_s14_16plus_PROVED"])
+                reject=Fraction(c["all_map_TRUE_original_Hall_FAILED_physical_candidate_lower"])
+                self.assertGreaterEqual(
+                    reject,Fraction(s**14,256)*(1-Fraction(12*(s+1),s*s+1)))
+                self.assertGreater(reject,0)
                 self.assertLess(
                     6*(s+1)**2,
                     c["each_SAFE_fixed_rootpair_C4_physical_two_triangle_floor"])
