@@ -1,0 +1,59 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "mode": "CONDITIONAL_EXPECTATION",
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN",
+    "MODEL-UNIFORM-GLOBAL-ENSEMBLE"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 480,
+    "commit": "53af9d2f03ef4fec147b633558a0e7bb96aea070",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md",
+    "proof_blob_sha": "5f360465a324acd606e632142aa4795c559c0d9a",
+    "stage": "OPEN_DRAFT_PR"
+  },
+  "id": "HYP105-AA4RCYC-D6-QUENCHED-LOWER",
+  "title": "Every-fixed-original-point-map direct D6 quenched lower at least s^6/8",
+  "statement": "For every s=2^h>=8 and EVERY fixed complete original globally injected point map f, with physical alphabet a minimal and K=C(a,2), V=(s+1)(s^2+1), m=K-V, the occupied left connected C6 count is bounded below by C_s=(a)_6/12 - m(a-2)_4>0. At least C_s(s+1)_6 genuine original Q have distinct original points/lines and physical left C6. Therefore E_g D6(f,g) >= ((a)_6/(K)_6) * C_s * (s+1)_6 >= s^6/8, with g a SINGLE uniformly random full globally injected line map. Hence min_f max_g S_s(f,g)>=s^6/8; not min_(f,g)S_s.",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=3, s=2^h>=8"
+    },
+    {
+      "op": "forall",
+      "variable": "f",
+      "domain": "any fixed complete original point globally injected unordered physical-pair map"
+    },
+    {
+      "op": "expectation",
+      "variable": "g",
+      "domain": "one independently uniformly sampled COMPLETE globally injected original line physical-pair map, shared across ALL original Q"
+    }
+  ],
+  "depends_on_claims": [
+    "HYP105-AA4RCYC-D6-QUENCHED-IDENTITY"
+  ],
+  "external_dependencies": [
+    "Minimal physical-pair alphabet leaves m<=a-2 unoccupied edges; deletion union bound for simple K_a cycles.",
+    "True GQ original source incidence degree s+1; distinct-line SDR count at least (s+1)_6.",
+    "Finite integer-rational cases s=8,16,32,64,128 plus analytic estimates s>=256 as pinned in PR480 proof."
+  ],
+  "limitations": [
+    "The probabilistic statement does not control adversarially jointly selected f,g.",
+    "The bound certifies direct seven-positive original D6 expected charge, not full GF5 R3/ASET exponents.",
+    "Positive expectation does not imply D6>0 for all fixed g or stochastic concentration."
+  ],
+  "falsification_boundary": "Do not replace minimal physical pair alphabet with arbitrary a or source incidence Q with physical paths. Only h>=3; finite small h cases do not inherit bound as stated."
+}
