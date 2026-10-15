@@ -1,0 +1,93 @@
+name: hyp105-issue230-d6aa4tcyc-fixed-f-d6-pair-kernel
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4tcyc_fixed_f_d6_pair.py"
+      - "research/test_hyp105_issue230_d6aa4tcyc_fixed_f_d6_pair.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4TCYC-FIXED-F-D6-PAIR-KERNEL.md"
+      - ".github/workflows/hyp105-issue230-d6aa4tcyc-fixed-f-d6-pair-kernel.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-quenched-conditional-two-original-D6-kernel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True original disjoint-right-source D6 joint probability, 64-cycle complement vs physical K6-K9 brute and direct original W32 witnesses
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4tcyc_fixed_f_d6_pair.py" -v
+          python research/hyp105_issue230_d6aa4tcyc_fixed_f_d6_pair.py > /tmp/aa4tcyc-theorem.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          x=json.load(open("/tmp/aa4tcyc-theorem.json"))
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-T-CYC-FIXED-F-D6-PAIR-KERNEL"
+          assert x["all_h_exact_fixed_point_map_disjoint_original_LINE_D6_pair_kernel"]
+          assert {y["a"]:y["brute_disjoint_from_fixed_C6"] for y in
+                  x["independent_real_physical_64_IE_checks"]}=={
+                  6:3,7:45,8:327,9:1509}
+          assert x["root_A"]==x["root_B"]=="OPEN"
+          assert not x["full_conditional_second_moment_and_variance_PROVED"]
+          assert not x["universal_all_labels_S_omega_s6_PROVED"]
+          for r in x["all_h_fixed_side_one_global_g_kernel_rows"]:
+              p=Fraction(r["exact_single_Q_D6_probability_fixed_f_uniform_complete_g"])
+              q=Fraction(r["exact_second_Q_D6_given_first_AND_disjoint_original_line_factors"])
+              both=Fraction(r["exact_two_Q_D6_joint_probability_disjoint_original_LINE_factors"])
+              assert both==p*q
+              assert r["one_GLOBAL_complete_g_for_both_original_Q"]
+              assert not r["full_conditional_variance_PROVED"]
+              print("GENUINE ORIGINAL",r["s"],"PHYSICAL",r["a"],
+                    "RIGHT-DISJOINT true Q joint",str(both),
+                    "relative-to-independence",r["joint_over_independent_product"],
+                    "covariance",r["covariance_sign"])
+          print("AA4-T-CYC ALL-h CONDITIONAL ORIGINAL TWO-D6 RIGHT-SOURCE-DISJOINT PAIR KERNEL PASS")
+          PY
+  actual-original-W32-point-overlap-line-disjoint-two-D6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently count true original 21186 C6 left Q, anchored right source overlap, construct one complete right g accepting two source-point-overlapping true D6
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4tcyc_fixed_f_d6_pair.py --scheme "$SCHEME" > "/tmp/aa4tcyc-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from fractions import Fraction
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4tcyc-"+os.environ["SCHEME"]+".json").read_text())
+          a=x["true_original_W32_anchored_source_line_overlap"]
+          w=x["true_original_W32_simultaneous_two_D6_global_completion"]
+          assert a["scheme"]==w["scheme"]==os.environ["SCHEME"]
+          assert a["true_original_W32_left_C6_six_incidence_Q_count"]==21186
+          assert sum(a["anchor_original_line_support_overlap_histogram"].values())==21186
+          assert a["number_of_LINE_disjoint_Q_in_one_anchored_row"]>0
+          assert a["anchor_and_other_LINE_factors_disjoint"] and a[
+              "anchor_and_other_POINT_factors_overlap"]
+          assert a["anchored_row_is_NOT_full_conditional_variance"]
+          assert len(w["same_global_complete_right_physical_edge_labels"])==15
+          assert len({tuple(y) for y in w["same_global_complete_right_physical_edge_labels"]})==15
+          assert w["number_second_right_alignment_tuples_without_first_six_edges"]==36
+          assert w["conditional_probability_second_D6_given_first_and_disjoint_lines"]=="1/1680"
+          assert w["one_COMPLETE_right_mapping_accepts_BOTH_true_original_D6_Q"]
+          assert w["historical_original_seven_GF5_tags"]==["D6","D6"]
+          print("REAL ORIGINAL",os.environ["SCHEME"],"ANCHORED SOURCE LINE OVERLAP",a[
+              "anchor_original_line_support_overlap_histogram"])
+          print("Q0",w["real_original_Q0"],"Q1",w["real_original_Q1"])
+          print("ONE COMPLETE TRUE ORIGINAL RIGHT g",w["same_global_complete_right_physical_edge_labels"])
+          print("HISTORICAL POSITIVE GF5 D6 BOTH ORIGINAL Q",w["historical_original_seven_GF5_tags"])
+          print("GENUINE ORIGINAL W32 SOURCE-POINT SHARED AND SOURCE-LINE DISJOINT CONDITIONAL D6 PROBABILITY PASS")
+          PY
