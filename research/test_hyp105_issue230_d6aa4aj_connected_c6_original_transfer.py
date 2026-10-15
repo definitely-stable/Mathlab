@@ -1,5 +1,6 @@
 """AA4-AJ: true-original exact connected-C6 completion, two separate oracles."""
 import unittest
+from fractions import Fraction
 from collections import Counter
 from itertools import combinations,permutations
 from math import comb
@@ -180,7 +181,7 @@ class ConnectedC6OriginalTrueGQ(unittest.TestCase):
             self.assertTrue(bound["this_is_NOT_a_positive_Hall_lower"])
             self.assertEqual(
                 bound["genuine_original_accepted_to_physical_ratio_upper"],
-                4*bound["accepted_original_Q_upper"]/(bound["a"]**2))
+                Fraction(4*bound["accepted_original_Q_upper"],bound["a"]**2))
         self.assertGreater(good_original_rootpair_hall_dilution_upper(1<<19)[
             "genuine_original_hall_positive_fraction_upper"],0)
         for scheme in ("random","lex"):
