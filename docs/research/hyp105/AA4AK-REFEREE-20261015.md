@@ -31,6 +31,18 @@ Let `s=2^h`, `V=(s+1)(s²+1)`, `d=s+1`, `a=min{t: C(t,2)>=V}`, `m=C(a,2)-V<=a-2`
 
 The independent verifier covers h=1..60 exactly using `math.isqrt`, integer powers, `math.comb` and `fractions.Fraction`, without reading the proposed theorem implementation. Its finite symplectic source checks are intentionally separate from the physical all-h proof.
 
+### Original W(3,2) independent hosted finite oracle — exact evidence
+
+The independent hosted [referee run #38783036168](https://github.com/definitely-stable/Mathlab/actions/runs/38783036168), job `independent-stdlib-mathematical-falsifiers`, succeeded with **4/4 tests**, plus a second direct program invocation printing:
+
+```text
+REFEREE_TRUE_ORIGINAL_W32={"anchored":39,"cohorts":60,"direct":39,"nonzero":27}
+```
+
+Unlike the older frozen original W32 schemes, this fixture is **independently constructed and indexed**: original point factors are the 15 nonzero F₂⁴ vectors, original lines are the 15 isotropic two-dimensional subspaces under the code's symplectic alternating form, and both complete physical K6 pair-label injections are independently permuted with indices `f(i)=(7*i+4) mod 15`, `g(j)=(11*j+2) mod 15`. For the 60 actually disjoint-pinned true-original root/flags/physical C4 cohorts, **39 accepted original Q matchings** are counted by both algorithms (direct physical Hamiltonian sixcycles/24 bijections and true source-neighbor internal-link middle-edge anchoring); **27 cohorts** have nonzero contribution. The counts are **only** for those cohorts in this one finite globally coherent fixture, not the total seven-family S nor an all-h source-Hall positive lower.
+
+The same CI run independently printed s=16/32/64/128 and h=42/60 exact integer certificates; the all-h analytic proof is not delegated to those finite tests.
+
 ## Scope/no-go and current independent review findings
 
 - **PASS, scoped mathematical implications:** The four-cross double count, missing-edge physical completion lower, all-h threshold and source-degree forced Hall rejection are algebraically consistent and preserve one globally coherent f,g. Conditioned on the explicitly pinned #518/#521 upstream theorems, #526's new pre-Hall and Hall-FAILED estimates follow.
