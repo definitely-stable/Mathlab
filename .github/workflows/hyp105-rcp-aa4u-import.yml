@@ -1,0 +1,54 @@
+name: hyp105-rcp-aa4u-import
+
+on:
+  pull_request:
+    paths:
+      - "research/rcp/**"
+      - "research/test_rcp_aa4u_import.py"
+      - "docs/research/hyp105/**"
+      - ".github/workflows/hyp105-rcp-aa4u-import.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: hyp105-rcp-aa4u-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  exact-source-and-registry-generation:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify original AA4-U bytes, quantifiers, W32 arithmetic and no-go
+        run: python -m unittest research.test_rcp_aa4u_import -v
+      - name: Render source-derived research Markdown registers
+        run: |
+          python -m research.rcp.structured_docs --write
+          python -m research.rcp.structured_docs --check
+      - name: Commit generated mathematical Markdown only into this PR branch
+        shell: bash
+        env:
+          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          git add docs/research/hyp105/registry/
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "RCP-AA4U: regenerate five source-forest math Markdown registers"
+            git push origin "HEAD:refs/heads/$PR_BRANCH"
+          fi
+      - name: Recheck generated Markdown parity and source audit
+        run: |
+          python -m research.rcp.structured_docs --check
+          python -m unittest research.test_rcp_aa4u_import -v
