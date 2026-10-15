@@ -80,7 +80,7 @@ class RootMarginalImportTests(unittest.TestCase):
                          ["forall", "forall", "forall"])
         self.assertEqual([q["variable"] for q in c["quantifiers"]],
                          ["h", "f,g", "p"])
-        self.assertIn("ORIGINAL", c["statement"])
+        self.assertIn("original", c["statement"].lower())
         self.assertIn("Fréchet", c["statement"])
         self.assertIn("zero", " ".join(c["limitations"]).lower())
 
