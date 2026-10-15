@@ -182,9 +182,11 @@ class Hyp105AA4AKReferee(unittest.TestCase):
             for m in (0,1,a//3,a-2):
                 # deletions entirely on outside vertices, cold pins exactly
                 M=set(list(combinations(range(4,a),2))[:m])
-                Y={y for y in out if edge(1,y) in E-M}
-                Z={z for z in out if edge(3,z) in E-M}
-                occupied=sum(edge(y,z) in E-M for y in Y for z in Z if y!=z)
+                occupied_edges=E-M  # Materialize once; do not rebuild per (y,z).
+                Y={y for y in out if edge(1,y) in occupied_edges}
+                Z={z for z in out if edge(3,z) in occupied_edges}
+                occupied=sum(edge(y,z) in occupied_edges
+                             for y in Y for z in Z if y!=z)
                 self.assertGreaterEqual(occupied, (a*a+3)//4)
                 self.assertGreaterEqual(
                     occupied, len(Y)*len(Z)-len(Y&Z)-2*len(M))
