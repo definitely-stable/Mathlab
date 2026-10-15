@@ -191,7 +191,7 @@ def all_h_two_new_selected_GF5_ensemble_sectors(s):
         "exact_both_complete_global_uniform_selected_D6":Ed6,
         "exact_both_complete_global_uniform_selected_AB_plus_BA":Eab,
         "prior_X_Y_three_selected_tag_expectation":three,
-        "six_distinct_selected_GF5_tag_expectation":five,
+        "six_distinct_selected_GF5_tag_expectation":six,
         "source_original_BB_disjoint_still_UNCLOSED":True,
         "leading_AA_source_over_s24":Fraction(1,720),
         "leading_AB_BA_source_each_over_s21":Fraction(1,48),
