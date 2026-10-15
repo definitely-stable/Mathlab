@@ -256,6 +256,134 @@ class ExactRightLineSwapFrontier:
         }
 
 
+def dual_original_W32_model(model):
+    """Exact true-original point/line dual; preserve original six-flag IDs."""
+    inc, f, g = strict_true_W32_model(model)
+    return {
+        "s": 2, "a": 6,
+        "incidences": tuple((l, p) for p, l in inc),
+        "left_labels": g, "right_labels": f,
+    }
+
+
+def _original_orientation_witness(row, side):
+    """Convert a dual (line-point) score to genuine ORIGINAL (point-line)."""
+    if side not in ("point", "line", "identity"):
+        raise ValueError("original point, line or identity only")
+    counts = row["true_original_seven_classes"]
+    if side == "point":
+        swapped = {
+            "A-left/B-right": "B-left/A-right",
+            "B-left/A-right": "A-left/B-right",
+        }
+        counts = {t: row["true_original_seven_classes"][swapped.get(t, t)]
+                  for t in R3_CERTIFIED_FLOORS}
+    result = {k: v for k, v in row.items()
+              if k not in ("swap_source_LINE_IDs", "true_original_seven_classes")}
+    result["true_original_seven_classes"] = counts
+    result["modified_original_source_side"] = side
+    result["swap_original_source_IDs"] = row["swap_source_LINE_IDs"]
+    if sum(counts.values()) != row["S_seven"]:
+        raise AssertionError("source point/line dual class exchange failed")
+    if sum(counts[k] * R3_CERTIFIED_FLOORS[k] for k in counts) != row[
+            "selected_GF5_51palette_certified_numerator"]:
+        raise AssertionError("certified 51-palette weight not invariant under true duality")
+    return result
+
+
+def exhaustive_bilateral_210_original_source_swaps(model):
+    """ALL 105 point-label swaps + ALL 105 line-label swaps + identity.
+
+    Genuine point↔line source GQ dual retains exactly the same 45 original
+    incidence IDs and exchanges the two typed globally injected maps.
+    Historical A/B tag names are exchanged back into ORIGINAL orientation.
+    No mixed simultaneous (f,g) move is included.
+    """
+    point_dual = ExactRightLineSwapFrontier(dual_original_W32_model(model))
+    line = ExactRightLineSwapFrontier(model)
+    baseline = _original_orientation_witness(line.base, "identity")
+    dual_baseline = _original_orientation_witness(point_dual.base, "point")
+    for field in ("D6", "non_AA", "S_seven",
+                  "true_original_seven_classes",
+                  "selected_GF5_51palette_certified_numerator"):
+        if dual_baseline[field] != baseline[field]:
+            raise AssertionError("genuine original point-line GQ dual baseline failed")
+    rows = [baseline]
+    rows.extend(_original_orientation_witness(line.swap(u, v), "line")
+                for u, v in combinations(range(15), 2))
+    rows.extend(_original_orientation_witness(point_dual.swap(u, v), "point")
+                for u, v in combinations(range(15), 2))
+    if len(rows) != 211:
+        raise AssertionError("must include exactly both 105 genuine global swaps")
+    def key(row):
+        return (row["S_seven"], row["D6"],
+                row["modified_original_source_side"],
+                tuple(row["swap_original_source_IDs"] or ()))
+    best = min(rows, key=key)
+    zero = [x for x in rows if x["D6"] == 0]
+    weighted = min(rows, key=lambda x: (
+        x["selected_GF5_51palette_certified_numerator"], *key(x)))
+    best_zero = min(zero, key=key) if zero else None
+    pairs = sorted({(x["D6"], x["non_AA"]) for x in rows})
+    frontier_pairs = [
+        (d, n) for d, n in pairs if not any(
+            d2 <= d and n2 <= n and (d2 < d or n2 < n)
+            for d2, n2 in pairs)]
+    frontier = [
+        min((x for x in rows if (x["D6"], x["non_AA"]) == pair), key=key)
+        for pair in frontier_pairs]
+    return {
+        "scope": "ONE frozen true ORIGINAL W32 f,g, identity + every one-side point or line global pair-label swap",
+        "source_POINT_swaps": 105,
+        "source_LINE_swaps": 105,
+        "complete_global_map_pairs_in_neighborhood": 211,
+        "baseline": baseline,
+        "minimum_S_witness": best,
+        "minimum_D6_zero_witness": best_zero,
+        "minimum_weighted_51palette_numerator_witness": weighted,
+        "D6_zero_label_pairs": len(zero),
+        "D6_positive_label_pairs": len(rows) - len(zero),
+        "distinct_D6_nonAA_pairs": len(pairs),
+        "pareto_frontier": frontier,
+        "every_single_one_side_swap_exhausted": True,
+        "simultaneous_two_side_swaps_exhausted": False,
+        "all_h_min_f_g_seven_S_lower_PROVED": False,
+    }
+
+
+def independent_bilateral_witness_historical(model, witness):
+    """True ORIGINAL side labelling (not the dual) full seven GF5 census."""
+    f = list(model["left_labels"])
+    g = list(model["right_labels"])
+    side = witness["modified_original_source_side"]
+    swap = witness["swap_original_source_IDs"]
+    if swap is not None:
+        u, v = swap
+        if side == "point":
+            f[u], f[v] = f[v], f[u]
+        elif side == "line":
+            g[u], g[v] = g[v], g[u]
+        else:
+            raise AssertionError("nonidentity swap must declare source side")
+    actual = exact_two_sided_original_seven_join(
+        {**model, "left_labels": tuple(f), "right_labels": tuple(g)},
+        independent_history=True)
+    expected = {
+        "D6": actual["physical_A_A_genuine_D6_only"],
+        "S_seven": actual["accepted_seven_GF5_original_S"],
+        "non_AA": actual["accepted_seven_GF5_original_S"] -
+                  actual["physical_A_A_genuine_D6_only"],
+        "selected_GF5_51palette_certified_numerator":
+            actual["selected_GF5_51palette_certified_numerator"],
+        "true_original_seven_classes":
+            actual["accepted_seven_GF5_original_Q_by_tag"],
+    }
+    for k, v in expected.items():
+        if witness[k] != v:
+            raise AssertionError("true ORIGINAL two-sided historical dual witness mismatch "+k)
+    return True
+
+
 def report(schemes=("S68", "S72")):
     data = {}
     for scheme in schemes:
@@ -275,11 +403,19 @@ def report(schemes=("S68", "S72")):
                 for key in independent:
                     if chosen[key] != counted[key]:
                         raise AssertionError("independent historical optimum mismatch: "+key)
+        two_side = exhaustive_bilateral_210_original_source_swaps(fixture(1, scheme))
+        for picked in (two_side["minimum_S_witness"],
+                       two_side["minimum_D6_zero_witness"],
+                       two_side["minimum_weighted_51palette_numerator_witness"]):
+            if picked is not None:
+                independent_bilateral_witness_historical(fixture(1, scheme), picked)
+        x["two_sided_210_local_neighborhood"] = two_side
         data[scheme] = x
     return {
         "slice": "HYP105-ISSUE230-D6-AA4-X-CYC-SEVEN-CLASS-LOCAL-SWAP-FRONTIER",
         "all_h_exact_sparse_swap_derivative_identity": True,
         "finite_true_original_W32_exact_full_105_transpositions": True,
+        "finite_true_original_W32_exact_full_210_two_sided_transpositions": True,
         "fixed_f_source_LINE_label_permutations_only": True,
         "root_A": "OPEN", "root_B": "OPEN", "root_C": "OPEN",
         "schemes": data,
