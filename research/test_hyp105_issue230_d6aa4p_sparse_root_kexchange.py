@@ -121,6 +121,17 @@ class GenuineOriginalGF5SparsePointRootTests(unittest.TestCase):
             self.assertEqual(len(x["exact_distances_2_3_4_full_injection_neighborhood"]),3)
             self.assertTrue(x["all_13300_nonidentity_k_le_4_full_injections_checked"])
             self.assertFalse(x["all_15_source_global_minimum_certified"])
+            rows=x["exact_distances_2_3_4_full_injection_neighborhood"]
+            self.assertEqual([r["best_neighborhood_BA_internal_charge"] for r in rows][1:],
+                             {"S68":[25,22],"S72":[21,17]}[scheme])
+            self.assertEqual(rows[1]["strictly_improving_full_maps"],
+                             {"S68":129,"S72":3}[scheme])
+            self.assertEqual(rows[2]["strictly_improving_full_maps"],
+                             {"S68":1446,"S72":29}[scheme])
+            self.assertEqual(rows[2]["historical_full_original_seven_GF5_positive_Q_at_k_frontier"],
+                             {"S68":91,"S72":92}[scheme])
+            self.assertEqual(x["minimum_improving_source_exchange_support_size_within_2_3_4"],
+                             {"S68":2,"S72":3}[scheme])
             for q in x["exact_distances_2_3_4_full_injection_neighborhood"]:
                 self.assertEqual(q["full_dense_5_source_quintic_oracle"],"PASS")
                 self.assertEqual(q["full_original_62370_sixset_GF5_oracle"],"PASS")
