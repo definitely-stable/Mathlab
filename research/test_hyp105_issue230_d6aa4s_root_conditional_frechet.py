@@ -56,8 +56,9 @@ class GenuineOriginalRootConditionedNoGoTests(unittest.TestCase):
             self.assertLessEqual(z["a"]**2,4*s**3)
             # Rigorous rational inequality used in the independent proof:
             self.assertGreater(48*s**3,1015625)
-            self.assertGreaterEqual(s**18,
-                768*z["minimum_true_original_B_A_source_universe_per_root"]//2)
+            self.assertGreaterEqual(
+                768*z["minimum_true_original_B_A_source_universe_per_root"],
+                s**18)
 
     def test_004_reject_incorrect_source_orders(self):
         for s in (1,3,5,0,-2,2.0,"4",True):
