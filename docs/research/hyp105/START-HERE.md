@@ -59,3 +59,7 @@ The resulting `snapshot.json` has a SHA-256 self-integrity check and non-atomic 
 ## Proof impact, structured mathematical documentation and integration
 
 RCP-001-E introduces the [Proof Impact audit](PROOF-IMPACT.md), five versioned [structured research Markdown registers](registry/RESULTS.md), the [formula catalog](registry/FORMULAS.md) and an [ordered integration plan](INTEGRATION-PLAN.md). Unlike the transient L0/L1/L2 GitHub snapshots, the registered formulas, quantifiers, proof dependencies, source SHA pins, limitations and research protocol are retained in Git. After editing the mathematical JSON sources, regenerate via `python -m research.rcp.structured_docs --write`; CI checks parity with `--check`. Proof impact can identify registered downstream re-review obligations but does not independently diagnose contradictions or establish Root A/B/C.
+
+## Research coverage and next proof imports
+
+The A→E provenance and proof-impact infrastructure is integrated into `main`. [RCP-COV-001](COVERAGE-BACKFILL.md) adds a live, non-promoting research-coverage audit: run `python -m research.rcp.coverage_audit --snapshot /tmp/hyp105-current/snapshot.json --output /tmp/hyp105-coverage`. It lists all currently *tagged* open research PRs without registered proof claims, pinning their observed SHA and linking to exact sources. A missing registry entry is not mathematical rejection, and a title match is not a theorem. Import new proof/evidence records with explicitly correct quantifier order and retained Git bytes before scientific acceptance.
