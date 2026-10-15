@@ -1,0 +1,109 @@
+name: hyp105-issue230-d6aa4al-full-ba-source-site-cap
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4al_full_ba_source_site_cap.py"
+      - "research/test_hyp105_issue230_d6aa4al_full_ba_source_site_cap.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AL-FOUR-SECTOR-GQ-SITE-REFINEMENT.md"
+      - ".github/workflows/hyp105-issue230-d6aa4al-full-ba-source-site-cap.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  strict-original-all-GQ-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Seven independent true-source W32 all-135-root-cohorts, W34/W38, all-h and symplectic checks
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4al_full_ba_source_site_cap.py" -v
+  all-h-independent-new-48d2-global-map-bound:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All-h original GQ source rook site d bound and four A sector cap against old sibling #524
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4al_full_ba_source_site_cap import sharp_all_h_original_full_BA_upper
+          for h in range(1,44):
+              s=1<<h
+              z=sharp_all_h_original_full_BA_upper(s)
+              d=s+1
+              assert z["disjoint_connected_C6_crossed_spoke_cap_NEW"]==12*d*d
+              assert z["disjoint_all_true_original_A_sectors_cap_NEW"]==18*d*d+192*d
+              assert z["adjacent_all_true_original_A_sectors_cap_NEW"]==48*d*d
+              assert z["all_fixed_actual_original_B_C4_cohort_cap_NEW"]<z[
+                  "OLD_parallel_AK_full_cohort_cap"]
+              if s>=8:
+                  assert z["all_fixed_actual_original_B_C4_cohort_cap_NEW"]==48*d*d
+              assert z["NO_positive_all_maps_GF5_lower"]
+              assert z["NO_issue230_A_B_C_closure"]
+          print("Exact all-h TRUE-original full B/A four-sector bound PASS h1..43")
+          PY
+  true-original-four-A-sector-independent-real-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {power: 1, scheme: S68, side: 0}
+          - {power: 1, scheme: S72, side: 1}
+          - {power: 1, scheme: lex, side: 0}
+          - {power: 1, scheme: reverse, side: 1}
+          - {power: 2, scheme: lex, side: 0}
+          - {power: 2, scheme: random, side: 1}
+          - {power: 3, scheme: lex, side: 1}
+          - {power: 3, scheme: random, side: 0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real globally injected W32/W34/W38 original 4-sector perfect matching vs new source-site injection
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+          SIDE: ${{ matrix.side }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from itertools import combinations
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4af_rootpair_robust_quench import occupied_root_C4_source_factors
+          from hyp105_issue230_d6aa4al_full_ba_source_site_cap import sharp_true_original_complete_BA_cohort
+          m=fixture(int(os.environ["POWER"]),os.environ["SCHEME"])
+          side=int(os.environ["SIDE"])
+          inc=tuple(m["incidences"])
+          opposite=m["right_labels" if side==0 else "left_labels"]
+          pair=None
+          for root in range(len(m["left_labels"])):
+              nbr=sorted(x[1-side] for x in inc if x[side]==root)
+              for offset,(i,j) in enumerate(combinations(nbr,2)):
+                  if not(set(opposite[i])&set(opposite[j])):
+                      pair=root,offset
+                      break
+              if pair is not None:break
+          assert pair is not None
+          root,offset=pair
+          four=occupied_root_C4_source_factors(m,side=side,root=root)[0]
+          z=sharp_true_original_complete_BA_cohort(
+              m,side=side,root=root,pair_offset=offset,four=four,
+              independent_brute=True)
+          assert not z["pinned_physical_adjacent"]
+          assert z["exact_accepted_true_original_six_ID_GF5"]<=z[
+              "new_true_original_upper_for_this_sector"]
+          assert z["independent_complete_original_four_rook_comparison"]
+          print(json.dumps({"s":m["s"],"side":side,"root":root,"pair":offset,
+                            "actual_original_accepted":z["exact_accepted_true_original_six_ID_GF5"],
+                            "new_source_ceiling":z["new_true_original_upper_for_this_sector"]},
+                           indent=2,sort_keys=True))
+          PY
