@@ -24,6 +24,7 @@ positive genuine Hall fraction, Branch A/B, ASET exponent is asserted.
 """
 from collections import Counter
 from itertools import combinations, permutations
+from functools import lru_cache
 
 from hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation import _source_cohort
 from hyp105_issue230_d6aa4ah_signature_hall_kernel import PAIRS4
@@ -114,8 +115,10 @@ def exact_original_connected_C6_transfer(model,*,side=0,root=0,
     # original source singleton row q_k, of physical degree s+1 in
     # the actual true GQ incidence graph.
     link_accepted=link_occupied=0
-    m=tuple(_edge(i,j) for i,j in combinations(range(a),2) if (i,j) not in E)
-    missing=frozenset(m)
+    # One-time O(a²) construction per complete global opposite map,
+    # cached across all true original roots/C4. Thereafter this sector's
+    # physical-hole correction costs O(m), m<=a-2, per cohort.
+    missing=_missing_physical_edges(a,E)
     for i,p in enumerate(e0):
         other0=e0[1-i]
         for j,q in enumerate(e1):
@@ -156,6 +159,9 @@ def exact_original_connected_C6_transfer(model,*,side=0,root=0,
                             "accepted_true_original_Q":valid,
                             "source_incidence_anchored_yz_edge":True})
     total=spoke_accepted+link_accepted
+    cap=sparse_true_original_C6_upper_bound(model["s"])
+    assert spoke_accepted<=cap["two_cross_spoke_upper"]
+    assert link_accepted<=cap["internal_aux_link_upper"]
     return dict(
         s=model["s"],side=side,root=root,selected_four=four,
         pinned_actual_original_opposite_factors=pinned,
@@ -167,6 +173,7 @@ def exact_original_connected_C6_transfer(model,*,side=0,root=0,
         internal_aux_link_occupied_physical_H=link_occupied,
         occupied_physical_connected_C6_H=spoke_occupied+link_occupied,
         channel_details=tuple(records),
+        source_degree_upper_bound=cap,
         exact_all_h_source_original_transfer_PROVED=True,
         sparse_source_incidence_yz_loop_degree=model["s"]+1,
         source_original_hall_positive_lower_NOT_PROVED=True)
@@ -187,3 +194,39 @@ def sector_shapes_by_literal_edges(H,pins):
     if yz in H:
         return "internal_aux_link"
     return "two_cross_spoke"
+
+
+@lru_cache(maxsize=16)
+def _missing_physical_edges(a,E):
+    """Cache the complement once per full globally injected physical map."""
+    return frozenset((i,j) for i,j in combinations(range(a),2)
+                     if (i,j) not in E)
+
+
+def sparse_true_original_C6_upper_bound(s):
+    """Universal degree bound for ANY fixed actual original root/C4 cohort.
+
+    No lower bound: source GQ degree s+1 constrains the number of ACTUAL
+    source-compatible physical completions. Spoke channels: two crossed
+    endpoint pairings, six row bipartitions each. A fixed S's 2-rook
+    site set has size <=2(s+1): the FIRST physical spoke edge is
+    incident in the true original source graph to one of TWO genuine
+    free source rows and those rows each have degree exactly s+1.
+    Hence <= 2*6*[2(s+1)]² = 48(s+1)².
+
+    Internal link: four pinned cross edges, four options for the genuine
+    free original source row consuming yz, <=s+1 actual incidence edges
+    per row, at most two orientations, six remaining source matching
+    permutations = 4*4*(s+1)*2*6 = 192(s+1).
+
+    No physical-degree/independence assumption, all h>=1. The sum is an
+    upper bound on accepted ORIGINAL C6 Q per fixed anchored B/C4 cohort.
+    """
+    if type(s) is not int or s<2 or s&(s-1):
+        raise ValueError("true original W(3,2^h), h>=1")
+    return dict(s=s,
+                two_cross_spoke_upper=48*(s+1)**2,
+                internal_aux_link_upper=192*(s+1),
+                connected_C6_upper=48*(s+1)**2+192*(s+1),
+                source_girth_eight_and_degree_bound_PROVED=True,
+                accepted_global_S_lower_NOT_PROVED=True)
