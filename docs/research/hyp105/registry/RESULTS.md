@@ -143,3 +143,4 @@ The table indexes **7 specific results** from **5 research PRs**. It does not cl
 ## Sources and remaining obligations
 
 The proof is the pinned original source, not this index. Branch A/B/C requires separate uniform or counterfamily proof.
+
