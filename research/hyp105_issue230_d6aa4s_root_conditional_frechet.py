@@ -11,7 +11,7 @@ It neither says genuine intersections vanish nor settles the all-h S minimax.
 from collections import Counter
 from functools import lru_cache
 from itertools import combinations
-from math import comb, prod
+from math import comb, prod, isqrt
 
 from hyp105_issue230_projection import fixture
 from hyp105_issue230_d6aa4q_two_sided_seven_join import (
@@ -26,9 +26,12 @@ def minimal_physical_a(s):
     if type(s) is not int or s < 2 or s & (s - 1):
         raise ValueError("genuine W(3,s), s=2^h with h>=1 only")
     V = (s + 1) * (s*s + 1)
-    a = 2
+    # O(log V) integer-only exact inverse triangular number; no float
+    a = (1 + isqrt(1+8*V))//2
     while comb(a, 2) < V:
         a += 1
+    while a > 2 and comb(a-1, 2) >= V:
+        a -= 1
     return a
 
 
