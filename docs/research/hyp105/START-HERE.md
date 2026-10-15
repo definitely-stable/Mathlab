@@ -83,3 +83,7 @@ See [AA4-S original source no-go import](AA4S-IMPORT.md): registered all-h true 
 ## Original six-forest nine-cell transportation and source corpus
 
 See [AA4-U original source-forest evidence import](AA4U-IMPORT.md), pinned to scientific Draft PR #486: all-h genuine source six-edge forests, exactly nine BOTH-sides A/B/C eligible path cells (C/C forbidden), deterministic abstract per-cell Fréchet lower, and finite full W32 original 45-choose-6 source census. The finite S68/S72 zero-relaxed-bound but positive original seven-GF5 charge is a **proof-method limitation**, not a minimax counterfamily. Four scoped claims, five formulas, one new no-go and original Git-escrow SHA256 are mirrored to `registry/*.md` from canonical structured JSON. Independent scientific review and root #230 remain OPEN.
+
+## Original-line shared D6 gluing (AA4-U-CYC)
+
+The [AA4-U-CYC registry import](AA4UCYC-IMPORT.md) pins the genuine original six-incidence **two-event conditional** D6 gluing formula from source PR #487, an anchored 21,186-candidate W(3,2) row, exact original proof/oracle/test SHA records, and an overlap-cardinality-only no-go. It does not imply a complete second moment or an all-(f,g) universal GF5 lower. Formula and claim pages are generated into the five committed `registry/*.md` documents.
