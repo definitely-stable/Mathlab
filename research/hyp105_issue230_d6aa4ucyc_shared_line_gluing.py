@@ -229,7 +229,7 @@ def _actual_original_Q_line_cycle(model,Q):
         if u==v or v in graph[u]:
             raise ValueError("not a simple source-line C6")
         graph[u].add(v);graph[v].add(u)
-    if any(len(n)!=2 for n in graph):
+    if any(len(neighbors)!=2 for neighbors in graph.values()):
         raise ValueError("not a genuine left dual C6")
     start=min(graph)
     direction=min(graph[start])
