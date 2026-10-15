@@ -75,3 +75,7 @@ See [AA4-R-CYC provenance](AA4RCYC-IMPORT.md): source [research PR #480](https:/
 ## Root-conditioned Fréchet method barrier (AA4-S)
 
 See [AA4-S original source no-go import](AA4S-IMPORT.md): registered all-h true original point-root B/A (and dual A/B) unilateral Fréchet lower **equals zero** for every full legal global f,g,p, while the true finite W(3,2) source can retain positive jointly accepted GF5 motifs. The result limits a *proof method*, not the conjectured universal seven-class lower. Evidence and three LaTeX formulas flow into `registry/{RESULTS,FORMULAS,PROOF-GRAPH,PROTOCOLS,RESEARCH-MATRIX}.md` through `python -m research.rcp.structured_docs --write` and `--check`; source scientific PR #479 stays independently unreviewed.
+
+## Original 60-position aligned D6 tensor and all-h conditional bound
+
+[AA4-T provenance and exact-scope protocol](AA4T-IMPORT.md) registers the genuine original six-incidence positional 60-cycle tensor from scientific Draft PR #484. Five source-pinned claims separate the exact deterministic D6 inner product, one-complete-global-map expectation, every-fixed-side conditional lower for all h>=1, its original GQ dual, and true finite W(3,2) mean-versus-realization witness. The 1/98304 all-h bound is **weaker** than the earlier 1/8 AA4-R-CYC bound for h>=3. None implies an every-(f,g) seven-class minimax. Permanent formulas F-017..021 and proof links are generated into `registry/*.md` and validated by read-only CI after initial synchronization.
