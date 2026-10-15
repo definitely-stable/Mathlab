@@ -105,7 +105,7 @@ class FakeAPI:
 class PaginationTests(unittest.TestCase):
     def test_two_pages_complete_with_link(self):
         root = "https://api.github.com/repos/" + REPO + "/pulls"
-        url1, url2 = root + "?state=open&per_page=100", root + "?page=2&per_page=100"
+        url1, url2 = root + "?state=open&per_page=100", root + "?state=open&per_page=100&page=2"
         fetch = FakeAPI({
             url1: ([pr(i, "b%d" % i) for i in range(1, 101)],
                    '<' + url2 + '>; rel="next", <unused>; rel="last"'),
@@ -114,6 +114,18 @@ class PaginationTests(unittest.TestCase):
         api = GitHubAPI(REPO, get=fetch)
         self.assertEqual(len(api.open_pulls()), 101)
         self.assertEqual(api.calls, 2)
+
+    def test_canonical_repository_id_pagination_alias(self):
+        root = "https://api.github.com/repos/" + REPO + "/pulls"
+        u1 = root + "?state=open&per_page=100"
+        u2 = root + "?state=open&per_page=100&page=2"
+        canonical = "https://api.github.com/repositories/1409353595/pulls?page=2"
+        api = GitHubAPI(REPO, get=FakeAPI({
+            u1: ([pr(i, "branch%d" % i) for i in range(1, 101)],
+                 "<" + canonical + '>; rel="next"'),
+            u2: ([pr(101, "branch101")], ""),
+        }))
+        self.assertEqual(len(api.open_pulls()), 101)
 
     def test_missing_link_on_full_page_probes_next(self):
         root = "https://api.github.com/repos/" + REPO + "/pulls"
@@ -128,7 +140,7 @@ class PaginationTests(unittest.TestCase):
 
     def test_duplicate_across_pages_fails_closed(self):
         root = "https://api.github.com/repos/" + REPO + "/pulls"
-        u1, u2 = root + "?state=open&per_page=100", root + "?page=2"
+        u1, u2 = root + "?state=open&per_page=100", root + "?state=open&per_page=100&page=2"
         api = GitHubAPI(REPO, get=FakeAPI({
             u1: ([pr(1, "a")], '<' + u2 + '>; rel="next"'),
             u2: ([pr(1, "a")], ""),
