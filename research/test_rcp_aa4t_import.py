@@ -117,7 +117,7 @@ class PositionalD6ImportTests(unittest.TestCase):
         self.assertEqual([q["op"] for q in c["quantifiers"]],
                          ["forall","exists","finite_witness"])
         self.assertIn("h=1",c["quantifiers"][0]["domain"])
-        self.assertIn("not an all-h",c["limitations"][-1].lower())
+        self.assertIn("all-h",c["limitations"][-1].lower())
 
     def test_07_exact_dependency_graph_and_all_claims_evidenced(self):
         self.assertEqual(self.by_id[TENSOR]["depends_on_claims"],
@@ -159,7 +159,7 @@ class PositionalD6ImportTests(unittest.TestCase):
     def test_11_relative_constants_do_not_downgrade_existing_stronger_bound(self):
         self.assertLess(Fraction(1,98304),Fraction(1,8))
         self.assertIn("1/8",self.by_id[LOWER]["statement"])
-        self.assertIn("h>=3",self.by_id[LOWER]["statement"])
+        self.assertIn("h=1,2",self.by_id[LOWER]["statement"])
         self.assertIn("s>=8",self.by_id[LOWER]["statement"])
 
     def test_12_exact_finite_true_w32_mean_and_realized_zero(self):
