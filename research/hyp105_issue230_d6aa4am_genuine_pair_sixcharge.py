@@ -13,7 +13,7 @@ All-h exact structural channel bounds:
   physical source projection C => exactly 0 eligible pairs.
 Hence selected tag:
   D6: k=6 (the two physical 6-cycles on the SIX Q flags align);
-  B/A, A/B, B/B: 0<=k<=4;
+  B/A, A/B: 0<=k<=3; B/B-overlap: <=2; B/B-disjoint: <=1;
   C/A, C/B: k=0.
 No per-Q physical mapping resampling or fake source forest.
 
@@ -39,8 +39,17 @@ from hyp105_issue230_d6aa4al_global_original_coordinate_transport import (
 from hyp105_g5e2b3e1b0_seven_signature import R3_CERTIFIED_FLOORS,seven_census
 
 
-_CAP={"D6":6,"B-left/A-right":4,"A-left/B-right":4,
-      "C/A":0,"C/B":0,"B/B-overlap":4,"B/B-disjoint":4}
+# Sharpened exact ALL-h source-position graph intersection caps:
+#  - A projection dual is C6 or C3+C3; induced on the four B-singleton
+#    flag positions has at most THREE edges (a 4-subset induces no C4).
+#  - B projection eligible D edges are a C4 on its four singleton
+#    flag positions; two genuine repeated-B positions are excluded.
+#    Two B repeated-position pairs overlap in at most one true original
+#    incidence ID: if union size 3, shared singleton set size 3 and
+#    induced C4 edge count <=2; if union size4, size2 count <=1.
+#  - D6 aligned A/A column dual is an identical C6 on all six flags.
+_CAP={"D6":6,"B-left/A-right":3,"A-left/B-right":3,
+      "C/A":0,"C/B":0,"B/B-overlap":2,"B/B-disjoint":1}
 _KIND_COUNTS={"A":(1,1,1,1,1,1),"B":(1,1,1,1,2),"C":(2,2,2)}
 
 
@@ -161,6 +170,9 @@ def exact_W32_original_seven_pair_extension_certificate(model,
                 raise AssertionError("false pair original source/physical indexing")
             anchor_degree[e]+=1
     E=sum(tag_e.values())
+    exact_structural_charge_cap=sum(_CAP[t]*tag_s[t] for t in _CAP)
+    if E>exact_structural_charge_cap:
+        raise AssertionError("class-weighted all-h genuine source position cap")
     S=selected["S_seven"]
     U=sum(tag_unanchored.values())
     covered=len(anchor_degree)
@@ -182,6 +194,8 @@ def exact_W32_original_seven_pair_extension_certificate(model,
         "D_unordered_actual_original_bilateral_two_flag_pairs":len(D),
         "S_selected_original_seven_GF5_sixsets":S,
         "E_original_extension_incidences":E,
+        "all_h_tag_weighted_original_extension_E_upper":exact_structural_charge_cap,
+        "all_h_tag_weighted_source_extension_slack":exact_structural_charge_cap-E,
         "U_selected_sixsets_with_ZERO_original_D_pair_anchors":U,
         "S_with_positive_D_anchor":S-U,
         "D_covered_by_at_least_one_selected_original_six_Q":covered,
