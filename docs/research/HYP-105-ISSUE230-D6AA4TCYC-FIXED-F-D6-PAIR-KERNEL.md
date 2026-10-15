@@ -61,6 +61,75 @@ On real W32, \(a=6,K=15\), \(p=720/(15)_6=1/5005\), \(H_6=3\), \(q=12\cdot3/(9)_
 
 This is about three times the independent-product p², confirming material conditional positive correlation at the saturated physical K6 alphabet. Do not assume the sign continues universally for all larger a.
 
+## 2A. NEW ALL-h STRICT positive conditional pair covariance for GENUINE minimal original GQ alphabets
+
+The all-h one-sided fixed-\(f\) pair kernel has a stronger mathematically meaningful SIGN consequence that did not follow from the predecessor AA4-R-CYC expectation alone.
+
+For any physical alphabet \(a\ge6\), put \(K=a(a-1)/2\), \(p=(a)_6/(K)_6\), \(q=12H_a/(K-6)_6\). Substituting the exact 64-term inclusion-exclusion gives the **exact polynomial identity**
+
+\[
+H_a=\frac{
+a^6-15a^5+13a^4+855a^3-5126a^2+8664a+1044
+}{12}.
+\]
+
+Define
+
+\[
+\begin{aligned}
+P(a)={}&6a^{11}-174a^{10}+1602a^9-2189a^8-42102a^7\\
+ &+157748a^6+403706a^5-2294941a^4-1674364a^3\\
+ &+14501476a^2+2327792a-35537280.
+\end{aligned}
+\]
+
+Straight integer-algebra simplification yields
+
+\[
+\boxed{q-p=\frac{768P(a)}{
+(a-5)(a-4)(a+1)(a+2)(a+3)(a+4)
+\prod_{j\in\{22,18,16,14,10,8,4\}}(a^2-a-j)
+}.}
+\]
+
+All denominator factors are strictly positive for \(a\ge6\). For \(a\ge12\), substitute \(t=a-12\ge0\), and obtain a **manifestly positive integer polynomial**
+
+\[
+\begin{aligned}
+P(t+12)={}&6t^{11}+618t^{10}+28242t^9+754027t^8\\
+&+13029162t^7+152397500t^6+1224585146t^5\\
+&+6705318203t^4+24194129492t^3+53456486932t^2\\
+&+61643554832t+23663646720 >0.
+\end{aligned}
+\]
+
+For **every genuine original GQ order \(s=2^h\ge4\)**, the minimal physical alphabet is \(a\ge14\), so \(q>p\). For the sole remaining original order \(s=2\), its minimal physical alphabet is \(a=6\), where \(q-p=19/48048>0\). Hence a **NEW genuine ALL-h positive conditional covariance theorem**:
+
+\[
+\boxed{\forall s=2^h\ge2,\ \forall f\text{ complete},\
+\operatorname{Cov}_g\!\left(
+\mathbf1_{D6(Q_0)},\mathbf1_{D6(Q_1)}\mid f\right)
+=p(q-p)>0}
+\]
+
+for every pair of genuine left-D6-eligible original \(Q_0,Q_1\) with DISJOINT original LINE factor supports (but possibly overlapping original POINT supports). This is a theorem about the signs of exact probabilities under one full global right injection, not about independent physical events or a lower bound for every deterministic g.
+
+**Essential scope countercontrol:** the physical alphabet \(a=8\) has \(q-p=-1711/1338557220<0\), and \(a=9\) is also negative. Thus positive covariance is NOT a theorem for arbitrary \(a\ge6\). It depends on the **minimal alphabet realized by genuine original \(2^h\) GQs** (either a6 or a≥14). This agrees with prior JPKC-016's warning that physical-kernel covariance signs change at intermediate alphabets. The proof algebra and positivity are separately exercised in CI for **29 distinct original GQ powers of two**, including high orders where the physical alphabet contains trillions of coordinates; no physical graphs of those sizes are constructed.
+
+Positive covariance in the disjoint original-LINE pair sector provides a strict obstacle to incorrectly modeling fixed-\(f\) D6 completions as independent Bernoulli trials. It is NOT concentration, because all pairs sharing original source lines remain unaccounted for, and positive covariance alone cannot exclude a rare but very large D6 count or a zero-D6 adversarial right g.
+
+### Finite anchored original incidence overlap (independent hosted result)
+
+Both genuine original W32 S68/S72 frozen \(f\) fixtures have 21,186 left connected C6 six-flag candidates. Anchoring the same deterministic true original source Q0=(0,5,7,10,13,39), the exact number of true Q' with r shared original source LINE factors is:
+
+| r | 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Number of Q' | **305** | 3,061 | 7,934 | 7,173 | 2,426 | 279 | 8 |
+
+The 305 members of r=0 support the exact \(pq\) conditional probability; **this is an anchored row, not a full ordered pair histogram** and cannot be promoted to a full \(\mathbb E_g D6^2\).
+
+The explicit second genuine Q1=(19,21,25,27,33,42) shares original POINT source factors with Q0 but **no original LINE source factor**. One COMPLETE globally injected right K6 edge labeling simultaneously realizes both as true accepted seven-GF5 D6 by historical classification; among the 720 possible aligned right six-edge image tuples for Q1, exactly **36** avoid the six previously used physical edge labels of Q0, independently verifying \(H_6=3\) and q=36/(9)_6=1/1680.
+
 ## 3. Genuine ORIGINAL W32 source-line disjointness with overlapping original points
 
 For separately pinned true original W(3,2) S68 and S72 fixed complete left point maps f, enumerate ALL 60 occupied six-coordinate connected physical C6 graphs on K6, recover their six original source point factors using the inverse of the same f, and select six TRUE ORIGINAL point-line incidences with six different original line factors. This yields exactly **21,186** true-original candidate Q per fixed f (independently checked against AA4-R-CYC and its historical selected-left oracle).
