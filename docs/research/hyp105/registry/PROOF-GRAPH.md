@@ -18,6 +18,7 @@ Only explicitly registered edges are included. An unregistered historical proof 
 | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | HYP105-AA4S-ROOT-FRECHET-ZERO |
 | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | HYP105-AA4T-POSITIONAL-D6-TENSOR |
 | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | HYP105-AA4U-FOREST-FRECHET-LOWER |
+| HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL |
 | HYP105-AA4RCYC-D6-QUENCHED-IDENTITY | HYP105-AA4RCYC-D6-QUENCHED-LOWER |
 | HYP105-AA4RCYC-D6-QUENCHED-LOWER | HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER |
 | HYP105-AA4S-ROOT-FRECHET-ZERO | HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL |
@@ -30,6 +31,7 @@ Only explicitly registered edges are included. An unregistered historical proof 
 | HYP105-AA4U-NINE-ORIGINAL-FOREST | HYP105-AA4U-FOREST-FRECHET-LOWER |
 | HYP105-AA4U-NINE-ORIGINAL-FOREST | HYP105-AA4U-W32-NINE-FOREST-CENSUS |
 | HYP105-AA4U-W32-NINE-FOREST-CENSUS | HYP105-AA4U-W32-ZERO-MARGINAL-POSITIVE-JOINT |
+| HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL | HYP105-AA4UCYC-W32-ANCHORED-ROW |
 
 ## Explicit external proof inputs
 
@@ -130,6 +132,17 @@ Only explicitly registered edges are included. An unregistered historical proof 
 - Pinned W32 S68 and S72 source fixtures and historical original seven-positive-GF5 classifier.
 - Original source AA4-Q same-six-ID exact joined physical intersection and AA4-T connected aligned D6 tensor definitions.
 
+### HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL
+
+- Predecessor scientific PR #485 disjoint original-line-factor pair kernel, historical 64-term H_a complement count; not newly proved by this import.
+- Original AA4-U-CYC scientific source PR #487 canonical 13,327-pattern coefficient enumeration and original source-line cycle-signature normalization.
+- Physical D6 original-column aligned GF5 positional classifier from AA4-Q and exact globally injective marginal assignment distribution.
+
+### HYP105-AA4UCYC-W32-ANCHORED-ROW
+
+- Independent finite genuine W(3,2) source Q enumeration, historical seven-class original GF5 D6 classifier and canonical dihedral cycle signature oracle in source PR #487.
+- Research PR #485 independently records source-line-overlap row count for predecessor; exact finite S68/S72 joint checker is pinned source not independently replayed by catalog import.
+
 ### HYP105-EICE003K-DIRTY-ANCHOR
 
 - Genuine GQ uniqueness and source-pencil combinatorics from pinned EICE-003-K proof.
@@ -149,12 +162,15 @@ Only explicitly registered edges are included. An unregistered historical proof 
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4Q-SEVEN-ORIGINAL-JOIN -> HYP105-AA4RCYC-D6-QUENCHED-IDENTITY. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4Q-SEVEN-ORIGINAL-JOIN -> HYP105-AA4T-POSITIONAL-D6-TENSOR. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4Q-SEVEN-ORIGINAL-JOIN -> HYP105-AA4U-FOREST-FRECHET-LOWER. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
+- **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4Q-SEVEN-ORIGINAL-JOIN -> HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4S-ROOT-FRECHET-ZERO -> HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4T-QUENCHED-TENSOR-IDENTITY -> HYP105-AA4T-W32-POSITIVE-MEAN-ZERO-D6. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4U-FOREST-FRECHET-LOWER -> HYP105-AA4U-W32-ZERO-MARGINAL-POSITIVE-JOINT. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4U-NINE-ORIGINAL-FOREST -> HYP105-AA4U-W32-NINE-FOREST-CENSUS. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
+- **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL -> HYP105-AA4UCYC-W32-ANCHORED-ROW. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **EXPECTATION_TO_DETERMINISTIC_BRIDGE_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4O-QUINTIC-IDENTITY. The dependency link must not use averaging as a pointwise proof without an explicit argument.
 - **MODEL_SCOPE_BRIDGE_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4O-QUINTIC-IDENTITY. Dependency may use an independent deterministic proof or a model-preserving reduction; inspect source.
+- **MODEL_SCOPE_BRIDGE_REVIEW**: HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL -> HYP105-AA4UCYC-W32-ANCHORED-ROW. Dependency may use an independent deterministic proof or a model-preserving reduction; inspect source.
 
 A model difference is not itself a contradiction. Review the original proof or record a valid reduction.
 

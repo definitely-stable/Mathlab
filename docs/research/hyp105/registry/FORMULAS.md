@@ -371,6 +371,48 @@ s=2,\quad \sum_F X_F(S72)=358,\quad X_{AA}(S72)=286,\quad D_6(S72)=0,\quad S(S72
 
 **Pinned source:** [PR #486 @ f49dcef044e8](https://github.com/definitely-stable/Mathlab/blob/f49dcef044e8a4f1bb17f080ffa11c7b365a077a/docs/research/HYP-105-ISSUE230-D6AA4U-SOURCE-FOREST-TRANSPORTATION.md)
 
+## HYP105-F-027 — All-h genuine original shared-line pair D6 gluing polynomial
+
+\[
+\Pr_g[D_6(Q_0)\cap D_6(Q_1)\mid f,Q_0,Q_1]=\frac{(a)_6}{(K)_{12-r}}\sum_{k=0}^{6}c_{\tau,k}(a-6)_k,\quad K=\binom a2,\quad r=|L(Q_0)\cap L(Q_1)|.
+\]
+
+**Applies under:** All h>=1; genuine original W(3,2^h) six-distinct-incidence Q0,Q1, fixed SINGLE globally injected original point map f, ONE uniformly sampled complete globally injected original line map g; tau retains physical-left original-line-cycle positional gluing.
+
+**Cannot conclude:** An exact conditional pair probability does NOT yield pointwise D6 positivity, a full second moment or the universal seven-positive-class minimax.
+
+**Linked claim:** HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL
+
+**Pinned source:** [PR #487 @ 1502844a49ce](https://github.com/definitely-stable/Mathlab/blob/1502844a49cea1631206b2b68144c65f879fc4c0/docs/research/HYP-105-ISSUE230-D6AA4UCYC-SHARED-LINE-GLUING.md)
+
+## HYP105-F-028 — Pair cyclic gluing: same r but distinct exact joint D6 constraints
+
+\[
+r=6,\ \tau_{\mathrm{same}}:\Pr(D_6(Q_0)\cap D_6(Q_1))=p,\quad r=6,\ \tau_{\mathrm{different}}:\Pr=0;\qquad r=2:\ \exists\tau_0,\tau_1:\ p_{\tau_0}=0<p_{\tau_1}.
+\]
+
+**Applies under:** Every true original cycle adjacency signature tau with shared line factors and one globally coherent uniform right map g; r-only aggregation is insufficient even for genuinely valid original incidence sets, and conditional context f,Q0,Q1 is implicit throughout.
+
+**Cannot conclude:** An overlap-cardinality-only covariance estimate is not exact and this positional incompatibility is not a global counterfamily to seven-positive-class S.
+
+**Linked claim:** HYP105-AA4UCYC-SHARED-LINE-D6-KERNEL
+
+**Pinned source:** [PR #487 @ 1502844a49ce](https://github.com/definitely-stable/Mathlab/blob/1502844a49cea1631206b2b68144c65f879fc4c0/docs/research/HYP-105-ISSUE230-D6AA4UCYC-SHARED-LINE-GLUING.md)
+
+## HYP105-F-029 — Finite real W32 21186-source anchored row and conditional D6 expectation
+
+\[
+|\mathcal Q_f|=21186,\quad |\mathcal T|=112,\quad N_+=6192,\ N_0=14994,\quad \sum_{Q_1\in\mathcal Q_f}\Pr_g(D_6(Q_0)\cap D_6(Q_1)\mid f)=\frac{19457}{10810800},\quad \mathbb E_g[D_6\mid D_6(Q_0),f]=\frac{19457}{2160}.
+\]
+
+**Applies under:** FINITE genuine original W(3,2), frozen globally injected point maps S68 or S72, fixed Q0=(0,5,7,10,13,39), all 21186 actual candidate Q1; right source g is uniformly drawn as one complete global injection.
+
+**Cannot conclude:** A single anchored row over Q1 does NOT imply the complete 21186-by-21186 second moment or an all-h variance estimate.
+
+**Linked claim:** HYP105-AA4UCYC-W32-ANCHORED-ROW
+
+**Pinned source:** [PR #487 @ 1502844a49ce](https://github.com/definitely-stable/Mathlab/blob/1502844a49cea1631206b2b68144c65f879fc4c0/docs/research/HYP-105-ISSUE230-D6AA4UCYC-SHARED-LINE-GLUING.md)
+
 ## Formula review protocol
 
 Verify original six-incidence constraints, alphabet, all-h range, global injection semantics, and quantifier order against the cited proof commit. CI does not mechanically check the algebra.
