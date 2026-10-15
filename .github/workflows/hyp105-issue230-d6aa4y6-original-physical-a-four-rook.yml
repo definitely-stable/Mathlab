@@ -1,0 +1,99 @@
+name: hyp105-issue230-d6aa4y6-original-physical-a-four-rook
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4y6_physical_A_four_rook.py"
+      - "research/test_hyp105_issue230_d6aa4y6_physical_A_four_rook.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4Y6-ORIGINAL-PHYSICAL-A-FOUR-ROOK.md"
+      - ".github/workflows/hyp105-issue230-d6aa4y6-original-physical-a-four-rook.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-genuine-original-4rook-no-K22-lemma:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaust 65536 forbidden-4cycle matrices, independent 4rook assignments and physical K6/K7 twofactor completions
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4y6_physical_A_four_rook.py" -v
+          python research/hyp105_issue230_d6aa4y6_physical_A_four_rook.py > /tmp/y6-all-h-original-gq-4rook.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/y6-all-h-original-gq-4rook.json"))
+          assert x["all_h_exact_rooted_BA_2factor_4rook_join_PROVED"]
+          assert x["all_h_permanent_4x4_K22_free_sharp_three_PROVED"]
+          assert x["root_A"]==x["root_B"]==x["root_C"]=="OPEN"
+          z=x["K22_free_four_by_four_certificate"]
+          assert z["all_binary_4_by_4_matrices_exhausted"]==65536
+          assert z["genuine_GQ_K22_free_4x4_matrices"]==18521
+          assert z["maximum_permanent"]==3
+          assert z["permanent_histogram"]=={"0":11993,"1":5688,"2":744,"3":96}
+          assert len(x["physical_two_pinned_completion_symbolic"])==14
+          for row in x["physical_two_pinned_completion_symbolic"]:
+              assert row["adjacent"]["original_source_GQ_girth_K22_permanent_at_most_3"]
+              assert row["disjoint"]["original_source_GQ_girth_K22_permanent_at_most_3"]
+              assert not row["adjacent"]["all_h_universal_seven_motif_lower_PROVED"]
+          print("ALL-h TRUE ORIGINAL GQ no-K22 PHYSICAL 2FACTOR 4ROOK <=3 EXACT GATE PASS")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-y6-all-h-gq-4rook-matrix-universe
+          path: /tmp/y6-all-h-original-gq-4rook.json
+          retention-days: 90
+          if-no-files-found: error
+  original-W32-four-complete-global-physical-4rook-censuses:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72, lex, reverse]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaust all original 45 true rooted flag cohorts per typed side, actual opposite physical K6 completion and 4rook GQ perfect matchings
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4y6_physical_A_four_rook.py --scheme "$SCHEME" > /tmp/y6-real-original-physical-gate.json
+          python - <<'PY'
+          import os,json
+          x=json.load(open("/tmp/y6-real-original-physical-gate.json"))
+          assert x["scheme"]==os.environ["SCHEME"]
+          assert x["real_original_global_complete_K6_maps"]
+          assert x["all_h_exact_BA_physical_2factor_x_original_4rook_identity_PROVED"]
+          assert x["independent_4_by_4_GQ_no_K22_permanent_le_3_PROVED"]
+          assert x["root_A"]==x["root_B"]==x["root_C"]=="OPEN"
+          for tag in ("B-left/A-right","A-left/B-right"):
+              t=x["per_historical_BA_tag"][tag]
+              assert t["rooted_cohorts_exhaustively_checked"]==45
+              assert t["true_original_B_physical_C4_patterns_examined"]==135
+              assert t["historical_GF5_independent_Y5_and_AA4Q_agree"]
+              assert t["all_135_B_C4_independent_literal_ORIGINAL_six_ID_checks"]=="PASS"
+              assert len(t["all_45_root_two_original_flag_cohort_certificates"])==45
+              assert sum(row["accepted_by_literal_AND_4rook"] for row in t["all_45_root_two_original_flag_cohort_certificates"])==t["accepted_historical_GF5_by_exact_four_rook_2factor"]
+              assert t["rooted_cohorts_with_zero_historical_GF5"]+t["rooted_cohorts_with_positive_historical_GF5"]==45
+              assert set(t["nonzero_permanent_1_2_3_histogram"])=={"1","2","3"}
+              assert t["physically_possible_K6_A_2factors_checked"]>=135*7
+              assert t["physically_possible_K6_A_2factors_checked"]<=135*14
+          if x["scheme"]=="S68":
+              assert x["per_historical_BA_tag"]["B-left/A-right"]["accepted_historical_GF5_by_exact_four_rook_2factor"]==44
+              assert x["per_historical_BA_tag"]["A-left/B-right"]["accepted_historical_GF5_by_exact_four_rook_2factor"]==21
+          if x["scheme"]=="S72":
+              assert x["per_historical_BA_tag"]["B-left/A-right"]["accepted_historical_GF5_by_exact_four_rook_2factor"]==36
+              assert x["per_historical_BA_tag"]["A-left/B-right"]["accepted_historical_GF5_by_exact_four_rook_2factor"]==31
+          print("TRUE ORIGINAL W32 PHYSICAL A K6 2FACTOR x GQ 4ROOK COMPLETE",x["scheme"],x["per_historical_BA_tag"])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-y6-original-4rook-${{ matrix.scheme }}
+          path: /tmp/y6-real-original-physical-gate.json
+          retention-days: 90
+          if-no-files-found: error
