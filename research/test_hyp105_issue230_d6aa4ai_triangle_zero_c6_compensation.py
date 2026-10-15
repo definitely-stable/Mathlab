@@ -5,7 +5,8 @@ from hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation import (
     TAGS,ZERO_SPLIT_POINT,ZERO_SPLIT_LINE,zero_split_original_W32,
     classify_physical_A_twofactor,exact_physical_A_sector_capacities,
     full_original_W32_sector_certificate,independent_literal_original_W32_sector_census,
-    single_original_A_sector_permanent)
+    single_original_A_sector_permanent,occupied_connected_C6_bridge,
+    independent_connected_C6_bridge_count,analytic_two_A_sector_all_map_barrier)
 from hyp105_issue230_d6aa4ad_opposite_a_hall_transfer import pinned_twofactor_completions
 from hyp105_issue230_d6aa4af_rootpair_robust_quench import occupied_root_C4_source_factors
 from hyp105_issue230_d6aa4q_two_sided_seven_join import exact_two_sided_original_seven_join
@@ -123,6 +124,40 @@ class CompleteOriginalTriangleCounterexample(unittest.TestCase):
         with self.assertRaises(ValueError):
             full_original_W32_sector_certificate(dict(m,left_labels=((0,1),)*15),side=0)
 
+
+
+    def test_09_all_h_global_two_distinct_A_sectors_analytic(self):
+        for h in (1,2,3,8,16,19,20,22,26):
+            s=1<<h
+            z=analytic_two_A_sector_all_map_barrier(s)
+            self.assertEqual(
+                z["two_disjoint_A_sectors_indexed_pre_Hall_lower"],
+                z["split_triangle_indexed_pre_Hall_lower"]+
+                z["connected_C6_bridge_indexed_pre_Hall_lower"])
+            if h>=19:
+                self.assertTrue(z["all_global_f_g_s14_over_128_pre_Hall_PROVED"])
+                self.assertGreaterEqual(z["two_disjoint_A_sectors_indexed_pre_Hall_lower"],
+                                        s**14//128)
+            self.assertTrue(z["genuine_original_4x4_Hall_success_lower_NOT_PROVED"])
+
+    def test_10_occupied_connected_C6_bridge_two_independent_oracles(self):
+        for a in (6,7,8):
+            full=set(combinations(range(a),2))
+            pins=((0,1),(2,3))
+            for holes in ((),((0,4),),((0,4),(2,5)),
+                          ((0,4),(1,5),(2,6),(3,7))):
+                E=full-set(holes)
+                literal=occupied_connected_C6_bridge(E,*pins,a)
+                independent=independent_connected_C6_bridge_count(E,*pins,a)
+                self.assertEqual(len(literal),independent)
+                self.assertTrue(all(classify_physical_A_twofactor(
+                                    H,pins)=="connected_C6" for H in literal))
+            adjacent=((0,1),(1,2))
+            self.assertEqual(occupied_connected_C6_bridge(full,*adjacent,a),())
+            self.assertEqual(independent_connected_C6_bridge_count(full,*adjacent,a),0)
+        m=zero_split_original_W32()
+        E=set(tuple(e) for e in m["right_labels"])
+        self.assertEqual(len(occupied_connected_C6_bridge(E,(0,1),(2,3),6)),2)
 
 if __name__=="__main__":
     unittest.main()
