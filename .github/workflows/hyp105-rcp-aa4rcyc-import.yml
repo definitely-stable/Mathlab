@@ -50,5 +50,15 @@ jobs:
             git commit -m "RCP-AA4R: regenerate exact structured Markdown from pinned original D6 claims"
             git push origin "HEAD:refs/heads/$PR_BRANCH"
           fi
+      - name: Delete only verified accidental temporary branch
+        shell: bash
+        run: |
+          actual="$(git ls-remote origin refs/heads/__HEAD_REF__ | cut -f1)"
+          if [[ "$actual" == "e784bc79e766967c5bfc2cf91e44e1384c5197bb" ]]; then
+            git push origin --delete __HEAD_REF__
+          elif [[ -n "$actual" ]]; then
+            echo "Temporary branch moved unexpectedly; refusing to delete" >&2
+            exit 1
+          fi
       - name: Verify all registered scientific Markdown is in sync
         run: python -m research.rcp.structured_docs --check
