@@ -107,8 +107,7 @@ class RootMarginalImportTests(unittest.TestCase):
                  "HYP105-NG-AA4S-ROOT-MARGINAL-FRECHET-ZERO")
         self.assertEqual(n["kind"], "INVALID_INFERENCE")
         self.assertEqual(set(n["related_claim_ids"]), {A,B})
-        self.assertIn("zero", n["rejected_inference"].lower()
-                      + n["mathematical_basis"].lower())
+        self.assertIn("=0", n["mathematical_basis"])
         self.assertTrue(any("positive" in x.lower()
                             for x in n["does_not_refute"]))
 
