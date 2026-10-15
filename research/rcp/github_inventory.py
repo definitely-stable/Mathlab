@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 import re
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlparse, parse_qsl, urlencode
+from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 SHA = re.compile(r"^[0-9a-f]{40}$")
@@ -55,17 +55,14 @@ class GitHubAPI:
         expected = "/repos/" + self.repo + "/"
         if not path.startswith(expected):
             raise InventoryError("unexpected API path")
-        url = "https://api.github.com" + path + "?" + (query + "&" if query else "") + "per_page=100"
-        seen, rows = set(), []
-        while url:
-            parsed = urlparse(url)
-            if (parsed.scheme, parsed.netloc, parsed.path) != (
-                "https", "api.github.com", path
-            ) or parsed.username or parsed.password or parsed.fragment:
-                raise InventoryError("untrusted pagination link")
-            if url in seen:
-                raise InventoryError("pagination cycle")
-            seen.add(url)
+        base_url = "https://api.github.com" + path + "?" + (
+            query + "&" if query else "") + "per_page=100"
+        suffix = path[len("/repos/" + self.repo):]
+        number, rows = 1, []
+        while True:
+            # Construct every page on the original, trusted repository endpoint.
+            # GitHub Link can use /repositories/<numeric-id> canonical aliases.
+            url = base_url + ("&page=%d" % number if number > 1 else "")
             self.calls += 1
             data, link = self.get(url)
             page = data.get(key) if key and isinstance(data, dict) else data
@@ -76,14 +73,21 @@ class GitHubAPI:
             if not match and 'rel="next"' in link:
                 raise InventoryError("malformed next link")
             if match:
-                url = match.group(1)
-            elif len(page) == 100:
-                # On an unlinked full page, probe the next page explicitly.
-                params = dict(parse_qsl(parsed.query))
-                params["page"] = str(int(params.get("page", "1")) + 1)
-                url = "https://api.github.com" + path + "?" + urlencode(params)
-            else:
-                url = ""
+                next_url = match.group(1)
+                parsed = urlparse(next_url)
+                if parsed.scheme != "https" or parsed.netloc != "api.github.com":
+                    raise InventoryError("untrusted pagination link")
+                if parsed.path != path and not re.fullmatch(
+                    r"/repositories/[0-9]+" + re.escape(suffix), parsed.path
+                ):
+                    raise InventoryError("unrelated pagination endpoint")
+                if next_url == url:
+                    raise InventoryError("pagination cycle")
+            if not match and len(page) < 100:
+                break
+            # A full page without a next Link is not proof of completion.
+            # Probe one more page rather than silently truncating 100+ PR.
+            number += 1
         return rows
 
     def open_pulls(self):
