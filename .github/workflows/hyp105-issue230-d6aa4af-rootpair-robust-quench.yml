@@ -1,0 +1,84 @@
+name: hyp105-issue230-d6aa4af-rootpair-robust-quench
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4af_rootpair_robust_quench.py"
+      - "research/test_hyp105_issue230_d6aa4af_rootpair_robust_quench.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AF-ROOTPAIR-ROBUST-QUENCHED-TRANSFER.md"
+      - ".github/workflows/hyp105-issue230-d6aa4af-rootpair-robust-quench.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-all-h-exact-local-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Eight actual original W32/W34 and all-h every-root-pair mathematical tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4af_rootpair_robust_quench.py" -v
+  true-original-W34-root-C4-source-rook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, random]
+        side: [0, 1]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual full globally injected W34 independent physical C4 trace and original source four-rook direct Q
+        env:
+          SCHEME: ${{ matrix.scheme }}
+          SIDE: ${{ matrix.side }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4af_rootpair_robust_quench import (
+              genuine_W34_rootpair_local_certificate,rootpair_robust_all_h)
+          z=genuine_W34_rootpair_local_certificate(
+              fixture(2,os.environ["SCHEME"]),
+              side=int(os.environ["SIDE"]),root=0,pinned_offset=0,
+              check_first_C4=12)
+          bound=rootpair_robust_all_h(4)
+          assert z["physical_C4_occupied"]>=945
+          assert z["physical_C4_occupied"]==z["independent_physical_C4_adj_trace"]
+          assert min(z["actual_original_four_rook_direct_counts_sample"])>=106
+          assert z["all_h_universal_C4_floor"]==945
+          assert bound["all_h_every_actual_root_pair_first_gate_PROVED"]
+          assert bound["forall_f_forall_g_minimax_lower_NOT_PROVED"]
+          print(json.dumps(z,sort_keys=True,indent=2))
+          PY
+  all-h-exact-rational-quenched-floor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All-h exact historical one-globally-injected physical A probability and new every-source-root s/128 lower
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4af_rootpair_robust_quench import rootpair_robust_all_h
+          from hyp105_g5e2b3e1b1a_one_sided import uniform_right_completion_BA
+          for h in range(1,19):
+              s=1<<h
+              z=rootpair_robust_all_h(s)
+              assert Fraction(z["exact_uniform_COMPLETE_global_opposite_A_probability"])==uniform_right_completion_BA(s)["right_2factor_probability"]
+              if s>=8:
+                  assert Fraction(z["per_rootpair_eligible_opposite_A_mean_lower"])>=Fraction(s,128)
+                  assert Fraction(z["aggregate_over_actual_GQ_roots_and_flags_mean_lower"])>=Fraction(s**6,256)
+              assert z["prior_all_h_global_one_sided_conditional_mean_ALREADY_KNOWN"]
+              assert z["forall_f_forall_g_minimax_lower_NOT_PROVED"]
+          print("All-h every-original-root-pair conditional transfer theorem exact")
+          PY
