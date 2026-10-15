@@ -1,0 +1,49 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 476,
+    "commit": "a51ce5aeb7883dcd029b9275ce44eaca9a60370f",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4Q-TWO-SIDED-SEVEN-JOIN.md",
+    "proof_blob_sha": "2618aab8a4e57ee6b71eb2746c65bc9757984828",
+    "stage": "OPEN_DRAFT_PR"
+  },
+  "id": "HYP105-AA4Q-CC-GIRTH-OBSTRUCTION",
+  "title": "All-h original C/C source sector is empty by generalized-quadrangle girth eight",
+  "statement": "For every genuine original W(3,2^h), h>=1, and every pair of complete separately globally injected original point/line physical-pair maps f,g, there is NO set Q of six distinct original point-line incidence IDs with point source multiplicity C=(2,2,2) AND line source multiplicity C=(2,2,2). Such a six-edge original simple bipartite incidence graph would be a 6-cycle, impossible in the GQ incidence graph of girth 8.",
+  "mode": "ALL_H_IDENTITY",
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=1, s=2^h"
+    },
+    {
+      "op": "forall",
+      "variable": "f,g",
+      "domain": "arbitrary complete separate globally injected ORIGINAL point and line maps, reused across all six-incidence sets"
+    }
+  ],
+  "depends_on_claims": [],
+  "external_dependencies": [
+    "Genuine original GQ W(3,s) point-line incidence graph has girth eight; original incidence graph simple; both source C profiles force degree two on three distinct point and line factors."
+  ],
+  "limitations": [
+    "Absence of genuine ORIGINAL C/C source motifs does not prohibit physically overlapping cycles on independently selected columns.",
+    "GQ girth alone does not establish a lower bound on any of the seven positive GF(5) classes.",
+    "The model excludes synthetic physical six-column patterns that are not genuine original incidence IDs."
+  ],
+  "falsification_boundary": "Require the SAME six genuine original incidence IDs and source factor multiplicity C on both sides. A physical 6-cycle from different event IDs is not a counterexample."
+}

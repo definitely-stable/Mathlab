@@ -73,6 +73,26 @@
       "latex": "\\Delta_{u,v}I=\\sum_{(p,A):\\,\\{u,v\\}\\cap(\\{p\\}\\cup A)\\ne\\varnothing}w_g(p,A)\\,\\left[\\chi_B\\bigl(f^{u\\leftrightarrow v}(p);f^{u\\leftrightarrow v}(A)\\bigr)-\\chi_B\\bigl(f(p);f(A)\\bigr)\\right].",
       "scope": "h>=1; global swap of assigned physical pair labels on two distinct original points u,v with same fixed g.",
       "not_implies": "One-transposition local optimality is not a global minimax or counterfamily certificate."
+    },
+    {
+      "id": "HYP105-F-008",
+      "title": "Exact all-h seven-positive-class same-original-ID two-sided join",
+      "claim_ids": [
+        "HYP105-AA4Q-SEVEN-ORIGINAL-JOIN"
+      ],
+      "latex": "S_s(f,g)=\\bigl|\\mathcal{H}_P(f)\\cap\\mathcal{H}_L(g)\\bigr|-\\bigl|\\mathcal{A}_{AA}(f,g)\\bigr|+\\bigl|\\mathcal{D}_6(f,g)\\bigr|.",
+      "scope": "h>=1; every genuine original W(3,2^h) and every pair of separately globally injective complete f,g; intersections are sets of SAME six genuine original incidence IDs; D6 requires physical original-column cycle alignment.",
+      "not_implies": "Exact join identity is not an all-maps lower bound on simultaneous seven-GF5 positive original motifs."
+    },
+    {
+      "id": "HYP105-F-009",
+      "title": "GQ original-incidence source C/C impossibility",
+      "claim_ids": [
+        "HYP105-AA4Q-CC-GIRTH-OBSTRUCTION"
+      ],
+      "latex": "\\mathcal{J}_{CC}(f,g)=\\varnothing\\qquad(\\text{genuine ORIGINAL GQ girth }8>6).",
+      "scope": "h>=1; six DISTINCT genuine original incidence IDs, both typed ORIGINAL source multiplicity profiles C=(2,2,2), arbitrary complete physical global injections.",
+      "not_implies": "Forbids genuine original source C/C only; not a generic physical coordinate C/C intersection or a deterministic positive seven-GF5 minimum."
     }
   ]
 }
