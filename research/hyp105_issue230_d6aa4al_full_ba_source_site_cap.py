@@ -72,8 +72,7 @@ def original_cross_spoke_site_injection_witnesses(model,*,side=0,root=0,
     for pair1,pair2 in cross:
         groups=[]
         for e0,e1 in (pair1,pair2):
-            sites=_sites_pair(* (e0 if (e0,e1)==(pair1,pair2) else e0),
-                              blocked,a,inv)
+            sites=_sites_pair(*e0,blocked,a,inv)
             per=[]
             for S in PAIRS4:
                 i,j=S
