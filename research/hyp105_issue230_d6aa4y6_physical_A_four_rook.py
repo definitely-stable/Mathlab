@@ -236,6 +236,7 @@ def genuine_W32_BA_physical_gate_full(scheme):
         # by a completely independent historical ORIGINAL join below.
         counts=Counter()
         samples=[]
+        all_cohorts=[]
         for root in range(15):
             for root_pair in combinations(bysource[root],2):
                 pins=tuple(inc[j][1-side] for j in root_pair)
@@ -253,6 +254,23 @@ def genuine_W32_BA_physical_gate_full(scheme):
                 for c4 in _physical_root_C4_source_patterns(B_labels,root):
                     outcome=independent_historical_BA_rooted_gate(
                         c4,pins,neighbors,A_labels,full_A)
+                    # Independent SAME-six-ORIGINAL-Q oracle: literal
+                    # four source-neighbor assignments with the ONE
+                    # globally fixed opposite physical labeling.
+                    literal=0
+                    for other_sources in product(*(neighbors[q] for q in c4)):
+                        if len(set(other_sources))!=4 or any(
+                                x in pins for x in other_sources):
+                            continue
+                        degree=Counter(v for ell in pins+other_sources
+                                       for v in A_labels[ell])
+                        if len(degree)==6 and all(v==2 for v in degree.values()):
+                            literal+=1
+                    if literal!=outcome[
+                            "accepted_original_GF5_BA_for_this_REALIZED_root_C4"]:
+                        raise AssertionError(
+                            "independent literal ORIGINAL source six-flag acceptance differs from 2factor x 4rook")
+                    counts["literal_B_C4_independently_verified"]+=1
                     total+=outcome[
                         "accepted_original_GF5_BA_for_this_REALIZED_root_C4"]
                     completions+=outcome[
@@ -273,6 +291,13 @@ def genuine_W32_BA_physical_gate_full(scheme):
                     counts["root_cohorts_with_zero_actual_GF5_acceptance"]+=1
                 else:
                     counts["root_cohorts_with_positive_actual_GF5_acceptance"]+=1
+                all_cohorts.append({
+                    "root":root,
+                    "true_original_root_flag_IDs":tuple(root_pair),
+                    "opposite_physical_pinned_edge_relation":relation,
+                    "accepted_by_literal_AND_4rook":total,
+                    "nonzero_original_incidence_permanent_completions":gate_nonzero,
+                })
                 if len(samples)<5:
                     samples.append({
                         "root":root,
@@ -289,7 +314,9 @@ def genuine_W32_BA_physical_gate_full(scheme):
         if counts["B_A_GF5_accepted_via_new_2factor_4rook"]!=(
                 Q["historical_positive_GF5_accepted_BA_six_IDs"]):
             raise AssertionError("NEW 2factor four-rook and independent Y5 literal Q source+physical-A counts differ")
-        if counts["all_root_flag_cohorts"]!=45 or counts["physical_B_C4_root_patterns"]!=135:
+        if (counts["all_root_flag_cohorts"]!=45 or
+            counts["physical_B_C4_root_patterns"]!=135 or
+            counts["literal_B_C4_independently_verified"]!=135):
             raise AssertionError("ALL real ORIGINAL root flags and physical B C4s missing")
         if counts["root_cohorts_with_positive_actual_GF5_acceptance"]!=(
                 Q["cohorts_with_positive_historical_GF5"]):
@@ -298,6 +325,8 @@ def genuine_W32_BA_physical_gate_full(scheme):
             "original_B_root_side":"point" if side==0 else "line",
             "rooted_cohorts_exhaustively_checked":45,
             "true_original_B_physical_C4_patterns_examined":135,
+            "all_135_B_C4_independent_literal_ORIGINAL_six_ID_checks":"PASS",
+            "all_45_root_two_original_flag_cohort_certificates":all_cohorts,
             "accepted_historical_GF5_by_exact_four_rook_2factor":
                 counts["B_A_GF5_accepted_via_new_2factor_4rook"],
             "historical_GF5_independent_Y5_and_AA4Q_agree":True,
