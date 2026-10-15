@@ -44,3 +44,14 @@ RCP-001-B adds the [Claim Registry](CLAIM-REGISTRY.md): explicit mathematical qu
 ## Durable evidence and negative results
 
 RCP-001-C adds the [Evidence & No-Go Ledger](EVIDENCE-AND-NOGO.md): permanently identifiable Git object escrow of selected five proof documents, corresponding oracle and test sources and two frozen witness fixtures, as well as five machine-linked non-implication/no-go records. Run `python -m research.rcp.evidence_ledger --output /tmp/rcp001c` for an offline SHA-verified index or add `--verify-originals` to cross-check the 17 original files at their exact GitHub commit references. These gates verify byte identity, not the correctness or novelty of mathematical assertions; root #230 stays OPEN.
+
+## Current research context and delta
+
+RCP-001-D adds [Living Research Context](LIVING-CONTEXT.md): fresh L0/L1/L2 GitHub + mathematics + escrow views, a sealed snapshot and semantic change reports. From repository root run:
+
+```bash
+GITHUB_TOKEN=... python -m research.rcp.context_builder \
+  --output /tmp/hyp105-current --check-claim-prs
+```
+
+The resulting `snapshot.json` has a SHA-256 self-integrity check and non-atomic provenance flags. Compare with a previous `snapshot.json` using `python -m research.rcp.context_delta --before OLD --after NEW --output DIR`. Do not substitute a cached snapshot for a current GitHub query; do not infer global mathematical acceptance, merge, or CI success from a changed timestamp.
