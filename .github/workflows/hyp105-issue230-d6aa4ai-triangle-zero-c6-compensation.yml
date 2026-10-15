@@ -51,6 +51,32 @@ jobs:
           PYTHONPATH=research python -m unittest -v \
             test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_05_historical_full_62370_seven_GF5_original_S_stays_positive \
             test_hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation.CompleteOriginalTriangleCounterexample.test_06_existing_original_S68_and_lex_subset_calibration
+      - name: Original W32 complete dual-zero witness and 7-class compensation JSON record
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json
+          from hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation import (
+              zero_split_original_W32,full_original_W32_sector_certificate,
+              independent_literal_original_W32_sector_census)
+          from hyp105_issue230_d6aa4q_two_sided_seven_join import (
+              exact_two_sided_original_seven_join)
+          model=zero_split_original_W32()
+          left=full_original_W32_sector_certificate(model,side=0)
+          right=full_original_W32_sector_certificate(model,side=1)
+          original=exact_two_sided_original_seven_join(model,independent_history=True)
+          assert left["original_GF5_A_accepted_by_sector"]["split_two_triangles"]==0
+          assert right["original_GF5_A_accepted_by_sector"]["split_two_triangles"]==0
+          assert left["original_GF5_A_accepted_by_sector"]==independent_literal_original_W32_sector_census(model,side=0)
+          assert right["original_GF5_A_accepted_by_sector"]==independent_literal_original_W32_sector_census(model,side=1)
+          print("AA4-AI_FINITE_CERTIFICATE="+json.dumps({
+              "point_source":left,
+              "line_source":right,
+              "all_seven_true_original_GF5":original["accepted_seven_GF5_original_Q_by_tag"],
+              "all_seven_S":original["accepted_seven_GF5_original_S"],
+              "R3_certified_lower_numerator":original["selected_GF5_51palette_certified_numerator"],
+              "source_original_Q_joint":original["exact_source_original_Q_double_projection_intersection"]
+          },sort_keys=True))
+          PY
   source-automorphism-and-negative-falsifiers:
     runs-on: ubuntu-latest
     timeout-minutes: 20
