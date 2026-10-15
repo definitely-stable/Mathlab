@@ -1,0 +1,89 @@
+name: hyp105-issue230-d6aa4am-original-triple-transport
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4am_mixed_triple_transport.py"
+      - "research/test_hyp105_issue230_d6aa4am_mixed_triple_transport.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AM-ORIGINAL-TRIPLE-TRANSPORT-NONLIFT.md"
+      - ".github/workflows/hyp105-issue230-d6aa4am-original-triple-transport.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-original-third-moment-mathematics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Eight real original all-h third moment and three independent finite oracles
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4am_mixed_triple_transport.py" -v
+  all-h-strict-source-jensen-and-degree-three-nonlift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact Fraction all-h s=2^1..2^60 ORIGINAL two-type mixed 3flag Omega(s6)
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4am_mixed_triple_transport import all_h_mixed_triple_transport_theorem
+          for h in range(1,61):
+              s=1<<h
+              r=all_h_mixed_triple_transport_theorem(s)
+              assert 5*r["a"]**2<=12*r["V"]
+              assert r["exact_transport_entry_mean_mu"]>=Fraction(5*(s+1),3)
+              assert r["ordered_mixed_original_source_triples_uniform_lower"]>=4*r["V"]*(s+1)**3>=4*s**6
+              assert r["physical_coord_degree_at_least_three_prevents_2regular_GF5_lift"]
+              assert r["selected_seven_GF5_six_Q_Omega_s6_NOT_PROVED"]
+              assert r["root_issue230_Branch_A_B_C_OPEN"]
+          print("All-h original mixed 3-flag Jensen/degeneracy Omega(s6) and GF5 non-lift exact PASS")
+          PY
+  strict-actual-symplectic-triple-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {power: 1, scheme: lex}
+          - {power: 1, scheme: reverse}
+          - {power: 1, scheme: S68}
+          - {power: 1, scheme: S72}
+          - {power: 2, scheme: lex}
+          - {power: 2, scheme: random}
+          - {power: 3, scheme: lex}
+          - {power: 3, scheme: random}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real original W32/W34/W38 global f/g physical holes and source-first cell triples
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4am_mixed_triple_transport import exact_mixed_original_triple_transport,independent_actual_original_triple_oracle
+          m=fixture(int(os.environ["POWER"]),os.environ["SCHEME"])
+          z=exact_mixed_original_triple_transport(m)
+          brute=independent_actual_original_triple_oracle(m)
+          assert z["exact_UNORDERED_MIXED_true_original_3flag_bilateral_coord_triples"]==brute["unordered_mixed_actual_original_triples_brute"]
+          assert z["actual_transport_3rd_factorial_moment_all_original_flags"]==brute["all_point_line_physical_coordinate_bicell_ordered_triples"]
+          assert z["exact_ordered_MIXED_true_original_3flag_bilateral_coord_triples"]>=4*z["V"]*z["d"]**3
+          assert z["NO_direct_GF5_lift_due_to_degree_3_in_BOTH_physical_types"]
+          print(json.dumps({"s":z["s"],"scheme":os.environ["SCHEME"],
+            "actual_true_original_unordered_mixed_triples":brute["unordered_mixed_actual_original_triples_brute"],
+            "FINITE_ONLY_original_3distinct_points_AND_lines":brute["observed_finite_ONLY_all_3_points_and_lines_distinct"],
+            "genuine_original_ordered_mixed_global_theorem_lower":4*z["V"]*z["d"]**3},
+            indent=2,sort_keys=True))
+          PY
