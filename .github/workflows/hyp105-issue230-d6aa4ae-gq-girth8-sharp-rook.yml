@@ -1,0 +1,83 @@
+name: hyp105-issue230-d6aa4ae-gq-girth8-sharp-rook
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ae_gq_girth8_sharp_rook.py"
+      - "research/test_hyp105_issue230_d6aa4ae_gq_girth8_sharp_rook.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AE-GQ-GIRTH8-SHARP-FOUR-ROOK.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ae-gq-girth8-sharp-rook.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mathematical-exact-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full 65536 four-rook forbidden C4/C6 analysis, actual W32/W34 and independent short-cycle oracle
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ae_gq_girth8_sharp_rook.py" -v
+  actual-original-gq-all-four-global-schemes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72, lex, reverse]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent original same-six-Q full globally injected true W32 Hall and source-C8 exact charge
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import os,json
+          from hyp105_issue230_d6aa4ae_gq_girth8_sharp_rook import full_original_W32_all_four_schemes_girth8_report
+          name=os.environ["SCHEME"]
+          z=full_original_W32_all_four_schemes_girth8_report(name)
+          BA=z["per_GF5_BA_tag"]["B-left/A-right"]
+          AB=z["per_GF5_BA_tag"]["A-left/B-right"]
+          expected={"S68":((44,0),(21,0)), "S72":((36,0),(31,0)),
+                    "lex":((98,0),(110,1)), "reverse":((77,0),(74,0))}[name]
+          for row,target in zip((BA,AB),expected):
+              assert (row["exact_accepted_true_original_GF5_BA"],
+                      row["induced_original_C8_double_permanent_patterns"])==target
+              assert row["exact_accepted_true_original_GF5_BA"]==(
+                  row["Hall_positive_true_original_GQ_completions"]+
+                  row["induced_original_C8_double_permanent_patterns"])
+              assert row["actual_original_B_C4_cohorts_examined"]==135
+              assert set(row["positive_permanent_multiset_histogram"])<=set((1,2))
+          print(json.dumps(z,indent=2,sort_keys=True))
+          PY
+  all-h-parity-and-source-girth8:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Strict REAL GQ C4 and C6 restrictions, source C8 matching parity and abstract K22-free non-GQ witness
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4ae_gq_girth8_sharp_rook import (
+              all_65536_four_binary_gq_certificates,true_gq_four_rook)
+          z=all_65536_four_binary_gq_certificates()
+          assert z["all_binary_four_by_four_matrices"]==65536
+          assert z["maximum_PERMANENT_for_valid_true_GQ_local_matrix"]==2
+          A=true_gq_four_rook(z["sharp_C8_valid_local_witness_rows"])
+          assert A["true_original_four_rook_permanent"]==2
+          assert A["exactly_two_perfect_matchings_implies_original_C8"]
+          B=true_gq_four_rook(z["K22_free_PERMANENT_3_NON_GQ_due_to_SOURCE_C6_rows"])
+          assert B["true_original_four_rook_permanent"]==3
+          assert B["original_C6_forbidden_observed"]
+          assert not B["gq_girth_eight_eligible"]
+          print(z)
+          PY
