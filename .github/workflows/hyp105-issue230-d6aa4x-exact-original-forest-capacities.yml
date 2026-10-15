@@ -1,0 +1,74 @@
+name: hyp105-issue230-d6aa4x-exact-original-forest-capacities
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4x_exact_source_forest_capacities.py"
+      - "research/test_hyp105_issue230_d6aa4x_exact_source_forest_capacities.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4X-EXACT-SOURCE-FOREST-CAPACITIES.md"
+      - ".github/workflows/hyp105-issue230-d6aa4x-exact-original-forest-capacities.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-exact-source-forest-capacity-and-W32-full-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All h explicit ORIGINAL GQ forest capacities, 9 independent tests, complete original W32 45 choose 6
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4x_exact_source_forest_capacities.py" -v
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4x_exact_source_forest_capacities import (
+              all_h_BC_two_source_path_population,
+              all_h_BB_overlap_path_matching_population)
+          for s,uBC,uBB in ((2,5220,910080),(4,10689600,72043878400)):
+              assert all_h_BC_two_source_path_population(s)["source_original_B/C_count"]==uBC
+              assert all_h_BB_overlap_path_matching_population(s)["source_original_B/B-overlap_count"]==uBB
+              print("ALL-h real source GQ class two-count original forests",s,uBC,uBB)
+          PY
+  true-original-independent-local-GQ-geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        original_s: [2, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sample actual 45/425 original flags and independently verify source P4/P3 deletion oracles
+        env:
+          ORIG_S: ${{ matrix.original_s }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4x_exact_source_forest_capacities import (
+              all_h_BC_two_source_path_population,
+              all_h_BB_overlap_path_matching_population,
+              independent_actual_source_path_four_after_deletion,
+              independent_actual_P3_deletion_three_matching)
+          s=int(os.environ["ORIG_S"])
+          model=fixture({2:1,4:2}[s],"lex")
+          z=independent_actual_source_path_four_after_deletion(model,limit=40)
+          w=independent_actual_P3_deletion_three_matching(model,max_root_samples=8)
+          u=all_h_BC_two_source_path_population(s)
+          v=all_h_BB_overlap_path_matching_population(s)
+          assert z["actual_P2_per_P4_histogram"]=={
+              u["disjoint_original_line_centered_P2_per_root_P4"]:40}
+          assert w["all_h_exact_residual_m3"]==v[
+              "actual_disjoint_original_three_edge_matchings"]
+          if s==2:
+              assert all(x["direct_enumerated_matchings"]==5056
+                         for x in w["sampled_actual_original_P3"])
+          print("TRUE original W(3,s) independent source P4→P2 and P3→m3 local",s,z,w)
+          print("EXACT all-h source six-Q U_BC and U_BBoverlap",s,
+                u["source_original_B/C_count"],
+                v["source_original_B/B-overlap_count"])
+          PY
