@@ -155,6 +155,19 @@ class AdjacentC6TrueOriginal(unittest.TestCase):
                     "all_map_indexed_internal_link_preHall_lower"],s**14)
                 self.assertGreater(z[
                     "safe_with_at_least_one_occupied_cross_lower"],0)
+                if h>=5:
+                    self.assertTrue(z["all_map_true_original_Hall_FAILED_Omega_s14_PROVED"])
+                    self.assertGreater(z[
+                        "all_map_true_original_Hall_FAILED_indexed_physical_lower"],0)
+                    self.assertLess(z["original_success_fraction_s_only_UPPER"],1)
+                    self.assertLessEqual(z["original_Hall_positive_fraction_UPPER"],
+                                         z["original_success_fraction_s_only_UPPER"])
+                    self.assertGreaterEqual(
+                        z["all_map_true_original_Hall_FAILED_indexed_physical_lower"],
+                        (1-z["original_success_fraction_s_only_UPPER"])
+                        * s**14/384)
+                else:
+                    self.assertFalse(z["all_map_true_original_Hall_FAILED_Omega_s14_PROVED"])
             else:
                 self.assertFalse(z[
                     "original_internal_link_preHall_s14_over384_PROVED"])
