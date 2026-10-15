@@ -38,6 +38,13 @@ class OriginalSixForestTransportationTests(unittest.TestCase):
         self.assertEqual(z["total_original_45_choose_6"],comb(45,6))
         self.assertEqual(len(z["original_source_forest_universe"]),9)
         self.assertEqual(set(z["original_source_forest_universe"]),set(SOURCE_SHAPES))
+        pinned={
+            "A/A":1566360, "A/B":1666980, "A/C":6225,
+            "B/A":1666980, "B/B-disjoint":707580,
+            "B/B-overlap":910080, "B/C":5220, "C/A":6225,
+            "C/B":5220,
+        }
+        self.assertEqual(z["original_source_forest_universe"],pinned)
         expected={"A":comb(15,6)*3**6,
                   "B":15*comb(14,4)*comb(3,2)*3**4,
                   "C":comb(15,3)*comb(3,2)**3}
@@ -74,6 +81,20 @@ class OriginalSixForestTransportationTests(unittest.TestCase):
             z=exact_W32_forest_stratified_frechet(
                 m,source_universe=self.source,component_crosscheck=True)
             self.assertEqual(z["actual_full_seven_GF5_S"],s)
+            if scheme in ("S68","S72"):
+                expected={
+                    "S68":{"A/A":263,"A/B":21,"A/C":0,"B/A":44,
+                           "B/B-disjoint":1,"B/B-overlap":2,"B/C":0,
+                           "C/A":0,"C/B":0},
+                    "S72":{"A/A":286,"A/B":31,"A/C":0,"B/A":36,
+                           "B/B-disjoint":2,"B/B-overlap":1,"B/C":0,
+                           "C/A":2,"C/B":0},
+                }[scheme]
+                self.assertEqual(
+                    {k:rec["actual_global_two_side_join"]
+                     for k,rec in z["forest_cells"].items()},expected)
+                self.assertEqual(
+                    z["forest_stratified_abstract_nonaligned_seven_lower"],0)
             self.assertEqual(z["source_population_from_all_45_choose_6"],comb(45,6))
             self.assertEqual(len(z["forest_cells"]),9)
             self.assertGreater(z["source_path_component_crosschecks"],100)
