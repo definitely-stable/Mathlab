@@ -1,0 +1,44 @@
+{
+  "schema": "mathlab.rcp.evidence.v1",
+  "id": "HYP105-EV-AA4S",
+  "claim_ids": [
+    "HYP105-AA4S-ROOT-FRECHET-ZERO",
+    "HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 479,
+    "commit": "357b3d201e14713668fbd045b450ffd279610081",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md",
+    "proof_blob_sha": "2f6794f64b95e77368dc4dabcf8a4410f5f8b66f"
+  },
+  "artifacts": [
+    {
+      "role": "ORACLE_SOURCE",
+      "path": "research/hyp105_issue230_d6aa4s_root_conditional_frechet.py",
+      "git_blob_sha": "e3d67f69c3faff4e12d8537697eb89ce4cfeaffc"
+    },
+    {
+      "role": "INDEPENDENT_TEST",
+      "path": "research/test_hyp105_issue230_d6aa4s_root_conditional_frechet.py",
+      "git_blob_sha": "728262c792a66f54ebff9428e10a18ee292b2c60"
+    }
+  ],
+  "reproduction": {
+    "runner": "GITHUB_HOSTED",
+    "environment": "ubuntu-24.04 / Python 3.12 (requested baseline)",
+    "checkout_commit": "357b3d201e14713668fbd045b450ffd279610081",
+    "command": "python -m unittest research.test_hyp105_issue230_d6aa4s_root_conditional_frechet -v",
+    "execution_status": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+  },
+  "ci": {
+    "status": "NOT_ARCHIVED_AS_PROOF",
+    "note": "Exact source bytes and original proof identities pinned; finite standalone arithmetic checks on import are not an independent all-h mathematical review."
+  },
+  "retention": "Three original byte-identical Git proof/oracle/test objects retained on this child branch; stable once integrated to main. SHA256 independent manifest paired with source SHA1 object IDs.",
+  "limitations": [
+    "Only a negative theorem about root-marginal Fréchet certificates. Genuine B/A joint counts can remain positive.",
+    "W(3,2) actual 111132-root and S68/S72 44/36 counts are finite evidence, not universal low-S family.",
+    "Independent scientific proof review not claimed. Source PR479 remains Draft and unrelated live source PR parent chain is not merged."
+  ]
+}
