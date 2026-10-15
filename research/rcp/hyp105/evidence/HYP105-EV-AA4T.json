@@ -1,0 +1,47 @@
+{
+  "schema": "mathlab.rcp.evidence.v1",
+  "id": "HYP105-EV-AA4T",
+  "claim_ids": [
+    "HYP105-AA4T-POSITIONAL-D6-TENSOR",
+    "HYP105-AA4T-QUENCHED-TENSOR-IDENTITY",
+    "HYP105-AA4T-ALLH-QUENCHED-D6-LOWER",
+    "HYP105-AA4T-ALLH-DUAL-QUENCHED-LOWER",
+    "HYP105-AA4T-W32-POSITIVE-MEAN-ZERO-D6"
+  ],
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 484,
+    "commit": "c51448b4e47b17737285ef8e6b7ea09991a8c289",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md",
+    "proof_blob_sha": "7d19b0f32e6fa8d7d57f324c826c0b84d1ce9780"
+  },
+  "artifacts": [
+    {
+      "role": "ORACLE_SOURCE",
+      "path": "research/hyp105_issue230_d6aa4t_quenched_aligned_d6.py",
+      "git_blob_sha": "03661875ce183dc75ccfd392e89dbf70badce15c"
+    },
+    {
+      "role": "INDEPENDENT_TEST",
+      "path": "research/test_hyp105_issue230_d6aa4t_quenched_aligned_d6.py",
+      "git_blob_sha": "6af233091497a2095f2615f227aaa57dde3f2f7c"
+    }
+  ],
+  "reproduction": {
+    "runner": "GITHUB_HOSTED",
+    "environment": "ubuntu-24.04 / Python 3.12 original source baseline",
+    "checkout_commit": "c51448b4e47b17737285ef8e6b7ea09991a8c289",
+    "command": "python -m unittest research.test_hyp105_issue230_d6aa4t_quenched_aligned_d6 -v",
+    "execution_status": "COMMAND_DOCUMENTED_NOT_EXECUTED_BY_RCP_C"
+  },
+  "ci": {
+    "status": "NOT_ARCHIVED_AS_PROOF",
+    "note": "Three original byte-identical Git object aliases and independently calculated SHA256 are checked; separate research CI is not mathematically peer reviewed."
+  },
+  "retention": "Original source proof, source oracle and independent original test are stored as exact Git blobs in the infrastructure import ancestry once merged; CI artifacts expire independently.",
+  "limitations": [
+    "The positional tensor identity is all h>=1, while the conditional universal 1/98304 bound is an expectation over ONE full uniform opposite-side map; no all-(f,g) pointwise bound.",
+    "The 1/98304 all-h estimate is weaker than the separate 1/8 h>=3 bound from PR480.",
+    "The finite W(3,2) S68/S72 mean-versus-zero witness does not give an infinite low-S counterfamily. All imported claims remain unreviewed Draft."
+  ]
+}
