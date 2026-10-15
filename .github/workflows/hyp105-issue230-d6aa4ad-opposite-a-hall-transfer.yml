@@ -1,0 +1,91 @@
+name: hyp105-issue230-d6aa4ad-opposite-a-hall-transfer
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ad_opposite_a_hall_transfer.py"
+      - "research/test_hyp105_issue230_d6aa4ad_opposite_a_hall_transfer.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AD-ORIGINAL-OPPOSITE-PHYSICAL-HALL-TRANSFER.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ad-opposite-a-hall-transfer.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-physical-pattern-and-genuine-GQ:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Eight independent physical K6-K8/Hall and genuine true ORIGINAL W32/W34 tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ad_opposite_a_hall_transfer.py" -v
+  actual-ORIGINAL-W32-opposite-A:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72, lex, reverse]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Entire original 270 rooted physical B cohorts, independent source-Q oracle and immutable seven GF5
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import os,json
+          from hyp105_issue230_d6aa4ad_opposite_a_hall_transfer import independent_W32_original_second_gate_census
+          scheme=os.environ["SCHEME"]
+          z=independent_W32_original_second_gate_census(scheme)
+          BA=z["per_B_A_historical_GF5_tag"]["B-left/A-right"]
+          AB=z["per_B_A_historical_GF5_tag"]["A-left/B-right"]
+          expected={
+            "S68":((6098,44),(4740,21)),
+            "S72":((6098,36),(4864,31)),
+            "lex":((5000,98),(5793,110)),
+            "reverse":((5000,77),(4428,74)),
+          }[scheme]
+          assert (BA["source_only_distinct_original_flag_forests"],
+                  BA["accepted_actual_original_GF5_BA"])==expected[0]
+          assert (AB["source_only_distinct_original_flag_forests"],
+                  AB["accepted_actual_original_GF5_BA"])==expected[1]
+          assert BA["independent_original_direct_four_choice_confirmations"]==135
+          assert AB["independent_original_direct_four_choice_confirmations"]==135
+          assert BA["zero_accepted_cohorts"]==BA["Hall_zero_accepted_cohorts"]
+          assert AB["zero_accepted_cohorts"]==AB["Hall_zero_accepted_cohorts"]
+          print(json.dumps(z,sort_keys=True,indent=2))
+          PY
+  all-h-physical-gate-and-Hall-negative:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All-h exact integer physical capacities and explicit negative Hall obstruction
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from math import comb
+          from hyp105_issue230_d6aa4ad_opposite_a_hall_transfer import (
+              analytic_physical_gate_counts,_four_permanent_and_hall,
+              pinned_twofactor_completions)
+          for h in range(1,13):
+              s=1<<h
+              z=analytic_physical_gate_counts(s)
+              a=z["a"]
+              assert z["adjacent_pinned_physical_2factors"]==7*comb(a-3,3)
+              assert z["disjoint_pinned_physical_2factors"]==14*comb(a-4,2)
+              assert z["all_h_exact_second_gate_Hall_permanent"]
+              assert not z["adversarial_GF5_positive_omega_s6_PROVED"]
+          n,b=_four_permanent_and_hall(({0},{0},{2},{3}))
+          assert n==0 and b["Hall_deficit"]==1
+          assert len(pinned_twofactor_completions((0,1),(0,2),6))==7
+          assert len(pinned_twofactor_completions((0,1),(2,3),6))==14
+          print("All-h true-original opposite-physical-A Hall theoretical capacities PASS")
+          PY
