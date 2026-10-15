@@ -126,6 +126,18 @@ class ExactOriginalSourceForestCapacitiesTests(unittest.TestCase):
         self.assertLess(x["expected_two_tag_total"],
                         whole["exact_expected_seven_S"])
         self.assertFalse(x["conditional_vs_adversarial_all_f_g_lower_PROVED"])
+        self.assertEqual(
+            x["expected_TRUE_original_selected_C/B_both_uniform_full_maps"],
+            Fraction(93960,91091))
+        self.assertEqual(
+            x["expected_TRUE_original_selected_B/B-overlap_both_uniform_full_maps"],
+            Fraction(8190720,1002001))
+        self.assertEqual(x["expected_two_tag_total"],Fraction(709560,77077))
+        y=all_h_two_closed_source_forest_expectations(4)
+        self.assertEqual(y["expected_TRUE_original_selected_C/B_both_uniform_full_maps"],
+                         Fraction(1058270400,229709))
+        self.assertEqual(y["expected_TRUE_original_selected_B/B-overlap_both_uniform_full_maps"],
+                         Fraction(162098726400,6661561))
 
     def test_008_all_h_asymptotic_independent_scalings_not_minimax(self):
         # True limits s->infinity in powers-of-two, exact rational
