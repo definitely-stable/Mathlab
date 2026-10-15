@@ -181,9 +181,9 @@ def all_h_two_new_selected_GF5_ensemble_sectors(s):
     Eab=2*ab["source_original_A/B_one_P2_plus_4_disjoint_flags"]*pa*pb
     older=full_global_uniform_AC_CA_selected_GF5(s)
     three=older["three_positive_original_selected_tags_expected"]
-    five=three+Ed6+Eab
-    if min(Ed6,Eab,three,five)<=0:
-        raise AssertionError("positive exact uniform full-global selected five-tag expectations")
+    six=three+Ed6+Eab
+    if min(Ed6,Eab,three,six)<=0:
+        raise AssertionError("positive exact uniform full-global selected six-tag expectations")
     return {
         "s":s,"V":aa["V"],"d":aa["d"],"a":p["a"],
         "exact_TRUE_SOURCE_U_AA":aa["source_original_A/A_six_distinct_point_line_flags"],
@@ -191,14 +191,14 @@ def all_h_two_new_selected_GF5_ensemble_sectors(s):
         "exact_both_complete_global_uniform_selected_D6":Ed6,
         "exact_both_complete_global_uniform_selected_AB_plus_BA":Eab,
         "prior_X_Y_three_selected_tag_expectation":three,
-        "five_distinct_selected_GF5_tag_expectation":five,
+        "six_distinct_selected_GF5_tag_expectation":five,
         "source_original_BB_disjoint_still_UNCLOSED":True,
         "leading_AA_source_over_s24":Fraction(1,720),
         "leading_AB_BA_source_each_over_s21":Fraction(1,48),
         "leading_selected_D6_over_s6":Fraction(16,3),
         "leading_selected_AB_plus_BA_over_s6":280,
         "leading_three_previous_tags_over_s6":Fraction(160,3),
-        "leading_five_selected_tags_over_s6":Fraction(1016,3),
+        "leading_six_selected_tags_over_s6":Fraction(1016,3),
         "ensemble_not_adversarial_minimum":True,
     }
 
@@ -320,10 +320,10 @@ def report(s_values=(2,4,8,16)):
             "source_AB_each_P2_plus_four_matching":row["exact_TRUE_SOURCE_U_AB_and_BA"],
             "exact_selected_D6_EXPECTATION":str(row["exact_both_complete_global_uniform_selected_D6"]),
             "exact_selected_AB_BA_EXPECTATION":str(row["exact_both_complete_global_uniform_selected_AB_plus_BA"]),
-            "exact_five_GF5_EXPECTATION":str(row["five_distinct_selected_GF5_tag_expectation"]),
+            "exact_six_GF5_EXPECTATION":str(row["six_distinct_selected_GF5_tag_expectation"]),
         }
     return {"slice":"HYP105-ISSUE230-D6-AA4-Z-SRC-SIX-MATCHING-MOMENTS",
-            "rows":out,"root_A":"OPEN","root_B":"OPEN","five_tags_ensemble_only":True}
+            "rows":out,"root_A":"OPEN","root_B":"OPEN","six_tags_ensemble_only":True}
 
 
 if __name__=="__main__":
