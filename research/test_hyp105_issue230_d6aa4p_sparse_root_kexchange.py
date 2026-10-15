@@ -74,8 +74,8 @@ class GenuineOriginalGF5SparsePointRootTests(unittest.TestCase):
             f2=exact_distance_k_derangement_frontier(t,f,2)
             self.assertEqual(f2["number_of_complete_globally_injective_point_maps_checked"],105)
             self.assertEqual(f2["exact_min_delta"],min(
-                [0]+[exact_swap_gradient(t,f,p,q)
-                     for p,q in combinations(range(15),2)]))
+                exact_swap_gradient(t,f,p,q)
+                for p,q in combinations(range(15),2)))
             self.assertEqual(f2["best_neighborhood_BA_internal_charge"],
                              f2["original_BA_internal_charge"]+f2["exact_min_delta"])
             self.assertTrue(f2["global_original_all_15_factor_assignment_minimum_NOT_proved"])
@@ -88,13 +88,19 @@ class GenuineOriginalGF5SparsePointRootTests(unittest.TestCase):
         self.assertEqual([r["number_of_complete_globally_injective_point_maps_checked"]
                           for r in result],[105,910,12285])
         self.assertEqual(result[0]["original_BA_internal_charge"],23)
-        self.assertEqual(result[0]["best_neighborhood_BA_internal_charge"],23)
+        self.assertGreaterEqual(result[0]["best_neighborhood_BA_internal_charge"],23)
+        self.assertEqual(result[0]["strictly_improving_full_maps"],0)
         self.assertEqual(sum(r["number_of_complete_globally_injective_point_maps_checked"]
                              for r in result),13300)
         for r in result:
             self.assertGreaterEqual(r["best_neighborhood_BA_internal_charge"],0)
             self.assertTrue(r["full_exact_k_permutation_neighborhood_checked"])
             self.assertEqual(len({tuple(e) for e in r["best_global_point_labels"]}),15)
+            self.assertEqual(len(r["best_changed_original_source_point_IDs"]),
+                             r["exact_support_changed_source_points"])
+            self.assertEqual(
+                sum(tuple(a)!=tuple(b) for a,b in zip(f,r["best_global_point_labels"])),
+                r["exact_support_changed_source_points"])
             self.assertEqual(exact_original_BA_energy(t,r["best_global_point_labels"]),
                              r["best_neighborhood_BA_internal_charge"])
             self.assertEqual(sum(r[key] for key in (
