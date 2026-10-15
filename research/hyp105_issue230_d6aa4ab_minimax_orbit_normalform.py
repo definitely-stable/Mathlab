@@ -166,7 +166,10 @@ def _six_physical_projection(Q, inc, labels, side):
             bycoord.setdefault(coord, []).append(i)
     if len(bycoord) != 6 or any(len(v) != 2 for v in bycoord.values()):
         return None, None
-    physical_dual = frozenset(frozenset(x) for x in bycoord.values())
+    # The ORIGINAL B half has two distinct physical coordinates whose
+    # position-dual edges are IDENTICAL (the doubled source edge).
+    # Preserve dual edge MULTIPLICITY; a set would silently reject B.
+    physical_dual = tuple(sorted(tuple(sorted(x)) for x in bycoord.values()))
     if len(physical_dual) != 6:
         return None, None
     return kind, physical_dual
