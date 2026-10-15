@@ -127,7 +127,7 @@ class GenuineOriginalAdjacentC6Hall(unittest.TestCase):
                              (c["a"]-3)*(c["a"]-4)*(c["a"]-5))
             self.assertEqual(c["genuine_original_C6_accept_upper_per_root_B_C4"],
                              24*(s+1)**2)
-            self.assertTrue(c["all_global_f_g_positive_GF5_lower_NOT_PROVED"])
+            self.assertTrue(c["unconditional_positive_Hall_mass_NOT_PROVED"])
             if s>=16:
                 self.assertTrue(
                     c["all_global_low_holes_Hall_rejected_fraction_ge_1_minus_48d2_a3"])
