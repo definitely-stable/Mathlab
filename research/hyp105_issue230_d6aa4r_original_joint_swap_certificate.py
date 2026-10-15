@@ -6,8 +6,6 @@ point/line finite differences only on sets touching BOTH changed types.
 These identities give no all-h positive minimum by themselves.
 """
 from collections import Counter
-from dataclasses import dataclass
-from itertools import combinations
 from math import comb
 
 from hyp105_g5e2b3e1b0_seven_signature import R3_CERTIFIED_FLOORS
