@@ -7,7 +7,7 @@
 
 ## Coverage and acceptance
 
-The table indexes **14 specific results** from **8 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
+The table indexes **19 specific results** from **9 research PRs**. It does not claim to catalog all open HYP-105 research PRs.
 
 | Stable claim | Scope / logical mode | Mathematical status | Pinned proof |
 |---|---|---|---|
@@ -22,6 +22,11 @@ The table indexes **14 specific results** from **8 research PRs**. It does not c
 | HYP105-AA4RCYC-D6-QUENCHED-LOWER | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #480 @ 53af9d2f03ef](https://github.com/definitely-stable/Mathlab/blob/53af9d2f03ef4fec147b633558a0e7bb96aea070/docs/research/HYP-105-ISSUE230-D6AA4R-QUENCHED-ORIGINAL-D6.md) |
 | HYP105-AA4S-ROOT-FRECHET-ZERO | DETERMINISTIC_BOUND | DOCUMENTED_IN_DRAFT | [PR #479 @ 357b3d201e14](https://github.com/definitely-stable/Mathlab/blob/357b3d201e14713668fbd045b450ffd279610081/docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md) |
 | HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #479 @ 357b3d201e14](https://github.com/definitely-stable/Mathlab/blob/357b3d201e14713668fbd045b450ffd279610081/docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md) |
+| HYP105-AA4T-ALLH-DUAL-QUENCHED-LOWER | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md) |
+| HYP105-AA4T-ALLH-QUENCHED-D6-LOWER | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md) |
+| HYP105-AA4T-POSITIONAL-D6-TENSOR | ALL_H_IDENTITY | DOCUMENTED_IN_DRAFT | [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md) |
+| HYP105-AA4T-QUENCHED-TENSOR-IDENTITY | CONDITIONAL_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md) |
+| HYP105-AA4T-W32-POSITIVE-MEAN-ZERO-D6 | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md) |
 | HYP105-EICE003K-DIRTY-ANCHOR | DETERMINISTIC_BOUND | DOCUMENTED_IN_DRAFT | [PR #469 @ 73cfebed8042](https://github.com/definitely-stable/Mathlab/blob/73cfebed8042f0f9b6592bd318295fb0bdf69a5b/docs/research/HYP-105-ISSUE230-EICE003K-CLEAN-ANCHOR-CONCENTRATION.md) |
 | HYP105-JPKC015-D6-ENSEMBLE | ENSEMBLE_EXPECTATION | DOCUMENTED_IN_DRAFT | [PR #455 @ c02188a4d4f2](https://github.com/definitely-stable/Mathlab/blob/c02188a4d4f2e4e07440c4d7b25fc25c6dd31b3e/docs/research/HYP-105-ISSUE230-JPKC-015-ENSEMBLE-D6.md) |
 | HYP105-LT-LOCAL-COUNTEREXAMPLE | LOCAL_CONSTRUCTION | DOCUMENTED_IN_DRAFT | [PR #466 @ 5d2c70e3adeb](https://github.com/definitely-stable/Mathlab/blob/5d2c70e3adeb1779904401f88161c9e71c884892/docs/research/HYP-105-ISSUE230-LOCAL-CYCLE-BARRIER.md) |
@@ -213,6 +218,91 @@ The table indexes **14 specific results** from **8 research PRs**. It does not c
 **Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
 
 **Does not imply:** Positive finite joint intersections do NOT prove a positive universal minimax over all W(3,2^h). The finite W(3,2) result is not a counterfamily to the all-h root bound or a proof of root Branch B. The source universe U_p=111132 is a genuine W(3,2) exact count, not the lower estimate M_p=58320.
+
+
+### HYP105-AA4T-ALLH-DUAL-QUENCHED-LOWER — Genuine GQ point-line dual every-fixed-line all-h D6 expected floor
+
+**Claim:** By genuine W(3,2^h) point/line incidence duality, for every h>=1 and every fixed complete global ORIGINAL line assignment g, E_f[D6(f,g)|g]>=s^6/98304 for uniformly random ONE full globally injected point map f. This separately reverses fixed and averaged source types; it neither averages both sides nor establishes inf_(f,g) D6 or S_s.
+
+**Ordered quantifiers:** forall h (integer h>=1, s=2^h, genuine original W(3,s)) ; forall g (any fixed complete ORIGINAL line-source globally injective physical unordered pair-label assignment) ; expectation f (one independently uniformly sampled COMPLETE globally injected original point map shared over all original source Q)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-UNIFORM-GLOBAL-ENSEMBLE
+
+**Claim dependencies:** HYP105-AA4T-ALLH-QUENCHED-D6-LOWER
+
+**Proof provenance:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** At h>=3 AA4RCYC stronger dual 1/8 bound remains available. No all-f,g adversarial positive lower is implied. Cannot transfer uncritically to non-self-dual source incidence systems.
+
+
+### HYP105-AA4T-ALLH-QUENCHED-D6-LOWER — Every-fixed-original-point complete global line injection expected D6 lower for all h>=1
+
+**Claim:** For every h>=1, s=2^h>=2 and EVERY complete globally injected original point map f, with a minimal binom(a,2)>=V=(s+1)(s^2+1), K=binom(a,2), m=K-V and d=s+1, the occupied physical C6 count is at least (a)_6/12-m(a-2)_4>0. True original GQ d-regularity and Hall's theorem give at least max(1,(d)_6) distinct-source-line assignments to six distinct original point factors. Thus T_f>=[(a)_6/12-m(a-2)_4]*max(1,(d)_6), yielding E_g D6(f,g)>=s^6/98304 under ONE uniformly sampled complete globally injected original line map g. At s>=8 the previously registered AA4R bound E_g D6>=s^6/8 is quantitatively stronger; this result contributes h=1,2 coverage and the explicit tensor bridge.
+
+**Ordered quantifiers:** forall h (integer h>=1, s=2^h, genuine original W(3,s)) ; forall f (any fixed complete ORIGINAL point-source globally injective physical pair-label assignment) ; expectation g (one independently uniformly sampled COMPLETE globally injected original line map, shared over all original Q and all 60 positional cycles)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-UNIFORM-GLOBAL-ENSEMBLE
+
+**Claim dependencies:** HYP105-AA4T-QUENCHED-TENSOR-IDENTITY
+
+**Proof provenance:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** This weaker all-h 1/98304 estimate must not replace AA4R's stronger s>=8 1/8 estimate. A positive average over g does not imply D6(f,g)>0 for every fixed g, nor all-seven S minimax. Finite arithmetic checks are not a mechanical proof of the infinite h analytic inequalities.
+
+
+### HYP105-AA4T-POSITIONAL-D6-TENSOR — Exact all-h connected aligned D6 as 60-position ORIGINAL-six-incidence tensor
+
+**Claim:** For every h>=1, every complete separately typed globally injected f,g on genuine W(3,2^h), let Q_AA range over six DISTINCT original incidence-ID sixsets with SIX distinct original point factors AND SIX distinct original line factors. For each of the exactly 60 labelled connected C6 graphs H on the canonically identical six incidence columns, let A_f(H,Q),A_g(H,Q) indicate an exactly matching coordinate-column connected C6 physical dual on its own complete global source map. Then D6(f,g)=sum_{H in C6}sum_{Q in Q_AA} A_f(H,Q) A_g(H,Q), with every accepted original aligned D6 contributing exactly once and all unaligned, disconnected or non-AA sixsets contributing zero.
+
+**Ordered quantifiers:** forall h (integer h>=1, s=2^h, genuine original W(3,s)) ; forall f,g (every separately typed COMPLETE globally injected point and line map on the SAME original six-incidence IDs)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN
+
+**Claim dependencies:** HYP105-AA4Q-SEVEN-ORIGINAL-JOIN
+
+**Proof provenance:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** An inner product of two nonnegative positional tensors can be zero even if each marginal tensor is large. A six-coordinate disconnected two-triangle A/A or unaligned original six-column cycle is excluded. Does not prove inf_(f,g) S_s(f,g)=Omega(s^6).
+
+
+### HYP105-AA4T-QUENCHED-TENSOR-IDENTITY — Exact full-injection one-sided quenched D6 expectation from original 60-fibre tensor
+
+**Claim:** For every h>=1 and fixed complete globally injected original point map f, set T_f=sum_{H in 60 labelled C6}sum_{Q in Q_AA} A_f(H,Q), with the exact original six incidence-ID source conditions. With V=(s+1)(s^2+1), minimal physical alphabet a, K=binom(a,2)>=V, one complete independently uniformly random globally injective original line map g yields exact E_g[D6(f,g)|f]=((a)_6/(K)_6)*T_f. All g-images of six distinct original lines have the ordered injective six-pair marginal, and the same full g is shared across all Q so no pairwise independence of candidate events is asserted.
+
+**Ordered quantifiers:** forall h (integer h>=1, s=2^h, genuine original W(3,s)) ; forall f (any fixed complete ORIGINAL point-source globally injective physical pair-label assignment) ; expectation g (one independently uniformly sampled COMPLETE globally injected original line map, shared over all original Q and all 60 positional cycles)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-UNIFORM-GLOBAL-ENSEMBLE
+
+**Claim dependencies:** HYP105-AA4T-POSITIONAL-D6-TENSOR
+
+**Proof provenance:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** Strict positivity of E_g D6 for fixed f is not a pointwise positive lower for an adversarially selected g. This extends the exact conditional counting domain to h>=1 but does not override the stronger h>=3 constant in AA4R. The tensor fibres are correlated under one g; no Chernoff or concentration bound is claimed.
+
+
+### HYP105-AA4T-W32-POSITIVE-MEAN-ZERO-D6 — Finite true W32 S68/S72 positional T_f=21186 and D6 zero under fixed g
+
+**Claim:** For the genuine original W(3,2) physical K6 globally injected source fixtures S68 and S72, the point-first and original-source-major 60-fibre tensor enumerators agree exactly at T_f=21186 for each fixed point map f. Therefore E_g D6(f,g)|f = 21186/5005 = 1926/455 under one uniform complete opposite source-line injection g. Yet for each specified complete fixed right g in S68/S72, the ACTUAL original aligned D6(f,g)=0 while full seven-positive S_s values are respectively 68 and 72. This is a finite exact quantifier obstruction, not an all-h low-S counterfamily.
+
+**Ordered quantifiers:** forall h (integer h=1, s=2^h=2, only genuine finite original W(3,2)) ; exists f,g (the specific complete original globally injected K6 S68 and S72 point/line fixture assignments) ; finite_witness Q,H (full original 45-incidence ID positional tensor source/dual cross-check on all relevant original Q and 60 labelled C6)
+
+**Model IDs:** MODEL-GQ-ORIGINAL, MODEL-TYPED-GLOBAL-INJECTION, MODEL-ORIGINAL-SIXSET, MODEL-POSITIVE-GF5-SEVEN, MODEL-SELECTED-LOCAL-PATTERN, MODEL-UNIFORM-GLOBAL-ENSEMBLE
+
+**Claim dependencies:** HYP105-AA4T-QUENCHED-TENSOR-IDENTITY
+
+**Proof provenance:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
+
+**Review:** NOT_REVIEWED; novelty: NOT_ASSESSED
+
+**Does not imply:** Actual D6=0 at s=2 does not imply all-seven S_s=0 or an infinite family with S_s=o(s^6). Positive conditional mean at each fixed f does not force positivity at the particular fixed g. A finite example does not prove or disprove the all-h scientific root conjecture.
 
 
 ### HYP105-EICE003K-DIRTY-ANCHOR — Original GQ source-anchor dirty-pencil identity and uniform marginal

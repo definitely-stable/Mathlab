@@ -231,6 +231,76 @@ s=2,\quad |U_p|=111132\ (15\ \mathrm{true\ roots}),\quad \mathrm{FrechetFloor}_p
 
 **Pinned source:** [PR #479 @ 357b3d201e14](https://github.com/definitely-stable/Mathlab/blob/357b3d201e14713668fbd045b450ffd279610081/docs/research/HYP-105-ISSUE230-D6AA4S-ROOT-CONDITIONAL-FRECHET.md)
 
+## HYP105-F-017 — Exact 60-cycle six ORIGINAL incidence-position aligned D6 tensor
+
+\[
+\mathcal C_6=\{\text{60 labelled connected C6 on 6 ORIGINAL columns}\},\qquad D_6(f,g)=\sum_{H\in\mathcal C_6}\ \sum_{Q\in\mathcal Q_{AA}}A_f(H,Q)A_g(H,Q).
+\]
+
+**Applies under:** ALL h>=1, every pair of separately typed complete ORIGINAL globally injected f,g; same six genuine incidence IDs and fixed canonical source-column order on both sides.
+
+**Cannot conclude:** Positive original-side 60-fibre tensor populations do NOT imply their exact aligned joint inner product is positive.
+
+**Linked claim:** HYP105-AA4T-POSITIONAL-D6-TENSOR
+
+**Pinned source:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
+
+## HYP105-F-018 — All-h exact quenched original positional D6 expected inner product
+
+\[
+T_f=\sum_{H\in\mathcal C_6}\sum_{Q\in\mathcal Q_{AA}}A_f(H,Q),\qquad K=\binom a2,\quad V=(s+1)(s^2+1),\quad \mathbb E_g[D_6(f,g)\mid f]=\frac{(a)_6}{(K)_6}T_f.
+\]
+
+**Applies under:** h>=1; all fixed complete original point maps f; a is minimal with binom(a,2)>=V; expectation only over ONE uniformly sampled complete original global line map g.
+
+**Cannot conclude:** Events across different original Q,H share one g and need not be independent; no pointwise bound.
+
+**Linked claim:** HYP105-AA4T-QUENCHED-TENSOR-IDENTITY
+
+**Pinned source:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
+
+## HYP105-F-019 — All-h original C6 Hall candidate count and weaker global conditional floor
+
+\[
+m=K-V\le a-2,\quad T_f\ge\left[\frac{(a)_6}{12}-m(a-2)_4\right]\max\{1,(s+1)_6\},\quad \forall h\ge1\ \forall f:\ \mathbb E_g D_6(f,g)\ge\frac{s^6}{98304}.
+\]
+
+**Applies under:** True original d=s+1 regular incidence; d<6 requires Hall matching rather than falling-factorial positivity. h>=1, fixed globally injected f, random ONE complete g. For h>=3 existing AA4R 1/8 is stronger.
+
+**Cannot conclude:** The weaker all-h constant does not supersede h>=3 1/8 bound, and does not imply inf_(f,g) D6 or S_s positivity.
+
+**Linked claim:** HYP105-AA4T-ALLH-QUENCHED-D6-LOWER
+
+**Pinned source:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
+
+## HYP105-F-020 — All-h exact GQ dual fixed-right original D6 conditional floor
+
+\[
+\forall h\ge1\ \forall g:\qquad \mathbb E_f[D_6(f,g)\mid g]\ge\frac{s^6}{98304},\quad s=2^h.
+\]
+
+**Applies under:** Genuine ORIGINAL W(3,2^h) point-line source duality; every fixed globally injected line map g; expectation over ONE independently uniformly random complete point map f.
+
+**Cannot conclude:** Does not imply a bound for each jointly fixed f,g; for h>=3 AA4RCYC 1/8 is stronger.
+
+**Linked claim:** HYP105-AA4T-ALLH-DUAL-QUENCHED-LOWER
+
+**Pinned source:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
+
+## HYP105-F-021 — Genuine W32 60-position tensor mean-versus-realized-zero certificate
+
+\[
+s=2,\quad T_{f_{\mathrm{S68}}}=T_{f_{\mathrm{S72}}}=21186,\quad \mathbb E_g[D_6\mid f]=\frac{21186}{5005}=\frac{1926}{455}>0,\quad D_6(f,g_{\mathrm{S68/S72}})=0,\quad S_{\mathrm{S68/S72}}\in\{68,72\}.
+\]
+
+**Applies under:** FINITE true original W(3,2), six distinct original incidence IDs, 60 fixed source-column C6 fibres, full K6 global injection fixtures S68 and S72; conditional expectation differs from actual fixed g outcome.
+
+**Cannot conclude:** D6=0 at s=2 does not establish S_s=0 (actually 68/72 here) or an infinite original low-S family.
+
+**Linked claim:** HYP105-AA4T-W32-POSITIVE-MEAN-ZERO-D6
+
+**Pinned source:** [PR #484 @ c51448b4e47b](https://github.com/definitely-stable/Mathlab/blob/c51448b4e47b17737285ef8e6b7ea09991a8c289/docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md)
+
 ## Formula review protocol
 
 Verify original six-incidence constraints, alphabet, all-h range, global injection semantics, and quantifier order against the cited proof commit. CI does not mechanically check the algebra.

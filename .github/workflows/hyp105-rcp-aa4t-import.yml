@@ -1,0 +1,40 @@
+name: hyp105-rcp-aa4t-import
+
+on:
+  pull_request:
+    paths:
+      - "research/rcp/**"
+      - "research/test_rcp_aa4t_import.py"
+      - "docs/research/hyp105/**"
+      - ".github/workflows/hyp105-rcp-aa4t-import.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: hyp105-rcp-aa4t-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  source-proof-and-markdown-parity:
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test original 60-position tensor, exact arithmetic, source hashes and quantifiers
+        run: python -m unittest research.test_rcp_aa4t_import -v
+      - name: Generate and verify five math Markdown research registers
+        run: |
+          python -m research.rcp.structured_docs --check
+          python -m research.rcp.structured_docs --check
+      - name: Verify exact generated Markdown parity
+        run: python -m research.rcp.structured_docs --check

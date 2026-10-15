@@ -15,9 +15,14 @@ Only explicitly registered edges are included. An unregistered historical proof 
 | HYP105-AA4Q-CC-GIRTH-OBSTRUCTION | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN |
 | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | HYP105-AA4RCYC-D6-QUENCHED-IDENTITY |
 | HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | HYP105-AA4S-ROOT-FRECHET-ZERO |
+| HYP105-AA4Q-SEVEN-ORIGINAL-JOIN | HYP105-AA4T-POSITIONAL-D6-TENSOR |
 | HYP105-AA4RCYC-D6-QUENCHED-IDENTITY | HYP105-AA4RCYC-D6-QUENCHED-LOWER |
 | HYP105-AA4RCYC-D6-QUENCHED-LOWER | HYP105-AA4RCYC-D6-DUAL-QUENCHED-LOWER |
 | HYP105-AA4S-ROOT-FRECHET-ZERO | HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL |
+| HYP105-AA4T-ALLH-QUENCHED-D6-LOWER | HYP105-AA4T-ALLH-DUAL-QUENCHED-LOWER |
+| HYP105-AA4T-POSITIONAL-D6-TENSOR | HYP105-AA4T-QUENCHED-TENSOR-IDENTITY |
+| HYP105-AA4T-QUENCHED-TENSOR-IDENTITY | HYP105-AA4T-ALLH-QUENCHED-D6-LOWER |
+| HYP105-AA4T-QUENCHED-TENSOR-IDENTITY | HYP105-AA4T-W32-POSITIVE-MEAN-ZERO-D6 |
 
 ## Explicit external proof inputs
 
@@ -73,6 +78,32 @@ Only explicitly registered edges are included. An unregistered historical proof 
 - Frozen genuine W(3,2) source model, S68/S72 global original injections and pinned historical seven-GF5 original positional classifier.
 - Independent source-only U_p enumeration compared with true two-sided original ID join; original PR479 Python tests document replay command.
 
+### HYP105-AA4T-ALLH-DUAL-QUENCHED-LOWER
+
+- Genuine GQ W(3,2^h) point-line source self-duality, with original incidence-ID and physical C6 positional matching preserved.
+
+### HYP105-AA4T-ALLH-QUENCHED-D6-LOWER
+
+- Minimal physical alphabet missing-edge cycle union bound and exact (a)_6/12 unoriented connected K_a six-cycle count.
+- True d-regular original GQ bipartite point-line incidence graph, Hall's theorem for d<6 and greedy distinct-line choices for d>=6.
+- Exact rational s=2,4 boundary and elementary analytic inequalities for s>=8, pinned in source PR484.
+- Previously independently registered AA4R quenched D6 bound s^6/8 for h>=3 is quantitative comparison only, not used to prove the weaker all-h 1/98304 floor.
+
+### HYP105-AA4T-POSITIONAL-D6-TENSOR
+
+- Historical seven positive original GF(5) positional motifs and exact AA4Q common ORIGINAL incidence-ID join; the accepted aligned A/A connected C6 contribution equals D6.
+- The 60 connected labelled C6 position fibres on six unchanged original incidence IDs; no physical-symbol orbit quotient.
+
+### HYP105-AA4T-QUENCHED-TENSOR-IDENTITY
+
+- Exactly (a)_6 globally extendible line-label coordinate assignments realize the SAME fixed labelled original six-column C6 on six distinct original source line IDs.
+- Uniform ordered six-label marginal of ONE complete globally injected g from K physical unordered edges.
+
+### HYP105-AA4T-W32-POSITIVE-MEAN-ZERO-D6
+
+- Original independently enumerated W(3,2) 45 incidence-ID point-first 60-cycle and source-major original Q positional tensor oracles; historical seven-positive GF(5) classifier.
+- Frozen S68 and S72 physical K6 fully typed global injection fixtures from source PR484.
+
 ### HYP105-EICE003K-DIRTY-ANCHOR
 
 - Genuine GQ uniqueness and source-pencil combinatorics from pinned EICE-003-K proof.
@@ -89,7 +120,9 @@ Only explicitly registered edges are included. An unregistered historical proof 
 
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4N-QUENCHED-LOWER. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4Q-SEVEN-ORIGINAL-JOIN -> HYP105-AA4RCYC-D6-QUENCHED-IDENTITY. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
+- **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4Q-SEVEN-ORIGINAL-JOIN -> HYP105-AA4T-POSITIONAL-D6-TENSOR. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4S-ROOT-FRECHET-ZERO -> HYP105-AA4S-W32-POSITIVE-JOINT-ZERO-MARGINAL. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
+- **DOMAIN_TRANSFER_REVIEW**: HYP105-AA4T-QUENCHED-TENSOR-IDENTITY -> HYP105-AA4T-W32-POSITIVE-MEAN-ZERO-D6. Different h ranges need proof-level domain audit; this text check cannot establish subset semantics.
 - **EXPECTATION_TO_DETERMINISTIC_BRIDGE_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4O-QUINTIC-IDENTITY. The dependency link must not use averaging as a pointwise proof without an explicit argument.
 - **MODEL_SCOPE_BRIDGE_REVIEW**: HYP105-AA4N-QUENCHED-IDENTITY -> HYP105-AA4O-QUINTIC-IDENTITY. Dependency may use an independent deterministic proof or a model-preserving reduction; inspect source.
 

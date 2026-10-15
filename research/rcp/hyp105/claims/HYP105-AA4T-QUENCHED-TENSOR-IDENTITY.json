@@ -1,0 +1,58 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 484,
+    "commit": "c51448b4e47b17737285ef8e6b7ea09991a8c289",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md",
+    "proof_blob_sha": "7d19b0f32e6fa8d7d57f324c826c0b84d1ce9780",
+    "stage": "OPEN_DRAFT_PR"
+  },
+  "id": "HYP105-AA4T-QUENCHED-TENSOR-IDENTITY",
+  "title": "Exact full-injection one-sided quenched D6 expectation from original 60-fibre tensor",
+  "mode": "CONDITIONAL_EXPECTATION",
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN",
+    "MODEL-UNIFORM-GLOBAL-ENSEMBLE"
+  ],
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=1, s=2^h, genuine original W(3,s)"
+    },
+    {
+      "op": "forall",
+      "variable": "f",
+      "domain": "any fixed complete ORIGINAL point-source globally injective physical pair-label assignment"
+    },
+    {
+      "op": "expectation",
+      "variable": "g",
+      "domain": "one independently uniformly sampled COMPLETE globally injected original line map, shared over all original Q and all 60 positional cycles"
+    }
+  ],
+  "statement": "For every h>=1 and fixed complete globally injected original point map f, set T_f=sum_{H in 60 labelled C6}sum_{Q in Q_AA} A_f(H,Q), with the exact original six incidence-ID source conditions. With V=(s+1)(s^2+1), minimal physical alphabet a, K=binom(a,2)>=V, one complete independently uniformly random globally injective original line map g yields exact E_g[D6(f,g)|f]=((a)_6/(K)_6)*T_f. All g-images of six distinct original lines have the ordered injective six-pair marginal, and the same full g is shared across all Q so no pairwise independence of candidate events is asserted.",
+  "depends_on_claims": [
+    "HYP105-AA4T-POSITIONAL-D6-TENSOR"
+  ],
+  "external_dependencies": [
+    "Exactly (a)_6 globally extendible line-label coordinate assignments realize the SAME fixed labelled original six-column C6 on six distinct original source line IDs.",
+    "Uniform ordered six-label marginal of ONE complete globally injected g from K physical unordered edges."
+  ],
+  "limitations": [
+    "Strict positivity of E_g D6 for fixed f is not a pointwise positive lower for an adversarially selected g.",
+    "This extends the exact conditional counting domain to h>=1 but does not override the stronger h>=3 constant in AA4R.",
+    "The tensor fibres are correlated under one g; no Chernoff or concentration bound is claimed."
+  ],
+  "falsification_boundary": "Use one full global right map g sampled once, not independent per Q or per H; source incidence columns must be identical on both coordinate-dual sides."
+}

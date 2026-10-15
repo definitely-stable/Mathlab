@@ -1,0 +1,60 @@
+{
+  "schema": "mathlab.rcp.claim.v1",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "mathematical_status": "DOCUMENTED_IN_DRAFT",
+  "review_status": "NOT_REVIEWED",
+  "novelty_status": "NOT_ASSESSED",
+  "root_impact": "ROOT_BRANCHES_OPEN",
+  "source": {
+    "repository": "definitely-stable/Mathlab",
+    "pr": 484,
+    "commit": "c51448b4e47b17737285ef8e6b7ea09991a8c289",
+    "proof_path": "docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md",
+    "proof_blob_sha": "7d19b0f32e6fa8d7d57f324c826c0b84d1ce9780",
+    "stage": "OPEN_DRAFT_PR"
+  },
+  "id": "HYP105-AA4T-ALLH-QUENCHED-D6-LOWER",
+  "title": "Every-fixed-original-point complete global line injection expected D6 lower for all h>=1",
+  "mode": "CONDITIONAL_EXPECTATION",
+  "model_ids": [
+    "MODEL-GQ-ORIGINAL",
+    "MODEL-TYPED-GLOBAL-INJECTION",
+    "MODEL-ORIGINAL-SIXSET",
+    "MODEL-POSITIVE-GF5-SEVEN",
+    "MODEL-UNIFORM-GLOBAL-ENSEMBLE"
+  ],
+  "quantifiers": [
+    {
+      "op": "forall",
+      "variable": "h",
+      "domain": "integer h>=1, s=2^h, genuine original W(3,s)"
+    },
+    {
+      "op": "forall",
+      "variable": "f",
+      "domain": "any fixed complete ORIGINAL point-source globally injective physical pair-label assignment"
+    },
+    {
+      "op": "expectation",
+      "variable": "g",
+      "domain": "one independently uniformly sampled COMPLETE globally injected original line map, shared over all original Q and all 60 positional cycles"
+    }
+  ],
+  "statement": "For every h>=1, s=2^h>=2 and EVERY complete globally injected original point map f, with a minimal binom(a,2)>=V=(s+1)(s^2+1), K=binom(a,2), m=K-V and d=s+1, the occupied physical C6 count is at least (a)_6/12-m(a-2)_4>0. True original GQ d-regularity and Hall's theorem give at least max(1,(d)_6) distinct-source-line assignments to six distinct original point factors. Thus T_f>=[(a)_6/12-m(a-2)_4]*max(1,(d)_6), yielding E_g D6(f,g)>=s^6/98304 under ONE uniformly sampled complete globally injected original line map g. At s>=8 the previously registered AA4R bound E_g D6>=s^6/8 is quantitatively stronger; this result contributes h=1,2 coverage and the explicit tensor bridge.",
+  "depends_on_claims": [
+    "HYP105-AA4T-QUENCHED-TENSOR-IDENTITY"
+  ],
+  "external_dependencies": [
+    "Minimal physical alphabet missing-edge cycle union bound and exact (a)_6/12 unoriented connected K_a six-cycle count.",
+    "True d-regular original GQ bipartite point-line incidence graph, Hall's theorem for d<6 and greedy distinct-line choices for d>=6.",
+    "Exact rational s=2,4 boundary and elementary analytic inequalities for s>=8, pinned in source PR484.",
+    "Previously independently registered AA4R quenched D6 bound s^6/8 for h>=3 is quantitative comparison only, not used to prove the weaker all-h 1/98304 floor."
+  ],
+  "limitations": [
+    "This weaker all-h 1/98304 estimate must not replace AA4R's stronger s>=8 1/8 estimate.",
+    "A positive average over g does not imply D6(f,g)>0 for every fixed g, nor all-seven S minimax.",
+    "Finite arithmetic checks are not a mechanical proof of the infinite h analytic inequalities."
+  ],
+  "falsification_boundary": "At s=2,4 use matching existence rather than falling(d,6)=0 to incorrectly eliminate every original matching. All assignments must be genuine original incidence flag sets."
+}
