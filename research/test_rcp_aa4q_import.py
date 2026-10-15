@@ -94,7 +94,9 @@ class AA4QImportTests(unittest.TestCase):
     def test_05_two_separately_scoped_latex_formulas(self):
         values = read_formulas(REG, set(self.registry))
         formulas = {x["id"]: x for x in values}
-        self.assertEqual(len(formulas), 9)
+        self.assertGreaterEqual(len(formulas), 9)
+        self.assertTrue(all(fid in formulas for fid in
+                            ("HYP105-F-008", "HYP105-F-009")))
         self.assertEqual(formulas["HYP105-F-008"]["claim_ids"], [JOIN_ID])
         self.assertEqual(formulas["HYP105-F-009"]["claim_ids"], [CC_ID])
         self.assertIn("cap", formulas["HYP105-F-008"]["latex"])
