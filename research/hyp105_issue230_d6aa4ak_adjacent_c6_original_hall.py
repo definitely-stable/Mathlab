@@ -157,3 +157,41 @@ def adjacent_original_rootpair(model,side):
         for offset,(i,j) in enumerate(combinations(factors,2)):
             if set(labels[i])&set(labels[j]):return root,offset
     raise ValueError("no ACTUAL original source root physically adjacent flags")
+
+
+def exact_full_connected_C6_original_transfer(model,*,side=0,root=0,
+                                              pair_offset=0,four=None):
+    """FULL genuine ORIGINAL connected-C6 accepted Q, ALL global f,g.
+
+    The two distinct actual original opposite pinned factor edge images
+    are either physically adjacent (new AK 12-channel theorem) or
+    disjoint (prior AJ 2+4 geometric connected-C6 theorem). Cases
+    disjoint, exhaustive, same original source 6-ID Q and global maps.
+    Counts genuine original matching multiplicities, including C8.
+    """
+    from hyp105_issue230_d6aa4aj_connected_c6_original_transfer import (
+        exact_original_connected_C6_transfer)
+    if four is None:raise ValueError("real original B-physical C4 required")
+    a,inc,neighbors,pinned,inv,pins,four=_source_cohort(
+        model,side=side,root=root,pair_offset=pair_offset,src_four=four)
+    if set(pins[0])&set(pins[1]):
+        z=exact_adjacent_C6_original_transfer(
+            model,side=side,root=root,pair_offset=pair_offset,four=four)
+        sector="adjacent";n=z["accepted_actual_original_six_Q"]
+        physical=None;cap=24*(model["s"]+1)**2
+    else:
+        z=exact_original_connected_C6_transfer(
+            model,side=side,root=root,pair_offset=pair_offset,four=four)
+        sector="disjoint";n=z["accepted_original_connected_C6_Q"]
+        physical=z["occupied_physical_connected_C6_H"]
+        cap=48*(model["s"]+1)**2+192*(model["s"]+1)
+    if n>cap:raise AssertionError("all-h full connected original source cap")
+    return {"s":model["s"],"side":side,"root":root,
+            "four_actual_original_B_factors":four,
+            "pinned_opposite_physical_relation":sector,
+            "accepted_full_CONNECTED_C6_actual_original_six_Q":n,
+            "occupied_physical_C6_if_disjoint":physical,
+            "actual_original_source_degree_upper_for_chosen_sector":cap,
+            "adjacent_and_disjoint_exhaust_original_connected_C6":True,
+            "same_two_complete_global_typed_maps_used_for_every_original_Q":True,
+            "all_seven_GF5_universal_S_lower_NOT_PROVED":True}
