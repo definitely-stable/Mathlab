@@ -96,3 +96,53 @@ The full true-original W32 test uses the independent AA4-Q per-half index of **6
 Executable theorem/ORIGINAL verification: research/hyp105_issue230_d6aa4y3_original_source_star_capacity.py; independent tests research/test_hyp105_issue230_d6aa4y3_original_source_star_capacity.py; GitHub-hosted dedicated CI .github/workflows/hyp105-issue230-d6aa4y3-original-source-star-capacity.yml. No source-girth shortcut beyond genuine GQ regularity, six distinct original incidences and forbidden C/C. The result is an ALL-h upper capacity theorem, not Branch A universal obstruction, Branch B infinite o(s^6) construction or model-equivalent Branch C.
 
 Next mathematical gate: tighten the mixed capacity by counting the ACTUAL shared ORIGINAL Q requiring BOTH modified point and modified line factors with connected six-position AA modes and/or a positive non-AA source forest class. Two independent one-sided source stars leave an O(s^12) envelope versus the desired Omega(s^6) positive floor, so claiming universal root acceptance would be mathematically unjustified. Keep PR Draft until exact-head Dedicated + INDEX + Proof Audit + Full Research PASS and independent mathematical review; no merge/main modification, issue #230 remains OPEN.
+## 8. Strengthening: ORIGINAL point-line crossed stars and GQ no-4cycle capacity
+
+**This strengthens the initial one-typed-side O(s^12) envelope to a genuine ALL-h O(s^11) bound on harmful GF5 shared-mode conflicts under one source-factor transposition on EACH side. It still does NOT reach the s^6 scale required by root Branch A.**
+
+### 8.1 One marked source p plus one opposite source ℓ
+
+Fix an actual source POINT factor p and an actual source LINE factor ℓ (the point/line dual argument is identical). Let Q be a true six-distinct-original-incidence subset whose physically 2-regular POINT half uses p and whose actual source LINE support contains ℓ. Since ℓ has exactly d distinct original point-neighbors N(ℓ), Q contains at least one original flag (q,ℓ) for some q∈N(ℓ). Union-bound by the choice of this actual original flag; no replacement by independent synthetic point/line samples.
+
+If q=p, which is possible only when the true GQ contains original (p,ℓ), the number of Q is bounded by V_flag derived in §3. For q≠p, their global distinct physical source images are adjacent or disjoint. The complete physical pattern counts using BOTH physical edges are the T_A,T_B,T_C from §4. With ONE exact original flag (q,ℓ) fixed, the ORIGINAL neighbor-choice upper per physical two-source pattern is:
+
+    A: d^5,
+    B: max((d-1)*d^4, C(d,2)*d^3)=(d-1)*d^4,
+    C: (d-1)*C(d,2)^2.
+
+Explanation: A uses q exactly once, leaving five other independent source flag choices. In B, if q is the repeated root then choose its second ORIGINAL incidence in d-1 ways and choose the four single factors in d^4 ways; if q is single then choose the doubled-root flags C(d,2) and three further single flags d^3, exactly half the conservative root-bound, so taking the root bound is safe for either source role. In C, q is repeated twice and its second actual flag has d-1 choices, with C(d,2) each for two other repeated original factors.
+
+Let T_flag^rel be the sum over A/B/C physical two-edge pattern counts times these corresponding flag-choice weights. Then for arbitrary globally injected POINT map f:
+
+    U_cross(p,ℓ; f) <=
+      1_{(p,ℓ)∈I} * V_flag
+      + sum_{q∈N(ℓ), q≠p} T_flag^relation(f(p),f(q)).
+
+This is an exact all-h upper for actual source Q jointly involving p and ℓ; it uses real original GQ incidence-neighbor sets and the physical image relation in ONE globally coherent f. In particular, with T_max=max(T_flag^adj,T_flag^dis),
+
+    U_cross(p,ℓ) <= I(p,ℓ)*V_flag + (d-I(p,ℓ))*T_max.
+
+### 8.2 Two original point sources × two original line sources
+
+Let P={p1,p2} and L={ℓ1,ℓ2} be the source factors whose images are exchanged. The number m of ACTUAL source GQ incidences between P and L is at most THREE, since all four would form K2,2, an original bipartite 4-cycle prohibited by GQ girth >=8. Every Q used by a mixed mode difference touches at least one marked original point and one marked original line (Y-CYC support identity). Sum the four cross-star upper bounds to obtain
+
+    U_cross_2x2(m) = m*V_flag + (4d-m)*T_max,     0<=m<=3.
+
+Let U2^point, U2^line be the physical adjacent/disjoint marked-source pair union bounds from §4. Each BEFORE/AFTER physical half has at most one GF5 positional mode per actual Q, so the two half signed mode energy counts E_P, E_L satisfy:
+
+    E_P <= 2*min(U2^point, U_cross_2x2(m)),
+    E_L <= 2*min(U2^line, U_cross_2x2(m)).
+
+Since every harmful mode is in the intersection of the signed point and line half gradients, the actual ORIGINAL historical GF5 harmful mixed term satisfies the NEW all-h deterministic cap
+
+    0 <= H <= 2*min(U2^point, U2^line, U_cross_2x2(m)).
+
+Crucially, as s→∞ with minimal physical alphabet a ~ sqrt(2)*s^(3/2), V_flag=O(s^11), T_flag^adj=O(s^(19/2)), T_flag^dis=O(s^8), so U_cross_2x2(m)=O(s^11). The earlier one-typed-side pair-star cap alone was O(s^12). When m=0 (no actual point-line marked incidences), the improved cross-star cap is O(s^(21/2)), whereas for m>0 it can be O(s^11). This is a meaningful one-power all-h structural improvement but does NOT prove H=O(s^6), let alone a positive source-forest charge floor sufficient for universal S_s=Omega(s^6).
+
+### 8.3 Independent falsification
+
+The new executable module research/hyp105_issue230_d6aa4y3_original_cross_source_capacity.py gives exact integer all-h formulas for both marked sources with ONE truly fixed opposite original flag, per-physical-relation source cross-stars, the no-GQ-K2,2 2×2 cap and all-h comparative orders. Its independent tests cover actual original incidence p↔ℓ, direct known W32 2-source+one-flag constants, all 11,025 genuine W32 marked 2point×2line source layouts (m=0,1,2,3, never 4), and all 15×15 source point-line cross-stars on both typed half projections using ALL 62,370 real original Q per side for S68/S72.
+
+The existing original Y2 C++20 signed conflict engine independently generates all 11,236 TRUE complete globally injected W32 paired maps per S68/S72. The strengthened Y3 Python audit now checks each of the 11,025 nontrivial shared-mode harmful counts H against the NEW all-h crossed-star bound using the actual original source incidence count m for each physical pair swap. All outputs are source-pinned in CI artifacts. No statistical sampling or assumptions about independence.
+
+Next allowed research gate after acceptance: replace this still-loose cross-star union estimate by exact multi-center source-forest and same-Q physical-position collision capacities (especially AA connected C6 and B/B repeated-source overlap) that reach the root s^6 scale, or produce a true infinite adversarial counterfamily. Maintain root A/B/C OPEN.
