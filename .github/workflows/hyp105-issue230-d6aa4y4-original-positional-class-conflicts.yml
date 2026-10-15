@@ -1,0 +1,95 @@
+name: hyp105-issue230-d6aa4y4-original-positional-class-conflicts
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4y4_original_seven_signed_quadrants.cpp"
+      - "research/hyp105_issue230_d6aa4y4_original_seven_positional_capacity.py"
+      - "research/test_hyp105_issue230_d6aa4y4_original_seven_positional_capacity.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4Y4-ORIGINAL-SEVEN-POSITIONAL-CONFLICTS.md"
+      - ".github/workflows/hyp105-issue230-d6aa4y4-original-positional-class-conflicts.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-all-h-positional-24-6-12-independent-oracle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently enumerate physical K6 K7 connected C6 and true-original W32 43740 positional half six-Q
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4y4_original_seven_positional_capacity.py" -v
+          python - <<'PY'
+          import sys
+          sys.path.insert(0,"research")
+          from hyp105_issue230_d6aa4y4_original_seven_positional_capacity import original_AA_connected_root_physical_capacity,original_AA_harmful_two_swap_upper
+          for h in range(1,15):
+              s=1<<h
+              x=original_AA_connected_root_physical_capacity(s)
+              assert x["all_h_true_original_AA_connected_only_not_2C3"]
+              assert x["all_physical_connected_C6_patterns_per_fixed_edge"]*7==x["all_physical_2_regular_A_patterns_per_fixed_edge"]*6
+              for relation in ("adjacent","disjoint"):
+                  for m in range(4):
+                      z=original_AA_harmful_two_swap_upper(s,relation,relation,m)
+                      assert z["all_h_connected_positional_AA_GF5_harm_bound_PROVED"]
+                      assert z["D6_harmful_same_original_Q_connected_C6_mode_upper"]<=z["prior_all_seven_untagged_mode_bound"]
+                      assert not z["all_h_seven_S_omega_s6_PROVED"]
+          print("ALL-H TRUE ORIGINAL CONNECTED AA 60-MODE SOURCE 24/6/12 CAPACITY PASS")
+          PY
+  genuine-original-full-seven-class-11236-signed-mode-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently compile original two-sided join, Y2 aggregate conflicts, and NEW seven-tag same-Q signed quadrants
+        run: |
+          g++ -std=c++20 -O3 -Wall -Wextra -pedantic -o /tmp/y4-original-join research/hyp105_issue230_d6aa4ycyc_bilateral_original_join.cpp
+          g++ -std=c++20 -O3 -Wall -Wextra -pedantic -o /tmp/y4-y2-aggregate research/hyp105_issue230_d6aa4y2_original_signed_conflicts.cpp
+          g++ -std=c++20 -O3 -Wall -Wextra -pedantic -o /tmp/y4-seven research/hyp105_issue230_d6aa4y4_original_seven_signed_quadrants.cpp
+      - name: Exhaust EVERY original 11236 globally injected pair x all seven GF5 tags x four signed quadrants
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4y4_original_seven_positional_capacity.py --scheme "$SCHEME" --original /tmp/y4-original-join --tagged /tmp/y4-seven --aggregate /tmp/y4-y2-aggregate --tagged-output /tmp/y4-original-7x4.tsv --seven-output /tmp/y4-original-seven-Q.tsv --summary /tmp/y4-original-summary.json > /tmp/y4-original-stdout.json
+          python - <<'PY'
+          import json,csv,os
+          x=json.load(open("/tmp/y4-original-summary.json"))
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-Y4-ORIGINAL-SEVEN-POSITIONAL-SAME-Q-CONFLICTS"
+          assert x["scheme"]==os.environ["SCHEME"]
+          assert x["original_global_injections_only"]
+          assert x["all_h_connected_AA_60_positional_mode_pattern_bound"]
+          c=x["certificate"]
+          assert c["full_106_by_106_true_original_seven_tag_four_sign_certified"]
+          assert c["seven_historical_GF5_class_and_weighted_exact_deltas_checked"]==77175
+          assert c["all_11236_tagged_quadrants_equal_independent_Y2_aggregate"]
+          assert c["all_original_51palette_risk_weighted_deltas_equal_native_historical_join"]
+          assert len(c["per_historical_seven_GF5_class"])==7
+          assert c["root_A"]==c["root_B"]==c["root_C"]=="OPEN"
+          with open('/tmp/y4-original-7x4.tsv',newline='') as fp:
+              rows=list(csv.DictReader(fp,delimiter="\t"))
+          assert len(rows)==11236
+          assert len(rows[0])==30
+          with open('/tmp/y4-original-seven-Q.tsv',newline='') as fp:
+              assert len(list(csv.DictReader(fp,delimiter="\t")))==11236
+          print("COMPLETE TRUE ORIGINAL",x["scheme"],"SEVEN GF5 CLASS FOUR-SIGN MODE CERT PASS",c)
+          PY
+      - name: Preserve full true-original seven class x four signed quadrant census and separately joined six-ID historical evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4y4-7x4-original-${{ matrix.scheme }}
+          path: |
+            /tmp/y4-original-7x4.tsv
+            /tmp/y4-original-seven-Q.tsv
+            /tmp/y4-original-summary.json
+          retention-days: 90
+          if-no-files-found: error
