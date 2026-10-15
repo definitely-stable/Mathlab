@@ -17,6 +17,7 @@ not claim to construct GQ above its explicit memory/time cap.
 """
 from collections import Counter
 from itertools import combinations
+from functools import lru_cache
 from math import prod
 
 from hyp105_b1_symplectic import normalized, symplectic, symplectic_gq
@@ -29,6 +30,14 @@ def _permutation(value, n, label):
     if len(p) != n or set(p) != set(range(n)) or any(type(x) is not int for x in p):
         raise ValueError(label + " must be an actual full permutation")
     return p
+
+
+@lru_cache(maxsize=3)
+def _true_model_incidence(s):
+    if s not in (2, 4, 8):
+        raise ValueError("strict finite genuine-GQ oracle supports s=2,4,8 only")
+    _, points, lines, truth = symplectic_gq(s.bit_length()-1)
+    return len(points), len(lines), frozenset(truth)
 
 
 def _valid_original_model(model, *, finite_true_geometry=True):
@@ -49,10 +58,8 @@ def _valid_original_model(model, *, finite_true_geometry=True):
         if len(arr) != v or len(set(arr)) != v or any(e not in physical for e in arr):
             raise ValueError("one COMPLETE globally injective canonical physical map per type")
     if finite_true_geometry:
-        if s not in (2, 4, 8):
-            raise ValueError("strict finite genuine-GQ oracle supports s=2,4,8 only")
-        _, points, lines, truth = symplectic_gq(s.bit_length()-1)
-        if len(points) != v or len(lines) != v or set(inc) != set(truth):
+        np, nl, truth = _true_model_incidence(s)
+        if np != v or nl != v or set(inc) != truth:
             raise ValueError("NOT the genuine original indexed W(3,s) incidence graph")
     return v, a, frozenset(inc)
 
