@@ -43,25 +43,29 @@ Proof: for every Q avoiding U, changing f labels of u,v changes none of the phys
 
 This identity also holds componentwise for each of the seven disjoint accepted historical class indicator vectors, and for the selected certified 51-palette GF5 numerator W=sum_Q w(class(Q)) sigma(Q), by linearity. Mixed coefficients can have either sign: their presence is **NOT a positive lower certificate** for the global minimum.
 
-## 3. Rigorous all-h original incidence support ceiling
+## 3. Exact all-h mixed original-incidence sixset capacity (strengthened)
 
-Let r=|U intersect V|: these are actual original incidences between the TWO changed points and TWO changed lines. Source GQ has no C4, so r<=3. Count original sixsets touching both U and V by a union bound over ordered (e in U,j in V):
+Let N=|E|, u=|U|, v=|V|, and r=|U intersect V|. For two source-point and two source-line transpositions on a genuine W(3,s), u=v=2(s+1), and the source GQ no-C4 axiom implies 0<=r<=3.
 
-- e=j, r possible actual common original incidence IDs: at most C(N-1,5) sixsets per e;
-- e != j, |U||V|-r ordered source-incidence pairs: at most C(N-2,4) sixsets per pair.
+**NEW exact source-sixset support capacity theorem**, by inclusion-exclusion on the actual set of all original six-incidence IDs:
 
-Therefore for every true original W(3,s), both arbitrary globally injected f,g, and every two-type label transposition,
+    M(U,V) := #{Q in C(E,6): Q meets both U and V}
+            = C(N,6) - C(N-u,6) - C(N-v,6)
+              + C(N-u-v+r,6).
 
-    M(U,V)=# {Q in binom(E,6):Q cap U != empty and Q cap V != empty}
-        <= min{ C(N,6), r*C(N-1,5)
-                        + (|U||V|-r)*C(N-2,4) },   r<=3.
+Proof: subtract original Q avoiding all U, subtract those avoiding all V, restore those avoiding U union V. This counts **all actual original sixsets**, whether they have physical projections or not; no source-incidence labels are resampled. It is an exact **ambient support capacity**, not the number of selected positive-Q terms.
 
-Each individual mixed sixset bracket has absolute value at most 2, since its four Boolean terms alternate. Consequently
+A separately derived (looser) pairwise source-flag union bound provides an independent check:
 
-    |Delta_{uv;wx} S| <= 2 M(U,V)
-    |Delta_{uv;wx} W| <= 2 w_max M(U,V),
+    M <= min{ C(N,6), r*C(N-1,5)
+                    + (u*v-r)*C(N-2,4) }, r<=3.
 
-where w_max is the largest of the seven fixed nonnegative accepted 51-palette class numerators. This is a rigorous **upper sensitivity certificate**, not a lower bound on S and not a substitute for a global source/physical expansion inequality. The finite W32 code calculates its safe numeric upper and verifies actual mixed active supports are contained therein.
+The exact formula is the bound used by the source/physical oracle; exhaustive enumeration of all sixsets of an eight-incidence toy original universe independently verifies equality. Since each individual four-Boolean-term bracket has absolute value at most 2,
+
+    |Delta_(uv;wx)^2 S| <= 2 M(U,V),
+    |Delta_(uv;wx)^2 W| <= 2 w_max M(U,V),
+
+where w_max is the maximum of the fixed seven positive class 51-palette integer weights. This is a true all-h exact *sensitivity capacity*, not an order-s^6 lower on S. In particular M counts a far larger ambient universe than the sparse selected GF5-positive sixsets, so no positive extraction theorem follows.
 
 ## 4. True W32 full seven-class original source oracle
 
