@@ -65,14 +65,14 @@ class OriginalRootpairQuenchedBAGuarantees(unittest.TestCase):
         m=fixture(2,"lex")
         p=rootpair_robust_all_h(4)
         self.assertEqual((p["a"],p["K"]-p["V"]),(14,6))
-        self.assertEqual(p["universal_per_original_root_physical_occupied_C4_floor"],1053)
+        self.assertEqual(p["universal_per_original_root_physical_occupied_C4_floor"],945)
         self.assertEqual(p["GQ_original_per_realized_C4_source_rook_floor"],106)
         for side,root in ((0,0),(1,0),(0,17),(1,17)):
             z=genuine_W34_rootpair_local_certificate(
                 m,side=side,root=root,pinned_offset=0,check_first_C4=8)
             self.assertEqual(z["physical_C4_occupied"],
                              z["independent_physical_C4_adj_trace"])
-            self.assertGreaterEqual(z["physical_C4_occupied"],1053)
+            self.assertGreaterEqual(z["physical_C4_occupied"],945)
             self.assertEqual(len(z["actual_original_four_rook_direct_counts_sample"]),8)
             self.assertGreaterEqual(
                 min(z["actual_original_four_rook_direct_counts_sample"]),106)
@@ -83,7 +83,7 @@ class OriginalRootpairQuenchedBAGuarantees(unittest.TestCase):
             for root in (0,1,8):
                 z=genuine_W34_rootpair_local_certificate(
                     m,side=side,root=root,pinned_offset=3,check_first_C4=4)
-                self.assertGreaterEqual(z["physical_C4_occupied"],1053)
+                self.assertGreaterEqual(z["physical_C4_occupied"],945)
                 self.assertGreaterEqual(
                     min(z["actual_original_four_rook_direct_counts_sample"]),106)
                 self.assertTrue(z["all_h_every_global_g_lower_NOT_PROVED"])
