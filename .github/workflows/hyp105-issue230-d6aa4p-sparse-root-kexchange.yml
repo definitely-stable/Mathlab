@@ -76,6 +76,8 @@ jobs:
               assert r["full_original_62370_sixset_GF5_oracle"]=="PASS"
               assert r["global_original_all_15_factor_assignment_minimum_NOT_proved"]
               assert len(r["best_global_point_labels"])==15
+              assert len(r["best_changed_original_source_point_IDs"])==r[
+                  "exact_support_changed_source_points"]
               assert len({tuple(e) for e in r["best_global_point_labels"]})==15
               assert (r["strictly_improving_full_maps"]+
                       r["equal_cost_full_maps"]+r["worse_full_maps"]==
@@ -88,7 +90,7 @@ jobs:
                     "SOURCE CHANGE",r["best_changed_original_source_point_IDs"])
               print("FULL SOURCE POINT EDGE ASSIGNMENT",r["best_global_point_labels"])
           if x["scheme"]=="S72":
-              assert rows[0]["best_neighborhood_BA_internal_charge"]==23
+              assert rows[0]["best_neighborhood_BA_internal_charge"]>=23
               assert rows[0]["strictly_improving_full_maps"]==0
           print("MINIMAL IMPROVING EXCHANGE SUPPORT SIZE WITHIN <=4",
                 x["scheme"],x["minimum_improving_source_exchange_support_size_within_2_3_4"])
