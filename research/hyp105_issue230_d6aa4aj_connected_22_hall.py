@@ -5,7 +5,7 @@ fixed globally injected map on each typed side; no stochastic independence.
 No unconditional positive GF(5) count is asserted.
 """
 from itertools import combinations, permutations
-from math import comb
+from math import comb, isqrt
 
 from hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation import (
     _source_cohort, classify_physical_A_twofactor,
@@ -198,8 +198,8 @@ def certified_two_bridge_prehall_floor(s):
     if type(s) is not int or s < 2 or s & (s - 1):
         raise ValueError("s must be a power of two >=2")
     V = (s + 1) * (s * s + 1)
-    a = 2
-    while comb(a, 2) < V:
+    a = (1 + isqrt(1 + 8 * V)) // 2
+    if comb(a, 2) < V:
         a += 1
     m = comb(a, 2) - V
     d = s + 1
