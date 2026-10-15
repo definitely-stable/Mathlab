@@ -57,6 +57,28 @@ class TrueOriginalPositionalTwofactorAlignmentTests(unittest.TestCase):
             x=genuine_W32_same_original_Q_positional_alignment(fixture(1,name))
             self.assertEqual(x["actual_A_A_original_sixset_count"],expectedAA[name])
             self.assertEqual(x["actual_A_A_genuine_connected_D6"],expectedD[name])
+            if name in ("S68","S72"):
+                pinned={
+                    "S68":(191,301,{
+                        "C/C:r0":35,"C/C:r1":65,"C/C:r2":42,
+                        "C/C:r3":44,"C/C:r4":5,
+                        "C/T:r0":11,"C/T:r2":18,"C/T:r4":2,
+                        "T/C:r0":8,"T/C:r2":24,"T/C:r4":1,
+                        "T/T:r2":8}),
+                    "S72":(200,362,{
+                        "C/C:r0":26,"C/C:r1":59,"C/C:r2":53,
+                        "C/C:r3":51,"C/C:r4":11,
+                        "C/T:r0":10,"C/T:r2":19,"C/T:r4":6,
+                        "T/C:r0":6,"T/C:r2":29,"T/C:r4":5,
+                        "T/T:r2":11})
+                }[name]
+                self.assertEqual(
+                    (x["actual_A_A_two_connected_C6_count"],
+                     x["actual_A_A_two_connected_C6_common_adjacency_sum"]),
+                    pinned[:2])
+                self.assertEqual(
+                    x["AA_physical_dual_type_and_positional_overlap_histogram"],
+                    pinned[2])
             self.assertEqual(x["real_full_selected_original_seven_S"],expectedS[name])
             self.assertEqual(
                 x["same_original_Q_two_sided_joint"],
