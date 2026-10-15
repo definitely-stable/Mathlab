@@ -204,6 +204,11 @@ def summarize_original_correlated_matrix(model,matrix,scheme):
         for q in (min_all,min_mixed,weighted,weighted_mixed,*pareto)
     }
     selected.update(((0,0),(1,1),(7,11),(35,78),(105,105)))
+    # Independent historical GF5 falsifier for BOTH extreme mixed Hessian
+    # witnesses, including ALL FOUR globally coherent source-map corners.
+    for pi,li,delta_s,delta_w,delta_d6 in (
+            strongest_negative,strongest_positive):
+        selected.update(((pi,li),(pi,0),(0,li),(0,0)))
     if min_zero:
         selected.add((min_zero["point_move_id"],min_zero["line_move_id"]))
     if min_mixed_zero:
@@ -240,11 +245,27 @@ def summarize_original_correlated_matrix(model,matrix,scheme):
         "most_negative_mixed_delta_S":{
             "point_move_id":strongest_negative[0],"line_move_id":strongest_negative[1],
             "delta_S":strongest_negative[2],"delta_weight":strongest_negative[3],
-            "delta_D6":strongest_negative[4]},
+            "delta_D6":strongest_negative[4],
+            "actual_source_POINT_swap":MOVES[strongest_negative[0]],
+            "actual_source_LINE_swap":MOVES[strongest_negative[1]],
+            "corner_S": {
+                "both":matrix[strongest_negative[0],strongest_negative[1]]["S"],
+                "point_only":matrix[strongest_negative[0],0]["S"],
+                "line_only":matrix[0,strongest_negative[1]]["S"],
+                "baseline":baseline["S"],
+            }},
         "most_positive_mixed_delta_S":{
             "point_move_id":strongest_positive[0],"line_move_id":strongest_positive[1],
             "delta_S":strongest_positive[2],"delta_weight":strongest_positive[3],
-            "delta_D6":strongest_positive[4]},
+            "delta_D6":strongest_positive[4],
+            "actual_source_POINT_swap":MOVES[strongest_positive[0]],
+            "actual_source_LINE_swap":MOVES[strongest_positive[1]],
+            "corner_S": {
+                "both":matrix[strongest_positive[0],strongest_positive[1]]["S"],
+                "point_only":matrix[strongest_positive[0],0]["S"],
+                "line_only":matrix[0,strongest_positive[1]]["S"],
+                "baseline":baseline["S"],
+            }},
         "historical_original_51palette_independent_witnesses_checked":len(selected),
         **one_side,
         "mixed_all_h_source_intersection_support_identity_PROVED":True,
