@@ -63,3 +63,7 @@ RCP-001-E introduces the [Proof Impact audit](PROOF-IMPACT.md), five versioned [
 ## Research coverage and next proof imports
 
 The A→E provenance and proof-impact infrastructure is integrated into `main`. [RCP-COV-001](COVERAGE-BACKFILL.md) adds a live, non-promoting research-coverage audit: run `python -m research.rcp.coverage_audit --snapshot /tmp/hyp105-current/snapshot.json --output /tmp/hyp105-coverage`. It lists all currently *tagged* open research PRs without registered proof claims, pinning their observed SHA and linking to exact sources. A missing registry entry is not mathematical rejection, and a title match is not a theorem. Import new proof/evidence records with explicitly correct quantifier order and retained Git bytes before scientific acceptance.
+
+## Newly registered scientific AA4-Q source (proof status remains draft)
+
+[RCP-AA4Q original seven-GF(5) join and C/C girth import](AA4Q-IMPORT.md) stores two separately scoped all-h deterministic claims, the original proof/oracle/test Git blobs from [scientific PR #476](https://github.com/definitely-stable/Mathlab/pull/476), exact independent SHA-256 pins, two formula entries, and a W32 one-side-marginal non-identification no-go. The five [permanent structured research Markdown registers](registry/RESULTS.md) are regenerated and GitHub-hosted CI verifies byte parity. Mathematical status remains `DOCUMENTED_IN_DRAFT / NOT_REVIEWED`; no claim of root Branch A/B/C proof acceptance is made.
