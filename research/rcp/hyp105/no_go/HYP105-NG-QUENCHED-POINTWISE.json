@@ -1,0 +1,26 @@
+{
+  "schema": "mathlab.rcp.no-go.v1",
+  "id": "HYP105-NG-QUENCHED-POINTWISE",
+  "program": "HYP-105",
+  "root_issue": 230,
+  "kind": "INVALID_INFERENCE",
+  "related_claim_ids": [
+    "HYP105-AA4N-QUENCHED-IDENTITY",
+    "HYP105-AA4N-QUENCHED-LOWER"
+  ],
+  "evidence_ids": [
+    "HYP105-EV-AA4N"
+  ],
+  "rejected_inference": "For every right-map g, the bound E_f I(f,g)>=c*s^6 implies I(f,g)>=c*s^6 for all individual legal left-maps f.",
+  "witness_scope": "Exact AA4-N conditional mean with any fixed g and one uniformly sampled complete globally injected f; s>=8 for its positive constant.",
+  "mathematical_basis": "Quantifier order forall g, expectation f yields min_g max_f, not min_(f,g); linearity does not forbid exceptional low-charge f.",
+  "does_not_refute": [
+    "An eventual universal all-(f,g) positive lower bound proven by a separate deterministic argument.",
+    "The AA4-N conditional expectation theorem itself."
+  ],
+  "reopen_only_if": "Supply an independent lower-tail bound with zero exclusion of low-charge f, or prove a deterministic inequality uniform over all globally coherent injections.",
+  "do_not_repeat": "Never convert a conditional average into a pointwise bound by replacing expectation with forall.",
+  "root_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "prior_registry_ref": "docs/research/KNOWN-AND-STOPPED-RESEARCH.json",
+  "review_status": "DOCUMENTED_SCOPE_NOT_INDEPENDENTLY_REVIEWED"
+}
