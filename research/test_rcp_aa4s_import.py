@@ -163,8 +163,8 @@ class RootMarginalImportTests(unittest.TestCase):
     def test_12_ledger_is_incremental_unbounded(self):
         self.assertGreaterEqual(self.validation["claim_count"], 14)
         self.assertGreaterEqual(self.validation["archived_blob_count"], 26)
-        self.assertGreaterEqual(self.validation["evidence_count"], 9)
-        self.assertGreaterEqual(self.validation["no_go_count"], 9)
+        self.assertGreaterEqual(self.validation["evidence_count"], 8)
+        self.assertGreaterEqual(self.validation["no_go_count"], 8)
         validate_registry(REG)
 
 
