@@ -97,6 +97,15 @@ class GQPhysicalTriangleHall(unittest.TestCase):
                 self.assertEqual(z["accepted_original_GF5_restricted"],
                                  z["indexed_occupied_triangle_candidates"]
                                  -z["original_Hall_failed"]+z["induced_original_C8_extra"])
+                if scheme=="random" and side==1:
+                    # Real globally coherent W(3,4): 73 opposite
+                    # occupied triangles per C4, but no true source rook.
+                    self.assertTrue(z["disjoint_pinned_physical_edges"])
+                    self.assertEqual(z["occupied_two_triangles_per_C4"],73)
+                    self.assertEqual(z["indexed_occupied_triangle_candidates"],146)
+                    self.assertEqual(z["original_Hall_failed"],146)
+                    self.assertEqual(z["original_Hall_positive"],0)
+
 
     def test_08_strict_validation_and_nonclosure(self):
         for bad in (0,1,3,6,-2,True):
