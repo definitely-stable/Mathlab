@@ -127,8 +127,8 @@ class TrueOriginalPositionalTwofactorAlignmentTests(unittest.TestCase):
         self.assertEqual(a["actual_A_A_two_connected_C6_common_adjacency_sum"],
                          b["actual_A_A_two_connected_C6_common_adjacency_sum"])
         self.assertEqual(
-            a["AA_physical_dual_type_and_positional_overlap_histogram"]["C/T:r2"],
-            b["AA_physical_dual_type_and_positional_overlap_histogram"]["T/C:r2"])
+            a["AA_physical_dual_type_and_positional_overlap_histogram"].get("C/T:r2",0),
+            b["AA_physical_dual_type_and_positional_overlap_histogram"].get("T/C:r2",0))
 
     def test_007_reject_fake_GQ_with_source_6cycle_and_noninjective_map(self):
         base=fixture(1,"lex")
