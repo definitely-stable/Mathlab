@@ -21,7 +21,7 @@ jobs:
       - name: Exact integer all-h independent source-root proof and actual 45-incidence universe
         run: |
           python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4s_root_conditional_frechet.py" -v
-          python - <<'PY'
+          PYTHONPATH=research python - <<'PY'
           from math import comb
           from research.hyp105_issue230_d6aa4s_root_conditional_frechet import all_h_root_conditional_frechet_no_go
           for h in range(1,12):
