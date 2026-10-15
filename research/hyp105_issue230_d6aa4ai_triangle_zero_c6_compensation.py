@@ -248,3 +248,88 @@ def independent_literal_original_W32_sector_census(model=None,*,side=0):
                     unique.add(Q)
                     result[tag]+=1
     return dict(result)
+
+
+def occupied_connected_C6_bridge(occupied,e0,e1,a):
+    """A physical connected C6 on u-v-y-w-x-z-u, fixed disjoint pins.
+
+    NEW explicit global physical pre-Hall construction. Four unpinned
+    edges v-y, y-w, x-z, z-u must be occupied. Different (y,z) give
+    different actual occupied physical six-vertex C6 patterns.
+    """
+    if type(a) is not int or a<6:
+        raise ValueError("physical alphabet >=6 required")
+    E=frozenset(tuple(e) for e in occupied)
+    if any(len(e)!=2 or any(type(v) is not int for v in e)
+           or not 0<=e[0]<e[1]<a for e in E):
+        raise ValueError("canonical occupied physical edge images required")
+    e0,e1=tuple(e0),tuple(e1)
+    if e0==e1 or e0 not in E or e1 not in E:
+        raise ValueError("two distinct occupied original physical pin edges required")
+    if set(e0)&set(e1):
+        return ()
+    u,v=e0;w,x=e1
+    outside=set(range(a))-set(e0+e1)
+    result=[]
+    for y in sorted(outside):
+        if (min(v,y),max(v,y)) not in E or (min(w,y),max(w,y)) not in E:
+            continue
+        for z in sorted(outside-{y}):
+            if (min(x,z),max(x,z)) not in E or (min(u,z),max(u,z)) not in E:
+                continue
+            H=tuple(sorted((e0,e1,(min(v,y),max(v,y)),
+                     (min(w,y),max(w,y)),(min(x,z),max(x,z)),
+                     (min(u,z),max(u,z)))))
+            assert classify_physical_A_twofactor(H,(e0,e1))=="connected_C6"
+            result.append(H)
+    assert len(set(result))==len(result)
+    return tuple(result)
+
+
+def independent_connected_C6_bridge_count(occupied,e0,e1,a):
+    """Different exact common-neighbor sets, no physical H enumeration."""
+    if type(a) is not int or a<6:
+        raise ValueError("a>=6 required")
+    E=frozenset(tuple(e) for e in occupied)
+    e0,e1=tuple(e0),tuple(e1)
+    if e0==e1 or e0 not in E or e1 not in E:
+        raise ValueError("distinct occupied pins")
+    if set(e0)&set(e1):return 0
+    u,v=e0;w,x=e1
+    O=set(range(a))-set(e0+e1)
+    left={y for y in O if all(tuple(sorted(pair)) in E
+                             for pair in ((v,y),(w,y)))}
+    right={z for z in O if all(tuple(sorted(pair)) in E
+                              for pair in ((x,z),(u,z)))}
+    return len(left)*len(right)-len(left&right)
+
+
+def analytic_two_A_sector_all_map_barrier(s):
+    """All-h for EVERY full global genuine f,g, s=2^h>=2^19.
+
+    From AA4-AG: N_good source rootpairs, occupied first-side C4 for
+    EACH actual point root. Four pinned physical endpoints each have
+    missing degree <a/16. The 2-triangle and the NEW connected C6
+    bridge each have >= a²/4 occupied completions per safe rootpair.
+    Both physical A sectors are disjoint. No ORIGINAL Hall success
+    lower is asserted; AG guaranteed INDEXED pre-Hall source tuples.
+    """
+    from hyp105_issue230_d6aa4ag_deterministic_triangle_hall import (
+        analytic_triangle_hall_barrier)
+    z=analytic_triangle_hall_barrier(s)
+    physical_each=z["indexed_occupied_pre_Hall_lower"]
+    combined=2*physical_each
+    if s>=1<<19:
+        assert physical_each>=s**14//256
+        assert combined>=s**14//128
+    return {
+        "s":s,"a":z["a"],"good_actual_source_rootpairs_lower":
+            z["good_root_line_pairs_lower"],
+        "original_point_C4_per_root_lower":z["point_C4_per_root_lower"],
+        "split_triangle_indexed_pre_Hall_lower":physical_each,
+        "connected_C6_bridge_indexed_pre_Hall_lower":physical_each,
+        "two_disjoint_A_sectors_indexed_pre_Hall_lower":combined,
+        "all_global_f_g_s14_over_128_pre_Hall_PROVED":s>=1<<19,
+        "genuine_original_4x4_Hall_success_lower_NOT_PROVED":True,
+        "full_seven_GF5_Branch_A_NOT_PROVED":True
+    }
