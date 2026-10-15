@@ -73,6 +73,10 @@ class SixChannelAllOriginalHall(unittest.TestCase):
     def test_05_entire_true_W32_triangle_subclass_vs_seven_class_baseline(self):
         expected={"S68":(44,21),"S72":(36,31),"lex":(98,110),
                   "reverse":(77,74)}
+        # Independent hosted full actual-original W32 rooted enumeration.
+        # Two-triangle A subclass is strictly smaller than all 70 modes.
+        exact_triangle={"S68":(1,0),"S72":(1,2),
+                        "lex":(3,12),"reverse":(2,4)}
         for scheme in expected:
             m=fixture(1,scheme)
             observed=[]
@@ -84,6 +88,7 @@ class SixChannelAllOriginalHall(unittest.TestCase):
                                 pair_offset=offset,max_C4=3,independent_direct=False)
                         count+=z["accepted_original_GF5_Q_sample"]
                 observed.append(count)
+            self.assertEqual(tuple(observed),exact_triangle[scheme])
             for x,upper in zip(observed,expected[scheme]):
                 self.assertGreaterEqual(x,0)
                 self.assertLessEqual(x,upper)
