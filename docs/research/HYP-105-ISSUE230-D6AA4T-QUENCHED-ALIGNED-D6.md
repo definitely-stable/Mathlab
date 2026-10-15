@@ -66,6 +66,14 @@ Join with ONE actual global right g on exactly the same Q and H; compare each D6
 
 Implementation comprises FOUR new research-only files: Python all-h proof/oracle, eight independent unit tests, this proof and limits document, dedicated 3-job GitHub-hosted CI. Require exact final AA4-T SHA dedicated + INDEX + Proof Audit + FULL Research SUCCESS, and separate independent mathematical proof review. Keep stacked Draft, no automatic merging or issue closure. Parent #230, #176, #169 remain OPEN.
 
+### Independently observed exact W32 conditional-vs-deterministic separation
+
+The independently enumerated TRUE ORIGINAL same-Q/H point-first and source-major tensor oracles both found T_f=21,186 for the full globally injected S68 and S72 point maps. Consequently their EXACT conditional expectation for ONE complete globally uniform right original line map is
+
+    E_g D6(f,g) = 21,186 / 5,005 = 1,926 / 455.
+
+Yet the specified complete actual original right g of S68 and of S72 has D6(f,g)=0 (both independently checked against the historical seven-GF5 original source classifier). This is an explicit **true-original finite quantifier obstruction**: positive conditional expectation is compatible with zero actual aligned D6 for a fixed adversarial right map. It does NOT imply S=0 (S68 and S72 have all-seven S=68 and S=72, respectively) and it does not disprove an all-h S lower.
+
 ## 5. Next research gate AA4-U
 
 Seek a deterministic joint positive lower surviving ALL adversarial f,g and misaligned A/A. Any candidate must combine actual Q-position-H joint geometry with non-AA positional overlap, JPKC source Hall and EICE internally-blocked anchors. It must be tested against true globally injected original W32 S68/S72 where D6=0. A conditional expectation over random global maps cannot be substituted for a deterministic minimum. If the proposed coupled inequality is falsified, record a genuine complete global f,g counterexample and keep the original obstruction OPEN.
