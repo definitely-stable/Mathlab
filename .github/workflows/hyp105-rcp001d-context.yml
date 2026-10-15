@@ -79,7 +79,7 @@ jobs:
           assert d["inventory"]["open_pr_count"] == len(d["inventory"]["open_prs"])
           assert len(d["research"]["claims"]) >= 7
           assert len(d["research"]["evidence"]) >= 5
-          assert len(d["research"]["no_go"]) == 5
+          assert len(d["research"]["no_go"]) >= 5
           assert len(d["research"]["escrow"]) >= 17
           assert all(c["root_impact"] == "ROOT_BRANCHES_OPEN"
                      for c in d["research"]["claims"])

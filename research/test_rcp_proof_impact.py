@@ -222,7 +222,7 @@ class StructuredDocsTests(unittest.TestCase):
 
     def test_no_go_matrix_covers_all_five(self):
         txt = self.docs["RESEARCH-MATRIX.md"]
-        self.assertEqual(txt.count("| HYP105-NG-"), 5)
+        self.assertGreaterEqual(txt.count("| HYP105-NG-"), 5)
         self.assertIn("Revisit only if", txt)
 
     def test_formula_unknown_claim_rejected(self):

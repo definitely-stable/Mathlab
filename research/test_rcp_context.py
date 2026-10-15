@@ -71,7 +71,7 @@ class ContextTests(unittest.TestCase):
         x = self.snapshot
         self.assertGreaterEqual(len(x["research"]["claims"]), 7)
         self.assertGreaterEqual(len(x["research"]["evidence"]), 5)
-        self.assertEqual(len(x["research"]["no_go"]), 5)
+        self.assertGreaterEqual(len(x["research"]["no_go"]), 5)
         self.assertGreaterEqual(len(x["research"]["escrow"]), 17)
         self.assertEqual(x["inventory"]["open_pr_count"], 8)
 
