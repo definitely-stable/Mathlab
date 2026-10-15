@@ -98,6 +98,7 @@ static array<uint64_t,7> gradient_energy(const vector<Mode>& baseline,
     }
     return energy;
 }
+#ifndef HYP105_Y2_GRAD_LIBRARY_ONLY
 int main() {
     try {
         const Model m=load_model();
@@ -137,3 +138,5 @@ int main() {
         return 1;
     }
 }
+
+#endif // HYP105_Y2_GRAD_LIBRARY_ONLY
