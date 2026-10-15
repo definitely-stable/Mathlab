@@ -158,9 +158,16 @@ def validate_registry(root: Path) -> dict[str, Any]:
         demand(isinstance(limitations, list) and limitations and
                all(nonblank(x) for x in limitations),
                cid + " missing non-implication limitations")
-        demand(nonblank(c.get("root_impact")) and
-               c["root_impact"] == "ROOT_BRANCHES_OPEN",
-               cid + " root is not certified as proved")
+        impact = c.get("root_impact")
+        impacts = {"ROOT_BRANCHES_OPEN", "ROOT_A_CANDIDATE",
+                   "ROOT_B_CANDIDATE", "ROOT_C_CANDIDATE",
+                   "ROOT_A_PROVED", "ROOT_B_PROVED", "ROOT_C_PROVED"}
+        demand(impact in impacts, cid + " unsupported root impact")
+        if impact.endswith("_PROVED"):
+            demand(c["mathematical_status"] == "FORMALLY_VERIFIED" and
+                   c["review_status"] == "INDEPENDENTLY_REVIEWED" and
+                   nonblank(c.get("acceptance_evidence")),
+                   cid + " root proof cannot be inferred from CI")
         parents = c.get("depends_on_claims")
         demand(isinstance(parents, list) and len(parents) == len(set(parents)) and
                all(isinstance(d, str) for d in parents),
@@ -182,8 +189,9 @@ def validate_registry(root: Path) -> dict[str, Any]:
         demand(isinstance(source.get("proof_blob_sha"), str) and
                SHA.fullmatch(source["proof_blob_sha"]) is not None,
                cid + " missing pinned proof blob SHA")
-        demand(source.get("stage") == "OPEN_DRAFT_PR",
-               cid + " source state should be explicitly scoped to draft")
+        demand(source.get("stage") in {"OPEN_DRAFT_PR", "OPEN_PR",
+                                     "MERGED", "ARCHIVED"},
+               cid + " source stage unknown")
         # All field values are authoritative on the pinned source commit,
         # not an assertion of the current PR HEAD.
         demand(nonblank(c.get("falsification_boundary")),
