@@ -2,7 +2,7 @@
 
 **Type:** Research-only exact SOURCE-geometry theorem plus separately scoped full-GLOBAL-map probability corollary. **Stack:** strict child of [AA4-Y-SRC PR #499](https://github.com/definitely-stable/Mathlab/pull/499), pinned parent HEAD \`791f433a4842a964924c6b0f68c7aaf4819e788c\`. The parent dedicated 3/3, INDEX and Proof Audit were successful; its full Research workflow was **CANCELLED**, hence no 4/4 acceptance is claimed. Do not merge, do not close root #230. These results are independent of parallel AA4-Y2 Gram/correlated-swap branch.
 
-**Mathematical literature / novelty accounting.** We specifically **do not claim discovery of the matching-polynomial root moments, Newton recurrence, self-avoiding-walk path tree, nor monomer–dimer cavity equations**. The general underlying tools are prior art, in particular C. D. Godsil, *Matchings and walks in graphs*, Journal of Graph Theory **5** (1981), 285–297, DOI [10.1002/jgt.3190050310](https://doi.org/10.1002/jgt.3190050310); I. M. Wanless, *Counting Matchings and Tree-Like Walks in Regular Graphs*, Combinatorics, Probability and Computing **19** (2010). The present bounded-order specialized contribution is an exact **true-ORIGINAL W(3,2^h) six-incidence A/A and A/B/B/A source-forest enumeration**, a separately implemented genuine-GQ finite graph-agnostic SAW audit, and a precise five-historical-tag GF(5) full-global-uniform reference that does not conflate expectation with a minimax.
+**Mathematical literature / novelty accounting.** We specifically **do not claim discovery of the matching-polynomial root moments, Newton recurrence, self-avoiding-walk path tree, nor monomer–dimer cavity equations**. The general underlying tools are prior art, in particular C. D. Godsil, *Matchings and walks in graphs*, Journal of Graph Theory **5** (1981), 285–297, DOI [10.1002/jgt.3190050310](https://doi.org/10.1002/jgt.3190050310); I. M. Wanless, *Counting Matchings and Tree-Like Walks in Regular Graphs*, Combinatorics, Probability and Computing **19** (2010). The present bounded-order specialized contribution is an exact **true-ORIGINAL W(3,2^h) six-incidence A/A and A/B/B/A source-forest enumeration**, a separately implemented genuine-GQ finite graph-agnostic SAW audit, and a precise six-historical-tag GF(5) full-global-uniform reference that does not conflate expectation with a minimax.
 
 ## 1. Exact all-h geometry, source types and quantifier discipline
 
@@ -151,7 +151,7 @@ The equality against the all-h regular-tree+cavity recurrences is a substantive 
 
 Fake 15+15 degree-three graphs with forbidden original source 6-cycles and non-injectively labeled global physical models are REJECTED by the GQ projection gate. The source-only counts never infer that any particular pair f,g physically accepts all these source Q.
 
-## 4. Five of seven selected ORIGINAL seven-GF5 ensemble classes are now exact all-h
+## 4. Six of seven selected ORIGINAL seven-GF5 ensemble classes are now exact all-h
 
 Independently established AA4-W source-physical response for uniform **one complete global** point injection f and uniform **one independent complete global** line injection g, shared over all actual original Q, is
 
@@ -174,7 +174,7 @@ Use the new exact SOURCE A/A and A/B/B/A populations to obtain the two new exact
 
 The first factor 60 counts the sixty connected original six-column positional cycle H templates, NOT 70 (the other ten physically A/A two-triangle templates are unaccepted D6). The one-sided A/B cells have two distinct historical accepted GF5 tags and both must be retained separately when applying their distinct fixed certified palette weights. The expression above groups their **unweighted counts only**, not their weighted 51-palette numerator.
 
-The previous exact all-h source formulas from AA4-X-SRC and AA4-Y-SRC already established the three OTHER pooled positive historical GF5 tags \(C/A,C/B,B/B\text{-overlap}\). Thus we now have the **exact expectation of FIVE of the SEVEN accepted ORIGINAL GF5 tags** for every order s.
+The previous exact all-h source formulas from AA4-X-SRC and AA4-Y-SRC already established the three OTHER pooled positive historical GF5 tags \(C/A,C/B,B/B\text{-overlap}\). Thus we now have the **exact expectation of SIX of the SEVEN accepted ORIGINAL GF5 tags** for every order s.
 
 With \(a\sim\sqrt2\,s^{3/2}\), \(K\sim s^3\), the exact source recurrences give
 
@@ -203,7 +203,7 @@ Add the previously established pooled three-tag \((160/3+o(1))s^6\):
 }
 \]
 
-**Class/sector naming:** here the two A/B and B/A historical classes are distinct, while C/A, C/B each pool both mirrored SOURCE orientations. The above display names SIX entries syntactically; there are in fact **six historical accepted GF5 tags**, namely D6, A-left/B-right, B-left/A-right, C/A, C/B, and B/B-overlap; the sole unfinished historical tag is B/B-disjoint. Accordingly, this is **SIX of SEVEN** historical tags, NOT five. The Python oracle and PR must report "SIX" consistently. The mathematical sum remains 1016/3 and is not affected by that naming correction.
+**Class/sector naming:** here the two A/B and B/A historical classes are distinct, while C/A, C/B each pool both mirrored SOURCE orientations. The six historical accepted GF5 tags are D6, A-left/B-right, B-left/A-right, C/A, C/B, and B/B-overlap. The only unfinished accepted tag is B/B-disjoint.
 
 TRUE W(3,2) exact selected mean checks against the independent AA4-W FULL seven-tag source enumeration:
 
