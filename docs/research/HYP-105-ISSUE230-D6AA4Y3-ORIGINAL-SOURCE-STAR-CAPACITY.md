@@ -146,3 +146,22 @@ The new executable module research/hyp105_issue230_d6aa4y3_original_cross_source
 The existing original Y2 C++20 signed conflict engine independently generates all 11,236 TRUE complete globally injected W32 paired maps per S68/S72. The strengthened Y3 Python audit now checks each of the 11,025 nontrivial shared-mode harmful counts H against the NEW all-h crossed-star bound using the actual original source incidence count m for each physical pair swap. All outputs are source-pinned in CI artifacts. No statistical sampling or assumptions about independence.
 
 Next allowed research gate after acceptance: replace this still-loose cross-star union estimate by exact multi-center source-forest and same-Q physical-position collision capacities (especially AA connected C6 and B/B repeated-source overlap) that reach the root s^6 scale, or produce a true infinite adversarial counterfamily. Maintain root A/B/C OPEN.
+
+### 8.4 Explicit all-h leading constants (not a root lower bound)
+
+All asymptotics below refer to the actual minimum physical alphabet a with C(a,2)>=V=(s+1)(s²+1), so a=(sqrt(2)+o(1))*s^(3/2), d=(1+o(1))*s, q=C(d,2)=(1/2+o(1))*s². They follow by expanding the exact finite binomial formulas above, not by empirical extrapolation:
+
+    U_star = (287/48 + o(1)) * s^12,
+    V_flag = (151/24 + o(1)) * s^11,
+    T_flag^adjacent = (10*sqrt(2)/3 + o(1)) * s^(19/2),
+    T_flag^disjoint = (81/4 + o(1)) * s^8.
+
+Thus, for a fixed number m=1,2,3 of REAL original source incidences in the affected 2point×2line layout, the cross-star harmful upper is
+
+    H <= (151*m/12 + o(1)) * s^11;
+
+for zero such incidences, the stronger exponent is
+
+    H <= (80*sqrt(2)/3 + o(1)) * s^(21/2).
+
+In particular every genuine two-source-swap pair obeys H <= (151/4 + o(1))*s^11 in the worst source layout m<=3. These constants characterize the proven EXPLICIT cross-star upper and do NOT assert it is tight for adversarial physical maps, a lower on H, or a positive original seven-class S_s bound. The qualitative missing advance remains several powers of s between this harmful capacity and the desired universal Omega(s^6) seven-positive obstruction.
