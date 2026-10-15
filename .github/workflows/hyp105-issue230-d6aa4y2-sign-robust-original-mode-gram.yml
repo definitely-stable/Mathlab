@@ -75,6 +75,9 @@ jobs:
           assert c["worst_negative_original_signed_mode_transport_witness"]["mixed_delta_S"]=={"S68":-70,"S72":-76}[scheme]
           assert c["worst_negative_original_signed_mode_transport_witness"]["harmful_opposite_sign_original_modes"]>=abs(c["worst_negative_original_signed_mode_transport_witness"]["mixed_delta_S"])
           assert c["worst_negative_original_signed_mode_transport_witness"]["harmful_opposite_sign_original_modes"]<c["worst_negative_original_signed_mode_transport_witness"]["sector_energy_Cauchy_rounded_budget"]
+          assert c["minimum_sign_robust_exact_conflict_lower_over_11236"]=={"S68":6,"S72":2}[scheme]
+          assert c["all_11236_complete_global_pair_original_seven_S_positive_CERTIFIED_BY_CHARGE"]
+          assert isinstance(c["minimum_weighted_GF5_sign_robust_exact_conflict_lower_over_11236"],int)
           with open("/tmp/y2-original-conflicts.tsv",newline="") as fp:
               assert len(list(csv.DictReader(fp,delimiter="\t")))==11236
           print("EXACT ORIGINAL SIGNED HARMFUL VERSUS FAVORABLE MODES",scheme,c)
