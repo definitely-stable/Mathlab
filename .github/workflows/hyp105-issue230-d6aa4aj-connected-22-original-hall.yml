@@ -1,0 +1,86 @@
+name: hyp105-issue230-d6aa4aj-connected-22-original-hall
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4aj_connected_22_hall.py"
+      - "research/test_hyp105_issue230_d6aa4aj_connected_22_hall.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AJ-CONNECTED-22-ORIGINAL-HALL.md"
+      - ".github/workflows/hyp105-issue230-d6aa4aj-connected-22-original-hall.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-original-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All eight exact source / physical original checks
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aj_connected_22_hall.ConnectedOriginalTwoBridge
+  all-h-integer-no-promotion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact all powers h 1 through 39 and scoped Hall blocker
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4aj_connected_22_hall import (
+              certified_two_bridge_prehall_floor,complete_22_capacity)
+          for h in range(1,40):
+              s=1<<h
+              z=certified_two_bridge_prehall_floor(s)
+              assert z['accepted_original_Hall_positive_lower_NOT_PROVED']
+              if h>=4:
+                  assert 128*z['connected_22_indexed_preHall_lower']>=s**14
+          for a in range(6,100):
+              z=complete_22_capacity(a)
+              assert 3*z['both_bridges']==z['all_disjoint_pinned_connected_C6']
+          print('AA4-AJ all-h integer certificate PASS; accepted-GF5 deterministic positive LOWER NOT PROVED')
+          PY
+  finite-true-source-both-sides:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        side: [0, 1]
+        scheme: [lex, S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: One coherent complete original W32 pair-label map, direct 24-permutation independent oracle
+        env:
+          SIDE: ${{ matrix.side }}
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import os,json
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4af_rootpair_robust_quench import occupied_root_C4_source_factors
+          from hyp105_issue230_d6aa4aj_connected_22_hall import original_connected_22_cohort
+          side=int(os.environ['SIDE']);scheme=os.environ['SCHEME']
+          model=fixture(1,scheme)
+          data=[]
+          for root in range(15):
+              four=occupied_root_C4_source_factors(model,side=side,root=root)[0]
+              for offset in range(3):
+                  data.append(original_connected_22_cohort(
+                      model,side=side,root=root,pair_offset=offset,
+                      four=four,independent=True))
+          result={'scheme':scheme,'side':side,'cohorts':len(data),
+                  'occupied_22_C6':sum(z['occupied_connected_22_physical_C6'] for z in data),
+                  'accepted_22_original':sum(z['accepted_original_GF5_connected_22_Q'] for z in data)}
+          assert result['cohorts']==45
+          print('AA4_AJ_GENUINE_ORIGINAL='+json.dumps(result,sort_keys=True))
+          PY
