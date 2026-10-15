@@ -172,7 +172,7 @@ class ImpactTests(unittest.TestCase):
         markdown = md(report)
         self.assertIn("not automatically", markdown.lower())
         self.assertIn("Registered dependency DAG", markdown)
-        self.assertIn("Scope", markdown)
+        self.assertIn("compatibility", markdown.lower())
 
     def test_cli_two_snapshots_writes_json_and_markdown(self):
         with tempfile.TemporaryDirectory() as tmp:
