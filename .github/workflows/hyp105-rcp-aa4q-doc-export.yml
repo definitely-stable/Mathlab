@@ -1,0 +1,48 @@
+name: hyp105-rcp-aa4q-doc-export
+
+on:
+  pull_request:
+    paths:
+      - "research/rcp/hyp105/**"
+      - "research/test_rcp_aa4q_import.py"
+      - ".github/workflows/hyp105-rcp-aa4q-doc-export.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-aa4q-claims-and-document-preview:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prove scope metadata and genuine source W32 C/C impossibility, not the full GF5 theorem
+        run: python -m unittest research.test_rcp_aa4q_import -v
+      - name: Check both SHA1 source blobs and independent SHA256 pinned escrow
+        run: |
+          python -m research.rcp.claim_registry
+          python -m research.rcp.evidence_ledger --output /tmp/rcp-aa4q-evidence
+      - name: Render deterministic updated permanent Markdown files
+        run: |
+          python -m research.rcp.structured_docs --destination /tmp/rcp-aa4q-md --write
+          python -m research.rcp.structured_docs --destination /tmp/rcp-aa4q-md --check
+      - name: Emit GitHub-readable encoded Markdown solely for exact-parity checked commit
+        run: |
+          python - <<'PY'
+          import base64
+          from pathlib import Path
+          for name in ('RESULTS.md','FORMULAS.md','PROOF-GRAPH.md',
+                       'PROTOCOLS.md','RESEARCH-MATRIX.md'):
+              path = Path('/tmp/rcp-aa4q-md') / name
+              print('AA4Q_DOC_EXPORT|' + name + '|' +
+                    base64.b64encode(path.read_bytes()).decode('ascii'), flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4q-md-generated
+          path: /tmp/rcp-aa4q-md/
+          retention-days: 30
