@@ -71,6 +71,19 @@ For each two-sided swap compare four true full labelings (f,g), (f^{uv},g), (f,g
 
 Dedicated hosted test jobs are evidence, not a substitute for independent mathematical review. The parent PR #476 must be accepted on its exact final SHA. The new branch does not modify production source, main, root issue or previous research files.
 
+### Exact genuine W32 nonadditivity witnesses (verified hosted AA4-R dedicated CI)
+
+Perform the SAME point-factor swap (0,1) and line-factor swap (0,1) across four genuine full globally injected ORIGINAL maps; one globally fixed source coordinate pair per factor throughout each map. Distinct point and line source alphabets; original incidence topology unchanged. Independent right-first and two-sided-source-major classifiers agree.
+
+| Original full W32 baseline | S(f,g) | S(f',g) | S(f,g') | S(f',g') | Mixed full-seven Δ²S | Mixed selected 51-GF5 numerator Δ²W |
+|---|---:|---:|---:|---:|---:|---:|
+| S68 | 68 | 89 | 87 | 104 | **−4** | −185680 |
+| S72 | 72 | 95 | 84 | 102 | **−5** | −287757 |
+
+The S68 seven-class signed mixed vector is (A-left/B-right +7, B-left/A-right −8, B/B-disjoint −1, B/B-overlap −1, C/A −1, C/B 0, D6 0); it sums to −4. S72 gives (0, −7, +3, −2, +1, −1, +1) in the same class order; it sums to −5. Each witness is a real full W32 global injection, not an artificial original-source local neighborhood.
+
+**Finite genuine nonseparability theorem:** there does NOT exist a pair of functions F and G such that S(f,g)=F(f)+G(g) simultaneously for all complete globally injected point/line physical K6 label maps on this genuine W32 host. Proof by contradiction: every additive F+G has identically zero four-map mixed derivative, whereas these independently certified genuine four-map rectangles have mixed derivative −4 and −5. The same argument with nonzero mixed 51-palette numerator disproves additive separability for that selected certified weighted numerator. This theorem is for actual W32, not an asserted all-h quantitative lower. It does not preclude nonlinear, jointly geometric lower certificates.
+
 ## 5. Mathematical decision and next proof gate
 
 **New result:** mathematically exact full seven-class global mixed support / interaction identities; 3-regular/no-C4 alone explicitly disproved as sufficient ORIGINAL GQ fixture validation. This replaces another unconstrained search over a single B/A charge by a genuine joint nonlinear coupling audit retaining all physical and original incidence identities.
