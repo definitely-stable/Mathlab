@@ -117,7 +117,11 @@ def six_channel_original_cohort(model,*,side=0,root=0,pair_offset=0,
         sources=phys[:max_C4]
     else:
         four=tuple(four_sources)
-        if four not in phys:
+        # Row ordering is arbitrary: independently permuting physical
+        # coordinate labels changes enumeration order, NOT the actual
+        # underlying four original source factors of a C4.
+        if len(four)!=4 or len(set(four))!=4 or frozenset(four) not in {
+                frozenset(x) for x in phys}:
             raise ValueError("four actual source factors must form occupied physical root C4")
         sources=(four,)
     pinned_disjoint=not bool(set(e0)&set(e1))
