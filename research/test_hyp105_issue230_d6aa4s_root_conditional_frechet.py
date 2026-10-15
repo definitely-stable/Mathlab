@@ -77,6 +77,7 @@ class GenuineOriginalRootConditionedNoGoTests(unittest.TestCase):
         self.assertEqual(len(universe),15)
         self.assertGreaterEqual(min(universe),floor)
         self.assertEqual(len(set(universe)),1) # actual true W32 point transitivity
+        self.assertEqual(universe[0],111132) # independent true-flag source count
         self.assertGreater(universe[0],floor)
 
     def test_006_independent_root_conditioned_join_on_historical_true_maps(self):
@@ -86,6 +87,9 @@ class GenuineOriginalRootConditionedNoGoTests(unittest.TestCase):
             legacy=seven_census(m,independent_checks=False,witness_sets=True)
             joint=exact_two_sided_original_seven_join(m,independent_history=False)
             self.assertTrue(result["all_15_root_frechet_floors_zero"])
+            if scheme in ("S68","S72"):
+                self.assertEqual(result["actual_total_B_left_A_right"],
+                                 {"S68":44,"S72":36}[scheme])
             self.assertEqual(result["actual_total_B_left_A_right"],
                              legacy["seven_class_motif_counts"]["B-left/A-right"])
             self.assertEqual(result["actual_total_B_left_A_right"],
