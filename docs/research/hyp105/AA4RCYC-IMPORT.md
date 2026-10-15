@@ -4,7 +4,7 @@ Scientific source: [AA4-R-CYC PR #480](https://github.com/definitely-stable/Math
 
 ## 1. Three separately indexed mathematical assertions
 
-For the genuine original W(3,s), s=2^h>=8, set V=(s+1)(s^2+1) and a minimal with K=binom(a,2)>=V. Complete original point and line maps f,g are *separately typed*, *globally injected*, and shared by all true six-distinct-original-incidence `.
+For the genuine original W(3,s), s=2^h>=8, set V=(s+1)(s^2+1) and a minimal with K=binom(a,2)>=V. Complete original point and line maps f,g are *separately typed*, *globally injected*, and shared by all true six-distinct-original-incidence sets Q.
 
 - `HYP105-AA4RCYC-D6-QUENCHED-IDENTITY`: for EVERY fixed complete globally injected original point map f, sample ONE *whole global* right-line map g uniformly, giving the **exact** expectation
 
@@ -59,12 +59,12 @@ The exact original Git blob SHA-1 identities and independent SHA-256 checks are 
 
 Reproduce metadata, bytes and checked-in derived mathematical documents:
 
-``bash
+```bash
 python -m unittest research.test_rcp_aa4rcyc_import -v
 python -m research.rcp.claim_registry --verify-sources
 python -m research.rcp.evidence_ledger --verify-originals
 python -m research.rcp.structured_docs --check
-``
+```
 
 Formula records HYP105-F-010 through HYP105-F-013 flow into five versioned Markdown reports: RESULTS, FORMULAS, PROOF-GRAPH, PROTOCOLS and RESEARCH-MATRIX. The dynamic L0/L1/L2 snapshot and proof impact use the same structured source registry.
 
