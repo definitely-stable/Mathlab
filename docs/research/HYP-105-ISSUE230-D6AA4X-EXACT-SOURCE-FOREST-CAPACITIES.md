@@ -164,6 +164,17 @@ For the **selected full seven GF5 C/B tag**, BOTH source orientation B/C and C/B
 
 Both are exact all-h explicit closed formulas requiring NO other unknown original nine-cell source capacities; this is a strict strengthening of the source-capacity-incomplete full seven ensemble formula from AA4-W. They are NOT lower bounds for every adversarial fixed f,g, and do NOT prove Branch A/B or R3/ASET.
 
+### Exact rational two-global-map selected GF5 ensemble regressions
+
+The distinct two original source-forest classes have independent exact all-integer and rational W32/W34 regression values; these are **expectations over two independent uniform COMPLETE globally injected maps**, never actual particular-map selected S:
+
+| True original geometry | \(\mathbb E N_{C/B}\) | \(\mathbb E N_{B/B\text{-overlap}}\) |
+|---|---:|---:|
+| W(3,2) | \(93960/91091\) | \(8190720/1002001\) |
+| W(3,4) | \(1058270400/229709\) | \(162098726400/6661561\) |
+
+Their W32 combined expected selected class count is exactly \(709560/77077\). The two W32 tag expectations are additionally checked independently against AA4-W's separate complete nine-source-forest expected seven-tag vector; the W34 values follow from the new closed all-h SOURCE formulas without an exhaustive 425-choose-6 enumeration. All fractions are pinned in hosted unit tests.
+
 ### New asymptotic quantitative full-global ensemble constants
 
 As s=2^h tends to infinity, \(V\sim s^3\), \(d\sim s\), \(a\sim \sqrt2\,s^{3/2}\), \(K\sim s^3\), with precise source cardinality asymptotics
