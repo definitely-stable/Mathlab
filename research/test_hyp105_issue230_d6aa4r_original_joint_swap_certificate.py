@@ -75,6 +75,15 @@ class OriginalTwoTypeGlobalSwapTests(unittest.TestCase):
             base=fixture(1,scheme)
             p,l=(0,1),(0,1)
             cert=exact_W32_joint_mixed_swap_certificate(base,p,l)
+            # Independent hosted exact ORIGINAL-GQ four-map witness: mixed
+            # nonzero disproves universally additive F(f)+G(g) formulas.
+            golden={
+                "S68":([68,89,87,104],-4,-185680),
+                "S72":([72,95,84,102],-5,-287757),
+            }[scheme]
+            self.assertEqual(cert["seven_S_00_10_01_11"],golden[0])
+            self.assertEqual(cert["genuine_two_type_mixed_delta"],golden[1])
+            self.assertEqual(cert["certified_GF5_mixed_numerator"],golden[2])
             def swap_labels(arr,uv):
                 out=list(arr);u,v=uv;out[u],out[v]=out[v],out[u]
                 return tuple(out)
