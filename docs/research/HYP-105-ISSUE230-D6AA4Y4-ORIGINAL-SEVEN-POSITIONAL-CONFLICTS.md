@@ -90,3 +90,42 @@ Run the GitHub-hosted workflow `.github/workflows/hyp105-issue230-d6aa4y4-origin
     python research/hyp105_issue230_d6aa4y4_original_seven_positional_capacity.py --scheme S68 --original /tmp/y --tagged /tmp/y4 --aggregate /tmp/y2
 
 Root #230 Branch A (universal deterministic six-positive motifs), Branch B (infinite correlated o(s^6) family) and Branch C (model-equivalent restricted reduction) all remain OPEN. A finite exact seven-class positional collision census does not justify extending a W32 observation to ALL s. Before integration require exact-head Dedicated, INDEX, Proof Audit, Full Research PASS and independent mathematical referee. Leave this PR Draft; no direct main changes. Next research gate: combine true-original forest occupancy and positional cycle collision capacities, avoiding classblind source-star products.
+## 6. Full true-original W(3,2) signed seven-GF5 results, independently verified
+
+Initial successful source-pinned complete hosted [dedicated run #38724038583](https://github.com/definitely-stable/Mathlab/actions/runs/38724038583) passed all THREE jobs, including independent physical K6/K7 cycle proof falsifiers, and BOTH complete true-original S68/S72 11,236 global-pair grid checks. Exact 7x11,025=77,175 nontrivial mixed per-tag signed identities verified PER anchor against the independent two-sided 62,370/62,370 ORIGINAL six-ID historical GF5 join and independent Y2 aggregate four-quadrant original source mode engine. The runner also independently historically recounts the original six-Q GF5 seven-family witnesses with largest harmful mode count on each class. Numerical evidence is FINITE and valid for these pinned W32 source maps only.
+
+### 6.1 Maximum same-Q harmful signed positional modes H_t
+
+| Immutable historical ORIGINAL GF5 class | S68 max H_t | S72 max H_t |
+|---|---:|---:|
+| D6 / source AA connected 60-C6 positional | 4 | 8 |
+| B-left/A-right | 66 | 71 |
+| A-left/B-right | 60 | 59 |
+| C/A | 8 | 8 |
+| C/B | 2 | 2 |
+| B/B-overlap | 12 | 12 |
+| B/B-disjoint | 12 | 13 |
+
+Each maximum is over the 105x105 real original simultaneous point-and-line source transposition pairs separately. Maxima for different tags have DIFFERENT actual original globally injected witnesses and CANNOT be added as the maximum H over one map pair. The known full signed-mode maximum H=124 for either scheme is computed separately by Y2/Y3.
+
+### 6.2 Total harmful shared same-Q mode intersections across all 11,025 paired moves (sum over all moves)
+
+| Immutable source GF5 class | S68 sum H_t | S72 sum H_t |
+|---|---:|---:|
+| D6 / connected original AA | 4,071 | 8,625 |
+| B-left/A-right | 362,880 | 372,762 |
+| A-left/B-right | 280,962 | 294,840 |
+| C/A | 13,734 | 14,724 |
+| C/B | 1,098 | 936 |
+| B/B-overlap | 24,030 | 25,272 |
+| B/B-disjoint | 25,380 | 30,240 |
+| **TOTAL H, summed over all seven classes and 11,025 paired changes** | **712,155** | **747,399** |
+| **B/A + A/B fraction of all such finite harmful occurrences** | **90.41%** | **89.32%** |
+
+The proportion counts signed-mode collisions over the tested finite mapping neighborhood, NOT probability for uniform arbitrary mappings, NOT number of distinct Q globally, and NOT a class-level or all-h asymptotic constant. Different original Q may be counted again at different globally injected mapping pairs. S72 D6 accounts for just 8,625 of all 747,399 harmful occurrences (about 1.15%); S68 D6 accounts for 4,071 of all 712,155 (about 0.57%).
+
+### 6.3 Concrete falsification and research decision
+
+These independently reproduced true-original seven-GF5 results show that concentrating next only on a tighter D6 connected-C6 collision cap is unlikely to explain the principal FINITE negative Hessian mass for the two pinned W32 anchors. The dominant categories are ORIGINAL source B/A and A/B, requiring genuine two-incidence doubled-source B factors on one typed side and six single-source A factors on the other. For a potential all-h deterministic charge-transfer theorem, the next research slice must analyze these A/B and B/A source-forest crossings, including the SAME original Q and point-line GQ incidence neighborhoods, then prove a positive S_s lower that survives the signed source collisions. Neither the observed 90% share nor the local minima at 68/72 extrapolates to all s or all global maps.
+
+**New priority:** D6-AA4-Y5 — ORIGINAL B/A and A/B Same-Q Source-Forest Harmful Capacity and Compensation. Freeze the exact first-principles per-class invariant, prove a genuine all-h geometric upper or a counterexample, and validate finite cases with the immutable original seven-source-tag oracle. Avoid claiming the root issue #230 is accepted from the signless Gram/connected-AA structure alone. Preserve current stacked PR Draft and do not merge until exact-head workflows and independent mathematical review.
