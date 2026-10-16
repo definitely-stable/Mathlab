@@ -19,7 +19,9 @@ from math import comb, perm
 
 from hyp105_issue230_d6aa4r_quenched_original_d6 import _params
 from hyp105_issue230_projection import fixture
-from hyp105_g5e2b3e1b0_seven_signature import classify_seven_prechecked
+from hyp105_g5e2b3e1b0_seven_signature import (
+    classify_seven_prechecked, physical_column_dual, is_connected_column_cycle,
+)
 
 
 def _canonical_edge(a,b):
@@ -191,9 +193,23 @@ def repair_original_D6_with_at_most_five_line_swaps(model,reverse=False):
         raise AssertionError("not one COMPLETE globally injected right image mapping")
     if any(working[l]!=desired[l] for l in lines):
         raise AssertionError("required same-source six-cycle positional images not restored")
-    observed=classify_seven_prechecked(original_Q,f,tuple(working),inc)
-    if observed!="D6":
-        raise AssertionError("historical accepted GF5 D6 oracle rejected actual repaired Q")
+    # The historical W32 seven-class classifier calls a HALF classifier
+    # with hard-coded six physical coordinate slots. It is valid ONLY on
+    # the original K6 instance; on genuine W34/K14 and W38/K35 it would
+    # index outside that array. Verify the exact ALL-a ORIGINAL positional
+    # D6 DEFINITION independently on every actual six-flag source set.
+    pends=tuple(inc[i][0] for i in original_Q)
+    lends=tuple(inc[i][1] for i in original_Q)
+    left_dual=physical_column_dual(inc,f,pends)
+    right_dual=physical_column_dual(inc,tuple(working),lends)
+    if left_dual is None or left_dual!=right_dual or not is_connected_column_cycle(left_dual):
+        raise AssertionError("all-a original positional D6 definition rejects repaired sixset")
+    if a==6:
+        observed=classify_seven_prechecked(original_Q,f,tuple(working),inc)
+        if observed!="D6":
+            raise AssertionError("historical W32 accepted GF5 D6 oracle disagrees with independent definition")
+    else:
+        observed="D6"
     return {
         "s":s,"scheme":model.get("scheme","unspecified"),
         "actual_original_six_incidence_IDs":original_Q,
@@ -208,6 +224,8 @@ def repair_original_D6_with_at_most_five_line_swaps(model,reverse=False):
         "right_global_full_injection_before":g,
         "right_global_full_injection_after":tuple(working),
         "historical_original_seven_GF5_class_after":"D6",
+        "verification_mode":("historical_W32_plus_positional_definition"
+                              if a==6 else "independent_all_a_positional_D6_definition"),
         "one_global_right_map_all_six_incidence_IDs":True,
         "original_fixed_pair_may_have_D6_zero":True,
         "entire_seven_family_minimax_proved":False,
