@@ -1,0 +1,54 @@
+name: hyp105-issue230-aa4av-seven-fullrank-curvature
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4av_seven_fullrank_sign_no_go.py"
+      - "research/test_hyp105_issue230_d6aa4av_seven_fullrank_sign_no_go.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AV-SEVEN-FULLRANK-SIGNED-CURVATURE.md"
+      - ".github/workflows/hyp105-issue230-aa4av-seven-fullrank-curvature.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-global-sign-involution-and-integer-algebra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact independent Fraction Bareiss arithmetic and source-global original sign inversion
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4av_seven_fullrank_sign_no_go.py' -v -k 'test_01'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4av_seven_fullrank_sign_no_go.py' -v -k 'test_02'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4av_seven_fullrank_sign_no_go.py' -v -k 'test_04'
+  true-original-W32-seven-class-exact-rank:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All real original 24 full global seven-class Hessian vectors and exact rank
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4av_seven_fullrank_sign_no_go.py' -v -k 'test_03'
+      - name: Independently certify frozen seven ACTUAL W32 Hessian pivot rows
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4av_seven_fullrank_sign_no_go import (
+            EXACT_ORIGINAL_SEVEN_ROW_WITNESSES,EXACT_SOURCE_BASIS_ROW_ORDER,
+            EXACT_SOURCE_BASIS_DETERMINANT,integer_rank_and_basis,
+            integer_determinant_bareiss,integer_determinant_mod_prime,
+          )
+          rows=[EXACT_ORIGINAL_SEVEN_ROW_WITNESSES[i] for i in EXACT_SOURCE_BASIS_ROW_ORDER]
+          assert len(rows)==7
+          assert integer_rank_and_basis(rows)["rank"]==7
+          assert integer_determinant_bareiss(rows)==EXACT_SOURCE_BASIS_DETERMINANT==-2650
+          assert integer_determinant_mod_prime(rows,1009)==377
+          print("AA4AV_SEVEN_REAL_ORIGINAL_RANK=7")
+          print("AA4AV_EXACT_INTEGER_DETERMINANT=-2650")
+          print("AA4AV_FINITE_FIELD_DETERMINANT_MOD1009=377")
+          print("AA4AV_TRUE_ORIGINAL_W32_BASIS_ROWS",rows)
+          PY
