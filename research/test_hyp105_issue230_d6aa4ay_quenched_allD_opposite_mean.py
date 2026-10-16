@@ -144,7 +144,28 @@ class ExactTrueOriginalQuenchedOppositeALLDTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             physical_edge_port_energy(((0,1),(1,0)),4)
 
-    def test_08_original_RIGHT_full_global_permutation_and_typed_gauge_invariance(self):
+    def test_08_exact_original_W32_W34_fixed_g_vs_quenched_mean_REGRESSION(self):
+        certified=(
+            (1,"S68",697,Fraction(87056,91),Fraction(23040,91)),
+            (1,"S72",750,Fraction(87056,91),Fraction(23040,91)),
+            (1,"lex",1105,Fraction(88992,91),Fraction(23040,91)),
+            (2,"lex",49742,Fraction(471930840,9877),Fraction(214990848,9877)),
+            (2,"random",46996,Fraction(131596825,2822),Fraction(214990848,9877)),
+        )
+        for h,scheme,observed,mean,bound in certified:
+            m=fixture(h,scheme)
+            r=quenched_original_opposite_ALL_D_mean(m)
+            self.assertEqual(actual_original_ALL_D_opposite_wedges_direct(m),observed)
+            self.assertEqual(
+                r["EXACT_quenched_uniform_ONE_full_global_original_LINE_map_ALL_D_opposite_mean"],mean)
+            self.assertEqual(
+                r["uniform_in_both_adversarial_supports_R_ALL_D_mean_lower"],bound)
+            self.assertNotEqual(
+                r["EXACT_quenched_uniform_ONE_full_global_original_LINE_map_ALL_D_opposite_mean"],
+                Fraction(observed))
+            self.assertFalse(r["all_global_FIXED_RIGHT_original_g_minimax_PROVED"])
+
+    def test_09_original_RIGHT_full_global_permutation_and_typed_gauge_invariance(self):
         for h,scheme in ((1,"S68"),(2,"lex")):
             model=fixture(h,scheme)
             old=quenched_original_opposite_ALL_D_mean(model)
