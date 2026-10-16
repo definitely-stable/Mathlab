@@ -95,6 +95,40 @@ The separate independent verification \`research/test_hyp105_issue230_d6aa4au_so
 
 On real W34 symplectic GF4 with global physically injected K14 typed maps lex/random (six missing physical image edges each), restrict to ONE genuine independently accepted original source D6 six-ID Q and its pinned opposite wedge per scheme, then compare all occupied residual pairs under all three source Hall methods and retain known 11/12 true original Hall Q among 11025/13200 physical templates. No full W34 original seven-GF5 census claimed. True original symplectic automorphisms and separately typed physical coordinate permutations preserve every four-case source polynomial Hall outcome distribution; forged original source models, unphysical source factor slots and fake C4/C6 sources rejected in intended test scope.
 
+### 4.1 First independent GH-hosted COMPLETE original W32 four-pattern Hall tables
+
+[Dedicated first AA4-AU #38872045988](https://github.com/definitely-stable/Mathlab/actions/runs/38872045988) completed **4/4 SUCCESS** (exact all-h source type formulas, all true original W32/W34 source triple counts, every W32 globally occupied true residual pair 3 independent original Hall referees, sampled actual W34 D6 source wedges). The per-pattern source Hall YES/NO counts are actual finite W32 original incidence constraints under the SAME globally fixed physical f,g, not original-source aggregate threeflag population and not GF5-selected six-Q. The new polynomial, previous original source girth-eight forest leaf algorithm and older original source 3! matching oracle agree on the EXACT six original incidence flag IDs or NONE for EVERY candidate:
+
+| TRUE original full global W32 f,g | A/A physical candidate pairs | A/A TRUE Hall | A/B physical candidates | A/B TRUE Hall | B/A physical candidates | B/A TRUE Hall | B/B physical candidates | B/B TRUE Hall | ALL real original Hall charge |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| dual-zero | 2,631 | **116** | 1,127 | **14** | 1,102 | **17** | 468 | **3** | 150 |
+| lex | 3,496 | **358** | 1,535 | **75** | 1,529 | **70** | 673 | **2** | 505 |
+| reverse | 3,105 | **182** | 1,334 | **28** | 1,335 | **22** | 577 | **0** | 232 |
+| S68 | 2,030 | **40** | 829 | **2** | 843 | **4** | 339 | **0** | 46 |
+| S72 | 2,199 | **74** | 895 | **6** | 923 | **5** | 369 | **0** | 85 |
+
+For example, in fully physical K6-complete globally fixed true original S68, **all 339 B/B physically occupied candidate point×line triple residual pairs fail the genuine ORIGINAL three-edge P4 Hall condition**, although the ORIGINAL W(3,2) source contains **180 true B/B threeflag P4 paths overall** independently of any physical maps. This is a concrete finite separation of original source motif abundance from pinned globally physically compatible residual Hall positivity, not an infinite global counterfamily or theorem at large s. The positive GF5 sevenclass charge remains only 6 for S68, versus 46 true source-Hall candidate pairs. By contrast dual-zero's three accepted original source B/B Hall pattern candidates and lex's two demonstrate B/B can be present for some globally coherent source maps, although still no general sevenclass lower.
+
+**Genuine original W34 GF4 globally injected typed K14 lex/random point+line physical models**, on specifically chosen independently positive D6 six-original-incidence-ID source wedges only:
+
+| True original W34 pinned wedge scheme | Physically occupied residual pairs | A/A source Hall YES | A/B YES | B/A YES | B/B YES | All ORIGINAL forest-Hall Q count |
+|---|---:|---:|---:|---:|---:|---:|
+| lex | 11,025 | **8** | 2 | 1 | 0 | 11 |
+| random | 13,200 | **10** | 0 | 1 | 1 | 12 |
+
+The W34 witnesses include at least one independently validated original positive D6 six-ID source Q each, but are NOT a full W34 seven-GF5 census. The same physical residual point/line factor maps remain globally fixed; repeated B original factors are not allowed to reuse the same source flag. These numbers are original Hall polynomials, NOT acceptance counts by seven final GF5 categories.
+
+### 4.2 Exact TRUE original source motif six-sector audit
+
+Separately, a real-source direct enumeration of ALL 14190 genuine W32 flag triples and a direct literal original point-line source B/B P4 path and A/B repeated-line source incidence audit for W32 and W34 validated:
+
+| Real original symplectic source | Source A/A three-flag matching | Source A/B | Source B/A | Source B/B 3-edge P4 | Source A/C | Source C/A |
+|---|---:|---:|---:|---:|---:|---:|
+| W(3,2) | 10,560 | 1,710 | 1,710 | **180** | 15 | 15 |
+| W(3,4) | 11,995,200 | 350,200 | 350,200 | **6,800** | 850 | 850 |
+
+The six classes partition C(45,3)=14190 and C(425,3)=12704100 respectively. In general source B/B count is precisely (s+1)^2(s²+1)s²≥s⁶ — a genuine source population bound, not an accepted six-original-ID GF5 motif lower. This new closed-source count makes the actual missing theorem sharply evident: a large source P4 reservoir may coexist with ZERO physical candidate B/B source Hall in a particular finite globally correlated original f,g realization, so any proof of positive sevenclass density needs explicit ORIGINAL SOURCE × PHYSICAL IMAGE correlation control, not source-only counting.
+
 ## 5. Novelty / scientific boundary and next AA4-AV gate
 
 The GQ girth-eight incidence condition and forest uniqueness (AA4-AT) are CLASSICAL. The fact that a forest 3×3 permanent has at most one nonzero term and standard path/star counts are classical combinatorial observations, **not invented by this project**. AA4-AU's research contribution is the explicit original globally correlated source Hall polynomial transfer aligned with AA4-AS real three-pinned-flag residual physical templates, independent source-Hall Boolean verification and exact genuine W3 all-h six-sector SOURCE triple population with an unconditional B/B source P4 s6 lower. It is a closed-form SOURCE incidence gate and an exact source population accounting step, **NOT a solution of original HYP-105 #230**.
