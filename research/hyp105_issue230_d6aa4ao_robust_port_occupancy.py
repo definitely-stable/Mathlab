@@ -201,7 +201,7 @@ def independent_abstract_isolated_port_sharpness(a):
     if type(a) is not int or a<8:
         raise ValueError("abstract physical alphabet a>=8")
     c,p,q=0,1,2
-    deleted=frozenset(physical_edge(p,v) for v in range(a) if v!=c)
+    deleted=frozenset(physical_edge(p,v) for v in range(a) if v not in (c,p))
     assert len(deleted)==a-2
     E=frozenset(combinations(range(a),2))-deleted
     z=physical_P5_robust_certificate((c,p,q),a,E)
