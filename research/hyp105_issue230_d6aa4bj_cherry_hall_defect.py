@@ -65,6 +65,8 @@ def cherry_unilateral_all_h_lower(s):
     lower=d**4*c4+comb(d,2)**2*matching
     if lower<=0:
         raise AssertionError("uniform genuine-original physical cherry residual lower must be positive")
+    if 32*lower<s**10:
+        raise AssertionError("ALL dyadic original cherry anchors require >=s**10/32 true unilateral sixflags")
     if s==2 and lower!=270:
         raise AssertionError("W32 exact source-cherry anchored unilateral mass must be 270")
     if s>=4 and (c4<=0 or matching<=0):
@@ -76,6 +78,7 @@ def cherry_unilateral_all_h_lower(s):
         "occupied_physical_C4_per_root_lower":c4,
         "occupied_disjoint_physical_two_edge_matching_per_root_lower":matching,
         "all_h_each_actual_original_cherry_unilateral_fourflag_lower":lower,
+        "all_h_uniform_explicit_each_cherry_s10_over32":s**10//32,
         "total_number_actual_original_point_and_LINE_cherry_anchors":
             2*V*comb(d,2),
         "both_types_unilateral_candidate_incidence_lower":
