@@ -24,7 +24,7 @@ from hyp105_issue230_d6aa4ab_minimax_orbit_normalform import (
 
 class GlobalTrueOriginalAAWedge(unittest.TestCase):
     def test_01_all_h16_and_above_exact_rational_original_source_AA_lower(self):
-        for h in list(range(1,29)) + (30,32,40,48,60):
+        for h in list(range(1,29)) + [30,32,40,48,60]:
             s=1<<h
             z=universal_original_AA_good_wedge_lower(s)
             self.assertEqual(z["N_true_original_incidence_flag_vertices"],
