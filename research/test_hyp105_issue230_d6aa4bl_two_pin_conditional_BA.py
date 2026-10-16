@@ -17,6 +17,7 @@ from hyp105_issue230_d6aa4bl_two_pin_conditional_BA import (
     true_original_two_pin_root_conditional_mean,
     robust_all_h_two_root_pin_BA_floor,
     abstract_extreme_holes_two_pin_no_go,
+    every_fixed_original_g_good_root_pin_majority,
 )
 
 
@@ -98,6 +99,24 @@ class AA4BLTwoPinnedRootImages(unittest.TestCase):
         strong=robust_all_h_two_root_pin_BA_floor(32)
         self.assertGreaterEqual(small["exact_one_complete_globally_coherent_conditional_mean_floor"],
                                 strong["exact_one_complete_globally_coherent_conditional_mean_floor"])
+
+    def test_01b_every_FIXED_g_more_than_threequarters_real_root_pins_regular(self):
+        for h in tuple(range(5,36))+(40,48,64,80):
+            s=1<<h
+            z=every_fixed_original_g_good_root_pin_majority(s)
+            self.assertLessEqual(z["number_bad_physical_vertices_upper"],16)
+            self.assertGreater(
+                z["fraction_true_original_cherries_with_regular_two_pinned_images_lower"],
+                Fraction(3,4))
+            self.assertEqual(
+                z["number_true_original_point_cherries"],
+                z["V"]*comb(z["d"],2))
+            self.assertEqual(
+                z["number_true_original_cherries_with_regular_two_pinned_images_lower"],
+                z["number_true_original_point_cherries"]-
+                z["number_true_original_cherries_with_bad_pinned_physical_endpoint_upper"])
+            self.assertTrue(
+                z["DOES_NOT_bound_given_fixed_g_actual_sevenGF5_count"])
 
     def test_02_K6_both_adjacency_types_full_4factor_global_marginal_oracle(self):
         E=tuple(combinations(range(6),2))
