@@ -121,3 +121,24 @@ Global random permutation ordered-marginal formulas and missing-edge union bound
 **The fundamental deterministic source geometry hole remains:** the given f,g may align their respective globally good original point/line physical port minority supports so that few center source flags have both, even when the quenched expectation is ≥s⁶/128. Nothing above bounds \(\sum_{i\text{ original}}\min P_i\min L_i\) below at the given global pair. In the genuine W34 random example the observed GOOD physically opposite count is just 10, despite many ALL-D opposite wedges, illustrating sharp sensitivity to coordinated source/physical labeling. Additional original source 3×3 residual Hall and seven-positive-GF5 six-incidence acceptance remain separate barriers. Root #230 Branch A/B/C OPEN_WITH_FORMAL_BLOCKER, no R3/ASET exponent, independent mathematical referee needed, keep Draft unmerged.
 
 **Next proof-relevant direction:** seek a TRUE original fixed-f,g relative-deviation bound or combinatorial anti-alignment constraint for the GOOD port minority-product that uses jointly coherent W(3,s) incidence structure. A concentration/mean calculation alone, even for GOOD, cannot establish a lower for every adversarial g; generic bounded differences are not claimed to bridge the missing quantifier.
+
+
+## 6. Exact TRUE ORIGINAL finite GOOD versus mean regression witnesses
+
+The first clean corrected source HEAD [dedicated GitHub-hosted run #38887677561](https://github.com/definitely-stable/Mathlab/actions/runs/38887677561) completed BOTH mathematical jobs **SUCCESS**. An initial earlier HEAD failed because the source point center p occurs in both physical port candidate lists; the algorithm was corrected to SKIP p in both lists before enumerating outer original point factors. This was an actual source enumeration implementation bug, not an issue with the theorem's exclusion condition, and tests independently verify its correction. The final HEAD then hard-pins five exact rational observed versus globally-quenched evidence rows.
+
+All rows: a genuine original source W(3,s), ONE globally complete point physical map f held fixed, ONE globally complete original line g in the "given" column, and a truly global random original line map g' sharing exactly g's occupied physical edge support for the mean. The historical #543/#556 TRUE ORIGINAL GOOD D edge definition is used, and the present theorem is for the physically *opposite* pair of its two original D neighbors at a source flag center.
+
+| Genuine original typed physical f,g fixture | Actually given ORIGINAL fixed-g GOOD opposite R(f,g) | Exact E over ONE complete globally sampled original right g' | Right induced clean physical port energy T°(E_r) |
+|---|---:|---:|---:|
+| W32 S68 | 697 | 87056/91 (~956.66) | 240 |
+| W32 S72 | 750 | 87056/91 (~956.66) | 240 |
+| W32 lex | 1,105 | 88992/91 (~977.93) | 240 |
+| W34 lex (true GF4, nononto K14) | 3,544 | 4784352/1411 (~3,390.75) | 2,880 |
+| W34 random (true GF4, nononto K14) | 10 | 87376/9877 (~8.85) | 240 |
+
+The exact right sample space under original W32 is all 15·14·13=2730 ordered distinct image edge triples of a complete global g'; under true original W34 it is 85·84·83=592,620 ordered triples on a global right image set with six missing physical K14 edge labels. The independent tests literally enumerate every triple; the expected count is an exact rational finite sum rather than Monte Carlo or resampling individually per original source Q.
+
+**Scientific caution:** for the SAME real original W34 random global fixture the much broader ALL-D fixed source 3flag opposite count is 46,996 and its quenched whole-g mean 131596825/2822 (~46,633), but the strictly GOOD opposite wedge count at the ACTUAL fixed original g is only 10 and its corresponding mean is <9. This is a direct genuine-original finite illustration of the essential physical BAD-coordinate/GQ label-placement loss, not an all-h counterfamily. The h>=5 result proves a good-expected-value lower uniformly for arbitrary original f and right support but does not elevate it to a fixed adversarial original g lower. The h=2 example is outside the all-h-large ≥s⁶/128 proof range; its exact positive small-h expectation is evidence only.
+
+The final source/test/code/proof stack independently checks dyadic h=5..80 symbolic integer support floors, actual source line neighborhoods, literal source-point 3flag enumeration, entire ordered right physical edge triples, typed physical right-coordinate relabel invariance, adversarial physical missing-edge shapes, and independent fixed-g genuine original GOOD two-port tensor wedge identity. Full CI success on exact final SHA and separate independent mathematical referee acceptance are still needed; no original selected six-ID GF5 R3 or root #230 Claim A/B/C promotion.
