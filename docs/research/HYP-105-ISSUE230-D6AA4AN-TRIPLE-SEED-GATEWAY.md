@@ -161,6 +161,19 @@ On the frozen W(3,2) complete K6 maps, directly enumerate all actual `C(45,3)` s
 
 This is a valid finite lower, not an identity (different Q may cover the SAME seed). On the four tested TRUE ORIGINAL W32 globally injected schemes `dual-zero, lex, S68, S72`, S ranges from 68 to 259, whereas the all-f,g analytic bound already guarantees `W3/6>=39,960/6=6,660`. Therefore `W3/6-20*S>=1,480>0` on every one of these particular global schemes, and the code computes the stronger ACTUAL exact W3 count per scheme. This is a non-vacuous finite demonstration that **even genuinely uncrowded original triples can fail the joint original six-ID GF5 extension**, separately from the elementary degree-3 nonlift. It is NOT an infinite all-h counterfamily.
 
+### Frozen exact independently computed TRUE ORIGINAL W32 joint-source gap
+
+On the exact [dedicated W32 original hosted run #38838343774](https://github.com/definitely-stable/Mathlab/actions/runs/38838343774), job `true-original-symplectic-six-Q`, `test_10_real_original_uncrowded_not_joint_GF5_extendible_W32` directly enumerated source triples over all genuine 45 actual original point-line incidence IDs and independently obtained the selected full seven-GF5 six-ID Q counts from the historical complete oracle (not by assuming the analytic W3 lower).
+
+| ONE complete globally injected original point/line pair | Actual original unordered 3×3-source physically uncrowded three-flag seeds W3/6 | ALL seven accepted true-original six-Q S | RIGOROUS actual original seeds with no seven-Q extension at least W3/6−20S |
+|---|---:|---:|---:|
+| dual-zero | **7,961** | 123 | **5,501** |
+| lex | **8,026** | 259 | **2,846** |
+| S68 | **7,959** | 68 | **6,599** |
+| S72 | **7,974** | 72 | **6,534** |
+
+Each row fixes ONE whole globally complete typed f,g across all source triples and sixsets; the source IDs are real indexed incidence flags, not physically reselected independent edges. The lower bound is guaranteed by a genuine counting injection of each eligible source triple into at most 20 triple subfamilies of each accepted six-Q; it is intentionally not an exact uncovered-source count because many distinct Q can cover the SAME three-flag seed. This demonstrates a *second*, independent nonextension mechanism: even a large physically two-type-eligible original source seed population does not automatically pass the JOINT six-source-incidence GF5 Hall gate. It is **finite s=2 evidence only**, not an infinite original-labeling counterfamily.
+
 ## AN-4 reproducibility and independent model checks
 
 - Standalone universal mathematics: `research/hyp105_issue230_d6aa4an_triple_seed_gateway.py` (`stdlib` only), with explicit balanced missing edge witness, exact finite sharp minimum, constructive all-130-physical-mode seed completion and scope flags.
