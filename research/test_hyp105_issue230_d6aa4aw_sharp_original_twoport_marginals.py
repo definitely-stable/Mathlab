@@ -152,6 +152,41 @@ class SharpTrueOriginalTwoportMarginals(unittest.TestCase):
                 "minority_floor",z["universal_half_minority_product_ceiling_sum_lower"],
                 "both_typed_ports_active_original_centers",c)
 
+    def test_08_FROZEN_independent_original_W32_W34_marginal_lift_gap_ledger(self):
+        # Values independently obtained from the TRUE source literal
+        # Q-first original GOOD threeflag port oracle, not inferred by
+        # fitting any all-h source/GQ result or resampling f/g per Q.
+        expected=[
+            ("dual_zero",zero_split_original_W32(),277,2675,870,821,652,45),
+            ("lex",fixture(1,"lex"),307,3259,1105,1000,794,45),
+            ("reverse",fixture(1,"reverse"),300,3141,1013,968,784,45),
+            ("S68",fixture(1,"S68"),257,2268,697,683,509,45),
+            ("S72",fixture(1,"S72"),261,2346,750,714,545,45),
+            ("W34_lex",fixture(2,"lex"),2072,20650,3544,3174,2183,118),
+            ("W34_random",fixture(2,"random"),147,158,10,8,6,6),
+        ]
+        for name,m,edges,aa,opposite,sharp,minority,active in expected:
+            z=exact_TRUE_original_twoport_marginal_repair_frontier(m)
+            observed=(
+                z["actual_original_GOOD_D_edges"],
+                z["parent_real_source_AA_good_wedges"],
+                z["physically_opposite_ACTUAL_original_GOOD_D_centered_3flag_wedges"],
+                z["exact_only_port_marginal_sharp_lower"],
+                z["universal_half_minority_product_ceiling_sum_lower"],
+                z["number_of_both_physical_ports_active_TRUE_source_centers"])
+            self.assertEqual(observed,(edges,aa,opposite,sharp,minority,active))
+            self.assertEqual(
+                z["true_original_centered_marginal_lower_slack"],
+                opposite-sharp)
+            self.assertLessEqual(opposite,aa)
+            print("AA4AW FROZEN ACTUAL TRUE ORIGINAL",name,
+                  "AA_GOOD",aa,
+                  "OPPOSITE_REAL_3FLAG",opposite,
+                  "SHARP_FRECHET_MARGIN_MIN",sharp,
+                  "PORT_MINORITIES_HALF",minority,
+                  "GOOD_BOTH_TYPED_PORT_CENTERS",active,
+                  "ACTUAL_PORT_CORRELATION_SLACK",opposite-sharp)
+
     def test_04_real_original_W34_both_nonsurjective_K14_line_supports(self):
         for scheme in ("lex","random"):
             m=fixture(2,scheme)
