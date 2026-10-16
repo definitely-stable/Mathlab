@@ -124,6 +124,43 @@ This is NOT yet the AA4-AR GOOD wedge R_g: the latter additionally excludes actu
 
 The implementation independently constructs \(F^\top BG\) directly from each genuine original point-line incidence flag (four contributions per flag), constructs BG and \(F^\top B\) point- and line-repetition corrections directly from original source incidences, and obtains X without enumerating all O(N²) original D-neighbor pairs. A SEPARATE literal original source-first D-neighbor graph referee checks all four tensor bins PER EVERY true source center incidence ID, not merely the global D and opposite wedge totals. This method isolates the actual mixed global f/g correlation and is a more promising analytical object than another source-only or physical-only motif count.
 
+### 4.1. Independently frozen actual ORIGINAL W32/W34 SOURCE A/A good wedges and physical two-port correlations
+
+After one corrected TEST-ONLY Python list-concatenation expression (no mathematical module or source theorem was changed), [AA4-AV dedicated GH-hosted first all-green run #38874495544](https://github.com/definitely-stable/Mathlab/actions/runs/38874495544) completed **4/4 SUCCESS**. Two genuinely INDEPENDENT algorithms agree on every TRUE original source-centered three-incidence-ID GOOD D wedge of five complete full-original W32 typed global f/g maps and both actual symplectic W34 globally injected but K14-nonsurjective typed models: original point/line source-factor degree-bucket collision algebra, and direct literal pair-of-neighbor original source-flag enumeration.
+
+| Real original W(3,2) single fixed global point f/line g | GOOD original D pairs | Source A/A GOOD centered wedges, THREE DISTINCT POINTS AND LINES | Source B/A GOOD outer point repeated | Source A/B GOOD outer line repeated | ALL GOOD original wedges | Physically opposite BOTH-type GOOD original wedges |
+|---|---:|---:|---:|---:|---:|---:|
+| dual-zero | 277 | **2,675** | 267 | 261 | 3,203 | 870 |
+| lex | 307 | **3,259** | 331 | 334 | 3,924 | 1,105 |
+| reverse | 300 | **3,141** | 316 | 311 | 3,768 | 1,013 |
+| S68 | 257 | **2,268** | 216 | 231 | 2,715 | 697 |
+| S72 | 261 | **2,346** | 223 | 242 | 2,811 | 750 |
+
+**No true original source B/B threeflag P4** can be a centered bilateral GOOD D-wedge (or even a centered D-wedge before port filtering). So the genuine W32 source 180 original source B/B P4 paths from AA4-AU are structurally outside the above anchored D-good wedge channel. S68 has 2268 genuine source A/A good wedges but only 697 physically opposite two-type port-good wedges; the new universal large-h source distinctness result does NOT justify a universal opposite-port survival fraction.
+
+| Real original W(3,4), completely global K14 injective typed physical f,g with six missing image edges per type | GOOD original D pairs | Source A/A GOOD centered wedges | Source B/A | Source A/B | ALL GOOD wedges | Physically opposite BOTH-type GOOD wedges |
+|---|---:|---:|---:|---:|---:|---:|
+| lex | 2,072 | **20,650** | 1,607 | 1,579 | 23,836 | 3,544 |
+| random | 147 | **158** | 38 | 21 | 217 | 10 |
+
+All numeric source A/A/BA/AB profiles are exact literal true-original incidence-flags and same-fixed-global f/g, not mock graphs. The h>=16 all-h theorem is not deduced from finite W32/W34 experiments and no selected-original seven-GF5 Q census on W34 is claimed.
+
+**Independent per-original-center four-color corrected F-transpose-B-G physical port tensor**, computed from actual original point-line incidence without consulting the D graph, exactly matches a DIFFERENT literal original D-flag-neighbor referee for ALL four endpoint color bins of EVERY true source center flag in all seven models:
+
+| Genuine original source and globally fixed f,g | ALL bilateral original D pairs | ALL D physically opposite BOTH-typed wedges BEFORE physically GOOD filtering |
+|---|---:|---:|
+| W32 dual-zero | 277 | 870 |
+| W32 lex | 307 | 1,105 |
+| W32 reverse | 300 | 1,013 |
+| W32 S68 | 257 | 697 |
+| W32 S72 | 261 | 750 |
+| W34 lex | 6,529 | **49,742** |
+| W34 random | 6,327 | **46,996** |
+
+For W32 complete physical K6 every original D edge is GOOD, so these global physical opposite-port counts equal R_good. For W34 random under six globally missing physical edge images on EACH type, unrestricted R_all=46,996 but GOOD-only R_good=10: a purported positive lower on the unfiltered mixed original 2x2 transport tensor alone would still NOT prove seven-GF5 selected original six-Q mass. This is the exact new source×physical mismatch diagnostic.
+
+**Parameter boundary:** all h16..23 source A/A lower estimates were checked with exact rational symbolic AA4-AP spectral formulas; h>=24 is justified independently by a uniform analytic inequality, as written in §3. h15 has a NEGATIVE formal Cauchy-minus-collision bound from this particular available source D-edge floor, which is only a failure of the method, not an actual original source counterexample. No large artificial symplectic W3(s) geometry was constructed or enumerated.
+
 ## 5. Independent checks, prior art and next AA4-AW
 
 - Exact Fraction all-h parameter theorem h16..60, eight exact h16..23 certificates plus all h24+ symbolic analytic inequalities as detailed above; h15 explicitly NOT certified and h14 excluded from the chosen all-large-h theorem. No fake huge GQ.
