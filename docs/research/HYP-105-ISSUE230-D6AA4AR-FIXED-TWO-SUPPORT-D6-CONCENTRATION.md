@@ -177,6 +177,19 @@ Four additive source/test/proof/hosted-CI artifacts:
 6. Source automorphism and distinct physical point/line alphabet permutations preserve original mapping validity. Invalid noninjective global pair labels, invalid original GQ incidence truncation, s=2/4 and non-dyadic orders fail closed.
 7. Root nonimplication: no proof of inf over BOTH full adversarial globally injected f,g of selected seven-GF5 \(S_s(f,g)\ge cs^6\), no actual original infinite \(S=o(s^6)\) counterfamily, no root A/B/C, no full R3 or ASET exponent.
 
+### New independent finite nononto fixed-support r=0 gluing witnesses
+
+The eighth independent negative/control test deliberately uses **pure PHYSICAL partial edge supports** in K7 and K8 and does NOT misrepresent these non-dyadic support cardinalities as a genuine W(3,s) source instance. It enumerates undirected physical C6 from all vertex permutations, filters the *same FIXED* globally occupied physical edge set, and then counts ALL ordered pairs of occupied cycles with DISJOINT physical edge images without using the analytical conditional probability expression.
+
+For each first occupied physical C6, the six distinct original line source factors in the first event consume exactly its six occupied physical edges. A second event with SIX DISJOINT original line factor IDs can only use another occupied physical C6 with edge set disjoint from those consumed six. Its exact conditional success probability is therefore \(q_0=12\,N_{\rm disjoint}/(C_6(E_g)(V-6)_6)\), while its original marginal is \(p=12C_6(E_g)/(V)_6\).
+
+| Pure physical fixed globally occupied line-support witness | Occupied edges V | Physically occupied undirected C6 | Ordered edge-disjoint occupied C6 pairs | **Exact \(q_0/p\)** |
+|---|---:|---:|---:|---:|
+| K7 minus 4 prescribed physical edges | 17 | 104 | 456 | **323/286 ≈ 1.129** |
+| K8 minus 6 prescribed physical edges | 22 | 357 | 12,680 | **30115/32487 ≈ 0.927** |
+
+Both satisfy the rigorous fixed-support global-injection ceiling \(q_0/p\le (V)_6/(V-6)_6\), and they show why **assuming independent six-source-flag events at r=0 is false**: the conditional correlation can have either sign for adversarial fixed physical support. In particular K7 gives \(q_0/p>1\) despite DISJOINT original source line factor sets, while K8 gives \(q_0/p<1\). This validates use of the conservative exact global-without-replacement correction, not equality or independence, in the all-h variance upper.
+
 **Genuine next scientific gate AA4-AS:** A second-moment theorem over one globally permuted g, even with BOTH physical occupied supports adversarial, still permits a tiny but nonempty exceptional deterministic g set. To attack the root all-global minimax, derive a uniform **switching stability/defect compensation inequality** between original D6 and B/A, A/B, B/B and zero-D-anchor source C/* selected modes at the SAME fully fixed f,g; or construct a true-original globally complete infinite counterfamily killing the total selected seven-class mass. Merely more concentration with randomness in g does not close the root.
 
 **Integration and provenance:** Strict Draft child of #541. Require exact FINAL HEAD hosted dedicated/INDEX/Proof Audit/Full Research SUCCESS and a separate independent mathematical referee before accepting scientific claims, registering SHA-pinned canonical RCP JSON and regenerating its five derived Markdown registers. Never hand-edit generated docs. Do not merge unreviewed research stack or close issue #230.
