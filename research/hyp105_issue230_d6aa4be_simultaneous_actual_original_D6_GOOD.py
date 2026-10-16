@@ -35,6 +35,7 @@ Finite genuine W32/W34 examples are tests, not all-h h<5 floors.
 """
 from itertools import combinations
 from fractions import Fraction
+from math import isqrt
 
 from hyp105_g5e2b3e1b0_seven_signature import classify_seven_prechecked
 from hyp105_issue230_d6aa4bd_exact_adaptive_good_derandomization import (
@@ -54,8 +55,6 @@ def _valid_image_map(images,physical_alphabet):
                 any(type(v) is not int or v<0 or v>=a for v in x)
                 for x in items)):
         raise ValueError("full original typed globally injective physical source pair images")
-    if len(items)!=((len(items)*2)//2):
-        raise AssertionError("unreachable")
     return items
 
 
@@ -268,8 +267,8 @@ def all_h_original_sixpin_D6_GOOD_math_certificate(s):
     if type(s) is not int or s<32 or s&(s-1):
         raise ValueError("all-h simultaneously constructive six-pin theorem requires dyadic s>=32")
     V=(s+1)*(s*s+1);d=s+1
-    a=6
-    while a*(a-1)//2<V:
+    a=(1+isqrt(1+8*V))//2
+    if a*(a-1)//2<V:
         a+=1
     m=a*(a-1)//2-V
     if a<261 or m>a-2 or V//1024<6:
