@@ -291,6 +291,7 @@ def pin_original_D6_and_construct_global_good(model,Q=None, *,
         "right_global_occupied_physical_edge_support_preserved":True,
         "six_original_LINE_images_always_pinned_to_ONE_D6_C6":pins,
         "independent_PROVISIONAL_full_original_D6_witness":True,
+        "provisional_GLOBAL_original_LINE_images_structural_D6":provisional,
         "complete_original_line_g_realized":g is not None,
         "historical_seven_GF5_original_six_incidence_Q_class":
             selected if s==2 else None,
