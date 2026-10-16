@@ -118,12 +118,12 @@ class GenuineOriginalFourSlotHallRigidity(unittest.TestCase):
             print("AA4AO exhaustive TRUE-GQ-local",tag,"hist",dict(hist))
 
     def test_03_full_true_W32_five_global_maps_PER_D_anchor_source_Hall_bounds(self):
-        data=(("dual-zero",zero_split_original_W32(),277,736),
-              ("lex",fixture(1,"lex"),307,1504),
-              ("reverse",fixture(1,"reverse"),300,986),
-              ("S68",fixture(1,"S68"),257,492),
-              ("S72",fixture(1,"S72"),261,599))
-        for name,model,D,total_H in data:
+        data=(("dual-zero",zero_split_original_W32(),277,736,(578,75,73,10),572,6),
+              ("lex",fixture(1,"lex"),307,1504,(1077,213,193,21),987,90),
+              ("reverse",fixture(1,"reverse"),300,986,(758,118,102,8),740,18),
+              ("S68",fixture(1,"S68"),257,492,(413,27,50,2),413,0),
+              ("S72",fixture(1,"S72"),261,599,(524,38,36,1),524,0))
+        for name,model,D,total_H,expected_profiles,rejected_aa,aligned_D6_charge in data:
             anchors=original_D_pair_index(model)
             self.assertEqual(len(anchors),D)
             got=sum_exact=0
@@ -147,7 +147,17 @@ class GenuineOriginalFourSlotHallRigidity(unittest.TestCase):
                     cert["NEW_universal_true_original_port_template_Hall_charge_upper"],149)
             self.assertEqual(got,total_H)
             self.assertEqual(sum_exact,149*D)
-            self.assertGreaterEqual(kind["A/A"],0)
+            self.assertEqual(
+                tuple(kind[key] for key in ("A/A","A/B","B/A","B/B")),
+                expected_profiles)
+            self.assertEqual(kind["A/A"]-rejected_aa,aligned_D6_charge)
+            self.assertEqual(aligned_D6_charge%6,0)
+            # This ties per-port TRUE SOURCE Hall factor multiplicities
+            # to historical AA4-AM true D6 anchor multiplicity k(Q)=6;
+            # the non-AA Hall part is ALL seven-GF5 accepted.
+            self.assertEqual(
+                sum(kind[k] for k in ("A/B","B/A","B/B"))+
+                aligned_D6_charge,total_H-rejected_aa)
             print("AA4AO real W32",name,"D",D,"source_H",got,
                   "new_uniform_Hall_upper",sum_exact,"Hall_profile",dict(kind))
 
