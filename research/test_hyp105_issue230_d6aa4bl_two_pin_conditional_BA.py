@@ -3,6 +3,7 @@ import unittest
 from collections import Counter
 from fractions import Fraction
 from itertools import combinations,permutations
+from math import comb
 
 from hyp105_issue230_projection import fixture
 from hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation import zero_split_original_W32
