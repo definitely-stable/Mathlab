@@ -66,6 +66,18 @@ def all_h_every_original_Q_five_swap_mass(s):
     eligible_max=physical_full*d**6
     if eligible_min>eligible_max:
         raise AssertionError("source original six-Q bounds contradictory")
+    # Deterministic radius-FIVE BALL MASS TRANSPORT: every true
+    # eligible ORIGINAL Q is accepted by at least one fully globally
+    # injected line map inside the SAME radius-five transposition
+    # neighborhood of arbitrary fixed original g. Summing its
+    # true ORIGINAL D6 six-Q charge over all DISTINCT global maps in
+    # that ball is therefore at least the eligible source mass.
+    # Counting a Q with many possible repairs only makes the
+    # aggregate larger; this NEVER forces an arbitrary center map g
+    # to accept a single six-Q.
+    maximal_one_step_neighbors=comb(V,2)
+    radius_five_ball_cardinality_upper=sum(
+        maximal_one_step_neighbors**k for k in range(6))
     return {
         "s":s,"V":V,"d":d,"a":a,
         "physically_unused_pair_edges_per_typed_image":m,
@@ -82,6 +94,11 @@ def all_h_every_original_Q_five_swap_mass(s):
         "relative_repairable_eligible_Q_count_upper_vs_s15":
             (eligible_max,s**15),
         "uniform_in_all_fixed_original_point_f_asymptotic_2_over_3_s15":True,
+        "all_GLOBAL_line_maps_in_fixed_g_radius_FIVE_ball_SUM_D6_at_least":
+            eligible_min,
+        "distinct_global_line_maps_in_five_swap_ball_at_most":
+            radius_five_ball_cardinality_upper,
+        "radius_five_ball_total_positive_D6_is_NOT_center_map_D6":True,
         "EVERY_eligible_original_Q_repairable_within_FIVE_global_line_swaps":True,
         "each_Q_may_need_ITS_OWN_different_GLOBAL_line_map":True,
         "one_common_global_line_map_covers_ALL_Q_NOT_PROVED":True,
