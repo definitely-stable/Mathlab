@@ -207,3 +207,72 @@ def verify_balanced_sharpness(s):
     sharp=sharp_all_global_crowded_triple_floor(s)
     return count_original_distinct_source_crowded_triples(actual,s+1)==sharp[
         "exact_minimum_ordered_distinct_original_source_point_triples"]
+
+
+def joint_physically_eligible_original_matching_triple_floor(s):
+    """NEW ALL-f,g genuine original 3-flag matching with Δ<=2 on both types.
+
+    Three original source point IDs AND three original source line IDs
+    are pairwise distinct. Physical source edge images therefore differ
+    within each type; the only way to have degree 3 is for the THREE
+    different physical pair labels to share a physical coordinate.
+
+    Count all original ordered flag matchings by a source degree union
+    bound, then reject triples crowded on either physical type. This is
+    a pre-Hall PHYSICAL 3->6 seed bound, NOT an actual 7-GF5 Q extension.
+    """
+    V, a, m = minimal_physical_parameters(s)
+    d = s + 1
+    n = V*d
+    # Any e2 except sharing original point/line with e1.
+    # For e3 exclude the 2 distinct original points and 2 lines
+    # of e1,e2 using at most four original degree-d pencils.
+    source_matching_lower = n*(n-2*d+1)*(n-4*d)
+    # Any globally injected typed source map has fiber t_x<=a-1.
+    # Bad physical common-center triples on EACH type <= d^3
+    # * a(a-1)(a-2)(a-3), by simple deg max and true source degree.
+    crowded_each_type_upper = d**3 * a*(a-1)*(a-2)*(a-3)
+    eligible = source_matching_lower - 2*crowded_each_type_upper
+    assert eligible >= 0 and 3*eligible >= n**3
+    if s >= 4:
+        # Parent #531 minimal physical alphabet sharp inequality,
+        # independently recertified here in integer arithmetic.
+        assert 5*a*a <= 12*V
+        assert 4*eligible >= 3*n**3
+    return {
+        "s":s,"V":V,"d":d,"a":a,"n_true_original_flags":n,
+        "three_distinct_original_point_AND_line_IDs_source_matchings_lower":
+            source_matching_lower,
+        "one_type_crowded_bad_original_matching_triples_upper":
+            crowded_each_type_upper,
+        "all_global_ordered_true_original_3_by_3_uncrowded_triples_lower":
+            eligible,
+        "all_global_ordered_uncrowded_at_least_s12_over3": True,
+        "for_s_ge4_at_least_three_quarters_original_flag_cube":s>=4,
+        "physical_single_type_3_to_6_feasible_BOTH_TYPES":True,
+        "same_original_six_flag_GF5_completion_NOT_PROVED":True
+    }
+
+
+def exact_original_matching_uncrowded_triples(model):
+    """Direct independent original source three-flag audit for small W3s.
+
+    For a literal original model, do NOT infer actual completion:
+    this returns all ordered three-flag seeds having pairwise different
+    original source point IDs and line IDs, Δ<=2 on both physical types.
+    """
+    inc=tuple(tuple(e) for e in model["incidences"])
+    left=tuple(tuple(e) for e in model["left_labels"])
+    right=tuple(tuple(e) for e in model["right_labels"])
+    total=0
+    for I in combinations(range(len(inc)),3):
+        flags=tuple(inc[i] for i in I)
+        if len({p for p,l in flags})<3 or len({l for p,l in flags})<3:
+            continue
+        if any(max(_degree(tuple(labels[fl[typeid]] for fl in flags)).values())>2
+               for typeid,labels in ((0,left),(1,right))):
+            continue
+        total+=1
+    return {"unordered_physically_both_types_uncrowded_original_triples":total,
+            "ordered_physically_both_types_uncrowded_original_triples":6*total,
+            "actual_positive_six_Q_extensions_NOT_ASSUMED":True}
