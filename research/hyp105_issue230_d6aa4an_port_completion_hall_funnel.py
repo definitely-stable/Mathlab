@@ -265,3 +265,70 @@ def original_Q_D_anchor_residual_kind(model,pair,Q,*,side):
         if physical==residual:
             return tag
     raise ValueError("residual physical pair-edge multigraph has wrong degrees")
+
+
+def exact_true_original_W32_D_funnel_census(model,*,reference_seven=True):
+    """All genuine original D pairs: distinct PHYSICAL/Hall/GF5 failures.
+
+    W32 only; computed directly D-FIRST, with historical Q-first
+    complete-seven cross-check optional. The table distinguishes:
+       ZERO original BOTH-projection six-ID Q;
+       positive original BOTH-projection Q but ZERO selected seven GF5;
+       at least ONE positively selected genuine seven-GF5 Q.
+    This partition is exact and exclusive; a physical six-Q compatible
+    with both projections can still be unaligned A/A and nonselected.
+    """
+    from hyp105_issue230_d6aa4am_genuine_pair_sixcharge import original_D_pair_index
+    s,V,d,a,left,right,inc,np,nl=_actual_strict_original_transport(model)
+    if (s,V,a)!=(2,15,6):
+        raise ValueError("exact full original source D census W32 only")
+    D=original_D_pair_index(model)
+    sum_hall=sum_aa=sum_selected=0
+    failure=Counter()
+    selected_by_tag=Counter()
+    for pair in sorted(D):
+        z=exact_original_D_pair_six_Q_funnel(
+            model,pair,retain_selected=False)
+        assert z["physical_double_completion_candidate_pairs"]==100
+        H=z["actual_original_six_Q_both_leafless_physical_projections"]
+        R=z["actual_original_six_Q_unaligned_AA_rejected"]
+        S=z["actual_original_positive_seven_GF5_six_Q_extensions"]
+        if H!=R+S:raise AssertionError("source/Hall/seven exact partition")
+        sum_hall+=H;sum_aa+=R;sum_selected+=S
+        selected_by_tag.update(z["actual_original_positive_seven_GF5_by_tag"])
+        if H==0:
+            failure["no_original_Hall_six_Q"]+=1
+        elif S==0:
+            failure["original_six_Q_only_unaligned_AA"]+=1
+        else:
+            failure["has_seven_positive_original_six_Q"]+=1
+    if sum(failure.values())!=len(D):
+        raise AssertionError("distinct genuine D pair partition not exhaustive")
+    if reference_seven:
+        from hyp105_issue230_d6aa4am_genuine_pair_sixcharge import (
+            exact_W32_original_seven_pair_extension_certificate)
+        h=exact_W32_original_seven_pair_extension_certificate(
+            model,independent_oracle=True)
+        if (sum_selected!=h["E_original_extension_incidences"] or
+            failure["has_seven_positive_original_six_Q"]!=h[
+                "D_covered_by_at_least_one_selected_original_six_Q"] or
+            len(D)!=h["D_unordered_actual_original_bilateral_two_flag_pairs"]):
+            raise AssertionError("independent complete original 62370-seven-Q source oracle")
+    return {
+        "s":s,"D_all_actual_original_compatible_flag_pairs":len(D),
+        "physical_two_side_templates_PER_true_original_D_pair":100,
+        "total_occupied_both_side_physical_template_pair_incidence":100*len(D),
+        "original_BOTH_leafless_source_matched_six_Q_pair_charge":sum_hall,
+        "original_UNALIGNED_AA_rejected_six_Q_pair_charge":sum_aa,
+        "original_SELECTED_positive_seven_six_Q_pair_charge":sum_selected,
+        "D_pair_stage_partition":dict(failure),
+        "D_uncovered_by_selected_SEVEN":(
+            failure["no_original_Hall_six_Q"]+
+            failure["original_six_Q_only_unaligned_AA"]),
+        "seven_original_selected_charge_by_class":dict(selected_by_tag),
+        "all_D_pairs_original_physical_completions_occupied_W32":True,
+        "each_D_pair_uniform_selected_extension_false_finite":(
+            failure["no_original_Hall_six_Q"]+
+            failure["original_six_Q_only_unaligned_AA"]>0),
+        "all_h_s6_lower_NOT_PROVED":True,
+    }
