@@ -1,0 +1,53 @@
+name: hyp105-issue230-aa4au-two-line-seven-hessian
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4au_two_line_seven_hessian.py"
+      - "research/test_hyp105_issue230_d6aa4au_two_line_seven_hessian.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AU-TWO-LINE-SEVEN-HESSIAN-CAP.md"
+      - ".github/workflows/hyp105-issue230-aa4au-two-line-seven-hessian.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rooted-physical-and-all-h-original-gq-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All 5005 K6 multiset root pairs and exact all-h true-original two-line upper
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4au_two_line_seven_hessian.py' -v -k 'test_01'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4au_two_line_seven_hessian.py' -v -k 'test_02'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4au_two_line_seven_hessian.py' -v -k 'test_03'
+  actual-original-W32-seven-GF5-two-swap-curvature:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W32 62370-original-Q signed seven GF5 all-four-global-map Hessian and source cut
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4au_two_line_seven_hessian.py' -v -k 'test_04'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4au_two_line_seven_hessian.py' -v -k 'test_05'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4au_two_line_seven_hessian.py' -v -k 'test_06'
+      - name: Signed original source two-swap Hessian example ledger
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4au_two_line_seven_hessian import genuine_original_W32_signed_disjoint_swap_hessian
+          for scheme in ("S68","S72","lex","reverse"):
+              z=genuine_original_W32_signed_disjoint_swap_hessian(scheme)
+              assert len(z["mixed_hessian_rows"])==6
+              assert z["root_A_B_C"]=="OPEN_WITH_FORMAL_BLOCKER"
+              print("AA4AU_TRUE_ORIGINAL_HESSIAN",scheme,[
+                 (r["two_disjoint_true_LINE_factor_transpositions"],
+                  r["source_original_six_ID_Q_with_both_swap_source_support"],
+                  r["signed_mixed_seven_S_Hessian"],
+                  r["selected_GF5_weighted_necessary_numerator_Hessian"])
+                 for r in z["mixed_hessian_rows"]])
+          PY
