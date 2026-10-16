@@ -25,7 +25,7 @@ def independent_actual_original_W32_point_clean_pinned_line_triples(model,locked
     """
     inc=tuple(tuple(x) for x in model["incidences"])
     f=tuple(tuple(sorted(e)) for e in model["left_labels"])
-    bad=set(support_bad_clean_energy(f,6)["bad_physical_coordinate_indices"])
+    bad=set(support_bad_clean_energy(f,6)["bad_coordinates"])
     out=0
     for p,l in inc:
         if l in locked or any(u in bad for u in f[p]):
@@ -60,7 +60,7 @@ def independent_real_physical_clean_ordered_triples(E,a,removed):
         c0,c1=e
         outer0=[x for x in free if c0 in x and c1 not in x]
         outer1=[x for x in free if c1 in x and c0 not in x]
-        ans+=len(outer0)*len(outer1)
+        # Physical favorable counts are ORDERED source-line image triples:\n        # the two opposite outer physical edges can swap source LINE IDs.\n        ans+=2*len(outer0)*len(outer1)
     return ans
 
 
