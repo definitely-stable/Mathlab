@@ -1,0 +1,60 @@
+name: hyp105-issue230-aa4ay-quenched-allD-opposite-mean
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean.py"
+      - "research/test_hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AY-QUENCHED-ALLD-OPPOSITE-MEAN.md"
+      - ".github/workflows/hyp105-issue230-aa4ay-quenched-allD-opposite-mean.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-all-h-source-and-physical-right-triples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact all-h uniform s6 over2, genuine original source triples and physical right triples K6/K14
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean.py' -v -k 'test_01'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean.py' -v -k 'test_02'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean.py' -v -k 'test_03'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean.py' -v -k 'test_04'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean.py' -v -k 'test_05'
+  real-original-independent-allD-tensor-and-adversarial-holes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Literal true original fixed g W32 W34 3flag opposite wedges versus prior independent FTB G source-corrected tensor
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean.py' -v -k 'test_06'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean.py' -v -k 'test_07'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean.py' -v -k 'test_08'
+      - name: Print true original stochastic versus adversarial given g distinctions
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean import (
+              quenched_original_opposite_ALL_D_mean,
+              actual_original_ALL_D_opposite_wedges_direct,
+          )
+          for h,name in ((1,"S68"),(1,"S72"),(1,"lex"),(2,"lex"),(2,"random")):
+              model=fixture(h,name)
+              q=quenched_original_opposite_ALL_D_mean(model)
+              x=actual_original_ALL_D_opposite_wedges_direct(model)
+              print("AA4AY_TRUE_ORIGINAL_ALL_D",h,name,"given_fixed_g",x,
+                "exact_uniform_whole_right_map_mean",
+                str(q["EXACT_quenched_uniform_ONE_full_global_original_LINE_map_ALL_D_opposite_mean"]),
+                "universal_half_s6",str(q["uniform_in_both_adversarial_supports_R_ALL_D_mean_lower"]))
+              assert not q["all_global_FIXED_RIGHT_original_g_minimax_PROVED"]
+              assert not q["original_port_GOOD_only_mean_lower_PROVED"]
+              assert q["root_230"]=="OPEN_WITH_FORMAL_BLOCKER"
+          PY
