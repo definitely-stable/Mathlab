@@ -73,9 +73,27 @@ where \(m_i^P=\min(r_{i0},r_{i1})\), \(m_i^L=\min(c_{i0},c_{i1})\) are the two *
 
 The already known AA4-AR polarized quadratic can be recast for independent verification as \(8R_i=D_i^2+C_i^2-A_i^2-B_i^2\), A_i=r0−r1, B_i=c0−c1, C_i=x00+x11−x01−x10. This is an **equivalent prior identity**, NOT another new theorem.
 
+### Frozen actual-original W(3,2) and W(3,4) pre-Hall source/physical frontier
+
+One source-GQ 3flag literal neighbor-pair oracle (without marginal convex minimization) independently counted actual opposite typed GOOD wedges and source A/A GOOD wedges on seven SAME, globally complete typed f,g schemes, and the exact marginal solver certified its lower from the locally separately measured original GOOD D point and line physical endpoint counts. No per-Q physical map redraw, and W34 typed physical supports contain six globally missing K14 edges each.
+
+| Genuine ORIGINAL fixed typed f,g | GOOD real D edges | Source A/A GOOD centered 3flag wedges | Actual two-typed physical OPPOSITE GOOD 3flags | **SHARP marginal-only lower** | Half-minority sum lower | Source centers with BOTH physical port types active |
+|---|---:|---:|---:|---:|---:|---:|
+| W32 dual-zero | 277 | 2,675 | **870** | **821** | 652 | 45 / 45 |
+| W32 lex | 307 | 3,259 | **1,105** | **1,000** | 794 | 45 / 45 |
+| W32 reverse | 300 | 3,141 | **1,013** | **968** | 784 | 45 / 45 |
+| W32 S68 | 257 | 2,268 | **697** | **683** | 509 | 45 / 45 |
+| W32 S72 | 261 | 2,346 | **750** | **714** | 545 | 45 / 45 |
+| W34 lex | 2,072 | 20,650 | **3,544** | **3,174** | 2,183 | 118 / 425 |
+| W34 random | 147 | 158 | **10** | **8** | 6 | 6 / 425 |
+
+These finite results are source-backed **exact integers**, not an asymptotic fit. The first five true W32 physical maps all have 45 physically two-port-active source flag centers, while only 118 of 425 true W34 lex and SIX of 425 true W34 random centers are two-port active. Thus the W34 random original **AA-to-opposite physical-port lift** is 10/158, with marginal-only forcing 8/10 of those surviving opposite 3flag wedges. The large loss 158→10 occurs before the independent actual original 3×3 forest Hall and historical positive sevenclass GF5 acceptance gates. Finite W34 random loss cannot be asserted as a universal high-h correlated counterfamily.
+
+The source AA reservoir alone therefore provides **no positive universal two-typed port-minority product bound** at the current research frontier. Sharp marginal forcing can be nearly tight (S68 683/697, S72 714/750) while a small minority-product mass still blocks global sixmotif lower. An actual all-h result controlling this sum from source incidence spectral geometry rather than sampled finite schemes is the next significant unresolved transition.
+
 ## 5. Independent falsifiers, exact scopes and scientific gates
 
-Four additive files: mathematical executor, independent 7-test suite, this proof/source-prior-art Markdown and GitHub-hosted dedicated workflow.
+Four additive files: mathematical executor, independent 8-test suite, this proof/source-prior-art Markdown and GitHub-hosted dedicated workflow.
 
 - **Exhaustive all integer 2×2 margins D=0,…,18:** enumerate independently EVERY feasible nonnegative table for each pair of point/line two-port margins. Verify O(1) clipped-convex exact integer minimum, the feasible minimizing table, sharp half-minority bound, local activity iff and typed-port row/column interchange symmetries. Several thousand distinct marginal cases, plus explicit coefficient-1/2 tightness witnesses.
 - **Genuine true-original full W32 K6** typed global maps dual-zero, lex, reverse, S68, S72: calculate ALL source GOOD D four physical port bins at every actual source incidence center; independently enumerate literal TRUE original triple wedges and check physical opposite source point/line distinctness, prior AA4-AV exact source AA/BA/AB wedge counts, and true original ALL-D source-incidence corrected FᵀBG tensor upper. Freeze actual opposite counts, exact sharp marginal-only lower, half-minority floor and center activity from CI, not fabricated prior to execution.
