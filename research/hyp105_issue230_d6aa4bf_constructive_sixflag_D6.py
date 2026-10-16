@@ -133,9 +133,14 @@ class ExactOriginalD6ConditionalPotential:
         self.B=_validate_source_weights(self.weights,V)
         self.targets=oriented_right_sixcycles(self.edges,a)
         self.by_pos_edge=defaultdict(list)
+        self.edge_bits={e:1<<idx for idx,e in enumerate(self.edges)}
+        self.target_nodes=[]
         for row in self.targets:
+            mask=sum(self.edge_bits[e] for e in row)
+            node=(row,mask)
+            self.target_nodes.append(node)
             for pos,e in enumerate(row):
-                self.by_pos_edge[pos,e].append(row)
+                self.by_pos_edge[pos,e].append(node)
         self._all_targets=len(self.targets)
 
     def potential(self,pins):
@@ -149,7 +154,7 @@ class ExactOriginalD6ConditionalPotential:
         psi=_check_pins(pins,self.V,self.support)
         n=self.V-len(psi)
         used=frozenset(psi.values())
-        free=self.support-used
+        used_mask=sum(self.edge_bits[e] for e in used)
         allfree=None
         answer=Fraction()
         for lines,w in self.weights.items():
@@ -159,15 +164,16 @@ class ExactOriginalD6ConditionalPotential:
                 continue
             if not fixed:
                 if allfree is None:
-                    allfree=sum(all(e in free for e in row) for row in self.targets)
+                    allfree=sum((mask & used_mask)==0 for row,mask in self.target_nodes)
                 favorable=allfree
             else:
                 candidates=min((self.by_pos_edge[key] for key in fixed),key=len,
                                default=())
+                fixed_mask=sum(self.edge_bits[e] for pos,e in fixed)
                 favorable=sum(
-                    all(row[pos]==edge for pos,edge in fixed) and
-                    all(row[pos] in free for pos,j in enumerate(lines) if j not in psi)
-                    for row in candidates
+                    (mask & used_mask)==fixed_mask and
+                    all(row[pos]==edge for pos,edge in fixed)
+                    for row,mask in candidates
                 )
             if favorable:
                 answer+=Fraction(w*favorable,falling(n,6-c))
@@ -199,7 +205,7 @@ class ExactOriginalD6ConditionalPotential:
             raise ValueError("choose exactly one unassigned original LINE factor")
         base=self.potential(psi)
         free=sorted(self.support-set(psi.values()))
-        values=[(self.potential(dict(psi,**{} ) | {line:e}),e) for e in free]
+        values=[(self.potential(psi | {line:e}),e) for e in free]
         avg=sum((value for value,e in values),Fraction())/len(values)
         if avg!=base:
             raise AssertionError("exact one-WHOLE-global-permutation tower identity failed")
