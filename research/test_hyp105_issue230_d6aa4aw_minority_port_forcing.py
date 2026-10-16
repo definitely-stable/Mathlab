@@ -111,6 +111,17 @@ class TrueOriginalMinorityPortForcing(unittest.TestCase):
             "S68":(257,2268,697),
             "S72":(261,2346,750),
         }
+        # Independently hosted literal true ORIGINAL W32 frozen three
+        # quantitative margins: sum k*ell, sharp fixed-margin transport
+        # lower, elementary closed-form minority lower. No source Q
+        # re-labeling and no claimed large-h physical realization.
+        expected_marginals={
+            "dual_zero":(1292,821,702),
+            "lex":(1575,1000,871),
+            "reverse":(1553,968,873),
+            "S68":(1003,683,561),
+            "S72":(1078,714,616),
+        }
         for name,m in [("dual_zero",zero_split_original_W32())]+[
                  (x,fixture(1,x)) for x in ("lex","reverse","S68","S72")]:
             z=exact_true_original_good_minority_port_certificate(m)
@@ -120,6 +131,12 @@ class TrueOriginalMinorityPortForcing(unittest.TestCase):
                               z["original_source_AA_good_threeflag_wedge_count"],
                               z["original_both_typed_opposite_GOOD_threeflag_wedge_count"]),
                              known[name])
+            self.assertEqual((z["original_sum_two_marginal_minor_products"],
+                              z["true_original_SHARP_fixed_marginals_lower"],
+                              z["true_original_improved_integer_minority_bound"]),
+                             expected_marginals[name])
+            self.assertEqual(z["original_source_port_support_categories"],
+                             {("two_point_ports","two_line_ports"):45})
             self.assertEqual(z[
                 "original_both_typed_opposite_GOOD_threeflag_wedge_count"],
                 literal["literal_real_source_OPPOSITE_port_good_wedges"])
@@ -146,6 +163,18 @@ class TrueOriginalMinorityPortForcing(unittest.TestCase):
     def test_03_true_original_W34_global_K14_both_physical_holes_and_two_single_sided_port_margins(self):
         expected={"lex":(2072,20650,3544),
                   "random":(147,158,10)}
+        expected_marginal={"lex":(4344,3174),
+                           "random":(8,8)}
+        expected_support={
+            "lex":{("two_point_ports","two_line_ports"):118,
+                   ("one_point_port","two_line_ports"):106,
+                   ("two_point_ports","one_line_port"):107,
+                   ("one_point_port","one_line_port"):94},
+            "random":{("two_point_ports","two_line_ports"):6,
+                      ("one_point_port","two_line_ports"):20,
+                      ("two_point_ports","one_line_port"):5,
+                      ("one_point_port","one_line_port"):394},
+        }
         for name in ("lex","random"):
             model=fixture(2,name)
             z=exact_true_original_good_minority_port_certificate(model)
@@ -153,6 +182,11 @@ class TrueOriginalMinorityPortForcing(unittest.TestCase):
             self.assertEqual((z["original_good_D_pair_count"],
                               z["original_source_AA_good_threeflag_wedge_count"],
                               z["original_both_typed_opposite_GOOD_threeflag_wedge_count"]),expected[name])
+            self.assertEqual((z["original_sum_two_marginal_minor_products"],
+                              z["true_original_SHARP_fixed_marginals_lower"]),
+                             expected_marginal[name])
+            self.assertEqual(z["original_source_port_support_categories"],
+                             expected_support[name])
             self.assertEqual(z["original_source_port_support_categories"],{
                 ("two_point_ports" if p else "one_point_port",
                  "two_line_ports" if l else "one_line_port"):v
