@@ -96,6 +96,22 @@ This is again an **UPPER** on the D6 subchannel, NOT a lower for it or the entir
 5. Actual common symplectic source automorphism on true W32, independently distinct physical point and line alphabet permutations, preserves original full true D6 source Q counts and per-actual-D-anchor D6 charge distribution. Negative invalid globally injected labels, original source incidence deletion, wrong source D anchor, false direction, and non-power-of-two orders fail closed.
 6. Strict positive-scientific no-go: true W32 S68 and S72 yield D6 ZERO despite full globally bijective physical K6 and nonzero genuine original bilateral Hall matchings, so no universal pointwise positive D6 original source transfer may be inferred from physically occupied P5 patterns.
 
+### Frozen true-original W(3,2) D6 path alignment ledger — three independent algorithms
+
+Exact genuine symplectic W(3,2), 45 distinct actual original source incidence flag IDs, two complete independently typed but globally bijective K6 factor pair maps, all **ACTUAL** source D-compatible original two-flag anchors, P5 point-side and P5 line-side globally occupied source factor paths, and NO per-original-Q mapping redraw. The new point-source d⁴ sparse ORIGINAL GQ join was compared to an unrelated physical-template-pair-major four-incidence-source-bit scan for **EVERY** anchored true source D pair and to the Q-FIRST complete historical 62,370-candidate true ORIGINAL selected seven-GF5 join, including D6 original incidence flag-position identity and k(D6)=6. A third line-source d⁴ join was tested independently on sampled anchors.
+
+| Genuine W(3,2) globally fixed maps | Actual original D anchors | Aligned D6 original D-anchor incidence charge | DISTINCT genuine original D6 six-flag Q | Actual original D anchors with ≥1 D6 completion |
+|---|---:|---:|---:|---:|
+| dual-zero | 277 | **6** | **1** | 6 |
+| lex | 307 | **90** | **15** | 63 |
+| reverse | 300 | **18** | **3** | 18 |
+| S68 | 257 | **0** | **0** | 0 |
+| S72 | 261 | **0** | **0** | 0 |
+
+These counts are EXACT at s=2 and genuine ORIGINAL source-GQ, not a minimax theorem or an asymptotic fit. In particular the 63 positive lex anchors support 90 D6 source extension INCIDENCES because one actual original D anchor can have multiple distinct aligned D6 six-Q, but every fixed occupied **point P5×line P5 physical template PAIR** contributes at most ONE aligned D6. The 90 charges correspond to 15 distinct true original D6 six-Q, each with exactly six D anchors, as independently established in historical #530. The S68/S72 ZERO D6 values are direct concrete falsifiers of an unjustified universal source-D6-positive assertion even with every physical K6 unordered pair present and physically P5×P5 templates occupied.
+
+The full true W(3,4) and W(3,8) source maps are also strictly tested, respecting respectively six and ten globally unused physical pair labels of their minimal K14 and K35 palettes. W34 exact point-source, line-source and physical P5-pair independent full D6 comparisons run for selected true D pairs. W38 uses explicitly bounded physical point P5 samples against **all line P5** and the original source d⁴ product; its figures are never mislabeled as a full W38 D-pair census.
+
 ## 5. Acceptance and next OPEN mathematical problem
 
 **Proved restricted all-h theorem, subject to independent mathematics referee:** one occupied original point P5 and one occupied original line P5, anchored by two genuine original D incidence flags with fixed flag identities, have EXACTLY ONE possible aligned D6 four-source-flag extension prescribed by physical path order; acceptance iff all four ACTUAL original incidence bits are 1, yielding the exact sparse four-fold source neighborhood path join and min-bound above. This is a genuinely SOURCE-class-specific positive GF5 D6 criterion, but not a positive lower.
