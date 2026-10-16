@@ -158,3 +158,54 @@ This research isolates a **LOCAL graph-complement degree obstruction** to trying
 A genuinely root-facing next mathematical target is to quantify how many actual original source cherry roots in any fixed globally injected original line map g necessarily have their opposite pinned image endpoint neighborhoods dense, and then control the SAME remainder mapping's Hall defect jointly with D6. Another possibility is an exact all-h proof of conditioned-rooted B/A positivity without the local degree assumption for the actual dyadic-specific m, but this must not be inferred from the abstract near-complete support example.
 
 Keep Draft until exact final-HEAD dedicated, INDEX, Proof Audit, Full Research and independent mathematical referee plus frozen parent chain; root #230 OPEN_WITH_FORMAL_BLOCKER.
+
+
+## AA4-BL-MAJ — deterministic *majority* of real original root pins is locally regular for EVERY already fixed opposite g
+
+The local missing-degree condition in BL-LOCAL looks restrictive in isolation, but the MINIMAL physical K_a pair alphabet limits how many source-root opposite image endpoints can fail it on ANY globally injected complete original right mapping g. Fix that ENTIRE adversarial g, not just its occupied right support E. For s>=32 let t=floor((a−4)/8), and call a physical coordinate vertex **bad** if it is incident to at least t+1 missing physical right pair-edges from E(K_a)\im(g). The sum of missing physical degrees is 2m, hence the number of bad physical vertices is at most
+
+\[
+B=\left\lfloor\frac{2m}{t+1}\right\rfloor\le16.
+\]
+
+The last bound holds for every a>=261 and m<=a−2: t+1>(a−4)/8, so 2m/(t+1)<16(a−2)/(a−4)<17, giving B<=16. Each bad physical vertex is incident to at most (a−1) OCCUPIED physical right pair edges, hence involves at most B(a−1) distinct ACTUAL original LINE source factor IDs under globally injective g. Each such original LINE factor belongs to d actual genuine-original source incidence flags (p,l), and such a flag participates in EXACTLY d−1 source POINT-cherry twoflag roots through p. Union bounding every bad original source LINE factor gives at most
+
+\[
+\boxed{B(a-1)d(d-1)}
+\]
+
+actual source point cherry roots whose TWO already fixed original LINE physical images touch even one bad right physical coordinate.
+
+Since the total number of genuine source point cherries is
+
+\[
+V\binom d2=\frac{Vd(d-1)}2,
+\]
+
+and minimality of a implies V>binom(a−1,2), the BAD fraction is strictly less than
+
+\[
+\frac{2B(a-1)}{V}
+<\frac{4B}{a-2}
+\le\frac{64}{a-2}
+\le\frac{64}{259}<\frac14.
+\]
+
+Therefore, for EVERY already completely fixed original LINE physical g and EVERY genuine source original W(3,s) with h>=5,
+
+\[
+\boxed{
+\#\bigl\{
+\text{actual source POINT cherry roots }(\alpha,\beta):
+\Delta_{\rm pin}(g(l_1),g(l_2))\le t
+\bigr\}
+>\frac34 V\binom d2 .
+}
+\tag{BL-MAJ}
+\]
+
+For **each** of these more-than-75% real source cherry roots and ANY independently fixed globally injected original point physical f, IF one freezes only its two real original LINE images as pins and uniformly reallocates the REMAINING V−2 original LINE source factors onto the SAME occupied right support, BL-4D gives a conditional expected historical accepted rooted B/A count at least 4(s+1). Original LINE ↔ POINT duality yields the corresponding statement for more than 75% true original LINE cherry roots under any already fixed f.
+
+**Critical logical limitation:** Although the membership of the good source-root set is a DETERMINISTIC fact about the given fully fixed g, the ≥4d bound is a conditional expectation over OTHER complete global maps extending two pinned images; it is NOT a bound on the actual rooted B/A count of the ORIGINAL unmodified g. A statement “>75% roots actually survive the joint Hall test on every fixed g” would be false already at small original W32 and is neither claimed nor proved here. In particular, BL-MAJ does not prove root issue #230 Branch A, does not turn quenched means into a minimax lower, and does not negate prior Hall-scarcity obstructions.
+
+A separate all-h exact rational test verifies B<=16, good source-root count >3/4 of V binom(d,2), and the strict separation between determined fixed-g pin eligibility and any unproved fixed-g acceptance.
