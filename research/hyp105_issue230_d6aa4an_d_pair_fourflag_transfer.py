@@ -136,7 +136,14 @@ def _strict_original_D_pair_model(model,anchor,side):
     labels=(f,g)[side]
     factor_ids=(p,q) if side==0 else (l,m)
     anchored_labels=(labels[factor_ids[0]],labels[factor_ids[1]])
-    bysource=np if side==0 else nl
+    # _actual_strict_original_transport returns opposite SOURCE FACTOR
+    # neighbors np/nl, NOT incidence FLAG IDs. Four-Q generation must
+    # always use genuine ORIGINAL incidence ID indices!
+    bysource=[[] for _ in range(V)]
+    for fid,original_flag in enumerate(inc):
+        bysource[original_flag[side]].append(fid)
+    if any(len(ids)!=d for ids in bysource):
+        raise ValueError("not genuine original d-regular source incidence IDs")
     inverse={edge:i for i,edge in enumerate(labels)}
     return s,V,d,a,inc,f,g,bysource,inverse,anchored_labels
 
