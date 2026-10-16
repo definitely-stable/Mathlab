@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4ar-good-wedges-port-balance
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ar_good_wedges_port_balance.py"
+      - "research/test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AR-GOOD-WEDGES-PORT-BALANCE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ar-good-wedges-port-balance.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-true-original-s6-wedge-rational-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All-h h14 to h60 exact rational genuine W3 source GOOD D >=s5/10 yields original flag wedge >=s6/200 and conditional opposite-wedge s6/800
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_01_all_h14_and_above_rational_source_good_wedges
+  five-real-original-W32-literal-source-wedges-and-D6-nonlift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every actual original W32 D edge for five fixed global two-typed f/g maps, exact two-typed port defect vs independent literal 3-flag wedges, S68/S72 positive opposite wedges but zero D6
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_02_true_W32_all_five_global_original_maps_literal_wedge_referee \
+            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_03_original_W32_S68_S72_many_real_opposite_wedges_but_zero_D6
+  original-W34-two-typed-physical-injections-literal-three-flags:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine GF4 symplectic original W34 source, lex/random independently globally injected K14 typed physical maps, literal source original 3-flag wedges vs exact four-bin defect
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_04_true_W34_lex_random_global_injected_source_original_flag_wedges
+  true-original-isometry-source-controls-and-algebraic-defect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True W32 source symplectic transvection independent point/line physical permutations, fake original source guards and abstract one-bin imbalance no-go
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_05_actual_source_symplectic_and_independent_typed_physical_invariance \
+            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_06_artificial_port_defect_warning_and_strict_false_model_rejection
