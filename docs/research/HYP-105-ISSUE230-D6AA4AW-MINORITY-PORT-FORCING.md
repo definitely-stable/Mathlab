@@ -113,6 +113,40 @@ S_s(f,g)\ge\frac{\alpha\beta}{60}s^6.
 
 The first condition is STILL a nontrivial simultaneous global f/g physical-port activity/mass theorem not proved, and the second condition is STILL an independent true original 3-new-flag Hall and final GF5 sixset selection theorem not proved. The displayed accepted S lower is **STRICTLY CONDITIONAL**. AA4-AT/AU already demonstrated finite genuine original source Hall zeros even for completely occupied physical K6, so H2 cannot be inferred from H1.
 
+### 3.1. Independently verified same-global ORIGINAL W32/W34 all-source-center one-sided port support census
+
+The first [AA4-AW dedicated GitHub-hosted exact HEAD #38878211672](https://github.com/definitely-stable/Mathlab/actions/runs/38878211672) completed **4/4 SUCCESS**. Its independent all-abstract 2x2 integer transportation oracle examined **3,876** different nonnegative four-bin integer source-port tables with total degree 0..15, matching the exact sharp fixed-marginals convex optimizer and minority forcing theorem on each. The actual original W(3,2) complete global typed maps and W(3,4) global typed maps with six missing physical pair images per type were compared to a SECOND true-original literal two-flag GOOD D neighbor-pair source oracle. These are real original flag IDs from actual symplectic W3s and ONE fixed f and g per model, not synthetic source geometry.
+
+For every real ORIGINAL source flag center i, the local support theorem verified in all seven actual symplectic models: at least one physically opposite two-type GOOD two-edge centered wedge **iff** each of its own two point-typed physical endpoint ports and two line-typed physical endpoint ports is used by some genuine GOOD original D-neighbor.
+
+| Actual ORIGINAL W(3,2) fixed complete global point f/line g | True source GOOD D edges | Source A/A GOOD threeflag wedges | \(\sum_i k_i\lambda_i\) | \(\sum_i[k_i\lambda_i-\lfloor m_i^2/2\rfloor]\) elementary lower | \(\sum_i R_i^{\min}\) SHARP fixed-marginal original-port lower | ACTUAL two-type physically opposite GOOD source wedges |
+|---|---:|---:|---:|---:|---:|---:|
+| dual-zero | 277 | 2,675 | **1,292** | 702 | 821 | **870** |
+| lex | 307 | 3,259 | **1,575** | 871 | 1,000 | **1,105** |
+| reverse | 300 | 3,141 | **1,553** | 873 | 968 | **1,013** |
+| S68 | 257 | 2,268 | **1,003** | 561 | 683 | **697** |
+| S72 | 261 | 2,346 | **1,078** | 616 | 714 | **750** |
+
+Every one of the TRUE 45 original W32 source incidence flag centers in EACH of these five globally complete typed K6 physical maps had both one-sided physical point ports and both line ports active. This finite low-h observation DOES NOT prove every such original source center remains two-sided active for any sufficiently large h or for ALL injected f,g.
+
+| Actual symplectic ORIGINAL W(3,4) same global physically injected K14 point f/line g (six missing pair images each side) | Actual GOOD original D edges | Source A/A GOOD threeflag wedges | \(\sum_i k_i\lambda_i\) | Sharp fixed-marginal opposite wedge lower | ACTUAL physically opposite GOOD original source wedges |
+|---|---:|---:|---:|---:|---:|
+| lex | 2,072 | 20,650 | **4,344** | 3,174 | **3,544** |
+| random | 147 | 158 | **8** | 8 | **10** |
+
+The real ORIGINAL 425 source center flag IDs break down by which two typed **one-sided** port supports are active:
+
+| W34 fixed point f/line g | Both point & line ports active | Point ports only | Line ports only | Neither side both ports |
+|---|---:|---:|---:|---:|
+| lex | **118** | 107 | 106 | 94 |
+| random | **6** | 5 | 20 | **394** |
+
+These EXACT 425-point-line-flag partitions agree with an independent literal source-neighbor support referee and hence directly explain the observed loss under correlated globally injected physical hole patterns. In particular random globally fixed W34 has 394/425 true original source incidence centers without both ports active on either type, and only SIX centers with simultaneously active point and line ports, but all observed ten R_good physically opposite wedges occur at those six centers. Since W34 has h=2, the data do not show that positive simultaneous port support can be destroyed asymptotically for all large h.
+
+**Low GF5 transfer control:** Actual original W32 globally injected S68 has 697 real GOOD physically opposite source threeflag wedges and a rigorous sharp margin-only lower 683, yet the INDEPENDENT true six-distinct original source ID seven-GF5 oracle finds only SIX distinct GOOD source wedges that lie in any accepted original sixset. For S72 actual R_good=750, sharp marginal floor=714, but only 11 GOOD source wedges covered by selected original GF5 sixsets. This is an explicit finite *second* obstruction: once the physical two-port gate is certified, genuine original source 3×3 Hall and final sevenclass selection are separate and may still wipe out almost all GOOD source wedges.
+
+**Scientific interpretation:** The all-h exact biconditional is a local **support** theorem that avoids proving any point/line JOINT local color independence; it does not yield an all-map lower on the number or strength of source centers that possess BOTH one-sided physical port supports. The global quantity \(\sum_i k_i\lambda_i\), rather than a full 2x2 covariance/mixed physical port assignment, is the next precise source×global-physical bottleneck. Even if a uniform lower for it is eventually proved, the independent original Hall + selected seven-GF5 bridge remains open.
+
 ## 4. Testing strategy and rigorous limits
 
 1. Exhaustively enumerate ALL small abstract 2×2 nonnegative integer tables of total degree 0..15 and independently compare the new closed-form sharp original transport margin minimum to a completely SEPARATE brute scan over all feasible t, with positive-port support equivalence. Explicit abstract balanced examples attain the half minority-product bound (sharp coefficient). Such tables are solely combinatorial counter/positive examples, not fabricated original W3 data.
