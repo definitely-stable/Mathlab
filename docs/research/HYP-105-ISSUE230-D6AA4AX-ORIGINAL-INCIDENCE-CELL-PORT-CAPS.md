@@ -73,6 +73,26 @@ Yet every formal local vertex is physically monochromatic on BOTH typed physical
 
 The actual global mixed transport and corrected source caps in the previous section retain that information and can give nonzero numerical certificates in genuine finite models, even when the universal K-only cap is vacuous.
 
+### Independently frozen genuine original W32/W34 numerical certificates
+
+An independent genuine-original **source-first Q/flag incidence enumeration** reconstructs all four mixed physical coordinate cells and the true original ALL-D source-factor exclusions; a separate original GOOD-D true neighbor oracle verifies physically opposite wedge counts. The three progressively sharper rigorously certified lower bounds below use (i) only GQ spectral K, (ii) true fixed global mixed M=FᵀBG cells and uncolored GOOD center degree, and (iii) source-degeneracy-corrected ALL-D 2×2 mixed cell caps and the SAME uncolored GOOD center degree.
+
+| Genuine original W(3,s) fixed typed global map | Genuine GOOD bilateral D source edges | Spectral K-only lower | **RAW mixed FᵀBG-only lower** | **Corrected ALL-D mixed cell lower** | ACTUAL physically opposite GOOD original threeflag wedges |
+|---|---:|---:|---:|---:|---:|
+| W32 dual-zero | 277 | **0** | **222** | **652** | 870 |
+| W32 lex | 307 | **0** | **211** | **794** | 1,105 |
+| W32 reverse | 300 | **0** | **375** | **784** | 1,013 |
+| W32 S68 | 257 | **0** | **159** | **509** | 697 |
+| W32 S72 | 261 | **0** | **145** | **545** | 750 |
+| W34 lex | 2,072 | **0** | **0** | **0** | **3,544** |
+| W34 random | 147 | **0** | **0** | **0** | **10** |
+
+The W32 true-original positive RAW mixed-cell bounds are genuine new FINITE pre-Hall certifications obtained **without the GOOD four-bin port correlation table**; the corrected source ALL-D version recovers the parent #556 half-minority bound because W32 has no exceptional physical bad vertices (all physical K6 edges are occupied). This agreement is expected and credited, not presented as a second independent source-Hall theorem.
+
+The genuine W34 lex and random fixed nononto K14 images provide an important **negative test**: the cell-only activation lower (even with exact source-degeneracy correction) remains ZERO although 3,544 or 10 true-original physically opposite GOOD wedges actually exist. It follows that a positive finite or uniform all-h pre-Hall transfer cannot in general be **certified using just this particular local incidence-cap excess-degree criterion**. This is NOT a proof that some more powerful all-h original mixed-transport inequality could not force positive port margins, and is NOT a counterexample to an original seven-class all-label lower.
+
+The all-h AP spectral K-only cap gives ZERO for all seven genuine finite maps, despite raw mixed original M providing 145–375 positive lower on four true W32 standard maps and 222 on dual-zero. The significant residual question is how many genuine source centers simultaneously force BOTH typed physical ports under arbitrary globally correlated source factor label placements, not whether the old universal single-cell spectral upper is numerically large.
+
 ## 4. Strict independent TRUE ORIGINAL finite oracles and all-h proof gates
 
 FOUR additive research-only files: explicit all-h original spectral row cap and abstract scalar-method limitation, true finite original FᵀBG cell RAW+source-corrected GOOD physical port minority activation, **independent direct original source flag Q-first matrix M** and literal original D-neighbor source-factor exclusion oracle, comprehensive versioned mathematics and GitHub-hosted ONLY dedicated workflow.
