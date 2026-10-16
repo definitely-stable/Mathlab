@@ -21,7 +21,8 @@ jobs:
       - name: All-h h14 to h60 exact rational genuine W3 source GOOD D >=s5/10 yields original flag wedge >=s6/200 and conditional opposite-wedge s6/800
         run: |
           PYTHONPATH=research python -m unittest -v \
-            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_01_all_h14_and_above_rational_source_good_wedges
+            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_01_all_h14_and_above_rational_source_good_wedges \
+            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_04b_all_h_conditional_good_wedge_to_original_seven_Q_bounded_charge
   five-real-original-W32-literal-source-wedges-and-D6-nonlift:
     runs-on: ubuntu-latest
     timeout-minutes: 22
@@ -34,7 +35,8 @@ jobs:
         run: |
           PYTHONPATH=research python -m unittest -v \
             test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_02_true_W32_all_five_global_original_maps_literal_wedge_referee \
-            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_03_original_W32_S68_S72_many_real_opposite_wedges_but_zero_D6
+            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_03_original_W32_S68_S72_many_real_opposite_wedges_but_zero_D6 \
+            test_hyp105_issue230_d6aa4ar_good_wedges_port_balance.ActualOriginalGoodWedges.test_04c_complete_true_original_W32_good_wedge_seven_Q_coverage
   original-W34-two-typed-physical-injections-literal-three-flags:
     runs-on: ubuntu-latest
     timeout-minutes: 22
