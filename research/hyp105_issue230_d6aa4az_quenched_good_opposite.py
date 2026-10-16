@@ -148,8 +148,10 @@ def genuine_original_fixed_point_GOOD_source_potential(model):
         for q0 in port[u]:
             if q0==p:continue
             for q1 in port[v]:
-                if q1==p or q0==q1:
-                    raise AssertionError("globally injected clean f point source IDs repeat")
+                if q1==p:
+                    continue  # the original center physical edge occurs in both port lists
+                if q0==q1:
+                    raise AssertionError("globally injected clean f outer point source IDs repeat")
                 lines0=neighborlines[q0]-{l}
                 lines1=neighborlines[q1]-{l}
                 total+=len(lines0)*len(lines1)-len(lines0&lines1)
