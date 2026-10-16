@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4as-threeflag-hall-frontier
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4as_threeflag_hall_frontier.py"
+      - "research/test_hyp105_issue230_d6aa4as_threeflag_hall_frontier.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AS-THREEFLAG-HALL-FRONTIER.md"
+      - ".github/workflows/hyp105-issue230-d6aa4as-threeflag-hall-frontier.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-physical-threeflag-T-P-independent-multigraph:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All true ORIGINAL 2-power h up to 60 symbolic 1*T and 3*P residual completions and independent K6/7/8 brute three-edge physical multigraph source oracle
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4as_threeflag_hall_frontier.OriginalThreeFlagHall.test_01_exact_all_h_T_P_formal_residual_numbers \
+            test_hyp105_issue230_d6aa4as_threeflag_hall_frontier.OriginalThreeFlagHall.test_02_independent_triple_multigraph_K6_K7_K8_T_P_10_new_coordinate
+  complete-five-original-W32-source-wedge-Q-FIRST-GF5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: EVERY real W32 global f/g GOOD two-typed opposite source 3-flag wedge, 1 or 3 genuine physical residual templates and TRUE 3x3 Hall exact original six-ID Q tags compared wedge-by-wedge to independent historical Q-FIRST seven class oracle
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4as_threeflag_hall_frontier.OriginalThreeFlagHall.test_03_all_five_complete_genuine_original_W32_wedges_Q_FIRST_match
+  original-W34-K14-true-Hall-D6-and-invariance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True ORIGINAL W34 GF4 lex/random global K14 injected point/line maps, root-limited independent accepted D6 positive original six-ID Q within new 3x3 source Hall funnel and source/typed-physical isometry controls
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4as_threeflag_hall_frontier.OriginalThreeFlagHall.test_04_real_original_W34_positive_D6_wedge_source_Hall_membership \
+            test_hyp105_issue230_d6aa4as_threeflag_hall_frontier.OriginalThreeFlagHall.test_05_true_source_symplectic_and_independently_typed_physical_relabel
+  genuine-original-source-input-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject forged source original flag list, repeated physical original factor pair labels, malformed and nonopposite triples, no global f/g redraw
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4as_threeflag_hall_frontier.OriginalThreeFlagHall.test_06_strict_real_original_source_and_non_opposite_bad_wedges
