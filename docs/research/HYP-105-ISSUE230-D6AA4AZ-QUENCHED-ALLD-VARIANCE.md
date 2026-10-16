@@ -1,6 +1,6 @@
-# HYP-105 / issue #230 — AA4-AZ: quenched ALL-D opposite-port variance
+# HYP-105 / issue #230 — AA4-BA: GOOD and ALL-D original-source quenched opposite-port variance
 
-**Scientific status:** original-source all-h STOCHASTIC PARTIAL THEOREM, draft child of AA4-AY PR #560 at exact HEAD a1098204561548a1521bbdd734333f8de4b7cac7. No original fixed-g minimax, GOOD-only or historical seven GF(5) six-original-ID lower is proved. Root Branch A/B/C stays OPEN_WITH_FORMAL_BLOCKER.
+**Scientific status:** original-source all-h STOCHASTIC PARTIAL THEOREM, Draft child of GOOD-mean AA4-AZ PR #561 at exact HEAD 033497c294882e7b53473d5d4626053f50a75016 (and its ALL-D mean parent #560). No original fixed-g minimax, GOOD-only or historical seven GF(5) six-original-ID lower is proved. Root Branch A/B/C stays OPEN_WITH_FORMAL_BLOCKER.
 
 ## Precise model, quantified result
 
@@ -91,3 +91,60 @@ Examples from the exact bound formula: s=8 gives eta≈0.3592, s=16 eta≈0.0874
 **Prior art:** Covariance by source-ID overlap and concentration of permutation/U-statistics without replacement are established ideas, e.g. J. Ai, O. Kuželka and Y. Wang, *Hoeffding and Bernstein inequalities for U-statistics without replacement*, Statistics & Probability Letters 187 (2022), DOI 10.1016/j.spl.2022.109528. This work does NOT claim a new generic probabilistic technique. Prior project PR #544 already obtains an O(s^-3) relative variance for a DIFFERENT selected D6 six-ID statistic under fixed supports. AA4-AY #560 already proves the ALL-D threeflag quenched mean. AA4-AZ only supplies a concrete source-aware two-overlap variance bound for that narrower original threeflag object.
 
 **Strict nonimplications and review gate:** Original W34 random has 46996 ALL-D physically opposite 3flag events but only 10 GOOD 3flag events, so no ALL-D-to-GOOD transfer can be silently made. No every-(f,g) accepted seven-class original six-incidence GF5 \(S\ge cs^6\), true 3×3 forest-Hall survival, infinite counterfamily, full R3 or ASET exponent has been proved. This scientific Draft requires a final exact-HEAD dedicated+INDEX+Proof Audit+Full Research CI inspection and independent mathematical referee; ancestor #560/#559 and their ancestry must be handled separately. Do not merge this Draft or alter accepted RCP research registry based solely on CI.
+
+
+## AA4-BA3 — MAIN FRONTIER ADVANCEMENT: true-original GOOD opposite-wedge concentration
+
+**All-h h>=5, genuine original W(3,2^h), every adversarial fixed f and original right PHYSICAL support E, ONE global random complete g.** This upgrades the *random* result from the ALL-D variable above to the strictly AA4-AO **GOOD-filtered** physical opposite two-port true-original threeflag variable from source [AA4-AZ GOOD mean PR #561](https://github.com/definitely-stable/Mathlab/pull/561), source SHA 033497c294882e7b53473d5d4626053f50a75016. It does **NOT** upgrade to a given adversarial fixed g or selected historical seven GF(5) sixflag count.
+
+For any fully occupied physical typed support F, let Bad(F) be the AA4-AO support-determined set of physical coordinates whose missing physical degree satisfies 16 m_v>=a, and let F° consist of those occupied pair edges with BOTH endpoints outside Bad(F). The set Bad(E) is unchanged by any bijection permuting original source LINE IDs among the same complete right support E. For a TRUE original source event, being physically opposite and GOOD on each side is exactly the requirement that its three source point-side physical edges lie in F_f°, and its three source line-side physical images lie in E°. The original 3 flags, three point factor IDs and three line factor IDs are all distinct.
+
+Restrict the earlier source weights to ORIGINAL point-side **clean** triples; denote them w°(l,k0,k1), and put B°=sum w°, M1°,M2° the maximum weighted one-line and two-line overlaps. Define the CLEAN right physical port energy T°(E)=sum_{uv∈E°}(deg_{E°}(u)-1)(deg_{E°}(v)-1), and p°=2 T°(E)/(V)_3, where V is the original FULL LINE factor count: the denominator is **NOT** the much smaller |E°| falling factorial. The exact same zero/one/two+ overlap proof of AZ1 applies *without modification* to the restricted nonnegative source weights and the clean-induced right event, because every valid completion is still at most H=2(a-2)² for any prescribed shared physical image edge, and the global g remains a uniform bijection to the entire occupied original right support E. In particular,
+
+\[
+\mathbb E_g R_{\mathrm{GOOD}}=B^\circ p^\circ,\qquad
+\frac{\operatorname{Var}_g R_{\mathrm{GOOD}}}
+     {(\mathbb E_g R_{\mathrm{GOOD}})^2}
+\le q^{-1}-1 + \frac{3M_1^\circ P_1}{B^\circ(p^\circ)^2}
++\frac{3M_2^\circ}{B^\circ p^\circ}.
+\tag{BA-G1}
+\]
+
+Crucially, **the point-physical CLEAN restriction only REMOVES original source events** from the full original line triple table; therefore M1°<=5d³(a-2)² and M2°<=8d³(a-2) remain valid for every fixed original f. Parent #561 proves for **all h>=5** and arbitrary globally injected original typed supports F and E that T°(F),T°(E)>=V²/16 and B°>=d(d-1)(d-2)T°(F). Define
+
+\[
+L_\circ=V^2/16,\quad B_{0,\circ}=d(d-1)(d-2)L_\circ,\quad
+p_{0,\circ}=2L_\circ/(V)_3.
+\]
+
+Then the **explicit uniform all-original global-fixed-point/right-support GOOD variance theorem** is
+
+\[
+\boxed{\eta_s^\circ
+=q^{-1}-1+
+\frac{15d^3(a-2)^2P_1}{B_{0,\circ}p_{0,\circ}^2}
++\frac{24d^3(a-2)}{B_{0,\circ}p_{0,\circ}}},\qquad
+\boxed{\frac{\operatorname{Var}_g R_{\rm GOOD}}
+{(\mathbb E_g R_{\rm GOOD})^2}\le\eta_s^\circ
+=O(s^{-3/2})}.
+\tag{BA-G2}
+\]
+
+The asymptotic estimate follows rigorously from V=Theta(s³), a=Theta(s^(3/2)), L°=Theta(V²), q^-1-1=O(1/V), P1/p0°²=O(1), M10/B0°=O(1/V), M20/(B0°p0°)=O(1/s^(3/2)), just as for the ALL-D bound. Parent #561 already proves E_g R_GOOD>=s^6/128, yielding **for all dyadic h>=5**:
+
+\[
+\boxed{\Pr_{g:\ \mathrm{im}\,g=E}
+\{R_{\rm GOOD}(f,g)<s^6/256\}
+\le\min(1,4\eta_s^\circ)\longrightarrow 0\quad (h\to\infty)}
+\tag{BA-G3}
+\]
+
+uniformly over ALL fixed genuine original global point injections f and ALL right occupied physical supports E.
+
+**Conservatism is material:** for s=32 the crude universal bound eta° is >1, hence the finite-s Chebyshev conclusion is vacuous, even though the asymptotic conclusion is genuine. For s=4096 the exact bound is about 0.0166. The derivation does not assert monotonicity at unspecified finite h, imply arbitrary fixed-g positivity, or certify historical selected GF5 classes.
+
+### GOOD-specific falsifiers added to the hosted workflow
+
+The original W32 S68/S72/lex and W34 GF4 lex/random source incidences are directly enumerated as source LINE-triple weights after cutting away precisely the globally determined AA4-AO BAD physical POINT coordinate stars. Their sum B° is independently checked against the source's previous GOOD point-only triple oracle from #561; the completely coherent one-global-LINE-permutation GOOD mean B°p° is checked against #561's independent exact formula on the actual W32/W34 typed supports (including incomplete K14 with six holes). Exact all-h rational GOOD envelope tests h=5..35,40,48,64,80 cover the explicitly proven support-size domain; h=4 fails closed. The pre-existing independent ALL-D six-line permutation enumeration separately falsifies the overlap-probability lemma on all 720 global bijections. Passing these tests alone is not an independent proof acceptance.
+
+**Scientific separation:** PR #544 had an existing stronger concentration theorem for a *different D6 six-original-ID objective*. This GOOD-wedge high-probability lemma is an original threeflag port statistic. The missing leap to original seven-GF5 selected SIX-distinct-source-ID charges is not supplied by stochastic concentration. Likewise, no non-random all-fixed original f,g physical minority-product mass, residual source 3×3 Hall survival, counterfamily or full R3/ASET exponent follows. Require a separate independent mathematical referee, final-head CI on ALL four gates, and parent #561/#560 ancestry review; keep this PR Draft and issue #230 OPEN.
