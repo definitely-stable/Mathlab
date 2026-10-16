@@ -39,7 +39,7 @@ a new uniform selected seven positive lower and not Branch A/B/C.
 """
 from collections import Counter
 from itertools import combinations,product
-from math import comb
+from math import comb,isqrt
 
 from hyp105_issue230_d6aa4am_genuine_pair_sixcharge import original_D_pair_index
 from hyp105_issue230_d6aa4al_global_original_coordinate_transport import (
@@ -96,7 +96,7 @@ def all_h_rooted_D_fourflag_shape_capacity(s):
     if type(s) is not int or s<2 or s&(s-1):
         raise ValueError("genuine original W(3,2^h), h>=1")
     V=(s+1)*(s*s+1)
-    a=2
+    a=(1+isqrt(1+8*V))//2
     while comb(a,2)<V:a+=1
     d=s+1
     connected=(a-3)*(a-4)*(a-5)
