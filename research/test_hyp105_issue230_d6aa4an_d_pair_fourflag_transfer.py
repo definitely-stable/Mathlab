@@ -104,12 +104,12 @@ class GenuineOriginalDfirstPhysical2factorTests(unittest.TestCase):
                              (a-3)*comb(a-4,2))
 
     def test_03_true_original_W32_all_five_complete_maps_D_FIRST_vs_Q_FIRST(self):
-        cases=(("dual-zero",zero_split_original_W32(),277,164,115,162),
-               ("lex",fixture(1,"lex"),307,517,212,95),
-               ("reverse",fixture(1,"reverse"),300,246,166,134),
-               ("S68",fixture(1,"S68"),257,79,64,193),
-               ("S72",fixture(1,"S72"),261,75,59,202))
-        for name,model,D,E,C,Z in cases:
+        cases=(("dual-zero",zero_split_original_W32(),277,164,115,162,736,572),
+               ("lex",fixture(1,"lex"),307,517,212,95,1504,987),
+               ("reverse",fixture(1,"reverse"),300,246,166,134,986,740),
+               ("S68",fixture(1,"S68"),257,79,64,193,492,413),
+               ("S72",fixture(1,"S72"),261,75,59,202,599,524))
+        for name,model,D,E,C,Z,J,R in cases:
             z=exact_original_W32_D_FIRST_selected_seven(
                 model,full_independent=True)
             self.assertEqual(
@@ -121,8 +121,12 @@ class GenuineOriginalDfirstPhysical2factorTests(unittest.TestCase):
             self.assertEqual(
                 z["physical_point_only_all_D_unilateral_candidate_fourflag_total"],
                 D*648)
-            self.assertGreaterEqual(
-                z["both_typed_physical_2regular_D_incidence_total"],E)
+            self.assertEqual(
+                z["both_typed_physical_2regular_D_incidence_total"],J)
+            self.assertEqual(
+                z["D_FIRST_rejected_UNALIGNED_A_A_original_charge"],R)
+            self.assertEqual(J-R,E)
+            self.assertTrue(z["all_h_exact_bilateral_D_twofactor_MINUS_unaligned_A_A_EQUALS_selected_E"])
             self.assertTrue(z["INDEPENDENT_historical_Q_FIRST_seven_charge_agreed"])
             print("AA4AN ORIGINAL",name,
                   "D",D,"point_source_candidates",D*648,
@@ -220,6 +224,7 @@ class GenuineOriginalDfirstPhysical2factorTests(unittest.TestCase):
             "genuine_original_D_anchors",
             "physical_point_only_all_D_unilateral_candidate_fourflag_total",
             "both_typed_physical_2regular_D_incidence_total",
+            "D_FIRST_rejected_UNALIGNED_A_A_original_charge",
             "D_FIRST_seven_accepted_extension_E",
             "D_FIRST_accepted_seven_sixsets_WITH_D_anchor",
             "D_FIRST_D_pairs_ZERO_seven_extensions",
