@@ -108,6 +108,25 @@ All entries are independently verified true original-source integers. The degree
 
 Independent literal source-flag wedge enumeration checks every opposite-port wedge has three DISTINCT ORIGINAL source point factors and three DISTINCT ORIGINAL source line factors and matches the separate four-bin defect algorithm exactly; AA4-AP source-first GOOD D totals match the new actual good-D graph as well. No fake geometry, no per-wedge label redraw, no full W34 GF5 seven-class census.
 
+### NEW AA4-AR3 — constant-charge bridge from genuine original 3-flag wedges to positive seven-GF5 sixsets
+
+The genuine-original unconditional W_good≥s^6/200 has a potentially important advantage over the previous true-original D-pair lower D≥s^5/10: **a positive CONSTANT FRACTION of true original good wedges extending to selected positive seven-GF5 sixsets would now suffice**, with NO factor-s multiplicity required per source object. Precisely, let \(\mathcal W_g(f,g)\) be the actual ORIGINAL GOOD two-D-edge centered flag triple collection. Let \(\mathcal Q_7(f,g)\) be the ACTUAL accepted seven-positive-GF5 sixsets, each consisting of SIX DISTINCT ORIGINAL incidence flag IDs, same globally fixed typed maps. Let \(\mathcal W^\star\subseteq\mathcal W_g\) consist of the original good wedges whose THREE true original flags all occur within at least one Q∈\(\mathcal Q_7\), with no assumption about the other three source flags. For each Q, at most SIX choices of center and at most C(5,2)=10 unordered pairs of other flags contribute. Hence **each TRUE ORIGINAL selected six-Q supports at most SIXTY good centered 3-flag wedges**. This is a strict combinatorial capacity regardless of source B/A/C type or physical local colors.
+
+Exact charge inequality, ALL-h ALL correlated complete globally injected original f,g:
+
+    |W_star| <= sum_{Q∈Q7} #{genuine original good wedges contained in Q}
+             <= 60 * |Q7| = 60*S.
+
+Thus the **CONDITIONAL true-original sixset lower**: if there exists a fixed alpha>0 such that *for every globally injected original f,g and all sufficiently large powers s* at least fraction alpha of its GOOD original wedges is contained in at least one accepted REAL original six-incidence-ID Q, then
+
+    **S_s(f,g) >= ceil(alpha*W_good/60) >= ceil(alpha*s^6/12000)**
+
+for h≥14. This gives the full required all-map seven-family Omega(s^6) if and ONLY if its explicitly ASSUMED uniform positive source-wedge coverage can be established (sufficient implication, not asserted equivalence). The project has NOT proved any uniform positive alpha. Unlike the earlier D-pair source charging gate where E=Omega(s^6) would require order-s accepted extensions per guaranteed pair, the 3-flag-good-wedge route only requires a **fixed positive fraction** to have ONE accepted six-Q continuation. This is the next mathematically decisive ORIGINAL source Hall / GF5 bridge.
+
+The new executor \`conditional_all_h_good_wedge_to_original_seven_lower\` uses exact rational arithmetic and labels alpha as UNPROVED. The independent complete W32 census \`exact_true_W32_original_seven_covered_good_wedges\` constructs all genuine source GOOD centered 3-flag two-D-edge wedges and intersects them with every accepted historical original six-ID seven-Q. It outputs exact covered/uncovered SOURCE wedge counts, charge incidences, seven-tag wedge charges, and six-Q wedge charge histograms; every Q individually obeys the hard 60 capacity. A separate source-wedge-FIRST Q-containment referee checks the number of covered original wedges for the S68 and S72 truly globally injected maps.
+
+**Critical logical scope:** W32 local complementary R>0 does not imply selected D6, and even positive actual wedge coverage in several W32 maps would not prove alpha uniformly for all f,g or for all large h. The selected C/A and C/B genuine original six-Q classes are invisible to earlier pair-anchor k(Q) but may or may not host arbitrary centered GOOD original wedges; the new 60 bound does not falsely assume they do. Its exact source six-ID classifier remains the accepted independent historical one, never constructed via artificial source-incidence matchings.
+
 ## 4. Prior art, limits, required review and next AA4-AS research gate
 
 Classical degree Jensen/Cauchy wedge count is a well-established elementary extremal graph identity. The all-h lower AA4-AP source spectral theorem is upstream prior project work, not re-proved here. This slice contributes the actual original globally injected 3-flag good-source wedge corollary with **explicit \(s^6/200\)** constant, the exact two-typed physical PORT defect identity for the SAME true original graph, and source-factor distinctness for diagonally opposite wedges.
