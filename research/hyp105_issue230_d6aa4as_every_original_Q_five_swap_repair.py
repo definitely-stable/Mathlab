@@ -28,7 +28,7 @@ from collections import Counter
 from itertools import combinations, permutations, product
 from math import comb, factorial, isqrt, perm
 
-from hyp105_issue230_aa4ar_five_swap_original_D6 import (
+from hyp105_issue230_d6aa4ar_five_swap_original_D6 import (
     _canonical_edge,
     exceptional_noncycle_edge,
     complete_physical_C6_with_anchor,
