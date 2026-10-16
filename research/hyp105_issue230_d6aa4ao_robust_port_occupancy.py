@@ -109,8 +109,13 @@ def all_h_robust_original_D_port_physical_theorem(s):
         assert comb(n,2)-n>n*n//4
     any_pattern=(m<=n-1 or n>=7 and m<=n)
     good_P5=(Fraction(n*(n-1)*(n-2),2) if a>=35 else None)
+    # Globally, at most 31 physical coordinates have missing-degree
+    # >=a/16: sum_v deg_missing(v)=2m<2a. Thus count* a/16<=2m
+    # implies count<32 for ALL injected full minimal palettes.
+    bad_vertex_upper=min(a,31)
     return dict(
         s=s,V=V,a=a,d=d,global_physical_missing_edges_per_type=m,
+        global_physical_high_missing_degree_vertices_upper=bad_vertex_upper,
         auxiliary_coordinates=n,
         each_original_D_pair_typed_occupied_P5_lower=P5_lower,
         each_original_D_pair_two_side_occupied_P5_P5_lower=P5_lower**2,
@@ -127,6 +132,29 @@ def all_h_robust_original_D_port_physical_theorem(s):
     )
 
 
+
+
+def globally_bad_physical_coordinates(a,occupied):
+    """Coordinates with missing-degree at least a/16, exact injected K_a.
+
+    There are at most 31 by 2*missing_edges<2a; no assertion that
+    any fixed true source D pair avoids these coordinates.
+    """
+    missing=_physical_missing_edges(a,occupied)
+    miss_degree=[0]*a
+    for u,v in missing:
+        miss_degree[u]+=1
+        miss_degree[v]+=1
+    bad=tuple(i for i,x in enumerate(miss_degree) if 16*x>=a)
+    assert len(bad)<=min(a,31)
+    return dict(a=a,total_missing=len(missing),
+                missing_degrees=tuple(miss_degree),
+                bad_physical_coordinate_indices=bad,
+                bad_physical_coordinate_count=len(bad),
+                universal_bad_coordinate_cap=min(a,31),
+                no_bound_on_D_pairs_avoiding_bad_ports=True)
+
+
 def genuine_original_D_pair_robust_occupation(model,pair):
     """Same global f,g: real source D pair, true physical occupied edge."""
     s,V,d,a,left,right,inc,np,nl=_actual_strict_original_transport(model)
@@ -136,6 +164,7 @@ def genuine_original_D_pair_robust_occupation(model,pair):
     sides=[]
     for side in (0,1):
         physical=(left,right)[side]
+        bad=globally_bad_physical_coordinates(a,physical)
         z=physical_P5_robust_certificate(ports[side],a,physical)
         independent=physical_D_pair_half_patterns(model,pair,side=side)
         assert independent["physical_occupied_topology_counts"].get("P5",0)==z[
@@ -145,7 +174,15 @@ def genuine_original_D_pair_robust_occupation(model,pair):
         if z["physical_good_ports"] and a>=35:
             assert z["actual_occupied_P5"]>=t[
                 "conditional_typed_good_P5_lower"]
+        if (a>=35 and ports[side][1] not in bad["bad_physical_coordinate_indices"]
+                and ports[side][2] not in bad["bad_physical_coordinate_indices"]):
+            assert z["physical_good_ports"]
         sides.append(dict(z,
+             globally_bad_physical_coordinate_count=bad[
+                 "bad_physical_coordinate_count"],
+             both_actual_ports_avoid_high_missing_degree_vertices=(
+                 ports[side][1] not in bad["bad_physical_coordinate_indices"] and
+                 ports[side][2] not in bad["bad_physical_coordinate_indices"]),
              all_three_occupied_physical_patterns=independent[
                  "physical_occupied_total"],
              physical_three_class_counts=independent[
