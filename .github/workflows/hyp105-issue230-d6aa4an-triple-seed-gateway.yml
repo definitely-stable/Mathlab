@@ -1,0 +1,78 @@
+name: hyp105-issue230-d6aa4an-triple-seed-gateway
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4an_triple_seed_gateway.py"
+      - "research/test_hyp105_issue230_d6aa4an_triple_seed_gateway.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AN-TRIPLE-SEED-GATEWAY.md"
+      - ".github/workflows/hyp105-issue230-d6aa4an-triple-seed-gateway.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  physical-three-to-six-exhaustive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaust all physical K6/K7/K8 3-multisets against independent 130 six-vertex twofactors
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4an_triple_seed_gateway.GenuineOriginalTriplePhysicalSeed.test_01_exhaustive_K6_K7_K8_multiset_completion_iff_maxdegree2 \
+            test_hyp105_issue230_d6aa4an_triple_seed_gateway.GenuineOriginalTriplePhysicalSeed.test_08_explicit_rejections_and_type_boundaries
+  sharp-original-all-h:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sharp globally injected attainable extremum, all h<=72, every small missing-edge graph
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4an_triple_seed_gateway.GenuineOriginalTriplePhysicalSeed.test_02_sharp_extremal_global_missing_graph_achievability \
+            test_hyp105_issue230_d6aa4an_triple_seed_gateway.GenuineOriginalTriplePhysicalSeed.test_03_all_h_exact_integer_discrete_Jensen_s9_no_lift \
+            test_hyp105_issue230_d6aa4an_triple_seed_gateway.GenuineOriginalTriplePhysicalSeed.test_07_missing_edge_graph_extrema_small_adversarial \
+            test_hyp105_issue230_d6aa4an_triple_seed_gateway.GenuineOriginalTriplePhysicalSeed.test_09_all_global_original_source_matching_3by3_uncrowded_omega_s12
+  true-original-symplectic-six-Q:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: TRUE original W32 all seven GF5 classes, direct three-flag source count and W34-W38 global holes
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4an_triple_seed_gateway.GenuineOriginalTriplePhysicalSeed.test_04_original_W32_direct_flag_triples_vs_physical_degrees \
+            test_hyp105_issue230_d6aa4an_triple_seed_gateway.GenuineOriginalTriplePhysicalSeed.test_05_original_W34_W38_global_holes_direct_degree_count \
+            test_hyp105_issue230_d6aa4an_triple_seed_gateway.GenuineOriginalTriplePhysicalSeed.test_06_all_seven_original_GF5_W32_classes_no_degree3_triples \
+            test_hyp105_issue230_d6aa4an_triple_seed_gateway.GenuineOriginalTriplePhysicalSeed.test_10_real_original_uncrowded_not_joint_GF5_extendible_W32
+  all-h-independent-integer-ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Closed exact sharp minimal original triple count and no all-seven lift
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4an_triple_seed_gateway import sharp_all_global_crowded_triple_floor, joint_physically_eligible_original_matching_triple_floor
+          for h in range(1,81):
+              s=1<<h
+              z=sharp_all_global_crowded_triple_floor(s)
+              assert z['exact_minimum_ordered_distinct_original_source_point_triples']>=z['coarse_all_maps_original_source_triple_lower']
+              assert 9*z['coarse_all_maps_original_source_triple_lower']>=s**9
+              assert z['root_issue230_Branch_A_B_C_NOT_PROVED']
+              w=joint_physically_eligible_original_matching_triple_floor(s)
+              assert 3*w['all_global_ordered_true_original_3_by_3_uncrowded_triples_lower']>=s**12
+              assert w['same_original_six_flag_GF5_completion_NOT_PROVED']
+          print('all h<=80 sharp global source triple no-lift lower PASS; accepted GF5 all-map lower NOT PROVED')
+          PY
