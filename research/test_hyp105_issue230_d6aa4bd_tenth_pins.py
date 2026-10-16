@@ -22,7 +22,7 @@ from hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean import (
 
 def fresh_supports_for_s32():
     s=32
-    V,a,m,_=_params(s)
+    V,a,_,m=_params(s)
     edges=tuple(combinations(range(a),2))
     lex=edges[:V]
     # Spread the m missing edges across a matching instead of clustering
@@ -82,7 +82,7 @@ class AA4BDTenthAdversarialOriginalLinePins(unittest.TestCase):
                 "symbolic_universal_lower_from_a"])
 
     def test_03_10percent_actual_K261_right_adversarial_edges(self):
-        V,a,m,_=_params(32)
+        V,a,_,m=_params(32)
         k=V//10
         for a,E in fresh_supports_for_s32():
             # Worst-looking concentrated and distributed frozen image sets,
