@@ -144,3 +144,43 @@ Actual original W32/K6 controls use 45 TRUE source symplectic incidence IDs, one
 This exact classification is closely related to classical permutation-matrix linear assignment statistics and interaction-free ANOVA ideas. A limited literature search found linear optimization over permutation groups and related representations, but NOT an independently verified novelty boundary for this precise disjoint-Hessian if-and-only-if characterization. No publication or original general permutation group theorem novelty is claimed. Prior project work #415/#417/#493/#497 had classwise exact local/mixed swap identities; #555 supplied one-signed involution and a FIXED-LINEAR seven-dim rank-7 witness. The new result is the **complete nonlinearly applicable permutation-fiber rigidity characterization**, plus its **TRUE ORIGINAL W32 transitive gauge corollary**.
 
 **Non-implications:** No positive universal seven-GF5 lower for every fixed original f,g; no infinite correlated original source counterfamily; no source-GQ Hall survival rate; no full R3 or ASET exponent. Root issue #230 stays OPEN_WITH_FORMAL_BLOCKER. CI correctness is not independent human mathematical acceptance. No scientific Draft merge or accepted canonical RCP claim promotion without rigorous independent review. Next live mathematical front should prioritize the genuine all-map physical two-port minority-product / original 3×3 forest Hall density route of sibling PR #556 rather than another broad sign-of-Hessian construction.
+
+
+## 6. First exact hosted evidence — FULL original W32 nonlinear four-state witness
+
+The first exact source/test HEAD specialized [GitHub-hosted run #38878604052](https://github.com/definitely-stable/Mathlab/actions/runs/38878604052) completed **TWO JOBS SUCCESS**, all SEVEN independent mathematical unit groups PASS. The independent full-permutation constraints give:
+
+| Finite abstract permutation group (NOT an invented original GQ) | Entire S_n states | All disjoint-swap pairs per state | Rank over F_1009 | Kernel dimension | Assignment image dimension |
+|---|---:|---:|---:|---:|---:|
+| S4 | 24 | 3 | 14 | **10** | 10 |
+| S5 | 120 | 15 | 103 | **17** | 17 |
+
+The rank checks use 72 and 1,800 original-permutation-square constraints respectively; separate direct independent assignment indicator matrix has S4 rank10. The ALL-n>=4 mathematical proof in §2 is not inferred from these finite numerical ranks.
+
+More importantly, the true ORIGINAL W32/K6 S68 fixed globally injected point map f, **all 45 true original source incidence IDs**, and **62,370 unique true original six-ID f-left-valid sets** produced exact original historical seven-tag vectors for four individually fully globally injected source LINE-image assignments g,gσ,gτ,gστ, with σ=(0,1), τ=(2,3):
+
+Historical coordinate order (D6,B-left/A-right,A-left/B-right,C/A,C/B,BB-overlap,BB-disjoint):
+
+| Global original right state | Seven historical accepted true-original six-ID counts | Unweighted S7 |
+|---|---|---:|
+| g | (0,44,21,0,0,2,1) | 68 |
+| gσ | (0,56,25,0,0,4,2) | 87 |
+| gτ | (0,67,41,0,0,2,0) | 110 |
+| gστ | (1,73,51,0,0,3,1) | 129 |
+
+The exact mixed finite differences are:
+
+\[
+\begin{array}{rcl}
+H_{\sigma,\tau}S_7 &=& 0,\\
+H_{\sigma,\tau}\bigl(S_7^2\bigr) &=& \boxed{+1596},\\
+H_{\sigma,\tau}\left(\sum_{k=1}^7 S_k^2\right)&=&\boxed{+368},\\
+H_{\sigma,\tau}W_{\mathrm{GF5},7}&=&-46107,
+\end{array}
+\]
+
+where \(W_{\mathrm{GF5},7}\) is the PREVIOUSLY CERTIFIED *selected necessary* 51-palette GF5 R3-floor NUMERATOR, **NOT** the complete R3. The two explicitly NONLINEAR functionals are truly different from the linear S7 and have NONZERO signed Hessian despite H(S7)=0. Replacing baseline g by the LEGAL full global gσ reverses EACH of these mixed Hessian signs without changing f, occupied right E(K6), source incidence identities or physically coherent factor assignments.
+
+The exact four seven-component original vectors and all four signed Hessians are **pinned in independent regression tests** after the first run; exact final-child-HEAD validation must be performed again. A separate actual full coordinate relabel of ALL 15 original right pair-edge source factor images by one permutation of the SIX physical vertices leaves every historical original seven class unchanged; this concretely verifies the needed transitive right physical gauge invariance. Neither the physical coordinate relabels nor the four original g states redraw labels independently per original six-Q.
+
+**Proper scientific conclusion:** this establishes a fully general nonlinear **proof-strategy constraint**, not the mathematically different every-fixed-(f,g) GF5 positive seven-family lower or any all-h ASET exponent. There may exist successful proof strategies using fixed-original f,g source geometric Hall density, nonlinear functionals with no supposed universal mixed-Hessian sign, favorable existential moves, and other original incidence constraints. This Draft requires exact final SHA dedicated, INDEX, Proof Audit and full Research CI plus independent mathematical referee before scientific acceptance; no automatic merge into main.
