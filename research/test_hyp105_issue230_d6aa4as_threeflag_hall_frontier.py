@@ -111,6 +111,8 @@ class OriginalThreeFlagHall(unittest.TestCase):
             self.assertTrue(set(target).issubset(wedges))
             tag_charge=Counter()
             by_typed_shape=Counter()
+            stages=Counter()
+            per_shape_stages=Counter()
             Hall=reject=physical_pairs=0
             for wedge in wedges:
                 z=exact_original_opposite_threeflag_six_Q_funnel(
@@ -119,6 +121,13 @@ class OriginalThreeFlagHall(unittest.TestCase):
                                  target.get(wedge,{}))
                 shape=(z["point_physical_wedge_kind"],z["line_physical_wedge_kind"])
                 by_typed_shape[shape]+=1
+                H=z["genuine_original_both_leafless_three_additional_flag_Hall_Q_count"]
+                E=z["genuine_original_positive_selected_seven_GF5_six_Q_count"]
+                outcome=("NO_TRUE_SOURCE_HALL" if H==0 else
+                         "TRUE_HALL_ONLY_UNALIGNED_AA" if E==0 else
+                         "HAS_SELECTED_SEVEN_GF5_Q")
+                stages[outcome]+=1
+                per_shape_stages[shape+(outcome,)]+=1
                 formal=[1 if k=="T" else 3 for k in shape]
                 self.assertEqual(sum(z["point_formal_threefactor_patterns"].values()),formal[0])
                 self.assertEqual(sum(z["line_formal_threefactor_patterns"].values()),formal[1])
@@ -134,6 +143,10 @@ class OriginalThreeFlagHall(unittest.TestCase):
                 Hall+=z["genuine_original_both_leafless_three_additional_flag_Hall_Q_count"]
                 reject+=z["genuine_original_unaligned_AA_rejected_Q_count"]
                 physical_pairs+=z["physical_two_side_occupied_pattern_pairs"]
+            self.assertEqual(sum(stages.values()),len(wedges))
+            self.assertEqual(sum(per_shape_stages.values()),len(wedges))
+            self.assertEqual(stages["HAS_SELECTED_SEVEN_GF5_Q"],len(target))
+            self.assertEqual(per_shape_stages[("T","T","HAS_SELECTED_SEVEN_GF5_Q")],0)
             self.assertEqual(sum(tag_charge.values()),expected_charge[scheme])
             self.assertEqual(sum(len(x) for x in target.values()),expected_charge[scheme])
             self.assertEqual(tag_charge["B/B-disjoint"],0)
@@ -141,6 +154,8 @@ class OriginalThreeFlagHall(unittest.TestCase):
             self.assertEqual(tag_charge["C/B"],0)
             print("AA4AS_TRUE_W32",scheme,"REAL_good_opposite_wedges",len(wedges),
                   "typed_shape_counts",dict(sorted(by_typed_shape.items())),
+                  "stage_wedge_counts",dict(sorted(stages.items())),
+                  "stage_by_physical_shape",dict(sorted(per_shape_stages.items())),
                   "physically_occupied_two_sided_template_pairs",physical_pairs,
                   "true_original_Hall_six_Q_wedge_charge",Hall,
                   "original_AA_unaligned_rejection_charge",reject,
