@@ -6,7 +6,8 @@ from itertools import combinations,combinations_with_replacement
 from hyp105_issue230_d6aa4an_port_completion_hall_funnel import (
     _pattern_edges,all_h_port_completion_count,
     true_original_D_physical_ports,physical_D_pair_half_patterns,
-    exact_original_D_pair_six_Q_funnel,original_Q_D_anchor_residual_kind)
+    exact_original_D_pair_six_Q_funnel,original_Q_D_anchor_residual_kind,
+    exact_true_original_W32_D_funnel_census)
 from hyp105_issue230_d6aa4am_genuine_pair_sixcharge import (
     original_D_pair_index,six_Q_anchored_D_pairs,
     exact_W32_original_seven_pair_extension_certificate)
@@ -73,6 +74,17 @@ class OriginalPortCompletionHall(unittest.TestCase):
     def test_03_complete_original_W32_5_global_maps_D_first_exact_Q_extensions(self):
         maps=[("dual_zero",zero_split_original_W32())]+[
             (scheme,fixture(1,scheme)) for scheme in ("lex","reverse","S68","S72")]
+        expected_stage={
+            # D, genuine matched Q-to-D charge, rejected A/A charge,
+            # selected charge E, D with zero ORIGINAL Hall, D with
+            # original matched Q but exclusively rejected unaligned A/A,
+            # D covered by selected seven original GF5 Q.
+            "dual_zero":(277,736,572,164,39,123,115),
+            "lex":(307,1504,987,517,22,73,212),
+            "reverse":(300,986,740,246,20,114,166),
+            "S68":(257,492,413,79,50,143,64),
+            "S72":(261,599,524,75,54,148,59),
+        }
         for name,m in maps:
             D=original_D_pair_index(m)
             historical=seven_census(m,independent_checks=False,witness_sets=True)["sets"]
@@ -106,6 +118,14 @@ class OriginalPortCompletionHall(unittest.TestCase):
                  expected["D_UNCOVERED_by_ALL_SEVEN_selected_six_Q"])
             self.assertEqual(E,sum(selected_types.values()))
             self.assertEqual(sum(hist.values()),len(D))
+            exp=expected_stage[name]
+            self.assertEqual((len(D),source_matched,aa_rejected,E),exp[:4])
+            self.assertEqual(zero_hall_pairs,exp[4])
+            self.assertEqual(zero_selected_pairs-zero_hall_pairs,exp[5])
+            self.assertEqual(C,exp[6])
+            self.assertEqual(source_matched,aa_rejected+E)
+            self.assertEqual(len(D),zero_hall_pairs+
+                             (zero_selected_pairs-zero_hall_pairs)+C)
             self.assertGreater(zero_selected_pairs,0)
             print("AA4AN_W32",name,"D",len(D),"E",E,"covered",C,
                   "uncovered",zero_selected_pairs,"zero_original_Hall",zero_hall_pairs,
@@ -113,6 +133,20 @@ class OriginalPortCompletionHall(unittest.TestCase):
                   "unaligned_AA_Q_charge",aa_rejected,
                   "original_seven_tags_by_D_charge",dict(selected_types),
                   "D_extension_hist",dict(sorted(hist.items())))
+
+    def test_03b_reusable_complete_original_S68_full_funnel_partition(self):
+        z=exact_true_original_W32_D_funnel_census(fixture(1,"S68"))
+        self.assertEqual(z["D_all_actual_original_compatible_flag_pairs"],257)
+        self.assertEqual(z["total_occupied_both_side_physical_template_pair_incidence"],25700)
+        self.assertEqual(z["original_BOTH_leafless_source_matched_six_Q_pair_charge"],492)
+        self.assertEqual(z["original_UNALIGNED_AA_rejected_six_Q_pair_charge"],413)
+        self.assertEqual(z["original_SELECTED_positive_seven_six_Q_pair_charge"],79)
+        self.assertEqual(z["D_pair_stage_partition"],{
+            "no_original_Hall_six_Q":50,
+            "original_six_Q_only_unaligned_AA":143,
+            "has_seven_positive_original_six_Q":64})
+        self.assertEqual(z["D_uncovered_by_selected_SEVEN"],193)
+        self.assertTrue(z["all_h_s6_lower_NOT_PROVED"])
 
     def test_04_physical_occupied_partial_W34_source_ports_and_local_Q_membership(self):
         from test_hyp105_issue230_d6aa4am_genuine_pair_sixcharge import (
