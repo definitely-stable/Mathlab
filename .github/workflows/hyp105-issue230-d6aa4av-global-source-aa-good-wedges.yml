@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4av-global-source-aa-good-wedges
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4av_global_source_aa_good_wedges.py"
+      - "research/test_hyp105_issue230_d6aa4av_global_source_aa_good_wedges.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AV-GLOBAL-SOURCE-AA-GOOD-WEDGES.md"
+      - ".github/workflows/hyp105-issue230-d6aa4av-global-source-aa-good-wedges.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-genuine-original-source-AA-good-wedges-s6-over-ten:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: ALL h16..60 exact Fraction actual original symplectic W3 globally good D spectral lower plus original source factor collision elimination, analytic h24+ AA GOOD s6/10
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4av_global_source_aa_good_wedges.GlobalTrueOriginalAAWedge.test_01_all_h16_and_above_exact_rational_original_source_AA_lower
+  five-complete-original-W32-source-AA-BA-AB-threeflag-referees:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Five genuine original W32 globally fixed typed full K6 models point+line, per original centered D source-factor bucket AA/BA/AB vs independent literal all actual three-source-flag wedge enumeration, source BB disjoint
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4av_global_source_aa_good_wedges.GlobalTrueOriginalAAWedge.test_02_five_original_W32_global_f_g_source_AA_BA_AB_partition_independent
+  genuine-original-W34-physical-holes-AA-good-source-threeflag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real symplectic GF4 W34 original source physically globally typed injected K14 point and line maps lex/random, actual source AA BA AB GOOD wedge exact vs independent literal original source trio oracle
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4av_global_source_aa_good_wedges.GlobalTrueOriginalAAWedge.test_03_real_original_W34_two_global_K14_maps_strict_same_source_partition
+  exact-original-FtBG-corrected-two-type-port-coupling-and-source-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact TRUE W32 five schemes and W34 lex/random ORIGINAL F^T B G - BG - F^T B +1 local four physical port bins per every genuine original incidence flag vs independent literal D graph; real source isometry and invalid models
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4av_global_source_aa_good_wedges.GlobalTrueOriginalAAWedge.test_04_actual_original_corrected_FtBG_four_color_port_tensor_source_first \
+            test_hyp105_issue230_d6aa4av_global_source_aa_good_wedges.GlobalTrueOriginalAAWedge.test_05_actual_original_symplectic_and_independent_typed_physical_invariance \
+            test_hyp105_issue230_d6aa4av_global_source_aa_good_wedges.GlobalTrueOriginalAAWedge.test_06_critical_no_lift_to_two_physical_ports_or_GF5_and_forged_source
