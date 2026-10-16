@@ -266,7 +266,15 @@ def independent_brute_original_full_good_source_census(model,g):
                 if set(f[q1])&bad_point or set(g[k1])&bad_line:continue
                 pother=set(f[p])&set(f[q1])
                 lother=set(g[l])&set(g[k1])
-                if len(pother)==len(lother)==1 and left!=pother and right!=lother:
+                # GOOD source triples are UNORDERED in their two
+                # outer true-original flags; the source weight oracle
+                # chooses the orientation of point ports in canonical
+                # ascending physical order. Without this canonical
+                # point-side convention the literal triple loop
+                # counts every actual GOOD wedge TWICE.
+                u,v=sorted(f[p])
+                if (len(pother)==len(lother)==1 and
+                        left=={u} and pother=={v} and right!=lother):
                     degree+=1
     return degree
 
