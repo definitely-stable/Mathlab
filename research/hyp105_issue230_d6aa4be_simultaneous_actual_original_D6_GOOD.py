@@ -139,6 +139,49 @@ def actual_true_original_sixflag_left_cycle_order(model,Q):
     return tuple(order)
 
 
+def all_alphabet_original_sixflag_D6_positional_pattern(model,Q,right_images):
+    """Source-true, physical alphabet GENERIC, same six original flag
+    positions. Both typed pair-edge images must each form a simple
+    connected C6 with six physical coordinates, six distinct physical
+    edges, and IDENTICAL 2-regular position adjacency graphs.
+
+    Historical K6 GF5 classification is checked separately only for
+    s=2; legacy _half_projection_kind has a hardcoded six-coordinate
+    degree vector and MUST NOT be called for K14/higher. This physical
+    definition is the D6 channel in the all-h seven GF5 framework.
+    """
+    inc=tuple(tuple(e) for e in model["incidences"])
+    f=tuple(tuple(e) for e in model["left_labels"])
+    g=tuple(tuple(e) for e in right_images)
+    if len(g)!=len(f) or len(set(g))!=len(g):
+        raise ValueError("one globally injected original right factor mapping required")
+    ordered=actual_true_original_sixflag_left_cycle_order(model,Q)
+    duals=[]
+    for image,slot in ((f,0),(g,1)):
+        edges=tuple(tuple(sorted(image[inc[i][slot]])) for i in ordered)
+        if len(set(edges))!=6:
+            return False
+        vertices={v for edge in edges for v in edge}
+        if len(vertices)!=6:
+            return False
+        graph={tuple(sorted((i,j))) for i,j in combinations(range(6),2)
+               if len(set(edges[i])&set(edges[j]))==1}
+        if len(graph)!=6 or any(sum(i in e for e in graph)!=2
+                                 for i in range(6)):
+            return False
+        seen={0};todo=[0]
+        while todo:
+            i=todo.pop()
+            for x,y in graph:
+                j=y if x==i else x if y==i else None
+                if j is not None and j not in seen:
+                    seen.add(j);todo.append(j)
+        if len(seen)!=6:
+            return False
+        duals.append(graph)
+    return duals[0]==duals[1]
+
+
 def choose_genuine_original_Q_from_any_complete_point_f(model):
     """Deterministic actual original Q construction from ANY f:
     choose physical K6 clique, orient connected point C6, and use
@@ -212,9 +255,11 @@ def pin_original_D6_and_construct_global_good(model,Q=None, *,
     # original six-ID incidence Q as the HISTORICAL GF5 D6 class.
     rest=iter(e for e in E if e not in set(target))
     provisional=tuple(pins[l] if l in pins else next(rest) for l in range(V))
-    if set(provisional)!=set(E) or classify_seven_prechecked(
-            Q,f,provisional,inc)!="D6":
-        raise AssertionError("source sixflag point/line C6 alignment not historical GF5 D6")
+    if set(provisional)!=set(E) or not all_alphabet_original_sixflag_D6_positional_pattern(
+            model,Q,provisional):
+        raise AssertionError("source sixflag point/line C6 alignment not all-h D6 pattern")
+    if s==2 and classify_seven_prechecked(Q,f,provisional,inc)!="D6":
+        raise AssertionError("original all-alphabet D6 inconsistent with historical true W32 GF5")
     parent=None
     if verify_universal_guarantee and s>=32:
         if V//1024<6:raise AssertionError("all-h six original LINE pin budget insufficient")
@@ -227,9 +272,11 @@ def pin_original_D6_and_construct_global_good(model,Q=None, *,
     g=z["completed_GLOBAL_original_line_source_factor_images"]
     selected=None
     if g is not None:
-        selected=classify_seven_prechecked(Q,f,g,inc)
-        if selected!="D6":
-            raise AssertionError("six true original global LINE pins lost historical D6 during greedy")
+        if not all_alphabet_original_sixflag_D6_positional_pattern(model,Q,g):
+            raise AssertionError("six pinned true-original global LINE images lost all-h D6")
+        selected="D6"
+        if s==2 and classify_seven_prechecked(Q,f,g,inc)!="D6":
+            raise AssertionError("historical original K6 GF5 D6 classifier rejects constructed global g")
         if z["completed_true_original_ALL_good_opposite_threeflag_charge"]<z[
                 "completed_true_original_FREE_good_opposite_threeflag_charge"]:
             raise AssertionError("true original same global GOOD contribution lost")
@@ -245,7 +292,12 @@ def pin_original_D6_and_construct_global_good(model,Q=None, *,
         "six_original_LINE_images_always_pinned_to_ONE_D6_C6":pins,
         "independent_PROVISIONAL_full_original_D6_witness":True,
         "complete_original_line_g_realized":g is not None,
-        "historical_seven_GF5_original_six_incidence_Q_class":selected,
+        "historical_seven_GF5_original_six_incidence_Q_class":
+            selected if s==2 else None,
+        "all_alphabet_original_D6_sixflag_pattern_prechecked":True,
+        "all_alphabet_original_D6_sixflag_pattern_completed":
+            bool(g is not None and selected=="D6"),
+        "all_h_s_greater_2_legacy_K6_classifier_NOT_called":s>2,
         "initial_PINNED_original_GOOD_conditional_mean":
             z["conditional_good_wedge_source_3flag_initial_mean"],
         "complete_GLOBAL_original_GOOD_charge":
