@@ -77,6 +77,15 @@ Two globally complete original symplectic W(3,2) point/line physical K6 schemes 
 | **S68** | **(2, 19, 22, 35, 36, 42)** | **5** | (7,2), (12,6), (6,1), (14,11), (11,3) |
 | **S72** | **(10, 15, 23, 29, 30, 33)** | **5** | (3,0), (9,1), (5,2), (10,12), (7,6) |
 
+**EXACT full 720-target global SOURCE-Cayley distance histograms for EACH frozen genuine-original sharpness witness** (not samples):
+
+| Genuine ORIGINAL fixed f,g scheme + exact same six-source-incidence Q | Number of oriented physically occupied right K6 C6 targets requiring exactly 0–4 swaps | Exactly **5** swaps | Exactly **6** swaps | All physical targets |
+|---|---:|---:|---:|---:|
+| **S68**, Q=(2,19,22,35,36,42) | **0** | **300** | **420** | **720** |
+| **S72**, Q=(10,15,23,29,30,33) | **0** | **300** | **420** | **720** |
+
+Notice: target-specific minimum SIX is possible even though a different aligned physical target for the SAME original Q needs only FIVE. The **minimum over all 720 targets** is FIVE. This difference is why a constructive 5-swap success alone cannot establish universal radius sharpness; the complete set of 720 shorter-target exclusions is essential.
+
 **Rigorous certificate for lower FIVE:** Fix either listed globally injected f,g and precisely the six ACTUAL original flag IDs Q. Their f-physical point images are a connected simple six-coordinate C6 with six distinct original source point and line factors (independently verified by the exact source model). Every possible physically aligned historical D6 right-side target on K6 must be some oriented six-vertex six-edge physical C6. There are EXACTLY \(6!=720\) such oriented target sequences, because the actual complete global line physical image is all \(E(K_6)\). They include ALL 12 position-preserving isomorphisms per undirected physical C6, so no possible target is omitted. For EACH of the 720 physical target owner assignments, the independently proven exact global minimum \(M-c_{\ge2}\) is computed. **Not one target has minimum \(\le4\)**. Hence no sequence of 0,1,2,3,4 whole-original-line-label swaps can make this fixed genuine original Q a positive D6, even when allowed to swap any of the V=15 original LINE source factor physical pair images outside Q.
 
 **Achievability:** Each listed 5-pair swap sequence is executed on the ENTIRE original line source factor image map g, without modifying the original incidence relation, original point labels, or which line physical pairs are occupied globally. The resulting single globally injected line map \(g'\) produces an aligned physical C6/C6 on the SAME SIX original source flag positions Q. Two independent validators accept: the preexisting historical seven-positive-GF5 D6 classifier and direct physical flag-position adjacency comparison. Therefore minimum is EXACTLY FIVE, not a sample upper or a heuristic.
