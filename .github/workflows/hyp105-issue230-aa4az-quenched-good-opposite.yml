@@ -1,0 +1,60 @@
+name: hyp105-issue230-aa4az-quenched-GOOD-opposite
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4az_quenched_good_opposite.py"
+      - "research/test_hyp105_issue230_d6aa4az_quenched_good_opposite.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AZ-QUENCHED-GOOD-OPPOSITE.md"
+      - ".github/workflows/hyp105-issue230-aa4az-quenched-good-opposite.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true-original-physical-clean-support-and-all-h:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact all-h true original good support theorem and genuine W32 W34 source triple oracle
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_01'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_02'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_03'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_04'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_09'
+  real-original-GOOD-independent-right-triples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All distinct original LINE physical ordered W32 W34 triples and actual fixed g GOOD D graph
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_05'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_06'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_07'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_08'
+      - name: Report exact genuine original same global f and clean physical right image mean
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4az_quenched_good_opposite import quenched_genuine_original_GOOD_opposite_mean
+          from hyp105_issue230_d6aa4ar_good_wedges_port_balance import exact_true_original_good_D_two_port_wedge_certificate
+          for h,name in ((1,"S68"),(1,"S72"),(1,"lex"),(2,"lex"),(2,"random")):
+              m=fixture(h,name)
+              z=quenched_genuine_original_GOOD_opposite_mean(m)
+              observed=exact_true_original_good_D_two_port_wedge_certificate(m)[
+                  "good_D_original_OPPOSITE_TWO_TYPED_port_wedges"]
+              print("AA4AZ_REAL_ORIGINAL_GOOD_OPPOSITE",h,name,
+                    "given_fixed_original_g",observed,
+                    "one_whole_global_right_g_mean",
+                    str(z["exact_one_global_original_LINE_bijection_GOOD_opposite_wedge_mean"]),
+                    "right_clean_T",z["fixed_original_right_clean_support_port_energy"])
+              assert z["root_230"]=="OPEN_WITH_FORMAL_BLOCKER"
+              assert not z["given_FIXED_adversarial_original_f_g_GOOD_lower_PROVED"]
+          PY
