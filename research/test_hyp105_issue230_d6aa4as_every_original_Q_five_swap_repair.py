@@ -63,6 +63,14 @@ class EveryGenuineOriginalSourceQRadiusFive(unittest.TestCase):
             self.assertTrue(z["EVERY_eligible_original_Q_repairable_within_FIVE_global_line_swaps"])
             self.assertTrue(z["each_Q_may_need_ITS_OWN_different_GLOBAL_line_map"])
             self.assertTrue(z["root_issue230_A_B_C_still_OPEN"])
+            self.assertEqual(
+                z["all_GLOBAL_line_maps_in_fixed_g_radius_FIVE_ball_SUM_D6_at_least"],
+                Cmin*q)
+            self.assertEqual(
+                z["distinct_global_line_maps_in_five_swap_ball_at_most"],
+                sum(comb(V,2)**j for j in range(6)))
+            self.assertTrue(z[
+                "radius_five_ball_total_positive_D6_is_NOT_center_map_D6"])
             if s>=2**20:
                 n=z["relative_repairable_eligible_Q_count_lower_vs_s15"]
                 u=z["relative_repairable_eligible_Q_count_upper_vs_s15"]
