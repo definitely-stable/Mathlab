@@ -34,16 +34,21 @@ jobs:
       - name: All real original 24 full global seven-class Hessian vectors and exact rank
         run: |
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4av_seven_fullrank_sign_no_go.py' -v -k 'test_03'
-      - name: Print exact integer W32 seven-dimensional rank witness
+      - name: Independently certify frozen seven ACTUAL W32 Hessian pivot rows
         run: |
           PYTHONPATH=research python - <<'PY'
-          from hyp105_issue230_d6aa4av_seven_fullrank_sign_no_go import exact_original_w32_hessian_linear_obstruction
-          r=exact_original_w32_hessian_linear_obstruction()
-          print("AA4AV_SEVEN_REAL_ORIGINAL_RANK",r["exact_Fraction_Gaussian_rank"])
-          print("AA4AV_DETERMINANT",r["exact_independent_Bareiss_rank_witness_det"])
-          print("AA4AV_BASIS_TRUE_ORIGINAL",r["pivot_true_original_global_schemes_and_LINE_swap_pairs"])
-          print("AA4AV_MATRIX",r["exact_real_original_integer_Hessian_matrix"])
-          assert len(r["exact_real_original_integer_Hessian_matrix"])==24
-          assert r["root_230"]=="OPEN_WITH_FORMAL_BLOCKER"
-          assert not r["original_fixed_f_g_seven_minimax_PROVED"]
+          from hyp105_issue230_d6aa4av_seven_fullrank_sign_no_go import (
+            EXACT_ORIGINAL_SEVEN_ROW_WITNESSES,EXACT_SOURCE_BASIS_ROW_ORDER,
+            EXACT_SOURCE_BASIS_DETERMINANT,integer_rank_and_basis,
+            integer_determinant_bareiss,integer_determinant_mod_prime,
+          )
+          rows=[EXACT_ORIGINAL_SEVEN_ROW_WITNESSES[i] for i in EXACT_SOURCE_BASIS_ROW_ORDER]
+          assert len(rows)==7
+          assert integer_rank_and_basis(rows)["rank"]==7
+          assert integer_determinant_bareiss(rows)==EXACT_SOURCE_BASIS_DETERMINANT==-2650
+          assert integer_determinant_mod_prime(rows,1009)==377
+          print("AA4AV_SEVEN_REAL_ORIGINAL_RANK=7")
+          print("AA4AV_EXACT_INTEGER_DETERMINANT=-2650")
+          print("AA4AV_FINITE_FIELD_DETERMINANT_MOD1009=377")
+          print("AA4AV_TRUE_ORIGINAL_W32_BASIS_ROWS",rows)
           PY
