@@ -51,3 +51,56 @@ If the real-original matrix has rank \(r<7\), the result must instead report the
 **Prior work:** the source-overlap signed Hessian identity is from #417, the earlier full W32 correlated and sign effects from #497/#553, the permutation inversion is basic group algebra. Scientific significance here is only in the fully reconstructed TRUE ORIGINAL seven-GF5 exact-rank global-witness certificate, if verified, and the precise universally quantified no-sign-law consequence. No blanket publication novelty verdict is claimed.
 
 **Root obstruction remains:** disjoint-swap mixed Hessian sign indefiniteness is NOT a counterexample to \(\inf_{f,g}S_7(f,g)=\Omega(s^6)\). The universal original seven-class lower, an infinite original correlated small-S counterfamily, and full R3/ASET exponent all remain unproved. Independent referee and exact-final-HEAD dedicated/INDEX/Proof Audit/Full Research hosted gates are still required; keep Draft and root issue #230 OPEN_WITH_FORMAL_BLOCKER.
+
+
+## 5. CERTIFIED full rank SEVEN: seven exact ORIGINAL W32 Hessian rows and determinant
+
+The independent true ORIGINAL W(3,2) full globally injected finite four-state calculation **completed** in initial specialized CI [run #38875169267](https://github.com/definitely-stable/Mathlab/actions/runs/38875169267). The original 24-by-7 historical seven-GF5 Hessian count matrix has EXACT rational rank **7**, rather than merely a possible or conjectured rank 7. Its Fraction-Gauss pivot source rows are precisely
+
+\[
+(0,1,2,3,8,5,6).
+\]
+
+The seven accepted positive historical GF(5) class coordinate order is
+
+(D6, B-left/A-right, A-left/B-right, C/A, C/B, B/B-overlap, B/B-disjoint).
+
+The following are **ACTUAL** original W32/K6 accepted class Hessian vectors from four legal complete globally injected source LINE physical image maps per row, all on the SAME 62,370 distinct original left-valid six-ID Q candidates. Each swap consists of physical-image pair exchanges between two actual original LINE factor IDs.
+
+| Source row | True original baseline f,g scheme | First LINE source transposition sigma | Second disjoint LINE source transposition tau | D6 | B-left/A-right | A-left/B-right | C/A | C/B | BB-overlap | BB-disjoint |
+|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|
+| 0 | S68 | (0,1) | (2,3) | +1 | −6 | +6 | 0 | 0 | −1 | 0 |
+| 1 | S68 | (0,2) | (3,4) | 0 | −5 | +2 | −2 | 0 | 0 | −1 |
+| 2 | S68 | (0,3) | (1,4) | −2 | −2 | −14 | −3 | 0 | −1 | +1 |
+| 3 | S68 | (0,5) | (6,7) | 0 | −13 | 0 | −1 | 0 | +2 | −4 |
+| 8 | S72 | (0,3) | (1,4) | 0 | +8 | −5 | −1 | +1 | +2 | +1 |
+| 5 | S68 | (1,2) | (10,11) | +1 | −2 | −8 | +1 | 0 | −1 | −4 |
+| 6 | S72 | (0,1) | (2,3) | 0 | +4 | 0 | −1 | 0 | −2 | 0 |
+
+Let A be this exact 7-by-7 integer matrix with rows in the displayed order, WITHOUT any rescaling or fitted parameters. Two algebraically independent exact integer algorithms were used: fractional Gaussian elimination identifies this source basis, and integer fraction-free Bareiss elimination yields the NONZERO determinant
+
+\[
+\boxed{\det A=-2650\ne0.}
+\]
+
+A third independent finite field determinant implementation verifies
+
+\[
+\boxed{\det A\bmod1009=377\ne0.}
+\]
+
+Every row is independently recomputed by the PR #553 genuine source-six-ID double-swap sparse-Hessian oracle as well as by the 4 COMPLETE map original seven-GF5 count before reduction. The exact seven integer source rows, their ordered real original source LINE transposition witness IDs, determinant -2650, and modular determinant 377 are **immutable executable regression assertions**. No reliance on floating point, empirical conditioning or a pseudo-original incidence geometry remains.
+
+**Thus the conditional statement in section 3 is now an UNCONDITIONAL SCOPED THEOREM:**
+
+> For EVERY NONZERO FIXED coefficient vector w in real seven-dimensional space, there exist s=2 (genuine symplectic W(3,2)), a fully globally injected typed original pair f,g and two legal DISJOINT whole ORIGINAL LINE factor image swaps sigma,tau such that the mixed Hessian of the historical original seven-class linear combination F_w = sum_k w_k S_k is STRICTLY POSITIVE. There also exist fully globally injected ORIGINAL maps with the Hessian STRICTLY NEGATIVE, on the SAME original geometry and physical image supports. One obtains the opposite sign by replacing g with g^sigma for the SAME witness swaps; full global injectivity and the physical support are preserved. Consequently NO nonzero CONSTANT seven-class linear weight vector can satisfy a universal signed Hessian law (always >=0 or always <=0) over all admissible global pairs.
+
+The important quantifier ordering is: **for each nonzero fixed w, one of the seven certified rows witnesses a nonzero dot product; then the legal source LINE-image swap of its complete g gives the opposite sign**. Neither one row nor one fixed f,g witnesses every w, and we make no assertion of uniform bounds on the size of the Hessian for all w.
+
+This statement includes the previously certified necessary 51-palette GF5 lower numerator weights as ONE strictly positive coefficient vector; the same conclusion holds even for arbitrary real weights (including negative coefficients). It is a COMPLETE rigidity/no-go for **fixed-coefficient universal Hessian sign constraints**, NOT a rigidity/no-go for nonlinear, source-dependent, f,g-dependent, existentially chosen swap, total original S(f,g) minimax lower, or real full R3 and ASET. A possible all-map original \(\Omega(s^6)\) positive seven-class lower can still be true without contradicting this curvature theorem. Root #230 Branch A/B/C remains OPEN_WITH_FORMAL_BLOCKER.
+
+### 5.1 Independent verification of the historical seven-class coordinate order
+
+All weights and class names are taken from the immutable historical accepted seven-tag classifier and its necessary 51-palette GF5 numerator; the pivot basis is entirely inside TWO TRUE ORIGINAL global models S68 and S72. These have independently tested full physical K6 point/line factor image bijections on all V=15 original source point and original source line factors, respectively, and 45 ACTUAL original symplectic source incidence IDs. The new rank claim is a finite exact genuine-original witness with an **all-h universal no-go consequence**, not an infinite correlated small-S counterexample.
+
+This scientific Draft still requires exact final-head hosted CI, INDEX, Proof Audit, Full Research and a separate independent mathematics referee before integration. An author-side CI check, even with three arithmetic algorithms, does not establish prior-art novelty or count as independent peer review.
