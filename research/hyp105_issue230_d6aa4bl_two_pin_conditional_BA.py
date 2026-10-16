@@ -181,3 +181,50 @@ def abstract_extreme_holes_two_pin_no_go(a):
             "conditioned_accepted_original_BA_expected_count_for_ANY_source_pool":0,
             "is_NOT_a_proven_dyadic_true_W3_physical_support":True,
             "root_230":"OPEN_WITH_FORMAL_BLOCKER"}
+
+
+def every_fixed_original_g_good_root_pin_majority(s):
+    """NEW deterministic >3/4 ACTUAL original cherries satisfy local degree cap.
+
+    Fix ANY complete original line map g, its occupied support E. Its
+    missing-edge graph has <=m<=a-2 edges. There are at most
+    B=floor(2m/(floor((a-4)/8)+1)) bad physical coordinates with
+    missing degree > local cap. Each such physical coordinate occurs in
+    at most a-1 occupied pair-edge images, i.e. original LINE factors.
+    Each original LINE factor occurs in d true source incidence flags,
+    and each such flag lies in at most d-1 true original POINT cherries.
+    Thus no more than B(a-1)d(d-1) genuine original POINT cherry pairs
+    have ANY pinned opposite image touching a bad physical coordinate.
+    At a>=261, B<=16 and this is <1/4 of V*binom(d,2).
+
+    This is a deterministic good-PIN-CONDITION fraction for EVERY
+    FIXED g, NOT a good ACTUAL acceptance rate for that same fixed g:
+    positivity still requires UNIFORM COMPLETION of other source lines.
+    The source LINE cherry dual fixes f instead.
+    """
+    if type(s) is not int or s<32 or s&(s-1):
+        raise ValueError("majority quantifier only for genuine dyadic s>=32")
+    V,a,K,m=_params(s)
+    d=s+1
+    t=(a-4)//8
+    B=min(a,m*2//(t+1))
+    roots=V*comb(d,2)
+    bad_root_max=B*(a-1)*d*(d-1)
+    good_root_min=max(0,roots-bad_root_max)
+    share=Fraction(good_root_min,roots)
+    if B>16 or share<=Fraction(3,4):
+        raise AssertionError("missing-edge bad endpoint cover fails >3/4 all-h")
+    return {
+        "s":s,"a":a,"V":V,"m":m,"d":d,
+        "physical_pinned_endpoint_max_missing_degree_allowed":t,
+        "number_bad_physical_vertices_upper":B,
+        "number_true_original_point_cherries":roots,
+        "number_true_original_cherries_with_bad_pinned_physical_endpoint_upper":
+            bad_root_max,
+        "number_true_original_cherries_with_regular_two_pinned_images_lower":
+            good_root_min,
+        "fraction_true_original_cherries_with_regular_two_pinned_images_lower":
+            share,
+        "for_EVERY_fully_fixed_original_g_at_least_3_over_4_have_conditional_mean_ge_4d":True,
+        "DOES_NOT_bound_given_fixed_g_actual_sevenGF5_count":True,
+        "root_230":"OPEN_WITH_FORMAL_BLOCKER"}
