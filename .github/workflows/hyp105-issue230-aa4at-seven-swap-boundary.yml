@@ -1,0 +1,60 @@
+name: hyp105-issue230-aa4at-seven-swap-boundary
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4at_seven_swap_boundary.py"
+      - "research/test_hyp105_issue230_d6aa4at_seven_swap_boundary.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AT-SEVEN-SWAP-BOUNDARY.md"
+      - ".github/workflows/hyp105-issue230-aa4at-seven-swap-boundary.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-rooted-physical-and-all-h-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full K6 multigraph rooted 52 and all-h exact original seven class capacities
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4at_seven_swap_boundary.py' -v -k 'test_01'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4at_seven_swap_boundary.py' -v -k 'test_02'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4at_seven_swap_boundary.py' -v -k 'test_03'
+  genuine-original-W32-seven-class-signed-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual W32 source line A B C support and exact 5 swap original seven-GF5 sign ledger
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4at_seven_swap_boundary.py' -v -k 'test_04'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4at_seven_swap_boundary.py' -v -k 'test_05'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4at_seven_swap_boundary.py' -v -k 'test_06'
+      - name: Show original and repaired real W32 seven GF5 signed damage
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4at_seven_swap_boundary import genuine_original_W32_five_swap_seven_boundary
+          for scheme in ("S68","S72","lex","reverse"):
+              z=genuine_original_W32_five_swap_seven_boundary(scheme)
+              assert z["five_swap_global_original_line_steps"]<=5
+              assert z["original_seven_S_signed_change"]==(
+                  z["repaired_seven_S_after"]-z["original_seven_S_before"])
+              assert z["this_bound_PROVES_root_A_B_C"] is False
+              print("AA4AT_ORIGINAL_W32 "+str({
+                  k:z[k] for k in (
+                      "scheme","five_swap_global_original_line_steps",
+                      "number_of_distinct_actual_source_line_labels_ever_swapped",
+                      "actual_source_line_cut_candidate_Q",
+                      "original_seven_S_before","repaired_seven_S_after",
+                      "original_seven_S_signed_change",
+                      "accepted_original_six_ID_Q_gained",
+                      "accepted_original_six_ID_Q_lost",
+                      "accepted_original_six_ID_Q_switched_seven_tag",
+                      "original_selected_GF5_floor_numerator_signed_change")}))
+          PY
