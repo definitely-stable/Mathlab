@@ -135,3 +135,21 @@ Source program research/hyp105_issue230_d6aa4at_seven_swap_boundary.py and tests
 The tagged local-support derivative itself is credited to previous #415/#493/#497 and elementary finite differences. The physical 130 two-factors / 52 rooted occurrences follow from standard degree-two graph decompositions and are not claimed as a novel general combinatorial result. The specialized exact 28/18/6 true-original source-line support bound, seven-class weighted GF5 numeral, and empirical explicit finite signed five-swap transfer are new **within the inspected research stack** only; no independent publication/prior-art novelty audit has been completed.
 
 **Next mathematical direction:** Seek a signed compensation inequality at the level of true original source incidence sixsets, or a seven-GF5 rank/moment/cycle closure certificate, so the loss of many repaired D6 witnesses under an adversarial original g forces enough OTHER positive classes **on that original SAME f,g**. A purely unsigned boundary capacity is too weak. Earlier genuine W32 global-swap experiments demonstrate mixed derivative signs; monotonicity cannot be assumed. Keep root #230 Branch A/B/C open, scientific Draft unmerged and independent mathematical referee gate separate.
+
+
+## 9. Frozen true ORIGINAL W32 signed five-swap evidence and exact regression pins
+
+Initial hosted specialized run [#38866154309](https://github.com/definitely-stable/Mathlab/actions/runs/38866154309) completed **both jobs SUCCESS**, six independent mathematical unittest methods passed. For genuine original W(3,2) on a K6 physical pair palette, all 62,370 DISTINCT original left-candidate six-incidence-ID sets were checked at the actual fixed global right map g and at the fully globally injected repaired g' from #545. Sparse real original line-source support derivative telescoping agreed with a separate whole-sixset census, for all seven historical GF5 tags and the selected 51-palette necessary GF5 R3-floor numerator.
+
+| Actual complete original f,g | Source LINE swaps | Distinct source LINE IDs touched | Original Q meeting T, of 62,370 | S7 before | S7 after | Signed delta S7 | Accepted Q gained | Accepted Q lost | Signed selected GF5 numerator delta |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| S68 | 5 | 7 | 61,699 | 68 | 169 | +101 | 165 | 64 | +4,386,335 |
+| S72 | 5 | 9 | 62,349 | 72 | 159 | +87 | 158 | 71 | +3,849,249 |
+| lex | 4 | 7 | 61,439 | 259 | 180 | **−79** | 165 | 244 | **−3,167,553** |
+| reverse | 4 | 7 | 61,147 | 169 | 189 | +20 | 180 | 160 | +975,177 |
+
+The final finite original fields are frozen in independent test assertions so a future code change cannot silently shift these results. Across these four endpoint comparisons ZERO true selected six-Q switch directly from one accepted seven-GF5 class to another accepted class; gained and lost Q carry the net signed difference. The all-h mathematical identity still accounts for every class and detects a future direct cross-class switch.
+
+**Finite warning:** the changed original-line source set T with only 7 or 9 distinct original factors covers 61,147 to 62,349 of 62,370 genuine original left-eligible six-ID candidate Q in these examples — about 98% to nearly 100%. A boundary local in ORIGINAL LINE factor support need not be small in original six-ID candidate count. In particular the lex original W32 example gains a valid repaired D6 but its TOTAL positive seven-family S7 DECREASES, as does the accepted selected GF5 numerator. S68/S72 show positive changes. Both signs occur under full globally injected original maps, without any source Q resampling.
+
+**Mathematical non-implication:** the new exact O(s^12) source-line rooted capacity is only an UPPER and lies six powers of s ABOVE the desired root Ω(s^6) lower. Therefore the unsigned triangle-inequality reverse-transfer using this capacity alone cannot close Branch A. This does not refute the universal conjecture or show every future sign-aware transfer strategy is impossible. Rigorous cross-seven original source cancellation, geometry, or overlap information is still missing. Independent referee review required and scientific Draft stays unmerged.
