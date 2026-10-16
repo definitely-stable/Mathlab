@@ -132,4 +132,21 @@ A **separate fully constructed ONE SAME global original g** W32 S68 test with tw
 
 For cross-checking the six-slot conditional tower without source GQ prerequisites, a separate ABSTRACT but legitimately fully globally injected six-original-LINE-ID label example with six occupied physical pair edges forming a single C6 and one initially locked image exhaustively enumerates **all 5!=120 full global completions**. The exact six-bit-mask \(\Phi\) agrees with the independent full-completion average, then each chosen next original source ID (alternating min/max) satisfies the exact average of all next-edge potentials and preserves \(\Phi\). This is an abstract algebra falsifier, not a counterfeit high-order original W(3,s).
 
+### AA4-BF2 frozen actual ORIGINAL cross-implementation results — PARENT #570 vs independent #571
+
+The dedicated GitHub-hosted cross-referee imports the code from its ACTUAL parent #570 and compares it with the independent 64-six-position-mask implementation of #571 on ALL four real symplectic original W32 full typed globally injected source point/right image schemes, at exactly three independently chosen original source LINE lock counts k=0,1,2:
+
+| Actual original symplectic W32 source f | Original six-distinct-ID Q pool with 0/1/2 source LINE locks | Exact ONE-global-right conditional D6_free expectation with 0/1/2 locks — EXACT agreement #570 and #571 |
+|---|---|---|
+| lex | 18,716 / 10,798 / 5,760 | **18716/5005**, **10798/5005**, **144/143** |
+| reverse | 18,716 / 10,798 / 5,760 | **18716/5005**, **10798/5005**, **144/143** |
+| S68 | 21,186 / 12,306 / 7,644 | **1926/455**, **1758/715**, **147/110** |
+| S72 | 21,186 / 12,306 / 7,644 | **1926/455**, **1758/715**, **98/55** |
+
+The apparent nonmonotonicity of a particular numeric mean when more **ADVERSARIAL** source line pins are imposed is not a violation of the expectation-preservation theorem: these are DIFFERENT initial pinned source sets and physical edge images, with a DIFFERENT \(\mathcal Q_{\rm free}\) source family. The monotonicity theorem applies to each *single* sequential extension process with the original \(\mathcal Q_{\rm free}\) fixed.
+
+Additional independent reviewer falsifiers: the two implementations generate EXACTLY the same set of 720 occupied positional C6 target SIX-edge tuples (independent physical enumeration); under S68's two locked genuine original LINE physical edge assignments and 13 adaptive completions, the independent literal full global D6_free count from #570 equals the #571 terminal six-mask potential INTEGER 16; both separately match historical W32 **TOTAL D6 = 19** from actual original SIX distinct incidence flag IDs. For genuine W32 lex, two adaptive next original LINE-ID assignments selected by the PARENT #570 are reevaluated by our **independent** six-bit masked grouped source/physical executor; conditional means remain EXACTLY equal before and after EACH step and never decrease. All four tests in the newly dedicated hosted independent cross-PR referee job PASS.
+
+This provides an **independent reproducibility certificate** of parallel PR #570, not a second independent mathematical discovery of the conditional-expectations theorem. The two executors remain algorithmically different: #570 uses an event-by-event inverted positional physical target index, #571 uses globally aggregated source/target six-mask pattern keys. They share ONLY true source W32 fixtures, physical original symplectic incidence semantics and the already published parent combinatorial formula.
+
 **Acceptance:** independent referee Draft child of #570 pinned exact HEAD `f0255c0f09da62d8a818247f38ee3aa7ab9b745c`; indirect ancestor #568 supplies the established strong all-h expected count. Require specialized FINAL-head GitHub-hosted tests, INDEX, Proof Audit, Full Research, plus independent mathematics referee of the theorem and independent acceptance of ancestor #568/stack before scientific RCP accepted claim promotion or merge. Do not change main or the five derived accepted registry files. **Next root-facing step:** quantify deterministic worst-case all-fully-fixed g sixflag D6 loss or show compensation by other six original seven-GF5 classes, rather than further expectation-only gains. Repeated constructive existence cannot by itself prove the requested adversarial all-fixed root lower.
