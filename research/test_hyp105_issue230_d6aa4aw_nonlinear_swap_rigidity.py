@@ -133,6 +133,19 @@ class OriginalNonlinearPermutationRigidityTests(unittest.TestCase):
         self.assertEqual(sum(r["true_original_classwise_mixed_Hessian"]),0)
         self.assertEqual(len(r["four_complete_original_global_seven_class_vectors"]),4)
         self.assertTrue(r["opposite_sign_by_shifting_original_baseline_to_first_swapped_full_map"])
+        self.assertEqual(
+            r["four_complete_original_global_seven_class_vectors"],
+            ((0,44,21,0,0,2,1),(0,56,25,0,0,4,2),
+             (0,67,41,0,0,2,0),(1,73,51,0,0,3,1)))
+        self.assertEqual(r["scalar_mixed_Hessians"],{
+            "unweighted_S7":0,
+            "historical_51palette_selected_floor_numerator":-46107,
+            "NONLINEAR_squared_S7":1596,
+            "NONLINEAR_sum_seven_class_squares":368,
+        })
+        self.assertNotEqual(r["scalar_mixed_Hessians"]["NONLINEAR_squared_S7"],0)
+        # The SAME original actual g first-swap transform reverses the
+        # nonlinear signed curvature, not just the linear selected floor.
         # These are nonconstant right-map functionals even when physical
         # full K6 coordinate gauge symmetry is factored out.
 
