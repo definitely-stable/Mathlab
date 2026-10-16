@@ -4,7 +4,7 @@
 
 ## Live related mathematics and novelty boundary
 
-- [#534](https://github.com/definitely-stable/Mathlab/pull/534) and [#q original two-sided join](https://github.com/definitely-stable/Mathlab/pull/???): known GLOBAL exact all-seven identity S=J−AA_unaligned=J−AA+D6 for same complete fixed original f,g, including the genuine GQ forbidden C/C source shape. This is PRIOR, not a new all-seven positivity proof. The source all-h selected-incidence generating product is also recorded in the original finite GF5 model and prior original joining code.
+- [#534](https://github.com/definitely-stable/Mathlab/pull/534) and the already implemented exact original two-sided seven-class source join: known GLOBAL exact all-seven identity S=J−AA_unaligned=J−AA+D6 for same complete fixed original f,g, including the genuine GQ forbidden C/C source shape. This is PRIOR, not a new all-seven positivity proof. The source all-h selected-incidence generating product is also recorded in the original finite GF5 model and prior original joining code.
 - [#539](https://github.com/definitely-stable/Mathlab/pull/539) previously proved genuine-original positive GF5 D6 iff a double-rainbow simple bicolored D graph C6.
 - [#572](https://github.com/definitely-stable/Mathlab/pull/572) previously proved the exact bicolored square-zero matrix trace for D6 on EVERY already fixed original f,g, with 12 directed-rooted traces per D6.
 - [#555](https://github.com/definitely-stable/Mathlab/pull/555), [#558](https://github.com/definitely-stable/Mathlab/pull/558), [#559](https://github.com/definitely-stable/Mathlab/pull/559) already delimit alternative signed Hessian/spectral lift methods.
