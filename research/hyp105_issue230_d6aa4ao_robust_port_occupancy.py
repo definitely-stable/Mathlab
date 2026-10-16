@@ -119,6 +119,11 @@ def all_h_robust_original_D_port_physical_theorem(s):
         auxiliary_coordinates=n,
         each_original_D_pair_typed_occupied_P5_lower=P5_lower,
         each_original_D_pair_two_side_occupied_P5_P5_lower=P5_lower**2,
+        AA4_AL_true_original_unordered_D_pair_lower=s**5,
+        ALL_D_indexed_global_physical_P5_P5_mass_lower_if_m_le_a_minus_4=(
+            s**5*P5_lower**2 if every_pair_P5 else None),
+        ALL_D_indexed_global_physical_six_port_template_mass_lower_if_m_le_a_minus_3=(
+            s**5 if any_pattern else None),
         unconditional_typed_P5_positive_for_every_original_D=every_pair_P5,
         unconditional_some_typed_physical_pattern_for_every_original_D=any_pattern,
         conditional_both_port_missing_sum_at_most_n_over_4=True,
