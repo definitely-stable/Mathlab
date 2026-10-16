@@ -108,3 +108,23 @@ The boolean Hessian source support identity per Q and the older PR #417 numerica
 ## 6. Fundamental open gap
 
 The root issue asks that every ORIGINAL FIXED adversarial global (f,g) satisfy S_7(f,g)>=c*s^6, or a rigorous infinite correlated counterfamily, or an accepted model-equivalent reduction. The new O(s^11) bound still exceeds desired Omega(s^6) by FIVE integer powers; even the asymptotic refined O(s^(21/2)) is much too loose. **This is NOT Branch A/B/C.** A genuine lower from the original pair requires some type of **signed geometric compensation** under the ORIGINAL global maps, an aligned original source Hall closure theorem, or a rigorously constructed infinite original counterfamily, not simply applying an absolute-value or two-swap Hessian magnitude estimate. Earlier PR #493/#497 have genuine original mixed curvature of both signs. Keep Draft unmerged, independent math referee and exact final SHA hosted checks required.
+
+
+## 7. Frozen genuine ORIGINAL W32 signed Hessian certificate (exact source)
+
+The first exact-code-head GitHub-hosted dedicated CI [#38872051432](https://github.com/definitely-stable/Mathlab/actions/runs/38872051432) completed **two jobs SUCCESS**: all K6 physical root pairs, h1..80 exact symbolic original GQ proof arithmetic, literal true W32 source-line partial linearity, six globally legal pairwise-disjoint true original LINE transposition pairs for EACH of S68/S72/lex/reverse, all four fully globally injected right map states per pair, independent 62,370 TRUE six-original-ID full seven-GF5 census and independent double-source-LINE-touch sparse signed Hessian, plus typed physical-coordinate permutation invariance. All SIX test methods passed. The complete independent finite-sample Hessian vectors are now **frozen in source test assertions** rather than relying only on a textual table.
+
+In each cell H7 is the signed unweighted SEVEN positive class count mixed finite difference, and HW is the signed historical selected 51-palette **necessary** GF5 seven-class R3-floor numerator difference. Each is computed at exactly one ORIGINAL fixed global source point map f and 4 related, individually fully global source LINE maps g, gσ, gτ, gστ. No source Q physical redraw; the same true six-original-incidence-ID Q is used in all 4 terms.
+
+| Two DISJOINT real-original LINE swaps (σ,τ) | S68 H7 / HW | S72 H7 / HW | lex H7 / HW | reverse H7 / HW |
+|---|---:|---:|---:|---:|
+| (0,1) ; (2,3) | 0 / −46,107 | +1 / +35,580 | +11 / +251,938 | −4 / −394,485 |
+| (0,2) ; (3,4) | −6 / −268,450 | −18 / −815,730 | +8 / +524,628 | −3 / −124,893 |
+| (0,3) ; (1,4) | −21 / −877,586 | +6 / +291,040 | +20 / +931,450 | +16 / +609,139 |
+| (0,5) ; (6,7) | −16 / −712,660 | −13 / −540,363 | +22 / +943,246 | −6 / −333,007 |
+| (4,5) ; (8,9) | −6 / −275,290 | −19 / −864,630 | −2 / +27,671 | +5 / +135,716 |
+| (1,2) ; (10,11) | −13 / −638,827 | −20 / −923,040 | −1 / +65,021 | −42 / −1,804,676 |
+
+The actual original doubly touched source six-Q shadow populations (same for S68/S72 and separately same for lex/reverse under the frozen global f) are 19,262 / 22,974 / 20,948 / 21,743 / 22,114 / 20,760 in the six ordered swap-pair rows for S68/S72; for lex/reverse 21,042 / 19,012 / 21,300 / 20,261 / 19,974 / 20,316. The mixed signed seven-S curvature can have BOTH SIGNS even with one fixed original f,g (S72, lex, reverse). In lex's fifth and sixth row the UNWEIGHTED seven-Hessian is negative while the SELECTED GF5 weighted numerator Hessian is positive, independently disproving any universal assumption that their signs must agree.
+
+This is **FINITE true original W32**, never an all-h counterfamily. The new all-h O(s11) bound is absolute, not an all-h sign law. The previous PR #417 established formal support and finite curvature identities; no claim this physical signed finite difference phenomenon was newly discovered from scratch. What is NEW to this slice is the **physical doubly-rooted 6/10/21 ORIGINAL GQ partial linearity bound**, its explicit all-h mixed-curvature capacity, and independently auditable exact W32 true-original signed numerical regression certificates. Root issue #230 and all A/B/C gates remain OPEN; author checks do not substitute for an independent mathematical referee.
