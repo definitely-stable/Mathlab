@@ -94,7 +94,7 @@ class AA4BHOriginalSevenLocalized(unittest.TestCase):
                              historical["GF5_seven_lower_numerator"])
             self.assertEqual(cell["seven_GF5_positive_coefficient"],
                              cell["compensator_non_AA"]+cell["original_D6_from_trace"])
-            self.assertFalse(local["branch_C_full_equivalence_NOT_CLAIMED"] is False)
+            self.assertTrue(local["branch_C_full_equivalence_NOT_CLAIMED"])
 
     def test_02_actual_W32_D6_zero_but_seven_GF5_compensation_strict_positive(self):
         for name in ("S68","S72"):
@@ -130,9 +130,6 @@ class AA4BHOriginalSevenLocalized(unittest.TestCase):
                                  sum(R3_CERTIFIED_FLOORS[k]*v
                                      for k,v in z["all_seven_GF5_tags"].items()))
                 for six,tag in z["sample_true_original_sixflag_sets"]:
-                    independently=independent_joint_classify(
-                        six,None,None,tuple(model["incidences"]),
-                        tuple(model["left_labels"]),tuple(model["right_labels"]))
                     # Independent join classifier needs A/B/C source
                     # partitions explicitly, not None.
                     from collections import Counter
