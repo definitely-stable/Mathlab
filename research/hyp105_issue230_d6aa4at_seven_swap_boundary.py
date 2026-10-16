@@ -108,6 +108,16 @@ def all_h_seven_original_line_fiber_bound(s, affected_lines=10):
         raise AssertionError("literal left original line capacity identity changed")
     if sum(weighted_by_type.values())!=300312000*d**6*C:
         raise AssertionError("GF5 lower numerator class-resolved cap changed")
+    if s>=4:
+        # For dyadic s>=4, a^2<=4s^3 follows from physical-minimality
+        # and V=s^3+s^2+s+1; d<=5s/4. Hence for TEN lines
+        # 62400*d^6*binom(a-2,4)
+        # <=62400*(5s/4)^6*(2s^(3/2))^4/24
+        # =(5078125/32)*s^12 <160000*s^12.
+        if a*a>4*s**3 or d*4>5*s:
+            raise AssertionError("minimal true dyadic physical alphabet estimates fail")
+        if 10*per_line>160000*s**12:
+            raise AssertionError("all-h rooted original seven swap cut O(s12) certificate failed")
     return {
         "s":s,"V":V,"a":a,"K":K,"d":d,
         "number_of_distinct_affected_original_line_factor_IDs":t,
