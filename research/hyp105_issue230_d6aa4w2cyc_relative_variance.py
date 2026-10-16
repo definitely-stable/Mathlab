@@ -128,7 +128,7 @@ def relative_variance_certificate(s):
     # r=1..5 contributions <= 10368*C(6,r)*2^(6-2r)/a^2.
     # disjoint correction <=288/a^2;
     # r=6 <=1399680/d^3.
-    coeffs = {r: 10368*comb(6,r)*2**(6-2*r)
+    coeffs = {r: 10368*comb(6,r)*(2**max(6-2*r,0))//(2**max(2*r-6,0))
               for r in range(1,6)}
     assert all(type(x) is int for x in coeffs.values())
     assert sum(coeffs.values())==1867536
