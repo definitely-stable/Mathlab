@@ -138,10 +138,10 @@ class ActualOriginalGoodWedges(unittest.TestCase):
             s=1<<h
             for alpha in (Fraction(0),Fraction(1,4),Fraction(1,2),Fraction(1)):
                 z=conditional_all_h_good_wedge_to_original_seven_lower(s,alpha)
-                self.assertEqual(z["per_genuine_original_six_ID_Q_max_centered_good_wedges"],60)
+                self.assertEqual(z["per_genuine_original_six_ID_Q_max_centered_good_wedges"],6)
                 self.assertTrue(z["this_fraction_hypothesis_NOT_PROVED_for_all_f_g"])
                 if h>=14:
-                    desired=Fraction(alpha*s**6,12000)
+                    desired=Fraction(alpha*s**6,1200)
                     self.assertEqual(z["exact_rational_asymptotic_lower_if_h_ge_14"],desired)
                     self.assertEqual(z["conditional_minimum_selected_original_six_Q_count"],
                                      (desired.numerator+desired.denominator-1)//desired.denominator)
@@ -158,15 +158,30 @@ class ActualOriginalGoodWedges(unittest.TestCase):
         from hyp105_issue230_d6aa4ar_good_wedges_port_balance import (
             _good_D_edge_graph)
         from itertools import combinations
+        # Frozen independent first-hosted six-ID source Q-to-3-flag
+        # and literal 3-flag-to-Q intersection counts.
+        expected={"dual_zero":(3203,38,3165,40),
+                  "lex":(3924,172,3752,237),
+                  "reverse":(3768,66,3702,68),
+                  "S68":(2715,6,2709,6),
+                  "S72":(2811,11,2800,11)}
         for name,m in [("dual_zero",zero_split_original_W32())]+[
              (name,fixture(1,name)) for name in ("lex","reverse","S68","S72")]:
             z=exact_true_W32_original_seven_covered_good_wedges(m)
+            self.assertEqual((
+                z["genuine_original_good_source_three_flag_wedges"],
+                z["distinct_good_wedges_covered_by_some_true_original_seven_Q"],
+                z["distinct_good_wedges_NOT_covered_by_ANY_seven_Q"],
+                z["all_original_good_wedge_to_six_Q_charge_incidences"]),
+                expected[name])
             original=seven_census(m,independent_checks=False,witness_sets=True)["sets"]
             self.assertEqual(z["true_original_seven_selected_six_ID_Q"],len(original))
             self.assertEqual(z["all_original_good_wedge_to_six_Q_charge_incidences"],
                              sum(z["original_seven_tag_charge_by_class"].values()))
             self.assertLessEqual(z["all_original_good_wedge_to_six_Q_charge_incidences"],
-                                 60*z["true_original_seven_selected_six_ID_Q"])
+                                 6*z["true_original_seven_selected_six_ID_Q"])
+            self.assertTrue(z["all_selected_six_Q_capacity_6_validated"])
+            self.assertEqual(z["original_seven_tag_charge_by_class"].get("B/B-disjoint",0),0)
             self.assertEqual(z["original_seven_tag_charge_by_class"].get("C/A",0),0)
             self.assertEqual(z["original_seven_tag_charge_by_class"].get("C/B",0),0)
             self.assertEqual(z["original_seven_tag_charge_by_class"].get("D6",0),
