@@ -72,7 +72,7 @@ class OriginalNonlinearPermutationRigidityTests(unittest.TestCase):
         for h in tuple(range(1,37))+(48,64,80):
             z=source_all_h_rigidity_certificate(1<<h)
             self.assertEqual(z["actual_original_source_LINE_factor_count"],
-                (1<<h)+1 if False else ((1<<h)+1)*(((1<<h)**2)+1))
+                ((1<<h)+1)*(((1<<h)**2)+1))
             self.assertTrue(z["zero_mixed_Hessian_iff_one_factor_assignment_linear"])
             self.assertTrue(z["universal_one_sign_mixed_Hessian_forces_zero_then_assignment"])
             self.assertEqual(z["true_original_W32_complete_K6_and_transitive_gauge"],h==1)
@@ -115,10 +115,6 @@ class OriginalNonlinearPermutationRigidityTests(unittest.TestCase):
                          for i in g)
         for g in (original,(1,5,2,0,4,3)):
             vals=[F(physical_relabel(g,t)) for t in perms]
-            self.assertEqual(sum(vals),factorial(4)*
-                (19+sum(sum(row)//6 for row in coeff))
-                if all(sum(row)%6==0 for row in coeff) else
-                factorial(4)*19 + factorial(4)*sum(sum(row) for row in coeff)//6)
             self.assertEqual(sum(vals),
                 factorial(4)*19 + (factorial(4)//6)*sum(sum(row) for row in coeff))
         # Average of an assignment function is constant, not necessarily
