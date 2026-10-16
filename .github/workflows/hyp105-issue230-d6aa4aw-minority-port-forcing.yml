@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4aw-minority-port-forcing
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4aw_minority_port_forcing.py"
+      - "research/test_hyp105_issue230_d6aa4aw_minority_port_forcing.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AW-MINORITY-PORT-FORCING.md"
+      - ".github/workflows/hyp105-issue230-d6aa4aw-minority-port-forcing.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-exact-integer-2x2-marginal-port-minimax:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: ALL small 2x2 integer port tables total degree <=15 independent transportation enumeration vs exact integer quadratic optimizer, sharp minority product and local positivity iff
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aw_minority_port_forcing.TrueOriginalMinorityPortForcing.test_01_all_small_four_bin_integers_exact_integer_marginal_minimax_and_sharpness
+  all-five-real-original-W32-single-global-f-g-source-port-support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full TRUE W32 45 original source flag centers for five independently globally injected fixed typed f/g K6 maps, exact one-sided two-point/two-line port support and real source 3-flag opposite wedge literal referee
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aw_minority_port_forcing.TrueOriginalMinorityPortForcing.test_02_five_real_original_W32_GLOBAL_f_g_full_GOOD_2type_referee
+  true-original-W34-six-missing-physical-factor-pair-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine symplectic GF4 W34 425 ORIGINAL source flags with two fixed globally injected K14 point/line source physical maps and six holes per type, minority port sharp floor vs different literal source GOOD neighbor pairs
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aw_minority_port_forcing.TrueOriginalMinorityPortForcing.test_03_true_original_W34_global_K14_both_physical_holes_and_two_single_sided_port_margins
+  conditional-all-h-true-seven-GF5-charge-source-isometry-and-nonlift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact rational h>=16 conditional alpha beta original source s6/60 seven-GF5 charge, original symplectic & independent typed physical coordinate relabel invariance, actual original W32 low GF5 coverage, forged labels rejected
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aw_minority_port_forcing.TrueOriginalMinorityPortForcing.test_04_all_h16_to_60_conditional_alpha_beta_s6_sixty \
+            test_hyp105_issue230_d6aa4aw_minority_port_forcing.TrueOriginalMinorityPortForcing.test_05_true_source_symplectic_global_physical_independent_typed_coordinate_permutations \
+            test_hyp105_issue230_d6aa4aw_minority_port_forcing.TrueOriginalMinorityPortForcing.test_06_independent_actual_original_Hall_GF5_NO_LIFT_and_forged_physical_sources
