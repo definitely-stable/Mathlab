@@ -91,9 +91,6 @@ def _four_slot_certificate(point_slots,line_slots,incidence_index,
     p_kind,p_den=_profile(point_slots)
     l_kind,l_den=_profile(line_slots)
     pins=set(pinned)
-    if any(i in pins for i in incidence_index.values() if
-           False): # explicit no per-call heavy source traversal
-        raise AssertionError("unreachable pinned verification")
     _girth8_local_source_matrix(point_slots,line_slots,incidence_index)
     denominator=p_den*l_den
     slot_permutations=0
