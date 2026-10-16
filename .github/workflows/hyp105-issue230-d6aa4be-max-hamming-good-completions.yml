@@ -1,0 +1,61 @@
+name: hyp105-issue230-d6aa4be-max-hamming-good-completions
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4be_max_hamming_good_completion_code.py"
+      - "research/test_hyp105_issue230_d6aa4be_max_hamming_good_completion_code.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BE-MAX-HAMMING-GOOD-COMPLETIONS.md"
+      - ".github/workflows/hyp105-issue230-d6aa4be-max-hamming-good-completions.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h10-to80-original-maxHamming-good-global-codes-after-tenth-source-line-pins:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual original symplectic W3 all h>=10, every arbitrary <=V/10 original line pin, at least floor(V/400million) fully GLOBAL original good original 3flag completions pairwise Hamming n; 50 percent base fiber certificate
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4be_max_hamming_good_completion_code.MaxHammingOriginalLineGoodMaps.test_01_all_dyadic_h10_80_maximal_Hamming_cyclic_full_global_code_10percent_pins
+  independent-original-BC-BD-variance-vs-whole-map-union-probability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Whole globally correlated source LINE map conditional relative variance from original strong CLEAN h5..80 k<=V/10 source overlap proof, arbitrary prespecified m physical free edge map permutations and union bound exact Fraction
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4be_max_hamming_good_completion_code.MaxHammingOriginalLineGoodMaps.test_02_exact_parent_one_complete_g_variance_and_preselected_orbit_mass
+  actual-original-W32-five-source-flags-K6-full-Hamming14-global-map-orbit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True genuine symplectic original W32 with 45 true original incidence IDs, one original LINE image pin, 14 free fully GLOBAL K6 injected map shifts pairwise Hamming 14, independently original physical GOOD D neighbor wedge recomputation
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4be_max_hamming_good_completion_code.MaxHammingOriginalLineGoodMaps.test_03_genuine_original_W32_fixed_point_map_one_PIN_fourteen_FREE_orbit
+  actual-original-W34-nononto-physical-K14-six-hole-full-global-pin-orbit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual original symplectic W34 GF4 425 source incidence flags, 3 arbitrary pinned original LINE IDs, whole K14 edge image support six holes, six complete coherent maps pairwise Hamming 82 and independent real source GOOD wedge check; malformed source input falsifiers
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4be_max_hamming_good_completion_code.MaxHammingOriginalLineGoodMaps.test_04_true_original_W34_K14_six_physical_holes_global_images_and_adversarial_pins \
+            test_hyp105_issue230_d6aa4be_max_hamming_good_completion_code.MaxHammingOriginalLineGoodMaps.test_05_original_validity_and_abstract_free_edge_permutation_coset
