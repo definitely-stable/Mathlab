@@ -1,0 +1,95 @@
+name: hyp105-issue230-d6aa4ax-original-incidence-cell-good-port
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ax_original_incidence_cell_port_caps.py"
+      - "research/test_hyp105_issue230_d6aa4ax_original_incidence_cell_port_caps.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AX-ORIGINAL-INCIDENCE-CELL-PORT-CAPS.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ax-original-incidence-cell-good-port.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-independent-true-original-source-cell-cap-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Seven independent genuine original GQ FᵀBG physical port and method no-go tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ax_original_incidence_cell_port_caps.py" -v
+  all-h-spectral-scalar-nonlift-guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All h1..80 exact true original GQ spectral upper and ABSTRACT ONLY scalar-moment no-go
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4ax_original_incidence_cell_port_caps import (
+              all_h_spectral_original_port_cap_no_go)
+          for h in range(1,81):
+              s=1<<h
+              z=all_h_spectral_original_port_cap_no_go(s)
+              assert z["all_global_true_original_one_typed_port_row_upper"]==2*z["original_GQ_integer_cell_upper"]-2
+              assert z["abstract_relaxation_all_D_edges"]>=z["scalar_SOURCE_GOOD_unordered_D_uniform_floor"]
+              assert z["NO_unconditional_original_twoport_minorities_positive_proved"]
+              assert z["root_issue230_original_seven_GF5_s6_OPEN"]
+              if h>=16:
+                  assert z["for_h16_scalar_GOOD_and_AA_and_cell_CAP_consistent_with_abstract_R_zero"]
+                  assert z["abstract_relaxation_source_distinct_wedges_NUMERICAL_proxy"]>=Fraction(s**6,10)
+                  assert z["ABSTRACT_not_global_true_original_GQ_source_or_real_global_f_g"]
+          print("ALL dyadic h1..80 actual ORIGINAL GQ K capacity and only ABSTRACT scalar no-lift PASS")
+          PY
+  genuine-original-W32-W34-mixed-cell-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {power: 1, scheme: lex}
+          - {power: 1, scheme: reverse}
+          - {power: 1, scheme: S68}
+          - {power: 1, scheme: S72}
+          - {power: 2, scheme: lex}
+          - {power: 2, scheme: random}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True original GQ FᵀBG one global mixed physical support and GOOD opposite pre-Hall charge
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import os,json
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4ax_original_incidence_cell_port_caps import (
+              exact_true_original_incidence_cell_forced_good_ports)
+          m=fixture(int(os.environ["POWER"]),os.environ["SCHEME"])
+          z=exact_true_original_incidence_cell_forced_good_ports(m)
+          A=z["pure_GQ_SPECTRAL_cell_only_forced_opposite_integer_lower"]
+          B=z["TRUE_original_mixed_FtBG_RAW_cell_forced_opposite_integer_lower"]
+          C=z["SOURCE_DEGENERACY_corrected_ALL_D_cell_forced_good_opposite_lower"]
+          D=z["full_GOOD_independently_colored_half_minority_opposite_lower"]
+          E=z["actual_physical_GOOD_D_opposite_twoport_3flag_wedges"]
+          assert 0<=A<=B<=C<=D<=E
+          assert z["root230_Branch_A_B_C_OPEN"]
+          print(json.dumps({"s":z["s"],"scheme":os.environ["SCHEME"],
+            "TRUE_original_mixed_spectral_ONLY_FLOOR":A,
+            "TRUE_original_mixed_raw_FtBG_source_port_FLOOR":B,
+            "TRUE_original_mixed_corrected_FtBG_source_port_FLOOR":C,
+            "independently_actual_GOOD_physically_opposite":E,
+            "NO_final_GF5_selected_sixflag_assertion":True},
+            sort_keys=True,indent=2))
+          PY
