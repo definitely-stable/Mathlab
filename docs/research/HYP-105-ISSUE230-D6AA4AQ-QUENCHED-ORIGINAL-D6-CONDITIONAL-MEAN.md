@@ -154,6 +154,22 @@ as s=2^h→∞, with the o(1) UNIFORM over every adversarial complete global f a
 
 The result is technically meaningful because the point f is fixed BEFORE the conditional expectation, and the physical image edge holes on the line side stay fixed. Uniform asymptotic first moment by itself gives neither concentration nor a lower tail against a fixed adversarial global g.
 
+### Exact finite true-original quenched W(3,2) values
+
+These values come from ACTUAL 45 original source incident flag IDs, fixed global point f, and uniformly permuting original LINE source factor assignments among the very same complete occupied physical K6 line image. They do NOT average f; and they do NOT equate the fixed current g to the distribution average. The original six-different-line flags per physical point C6 were counted by a LINE-FIRST six-bit matching DP independently rechecked by original neighbor recursive enumeration; an unrelated ORIGINAL point-sixsubset-FIRST physical cycle classifier over C(15,6)=5005 original source point factor sets reproduced the entire conditional exact Fraction.
+
+| Fixed globally complete true-original W(3,2) typed f | Number of physical C6 from same f | Six-original-incidence SOURCE matchings A6(f) under physical point C6 | Exact conditional \(\mathbb E_\pi S_{\mathrm{D6}}(f,g_\pi)\) | Historical selected D6 for currently FIXED g |
+|---|---:|---:|---:|---:|
+| dual-zero | 60 | 18,242 | **2606/715 ≈ 3.645** | 1 |
+| lex | 60 | 18,716 | **18716/5005 ≈ 3.739** | 15 |
+| reverse | 60 | 18,716 | **18716/5005 ≈ 3.739** | 3 |
+| S68 | 60 | 21,186 | **1926/455 ≈ 4.233** | **0** |
+| S72 | 60 | 21,186 | **1926/455 ≈ 4.233** | **0** |
+
+Each row has \(\Pr_\pi[\text{a fixed source six-Q obtains desired physical line dual C6}]=720/(15)_6=1/5005\). The exact conditional means range 3.645–4.233 while specific globally fixed typed schemes can have zero D6 or fifteen different D6. Such fluctuations are compatible with the all-h \((16/3+o(1))s^6\) quenched FIRST moment theorem; they are not a uniform concentration or every-fixed-global-pair statement.
+
+Finite *single physical point-C6 source* tests at W(3,4), with SIX true ORIGINAL points and six injective ORIGINAL lines: lex has **13,125**, random **12,304**, versus proved per-cycle GQ lower **6,250**. At W(3,8) the corresponding one-C6 true original source SDR values are lex **498,960**, random **518,319**, versus proved original lower **433,026**. These tests use real symplectic original source incidences and full globally assigned physical typed maps with six (W34) or ten (W38) missing K_a pair images. They are not a full physical C6 census at s=4 or s=8.
+
 ## 7. Independent falsification protocol and limitation ledger
 
 The FOUR additive files are a mathematical executor, seven independent true-source test groups, this proof Markdown, and a dedicated GitHub-hosted workflow.
