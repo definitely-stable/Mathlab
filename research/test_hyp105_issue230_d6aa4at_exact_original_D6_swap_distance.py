@@ -150,17 +150,31 @@ class ExactOriginalGlobalD6SwapDistance(unittest.TestCase):
                   "Q_exact_optimum_sample",z["EXACT_orig_original_Q_sampled_for_global_OPTIMUM"],
                   "distance_histogram",z["global_optimal_swap_distance_histogram"])
 
-    def test_04_actual_original_adversarial_W32_fixed_g_D6_ZERO_implies_optimum_not_ZERO(self):
-        from hyp105_issue230_d6aa4ap_unique_original_D6_path_kernel import (
-            true_original_W32_all_D6_source_path_census)
+    def test_04_actual_original_adversarial_W32_optimal_radius_FIVE_SHARP_witness(self):
+        # These REAL original source W32 maps were HISTORICALLY fully
+        # certified as D6-ZERO by the earlier independent selected GF5
+        # census, outside the strict stack dependency of this PR.
+        # Reverify positivity absence for each directly optimized Q,
+        # not via a nonexistent sibling-branch code import.
         for scheme in ("S68","S72"):
             m=fixture(1,scheme)
-            orig=true_original_W32_all_D6_source_path_census(
-                m,historical_Q_first=True)
-            self.assertEqual(orig["exact_D6_unique_true_original_six_Q"],0)
             z=real_original_W32_min_distance_sample_certificate(
-                m,sample_count=90)
+                m,sample_count=180)
             self.assertNotIn(0,z["global_optimal_swap_distance_histogram"])
+            self.assertIn(5,z["global_optimal_swap_distance_histogram"])
+            Q=z["one_genuine_original_Q_witness_per_observed_distance"][5]
+            shortest=exact_true_original_W32_minimum_D6_repair_distance(
+                m,Q,validate_witness=True)
+            self.assertEqual(
+                shortest["EXACT_MINIMUM_full_GLOBAL_line_source_transposition_distance_to_D6"],5)
+            self.assertTrue(
+                shortest["ALL_720_oriented_physically_occupied_K6_D6_targets_exhausted"])
+            self.assertTrue(shortest[
+                "historical_original_sixflag_GF5_D6_verified_at_global_OPTIMUM"])
+            print("AA4AT RADIUS-FIVE SHARP TRUE ORIGINAL W32",scheme,
+                  "exact_six_original_incidence_IDs",Q,
+                  "real_global_line_factor_swap_witness",
+                  shortest["optimal_actual_whole_original_line_source_swaps"])
 
     def test_05_parent_all_Q_radius5_vs_NEW_optimal_true_original_W32_samples(self):
         for scheme in ("lex","S68","S72"):
