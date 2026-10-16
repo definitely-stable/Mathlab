@@ -1,4 +1,4 @@
-name: hyp105-issue230-aa4az-quenched-allD-variance
+name: hyp105-issue230-aa4ba-quenched-GOOD-variance
 on:
   pull_request:
     paths:
@@ -23,6 +23,7 @@ jobs:
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_01
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_02
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_05
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_07
   W34-original-and-all-h-exact-arithmetic:
     runs-on: ubuntu-latest
     timeout-minutes: 25
@@ -36,6 +37,7 @@ jobs:
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_03
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_04
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_06
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_08
       - name: Print universal exact envelopes without claiming root acceptance
         run: |
           PYTHONPATH=research python - <<'PY'
