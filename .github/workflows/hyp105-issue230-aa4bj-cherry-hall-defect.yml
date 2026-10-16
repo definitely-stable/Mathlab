@@ -1,0 +1,48 @@
+name: hyp105-issue230-aa4bj-true-original-cherry-Hall-defect
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bj_cherry_hall_defect.py"
+      - "research/test_hyp105_issue230_d6aa4bj_cherry_hall_defect.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BJ-CHERRY-FIRST-HALL-DEFECT.md"
+      - ".github/workflows/hyp105-issue230-aa4bj-cherry-hall-defect.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-exact-genuine-cherry-C4-double-matching:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All dyadic h1..80 real-source parameter minimal pair alphabet and missing-edge proof, explicit per genuine anchor s10 over32 lower
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bj_cherry_hall_defect.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bj_cherry_hall_defect.py' -v -k test_06
+  independent-all-90-original-W32-source-cherry-Hall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real original W32 all 90 true point and LINE source-cherry anchors against independent historical seven-GF5 first collision moment
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bj_cherry_hall_defect.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bj_cherry_hall_defect.py' -v -k test_04
+  independent-original-W34-real-source-brute-and-gauge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine W34 source GF4 true original 4flag brute vs physical C4 and double edges for opposite fixed map on nononto K14 images
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bj_cherry_hall_defect.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bj_cherry_hall_defect.py' -v -k test_05
