@@ -202,6 +202,25 @@ class TrueOriginalQuenchedGOODWedgeTests(unittest.TestCase):
                                  "fixed_original_right_clean_support_port_energy"])
             self.assertFalse(expected["given_FIXED_adversarial_original_f_g_GOOD_lower_PROVED"])
 
+    def test_10_frozen_real_original_good_fixed_vs_global_permutation_mean(self):
+        frozen=(
+            (1,"S68",697,Fraction(87056,91),240),
+            (1,"S72",750,Fraction(87056,91),240),
+            (1,"lex",1105,Fraction(88992,91),240),
+            (2,"lex",3544,Fraction(4784352,1411),2880),
+            (2,"random",10,Fraction(87376,9877),240),
+        )
+        for h,name,actual,mean,cleanT in frozen:
+            model=fixture(h,name)
+            z=quenched_genuine_original_GOOD_opposite_mean(model)
+            fixed=exact_true_original_good_D_two_port_wedge_certificate(model)[
+                "good_D_original_OPPOSITE_TWO_TYPED_port_wedges"]
+            self.assertEqual(fixed,actual)
+            self.assertEqual(z["exact_one_global_original_LINE_bijection_GOOD_opposite_wedge_mean"],mean)
+            self.assertEqual(z["fixed_original_right_clean_support_port_energy"],cleanT)
+            self.assertFalse(z["given_FIXED_adversarial_original_f_g_GOOD_lower_PROVED"])
+        self.assertLess(Fraction(87376,9877),Fraction(10))
+
     def test_09_high_h_adversarial_missing_physical_star_or_matching(self):
         s=32
         V=(s+1)*(s*s+1)
