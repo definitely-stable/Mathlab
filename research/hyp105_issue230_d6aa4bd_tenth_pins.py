@@ -28,7 +28,7 @@ def sharp_clean_all_support_floor(s):
     """
     if type(s) is not int or s<32 or s & (s-1):
         raise ValueError("dyadic s=2^h with h>=5 is essential")
-    V,a,m,_ = _params(s)
+    V,a,_,m = _params(s)
     t=a-31
     if t<230 or m>a-2:
         raise AssertionError("minimal physical alphabet arithmetic")
