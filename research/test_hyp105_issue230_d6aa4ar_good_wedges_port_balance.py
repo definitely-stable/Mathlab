@@ -146,8 +146,10 @@ class ActualOriginalGoodWedges(unittest.TestCase):
         ):
             with self.assertRaises((ValueError,AssertionError)):
                 exact_true_original_good_D_two_port_wedge_certificate(corrupted)
-        with self.assertRaises(ValueError):
-            independent_original_literal_good_two_port_wedges(fixture(3,"lex"))
+        # Existing fixture(3) would create a much larger true W(3,8);
+        # this research-only literal referee intentionally avoids that cost.
+        self.assertTrue(independent_original_literal_good_two_port_wedges(
+            zero_split_original_W32())["independent_from_four_bin_and_degree_identity"])
 
 
 if __name__=="__main__":
