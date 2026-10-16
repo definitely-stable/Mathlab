@@ -123,6 +123,40 @@ Compared to counting at most 4!=24 labeled permutations for each of \((10t)^2=10
 
 5. All dyadic orders h=1..80: exact BigInteger physical minimal alphabet a, original parameters V,d, physical port total capacities \(A=7t,B=3t\), and source Hall upper 149t² vs previous 2400t², with explicit flag that ALL selected-seven GF5 root lower remains unproved.
 
+### NEW AO-3: actual ORIGINAL W(3,2) Hall charge split by source factor multiplicity and D6 alignment
+
+The complete genuine W32 full-source D-pair census from two independently implemented original-source algorithms has been extended to partition **EVERY accepted bilateral physically 2-regular D-anchor-to-six-Q INCIDENCE** according to its ORIGINAL residual four-factor point/line multiplicity profile. Entries are source **D-anchor incidence charges**, not the number of unique source six-Q and not the count of valid slot permutations (which differ by multiplicity denominators 1, 2, 4).
+
+| Same fixed true ORIGINAL W32 global f,g maps | Residual A/A actual original matching charge | Residual A/B | Residual B/A | Residual B/B | Total original bilateral physical 2-regular Hall \(H\) | Rejected unaligned A/A \(R\) | Aligned A/A D6 charge \(H_{AA}-R\) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| dual-zero | 578 | 75 | 73 | 10 | 736 | 572 | **6** |
+| lex | 1,077 | 213 | 193 | 21 | 1,504 | 987 | **90** |
+| reverse | 758 | 118 | 102 | 8 | 986 | 740 | **18** |
+| S68 | 413 | 27 | 50 | 2 | 492 | 413 | **0** |
+| S72 | 524 | 38 | 36 | 1 | 599 | 524 | **0** |
+
+The historical seven-GF5 classifier selects **every** genuine bilateral D-anchored source A/B, B/A and B/B original Q. For A/A it selects precisely aligned connected original-source flag-position D6. Thus, for ANY dyadic W(3,s) and any complete original globally injected typed f,g,
+
+\[
+\boxed{
+E_{\mathrm{seven}}^{(D)}
+=
+H_{A/B}^{(D)}+H_{B/A}^{(D)}+H_{B/B}^{(D)}
++H_{A/A,\mathrm{aligned\ D6}}^{(D)}
+}
+\]
+
+and
+\[
+H_{A/A}^{(D)}
+=R_{\mathrm{unaligned\ A/A}}^{(D)}
++H_{A/A,\mathrm{aligned\ D6}}^{(D)}.
+\]
+
+Parent #530 already proved that every true D6 six-ID Q has EXACTLY SIX compatible D anchors, so the last term equals \(6S_{\mathrm{D6}}\), with \(S_{\mathrm{D6}}\) counting unique actual original aligned D6 sixsets under the SAME pair of global typed physical maps. This is a **new joint audit and source-profile-resolved exact charge ledger** of already-known selected GF5 algebra, not a new lower-bound theorem. It is independently checked against existing full original W32 Q-FIRST historical GF5 charge and full physical D-FIRST source matching.
+
+This refined ledger pinpoints the two distinct global obstructions: (i) most physically occupied port templates have **NO genuine original source four-matching** (new AO-1 bounds their positive multiplicity by 0/1/2), and (ii) most genuine original A/A four-matchings may lie in **unaligned physically 2-regular A/A** instead of aligned D6. Stronger universal lower estimates on raw physical port patterns alone would not remove either obstruction.
+
 ## 6. Decision, acceptance, next mathematically open gate
 
 **New restricted all-h result:** original source GIRTH-EIGHT ensures unique-or-zero real four-incidence SOURCE matchings for residual physical port template factor-slot profiles B/A, A/B, B/B; correct exact source slot permutation stabilizer quotient including repeated-factor collisions; new universally valid \(H_D\le 2A_PA_L+A_PB_L+B_PA_L+B_PB_L\) and full palette \(\le149\binom{a-3}3^2\) bound. Source profile A/A upper two and original C8 equality are credited to #512. All source graph statements are for TRUE original W(3,2^h) and all global f,g, not just finite W32.
