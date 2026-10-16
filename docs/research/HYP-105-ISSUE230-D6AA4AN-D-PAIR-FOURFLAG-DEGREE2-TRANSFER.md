@@ -99,6 +99,51 @@ Here E can be far smaller than the count of unilateral physical/source four-flag
 
 A strict unrelated source-first oracle directly checks all \(\binom{43}{4}=123,410\) possible four-flag choices from the actual 45-original-flag universe for selected anchors under W32 and agrees with the \((486,81,81)\) source physical shape partition. This is independent of the AN-1 physical shape generator and of the original selected GF5 seven-Q joins.
 
+### NEW AN-4 — exact all-h TRUE ORIGINAL D-anchored joint 2-regular charge minus **only** unaligned A/A
+
+Let \(\mathscr D(f,g)\) be the genuine ORIGINAL D-compatible two-incidence-ID anchors from #529/#530. For each \(D\in\mathscr D\), let \(R\) range over the unordered FOUR remaining distinct actual original source incidence IDs, and form \(Q=D\cup R\). Define
+\[
+J_{\!D\text{-}2{\rm reg}}(f,g)
+=\#\{(D,R):\text{both point and line global physical projections of }Q\text{ have precisely SIX coordinates of degree TWO}\}.
+\]
+Each pair \((D,R)\) is counted **once**, even if the same six-flag Q contains more than one DIFFERENT D anchor; this is the exact D-anchored physical joint mass, not the number of UNIQUE sixsets.
+
+**New structural theorem, all powers \(s=2^h\ge2\) and EVERY globally injected original point/line f,g:**
+Any \(Q\) containing a genuine D pair cannot have source-factor multiplicity type C on EITHER physical side. Indeed, the original three-repeated-factors C projection consists of THREE different physical factor pair edges, each repeated twice. Its six physical coordinates have physical dual links ONLY between flags with the SAME original source factor. In contrast D contains two flags with DISTINCT actual original source factors whose TWO distinct globally injected physical pair images overlap in one physical coordinate on that side. Hence source C and a D anchor contradict each other. The same reasoning applies on both point and line sides, so joint 2-regular \(Q\supset D\) has physical original source factor multiplicity type **A or B on EACH side**, never C.
+
+Among the four resulting source-type combinations, the historical seven selected positive GF(5) classes accept ALL B/A, A/B, and B/B (both overlapping and disjoint repeated original factors). The only remaining category A/A is accepted exactly when the original six-incidence positions have the SAME aligned connected column-dual six-cycle D6. Therefore the **ONLY** reason that an already BILATERALLY physically 2-regular Q containing a true D anchor fails to be a historical seven-selected GF5 Q is its **unaligned / non-D6 A/A projection**.
+
+Writing \(R^{(D)}_{\rm unaligned\ AA}\) for these rejected, D-anchored, jointly physically 2-regular actual original six-flag extension incidences, and \(E^{(D)}_{\rm seven}\) for the exactly original D-to-seven selected GF5 extension charge of parent #530:
+
+\[
+\boxed{
+J_{\!D\text{-}2{\rm reg}}(f,g)
+=E^{(D)}_{\rm seven}(f,g)+R^{(D)}_{\rm unaligned\ AA}(f,g),
+\qquad\forall s=2^h\ge2,\ \forall f,g.
+}
+\]
+
+This is not a statistical model or an independently sampled pair approximation; each of the three terms uses the SAME true original six-ID Q and SAME globally shared f/g maps. The executable independent D-FIRST evaluator asserts on EVERY rejected bilateral Q that its ORIGINAL source multiplicities are A/A; any other rejected source topology fails closed. It then checks the integer identity, independent of preselected-Q input.
+
+The equality is a **nontrivial topology-filter simplification of the D-anchored joint degree-two six-flag tensor**: source C terms are absent because of the actual D physical overlap, all B-containing joint shapes are already positive accepted GF5, and only misaligned A/A prevents all joint-twofactor Q from contributing to E. It remains a **partial model reduction**, NOT by itself the root Branch C acceptance gate and NOT a lower on \(E\): the unaligned A/A term can be large, as the real globally coherent W32 finite exact census shows.
+
+| ONE genuine ORIGINAL W32 full global f/g map | Unilateral D-FIRST actual four-flag candidates | Joint physically 2-regular D-anchored six-flag charge \(J\) | Rejected genuine unaligned A/A charge \(R\) | Selected seven GF5 extension charge \(E=J-R\) |
+|---|---:|---:|---:|---:|
+| dual-zero | 179,496 | **736** | **572** | **164** |
+| lex | 198,936 | **1,504** | **987** | **517** |
+| reverse | 194,400 | **986** | **740** | **246** |
+| S68 | 166,536 | **492** | **413** | **79** |
+| S72 | 169,128 | **599** | **524** | **75** |
+
+**Strong all-map limitation visible in genuine finite data:** even when a D-anchored actual original sixset simultaneously has degree-two physical point AND line projections, most of its anchored incidence charge may lie in rejected unaligned A/A: 413 of 492 for S68, 524 of 599 for S72, 572 of 736 for dual-zero. These are actual true-original **anchor-incidence counts**, not unique source-sixset counts; do not sum them with U from parent #530 or infer a large-h asymptotic rate. Thus \(\Omega(s^6)\) physically joint 2-regular **alone**, if it were ever proved, still would not imply \(\Omega(s^6)\) selected seven GF5 without controlling the unaligned A/A defect.
+
+**New precise next proof gate:** a genuine all-global bound on
+\[
+J_{\!D\text{-}2{\rm reg}}(f,g)-R^{(D)}_{\rm unaligned\ AA}(f,g)
+\ge c s^6,
+\]
+or (by parent's exactly validated full selected seven hypergraph) a lower on U, the true positive sixsets with zero D anchors. A lower on J without a proof controlling R is insufficient. Conversely an explicit all-h family with \(E+U=o(s^6)\) would provide a true Branch B counterfamily; none is constructed here.
+
 ## 5. Sharp physical maximal-hole warning: no unconditional per-D unilateral transfer from global injection alone
 
 For a generic minimal physical K_a palette with **maximal missing edge allowance** \(m=a-2\), let distinct anchored physical source edges be \(\{x,u\},\{x,v\}\). Make **every** physical edge \(\{u,z\}\) with \(z\notin\{x,u\}\) absent, leaving exactly
