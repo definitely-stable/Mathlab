@@ -1,12 +1,14 @@
 """AA4-AO: global-original physical port robust theorem and falsifiers."""
 import unittest
 from collections import Counter
+from fractions import Fraction
 from itertools import combinations
 
 from hyp105_issue230_d6aa4ao_robust_port_occupancy import (
     physical_P5_robust_certificate,all_h_robust_original_D_port_physical_theorem,
     genuine_original_D_pair_robust_occupation,
-    independent_abstract_isolated_port_sharpness)
+    independent_abstract_isolated_port_sharpness,
+    globally_bad_physical_coordinates)
 from hyp105_issue230_d6aa4an_port_completion_hall_funnel import (
     _strict_occupied_half_patterns)
 from hyp105_issue230_d6aa4am_genuine_pair_sixcharge import (
@@ -42,14 +44,15 @@ class RobustOriginalDPortPhysical(unittest.TestCase):
                     "unconditional_typed_P5_positive_for_every_original_D"])
                 self.assertGreater(z[
                     "each_original_D_pair_two_side_occupied_P5_P5_lower"],0)
+            self.assertLessEqual(z["global_physical_high_missing_degree_vertices_upper"],31)
             if h>=2 and m<=n:
                 self.assertTrue(z[
                     "unconditional_some_typed_physical_pattern_for_every_original_D"])
             if h>=3:
                 self.assertEqual(z["conditional_typed_good_P5_lower"],
-                                 n*(n-1)*(n-2)/2)
+                                 Fraction(n*(n-1)*(n-2),2))
                 self.assertEqual(z["conditional_two_side_good_P5_P5_lower"],
-                                 (n*(n-1)*(n-2)/2)**2)
+                                 Fraction(n*(n-1)*(n-2),2)**2)
             self.assertTrue(z["accepted_original_Hall_Q_positive_NOT_PROVED"])
             self.assertTrue(z["number_of_good_D_pairs_lower_NOT_PROVED"])
         for bad in (0,3,True,-2):
@@ -69,6 +72,9 @@ class RobustOriginalDPortPhysical(unittest.TestCase):
             for missing in msets:
                 occupied=all_edges-set(missing)
                 z=physical_P5_robust_certificate((center,p,q),a,occupied)
+                bad=globally_bad_physical_coordinates(a,occupied)
+                self.assertLessEqual(bad["bad_physical_coordinate_count"],31)
+                self.assertEqual(bad["total_missing"],len(missing))
                 direct,all_types=independent_physical_literal_P5_oracle(
                     (center,p,q),a,occupied)
                 self.assertEqual(z["actual_occupied_P5"],direct)
