@@ -11,6 +11,8 @@ from hyp105_issue230_d6aa4at_exact_original_D6_swap_distance import (
     occupied_global_original_line_D6_cycle_owner_targets,
     exact_true_original_W32_minimum_D6_repair_distance,
     real_original_W32_min_distance_sample_certificate,
+    exact_true_original_W32_SHARP_five_swap_witness,
+    FROZEN_TRUE_ORIGINAL_W32_RADIUS_FIVE_Q,
 )
 from hyp105_issue230_d6aa4as_every_original_Q_five_swap_repair import (
     finite_original_eligible_Q_generator,
@@ -187,6 +189,33 @@ class ExactOriginalGlobalD6SwapDistance(unittest.TestCase):
                 self.assertLessEqual(
                     z["EXACT_MINIMUM_full_GLOBAL_line_source_transposition_distance_to_D6"],
                     parent["number_of_GLOBAL_line_factor_image_transpositions"])
+
+    def test_07_TWO_frozen_true_original_W32_source_GLOBAL_radius_five_SHARPNESS_certificates(self):
+        expected={
+            "S68":((2,19,22,35,36,42),
+                   ((7,2),(12,6),(6,1),(14,11),(11,3))),
+            "S72":((10,15,23,29,30,33),
+                   ((3,0),(9,1),(5,2),(10,12),(7,6))),
+        }
+        self.assertEqual(set(FROZEN_TRUE_ORIGINAL_W32_RADIUS_FIVE_Q),
+                         set(expected))
+        for scheme,(flags,swaps) in expected.items():
+            p=exact_true_original_W32_SHARP_five_swap_witness(scheme)
+            self.assertEqual(
+                p["six_DISTINCT_true_original_incidence_flag_IDs"],flags)
+            self.assertEqual(p["five_global_original_line_factor_swap_witness"],swaps)
+            self.assertEqual(p["EXACT_global_minimum_distance"],5)
+            self.assertEqual(sum(p[
+                "all_720_target_global_exact_distance_histogram"].values()),720)
+            self.assertTrue(p[
+                "UNIVERSAL_five_transposition_upper_SHARP_for_individual_true_original_Q"])
+            self.assertTrue(p[
+                "DOES_NOT_PROVE_selected_seven_GF5_every_fixed_map_positive"])
+            print("AA4AT FROZEN TRUE ORIGINAL SHARP",scheme,
+                  "SIX_SOURCE_FLAG_IDS",flags,
+                  "ALL_720_EXACT_TARGET_DISTANCE_HISTOGRAM",p[
+                    "all_720_target_global_exact_distance_histogram"],
+                  "GLOBAL_5_SOURCE_LINE_SWAPS",swaps)
 
     def test_06_negative_malformed_original_true_Q_and_synthetic_global_owners(self):
         m=fixture(1,"lex")
