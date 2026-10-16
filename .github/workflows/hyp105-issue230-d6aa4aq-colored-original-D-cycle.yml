@@ -1,0 +1,63 @@
+name: hyp105-issue230-d6aa4aq-colored-original-D-cycle
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4aq_colored_original_D_cycle.py"
+      - "research/test_hyp105_issue230_d6aa4aq_colored_original_D_cycle.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AQ-COLORED-ORIGINAL-D-CYCLE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4aq-colored-original-D-cycle.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  full-true-original-W32-rainbow-D6-vs-independent-sixQ-oracle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Five original full global W32 maps real two-colored D6 C6 rainbow six-ID set equality to independent 62370-original-Q oracle
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aq_colored_original_D_cycle.TrueOriginalColoredD6.test_01_full_original_W32_all_five_global_maps_independent_D6_sixQ
+  actual-W32-S68-S72-uncolored-cycles-do-not-imply-original-D6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real original source D graph has ordinary C6 on W32 S68/S72 but zero selected rainbow D6
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aq_colored_original_D_cycle.TrueOriginalColoredD6.test_02_real_original_W32_S68_S72_ordinary_sixcycle_without_D6
+  original-W34-spectral-directed-port-and-partial-D6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True W34 globally K14 injected point and line physical maps, independent original F^TBG spectral next-step bound, scope-limited actual D6 six-ID Q certificates
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aq_colored_original_D_cycle.TrueOriginalColoredD6.test_03_genuine_original_W32_W34_two_typed_source_cell_spectral_transition \
+            test_hyp105_issue230_d6aa4aq_colored_original_D_cycle.TrueOriginalColoredD6.test_04_true_original_W34_partial_rooted_rainbow_certificate
+  all-h-high-girth-no-go-and-genuine-source-invariance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Abstract GQ girth-eight C6-free >=s5 on original N slots for all h>=48 without fake source mapping, genuine symplectic and independent typed physical maps, invalid-source guards
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4aq_colored_original_D_cycle.TrueOriginalColoredD6.test_05_original_source_symplectic_and_two_typed_physical_relabels \
+            test_hyp105_issue230_d6aa4aq_colored_original_D_cycle.TrueOriginalColoredD6.test_06_abstract_girth_eight_edgecount_no_go_for_h48_to_80 \
+            test_hyp105_issue230_d6aa4aq_colored_original_D_cycle.TrueOriginalColoredD6.test_07_invalid_original_inputs_full_domain_and_partial_scope
