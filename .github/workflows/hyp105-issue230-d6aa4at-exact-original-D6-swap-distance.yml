@@ -1,0 +1,65 @@
+name: hyp105-issue230-d6aa4at-exact-original-D6-swap-distance
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4at_exact_original_D6_swap_distance.py"
+      - "research/test_hyp105_issue230_d6aa4at_exact_original_D6_swap_distance.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AT-EXACT-ORIGINAL-D6-SWAP-DISTANCE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4at-exact-original-D6-swap-distance.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  full-independent-source-D6-global-swap-optimizer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True original W32 source six-Q and complete S7/S8 partial factor Cayley proof audit
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4at_exact_original_D6_swap_distance.py" -v
+  independent-genuine-original-W32-global-model-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse, S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact all 720 physical D6 targets per REAL original source sixflag Q
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4at_exact_original_D6_swap_distance import (
+              real_original_W32_min_distance_sample_certificate,
+              exact_true_original_W32_minimum_D6_repair_distance)
+          m=fixture(1,os.environ["SCHEME"])
+          z=real_original_W32_min_distance_sample_certificate(
+              m,sample_count=500)
+          assert z["EXACT_orig_original_Q_sampled_for_global_OPTIMUM"]==500
+          assert z["all_720_D6_line_target_orientations_per_Q_exhausted"]
+          assert z["maximum_exact_distance_observed"]<=5
+          for dist,Q in z["one_genuine_original_Q_witness_per_observed_distance"].items():
+              witness=exact_true_original_W32_minimum_D6_repair_distance(
+                  m,Q,validate_witness=True)
+              assert witness["EXACT_MINIMUM_full_GLOBAL_line_source_transposition_distance_to_D6"]==dist
+              assert witness["historical_original_sixflag_GF5_D6_verified_at_global_OPTIMUM"]
+          if os.environ["SCHEME"] in ("S68","S72"):
+              assert 0 not in z["global_optimal_swap_distance_histogram"]
+          print(json.dumps({"scheme":os.environ["SCHEME"],
+              "true_original_source_Q_total":z["total_eligible_original_six_ID_Q"],
+              "true_original_source_Q_exactly_optimized":z["EXACT_orig_original_Q_sampled_for_global_OPTIMUM"],
+              "exact_source_Q_D6_global_minimum_swap_histogram":z["global_optimal_swap_distance_histogram"],
+              "max_true_original_source_global_line_swaps_found":z["maximum_exact_distance_observed"],
+              "entire_W32_source_pop_full_opt_NOT_claimed":not z["FULL_source_population_exhausted"]},sort_keys=True,indent=2))
+          PY
