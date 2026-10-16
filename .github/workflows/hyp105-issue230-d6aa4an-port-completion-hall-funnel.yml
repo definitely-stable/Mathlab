@@ -34,7 +34,8 @@ jobs:
       - name: Every true ORIGINAL D pair under five globally fixed complete W32 maps, exact source 4-flag matching + independent 62370 original selected seven-Q comparison per pair
         run: |
           PYTHONPATH=research python -m unittest -v \
-            test_hyp105_issue230_d6aa4an_port_completion_hall_funnel.OriginalPortCompletionHall.test_03_complete_original_W32_5_global_maps_D_first_exact_Q_extensions
+            test_hyp105_issue230_d6aa4an_port_completion_hall_funnel.OriginalPortCompletionHall.test_03_complete_original_W32_5_global_maps_D_first_exact_Q_extensions \
+            test_hyp105_issue230_d6aa4an_port_completion_hall_funnel.OriginalPortCompletionHall.test_03b_reusable_complete_original_S68_full_funnel_partition
   original-W34-K14-physical-holes-and-independent-source-Hall:
     runs-on: ubuntu-latest
     timeout-minutes: 20
