@@ -246,6 +246,40 @@ class OriginalTrueSymplecticIncidencePortCellCapacity(unittest.TestCase):
             self.assertTrue(z[
                 "ABSTRACT_not_global_true_original_GQ_source_or_real_global_f_g"])
 
+    def test_08_FROZEN_seven_genuine_original_source_K6_K14_port_CAP_and_nonlift(self):
+        # True source incidence Q-first independent literal source
+        # cell capacity witnesses; no random per-Q f/g changes.
+        exact=(
+            ("dual_zero",zero_split_original_W32(),277,0,222,652,870),
+            ("lex",fixture(1,"lex"),307,0,211,794,1105),
+            ("reverse",fixture(1,"reverse"),300,0,375,784,1013),
+            ("S68",fixture(1,"S68"),257,0,159,509,697),
+            ("S72",fixture(1,"S72"),261,0,145,545,750),
+            ("W34_lex",fixture(2,"lex"),2072,0,0,0,3544),
+            ("W34_random",fixture(2,"random"),147,0,0,0,10),
+        )
+        for name,m,edges,spectral,raw,corrected,actual in exact:
+            v=exact_true_original_incidence_cell_forced_good_ports(m)
+            observed=(
+                v["actual_GOOD_D_original_unordered_source_edges"],
+                v["pure_GQ_SPECTRAL_cell_only_forced_opposite_integer_lower"],
+                v["TRUE_original_mixed_FtBG_RAW_cell_forced_opposite_integer_lower"],
+                v["SOURCE_DEGENERACY_corrected_ALL_D_cell_forced_good_opposite_lower"],
+                v["actual_physical_GOOD_D_opposite_twoport_3flag_wedges"])
+            self.assertEqual(observed,(edges,spectral,raw,corrected,actual))
+            self.assertLessEqual(spectral,raw)
+            self.assertLessEqual(raw,corrected)
+            self.assertLessEqual(corrected,actual)
+            self.assertTrue(v[
+                "source_GQ_incidence_transport_forced_partial_GF5_preHall_not_final_selected"])
+            self.assertTrue(v["all_global_positive_minority_sum_NOT_PROVED"])
+            print("AA4AX_FROZEN_TRUE_ORIGINAL",name,
+                  "ACTUAL_GOOD_D",edges,
+                  "SPECTRAL_PORT_FLOOR",spectral,
+                  "RAW_MIXED_FtBG_PORT_FLOOR",raw,
+                  "CORRECTED_SOURCE_ALL_D_PORT_FLOOR",corrected,
+                  "ACTUAL_GOOD_OPPOSITE",actual)
+
     def test_07_strict_invalid_source_global_injection_and_real_GQ(self):
         m=fixture(1,"S68")
         for forged in (
