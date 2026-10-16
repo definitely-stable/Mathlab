@@ -91,6 +91,8 @@ def all_h_one_side_permutation_D6_theorem(s):
     assert q>=1
     denominator=_falling(V,6)
     lower=Fraction(12*C*C*q,denominator)
+    upper=Fraction(12*z["complete_Ka_undirected_C6"]**2*d**6,denominator)
+    assert lower<=upper
     if s>=4:
         if s==4:
             assert lower>=Fraction(2,3)*s**6
@@ -116,6 +118,9 @@ def all_h_one_side_permutation_D6_theorem(s):
         "some_GLOBALLY_complete_line_source_permutation_has_D6_at_least":
             (lower.numerator+lower.denominator-1)//lower.denominator,
         "relative_to_s6_uniform_lower":lower/Fraction(s**6),
+        "any_fixed_global_f_line_support_conditional_mean_upper":upper,
+        "relative_to_s6_uniform_upper":upper/Fraction(s**6),
+        "all_GLOBAL_fixed_f_supports_conditional_mean_sandwiched_to_16_over_3_s6_as_h_grows":True,
         "requires_random_GLOBAL_line_source_factor_assignment":
             True,
         "does_NOT_hold_for_EACH_FIXED_GLOBAL_f_g":True,
