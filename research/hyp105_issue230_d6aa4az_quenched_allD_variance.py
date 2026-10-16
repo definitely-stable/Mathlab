@@ -11,7 +11,7 @@ from hyp105_issue230_d6aa4ay_quenched_allD_opposite_mean import (
 )
 
 
-def original_line_triple_weights(model):
+def original_line_triple_weights(model, clean_only=False):
     """True original incidence triples with opposite physical POINT ports."""
     V, a, _, _ = _params(model["s"])
     d = model["s"] + 1
@@ -30,12 +30,20 @@ def original_line_triple_weights(model):
         line_degrees[l] += 1
     if any(len(v) != d for v in nbr) or any(x != d for x in line_degrees):
         raise ValueError("source not d-regular")
+    allowed = set(range(V))
+    if clean_only:
+        from hyp105_issue230_d6aa4az_quenched_good_opposite import support_bad_clean_energy
+        clean = set(support_bad_clean_energy(f,a)["clean_induced_occupied_edges"])
+        allowed = {p for p in range(V) if f[p] in clean}
     stars = [[] for _ in range(a)]
     for p,(u,v) in enumerate(f):
-        stars[u].append(p)
-        stars[v].append(p)
+        if p in allowed:
+            stars[u].append(p)
+            stars[v].append(p)
     w = defaultdict(int)
     for p,l in inc:
+        if p not in allowed:
+            continue
         u,v = f[p]
         for q0 in stars[u]:
             if q0 == p:
@@ -116,4 +124,63 @@ def uniform_original_variance_envelope(s):
             "relative_variance_upper":eta,
             "half_mean_lower_tail_upper":min(Fraction(1),4*eta),
             "fixed_g_lower_PROVED":False,"good_or_sixGF5_PROVED":False,
+            "root_230":"OPEN_WITH_FORMAL_BLOCKER"}
+
+
+def clean_good_permutation_variance_certificate(model):
+    """Fixed original f, fixed physical right support, ONE random global g.
+
+    GOOD restriction requires all three ORIGINAL physical point edges AND
+    all three LINE image edges to lie in their induced AA4-AO clean supports.
+    The LINE bad-set is support-only and does not vary with the permutation.
+    """
+    from hyp105_issue230_d6aa4az_quenched_good_opposite import support_bad_clean_energy
+    V,a,_,_ = _params(model["s"])
+    E = tuple(tuple(sorted(x)) for x in model["right_labels"])
+    if len(E) != V or len(set(E)) != V:
+        raise ValueError("complete globally injected right support required")
+    w = original_line_triple_weights(model,clean_only=True)
+    T = support_bad_clean_energy(E,a)["CLEAN_physical_two_opposite_port_root_energy"]
+    if T <= 0:
+        raise ValueError("positive GOOD port energy required")
+    B,M1,M2 = source_influences(w,V)
+    p = Fraction(2*T,V*(V-1)*(V-2))
+    q = Fraction((V-3)*(V-4)*(V-5),V*(V-1)*(V-2))
+    P1 = Fraction(4*(a-2)**4,(V-1)*(V-2)*(V-3)*(V-4))
+    eta = 1/q-1 + Fraction(3*M1,B)*P1/(p*p) + Fraction(3*M2,B)/p
+    return {"V":V,"B_GOOD":B,"M1":M1,"M2":M2,
+            "right_clean_energy":T,"p_GOOD":p,"mean_GOOD":B*p,
+            "relative_variance_upper":eta,
+            "half_mean_lower_tail_upper":min(Fraction(1),4*eta),
+            "every_given_fixed_g_lower_PROVED":False,
+            "accepted_original_sixID_sevenGF5_PROVED":False,
+            "root_230":"OPEN_WITH_FORMAL_BLOCKER"}
+
+
+def uniform_original_GOOD_variance_envelope(s):
+    """All genuine dyadic h>=5: AA4-AZ GOOD expectation + AZ1 variance."""
+    from hyp105_issue230_d6aa4az_quenched_good_opposite import (
+        universal_original_clean_twoport_support_floor
+    )
+    prior = universal_original_clean_twoport_support_floor(s)
+    if not prior["uniform_clean_T_ge_V_squared_over_16_proved"]:
+        raise ValueError("uniform GOOD clean-support floor only proved for h>=5")
+    V,a,_,_ = _params(s)
+    d,t = s+1,a-2
+    L = Fraction(V*V,16)
+    B0 = d*(d-1)*(d-2)*L
+    p0 = Fraction(2*L,V*(V-1)*(V-2))
+    M10,M20 = 5*d**3*t*t,8*d**3*t
+    q = Fraction((V-3)*(V-4)*(V-5),V*(V-1)*(V-2))
+    P1 = Fraction(4*t**4,(V-1)*(V-2)*(V-3)*(V-4))
+    eta = 1/q-1 + Fraction(3*M10,B0)*P1/(p0*p0) + Fraction(3*M20,B0)/p0
+    mean0 = Fraction(2*d*(d-1)*(d-2)*L*L,V*(V-1)*(V-2))
+    if mean0 < Fraction(s**6,128):
+        raise AssertionError("AA4-AZ GOOD mean floor regressed")
+    return {"s":s,"h":s.bit_length()-1,"V":V,"a":a,
+            "GOODEXPECT_mean_lower":mean0,
+            "GOOD_relative_variance_upper":eta,
+            "probability_GOOD_below_s6_over256_upper":min(Fraction(1),4*eta),
+            "GOOD_given_fixed_g_minimax_PROVED":False,
+            "selected_original_sixID_sevenGF5_PROVED":False,
             "root_230":"OPEN_WITH_FORMAL_BLOCKER"}
