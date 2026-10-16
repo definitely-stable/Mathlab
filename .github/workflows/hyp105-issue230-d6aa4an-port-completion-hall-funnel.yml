@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4an-port-completion-hall-funnel
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4an_port_completion_hall_funnel.py"
+      - "research/test_hyp105_issue230_d6aa4an_port_completion_hall_funnel.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AN-PORT-COMPLETION-HALL-FUNNEL.md"
+      - ".github/workflows/hyp105-issue230-d6aa4an-port-completion-hall-funnel.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-and-brute-K6-K8-multigraph-topology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent multigraph combinations-with-replacement vs exactly 6+1+3 residual typed physical port patterns K6/K7/K8
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4an_port_completion_hall_funnel.OriginalPortCompletionHall.test_01_all_h_exact_three_physical_topology_numbers \
+            test_hyp105_issue230_d6aa4an_port_completion_hall_funnel.OriginalPortCompletionHall.test_02_independent_bruteforce_all_K6_K7_K8_port_multigraphs
+  full-original-W32-D-first-five-maps-all-seven-Q:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every true ORIGINAL D pair under five globally fixed complete W32 maps, exact source 4-flag matching + independent 62370 original selected seven-Q comparison per pair
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4an_port_completion_hall_funnel.OriginalPortCompletionHall.test_03_complete_original_W32_5_global_maps_D_first_exact_Q_extensions
+  original-W34-K14-physical-holes-and-independent-source-Hall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual original W34 source and globally injected but nonsurjective K14 maps, true-original selected B/A Q residual labels, invalid inputs
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4an_port_completion_hall_funnel.OriginalPortCompletionHall.test_04_physical_occupied_partial_W34_source_ports_and_local_Q_membership \
+            test_hyp105_issue230_d6aa4an_port_completion_hall_funnel.OriginalPortCompletionHall.test_06_strict_true_original_incidence_and_wrong_support_falsifiers
+  original-symplectic-typed-physical-invariance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual true W32 source symplectic automorphism and independent original point/line physical coordinate permutations preserve full D-to-seven source-Hall funnel E and C
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4an_port_completion_hall_funnel.OriginalPortCompletionHall.test_05_genuine_original_source_symplectic_and_typed_physical_invariance
