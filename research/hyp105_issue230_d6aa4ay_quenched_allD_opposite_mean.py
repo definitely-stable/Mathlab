@@ -16,9 +16,22 @@ original fixed-g minimax bound #230 Branch A.
 """
 from fractions import Fraction
 from itertools import combinations
-from math import comb
+from math import comb, isqrt
 
-from hyp105_issue230_d6aa4r_quenched_original_d6 import _params
+
+def _params(s):
+    """Self-contained actual original GQ minimal physical K_a parameters."""
+    if type(s) is not int or s<2 or (s&(s-1)):
+        raise ValueError("dyadic symplectic original order required")
+    V=(s+1)*(s*s+1)
+    a=(1+isqrt(1+8*V))//2
+    while comb(a,2)<V:
+        a+=1
+    K=comb(a,2)
+    m=K-V
+    if m<0 or m>a-2 or a<6:
+        raise AssertionError("minimal true symplectic physical palette invalid")
+    return V,a,K,m
 
 
 def physical_edge_port_energy(physical_edges,a):
