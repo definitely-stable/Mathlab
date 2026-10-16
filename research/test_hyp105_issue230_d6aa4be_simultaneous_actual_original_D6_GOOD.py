@@ -14,6 +14,7 @@ from hyp105_issue230_d6aa4be_simultaneous_actual_original_D6_GOOD import (
     choose_genuine_original_Q_from_any_complete_point_f,
     pin_original_D6_and_construct_global_good,
     all_h_original_sixpin_D6_GOOD_math_certificate,
+    all_alphabet_original_sixflag_D6_positional_pattern,
 )
 
 
@@ -119,6 +120,8 @@ class TrueOriginalSimultaneousD6AndGood(unittest.TestCase):
             g=z["actual_global_LINE_factor_images"]
             self.assertEqual(set(g),set(tuple(e) for e in m["right_labels"]))
             self.assertTrue(independent_literal_selected_d6_original_sixflags(m,Q,g))
+            self.assertTrue(all_alphabet_original_sixflag_D6_positional_pattern(m,Q,g))
+            self.assertFalse(z["all_h_s_greater_2_legacy_K6_classifier_NOT_called"])
             self.assertEqual(classify_seven_prechecked(
                 Q,m["left_labels"],g,m["incidences"]),"D6")
             self.assertEqual(z["complete_GLOBAL_original_GOOD_charge"],
@@ -162,6 +165,10 @@ class TrueOriginalSimultaneousD6AndGood(unittest.TestCase):
             self.assertIsNone(z["historical_seven_GF5_original_six_incidence_Q_class"])
             self.assertEqual(len(z["six_original_LINE_images_always_pinned_to_ONE_D6_C6"]),6)
             self.assertTrue(z["independent_PROVISIONAL_full_original_D6_witness"])
+            self.assertTrue(z["all_h_s_greater_2_legacy_K6_classifier_NOT_called"])
+            self.assertTrue(z["all_alphabet_original_D6_sixflag_pattern_prechecked"])
+            self.assertTrue(all_alphabet_original_sixflag_D6_positional_pattern(
+                m,Q,z["provisional_GLOBAL_original_LINE_images_structural_D6"]))
             self.assertGreaterEqual(
                 z["initial_PINNED_original_GOOD_conditional_mean"],0)
             self.assertTrue(z["right_global_occupied_physical_edge_support_preserved"])
