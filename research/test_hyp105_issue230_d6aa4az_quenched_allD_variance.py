@@ -108,5 +108,49 @@ class OriginalAA4AZVarianceTests(unittest.TestCase):
         self.assertEqual(z["relative_variance_upper"],other["relative_variance_upper"])
 
 
+    def test_07_original_W32_W34_CLEAN_GOOD_source_weights_and_mean(self):
+        from hyp105_issue230_d6aa4az_quenched_good_opposite import (
+            genuine_original_fixed_point_GOOD_source_potential,
+            quenched_genuine_original_GOOD_opposite_mean,
+        )
+        from hyp105_issue230_d6aa4az_quenched_allD_variance import (
+            clean_good_permutation_variance_certificate,
+        )
+        for h,scheme in ((1,"S68"),(1,"S72"),(1,"lex"),
+                         (2,"lex"),(2,"random")):
+            m=fixture(h,scheme)
+            w=original_line_triple_weights(m,clean_only=True)
+            self.assertEqual(sum(w.values()),
+                genuine_original_fixed_point_GOOD_source_potential(m)[
+                    "CLEAN_original_fixed_f_physical_point_opposite_true_source_3flag_count"])
+            z=clean_good_permutation_variance_certificate(m)
+            self.assertEqual(z["mean_GOOD"],
+                quenched_genuine_original_GOOD_opposite_mean(m)[
+                    "exact_one_global_original_LINE_bijection_GOOD_opposite_wedge_mean"])
+            self.assertGreaterEqual(z["relative_variance_upper"],0)
+            self.assertLessEqual(z["B_GOOD"],
+                sum(original_line_triple_weights(m).values()))
+            self.assertFalse(z["every_given_fixed_g_lower_PROVED"])
+
+    def test_08_all_dyadic_genuine_original_GOOD_concentration(self):
+        from hyp105_issue230_d6aa4az_quenched_allD_variance import (
+            uniform_original_GOOD_variance_envelope,
+        )
+        for h in tuple(range(5,36))+(40,48,64,80):
+            s=1<<h
+            z=uniform_original_GOOD_variance_envelope(s)
+            self.assertGreaterEqual(z["GOODEXPECT_mean_lower"],Fraction(s**6,128))
+            self.assertGreaterEqual(z["GOOD_relative_variance_upper"],0)
+            self.assertFalse(z["GOOD_given_fixed_g_minimax_PROVED"])
+            self.assertFalse(z["selected_original_sixID_sevenGF5_PROVED"])
+        with self.assertRaises(ValueError):
+            uniform_original_GOOD_variance_envelope(16)
+        # Exact finite substitutions only; no unproved all-h monotonicity.
+        self.assertGreater(uniform_original_GOOD_variance_envelope(32)[
+            "GOOD_relative_variance_upper"],1)
+        self.assertLess(uniform_original_GOOD_variance_envelope(4096)[
+            "GOOD_relative_variance_upper"],Fraction(1,32))
+
+
 if __name__=="__main__":
     unittest.main()
