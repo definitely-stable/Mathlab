@@ -78,6 +78,33 @@ This is a STRICT integer statement for ALL true original dyadic GQ orders; neith
 
 For s=2, a=6,m=0,d=3, the theorem gives the true but conservative eligible-mass lower **60**, while exact full real original schemes contain 18,242–21,186 such six-Q; this difference is due to using merely Hall ≥1 instead of the exact original 6-line-SDR source matching count at s=2. No false finite-s asymptotic inference.
 
+### NEW AA4-AS3 deterministic same-center radius-five BALL aggregate positive D6 charge
+
+There is one further exact combinatorial consequence which makes the universal every-Q quantifier operational for arbitrary starting original global g WITHOUT changing the center.
+
+Fix arbitrary genuine original globally injected f,g and define \(\mathcal B_5(g)\) to be the set of **DISTINCT fully globally legal original line factor pair-image maps**, each reachable from the SAME starting g by no more than five transpositions of two whole true-original LINE factor physical-edge images, with precisely the same physical occupied image im(g). Every g' in this ball is a globally coherent complete source factor labeling, and the ORIGINAL source incidences/point f remain fixed.
+
+Because \(\forall Q\in\mathcal Q_f\;\exists g'_Q\in\mathcal B_5(g)\) accepting that exact genuine original six-incidence Q in D6, direct double-counting of **pairs** (Q,g') yields a deterministic all-h **ball aggregate** inequality:
+
+\[
+\boxed{
+\sum_{g'\in\mathcal B_5(g)} S_{\mathrm{D6}}(f,g')
+\ge|\mathcal Q_f|
+\ge C_{\min}q_s
+=\left(\frac23+o(1)\right)s^{15}.
+}
+\]
+
+The sum is over **DISTINCT** globally complete line maps in the radius-five ball; each original six-Q contributes at least once, possibly at multiple globally different repaired g'. This does not assume different original Q produce different repaired g', and it does not assert a single universal repaired g' admits all those Q. The same rigorous source \(q_s=1\) conservative replacement is used for s=2.
+
+A crude no-duplicate ball-size upper from at most \(\binom V2\) possible whole-factor transpositions per step is
+\[
+|\mathcal B_5(g)|\le\sum_{k=0}^{5}\binom V2^k.
+\]
+This upper is NOT claimed exact because distinct transposition sequences can yield the same map. It is roughly order \(V^{10}\asymp s^{30}\), far larger than the guaranteed original source potential \(\Theta(s^{15})\); thus dividing the aggregate mass by this trivial ball upper yields no useful \(\Omega(s^6)\) guarantee for a single repaired g', still less for the ORIGINAL center g. The quantitative requirement for progress on root #230 is a strong bound on **shared repaired-Q mass per common nearby g'**, an anti-correlation/switching control, or a positive interclass compensation inequality that applies at the unchanged center.
+
+This same-center radius-five ball mass theorem is logically **stronger** than simply asserting there exists one repairable Q, but it remains a restricted local-repair theorem, not deterministic minimax at the actual unmodified original (f,g).
+
 ## 3. Finite execution, independent original Q oracles, negative controls
 
 The FOUR additive research artifacts are:
