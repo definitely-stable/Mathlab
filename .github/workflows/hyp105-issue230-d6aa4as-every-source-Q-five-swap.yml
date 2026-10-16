@@ -1,0 +1,101 @@
+name: hyp105-issue230-d6aa4as-every-source-Q-five-swap
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4as_every_original_Q_five_swap_repair.py"
+      - "research/test_hyp105_issue230_d6aa4as_every_original_Q_five_swap_repair.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AS-EVERY-SOURCE-Q-FIVE-SWAP-REPAIR.md"
+      - ".github/workflows/hyp105-issue230-d6aa4as-every-source-Q-five-swap.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true-original-every-source-Q-five-swap-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact original full W32 eligible Q census and each-original-sixflag repair, real W34 W38
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4as_every_original_Q_five_swap_repair.py" -v
+  symbolic-every-h-original-point-C6-source-Q-mass:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Uniform original (2/3+o(1))s15 six-incidence source Q mass and every Q five swaps all h1..80
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from math import comb,perm
+          from hyp105_issue230_d6aa4as_every_original_Q_five_swap_repair import all_h_every_original_Q_five_swap_mass
+          for h in range(1,81):
+              s=1<<h
+              z=all_h_every_original_Q_five_swap_mass(s)
+              a=z["a"];d=s+1
+              full=perm(a,6)//12
+              lower=full-z["physically_unused_pair_edges_per_typed_image"]*perm(a-2,4)
+              q=d**4*(d*d-15) if s>=4 else 1
+              assert z["EVERY_fixed_f_has_at_least_THIS_many_individually_repairable_original_Q"]==lower*q
+              assert z["EVERY_fixed_f_has_at_most_THIS_many_eligible_original_Q"]==full*d**6
+              assert z["EVERY_eligible_original_Q_repairable_within_FIVE_global_line_swaps"]
+              assert z["each_Q_may_need_ITS_OWN_different_GLOBAL_line_map"]
+              assert z["root_issue230_A_B_C_still_OPEN"]
+          print("All dyadic h1..80 actual ORIGINAL source eligible six-Q uniform mass and EACH-Q swap theorem PASS")
+          PY
+  actual-original-symplectic-global-source-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {power: 1, scheme: S68}
+          - {power: 1, scheme: S72}
+          - {power: 1, scheme: lex}
+          - {power: 1, scheme: reverse}
+          - {power: 2, scheme: lex}
+          - {power: 2, scheme: random}
+          - {power: 3, scheme: lex}
+          - {power: 3, scheme: random}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Strict actual W32 W34 W38 full original factor maps, Q six real incidence IDs
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4as_every_original_Q_five_swap_repair import (
+              finite_original_eligible_Q_generator,
+              repair_EVERY_actual_original_Q_D6_in_five_line_swaps,
+              all_h_every_original_Q_five_swap_mass)
+          h=int(os.environ["POWER"])
+          m=fixture(h,os.environ["SCHEME"])
+          Qs=list(finite_original_eligible_Q_generator(m,max_yield=12))
+          assert len(Qs)==12
+          maximum=0
+          for Q in Qs:
+              z=repair_EVERY_actual_original_Q_D6_in_five_line_swaps(m,Q)
+              maximum=max(maximum,z["number_of_GLOBAL_line_factor_image_transpositions"])
+              assert z["repaired_TRUE_ORIGINAL_exact_same_six_flag_Q_positive_D6"]
+              assert z["at_least_FIVE_C6_eligible_DISTINCT_source_flag_anchors"]>=5
+          cap=all_h_every_original_Q_five_swap_mass(m["s"])
+          assert cap["EVERY_eligible_original_Q_repairable_within_FIVE_global_line_swaps"]
+          print(json.dumps({"s":m["s"],"scheme":os.environ["SCHEME"],
+              "sampled_true_original_eligible_Q":len(Qs),
+              "max_GLOBAL_original_line_swaps":maximum,
+              "full_original_point_source_Q_count_NOT_claimed":h>1,
+              "root230_not_proved":cap["root_issue230_A_B_C_still_OPEN"]},
+              sort_keys=True,indent=2))
+          PY
