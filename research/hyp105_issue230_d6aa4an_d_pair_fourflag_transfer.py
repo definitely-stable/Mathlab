@@ -247,11 +247,12 @@ def exact_original_W32_D_FIRST_selected_seven(model,*,full_independent=True):
     accepted_sets=set()
     physical_dual_sets=set()
     bilateral_by_anchored_shape=Counter()
+    rejected_unaligned_AA_charge=0
     one_side_total=0
     for anchor in sorted(D):
         hits=0
         def accept(six,shape):
-            nonlocal hits
+            nonlocal hits,rejected_unaligned_AA_charge
             leftcoords=Counter(c for j in six for c in f[inc[j][0]])
             rightcoords=Counter(c for j in six for c in g[inc[j][1]])
             if not(len(leftcoords)==6 and all(v==2 for v in leftcoords.values())):
@@ -262,6 +263,19 @@ def exact_original_W32_D_FIRST_selected_seven(model,*,full_independent=True):
             bilateral_by_anchored_shape[shape]+=1
             tag=classify_seven_prechecked(six,f,g,inc)
             if tag is None:
+                # NEW all-h D-anchored two-sided projection gap lemma:
+                # an embedded D pair has DISTINCT source factors whose
+                # physical labels are adjacent on BOTH sides, so a
+                # SOURCE type C (3 doubled, mutually disjoint factor
+                # labels) is impossible. Thus only A/A can be rejected
+                # after bilateral physical degree-two acceptance, and
+                # the rejection is precisely nonaligned/non-D6 A/A.
+                p_profile=tuple(sorted(Counter(inc[j][0] for j in six).values()))
+                l_profile=tuple(sorted(Counter(inc[j][1] for j in six).values()))
+                if (p_profile!=(1,1,1,1,1,1)
+                        or l_profile!=(1,1,1,1,1,1)):
+                    raise AssertionError("D-anchored bilateral 2regular non-seven Q must be unaligned A/A only")
+                rejected_unaligned_AA_charge+=1
                 return
             E_by_tag[tag]+=1
             accepted_sets.add(six)
@@ -274,6 +288,8 @@ def exact_original_W32_D_FIRST_selected_seven(model,*,full_independent=True):
     covered=sum(n>0 for n in coverage.values())
     if E!=sum(E_by_tag.values()):
         raise AssertionError("true original D-first source seven signature energy")
+    if sum(bilateral_by_anchored_shape.values())!=E+rejected_unaligned_AA_charge:
+        raise AssertionError("D-anchored all-h two-regular tensor minus unaligned A/A must equal seven GF5 E")
     if full_independent:
         from hyp105_issue230_d6aa4am_genuine_pair_sixcharge import (
             exact_W32_original_seven_pair_extension_certificate,
@@ -293,6 +309,9 @@ def exact_original_W32_D_FIRST_selected_seven(model,*,full_independent=True):
             one_side_total,
         "both_typed_physical_2regular_D_incidence_total":
             sum(bilateral_by_anchored_shape.values()),
+        "D_FIRST_rejected_UNALIGNED_A_A_original_charge":
+            rejected_unaligned_AA_charge,
+        "all_h_exact_bilateral_D_twofactor_MINUS_unaligned_A_A_EQUALS_selected_E":True,
         "both_typed_physical_2regular_D_anchored_shape_histogram":
             dict(bilateral_by_anchored_shape),
         "D_FIRST_seven_accepted_extension_E":E,
