@@ -68,6 +68,22 @@ AA4-AS previously enumerated at most six incidence SLOT permutations per pair; t
 - reverse 1013, 6351, **232**;
 - S68 697, 4041, **46**;
 - S72 750, 4386, **85**.
+
+**Actual independent GitHub-hosted first-run empirical 0/1 source-Hall breakdown, every same-global-map REAL W32:** All five maps were checked one physically occupied T/P pair at a time against the OLD separate AA4-AS 3! source-incidence oracle and yielded EXACTLY empty or one genuine ORIGINAL six-incidence-ID Q per physical template combination. Counts below distinguish residual PHYSICAL candidate mass, actual distinct original six-Q charges and the number of pinned true original wedges with at least ONE source-Hall Q; the last GF5 numbers come from the historical independent original selected-seven oracle.
+
+| Complete globally fixed genuine W(3,2) f,g | Actual 2-typed opposite GOOD original source wedges | Occupied point×line physical residual template pairs | Forest-Hall TRUE pairs (0/1 each) | Forest-Hall FALSE pairs | Distinct original 3-flag wedges with any source Hall Q | Final accepted-seven-GF5 original Q-to-wedge incidences |
+|---|---:|---:|---:|---:|---:|---:|
+| dual-zero | 870 | 5,328 | **150** | 5,178 | 135 | 40 |
+| lex | 1,105 | 7,233 | **505** | 6,728 | 360 | 237 |
+| reverse | 1,013 | 6,351 | **232** | 6,119 | 216 | 68 |
+| S68 | 697 | 4,041 | **46** | 3,995 | 44 | **6** |
+| S72 | 750 | 4,386 | **85** | 4,301 | 79 | **11** |
+
+In particular, the genuine W32 global S68 model has 3995/4041 *physically occupied* source-factor candidate template pairs with no valid actual ORIGINAL source Hall completion, despite K6 being PHYSICALLY complete, and only six accepted seven-GF5 original Q-to-wedge incidences among 46 real source Hall-complete pairs. It is a **finite** structural warning, never an alleged large-h uniform zero-Hall theorem or infinite original f_s,g_s counterfamily.
+
+**Real original W34 symplectic GF4, two separately globally injected point/line K14 maps:** on independently witnessed actual original D6 wedge lex (0,6,120), all 11025 physical residual template pairs give precisely 11 true original six-incidence-ID Hall-complete Q; random original wedge (0,11,381) gives precisely 12 Hall Q among 13200 physically occupied pairs. Both contain the independently original positive GF5 D6 six-ID Q witnessed earlier, but these are **partial chosen-wedge** tests, NOT full original W34 six-Q census.
+
+[First independent exact-head Dedicated AA4-AT GitHub-hosted workflow](https://github.com/definitely-stable/Mathlab/actions/runs/38866871976) finished **4/4 SUCCESS**: all-h symbolic h1..60, real original W32 complete all candidate template pair oracle, true original W34 partial D6 source Hall, and actual source symplectic/physically independent typed coordinates invariance all passed. Final-HEAD reruns and INDEX, Proof Audit, Full Research must be checked after this report commit; no independent mathematical acceptance has been granted.
 The previous AA4-AS independently accepted seven-GF5 Q-to-wedge charges 40, 237, 68, 6, 11 are strictly smaller/equal, illustrating why forest-Hall uniqueness cannot infer positive final selected GF5.
 
 **Genuine ORIGINAL W34 lex/random** globally complete injected (K14 with six missing physical source-factor image edges per typed map), choose one independently validated true-original source six-ID D6 witness per scheme from earlier AA4-AQ explicitly ROOT/BUDGET LIMITED scan; run old 3! and new forced-forest Hall on every globally occupied source-factor residual physical template pair for its fixed original triple. Must recover exactly the same genuine 11 and 12 original Hall six-Q respectively, include the independently accepted source D6 Q and retain identical global f/g. Absolutely NO full W34 selected seven-GF5 count or large-h nontrivial Hall fraction is claimed.
