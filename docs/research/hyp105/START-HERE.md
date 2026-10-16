@@ -10,6 +10,7 @@
 | Verify live branches, heads, CI and status | [Living Context](LIVING-CONTEXT.md) |
 | Read durable proof statements, formulas, dependencies and no-go scopes | [Results](registry/RESULTS.md), [Formulas](registry/FORMULAS.md), [Proof Graph](registry/PROOF-GRAPH.md) |
 | Review provenance or decide how to integrate stacked PRs | [Evidence & No-Go](EVIDENCE-AND-NOGO.md), [Integration Plan](INTEGRATION-PLAN.md) |
+| Inspect independently checked AA4-AK partial theorem and blocked integration | [AA4-AK scope-specific self-referee audit](AA4AK-REFEREE-20261015.md) |
 
 Root mathematics: [#230](https://github.com/definitely-stable/Mathlab/issues/230); parents [#176](https://github.com/definitely-stable/Mathlab/issues/176), [#169](https://github.com/definitely-stable/Mathlab/issues/169). The issue text is the normative model and Branch A/B/C gate. A CI success is not a theorem proof.
 
