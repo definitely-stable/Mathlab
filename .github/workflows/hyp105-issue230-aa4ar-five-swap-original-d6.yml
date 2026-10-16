@@ -1,0 +1,45 @@
+name: hyp105-issue230-aa4ar-five-swap-original-d6
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ar_five_swap_original_D6.py"
+      - "research/test_hyp105_issue230_d6aa4ar_five_swap_original_D6.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AR-FIVE-SWAP-ORIGINAL-D6-REPAIR.md"
+      - ".github/workflows/hyp105-issue230-aa4ar-five-swap-original-d6.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-physical-and-original-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Definition-level K6 K7 K8 K10 edge-C6 and real W32 W34 six-flag tests
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ar_five_swap_original_D6.py' -v
+  all-h-exact-symbolic-and-real-original-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual original W32 and W34 repaired complete global maps
+        run: |
+          PYTHONPATH=research python research/hyp105_issue230_d6aa4ar_five_swap_original_D6.py
+      - name: Explicit no false theorem promotion
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4ar_five_swap_original_D6 import report
+          r=report()
+          assert len(r["original_finite_controls"])==6
+          assert r["no_all_f_g_original_seven_minimax"] is True
+          assert all(0<=w["swaps"]<=5 for w in r["original_finite_controls"])
+          print("REPAIR_ALL_ORIGINAL_W32_W34="+str(
+              [(w["s"],w["scheme"],w["swaps"]) for w in r["original_finite_controls"]]))
+          PY
