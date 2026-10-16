@@ -101,6 +101,27 @@ class OriginalThreeFlagHall(unittest.TestCase):
                     "S68":697,"S72":750}
         expected_charge={"dual_zero":40,"lex":237,"reverse":68,
                          "S68":6,"S72":11}
+        # Exact independently hosted FIVE global ORIGINAL W32 wedge-level
+        # three-stage mutually exclusive failure partition:
+        # (NO source Hall, Hall-positive but ONLY AA disconnected/rejected,
+        #  genuine selected GF5 Q) -- not charge-incidence counts.
+        expected_stages={
+            "dual_zero":(735,97,38),
+            "lex":(745,188,172),
+            "reverse":(797,150,66),
+            "S68":(653,38,6),
+            "S72":(671,68,11),
+        }
+        expected_hall_reject_selected_charge={
+            "dual_zero":(150,110,40),
+            "lex":(505,268,237),
+            "reverse":(232,164,68),
+            "S68":(46,40,6),
+            "S72":(85,74,11),
+        }
+        expected_TT_source_Hall_positive_only_rejected={
+            "dual_zero":0,"lex":0,"reverse":6,"S68":0,"S72":0}
+
         for scheme,m in [("dual_zero",zero_split_original_W32())]+[
              (s,fixture(1,s)) for s in ("lex","reverse","S68","S72")]:
             ctx=original_opposite_wedge_context(m)
@@ -144,6 +165,14 @@ class OriginalThreeFlagHall(unittest.TestCase):
                 reject+=z["genuine_original_unaligned_AA_rejected_Q_count"]
                 physical_pairs+=z["physical_two_side_occupied_pattern_pairs"]
             self.assertEqual(sum(stages.values()),len(wedges))
+            self.assertEqual((stages["NO_TRUE_SOURCE_HALL"],
+                              stages["TRUE_HALL_ONLY_UNALIGNED_AA"],
+                              stages["HAS_SELECTED_SEVEN_GF5_Q"]),
+                             expected_stages[scheme])
+            self.assertEqual((Hall,reject,sum(tag_charge.values())),
+                             expected_hall_reject_selected_charge[scheme])
+            self.assertEqual(per_shape_stages[("T","T","TRUE_HALL_ONLY_UNALIGNED_AA")],
+                             expected_TT_source_Hall_positive_only_rejected[scheme])
             self.assertEqual(sum(per_shape_stages.values()),len(wedges))
             self.assertEqual(stages["HAS_SELECTED_SEVEN_GF5_Q"],len(target))
             self.assertEqual(per_shape_stages[("T","T","HAS_SELECTED_SEVEN_GF5_Q")],0)
