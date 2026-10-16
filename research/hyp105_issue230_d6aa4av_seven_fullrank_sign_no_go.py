@@ -81,6 +81,48 @@ def integer_determinant_bareiss(matrix):
     return sign*a[-1][-1]
 
 
+def integer_determinant_mod_prime(matrix,p=1009):
+    """Third independent field-Gauss determinant oracle, with no Fractions."""
+    n=len(matrix)
+    if n<1 or any(len(row)!=n for row in matrix):
+        raise ValueError("square integer matrix required")
+    if type(p) is not int or p<3:
+        raise ValueError("odd prime modulus expected")
+    a=[[int(x)%p for x in row] for row in matrix]
+    sign=1
+    det=1
+    for k in range(n):
+        index=next((j for j in range(k,n) if a[j][k]%p),None)
+        if index is None:return 0
+        if k!=index:
+            a[k],a[index]=a[index],a[k]
+            sign=-sign
+        pivot=a[k][k]%p
+        det=(det*pivot)%p
+        inverse=pow(pivot,-1,p)
+        for j in range(k+1,n):
+            ratio=a[j][k]*inverse%p
+            for v in range(k+1,n):
+                a[j][v]=(a[j][v]-ratio*a[k][v])%p
+            a[j][k]=0
+    return (det*sign)%p
+
+
+# Independently pinned seven actual ORIGINAL source W32 four-map HESSIANS:
+# (all columns ordered by ORDER, all six incidence IDs original per event).
+EXACT_ORIGINAL_SEVEN_ROW_WITNESSES={
+    0:(1,-6,6,0,0,-1,0),
+    1:(0,-5,2,-2,0,0,-1),
+    2:(-2,-2,-14,-3,0,-1,1),
+    3:(0,-13,0,-1,0,2,-4),
+    8:(0,8,-5,-1,1,2,1),
+    5:(1,-2,-8,1,0,-1,-4),
+    6:(0,4,0,-1,0,-2,0),
+}
+EXACT_SOURCE_BASIS_ROW_ORDER=(0,1,2,3,8,5,6)
+EXACT_SOURCE_BASIS_DETERMINANT=-2650
+
+
 def exact_original_w32_hessian_linear_obstruction():
     """24 genuine original W32 global-map curvature vectors.
 
@@ -118,8 +160,16 @@ def exact_original_w32_hessian_linear_obstruction():
     pivots=alg["pivot_row_indices"]
     nonzero_det=(integer_determinant_bareiss([rows[i] for i in pivots])
                  if alg["rank"]==7 else None)
-    if alg["rank"]==7 and not nonzero_det:
-        raise AssertionError("rank 7 but determinant zero")
+    if alg["rank"]!=7 or tuple(pivots)!=EXACT_SOURCE_BASIS_ROW_ORDER:
+        raise AssertionError("genuine ORIGINAL seven-GF5 full rank/pivot source certificate changed")
+    if nonzero_det!=EXACT_SOURCE_BASIS_DETERMINANT:
+        raise AssertionError("exact 7x7 integer original seven GF5 determinant changed")
+    basis=[rows[i] for i in EXACT_SOURCE_BASIS_ROW_ORDER]
+    if any(rows[i]!=v for i,v in EXACT_ORIGINAL_SEVEN_ROW_WITNESSES.items()):
+        raise AssertionError("pinned TRUE ORIGINAL 7-row Hessian witness changed")
+    mod=integer_determinant_mod_prime(basis,1009)
+    if mod!=EXACT_SOURCE_BASIS_DETERMINANT%1009 or mod==0:
+        raise AssertionError("independent finite field nonzero determinant witness failed")
     return {
         "true_original_geometry":"W(3,2) on 45 ACTUAL flags; global K6",
         "seven_historical_positive_GF5_tags_in_fixed_order":ORDER,
@@ -127,6 +177,11 @@ def exact_original_w32_hessian_linear_obstruction():
         "exact_real_original_integer_Hessian_matrix":tuple(rows),
         "exact_Fraction_Gaussian_rank":alg["rank"],
         "exact_independent_Bareiss_rank_witness_det":nonzero_det,
+        "exact_independent_F1009_rank_witness_det":mod,
+        "pinned_original_seven_source_basis":tuple(basis),
+        "any_nonzero_real_fixed_linear_seven_tag_coefficients_have_both_signed_Hessians":
+            True,
+        "no_universal_seven_tag_linear_mixed_curvature_sign_law_proved":True,
         "independent_pivot_original_witness_row_indices":pivots,
         "pivot_true_original_global_schemes_and_LINE_swap_pairs":
             tuple((witnesses[i]["scheme"],witnesses[i]["two_ACTUAL_original_LINE_swaps"])
