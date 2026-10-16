@@ -1,0 +1,98 @@
+name: hyp105-issue230-d6aa4bf-constructive-true-original-SIXFLAG-D6
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bf_constructive_original_D6_sixflag.py"
+      - "research/test_hyp105_issue230_d6aa4bf_constructive_original_D6_sixflag.py"
+      - "research/test_hyp105_issue230_d6aa4bf2_independent_PR570_D6_referee.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BF-CONSTRUCTIVE-ORIGINAL-SIXFLAG-D6-PINS.md"
+      - ".github/workflows/hyp105-issue230-d6aa4bf-constructive-true-original-sixflag-D6.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-real-original-sixflag-global-exact-conditional-mean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Six independent mathematically exact REAL original six-incidence D6 groups
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4bf_constructive_original_D6_sixflag.py" -v
+  whole-global-original-W32-historical-GF5-D6-constructive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: FULL TRUE symplectic original W32 S68 g with two ADVERSE line pins and historical D6
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_projection import fixture
+          from hyp105_g5e2b3e1b0_seven_signature import classify_seven_prechecked
+          from hyp105_issue230_d6aa4bf_constructive_original_D6_sixflag import (
+            original_W32_true_six_ID_D6_source_weights,
+            construct_one_global_original_six_ID_D6_from_pins)
+          m=fixture(1,"S68");source=original_W32_true_six_ID_D6_source_weights(m)
+          E=tuple(m["right_labels"]);pins={0:E[4],7:E[1]}
+          w={q:v for q,v in source[
+            "source_weighted_ordered_six_ORIGINAL_line_ID_tuples"].items()
+              if not(set(q)&set(pins))}
+          order=tuple(reversed([i for i in range(15) if i not in pins]))
+          z=construct_one_global_original_six_ID_D6_from_pins(w,E,6,pins,source_order=order)
+          assert z["complete"]
+          g=z["one_complete_legal_original_global_right_g"]
+          actual=sum(classify_seven_prechecked(
+              tuple(sorted(Q)),m["left_labels"],g,m["incidences"])=="D6"
+              for Q in source["actual_six_distinct_original_incidence_ID_Q_in_C6_positions"])
+          assert actual>=z["complete_global_selected_original_sixID_D6_charge"]
+          assert z["complete_global_selected_original_sixID_D6_charge"]>=z[
+              "conditional_original_sixID_D6_mean_initial"]
+          assert tuple(g[i] for i in sorted(pins))==tuple(pins[i] for i in sorted(pins))
+          print("AA4BF TRUE ORIGINAL W32 S68, TWO arbitrarily pinned line factor images",
+             "initial conditional true source six-ID D6",z[
+               "conditional_original_sixID_D6_mean_initial"],
+             "constructed actual original D6_free",z[
+               "complete_global_selected_original_sixID_D6_charge"],
+             "independent historical ORIGINAL GF5 selected D6",actual,
+             "one globally injected complete right g",len(g))
+          PY
+  every-dyadic-h5-to80-original-SIXFLAG-parent-one-global-mean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact parent #568 true ORIGINAL s6 D6 mean under adversarial k<=V/16, deterministic conditional tower
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4be_original_D6_pins import original_D6_sixflag_pinned_envelope
+          for h in range(5,81):
+              s=1<<h;V=(s+1)*(s*s+1)
+              for k in (0,1,V//16):
+                  z=original_D6_sixflag_pinned_envelope(s,k)
+                  assert z["one_global_conditional_original_sixID_D6_expected_count_lower"]>=Fraction(27,25)*(s+1)**6
+                  assert z["some_complete_legal_extension_selected_original_D6_ge_s6"]
+                  assert z["seven_GF5_sum_for_EACH_complete_f_g_NOT_PROVED"]
+          print("TRUE ORIGINAL W3s dyadic all h5..80 exact six-ID D6 conditional mean under k<=V/16 PASS")
+          PY
+
+  independent-cross-pr570-original-sixflag-D6-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently cross-check original GF5 six-ID D6 #570 source/physical complete global mapping vs #571
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4bf2_independent_PR570_D6_referee.py" -v
