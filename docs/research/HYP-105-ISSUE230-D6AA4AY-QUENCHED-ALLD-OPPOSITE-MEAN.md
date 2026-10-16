@@ -118,3 +118,20 @@ The random-permutation triple marginal and linearity-of-expectation tools are el
 The new mean directly identifies a clean positive-density physical opposite source-threeflag bridge for ANY original fixed f under UNIFORM global right g, but **does not** imply R_GOOD≥cs⁶ for every adversarial fixed g, a source residual 3×3 forest Hall six-flag extension, an original six-ID selected positive seven GF5 minimum, full R3 / ASET exponent, root Branch A/B/C, or a counterexample to it. The exact right permutation mean can coexist with rare exceptional adversarial label maps. Never promote expected value to the given adversarial map or pretend physical ALL-D means GOOD-only.
 
 Independent mathematical referee, final exact-HEAD Dedicated, INDEX, Proof Audit, Full Research and PR ancestry gates are separate from mathematical author proof. Leave Research Draft UNMERGED; main unchanged, root #230 OPEN_WITH_FORMAL_BLOCKER. Next truly deterministic blocker: show that GOOD physical two-type port minority products share positive support for EVERY fully fixed original f,g, or construct a mathematically genuine all-h correlated global small-S family. The separately selected original residual physical T/P, 3×3 forest Hall, and seven GF5 acceptance remain an independent second bottleneck.
+
+
+## 6. First exact-hosted genuine original fixed-g versus ONE-global-right-permutation mean evidence
+
+The initial [GitHub-hosted specialized run #38883195618](https://github.com/definitely-stable/Mathlab/actions/runs/38883195618) completed BOTH dedicated jobs **SUCCESS**, independent eight original math tests. Its previous source HEAD first failed an import from an unrelated scientific branch; that issue was corrected with a standalone exact integer minimal K_a palette calculator. This was a repository dependency failure, not evidence against the theorem. The final research HEAD further freezes **all five exact actual-source numbers** as regression assertions, including a ninth independent test, and requires a NEW exact-HEAD CI run before scientific acceptance.
+
+| Genuine full original source f,g | Actually FIXED adversarial original g: literal R_ALL(f,g) | Exact mean E over ONE uniformly random complete global original right LINE map with SAME support E_g | All-support uniform symbolic floor |
+|---|---:|---:|---:|
+| W32 S68 | 697 | 87056/91 ≈956.66 | 23040/91 ≈253.19 |
+| W32 S72 | 750 | 87056/91 ≈956.66 | 23040/91 |
+| W32 lex | 1105 | 88992/91 ≈977.93 | 23040/91 |
+| W34 lex (K14 with 6 missing edges) | 49,742 | 471930840/9877 ≈47,782.6 | 214990848/9877 ≈21,766 |
+| W34 random (K14 with 6 missing edges) | 46,996 | 131596825/2822 ≈46,632.5 | 214990848/9877 |
+
+These rational mean formulas are computed from independently enumerated ORIGINAL true-source point-opposite threeflag counts and ALL V(V−1)(V−2) physical ordered right triplets, not experimental sampling. The actual fixed-g real original threeflag ALL-D physically opposite counts are INDEPENDENT literal true-source triple enumerations compared against the upstream #554 full \(F^\top BG-BG-F^\top B+1\) original source-corrected four-port physical tensor. Note that W34 random can have a low **GOOD-filtered** opposite-wedge count 10 while its ALL-D opposite count is 46,996: they are DIFFERENT event families. No GOOD-only lower is inferred from this ALL-D mean.
+
+This evidence explicitly separates three different quantities: an individual adversarial given global g (which can be above or below the quenched mean), the quenched mean over **whole global** original line assignments, and a universal support-only lower on that MEAN. Neither the average nor an existence statement for some other g implies the desired lower for EVERY given g. No finite S2/S4 observation is passed off as an original all-h proof.
