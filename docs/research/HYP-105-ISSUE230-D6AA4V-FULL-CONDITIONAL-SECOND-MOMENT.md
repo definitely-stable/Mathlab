@@ -60,3 +60,12 @@ Diagnostic: PYTHONPATH=research python research/hyp105_issue230_d6aa4v_full_cond
 Classical graph homomorphism correlation inequalities, e.g. [Sidorenko 1994](https://doi.org/10.1016/0012-365X(94)90388-3) and [Lüchtrath–Mönch 2025](https://doi.org/10.1017/S000497272500019X), do not automatically establish the globally coherent *injective* physical edge-label gluing and same-g original six-incidence positions here. AA4-V is a problem-specific **assembly of the prior #487 pair kernel**, not a claim of a new general second moment inequality or externally verified novelty.
 
 The probability bound is for randomly chosen full g **conditional on one fixed f**. It does not imply a positive lower bound on D6(f,g) for EVERY correlated adversarial pair, nor on seven-class S(f,g). Next significant mathematical blocker: an all-h, every-f upper control for actual original cyclic tau-gluing multiplicity distributions strong enough for a useful relative variance bound or an *adversarial* seven-family alignment inequality. Root Branch A/B/C remains OPEN.
+
+
+## 6. Exact hosted finite certificates (first validated proof HEAD)
+
+The dedicated [GitHub-hosted run #38850770597](https://github.com/definitely-stable/Mathlab/actions/runs/38850770597) passed BOTH algebra and genuine W32 jobs at SHA bab0ccfb54ab474012d4f1b5d2e4b2fce3ab1219. The first job ran **10 tests, 10 OK**. The second independently executed S68 and S72 original W32 fixtures using **8 actual distinct six-incidence Q and 64 ordered Q pairs per fixed f**.
+
+The two selected deterministic W32 subfamilies give the SAME exact diagnostics (not a universal inference): E[D_A]=8/5005, E[D_A²]=2/1001, Var(D_A)=49986/25050025, Cauchy lower Pr(D_A>0)>=32/25025. Of the **64 ordered pair terms**, **54 have zero joint gluing probability**. These numbers are exact Fraction evaluations, not Monte Carlo. The full original source candidate family remains 21,186 Q per f and its **448,846,596 ordered pairs have NOT been evaluated** by this run.
+
+This section records evidence for the PINNED SHA above; any subsequent documentation or code changes require NEW exact-HEAD CI verification. Passing hosted CI is NOT independent mathematical peer review, root Branch A/B/C acceptance or a claim of full W32 covariance computation.
