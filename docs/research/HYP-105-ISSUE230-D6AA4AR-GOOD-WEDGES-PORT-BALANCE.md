@@ -83,6 +83,31 @@ Real symplectic original W34 GF4 lex/random global physically injective but nons
 
 The tests also include purely abstract local four-bin deficit counters but carefully label them NON-original, not infinite correlated map counterexamples.
 
+### Exact independent true-original W32/W34 witness tables
+
+The first dedicated [AA4-AR hosted workflow #38857946322](https://github.com/definitely-stable/Mathlab/actions/runs/38857946322) passed **4/4 jobs SUCCESS**. For each globally fixed complete true ORIGINAL W(3,2) point-and-line physical f,g, the four-bin source-flag port-energy calculation and a DIFFERENT literal original-source-centered two-neighbor enumeration agree exactly:
+
+| TRUE original W32 global f,g | GOOD D | Uncolored genuine-original GOOD 3-flag wedges W | Two-typed opposite-port GOOD wedges R | Exact port defect Δ | Δ≤Σdeg²/4 |
+|---|---:|---:|---:|---:|---|
+| dual-zero | 277 | 3,203 | **870** | 226 | YES |
+| lex | 307 | 3,924 | **1,105** | 264 | YES |
+| reverse | 300 | 3,768 | **1,013** | 236 | YES |
+| S68 | 257 | 2,715 | **697** | 270 | YES |
+| S72 | 261 | 2,811 | **750** | 250 | YES |
+
+The original W32 image is K6-complete with no missing edges, so EVERY D edge is GOOD. The SAME globally injected true source S68/S72 physical f,g have 697/750 two-typed physically complementary true source 3-flag wedges, yet the independently exhaustive AA4-AQ source six-Q seven-GF5 oracle gives D6=0 for both maps. This is an ACTUAL FINITE ORIGINAL counterexample to claiming positive local two-port wedges alone force positive accepted D6 (all six true original incidences, six physical coordinate colors, and cycle closure remain hard). It is NOT an infinite all-h Branch B counterexample and does not imply full seven-GF5 S=0.
+
+**Even the conditional small-defect HYPOTHESIS is FALSE as a universal all-h statement:** actual symplectic W(3,4), using two independently globally injected complete point/line K14 physical f,g maps with six missing edges per type:
+
+| TRUE original W34 global f,g | ALL D | GOOD D | Uncolored GOOD source wedges W | Two-typed opposite GOOD source wedges R | Defect Δ | Degree-square energy Σdeg² | Δ≤Σdeg²/4 |
+|---|---:|---:|---:|---:|---:|---:|---|
+| lex | 6,529 | 2,072 | 23,836 | **3,544** | 15,006 | 51,816 | **NO** |
+| random | 6,327 | 147 | 217 | **10** | 528 | 728 | **NO** |
+
+All entries are independently verified true original-source integers. The degree-square energy satisfies Σdeg²=2W+2D_good exactly, so the quarter-energy thresholds are 12,954 for lex and 182 for random; the actual globally coherent original-port defects 15,006 and 528 exceed both. Thus the condition Δ≤Σdeg²/4 CANNOT be silently promoted into an all-h unconditional theorem. A genuine W34 finite h=2 falsifier does NOT refute the possibility of a *sufficiently-large-h* universal imbalance theorem; that question remains OPEN. The alternative all-h unconditional positive **uncolored** good source wedge lower s^6/200 for h>=14 is not affected.
+
+Independent literal source-flag wedge enumeration checks every opposite-port wedge has three DISTINCT ORIGINAL source point factors and three DISTINCT ORIGINAL source line factors and matches the separate four-bin defect algorithm exactly; AA4-AP source-first GOOD D totals match the new actual good-D graph as well. No fake geometry, no per-wedge label redraw, no full W34 GF5 seven-class census.
+
 ## 4. Prior art, limits, required review and next AA4-AS research gate
 
 Classical degree Jensen/Cauchy wedge count is a well-established elementary extremal graph identity. The all-h lower AA4-AP source spectral theorem is upstream prior project work, not re-proved here. This slice contributes the actual original globally injected 3-flag good-source wedge corollary with **explicit \(s^6/200\)** constant, the exact two-typed physical PORT defect identity for the SAME true original graph, and source-factor distinctness for diagonally opposite wedges.
