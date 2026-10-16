@@ -1,0 +1,46 @@
+name: hyp105-issue230-aa4v-second-moment
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4v_full_conditional_second_moment.py"
+      - "research/test_hyp105_issue230_d6aa4v_full_conditional_second_moment.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4V-FULL-CONDITIONAL-SECOND-MOMENT.md"
+      - ".github/workflows/hyp105-issue230-aa4v-second-moment.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  full-second-moment-algebra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact generic gluing and authentic original source tests
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4v_full_conditional_second_moment.py' -v
+  genuine-original-W32-finite-subfamily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reproducible finite true-source original W32 records
+        run: |
+          PYTHONPATH=research python research/hyp105_issue230_d6aa4v_full_conditional_second_moment.py --scheme S68 --count 8
+          PYTHONPATH=research python research/hyp105_issue230_d6aa4v_full_conditional_second_moment.py --scheme S72 --count 8
+      - name: Explicit no-go gate
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4v_full_conditional_second_moment import true_original_W32_subfamily_exact_moment
+          for scheme in ("S68", "S72"):
+              result = true_original_W32_subfamily_exact_moment(scheme, count=8)
+              assert sum(result["ordered_pair_overlap_counts"].values()) == 64
+              assert result["root_230"] == "OPEN_WITH_FORMAL_BLOCKER"
+              assert result["full_original_W32_pair_census_CI_verified"] is False
+              assert result["global_minimax_six_motif_PROVED"] is False
+          PY
