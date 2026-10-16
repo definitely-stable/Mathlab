@@ -94,7 +94,7 @@ def global_good_original_D_spectral_certificate(s):
             assert 4096**2<=s
             assert Fraction(841,4096)>Fraction(1,10)
             # Monotone analytic proof, no dependence on specific m:
-            assert bad_ub<=Fraction(3255,1)*s**4*isqrt(s)
+            assert bad_ub<=Fraction(3255*s**5,4096)
             proven=True
         else:
             # Exactly TEN finite parameter inequalities, a proof for
