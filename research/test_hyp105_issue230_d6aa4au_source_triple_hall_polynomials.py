@@ -132,12 +132,25 @@ class OriginalSourcePolynomialAndTripleMotifs(unittest.TestCase):
             "S68":(697,4041,46),
             "S72":(750,4386,85),
         }
+        # Freeze exact actual original W32 source Hall pattern successes
+        # from separate forest AND 3! source reference, not physical-only
+        # residual template occupation. A/A, A/B, B/A, B/B respectively.
+        known_four_boolean_Hall={
+            "dual_zero":(116,14,17,3),
+            "lex":(358,75,70,2),
+            "reverse":(182,28,22,0),
+            "S68":(40,2,4,0),
+            "S72":(74,6,5,0),
+        }
         for name,m in [("dual_zero",zero_split_original_W32())]+[
             (k,fixture(1,k)) for k in ("lex","reverse","S68","S72")]:
             ctx,wedges,tbl,total=whole_original_model_polynomial_table(m)
             self.assertEqual((len(wedges),total,
                               sum(n for (t,outcome),n in tbl.items()
                                   if outcome=="YES")),known[name])
+            self.assertEqual(tuple(tbl[(label,"YES")] for label in
+                         ("A/A","A/B","B/A","B/B")),
+                         known_four_boolean_Hall[name])
             for label in ("A/A","A/B","B/A","B/B"):
                 self.assertGreater(tbl[(label,"NO")],0)
             print("AA4AU_ORIGINAL_W32",name,"total_source_opposite_wedges",
@@ -165,6 +178,8 @@ class OriginalSourcePolynomialAndTripleMotifs(unittest.TestCase):
 
     def test_05_true_original_W34_partial_positive_D6_sources_complete_polynomials(self):
         expected={"lex":(11025,11),"random":(13200,12)}
+        known_four_boolean_Hall={"lex":(8,2,1,0),
+                                 "random":(10,0,1,1)}
         for scheme in ("lex","random"):
             model=fixture(2,scheme)
             sample=exact_original_rainbow_D6_cycle_transfer(
@@ -176,6 +191,9 @@ class OriginalSourcePolynomialAndTripleMotifs(unittest.TestCase):
                 model,all_wedges=False,select_wedge=wedge)
             positives=sum(n for (_,outcome),n in tbl.items() if outcome=="YES")
             self.assertEqual((total,positives),expected[scheme])
+            self.assertEqual(tuple(tbl[(label,"YES")] for label in
+                         ("A/A","A/B","B/A","B/B")),
+                         known_four_boolean_Hall[scheme])
             self.assertTrue(ctx["s"]==4)
             print("AA4AU_GENUINE_W34_PARTIAL",scheme,"wedge",wedge,
                   "source_D6_Q",Q,"original_pattern_Hall_table",dict(sorted(tbl.items())))
