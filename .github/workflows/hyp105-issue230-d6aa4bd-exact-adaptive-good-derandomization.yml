@@ -1,0 +1,90 @@
+name: hyp105-issue230-d6aa4bd-exact-adaptive-good-derandomization
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bd_exact_adaptive_good_derandomization.py"
+      - "research/test_hyp105_issue230_d6aa4bd_exact_adaptive_good_derandomization.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BD-ADAPTIVE-EXACT-GOOD-DERANDOMIZATION.md"
+      - ".github/workflows/hyp105-issue230-d6aa4bd-exact-adaptive-good-derandomization.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-global-exact-conditional-good-completion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W32 W34, all 120 full global abstract completions, adaptive source order, all h parent real Q
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4bd_exact_adaptive_good_derandomization.py" -v
+  genuine-original-W32-adversarial-pins-deterministic-full-global:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Entire TRUE original W32 source LINE image constructed, original 3flag ledger literal check
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import os,json
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4bd_exact_adaptive_good_derandomization import (
+            constructive_true_original_GOOD_partial_line_completion)
+          m=fixture(1,os.environ["SCHEME"])
+          E=tuple(tuple(sorted(e)) for e in m["right_labels"])
+          pins={0:E[2]}
+          order=tuple(reversed([i for i in range(15) if i not in pins]))
+          z=constructive_true_original_GOOD_partial_line_completion(
+            m,pins,source_order=order,verify_all_h_floor=False)
+          assert z["is_COMPLETE_legal_global_original_LINE_map"]
+          assert len(z["steps"])==14
+          assert z["global_unpinned_GOOD_at_least_original_conditional_mean_if_complete"]
+          assert z["completed_true_original_ALL_good_opposite_threeflag_charge"]>=z[
+            "completed_true_original_FREE_good_opposite_threeflag_charge"]
+          assert tuple(z["completed_GLOBAL_original_line_source_factor_images"][0])==pins[0]
+          print(json.dumps({"original_W32_scheme":os.environ["SCHEME"],
+            "all_true_original_line_factor_images_globally_constructed":15,
+            "original_adversarial_initial_PIN_count":len(pins),
+            "exact_initial_mean":str(z["conditional_good_wedge_source_3flag_initial_mean"]),
+            "exact_constructed_TRUE_source_FREE_GOOD":z[
+              "completed_true_original_FREE_good_opposite_threeflag_charge"],
+            "exact_constructed_TRUE_source_ALL_GOOD":z[
+              "completed_true_original_ALL_good_opposite_threeflag_charge"],
+            "ORIGINAL_g_fully_fixed_adversarial_lower_claim":False,
+            "selected_GF5_six_original_ID_positive_claim":False},
+            sort_keys=True,indent=2))
+          PY
+  all-dyadic-h5-to80-conditional-construction-input-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact all-h parent adversarial partial-injection conditional mean inputs, no fake giant original finite source models
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4bc_robust_pins import certified_robust_pins_envelope
+          for h in range(5,81):
+              s=1<<h;V=(s+1)*(s*s+1)
+              for k in (0,1,V//1024):
+                  z=certified_robust_pins_envelope(s,k)
+                  assert z["conditional_mean_of_unpinned_GOOD_wedges_lower"]>=Fraction(s**6,512)
+                  assert z["eta_le_30000000000_over_V"]
+                  assert not z["ALL_fully_fixed_g_or_six_ID_GF5_PROVED"]
+          print("Real original W3s every dyadic h5..80 partial pin s6/512 deterministic input gates PASS")
+          PY
