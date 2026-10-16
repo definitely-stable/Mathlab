@@ -1,0 +1,49 @@
+name: hyp105-issue230-aa4az-quenched-allD-variance
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4az_quenched_allD_variance.py"
+      - "research/test_hyp105_issue230_d6aa4az_quenched_allD_variance.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AZ-QUENCHED-ALLD-VARIANCE.md"
+      - ".github/workflows/hyp105-issue230-aa4az-quenched-allD-variance.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-small-permutations-and-W32:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Complete 720-state independent exact moments, original W32, input falsifiers
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_05
+  W34-original-and-all-h-exact-arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Actual W34 incomplete K14, rational dyadic s and right gauge invariance
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_04
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_allD_variance.py' -v -k test_06
+      - name: Print universal exact envelopes without claiming root acceptance
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4az_quenched_allD_variance import uniform_original_variance_envelope
+          for s in (2,4,8,16,32,64):
+              x=uniform_original_variance_envelope(s)
+              print("AA4AZ",s,"mean_floor",x["mean_lower"],
+                    "relative_var_bound",x["relative_variance_upper"],
+                    "half_mean_tail_bound",x["half_mean_lower_tail_upper"])
+              assert x["root_230"]=="OPEN_WITH_FORMAL_BLOCKER"
+          PY
