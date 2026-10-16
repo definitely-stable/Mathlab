@@ -59,6 +59,11 @@ class TrueOriginalConditionalD6Mean(unittest.TestCase):
             self.assertTrue(z["requires_random_GLOBAL_line_source_factor_assignment"])
             self.assertTrue(z["does_NOT_hold_for_EACH_FIXED_GLOBAL_f_g"])
             self.assertTrue(z["root_issue230_A_B_C_OPEN"])
+            self.assertLessEqual(
+                z["any_fixed_point_global_f_and_any_fixed_line_occupied_image_expectation_lower"],
+                z["any_fixed_global_f_line_support_conditional_mean_upper"])
+            self.assertTrue(z[
+                "all_GLOBAL_fixed_f_supports_conditional_mean_sandwiched_to_16_over_3_s6_as_h_grows"])
             if s>=4:
                 self.assertGreaterEqual(z[
                   "any_fixed_point_global_f_and_any_fixed_line_occupied_image_expectation_lower"
@@ -89,6 +94,10 @@ class TrueOriginalConditionalD6Mean(unittest.TestCase):
                 point_subset["conditional_D6_expectation_original_point_subset_first"])
             self.assertEqual(point_cycle["point_global_physically_occupied_C6"],60)
             self.assertEqual(point_cycle["line_FIXED_global_image_physically_occupied_C6"],60)
+            th=all_h_one_side_permutation_D6_theorem(2)
+            self.assertLessEqual(
+                point_cycle["exact_conditional_D6_six_original_FLAG_Q_expectation"],
+                th["any_fixed_global_f_line_support_conditional_mean_upper"])
             self.assertEqual(point_cycle[
                 "exact_probability_random_SINGLE_global_line_source_perm_gives_ALIGNED_D6"],
                 Fraction(720,_falling(15,6)))
