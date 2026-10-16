@@ -1,0 +1,122 @@
+name: hyp105-issue230-d6aa4aq-conditional-original-D6-mean
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4aq_conditional_original_D6_mean.py"
+      - "research/test_hyp105_issue230_d6aa4aq_conditional_original_D6_mean.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AQ-QUENCHED-ORIGINAL-D6-CONDITIONAL-MEAN.md"
+      - ".github/workflows/hyp105-issue230-d6aa4aq-conditional-original-D6-mean.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true-original-conditional-source-exact-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Seven original GQ full conditional first moment and independent six-line SDR falsifiers
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4aq_conditional_original_D6_mean.py" -v
+  all-h-GQ-global-one-side-mean-s6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All h1..80 integer/Fraction physical C6 holes, original GQ Hall and quenched 2s6over3
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4aq_conditional_original_D6_mean import all_h_one_side_permutation_D6_theorem
+          for h in range(1,81):
+              s=1<<h
+              z=all_h_one_side_permutation_D6_theorem(s)
+              low=z["any_fixed_point_global_f_and_any_fixed_line_occupied_image_expectation_lower"]
+              high=z["any_fixed_global_f_line_support_conditional_mean_upper"]
+              assert low<=high
+              assert z["does_NOT_hold_for_EACH_FIXED_GLOBAL_f_g"]
+              assert z["full_seven_GF5_s6_every_two_global_maps_NOT_PROVED"]
+              if s>=4:
+                  assert low>=Fraction(2,3)*s**6
+              if s>=8:
+                  assert low>=Fraction(1408,2025)*s**6
+          print("true original W(3,2^h) quenched D6 conditional mean: all-h PASS")
+          PY
+  original-globally-injected-W32-W34-W38-scenarios:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {power: 1, scheme: lex}
+          - {power: 1, scheme: reverse}
+          - {power: 1, scheme: S68}
+          - {power: 1, scheme: S72}
+          - {power: 2, scheme: lex}
+          - {power: 2, scheme: random}
+          - {power: 3, scheme: lex}
+          - {power: 3, scheme: random}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual original source GQ six-line-injective SDR and global fixed support
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import os,json
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4aq_conditional_original_D6_mean import (
+              exact_true_original_W32_conditional_D6_mean,
+              independent_W32_original_source_sixpoint_first_mean,
+              all_h_one_side_permutation_D6_theorem,
+              true_original_six_line_SDR_count)
+          from hyp105_issue230_d6aa4ap_unique_original_D6_path_kernel import occupied_oriented_original_P5_paths
+          from hyp105_issue230_d6aa4an_port_completion_hall_funnel import true_original_D_physical_ports
+          from hyp105_issue230_d6aa4al_global_original_coordinate_transport import _actual_strict_original_transport
+          m=fixture(int(os.environ["POWER"]),os.environ["SCHEME"])
+          s,V,d,a,f,g,inc,np,nl=_actual_strict_original_transport(m)
+          if s==2:
+              z=exact_true_original_W32_conditional_D6_mean(m,direct_source_check=True)
+              u=independent_W32_original_source_sixpoint_first_mean(m)
+              assert z["exact_conditional_D6_six_original_FLAG_Q_expectation"]==u[
+                  "conditional_D6_expectation_original_point_subset_first"]
+              result={"s":s,"scheme":os.environ["SCHEME"],
+                  "exact_original_conditional_D6_mean":str(
+                       z["exact_conditional_D6_six_original_FLAG_Q_expectation"])}
+          else:
+              anchor=None;point_six=None
+              for i,(p,l) in enumerate(inc):
+                  for j in range(i+1,len(inc)):
+                      q,k=inc[j]
+                      if p==q or l==k or not(set(f[p])&set(f[q]) and set(g[l])&set(g[k])):
+                          continue
+                      port=true_original_D_physical_ports(inc,f,g,(i,j))
+                      paths=occupied_oriented_original_P5_paths(port[0],f,a)
+                      if paths:
+                          point_six=(p,q)+next(iter(paths))
+                          anchor=(i,j)
+                          break
+                  if anchor is not None:break
+              assert point_six is not None
+              original=true_original_six_line_SDR_count(point_six,np)
+              min_original=d**4*(d*d-15)
+              assert original>=min_original
+              out=all_h_one_side_permutation_D6_theorem(s)
+              result={"s":s,"scheme":os.environ["SCHEME"],
+                 "actual_genuine_original_6line_SDR_for_fixed_point_cycle":original,
+                 "universal_original_line_SDR_lower":min_original,
+                 "all_f_and_all_line_supports_quenched_D6_mean_lower":
+                     str(out["any_fixed_point_global_f_and_any_fixed_line_occupied_image_expectation_lower"])}
+          print(json.dumps(result,sort_keys=True,indent=2))
+          PY
