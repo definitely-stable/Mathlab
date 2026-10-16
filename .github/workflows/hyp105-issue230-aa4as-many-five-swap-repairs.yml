@@ -1,0 +1,61 @@
+name: hyp105-issue230-aa4as-many-five-swap-repairs
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4as_many_five_swap_repairs.py"
+      - "research/test_hyp105_issue230_d6aa4as_many_five_swap_repairs.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AS-MANY-FIVE-SWAP-REPAIRS.md"
+      - ".github/workflows/hyp105-issue230-aa4as-many-five-swap-repairs.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true-original-and-independent-physical-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact true W32 W34 global repair balls and physical graph missing-edge brute
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4as_many_five_swap_repairs.py' -v
+  every-original-power-all-h-dyadic-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact integer all-h proof and strict original-map nonclaims
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from math import perm
+          from hyp105_issue230_d6aa4as_many_five_swap_repairs import all_h_repair_ball_certificate
+          for h in list(range(1,36))+[40,48,64,80]:
+              s=1<<h
+              z=all_h_repair_ball_certificate(s)
+              assert z["distinct_COMPLETE_global_right_maps_positive_D6_within_5_line_swaps_at_least"]==perm(z["a"]-2,4)
+              assert 4*perm(z["a"]-2,4)>=s**6
+              assert z["original_d6_at_given_adversarial_g_lower_proved"] is False
+              assert z["all_seven_class_original_fixed_pair_minimax_proved"] is False
+              assert z["root_230"]=="OPEN_WITH_FORMAL_BLOCKER"
+              print("AA4AS_TRUE_GQ_ALGEBRA h=%s a=%s original_bad_points_upper=%s many_repairs=%s" %
+                  (h,z["a"],z["original_points_all_LINE_neighbors_bad_upper"],
+                   z["distinct_COMPLETE_global_right_maps_positive_D6_within_5_line_swaps_at_least"]))
+          PY
+      - name: Finite real original W32 and W34 repair-ball counts
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4as_many_five_swap_repairs import finite_genuine_original_one_Q_repair_ball
+          for h,scheme in ((1,"S68"),(1,"S72"),(2,"lex"),(2,"random")):
+              z=finite_genuine_original_one_Q_repair_ball(fixture(h,scheme))
+              assert z["actual_different_full_right_maps_positive_same_original_D6_Q"] >= z["theoretical_lower_maps_from_all_h"]
+              assert z["largest_global_LINE_swap_distance_used"]<=5
+              assert z["given_original_g_D6_positive_NOT_asserted"]
+              print("AA4AS_REAL_ORIGINAL s=%s case=%s distinct_globally_complete_maps=%s" %
+                    (z["s"],scheme,z["actual_different_full_right_maps_positive_same_original_D6_Q"]))
+          PY
