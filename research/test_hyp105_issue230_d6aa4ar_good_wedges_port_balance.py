@@ -43,15 +43,27 @@ class ActualOriginalGoodWedges(unittest.TestCase):
                 all_h_original_good_wedge_lower(invalid)
 
     def test_02_true_W32_all_five_global_original_maps_literal_wedge_referee(self):
-        known={"dual_zero":277,"lex":307,"reverse":300,"S68":257,"S72":261}
+        # Frozen independently hosted literal ORIGINAL source D -> 3-flag
+        # wedge census. Values: D, uncolored GOOD wedges, two-typed
+        # opposite-port GOOD wedges, genuine global port defect.
+        known={"dual_zero":(277,3203,870,226),
+               "lex":(307,3924,1105,264),
+               "reverse":(300,3768,1013,236),
+               "S68":(257,2715,697,270),
+               "S72":(261,2811,750,250)}
         for name,m in [("dual_zero",zero_split_original_W32())]+[
              (scheme,fixture(1,scheme))
              for scheme in ("lex","reverse","S68","S72")]:
             z=exact_true_original_good_D_two_port_wedge_certificate(m)
             independent=independent_original_literal_good_two_port_wedges(m)
-            self.assertEqual(z["D_ALL_actual_original_bilateral_edges"],known[name])
-            self.assertEqual(z["D_GOOD_actual_original_bilateral_edges"],known[name])
+            self.assertEqual(z["D_ALL_actual_original_bilateral_edges"],known[name][0])
+            self.assertEqual(z["D_GOOD_actual_original_bilateral_edges"],known[name][0])
             self.assertEqual(z["D_BAD_actual_original_bilateral_edges"],0)
+            self.assertEqual((z["good_D_original_TWO_EDGE_unordered_wedges"],
+                              z["good_D_original_OPPOSITE_TWO_TYPED_port_wedges"],
+                              z["true_original_two_typed_port_imbalance_energy"]),
+                             known[name][1:])
+            self.assertTrue(z["port_balance_conditional_hypothesis_fulfilled"])
             self.assertEqual(z["good_D_original_TWO_EDGE_unordered_wedges"],
                              independent["actual_original_literal_all_wedges"])
             self.assertEqual(z["good_D_original_OPPOSITE_TWO_TYPED_port_wedges"],
@@ -85,16 +97,28 @@ class ActualOriginalGoodWedges(unittest.TestCase):
     def test_04_true_W34_lex_random_global_injected_source_original_flag_wedges(self):
         from hyp105_issue230_d6aa4ap_uniform_good_original_D_spectral import (
             finite_genuine_original_good_D_audit)
-        known={"lex":(6529,2072),"random":(6327,147)}
+        # Two TRUE original W34 complete globally injected point/line
+        # maps already refute a proposed 'all h>=1 ALL f,g' port-defect
+        # <=quarter-degree-energy lemma; this says NOTHING about h>=14.
+        known={"lex":(6529,2072,23836,3544,15006,51816),
+               "random":(6327,147,217,10,528,728)}
         for scheme in ("lex","random"):
             m=fixture(2,scheme)
             z=exact_true_original_good_D_two_port_wedge_certificate(m)
             r=independent_original_literal_good_two_port_wedges(m)
             g=finite_genuine_original_good_D_audit(m)
             self.assertEqual((z["D_ALL_actual_original_bilateral_edges"],
-                              z["D_GOOD_actual_original_bilateral_edges"]),known[scheme])
+                              z["D_GOOD_actual_original_bilateral_edges"]),known[scheme][:2])
             self.assertEqual(g["good_D_avoiding_all_four_bad_PHYSICAL_ports"],
                              z["D_GOOD_actual_original_bilateral_edges"])
+            self.assertEqual((z["good_D_original_TWO_EDGE_unordered_wedges"],
+                              z["good_D_original_OPPOSITE_TWO_TYPED_port_wedges"],
+                              z["true_original_two_typed_port_imbalance_energy"],
+                              z["true_original_good_D_degree_squared_energy"]),
+                             known[scheme][2:])
+            self.assertFalse(z["port_balance_conditional_hypothesis_fulfilled"])
+            self.assertGreater(4*z["true_original_two_typed_port_imbalance_energy"],
+                               z["true_original_good_D_degree_squared_energy"])
             self.assertEqual(z["good_D_original_TWO_EDGE_unordered_wedges"],
                              r["actual_original_literal_all_wedges"])
             self.assertEqual(z["good_D_original_OPPOSITE_TWO_TYPED_port_wedges"],
