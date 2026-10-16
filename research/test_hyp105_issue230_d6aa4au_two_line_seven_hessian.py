@@ -90,6 +90,18 @@ class TrueOriginalTwoLineSevenHessianTests(unittest.TestCase):
             self.assertEqual(z["actual_original_left_Q"],62370)
             self.assertTrue(z["original_global_source_line_pair_injective_all_four_states"])
             expected=68 if scheme=="S68" else 72
+            frozen={
+                "S68": ([0,-6,-21,-16,-6,-13],
+                        [-46107,-268450,-877586,-712660,-275290,-638827]),
+                "S72": ([1,-18,6,-13,-19,-20],
+                        [35580,-815730,291040,-540363,-864630,-923040]),
+            }[scheme]
+            self.assertEqual(
+                [r["signed_mixed_seven_S_Hessian"] for r in z["mixed_hessian_rows"]],
+                frozen[0])
+            self.assertEqual(
+                [r["selected_GF5_weighted_necessary_numerator_Hessian"]
+                 for r in z["mixed_hessian_rows"]],frozen[1])
             for row in z["mixed_hessian_rows"]:
                 self.assertEqual(row["seven_S_before"],expected)
                 self.assertTrue(row["independent_sparse_true_Q_Hessian_agrees_with_four_full_maps"])
@@ -112,6 +124,17 @@ class TrueOriginalTwoLineSevenHessianTests(unittest.TestCase):
                         for k,w in R3_CERTIFIED_FLOORS.items()))
                 deltas.append(row["signed_mixed_seven_S_Hessian"])
             self.assertTrue(any(v!=0 for v in deltas))
+            frozen={
+                "lex": ([11,8,20,22,-2,-1],
+                        [251938,524628,931450,943246,27671,65021]),
+                "reverse": ([-4,-3,16,-6,5,-42],
+                            [-394485,-124893,609139,-333007,135716,-1804676]),
+            }[scheme]
+            self.assertEqual(deltas,frozen[0])
+            self.assertEqual(
+                [r["selected_GF5_weighted_necessary_numerator_Hessian"]
+                 for r in z["mixed_hessian_rows"]],frozen[1])
+            self.assertTrue(any(v>0 for v in deltas) and any(v<0 for v in deltas))
             self.assertFalse(z["root_A_B_C"]=="PROVED_A")
 
     def test_06_exact_w32_global_coordinate_relabel_class_independent(self):
