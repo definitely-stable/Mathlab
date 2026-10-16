@@ -1,0 +1,61 @@
+name: hyp105-issue230-aa4aw-nonlinear-swap-rigidity
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4aw_nonlinear_swap_rigidity.py"
+      - "research/test_hyp105_issue230_d6aa4aw_nonlinear_swap_rigidity.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AW-NONLINEAR-SWAP-RIGIDITY.md"
+      - ".github/workflows/hyp105-issue230-aa4aw-nonlinear-swap-rigidity.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  complete-disjoint-swap-permutation-kernel-and-gauge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full S4 S5 mixed-swap Hessian kernel, assignment rank, physical-coordinate gauge
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4aw_nonlinear_swap_rigidity.py' -v -k 'test_01'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4aw_nonlinear_swap_rigidity.py' -v -k 'test_02'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4aw_nonlinear_swap_rigidity.py' -v -k 'test_03'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4aw_nonlinear_swap_rigidity.py' -v -k 'test_04'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4aw_nonlinear_swap_rigidity.py' -v -k 'test_05'
+      - name: Show exhaustive independent permutation kernel dimensions
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4aw_nonlinear_swap_rigidity import finite_permutation_kernel_rank_mod_prime
+          for n,expected in ((4,10),(5,17)):
+              z=finite_permutation_kernel_rank_mod_prime(n)
+              assert z["rank_matches_assignment_theorem"]
+              assert z["full_kernel_dimension"]==expected
+              print("AA4AW_COMPLETE_PERMUTATION_KERNEL",z)
+          PY
+  genuine-original-W32-seven-GF5-nonlinear-four-map-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual same-six-ID W32 original seven GF5 direct counts and nonlinear scalar functions
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4aw_nonlinear_swap_rigidity.py' -v -k 'test_06'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4aw_nonlinear_swap_rigidity.py' -v -k 'test_07'
+      - name: Freeze true-original nonlinear GQ signed four-map witness
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4aw_nonlinear_swap_rigidity import actual_original_W32_four_map_nonlinear_witness
+          z=actual_original_W32_four_map_nonlinear_witness("S68")
+          assert z["root_230"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert z["full_original_six_incidence_ID_left_candidates"]==62370
+          assert z["original_line_global_physical_support_unchanged"]
+          assert z["scalar_mixed_Hessians"]["historical_51palette_selected_floor_numerator"]==-46107
+          print("AA4AW_TRUE_ORIGINAL_GF5_CLASSES",z["four_complete_original_global_seven_class_vectors"])
+          print("AA4AW_TRUE_ORIGINAL_NONLINEAR_HESSIAN",z["scalar_mixed_Hessians"])
+          PY
