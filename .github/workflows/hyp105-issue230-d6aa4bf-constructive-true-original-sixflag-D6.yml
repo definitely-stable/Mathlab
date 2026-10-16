@@ -4,6 +4,7 @@ on:
     paths:
       - "research/hyp105_issue230_d6aa4bf_constructive_original_D6_sixflag.py"
       - "research/test_hyp105_issue230_d6aa4bf_constructive_original_D6_sixflag.py"
+      - "research/test_hyp105_issue230_d6aa4bf2_independent_PR570_D6_referee.py"
       - "docs/research/HYP-105-ISSUE230-D6AA4BF-CONSTRUCTIVE-ORIGINAL-SIXFLAG-D6-PINS.md"
       - ".github/workflows/hyp105-issue230-d6aa4bf-constructive-true-original-sixflag-D6.yml"
   workflow_dispatch:
@@ -83,3 +84,15 @@ jobs:
                   assert z["seven_GF5_sum_for_EACH_complete_f_g_NOT_PROVED"]
           print("TRUE ORIGINAL W3s dyadic all h5..80 exact six-ID D6 conditional mean under k<=V/16 PASS")
           PY
+
+  independent-cross-pr570-original-sixflag-D6-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently cross-check original GF5 six-ID D6 #570 source/physical complete global mapping vs #571
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4bf2_independent_PR570_D6_referee.py" -v
