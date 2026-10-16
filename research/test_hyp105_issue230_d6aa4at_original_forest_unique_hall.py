@@ -105,12 +105,16 @@ class OriginalGQThreeflagForestHall(unittest.TestCase):
                 {(0,0):10},(0,1,1),("A",(0,0,1),()),("A",(0,1,1),()))
 
     def test_04_all_five_real_original_W32_global_f_g_every_opposite_good_wedge(self):
+        # Frozen independently verified actual original W32 all-globally-fixed
+        # typed maps: source opposite wedges, physical residual pairs,
+        # BOOLEAN forest Hall Q-to-wedge charge, distinct source wedges
+        # with >=1 Hall, historical seven GF5 accepted Q-to-wedge charge.
         expected={
-            "dual_zero":(870,5328,150,40),
-            "lex":(1105,7233,505,237),
-            "reverse":(1013,6351,232,68),
-            "S68":(697,4041,46,6),
-            "S72":(750,4386,85,11),
+            "dual_zero":(870,5328,150,135,40),
+            "lex":(1105,7233,505,360,237),
+            "reverse":(1013,6351,232,216,68),
+            "S68":(697,4041,46,44,6),
+            "S72":(750,4386,85,79,11),
         }
         for name,m in [("dual_zero",zero_split_original_W32())]+[
                 (scheme,fixture(1,scheme)) for scheme in ("lex","reverse","S68","S72")]:
@@ -133,18 +137,18 @@ class OriginalGQThreeflagForestHall(unittest.TestCase):
                     a["original_forest_Hall_positive_occupied_template_pairs"])
                 self.assertEqual(count,
                     a["original_forest_Hall_positive_occupied_template_pairs"])
-            self.assertEqual((len(all_wedges),occupied,wedge_orig_Q),
-                             expected[name][:3])
+            self.assertEqual((len(all_wedges),occupied,wedge_orig_Q,nonzero),
+                             expected[name][:4])
             # Source Hall stage cannot be promoted to GF5 selected:
             # this number is genuine ORIGINAL source Q Hall incidence
             # charge, while 4th number is accepted sevenclass charge.
-            self.assertGreaterEqual(wedge_orig_Q,expected[name][3])
+            self.assertGreaterEqual(wedge_orig_Q,expected[name][4])
             print("AA4AT_GENUINE_W32",name,
                   "true_original_opposite_good_wedges",len(all_wedges),
                   "globally_occupied_residual_template_pairs",occupied,
                   "original_source_forest_boolean_Hall_true_pairs",wedge_orig_Q,
                   "wedge_at_least_one_original_Hall_Q",nonzero,
-                  "seven_GF5_positive_Q_wedge_charge_independent",expected[name][3])
+                  "seven_GF5_positive_Q_wedge_charge_independent",expected[name][4])
 
     def test_05_true_original_W34_witness_source_forest_Hall_vs_seven_Q(self):
         for name in ("lex","random"):
