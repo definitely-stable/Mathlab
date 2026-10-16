@@ -108,24 +108,46 @@ All entries are independently verified true original-source integers. The degree
 
 Independent literal source-flag wedge enumeration checks every opposite-port wedge has three DISTINCT ORIGINAL source point factors and three DISTINCT ORIGINAL source line factors and matches the separate four-bin defect algorithm exactly; AA4-AP source-first GOOD D totals match the new actual good-D graph as well. No fake geometry, no per-wedge label redraw, no full W34 GF5 seven-class census.
 
-### NEW AA4-AR3 — constant-charge bridge from genuine original 3-flag wedges to positive seven-GF5 sixsets
+### NEW AA4-AR3 — sharpened six-cap REAL ORIGINAL 3-to-6 wedge charging theorem
 
-The genuine-original unconditional W_good≥s^6/200 has a potentially important advantage over the previous true-original D-pair lower D≥s^5/10: **a positive CONSTANT FRACTION of true original good wedges extending to selected positive seven-GF5 sixsets would now suffice**, with NO factor-s multiplicity required per source object. Precisely, let \(\mathcal W_g(f,g)\) be the actual ORIGINAL GOOD two-D-edge centered flag triple collection. Let \(\mathcal Q_7(f,g)\) be the ACTUAL accepted seven-positive-GF5 sixsets, each consisting of SIX DISTINCT ORIGINAL incidence flag IDs, same globally fixed typed maps. Let \(\mathcal W^\star\subseteq\mathcal W_g\) consist of the original good wedges whose THREE true original flags all occur within at least one Q∈\(\mathcal Q_7\), with no assumption about the other three source flags. For each Q, at most SIX choices of center and at most C(5,2)=10 unordered pairs of other flags contribute. Hence **each TRUE ORIGINAL selected six-Q supports at most SIXTY good centered 3-flag wedges**. This is a strict combinatorial capacity regardless of source B/A/C type or physical local colors.
+The already established unconditional real original \`W_good≥s^6/200\` for every h>=14 and every globally injected correlated original point/line map f,g presents a **new constant-multiplicity path** to the full original six-GF5 lower: show a fixed positive FRACTION of these original 3-flag two-D-edge GOOD wedges belongs to at least one accepted TRUE ORIGINAL six-distinct-incidence-ID seven-GF5 Q. The conditional fraction is an UNPROVED hypothesis and its numerical behavior is not known at large h.
 
-Exact charge inequality, ALL-h ALL correlated complete globally injected original f,g:
+**Sharpened ALL-h source capacity = 6, NOT the coarse 60.** For each genuine selected six-Q, consider the induced original D-compatibility flag-graph on the six TRUE original incidence IDs. Each physical point coordinate in the accepted six-Q appears exactly twice, hence joins one pair of original flag positions; each original source point pair-image label has exactly TWO physical coordinates. Consequently the point-side positional dual on the six true source flag IDs is a 2-regular (possibly parallel) multigraph. Every genuine bilateral D-compatible flag-pair edge inside Q is also a positional point-coordinate edge of this dual (and likewise a line-coordinate edge); therefore the induced D graph has MAXIMUM VERTEX DEGREE TWO. Each GOOD centered wedge in Q is a center with two GOOD D edges inside Q, so there is AT MOST one wedge per center. With k(Q) the actual original AA4-AM true bilateral D edge count inside Q, at most k(Q) distinct centers can have degree TWO, because ∑degrees=2k(Q). Thus
 
-    |W_star| <= sum_{Q∈Q7} #{genuine original good wedges contained in Q}
-             <= 60 * |Q7| = 60*S.
+    **# good centered original wedges contained in one accepted REAL Q <= k(Q) <= 6.**
 
-Thus the **CONDITIONAL true-original sixset lower**: if there exists a fixed alpha>0 such that *for every globally injected original f,g and all sufficiently large powers s* at least fraction alpha of its GOOD original wedges is contained in at least one accepted REAL original six-incidence-ID Q, then
+With the earlier class-specific actual-original AA4-AM bounds k(Q), we obtain:
+- accepted original D6 <=6 (exactly 6 when all its six D edges are GOOD; otherwise less);
+- B/A or A/B <=3;
+- B/B-overlap <=2;
+- B/B-disjoint <=1, **but in fact ZERO GOOD wedges** because ONE D edge cannot form a two-edge wedge;
+- C/A and C/B exactly ZERO because their original D-pair anchor count is ZERO.
 
-    **S_s(f,g) >= ceil(alpha*W_good/60) >= ceil(alpha*s^6/12000)**
+This stronger bound is independent of the choice and physical correlation of globally injected f,g and holds for every original W(3,2^h), without any statistical label independence.
 
-for h≥14. This gives a sufficient route to the full required all-map seven-family Omega(s^6) PROVIDED that its explicitly ASSUMED uniform positive source-wedge coverage is separately established. This is NOT a necessary condition: the seven-family lower might instead come from genuinely selected positive classes containing no such GOOD centered wedge, including zero-D-anchor U. The project has NOT proved any uniform positive alpha. Unlike the earlier D-pair source charging gate where E=Omega(s^6) would require order-s accepted extensions per guaranteed pair, the 3-flag-good-wedge route only requires a **fixed positive fraction** to have ONE accepted six-Q continuation. This is the next mathematically decisive ORIGINAL source Hall / GF5 bridge.
+Let \`Wstar(f,g)\` be the number of DISTINCT actual-original good centered three-incidence wedges contained in at least one accepted original seven-class six-ID Q, and let S be the total accepted seven-GF5 genuine original six-Q number. Double counting gives the rigorous ALL-h all-global
 
-The new executor \`conditional_all_h_good_wedge_to_original_seven_lower\` uses exact rational arithmetic and labels alpha as UNPROVED. The independent complete W32 census \`exact_true_W32_original_seven_covered_good_wedges\` constructs all genuine source GOOD centered 3-flag two-D-edge wedges and intersects them with every accepted historical original six-ID seven-Q. It outputs exact covered/uncovered SOURCE wedge counts, charge incidences, seven-tag wedge charges, and six-Q wedge charge histograms; every Q individually obeys the hard 60 capacity. A separate source-wedge-FIRST Q-containment referee checks the number of covered original wedges for the S68 and S72 truly globally injected maps.
+    Wstar <= ∑_{Q accepted} #good wedges in Q <= 6*S.
 
-**Critical logical scope:** W32 local complementary R>0 does not imply selected D6, and even positive actual wedge coverage in several W32 maps would not prove alpha uniformly for all f,g or for all large h. The selected C/A and C/B genuine original six-Q classes are invisible to earlier pair-anchor k(Q) but may or may not host arbitrary centered GOOD original wedges; the new 60 bound does not falsely assume they do. Its exact source six-ID classifier remains the accepted independent historical one, never constructed via artificial source-incidence matchings.
+Consequently, **CONDITIONAL only**, if for all h>=h0>=14 and ALL original f,g there is a fixed alpha>0 such that \`Wstar >= alpha*W_good\`, then
+
+    **S >= ceil(alpha * W_good /6) >= ceil(alpha*s^6/1200).**
+
+This is a SUFFICIENT route to the universal S=Omega(s6), NOT a necessary condition; the true accepted S could instead be dominated by original classes with zero GOOD wedge charge, including original C/A, C/B and B/B-disjoint. The decisive new frontier is now ONE selected Q continuation for a fixed positive FRACTION of genuine original GOOD three-flag configurations. Unlike the previous two-flag-D E-multiplicity approach, there is no additional order-s extension count required per charged object: the first three-source-flag population already scales as s6. **No uniform alpha is currently proved.**
+
+The executable \`conditional_all_h_good_wedge_to_original_seven_lower\` implements the exact rational \`alpha*s^6/1200\` conditional bound with \`ceil\`; it explicitly labels the assumed alpha unproved. The W32 original source-first independent sixset/wedge incidence oracle \`exact_true_W32_original_seven_covered_good_wedges\` checks every actual ORIGINAL accepted Q separately for degree<=2, class-specific k(Q) upper and good centered wedge cap, using the SAME global source point and line physical maps. An additional literal WEDGE-FIRST oracle independently verifies Q-membership of each centered good original three-flag wedge on S68 and S72. These two algorithms must agree on covered original wedge counts.
+
+**Complete actual original W(3,2) five fixed map finite wedge-to-seven-Q coverage census, independently hosted:**
+
+| TRUE W32 global complete original f,g | ALL genuine good source 3-flag wedges W | GOOD wedges inside ≥1 genuine accepted original seven-Q Wstar | Good wedges in NONE of the seven accepted original Q | Q-wedge source charge incidences | Coverage Wstar/W |
+|---|---:|---:|---:|---:|---:|
+| dual-zero | 3,203 | **38** | 3,165 | 40 | 38/3203 |
+| lex | 3,924 | **172** | 3,752 | 237 | 43/981 |
+| reverse | 3,768 | **66** | 3,702 | 68 | 11/628 |
+| S68 | 2,715 | **6** | 2,709 | 6 | 2/905 |
+| S72 | 2,811 | **11** | 2,800 | 11 | 11/2811 |
+
+These use full genuine original SIX DISTINCT incidence-ID Q accepted by the historical exhaustive 62,370-candidate source seven-GF5 oracle and are crosschecked by true source wedge-first Q containment, not fabricated physical-only sixset labels. In S68 only SIX of the 2715 TRUE ORIGINAL GOOD 3-flag wedges lie in ANY accepted seven-class six-ID source Q; in S72 only 11 of 2811. A positive coverage fraction on an individual finite original W32 global f,g model is **not** a uniform ALL-f,g, all-h positive alpha. These extremely low real-source finite coverages warn against assuming a large or constant universal coverage without a genuinely new incidence/Hall/selection proof. They do not rule out a sufficiently-large-h uniform alpha, and original #230 remains OPEN.
 
 ## 4. Prior art, limits, required review and next AA4-AS research gate
 
