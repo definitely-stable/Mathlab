@@ -87,7 +87,7 @@ for every legal source pair and physical pair images.
 \[
 \boxed{1+(n-1)^2}.
 \]
-Indeed it is the image of all n×n coefficient matrices under the permutation-matrix inner product, and row-constant and column-constant coefficient shifts are the familiar 2n−1 dimensional null relations between the n² indicator matrix coordinates. Thus its dimension is n²−(2n−1)=1+(n−1)² (the explicit intercept can be absorbed as a constant assignment matrix).
+Indeed it is the image of all n×n coefficient matrices under the permutation-matrix inner product. Matrices of the form A_{i,e}=u_i+v_e comprise a (2n−1)-dimensional subspace and yield a CONSTANT function with value ∑_i u_i+∑_e v_e. The subset yielding the ZERO function has ONE additional linear condition ∑_i u_i+∑_e v_e=0, so its dimension is 2n−2, not 2n−1. Conversely, every matrix producing zero on all permutation matrices has this row-plus-column form (equivalently, all its alternating 2×2 coordinate differences vanish, by comparing permutations differing at any two positions). Therefore the coefficient map has image dimension n²−(2n−2)=1+(n−1)². The explicit intercept can be absorbed as a constant assignment matrix.
 
 ## 3. Any universal one-signed mixed Hessian forces assignment
 
