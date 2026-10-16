@@ -5,7 +5,9 @@ from fractions import Fraction
 from hyp105_issue230_d6aa4ar_good_wedges_port_balance import (
     all_h_original_good_wedge_lower,
     exact_true_original_good_D_two_port_wedge_certificate,
-    independent_original_literal_good_two_port_wedges)
+    independent_original_literal_good_two_port_wedges,
+    conditional_all_h_good_wedge_to_original_seven_lower,
+    exact_true_W32_original_seven_covered_good_wedges)
 from hyp105_issue230_d6aa4aq_colored_original_D_cycle import (
     exact_original_rainbow_D6_cycle_transfer)
 from hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation import (
@@ -130,6 +132,74 @@ class ActualOriginalGoodWedges(unittest.TestCase):
                   "good_flag_wedges",z["good_D_original_TWO_EDGE_unordered_wedges"],
                   "opposite_2port_wedges",z["good_D_original_OPPOSITE_TWO_TYPED_port_wedges"],
                   "original_port_defect",z["true_original_two_typed_port_imbalance_energy"])
+
+    def test_04b_all_h_conditional_good_wedge_to_original_seven_Q_bounded_charge(self):
+        for h in (1,13,14,15,24,40,60):
+            s=1<<h
+            for alpha in (Fraction(0),Fraction(1,4),Fraction(1,2),Fraction(1)):
+                z=conditional_all_h_good_wedge_to_original_seven_lower(s,alpha)
+                self.assertEqual(z["per_genuine_original_six_ID_Q_max_centered_good_wedges"],60)
+                self.assertTrue(z["this_fraction_hypothesis_NOT_PROVED_for_all_f_g"])
+                if h>=14:
+                    desired=Fraction(alpha*s**6,12000)
+                    self.assertEqual(z["exact_rational_asymptotic_lower_if_h_ge_14"],desired)
+                    self.assertEqual(z["conditional_minimum_selected_original_six_Q_count"],
+                                     (desired.numerator+desired.denominator-1)//desired.denominator)
+                else:
+                    self.assertIsNone(z["conditional_minimum_selected_original_six_Q_count"])
+        for bad in (Fraction(-1,10),Fraction(11,10)):
+            with self.assertRaises(ValueError):
+                conditional_all_h_good_wedge_to_original_seven_lower(1<<14,bad)
+
+    def test_04c_complete_true_original_W32_good_wedge_seven_Q_coverage(self):
+        # Literal source six-ID Q from pre-existing 62,370 genuine
+        # W32 source oracle, not invented physical six-label patterns.
+        from hyp105_g5e2b3e1b0_seven_signature import seven_census
+        from hyp105_issue230_d6aa4ar_good_wedges_port_balance import (
+            _good_D_edge_graph)
+        from itertools import combinations
+        for name,m in [("dual_zero",zero_split_original_W32())]+[
+             (name,fixture(1,name)) for name in ("lex","reverse","S68","S72")]:
+            z=exact_true_W32_original_seven_covered_good_wedges(m)
+            original=seven_census(m,independent_checks=False,witness_sets=True)["sets"]
+            self.assertEqual(z["true_original_seven_selected_six_ID_Q"],len(original))
+            self.assertEqual(z["all_original_good_wedge_to_six_Q_charge_incidences"],
+                             sum(z["original_seven_tag_charge_by_class"].values()))
+            self.assertLessEqual(z["all_original_good_wedge_to_six_Q_charge_incidences"],
+                                 60*z["true_original_seven_selected_six_ID_Q"])
+            self.assertEqual(z["original_seven_tag_charge_by_class"].get("C/A",0),0)
+            self.assertEqual(z["original_seven_tag_charge_by_class"].get("C/B",0),0)
+            self.assertEqual(z["original_seven_tag_charge_by_class"].get("D6",0),
+                             6*z["original_seven_tag_Q_count"].get("D6",0))
+            self.assertEqual(z["distinct_good_wedges_covered_by_some_true_original_seven_Q"]+
+                             z["distinct_good_wedges_NOT_covered_by_ANY_seven_Q"],
+                             z["genuine_original_good_source_three_flag_wedges"])
+            self.assertLessEqual(
+                z["distinct_good_wedges_covered_by_some_true_original_seven_Q"],
+                z["all_original_good_wedge_to_six_Q_charge_incidences"])
+            # Separate original wedge-centered direct Q-membership
+            # referee; no dependence on source Q->wedge formula.
+            if name in ("S68","S72"):
+                G,good,neighbors,badP,badL=_good_D_edge_graph(m)
+                candidates=set()
+                for center,row in enumerate(neighbors):
+                    ns=sorted(t for t,_,_ in row)
+                    for a,b in combinations(ns,2):
+                        candidates.add((center,a,b))
+                Qsets=[frozenset(Q) for Q in original]
+                direct=sum(any({c,a,b}.issubset(Q) for Q in Qsets)
+                           for c,a,b in candidates)
+                self.assertEqual(direct,z[
+                    "distinct_good_wedges_covered_by_some_true_original_seven_Q"])
+            print("AA4AR_W32_GENUINE_3_TO_6",name,
+                  "all_original_good_wedges",z["genuine_original_good_source_three_flag_wedges"],
+                  "covered_original_good_wedges",z[
+                      "distinct_good_wedges_covered_by_some_true_original_seven_Q"],
+                  "uncovered_original_good_wedges",z[
+                      "distinct_good_wedges_NOT_covered_by_ANY_seven_Q"],
+                  "charge_incidences",z[
+                      "all_original_good_wedge_to_six_Q_charge_incidences"],
+                  "covered_fraction",str(z["true_original_good_wedge_coverage_fraction"]))
 
     def test_05_actual_source_symplectic_and_independent_typed_physical_invariance(self):
         m=zero_split_original_W32()
