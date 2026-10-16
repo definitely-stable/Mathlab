@@ -94,7 +94,74 @@ the seven selected positive GF(5) classes, for EVERY s and global f,g.
 
 This is a newly explicit *cross-branch implication* and a theorem about the **failure of that seed proof strategy**; it is not a counterexample to the existence of other selected six-Q motifs and not a Branch B counterfamily. AN-2's larger `s^9/9` crowded one-sided set is different and does NOT falsely identify its members with the parent's bilaterally crowded set.
 
-## AN-3 reproducibility and independent model checks
+## AN-3 — ALL GLOBAL genuine ORIGINAL 3×3 distinct-source physically UNCONGESTED seeds Ω(s¹²)
+
+The preceding AN-2 deals with triple flag sources that are physically **ineligible** for any selected six-Q. We now prove a converse-sized population of **physically independently feasible** seeds, using the ONE common fully globally injected f,g, still WITHOUT a six-Q original-source completion theorem.
+
+Define `W_3(f,g)` to be the count of ORDERED triples `(e1,e2,e3)` of three DISTINCT genuine ORIGINAL source incidence IDs with THREE pairwise different actual source POINT factors and THREE pairwise different actual source LINE factors, such that neither typed physical multigraph of their three assigned edges has a vertex of degree 3. Since the three real original factors on each typed side are distinct and globally assigned *different* physical unordered K_a edges, the ONLY forbidden degree-3 physical event is that all three point-side labels (or all three line-side labels) share one physical coordinate. Thus all such triple seeds individually satisfy the exact one-type physical completion gate `Δ<=2` in **BOTH** types.
+
+Let `n=Vd` be the number of ACTUAL ORIGINAL source point-line incidence flags. Selecting an ordered original triple with different point and line factors yields at least
+
+```text
+n*(n-2d+1)*(n-4d)
+```
+
+choices: e1 arbitrary, e2 excludes exactly its source point's d flags and source line's d flags with their single shared original e1 restored, and e3 excludes at most the d flags of each of TWO original points and TWO original lines, i.e. at most 4d actual distinct flags. This is a union bound ON ONE real original incidence graph, not an abstract independent product of two source maps.
+
+Any triple physically degree3 on the point side is included among AN-2's genuine-original `d³ Σ_x(t_x)_3` ordered triple count. As every physical coordinate fiber in an injected K_a image has size `t_x<=a-1`, this bad count is at most
+
+```text
+d³ * a*(a-1)*(a-2)*(a-3).
+```
+
+The same true-original source-degree/physical fiber cap applies to line-side degree3 using the one globally fixed g. By the union bound over BOTH physical typed projections,
+
+```text
+W_3(f,g) >= L_3(s)
+ = n*(n-2d+1)*(n-4d)
+     - 2*d³*a*(a-1)*(a-2)*(a-3).
+```
+
+**THEOREM (new original all-map positive physical 3-seed supply):**
+
+```text
+for EVERY h>=1, s=2^h, genuine W(3,s), complete global f,g:
+  W_3(f,g) >= L_3(s) >= (V*d)^3/3 >= s^12/3.
+for ALL h>=2 (s>=4) a stronger L_3(s) >= 3*(V*d)^3/4 holds.
+```
+
+**Arithmetic proof for s≥4.** The parent #531 minimal-alphabet inequality `5a²<=12V`, independently checked in `joint_physically_eligible_original_matching_triple_floor`, implies `2a⁴/V³<=288/(25V)`. Since `n=Vd`, divide the displayed L3 by `n³` to get
+
+```text
+L3/n³ >= (1-2/V)*(1-4/V)-288/(25V)
+      >= 1 - 438/(25V)
+      >= 3/4, because V>=85.
+```
+
+For the only smaller dyadic order s=2, the ACTUAL exact `V=15,d=3,a=6,n=45` integer certificate is
+
+```text
+L3 = 45*40*33 - 2*(3³)*6*5*4*3
+   = 59,400 - 19,440
+   = 39,960 >= 45³/3.
+```
+
+Finally `V=(s+1)(s²+1)>=s³`, `d=s+1>=s`, so `(Vd)^3>=s¹²`. QED.
+
+**DO NOT PROMOTE:** Each counted triple can separately be extended to a six-coordinate degree-two physical multigraph on the POINT side and on the LINE side by AN-1. There is NO inference that the same THREE ADDITIONAL ACTUAL ORIGINAL source incidence IDs accomplish both completions, and no guarantee of a selected positive seven-GF5 six-Q. In particular, `W_3=Ω(s¹²)` is **not** Branch A, despite exceeding the desired exponent.
+
+### AN-3 finite genuine-original JOINT EXTENSION FAILURES
+
+On the frozen W(3,2) complete K6 maps, directly enumerate all actual `C(45,3)` source-flag triple sets and retain those with 3 different ORIGINAL point factors and 3 different ORIGINAL line factors and `Δ<=2` in BOTH physical projections. This yields the exact observed `W3/6` physically independent 3→6 eligible unordered original seeds. Independently compute all TRUE original selected seven GF5 six-Q via historical `seven_census(model,witness_sets=True)`. Each such Q can include at most `C(6,3)=20` distinct three-flag subfamilies, regardless of whether the three point and three line factors are distinct. Hence, for that SAME globally coherent f,g,
+
+```text
+#{ physically eligible ORIGINAL 3-flag seeds with NO actual selected
+   seven-GF5 6-flag extension } >= W3/6 - 20*S_seven(f,g).
+```
+
+This is a valid finite lower, not an identity (different Q may cover the SAME seed). On the four tested TRUE ORIGINAL W32 globally injected schemes `dual-zero, lex, S68, S72`, S ranges from 68 to 259, whereas the all-f,g analytic bound already guarantees `W3/6>=39,960/6=6,660`. Therefore `W3/6-20*S>=1,480>0` on every one of these particular global schemes, and the code computes the stronger ACTUAL exact W3 count per scheme. This is a non-vacuous finite demonstration that **even genuinely uncrowded original triples can fail the joint original six-ID GF5 extension**, separately from the elementary degree-3 nonlift. It is NOT an infinite all-h counterfamily.
+
+## AN-4 reproducibility and independent model checks
 
 - Standalone universal mathematics: `research/hyp105_issue230_d6aa4an_triple_seed_gateway.py` (`stdlib` only), with explicit balanced missing edge witness, exact finite sharp minimum, constructive all-130-physical-mode seed completion and scope flags.
 - Falsifiers: `research/test_hyp105_issue230_d6aa4an_triple_seed_gateway.py`, physically exhaustive all three-edge K6/7/8 multisets and independently enumerated all possible six-vertex two-regular six-edge multigraphs; exact sharp extremal global physical complement for true source s=2,4,8,16,32,64; all-h exact integer bound h=1..72; TRUE original full 45-flag W32 with four globally complete f/g map fixtures, physical 3-distinct-source flag count by direct triple source incidence-ID enumeration; TRUE W34/W38 with missing globally injected physical pairs; exhaustive seven selected original W32 Q physical 2-regular certification on dual-zero/S68, all three-edge submultisets; every missing-subgraph of K6/K7 (m<=a-2) degree convex extremality; malformed point/line physical label controls.
