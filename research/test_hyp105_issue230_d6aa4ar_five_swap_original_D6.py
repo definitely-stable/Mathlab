@@ -79,8 +79,23 @@ class DeterministicOriginalFiveSwapD6Tests(unittest.TestCase):
 
     def test_04_real_original_W32_bad_full_f_g_repaired_genuine_source(self):
         # S68 and S72 have actual ORIGINAL complete f,g and strict D6=0.
+        from hyp105_issue230_d6aa4tcyc_fixed_f_d6_pair import (
+            genuine_W32_fixed_f_original_connected_left_Q,
+        )
         for scheme in ("S68","S72"):
             model=fixture(1,scheme)
+            other_model, original_Q = genuine_W32_fixed_f_original_connected_left_Q(scheme)
+            self.assertEqual(len(original_Q),21186)
+            # INDEPENDENT original-definition complete 21,186 six-ID D6
+            # census of the ORIGINAL (f,g), before any swaps: exactly zero.
+            initial_d6=0
+            for ids in original_Q:
+                source_points=tuple(model["incidences"][i][0] for i in ids)
+                source_lines=tuple(model["incidences"][i][1] for i in ids)
+                left=physical_column_dual(model["incidences"],model["left_labels"],source_points)
+                right=physical_column_dual(model["incidences"],model["right_labels"],source_lines)
+                initial_d6+=(left==right and is_connected_column_cycle(left))
+            self.assertEqual(initial_d6,0)
             for reverse in (False,True):
                 z=repair_original_D6_with_at_most_five_line_swaps(model,reverse=reverse)
                 self.assertLessEqual(z["global_line_transposition_distance_upper"],5)
