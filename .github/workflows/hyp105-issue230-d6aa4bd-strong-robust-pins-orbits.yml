@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4bd-strong-robust-pins-orbits
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bd_strong_robust_pins_orbits.py"
+      - "research/test_hyp105_issue230_d6aa4bd_strong_robust_pins_orbits.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BD-STRONG-ROBUST-PINS-ORBITS.md"
+      - ".github/workflows/hyp105-issue230-d6aa4bd-strong-robust-pins-orbits.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-real-original-fourfold-adversarial-pins-v256-exact-rational:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All dyadic h5..80 exact Fractions, arbitrary up to V/256 truly pinned ORIGINAL line source factors; TRUE full-global completion GOOD mean >=s6/1024 and source 0-1-2-3 overlap variance <=3e10/V, old V/1024 formula identity
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4bd_strong_robust_pins_orbits.StrongerOriginalLinePinsAndRobustOrbits.test_01_all_h5_to80_fourfold_more_arbitrary_real_original_line_pins \
+            test_hyp105_issue230_d6aa4bd_strong_robust_pins_orbits.StrongerOriginalLinePinsAndRobustOrbits.test_02_exact_parent_same_source_same_full_right_support_common_k_subset
+  original-all-h13-deranged-two-complete-global-line-maps-and-prespecified-orbit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Any actual original symplectic W3 all h>=13 two distinct fully coherent global line maps preserve all V/256 arbitrary pins, differ on ALL remaining n original source LINE factors, BOTH >=s6/2048 GOOD source 3flags; whole-map m-image-permutation union bound
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4bd_strong_robust_pins_orbits.StrongerOriginalLinePinsAndRobustOrbits.test_03_any_preselected_global_whole_free_physical_edge_permutation_orbit
+  actual-symplectic-original-W32-W34-pins-source-and-whole-clean-support:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True W32 all original 45 source flag IDs four globally injected typed global f/g, independently literal pinned-source 3flag and physical CLEAN ordered triples; true W34 GF4 nononto K14 six missing source factor images per type, full-support BAD unaffected by partial pins
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4bd_strong_robust_pins_orbits.StrongerOriginalLinePinsAndRobustOrbits.test_04_genuine_original_W32_adversarial_pinned_source_and_clean_physical_independent \
+            test_hyp105_issue230_d6aa4bd_strong_robust_pins_orbits.StrongerOriginalLinePinsAndRobustOrbits.test_05_true_original_W34_nononto_K14_full_support_pinned_edge_clean_invariant
+  true-original-W32-complete-global-hamming-derangements-pins:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real symplectic W32 fixed original f/g full global K6 map S68, nine pinned TRUE source LINE factors, six complete whole globally coherent physical right-image rotations all preserving pins, hamming SIX and independently literal good D opposite wedges
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4bd_strong_robust_pins_orbits.StrongerOriginalLinePinsAndRobustOrbits.test_06_actual_original_W32_two_hamming_disjoint_full_global_extensions_preserve_pins
