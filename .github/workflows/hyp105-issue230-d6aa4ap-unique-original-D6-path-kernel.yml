@@ -1,0 +1,99 @@
+name: hyp105-issue230-d6aa4ap-unique-original-D6-path-kernel
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ap_unique_original_D6_path_kernel.py"
+      - "research/test_hyp105_issue230_d6aa4ap_unique_original_D6_path_kernel.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AP-UNIQUE-ORIGINAL-D6-PATH-ALIGNMENT.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ap-unique-original-D6-path-kernel.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-true-original-D6-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Seven real source P5xP5 D6 sparse, physical and historical seven-class independent tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ap_unique_original_D6_path_kernel.py" -v
+  all-h-source-four-neighbor-alignment-integer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All genuine W3(2^h) h1..80 exact minimal physical K_a path and d4 original adjacency upper
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from math import comb
+          from hyp105_issue230_d6aa4ap_unique_original_D6_path_kernel import all_h_original_D6_unique_source_path_upper
+          for h in range(1,81):
+              s=1<<h
+              z=all_h_original_D6_unique_source_path_upper(s)
+              n=6*comb(z["a"]-3,3)
+              assert z["full_Ka_P5_per_typed_side"]==n
+              assert z["full_Ka_physical_P5xP5_template_capacity"]==n*n
+              assert z["true_original_source_neighbor_cap_per_D_anchor"]==min(n*n,n*(s+1)**4)
+              assert z["aligned_original_D6_at_most_ONE_per_occupied_physical_P5xP5"]
+              assert z["no_root_issue230_A_B_C_proof"]
+          print("All-h ORIGINAL D6 unique path and real source d4 neighbor theorem PASS")
+          PY
+  true-original-global-map-source-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {power: 1, scheme: S68}
+          - {power: 1, scheme: S72}
+          - {power: 1, scheme: lex}
+          - {power: 1, scheme: reverse}
+          - {power: 2, scheme: lex}
+          - {power: 2, scheme: random}
+          - {power: 3, scheme: lex}
+          - {power: 3, scheme: random}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: TRUE original W32 W34 W38 globally fixed nononto labels point-first and source-independent D6
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import os,json
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4am_genuine_pair_sixcharge import original_D_pair_index
+          from hyp105_issue230_d6aa4ap_unique_original_D6_path_kernel import (
+              true_original_D6_direct_path_kernel,independent_D6_physical_pairs,
+              true_original_W32_all_D6_source_path_census)
+          m=fixture(int(os.environ["POWER"]),os.environ["SCHEME"])
+          if m["s"]==2:
+              z=true_original_W32_all_D6_source_path_census(
+                  m,independent_physical=True,historical_Q_first=True)
+              assert z["exact_D6_true_original_D_anchor_charge"]==6*z[
+                  "exact_D6_unique_true_original_six_Q"]
+          else:
+              pair=min(original_D_pair_index(m))
+              z=true_original_D6_direct_path_kernel(
+                  m,pair,direction="point",include_Q=True,max_first_paths=12)
+              assert z["partial_source_first_paths_only"]
+              assert z["first_typed_original_P5_paths_examined"]==12
+              assert z["accepted_original_D6_D_anchor_charge"]<=12*(m["s"]+1)**4
+          print(json.dumps({"s":m["s"],"scheme":os.environ["SCHEME"],
+                            "observed_original_D6_path_charge":z.get(
+                              "exact_D6_true_original_D_anchor_charge",
+                              z.get("accepted_original_D6_D_anchor_charge")),
+                            "full_W32_else_EXPLICIT_PARTIAL":m["s"]!=2},
+                           indent=2,sort_keys=True))
+          PY
