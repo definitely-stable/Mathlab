@@ -137,6 +137,19 @@ class AllOriginalSevenFiveSwapBoundaryTests(unittest.TestCase):
                              z["original_selected_GF5_floor_numerator_signed_change"])
             self.assertGreater(z["actual_source_line_cut_candidate_Q"],0)
             self.assertTrue(z["independent_complete_original_census_compared"])
+            expected={
+                "S68": (169,101,61699,165,64,4386335),
+                "S72": (159,87,62349,158,71,3849249),
+            }[scheme]
+            actual=(
+                z["repaired_seven_S_after"],
+                z["original_seven_S_signed_change"],
+                z["actual_source_line_cut_candidate_Q"],
+                z["accepted_original_six_ID_Q_gained"],
+                z["accepted_original_six_ID_Q_lost"],
+                z["original_selected_GF5_floor_numerator_signed_change"],
+            )
+            self.assertEqual(actual,expected)
             self.assertFalse(z["this_bound_PROVES_root_A_B_C"])
 
     def test_06_actual_original_lex_reverse_second_oracle_no_fake_zero_claim(self):
@@ -148,9 +161,27 @@ class AllOriginalSevenFiveSwapBoundaryTests(unittest.TestCase):
                              {k:v for k,v in independent["seven_class_motif_counts"].items()
                               if v!=0})
             self.assertTrue(z["independent_complete_original_census_compared"])
+            expected={
+                "lex": (259,180,-79,61439,165,244,-3167553),
+                "reverse": (169,189,20,61147,180,160,975177),
+            }[scheme]
+            actual=(
+                z["original_seven_S_before"],
+                z["repaired_seven_S_after"],
+                z["original_seven_S_signed_change"],
+                z["actual_source_line_cut_candidate_Q"],
+                z["accepted_original_six_ID_Q_gained"],
+                z["accepted_original_six_ID_Q_lost"],
+                z["original_selected_GF5_floor_numerator_signed_change"],
+            )
+            self.assertEqual(actual,expected)
             self.assertEqual(
                 z["accepted_original_six_ID_Q_gained"]-z["accepted_original_six_ID_Q_lost"],
                 z["original_seven_S_signed_change"])
+            if scheme=="lex":
+                # ACTUAL original W32: globally legal +D6 repair LOWERED
+                # total seven-class positive S, refuting monotone transport.
+                self.assertLess(z["original_seven_S_signed_change"],0)
 
 
 if __name__=="__main__":
