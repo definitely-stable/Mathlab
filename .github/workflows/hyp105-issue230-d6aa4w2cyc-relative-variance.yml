@@ -1,0 +1,46 @@
+name: hyp105-issue230-d6aa4w2cyc-relative-variance
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4w2cyc_relative_variance.py"
+      - "research/test_hyp105_issue230_d6aa4w2cyc_relative_variance.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4W2CYC-RELATIVE-VARIANCE-CONCENTRATION.md"
+      - ".github/workflows/hyp105-issue230-d6aa4w2cyc-relative-variance.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-source-and-physical-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaust K6 K7 K8, verify genuine original W32 and all-h proofs
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4w2cyc_relative_variance.py' -v
+  exact-high-h-symbolic-bounds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Print honest worst-f stochastic qualification and exact certificate
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4w2cyc_relative_variance import relative_variance_certificate
+          for h in (3,4,5,6,7,8,9,10,16,24,36):
+              z=relative_variance_certificate(1<<h)
+              eps=Fraction(z["relative_variance_over_mean_squared_exact_upper"])
+              assert eps <= Fraction(2333592,(1<<h)**3)
+              assert z["root_230"] == "OPEN_WITH_FORMAL_BLOCKER"
+              assert z["independent_math_referee"] is False
+              assert z["all_f_g_minimax_seven_proved"] is False
+              print("ALL_H_RELATIVE_VARIANCE h=%d a=%d epsilon_approx=%.12g half_mean_success_lower_approx=%.12g" %
+                   (h,z["a"],float(eps),float(Fraction(z["one_global_g_at_least_s6_over16_probability_at_least"]))))
+          PY
