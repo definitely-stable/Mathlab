@@ -1,0 +1,94 @@
+name: hyp105-issue230-d6aa4ar-fixed-two-physical-support-D6-variance
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ar_fixed_support_d6_concentration.py"
+      - "research/test_hyp105_issue230_d6aa4ar_fixed_support_d6_concentration.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AR-FIXED-TWO-SUPPORT-D6-CONCENTRATION.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ar-fixed-two-physical-support-D6-variance.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-independent-true-original-support-variance-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Seven independent all-h and genuine W32/W34/W38 fixed support tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ar_fixed_support_d6_concentration.py" -v
+  all-h-quenched-two-adversarial-support-bound:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: EXACT h3..80 original fixed f and fixed line EDGE IMAGE global permutation relative variance
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4ar_fixed_support_d6_concentration import fixed_both_support_conditional_D6_variance_certificate
+          for h in range(3,81):
+              s=1<<h
+              z=fixed_both_support_conditional_D6_variance_certificate(s)
+              assert z["mean_original_D6_lower_from_AA4_AQ"]>=Fraction(2,3)*s**6
+              assert z["uniform_fixed_PHYSICAL_SUPPORT_relative_variance_rational_upper"]<=Fraction(827800,s**3)
+              assert z["fixed_adversarial_original_line_physical_EDGE_IMAGE"]
+              assert z["one_GLOBAL_uniform_permutation_of_ORIGINAL_line_factor_ids"]
+              assert z["all_two_FIXED_global_factor_MAPS_D6_lower_NOT_PROVED"]
+              assert z["root_issue230_Branch_A_B_C_OPEN"]
+          print("Real GQ all dyadic h>=3 fixed BOTH physical support conditional D6 second-moment PASS")
+          PY
+  strict-original-global-maps-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {power: 1, scheme: lex}
+          - {power: 1, scheme: S68}
+          - {power: 1, scheme: S72}
+          - {power: 2, scheme: lex}
+          - {power: 2, scheme: random}
+          - {power: 3, scheme: lex}
+          - {power: 3, scheme: random}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True original GQ source sixline SDR and independently globally fixed line-image support
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4aq_conditional_original_D6_mean import true_original_six_line_SDR_count
+          from hyp105_issue230_d6aa4al_global_original_coordinate_transport import _actual_strict_original_transport
+          from hyp105_issue230_d6aa4ar_fixed_support_d6_concentration import fixed_both_support_conditional_D6_variance_certificate
+          m=fixture(int(os.environ["POWER"]),os.environ["SCHEME"])
+          s,V,d,a,f,g,inc,np,nl=_actual_strict_original_transport(m)
+          assert len({tuple(e) for e in g})==V
+          sample=true_original_six_line_SDR_count(tuple(range(6)),np)
+          result={"s":s,"scheme":os.environ["SCHEME"],
+                  "actual_original_sixpoint_line_SDR":sample,
+                  "globally_unused_physical_line_edges":a*(a-1)//2-V,
+                  "line_edge_IMAGE_fixed":True}
+          if s>=8:
+              z=fixed_both_support_conditional_D6_variance_certificate(s)
+              assert z["mean_original_D6_lower_from_AA4_AQ"]>=2*s**6/3
+              result["fixed_support_D6_relative_variance_upper"]=str(
+                  z["uniform_fixed_PHYSICAL_SUPPORT_relative_variance_rational_upper"])
+          else:
+              result["fixed_support_variance_scope"]="h>=3 only"
+          print(json.dumps(result,sort_keys=True,indent=2))
+          PY
