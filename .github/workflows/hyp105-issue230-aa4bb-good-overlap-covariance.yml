@@ -1,0 +1,50 @@
+name: hyp105-issue230-aa4bb-true-original-good-overlap-covariance
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bb_overlap_covariance.py"
+      - "research/test_hyp105_issue230_d6aa4bb_overlap_covariance.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BB-THREE-LINE-OVERLAP-COVARIANCE.md"
+      - ".github/workflows/hyp105-issue230-aa4bb-good-overlap-covariance.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  four-image-independent-geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All two-common-source-line position cases, full injected four-image physical census, exhaustive six-line global permutation
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bb_overlap_covariance.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bb_overlap_covariance.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bb_overlap_covariance.py' -v -k test_06
+  original-W32-W34-and-all-h-rational:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent genuine W32 flag triple source, W34 clean holes, all-h symbolic bounds, physical gauge
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bb_overlap_covariance.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bb_overlap_covariance.py' -v -k test_04
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bb_overlap_covariance.py' -v -k test_05
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bb_overlap_covariance.py' -v -k test_07
+      - name: Print exact quantifiers, no false fixed-g or root A acceptance
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4bb_overlap_covariance import uniform_GOOD_variance_envelope
+          for s in (32,64,128,256,512,1024,4096):
+              x=uniform_GOOD_variance_envelope(s)
+              print("AA4BB",s,"mean",x["mean_lower"],"variance",x["relative_variance_upper"],
+                    "half_mean_tail",x["probability_R_GOOD_below_s6_over256_upper"])
+              assert x["root_230"]=="OPEN_WITH_FORMAL_BLOCKER"
+              assert x["all_given_adversarial_g_lower_NOT_PROVED"]
+          PY
