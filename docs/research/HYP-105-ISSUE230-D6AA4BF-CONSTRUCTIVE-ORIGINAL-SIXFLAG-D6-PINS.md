@@ -98,4 +98,26 @@ This exact constructive derandomization is finite POLYNOMIAL in the explicit sou
 5. Independently confirm the STRONG parent #568 all-h exact-Fraction quantitative D6 source six-ID conditional floor \(\Phi(\phi)\ge27(s+1)^6/25\ge s^6\) for dyadic h=5,…,80 and k=0,1,floor(V/16), without materializing fake high-h symplectic finite geometries or approximating the giant physical C6 target sets. The exact adaptive tower theorem holds for every legal partial state, regardless of the number of initially locked line images; the initial positive constant is **only** imported when k is within the proven adversarial 1/16 domain.
 6. Malformed duplicate physical pair images, repeated original source line factor IDs in a six-Q, invalid physical images, false source pin domain, repeated locked original line, invalid source LINE order and negative partial-step counts fail closed. The full ROOT Branch A/B/C still remains OPEN. The positive \(\Omega(s^6)\) count now genuinely refers to accepted original selected six-ID GF5 D6, not merely threeflags, **but** only for the algorithmically chosen original g_*, NOT all fixed arbitrary original f,g.
 
+### Frozen genuine-original W32 accepted GF5 six-ID finite construction ledger
+
+The independent GitHub-hosted mathematical sixgroup suite and separate full-global original S68 job verified ALL following exact-source facts on the SAME fixed real ORIGINAL W(3,2)/K6 geometry:
+
+| Fixed original point-side scheme | ORIGINAL eligible six-distinct-incidence-ID point-C6 source Q population | Exact conditional D6_free mean after TWO arbitrary distinct original LINE image pins (per-scheme original test) |
+|---|---:|---:|
+| lex | 18,716 | **144/143** |
+| reverse | 18,716 | **144/143** |
+| S68 | 21,186 | **147/110** |
+| S72 | 21,186 | **98/55** |
+
+Each conditional mean was computed by the NEW exact six-slot global permutation pattern evaluator and independently equated to parent #568's separate ORIGINAL source Q count × 12 × free physical right C6 count divided by \((V-k)_6\). Neither computation redraws physical right edge images independently per Q.
+
+A **separate fully constructed ONE SAME global original g** W32 S68 test with two arbitrary original source LINE physical assignments permanently pinned \`{line 0 -> E[4], line 7 -> E[1]}\`, and all 13 remaining actual original source LINE factor IDs chosen in REVERSE order, obtains:
+
+- INITIAL EXACT conditional true-original selected D6_free source six-ID count: **7533/5720**.
+- Complete deterministic globally injected right image g (15 distinct original LINE images, all initial pins preserved, same full physical K6 edge support), FINAL literal **D6_free = 16** distinct actual original six-incidence-ID sets.
+- Independently historic W32 seven-GF5 \`classify_seven_prechecked\` on ALL **21,186** true original eligible Q: **D6_total = 19** distinct accepted original six-incidence-ID sets. Three additional D6 source Q involve at least one of the originally pinned LINE factors; the free source Q guarantee deliberately did not include them.
+- Exact greedy potential verified monotone at EVERY source assignment, and its last value equals the literal integer 16. This **does not** represent evidence for all-dyadic \(s^6\) at s=2; #568's uniform asymptotic domain starts s>=32.
+
+For cross-checking the six-slot conditional tower without source GQ prerequisites, a separate ABSTRACT but legitimately fully globally injected six-original-LINE-ID label example with six occupied physical pair edges forming a single C6 and one initially locked image exhaustively enumerates **all 5!=120 full global completions**. The exact six-bit-mask \(\Phi\) agrees with the independent full-completion average, then each chosen next original source ID (alternating min/max) satisfies the exact average of all next-edge potentials and preserves \(\Phi\). This is an abstract algebra falsifier, not a counterfeit high-order original W(3,s).
+
 **Acceptance:** strict Draft child of #568 pinned exact HEAD. Require specialized FINAL-head GitHub-hosted tests, INDEX, Proof Audit, Full Research, plus independent mathematics referee of the theorem and independent acceptance of ancestor #568/stack before scientific RCP accepted claim promotion or merge. Do not change main or the five derived accepted registry files. **Next root-facing step:** quantify deterministic worst-case all-fully-fixed g sixflag D6 loss or show compensation by other six original seven-GF5 classes, rather than further expectation-only gains. Repeated constructive existence cannot by itself prove the requested adversarial all-fixed root lower.
