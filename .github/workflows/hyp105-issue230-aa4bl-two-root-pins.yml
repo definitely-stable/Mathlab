@@ -1,0 +1,50 @@
+name: hyp105-issue230-aa4bl-two-original-root-pins-BA
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bl_two_pin_conditional_BA.py"
+      - "research/test_hyp105_issue230_d6aa4bl_two_pin_conditional_BA.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BL-TWO-PIN-SOURCE-BA.md"
+      - ".github/workflows/hyp105-issue230-aa4bl-two-root-pins.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-local-physical-defect-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: ALL dyadic h5..80 exact integer and rational support local bound, true original source-sixIDs, invalid inputs
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bl_two_pin_conditional_BA.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bl_two_pin_conditional_BA.py' -v -k test_06
+  true-original-W32-each-actual-root-and-720-global-physical:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: REAL original W32 all five fully fixed f g maps all 90 actual source cherries each adjacency/disjoint pin pair; 4! physical target and 13 falling 4 direct permutation
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bl_two_pin_conditional_BA.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bl_two_pin_conditional_BA.py' -v -k test_03
+  original-W34-nononto-and-extreme-physical-control:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: TRUE symplectic W34 GF4 globally injected lex/random actual original B/A source 4flag, nononto K14 physical sixedge targets with two pinned opposite source factors
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bl_two_pin_conditional_BA.py' -v -k test_04
+      - name: Abstract extreme permitted physical-hole pendant negative control strictly NOT a dyadic original GQ realization
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bl_two_pin_conditional_BA.py' -v -k test_05
