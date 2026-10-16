@@ -274,3 +274,65 @@ def real_original_W32_min_distance_sample_certificate(model,*,sample_count=50,
             "maximum_exact_distance_observed":max(hist),
             "all_TRUE_original_Q_have_optimum_at_most_five_proved_by_parent":True,
             "no_assumption_single_global_repaired_g_for_all_original_Q":True}
+
+
+# Complete genuine W(3,2) S68/S72 global ORIGINAL source models have
+# EXACT-six-incidence-ID Q which provably require FIVE globally legal
+# original line factor-label image transpositions to become accepted D6.
+# These data were first found by independently hosted source tests
+# over all 720 physical K6 oriented D6 targets PER fixed source Q.
+FROZEN_TRUE_ORIGINAL_W32_RADIUS_FIVE_Q = {
+    "S68": (2,19,22,35,36,42),
+    "S72": (10,15,23,29,30,33),
+}
+
+
+def exact_true_original_W32_SHARP_five_swap_witness(scheme):
+    """Return a finite *fully certified* genuine ORIGINAL source witness.
+
+    All 720 occupied physical connected D6 target orientations are
+    exhausted; each has a mathematically certified exact minimal
+    GLOBAL source image transposition distance M-c. The MINIMUM
+    of those 720 distances equals FIVE. An actual shortest global
+    5-swap map is constructed and the historical seven-GF5 original
+    D6 classifier accepts the SAME SIX original source incidence IDs.
+
+    With ancestor #548's all-h upper <=5 this proves the integer
+    constant FIVE is OPTIMAL over ALL genuine dyadic orders/labels/Q:
+      sup_{h>=1,f,g,Q eligible} min_d6_source_global_swaps = 5.
+    No claim the whole seven-family minimax for fixed g is settled.
+    """
+    if scheme not in FROZEN_TRUE_ORIGINAL_W32_RADIUS_FIVE_Q:
+        raise ValueError("only pinned S68 or S72 true original source witness")
+    from hyp105_issue230_projection import fixture
+    Q=FROZEN_TRUE_ORIGINAL_W32_RADIUS_FIVE_Q[scheme]
+    m=fixture(1,scheme)
+    proof=exact_true_original_W32_minimum_D6_repair_distance(
+        m,Q,validate_witness=True)
+    if proof["EXACT_MINIMUM_full_GLOBAL_line_source_transposition_distance_to_D6"]!=5:
+        raise AssertionError("genuine original W32 sharp five-swap witness falsified")
+    if proof["ALL_global_target_distance_histogram"].get(5,0)<=0:
+        raise AssertionError("no five-swap exact original D6 physical target")
+    if sum(proof["ALL_global_target_distance_histogram"].values())!=720:
+        raise AssertionError("unproven complete physical D6 target enumeration")
+    if len(proof["optimal_actual_whole_original_line_source_swaps"])!=5:
+        raise AssertionError("no actual 5 whole-source-factor transposition witness")
+    return {
+        "scheme":scheme,
+        "REAL_original_W32_s":2,
+        "six_DISTINCT_true_original_incidence_flag_IDs":Q,
+        "all_720_physically_occupied_K6_D6_targets_EXHAUSTED":True,
+        "EXACT_global_minimum_distance":5,
+        "all_720_target_global_exact_distance_histogram":
+            proof["ALL_global_target_distance_histogram"],
+        "five_global_original_line_factor_swap_witness":
+            proof["optimal_actual_whole_original_line_source_swaps"],
+        "historical_ORIGINAL_selected_GF5_D6_after_global_five_swaps":
+            proof["historical_original_sixflag_GF5_D6_verified_at_global_OPTIMUM"],
+        "ancestor_ALL_h_at_most_five_and_THIS_real_W32_at_least_five":
+            True,
+        "UNIVERSAL_five_transposition_upper_SHARP_for_individual_true_original_Q":
+            True,
+        "DOES_NOT_PROVE_selected_seven_GF5_every_fixed_map_positive":True,
+        "root230_A_B_C_OPEN":True,
+    }
