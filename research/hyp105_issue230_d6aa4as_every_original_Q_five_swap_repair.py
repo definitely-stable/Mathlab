@@ -151,7 +151,8 @@ def original_left_C6_order_on_six_flag_IDs(inc,f,Q):
     return neigh
 
 
-def repair_EVERY_actual_original_Q_D6_in_five_line_swaps(model,Q):
+def repair_EVERY_actual_original_Q_D6_in_five_line_swaps(
+        model,Q,*,preserved_original_flag_ID=None):
     """Construct one globally complete line source-image reassignment
     repairing THIS exact user-supplied genuine original Q, <=5 swaps.
     No source Q selection or original neighbor choices inside here.
@@ -162,7 +163,11 @@ def repair_EVERY_actual_original_Q_D6_in_five_line_swaps(model,Q):
     bad=exceptional_noncycle_edge(a,g)
     anchors=tuple(i for i in Q if g[inc[i][1]]!=bad)
     if len(anchors)<5:raise AssertionError("at most one source line image can be pendant")
-    start=anchors[0]
+    if preserved_original_flag_ID is not None and (
+        type(preserved_original_flag_ID) is not int or
+        preserved_original_flag_ID not in anchors):
+        raise ValueError("preserved TRUE original source incidence ID must be a Q flag with C6-capable current right edge")
+    start=anchors[0] if preserved_original_flag_ID is None else preserved_original_flag_ID
     # Orient original physical point C6, keeping named first original
     # incidence ID fixed as column-position zero.
     successor=min(neighbor[start])
@@ -209,6 +214,8 @@ def repair_EVERY_actual_original_Q_D6_in_five_line_swaps(model,Q):
         "original_six_line_factors":lends,
         "original_left_C6_flag_order_starting_at_anchor":tuple(cycle),
         "selected_genuine_original_line_anchor_ID":line_ids[0],
+        "at_least_FIVE_C6_eligible_DISTINCT_source_flag_anchors":len(anchors),
+        "eligible_original_flag_anchor_IDs":anchors,
         "original_anchor_line_physical_image_UNCHANGED":g[line_ids[0]],
         "source_line_factor_global_swaps":tuple(swaps),
         "number_of_GLOBAL_line_factor_image_transpositions":len(swaps),
