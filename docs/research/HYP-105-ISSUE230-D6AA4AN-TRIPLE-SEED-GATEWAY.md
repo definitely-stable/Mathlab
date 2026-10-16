@@ -67,6 +67,33 @@ Every one of these C3 source triples has a physical coordinate of degree THREE i
 
 **Important logically:** this is a **sharp, quantified structural NO-LIFT**, not a lower bound on accepted GF5 sixsets and not a counterexample infinite family to the root #230 conjecture. It shows why one cannot route even an enormous guaranteed population of triple physical-coordinate collisions into seven-positive GF5 Q. It says NOTHING about the complementary population of physically un-congested, extendible-on-each-side triples. The key actual missing gate remains **SIMULTANEOUS original-source six-incidence completion in BOTH typed physical projections**, not pre-Hall physical triples alone.
 
+### Exact finite attainable minima (independent integer audit)
+
+Each table entry is the **minimum** over every complete global typed original factor injection f,g, not a selected random fixture. The minimum is realized by the explicitly constructed balanced missing physical pair graph, and it counts ordered genuine incidence-ID triples with THREE different original factors on ONE specified type.
+
+| Genuine W(3,s) | V | a | missing pairs m | q | r | SHARP ordered original triples | SHARP unordered / 6 |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 2 | 15 | 6 | 0 | 5 | 0 | 9,720 | 1,620 |
+| 4 | 85 | 14 | 6 | 12 | 2 | 2,409,000 | 401,500 |
+| 8 | 585 | 35 | 10 | 33 | 15 | 869,901,120 | 144,983,520 |
+| 16 | 4,369 | 94 | 2 | 92 | 90 | 359,079,182,280 | 59,846,530,380 |
+| 32 | 33,825 | 261 | 105 | 259 | 51 | 161,444,926,247,220 | 26,907,487,707,870 |
+| 64 | 266,305 | 731 | 510 | 728 | 442 | 77,329,217,329,728,000 | 12,888,202,888,288,000 |
+
+The W32 minimum 9,720 is independently reproduced by DIRECT enumeration of all genuine 45-source-incidence-ID unordered triples: 1,620 qualifying unordered point-type triples × six orderings. On W32 every globally bijective physical K6 injection has the SAME fiber degree five at all six physical coordinates, so ALL admissible global mappings attain this value, not only a special construction.
+
+### Full-seven extension no-go for the two-typed triple result of #531
+
+The parent #531 proves at least `4s^6` ordered TRUE original 3-flag triples with **both** physical typed projections sharing a coordinate (at least two different genuine point IDs and at least two different genuine line IDs). Its text deliberately stops at the 2-regular physical gateway without claiming the whole seven-class exclusion. Combining the **already existing** exhaustive genuine-original seven-class physical degree-2 classification of sibling #530 with the elementary degree monotonicity of AN-1 gives:
+
+```text
+Each parent-#531 bilaterally crowded true original three-flag seed
+has ZERO genuine six-original-incidence completions in ANY of
+the seven selected positive GF(5) classes, for EVERY s and global f,g.
+```
+
+This is a newly explicit *cross-branch implication* and a theorem about the **failure of that seed proof strategy**; it is not a counterexample to the existence of other selected six-Q motifs and not a Branch B counterfamily. AN-2's larger `s^9/9` crowded one-sided set is different and does NOT falsely identify its members with the parent's bilaterally crowded set.
+
 ## AN-3 reproducibility and independent model checks
 
 - Standalone universal mathematics: `research/hyp105_issue230_d6aa4an_triple_seed_gateway.py` (`stdlib` only), with explicit balanced missing edge witness, exact finite sharp minimum, constructive all-130-physical-mode seed completion and scope flags.
