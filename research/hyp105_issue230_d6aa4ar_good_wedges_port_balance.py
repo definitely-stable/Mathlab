@@ -244,10 +244,14 @@ def conditional_all_h_good_wedge_to_original_seven_lower(s, covered_fraction):
 
     Given (NOT PROVED) at least fraction alpha of all GOOD original
     3-flag two-D-edge wedges occurs as a 3-subset of at least one TRUE
-    positively accepted seven-GF5 SIX-DISTINCT original flag Q, each
-    six-Q contains at most 6*C(5,2)=60 centered GOOD source wedges.
+    positively accepted seven-GF5 SIX-DISTINCT original flag Q,
+    the TRUE original D graph restricted to these six flags has
+    maximum degree 2: each original source physical point-coordinate
+    appears twice and the physical source label has two coordinates.
+    Therefore each selected Q hosts at most k(Q)<=6 GOOD centered
+    wedges (one per actual flag of D-degree 2), NOT the weak 60.
     W_good >=s^6/200 for h>=14 therefore forces
-      S_selected >= ceil(alpha*s^6/12000).
+      S_selected >= ceil(alpha*s^6/1200).
     The condition is NOT a universal theorem; W32 finite scans
     measure its failure or success for individual global f,g only.
     """
@@ -255,10 +259,10 @@ def conditional_all_h_good_wedge_to_original_seven_lower(s, covered_fraction):
     alpha=Fraction(covered_fraction)
     if alpha<0 or alpha>1:
         raise ValueError("conditional coverage ratio alpha must lie in [0,1]")
-    bound=(alpha*Fraction(s**6,12000)
+    bound=(alpha*Fraction(s**6,1200)
            if z["SOURCE_good_wedge_s6_PROVED_for_all_f_g"] else None)
     return dict(s=s,assumed_original_good_wedge_covered_fraction=alpha,
-                per_genuine_original_six_ID_Q_max_centered_good_wedges=60,
+                per_genuine_original_six_ID_Q_max_centered_good_wedges=6,
                 conditional_minimum_selected_original_six_Q_count=(
                     (bound.numerator+bound.denominator-1)//bound.denominator
                     if bound is not None else None),
@@ -304,8 +308,14 @@ def exact_true_W32_original_seven_covered_good_wedges(model):
                 wedge=(center,a,b)
                 if wedge in literal_good_wedges:
                     local.add(wedge)
-        if len(local)>60:
-            raise AssertionError("more than 60 centered good wedges inside six true flags")
+        from hyp105_issue230_d6aa4am_genuine_pair_sixcharge import _CAP
+        original_D_Q_edges=[(i,j) for i,j in combinations(sorted(Q),2)
+                            if (i,j) in G["D_edges"]]
+        degrees=Counter(v for edge in original_D_Q_edges for v in edge)
+        if any(d>2 for d in degrees.values()):
+            raise AssertionError("original accepted GF5 six-Q physical dual D-degree exceeds 2")
+        if len(local)>len(original_D_Q_edges) or len(local)>_CAP[tag]:
+            raise AssertionError("source six-Q good centered wedges exceed true original D edges and tag cap")
         incidences+=len(local)
         per_tag_incidence[tag]+=len(local)
         per_tag_Q[tag]+=1
@@ -316,7 +326,7 @@ def exact_true_W32_original_seven_covered_good_wedges(model):
         raise AssertionError("source-first wedge census differs from port-defect graph")
     if (incidences!=sum(per_tag_incidence.values())
             or len(covered)>len(literal_good_wedges)
-            or incidences>60*len(selected)):
+            or incidences>6*len(selected)):
         raise AssertionError("original 3-to-6 wedge charging identity wrong")
     return dict(
         s=G["s"],D_GOOD_original_pairs=len(good),
@@ -331,7 +341,7 @@ def exact_true_W32_original_seven_covered_good_wedges(model):
         original_seven_tag_Q_count=dict(per_tag_Q),
         true_original_good_wedge_coverage_fraction=Fraction(
             len(covered),len(literal_good_wedges)),
-        all_selected_six_Q_capacity_60_validated=True,
+        all_selected_six_Q_capacity_6_validated=True,
         all_global_good_wedge_positive_covered_fraction_NOT_PROVED=True,
         original_six_ID_GF5_s6_lower_NOT_PROVED=True,
     )
