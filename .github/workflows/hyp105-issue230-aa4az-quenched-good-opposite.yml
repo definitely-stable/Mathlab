@@ -39,6 +39,7 @@ jobs:
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_06'
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_07'
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_08'
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4az_quenched_good_opposite.py' -v -k 'test_10'
       - name: Report exact genuine original same global f and clean physical right image mean
         run: |
           PYTHONPATH=research python - <<'PY'
