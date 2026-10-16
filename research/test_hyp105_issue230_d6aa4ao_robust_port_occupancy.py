@@ -37,6 +37,13 @@ class RobustOriginalDPortPhysical(unittest.TestCase):
             n=z["auxiliary_coordinates"]
             m=z["global_physical_missing_edges_per_type"]
             self.assertLessEqual(m,n+1)
+            self.assertEqual(z["AA4_AL_true_original_unordered_D_pair_lower"],s**5)
+            self.assertEqual(
+                z["ALL_D_indexed_global_physical_P5_P5_mass_lower_if_m_le_a_minus_4"],
+                s**5*max(0,(n-m)*(n-1)*(n-2))**2 if m<=n-1 else None)
+            self.assertEqual(
+                z["ALL_D_indexed_global_physical_six_port_template_mass_lower_if_m_le_a_minus_3"],
+                s**5 if m<=n else None)
             self.assertEqual(z["each_original_D_pair_typed_occupied_P5_lower"],
                              max(0,(n-m)*(n-1)*(n-2)))
             if m<=n-1:
