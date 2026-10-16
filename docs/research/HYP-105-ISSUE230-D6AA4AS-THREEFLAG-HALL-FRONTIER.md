@@ -69,6 +69,63 @@ Dedicated separate four-job GitHub-hosted workflow will execute:
 - Original source symplectic transvection and independent point/line physical vertex relabel invariance and fake source / non-opposite triple guards.
 - Independent mathematical referee/Proof Audit and full Research CI separate. Old AA4-AR Full Research cancelled on parent #543 and needs integration review. All changes remain stacked DRAFT, no main merge/accepted RCP status and issue #230 remains OPEN.
 
+### 5.1. Exact independent full TRUE original W32 stage-funnel certificate — independently hosted
+
+The new code's dedicated [GitHub-hosted first complete AA4-AS workflow #38862143746](https://github.com/definitely-stable/Mathlab/actions/runs/38862143746) completed **4 of 4 SUCCESS**. The follow-up [dedicated #38862329762](https://github.com/definitely-stable/Mathlab/actions/runs/38862329762) also completed **4/4 SUCCESS** with the more informative per-source-WEDGE physical-topology and exclusive Hall/selection failure counters. Every fully globally injected source W32 map uses exactly the SAME fixed original point/line f,g for all genuine original 45 incidence-flag vertices; every real two-typed opposite GOOD original 3-flag wedge is independently enumerated D-first, and every accepted original six-distinct-ID GF5 Q is independently certified through the historical 62,370-genuine-source-six-candidate Q-FIRST oracle. Every WEDGE→Q-tag set from the new T/P 3×3-original-incidence Hall algorithm matches that completely independent existing Q-FIRST source oracle **LITERALLY**, not just aggregate counts.
+
+| TRUE original W32 globally complete fixed f,g | Genuine 2-typed opposite GOOD source wedges R | P/P original source wedges | P/T | T/P | T/T | Globally occupied paired three-edge physical templates |
+|---|---:|---:|---:|---:|---:|---:|
+| dual-zero | 870 | 468 | 166 | 191 | 45 | 5,328 |
+| lex | 1,105 | 673 | 183 | 189 | 60 | 7,233 |
+| reverse | 1,013 | 577 | 181 | 180 | 75 | 6,351 |
+| S68 | 697 | 339 | 165 | 151 | 42 | 4,041 |
+| S72 | 750 | 369 | 185 | 157 | 39 | 4,386 |
+
+With globally complete physical K6 on each type, EVERY formal T or P residual physical edge image is occupied, hence each wedge has EXACT two-typed physical template pair count 1 for TT, 3 for TP/PT and 9 for PP. The large physical template mass therefore cannot be misinterpreted as real original source Hall success.
+
+**Mutually exclusive per-REAL-WEDGE source-Hall/GF5 stages**, where "source Hall zero" means not one genuine ORIGINAL six-distinct-incidence-ID Q with both typed leafless physical projections, "Hall only unaligned A/A" means some such genuine six-Q exist but EVERY one fails the final positive seven-class classifier, and "accepted" means at least one genuine positive sevenclass Q exists:
+
+| TRUE original W32 globally fixed f,g | Wedges with ZERO true source Hall Q | Wedges with Hall Q but ONLY rejected original unaligned A/A | Wedges with ≥1 accepted real original GF5 six-Q |
+|---|---:|---:|---:|
+| dual-zero | **735** | 97 | 38 |
+| lex | **745** | 188 | 172 |
+| reverse | **797** | 150 | 66 |
+| S68 | **653** | 38 | **6** |
+| S72 | **671** | 68 | **11** |
+
+Rows add up EXACTLY to the actual two-typed opposite GOOD wedge counts. Thus S68 has only **44 of 697** genuine original point-and-line opposite-port source wedges with any real 3×3 original-incidence Hall completion at all; among those only 6 have any accepted original seven-GF5 six-Q. The T/T physical prohibition accounts for merely **42/697** S68 wedges and **39/750** S72 wedges: it is a genuine unconditional geometric zero-extension channel but is not the main finite bottleneck. **The original Hall perfect matching is the dominant observable obstruction** for these W32 global maps; the second substantial barrier is the genuine A/A connected/same-position selection gate. This is a finite s=2 conclusion, not an asymptotic all-f,g bound.
+
+**Original threeflag-wedge × six-ID-Q charging** (Q may belong to several different genuine original wedges; these counts are NOT distinct six-Q population S):
+
+| Original W32 f,g | True source Hall six-Q-to-opposite-wedge incidence charge H | Rejected ORIGINAL unaligned A/A incidence charge R | Accepted true seven-GF5 six-Q-to-wedge incidence charge E_w |
+|---|---:|---:|---:|
+| dual-zero | 150 | 110 | **40** |
+| lex | 505 | 268 | **237** |
+| reverse | 232 | 164 | **68** |
+| S68 | 46 | 40 | **6** |
+| S72 | 85 | 74 | **11** |
+
+Every H=R+E_w. The original accepted E_w charge also matches AA4-AR's earlier *independent* original six-Q↔threeflag wedge cover incidence total of 40,237,68,6,11 respectively.
+
+**Strict strongest T/T ORIGINAL geometric no-go witnessed even with Hall positivity:** On the real original W32 reverse full globally fixed typed f,g, there are 75 T/T original opposite GOOD wedges. SIX of them have at least one genuine six-distinct-original-incidence-ID Hall-compatible completed six-Q; nevertheless **ALL SIX source wedges have ZERO accepted seven-GF5 six-Q**, because both typed completed physical twofactors are disconnected triangle+triangle. A genuine original Hall completion alone cannot override the new all-h structural T/T exclusion.
+
+**Genuine W34 GF4 original symplectic geometry, two completely globally injected but K14 nonsurjective original typed f,g maps**, checked by independent genuine-original D6 positive source-six-Q witness AA4-AQ (explicit root and output budget, NOT full W34 seven-GF5 census):
+
+| Globally fixed real original W34 maps | Real centered three-flag wedge | INDEPENDENT original accepted D6 source six-ID Q | TRUE source 3×3 Hall Q count on this wedge | Paired globally OCCUPIED physical threeflag templates |
+|---|---|---|---:|---:|
+| lex | (0,6,120) | (0,6,120,132,252,423) | 11 | 11,025 |
+| random | (0,11,381) | (0,11,25,283,301,381) | 12 | 13,200 |
+
+Each independently accepted actual six-source-incidence D6 appears in the new all-h T/P 3×3 real original incidence Hall selected Q→tag set (both pinned physical wedge types P/P); no unsupported complete W34 six-Q census is claimed.
+
+**Updated scientific inference:** the previous AA4-AR "universal Ω(s6) GOOD source wedges" population is genuine, but among finitely tested SAME global labels the bottleneck separating it from selected original 6-ID GF5 is now partitioned exactly:
+ (1) wedge fails opposite two physical ports,
+ (2) wedge is physically TT (ZERO seven-GF5 possible),
+ (3) wedge is physically eligible and globally occupied but genuine original source 3×3 Hall is ZERO,
+ (4) source Hall nonzero but all genuine completed six-Q are rejected unaligned A/A,
+ (5) at least one genuine accepted seven-GF5 six-ID Q.
+No positive constant-fraction survival through (1)-(4) is established for all f,g in the large-h regime, and no Branch B infinite original global counterfamily follows from these finite h=1 witnesses.
+
 ## 6. Next honest AA4-AT global mathematical gate
 
 At least \`W_good>=s^6/200\` true source 3-flag uncolored wedges exist universally for all h>=14 (AA4-AR); they may fail two-type physical port complement immediately. Even among true opposite 3-flag wedges, a positive mass may be forced into structural T/T, where the present new theorem gives *ZERO* sevenclass accepted source six-ID continuations universally. T/P other shapes need true source 3×3 Hall and actual GF5 source classification, and accepted source six-ID positivity could be adversarially suppressed even if physical completions are numerous. Thus the correct next theorem must control THREE successive all-global losses:
