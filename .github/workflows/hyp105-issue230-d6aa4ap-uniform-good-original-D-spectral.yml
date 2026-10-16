@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4ap-uniform-good-original-D-spectral
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ap_uniform_good_original_D_spectral.py"
+      - "research/test_hyp105_issue230_d6aa4ap_uniform_good_original_D_spectral.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AP-UNIFORM-GOOD-ORIGINAL-D-SPECTRAL.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ap-uniform-good-original-D-spectral.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-ten-case-h14-h23-rational-original-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual original all-map good D positive >=s5/10 for TEN h14..23 via integer and Fraction proofs, not huge synthetic W3
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ap_uniform_good_original_D_spectral.UniversalGoodOriginalD.test_01_all_h14_through_h23_exact_rational_good_D_minimum
+  analytic-h24-to-h60-and-honest-small-h-negative:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All infinite larger-h analytic tail via s5-3255*s4.5 and exact rational margins; explicitly NO h<14 assertion
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ap_uniform_good_original_D_spectral.UniversalGoodOriginalD.test_02_analytic_all_h24_to_h60_and_unsolved_early_h
+  actual-original-W32-five-global-typed-maps-and-invariance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All real source W32 genuine original two-flag D for FIVE globally complete f/g, symplectic/physical invariance and finite source-Hall GF5 nonlift
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ap_uniform_good_original_D_spectral.UniversalGoodOriginalD.test_03_original_source_W32_five_complete_global_f_g_pairs \
+            test_hyp105_issue230_d6aa4ap_uniform_good_original_D_spectral.UniversalGoodOriginalD.test_05_true_source_symplectic_and_separate_typed_physical_permutation \
+            test_hyp105_issue230_d6aa4ap_uniform_good_original_D_spectral.UniversalGoodOriginalD.test_06_negative_fake_original_and_explicit_GF5_nonlift
+  original-W34-source-spectral-and-global-K14-holes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True original W34 GF4 symplectic source, lex/random global point/line physical K14 maps with six missing edges, source-first D good/bad census
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ap_uniform_good_original_D_spectral.UniversalGoodOriginalD.test_04_true_original_W34_six_global_holes_typed_f_g_and_spectrum
