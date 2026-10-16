@@ -67,6 +67,17 @@ class GlobalTrueOriginalAAWedge(unittest.TestCase):
     def test_02_five_original_W32_global_f_g_source_AA_BA_AB_partition_independent(self):
         good_counts={"dual_zero":277,"lex":307,"reverse":300,
                      "S68":257,"S72":261}
+        # Frozen by independent literal TRUE ORIGINAL centered source
+        # 3-flag enumeration, not merely AA4-AR global degree identity.
+        # Each tuple is (A/A distinct-source, B/A outer point repeat,
+        # A/B outer line repeat), with B/B exactly zero.
+        original_source_type_counts={
+            "dual_zero":(2675,267,261),
+            "lex":(3259,331,334),
+            "reverse":(3141,316,311),
+            "S68":(2268,216,231),
+            "S72":(2346,223,242),
+        }
         for name,m in [("dual_zero",zero_split_original_W32())]+[
               (name,fixture(1,name))
               for name in ("lex","reverse","S68","S72")]:
@@ -74,6 +85,10 @@ class GlobalTrueOriginalAAWedge(unittest.TestCase):
             literal=independent_literal_true_original_good_D_source_partition(m)
             old=exact_true_original_good_D_two_port_wedge_certificate(m)
             self.assertEqual(z["true_original_GOOD_D_edges"],good_counts[name])
+            self.assertEqual((z["source_AA_three_distinct_point_and_line_GOOD_D_wedges"],
+                              z["source_BA_outer_original_point_collision_GOOD_wedges"],
+                              z["source_AB_outer_original_line_collision_GOOD_wedges"]),
+                             original_source_type_counts[name])
             self.assertEqual(z["source_all_GOOD_centered_two_D_edge_wedges"],
                              old["good_D_original_TWO_EDGE_unordered_wedges"])
             self.assertEqual((z[
@@ -98,6 +113,8 @@ class GlobalTrueOriginalAAWedge(unittest.TestCase):
                   "genuine_original_opposite_two_typed_good_wedges"])
 
     def test_03_real_original_W34_two_global_K14_maps_strict_same_source_partition(self):
+        expected={"lex":(20650,1607,1579,3544),
+                  "random":(158,38,21,10)}
         for name in ("lex","random"):
             m=fixture(2,name)
             z=exact_true_original_good_D_source_multiplicity_partition(m)
@@ -114,6 +131,11 @@ class GlobalTrueOriginalAAWedge(unittest.TestCase):
             self.assertEqual(lit["genuine_original_opposite_two_typed_good_wedges"],
                              old["good_D_original_OPPOSITE_TWO_TYPED_port_wedges"])
             self.assertEqual(z["source_BB_good_D_wedges_EXACT"],0)
+            self.assertEqual((z["source_AA_three_distinct_point_and_line_GOOD_D_wedges"],
+                              z["source_BA_outer_original_point_collision_GOOD_wedges"],
+                              z["source_AB_outer_original_line_collision_GOOD_wedges"],
+                              lit["genuine_original_opposite_two_typed_good_wedges"]),
+                             expected[name])
             self.assertEqual(z["true_original_GOOD_D_edges"],
                              2072 if name=="lex" else 147)
             print("AA4AV_TRUE_W34",name,
