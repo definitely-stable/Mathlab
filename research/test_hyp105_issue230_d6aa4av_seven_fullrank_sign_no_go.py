@@ -6,6 +6,8 @@ from itertools import combinations,permutations
 
 from hyp105_issue230_d6aa4av_seven_fullrank_sign_no_go import (
     integer_rank_and_basis, integer_determinant_bareiss,
+    integer_determinant_mod_prime, EXACT_SOURCE_BASIS_ROW_ORDER,
+    EXACT_SOURCE_BASIS_DETERMINANT, EXACT_ORIGINAL_SEVEN_ROW_WITNESSES,
     original_disjoint_swap_hessian_permutation_sign_identity,
     exact_original_w32_hessian_linear_obstruction, ORDER,
 )
@@ -27,6 +29,11 @@ class ActualOriginalSevenSignedNoGoTests(unittest.TestCase):
             self.assertEqual(integer_determinant_bareiss(
                 [[int(i==j) for j in range(n)] for i in range(n)]),1)
         self.assertEqual(integer_rank_and_basis([(1,2,3),(3,6,9)])["rank"],1)
+        for n in (2,3,4,7):
+            for _ in range(7):
+                a=[[rng.randint(-50,50) for _ in range(n)] for _ in range(n)]
+                self.assertEqual(integer_determinant_mod_prime(a,1009),
+                                 integer_determinant_bareiss(a)%1009)
         with self.assertRaises(ValueError):
             integer_rank_and_basis([(1,2),(3,)])
 
@@ -59,11 +66,19 @@ class ActualOriginalSevenSignedNoGoTests(unittest.TestCase):
         self.assertTrue(all(len(row)==7 for row in M))
         rank=integer_rank_and_basis(M)
         self.assertEqual(rank["rank"],z["exact_Fraction_Gaussian_rank"])
-        if rank["rank"]==7:
-            sub=[M[i] for i in rank["pivot_row_indices"]]
-            self.assertNotEqual(integer_determinant_bareiss(sub),0)
-            self.assertEqual(z["exact_independent_Bareiss_rank_witness_det"],
-                             integer_determinant_bareiss(sub))
+        self.assertEqual(rank["rank"],7)
+        self.assertEqual(rank["pivot_row_indices"],EXACT_SOURCE_BASIS_ROW_ORDER)
+        sub=[M[i] for i in rank["pivot_row_indices"]]
+        self.assertEqual({i:M[i] for i in EXACT_SOURCE_BASIS_ROW_ORDER},
+                         EXACT_ORIGINAL_SEVEN_ROW_WITNESSES)
+        self.assertEqual(integer_determinant_bareiss(sub),
+                         EXACT_SOURCE_BASIS_DETERMINANT)
+        self.assertEqual(z["exact_independent_Bareiss_rank_witness_det"],
+                         -2650)
+        self.assertEqual(integer_determinant_mod_prime(sub,1009),377)
+        self.assertEqual(z["exact_independent_F1009_rank_witness_det"],377)
+        self.assertTrue(z["any_nonzero_real_fixed_linear_seven_tag_coefficients_have_both_signed_Hessians"])
+        self.assertTrue(z["no_universal_seven_tag_linear_mixed_curvature_sign_law_proved"])
         self.assertTrue(z["all_h_signed_inversion_identity_applies"])
         self.assertFalse(z["original_fixed_f_g_seven_minimax_PROVED"])
         self.assertEqual(z["root_230"],"OPEN_WITH_FORMAL_BLOCKER")
