@@ -8,6 +8,8 @@ from hyp105_issue230_d6aa4an_triple_seed_gateway import (
     sharp_all_global_crowded_triple_floor, balanced_missing_edges,
     count_original_distinct_source_crowded_triples,
     complete_three_physical_edges_to_six_2regular, verify_balanced_sharpness,
+    joint_physically_eligible_original_matching_triple_floor,
+    exact_original_matching_uncrowded_triples,
 )
 from hyp105_issue230_projection import fixture
 from hyp105_issue230_d6aa4ai_triangle_zero_c6_compensation import zero_split_original_W32
@@ -172,6 +174,41 @@ class GenuineOriginalTriplePhysicalSeed(unittest.TestCase):
         with self.assertRaises(ValueError):
             complete_three_physical_edges_to_six_2regular(
                 ((0,1),(1,2),(2,6)),6)
+
+    def test_09_all_global_original_source_matching_3by3_uncrowded_omega_s12(self):
+        for h in range(1,73):
+            s=1<<h
+            z=joint_physically_eligible_original_matching_triple_floor(s)
+            self.assertGreaterEqual(3*z[
+                "all_global_ordered_true_original_3_by_3_uncrowded_triples_lower"],
+                z["n_true_original_flags"]**3)
+            self.assertGreaterEqual(3*z[
+                "all_global_ordered_true_original_3_by_3_uncrowded_triples_lower"],
+                s**12)
+            self.assertTrue(z["same_original_six_flag_GF5_completion_NOT_PROVED"])
+            if h>=2:
+                self.assertGreaterEqual(4*z[
+                    "all_global_ordered_true_original_3_by_3_uncrowded_triples_lower"],
+                    3*z["n_true_original_flags"]**3)
+
+    def test_10_real_original_uncrowded_not_joint_GF5_extendible_W32(self):
+        for model in (zero_split_original_W32(),fixture(1,"lex"),
+                      fixture(1,"S68"),fixture(1,"S72")):
+            source=exact_original_matching_uncrowded_triples(model)
+            minbound=joint_physically_eligible_original_matching_triple_floor(2)
+            good=source["unordered_physically_both_types_uncrowded_original_triples"]
+            self.assertGreaterEqual(6*good,minbound[
+                "all_global_ordered_true_original_3_by_3_uncrowded_triples_lower"])
+            seven=seven_census(model,witness_sets=True,independent_checks=False)
+            accepted=seven["S_seven"]
+            # Each selected ORIGINAL six-incidence Q has <=20 three-subsets.
+            # This lower quantifies physical joint-palette feasibility
+            # WITHOUT actual source/GF5 six-Q extension.
+            cannot_extend_lower=good-20*accepted
+            self.assertGreater(cannot_extend_lower,0)
+            print("AA4AN_TRUE_ORIGINAL_UNCROWDED",model["s"],good,
+                  "selected_seven",accepted,"unextendible_at_least",
+                  cannot_extend_lower)
 
 
 if __name__ == "__main__":
