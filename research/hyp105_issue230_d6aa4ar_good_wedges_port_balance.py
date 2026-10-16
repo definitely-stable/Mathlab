@@ -237,3 +237,101 @@ def independent_original_literal_good_two_port_wedges(model):
         bad_repeated_original_factor_opposite_wedges=seenbad,
         independent_from_four_bin_and_degree_identity=True,
     )
+
+
+def conditional_all_h_good_wedge_to_original_seven_lower(s, covered_fraction):
+    """All-map CONDITIONAL true-original 3-flag-to-6-flag charging.
+
+    Given (NOT PROVED) at least fraction alpha of all GOOD original
+    3-flag two-D-edge wedges occurs as a 3-subset of at least one TRUE
+    positively accepted seven-GF5 SIX-DISTINCT original flag Q, each
+    six-Q contains at most 6*C(5,2)=60 centered GOOD source wedges.
+    W_good >=s^6/200 for h>=14 therefore forces
+      S_selected >= ceil(alpha*s^6/12000).
+    The condition is NOT a universal theorem; W32 finite scans
+    measure its failure or success for individual global f,g only.
+    """
+    z=all_h_original_good_wedge_lower(s)
+    alpha=Fraction(covered_fraction)
+    if alpha<0 or alpha>1:
+        raise ValueError("conditional coverage ratio alpha must lie in [0,1]")
+    bound=(alpha*Fraction(s**6,12000)
+           if z["SOURCE_good_wedge_s6_PROVED_for_all_f_g"] else None)
+    return dict(s=s,assumed_original_good_wedge_covered_fraction=alpha,
+                per_genuine_original_six_ID_Q_max_centered_good_wedges=60,
+                conditional_minimum_selected_original_six_Q_count=(
+                    (bound.numerator+bound.denominator-1)//bound.denominator
+                    if bound is not None else None),
+                exact_rational_asymptotic_lower_if_h_ge_14=bound,
+                this_fraction_hypothesis_NOT_PROVED_for_all_f_g=True,
+                original_GF5_S_s6_unconditionally_NOT_PROVED=True)
+
+
+def exact_true_W32_original_seven_covered_good_wedges(model):
+    """Exact ORIGINAL W32 same-global-f,g selected seven-Q wedge hypergraph.
+
+    Independent historical seven-Q Oracle; enumerate every genuine
+    original GOOD D centered two-edge 3-flag wedge and separately
+    each six-ID original Q's potential centered pairs among its SIX
+    literal flag IDs. Exact charge incidences, coverage, uncovered,
+    per-Q max60, no false per-wedge Q extension assumption.
+    """
+    from itertools import combinations
+    from hyp105_g5e2b3e1b0_seven_signature import seven_census
+
+    G,good,neighbors,badP,badL=_good_D_edge_graph(model)
+    if (G["s"],len(G["inc"]),(G["a"]))!=(2,45,6):
+        raise ValueError("complete selected source-six Q wedge oracle only genuine W32 K6")
+    selected=seven_census(model,independent_checks=False,witness_sets=True)["sets"]
+    literal_good_wedges=set()
+    for center,row in enumerate(neighbors):
+        for a,b in combinations((n for n,_,_ in row),2):
+            wedge=(center,)+tuple(sorted((a,b)))
+            if wedge in literal_good_wedges:
+                raise AssertionError("duplicate ORIGINAL centered D GOOD two-edge wedge")
+            literal_good_wedges.add(wedge)
+    incidences=0
+    covered=set()
+    per_tag_incidence=Counter()
+    per_tag_Q=Counter()
+    Q_hist=Counter()
+    for Q,tag in selected.items():
+        Q=frozenset(Q)
+        local=set()
+        for center in Q:
+            other=tuple(sorted(Q-{center}))
+            for a,b in combinations(other,2):
+                wedge=(center,a,b)
+                if wedge in literal_good_wedges:
+                    local.add(wedge)
+        if len(local)>60:
+            raise AssertionError("more than 60 centered good wedges inside six true flags")
+        incidences+=len(local)
+        per_tag_incidence[tag]+=len(local)
+        per_tag_Q[tag]+=1
+        Q_hist[len(local)]+=1
+        covered.update(local)
+    source=exact_true_original_good_D_two_port_wedge_certificate(model)
+    if len(literal_good_wedges)!=source["good_D_original_TWO_EDGE_unordered_wedges"]:
+        raise AssertionError("source-first wedge census differs from port-defect graph")
+    if (incidences!=sum(per_tag_incidence.values())
+            or len(covered)>len(literal_good_wedges)
+            or incidences>60*len(selected)):
+        raise AssertionError("original 3-to-6 wedge charging identity wrong")
+    return dict(
+        s=G["s"],D_GOOD_original_pairs=len(good),
+        genuine_original_good_source_three_flag_wedges=len(literal_good_wedges),
+        true_original_seven_selected_six_ID_Q=len(selected),
+        distinct_good_wedges_covered_by_some_true_original_seven_Q=len(covered),
+        distinct_good_wedges_NOT_covered_by_ANY_seven_Q=(
+            len(literal_good_wedges)-len(covered)),
+        all_original_good_wedge_to_six_Q_charge_incidences=incidences,
+        accepted_Q_centered_good_wedge_charge_histogram=dict(sorted(Q_hist.items())),
+        original_seven_tag_charge_by_class=dict(per_tag_incidence),
+        original_seven_tag_Q_count=dict(per_tag_Q),
+        true_original_good_wedge_coverage_fraction=Fraction(
+            len(covered),len(literal_good_wedges)),
+        all_selected_six_Q_capacity_60_validated=True,
+        all_global_good_wedge_positive_covered_fraction_NOT_PROVED=True,
+        original_six_ID_GF5_s6_lower_NOT_PROVED=True,
+    )
