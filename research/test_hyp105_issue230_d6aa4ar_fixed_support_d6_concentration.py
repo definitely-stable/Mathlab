@@ -28,6 +28,12 @@ from hyp105_issue230_d6aa4ab_minimax_orbit_normalform import (
     symplectic_transvection_source,transform_model)
 
 
+def _falling_independent(n,k):
+    out=1
+    for j in range(k):out*=n-j
+    return out
+
+
 def physical_simple_six_cycles(a):
     """Independent physical cycle edge-major canonical incidence sets;
     no r,c completion formula, no variance code."""
@@ -208,6 +214,41 @@ class BothSupportsFixedOriginalD6Concentration(unittest.TestCase):
         self.assertEqual(len(q),22)
         self.assertEqual(len(set(tuple(e) for e in altered["left_labels"])),15)
         self.assertEqual(len(set(tuple(e) for e in altered["right_labels"])),15)
+
+    def test_08_independently_partial_physical_support_exact_conditional_zero_line_overlap(self):
+        # Deliberately a PHYSICAL-only independent conditional gluing
+        # experiment, NOT a counterfeit finite W(3,s) source model.
+        # Hold arbitrary nononto K7/K8 line physical EDGE SUPPORT
+        # fixed across BOTH source-sixset events. Condition on one
+        # occupied C6; remaining six original source line labels are
+        # sampled uniformly from the V'-6 unused OCCUPIED edges.
+        for a,holes in (
+            (7,((0,1),(0,3),(1,4),(2,5))),
+            (8,((0,1),(0,3),(1,4),(2,5),(3,6),(4,7)))):
+            support=set(combinations(range(a),2))-set(holes)
+            V=len(support)
+            self.assertLess(V,a*(a-1)//2)
+            self.assertGreaterEqual(V,12)
+            cycles=tuple(c for c in physical_simple_six_cycles(a)
+                         if all(e in support for e in c))
+            C=len(cycles)
+            self.assertGreater(C,0)
+            # Direct independent count of ordered physical C6 pairs
+            # with NO shared physical edge; this is exactly the
+            # conditional r=0 gluing numerator. Do NOT invoke any
+            # analytic completion formula.
+            disjoint=sum(1 for first in cycles for second in cycles
+                         if not(set(first)&set(second)))
+            q0=Fraction(12*disjoint,C*_falling_independent(V-6,6))
+            marginal=Fraction(12*C,_falling_independent(V,6))
+            self.assertLessEqual(q0,
+                                 Fraction(12*C,_falling_independent(V-6,6)))
+            self.assertLessEqual(q0/marginal,
+                                 Fraction(_falling_independent(V,6),
+                                          _falling_independent(V-6,6)))
+            print("AA4AR NONONTO fixed physical support",a,"occupied",V,
+                  "C6",C,"two_cycle_edge_disjoint_ordered",disjoint,
+                  "exact_q0_over_p",q0/marginal)
 
     def test_07_reject_fake_orders_and_invalid_source_global_labels(self):
         for s in (2,4,12,9):
