@@ -68,13 +68,23 @@ class TestAA4CGTrueOriginalEightpacket(unittest.TestCase):
             self.assertEqual(len(set(QA)&set(QB)),4)
             self.assertGreater(z["physical_8cube_A_active"],0)
             self.assertGreater(z["physical_8cube_B_active"],0)
-            self.assertGreater(z["true_original_both_physical_joint"],0)
+            self.assertEqual(z["physical_8cube_A_active"],4)
+            self.assertEqual(z["physical_8cube_B_active"],4)
+            self.assertEqual(z["true_original_both_physical_joint"],1)
             self.assertEqual(
                 z["independent_true_original_joint_classification"],
-                {kind:z["true_original_both_physical_joint"]})
-            self.assertIn("historical_GF5_original_center_QA",z)
-            self.assertIn("historical_GF5_original_center_QB",z)
-            self.assertGreaterEqual(z["GF5_joint_historical_positive_maps"],0)
+                {kind:1})
+            if kind=="vertex_replacement":
+                # Exact, genuine ORIGINAL W34 two-sixflags same-global-map
+                # historic positive D6/D6 counterexample to fictitious
+                # 4-shared-factor no-coexistence; not a universal theorem.
+                self.assertEqual(z["historical_GF5_original_center_QA"],"D6")
+                self.assertEqual(z["historical_GF5_original_center_QB"],"D6")
+                self.assertEqual(z["GF5_joint_historical_positive_maps"],1)
+            else:
+                self.assertIsNone(z["historical_GF5_original_center_QA"])
+                self.assertIsNone(z["historical_GF5_original_center_QB"])
+                self.assertEqual(z["GF5_joint_historical_positive_maps"],0)
             print("AA4CG_TRUE_W34",kind,
                   "A_active",z["physical_8cube_A_active"],
                   "B_active",z["physical_8cube_B_active"],
