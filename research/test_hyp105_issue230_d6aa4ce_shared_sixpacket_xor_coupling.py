@@ -103,7 +103,7 @@ class AA4CESharedSourceOrientation(unittest.TestCase):
                 for Qj,tj,wj,cj in allQ[i+1:]:
                     if syndrome(columns,ti^tj):
                         literal_syndrome+=wi*wj
-                    if A[ti^tj]==0:
+                    if ti != tj and A[ti^tj]==0:
                         literal_physical+=wi*wj
             self.assertEqual(literal_syndrome,
                 z["forbidden_distinct_syndrome_weighted_Q_pairs"])
