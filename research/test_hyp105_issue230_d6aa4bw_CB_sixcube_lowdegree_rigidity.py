@@ -85,6 +85,17 @@ class OriginalCBTrueGQSixcubeRemainder(unittest.TestCase):
                     Fraction(z["historical_C_B_acceptance_at_each_complete_map"][mask]),
                     z["exact_degree3_projection_at_all_complete_maps"][mask]+
                     z["exact_degree4_and_5_tail_at_all_complete_maps"][mask])
+            pinned={
+                "lex":{"center":1,"mean":Fraction(19,32),
+                       "max_tail":Fraction(3,16),"fixed_f":Fraction(79)},
+                "S72":{"center":0,"mean":Fraction(1,16),
+                       "max_tail":Fraction(1,16),"fixed_f":Fraction(63,2)}
+            }[scheme]
+            self.assertEqual(z["unchanged_initial_original_C_B_score"],pinned["center"])
+            self.assertEqual(z["zero_mode_original_C_B_average"],pinned["mean"])
+            self.assertEqual(z["max_actual_tail_absolute"],pinned["max_tail"])
+            self.assertEqual(z["source_geometry_fixed_f_certificate"][
+                "fixed_f_uniform_all_64_complete_g_SWAP_maps_tail_cap"],pinned["fixed_f"])
             results[scheme]=z
             print("AA4BW_W32",scheme,
                   "score0",z["unchanged_initial_original_C_B_score"],
