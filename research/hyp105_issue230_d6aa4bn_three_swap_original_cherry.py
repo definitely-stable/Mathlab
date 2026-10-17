@@ -140,18 +140,6 @@ def _rooted_cycle_candidates(occupied,a,e1,e2):
         raise AssertionError("two distinct physical graph edges cannot share both endpoints")
 
 
-def _find_true_source_Q_with_locked_extra_line(inc,by_first,first_root_flags,
-                                               first_four_source_factors,
-                                               selected_point_source,selected_LINE):
-    """Greedy true incidence completion; recurse for small W32/W34 oracles."""
-    chosen=(tuple(first_root_flags)+
-            (next((j for j in by_first[selected_point_source]
-                   if inc[j][1 if inc[j][0]==selected_point_source else 0]==selected_LINE),-1),))
-    # Caller passes explicit source side in the reconstruction below;
-    # this helper is kept unused to avoid guessing dual incidence type.
-    raise AssertionError("use the side-explicit source selection in repair")
-
-
 def original_fixed_pair_three_swap_cherry_repair(model,side,p,flags,
                                                 *,require_h22_regular=True):
     """Construct ≤3 source factor image swaps with THREE original LINE pins.
