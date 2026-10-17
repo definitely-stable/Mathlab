@@ -26,7 +26,7 @@ from hyp105_issue230_d6aa4by_original_independent_2factor_kernel import (
     physical_right_is_six_vertex_two_regular,
 )
 from hyp105_g5e2b3e1b0_seven_signature import (
-    classify_seven_prechecked,
+    physical_column_dual, is_connected_column_cycle,
 )
 from hyp105_issue230_projection import fixture
 
@@ -51,6 +51,54 @@ def _canon(edges):
 def _regular6(edges):
     d=Counter(v for e in edges for v in e)
     return len(edges)==6 and len(d)==6 and all(v==2 for v in d.values())
+
+
+def classify_seven_all_a_original_Q(ids, f, g, inc):
+    """Exact historic seven structural positive GF5 tags at ANY alphabet a.
+
+    Unlike the historical original W32-only helper, no deg=[0]*6
+    indexed by actual global physical coordinate. This is a fresh
+    implementation of the SAME seven accepted structural classes,
+    including ORIGINAL SOURCE factor incidence IDs and D6 dual cycle.
+    It MUST agree with the old W32 classifier on the ENTIRE 62370
+    original W32 left physical candidate source-Q census before any
+    W34 evidence is treated as qualifying.
+    """
+    ids=tuple(sorted(ids))
+    if len(ids)!=6 or len(set(ids))!=6 or ids[0]<0 or ids[-1]>=len(inc):
+        raise ValueError("six distinct TRUE original incidence IDs required")
+    p=tuple(inc[i][0] for i in ids)
+    l=tuple(inc[i][1] for i in ids)
+    def kind(endpoints, mapping):
+        mult=tuple(sorted(Counter(endpoints).values()))
+        profile={
+            (1,1,1,1,1,1):"A",
+            (1,1,1,1,2):"B",
+            (2,2,2):"C",
+        }.get(mult)
+        if profile is None:return None
+        degree=Counter(x for src in endpoints for x in mapping[src])
+        return profile if len(degree)==6 and set(degree.values())=={2} else None
+    kp,kl=kind(p,f),kind(l,g)
+    if kp is None or kl is None:return None
+    if (kp,kl)==("B","A"):return "B-left/A-right"
+    if (kp,kl)==("A","B"):return "A-left/B-right"
+    if (kp,kl)==("A","A"):
+        dual_p=physical_column_dual(inc,f,p)
+        dual_l=physical_column_dual(inc,g,l)
+        return "D6" if dual_p==dual_l and is_connected_column_cycle(dual_p) else None
+    if {kp,kl}=={"A","C"}:return "C/A"
+    if {kp,kl}=={"B","C"}:return "C/B"
+    if (kp,kl)==("B","B"):
+        pp=next(z for z,count in Counter(p).items() if count==2)
+        ll=next(z for z,count in Counter(l).items() if count==2)
+        hit=sum(p[j]==pp and l[j]==ll for j in range(6))
+        if hit not in (0,1):
+            raise AssertionError("true GQ cannot duplicate repeated-point repeated-line")
+        return "B/B-overlap" if hit else "B/B-disjoint"
+    if (kp,kl)==("C","C"):
+        raise AssertionError("true W3 C/C sixflags impossible")
+    raise AssertionError("genuine selected original A/B/C source pair omitted")
 
 
 def classify_four_common_completion(shared, a_edges, b_edges):
@@ -255,8 +303,8 @@ def genuine_W34_original_pair_eight_cube(case):
         B=physical_right_is_six_vertex_two_regular(QB,inc,assignment)
         if int(A)!=masks["A"][x] or int(B)!=masks["B"][x]:
             raise AssertionError("independent genuine six-source-Q physical check != 8cube")
-        clsA=classify_seven_prechecked(QA,f,assignment,inc)
-        clsB=classify_seven_prechecked(QB,f,assignment,inc)
+        clsA=classify_seven_all_a_original_Q(QA,f,assignment,inc)
+        clsB=classify_seven_all_a_original_Q(QB,f,assignment,inc)
         if clsA is not None and not A or clsB is not None and not B:
             raise AssertionError("historical accepted GF5 motif violates actual physical support")
         actual["A"].append(clsA);actual["B"].append(clsB)
