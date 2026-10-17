@@ -90,6 +90,10 @@ class AA4BSWalshTrueOriginal(unittest.TestCase):
         self.assertGreaterEqual(data["weighted_gradient_Poincare_energy"],directvar)
         offdiag=[(data["seven_class_covariance_matrix"][(c,d)],c,d)
                  for i,c in enumerate(SEVEN) for d in SEVEN[i+1:]]
+        self.assertEqual(min(offdiag),
+                         (Fraction(-357,32),"B-left/A-right","C/A"))
+        self.assertEqual(max(offdiag),
+                         (Fraction(2167,32),"B-left/A-right","A-left/B-right"))
         print("AA4BS_TRUE_W32_SEVEN_CROSS_COV_MIN_MAX",
               min(offdiag),max(offdiag),flush=True)
         for T in range(1,8):
