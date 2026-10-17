@@ -77,10 +77,21 @@ Put U_B=B_inside+B_out and U_C=min(H5_in,4800)+min(H5_out,480d²). For nonempty 
 - B-left/A-right ≤min(H5_A,U_B)/2.
 - C/A ≤min(H5_A,U_C)/2.
 - A-left/B-right ≤H5_B/2.
-- C/B ≤min(H5_B,B_inside? No: source-C INSIDE capacity min(H5_in,4800))/2.
+- C/B ≤min(H5_B,source-C INSIDE capacity min(H5_in,4800))/2.
 - B/B-overlap and B/B-disjoint ≤min(H5_B,B_inside)/2.
 
 The C/B bound is explicitly source-C INSIDE. Any use of whole U_B instead of B_inside for right-source-B classes is safe but weaker. We only compute **selected necessary** seven-GF5 R3 LOWER NUMERATOR Walsh bounds with these coefficients, not the full R3, original center absolute risk or entire ASET exponent.
+
+## Genuine original W32 fifth-order numerical witnesses (verified exact GF5)
+
+On the authentic symplectic original W(3,2)/K6 complete source f,g schemes, with five disjoint original LINE source-factor swap pairs (0,1),(2,3),(4,5),(6,7),(8,9), enumerate 32 complete globally injected actual LINE physical images and ALL original six-incidence-ID historical seven-GF5 classes:
+
+| Genuine original full global scheme | Fifth Walsh D6 | Fifth Walsh B-left/A-right | Other five historical class fifth coefficients |
+|---|---:|---:|---:|
+| lex | 0 | 0 | 0 |
+| S72 | 1/32 | 1/16 | 0 |
+
+These are EXACT original-GF5 fifth Walsh coefficients on ONE common cube of 32 FULL global maps, not extrapolations to all higher s. The independent full historical seven_census on each of the 32 original source-correct maps reproduces all classwise signed coefficients. Both numerical nonzero S72 values are pinned in source regression tests at the corrected final PR head. The zero C/A and C/B coefficients on this particular finite cube do NOT mean either class must vanish identically at fifth order.
 
 ## Authentic finite falsifiers and limitations
 

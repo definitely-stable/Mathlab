@@ -120,6 +120,10 @@ class FivePacketOriginal(unittest.TestCase):
                 Fraction(g["OUTSIDE_geometry"]["physical_LEFT_C_OUTSIDE_count"],2))
             self.assertLessEqual(abs(g["coefficients"]["C/B"]),
                                  g["geometry"]["exact_physical_C_fifth_Walsh_bound"])
+            pinned={"lex":{"D6":Fraction(0),"B-left/A-right":Fraction(0)},
+                    "S72":{"D6":Fraction(1,32),"B-left/A-right":Fraction(1,16)}}
+            for c,value in pinned[scheme].items():
+                self.assertEqual(g["coefficients"][c],value)
             print("AA4BU_GENUINE_W32_5_SWAP_GF5",scheme,g["coefficients"],flush=True)
 
     def test_05_FULL_independent_HISTORICAL_seven_census_32_global_maps(self):
