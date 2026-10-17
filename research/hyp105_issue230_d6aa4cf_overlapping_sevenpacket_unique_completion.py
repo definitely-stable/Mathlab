@@ -93,6 +93,9 @@ def _lift_orientation(local_mask, family):
 def source_original_orientation_7(Q,inc,pairs,V,family):
     """SAME true six original incidence IDs at all 128 complete maps."""
     if family not in FAMILIES:raise ValueError("family A or B")
+    pairs=validate_disjoint_factor_swaps(V,pairs)
+    if len(pairs)!=SEVEN:
+        raise ValueError("exactly seven globally disjoint original LINE packets required")
     sub=tuple(pairs[i] for i in FAMILIES[family])
     t=orientation_of_true_original_Q(Q,inc,sub,V)
     return _lift_orientation(t,family)
