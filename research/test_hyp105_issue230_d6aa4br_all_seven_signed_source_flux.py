@@ -31,6 +31,11 @@ class TestBR(unittest.TestCase):
       i=exact_original_W32_signed_index(model)
       x=exact_original_W32_signed_swap(model,*pair,index=i)
       print("SIGNED_GF5_FLUX_SCHEME",scheme,"swap",pair,"births",x["births"],"deaths",x["deaths"],"seven_delta",x["signed_seven_total_delta"],"floor_delta",x["signed_seven_GF5_R3_floor_numerator_delta"],flush=True)
+      pinned_flux={"lex":(-42,-1502050),"reverse":(18,901714),
+                   "S68":(51,2306970),"S72":(19,841023)}
+      self.assertEqual((x["signed_seven_total_delta"],
+                        x["signed_seven_GF5_R3_floor_numerator_delta"]),
+                       pinned_flux[scheme])
       before=seven_census(model,independent_checks=False)
       changed=dict(model,right_labels=x["new_complete_global_original_LINE_map"])
       after=seven_census(changed,independent_checks=False)
