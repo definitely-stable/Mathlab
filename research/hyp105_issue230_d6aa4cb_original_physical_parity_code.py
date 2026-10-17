@@ -247,13 +247,18 @@ def original_Q_parity_sieve(model, Q, packets):
         for u,v in packets)
     cols = parity_columns_from_12_images(actual_edges)
     info = affine_kernel_bound(cols)
+    # q(x)=q(0) xor D*x: the accepting affine syndrome is q(0),
+    # NOT necessarily zero unless the ORIGINAL center already accepts.
+    baseline_parity = 0
+    for edge,_unused_alternative in actual_edges:
+        baseline_parity ^= (1 << edge[0]) ^ (1 << edge[1])
     valid = []
     for x in range(64):
         edges = tuple(packet[x >> i & 1] for i,packet in enumerate(actual_edges))
         d = Counter(vertex for edge in edges for vertex in edge)
         ok = int(len(d)==6 and all(count==2 for count in d.values()))
         valid.append(ok)
-        if ok and syndrome(cols, x) != syndrome(cols, 0):
+        if ok and syndrome(cols, x) != baseline_parity:
             raise AssertionError("original physical 2factor violates parity syndrome")
     if info["rank"] == 1 and any(valid):
         raise AssertionError("rank one cannot produce physical original 2factor")
