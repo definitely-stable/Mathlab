@@ -1,0 +1,48 @@
+name: hyp105-issue230-aa4ca-exact-boolean-n3-sixcube
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ca_exact_n3_boolean_kernel.py"
+      - "research/test_hyp105_issue230_d6aa4ca_exact_n3_boolean_kernel.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CA-EXACT-BOOLEAN-N3-SIXCUBE.md"
+      - ".github/workflows/hyp105-issue230-aa4ca-exact-n3-boolean.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+
+jobs:
+  exact-sixset-subset-dp-complete-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All 2^20 triple families, 2^15 pair graphs, exact degree-3 lemma
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ca_exact_n3_boolean_kernel.py' -v -k test_01
+
+  independent-s6-orbit-enumeration-and-abstract-sharpness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent 62-graph S6 orbit certificate, both sharp witnesses, exact Boolean falsifiers
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ca_exact_n3_boolean_kernel.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ca_exact_n3_boolean_kernel.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ca_exact_n3_boolean_kernel.py' -v -k test_04
+
+  true-original-W32-all-seven-historical-GF5-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Same six ORIGINAL incidence IDs, source H6 and real W32 full correlated f/g all-seven center
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ca_exact_n3_boolean_kernel.py' -v -k test_05
