@@ -1,0 +1,49 @@
+name: hyp105-issue230-aa4bv-fourth-GQ-CB-transversals
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bv_fourth_GQ_CB_transversals.py"
+      - "research/test_hyp105_issue230_d6aa4bv_fourth_GQ_CB_transversals.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BV-FOURTH-GQ-CB-TRANSVERSALS.md"
+      - ".github/workflows/hyp105-issue230-aa4bv-fourth-GQ-CB.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-fourth-original-GQ-transversal-CB-source-cap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine all dyadic h1..80 O(d²) C/B fourpacket source cap, exact half Walsh, original invalid source input guards
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bv_fourth_GQ_CB_transversals.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bv_fourth_GQ_CB_transversals.py' -v -k test_07
+  true-W32-FOUR-packet-million-source-ID-brute-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent 1,062,720 genuine original six-flag brute paths per real W32 scheme vs canonical five-source-LINE-set GQ intersection geometry
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bv_fourth_GQ_CB_transversals.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bv_fourth_GQ_CB_transversals.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bv_fourth_GQ_CB_transversals.py' -v -k test_04
+  original-W32-historical-ALL-SEVEN-GF5-fourth-Walsh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real original W32 K6 lex/S72 same six original incidence IDs 16 COMPLETE right source maps, independent 62,370 left-six-Q full all-seven fourth Walsh versus packet-hitting source classifier
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bv_fourth_GQ_CB_transversals.py' -v -k test_05
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bv_fourth_GQ_CB_transversals.py' -v -k test_06
