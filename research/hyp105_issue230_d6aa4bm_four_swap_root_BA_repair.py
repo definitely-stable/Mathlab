@@ -16,6 +16,7 @@ D6 event, not this 4-swap root B/A repair preserving 2 images.
 Root #230 demands the UNCHANGED arbitrary g positive: NOT PROVED.
 """
 from itertools import combinations, permutations,product
+from collections import Counter
 
 from hyp105_issue230_d6aa4bh_local_seven_compensation import _original_source
 from hyp105_issue230_d6aa4bj_cherry_hall_defect import _full_four_patterns
@@ -23,6 +24,7 @@ from hyp105_issue230_d6aa4bl_two_pin_conditional_BA import (
     every_fixed_original_g_good_root_pin_majority,
 )
 from hyp105_g5e2b3e1b0_seven_signature import classify_seven_prechecked
+from hyp105_issue230_d6aa4q_two_sided_seven_join import independent_joint_classify
 
 
 def _edge(a,b):
@@ -59,6 +61,8 @@ def find_genuine_source_root_C4_sixflags(model,side,p,flags):
     constructive algorithm, no complexity claim for large s.
     """
     s,V,a,inc,f,g,byP,byL=_original_source(model)
+    if type(side) is not int or side not in (0,1):
+        raise ValueError("true original source side must be exactly POINT=0 or LINE=1")
     by=(byP,byL)[side]
     flags=_root_flags(inc,by,side,p,flags)
     first=(f,g)[side]
@@ -134,6 +138,8 @@ def original_fixed_pair_repair_cherry_four_swaps(model,side,p,flags,
     raises rather than silently treating a constructed example as proof.
     """
     s,V,a,inc,f,g,byP,byL=_original_source(model)
+    if type(side) is not int or side not in (0,1):
+        raise ValueError("true original source side must be exactly POINT=0 or LINE=1")
     by=(byP,byL)[side]
     flags=_root_flags(inc,by,side,p,flags)
     first=(f,g)[side]
@@ -182,9 +188,31 @@ def original_fixed_pair_repair_cherry_four_swaps(model,side,p,flags,
     rebuilt["right_labels" if side==0 else "left_labels"]=tuple(new)
     # Independent HISTORICAL seven-GF5 classifier on SAME six ORIGINAL
     # source incidence IDs, not physical cycle count alone.
-    tag=classify_seven_prechecked(
-        Q,tuple(rebuilt["left_labels"]),tuple(rebuilt["right_labels"]),tuple(inc))
+    # Check BOTH physical projections, actual original source factor
+    # multiplicities, and the positive historical GF5 source class.
+    # The old seven_census classifier is deliberately W32-K6-specific:
+    # for real W34 nononto K14 use the existing true-original
+    # full-alphabet independent joint-source classifier instead.
+    profiles=[]
+    for typ,images in ((0,rebuilt["left_labels"]),(1,rebuilt["right_labels"])):
+        degrees=Counter(col for j in Q for col in images[inc[j][typ]])
+        if len(degrees)!=6 or any(degree!=2 for degree in degrees.values()):
+            raise AssertionError("six SAME true original source incidence flags fail actual physical degree-two")
+        multiplicities=tuple(sorted(Counter(inc[j][typ] for j in Q).values()))
+        profiles.append({
+            (1,1,1,1,1,1):"A",
+            (1,1,1,1,2):"B",
+            (2,2,2):"C"
+        }.get(multiplicities))
     want="B-left/A-right" if side==0 else "A-left/B-right"
+    tag=independent_joint_classify(
+        Q,profiles[0],profiles[1],tuple(inc),
+        tuple(rebuilt["left_labels"]),tuple(rebuilt["right_labels"]))
+    if s==2:
+        historic=classify_seven_prechecked(
+            Q,tuple(rebuilt["left_labels"]),tuple(rebuilt["right_labels"]),tuple(inc))
+        if historic!=tag:
+            raise AssertionError("independent historical W32 and original structural class disagree")
     if tag!=want:
         raise AssertionError(f"true original seven-GF5 classification {tag} != {want}")
     if not all(new[src]==dst for src,dst in zip(free_orig,wanted)):
