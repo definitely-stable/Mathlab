@@ -141,3 +141,42 @@ Unlike successive bounds on the **abstract maximum norm** of one sixth-order ind
 However this remains an a posteriori **conditional** lower bound. It proves NEITHER all-fixed-pair \(W(f,g)=\Omega(s^6)\) Branch A, NOR an infinite genuine correlated original W3 family with o(s^6) Branch B, NOR the exact full model-equivalent restricted inequality specified by Branch C. Since root #230 counts unweighted sum of seven motif multiplicities while the historical necessary R3 numerator W uses positive weights, even a lower on W would require relating the two (which is straightforward by fixed positive min/max weights), but the missing positive **universal low-order margin** is still fundamental. No full R3/ASET strict extraction exponent follows.
 
 Keep Scientific Draft, not merged. Require exact final HEAD dedicated GitHub-hosted CI, INDEX, Proof Audit, Full Research, and **independent mathematical referee** of the parity-occurrence multiplicity and signed support-to-center argument plus accepted parent #601/#600/#599/#597 proof chain. Classical GF(2) graph incidence and Walsh theory cited to avoid any spurious general novelty claim (see O'Donnell *Analysis of Boolean Functions*, arXiv:2105.10386).
+
+
+## Exact original unchanged W32 evidence: first nonvacuous lower in this seven-class center-kernel stack
+
+The GH-hosted **REAL ORIGINAL** symplectic W(3,2)/physical complete K6 full-map historical seven-GF5 census independently reports the following exact integers and fractions on the SAME initial global map f,g and six TRUE disjoint original LINE-factor image-swap packets (0,1),(2,3),(4,5),(6,7),(8,9),(10,11):
+
+| Full genuine original W32 maps | lex | S72 |
+|---|---:|---:|
+| Actual historically selected original Q with k_Q≥4 source swaps | 33,046 | 34,180 |
+| Prior #601 original f-only seven-class E_f | 8,113,433,771/16 | 3,883,420,431/8 |
+| NEW parity-conditioned original CENTER E^P(0) | 711,282,039/32 | 665,944,131/32 |
+| NEW parity-conditioned UNIFORM E^P | 441,004,815/16 | 478,795,125/16 |
+| NEW physical RIGHT 2-factor original CENTER E^T(0) | **23,948,391/4** | **75,391,507/16** |
+| NEW physical RIGHT 2-factor UNIFORM E^T | 131,302,517/16 | 155,092,423/16 |
+| ACTUAL original low-order P≤3 W(0) | 90,904,087/8 | 105,103,511/32 |
+| ACTUAL signed original high-order R>3 W(0) | −1,097,727/8 | −27,991/32 |
+| ACTUAL original selected seven-class weighted W(f,g) | 11,225,795 | 3,283,610 |
+| NEW rigorously certified unchanged original W(f,g) lower | **43,007,305/8 > 0** | **0** |
+
+The lower lex number follows exactly from **the proven source-specific two-sided Walsh support inequality**, with no use of its actual historical acceptance to build the new right-only error:
+
+\[
+\frac{90,904,087}{8}-\frac{23,948,391}{4}
+=\boxed{\frac{43,007,305}{8}}
+=5,375,913.125.
+\]
+
+The original lex historical W equals 11,225,795, so the certified lower is correct and NONVACUOUS. All seven historical GF5 weights are at most 51,750, so the original unweighted sum of selected seven positive sixflag multiplicities obeys the concrete, **finite ORIGINAL W32-specific** consequence
+
+\[
+\boxed{S_2(f_{\mathrm{lex}},g_{\mathrm{lex}})
+\ge \left\lceil \frac{43,007,305}{8\cdot51,750}\right\rceil=104.}
+\]
+
+The unweighted W32 ≥104 statement is not the root ALL-h theorem; here s=2 is FIXED and the input is ONE specific complete globally injected physical f,g labeling. This is nonetheless a substantive advance over the previous entire absolute original f-only highpass certificate chain #597–601, which returned ZERO on this same lex map. The difference is that AA4-CB uses the **actual unmodified right physical assignment g** to eliminate absent-parity and absent-right-2factor source states *before* budgeting the signed highpass.
+
+For S72 the new right-only center error is still larger than its low-order P≤3 value, so **the positive margin does not follow** even though the actual W is positive. The method therefore proves no universal original-center positivity even for all W32 f,g, much less all dyadic h. The map-conditioned parity center error is larger than its nested 2-factor center error in both genuine examples; the improvement is independent of historical source class acceptance on the RIGHT because only raw physical vertex degrees are screened.
+
+These exact values are pinned as Fraction regressions on the FINAL child head, and the whole independent historical all-seven 64-map census is a separate falsifier rather than the source of the geometric error itself. The additional true-original repeated-LINE source flag test deliberately selects source Q with BOTH source LINE factors of a packet, including two occurrences of each, verifying that the affine GF2 delta cancels according to multiplicities. The true W34 GF4 nononto K14 test separately verifies the same algebra on 64 COMPLETE original global right assignments without pretending to compute giant-h source sixflag counts.
