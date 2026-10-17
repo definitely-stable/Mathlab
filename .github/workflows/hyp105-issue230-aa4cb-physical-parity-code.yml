@@ -1,0 +1,47 @@
+name: hyp105-issue230-aa4cb-original-physical-parity-code
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cb_original_physical_parity_code.py"
+      - "research/test_hyp105_issue230_d6aa4cb_original_physical_parity_code.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CB-ORIGINAL-PHYSICAL-PARITY-CODE.md"
+      - ".github/workflows/hyp105-issue230-aa4cb-physical-parity-code.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-16-profile-group-ring-syndrome-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All 16 GL2 column profiles, exact rank2 K6 positive/negative mass
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_physical_parity_code.py' -v -k test_01
+  independent-651-dual-orbit-and-affine-physical-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent 651 rank2 rowspaces and adversarial rank1 plus affine-syndrome witnesses
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_physical_parity_code.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_physical_parity_code.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_physical_parity_code.py' -v -k test_04
+  original-W32-all-sixpacket-Q-64-complete-map-GF5-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine symplectic original W32 351 and 301 source Q, exact physical parity and complete original GF5 seven-class center
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_physical_parity_code.py' -v -k test_05
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_physical_parity_code.py' -v -k test_06
