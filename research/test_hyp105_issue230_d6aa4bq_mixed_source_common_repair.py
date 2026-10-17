@@ -218,9 +218,18 @@ class AA4BQMixedTrueOriginal(unittest.TestCase):
             self.assertEqual(len(repeated),1)
             p=repeated[0]
             coords={u for j in Q for u in labels[inc[j][side]]}
+            c4coords={u for j in Q if inc[j][side]!=p
+                      for u in labels[inc[j][side]]}
             self.assertEqual(len(coords),6)
+            self.assertEqual(len(c4coords),4)
+            # A foreign edge with ONE endpoint inside the physically
+            # occupied source C4 makes that coordinate degree FOUR
+            # after replacing the doubled source B-root image.
+            # A foreign edge DISJOINT from the C4 would NOT break B,
+            # so the negative control must deliberately cross C4.
             donor=next((q for q,edge in enumerate(labels)
-                        if q!=p and not set(edge)&coords),None)
+                        if q!=p and len(set(edge)&c4coords)==1
+                        and any(u not in coords for u in edge)),None)
             self.assertIsNotNone(donor)
             illegal=list(labels)
             illegal[p],illegal[donor]=illegal[donor],illegal[p]
