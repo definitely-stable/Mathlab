@@ -1,0 +1,48 @@
+name: hyp105-issue230-aa4bq-mixed-two-sided-same-global-pair
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bq_mixed_source_common_repair.py"
+      - "research/test_hyp105_issue230_d6aa4bq_mixed_source_common_repair.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BQ-MIXED-TYPED-COMMON-REPAIR.md"
+      - ".github/workflows/hyp105-issue230-aa4bq-mixed-two-sided.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-genuine-source-mixed-point-line-frozen-factor-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real source GQ dyadic h5..80 k~s/8 mixed typed frozen B side Hall and both physical 6cycle survivor exact Fractions
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_mixed_source_common_repair.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_mixed_source_common_repair.py' -v -k test_05
+  genuine-original-W34-BOTH-typed-physical-maps-mutated-together:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine original W34 symplectic GF4 nononto K14 lex/random jointly modify f AND g; independent GF5 source historic B/A+A/B on ONE pair, frozen-B factor replay
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_mixed_source_common_repair.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_mixed_source_common_repair.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_mixed_source_common_repair.py' -v -k test_06
+  genuine-W32-small-h-no-false-generalization:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original W32 finite mixed source checks with full physical factor map images and no false h5 generality
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_mixed_source_common_repair.py' -v -k test_04
