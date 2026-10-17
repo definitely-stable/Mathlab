@@ -113,6 +113,17 @@ class BTGQSixthOrder(unittest.TestCase):
             self.assertLessEqual(abs(x["sixth_historical_seven_GF5_Walsh_coefficients"]["C/A"]),
                                  x["exact_original_GQ_C_intersection_certificate"][
                                      "historical_C_A_sixth_Walsh_bound_refined"])
+            pinned={"lex":{"D6":Fraction(0),"B-left/A-right":Fraction(0),
+                            "C/A":Fraction(0)},
+                    "S72":{"D6":Fraction(1,64),
+                           "B-left/A-right":Fraction(-3,64),
+                           "C/A":Fraction(1,32)}}
+            for c,value in pinned[scheme].items():
+                self.assertEqual(x["sixth_historical_seven_GF5_Walsh_coefficients"][c],value)
+            self.assertEqual(
+                x["original_sixth_sensitive_Q_by_source_class"],
+                {"lex":{"D6":283,"B-left/A-right":65,"C/A":3},
+                 "S72":{"D6":250,"B-left/A-right":49,"C/A":2}}[scheme])
             print("AA4BT_W32_SIXTH_CLASS_COEFFICIENTS",scheme,
                   x["sixth_historical_seven_GF5_Walsh_coefficients"],
                   "SENSITIVE_SOURCE_TYPES",x["original_sixth_sensitive_Q_by_source_class"],
