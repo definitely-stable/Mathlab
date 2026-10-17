@@ -1,0 +1,49 @@
+name: hyp105-issue230-aa4cb-original-parity-affine-center
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cb_original_parity_affine_center.py"
+      - "research/test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CB-ORIGINAL-PARITY-AFFINE-CENTER.md"
+      - ".github/workflows/hyp105-issue230-aa4cb-parity-affine-center.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine-original-GF2-physical-parity-independent-coset-and-W34-nonto:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: GENUINE W32 and W34 symplectic GF4 nononto K14 original sixflag GF2 affine 64map parity compared to separate whole-map direct physical degree counts
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py' -v -k test_07
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py' -v -k test_06
+  original-seven-GF5-exact-right-parity-and-2factor-center-envelope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All true original W32 left source six-Q same IDs; map-conditioned seven-class GF5 parity and 2regular f/g error nested versus parent #601 f-only error and independent full right image permutation
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py' -v -k test_05
+  original-unmodified-seven-GF5-64-full-maps-center-independent-historic-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: REAL original symplectic W32 historical all-seven 51-column necessary GF5 full 64 complete global g maps signed Fourier degree4..6 against f/g right parity and 2factor original CENTER and uniform certificates
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py' -v -k test_04
