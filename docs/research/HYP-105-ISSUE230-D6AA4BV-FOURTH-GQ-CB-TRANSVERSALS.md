@@ -130,3 +130,31 @@ This is a quantified genuine W3 incidence-restricted high-order source localizat
 ## Prior literature
 
 The original generalized quadrangle axioms, line intersections, no triangles and off-line unique projection are classical, see [generalized quadrangles and unique projection](https://link.springer.com/article/10.1007/s10623-018-00591-9) and [an incidence-geometry account of finite GQ](https://people.math.sc.edu/laszlo/FPP.pdf). The only scoped claim here is their explicit fourth-Walsh HYP-105 historical C/B use. No claim of originating GQ transversal counting or Walsh analysis.
+
+
+## Pinned exact true-original W32/W34 evidence and fourth-order sign constraints
+
+All counts below are for actual symplectic W(3,2) original source incidence IDs, four REAL original LINE-factor swap pairs (0,1),(2,3),(4,5),(6,7), and wholly globally injected original physical f and g, not a synthetic permutation-only model. A completely independent literal one-flag-per-source-packet plus TWO arbitrary original source flags brute enumerates exactly 6^4·binom(41,2)=1,062,720 paths on each full W32 scheme. It agrees in EXACT ORIGINAL sixflag ID sets with the canonicalized line-intersection generator:
+
+| Real W32 original scheme | Total original C/B Q | All 5 LINEs inside | Exterior LINE repeated | Exterior LINE singleton | LEFT physically C-eligible |
+|---|---:|---:|---:|---:|---:|
+| lex | 269 | 47 | 41 | 181 | 2 |
+| S72 | 269 | 47 | 41 | 181 | 6 |
+
+The same physical-independent source original line four-packet generator on real symplectic W(3,4), GF4, with nononto physical K14 maps yields 1,104 genuine original C/B Q for the selected packets in each of lex/random: zero all-inside, 112 outside-repeated, 992 outside-singleton. These are particular chosen source packets, not all-h extremal claims. The independently checked GQ common-transversal counts of any two genuine original lines are exactly d−2 if they intersect, and d if disjoint, on sampled genuine W32 and W34 original source line pairs.
+
+The HISTORICAL original seven-GF5 fourth-order Fourier coefficients of the exact complete 16-map swap cube, independently reclassified from the FULL 62,370 true original left-sixflag candidate source sets for lex and compared to the packet-filtered tally, are:
+
+| Historical original positive GF5 class | lex | S72 |
+|---|---:|---:|
+| D6 | 0 | 0 |
+| B-left/A-right | 1/4 | 3/8 |
+| A-left/B-right | 3/16 | −5/16 |
+| C/A | −1/8 | 0 |
+| C/B | 0 | 1/16 |
+| B/B-overlap | −1/8 | 1/16 |
+| B/B-disjoint | 1/16 | 1/8 |
+
+In particular the C/B fourth coefficient 1/16 on S72 is a NONZERO accepted-genuine-original witness: no legitimate fourth-order C/B annihilation theorem exists. Two historical classes A-left/B-right and B/B-overlap exhibit OPPOSITE signs on lex and S72, so a naive classwise fixed-sign fourth-order inequality is already falsified on real W32, even though the source C/B **absolute** cap is universally correct. These are deliberately pinned as exact-Fraction CI regressions, not as an extrapolated asymptotic or an original unchanged-center GF5 lower. Every source Q remains the SAME six original incidence IDs across its 16 full global right swap maps.
+
+This explicitly delineates the remaining problem: source-GQ constraints on high-order magnitude and genuine low-h sign failures do not by themselves control the arbitrary original CENTER S(f,g) for all h, which would require coupling to lower orders/zero-mode and the original physical cross-map correlations.
