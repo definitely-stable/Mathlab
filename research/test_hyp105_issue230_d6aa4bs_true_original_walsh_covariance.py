@@ -84,8 +84,23 @@ class AA4BSWalshTrueOriginal(unittest.TestCase):
         weighted=data["historical_selected_GF5_floor_weighted_values"]
         directvar=Fraction(sum(x*x for x in weighted),n)-Fraction(sum(weighted),n)**2
         self.assertEqual(data["weighted_original_GF5_floor_variance"],directvar)
-        self.assertGreater(directvar,0)
+        self.assertEqual(directvar,Fraction(3508898523703,4))
+        self.assertEqual(data["weighted_gradient_Poincare_energy"],1011049069881)
+        self.assertGreater(data["strict_higher_order_gradient_energy"],0)
         self.assertGreaterEqual(data["weighted_gradient_Poincare_energy"],directvar)
+        offdiag=[(data["seven_class_covariance_matrix"][(c,d)],c,d)
+                 for i,c in enumerate(SEVEN) for d in SEVEN[i+1:]]
+        print("AA4BS_TRUE_W32_SEVEN_CROSS_COV_MIN_MAX",
+              min(offdiag),max(offdiag),flush=True)
+        for T in range(1,8):
+            cap=all_h_true_original_source_walsh_bound(2,T.bit_count())
+            self.assertLessEqual(
+                Fraction(abs(data["historical_selected_GF5_floor_weighted_Walsh_numerators"][T]),8),
+                cap["maximum_abs_selected_GF5_weighted_nonconstant_Walsh_coefficient"])
+            for c in SEVEN:
+                self.assertLessEqual(
+                    Fraction(abs(data["seven_class_Walsh_numerators"][c][T]),8),
+                    cap["maximum_abs_unweighted_nonconstant_Walsh_coefficient"])
         print("AA4BS_TRUE_W32_WEIGHTED_VARIANCE",directvar,
               "GRADIENT_ENERGY",data["weighted_gradient_Poincare_energy"],
               "HIGHER_ORDER",data["strict_higher_order_gradient_energy"],flush=True)
