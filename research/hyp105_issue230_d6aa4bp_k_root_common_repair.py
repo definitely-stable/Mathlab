@@ -55,6 +55,8 @@ def k_root_uniform_all_h_certificate(s, k=None):
     V,a,K,m=_params(s)
     d=s+1
     capacity=min(s//8,(a-4)//16)
+    if k is None:
+        k=capacity
     if type(k) is not int or k<1 or k>capacity:
         raise ValueError("k must be positive and <= the certified simultaneous capacity")
     foreign_max=6*k-6
