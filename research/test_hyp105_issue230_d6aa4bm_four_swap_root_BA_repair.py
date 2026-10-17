@@ -130,7 +130,7 @@ class AA4BMOriginalFourSwapRootRepair(unittest.TestCase):
                             # all six-source-flag motifs, not just physical 2regularity.
                             historical=seven_census(target_model,independent_checks=False,witness_sets=True)
                             self.assertEqual(
-                                historical["sets"][frozenset(q)],
+                                historical["sets"][tuple(sorted(q))],
                                 z["accepted_historical_seven_GF5_tag"])
                         repaired+=1
             self.assertGreaterEqual(repaired,20)
