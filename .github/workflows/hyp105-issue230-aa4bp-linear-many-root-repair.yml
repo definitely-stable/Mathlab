@@ -1,0 +1,42 @@
+name: hyp105-issue230-aa4bp-linear-many-original-roots
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bp_linear_many_root_repair.py"
+      - "research/test_hyp105_issue230_d6aa4bp_linear_many_root_repair.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BP-LINEAR-MANY-ROOT-REPAIR.md"
+      - ".github/workflows/hyp105-issue230-aa4bp-linear-many-root-repair.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-original-source-and-physical-degree:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_linear_many_root_repair.py' -v -k test_01
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_linear_many_root_repair.py' -v -k test_05
+  independent-physical-and-multiple-original-source-guards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_linear_many_root_repair.py' -v -k test_02
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_linear_many_root_repair.py' -v -k test_06
+  genuine-original-W34-multi-root-and-dual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_linear_many_root_repair.py' -v -k test_03
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_linear_many_root_repair.py' -v -k test_04
