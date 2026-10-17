@@ -23,40 +23,31 @@ PACKETS=((0,1),(2,3),(4,5),(6,7),(8,9),(10,11))
 
 
 def independent_literal_GF5_point_C_class(Q,original,point_map,line_map):
-    """Independent of historical classifier and production source profile.
+    """Independent of historic classifier. Both true C/A/C/B orientations.
 
-    Six *original* incidence flag IDs, source POINT (2,2,2),
-    original source LINE A (all six different) or B (one repeated),
-    two PHYSICAL 2-regular projections each on EXACTLY six endpoints.
+    Historical original C/A comprises source POINT C / LINE A AND
+    source POINT A / LINE C. Similarly original C/B also comprises
+    original POINT B / LINE C. The reverse orientation LINE C has
+    only THREE distinct true original LINE factors, so it cannot
+    contribute at Walsh order FOUR or more on disjoint LINE packets.
+    However, it MUST remain present in ALL 64 raw SCORE vertices,
+    zero mode and orders <=3. Physical 2-regularity is necessary
+    and sufficient for both classes; a disconnected 2-factor is
+    accepted here. Connected C6 is only additionally required for D6.
     """
     if len(Q)!=6 or len(set(Q))!=6:return None
-    source_P=Counter(original[j][0] for j in Q)
-    source_L=Counter(original[j][1] for j in Q)
-    if sorted(source_P.values())!=[2,2,2]:return None
-    L=sorted(source_L.values())
-    if L==[1,1,1,1,1,1]:tag="C/A"
-    elif L==[1,1,1,1,2]:tag="C/B"
+    P=tuple(sorted(Counter(original[j][0] for j in Q).values()))
+    L=tuple(sorted(Counter(original[j][1] for j in Q).values()))
+    A=(1,1,1,1,1,1);B=(1,1,1,1,2);C=(2,2,2)
+    if (P,L) in ((C,A),(A,C)):
+        tag="C/A"
+    elif (P,L) in ((C,B),(B,C)):
+        tag="C/B"
     else:return None
     for side,lab in ((0,point_map),(1,line_map)):
         degrees=Counter(coord for j in Q for coord in lab[original[j][side]])
         if len(degrees)!=6 or set(degrees.values())!={2}:return None
-    # The historical physically accepted SOURCE LINE A right projection
-    # requires ONE CONNECTED SIX-CYCLE, not two separate triangles.
-    # Mere 2-regularity is NOT enough for GF5 source POINT C/right A.
-    if tag=="C/A":
-        adj={u:set() for j in Q for u in line_map[original[j][1]]}
-        for j in Q:
-            u,v=line_map[original[j][1]]
-            adj[u].add(v);adj[v].add(u)
-        visited=set()
-        stack=[next(iter(adj))]
-        while stack:
-            u=stack.pop()
-            if u not in visited:
-                visited.add(u);stack.extend(adj[u]-visited)
-        if len(visited)!=6:return None
     return tag
-
 
 def independent_signed_walsh_64(values,T):
     return Fraction(sum(((-1 if (x&T).bit_count()%2 else 1)*values[x])
