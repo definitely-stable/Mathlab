@@ -56,9 +56,19 @@ Therefore the SAME original weighted source count obeys for EVERY original right
 
 For true W32 this PR computes ALL of these H counts exactly with an independent literal scan of 62,370 left physically eligible original sixflag IDs, using the proper original C/A six-source-factor and C/B source profiles. Parent #596 true GQ line-intersection methods compute the C/B terms for W32/W34. The all-h f-only formula is a source-set definition; **no scalable high-h C/A enumerator** is claimed. The all-h closed-form E_C remains directly computable at arbitrary h without fabricating a high-h W3.
 
-### Genuine-original weighted fourth-order sign obstruction
+### Genuine-original weighted fourth-order sign obstruction — distinct fourcube and sixcube derivatives
 
-On actual symplectic W32 and the SAME first four of six chosen original LINE source swap packets (0,1),(2,3),(4,5),(6,7), the exact original fourth Walsh C/A coefficient is -1/8 for physical lex and 0 for S72 (parallel #595). The original C/B fourth coefficient is 0 for lex and +1/16 for S72 (#594). The **historically weighted TWO-class sum** is thus \(-43320/8=-5415\) for lex and \(+49050/16=24525/8\) for S72. This sign reversal holds on TRUE original W(3,2) and full globally injected physical maps, NOT merely an abstract polynomial surrogate. It rules out a universal pointwise nonnegative fourth-order **weighted point-C coefficient** premise, but not every possible cross-order argument or universal seven-class positivity.
+For the SAME first four of six selected actual original source LINE-factor packets on symplectic W32 lex/S72, the **standalone fourcube with only four right images allowed to toggle** (independently tested in parallel #595/#594) has original C/A fourth coefficients lex=-1/8, S72=0, and C/B fourth coefficients lex=0, S72=+1/16. Its selected two-class weighted fourth derivatives are therefore -5415 for lex and +24525/8 for S72: opposite signs.
+
+**Critical distinction confirmed by hosted independent tests:** the coefficient indexed by these same four bits in the SIX-DIMENSIONAL cube is a Fourier MARGINAL, namely the average of four separate fourbit signed derivatives at the four settings of the two remaining source swaps. This need NOT equal the standalone fourcube derivative with those two bits FIXED at zero. The actual full SIXCUBE original historical C/A fourth coefficient is lex=-1/8, **S72=-1/32**; the original C/B coefficient is lex=0, S72=+1/16. Therefore its actually measured weighted fourth coefficients are lex=-5415 and S72=
+
+\[
+43320(-1/32)+49050(1/16)=13695/8>0.
+\]
+
+Hence the weighted TRUE ORIGINAL sixcube fourth coefficient itself still changes sign (negative lex, positive S72), without illicitly identifying a fourcube coefficient with a sixcube marginal. This is genuine W(3,2), not an abstract surrogate, and refutes only an unconditional nonnegative signed fourth-order WEIGHTED POINT-C coefficient premise; it does not disprove other cross-order inequalities or a seven-class original-center positive floor.
+
+**Additional historical GF(5) oracle guard:** when the original source LINE factors of Q are all different (right source profile A), mere 2-regularity of its physical right pair-edge projection is insufficient: TWO DISJOINT TRIANGLES are also 2-regular on six physical vertices, but **not** historically selected C/A. The independent literal GF5 verifier must require ONE CONNECTED SIX-CYCLE on that right side. For right source B, a doubled original LINE factor already occupies both degrees at its two physical endpoints, forcing the four other globally distinct LINE factor images to make a physical C4 when the full right 2regular test passes. These checks preserve the true historical GF(5) class semantics and literal original six-incidence-ID identity, rather than relaxing acceptance to generic 2regular support.
 
 ## Exact falsification scope
 
