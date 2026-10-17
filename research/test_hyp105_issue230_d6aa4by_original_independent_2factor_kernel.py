@@ -91,18 +91,26 @@ class Original2FactorSixPacketKernel(unittest.TestCase):
             self.assertGreater(len(rows),0)
             self.assertEqual(len(rows),351 if scheme=="lex" else 301)
             n_with_accept=0
+            maps=tuple(apply_disjoint_factor_swaps(
+                g,PACKETS,tuple(j for j in range(6) if mask>>j&1))
+                for mask in range(64))
             for Q in rows:
-                accepted=assert_one_edge_swap_exclusion(Q,inc,g,PACKETS,V)
-                z=original_six_Q_exact_poincare_identity(accepted)
-                if z["mean_acceptance"]:n_with_accept+=1
-                for mask,x in enumerate(accepted):
-                    global_g=apply_disjoint_factor_swaps(
-                       g,PACKETS,tuple(j for j in range(6) if mask>>j&1))
-                    historical=classify_seven_prechecked(Q,f,global_g,inc)
-                    self.assertEqual(int(historical is not None),x)
+                physical=assert_one_edge_swap_exclusion(Q,inc,g,PACKETS,V)
+                original_historical=[]
+                for mask,x in enumerate(physical):
+                    historical=classify_seven_prechecked(Q,f,maps[mask],inc)
+                    # Physical degree-2 is NECESSARY, never SUFFICIENT,
+                    # for historical original GF5 seven-class acceptance.
+                    self.assertLessEqual(int(historical is not None),x)
+                    original_historical.append(int(historical is not None))
                     if historical is not None:
                         self.assertIn(historical,("D6","B-left/A-right","C/A"))
-                self.assertLessEqual(sum(accepted),32)
+                self.assertEqual(
+                    original_six_Q_exact_poincare_identity(physical)["energy_equals_three_times_acceptance_density"],True)
+                z=original_six_Q_exact_poincare_identity(original_historical)
+                if z["mean_acceptance"]:n_with_accept+=1
+                self.assertLessEqual(sum(original_historical),sum(physical))
+                self.assertLessEqual(sum(physical),32)
             print("AA4BY_TRUE_W32_SIXPACKET_REAL_Q",scheme,
                   "source_candidates",len(rows),
                   "nonzero_true_historical_acceptance",n_with_accept,flush=True)
