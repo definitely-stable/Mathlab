@@ -210,6 +210,18 @@ def shared_sixpacket_W32_certificate(model,packets=DEFAULT_PACKETS,
     # Physical parity equation from AA4-CB/CC: only one source class
     # with syndrome(beta) xor D*x can be physically eligible at x.
     beta=shared["baseline_parity"]
+    # Distinct source Q in DIFFERENT syndrome classes can never jointly
+    # pass right physical 2factor on the SAME original complete g^x.
+    # Since source weights are positive, these integer quantities measure
+    # exact ordered-class/excluded orientation-pair WEIGHT products, not
+    # historical accepted GF5 counts or a universal motif lower bound.
+    forbidden_syndrome_pairs=(
+        sum(H)**2-sum(v*v for v in eta_mass.values()))//2
+    forbidden_physical_orientations=sum(
+        H[t]*H[u] for t in range(N) for u in range(t+1,N)
+        if ac[t^u] == 0)
+    if forbidden_physical_orientations < forbidden_syndrome_pairs:
+        raise AssertionError("literal physical pair exclusion must dominate parity")
     for x in range(N):
         potentially_eligible=eta_mass.get(beta ^ syndrome(shared["columns"],x),0)
         if B[x]>potentially_eligible:
@@ -241,6 +253,8 @@ def shared_sixpacket_W32_certificate(model,packets=DEFAULT_PACKETS,
        "right_physical_active_states":sum(R),
        "global_right_parity_rank":shared["rank"],
        "weighted_source_parity_groups":dict(eta_mass),
+       "forbidden_distinct_syndrome_weighted_Q_pairs":forbidden_syndrome_pairs,
+       "forbidden_distinct_orientation_physical_Q_pairs":forbidden_physical_orientations,
        "xor_convolution_upper_B":B,
        "center_physical_upper_B0":B[0],
        "uniform_mean_B":Fraction(sum(B),N),
