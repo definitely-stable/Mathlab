@@ -97,14 +97,18 @@ def fourth_original_C_B_true_GQ_geometry(model,line_packets):
     Qs=set();physical=set()
     partition=Counter()
     exterior_repeated=0
-    for chosen in product(*packets):
-        chosen=tuple(chosen)
-        # A fifth original LINE is either the unselected member of ONE
-        # packet, or a LINE source factor outside the four packets.
-        for fifth in range(V):
-            if fifth in chosen:continue
-            inside=fifth in all_packet_lines
-            line_ids=chosen+(fifth,)
+    # All-INSIDE 5-line sets have TWO possible choices of the
+    # "anchored" line in the doubled packet; canonicalize FIRST,
+    # otherwise a real source sixflag would appear twice falsely.
+    five_line_sets={tuple(sorted((*chosen,fifth)))
+        for chosen in product(*packets) for fifth in range(V)
+        if fifth not in chosen}
+    for line_ids in sorted(five_line_sets):
+            exterior=frozenset(line_ids)-all_packet_lines
+            if len(exterior)>1:
+                raise AssertionError("four packets cannot be met by five lines with two exterior IDs")
+            inside=not exterior
+            fifth=next(iter(exterior),None)
             for repeated in line_ids:
                 others=tuple(x for x in line_ids if x!=repeated)
                 if len(others)!=4:raise AssertionError("five distinct original LINE ids")
