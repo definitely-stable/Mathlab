@@ -1,0 +1,42 @@
+name: hyp105-issue230-aa4bn-multi-root-original-optimal-swaps
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bn_multi_root_swap_compatibility.py"
+      - "research/test_hyp105_issue230_d6aa4bn_multi_root_swap_compatibility.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BN-MULTI-ROOT-COMPATIBILITY.md"
+      - ".github/workflows/hyp105-issue230-aa4bn-multi-root-compatibility.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-partial-permutation-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_multi_root_swap_compatibility.py' -v -k test_01
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_multi_root_swap_compatibility.py' -v -k test_02
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_multi_root_swap_compatibility.py' -v -k test_03
+  genuine-original-W32-two-root-compatibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_multi_root_swap_compatibility.py' -v -k test_04
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_multi_root_swap_compatibility.py' -v -k test_05
+  genuine-original-W34-nononto-negative:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_multi_root_swap_compatibility.py' -v -k test_06
