@@ -62,6 +62,21 @@ D(t_Q XOR t_Q') != 0  IMPLIES A_g(delta)=0.
 
 **Hence two original source Q with distinct orientation syndromes cannot BOTH be right-physically admissible at the SAME globally injected g^x**, and therefore cannot both be historical GF5 positive there. For equality of syndromes the exact actual *physical* joint obstruction is still A_g(delta), which can be zero even though parity allows both. This is a genuine deterministic cross-Q restriction absent in individual per-Q highpass estimates.
 
+**Exact quantitative forbidden-pair charge, with NO distributional hypothesis.** Write `H_f(t)` for the positive historical f-eligible source weights defined below and `G(σ)=sum_{t:D t=σ}H_f(t)`; let `H=sum_t H_f(t)`. Then the **sum of products of historical weights over UNORDERED pairs of DISTINCT original Q in DIFFERENT source orientation parity-syndrome classes** equals
+
+```text
+F_syndrome = (H² - sum_σ G(σ)²)/2.
+```
+
+Every such distinct-Q pair is physically **mutually excluded at every unchanged complete g^x**. The sharper exact physical forbidden cross-orientation charge is
+
+```text
+F_physical = sum_{t<u, A_g(t XOR u)=0} H_f(t)H_f(u)
+           >= F_syndrome.
+```
+
+This sum ranges over DIFFERENT orientation bins, so no diagonal/same-Q products enter. Both are integer identities about a possible original f-eligible source candidate population; **they are not a positive lower for historically accepted motifs**. When R_g is identically zero the physical needed class is empty even within an orientation bin, so this two-bin restriction understates that stronger obstruction.
+
 The nonnegative autocorrelation array A_g is positive definite; its exact unnormalized XOR Walsh transform equals the coordinatewise square of the transform of R_g. This is the classical finite abelian group autocorrelation/Parseval identity. We do NOT claim discovery of general harmonic analysis.
 
 ## AA4-CE-MASS — one shared source×physical convolution, all-h
