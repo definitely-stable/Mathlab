@@ -192,6 +192,33 @@ class CBTrueOriginalGF2PhysicalCenter(unittest.TestCase):
         # choices they can coincide despite different complete g.
         self.assertEqual(set(model["right_labels"]),set(changed["right_labels"]))
 
+    def test_07_real_original_W34_GF4_NONONTO_K14_affine_source_parity(self):
+        # Actual genuine symplectic W(3,4), V=85, a=14 NONONTO E(K14).
+        # This tests direct source-incidence affine GF2 algebra on a
+        # larger-than-W32 physical palette, without enumerating all
+        # high-h candidate six-Q or pretending a synthetic GQ.
+        for scheme in ("lex","random"):
+            model=fixture(2,scheme)
+            s,V,a,inc,f,g,_,_=_original_source(model)
+            self.assertEqual((s,V,a),(4,85,14))
+            for shift in (0,1,2):
+                source_lines=(0,2,4,6,8,10)
+                Q=tuple(tuple(j for j,(p,l) in enumerate(inc)
+                              if l==line)[shift]
+                        for line in source_lines)
+                z=genuine_original_Q_parity_sixcube(
+                    model,Q,PACKETS,verify_historical=False)
+                used=z["touched_original_LINE_packet_indices"]
+                self.assertEqual(len(used),6)
+                actual=tuple(y for y in range(64)
+                    if independent_original_physical_right_even(
+                        Q,inc,apply_disjoint_factor_swaps(
+                            g,PACKETS,tuple(used[j] for j in range(6)
+                                            if y>>j&1))))
+                self.assertEqual(actual,z["parity_zero_affine_coset"])
+                self.assertLessEqual(len(z["physical_right_2regular_states"]),
+                                     len(actual))
+
     def test_06_adversarial_invalid_true_original_flag_or_global_g_fails_closed(self):
         model=fixture(1,"lex")
         s,V,a,inc,f,g,_,_=_original_source(model)
