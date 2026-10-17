@@ -126,6 +126,18 @@ class AA4CFOriginalSevenpacket(unittest.TestCase):
                                     r["five_pins_same_source_Q_pairs_forbidden"])
             self.assertEqual(r["mixed_envelope_cross_moment_sum"],
                              r["mixed_envelope_cross_moment_by_Gram"])
+            fixed={
+                "lex":(358,0,0,125658,4307,125658,0),
+                "S72":(378,2,2,113778,4064,110205,661709004813),
+            }[scheme]
+            qb,aliveA,aliveB,total,shared5,forbidden,mixed=fixed
+            self.assertEqual(source["counts"]["B"],qb)
+            self.assertEqual(r["physical_A_active"],aliveA)
+            self.assertEqual(r["physical_B_active"],aliveB)
+            self.assertEqual(r["total_crossfamily_original_Q_pairs"],total)
+            self.assertEqual(r["five_pins_same_source_Q_pairs_forbidden"],shared5)
+            self.assertEqual(r["total_physically_forbidden_original_Q_pairs"],forbidden)
+            self.assertEqual(r["mixed_envelope_cross_moment_sum"],mixed)
             self.assertEqual(len(r["physical_family_envelope_A"]),CUBE)
             for fam in FAMILIES:
                 self.assertEqual(len(r["historical_selected_Q_weighted_7cube"][fam]),CUBE)
@@ -162,6 +174,33 @@ class AA4CFOriginalSevenpacket(unittest.TestCase):
         self.assertEqual(literal,r["five_pins_same_source_Q_pairs_forbidden"])
         self.assertEqual(forbidden,r["total_physically_forbidden_original_Q_pairs"])
         self.assertGreaterEqual(forbidden,literal)
+        self.assertEqual(r["total_crossfamily_original_Q_pairs"],113778)
+        self.assertEqual(literal,4064)
+        self.assertEqual(forbidden,106487)
+        self.assertEqual(r["mixed_envelope_cross_moment_sum"],2940361517916)
+        # Independently re-enumerate physical degree-two of EVERY original
+        # Q on EVERY one of 128 COMPLETE global maps WITHOUT using the
+        # 7D translated family mask or compressed J-g entries.
+        s,V,a,inc,f,g,_,_=_original_source(model)
+        maps=tuple(apply_disjoint_factor_swaps(
+            g,PACKETS7,tuple(i for i in range(7) if x>>i&1))
+            for x in range(CUBE))
+        independent={}
+        for fam in FAMILIES:
+            independent[fam]=tuple((
+                orient,
+                sum((1<<x) for x,gm in enumerate(maps)
+                    if physical_right_is_six_vertex_two_regular(Q,inc,gm))
+            ) for Q,orient,w,tag in src["Q"][fam])
+        raw_forbidden=0;raw_same_five=0
+        for orientA,maskA in independent["A"]:
+            for orientB,maskB in independent["B"]:
+                if (orientA&FIVE_MASK)==(orientB&FIVE_MASK):
+                    raw_same_five+=1
+                    self.assertEqual(maskA&maskB,0)
+                if maskA&maskB==0:raw_forbidden+=1
+        self.assertEqual(raw_same_five,4064)
+        self.assertEqual(raw_forbidden,106487)
         print("AA4CF_REAL_BOTH_LIVE",r["original_source_Q_counts"],
               "A_live",r["physical_A_active"],"B_live",r["physical_B_active"],
               "same_five_forbidden",literal,
