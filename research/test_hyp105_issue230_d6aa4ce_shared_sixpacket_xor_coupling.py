@@ -90,6 +90,26 @@ class AA4CESharedSourceOrientation(unittest.TestCase):
             score=z["true_original_six_touch_weighted_GF5_scores"]
             self.assertTrue(all(0<=v<=z["xor_convolution_upper_B"][i]
                                 for i,v in enumerate(score)))
+            # Independent LITERAL original six-ID Q-pair count, without
+            # using source orientation mass compression in the method.
+            fsource=source_orientation_histogram_W32(model,DEFAULT_PACKETS)
+            s,V,a,inc,f,g,_,_=_original_source(model)
+            phys=physical_right_mask_for_packets(g,DEFAULT_PACKETS)
+            columns=phys["columns"]
+            A=z["pair_autocorrelation"]
+            literal_syndrome=0; literal_physical=0
+            allQ=fsource["source_Q"]
+            for i,(Qi,ti,wi,ci) in enumerate(allQ):
+                for Qj,tj,wj,cj in allQ[i+1:]:
+                    if syndrome(columns,ti^tj):
+                        literal_syndrome+=wi*wj
+                    if A[ti^tj]==0:
+                        literal_physical+=wi*wj
+            self.assertEqual(literal_syndrome,
+                z["forbidden_distinct_syndrome_weighted_Q_pairs"])
+            self.assertEqual(literal_physical,
+                z["forbidden_distinct_orientation_physical_Q_pairs"])
+            self.assertGreaterEqual(literal_physical,literal_syndrome)
             if scheme=="lex":
                 self.assertEqual(z["right_physical_active_states"],0)
                 self.assertEqual(z["xor_convolution_upper_B"],(0,)*64)
@@ -103,7 +123,9 @@ class AA4CESharedSourceOrientation(unittest.TestCase):
                   "nonzero_syndrome_groups",len(z["weighted_source_parity_groups"]),
                   "B0",z["center_physical_upper_B0"],
                   "B_mean",z["uniform_mean_B"],
-                  "B2",z["uniform_second_moment_B"],flush=True)
+                  "B2",z["uniform_second_moment_B"],
+                  "parity_excluded_pairs",literal_syndrome,
+                  "physical_excluded_pairs",literal_physical,flush=True)
 
     def test_04_source_H_independent_of_global_g_and_bad_source_rejected(self):
         model=fixture(1,"S72")
