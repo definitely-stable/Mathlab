@@ -62,6 +62,11 @@ class OriginalGQFourthCA(unittest.TestCase):
             self.assertEqual(geo["genuine_original_POINT_C_source_Q"],allQ)
             self.assertEqual(geo["fixed_LEFT_physically_eligible_original_POINT_C_Q"],physical)
             self.assertEqual(geo["multiplicity_corrected_original_Q_count"],len(allQ))
+            self.assertEqual(len(allQ),1059)
+            self.assertEqual(len(physical),{"lex":31,"S72":47}[scheme])
+            self.assertEqual(
+              geo["source_right_class_counts"],
+              {"C/A":781,"C/B":269,"NOT_GF5":9})
             self.assertLessEqual(geo["original_anchor_profile_211_count"],96*3*3)
             self.assertLessEqual(geo["original_anchor_profile_22_count"],48)
             self.assertLessEqual(len(allQ),
@@ -87,6 +92,11 @@ class OriginalGQFourthCA(unittest.TestCase):
             model=fixture(1,scheme)
             x=true_original_W32_fourth_CA_GF5_Walsh(model,PACKETS)
             self.assertEqual(x["16_COMPLETE_globally_injected_original_right_maps"],16)
+            self.assertEqual(
+              (x["historical_original_C_A_fourth_Walsh"],
+               x["historical_original_C_B_fourth_Walsh"]),
+              {"lex":(Fraction(-1,8),Fraction(0)),
+               "S72":(Fraction(0),Fraction(1,16))}[scheme])
             self.assertLessEqual(abs(x["historical_original_C_A_fourth_Walsh"]),
                 x["source_genuine_original_C_Q_geometry"][
                 "historical_C_A_fourth_Walsh_source_cap_from_actual_f"])

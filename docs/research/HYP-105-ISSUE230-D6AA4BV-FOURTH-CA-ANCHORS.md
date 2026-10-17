@@ -37,6 +37,17 @@ Let n_i(Q) be the number of ORIGINAL incidence IDs of Q whose actual LINE source
 
 is an **EXACT** all-h identity, including when Q's two unmarked flags are inside an originally selected packet and one true Q has multiple anchor choices. It avoids the incorrect UNIQUE anchor assumption that affected previous fifth-order research. Every term is a positive rational and no fake independent per-Q image redraw occurs.
 
+## Original W32 independent exact numerical witnesses
+
+For true symplectic W(3,2)/K6 and genuine four ORIGINAL LINE source-factor whole-image transpositions (0,1), (2,3), (4,5), (6,7), the geometric anchor algorithm and an independent 1,062,720-iteration brute source flag oracle give exactly 1,059 original six-flag Q of POINT source profile C that touch all four source packets. Their RIGHT source-profile historical accepted-type partition is 781 C/A, 269 C/B, plus NINE true original six-Q with valid POINT C but source LINE profile NOT IN ANY accepted historical seven-GF5 class. These NINE Q are retained in exact source identity counts but **excluded from historical GF5 acceptance coefficients**; the initial test assertion that every original POINT-C source Q must have positive-source historical C/A or C/B type was wrong and removed.
+
+Under complete globally injected f in original lex labeling 31 of the source POINT-C Q have the physical LEFT six-coordinate C projection; for complete original S72 f 47 have this property. On 16 common, globally injected full original right-image mappings, independent historical full seven-class census yields:
+
+- original lex: fourth historical GF5 C/A Walsh coefficient -1/8, C/B 0.
+- original S72: fourth historical GF5 C/A Walsh coefficient 0, C/B +1/16.
+
+These exact values are pinned in regressions, not extrapolated to high h. The sign/zero of an individual fourth Walsh coefficient does NOT determine the original unchanged-center class count or the universal lower in #230.
+
 ## Reproducibility and falsifiers
 
 Versioned Python source research/hyp105_issue230_d6aa4bv_fourth_original_GQ_CA_anchors.py, independent six-group tests research/test_hyp105_issue230_d6aa4bv_fourth_original_GQ_CA_anchors.py and three-job GitHub-hosted workflow. Genuine original W32/K6 fixture lex and S72: independent full 6^4*C(41,2)=1,062,720 four-packet-anchor + any other two original distinct flags per scheme (2,125,440 loops total) to classify original POINT-C Q, compared EXACT full six-ID SET and original f physical left-C-eligible source SET against separate constructive point-multiplicity completion enumerator. That second source witness computes every original Q's multiplicity as prod_i n_i(Q) and verifies the inverse-weighted sum equals distinct source Q count exactly. True original W34/GF4 nononto source C and multiplicities lex/random, without inventing high-h fixture.
