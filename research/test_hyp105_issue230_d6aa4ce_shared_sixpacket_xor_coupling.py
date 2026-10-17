@@ -98,18 +98,28 @@ class AA4CESharedSourceOrientation(unittest.TestCase):
             columns=phys["columns"]
             A=z["pair_autocorrelation"]
             literal_syndrome=0; literal_physical=0
+            literal_syndrome_Q=0; literal_physical_Q=0
             allQ=fsource["source_Q"]
             for i,(Qi,ti,wi,ci) in enumerate(allQ):
                 for Qj,tj,wj,cj in allQ[i+1:]:
                     if syndrome(columns,ti^tj):
                         literal_syndrome+=wi*wj
+                        literal_syndrome_Q+=1
                     if ti != tj and A[ti^tj]==0:
                         literal_physical+=wi*wj
+                        literal_physical_Q+=1
             self.assertEqual(literal_syndrome,
                 z["forbidden_distinct_syndrome_weighted_Q_pairs"])
             self.assertEqual(literal_physical,
                 z["forbidden_distinct_orientation_physical_Q_pairs"])
             self.assertGreaterEqual(literal_physical,literal_syndrome)
+            self.assertEqual(literal_syndrome_Q,
+                z["forbidden_distinct_syndrome_source_Q_pairs"])
+            self.assertEqual(literal_physical_Q,
+                z["forbidden_distinct_orientation_physical_source_Q_pairs"])
+            self.assertGreaterEqual(literal_physical_Q,literal_syndrome_Q)
+            self.assertEqual(z["total_unordered_source_Q_pairs"],
+                expected_Q*(expected_Q-1)//2)
             if scheme=="lex":
                 self.assertEqual(z["right_physical_active_states"],0)
                 self.assertEqual(z["xor_convolution_upper_B"],(0,)*64)
@@ -126,6 +136,9 @@ class AA4CESharedSourceOrientation(unittest.TestCase):
                   "B2",z["uniform_second_moment_B"],
                   "parity_excluded_pairs",literal_syndrome,
                   "physical_excluded_pairs",literal_physical,
+                  "original_Q_pairs",z["total_unordered_source_Q_pairs"],
+                  "excluded_Q_pairs_parity",literal_syndrome_Q,
+                  "excluded_Q_pairs_physical",literal_physical_Q,
                   "historical_Q6_positive_states",sum(bool(v) for v in score),
                   "historical_Q6_max_weight",max(score),
                   "historical_Q6_original_center",score[0],flush=True)
