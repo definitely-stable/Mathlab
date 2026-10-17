@@ -119,6 +119,22 @@ These are true original-Q-pair counts (not label automorphism orbits), and their
 
 All computations exact integers; GitHub-hosted runners only, and no fabricated high-h geometry. Dedicated distinct CI jobs and source proof Markdown.
 
+## 5a. Exact true-original W32 cross-family evidence (finite only)
+
+The dedicated ORIGINAL W32 oracle verified all real six-incidence-ID Q from both families over all 128 **complete original** right maps, and independently counted the `Q_A×Q_B` pairs on the genuine original incidence structure.
+
+| True W32 original f/g | Original QA (packets 0..5) | Original QB (packets 0..4,6) | Physically active A / B 7cube states | Total crossfamily Q pairs | Five-same-source-LINE-pin pairs forbidden for EVERY g | Additional physical-specific Fphys | Exact mixed physical envelope sum |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| lex | 351 | 358 | 0 / 0 | 125,658 | 4,307 | 125,658 | 0 |
+| S72 | 301 | 378 | 2 / 2 | 113,778 | 4,064 | 110,205 | 661,709,004,813 |
+| S72 same REAL original source f, deliberately globally re-permuted COMPLETE g with both physical family masks nonempty | 301 | 378 | 4 / 4 | 113,778 | 4,064 | 106,487 | 2,940,361,517,916 |
+
+The fifth-common-LINE-pin F5 numbers depend on f and the original true source Q, NOT on the right physical g. They are exact deterministic forbidden pair counts for ALL 128 complete source-image swaps and indeed for ANY complete globally injected right g. Fphys depends on the actual fixed original g and may be much larger; empty physical masks in lex cause Fphys to equal ALL pairs, a trivial stronger obstruction. The S72 cases have BOTH masks nonempty and are therefore nonvacuous (110,205/113,778 and 106,487/113,778 physically incompatible cross-family source Q pairs).
+
+The final both-live adversarial full-K6 g regression independently reconstructs literal 128-bit physical right-2factor masks for EVERY authentic original Q_A and Q_B on all 128 **complete** global original g maps, and counts physical incompatible Q-pairs by ANDing those directly reconstructed masks WITHOUT querying the mixed J matrix. This independently validates 106,487 exact exclusions and 4,064 five-source-pin matches, against the compressed 64x64 mixed Gram approach. A finite numerical fraction is NOT a uniform all-h frequency theorem.
+
+**Strict inference limits:** these are restrictions on physical NECESSARY eligibility, not accepted GF5 positive motifs. In particular neither F5 nor Fphys forces a positive original-center contribution from a different packet family. A disallowed simultaneous pair is not a required individual motif; avoid an unproved supersaturation implication.
+
 ## 6. Strict acceptance limitations and what should follow
 
 AA4-CF is an EXACT **conditional structural all-h statement** and a complete finite mixed physical compatibility certificate. It neither proves unchanged global original all-seven positive `S_s(f,g)=Omega(s^6)` for every f,g, nor constructs a genuine infinite correlated `o(s^6)` sequence, nor supplies qualifying Branch C equivalence, full R3/ASET exponent or any implication that source physical candidates are historically GF5 positive. Keep Draft pending exact final-head dedicated/INDEX/Proof Audit/full Research and an INDEPENDENT QUALIFIED mathematical referee, as well as actual accepted ancestor Git stack (not merely a retargeted PR metadata base).
