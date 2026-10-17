@@ -50,6 +50,27 @@ As before, the mixed physical Gram is a nonnegative counting matrix, not itself 
 3. Check two independent CASE-I and CASE-II complete original physical g witnesses, with R_A(0)=R_B(0)=1, and independently classify EVERY one of their jointly physical-valid global states by the true original eight physical LINE images. Check the EXACT 64x64 Gram from its raw 256 complete maps, including nonzero equal-four-pins entries (contrasting #606).
 4. Fail closed for missing eighth packet, source-overlapping packet pair, repeated physical edge images, forbidden physical self-loops, malformed inputs, incorrect s or non-real original six-incidence flag sets. No simulated high-h graph supports a scientific claim.
 
+## 3a. Exact HEAD original-W34 and complete W32 historical classifier compatibility
+
+**Historical seven-GF5 classification compatibility caveat FOUND and corrected:** the pre-existing historical small-W32 helper `classify_seven_prechecked` delegates to `_half_projection_kind`, which initializes `deg=[0]*6`. It is therefore **not a general-K_a original-h historical classifier**, and applying it directly to K14 raises `IndexError`. No change was made to historical accepted W32 code or proof results. AA4-CG now supplies the **standalone alphabet-independent** `classify_seven_all_a_original_Q`: exact source multiplicity A/B/C from the SAME original six-incidence IDs, literal degree2 on six actual physical coordinates, historical seven-tag source partition decisions, and for A/A the exact original dual six-position D6 aligned connected cycle. Its acceptance criterion is the unchanged seven historical structural model, not an invented eighth class or randomized scoring rule.
+
+Before the W34 outcome, TWO entire original W32 genuine six-ID left physical eligible censuses were checked INDEPENDENTLY against the original legacy classifier:
+- `lex`: exactly **62,370/62,370** equal tags, with accepted counts D6=15, B-left/A-right=98, A-left/B-right=110, C/A=13, C/B=1, B/B-overlap=8, B/B-disjoint=14.
+- `S72`: exactly **62,370/62,370** equal tags, with accepted counts B-left/A-right=36, A-left/B-right=31, C/A=2, B/B-overlap=1, B/B-disjoint=2. All other selected class counts zero.
+
+This is exhaustive backward-compatibility at W32 for the tested fixed global f,g, not a mathematical proof that every future label permutation in larger alphabets is identical to prior W32 code. The structural derivation on the true six-ID source and physical degree conditions is direct and works for any finite physical a.
+
+**REAL W34 explicit outcomes**, with one complete globally injected g of 85 different actual physical unordered K14 images in each case, SAME unchanged true original Q_A and Q_B with four shared incidence IDs, all 256 complete original whole-factor g swaps:
+
+| Actual original h=2 configuration | A physical-positive global states | B physical-positive global states | Simultaneously physically positive states | Actual original same-map historical seven-GF5 |
+|---|---:|---:|---:|---|
+| Shared six physical vertices, 2-switch C4 | 4 | 4 | 1 | Neither Q historic positive at x=0; no jointly accepted global x |
+| Five shared physical vertices, replacement of sixth vertex | 4 | 4 | 1 | **Both independently classified D6 at x=0**, and exactly one jointly historical D6-positive global state |
+
+In the second row the two historical positive D6 motifs are **real original different six-incidence sets** with common four original source incidence IDs on ONE SAME complete W34 f,g; the right six-coordinate vertex support differs while the source sixposition dual cycle is identical and aligned with the left sixposition dual cycle. This finite original witness completely disproves the overly strong proposed four-shared-original-LINE-pins no-coexistence assertion (while fully preserving the five-shared-edge result from #606). It does not invalidate root Branch A or yield any all-h motif abundance.
+
+The general all-h two-type lemma is purely deterministic degree-counting; these authentic finite witnesses falsify missing cases. The separate K7 independent exhaustive run verified **all** 5,985 four-edge sets, exactly 3,360 with any completion, and exactly 3,150 jointly live distinct Case-I completion pairs plus 1,470 jointly live distinct Case-II pairs.
+
 ## 4. Novelty, limitations, provenance, next proof obstruction
 
 The underlying degree-sequence completion classification is elementary; standard graph degree switches are well established and **not claimed as new general graph theory**. The original scientific gain over #606 is the EXACT bifurcation in genuine W(3,2^h) correlated global eightpacket Q families, including the higher-physical-alphabet vertex replacement overlooked by K6-only heuristics; the explicit authentic W34 original-incidence demonstration and independent complete 256-map historical checks prevent an erroneous original all-h no-coexistence extrapolation.
