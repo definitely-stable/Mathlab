@@ -200,7 +200,9 @@ def simultaneous_many_original_cherries(model,side,cherries,*,require_regular=Tr
         if len(free)!=4 or free & (allpins|used_free):
             raise AssertionError("genuine source LINE factors collide across repaired roots")
         own_images={other[i] for i in pins}
-        excluded=(protected_images-own_images)|set().union(*targets) if targets else protected_images-own_images
+        # Shared original pins may appear in earlier rooted sixcycles:
+        # NEVER forbid this root's own physical pin images.
+        excluded=(protected_images|set().union(*targets))-own_images if targets else protected_images-own_images
         if own_images&excluded:
             raise AssertionError("current true opposite pinned image was mistakenly forbidden")
         if s>=32 and require_regular and len(excluded)>8*(len(selected)-1):
