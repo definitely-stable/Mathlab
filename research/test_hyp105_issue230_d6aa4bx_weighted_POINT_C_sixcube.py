@@ -40,6 +40,21 @@ def independent_literal_GF5_point_C_class(Q,original,point_map,line_map):
     for side,lab in ((0,point_map),(1,line_map)):
         degrees=Counter(coord for j in Q for coord in lab[original[j][side]])
         if len(degrees)!=6 or set(degrees.values())!={2}:return None
+    # The historical physically accepted SOURCE LINE A right projection
+    # requires ONE CONNECTED SIX-CYCLE, not two separate triangles.
+    # Mere 2-regularity is NOT enough for GF5 source POINT C/right A.
+    if tag=="C/A":
+        adj={u:set() for j in Q for u in line_map[original[j][1]]}
+        for j in Q:
+            u,v=line_map[original[j][1]]
+            adj[u].add(v);adj[v].add(u)
+        visited=set()
+        stack=[next(iter(adj))]
+        while stack:
+            u=stack.pop()
+            if u not in visited:
+                visited.add(u);stack.extend(adj[u]-visited)
+        if len(visited)!=6:return None
     return tag
 
 
@@ -113,13 +128,18 @@ class BXSixcubeTrueOriginalWeightedPointC(unittest.TestCase):
                         z["g_independent_original_f_refined_WEIGHTED_error"])
             # First four packet indices; based on separate genuine #594
             # and sibling #595 fourth coefficient evidence.
+            # On the SIX-cube, hat(T=first4) AVERAGES the original
+            # fourth difference over the OTHER TWO swap bits. Sibling
+            # #595's standalone four-cube S72=0 is not the sixcube
+            # marginal coefficient (which here is -1/32).
             self.assertEqual(z["exact_original_class_Walsh"]["C/A"][15],
-                             {"lex":Fraction(-1,8),"S72":Fraction(0)}[scheme])
+                             {"lex":Fraction(-1,8),"S72":Fraction(-1,32)}[scheme])
             self.assertEqual(z["exact_original_class_Walsh"]["C/B"][15],
                              {"lex":Fraction(0),"S72":Fraction(1,16)}[scheme])
             out[scheme]=z["four_packet_point_C_weighted_signed_coefficient"]
         self.assertEqual(out["lex"],Fraction(-43320,8))
-        self.assertEqual(out["S72"],Fraction(49050,16))
+        self.assertEqual(out["S72"],
+                         Fraction(-43320,32)+Fraction(49050,16))
         self.assertLess(out["lex"],0)
         self.assertGreater(out["S72"],0)
 
