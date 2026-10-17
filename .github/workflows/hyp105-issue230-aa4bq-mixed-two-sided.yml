@@ -34,6 +34,7 @@ jobs:
         run: |
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_mixed_source_common_repair.py' -v -k test_02
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_mixed_source_common_repair.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_mixed_source_common_repair.py' -v -k test_06
   genuine-W32-small-h-no-false-generalization:
     runs-on: ubuntu-latest
     timeout-minutes: 15
