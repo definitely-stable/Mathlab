@@ -30,6 +30,7 @@ class TestBR(unittest.TestCase):
       model=fixture(1,scheme)
       i=exact_original_W32_signed_index(model)
       x=exact_original_W32_signed_swap(model,*pair,index=i)
+      print("SIGNED_GF5_FLUX_SCHEME",scheme,"swap",pair,"births",x["births"],"deaths",x["deaths"],"seven_delta",x["signed_seven_total_delta"],"floor_delta",x["signed_seven_GF5_R3_floor_numerator_delta"],flush=True)
       before=seven_census(model,independent_checks=False)
       changed=dict(model,right_labels=x["new_complete_global_original_LINE_map"])
       after=seven_census(changed,independent_checks=False)
