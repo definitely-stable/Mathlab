@@ -1,0 +1,41 @@
+name: hyp105-issue230-aa4bm-original-four-swap-cherry
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bm_four_swap_cherry_repair.py"
+      - "research/test_hyp105_issue230_d6aa4bm_four_swap_cherry_repair.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BM-FOUR-SWAP-CHERRY-REPAIR.md"
+      - ".github/workflows/hyp105-issue230-aa4bm-four-swap-cherry.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-pin-regular-original-math:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bm_four_swap_cherry_repair.py' -v -k test_01
+  original-K6-all-targets-and-original-W32:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bm_four_swap_cherry_repair.py' -v -k test_02
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bm_four_swap_cherry_repair.py' -v -k test_03
+  original-W34-and-negative-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bm_four_swap_cherry_repair.py' -v -k test_04
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bm_four_swap_cherry_repair.py' -v -k test_05
