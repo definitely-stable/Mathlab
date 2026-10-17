@@ -136,6 +136,28 @@ The new scoped original-W3 statement is the **COMMON** right physical mask and e
 
 No synthetic high-h symplectic geometry is used. W32 is a finite falsifier only; the all-h theorem follows from the explicit source packet relabeling identity. Exact 64-bit code arithmetic and all-GitHub-hosted three-job CI, no external optimizer.
 
+## Exact authentic W32 evidence and independent pair-count regressions
+
+The specialized GitHub-hosted independent ORIGINAL source-Q oracle found the following in **two complete true symplectic W(3,2), s=2** physical mapping fixtures, six unchanged source packets, and ALL 64 complete globally injected original LINE maps. Numbers count distinct original six-incidence-ID sets Q and UNORDERED distinct-Q pairs, not automorphism orbits:
+
+| Original W32 | sixth-sensitive original Q | all original Q pairs | syndrome-different pairs (never jointly even-degree) | physically incompatible different-orientation pairs (never jointly 2regular) | active states of ONE shared physical R_g |
+|---|---:|---:|---:|---:|---:|
+| lex | 351 | 61,425 | 57,580 | 60,403 | 0 |
+| S72 | 301 | 45,150 | 43,598 | 44,227 | 1 |
+
+Thus the literal original-same-map **physical cross-orientation incompatibility** certificate excludes at least 60,403/61,425 (~98.3%) and 44,227/45,150 (~98.0%) genuine source-Q unordered pairs respectively. The finite counts were verified in TWO different ways: compressed 64-bin orientation/mask autocorrelation AND literal independent enumeration of each original six-ID Q/Q' pair. For lex, R_g is empty, so IN FACT every pair (including same-orientation pairs) has zero simultaneous physical eligibility; the 60,403 figure is the conservative cross-orientation subcertificate. For S72, R_g has exactly one active state, so no two DIFFERENT orientation groups can overlap; original same-orientation pairs need not be excluded.
+
+The exact historical selected seven-GF5 (NOT merely physical) sixth-sensitive Q weighted contributions are ZERO at all 64 global maps in lex; S72 has 31 of 64 complete states with positive sixth-sensitive historical score, maximum 233,643, and **unchanged original center value 0**. These are finite W32 results for the sixth-packet sector only; the full original seven-class historical W(0) remains positive due to different source support sectors (#602/#604). The separate actual historical score is always <=B(x) and is **not** set equal to the physical upper envelope.
+
+Exact source-side weighted historical 51-column charge H6(f) is 4,690,929 lex and 3,731,790 S72. The conservative unordered cross-orientation **weight-product** exclusions are respectively:
+
+| Original W32 | parity-incompatible pair weight-products | physical-autocorrelation-incompatible pair weight-products |
+|---|---:|---:|
+| lex | 10,265,822,985,024 | 10,744,479,716,949 |
+| S72 | 6,669,836,289,522 | 6,749,203,842,720 |
+
+The weight-product numbers are algebraic certificates, NOT counts of accepted GF5 motifs and NOT a lower bound. Under S72 the exact shared-physical surrogate first moment is 1,865,895/32 and its second moment is 106,962,229,665/16 over 64 complete g-swap states. Under lex both moments vanish. All are regression-tested exact integers/Fractions, not asymptotic extrapolation.
+
 ## Scientific acceptance / nonimplications
 
 This is a precise **PARTIAL** all-h true-original proof, NOT root Branch A/B/C. We do **not** prove that positive right physical eligibility leads to positive GF5 acceptance, nor that a one-sided U reservoir cannot be completely erased by source/global-map correlations. `B` is an upper surrogate, so it provides **no universal lower bound** on unchanged (W(f,g)), no infinite correlated original o(s^6) counterfamily, no full R3/ASET exponent, and no accepted model-equivalent Branch C reduction. Every all-h statement is for genuine complete globally injected f,g and SIX distinct actual original incidence IDs. Root #230 remains OPEN_WITH_FORMAL_BLOCKER. Keep Draft pending exact head specialized/INDEX/Proof Audit/Full Research, independent mathematical review and actual ancestor branch Git ancestry repair.
