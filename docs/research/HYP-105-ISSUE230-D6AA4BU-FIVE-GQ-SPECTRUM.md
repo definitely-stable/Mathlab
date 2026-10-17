@@ -1,40 +1,89 @@
-# AA4-BU — fifth-order TRUE ORIGINAL source LINE-packet GQ spectrum
+# HYP-105 / #230 AA4-BU — corrected fifth-order genuine-original GQ spectrum
 
-Scientific Draft, strict child of AA4-BT #591, frozen parent SHA a7d18b7f907878035b1dc9799deac602130f613b; root issue #230 OPEN_WITH_FORMAL_BLOCKER. Previous #476 original historical seven-GF5 incidence taxon, #587 Boolean cube, #589 signed original source swap flux, #590 original seven-class covariance and #591 sixth-order FOUR class disappearance and GQ C/A constant upper remain credited. The foundational generalized quadrangle axiom is classical: two distinct lines meet in at most ONE actual point and each original line contains exactly d=s+1 actual original points. See Encyclopedia of Mathematics Quadrangle: https://encyclopediaofmath.org/wiki/Quadrangle. No original priority claimed for this axiom or Walsh/Parseval.
+**Scientific Draft, strict child of [AA4-BT #591](https://github.com/definitely-stable/Mathlab/pull/591), frozen parent SHA a7d18b7f907878035b1dc9799deac602130f613b.** No main or accepted registry edits; issue #230 remains OPEN_WITH_FORMAL_BLOCKER. Full seven original GF5 taxonomy and disjoint-source-transposition Walsh locality are reused from ancestors #476, #587, #590 and #591. Classical GQ axiom: any two genuine original LINES meet at most ONE actual POINT, and each LINE has exactly d=s+1 incident POINTs: [Encyclopedia of Mathematics](https://encyclopediaofmath.org/wiki/Quadrangle). No original priority for elementary inclusion/exclusion, perfect matchings or Walsh algebra is claimed.
 
-## BU-TYPE exact genuine original fifth packet source decomposition
+## Correction demanded by independent hosted CI
 
-For ANY actual symplectic W(3,s), s=2^h>=2, every globally injected complete correlated physical f,g, and any FIVE pairwise disjoint whole ORIGINAL LINE factor physical image transposition pairs, an ORIGINAL SIX-DISTINCT-incidence Q potentially influencing the fifth Walsh coefficient must meet each of the FIVE disjoint source two-LINE packets. Exactly one packet supplies TWO original incidence IDs; the other four supply ONE. With d=s+1, each packet has 2d distinct original flags.
+The FIRST AA4-BU draft erroneously assumed the sixth incidence of a true-original six-Q touching ALL FIVE chosen LINE-factor source packets must belong to the selected TEN original LINE factors. This is **FALSE**: exactly one flag may come from OUTSIDE ALL FIVE packets, while exactly one flag is chosen from EACH of the five packet incidence-ID fibers. The original incorrect fifth-order H5 formula and the incorrectly claimed **uniform in s** C/A fifth Walsh bound are REJECTED. A hosted all-h exact-count test detected this issue. This document and the amended production-research module preserve BOTH genuine-original cases and independent W32 full source enumeration.
 
-The exact count of such six-Q is H5=5*C(2d,2)*(2d)^4. When the doubled packet's two genuine original flags share their source LINE factor, original right source profile is B; there are exactly 2*C(d,2) such pairs. Otherwise one is incident to each of the two distinct original lines and right source profile is A; there are exactly d^2 choices. Therefore
+## Exact all-h fifth source LINE-profile count: INSIDE versus OUTSIDE
 
-H5_B=10*C(d,2)*(2d)^4; H5_A=5*d^2*(2d)^4; H5=H5_A+H5_B.
+Fix any TRUE symplectic original W(3,s), dyadic s>=2, and EVERY complete globally injected, arbitrarily correlated typed pair-image f,g. Choose FIVE pairwise disjoint original LINE-factor image swap pairs. Put d=s+1, V=(s+1)(s²+1), M=Vd actual ORIGINAL incidence IDs. Each of the five source two-LINE packets contains exactly 2d genuine original flags. Each Q potentially sensitive to ALL five swaps has SIX DISTINCT ACTUAL ORIGINAL incidence IDs, at least one from EACH packet. There are TWO and ONLY TWO cases:
 
-Original RIGHT source C=(2,2,2) is impossible for fifth-order source-sensitive Q (at least five distinct original LINE source IDs are used). All statements are genuine original incidence-ID exact counts for all h, not counts of GF5-positive Q or fake large-h geometry.
+**I. INSIDE (2,1,1,1,1)**: all six Q flags belong to the selected ten original LINE factors; exactly one of five packets supplies TWO flags and the other four supply ONE. The number is
 
-## BU-GQ source POINT B and C all-h intersection bounds
+H5_in = 5*C(2d,2)*(2d)^4.
 
-Index six source flag positions with two slots in the unique doubled packet and one in each other packet. Any two positions can correspond to the SAME original POINT in at most FOUR ordered ways: the two packets comprise at most two original lines each; a pair of distinct original lines meets at no more than one original point. The same-line same-point pair cannot arise from two DISTINCT original incidence IDs. This includes an internal doubled-packet pair with at most TWO ordered intersection possibilities, so FOUR is a valid uniform upper in every case.
+Exactly H5_in,B = 10*C(d,2)*(2d)^4 have right ORIGINAL LINE source multiplicity B (both doubled flags lie on SAME one of packet's two LINE IDs); exactly H5_in,A=5*d²*(2d)^4 have source-right A (doubled flags lie on two DIFFERENT packet LINE factors).
 
-A true-original POINT B profile has exactly ONE repeated-point pair among C(6,2)=15 slot pairs. Choose doubled packet (five ways), that pair (15), its authentic original line-line point-intersection flags (<=4), and FOUR remaining actual original flags (<=2d each). Thus source POINT B sixthflag count is at most min(H5,300*(2d)^4).
+**II. OUTSIDE (1,1,1,1,1;1)**: all five selected LINE packets supply one flag, and the sixth flag belongs to one of the remaining V−10 ORIGINAL LINE factor source IDs. There are M−10d=d(V−10) external genuine flags; therefore
 
-A true-original POINT C profile has THREE distinct source points each occurring exactly twice. Its six slot positions have exactly one perfect matching into three repeated POINT pairs, of which there are 15. There are five choices of doubled packet and at most 4^3 authentic line-source point-intersection flag choices per matching. Consequently original POINT C source-sixflag count is at most min(H5,5*15*4^3)<=4800 **uniform in dyadic s**. No independent cross-sixset f,g or source incidence flags. The fixed original f also must provide three pairwise disjoint physical pair-edge images for historical left-C acceptance; call the resulting original source-bound H_C(f;packets)<=4800.
+H5_out=(M−10d)*(2d)^5.
 
-## BU-SEVEN classwise original fifth Walsh coefficient caps
+Every such Q has right ORIGINAL source multiplicity A, since each selected packet source LINE ID is distinct and the external LINE ID is outside all ten. The complete and exact all-h source identities are
 
-For any fixed original accepted six-Q its source-profile historical positive class is immutable; on a nonempty Walsh direction its Boolean accepted-indicator coefficient has absolute value at most 1/2. Original D6 and B-left/A-right and C/A require source-right A; A-left/B-right, C/B and both B/B variants require source-right B. Thus:
+\[
+\boxed{H_5=5\binom{2d}{2}(2d)^4+(M-10d)(2d)^5
+=\sum_{j=0}^5(-1)^j\binom5j\binom{M-2dj}{6}.}
+\]
+\[
+\boxed{H_{5,\mathrm{RIGHT}\,B}=10\binom d2(2d)^4,\qquad
+H_{5,\mathrm{RIGHT}\,A}=5d^2(2d)^4+(M-10d)(2d)^5.}
+\]
 
-- D6: |hat S|<=H5_A/2.
-- B-left/A-right: |hat S|<=min(H5_A,300*(2d)^4)/2.
-- C/A: |hat S|<=min(H5_A,4800)/2<=2400.
-- A-left/B-right: |hat S|<=H5_B/2.
-- C/B: |hat S|<=min(H5_B,4800)/2<=2400.
-- B/B-overlap and B/B-disjoint: |hat S|<=min(H5_B,300*(2d)^4)/2.
+RIGHT source C is still IMPOSSIBLE, because Q necessarily uses at least five different actual ORIGINAL LINE source IDs.
 
-In contrast to top sixth Walsh order AA4-BT, all seven classes remain source-compatible at fifth order. The original issue #230 selected necessary GF5 R3 lower numerator fifth coefficient is bounded by summing the seven class caps times its pinned positive historical weights. This is a magnitude bound around a changed-map cube and does NOT imply S(f,g)>=c*s^6 on its unchanged original center.
+## Correct all-h POINT-source C bounds using genuine W3 incidence line intersections
 
-## Authentic independent reproducibility
+If six original source Q flags have left/source POINT multiplicity C=(2,2,2), their six ORIGINAL incidence IDs uniquely split into three pairs, each pair at the SAME true original POINT factor. For any pair of original LINE source two-factor packets, there are at most 2*2=4 possible distinct LINE/LINE meets since two original W3 lines meet at most once. Even within ONE doubled packet, two distinct original flags at the same POINT require two distinct packet lines; at most two ORDERED choices are possible, so the uniform four-choice cap remains sound.
 
-Versioned Python source, six-group test module, this all-h proof, dedicated three-job hosted workflow. Exact arbitrary precision dyadic h1..80 split; exhaustive all 97,200 true-original W32/K6 source flag combinations with doubled genuine source LINE packet vs independent 75 true line-line point-intersection matchings for the exact original source C POINT-profile Q sets AND fixed original f physical-C-eligible Q sets; authentic W34/GF4 nononto original source geometry lex/random. Independent historical all-seven GF5 classification for each actual Q across 32 complete original LINE-image global maps, with a second full historical 62,370-left-Q enumeration for each map in an independent W32 fixture. Rigorous negative tests for overlapping source line factor pairs and unsupported finite model. No artificial high-order symplectic fixture extrapolations.
+**INSIDE**: choose the doubled packet (5 ways), choose one of 15 perfect matchings on the six packet slots, and for each of the three original repeated POINT pairs select at most four genuine LINE/LINE incidence intersections:
 
-No accepted root Branch A/B/C theorem, no infinite correlated original W3 counterfamily, no accepted original-center minimax, no full R3/ASET exponent. Next meaningful proof gate: original fourth-order line-packet A/B/C physical class intersection bounds and signed cross-order ORIGINAL CENTER inequalities. Keep scientific Draft awaiting exact-head hosted CI, proof referee and parent stack integration.
+\[
+\boxed{N_{5,C}^{in}\le 5\cdot15\cdot4^3=4800.}
+\]
+
+**OUTSIDE**: the six slots comprise five selected packet flags plus one flag from an actual original LINE ID OUTSIDE all ten selected factors. The outside flag must be in exactly ONE of the three repeated-POINT pairs. Choose which of five selected slots pairs with it (5 choices), pair the remaining four selected packet positions (3 matchings), choose each of their two source packet-packet common original POINTs in at most four ways each. Finally choose one actual flag from the selected packet partner (at most 2d genuine source incidences); for its point choose a true original incident LINE factor outside all ten selected LINE factors (at most d). Thus
+
+\[
+\boxed{N_{5,C}^{out}\le 5\cdot3\cdot4^2\cdot(2d)\cdot d=480d^2.}
+\]
+
+The complete true-original source C source-sixset cardinal is therefore <=4800+480d². An unchanged given globally injected original physical POINT map f filters to a potentially much smaller SOURCE POINT C support requiring the three distinct repeated original point factors' physical pair-edge images to be pairwise DISJOINT. The research module builds those genuine original C INSIDE and OUTSIDE sets separately via respectively 75 and 15 perfect-source-packet-matching GQ incidence constructions. For real W32 the exact sets are independently checked by full 97,200 INSIDE + (M−10d)(2d)^5 OUTSIDE genuine source sixflag Cartesian-product enumeration, not by the SAME algorithm.
+
+Critically, a **right source B** can occur ONLY in INSIDE, because OUTSIDE contributes a sixth distinct original LINE factor. Thus original historical source C/B fifth Walsh remains uniformly bounded, but C/A need not:
+
+\[
+\boxed{|\widehat S_{C/B}(T)|\le2400,\qquad
+|\widehat S_{C/A}(T)|\le 2400+240(s+1)^2,\quad |T|=5.}
+\]
+
+These bounds apply to arbitrary fully fixed correlated original (f,g). A **uniform O(1) C/A bound at fifth order is not proved** and was retracted.
+
+## Fifth-order original POINT B and all-seven historical GF5 coefficient caps
+
+Every genuine original POINT-B sixflag has ONE repeated-point pair among its six original source flags.
+
+In INSIDE, select the doubled packet (5 ways), which slot-pair repeats a point (15), up to four original line intersection flag-pairs, and at most (2d)^4 other actual original flags. Hence B_inside≤min(H5_in,300*(2d)^4).
+
+In OUTSIDE there are two mutually exclusive choices for the unique original repeated-POINT pair:
+(a) both flags are in two of five selected packet positions: C(5,2)=10 pairs, each <=4 original line intersections, three other selected packet flags each <=2d, and arbitrary remaining outside flag <=M−10d. Upper 40*(2d)^3*(M−10d).
+(b) outside flag repeats the original POINT of one of the five selected packet flags: five choices; <=2d choices for the selected packet incidence, <=d outside-line incidences through that true original point, and four other packet flags <=(2d)^4. Upper 10*d²*(2d)^4.
+Thus B_out≤min(H5_out, 40*(2d)^3*(M−10d)+10*d²*(2d)^4).
+
+Put U_B=B_inside+B_out and U_C=min(H5_in,4800)+min(H5_out,480d²). For nonempty Walsh T a true-original six-Q Boolean historical GF5 acceptance indicator has coefficient magnitude ≤1/2. The classwise valid upper bounds are:
+
+- D6 ≤H5_A/2.
+- B-left/A-right ≤min(H5_A,U_B)/2.
+- C/A ≤min(H5_A,U_C)/2.
+- A-left/B-right ≤H5_B/2.
+- C/B ≤min(H5_B,B_inside? No: source-C INSIDE capacity min(H5_in,4800))/2.
+- B/B-overlap and B/B-disjoint ≤min(H5_B,B_inside)/2.
+
+The C/B bound is explicitly source-C INSIDE. Any use of whole U_B instead of B_inside for right-source-B classes is safe but weaker. We only compute **selected necessary** seven-GF5 R3 LOWER NUMERATOR Walsh bounds with these coefficients, not the full R3, original center absolute risk or entire ASET exponent.
+
+## Authentic finite falsifiers and limitations
+
+Three GitHub-hosted groups: exact all-h dyadic h1..80 source decomposition cross-checked against the earlier #591 exact inclusion/exclusion formula; genuine original W32/K6 with INDEPENDENT source product complete INSIDE/OUTSIDE enumeration and separate true GQ original LINE point-intersection C-source matchings; real original W34/GF4 nononto geometric matchings; historical all-seven original same-six-ID GF5 classification under 32 coherent complete globally injected g^x maps versus independent complete historical seven_census for EACH entire original map. Negative invalid flag/packet cases. No invented high-h W3 source fixture.
+
+This is scoped fifth-order GQ source-incidence spectral progress. It **does not** prove a positive historical seven-motif lower for arbitrary UNCHANGED original f,g, nor an infinite genuine correlated W3 counterfamily or root #230 A/B/C, nor new R3/ASET exponent. Signed covariance and original-center positivity remain open; next candidate fourth-order source LINE packet intersection sieve must preserve the OUTSIDE cases. Keep Draft for independent mathematical referee and exact final-HEAD CI plus parent chain. Root #230 OPEN_WITH_FORMAL_BLOCKER.
