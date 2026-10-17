@@ -117,9 +117,9 @@ class Original2FactorSixPacketKernel(unittest.TestCase):
                a["exact_source_line_A_six_packet_weighted_GF5_support"])
             self.assertGreater(old-new,0)
             self.assertLess(new,old)
-            self.assertEqual(set(a["f_only_true_original_six_touch_source_Q_by_class"]),
-                             {"D6","B-left/A-right","C/A"} & set(
-                               a["f_only_true_original_six_touch_source_Q_by_class"]))
+            self.assertTrue(
+                set(a["f_only_true_original_six_touch_source_Q_by_class"])
+                <= {"D6","B-left/A-right","C/A"})
             swapped=dict(model,right_labels=tuple(reversed(model["right_labels"])))
             b=refined_original_W32_f_only_all_seven_kernel(swapped,PACKETS)
             self.assertEqual(a["sharpened_true_original_2factor_independent_f_quenched_E"],
@@ -134,8 +134,8 @@ class Original2FactorSixPacketKernel(unittest.TestCase):
             data=refined_original_W32_all64_center_certificate(fixture(1,scheme),PACKETS)
             self.assertEqual(data["all_global_right_map_vertices_verified"],64)
             self.assertLess(data["new_sharpened_f_only_E"],
-                            data["original_center_true_weighted_GF5"])
-            if False else None
+                            Fraction(16325377051,32) if scheme=="lex"
+                            else Fraction(7806024657,16))
             self.assertLessEqual(data["new_original_center_certified_lower"],
                                  data["original_center_true_weighted_GF5"])
             self.assertGreaterEqual(data["new_original_center_certified_lower"],0)
