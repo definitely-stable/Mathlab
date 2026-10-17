@@ -136,6 +136,32 @@ class CBTrueOriginalGF2PhysicalCenter(unittest.TestCase):
                                  E["parity_original_center"])
             self.assertLessEqual(E["parity_original_center"],E["parity_uniform"])
             self.assertTrue(z["exact_g_conditional_parity_linear_system_each_Q"])
+            pinned={
+                "lex":{
+                    "Q":33046,
+                    "f":Fraction(8113433771,16),
+                    "pc":Fraction(711282039,32),
+                    "pu":Fraction(441004815,16),
+                    "rc":Fraction(23948391,4),
+                    "ru":Fraction(131302517,16)},
+                "S72":{
+                    "Q":34180,
+                    "f":Fraction(3883420431,8),
+                    "pc":Fraction(665944131,32),
+                    "pu":Fraction(478795125,16),
+                    "rc":Fraction(75391507,16),
+                    "ru":Fraction(155092423,16)}
+            }[scheme]
+            self.assertEqual(z["source_Q_high_order_candidates"],pinned["Q"])
+            self.assertEqual(z["parent_original_f_only_all_seven_E"],pinned["f"])
+            self.assertEqual(E["parity_original_center"],pinned["pc"])
+            self.assertEqual(E["parity_uniform"],pinned["pu"])
+            self.assertEqual(E["right_2factor_original_center"],pinned["rc"])
+            self.assertEqual(E["right_2factor_uniform"],pinned["ru"])
+            self.assertLess(E["right_2factor_original_center"],
+                            E["parity_original_center"])
+            self.assertLess(E["parity_original_center"],
+                            z["parent_original_f_only_all_seven_E"])
             print("AA4CB_W32_G_CONDITIONED",scheme,
                 "Q",z["source_Q_high_order_candidates"],
                 "f-only",z["parent_original_f_only_all_seven_E"],
@@ -169,6 +195,19 @@ class CBTrueOriginalGF2PhysicalCenter(unittest.TestCase):
                 Fraction(exact[0]),low[0]+signed[0])
             self.assertGreaterEqual(exact[0],max(
                 Fraction(0),low[0]-E["right_2factor_original_center"]))
+            ref={
+                "lex":{"center":11225795,"low":Fraction(90904087,8),
+                       "high":Fraction(-1097727,8),
+                       "positive_lower":Fraction(43007305,8)},
+                "S72":{"center":3283610,"low":Fraction(105103511,32),
+                       "high":Fraction(-27991,32),
+                       "positive_lower":Fraction(0)}
+            }[scheme]
+            self.assertEqual(exact[0],ref["center"])
+            self.assertEqual(low[0],ref["low"])
+            self.assertEqual(signed[0],ref["high"])
+            self.assertEqual(max(Fraction(0),low[0]-
+                E["right_2factor_original_center"]),ref["positive_lower"])
             print("AA4CB_ACTUAL_CENTER",scheme,
                   "historical_weighted_seven",exact[0],
                   "low-degree",low[0],
@@ -218,6 +257,42 @@ class CBTrueOriginalGF2PhysicalCenter(unittest.TestCase):
                 self.assertEqual(actual,z["parity_zero_affine_coset"])
                 self.assertLessEqual(len(z["physical_right_2regular_states"]),
                                      len(actual))
+
+    def test_08_true_original_repeated_LINE_and_BOTH_packet_endpoints_parity(self):
+        # Literal actual original W32 symplectic incidence IDs, with
+        # TWO original incidence flags on source LINE 0 and TWO on
+        # LINE 1: packet0 is touched but its GF2 boundary delta is
+        # zero because TWO+TWO occurrences switch consistently.
+        # Such source Q is not necessarily historically accepted,
+        # but the all-h affine source incidence identity must hold.
+        for scheme in ("lex","S72"):
+            m=fixture(1,scheme)
+            s,V,a,inc,f,g,_,_=_original_source(m)
+            byline={l:tuple(j for j,(p,k) in enumerate(inc) if k==l)
+                    for l in range(V)}
+            for source_lines in ((0,0,1,1,2,4),
+                                 (0,0,1,2,4,6),
+                                 (0,1,2,3,4,5)):
+                chosen=Counter()
+                ids=[]
+                for line in source_lines:
+                    j=byline[line][chosen[line]]
+                    chosen[line]+=1
+                    ids.append(j)
+                z=genuine_original_Q_parity_sixcube(m,tuple(ids),PACKETS)
+                used=z["touched_original_LINE_packet_indices"]
+                if source_lines[:4]==(0,0,1,1):
+                    self.assertIn(0,used)
+                    self.assertEqual(z[
+                        "onebit_original_source_GF2_boundary_deltas"][
+                        used.index(0)],0)
+                k=len(used)
+                actual=tuple(y for y in range(1<<k)
+                    if independent_original_physical_right_even(
+                        tuple(ids),inc,apply_disjoint_factor_swaps(
+                            g,PACKETS,tuple(used[j] for j in range(k)
+                                            if y>>j&1))))
+                self.assertEqual(actual,z["parity_zero_affine_coset"])
 
     def test_06_adversarial_invalid_true_original_flag_or_global_g_fails_closed(self):
         model=fixture(1,"lex")
