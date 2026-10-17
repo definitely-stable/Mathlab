@@ -41,7 +41,7 @@ jobs:
       - name: Independent 256-map literal original-Q raw right physical oracle and 64x64 mixed Gram, fail-closed invalid input
         run: |
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py' -v -k test_03
-          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py' -v -k test_05
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py' -v -k test_06
   general-historical-seven-GF5-classifier-full-W32-equivalence:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -52,3 +52,13 @@ jobs:
           python-version: '3.12'
       - name: Compare generalized arbitrary-a seven-GF5 structural classifier with original W32 historic source classifier on 62370 genuine original Q for lex and S72
         run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py' -v -k test_04
+  genuine-original-W38-h3-allh-D6-construction-falsifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Actual symplectic W(3,8) 585 original POINT and LINE factors, 5265 true flags, Hall-SDR paired D6 original witness on 256 complete globally injected g swaps
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py' -v -k test_05
