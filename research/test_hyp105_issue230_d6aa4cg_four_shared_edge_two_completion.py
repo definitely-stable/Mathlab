@@ -8,6 +8,7 @@ from hyp105_issue230_d6aa4cg_four_shared_edge_two_completion import (
     _regular6, classify_four_common_completion, physical_overlapping_eight_masks,
     mixed_8cube_gram, genuine_W34_eightpacket_witness,
     genuine_W34_original_pair_eight_cube,
+    classify_seven_all_a_original_Q,
 )
 from hyp105_issue230_d6aa4bh_local_seven_compensation import _original_source
 from hyp105_issue230_d6aa4bq_all_seven_reverse_switching import (
@@ -115,7 +116,33 @@ class TestAA4CGTrueOriginalEightpacket(unittest.TestCase):
                     shifted+=mask["A"][x^liftA]*mask["B"][x^liftB]
                 self.assertEqual(shifted,J["J"][t][u])
 
-    def test_04_invalid_and_two_extra_edge_swaps_forbidden(self):
+    def test_04_exact_old_W32_historic_seven_classifier_full_source_Q_equivalence(self):
+        """Independent ALL 62370 source six-incidence Q versus pinned W32 helper.
+
+        This is mandatory evidence before reusing the algebraic seven
+        class definition on genuine W34 with a larger physical alphabet.
+        """
+        from hyp105_issue230_projection import fixture
+        from hyp105_g5e2b3e1a_fixed_leading import selected_left_six
+        from hyp105_g5e2b3e1b0_seven_signature import classify_seven_prechecked
+        from hyp105_g5e2b3e1b0_seven_signature import R3_CERTIFIED_FLOORS
+        for scheme in ("lex","S72"):
+            model=fixture(1,scheme)
+            s,V,a,inc,f,g,_,_=_original_source(model)
+            seen=0;hist=Counter()
+            for Q,source_kind in selected_left_six(model):
+                reference=classify_seven_prechecked(Q,f,g,inc)
+                actual=classify_seven_all_a_original_Q(Q,f,g,inc)
+                self.assertEqual(actual,reference)
+                if actual is not None:
+                    self.assertIn(actual,R3_CERTIFIED_FLOORS)
+                    hist[actual]+=1
+                seen+=1
+            self.assertEqual(seen,62370)
+            print("AA4CG_W32_GENERALIZED_GF5_EQUIVALENCE",
+                  scheme,seen,dict(hist),flush=True)
+
+    def test_05_invalid_and_two_extra_edge_swaps_forbidden(self):
         F=((0,1),(1,2),(2,3),(3,4))
         A=((4,5),(0,5))
         B=((4,6),(0,6))
