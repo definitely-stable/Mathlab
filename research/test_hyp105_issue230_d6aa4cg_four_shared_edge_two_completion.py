@@ -108,9 +108,9 @@ class TestAA4CGTrueOriginalEightpacket(unittest.TestCase):
             for t,u in ((0,0),(1,1),(3,7),(15,15),(63,63),(13,44)):
                 shifted=0
                 for x in range(CUBE):
-                    liftA=sum(1<<i for i,k in enumerate(FAMILIES["A"])
+                    liftA=sum(1<<k for i,k in enumerate(FAMILIES["A"])
                               if (t>>i)&1)
-                    liftB=sum(1<<i for i,k in enumerate(FAMILIES["B"])
+                    liftB=sum(1<<k for i,k in enumerate(FAMILIES["B"])
                               if (u>>i)&1)
                     shifted+=mask["A"][x^liftA]*mask["B"][x^liftB]
                 self.assertEqual(shifted,J["J"][t][u])
