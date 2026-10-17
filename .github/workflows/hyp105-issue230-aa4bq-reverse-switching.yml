@@ -1,0 +1,42 @@
+name: hyp105-issue230-aa4bq-seven-GF5-reverse-switching
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bq_all_seven_reverse_switching.py"
+      - "research/test_hyp105_issue230_d6aa4bq_all_seven_reverse_switching.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BQ-ALL-SEVEN-REVERSE-SWITCHING.md"
+      - ".github/workflows/hyp105-issue230-aa4bq-reverse-switching.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine-original-W32-all-seven-cube:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_all_seven_reverse_switching.py' -v -k test_01
+  genuine-original-W32-seven-disjoint-differences:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_all_seven_reverse_switching.py' -v -k test_02
+  Cayley-inverse-count-and-center-no-go:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_all_seven_reverse_switching.py' -v -k test_03
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_all_seven_reverse_switching.py' -v -k test_04
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_all_seven_reverse_switching.py' -v -k test_05
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bq_all_seven_reverse_switching.py' -v -k test_06
