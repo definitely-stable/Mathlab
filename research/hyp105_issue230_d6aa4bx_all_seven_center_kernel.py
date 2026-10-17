@@ -26,6 +26,7 @@ Walsh Fourier projection/Krawtchouk kernels are classical prior art.
 """
 from collections import Counter
 from fractions import Fraction
+from functools import lru_cache
 
 from hyp105_issue230_d6aa4bh_local_seven_compensation import _original_source
 from hyp105_issue230_d6aa4bq_all_seven_reverse_switching import (
@@ -43,6 +44,7 @@ from hyp105_g5e2b3e1b0_seven_signature import (
 from hyp105_g5e2b3e1a_fixed_leading import selected_left_six
 
 
+@lru_cache(maxsize=64)
 def high_degree_boolean_kernel(k, cutoff=3):
     """Exact Walsh high-pass kernel on k bits, evaluated at center zero.
 
@@ -64,6 +66,7 @@ def high_degree_boolean_kernel(k, cutoff=3):
     return result
 
 
+@lru_cache(maxsize=64)
 def exact_boolean_high_pass_operator_norm(k, cutoff=3):
     """Sharp sup over all BOOLEAN original-indicator patterns, not W3 sharp."""
     kernel=high_degree_boolean_kernel(k,cutoff)
