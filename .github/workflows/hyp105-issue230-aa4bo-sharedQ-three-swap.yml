@@ -1,0 +1,48 @@
+name: hyp105-issue230-aa4bo-sharedQ-three-swap-multiplicity
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bo_sharedQ_three_swap_multiplicity.py"
+      - "research/test_hyp105_issue230_d6aa4bo_sharedQ_three_swap_multiplicity.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BO-SAME-Q-THREE-SWAP-MULTIPLICITY.md"
+      - ".github/workflows/hyp105-issue230-aa4bo-sharedQ-three-swap.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-all-h-source-GQ-same-Q-incidence-pigeonhole:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: BIGINT rational original GQ source incidence paired physical C6 h22..80, same genuine source Q and third source factor pinned, wrong source fail-closed
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bo_sharedQ_three_swap_multiplicity.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bo_sharedQ_three_swap_multiplicity.py' -v -k test_05
+  original-W32-all-450-roots-one-Q-MANY-distinct-global-three-swap-maps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: FIVE authentic symplectic original W32 globally injected full f g schemes, all 450 true source cherries, same six ORIGINAL incidences Q in ALL distinct radius3 maps and three pinned factor images
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bo_sharedQ_three_swap_multiplicity.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bo_sharedQ_three_swap_multiplicity.py' -v -k test_06
+  true-original-W34-nonto-six-edge-subsets-and-independent-historic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: genuine original W34 GF4 nononto K14 lex/random both source typed root directions same-Q multiple distinct global repaired maps and independent seven GF5 true original class
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bo_sharedQ_three_swap_multiplicity.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bo_sharedQ_three_swap_multiplicity.py' -v -k test_04
