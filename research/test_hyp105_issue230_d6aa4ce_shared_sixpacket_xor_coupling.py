@@ -125,7 +125,10 @@ class AA4CESharedSourceOrientation(unittest.TestCase):
                   "B_mean",z["uniform_mean_B"],
                   "B2",z["uniform_second_moment_B"],
                   "parity_excluded_pairs",literal_syndrome,
-                  "physical_excluded_pairs",literal_physical,flush=True)
+                  "physical_excluded_pairs",literal_physical,
+                  "historical_Q6_positive_states",sum(bool(v) for v in score),
+                  "historical_Q6_max_weight",max(score),
+                  "historical_Q6_original_center",score[0],flush=True)
 
     def test_04_source_H_independent_of_global_g_and_bad_source_rejected(self):
         model=fixture(1,"S72")
