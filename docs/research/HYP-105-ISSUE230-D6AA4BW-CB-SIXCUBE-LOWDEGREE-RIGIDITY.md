@@ -102,3 +102,17 @@ The additive 3-job GitHub-hosted workflow tests:
 This new all-h lemma is a significant uniform source-GQ reduction of **C/B high-order fluctuations**, but does not by itself constrain B/A, A/B, C/A, D6 and B/B class tails or the zeroth and low (1..3) modes, which are the actual root issue obstacle. Future valuable work should prove an authentic cross-class / lower-order / zero-mode signed inequality that forces a positive sum directly at the original UNCHANGED fixed \((f,g)\), or construct an infinite genuine original adversarial correlated family falsifying such a coupling. Do NOT simply promote this one-class Fourier approximation to a root A/B/C claim.
 
 Keep scientific Draft until exact-final HEAD dedicated GH-hosted CI, INDEX, Proof Audit, Full Research, independent mathematical referee and accepted parent stack; do not merge to main or edit canonical accepted result registry based on green CI alone.
+
+
+## Pinned genuine original W32 low-order obstruction and computed source-f bounds
+
+The exact actual symplectic W(3,2) original source case with SIX genuine LINE factor swap packets \((0,1),(2,3),\ldots,(10,11)\) has 64 complete globally injected original right maps. A separate literal check of ALL 62,370 left physical six-ID source candidates across all 64 maps, **without using the historical seven-class classifier**, independently agrees with the selected original C/B census.
+
+| Fixed authentic W32 physical map | Original UNCHANGED C/B center \(F(0)\) | Genuine cube C/B mean \(\hat F(\varnothing)\) | Largest true degree≥4 remainder on 64 maps | Fixed-original-f source GQ \(E_f\) cap |
+|---|---:|---:|---:|---:|
+| lex | 1 | 19/32 | 3/16 | 79 |
+| S72 | **0** | **1/16** | 1/16 | 63/2 |
+
+These exact fractions are pinned as independent GitHub-hosted CI regressions rather than loosely rounded output. The S72 row is an actual genuine-original W32 **class-C/B-only** center-zero witness despite a strictly positive average across complete globally injected RIGHT source image rearrangements. It strengthens the empirical illustration of a zero-mode-only method blocker with an authentic original source/physical labeling. **It is NOT a genuine W32 full-seven-class zero witness, still less an infinite W(3,s) Branch-B counterfamily, and does not show every original C/B sixcube has zero at its starting map.**
+
+The analytic E_s bound is deliberately coarse at h=1; the stronger fixed-f source GQ caps E_f are still larger than the observed actual tails because only a few of the physically eligible source Q realize the requisite high-order right physical six-coordinate acceptance. They are nonetheless true signed g-uniform bounds, not merely fit to finite source data. The new asymptotic statement is the all-h O(s²) versus s⁶ separation, while the finite W32 witnesses independently establish that positive spectral average cannot be used as a pointwise fixed-center lower without additional low-order original-f/g correlation control.
