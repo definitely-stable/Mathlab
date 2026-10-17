@@ -1,0 +1,48 @@
+name: hyp105-issue230-aa4bp-k-root-one-common-global-map
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bp_k_root_common_repair.py"
+      - "research/test_hyp105_issue230_d6aa4bp_k_root_common_repair.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BP-K-ROOT-COMMON-REPAIR.md"
+      - ".github/workflows/hyp105-issue230-aa4bp-k-root-common.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-genuine-source-k-Theta-s-Hall-and-physical-C6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: ALL dyadic h5..80 growing k original LINE distinctness, >3/4 pin regular roots, occupied C6 surviving up to 6k-6 exclusions
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_k_root_common_repair.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_k_root_common_repair.py' -v -k test_05
+  real-original-W34-one-global-source-map-k-root:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authentic original symplectic W34 GF4 nononto K14 lex/random both typed roots, same COMPLETE global g' and independent seven GF5 class, optional k3
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_k_root_common_repair.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_k_root_common_repair.py' -v -k test_06
+  independent-physical-C6-many-exclusions-and-real-W32:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent physical K8 sixcycle subset with >6 arbitrary forbidden edges and TRUE original W32 dual_zero lex S68 k2 finite validation
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_k_root_common_repair.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bp_k_root_common_repair.py' -v -k test_04
