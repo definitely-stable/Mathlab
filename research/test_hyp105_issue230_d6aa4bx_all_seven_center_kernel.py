@@ -56,6 +56,16 @@ class RealOriginalAllSevenCenterEnvelope(unittest.TestCase):
             m=fixture(1,scheme)
             a=true_original_W32_left_f_quenched_high_pass_envelope(m,SWAPS)
             self.assertEqual(a["n_original_left_sixflag_candidates"],62370)
+            pinned={
+              "lex":(Fraction(16325377051,32),879467921,55597,
+                     {0:0,1:51,2:3151,3:19349,4:25210,5:7485,6:351}),
+              "S72":(Fraction(7806024657,16),817837593,57603,
+                     {0:0,1:27,2:2807,3:20589,4:26490,5:7389,6:301})}
+            self.assertEqual(
+              (a["fixed_f_all_seven_weighted_high_pass_error_upper"],
+               a["older_naive_22_termwise_triangle_error_upper"],
+               a["n_original_Q_with_possible_selected_GF5_class"],
+               a["source_Q_touch_count_histogram"]),pinned[scheme])
             self.assertEqual(sum(a["source_Q_touch_count_histogram"].values()),
                              a["n_original_Q_with_possible_selected_GF5_class"])
             self.assertLess(a["fixed_f_all_seven_weighted_high_pass_error_upper"],
@@ -77,6 +87,15 @@ class RealOriginalAllSevenCenterEnvelope(unittest.TestCase):
             result=true_original_W32_all_seven_center_envelope(m,SWAPS)
             full=result["full_64_true_original_historical_seven_class_counts"]
             self.assertEqual(len(full),64)
+            verified={
+              "lex":(11225795,Fraction(90904087,8),Fraction(-1097727,8)),
+              "S72":(3283610,Fraction(105103511,32),Fraction(-27991,32))}
+            self.assertEqual(
+              (result["original_center_actual_weighted_necessary_GF5_numerator"],
+               result["original_center_degree_at_most_three_part"],
+               result["original_center_signed_high_order_correction"]),
+               verified[scheme])
+            self.assertEqual(result["original_center_certified_lower"],0)
             self.assertEqual(result["original_center_actual_weighted_necessary_GF5_numerator"],
                              seven_census(m,independent_checks=False)[
                                  "GF5_seven_lower_numerator"])
