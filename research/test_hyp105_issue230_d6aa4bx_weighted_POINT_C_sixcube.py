@@ -99,6 +99,25 @@ class BXSixcubeTrueOriginalWeightedPointC(unittest.TestCase):
                     Fraction(z["original_selected_necessary_GF5_weighted_POINT_C_values"][x]),
                     z["exact_degree3_weighted_projection"][x]+
                     z["exact_weighted_point_C_high_order_tail"][x])
+            pinned={
+                "lex":{
+                    "center":612210,"mean":Fraction(5664375,16),
+                    "quartic":Fraction(-5415),
+                    "tail":Fraction(284445,8),"f_cap":Fraction(12798870)},
+                "S72":{
+                    "center":86640,"mean":Fraction(1075035,8),
+                    "quartic":Fraction(13695,8),
+                    "tail":Fraction(197805,8),"f_cap":Fraction(12288435)}
+            }[scheme]
+            self.assertEqual(z["initial_unchanged_weighted_POINT_C_score"],
+                             pinned["center"])
+            self.assertEqual(z["original_POINT_C_WEIGHTED_zero_mode"],
+                             pinned["mean"])
+            self.assertEqual(z["four_packet_point_C_weighted_signed_coefficient"],
+                             pinned["quartic"])
+            self.assertEqual(z["max_actual_weighted_tail"],pinned["tail"])
+            self.assertEqual(z["g_independent_original_f_refined_WEIGHTED_error"],
+                             pinned["f_cap"])
             print("AA4BX_W32",scheme,
                   "center",z["initial_unchanged_weighted_POINT_C_score"],
                   "mean",z["original_POINT_C_WEIGHTED_zero_mode"],
