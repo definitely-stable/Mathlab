@@ -22,6 +22,7 @@ jobs:
         run: |
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py' -v -k test_01
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py' -v -k test_07
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py' -v -k test_08
           PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cb_original_parity_affine_center.py' -v -k test_06
   original-seven-GF5-exact-right-parity-and-2factor-center-envelope:
     runs-on: ubuntu-latest
