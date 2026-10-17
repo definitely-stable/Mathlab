@@ -1,0 +1,48 @@
+name: hyp105-issue230-aa4bn-three-swap-true-GQ-pair-packing
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bn_three_swap_original_cherry.py"
+      - "research/test_hyp105_issue230_d6aa4bn_three_swap_original_cherry.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BN-THREE-SWAP-GQ-PAIR-PACKING.md"
+      - ".github/workflows/hyp105-issue230-aa4bn-three-swap-root.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-original-GQ-line-pair-packing-three-swap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: h22 through 80 exact BIGINT source GQ line badness O(s), 8 physical bad endpoints, actual pinned C6 with third fixed image, invalid source fail-closed
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_three_swap_original_cherry.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_three_swap_original_cherry.py' -v -k test_06
+  five-true-W32-fixed-f-g-original-three-factor-swaps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine original W32 full source f g five schemes both typed cherries independent C4 physical oracle, historical GF5 selected seven census and strict source pin replay
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_three_swap_original_cherry.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_three_swap_original_cherry.py' -v -k test_05
+  true-W34-nononto-GQ-incidence-and-GF5-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: REAL symplectic GF4 W34 nononto physical K14 lex/random original source pair-packing and independent literal 3-global-source-image-swap acceptance
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_three_swap_original_cherry.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bn_three_swap_original_cherry.py' -v -k test_04
