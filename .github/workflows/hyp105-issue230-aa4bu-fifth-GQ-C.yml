@@ -1,0 +1,48 @@
+name: hyp105-issue230-aa4bu-fifth-true-GQ-C-profile
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bu_fifth_order_GQ_C_profiles.py"
+      - "research/test_hyp105_issue230_d6aa4bu_fifth_order_GQ_C_profiles.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BU-FIFTH-GQ-C-PROFILES.md"
+      - ".github/workflows/hyp105-issue230-aa4bu-fifth-GQ-C.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-fifth-authentic-original-GQ-C-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All h1..80 exact source C/A 480d(d-1) and C/B constant 960 under FIVE original LINE source packets and input guards
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_fifth_order_GQ_C_profiles.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_fifth_order_GQ_C_profiles.py' -v -k test_06
+  real-original-W32-independent-C-B-geometry-cartesian:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Symplectic original W32 five packet Cartesian anchor+extra independent 350k flag combinations vs LINE intersection exact C/B set and W34 nononto GF4
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_fifth_order_GQ_C_profiles.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_fifth_order_GQ_C_profiles.py' -v -k test_03
+  true-W32-all-seven-GF5-32-complete-global-maps-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Actual original W32 lex S72 32 entire global line image states five-source-packet Walsh versus historical all seven and independent complete 62370 original Q each map
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_fifth_order_GQ_C_profiles.py' -v -k test_04
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_fifth_order_GQ_C_profiles.py' -v -k test_05
