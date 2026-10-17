@@ -152,7 +152,31 @@ class TestAA4CGTrueOriginalEightpacket(unittest.TestCase):
             print("AA4CG_W32_GENERALIZED_GF5_EQUIVALENCE",
                   scheme,seen,dict(hist),flush=True)
 
-    def test_05_invalid_and_two_extra_edge_swaps_forbidden(self):
+    def test_05_original_W38_dyadic_s8_two_SIMULTANEOUS_D6_same_map(self):
+        """Real W(3,8): 585 point/LINE source factors and original 5265 flags.
+
+        No K6 surrogate, no factor-ID remapping inside any sixflag.
+        Hall source distinct original LINE factors; all 256 globally
+        injected complete original LINE image swap maps.
+        """
+        data=genuine_W34_original_pair_eight_cube(
+            "vertex_replacement",power=3)
+        self.assertEqual(data["source_W34_original_s"],8)
+        self.assertEqual(data["original_LINE_factor_count"],585)
+        self.assertEqual(data["physical_8cube_A_active"],4)
+        self.assertEqual(data["physical_8cube_B_active"],4)
+        self.assertEqual(data["true_original_both_physical_joint"],1)
+        self.assertEqual(data["independent_true_original_joint_classification"],
+                         {"vertex_replacement":1})
+        self.assertEqual(data["historical_GF5_original_center_QA"],"D6")
+        self.assertEqual(data["historical_GF5_original_center_QB"],"D6")
+        self.assertEqual(data["GF5_joint_historical_positive_maps"],1)
+        print("AA4CG_TRUE_W38_ALLH_CONSTRUCTION",
+              "s",data["source_W34_original_s"],
+              "source_LINE_V",data["original_LINE_factor_count"],
+              "true_original_D6_D6_center",True,flush=True)
+
+    def test_06_invalid_and_two_extra_edge_swaps_forbidden(self):
         F=((0,1),(1,2),(2,3),(3,4))
         A=((4,5),(0,5))
         B=((4,6),(0,6))
