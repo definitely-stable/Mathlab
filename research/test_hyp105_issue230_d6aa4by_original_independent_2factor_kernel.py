@@ -161,7 +161,7 @@ class Original2FactorSixPacketKernel(unittest.TestCase):
         with self.assertRaises(ValueError):
             refined_original_W32_f_only_all_seven_kernel(fixture(2,"lex"),PACKETS)
 
-    def test_06_independent_one-edge_degree_vector_2regular_combinatorics(self):
+    def test_06_independent_one_edge_degree_vector_2regular_combinatorics(self):
         # Exhaust all 2-regular 6-edge simple K6 graphs, independently try
         # ALL 15 original occupied edges and alternate physical pair edges.
         from itertools import combinations
