@@ -186,6 +186,53 @@ class AA4BQMixedTrueOriginal(unittest.TestCase):
             print("AA4BQ_W32_TRUE_ORIGINAL",name,"mixed witness existence",bool(found),
                   "no h>=5 assertion at s2")
 
+    def test_06_adversarial_change_of_one_frozen_B_factor_breaks_joint_acceptance(self):
+        """Independent W34 negative control: each frozen B projection matters.
+
+        Select a genuine repaired mixed W34 pair, then illegally move
+        exactly one of its two authentic doubled SOURCE B factors.
+        Another physical occupied source factor image wholly outside
+        the witness's six coordinates is a donor. Historical 2regular
+        acceptance fails on THAT unchanged six-source-ID Q. This is NOT
+        a false claim that every change of any B factor always fails.
+        """
+        model=fixture(2,"lex")
+        s,V,a,inc,f,g,byP,byL=_original_source(model)
+        plist=all_real_root_cherries(model,0)
+        llist=all_real_root_cherries(model,1)
+        chosen=None
+        for P in plist[:15]:
+            for L in llist[:20]:
+                z=simultaneous_mixed_original_cherries(
+                    model,(P,L),require_all_h_regular=False)
+                if z is not None:
+                    chosen=z
+                    break
+            if chosen is not None:break
+        self.assertIsNotNone(chosen)
+        correct=chosen["one_joint_repaired_full_original_model"]
+        for side,Q in chosen["actual_mixed_source_sixflag_Q_with_original_type"]:
+            labels=tuple(correct["left_labels" if side==0 else "right_labels"])
+            fixed_src=Counter(inc[j][side] for j in Q)
+            repeated=[i for i,n in fixed_src.items() if n==2]
+            self.assertEqual(len(repeated),1)
+            p=repeated[0]
+            coords={u for j in Q for u in labels[inc[j][side]]}
+            self.assertEqual(len(coords),6)
+            donor=next((q for q,edge in enumerate(labels)
+                        if q!=p and not set(edge)&coords),None)
+            self.assertIsNotNone(donor)
+            illegal=list(labels)
+            illegal[p],illegal[donor]=illegal[donor],illegal[p]
+            self.assertEqual(set(illegal),set(labels))
+            if side==0:
+                left,right=tuple(illegal),correct["right_labels"]
+            else:
+                left,right=correct["left_labels"],tuple(illegal)
+            self.assertIsNone(independent_true_original_Q_BA_or_AB(Q,inc,left,right))
+            self.assertIsNotNone(independent_true_original_Q_BA_or_AB(
+                Q,inc,correct["left_labels"],correct["right_labels"]))
+
     def test_05_bad_source_and_scope_fails_closed(self):
         for s in (0,2,4,16,33,True,2**22+1):
             with self.assertRaises(ValueError):
