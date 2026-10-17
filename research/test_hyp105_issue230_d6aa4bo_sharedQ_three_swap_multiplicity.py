@@ -159,7 +159,16 @@ class AA4BOGenuineOriginalSharedQMultiplicity(unittest.TestCase):
                 independent=independent_exact_physical_C6_with_three_pins(
                     z["original_complete_opposite_global_map"],pins)
                 self.assertTrue(set(z["all_distinct_physical_occupied_root_C6_targets"])<=independent)
-                self.assertEqual(len(independent),len(z["all_distinct_physical_occupied_root_C6_targets"]))
+                # The AA4-BL canonical DISJOINT-pin cycle family
+                # deliberately omits connected C6s with both original
+                # pins consecutive along the cycle. Only subset is
+                # asserted for disjoint pins, not equality to all C6.
+                original_pins=tuple(z["original_complete_opposite_global_map"][inc[j][1-side]]
+                                    for j in flags)
+                if len(set(original_pins[0]+original_pins[1]))==3:
+                    self.assertEqual(len(independent),len(z["all_distinct_physical_occupied_root_C6_targets"]))
+                else:
+                    self.assertGreaterEqual(len(independent),len(z["all_distinct_physical_occupied_root_C6_targets"]))
 
     def test_05_original_source_and_wrong_h_rejection(self):
         for s in (0,2,4,16,32,2**21,2**22+1,True,-1):
