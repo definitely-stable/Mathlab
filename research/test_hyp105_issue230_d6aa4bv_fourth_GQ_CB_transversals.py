@@ -82,6 +82,10 @@ class BVOriginalFourthGQ(unittest.TestCase):
                 if len({u for p in {inc[j][0] for j in Q} for u in f[p]})==6)
             self.assertEqual(z["original_POINT_physical_C_eligible_sets"],physical)
             self.assertEqual(sum(z["source_fourth_C_B_case_counts"].values()),len(expected))
+            self.assertEqual(len(expected),269)
+            self.assertEqual(z["source_fourth_C_B_case_counts"],
+                             {"inside":47,"outside_singleton":181,"outside_repeated":41})
+            self.assertEqual(len(physical),{"lex":2,"S72":6}[scheme])
             print("AA4BV_W32_CB",scheme,
                   "raw",len(expected),"physical",len(physical),
                   "cases",z["source_fourth_C_B_case_counts"],flush=True)
@@ -113,6 +117,8 @@ class BVOriginalFourthGQ(unittest.TestCase):
             self.assertLessEqual(geo["source_fourth_C_B_count"],
                                  fourth_GQ_C_B_source_certificate(s)[
                                  "max_fourth_source_C_B_original_Q"])
+            self.assertEqual(geo["source_fourth_C_B_case_counts"],
+                             {"outside_singleton":992,"outside_repeated":112})
             for Q in geo["real_original_C_B_six_ID_sets"]:
                 self.assertEqual(len(Q),6)
                 self.assertEqual(len(set(Q)),6)
@@ -131,6 +137,18 @@ class BVOriginalFourthGQ(unittest.TestCase):
                 abs(z["fourth_true_original_GF5_class_Walsh_coefficients"]["C/B"]),
                 z["exact_original_source_C_B_intersections"][
                     "refined_abs_original_C_B_fourth_Walsh"])
+            pinned={
+                "lex":{"D6":Fraction(0),"B-left/A-right":Fraction(1,4),
+                       "A-left/B-right":Fraction(3,16),"C/A":Fraction(-1,8),
+                       "C/B":Fraction(0),"B/B-overlap":Fraction(-1,8),
+                       "B/B-disjoint":Fraction(1,16)},
+                "S72":{"D6":Fraction(0),"B-left/A-right":Fraction(3,8),
+                       "A-left/B-right":Fraction(-5,16),"C/A":Fraction(0),
+                       "C/B":Fraction(1,16),"B/B-overlap":Fraction(1,16),
+                       "B/B-disjoint":Fraction(1,8)}
+            }
+            self.assertEqual(z["fourth_true_original_GF5_class_Walsh_coefficients"],
+                             pinned[scheme])
             print("AA4BV_W32_FOURTH_WALSH",scheme,
                   z["fourth_true_original_GF5_class_Walsh_coefficients"],flush=True)
 
