@@ -216,7 +216,7 @@ def exact_W32_sixth_historical_class_Walsh(model,line_pairs):
     geom=genuine_original_six_packet_geometry(model,pairs)
     if supporting["C/A"]!=geom["fixed_LEFT_physical_C_eligible_count"]:
         raise AssertionError("historical left original C source enumeration != geometric 15-matchings")
-    for name in SEVEN:
+    for name in R3_CERTIFIED_FLOORS:
         if abs(numer[name])>64*cert["per_historical_seven_class_sixth_Walsh_absolute_upper"][name]:
             raise AssertionError("historical class sixth Walsh violates GQ all-h cap")
     if abs(numer["C/A"])>32*geom["fixed_LEFT_physical_C_eligible_count"]:
