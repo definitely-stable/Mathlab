@@ -1,0 +1,50 @@
+name: hyp105-issue230-aa4bm-four-swap-original-root-BA
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bm_four_swap_root_BA_repair.py"
+      - "research/test_hyp105_issue230_d6aa4bm_four_swap_root_BA_repair.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BM-FOUR-SWAP-ORIGINAL-ROOT-BA-REPAIR.md"
+      - ".github/workflows/hyp105-issue230-aa4bm-four-swap-root-BA.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-fixed-pair-majority-and-four-swap-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All dyadic h5..80 genuine-source majority and fixed-map four-FACTOR image swap theorem; wrong original IDs rejected
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bm_four_swap_root_BA_repair.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bm_four_swap_root_BA_repair.py' -v -k test_06
+  five-true-original-W32-complete-fixed-map-four-swap-repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Five FULL original W32 f,g models, each real POINT/LINE cherry root, exact 0..4 swaps preserving pinned actual opposite source LINE IDs, independent historical GF5 seven census
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bm_four_swap_root_BA_repair.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bm_four_swap_root_BA_repair.py' -v -k test_04
+  real-original-W34-and-four-swap-target-specific-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: TRUE symplectic original W34 GF4 fully fixed nononto K14 lex/random original root repair and independent GF5 B/A join class
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bm_four_swap_root_BA_repair.py' -v -k test_03
+      - name: Completely independent ten-source-label fixed TARGET four-external-donor shortest swap BFS lower, not false original GF5 shortest claim
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bm_four_swap_root_BA_repair.py' -v -k test_05
