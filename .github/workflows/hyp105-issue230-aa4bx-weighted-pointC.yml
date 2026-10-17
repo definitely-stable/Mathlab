@@ -1,0 +1,49 @@
+name: hyp105-issue230-aa4bx-weighted-pointC-sixcube
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bx_weighted_POINT_C_sixcube.py"
+      - "research/test_hyp105_issue230_d6aa4bx_weighted_POINT_C_sixcube.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BX-WEIGHTED-POINT-C-CUBIC-SIXCUBE.md"
+      - ".github/workflows/hyp105-issue230-aa4bx-weighted-pointC.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-true-source-weighted-point-C-cubic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All dyadic genuine W3 h1..80 weighted historical GF5 C/A+C/B sixcube O(s5) exact analytic and bad input
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_weighted_POINT_C_sixcube.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_weighted_POINT_C_sixcube.py' -v -k test_06
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_weighted_POINT_C_sixcube.py' -v -k test_07
+  real-original-W32-64-whole-map-weighted-GF5-Walsh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: TRUE original W32 lex/S72 64 complete whole-LINE source global maps, all C/A and C/B historic 51-column weighted coefficients, 64 direct Walsh and opposite quartic signs
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_weighted_POINT_C_sixcube.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_weighted_POINT_C_sixcube.py' -v -k test_03
+  true-original-W32-independent-all-source-W34-nonto-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent full historical 62370 real source W32 Q times ALL 64 complete global line maps literal point C and right source A/B, original W34 GF4 nononto K14 g independent
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_weighted_POINT_C_sixcube.py' -v -k test_04
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_weighted_POINT_C_sixcube.py' -v -k test_05
