@@ -71,6 +71,48 @@ In the second row the two historical positive D6 motifs are **real original diff
 
 The general all-h two-type lemma is purely deterministic degree-counting; these authentic finite witnesses falsify missing cases. The separate K7 independent exhaustive run verified **all** 5,985 four-edge sets, exactly 3,360 with any completion, and exactly 3,150 jointly live distinct Case-I completion pairs plus 1,470 jointly live distinct Case-II pairs.
 
+## 3b. NEW constructive ALL-h genuine-original D6/D6 four-pin co-acceptance theorem
+
+The W34 vertex-replacement counterexample above is **not** merely an accidental finite pattern. It extends CONSTRUCTIVELY to **every dyadic s=2^h, h>=2**, for a suitable complete globally injected typed original physical pair map f,g, while preserving every true original six-incidence ID on both sides. This proves a sharp NO-GO against any proposed universal original-f/g pairwise five-edge exclusion theorem extended to only four common original LINE pins; it still does NOT address the root universal positive seven-GF5 abundance.
+
+**Formal existence theorem.** For each h>=2 take authentic W(3,s), with `V=(s+1)(s²+1)` POINT and LINE source factors and degree `s+1>=5`. Select any SIX different original POINT factor IDs `p_0,...,p_5`. Make eight incidence slots: one slot for each `p_0,...,p_3`, **TWO** slots for each `p_4,p_5` (one A-exclusive and one B-exclusive incidence). Assign these slots to EIGHT distinct real original LINE factor IDs, each incident to its assigned POINT factor, by Hall's marriage theorem:
+
+- A nonempty subset of slots belonging to only ONE source POINT has at most TWO slots, whereas its original LINE-star neighborhood has size `s+1>=5`.
+- A subset touching at least TWO distinct original POINT IDs has a LINE-neighborhood of size at least `2(s+1)-1 >=9`, since TWO distinct GQ POINT factor IDs lie on at most ONE common LINE factor. This is greater than the total number EIGHT of requested slots.
+- Therefore EVERY slot subset has at least as many distinct available original LINE neighbors as slot occurrences. Hall guarantees a simultaneously injective assignment to eight different true original LINE factor IDs `L_0,...,L_7`. There are at least 16 original LINE IDs for eight disjoint swap packets when h>=2, so choose a further eight unused original LINE IDs as swap partners.
+
+Set the six selected true POINT-image unordered coordinate pairs to the ordered physical C6:
+
+```text
+f(p0)={0,1},  f(p1)={1,2},  f(p2)={2,3},
+f(p3)={3,4},  f(p4)={4,5},  f(p5)={0,5}.
+```
+
+Complete f injectively on ALL remaining V-6 original POINT factor IDs using any unused edges of physical K_a. For s>=4 the minimal physical alphabet has `a>=14`, in particular coordinates 0,...,6 exist and `C(a,2)>=V`. Choose the LINE images under ONE complete original globally injected g:
+
+```text
+g(L0)={0,1}, g(L1)={1,2}, g(L2)={2,3}, g(L3)={3,4},
+g(L4)={4,5}, g(L5)={0,5},
+g(L6)={4,6}, g(L7)={0,6}.
+```
+
+All eight physical edges are distinct. Complete g injectively on ALL remaining V-8 original LINE factor IDs. Let Q_A be the six DISTINCT original incidence IDs `(p_i,L_i)` for i=0,..,5, and let Q_B use the EXACT same first four original incidence IDs but `(p_4,L_6)` and `(p_5,L_7)`. Both physical LEFT projections use exactly the genuine original C6 on coordinate set {0,1,2,3,4,5}. Right Q_A uses this identical C6. Right Q_B uses physical cycle {0,1,2,3,4,6} with the last two right images differing by a CHERRY-center replacement of coordinate 5 by coordinate 6.
+
+Crucially, on the SIX original incidence-column positions, the LEFT and BOTH RIGHT degree-two dual graphs are the SAME connected sixcycle (the last replacement changes only the physical coordinate name, NOT the incidence-position dual). The immutable original source POINT and LINE factor profiles on both sides are A/A: six distinct POINT factors and six distinct LINE factors in each Q. Therefore the accepted historical A/A aligned-D6 rule classifies **BOTH Q_A and Q_B as D6 on the SAME complete original f,g**, i.e.
+
+```text
+for every h>=2 exists complete globally injected original (f_h,g_h)
+and distinct real original six-incidence ID Q_A,Q_B,
+|Q_A ∩ Q_B|=4,
+such that I^GF5_D6(Q_A,f_h,g_h)=I^GF5_D6(Q_B,f_h,g_h)=1.
+```
+
+Their original RIGHT six-coordinate sets differ: A uses vertex 5, B vertex 6. No image assignment is changed per Q; both use the SINGLE completed g_h and the SAME original incidence graph. This construction works for EVERY h>=2, NOT via finite sampling extrapolation. A universal all-h original model claim that four shared source LINE factors block simultaneous GF5 positivity is therefore definitively FALSE.
+
+**Finite independent all-original witness checks:** the exact h=2 W34 85 original source-factors and 425 incidence flags construction above, and now h=3 true symplectic W(3,8) with `V=585` ORIGINAL POINT and LINE factors and `585*(8+1)=5,265` original incidence flags. For h=3 the original full physical minimal alphabet is K35 (not K6 or K14), and the 256 full global original LINE-map swaps preserve injection and both Q unchanged. Expected both h2/h3 vertex-replacement witnesses: R_A active=4, R_B active=4, joint physical 1 state; both true historical Q are D6 at the unchanged global x=0 and jointly positive on exactly one of 256 complete g states. Code regression forbids accidentally dropping this valid h-uniform exception.
+
+**Scope caveat**: the existential paired-motif theorem means there EXISTS a suitable pair f_h,g_h for every h>=2. It is logically the reverse quantifier from Branch A, which requires a positive `Omega(s^6)` bound for ALL arbitrary f,g, and is not a counterexample to Branch A or an infinite o(s^6) Branch B family. Two simultaneously positive D6 source sixflags are only TWO motifs, not an asymptotically counted reservoir.
+
 ## 4. Novelty, limitations, provenance, next proof obstruction
 
 The underlying degree-sequence completion classification is elementary; standard graph degree switches are well established and **not claimed as new general graph theory**. The original scientific gain over #606 is the EXACT bifurcation in genuine W(3,2^h) correlated global eightpacket Q families, including the higher-physical-alphabet vertex replacement overlooked by K6-only heuristics; the explicit authentic W34 original-incidence demonstration and independent complete 256-map historical checks prevent an erroneous original all-h no-coexistence extrapolation.
