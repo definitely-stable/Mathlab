@@ -1,0 +1,49 @@
+name: hyp105-issue230-aa4bw-CB-sixcube-lowdegree
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bw_CB_sixcube_lowdegree_rigidity.py"
+      - "research/test_hyp105_issue230_d6aa4bw_CB_sixcube_lowdegree_rigidity.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BW-CB-SIXCUBE-LOWDEGREE-RIGIDITY.md"
+      - ".github/workflows/hyp105-issue230-aa4bw-CB-sixcube.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-sixcube-pointwise-original-CB-cubic-error:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True source GQ h1..80 quartic+quintic exact 15 B4/2 + 6*480 and SIXTH zero; no false loworder center
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bw_CB_sixcube_lowdegree_rigidity.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bw_CB_sixcube_lowdegree_rigidity.py' -v -k test_06
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bw_CB_sixcube_lowdegree_rigidity.py' -v -k test_07
+  true-W32-all64-complete-original-map-Walsh-GF5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real symplectic W32 lex/S72 six genuine LINE swap packets and exact 64 complete global maps, independent DIRECT Walsh 64 coefficients and 64 pointwise cubic reconstructions
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bw_CB_sixcube_lowdegree_rigidity.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bw_CB_sixcube_lowdegree_rigidity.py' -v -k test_03
+  original-full-W32-64-g-maps-and-W34-g-independent-source-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: INDEPENDENT historical ORIGINAL W32 62370 six-ID left-eligible Q times all 64 whole LINE maps by literal original C/B source+physical degree profile, REAL W34 GF4 nononto K14 fixed-f no-g guarantee
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bw_CB_sixcube_lowdegree_rigidity.py' -v -k test_04
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bw_CB_sixcube_lowdegree_rigidity.py' -v -k test_05
