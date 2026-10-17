@@ -220,6 +220,20 @@ def shared_sixpacket_W32_certificate(model,packets=DEFAULT_PACKETS,
     forbidden_physical_orientations=sum(
         H[t]*H[u] for t in range(N) for u in range(t+1,N)
         if ac[t^u] == 0)
+    # Unweighted GQ six-incidence-ID pair certificate. These are genuine
+    # DISTINCT Q pairs, not label-orbit counts or weighted mass proxies.
+    count_by_t=Counter(t for _Q,t,_w,_class in hist["source_Q"])
+    count_by_syndrome=Counter()
+    for t, n in count_by_t.items():
+        count_by_syndrome[syndrome(shared["columns"],t)]+=n
+    Qn=hist["candidate_Q_count"]
+    forbidden_syndrome_Q_pairs=(
+        Qn**2-sum(n*n for n in count_by_syndrome.values()))//2
+    forbidden_physical_Q_pairs=sum(
+        count_by_t[t]*count_by_t[u]
+        for t in range(N) for u in range(t+1,N) if ac[t^u] == 0)
+    if forbidden_physical_Q_pairs < forbidden_syndrome_Q_pairs:
+        raise AssertionError("exact physical Q pair obstruction must dominate parity")
     if forbidden_physical_orientations < forbidden_syndrome_pairs:
         raise AssertionError("literal physical pair exclusion must dominate parity")
     for x in range(N):
@@ -255,6 +269,9 @@ def shared_sixpacket_W32_certificate(model,packets=DEFAULT_PACKETS,
        "weighted_source_parity_groups":dict(eta_mass),
        "forbidden_distinct_syndrome_weighted_Q_pairs":forbidden_syndrome_pairs,
        "forbidden_distinct_orientation_physical_Q_pairs":forbidden_physical_orientations,
+       "total_unordered_source_Q_pairs":Qn*(Qn-1)//2,
+       "forbidden_distinct_syndrome_source_Q_pairs":forbidden_syndrome_Q_pairs,
+       "forbidden_distinct_orientation_physical_source_Q_pairs":forbidden_physical_Q_pairs,
        "xor_convolution_upper_B":B,
        "center_physical_upper_B0":B[0],
        "uniform_mean_B":Fraction(sum(B),N),
