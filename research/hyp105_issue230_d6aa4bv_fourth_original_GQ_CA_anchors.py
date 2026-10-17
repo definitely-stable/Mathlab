@@ -145,12 +145,12 @@ def actual_original_four_packet_C_anchor_identity(model,pairs):
         exact_weighted+=Fraction(seen,multiplicity)
         packet_multiplicity_profile[packet_counts]+=1
         tag=immutable_original_sixflag_class(Q,inc)
-        if tag not in ("C/A","C/B"):
-            raise AssertionError("four-packet original POINT C source tag incompatible")
-        all_source_class[tag]+=1
+        if tag not in ("C/A","C/B",None):
+            raise AssertionError("original POINT-C flag entered impossible GF5 class")
+        all_source_class[tag if tag is not None else "NOT_GF5"]+=1
         if len({coordinate for p in src_point for coordinate in f[p]})==6:
             eligible.add(Q)
-            left_eligible[tag]+=1
+            left_eligible[tag if tag is not None else "NOT_GF5"]+=1
     if exact_weighted!=len(unique):
         raise AssertionError("weighted anchor count did not equal true UNIQUE original Q")
     bound=fourth_order_true_original_POINT_C_certificate(s)
