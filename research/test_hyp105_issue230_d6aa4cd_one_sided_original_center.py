@@ -111,8 +111,26 @@ class TrueOriginalGF5OneSidedCenter(unittest.TestCase):
             self.assertLessEqual(E["parity_minus_center"],
                                  old["parity_original_center"])
             self.assertLessEqual(E["right_2factor_minus_uniform"],
-                                 E["right_2factor_minus_uniform"])
+                                 old["right_2factor_uniform"])
             self.assertTrue(x["right_historical_GF5_classifier_used_for_support"]==False)
+            pinned={
+                "lex":{
+                    "Q":33046,
+                    "abs":Fraction(23948391,4),
+                    "neg":Fraction(63172875,16),
+                    "pos":Fraction(7656741,2)},
+                "S72":{
+                    "Q":34180,
+                    "abs":Fraction(75391507,16),
+                    "neg":Fraction(48380199,16),
+                    "pos":Fraction(48290023,16)}
+            }[scheme]
+            self.assertEqual(x["actual_original_Q_with_k_ge4"],pinned["Q"])
+            self.assertEqual(old["right_2factor_original_center"],pinned["abs"])
+            self.assertEqual(E["right_2factor_minus_center"],pinned["neg"])
+            self.assertEqual(E["right_2factor_plus_center"],pinned["pos"])
+            self.assertLess(E["right_2factor_minus_center"],
+                            old["right_2factor_original_center"])
             print("AA4CD_W32",scheme,"Q",x["actual_original_Q_with_k_ge4"],
                   "old_abs_center",old["right_2factor_original_center"],
                   "new_neg_center",E["right_2factor_minus_center"],
@@ -132,6 +150,28 @@ class TrueOriginalGF5OneSidedCenter(unittest.TestCase):
                                  z["original_UNCHANGED_seven_GF5_weighted_count"])
             self.assertEqual(z["original_UNCHANGED_seven_GF5_weighted_count"],
                              {"lex":11225795,"S72":3283610}[scheme])
+            expected={
+                "lex":{
+                    "low":Fraction(90904087,8),
+                    "error":Fraction(63172875,16),
+                    "floor":Fraction(118635299,16),
+                    "unweighted":144},
+                "S72":{
+                    "low":Fraction(105103511,32),
+                    "error":Fraction(48380199,16),
+                    "floor":Fraction(8343113,32),
+                    "unweighted":6}
+            }[scheme]
+            self.assertEqual(z["historical_zero_through_third_signed_projection"],
+                             expected["low"])
+            self.assertEqual(z["new_one_sided_negative_error"],
+                             expected["error"])
+            self.assertEqual(z["new_certified_UNCHANGED_seven_GF5_weighted_lower"],
+                             expected["floor"])
+            self.assertGreater(z["new_certified_UNCHANGED_seven_GF5_weighted_lower"],0)
+            self.assertEqual(ceil(z[
+                "new_certified_UNCHANGED_seven_GF5_weighted_lower"]/
+                max(R3_CERTIFIED_FLOORS.values())),expected["unweighted"])
             print("AA4CD_ORIGINAL_CENTER",scheme,
                   "weighted_actual",z["original_UNCHANGED_seven_GF5_weighted_count"],
                   "low",z["historical_zero_through_third_signed_projection"],
