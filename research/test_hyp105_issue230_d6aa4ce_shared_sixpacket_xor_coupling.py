@@ -120,6 +120,21 @@ class AA4CESharedSourceOrientation(unittest.TestCase):
             self.assertGreaterEqual(literal_physical_Q,literal_syndrome_Q)
             self.assertEqual(z["total_unordered_source_Q_pairs"],
                 expected_Q*(expected_Q-1)//2)
+            exact={
+                "lex":(61425,57580,60403,10265822985024,10744479716949,
+                       0,0,0),
+                "S72":(45150,43598,44227,6669836289522,6749203842720,
+                       1,31,233643)
+            }
+            nall,ns,np,ws,wp,nphysical,ngf5,wmax=exact[scheme]
+            self.assertEqual(z["total_unordered_source_Q_pairs"],nall)
+            self.assertEqual(literal_syndrome_Q,ns)
+            self.assertEqual(literal_physical_Q,np)
+            self.assertEqual(literal_syndrome,ws)
+            self.assertEqual(literal_physical,wp)
+            self.assertEqual(z["right_physical_active_states"],nphysical)
+            self.assertEqual(sum(bool(v) for v in score),ngf5)
+            self.assertEqual(max(score),wmax)
             if scheme=="lex":
                 self.assertEqual(z["right_physical_active_states"],0)
                 self.assertEqual(z["xor_convolution_upper_B"],(0,)*64)
