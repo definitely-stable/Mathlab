@@ -134,6 +134,12 @@ class Original2FactorSixPacketKernel(unittest.TestCase):
                              b["sharpened_true_original_2factor_independent_f_quenched_E"])
             self.assertEqual(a["f_only_true_original_six_touch_source_Q_by_class"],
                              b["f_only_true_original_six_touch_source_Q_by_class"])
+            pinned={
+              "lex":(Fraction(16297231477,32),Fraction(14072787,16),351),
+              "S72":(Fraction(7794829287,16),Fraction(5597685,8),301)}
+            self.assertEqual(
+                (new,old-new,sum(a["f_only_true_original_six_touch_source_Q_by_class"].values())),
+                pinned[scheme])
             print("AA4BY_REAL_ORIGINAL_W32_ERROR_IMPROVEMENT",scheme,
                   "prior",old,"refined",new,"reduction",old-new,flush=True)
 
@@ -147,6 +153,9 @@ class Original2FactorSixPacketKernel(unittest.TestCase):
             self.assertLessEqual(data["new_original_center_certified_lower"],
                                  data["original_center_true_weighted_GF5"])
             self.assertGreaterEqual(data["new_original_center_certified_lower"],0)
+            self.assertEqual(data["new_original_center_certified_lower"],0)
+            self.assertEqual(data["original_center_true_weighted_GF5"],
+               11225795 if scheme=="lex" else 3283610)
 
     def test_05_real_original_source_AND_bad_Q_guards(self):
         model=fixture(1,"lex")
