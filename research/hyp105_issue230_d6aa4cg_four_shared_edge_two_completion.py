@@ -204,14 +204,20 @@ def mixed_8cube_gram(masks):
 
 
 def _pick_real_W34_original_sixflags(model):
-    """Deterministically choose two TRUE original six-ID sets, 4 common flags.
+    """Hall-SDR choose TRUE W(3,2^h) original Q pair, h>=2.
 
-    Point f forms actual physical left C6. Each original incidence
-    belongs to real symplectic W34 and all 8 chosen LINE IDs distinct.
+    Although name records the first W34 witness, the construction works
+    for every genuine original W3 power h>=2. The h-uniform proof uses:
+    each of six distinct point-factor LINE-star neighborhoods has s+1>=5
+    elements, and any two share <=1 original LINE. For 8 requested
+    slots, with at most two slots at one POINT, Hall is automatic:
+    a one-point subset has <=2 slots but >=5 neighbors, while any
+    subset touching >=2 distinct points has >=2(s+1)-1>=9 neighbors,
+    strictly exceeding ALL eight slots.
     """
     s,V,a,inc,f,g,point,line=_original_source(model)
-    if (s,V,a)!=(4,85,14):
-        raise ValueError("true ORIGINAL symplectic W34, not synthetic K14")
+    if s<4 or s&(s-1) or V<16 or a<7:
+        raise ValueError("true ORIGINAL symplectic W(3,2^h), h>=2 required")
     physical=((0,1),(1,2),(2,3),(3,4),(4,5),(0,5))
     point_ids=tuple({edge:i for i,edge in enumerate(f)}[e] for e in physical)
     by_point=[[ ] for _ in range(V)]
@@ -246,16 +252,17 @@ def _pick_real_W34_original_sixflags(model):
     return {"QA":QA,"QB":QB,"point_ids":point_ids,"line_ids":line_ids}
 
 
-def genuine_W34_eightpacket_witness(case):
-    """TRUE W(3,4) source and a complete physically legal correlated f,g.
+def genuine_W34_eightpacket_witness(case, *, power=2):
+    """TRUE original W(3,2^h) source, complete correlated POINT f/LINE g.
 
-    All 85 original LINE source images are assigned injectively to
-    85 edges of K14. The 8 REAL original Q LINE factors occupy exactly
-    the requested 4+2+2 physical edges at global x=0.
+    First h=2 W34, also h=3 W38 tested; all h>=2 proof by Hall SDR
+    and arbitrary unused distinct K_a physical pair edge completion.
     """
     if case not in ("four_cycle_switch","vertex_replacement"):
         raise ValueError("an explicitly realized exact dichotomy case required")
-    model=fixture(2,"lex")
+    if type(power) is not int or power not in (2,3):
+        raise ValueError("finite oracle supports true W34/W38; proof all h>=2")
+    model=fixture(power,"lex")
     s,V,a,inc,f,g,_,_=_original_source(model)
     witness=_pick_real_W34_original_sixflags(model)
     phys_A=((0,5),(2,3)) if case=="four_cycle_switch" else ((4,5),(0,5))
@@ -280,12 +287,12 @@ def genuine_W34_eightpacket_witness(case):
     return actual,packets,witness
 
 
-def genuine_W34_original_pair_eight_cube(case):
-    """Finite original Q_A,Q_B, 256 COMPLETE original maps, true GF5 only.
+def genuine_W34_original_pair_eight_cube(case, *, power=2):
+    """Finite true original W34 or W38, 256 COMPLETE maps, true GF5.
 
-    Uses actual source incidence flags, not per-Q image redraw.
+    Uses actual source incidence flags, not independent per-Q redraw.
     """
-    model,packets,witness=genuine_W34_eightpacket_witness(case)
+    model,packets,witness=genuine_W34_eightpacket_witness(case,power=power)
     s,V,a,inc,f,g,_,_=_original_source(model)
     masks=physical_overlapping_eight_masks(g,packets)
     gram=mixed_8cube_gram(masks)
