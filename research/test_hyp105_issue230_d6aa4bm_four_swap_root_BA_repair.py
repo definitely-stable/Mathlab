@@ -180,9 +180,19 @@ class AA4BMOriginalFourSwapRootRepair(unittest.TestCase):
             target=original_fixed_pair_repair_cherry_four_swaps(rotated,0,p,flags,require_regular=False)
             self.assertEqual(original["accepted_historical_seven_GF5_tag"],
                              target["accepted_historical_seven_GF5_tag"])
-            self.assertEqual(original["same_six_REAL_original_incidence_IDs"],
-                             target["same_six_REAL_original_incidence_IDs"])
+            # Canonical choice of the FIRST physical C4 is label-order
+            # dependent: gauge permutations can change WHICH original Q
+            # is returned. The invariant is that a real-Q repair exists,
+            # its original rooted flags remain included, and the positive
+            # GF5 class and <=4-swap pin-preserving guarantee persist.
+            self.assertTrue(set(flags)<=set(original["same_six_REAL_original_incidence_IDs"]))
+            self.assertTrue(set(flags)<=set(target["same_six_REAL_original_incidence_IDs"]))
             self.assertLessEqual(target["number_global_source_FACTOR_swaps"],4)
+            self.assertEqual(
+                genuine_original_root_BA_source_pool(
+                    model,0,p,flags)["original_six_distinct_incidence_and_opposite_source_factor_Q_count"],
+                genuine_original_root_BA_source_pool(
+                    rotated,0,p,flags)["original_six_distinct_incidence_and_opposite_source_factor_Q_count"])
 
     def test_05_abstract_target_four_swap_lower_bound_not_GF5_optimality(self):
         z=four_external_donors_swap_lower_bound()
