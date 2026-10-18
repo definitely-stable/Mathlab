@@ -126,7 +126,7 @@ Every datum below comes from two ENTIRE true original six-POINT-source-A fibers 
 | W(3,2), K6 left 2switch C4 | 4 / 5 | 5643/4 , 1881/4 | **10,614,483/16** | 17,690,805/4 ; 10,614,483/4 | 3,538,161/4 |
 | W(3,4), K14 left cherry replacement | 8 / 7 | 370443/4 , 366681/8 | **10,614,483/32** | 74,301,381/8 ; 10,614,483/8 | 10,614,483/16 |
 | W(3,8), physical left cherry replacement | 7 / 1 | 188043/4 , 1881/8 | **10,614,483/32** | 130,911,957/8 ; 10,614,483/8 | 3,538,161/16 |
-| W(3,4), left cherry RIGHT K6-type C4 2switch complete g countercontrol | 96 direct same-source global maps tested, two named original Q D6-forbidden all 96 | numerical supplementary live-CI | **0** | B conditional variance and D4(B) ZERO | **0** |
+| W(3,4), left cherry / RIGHT K6-type C4 2switch complete g countercontrol | 96 legal whole-original POINT maps; two pinned source sixflags D6-forbidden on all 96 | 9405/8 , **0** | **0** | B conditional variance and D4(B) ZERO | **0** |
 
 The rows with positive covariance are REAL finite original examples; they do not prove a universal POSITIVE sign. The mismatched-g row supplies a genuine original zero-covariance countercontrol, not an all-h negative-sign witness. General 9/16 covariance inequality holds independently of either finite sign and cannot be reversed into a lower bound.
 
