@@ -55,6 +55,29 @@ For each Q in the union it independently:
 
 The same strict all-h Q-by-Q law is independently falsified on TRUE original W34 (h2,V85) and W38 (h3,V585) via #609 mixed true original B,C,D6 coaccepted source POINT-A fixture, and via the AA4-CH simultaneous D6 family. For exactly-one-present source-A Q, an independent raw physical source sixpoint C6 DFS from TRUE original full occupied POINT pair images (not the GF5 classifier or the signed ledger) constructs a Q eligible only before; repeating on the one-global-swap map constructs a DIFFERENT TRUE original source Q eligible only after. Both real original source Q use exactly six distinct original incidence IDs. No invented high-h GQ.
 
+## 3a. Independently pinned TRUE-original W32 global compensation evidence
+
+The FIRST CI full original Q census gives the following EXACT seven-class original historical weighted numerators. Each row uses ONE unchanged complete original LINE g, ONE completely globally injected original f, and ONE legal WHOLE-original-POINT-factor image transposition; no per-Q remapping.
+
+| True original W32 model | Exchanged physical POINT images | Original seven-class numerator BEFORE | AFTER | Signed whole W32 seven-class delta |
+|---|---|---:|---:|---:|
+| lex | 01 ↔ 23 | 11,225,795 | 9,748,767 | **−1,477,028** |
+| S72 | 12 ↔ 45 | 3,283,610 | 4,747,273 | **+1,463,663** |
+| lex | 12 ↔ 45 | 11,225,795 | 10,799,141 | **−426,654** |
+
+The first lex comparison independently enumerates BOTH complete LEFT source physical-eligible W32 populations of 62,370 original sixflag IDs. Their source-Q union has **88,236** different true ORIGINAL six-incidence sets, and each is classified using BOTH the pinned historical W32 and generalized original any-alphabet sevenclass oracle at BOTH complete global maps. An additional independent separate baseline and swapped complete original 62,370-Q historical census agrees exactly with each numerator; the migration sums also agree.
+
+The exact first-row **original POINT-source-A** signed contributions are:
+- Q with neither p nor q: **zero**, exactly;
+- Q with both p and q once: **−11,286 = −2×5,643**, and this difference is ONLY from D6 original six-position dual alignment (no A-left/B-right or C/A migration);
+- Q with exactly one of p/q: **−745,332**, from entirely disjoint physical-original eligibility sets before and after.
+
+For the first-row non-A source sectors, the true original POINT-B unequal sector contributes **−633,770**, and POINT-C unequal sector **−86,640**, with all equal-multiplicity non-A sectors contributing ZERO. These figures sum exactly to the full **−1,477,028**. For the second S72 row the POINT-A exactly-one sector contributes **+1,006,563**, with POINT-A both-once signed D6 flux ZERO; for the third lex row POINT-A exactly-one contributes **−360,240** while POINT-A both-once D6 flux is **+11,286**. All values are raw integers in the frozen historical accepted seven-GF5 weighted numerator, NOT normalized full R3 or generalized all-h asymptotic assertions.
+
+**Critical falsifier:** even at h=1 the SAME legal operation can produce both positive and negative changes to the FULL original selected seven-class numerator. Therefore one cannot claim a monotone sign or obligatory net beneficial compensation from global source transposition without genuinely new restrictions coupling all original Q source memberships. A single positive or negative W32 delta does NOT prove the asymptotic root A/B theorem.
+
+**TRUE original W34/W38 local cross-class checks:** on one mixed original source POINT-A fiber, actual original Q from right-source B and C retain their historical positive tags under swapping TWO present POINT factor images. A named original D6 Q loses acceptance; on W38, other real original right-source A Q can simultaneously GAIN D6 via different labeled right dual. They demonstrate a possible D6-to-D6 within-source-fiber redistribution, not mandatory global gain. The independent exactly-one-Q construction also explicitly finds real W34 and W38 original six-ID candidates whose physical eligibility is before-only, and other real original Q whose physical eligibility is after-only. These are **actual different original Q**, not a two-map redraw of the same source IDs.
+
 ## 4. Scientific acceptance and next actual bottleneck
 
 The algebra and physical six-edge uniqueness are elementary. New issue-specific scientific object: complete globally coupled ORIGINAL W3 all-seven-GF5 across-fiber signed migration with a sharp D6 transposition obstruction. It precisely identifies which original Q sectors could contribute compensation after ONE global action and prevents passing from localized AA4-CI orbit averages to arbitrary fixed-map positivity without considering intersecting fibers. The decomposition allows a targeted next research: **find a nontrivial sign/quantitative estimate on unequal-multiplicity `Q` contribution plus exact both-present D6 collision**, or construct original infinite adversarial correlated mappings. A numerical W32 sign observation is NEVER an all-h estimate.
