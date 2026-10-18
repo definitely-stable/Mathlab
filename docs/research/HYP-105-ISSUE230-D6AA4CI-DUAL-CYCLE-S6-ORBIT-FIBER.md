@@ -87,6 +87,30 @@ This refines #608's single-swap erasure into a SHARP 60-type dual-block distribu
 
 The historic 7GF5 weights are fixed accepted constants from #230: D6 5643, A-left/B-right 45600, C/A 43320; other four original 7 accepted classes have source POINT-B/C and are provably not in this source-POINT-A fiber. No new GF5 positivity theorem for excluded types is asserted. This source-fiber score is the accepted historical **weighted numerator**, not a normalized full R3 or an exact GF5 signed flow.
 
+## 5a. Pinned exact original-W32/W34/W38 empirical evidence
+
+The ORIGINAL W34 and W38 fixtures above use ONE correlated fully completed f,g and the same source six-POINT fiber for all three historical positive right source classes. All counts are original DISTINCT six-incidence-Q counts, with every right physical necessary condition checked at the SAME full g, not redraws.
+
+| REAL symplectic W3 | Sixflags in whole source-point-A fiber | Right source B / C physical positive Q | Right source A physical connected C6 Q | Right source A physical 2C3 Q (not D6) | Distinct occupied right labeled dual C6 | Constant historical B/C weighted numerator | Exact orbit mean |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| W(3,2) lex POINT source sixfactor fiber | 3^6=729 | 1 / 0 | 4 | 1 | not pinned | 45,600 | formula verified on all 720 maps |
+| W(3,2) S72 POINT source sixfactor fiber | 729 | 1 / 0 | 4 | 1 | not pinned | 45,600 | formula verified on all 720 maps |
+| W(3,4) constructive B/C/D6 mixed witness | 5^6=15,625 | 6 / 3 | 1 | 1 | 1 | 403,560 | 8,073,081 / 20 |
+| W(3,8) constructive B/C/D6 mixed witness | 9^6=531,441 | 21 / 3 | 32 | 1 | 13 | 1,087,560 | 5,452,848 / 5 |
+
+For the W34 witness, the entire true-original fixed-six-POINT family has exactly `T_min=403560`, `T_max=409203` across the 720 real complete f maps, and the exact mean `403654.05`. Its only right cyclic original-Q dual type contributes `5643` at precisely 12 maps, and ZERO D6 at the other 708; the positive invariant baseline persists. W38 has 32 right cyclic Q spread over 13 of 60 labeled cycles; without B/C the other 47 dual types would give 564 D6-empty f maps, but this particular mixed witness has a positive B/C constant floor at ALL 720 maps. This is a real distinction between **local historical B/C persistence** and D6 variation, not evidence of global forced B/C compensation for arbitrary f,g.
+
+The stored **direct historical classifier** independently evaluates actual original sixflag Q under each of the 720 complete W34 original f permutations, against the independently computed compact 60-bin dual histogram formula. W38 checks one physical whole-original f representative of EVERY labeled dual C6 (60 representatives × 12 automorphism-stabilizer images) against the true historical Q classifier; W32 lex and S72 both check complete 720-state original f orbits, including pinned compatibility to their legacy fixed-map classifier. The named AA4-CH original D6 fan is checked separately for ALL 720 complete f permutations in W34 and W38, confirming the sharp 12/708 split. These are finite falsifiers; the all-h theorem is proved algebraically from genuine GQ/source class definitions and group orbit, not inferred from those finite counts.
+
+**Exact discrete variation identity** on one original POINT-A fiber, useful for subsequent dual-aware fixed-map compensation attempts:
+
+```text
+T_P(f^π',g)-T_P(f^π,g)
+    = 5643*(H(C_π')-H(C_π)).
+```
+
+The right B/C source counts are invariant, NOT created by the loss of a D6. Any alleged *reactive B/C compensation on the same six-source-POINT fiber from these POINT permutations* is impossible: the fiber's B/C term does not change. Any proof of mandatory compensation must therefore invoke OTHER original POINT source fibers, or an action modifying the original LINE g, or information beyond this orbit.
+
 ## 6. Scientific limitations and next effective research gate
 
 The S6 orbit, orbit-stabilizer 12, and 60 cycle labels are classical. The original research contribution is an exact all-h TRUE W3 same-sixflag-ID, complete-global-map, arbitrary-correlated-g *dual-aware fiber classification*, including immutable historical B/C compensation and sharp 60-cycle dual D6 coverage, with independent original finite falsifiers and a quantitative correction to #608's physical-only no-go.
