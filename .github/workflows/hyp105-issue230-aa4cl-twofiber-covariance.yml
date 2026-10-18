@@ -1,0 +1,62 @@
+name: hyp105-issue230-aa4cl-twofiber-96map-original-covariance
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance.py"
+      - "research/test_hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CL-SHARED-FOUR-POINT-FIBER-COVARIANCE.md"
+      - ".github/workflows/hyp105-issue230-aa4cl-twofiber-covariance.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact_shared_S4_spectrum_bipartite_and_covariance_bound:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Integer 24x24 S4 six-transposition polynomial/traces/multiplicities, exact 9over16 covariance Poincare extremizer, 24 parity period-two counterexample
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance.py' -v -k test_01
+  real-original-W32-K6-four-cycle-overlap-full96:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True W32 15 real POINT LINE IDs, two ORIGINAL six-Q D6 witnesses share four true original incidences, all 96 single complete f maps and direct seven-GF5 covariance
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance.py' -v -k test_02
+  real-original-W34-K14-cherry-replacement-full96:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True W34 85 original POINT LINE sources, two historically positive D6 sixflags with four common ORIGINAL incidence IDs, 96 full f maps exact crossfiber mixed GF5 gradient
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance.py' -v -k test_03
+  real-original-W38-source-geometry-full96:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True W38 585 original POINT LINE IDs and 5265 genuine sixflag incidences, entire two 9^6 original source fibers and 96 complete globally injected f permutations with independent direct GF5 referee
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance.py' -v -k test_04
+  source-injection-failure-guards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fail closed on duplicate ORIGINAL source-factor IDs, malformed global image permutations, no genuine both-family physical C6, and repeated physical whole-factor images
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance.py' -v -k test_05
