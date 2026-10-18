@@ -123,7 +123,11 @@ class AA4CHTrueOriginalFan(unittest.TestCase):
         with self.assertRaises(ValueError):
             _full_pair_injection(10,6,{99:(0,1)})
         # Independent literal Hall SDR positive/negative finite instances.
-        self.assertEqual(_match_unique(((5,6),(6,7),(5,7))), (5,6,7))
+        matched=_match_unique(((5,6),(6,7),(5,7)))
+        self.assertEqual(set(matched),{5,6,7})
+        self.assertIn(matched[0],(5,6))
+        self.assertIn(matched[1],(6,7))
+        self.assertIn(matched[2],(5,7))
         with self.assertRaises(AssertionError):
             _match_unique(((0,), (0,)))
         for h in (1,4,0,-1,True):
