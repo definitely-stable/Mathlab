@@ -67,6 +67,24 @@ MULT_S4=(1,9,4,9,1)
 LAP_S4=(0,4,6,8,12)
 
 
+def shared_internal_dual_adjacencies(cycle):
+    """How many true six-incidence-position dual edges lie among 4 common columns.
+
+    This quantity is invariant under any global WHOLE original POINT
+    source-image permutation in the 96-state S4×S2×S2 group. It is
+    exactly 2 for physical shared-edge four-cycle-switch completion
+    and 3 for the shared-five-vertex cherry-center completion,
+    independently of physical coordinate names and h.
+    """
+    if (cycle is None or len(cycle)!=6 or any(
+            len(edge)!=2 or not set(edge)<=set(range(6)) for edge in cycle)):
+        raise ValueError("actual labeled Hamiltonian ORIGINAL six-position dual required")
+    degree=Counter(v for edge in cycle for v in edge)
+    if len(degree)!=6 or set(degree.values())!={2}:
+        raise ValueError("genuine simple six-position dual 2factor required")
+    return sum(set(edge)<=set(range(4)) for edge in cycle)
+
+
 def s4_swap(sigma,i,j):
     if sigma not in S4_INDEX or (i,j) not in SWAPS:
         raise ValueError("valid S4 shared-original POINT factor swap required")
