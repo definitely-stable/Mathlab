@@ -161,7 +161,7 @@ class AA4CIOriginalFullS6Fiber(unittest.TestCase):
         self.assertEqual(len(by_perm),720)
         self.assertEqual(len(mult),60)
         self.assertEqual(set(mult.values()),{12})
-         bad_edges=((0,1),(1,2),(0,2),(3,4),(4,5),(3,5))
+        bad_edges=((0,1),(1,2),(0,2),(3,4),(4,5),(3,5))
         self.assertIsNone(_six_position_dual_cycle(bad_edges))
         bad=_full_pair_injection(V,a,dict(zip(pts,bad_edges)))
         modified=dict(model,left_labels=bad)
