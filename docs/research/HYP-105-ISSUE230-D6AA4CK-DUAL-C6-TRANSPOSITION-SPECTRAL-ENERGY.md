@@ -98,10 +98,10 @@ The dedicated ORIGINAL source-Q seven-GF5 classifier in GH-hosted Linux checks d
 |---|---:|---:|---:|
 | W(3,2), lex | 5 | 49,534,254 / 25 | 21,228,966 / 5 |
 | W(3,2), S72 | 5 | 258,285,753 / 50 | 254,747,592 / 25 |
-| W(3,4), mixed B/C/D6 (B/C invariant baseline 403,560) | 11 | 208,751,499 / 400 | 10,614,483 / 10 |
-| W(3,8), mixed B/C/D6 (B/C invariant baseline 1,087,560) | 57 | 2,572,243,047 / 50 | 2,342,262,582 / 25 |
+| W(3,4), mixed B/C/D6 (B/C invariant baseline 403,560) | 10 | 208,751,499 / 400 | 10,614,483 / 10 |
+| W(3,8), mixed B/C/D6 (B/C invariant baseline 1,087,560) | 56 | 2,572,243,047 / 50 | 2,342,262,582 / 25 |
 
-These numbers are **historical accepted weighted GF5 source-POINT-A FIBER** numerators and their drift energies, not the whole original seven-class `S_s(f,g)`, a normalized R3 probability, or an asymptotic lower bound. Each source-Q uses the same TRUE six original incidence ID columns on BOTH sides and no independently sampled images. Mixed W34 has original right-source B=6, C=3, D6-eligible right A=1, and one physically disconnected A; the 11 counted right-eligible rows exclude the disconnected A. Mixed W38 has B=21, C=3, D6-eligible right A=32, plus one disconnected A; 57 right-eligible rows. For the original AA4-CH named fan the symbolic ratio `D/Var=120/59` was validated for original W34 and W38, but that refers only to the named original Q set.
+These numbers are **historical accepted weighted GF5 source-POINT-A FIBER** numerators and their drift energies, not the whole original seven-class `S_s(f,g)`, a normalized R3 probability, or an asymptotic lower bound. Each source-Q uses the same TRUE six original incidence ID columns on BOTH sides and no independently sampled images. Mixed W34 has original right-source B=6, C=3, D6-eligible right A=1, and one physically disconnected A; the 10 counted right-eligible rows exclude the disconnected A. Mixed W38 has B=21, C=3, D6-eligible right A=32, plus one disconnected A; 56 right-eligible rows. For the original AA4-CH named fan the symbolic ratio `D/Var=120/59` was validated for original W34 and W38, but that refers only to the named original Q set.
 
 ## 6. What this does NOT prove; next frontier
 
