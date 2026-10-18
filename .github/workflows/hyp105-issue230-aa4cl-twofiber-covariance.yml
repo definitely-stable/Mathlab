@@ -59,4 +59,14 @@ jobs:
         with:
           python-version: '3.12'
       - name: Fail closed on duplicate ORIGINAL source-factor IDs, malformed global image permutations, no genuine both-family physical C6, and repeated physical whole-factor images
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance.py' -v -k test_06
+  real-original-W34-crosscompletion-physical-anticoexistence-falsifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True W34 85 original source factor full g changed injectively from right cherry to right alternating C4 while full original f remains cherry; exact twofiber GF5 covariance signs checked with original IDs
         run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance.py' -v -k test_05
