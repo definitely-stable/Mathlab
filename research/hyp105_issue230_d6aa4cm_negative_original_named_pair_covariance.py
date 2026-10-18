@@ -38,6 +38,7 @@ from hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance import (
     original_two_fiber_same_global_96_orbit,_cov,_mean,
 )
 from hyp105_issue230_projection import fixture
+from hyp105_g5e2b3e1b0_seven_signature import R3_CERTIFIED_FLOORS
 
 N_STATES=96
 EXPECTED_NAMED_NEGATIVE_COV=Fraction(-W_D*W_D,576)
@@ -226,9 +227,30 @@ def full_original_fiber_check_negative_named_vs_entire(power):
     z=true_original_negative_D6_pair_fixture(power)
     full=original_two_fiber_same_global_96_orbit(
         z["actual_original_model"],z["eight_REAL_original_POINT_source_ids"])
+    # INDEPENDENT original-Q historical classifier: no right-dual
+    # histogram/score identity is reused to compute this reference.
+    # Enumerate literal real original six-incidence Q from both full
+    # POINT-A fibers at EACH of the 96 complete global POINT maps.
+    s,V,a,inc,f,g,_,_=_original_source(z["actual_original_model"])
+    pts=z["eight_REAL_original_POINT_source_ids"]
+    direct={"A":[],"B":[]}
+    for state in ORBIT:
+        ff=complete_overlapping_global_f(f,pts,state)
+        for family in ("A","B"):
+            original_Qs=tuple(row[0] for row in
+                full["original_histograms"][family]["eligible_actual_original_Q"])
+            score=sum(R3_CERTIFIED_FLOORS.get(
+                classify_seven_all_a_original_Q(Q,ff,g,inc),0)
+                for Q in original_Qs)
+            if score!=full["global_state_scores"][family][state]:
+                raise AssertionError("independent 96-map true original historical GF5 full-fiber classifier disagrees with dual histogram")
+            direct[family].append(score)
+    direct_cov=_cov(direct["A"],direct["B"])
+    if direct_cov!=full["historical_score_covariance_A_B"]:
+        raise AssertionError("full original sixflag family covariance differs from independent direct sevenclass computation")
     return {"named":z,
-            "entire_source_POINT_A_fiber_covariance":
-               full["historical_score_covariance_A_B"],
+            "independently_directly_historical_sevenclass_96map_full_Q_referee":True,
+            "entire_source_POINT_A_fiber_covariance":direct_cov,
             "entire_source_POINT_A_fiber_mean_A":full["historical_score_mean_A"],
             "entire_source_POINT_A_fiber_mean_B":full["historical_score_mean_B"],
             "entire_source_POINT_A_fiber_right_eligible_Q_A":
