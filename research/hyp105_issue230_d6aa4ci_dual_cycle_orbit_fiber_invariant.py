@@ -68,13 +68,7 @@ def _six_position_dual_cycle(edges):
         adjacency[i].add(j);adjacency[j].add(i)
     if any(len(z)!=2 for z in adjacency):
         return None
-    seen={0};todo=[0]
-    while todo:
-        seen.update(adjacency[todo.pop()]-seen)
-        todo=[i for i in seen if any(j not in seen for j in adjacency[i])]
-        # Simpler independent DFS below is used to guard connectivity.
-        if not todo:break
-    # Use ordinary traversal to avoid any assumption on vertex ordering.
+    # One direct graph traversal; do not assume an ordering on physical labels.
     stack=[0];visited=set()
     while stack:
         p=stack.pop()
@@ -145,7 +139,6 @@ def original_point_A_fiber(model,point_ids):
     cycle_by_perm,orbit=original_cycle_orbit(f,points)
     source_flag_stars=tuple(tuple(sorted(by_point[p])) for p in points)
     hist=Counter()
-    eligible=tuple()
     records=[]
     counters=Counter()
     for flags in product(*source_flag_stars):
@@ -154,10 +147,11 @@ def original_point_A_fiber(model,point_ids):
         lines=tuple(inc[j][1] for j in flags)
         m=tuple(sorted(Counter(lines).values()))
         source={ (1,1,1,1,1,1):"A", (1,1,1,1,2):"B", (2,2,2):"C" }.get(m)
-        if source is None:continue
         physical=tuple(g[l] for l in lines)
         degree=Counter(c for e in physical for c in e)
         if len(degree)!=6 or set(degree.values())!={2}:continue
+        if source is None:
+            raise AssertionError("genuine six-coordinate original physical 2factor had forbidden original source partition")
         original_Q=tuple(sorted(flags))
         if source=="B":
             counters["B"]+=1
@@ -213,7 +207,6 @@ def original_D6_fan_orbit(power):
     z=original_maximal_D6_fan(power)
     s,V,a,inc,f,g,_,_=_original_source(z["normal_model"])
     points=z["point_ids"];fan=z["fan"]
-    by_pos=tuple(tuple(j for j in Q if inc[j][0]==p)[0] for Q in fan for p in points)
     hist=Counter()
     for Q in fan:
         right=tuple(g[inc[next(j for j in Q if inc[j][0]==p)][1]] for p in points)
