@@ -65,6 +65,39 @@ class AA4CKTrueOriginalSpectralEnergy(unittest.TestCase):
             self.assertEqual(len(outputs),12)
             self.assertEqual(Counter(outputs.values()),Counter({1:9,2:3}))
         self.assertEqual(overlap,Counter({4:720,2:180}))
+        # EXACT rational endpoint SHARPNESS, abstract graph only:
+        # Apply the product of (A-mu I) at four OTHER integer roots
+        # to the delta function at one labeled dual cycle.
+        # This constructs actual NONZERO integer eigenvectors at
+        # eigenvalues +5 and -9 without floating-point eigensolvers.
+        # No claim that these signed eigenvectors occur as genuine
+        # ORIGINAL W3 right-D6 sixflag histograms!
+        roots=(15,5,0,-3,-9)
+        for eig,expected in ((5,Fraction(4,3)),(-9,Fraction(16,5))):
+            vector=[int(k==0) for k in range(N)]
+            for other in roots:
+                if other==eig:continue
+                vector=[
+                    sum(ADJACENCY[i][j]*vector[j] for j in range(N))
+                    -other*vector[i] for i in range(N)]
+            self.assertTrue(any(vector))
+            self.assertEqual(sum(vector),0)
+            self.assertEqual(tuple(
+                sum(ADJACENCY[i][j]*vector[j] for j in range(N))
+                for i in range(N)),
+                tuple(eig*v for v in vector))
+            variance=Fraction(sum(v*v for v in vector),N)
+            drift=Fraction(sum(
+                ADJACENCY[i][j]*(vector[j]-vector[i])**2
+                for i in range(N) for j in range(N)),N*DEGREE)
+            self.assertEqual(drift/variance,expected)
+            average_variance=Fraction(sum(
+                sum(ADJACENCY[i][j]*vector[j] for j in range(N))**2
+                for i in range(N)),N*DEGREE**2)
+            self.assertEqual(average_variance/variance,
+                             Fraction(eig**2,DEGREE**2))
+            if eig==-9:self.assertEqual(
+                average_variance/variance,Fraction(9,25))
         # Guard a negative and a degenerate H, no fabricated GF5.
         zero=exact_GF5_sixcycle_histogram_energy({},0)
         self.assertEqual(zero["exact_original_f_orbit_variance"],0)
