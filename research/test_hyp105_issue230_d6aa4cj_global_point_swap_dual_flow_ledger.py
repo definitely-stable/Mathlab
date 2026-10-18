@@ -207,6 +207,25 @@ class AA4CJTrueOriginalGlobalPointSwap(unittest.TestCase):
                   "source_Q_before",true_Q,"source_Q_after",after_Q,flush=True)
 
     def test_05_TRUE_original_AA4CH_named_fan_and_invalid_inputs(self):
+        # INDEPENDENT 60 Hamiltonian labeled six-position dual cycles
+        # x ALL 15 different single source-position transpositions:
+        # no single swap is a D6 dihedral automorphism. This check does
+        # not use the seven-class classifier nor the one-edge oracle.
+        from hyp105_issue230_d6aa4ci_dual_cycle_orbit_fiber_invariant import original_cycle_orbit
+        m,pts,_=original_B_C_D6_mixed_fixture(2)
+        s,V,a,inc,f,g,_,_=_original_source(m)
+        by_perm,hist=original_cycle_orbit(f,pts)
+        self.assertEqual(len(hist),60)
+        checked=0
+        for cyc in hist:
+            for i,j in combinations(range(6),2):
+                permutation={i:j,j:i}
+                moved=frozenset(
+                    frozenset(permutation.get(vertex,vertex) for vertex in edge)
+                    for edge in cyc)
+                self.assertNotEqual(cyc,moved)
+                checked+=1
+        self.assertEqual(checked,60*15)
         for h in (2,3):
             z=original_maximal_D6_fan(h)
             s,V,a,inc,f,g,_,_=_original_source(z["normal_model"])
