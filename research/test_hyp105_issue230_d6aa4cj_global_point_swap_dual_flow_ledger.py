@@ -181,9 +181,11 @@ class AA4CJTrueOriginalGlobalPointSwap(unittest.TestCase):
             self.assertFalse(res["left_physical_after"])
             new_model=dict(model,left_labels=original_two_point_global_swap(f,p,q))
             after_Q=independent_original_single_source_phys_Q(new_model,p,q)
-            after=original_true_Q_swap_transition(after_Q,inc,f,g,p,q)
-            # Here the baseline is the swapped map; swap again returns
-            # the initial map, yielding the reverse one-sided phenomenon.
+            after=original_true_Q_swap_transition(
+                after_Q,inc,new_model["left_labels"],g,p,q)
+            # Here the baseline must actually be the swapped COMPLETE
+            # original f map used to construct this real original Q.
+            # A second WHOLE original POINT swap returns the first map.
             self.assertTrue(after["left_physical_before"])
             self.assertFalse(after["left_physical_after"])
             self.assertNotEqual(true_Q,after_Q)
