@@ -184,7 +184,14 @@ class AA4CLExactTwoFiberScientificReferee(unittest.TestCase):
                 alternate["shared_squared_gradient_A"]*
                 alternate["shared_squared_gradient_B"],cov2**2)
         self.assertGreater(alternate["historical_score_variance_A"],0)
-        self.assertGreater(alternate["historical_score_variance_B"],0)
+        # A countercontrol, NOT a failure of the covariance theorem:
+        # right physical twofactor support is valid, but its labeled
+        # position-dual never aligns with B's left cherry completion
+        # on ANY of the 96 legal same-global-f states. Source-B/C
+        # baseline can persist, but B has zero D6 variation.
+        self.assertEqual(alternate["historical_score_variance_B"],0)
+        self.assertEqual(cov2,0)
+        self.assertGreater(cov1,0)
         print("AA4CL_TRUE_W34_RIGHT_C4_VS_LEFT_CHERRY",
               "same_original_f_full",True,
               "fully_remapped_g_injected",True,
