@@ -63,7 +63,19 @@ The original W34 (s4,V85,425 real incidence IDs,minimal physical K14) and W38 (s
 
 For **EACH** 96 global original f map states, independently reconstruct literal left and right physical six-coordinate degree-2 original incidence-position dual graphs from actual original Q and full f,g and test connectedness/equality WITHOUT using the generalized historical sevenclass tagger. Separately compare with the independently authored true-original historical seven GF5 tagger on each Q; all 192 comparisons per geometry agree, each original Q historically D6-positive in exactly four states and NEVER together. The exact negative rational covariance is independently recomputed.
 
-A SEPARATE test enumerates the ENTIRE historical accepted original source-POINT-A sixflag score for BOTH complete sixfactor families on the **SAME 96 whole f maps**, not just the two pinned Q, and compares its actual covariance to the negative named-Q covariance. It makes NO universal claim about the sign of the whole-fiber covariance without observed evidence; the entire original full-seven S across ALL source-Q types is not computed. If the entire original covariance is positive or zero for this witness, that is a substantive barrier against lifting the named-Q negative sign to the full set of real original motifs.
+A SEPARATE test enumerates the ENTIRE historical accepted original source-POINT-A sixflag score for BOTH complete sixfactor families on the **SAME 96 whole f maps**, not just the two pinned Q. It computes the full two-fiber covariance TWO independent ways: (i) the previously proven historical right-dual histogram identity of #609/#612, and (ii) **literal direct historical seven-GF5 classification for every physically eligible real ORIGINAL six-incidence Q in BOTH fibers at EVERY one of the 96 complete global original f maps**. It checks equality state by state before evaluating covariance. This is an independent original-GQ fixed-f/g countercontrol, not synthetic signed Q indicators.
+
+**NEW strict finite-original full-family negative witness:** For true W(3,4), the ENTIRE physically-right-eligible source-POINT-A Q counts are 4 in family A and 12 in family B; the exact FULL historical accepted seven-GF5 weighted covariance is
+
+```text
+Cov_96(F_A,F_B) = -10,614,483/32 < 0
+```
+
+even though the right physical support of both originally chosen Q is connected C6, all sources and six Q IDs are genuine original, one full globally injected f,g is kept across the joint orbit, and their **selected named** covariance is simultaneously `-31,843,449/576`. This gives a genuine ORIGINAL **finite W34 counterexample to any universal nonnegative FULL two-fiber covariance theorem**, not merely a named-Q example. It is stronger than AA4-CL's zero-covariance W34 countercontrol.
+
+**Crucial limit / opposite higher-order control:** The SAME 12-line-source construction on genuine W(3,8) yields 7 right-eligible original Q in full family A and 55 in family B. The selected two named-Q covariance remains `-31,843,449/576`, but the **entire two-fiber** historical weighted GF5 covariance is EXACTLY ZERO. Other real original source Q compensate the selected pair covariance at the level of these two fibers. Thus the named negative sign does NOT automatically persist for the entire family as s grows, and W34 finite negativity must NOT be promoted to an all-h family-negative theorem.
+
+The whole ORIGINAL seven-class `S_s(f,g)` across ALL sixflag source POINT patterns and other POINT-sixsets has NOT been computed here. In particular, W34 negative two-family covariance does not yield a root Branch B infinite `S=o(s^6)` original counterfamily.
 
 The pure 96-map code also independently checks all 24 source-original dual bins per family and all 576 pair orientations, exact 528 disjoint-support right dual type pairs and covariance `-5643²/576` without floating point.
 
