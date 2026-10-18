@@ -40,7 +40,9 @@ Let `A_{C,D}=#{unordered transpositions tau in S6: tau C=D}`. Then:
 | −3 | 20 | 18 |
 | −9 | 5 | 24 |
 
-The certificate and multiplicity derivation are implemented with exact Python `int` matrix arithmetic and `Fraction` elimination only: **no numerical floating-point eigenvalue approximation and no unverified appeal to general prior literature**. Graph connected because the nullspace of L has dimension1; the nonconstant Laplacian spectrum lies EXACTLY in [10,24]. The row-averaged swap operator `P=A/15` has largest nonconstant absolute eigenvalue `9/15=3/5`; spectral gap is `10/15=2/3`.
+The certificate and multiplicity derivation are implemented with exact Python `int` matrix arithmetic and `Fraction` elimination only: **no numerical floating-point eigenvalue approximation and no unverified appeal to general prior literature**. An independent regression additionally constructs NONZERO INTEGER eigenvectors at adjacency eigenvalues 5 and −9 by exact four-factor spectral projection of one coordinate impulse; it checks the full `Av=lambda*v` identity and attains exactly both `4/3` and `16/5` abstract endpoint ratios, and the `3/5` averaging operator norm. These projected vectors can be signed; their realizability by original W3 histograms is NOT claimed.
+
+**Related established theory / prior art:** The spectrum and spectral gaps of symmetric-group Cayley and Schreier graphs, as well as random-transposition mixing, are classical research topics; see Ori Parzanchevski and Doron Puder, *Aldous' Spectral Gap Conjecture for Normal Sets*, Transactions of the AMS (2020), DOI [10.1090/tran/8155](https://doi.org/10.1090/tran/8155), and the [2023 seminar exposition on spectral gaps of Schreier graphs](https://www.math.tau.ac.il/~samotij/comb_seminar/talks/2023-spring-Puder.html). These sources are **general context, NOT prior confirmation of the particular integer (60,15) spectrum**: the latter is certified independently here from the finite integer adjacency. No new general theorem on Schreier spectra is claimed. Graph connected because the nullspace of L has dimension1; the nonconstant Laplacian spectrum lies EXACTLY in [10,24]. The row-averaged swap operator `P=A/15` has largest nonconstant absolute eigenvalue `9/15=3/5`; spectral gap is `10/15=2/3`.
 
 ## 3. NEW all-h true-original historical GF5 squared POINT-swap flux inequality
 
@@ -87,6 +89,19 @@ Exactly 15 directed swaps from C0 LOSE all m named D6s, exactly 15 directed swap
 4. AA4-CH real original W34/W38 named fan with m=5 or9 true six-incidence IDs independently checks all-h symbolic variance `5643² m²·59/3600`, squared drift `5643² m²/30` and ratio120/59.
 
 These are finite ORIGINAL source-Q falsifiers; they do not replace the algebraic all-h proof. All claims refer to exactly one chosen source POINT-A fiber or a named fan; all globally different complete f^π operate on the SAME source original Q and unchanged full g. No ambiguous independence or MCMC extrapolation.
+
+## 5a. Frozen independent exact-HEAD finite original data
+
+The dedicated ORIGINAL source-Q seven-GF5 classifier in GH-hosted Linux checks directly **60 real complete original f representatives ×15 real full original POINT source-image transpositions** for each authentic geometry. No expected spectral formula is reused when computing actual Q class acceptance before/after. The finite checks returned these EXACT `Fraction` values:
+
+| Genuine original W3 and complete f,g fixture | Accepted right-source Q in six-POINT fiber (physical sixcoordinate) | Original historical source-fiber variance `Var(F)` | Mean squared one actual POINT-swap original GF5 drift `D(F)` |
+|---|---:|---:|---:|
+| W(3,2), lex | 5 | 49,534,254 / 25 | 21,228,966 / 5 |
+| W(3,2), S72 | 5 | 258,285,753 / 50 | 254,747,592 / 25 |
+| W(3,4), mixed B/C/D6 (B/C invariant baseline 403,560) | 11 | 208,751,499 / 400 | 10,614,483 / 10 |
+| W(3,8), mixed B/C/D6 (B/C invariant baseline 1,087,560) | 57 | 2,572,243,047 / 50 | 2,342,262,582 / 25 |
+
+These numbers are **historical accepted weighted GF5 source-POINT-A FIBER** numerators and their drift energies, not the whole original seven-class `S_s(f,g)`, a normalized R3 probability, or an asymptotic lower bound. Each source-Q uses the same TRUE six original incidence ID columns on BOTH sides and no independently sampled images. Mixed W34 has original right-source B=6, C=3, D6-eligible right A=1, and one physically disconnected A; the 11 counted right-eligible rows exclude the disconnected A. Mixed W38 has B=21, C=3, D6-eligible right A=32, plus one disconnected A; 57 right-eligible rows. For the original AA4-CH named fan the symbolic ratio `D/Var=120/59` was validated for original W34 and W38, but that refers only to the named original Q set.
 
 ## 6. What this does NOT prove; next frontier
 
