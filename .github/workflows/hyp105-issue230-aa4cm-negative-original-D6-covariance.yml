@@ -1,0 +1,62 @@
+name: hyp105-issue230-aa4cm-negative-original-D6-pair-covariance
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cm_negative_original_named_pair_covariance.py"
+      - "research/test_hyp105_issue230_d6aa4cm_negative_original_named_pair_covariance.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CM-NEGATIVE-ORIGINAL-NAMED-D6-COVARIANCE.md"
+      - ".github/workflows/hyp105-issue230-aa4cm-negative-original-D6-covariance.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all96_exact_orientation_pigeonhole_disjoint_GF5_supports:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enumerate every one of 576 actual original cherry-completion dual pairs on the SAME 96-map orbit, certify 528 disjoint-support orientations and -5643²/576 covariance
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cm_negative_original_named_pair_covariance.py' -v -k test_01
+  true_original_W34_s4_negative_named_historical_D6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine W34 8 real original POINTs, 12 REAL original LINEs by actual Hall SDR, full globally injected POINT/LINE maps and 96 independently verified source-incidence D6 tags
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cm_negative_original_named_pair_covariance.py' -v -k test_02
+  true_original_W38_s8_negative_named_historical_D6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine W38 585 original POINT/LINE sources and 5265 actual original flags; globally injected complete maps 12 original distinct LINE SDR; full 96-map two-named Q historical D6 direct referee
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cm_negative_original_named_pair_covariance.py' -v -k test_03
+  true_original_W34_W38_ENTIRE_fiber_sign_audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently compute ENTIRE true-original source-point-A sixflag fiber covariance under SAME 96 full maps; keep signed named-Q and full-fiber statements separate
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cm_negative_original_named_pair_covariance.py' -v -k test_04
+  input_failclosed_and_W32_quantifier_guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject invalid original h, repeated physical right cycle coordinates, malformed original dual cycles, and prevent unsupported h1 all-h overclaim
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cm_negative_original_named_pair_covariance.py' -v -k test_05
