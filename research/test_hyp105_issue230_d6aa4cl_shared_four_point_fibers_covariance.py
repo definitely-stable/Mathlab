@@ -11,6 +11,7 @@ from hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance import (
     _cov,_mean,_shared_gradient,
 )
 from hyp105_issue230_d6aa4bh_local_seven_compensation import _original_source
+from hyp105_issue230_d6aa4ch_maximal_d6_fan_physical_gram_nogo import _full_pair_injection
 from hyp105_issue230_d6aa4cg_four_shared_edge_two_completion import (
     classify_seven_all_a_original_Q,classify_four_common_completion,
 )
@@ -150,7 +151,50 @@ class AA4CLExactTwoFiberScientificReferee(unittest.TestCase):
         self.assertEqual(z["V"],585)
         self.assertEqual(z["original_Q_fiber_size_each"],9**6)
 
-    def test_05_failclosed_incompatible_original_8factor_and_invalid_maps(self):
+    def test_05_different_original_RIGHT_vs_LEFT_completion_type_no_assumed_covariance_sign(self):
+        # SAME complete original f left-cherry-C6 two-fiber geometry, but
+        # change ONE COMPLETE original g (still globally injected) so
+        # its eight selected real original LINE factor images form the
+        # *opposite* physical C4 two-switch completion type.
+        # The two true original Q_A/Q_B are still physically right C6,
+        # yet their SIX original incidence-position alignment need not
+        # agree at this global f. Test the nontrivial possible anti-
+        # correlation rather than assuming nonnegative source covariance.
+        model,pts,w=genuine_original_two_fiber_fixture(2,"vertex_replacement")
+        s,V,a,inc,f,g,_,_=_original_source(model)
+        line_by_point={}
+        for Q in (w["QA"],w["QB"]):
+            for j in Q:
+                point,line=inc[j]
+                if point in line_by_point and line_by_point[point]!=line:
+                    raise AssertionError("genuine original shared Q line mismatch")
+                line_by_point[point]=line
+        self.assertEqual(set(line_by_point),set(pts))
+        line_ids=tuple(line_by_point[p] for p in pts)
+        self.assertEqual(len(set(line_ids)),8)
+        right_edges=sum(GRAPH_CASES["four_cycle_switch"],())
+        swapped_g=_full_pair_injection(V,a,dict(zip(line_ids,right_edges)))
+        self.assertEqual(len(set(swapped_g)),V)
+        different=dict(model,right_labels=swapped_g)
+        original=original_two_fiber_same_global_96_orbit(model,pts)
+        alternate=original_two_fiber_same_global_96_orbit(different,pts)
+        cov1=original["historical_score_covariance_A_B"]
+        cov2=alternate["historical_score_covariance_A_B"]
+        self.assertGreaterEqual(Fraction(9,16)*
+                alternate["shared_squared_gradient_A"]*
+                alternate["shared_squared_gradient_B"],cov2**2)
+        self.assertGreater(alternate["historical_score_variance_A"],0)
+        self.assertGreater(alternate["historical_score_variance_B"],0)
+        print("AA4CL_TRUE_W34_RIGHT_C4_VS_LEFT_CHERRY",
+              "same_original_f_full",True,
+              "fully_remapped_g_injected",True,
+              "cov_original_cherry",str(cov1),
+              "cov_alt_right_C4",str(cov2),
+              "meanA",str(alternate["historical_score_mean_A"]),
+              "meanB",str(alternate["historical_score_mean_B"]),
+              "mixed",str(alternate["shared_mixed_gradient_A_B"]),flush=True)
+
+    def test_06_failclosed_incompatible_original_8factor_and_invalid_maps(self):
         m,pts,w=genuine_original_two_fiber_fixture(2,"vertex_replacement")
         s,V,a,inc,f,g,_,_=_original_source(m)
         with self.assertRaises(ValueError):
