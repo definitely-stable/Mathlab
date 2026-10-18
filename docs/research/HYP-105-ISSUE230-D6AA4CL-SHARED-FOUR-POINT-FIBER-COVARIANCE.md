@@ -103,6 +103,35 @@ For ALL three TRUE original GQs:
 
 The 96-state action is a consciously chosen SUBGROUP of globally legal whole-original f image permutations preserving both sixedge physical C6 supports. It does NOT exhaust all 8!=40320 possible f assignments nor full original GQ all-seven sixflag S. The covariance bound is all-h conditional, but does not close root issue #230 Branch A/B/C or prove any universal positive R3/ASET exponent.
 
+## 4a. Additional ALL-h labeled-dual obstruction and genuine W34 countercontrol
+
+The original two-completion classes from #607 are not just different PHYSICAL vertex sets: they have an elementary orbit-invariant on the SIX original incidence-column positions under the SAME actual 96-state subgroup. Let `I_4(C)=#{ e∈C: e⊆{0,1,2,3} }`, the number of actual source-column dual graph edges with BOTH endpoints among the FOUR shared original POINT factor positions. Swapping the four whole-original source POINT image assignments merely permutes positions 0..3; independently swapping the exclusive positions 4/5 cannot change how many dual edges lie completely within the shared-four positions. Thus `I_4(C)` is invariant across ALL 96 legally completed original f maps.
+
+For a physical twofactor formed by completing FOUR globally distinct common physical pair edges of **Case I alternating C4 two-edge switch**, the common four physical edges have degree pattern `(2,2,1,1,1,1)`, and exactly TWO incident coordinate dual edges occur between the four shared ORIGINAL sixposition columns: `I_4(C)=2`.
+
+For **Case II cherry-center replacement**, the common four physical edges form a length-four simple PATH on FIVE physical vertices with degree pattern `(2,2,2,1,1)`. Precisely THREE shared physical coordinates are internal, each generating a labeled dual edge joining two shared original position columns, hence `I_4(C)=3`. Under the complete globally injected original POINT-image S4 × S2 × S2 orbit these 3 versus 2 invariants persist.
+
+Therefore a TRUE ORIGINAL source POINT-A / source LINE-A sixflag Q whose **LEFT** physical family is Case II but whose **RIGHT** physical source LINE images realize Case I has `I_4(C_left)=3`, `I_4(C_right)=2` for EVERY same GLOBAL original POINT-image permutation in G. The historic source A/A aligned connected **D6** criterion cannot hold for this Q at ANY one of those 96 maps, despite BOTH left and right physical six-edge graphs being separately connected 2regular and both full typed images remaining globally injected. The same reverse-mismatch obstruction holds Case I LEFT versus Case II RIGHT.
+
+This is a genuine deterministic ALL-h **named-Q historical D6 NO-GO** for the conditional original eightfactor construction. It does NOT imply that all other Q in either complete six-POINT fiber are D6-free, let alone that the full original S=0. The 3-versus-2 shared-column invariant is a direct elementary degree-2 graph count, not claimed as new general graph theory.
+
+**Independent true W34 adversarial witness:** Keep the SAME complete original POINT f with Case II left cherry completion for two real Q_A and Q_B (eight genuine original POINT factors and eight distinct REAL original LINE sources, four TRUE shared incidence IDs). Construct a DIFFERENT but still COMPLETE and globally injected original LINE g assigning these eight actual real LINE source factors to Case I physical C4 switch edges, completing all other actual original LINE sources injectively. All eight selected physical g edges are distinct. The independent oracle now examines every one of 96 real complete original f states for BOTH true original Q and checks their right I4=2, left I4=3, and historic sevenclass rejection: exactly 2×96=192 genuine same-Q historical no-positive checks. Despite that incompatibility for the TWO pinned original Q, other original Q in the source-POINT-A fibers can remain D6 eligible (in this W34 finite fixture family A has positive orbit score variance). Family B's entire orbit score becomes CONSTANT and the full two-fiber covariance is exactly zero. Thus the previously posited *positive* covariance is NOT FORCED even by each family's original physical C6 validity; a physical right support alone cannot substitute original six-column D6 alignment.
+
+## 4b. Frozen exact genuine ORIGINAL W32/W34/W38 finite observations
+
+Every datum below comes from two ENTIRE true original six-POINT-source-A fibers with REAL actual original Q source IDs and ONE globally completed typed f,g in each GQ, then 96 complete coupled f permutations and direct independently recomputed historical seven-GF5 tags.
+
+| True original geometry and physical left completion | Right physically admissible source-Q in A/B fiber | Mean historical score A / B | Exact source-fiber covariance | Shared Dirichlet squared gradients D4(u), D4(v) | Mixed shared signed gradient |
+| --- | --- | --- | --- | --- | --- |
+| W(3,2), K6 left 2switch C4 | 4 / 5 | 5643/4 , 1881/4 | **10,614,483/16** | 17,690,805/4 ; 10,614,483/4 | 3,538,161/4 |
+| W(3,4), K14 left cherry replacement | 8 / 7 | 370443/4 , 366681/8 | **10,614,483/32** | 74,301,381/8 ; 10,614,483/8 | 10,614,483/16 |
+| W(3,8), physical left cherry replacement | 7 / 1 | 188043/4 , 1881/8 | **10,614,483/32** | 130,911,957/8 ; 10,614,483/8 | 3,538,161/16 |
+| W(3,4), left cherry RIGHT K6-type C4 2switch complete g countercontrol | 96 direct same-source global maps tested, two named original Q D6-forbidden all 96 | numerical supplementary live-CI | **0** | B conditional variance and D4(B) ZERO | **0** |
+
+The rows with positive covariance are REAL finite original examples; they do not prove a universal POSITIVE sign. The mismatched-g row supplies a genuine original zero-covariance countercontrol, not an all-h negative-sign witness. General 9/16 covariance inequality holds independently of either finite sign and cannot be reversed into a lower bound.
+
+A special scientific caution: although 96 full original f maps are distinct, they are all SAME occupied original pair image support; averaging over them is NOT averaging over arbitrary all-original f,g (as required by Branch A). Furthermore, two source POINT-A sixflag families considered here are disjoint as sets of original Q, but do not cover source POINT-B/C or all other sixfactor POINT sets. No full global S_s inference is permitted.
+
 ## 5. Scientific acceptance
 
 Only add this Draft after successful exact-head hosted CI, direct raw original sevenclass tests, independently qualified mathematical review and acceptance of parent PR stack; do not merge into main or claim root solved. Strongest NEXT research question after this exact overlap theorem is whether positive or negative covariance can be compelled/blocked by TRUE original W3 GQ incidence constraints across **all** overlapping source POINT fibers under a SAME arbitrary fixed global f,g. A positive 96-orbit average does not force positive original-center all-seven S_s.
