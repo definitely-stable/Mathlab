@@ -137,6 +137,16 @@ class AA4CMOriginalNegativeCovariance(unittest.TestCase):
                              EXPECTED_NAMED_NEGATIVE_COV)
             self.assertEqual(z["named"]["all_96_genuine_original_global_states_classified"],96)
             self.assertTrue(z["full_global_seven_GQ_S_NOT_computed"])
+            self.assertTrue(z["independently_directly_historical_sevenclass_96map_full_Q_referee"])
+            # Strict NEGATIVE full true-original A/A-source-family
+            # cross-covariance on real W34; ZERO on real W38.
+            # The negative NAMED Q covariance persists on BOTH.
+            self.assertEqual(z["entire_source_POINT_A_fiber_covariance"],
+                             Fraction(-10614483,32) if h==2 else Fraction(0))
+            self.assertEqual((
+                z["entire_source_POINT_A_fiber_right_eligible_Q_A"],
+                z["entire_source_POINT_A_fiber_right_eligible_Q_B"]),
+                (4,12) if h==2 else (7,55))
             self.assertGreaterEqual(
                 z["entire_source_POINT_A_fiber_right_eligible_Q_A"],1)
             self.assertGreaterEqual(
