@@ -53,7 +53,13 @@ class AA4CIOriginalFullS6Fiber(unittest.TestCase):
         self.assertGreaterEqual(r["source_class_counts"].get("C",0),1)
         self.assertGreaterEqual(r["source_class_counts"].get("A_physical_C6",0),1)
         self.assertGreaterEqual(r["original_baseline_B_C_weighted"],W_B+W_C)
-        self.assertGreaterEqual(r["active_cyclic_dual_types"],1)
+        self.assertEqual(r["source_class_counts"],{
+            "B":6,"C":3,"A_physical_C6":1,"A_physical_two_triangles":1})
+        self.assertEqual(r["active_cyclic_dual_types"],1)
+        self.assertEqual(r["original_baseline_B_C_weighted"],403560)
+        self.assertEqual((min(r["orbit_scores"]),max(r["orbit_scores"])),
+                         (403560,409203))
+        self.assertEqual(r["original_exact_orbit_mean"],Fraction(8073081,20))
         literal=direct_original_historical_fiber_orbit(
             model,pts,r["eligible_actual_original_Q"],PERMS)
         self.assertEqual(literal,r["orbit_scores"])
@@ -78,7 +84,11 @@ class AA4CIOriginalFullS6Fiber(unittest.TestCase):
         self.assertEqual(r["true_original_incidence_Q_count"],9**6)
         self.assertGreaterEqual(r["source_class_counts"].get("B",0),1)
         self.assertGreaterEqual(r["source_class_counts"].get("C",0),1)
-        self.assertGreaterEqual(r["source_class_counts"].get("A_physical_C6",0),1)
+        self.assertEqual(r["source_class_counts"],{
+            "B":21,"C":3,"A_physical_C6":32,"A_physical_two_triangles":1})
+        self.assertEqual(r["active_cyclic_dual_types"],13)
+        self.assertEqual(r["original_baseline_B_C_weighted"],1087560)
+        self.assertEqual(r["original_exact_orbit_mean"],Fraction(5452848,5))
         s,V,a,inc,f,g,_,_=_original_source(model)
         orbit,_=original_cycle_orbit(f,pts)
         representatives={}
@@ -151,8 +161,7 @@ class AA4CIOriginalFullS6Fiber(unittest.TestCase):
         self.assertEqual(len(by_perm),720)
         self.assertEqual(len(mult),60)
         self.assertEqual(set(mult.values()),{12})
-        x=tuple((0,1),(1,2)) if False else ()
-        bad_edges=((0,1),(1,2),(0,2),(3,4),(4,5),(3,5))
+         bad_edges=((0,1),(1,2),(0,2),(3,4),(4,5),(3,5))
         self.assertIsNone(_six_position_dual_cycle(bad_edges))
         bad=_full_pair_injection(V,a,dict(zip(pts,bad_edges)))
         modified=dict(model,left_labels=bad)
