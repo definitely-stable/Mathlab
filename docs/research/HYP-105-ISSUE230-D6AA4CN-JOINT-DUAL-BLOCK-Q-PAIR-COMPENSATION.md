@@ -79,6 +79,28 @@ This precisely identifies **which original sixflag incidences compensate which o
 
 These independent direct GF5 Q-pair oracles explicitly use the ACTUAL original sixflag IDs and same complete global f,g under every orbit state; do not replace original source Q by a synthetic copy of the physical eight-edge template. Reject unsupported completion patterns and malformed q values.
 
+## 4a. Final exact original Q-pair and true incidence-overlap evidence
+
+Independent GH-hosted checks on REAL symplectic ORIGINAL W32/W34/W38, with authentic immutable six-incidence IDs and complete global injective f,g, gave the following counts. Each original source RIGHT-A/LINE-A candidate Q is restricted to an actual reachable left sixposition dual type, and K counts real Q pairs coacceptable under the SAME globally completed f map. Historical source right-B/C accepted GF5 class contributions are invariants of this global f orbit, so their potentially large numeric values do NOT enter the covariance.
+
+| Real original symplectic W3 fixture | Physical completion | Orbit-active RIGHT D6 Q in source family A / B | Entire true Q pairs M | Compatible pairs K | Exact historical full POINT-A twofiber covariance | Constant historic B/C baselines A / B |
+| --- | --- | --- | ---: | ---: | --- | --- |
+| W(3,2) K6, genuine C4-switch | q=12 | 3 / 1 | 3 | 1 | +10,614,483/16 | separately computed |
+| W(3,4), #613 true 12-original-LINE disjoint-sixflag witness | cherry q=24 | 1 / 6 | 6 | 0 | **−10,614,483/32** | 0 / 228,000 |
+| W(3,8), same true all-h 12-LINE-source construction | cherry q=24 | 1 / 12 | 12 | 1 | **exactly 0** | 182,400 / 1,915,200 |
+
+**Direct ORIGINAL incidence-ID overlap decomposition, no physical-pair proxy:**
+
+- **W32:** `M_1=1,M_3=1,M_4=1`, with `K_4=1` and all other K_k=0; signed coefficients `6K_k−M_k` are −1 for k=1, −1 for k=3, +5 for k=4, all others zero. The total `6K−M=+3` explains the exact positive W32 covariance.
+- **W34:** all six right-D6-orbit-active cross-Q pairs have EXACTLY zero common original sixflag incidence IDs: `M_0=6,K_0=0`. Every such pair is historically D6-incompatible under ALL 96 complete common original f maps. This yields `12K−M=−6` and strict negative covariance.
+- **W38:** eleven right-D6-orbit-active pairs have zero common ORIGINAL incidence IDs: `M_0=11,K_0=0`. Exactly ONE additional pair has exactly ONE common ORIGINAL incidence ID: `M_1=1,K_1=1`; this pair can be HISTORICALLY accepted D6 at exactly TWO complete global maps. Its signed coefficient **+11** cancels the eleven separate `k=0` incompatible original-Q pairs, each coefficient −1. Thus `(12K_1−M_1)+(12K_0−M_0)=11−11=0`. This is the precisely identified ORIGINAL incidence-level mathematical mechanism underlying #613's W38 zero full-fiber covariance, NOT an imprecise appeal to right-source B/C or numerical drift.
+
+The W38 invariant source-right-B/C accepted historical weighted baselines are 182,400 and 1,915,200, far from zero. Yet **their contribution to this centered cross-fiber covariance is exactly zero** because they remain constant throughout the 96-map whole-original-POINT image orbit. These baselines still matter for the absolute original historical seven-GF5 score and must NOT be omitted from any future fixed-map global S argument.
+
+For every finite host the independent tester directly evaluates EACH D6-capable real six-ID Q's historical accepted tag under ALL 96 complete original f maps and intersects the resulting state sets for EVERY ordered cross-fiber Q pair. It independently verifies that actual coacceptance counts are 0 or 2 in cherry geometry / 0 or 4 in C4 geometry and matches literal original Q-ID overlap counts and the separate #612 historical full-seven-fiber covariance. This direct historical oracle does NOT use the predicted dual-compatibility block matrix to decide which pairs coaccept.
+
+**Scientific interpretation:** W38 compensation of the strictly negative #613 NAMED-Q covariance is achieved by another genuine original D6 sixflag pair with a shared TRUE original incidence ID; no reactive RIGHT-B/C class promotion takes place. At the same time, the all-h integer formula permits ALL THREE covariance signs depending on feasible original-H dual histograms. This is not yet a universal quantitative lower bound on full sevenclass S at a FIXED arbitrary original f,g.
+
 ## 5. Limitations, prior, next root-level scientific gate
 
 Classical ingredients: finite orbit counting under S4×S2×S2, two-regular bipartite components, incidence-original sixcycle matching and covariance of indicator sums. AA4-CL already established exact 96-map finite covariance; AA4-CM established negative selected-Q and W34 negative full-fiber examples. NEW scoped content is the all-h **joint-compatibility block theorem**, explicit low-rank q×q compatibility matrix, EXACT all-seven SOURCE-POINT-A two-fiber covariance as an INTEGER count of historically D6-capable TRUE original incidence-Q PAIRS, and the actual-Q-overlap refined explanation for W34 negative vs W38 zero.
