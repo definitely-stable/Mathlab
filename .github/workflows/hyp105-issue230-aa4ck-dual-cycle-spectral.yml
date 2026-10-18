@@ -1,0 +1,52 @@
+name: hyp105-issue230-aa4ck-dual-cycle-spectral-swap-energy
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ck_dual_cycle_transposition_spectral_energy.py"
+      - "research/test_hyp105_issue230_d6aa4ck_dual_cycle_transposition_spectral_energy.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CK-DUAL-C6-TRANSPOSITION-SPECTRAL-ENERGY.md"
+      - ".github/workflows/hyp105-issue230-aa4ck-dual-cycle-spectral.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact_integer_60cycle_S6_D6_schreier_spectrum:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact 60x60 integer annihilator and exact power traces, full rational multiplicity certificate, 900 source-dual transposition oracle
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ck_dual_cycle_transposition_spectral_energy.py' -v -k test_01
+  true_original_W32_lex_S72_900_full_source_POINT_swaps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real original W32 lex and S72, each entire 3^6 genuine six-incidence source Q fiber, 900 direct historical GF5 actual complete POINT source transpositions
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ck_dual_cycle_transposition_spectral_energy.py' -v -k test_02
+  true_original_W34_mixed_historical_7GF5_900_full_swaps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real W34 original 15625 source-point Q, B/C constant 403560, historical D6 exact 60-dual spectrum and all 900 direct complete global f swaps
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ck_dual_cycle_transposition_spectral_energy.py' -v -k test_03
+  true_original_W38_original_D6_allh_fan_and_mixed_900_full_swaps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real W38 original 531441 source Q, 900 direct genuine historical seven-GF5 complete global POINT swaps; independent AA4-CH all-h named original D6 fan exact 120/59 ratio
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ck_dual_cycle_transposition_spectral_energy.py' -v -k test_04
