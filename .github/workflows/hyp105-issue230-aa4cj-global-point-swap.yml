@@ -1,0 +1,62 @@
+name: hyp105-issue230-aa4cj-global-point-swap-seven-GF5-flux
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cj_global_point_swap_dual_flow_ledger.py"
+      - "research/test_hyp105_issue230_d6aa4cj_global_point_swap_dual_flow_ledger.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CJ-GLOBAL-POINT-SWAP-SEVEN-CLASS-FLUX.md"
+      - ".github/workflows/hyp105-issue230-aa4cj-global-point-swap.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true-W32-lex-all-seven-before-after-complete-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: FULL ORIGINAL W32 both 62370 candidate sixflag domains and independent 7GF5 exact signed migration across all sectors, lex
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cj_global_point_swap_dual_flow_ledger.py' -v -k test_01
+  true-W32-S72-and-lex-other-source-pointpair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent true W32 S72 and lex other globally swapped source POINT-factor pair, all 7 historical GF5 source classes and gains/losses
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cj_global_point_swap_dual_flow_ledger.py' -v -k test_02
+  original-W34-W38-dual-aware-historical-BC-D6-coacceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original W34 W38 same source POINT-A fiber, right B/C classes invariant D6 forbidden coacceptance under one global complete original f swap
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cj_global_point_swap_dual_flow_ledger.py' -v -k test_03
+  original-W34-W38-exactly-one-POINT-edge-independent-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently reconstruct two different REAL ORIGINAL source POINT A sixflags with exactly one swapped POINT and opposite left physical 2factor acceptance
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cj_global_point_swap_dual_flow_ledger.py' -v -k test_04
+  original-allh-D6-fan-and-rejection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real original W34 W38 D6 fan every six incidence IDs, one globally injected transposition, exact 5643 loss each plus invalid source guards
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cj_global_point_swap_dual_flow_ledger.py' -v -k test_05
