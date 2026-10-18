@@ -138,6 +138,9 @@ class AA4CLExactTwoFiberScientificReferee(unittest.TestCase):
         self.assertEqual(z["V"],15)
         self.assertEqual(z["a"],6)
         self.assertEqual(z["original_Q_fiber_size_each"],3**6)
+        self.assertEqual(z["historical_score_covariance_A_B"],Fraction(10614483,16))
+        self.assertEqual((len(z["original_histograms"]["A"]["eligible_actual_original_Q"]),
+                          len(z["original_histograms"]["B"]["eligible_actual_original_Q"])),(4,5))
 
     def test_03_TRUE_W34_two_overlapping_fibers_vertex_replacement(self):
         z=self._direct_true_original_96_referee(2,"vertex_replacement")
@@ -145,12 +148,18 @@ class AA4CLExactTwoFiberScientificReferee(unittest.TestCase):
         self.assertEqual(z["V"],85)
         self.assertEqual(z["a"],14)
         self.assertEqual(z["original_Q_fiber_size_each"],5**6)
+        self.assertEqual(z["historical_score_covariance_A_B"],Fraction(10614483,32))
+        self.assertEqual((len(z["original_histograms"]["A"]["eligible_actual_original_Q"]),
+                          len(z["original_histograms"]["B"]["eligible_actual_original_Q"])),(8,7))
 
     def test_04_TRUE_W38_two_overlapping_fibers_vertex_replacement(self):
         z=self._direct_true_original_96_referee(3,"vertex_replacement")
         self.assertEqual(z["s"],8)
         self.assertEqual(z["V"],585)
         self.assertEqual(z["original_Q_fiber_size_each"],9**6)
+        self.assertEqual(z["historical_score_covariance_A_B"],Fraction(10614483,32))
+        self.assertEqual((len(z["original_histograms"]["A"]["eligible_actual_original_Q"]),
+                          len(z["original_histograms"]["B"]["eligible_actual_original_Q"])),(7,1))
 
     def test_05_different_original_RIGHT_vs_LEFT_completion_type_no_assumed_covariance_sign(self):
         # SAME complete original f left-cherry-C6 two-fiber geometry, but
@@ -209,6 +218,8 @@ class AA4CLExactTwoFiberScientificReferee(unittest.TestCase):
         # baseline can persist, but B has zero D6 variation.
         self.assertEqual(alternate["historical_score_variance_B"],0)
         self.assertEqual(cov2,0)
+        self.assertEqual(alternate["historical_score_mean_A"],Fraction(9405,8))
+        self.assertEqual(alternate["historical_score_mean_B"],0)
         self.assertGreater(cov1,0)
         print("AA4CL_TRUE_W34_RIGHT_C4_VS_LEFT_CHERRY",
               "same_original_f_full",True,
