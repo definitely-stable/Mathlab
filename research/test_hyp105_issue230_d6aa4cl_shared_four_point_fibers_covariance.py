@@ -8,13 +8,14 @@ from hyp105_issue230_d6aa4cl_shared_four_point_fibers_covariance import (
     S4,SWAPS,ORBIT,A_S4,GRAPH_CASES,FAMILIES,
     exact_shared_S4_spectral_certificate,s4_swap,complete_overlapping_global_f,
     original_two_fiber_same_global_96_orbit,genuine_original_two_fiber_fixture,
-    _cov,_mean,_shared_gradient,
+    _cov,_mean,_shared_gradient,shared_internal_dual_adjacencies,
 )
 from hyp105_issue230_d6aa4bh_local_seven_compensation import _original_source
 from hyp105_issue230_d6aa4ch_maximal_d6_fan_physical_gram_nogo import _full_pair_injection
 from hyp105_issue230_d6aa4cg_four_shared_edge_two_completion import (
     classify_seven_all_a_original_Q,classify_four_common_completion,
 )
+from hyp105_issue230_d6aa4ci_dual_cycle_orbit_fiber_invariant import _six_position_dual_cycle
 from hyp105_g5e2b3e1b0_seven_signature import R3_CERTIFIED_FLOORS
 
 
@@ -176,6 +177,23 @@ class AA4CLExactTwoFiberScientificReferee(unittest.TestCase):
         swapped_g=_full_pair_injection(V,a,dict(zip(line_ids,right_edges)))
         self.assertEqual(len(set(swapped_g)),V)
         different=dict(model,right_labels=swapped_g)
+        # Source A/A pinned Q have DIFFERENT completion STRUCTURAL
+        # orbit invariants: left cherry =3 adjacencies among its four
+        # common original incidence-column positions, right 2switch =2.
+        # Therefore neither historical D6 may be positive in ANY
+        # jointly legal complete original f map of the shared 96 orbit.
+        for fam in ("A","B"):
+            Q=w["Q"+fam]
+            positions=FAMILIES[fam]
+            right=tuple(swapped_g[inc[next(
+                j for j in Q if inc[j][0]==pts[i])][1]] for i in positions)
+            rc=_six_position_dual_cycle(right)
+            self.assertEqual(shared_internal_dual_adjacencies(rc),2)
+            for state in ORBIT:
+                ff=complete_overlapping_global_f(f,pts,state)
+                left=_six_position_dual_cycle(tuple(ff[pts[i]] for i in positions))
+                self.assertEqual(shared_internal_dual_adjacencies(left),3)
+                self.assertIsNone(classify_seven_all_a_original_Q(Q,ff,swapped_g,inc))
         original=original_two_fiber_same_global_96_orbit(model,pts)
         alternate=original_two_fiber_same_global_96_orbit(different,pts)
         cov1=original["historical_score_covariance_A_B"]
