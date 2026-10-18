@@ -108,6 +108,12 @@ class AA4CNExactOriginalBlockAndCompensation(unittest.TestCase):
         self.assertEqual(
             sum(z["signed_coefficient_by_TRUE_original_Q_incidence_overlap"].values()),
             6*z["K_compatible_original_D6_Q_pairs"]-z["M_all_original_D6_Q_pairs"])
+        self.assertEqual((z["M_all_original_D6_Q_pairs"],
+                          z["K_compatible_original_D6_Q_pairs"]),(3,1))
+        self.assertEqual(z["M_by_number_shared_TRUE_original_incidence_IDs"],
+                         {1:1,3:1,4:1})
+        self.assertEqual(z["K_by_number_shared_TRUE_original_incidence_IDs"],
+                         {4:1})
         print("AA4CN_TRUE_ORIGINAL_W32",direct,"overlap",
               z["signed_coefficient_by_TRUE_original_Q_incidence_overlap"],flush=True)
 
@@ -118,6 +124,14 @@ class AA4CNExactOriginalBlockAndCompensation(unittest.TestCase):
         self.assertEqual(z["completion_case"],"vertex_replacement")
         self.assertEqual(z["exact_original_twofiber_GF5_covariance"],Fraction(-10614483,32))
         self.assertEqual(12*z["K_compatible_original_D6_Q_pairs"]-z["M_all_original_D6_Q_pairs"],-6)
+        self.assertEqual((z["right_original_D6_Q_active_A"],
+                          z["right_original_D6_Q_active_B"]),(1,6))
+        self.assertEqual((z["M_all_original_D6_Q_pairs"],
+                          z["K_compatible_original_D6_Q_pairs"]),(6,0))
+        self.assertEqual(z["M_by_number_shared_TRUE_original_incidence_IDs"],{0:6})
+        self.assertEqual(z["K_by_number_shared_TRUE_original_incidence_IDs"],{})
+        self.assertEqual((z["exact_invariant_historical_BC_baseline_A"],
+                          z["exact_invariant_historical_BC_baseline_B"]),(0,228000))
         direct=independent_original_pair_vs_block_ledger(
             f["actual_original_model"],f["eight_REAL_original_POINT_source_ids"],z)
         self.assertEqual(direct["direct_covariance"],Fraction(-10614483,32))
@@ -134,6 +148,15 @@ class AA4CNExactOriginalBlockAndCompensation(unittest.TestCase):
         self.assertEqual(z["exact_original_twofiber_GF5_covariance"],0)
         self.assertEqual(z["M_all_original_D6_Q_pairs"],
                          12*z["K_compatible_original_D6_Q_pairs"])
+        self.assertEqual((z["right_original_D6_Q_active_A"],
+                          z["right_original_D6_Q_active_B"]),(1,12))
+        self.assertEqual((z["M_all_original_D6_Q_pairs"],
+                          z["K_compatible_original_D6_Q_pairs"]),(12,1))
+        self.assertEqual(z["M_by_number_shared_TRUE_original_incidence_IDs"],
+                         {0:11,1:1})
+        self.assertEqual(z["K_by_number_shared_TRUE_original_incidence_IDs"],{1:1})
+        self.assertEqual((z["exact_invariant_historical_BC_baseline_A"],
+                          z["exact_invariant_historical_BC_baseline_B"]),(182400,1915200))
         direct=independent_original_pair_vs_block_ledger(
             f["actual_original_model"],f["eight_REAL_original_POINT_source_ids"],z)
         self.assertEqual(direct["direct_covariance"],0)
