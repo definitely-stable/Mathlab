@@ -200,10 +200,13 @@ def exact_GF5_sixcycle_histogram_energy(hist,baseline=0):
     value=tuple(baseline+W_D*hist.get(c,0) for c in CANONICAL_CYCLES)
     mean=Fraction(sum(value),N)
     var=sum(((v-mean)**2 for v in value),Fraction())/N
-    drift=sum(((value[CYCLE_INDEX[transposed_original_dual(c,i,j)]]-value[k])**2
-               for k,c in enumerate(CANONICAL_CYCLES)
-               for i,j in TRANSPOSITIONS),0)/(N*DEGREE)
-    drift=Fraction(drift)
+    # EXACT rational: integer sum before the Fraction denominator.
+    # Never permit intermediate float division of potentially huge
+    # historical GF5 weighted original sixflag counts.
+    drift=Fraction(sum((
+        (value[CYCLE_INDEX[transposed_original_dual(c,i,j)]]-value[k])**2
+        for k,c in enumerate(CANONICAL_CYCLES)
+        for i,j in TRANSPOSITIONS),0),N*DEGREE)
     if not Fraction(4,3)*var<=drift<=Fraction(16,5)*var:
         raise AssertionError("true original historical GF5 D6 violated exact spectral gap")
     local=tuple(Fraction(sum(ADJACENCY[k][j]*value[j] for j in range(N)),DEGREE)
