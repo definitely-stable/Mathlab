@@ -35,7 +35,7 @@ unsigned long long both_physical_sixcoordinate_Q=0;
 unsigned long long candidates=0, pruned=0;
 array<int,6> choice_point{},choice_line{};
 array<int,6> target_ids{},target_original_lines{};
-bool have_target=false;
+bool have_target=false,active_target_pattern=false;
 unsigned long long target_pattern_seen=0,target_Q_leaf_seen=0,target_Q_physical_seen=0;
 int physical_kind(const array<int,6>& labels) {
     array<int,6> ids=labels;sort(ids.begin(),ids.end());
@@ -120,7 +120,7 @@ void evaluate(const Pattern& pattern,const array<int,6>& selected_points) {
 }
 void walk_group(const Pattern& pat,const vector<vector<Alt>>& alternatives,
                 const vector<vector<int>>& positions,int group,U64 sum){
-    bool target_prefix=have_target;
+    bool target_prefix=have_target && active_target_pattern;
     if(target_prefix)for(int k=0;k<group;k++)for(int slot:positions[k]){
         int id=original_flag_id[choice_point[slot]][choice_line[slot]];
         if(!binary_search(target_ids.begin(),target_ids.end(),id))
@@ -165,10 +165,14 @@ void process_pattern(const Pattern& p){
     array<int,6> sorted=p.lines;
     // Input position indexing must stay identical for LEFT and RIGHT dual.
     choice_line=p.lines;
+    active_target_pattern=false;
     if(have_target){
         auto target=p.lines;
         sort(target.begin(),target.end());
-        if(target==target_original_lines)++target_pattern_seen;
+        if(target==target_original_lines){
+            ++target_pattern_seen;
+            active_target_pattern=true;
+        }
     }
     array<bool,6> done{};
     for(int k=0;k<6;k++){
