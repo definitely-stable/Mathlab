@@ -14,7 +14,6 @@
 #include <fstream>
 #include <iostream>
 #include <numeric>
-#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -34,9 +33,6 @@ array<unsigned long long,3> right_pattern_biphysical{};
 unsigned long long both_physical_sixcoordinate_Q=0;
 unsigned long long candidates=0, pruned=0;
 array<int,6> choice_point{},choice_line{};
-array<int,6> target_ids{},target_original_lines{};
-bool have_target=false,active_target_pattern=false;
-unsigned long long target_pattern_seen=0,target_Q_leaf_seen=0,target_Q_physical_seen=0;
 int physical_kind(const array<int,6>& labels) {
     array<int,6> ids=labels;sort(ids.begin(),ids.end());
     int multiplicity[6]={},n=0;
@@ -98,12 +94,6 @@ void classify(const Pattern& pattern) {
 void evaluate(const Pattern& pattern,const array<int,6>& selected_points) {
     choice_point=selected_points;
     ++both_physical_sixcoordinate_Q;
-    if(have_target){
-        array<int,6> ids{};
-        for(int i=0;i<6;i++)ids[i]=original_flag_id[choice_point[i]][choice_line[i]];
-        sort(ids.begin(),ids.end());
-        if(ids==target_ids)++target_Q_physical_seen;
-    }
     ++right_pattern_biphysical[pattern.right_kind];
     if(getenv("AA4CP_DUMP_PHYSICAL_Q")){
         array<int,6> ids{};
@@ -120,20 +110,8 @@ void evaluate(const Pattern& pattern,const array<int,6>& selected_points) {
 }
 void walk_group(const Pattern& pat,const vector<vector<Alt>>& alternatives,
                 const vector<vector<int>>& positions,int group,U64 sum){
-    bool target_prefix=have_target && active_target_pattern;
-    if(target_prefix)for(int k=0;k<group;k++)for(int slot:positions[k]){
-        int id=original_flag_id[choice_point[slot]][choice_line[slot]];
-        if(!binary_search(target_ids.begin(),target_ids.end(),id))
-            target_prefix=false;
-    }
     if(group==(int)alternatives.size()){
         ++candidates;
-        if(have_target){
-            array<int,6> ids{};
-            for(int i=0;i<6;i++)ids[i]=original_flag_id[choice_point[i]][choice_line[i]];
-            sort(ids.begin(),ids.end());
-            if(ids==target_ids)++target_Q_leaf_seen;
-        }
         if((sum&~TWOS)==0 && __builtin_popcountll(sum)==6){
             evaluate(pat,choice_point);
         }
@@ -142,18 +120,7 @@ void walk_group(const Pattern& pat,const vector<vector<Alt>>& alternatives,
     const auto& ps=positions[group];
     for(const auto& alt:alternatives[group]){
         U64 next=sum+alt.mask;
-        bool target_alt=target_prefix;
-        if(target_alt)for(size_t j=0;j<positions[group].size();j++){
-            int id=original_flag_id[alt.point[j]][choice_line[positions[group][j]]];
-            if(!binary_search(target_ids.begin(),target_ids.end(),id))
-                target_alt=false;
-        }
-        bool bad=((next&FOURS) || ((next&ONES)&((next>>1)&ONES)));
-        if(target_alt)
-            cout<<"TARGET_PREFIX depth "<<group<<" sum "<<sum
-                <<" mask "<<alt.mask<<" next "<<next
-                <<" rejected "<<int(bad)<<"\n";
-        if(bad){++pruned;continue;}
+        if((next&FOURS)||((next&ONES)&((next>>1)&ONES))){++pruned;continue;}
         for(size_t i=0;i<ps.size();++i)choice_point[ps[i]]=alt.point[i];
         walk_group(pat,alternatives,positions,group+1,next);
     }
@@ -165,15 +132,6 @@ void process_pattern(const Pattern& p){
     array<int,6> sorted=p.lines;
     // Input position indexing must stay identical for LEFT and RIGHT dual.
     choice_line=p.lines;
-    active_target_pattern=false;
-    if(have_target){
-        auto target=p.lines;
-        sort(target.begin(),target.end());
-        if(target==target_original_lines){
-            ++target_pattern_seen;
-            active_target_pattern=true;
-        }
-    }
     array<bool,6> done{};
     for(int k=0;k<6;k++){
         if(done[k])continue;
@@ -189,29 +147,6 @@ void process_pattern(const Pattern& p){
         }
         if(opts.empty())throw runtime_error("empty actual original LINE star");
         alternatives.push_back(move(opts));positions.push_back(move(ps));
-    }
-    if(have_target){
-        auto source_lines=p.lines;sort(source_lines.begin(),source_lines.end());
-        if(source_lines==target_original_lines){
-            cout<<"TARGET_PATTERN_GROUPS "<<alternatives.size()<<"\n";
-            for(size_t k=0;k<positions.size();k++){
-                int line=p.lines[positions[k][0]];
-                vector<int> want;
-                for(int id:target_ids)if(flags[id][1]==line)want.push_back(flags[id][0]);
-                sort(want.begin(),want.end());
-                unsigned match=0;
-                for(const auto& opt:alternatives[k]){
-                    vector<int> got;
-                    for(size_t i=0;i<positions[k].size();i++)got.push_back(opt.point[i]);
-                    sort(got.begin(),got.end());
-                    if(got==want)++match;
-                }
-                cout<<"TARGET_GROUP "<<k<<" LINE "<<line
-                    <<" SIZE "<<positions[k].size()
-                    <<" MATCH "<<match
-                    <<" ALTS "<<alternatives[k].size()<<"\n";
-            }
-        }
     }
     walk_group(p,alternatives,positions,0,0);
 }
@@ -311,32 +246,12 @@ void validate(){
         seen[p][l]=true;original_flag_id[p][l]=id;
         ++left_degree[p];++right_degree[l];by_line[l].push_back(p);
     }
-    if(const char* raw=getenv("AA4CP_TARGET_Q")){
-        stringstream ss(raw);string item;int n=0;
-        while(getline(ss,item,',')){
-            if(n>=6)throw runtime_error("target Q more than six original source flags");
-            int id=stoi(item);
-            if(id<0||id>=I)throw runtime_error("target original source incidence ID out of range");
-            target_ids[n++]=id;
-        }
-        if(n!=6)throw runtime_error("target Q must use exactly six real original incidence IDs");
-        sort(target_ids.begin(),target_ids.end());
-        for(int i=0;i<6;i++)target_original_lines[i]=flags[target_ids[i]][1];
-        sort(target_original_lines.begin(),target_original_lines.end());
-        have_target=true;
-    }
     for(int q=0;q<V;q++)if(left_degree[q]!=s+1||right_degree[q]!=s+1)
         throw runtime_error("not exact true original GQ degree");
     for(int v=0;v<a;v++){ONES|=U64(1)<<(4*v);TWOS|=U64(2)<<(4*v);FOURS|=U64(4)<<(4*v);}
     fcode.assign(V,0);
     if(fcode.size()!=size_t(V))throw runtime_error("original POINT factor-mask array must have V entries");
     for(int q=0;q<V;q++) fcode.at(q)=(U64(1)<<(4*f[q][0]))+(U64(1)<<(4*f[q][1]));
-    if(have_target){
-        U64 total=0;
-        for(int id:target_ids)total+=fcode[flags[id][0]];
-        cout<<"TARGET_RAW_FULL_LEFT "<<total<<" VALID "<<int(
-            (total&~TWOS)==0 && __builtin_popcountll(total)==6)<<"\n";
-    }
     for(int i=0;i<6;i++)for(int j=i+1;j<6;j++)local_edges.push_back({i,j});
 }
 void read_model(const string& path){
@@ -374,9 +289,6 @@ int main(int argc,char**argv){
         cout<<"early_right_to_left_physical_degree_prunes "<<pruned<<"\n";
         for(int i=0;i<7;i++)cout<<tags[i]<<" "<<counts[i]<<"\n";
         cout<<"S_unweighted "<<S<<"\nW_weighted "<<W<<"\n";
-        if(have_target){cout<<"TARGET_right_pattern_seen "<<target_pattern_seen<<"\n";
-            cout<<"TARGET_six_incidence_combination_seen "<<target_Q_leaf_seen<<"\n";
-            cout<<"TARGET_left_and_right_physical_seen "<<target_Q_physical_seen<<"\n";}
         cout<<"all_h_lower_proved 0\n";
         return 0;
     }catch(const exception&e){cerr<<"AA4CP FAIL CLOSED: "<<e.what()<<"\n";return 2;}
