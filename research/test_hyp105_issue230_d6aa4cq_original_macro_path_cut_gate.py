@@ -1,5 +1,6 @@
 """AA4-CQ independent original-source, path-walk and arithmetic falsifiers."""
 from math import comb, isqrt
+from itertools import combinations
 import unittest
 
 from hyp105_issue230_projection import fixture
@@ -114,6 +115,74 @@ class AA4CQOriginalPathCutCertificate(unittest.TestCase):
             self.assertGreaterEqual(128*m*(m-s-1), V*V)
             self.assertLess(H, a-1)
             print("AA4CQ_ARITH_ALL_H",h,"a",a,"m",m,flush=True)
+
+    def test_06_true_original_W32_exact_sixflag_BBo_matching_extension(self):
+        """Independent 3! matching enumeration, NOT a physical GF5 acceptance."""
+        for scheme in ("lex", "S72"):
+            original = fixture(1, scheme)
+            s, V, a, f, g, pl, lp = _validated_original(original)
+            d = s + 1
+            flags = tuple((p, l) for p in range(V) for l in pl[p])
+            self.assertEqual(len(flags), V*d)
+            cut = macro_path_cut(original)
+            cut_endpoints = {(p, l)
+                             for p in cut["P_original_point_factor_ids"]
+                             for l in cut["L_original_line_factor_ids"]
+                             if l not in pl[p]}
+            visited_source_Q_for_cut = set()
+            total_original_source_BBo = 0
+            total_cut_BBo = 0
+            for p in range(V):
+                for l in range(V):
+                    if l in pl[p]:
+                        continue
+                    path = [(l0, q) for l0 in pl[p]
+                            for q in lp[l0] if l in pl[q]]
+                    self.assertEqual(len(path), 1)
+                    l0, q = path[0]
+                    self.assertNotEqual(p, q)
+                    self.assertNotEqual(l, l0)
+                    path_flags = ((p,l0),(q,l0),(q,l))
+                    excluded_points = {p,q}
+                    excluded_lines = {l0,l}
+                    eligible = [flag for flag in flags
+                                if flag[0] not in excluded_points
+                                and flag[1] not in excluded_lines]
+                    cnt = 0
+                    for triple in combinations(eligible, 3):
+                        if (len({u for u,v in triple}) != 3 or
+                                len({v for u,v in triple}) != 3):
+                            continue
+                        cnt += 1
+                        if (p, l) in cut_endpoints:
+                            q6 = frozenset(path_flags + triple)
+                            self.assertEqual(len(q6), 6)
+                            # Exactly source path(3) + 3 original singleton flags.
+                            pc = [sum(u == pid for u,v in q6) for pid in range(V)]
+                            lc = [sum(v == lid for u,v in q6) for lid in range(V)]
+                            self.assertEqual(sorted(v for v in pc if v),[1,1,1,1,2])
+                            self.assertEqual(sorted(v for v in lc if v),[1,1,1,1,2])
+                            self.assertNotIn(q6,visited_source_Q_for_cut)
+                            visited_source_Q_for_cut.add(q6)
+                    # The genuine original W32 GQ has a uniform nonincident
+                    # original 3-path orbit; source-only total from AA4-U.
+                    self.assertEqual(cnt, 5056)
+                    self.assertGreaterEqual(6*cnt,
+                                            (V*d-4*d)*(V*d-6*d)*(V*d-8*d))
+                    total_original_source_BBo += cnt
+                    if (p, l) in cut_endpoints:
+                        total_cut_BBo += cnt
+            self.assertEqual(total_original_source_BBo, 910080)
+            self.assertEqual(total_cut_BBo, 5056*cut["unique_original_simple_3path_count"])
+            self.assertEqual(len(visited_source_Q_for_cut), total_cut_BBo)
+            self.assertGreaterEqual(
+                6*total_cut_BBo,
+                cut["source_BBo_six_distinct_original_flags_matched_anchor_floor_numerator"])
+            print("AA4CQ_GENUINE_SOURCE_W32_MATCHING",scheme,
+                  "total_original_BBo",total_original_source_BBo,
+                  "cut_original_BBo",total_cut_BBo,
+                  "path_cut_count",cut["unique_original_simple_3path_count"],
+                  "historical_physical_GF5_ACCEPTANCE_NOT_IMPLIED",flush=True)
 
 
 if __name__ == "__main__":
