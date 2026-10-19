@@ -58,11 +58,13 @@ def full_original_sevenclass_right_join(model, *, timeout_seconds=1200, dump_phy
         raise RuntimeError("AA4-CP failclosed original source right join: "+p.stderr[:7000])
     out={}
     physical_Q=[]
+    target_option_rows=[]
     for line in p.stdout.splitlines():
         name,*value=line.split()
         if name=="TARGET_GROUP":
             # A diagnostic for a pinned genuine original six-incidence Q;
             # never contributes to the accepted motif ledger.
+            target_option_rows.append(line)
             continue
         if name=="PHYSICAL_Q":
             if len(value)!=6:raise AssertionError("diagnostic must retain six actual original incidence IDs")
@@ -100,9 +102,12 @@ def full_original_sevenclass_right_join(model, *, timeout_seconds=1200, dump_phy
             "one_full_original_source_incidence_host":True,
             "one_entire_globally_injected_f_g":True,
             "physical_Q_ID_sets":tuple(physical_Q) if dump_physical_Q else None,
-            "target_original_Q_debug":({k:out["TARGET_"+k] for k in (
-                "right_pattern_seen","six_incidence_combination_seen",
-                "left_and_right_physical_seen")} if target_original_Q is not None else None),
+            "target_original_Q_debug":({
+                **{k:out["TARGET_"+k] for k in (
+                    "right_pattern_seen","six_incidence_combination_seen",
+                    "left_and_right_physical_seen")},
+                "source_neighbor_option_groups":tuple(target_option_rows)}
+                if target_original_Q is not None else None),
             "root_230":"OPEN_WITH_FORMAL_BLOCKER"}
 
 
