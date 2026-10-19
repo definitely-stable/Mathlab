@@ -171,6 +171,29 @@ void process_pattern(const Pattern& p){
         if(opts.empty())throw runtime_error("empty actual original LINE star");
         alternatives.push_back(move(opts));positions.push_back(move(ps));
     }
+    if(have_target){
+        auto source_lines=p.lines;sort(source_lines.begin(),source_lines.end());
+        if(source_lines==target_original_lines){
+            cout<<"TARGET_PATTERN_GROUPS "<<alternatives.size()<<"\n";
+            for(size_t k=0;k<positions.size();k++){
+                int line=p.lines[positions[k][0]];
+                vector<int> want;
+                for(int id:target_ids)if(flags[id][1]==line)want.push_back(flags[id][0]);
+                sort(want.begin(),want.end());
+                unsigned match=0;
+                for(const auto& opt:alternatives[k]){
+                    vector<int> got;
+                    for(size_t i=0;i<positions[k].size();i++)got.push_back(opt.point[i]);
+                    sort(got.begin(),got.end());
+                    if(got==want)++match;
+                }
+                cout<<"TARGET_GROUP "<<k<<" LINE "<<line
+                    <<" SIZE "<<positions[k].size()
+                    <<" MATCH "<<match
+                    <<" ALTS "<<alternatives[k].size()<<"\n";
+            }
+        }
+    }
     walk_group(p,alternatives,positions,0,0);
 }
 vector<array<int,2>> local_edges;
