@@ -80,6 +80,9 @@ def full_original_sevenclass_right_join(model, *, timeout_seconds=1200):
             "right_source_Q_candidate_completions_tested":out["source_Q_right_deg2_tested"],
             "right_to_left_degree_prunes":out["early_right_to_left_physical_degree_prunes"],
             "physical_sixpalettes":out["physical_sixpalettes"],
+            "BOTH_physical_Q":out["BOTH_left_and_right_physical_sixcoordinate_Q"],
+            "BOTH_physical_by_RIGHT_source":{
+                key:out["BOTH_physical_right_source_"+key] for key in "ABC"},
             "one_full_original_source_incidence_host":True,
             "one_entire_globally_injected_f_g":True,
             "root_230":"OPEN_WITH_FORMAL_BLOCKER"}
@@ -90,3 +93,40 @@ def independent_W32_sevenclass_reference(model):
     ref=seven_census(model,independent_checks=False)
     return {"counts":ref["seven_class_motif_counts"],
             "S":ref["S_seven"],"W":ref["GF5_seven_lower_numerator"]}
+
+
+def swap_actual_original_GQ_dual(model):
+    """Independent LEFT-first physical candidate basis for the same original flags.
+
+    The actual original source incidence graph is dualized, POINT/LINE
+    roles and their two FULL globally injected maps exchanged once.
+    Every original flag (p,l) becomes (l,p), preserving the SAME
+    six original incidence IDs indexed in the same order, and 7GF5
+    accepted classes transpose by a KNOWN exact involution.
+    """
+    s,V,a,inc,f,g,_,_=_original_source(model)
+    out=dict(model)
+    out["left_labels"]=g
+    out["right_labels"]=f
+    out["incidences"]=tuple((l,p) for p,l in inc)
+    return out
+
+
+def assert_genuine_original_dual_swap_sevenclass_involution(a,b):
+    """Check entire physical two-sided join and seven historic GF5 tag involution."""
+    trans={"D6":"D6",
+           "B-left/A-right":"A-left/B-right",
+           "A-left/B-right":"B-left/A-right",
+           "C/A":"C/A","C/B":"C/B",
+           "B/B-overlap":"B/B-overlap",
+           "B/B-disjoint":"B/B-disjoint"}
+    if set(trans)!=set(CLASS_NAMES):
+        raise AssertionError("missing true historic GF5 transposition class")
+    if a["S_unweighted"]!=b["S_unweighted"] or a["W_weighted"]!=b["W_weighted"]:
+        raise AssertionError("true ORIGINAL 6ID historical all-seven S/W differs under complete global POINT-LINE dual transpose")
+    if a["BOTH_physical_Q"]!=b["BOTH_physical_Q"]:
+        raise AssertionError("true original sixflag two-sided physical 2factor JOINT census differs under globally exchanged source maps")
+    if any(a["seven_class_motif_counts"][k]!=b["seven_class_motif_counts"][v]
+           for k,v in trans.items()):
+        raise AssertionError("true historical GF5 sevenclass actual original Q tags do not match dual-swapped source")
+    return True
