@@ -51,7 +51,8 @@ class AA4CPExactOriginalAllSevenJoin(unittest.TestCase):
 
     def test_04_true_original_W34_full_historical_all7_random(self):
         original=fixture(2,"random")
-        z=full_original_sevenclass_right_join(original,timeout_seconds=1500)
+        z=full_original_sevenclass_right_join(original,timeout_seconds=1500,
+            dump_physical_Q=True)
         self.assertEqual((z["s"],z["V"],z["a"]),(4,85,14))
         self.assertEqual(z["physical_sixpalettes"],3003)
         self.assertGreater(z["S_unweighted"],0)
@@ -61,7 +62,18 @@ class AA4CPExactOriginalAllSevenJoin(unittest.TestCase):
             "D6":0,"B-left/A-right":16,"A-left/B-right":8,"C/A":65,
             "C/B":14,"B/B-overlap":2,"B/B-disjoint":2})
         dual=full_original_sevenclass_right_join(
-            swap_actual_original_GQ_dual(original),timeout_seconds=1500)
+            swap_actual_original_GQ_dual(original),timeout_seconds=1500,
+            dump_physical_Q=True)
+        from hyp105_issue230_d6aa4bh_local_seven_compensation import _original_source
+        from hyp105_g5e2b3e1b0_seven_signature import classify_seven_prechecked
+        from collections import Counter
+        ss,V,a,inc,f,g,_,_=_original_source(original)
+        qa=set(z["physical_Q_ID_sets"]);qb=set(dual["physical_Q_ID_sets"])
+        allphysical=qa|qb
+        allhist=Counter(classify_seven_prechecked(Q,f,g,inc) for Q in allphysical)
+        print("AA4CP_GENUINE_W34_DUALIZED_SOURCE_Q_DIFFERENCE",
+              "left_unique",tuple(sorted(qa-qb)),"right_unique",tuple(sorted(qb-qa)),
+              "independent_direct_historical_GQ_Qclass_union",dict(allhist),flush=True)
         print("AA4CP_DIAGNOSTIC_RANDOM_ORIGINAL_vs_DUAL",z,"POINT_LINE_DUAL",dual,flush=True)
         self.assertTrue(assert_genuine_original_dual_swap_sevenclass_involution(z,dual))
         print("AA4CP_TRUE_W34_FULL_ALL7_RANDOM",z,"POINT_LINE_DUAL",dual,flush=True)
