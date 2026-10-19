@@ -1,0 +1,52 @@
+name: hyp105-issue230-aa4co-global-original-sevenclass-W32-orbit
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4co_global_allseven_W32_96map_bridge.py"
+      - "research/test_hyp105_issue230_d6aa4co_global_allseven_W32_96map_bridge.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CO-GLOBAL-W32-SEVENCLASS-96MAP-BRIDGE.md"
+      - ".github/workflows/hyp105-issue230-aa4co-global-sevenclass.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true-original-W32-constructed-entire-sevenclass-all96:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Entire true original W32 96 full globally injected f map orbit x 62370 six-DISTINCT original flag Q, all seven historical class tags, root UNWEIGHTED S and GF5 weighted necessary score, independent full seven_census checks
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4co_global_allseven_W32_96map_bridge.py' -v -k test_01
+  true-original-W32-S72-entire-sevenclass-all96:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Complete authentic W32 S72 f,g, original source POINT factor recovery from physical K6, all 96 legal global f maps, same 62370 original Q per f, independent all7 original unweighted S and GF5 score census
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4co_global_allseven_W32_96map_bridge.py' -v -k test_02
+  true-original-source-pattern-and-failure-guards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Guard genuine six distinct original Q IDs, complete global f injection, source type A/B/C physical necessity, actual other-factor support and unsupported higher-h full census
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4co_global_allseven_W32_96map_bridge.py' -v -k test_03
+  true-original-W34-W38-scoped-no-root-extrapolation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True symplectic W34 and W38 full f/g injections, genuine six incidence source Q, prior correct twofiber GF5 results; reject false claim that complete 62370-candidate W32 enumeration is a W34/W38 global sevenclass root census
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4co_global_allseven_W32_96map_bridge.py' -v -k test_04
