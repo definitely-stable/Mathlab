@@ -23,7 +23,7 @@ struct Pattern { array<int,6> lines{}; int right_kind=0; bool connected=false; u
 struct Alt { array<int,2> point{}; U64 mask=0; };
 int s,V,a,I;
 vector<array<int,2>> f,g,flags,allpairs;
-vector<vector<int>> by_line,edge_index;
+vector<vector<int>> by_line,edge_index,original_flag_id;
 vector<int> occupied;
 array<U64,16> fcode{};
 U64 ONES=0,TWOS=0,FOURS=0;
@@ -95,6 +95,17 @@ void evaluate(const Pattern& pattern,const array<int,6>& selected_points) {
     choice_point=selected_points;
     ++both_physical_sixcoordinate_Q;
     ++right_pattern_biphysical[pattern.right_kind];
+    if(getenv("AA4CP_DUMP_PHYSICAL_Q")){
+        array<int,6> ids{};
+        for(int i=0;i<6;i++){
+            int id=original_flag_id[choice_point[i]][choice_line[i]];
+            if(id<0)throw runtime_error("wrong original flag chosen");
+            ids[i]=id;
+        }
+        sort(ids.begin(),ids.end());
+        cout<<"PHYSICAL_Q";for(int id:ids)cout<<" "<<id;
+        cout<<"\n";
+    }
     classify(pattern);
 }
 void walk_group(const Pattern& pat,const vector<vector<Alt>>& alternatives,
@@ -218,6 +229,7 @@ void validate(){
         edge_index[u][v]=edge_index[v][u]=eid++;
     }
     by_line.assign(V,{});
+    original_flag_id.assign(V,vector<int>(V,-1));
     vector<int> left_occ(eid,-1),right_occ(eid,-1);
     for(int q=0;q<V;q++){
         for(auto [side,img]:array<pair<int,array<int,2>>,2>{{{0,f[q]},{1,g[q]}}}){
@@ -230,9 +242,11 @@ void validate(){
     occupied=right_occ;
     vector<int> left_degree(V),right_degree(V);
     vector<vector<char>> seen(V,vector<char>(V));
-    for(auto [p,l]:flags){
+    for(int id=0;id<I;id++){
+        auto [p,l]=flags[id];
         if(p<0||p>=V||l<0||l>=V || seen[p][l])throw runtime_error("repeated/invalid TRUE original incidence ID");
-        seen[p][l]=true;++left_degree[p];++right_degree[l];by_line[l].push_back(p);
+        seen[p][l]=true;original_flag_id[p][l]=id;
+        ++left_degree[p];++right_degree[l];by_line[l].push_back(p);
     }
     for(int q=0;q<V;q++)if(left_degree[q]!=s+1||right_degree[q]!=s+1)
         throw runtime_error("not exact true original GQ degree");
