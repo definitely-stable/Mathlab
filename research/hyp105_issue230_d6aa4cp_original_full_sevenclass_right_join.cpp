@@ -120,6 +120,12 @@ void evaluate(const Pattern& pattern,const array<int,6>& selected_points) {
 }
 void walk_group(const Pattern& pat,const vector<vector<Alt>>& alternatives,
                 const vector<vector<int>>& positions,int group,U64 sum){
+    bool target_prefix=have_target;
+    if(target_prefix)for(int k=0;k<group;k++)for(int slot:positions[k]){
+        int id=original_flag_id[choice_point[slot]][choice_line[slot]];
+        if(!binary_search(target_ids.begin(),target_ids.end(),id))
+            target_prefix=false;
+    }
     if(group==(int)alternatives.size()){
         ++candidates;
         if(have_target){
@@ -136,9 +142,18 @@ void walk_group(const Pattern& pat,const vector<vector<Alt>>& alternatives,
     const auto& ps=positions[group];
     for(const auto& alt:alternatives[group]){
         U64 next=sum+alt.mask;
-        if((next&FOURS) || ((next&ONES)&((next>>1)&ONES))){
-            ++pruned;continue;
+        bool target_alt=target_prefix;
+        if(target_alt)for(size_t j=0;j<positions[group].size();j++){
+            int id=original_flag_id[alt.point[j]][choice_line[positions[group][j]]];
+            if(!binary_search(target_ids.begin(),target_ids.end(),id))
+                target_alt=false;
         }
+        bool bad=((next&FOURS) || ((next&ONES)&((next>>1)&ONES)));
+        if(target_alt)
+            cout<<"TARGET_PREFIX depth "<<group<<" sum "<<sum
+                <<" mask "<<alt.mask<<" next "<<next
+                <<" rejected "<<int(bad)<<"\n";
+        if(bad){++pruned;continue;}
         for(size_t i=0;i<ps.size();++i)choice_point[ps[i]]=alt.point[i];
         walk_group(pat,alternatives,positions,group+1,next);
     }
@@ -310,6 +325,12 @@ void validate(){
         throw runtime_error("not exact true original GQ degree");
     for(int v=0;v<a;v++){ONES|=U64(1)<<(4*v);TWOS|=U64(2)<<(4*v);FOURS|=U64(4)<<(4*v);}
     for(int q=0;q<V;q++) fcode[q]=(U64(1)<<(4*f[q][0]))+(U64(1)<<(4*f[q][1]));
+    if(have_target){
+        U64 total=0;
+        for(int id:target_ids)total+=fcode[flags[id][0]];
+        cout<<"TARGET_RAW_FULL_LEFT "<<total<<" VALID "<<int(
+            (total&~TWOS)==0 && __builtin_popcountll(total)==6)<<"\n";
+    }
     for(int i=0;i<6;i++)for(int j=i+1;j<6;j++)local_edges.push_back({i,j});
 }
 void read_model(const string& path){
