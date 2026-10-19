@@ -26,7 +26,7 @@ int s,V,a,I;
 vector<array<int,2>> f,g,flags,allpairs;
 vector<vector<int>> by_line,edge_index,original_flag_id;
 vector<int> occupied;
-array<U64,16> fcode{};
+vector<U64> fcode; // BY ORIGINAL POINT FACTOR ID: size V (15/85), NOT physical alphabet a!
 U64 ONES=0,TWOS=0,FOURS=0;
 array<unsigned long long,7> counts{}; // D6,B-left/A-right,A-left/B-right,C/A,C/B,B/B-overlap,B/B-disjoint
 array<unsigned long long,3> patterns{}, visited{};
@@ -328,7 +328,9 @@ void validate(){
     for(int q=0;q<V;q++)if(left_degree[q]!=s+1||right_degree[q]!=s+1)
         throw runtime_error("not exact true original GQ degree");
     for(int v=0;v<a;v++){ONES|=U64(1)<<(4*v);TWOS|=U64(2)<<(4*v);FOURS|=U64(4)<<(4*v);}
-    for(int q=0;q<V;q++) fcode[q]=(U64(1)<<(4*f[q][0]))+(U64(1)<<(4*f[q][1]));
+    fcode.assign(V,0);
+    if(fcode.size()!=size_t(V))throw runtime_error("original POINT factor-mask array must have V entries");
+    for(int q=0;q<V;q++) fcode.at(q)=(U64(1)<<(4*f[q][0]))+(U64(1)<<(4*f[q][1]));
     if(have_target){
         U64 total=0;
         for(int id:target_ids)total+=fcode[flags[id][0]];
