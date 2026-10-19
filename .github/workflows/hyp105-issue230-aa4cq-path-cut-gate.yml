@@ -52,3 +52,13 @@ jobs:
         run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cq_original_macro_path_cut_gate.py' -v -k test_04
       - name: Independent all-h macro arithmetic s=8..4096
         run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cq_original_macro_path_cut_gate.py' -v -k test_05
+  exact_true_original_W32_source_sixflag_BBo_3matching:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual 910080 original source B/B-overlap Q, unique 3path plus three independent original flags, no GF5 acceptance claim
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cq_original_macro_path_cut_gate.py' -v -k test_06
