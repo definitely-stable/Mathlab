@@ -62,6 +62,21 @@ class AA4CPExactOriginalAllSevenJoin(unittest.TestCase):
         self.assertEqual(z["physical_sixpalettes"],3003)
         self.assertEqual((z["s"],z["V"],z["a"]),(4,85,14))
         self.assertEqual(len(qa),sum(z["BOTH_physical_by_RIGHT_source"].values()))
+        expected={
+            "lex":{
+                "D6":8481,"B-left/A-right":181793,
+                "A-left/B-right":171203,"C/A":22913,"C/B":3973,
+                "B/B-overlap":22111,"B/B-disjoint":23051},
+            "random":{
+                "D6":7295,"B-left/A-right":164462,
+                "A-left/B-right":162557,"C/A":20351,"C/B":4356,
+                "B/B-overlap":24168,"B/B-disjoint":18222},
+        }[scheme]
+        self.assertEqual(z["seven_class_motif_counts"],expected)
+        self.assertEqual((z["S_unweighted"],z["W_weighted"],
+                          z["BOTH_physical_Q"]),
+                         {"lex":(433525,19513712453,1036770),
+                          "random":(401411,18119365425,981639)}[scheme])
         self.assertGreater(z["right_line_A_patterns"],0)
         self.assertGreater(z["right_line_B_patterns"],0)
         self.assertGreater(z["right_line_C_patterns"],0)
