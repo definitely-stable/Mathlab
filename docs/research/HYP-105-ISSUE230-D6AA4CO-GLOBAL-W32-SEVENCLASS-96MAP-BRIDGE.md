@@ -57,6 +57,48 @@ As independent oracle, for five fixed actual global f states (indices 0,1,17,47,
 
 The new work therefore tests historical seven-positive source POINT B/C **within the total score**, rather than assuming them constant merely because they were constant in two source-POINT-A fiber scores.
 
+## 3a. Frozen exact TRUE ORIGINAL global W32 96-state results
+
+All values below are **ENTIRE genuine original W(3,2) selected sevenclass** calculations, not restricted to two original source-POINT-A fibers. At EACH of the 96 complete injected original f states and the SAME unchanged complete original g, the oracle considered exactly 62,370 DISTINCT real original six-incidence Q whose physical left six-coordinate projection is degree2, assigned historic GF5 class using the accepted original source ID and physical dual predicate, and counted every positively accepted original Q ONCE. Direct independent pre-existing `seven_census` full historical sevenclass reference checked f states 0,1,17,47,95 for EACH fixture.
+
+| Genuine complete original W32 fixture | Full root UNWEIGHTED S across 96 maps | Historical accepted seven-GF5 weighted necessary numerator W across 96 maps | Local selected two-fiber GF5 covariance `Cov(A,B)` | Entire W weighted variance `Var(W)` | Root unweighted `Var(S)` |
+| --- | --- | --- | --- | --- | --- |
+| Constructed SAME complete f,g two-D6 positive-source witness, physical C4 switch | **127 … 190** | **5,813,330 … 8,572,049** | 10,614,483/16 | 28,183,991,874,289/72 | 39,749/192 |
+| Independent TRUE original W32 `S72` complete f,g, source POINTs recovered by inverse physical K6 pair edges | **72 … 167** | **3,283,610 … 7,332,844** | **0** | 406,820,603,747,771/576 | 220,907/576 |
+
+For both models the root S ranges are strictly POSITIVE but only at s=2 on **96 very particular globally legal source-map states**. This is NOT evidence of a positive universal all-h infimum, nor a sampled probability over all complete correlated f,g. Both the root-relevant UNWEIGHTED number of accepted original Q and the positively weighted necessary GF5 numerator are reported separately; the latter is NOT full R3.
+
+### Full original SOURCE-pattern shares, every original Q distinct
+
+The following columns give exact minimum and maximum of the number of accepted original six-ID Q in each disjoint source-factor-signature group **across the same 96 complete maps**; minima of different groups need not occur at the same f state.
+
+| Source pattern / support partition | Constructed W32 historical accepted ORIGINAL Q count | W32 S72 accepted ORIGINAL Q count |
+| --- | ---: | ---: |
+| One chosen source-POINT-A sixset `A_fiber` | 0…1 | 1…4 |
+| Other chosen source-POINT-A sixset `B_fiber` | 0…1 | **1…1 constant** |
+| ALL OTHER true original POINT-A sixsets | **59…97** | **26…78** |
+| ALL source-POINT-B sixflag Q | **62…103** | **39…87** |
+| ALL source-POINT-C sixflag Q | **1…7** | **0…4** |
+| **ENTIRE accepted seven-motif S** (computed jointly, not sum of column minima) | **127…190** | **72…167** |
+
+The chosen two overlapping POINT-A families from #612/#614 therefore account for AT MOST TWO accepted original Q in the constructed W32 per one f state, while all remaining source-POINT-A/B/C groups contribute HUNDREDS of underlying candidates and 125 or more positively accepted true original sixflags. In S72 the selected B fiber stays at exactly ONE historical class-B/right acceptance all 96 states, so the twofiber covariance is ZERO even while the *global* root S ranges 72…167. Thus **`Cov(A,B)=0` cannot be converted to `Var(S)=0` or into a global fixed-label lower**, and positive local covariance has no power to fix the rest of the source patterns.
+
+Exact weighted historical GF5 contributions from the same root-accepted original source groups, min…max over all 96 maps (again, not state-aligned):
+
+| Source group | Constructed W32 accepted GF5 weight | W32 S72 accepted GF5 weight |
+| --- | ---: | ---: |
+| A_fiber | 0…5,643 | 45,600…62,529 |
+| B_fiber | 0…5,643 | **45,600 constant** |
+| A_other | **2,648,163…4,294,209** | **1,185,600…3,346,812** |
+| POINT_B | **2,867,890…4,759,140** | **1,783,370…4,011,340** |
+| POINT_C | **43,320…308,970** | **0…173,280** |
+
+### Quantitative global compensation is not controlled by the selected pair
+
+In the constructed original model `Cov(A,B)=10,614,483/16`, while the TRUE global omitted complement `R=W−A−B` has `Cov(A,R)=9,707,398,965/32` and `Cov(B,R)=−146,709,849/2`. In the independently given S72 model `Cov(A,B)=0` and `Cov(A,R)=10,874,141,883/16`; `Cov(B,R)=0` because the selected B source fiber's full historical score stays constant. All these values refer to the **same 96 globally completed original maps per model**, with no redraw of Q. Direct exact rational verification of `Var(W)=Var(A)+Var(B)+Var(R)+2Cov(A,B)+2Cov(A,R)+2Cov(B,R)` succeeds in BOTH cases.
+
+**Crucial scientific conclusion:** even a sharp exact twofamily D6 compatibility/Gram sign theorem such as #614 controls only a tiny pairwise component of the ACTUAL full original selected sevenclass root object. Source POINT-B/C contributions can be both sizeable and variable when OTHER original POINT factor sources are included; the fact that right-source LINE B/C was invariant **within the chosen POINT-A fibers** says NOTHING about full POINT-source B/C invariance or lack thereof. Thus the actual root must be approached by global original-incidence constraints and all seven classes, not by simply summing or assuming nonnegative pair covariance of two source-POINT-A fibers.
+
 ## 4. Independent all-h scope and scientific limits
 
 This is an EXACT root-statistic **finite W32 counter-control**, NOT a solution to root A/B/C. For W34/W38, fully enumerating all left sixcoordinate original Q is a far larger computational problem; AA4-CO deliberately does NOT extrapolate the 62,370 W32 candidates or 96 full source-Q enumeration to s>=4. The independent higher-h test verifies that previously constructed actual W34/W38 source POINT-A twofiber witnesses still pass as such, while **rejecting** them as unsupported full-seven global census inputs.
@@ -65,3 +107,11 @@ Even if every one of 96 W32 values of S is positive, the desired theorem asks `i
 
 For next root-level progress, seek an all-h algorithm/proof that aggregates positive original point-source signatures A/B/C into a quantitative lower using the ORIGINAL GQ incidence geometry and the true dual 51-pattern GF5 acceptance simultaneously; or produce a rigorous genuine original infinite correlated counterfamily. Do not pass another locally averaged Gram/spectral inequality off as a fixed-map root theorem. The finite global W32 output supplies a falsifier for such future claims about correlation, complement cancellation and class shares. Leave root verdict OPEN_WITH_FORMAL_BLOCKER, do not merge a scientific Draft into main without exact HEAD Research SUCCESS, independent qualified mathematical proof audit and parent acceptance.
 
+
+## 5. Prioritized executable next-gates (not claims)
+
+**AA4-CP / exact all-h original joined-motif counting kernel.** Replace the W32-only `selected_left_six` physical K6 exhaustive generator with a true-original geometry-aware way to count ALL seven accepted six-incidence classes at s>=4 without `binom(|I|,6)` enumeration. Model authentic original W3 point-to-LINE stars, physical K_a edge-degree constraints and original six-incidence-position labeled dual connectedness. Audit POINT-A/B/C separately with exact source-ID uniqueness and historical accepted GF5 classifier as the reference, not a physical-only surrogate. Use genuine W32 equality on all96 global maps as the acceptance kill criterion, W34 independent twofiber pinned Q as higher-h source-ID anti-hallucination, and only then seek W34 COMPLETE global sevenclass counts. A solver with no exact W32 agreement is **NO-GO**.
+
+**AA4-CQ / genuine all-h coercivity-or-counterfamily gate.** Once true original source geometry tensor/count semantics are frozen and independently validated, attempt a quantitative lower for the full `S_s(f,g)` for every complete correlated f,g in W3. Require an explicit constant c>0 and uniform h0 for A or genuine explicit infinite original sequence f_s,g_s with `S=o(s^6)` for B. A conditional orbit covariance inequality, all96 positive finite W32 minimum, or local D6 symmetry obstruction cannot close A/B. Before claiming all-h C equivalence, prove both directions with the exact original model and forbidden class shape constraints.
+
+**Integration/proof review gate.** Current standalone AA4-CO is a scientific Draft child of unmerged #614 and its previous ancestors; dedicated exact-head CI, INDEX, Proof Audit, full Research, and an independent qualified mathematical proof referee must be evaluated BEFORE any merge to main or public root-closure claim. Generic full suite cancellation is not SUCCESS. Root #230 is kept `OPEN_WITH_FORMAL_BLOCKER`.
