@@ -65,12 +65,12 @@ class AA4CPExactOriginalAllSevenJoin(unittest.TestCase):
             swap_actual_original_GQ_dual(original),timeout_seconds=1500,
             dump_physical_Q=True)
         from hyp105_issue230_d6aa4bh_local_seven_compensation import _original_source
-        from hyp105_g5e2b3e1b0_seven_signature import classify_seven_prechecked
+        from hyp105_issue230_d6aa4cg_four_shared_edge_two_completion import classify_seven_all_a_original_Q
         from collections import Counter
         ss,V,a,inc,f,g,_,_=_original_source(original)
         qa=set(z["physical_Q_ID_sets"]);qb=set(dual["physical_Q_ID_sets"])
         allphysical=qa|qb
-        allhist=Counter(classify_seven_prechecked(Q,f,g,inc) for Q in allphysical)
+        allhist=Counter(classify_seven_all_a_original_Q(Q,f,g,inc) for Q in allphysical)
         print("AA4CP_GENUINE_W34_DUALIZED_SOURCE_Q_DIFFERENCE",
               "left_unique",tuple(sorted(qa-qb)),"right_unique",tuple(sorted(qb-qa)),
               "independent_direct_historical_GQ_Qclass_union",dict(allhist),flush=True)
