@@ -187,6 +187,11 @@ class AA4CQOriginalPathCutCertificate(unittest.TestCase):
             self.assertEqual(total_original_source_BBo, 910080)
             self.assertEqual(total_cut_BBo, 5056*cut["unique_original_simple_3path_count"])
             self.assertEqual(len(visited_source_Q_for_cut), total_cut_BBo)
+            # Finite genuine-original countercontrol: abundant SOURCE BBo
+            # at this physical half-coordinate cut does not force even
+            # ONE accepted historical physical GF5 B/B overlap at h=1.
+            # This does not refute any h>=3 asymptotic acceptance theorem.
+            self.assertEqual(physically_accepted_cut_BBo, 0)
             self.assertGreaterEqual(
                 6*total_cut_BBo,
                 cut["source_BBo_six_distinct_original_flags_matched_anchor_floor_numerator"])
