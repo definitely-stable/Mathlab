@@ -18,7 +18,7 @@ def _cuts(a):
 class AA4CQOriginalPathCutCertificate(unittest.TestCase):
     def test_01_real_original_incidence_cubic_identity_independent_3walks(self):
         for h in (1, 2, 3):
-            for scheme in ("lex", "random"):
+            for scheme in (("lex", "S72") if h == 1 else ("lex", "random")):
                 model = fixture(h, scheme)
                 s, V, a, f, g, point_lines, line_points = _validated_original(model)
                 # Full 15x15 and 85x85 two-sided walk verification; selected
@@ -38,7 +38,7 @@ class AA4CQOriginalPathCutCertificate(unittest.TestCase):
 
     def test_02_complete_original_global_cut_arbitrary_correlated_maps(self):
         for h in (1, 2, 3):
-            for scheme in ("lex", "random"):
+            for scheme in (("lex", "S72") if h == 1 else ("lex", "random")):
                 s, V, a, f, g, pl, lp = _validated_original(fixture(h, scheme))
                 for X, Y in _cuts(a):
                     z = macro_path_cut(fixture(h, scheme), X, Y)
