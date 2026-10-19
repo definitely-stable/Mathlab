@@ -1,0 +1,54 @@
+name: hyp105-issue230-aa4cq-original-macro-path-cut-spectral-gate
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cq_original_macro_path_cut_gate.py"
+      - "research/test_hyp105_issue230_d6aa4cq_original_macro_path_cut_gate.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CQ-MACRO-PATH-CUT-SPECTRAL-GATE.md"
+      - ".github/workflows/hyp105-issue230-aa4cq-path-cut-gate.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine_original_GQ_cubic_identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual original W32/W34 full pair + W38 sampled pairs independent 3walk identity
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cq_original_macro_path_cut_gate.py' -v -k test_01
+  genuine_original_fixed_global_cuts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Same original source f,g fixed across all nonincident 3-paths, cut invariants, independent transpose and complete genuine W38 sample
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cq_original_macro_path_cut_gate.py' -v -k test_02
+  invalid_original_source_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Invalid global physical injection / missing original incidence / malformed physical cut fail closed
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cq_original_macro_path_cut_gate.py' -v -k test_03
+  independent_micro_spectral_and_all_h_arithmetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every sixcoordinate x,y <=15 scalar spectral method insufficiency and integer halfalphabet cut s=8..4096
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cq_original_macro_path_cut_gate.py' -v -k test_04
+      - name: Independent all-h macro arithmetic s=8..4096
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cq_original_macro_path_cut_gate.py' -v -k test_05
