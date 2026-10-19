@@ -1,0 +1,63 @@
+name: hyp105-issue230-aa4cp-exact-W34-full-sevenclass-right-join
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cp_original_full_sevenclass_right_join.cpp"
+      - "research/hyp105_issue230_d6aa4cp_full_right_original_sevenclass_join.py"
+      - "research/test_hyp105_issue230_d6aa4cp_full_sevenclass_right_join.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CP-EXACT-W34-FULL-SEVENCLASS-RIGHT-JOIN.md"
+      - ".github/workflows/hyp105-issue230-aa4cp-W34-sevenclass.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine_W32_lex_complete_original_all7_right_vs_independent_left:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile exact optimized C++17 genuine original RIGHT-first sevenclass GF5 join, check each of seven original 6-ID Q historical tags against LEFT-first full W32 lex oracle
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cp_full_sevenclass_right_join.py' -v -k test_01
+  genuine_W32_S72_complete_original_all7_right_vs_independent_left:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently audit all seven true original accepted six-incidence class counts on genuinely correlated W32 S72 complete f,g without any source Q redraw
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cp_full_sevenclass_right_join.py' -v -k test_02
+  TRUE_original_W34_complete_all_seven_historical_GF5_lex:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: TRUE W34 original 85 POINT/85 LINE sources, 425 original GQ incidence flags, entire seven accepted class exact right-to-left join; exact root UNWEIGHTED S and separate 5643/45600/43320/49050/51750/45010 GF5 necessary numerator
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cp_full_sevenclass_right_join.py' -v -k test_03
+  TRUE_original_W34_complete_all_seven_historical_GF5_random:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent fully original W34 second correlated shuffled global POINT f and LINE g true 425-flag full sevenGF5 class census, no synthetic Q and no physical only acceptance
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cp_full_sevenclass_right_join.py' -v -k test_04
+  higher_h_scope_and_historical_GF5_registry_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject fake W38 a>16 full-source enumeration and invalid budget; exact seven historical accepted GF5 weights and original source map integrity
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cp_full_sevenclass_right_join.py' -v -k test_05
