@@ -87,6 +87,25 @@ def macro_path_cut(model, point_coordinates=None, line_coordinates=None):
             raise AssertionError("all-h arithmetic macro gate not established")
         if nonincident * 128 < V * V:
             raise AssertionError("original 3-path uniform c=1/128 lower falsified")
+    # Each nonincident source P3 has FOUR distinct original endpoint
+    # vertices (two POINT / two LINE). Choose THREE additional actual
+    # original flags whose endpoints avoid those four vertices and one
+    # another. At selection j=0,1,2 at most (4+2j)*(s+1) original flags
+    # are excluded; after division by 3! each unordered source matching
+    # extends this UNIQUE P3 to a source forest (3,1,1,1) / B/B-overlap.
+    # These are SIX distinct ORIGINAL flags, NOT necessarily physically
+    # degree-two on both sides and NOT automatically GF5 accepted.
+    d = s + 1
+    original_flag_N = V * d
+    source_BBo_matchings_numerator = (
+        (original_flag_N - 4*d) *
+        (original_flag_N - 6*d) *
+        (original_flag_N - 8*d))
+    if source_BBo_matchings_numerator < 0:
+        raise AssertionError("invalid original sixflag forest matching bound")
+    source_BBo_floor_numerator = nonincident * source_BBo_matchings_numerator
+    if macro_gate and 6144*source_BBo_floor_numerator < 6*s**18:
+        raise AssertionError("all-h SOURCE sixflag B/B-overlap s^18/6144 bound")
     # A six-coordinate palette has at most C(6,2)=15 occupied source
     # factor images per side. For s>=4, spectral mixing alone has
     # nonpositive lower for the incidence count on EVERY such pair.
@@ -102,6 +121,11 @@ def macro_path_cut(model, point_coordinates=None, line_coordinates=None):
         "direct_nonincidence_pair_count": sum(
             l not in point_lines[p] for p in P for l in L),
         "macro_s6_gate": macro_gate,
+        "source_BBo_six_distinct_original_flags_matched_anchor_floor_numerator":
+            source_BBo_floor_numerator,
+        "source_BBo_six_distinct_original_flags_matched_anchor_floor_denominator": 6,
+        "source_BBo_all_h_s18_denominator": 6144 if macro_gate else None,
+        "source_BBo_physical_two_sided_GF5_acceptance": "UNPROVED",
         "macro_lower_numerator_V2_over_128": V * V,
         "micro_six_palette_second_moment_floor_nonpositive": micro_spectral_gate,
         "root_status": "OPEN_WITH_FORMAL_BLOCKER",
