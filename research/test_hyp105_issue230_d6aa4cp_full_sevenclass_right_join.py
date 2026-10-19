@@ -62,6 +62,7 @@ class AA4CPExactOriginalAllSevenJoin(unittest.TestCase):
             "C/B":14,"B/B-overlap":2,"B/B-disjoint":2})
         dual=full_original_sevenclass_right_join(
             swap_actual_original_GQ_dual(original),timeout_seconds=1500)
+        print("AA4CP_DIAGNOSTIC_RANDOM_ORIGINAL_vs_DUAL",z,"POINT_LINE_DUAL",dual,flush=True)
         self.assertTrue(assert_genuine_original_dual_swap_sevenclass_involution(z,dual))
         print("AA4CP_TRUE_W34_FULL_ALL7_RANDOM",z,"POINT_LINE_DUAL",dual,flush=True)
 
