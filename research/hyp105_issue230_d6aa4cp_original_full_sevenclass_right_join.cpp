@@ -176,7 +176,8 @@ void sixmask(const array<int,6>& v){
             int k=2;bool good=true;
             for(int i=0;i<4;i++)for(int j=i+1;j<4;j++){
                 // K4 fourcycle == omit ONE perfect matching among three.
-                int match=(i+j==3?0:(i+j==4?1:2));
+                int match=((i==0&&j==1)||(i==2&&j==3))?0:
+                          (((i==0&&j==2)||(i==1&&j==3))?1:2);
                 if(match==omit)continue;
                 int line=line_of(v[rem[i]],v[rem[j]]);
                 if(line<0){good=false;break;}
