@@ -33,7 +33,7 @@ def compile_join_engine():
     return dst
 
 
-def full_original_sevenclass_right_join(model, *, timeout_seconds=1200, dump_physical_Q=False, target_original_Q=None):
+def full_original_sevenclass_right_join(model, *, timeout_seconds=1200, dump_physical_Q=False):
     s,V,a,inc,f,g,_,_=_original_source(model)
     if (s,V,a) not in ((2,15,6),(4,85,14)):
         raise ValueError("exact optimized nibble engine validated only for genuine W32/W34")
@@ -48,27 +48,14 @@ def full_original_sevenclass_right_join(model, *, timeout_seconds=1200, dump_phy
             for p,l in inc:h.write(f"{p} {l}\n")
         env=os.environ.copy()
         if dump_physical_Q:env["AA4CP_DUMP_PHYSICAL_Q"]="1"
-        if target_original_Q is not None:
-            if len(target_original_Q)!=6 or len(set(target_original_Q))!=6:
-                raise ValueError("target diagnostic needs six distinct true original source Q IDs")
-            env["AA4CP_TARGET_Q"]=",".join(str(j) for j in target_original_Q)
         p=subprocess.run([str(compile_join_engine()),str(fpath)],
             capture_output=True,text=True,timeout=timeout_seconds,check=False,env=env)
     if p.returncode:
         raise RuntimeError("AA4-CP failclosed original source right join: "+p.stderr[:7000])
     out={}
     physical_Q=[]
-    target_option_rows=[]
     for line in p.stdout.splitlines():
         name,*value=line.split()
-        if name in ("TARGET_PREFIX","TARGET_RAW_FULL_LEFT"):
-            target_option_rows.append(line)
-            continue
-        if name=="TARGET_GROUP":
-            # A diagnostic for a pinned genuine original six-incidence Q;
-            # never contributes to the accepted motif ledger.
-            target_option_rows.append(line)
-            continue
         if name=="PHYSICAL_Q":
             if len(value)!=6:raise AssertionError("diagnostic must retain six actual original incidence IDs")
             physical_Q.append(tuple(int(x) for x in value))
@@ -105,12 +92,6 @@ def full_original_sevenclass_right_join(model, *, timeout_seconds=1200, dump_phy
             "one_full_original_source_incidence_host":True,
             "one_entire_globally_injected_f_g":True,
             "physical_Q_ID_sets":tuple(physical_Q) if dump_physical_Q else None,
-            "target_original_Q_debug":({
-                **{k:out["TARGET_"+k] for k in (
-                    "right_pattern_seen","six_incidence_combination_seen",
-                    "left_and_right_physical_seen")},
-                "source_neighbor_option_groups":tuple(target_option_rows)}
-                if target_original_Q is not None else None),
             "root_230":"OPEN_WITH_FORMAL_BLOCKER"}
 
 
