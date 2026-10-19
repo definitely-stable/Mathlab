@@ -56,7 +56,10 @@ def _verify_all_96(data,model,pts):
             "cov_A_rest":str(variance["Cov_A_rest"]),
             "cov_B_rest":str(variance["Cov_B_rest"]),
             "weighted_full_var":str(data["full_original_GF5_weighted_variance"]),
-            "root_unweighted_var":str(data["full_original_UNWEIGHTED_seven_variance"])}
+            "root_unweighted_var":str(data["full_original_UNWEIGHTED_seven_variance"]),
+            "S_SOURCE_group_minmax":data["all_original_Q_count_minmax_by_SOURCE_group"],
+            "GF5_SOURCE_group_minmax":data["all_original_weight_minmax_by_SOURCE_group"],
+            "S_SOURCE_group_means":{k:str(v) for k,v in data["all_original_accepted_S_mean_by_SOURCE_group"].items()}}
 
 
 class AA4COGlobalOriginalSevenClassRootCountercheck(unittest.TestCase):
@@ -65,6 +68,12 @@ class AA4COGlobalOriginalSevenClassRootCountercheck(unittest.TestCase):
         data=original_W32_global_96_allseven_census(model,pts)
         result=_verify_all_96(data,model,pts)
         self.assertEqual(data["source_fiber_A_B_GF5_covariance"],Fraction(10614483,16))
+        self.assertEqual((data["unweighted_min"],data["unweighted_max"]),(127,190))
+        self.assertEqual((data["weighted_min"],data["weighted_max"]),(5813330,8572049))
+        self.assertEqual(data["full_original_UNWEIGHTED_seven_variance"],Fraction(39749,192))
+        self.assertEqual(data["full_original_GF5_weighted_variance"],Fraction(28183991874289,72))
+        self.assertEqual(data["global_variance_ledger_components"]["Cov_A_rest"],Fraction(9707398965,32))
+        self.assertEqual(data["global_variance_ledger_components"]["Cov_B_rest"],Fraction(-146709849,2))
         self.assertEqual(data["a"],6)
         self.assertEqual(data["V"],15)
         self.assertTrue(data["all_96_full_original_f_and_one_g"])
@@ -75,6 +84,13 @@ class AA4COGlobalOriginalSevenClassRootCountercheck(unittest.TestCase):
         data=original_W32_global_96_allseven_census(model,pts)
         result=_verify_all_96(data,model,pts)
         self.assertEqual(data["a"],6)
+        self.assertEqual((data["unweighted_min"],data["unweighted_max"]),(72,167))
+        self.assertEqual((data["weighted_min"],data["weighted_max"]),(3283610,7332844))
+        self.assertEqual(data["source_fiber_A_B_GF5_covariance"],Fraction(0))
+        self.assertEqual(data["full_original_UNWEIGHTED_seven_variance"],Fraction(220907,576))
+        self.assertEqual(data["full_original_GF5_weighted_variance"],Fraction(406820603747771,576))
+        self.assertEqual(data["global_variance_ledger_components"]["Cov_A_rest"],Fraction(10874141883,16))
+        self.assertEqual(data["global_variance_ledger_components"]["Cov_B_rest"],0)
         self.assertEqual(len(data["full_root_UNWEIGHTED_seven_motif_S"]),96)
         print("AA4CO_GLOBAL_W32_S72",result,flush=True)
 
