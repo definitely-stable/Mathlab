@@ -70,11 +70,28 @@ class AA4CPExactOriginalAllSevenJoin(unittest.TestCase):
         ss,V,a,inc,f,g,_,_=_original_source(original)
         qa=set(z["physical_Q_ID_sets"]);qb=set(dual["physical_Q_ID_sets"])
         allphysical=qa|qb
+        from collections import Counter as DegreeCount
+        def actual_both(q):
+            def phys(side,labels):
+                deg=DegreeCount(v for j in q for v in labels[inc[j][side]])
+                return len(deg)==6 and set(deg.values())=={2}
+            return phys(0,f) and phys(1,g)
+        direct_in_A=sum(actual_both(q) for q in qa)
+        direct_in_B=sum(actual_both(q) for q in qb)
+        direct_in_union=sum(actual_both(q) for q in allphysical)
         allhist=Counter(classify_seven_all_a_original_Q(Q,f,g,inc) for Q in allphysical)
+        print("AA4CP_W34_REAL_SOURCE_Q_PHYSICAL_INDEPENDENT",
+              "A",len(qa),direct_in_A,"B",len(qb),direct_in_B,
+              "intersection",len(qa&qb),"union",len(allphysical),direct_in_union,
+              "A_only",len(qa-qb),"B_only",len(qb-qa),flush=True)
         print("AA4CP_GENUINE_W34_DUALIZED_SOURCE_Q_DIFFERENCE",
-              "left_unique",tuple(sorted(qa-qb)),"right_unique",tuple(sorted(qb-qa)),
+              "left_unique_FIRST5",tuple(sorted(qa-qb))[:5],
+              "right_unique_FIRST5",tuple(sorted(qb-qa))[:5],
               "independent_direct_historical_GQ_Qclass_union",dict(allhist),flush=True)
-        print("AA4CP_DIAGNOSTIC_RANDOM_ORIGINAL_vs_DUAL",z,"POINT_LINE_DUAL",dual,flush=True)
+        print("AA4CP_DIAGNOSTIC_RANDOM_ORIGINAL_vs_DUAL",
+              {k:v for k,v in z.items() if k!="physical_Q_ID_sets"},
+              "POINT_LINE_DUAL",
+              {k:v for k,v in dual.items() if k!="physical_Q_ID_sets"},flush=True)
         self.assertTrue(assert_genuine_original_dual_swap_sevenclass_involution(z,dual))
         print("AA4CP_TRUE_W34_FULL_ALL7_RANDOM",z,"POINT_LINE_DUAL",dual,flush=True)
 
