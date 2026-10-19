@@ -60,6 +60,10 @@ def full_original_sevenclass_right_join(model, *, timeout_seconds=1200, dump_phy
     physical_Q=[]
     for line in p.stdout.splitlines():
         name,*value=line.split()
+        if name=="TARGET_GROUP":
+            # A diagnostic for a pinned genuine original six-incidence Q;
+            # never contributes to the accepted motif ledger.
+            continue
         if name=="PHYSICAL_Q":
             if len(value)!=6:raise AssertionError("diagnostic must retain six actual original incidence IDs")
             physical_Q.append(tuple(int(x) for x in value))
