@@ -74,6 +74,17 @@ class AA4COGlobalOriginalSevenClassRootCountercheck(unittest.TestCase):
         self.assertEqual(data["full_original_GF5_weighted_variance"],Fraction(28183991874289,72))
         self.assertEqual(data["global_variance_ledger_components"]["Cov_A_rest"],Fraction(9707398965,32))
         self.assertEqual(data["global_variance_ledger_components"]["Cov_B_rest"],Fraction(-146709849,2))
+        self.assertEqual(data["all_original_Q_count_minmax_by_SOURCE_group"],{
+            "A_fiber":(0,1),"B_fiber":(0,1),
+            "A_other":(59,97),"POINT_B":(62,103),"POINT_C":(1,7)})
+        self.assertEqual(data["all_original_weight_minmax_by_SOURCE_group"],{
+            "A_fiber":(0,5643),"B_fiber":(0,5643),
+            "A_other":(2648163,4294209),
+            "POINT_B":(2867890,4759140),"POINT_C":(43320,308970)})
+        self.assertEqual(data["all_original_accepted_S_mean_by_SOURCE_group"],{
+            "A_fiber":Fraction(1,4),"B_fiber":Fraction(1,12),
+            "A_other":Fraction(1745,24),"POINT_B":Fraction(325,4),
+            "POINT_C":Fraction(43,12)})
         self.assertEqual(data["a"],6)
         self.assertEqual(data["V"],15)
         self.assertTrue(data["all_96_full_original_f_and_one_g"])
@@ -91,6 +102,17 @@ class AA4COGlobalOriginalSevenClassRootCountercheck(unittest.TestCase):
         self.assertEqual(data["full_original_GF5_weighted_variance"],Fraction(406820603747771,576))
         self.assertEqual(data["global_variance_ledger_components"]["Cov_A_rest"],Fraction(10874141883,16))
         self.assertEqual(data["global_variance_ledger_components"]["Cov_B_rest"],0)
+        self.assertEqual(data["all_original_Q_count_minmax_by_SOURCE_group"],{
+            "A_fiber":(1,4),"B_fiber":(1,1),
+            "A_other":(26,78),"POINT_B":(39,87),"POINT_C":(0,4)})
+        self.assertEqual(data["all_original_weight_minmax_by_SOURCE_group"],{
+            "A_fiber":(45600,62529),"B_fiber":(45600,45600),
+            "A_other":(1185600,3346812),
+            "POINT_B":(1783370,4011340),"POINT_C":(0,173280)})
+        self.assertEqual(data["all_original_accepted_S_mean_by_SOURCE_group"],{
+            "A_fiber":Fraction(5,4),"B_fiber":Fraction(1),
+            "A_other":Fraction(311,6),"POINT_B":Fraction(1529,24),
+            "POINT_C":Fraction(3,2)})
         self.assertEqual(len(data["full_root_UNWEIGHTED_seven_motif_S"]),96)
         print("AA4CO_GLOBAL_W32_S72",result,flush=True)
 
