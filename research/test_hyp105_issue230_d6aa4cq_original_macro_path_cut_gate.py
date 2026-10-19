@@ -118,8 +118,13 @@ class AA4CQOriginalPathCutCertificate(unittest.TestCase):
 
     def test_06_true_original_W32_exact_sixflag_BBo_matching_extension(self):
         """Independent 3! matching enumeration, NOT a physical GF5 acceptance."""
+        from hyp105_issue230_d6aa4bh_local_seven_compensation import _original_source
+        from hyp105_issue230_d6aa4cg_four_shared_edge_two_completion import (
+            classify_seven_all_a_original_Q)
         for scheme in ("lex", "S72"):
             original = fixture(1, scheme)
+            _, _, _, actual_inc, actual_f, actual_g, _, _ = _original_source(original)
+            original_flag_id = {pair: i for i, pair in enumerate(actual_inc)}
             s, V, a, f, g, pl, lp = _validated_original(original)
             d = s + 1
             flags = tuple((p, l) for p in range(V) for l in pl[p])
@@ -130,6 +135,7 @@ class AA4CQOriginalPathCutCertificate(unittest.TestCase):
                              for l in cut["L_original_line_factor_ids"]
                              if l not in pl[p]}
             visited_source_Q_for_cut = set()
+            physically_accepted_cut_BBo = 0
             total_original_source_BBo = 0
             total_cut_BBo = 0
             for p in range(V):
@@ -164,6 +170,12 @@ class AA4CQOriginalPathCutCertificate(unittest.TestCase):
                             self.assertEqual(sorted(v for v in lc if v),[1,1,1,1,2])
                             self.assertNotIn(q6,visited_source_Q_for_cut)
                             visited_source_Q_for_cut.add(q6)
+                            actual_ids = tuple(sorted(original_flag_id[e] for e in q6))
+                            tag = classify_seven_all_a_original_Q(
+                                actual_ids, actual_f, actual_g, actual_inc)
+                            if tag is not None:
+                                self.assertEqual(tag, "B/B-overlap")
+                                physically_accepted_cut_BBo += 1
                     # The genuine original W32 GQ has a uniform nonincident
                     # original 3-path orbit; source-only total from AA4-U.
                     self.assertEqual(cnt, 5056)
@@ -182,6 +194,7 @@ class AA4CQOriginalPathCutCertificate(unittest.TestCase):
                   "total_original_BBo",total_original_source_BBo,
                   "cut_original_BBo",total_cut_BBo,
                   "path_cut_count",cut["unique_original_simple_3path_count"],
+                  "physical_BBo_GF5_accepted_in_cut",physically_accepted_cut_BBo,
                   "historical_physical_GF5_ACCEPTANCE_NOT_IMPLIED",flush=True)
 
 
