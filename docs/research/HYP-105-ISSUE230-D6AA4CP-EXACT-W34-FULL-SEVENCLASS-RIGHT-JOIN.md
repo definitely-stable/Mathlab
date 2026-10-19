@@ -49,6 +49,46 @@ Each accepted original Q contributes exactly one historical positive class and i
 
 **Kill criteria:** any single accepted W32 category differs from independent legacy classifier, any result depends on source Q per-pattern redrawing, any true-original W34 right-origin shape misses a positive accepted class, or any claim finite W34 implies global all-h lower: NO-GO. No main merge until exact-head dedicated hosted check, proof audit, general Research, qualified independent human mathematical review, and ancestor scientific PR integration.
 
+## Exact final ORIGINAL source-W34 results and independent proof-audit boundary
+
+The following are complete **fixed-map** observations for TWO actual genuine symplectic W(3,4) incidence hosts with 85 POINT factors, 85 LINE factors, 425 different ORIGINAL incidence IDs and physical pair alphabet K14. They use TWO different complete globally injected pairs f,g (a deterministic `lex` source-label assignment, and a genuinely correlated deterministic shuffled `random` assignment). Every ORIGINAL six-incidence-ID Q is held fixed on both physical projections. Unweighted ROOT-relevant accepted seven-motif `S` is separately reported from the historical accepted GF5 necessary weighted numerator `W`.
+
+| Accepted historical positive class | Original W34 lex | Original W34 random |
+| --- | ---: | ---: |
+| D6 (5643) | 8,481 | 7,295 |
+| B-left/A-right (45,600) | 181,793 | 164,462 |
+| A-left/B-right (45,600) | 171,203 | 162,557 |
+| C/A (43,320) | 22,913 | 20,351 |
+| C/B (49,050) | 3,973 | 4,356 |
+| B/B-overlap (51,750) | 22,111 | 24,168 |
+| B/B-disjoint (45,010) | 23,051 | 18,222 |
+| **ROOT selected original seven-motif UNWEIGHTED S** | **433,525** | **401,411** |
+| **Selected historic seven-GF5 NECESSARY weighted numerator W** | **19,513,712,453** | **18,119,365,425** |
+
+For the same actual original host and its **completely unchanged full maps**, the engine independently examined all right-source physical A/B/C cases then checked the LEFT degrees, obtaining **1,036,770** (lex) or **981,639** (random) physically eligible six-coordinate Q on BOTH typed sides. Those counts include both accepted and rejected historic GF5 Q: lex has 603,245 rejected and random 580,228 rejected. **No physically eligible Q is automatically accepted**: original six-position dual matching for source A/A is required, as are the accepted seven source multiplicity tags.
+
+### Independent FULL 6ID-set POINT↔LINE dual check, not a numerical symmetry guess
+
+For EACH complete real original W34 f,g input, a separate run exchanges *all* typed POINT and LINE source factor IDs, all complete physical pair f,g images, and all actual original incidences (p,l)→(l,p) IN THE SAME ORIGINAL flag index order. This enumerates candidates starting with the OTHER physical side (an independent transposed traversal of the source incidence graph). It must reproduce EXACTLY the SAME set of **1,036,770 or 981,639 sorted ORIGINAL six-ID Q tuples**, not merely the same count. It does.
+
+The class frequencies under typed duality obey D6↔D6, B-left/A-right↔A-left/B-right, C/A↔C/A, C/B↔C/B, B/B-overlap↔itself and B/B-disjoint↔itself. Both original and dual W34 passes report identical S and W, and the exact class transpositions above. An independent existing ALL-coordinate genuine-original historic classifier, separate from the new C++ pattern construction and degree2 packed engine, is then run against **EVERY one of the million original sixflag Q accepted PHYSICALLY on BOTH sides**. It reconstructs the same seven accepted tag histogram plus explicit rejected count 603,245 /580,228. This exceeds a sampling-only test: it checks EACH actual TRUE original Q even when it is historically rejected.
+
+The regression pins all seven absolute counts, two totals, the exact two-sided physical candidate count, complete matching original six-ID sets under typed duality, and independent historic classifier agreement. W32 `lex` and `S72` retain separate prior LEFT-first `seven_census` acceptance with all seven individual categories; a wrong W34-only size assumption cannot hide behind W32's V=15.
+
+### Critical implementation bug independently falsified and corrected
+
+The first GitHub-hosted W34 run was **not valid**: C++ originally declared a fixed array of 16 `fcode` values indexed by ORIGINAL POINT factor ID, although W34 has `V=85` original POINT factors. It therefore read/wrote OUT OF BOUNDS and produced spurious intermediate `S=0` (lex) and `S=107` (random) values. These intermediate values are **RETRACTED**; they are NOT genuine W34 counterexamples or scientific evidence of a root B construction. The issue was detected because true source POINT↔LINE dual candidate sets were inconsistent, even when historical sevenclass output itself looked plausible. A pinned missing original sixflag Q was traced independently through physical right pattern, real source LINE star alternatives, and the packed physical LEFT degree sum, which exposed corruption of `fcode`.
+
+The corrected implementation uses a dynamically sized `std::vector<uint64_t> fcode` with EXACTLY `V` entries indexed by true original POINT source ID, separately from the fixed physical coordinate packing capacity `a<=16`. W34 full original bidirectional source Q-set checks and the independent historical class tagger now agree to the exact original sixflag level. Regression fails if a future change reintroduces V-vs-a confusion or mismatched original Q enumeration.
+
+### Runtime scope and root verdict
+
+This is an EXACT practical finite W34 full sevenclass original sixflag solver but **NOT** a new uniform efficient all-h counting theorem. Its RIGHT enumeration examines roughly 1.4 billion completed candidate source-Q branches per genuine W34 input (before prunes, the tested leaf count as reported by C++), and source factor LINE A/B/C shape constraints plus monotone LEFT physical degree pruning make it tractable on GitHub-hosted Linux. The input source remains the original symplectic GQ and the historical fixed sevenpositive GF5 taxonomy, never an independently sampled physical surrogate.
+
+A positive finite W34 `S` from two fixed complete f,g schemes, even alongside positive W32, does not prove a universal infimum `S_s>=c*s^6` as h→∞, since no all-h c>0 for *every* fixed complete correlated f,g is derived. It also does NOT refute the possibility that other original f_s,g_s at larger h give S=o(s^6). No full R3 or ASET bound is implied. Root #230 **OPEN_WITH_FORMAL_BLOCKER**.
+
+**Next mathematically meaningful research gate:** AA4-CQ — use the now-audited full original W34 sevenclass source counts to identify exact original GQ incidence joins with polynomial algebraic lower bounds under arbitrary complete correlated f,g, including all source POINT-A/B/C. Alternative: build a qualified original globally injected infinite correlated small-S construction. A finite W34 lex/random comparison is a falsifier, not an asymptotic proof.
+
 ## Roadmap after this step
 
 **AA4-CQ:** identify which source-POINT-A/B/C classes, and especially original incidence-local 3path projections, dominate the entire W34 seven-count for different f,g; seek exact model-equivalent inequality useful for root Branch C or an explicit all-h c>0 bound / genuine correlated infinite small-S counterfamily. New local covariance/Gram work alone is not an allowed substitute.
