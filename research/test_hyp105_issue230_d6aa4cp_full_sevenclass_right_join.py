@@ -84,6 +84,16 @@ class AA4CPExactOriginalAllSevenJoin(unittest.TestCase):
               "A",len(qa),direct_in_A,"B",len(qb),direct_in_B,
               "intersection",len(qa&qb),"union",len(allphysical),direct_in_union,
               "A_only",len(qa-qb),"B_only",len(qb-qa),flush=True)
+        missing_from_original=min(qb-qa)
+        missing_from_dual=min(qa-qb)
+        targetA=full_original_sevenclass_right_join(original,
+            timeout_seconds=1500,target_original_Q=missing_from_original)
+        targetB=full_original_sevenclass_right_join(
+            swap_actual_original_GQ_dual(original),
+            timeout_seconds=1500,target_original_Q=missing_from_dual)
+        print("AA4CP_TARGET_Q_DIAGNOSTIC",
+              "ORIGINAL_missing",missing_from_original,targetA["target_original_Q_debug"],
+              "DUAL_missing",missing_from_dual,targetB["target_original_Q_debug"],flush=True)
         print("AA4CP_GENUINE_W34_DUALIZED_SOURCE_Q_DIFFERENCE",
               "left_unique_FIRST5",tuple(sorted(qa-qb))[:5],
               "right_unique_FIRST5",tuple(sorted(qb-qa))[:5],
