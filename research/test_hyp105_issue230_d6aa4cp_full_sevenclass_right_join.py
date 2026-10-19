@@ -3,7 +3,8 @@ import unittest
 
 from hyp105_issue230_d6aa4cp_full_right_original_sevenclass_join import (
     CLASS_NAMES,WEIGHTS,full_original_sevenclass_right_join,
-    independent_W32_sevenclass_reference,
+    independent_W32_sevenclass_reference,swap_actual_original_GQ_dual,
+    assert_genuine_original_dual_swap_sevenclass_involution,
 )
 from hyp105_issue230_projection import fixture
 
@@ -37,8 +38,16 @@ class AA4CPExactOriginalAllSevenJoin(unittest.TestCase):
         self.assertGreater(z["right_line_B_patterns"],0)
         self.assertGreater(z["right_line_C_patterns"],0)
         self.assertEqual(z["S_unweighted"],sum(z["seven_class_motif_counts"].values()))
-        self.assertGreater(z["S_unweighted"],0)
-        print("AA4CP_TRUE_W34_FULL_ALL7_LEX",z,flush=True)
+        # A legal original full W34 f,g can have NO historically
+        # accepted positive sevenclass sixflags even though its
+        # physical two-sided candidate join may be nonempty.
+        self.assertEqual(z["S_unweighted"],0)
+        self.assertEqual(z["W_weighted"],0)
+        dual=full_original_sevenclass_right_join(
+            swap_actual_original_GQ_dual(original),timeout_seconds=1500)
+        self.assertTrue(assert_genuine_original_dual_swap_sevenclass_involution(z,dual))
+        self.assertEqual(dual["seven_class_motif_counts"],z["seven_class_motif_counts"])
+        print("AA4CP_TRUE_W34_FULL_ALL7_LEX",z,"POINT_LINE_DUAL",dual,flush=True)
 
     def test_04_true_original_W34_full_historical_all7_random(self):
         original=fixture(2,"random")
@@ -47,7 +56,14 @@ class AA4CPExactOriginalAllSevenJoin(unittest.TestCase):
         self.assertEqual(z["physical_sixpalettes"],3003)
         self.assertGreater(z["S_unweighted"],0)
         self.assertGreater(z["W_weighted"],0)
-        print("AA4CP_TRUE_W34_FULL_ALL7_RANDOM",z,flush=True)
+        self.assertEqual((z["S_unweighted"],z["W_weighted"]),(107,4790420))
+        self.assertEqual(z["seven_class_motif_counts"],{
+            "D6":0,"B-left/A-right":16,"A-left/B-right":8,"C/A":65,
+            "C/B":14,"B/B-overlap":2,"B/B-disjoint":2})
+        dual=full_original_sevenclass_right_join(
+            swap_actual_original_GQ_dual(original),timeout_seconds=1500)
+        self.assertTrue(assert_genuine_original_dual_swap_sevenclass_involution(z,dual))
+        print("AA4CP_TRUE_W34_FULL_ALL7_RANDOM",z,"POINT_LINE_DUAL",dual,flush=True)
 
     def test_05_original_W38_failclosed_scope_and_acceptance_registry(self):
         with self.assertRaises(ValueError):
