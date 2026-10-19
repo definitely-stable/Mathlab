@@ -29,6 +29,8 @@ array<U64,16> fcode{};
 U64 ONES=0,TWOS=0,FOURS=0;
 array<unsigned long long,7> counts{}; // D6,B-left/A-right,A-left/B-right,C/A,C/B,B/B-overlap,B/B-disjoint
 array<unsigned long long,3> patterns{}, visited{};
+array<unsigned long long,3> right_pattern_biphysical{};
+unsigned long long both_physical_sixcoordinate_Q=0;
 unsigned long long candidates=0, pruned=0;
 array<int,6> choice_point{},choice_line{};
 int physical_kind(const array<int,6>& labels) {
@@ -91,6 +93,8 @@ void classify(const Pattern& pattern) {
 }
 void evaluate(const Pattern& pattern,const array<int,6>& selected_points) {
     choice_point=selected_points;
+    ++both_physical_sixcoordinate_Q;
+    ++right_pattern_biphysical[pattern.right_kind];
     classify(pattern);
 }
 void walk_group(const Pattern& pat,const vector<vector<Alt>>& alternatives,
@@ -265,6 +269,9 @@ int main(int argc,char**argv){
         cout<<"physical_sixpalettes "<<panels<<"\n";
         for(int i=0;i<3;i++)cout<<"source_LINE_pattern_"<<char('A'+i)<<" "<<patterns[i]<<"\n";
         cout<<"source_Q_right_deg2_tested "<<candidates<<"\n";
+        cout<<"BOTH_left_and_right_physical_sixcoordinate_Q "<<both_physical_sixcoordinate_Q<<"\n";
+        for(int i=0;i<3;i++)cout<<"BOTH_physical_right_source_"<<char('A'+i)
+                               <<" "<<right_pattern_biphysical[i]<<"\n";
         cout<<"early_right_to_left_physical_degree_prunes "<<pruned<<"\n";
         for(int i=0;i<7;i++)cout<<tags[i]<<" "<<counts[i]<<"\n";
         cout<<"S_unweighted "<<S<<"\nW_weighted "<<W<<"\n";
