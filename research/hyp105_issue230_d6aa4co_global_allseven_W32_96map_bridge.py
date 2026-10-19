@@ -165,6 +165,14 @@ def original_W32_global_96_allseven_census(model,points):
         "full_root_UNWEIGHTED_seven_motif_S":unweighted,
         "full_original_hist_GF5_weighted_seven_numerator":T,
         "all_original_Q_counts_by_SOURCE_group":count_vectors,
+        "all_original_Q_count_minmax_by_SOURCE_group":{
+            k:(min(vec),max(vec)) for k,vec in count_vectors.items()},
+        "all_original_weight_minmax_by_SOURCE_group":{
+            k:(min(vec),max(vec)) for k,vec in scores.items()},
+        "all_original_accepted_S_mean_by_SOURCE_group":{
+            k:Fraction(sum(vec),96) for k,vec in count_vectors.items()},
+        "all_original_weighted_GF5_mean_by_SOURCE_group":{
+            k:Fraction(sum(vec),96) for k,vec in scores.items()},
         "all_original_GF5_weight_by_SOURCE_group":{
              k:tuple(v) for k,v in scores.items()},
         "source_fiber_A_B_GF5_covariance":_cov(A,B),
