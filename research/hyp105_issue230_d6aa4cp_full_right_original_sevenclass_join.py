@@ -61,6 +61,9 @@ def full_original_sevenclass_right_join(model, *, timeout_seconds=1200, dump_phy
     target_option_rows=[]
     for line in p.stdout.splitlines():
         name,*value=line.split()
+        if name in ("TARGET_PREFIX","TARGET_RAW_FULL_LEFT"):
+            target_option_rows.append(line)
+            continue
         if name=="TARGET_GROUP":
             # A diagnostic for a pinned genuine original six-incidence Q;
             # never contributes to the accepted motif ledger.
