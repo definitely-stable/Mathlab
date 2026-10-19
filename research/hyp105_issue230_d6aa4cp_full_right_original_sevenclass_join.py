@@ -33,7 +33,7 @@ def compile_join_engine():
     return dst
 
 
-def full_original_sevenclass_right_join(model, *, timeout_seconds=1200):
+def full_original_sevenclass_right_join(model, *, timeout_seconds=1200, dump_physical_Q=False):
     s,V,a,inc,f,g,_,_=_original_source(model)
     if (s,V,a) not in ((2,15,6),(4,85,14)):
         raise ValueError("exact optimized nibble engine validated only for genuine W32/W34")
@@ -46,14 +46,20 @@ def full_original_sevenclass_right_join(model, *, timeout_seconds=1200):
             for edge in f:g1=tuple(edge);h.write(f"{g1[0]} {g1[1]}\n")
             for edge in g:g1=tuple(edge);h.write(f"{g1[0]} {g1[1]}\n")
             for p,l in inc:h.write(f"{p} {l}\n")
+        env=os.environ.copy()
+        if dump_physical_Q:env["AA4CP_DUMP_PHYSICAL_Q"]="1"
         p=subprocess.run([str(compile_join_engine()),str(fpath)],
-            capture_output=True,text=True,timeout=timeout_seconds,check=False)
+            capture_output=True,text=True,timeout=timeout_seconds,check=False,env=env)
     if p.returncode:
         raise RuntimeError("AA4-CP failclosed original source right join: "+p.stderr[:7000])
     out={}
+    physical_Q=[]
     for line in p.stdout.splitlines():
         name,*value=line.split()
-        if name=="SCHEMA":
+        if name=="PHYSICAL_Q":
+            if len(value)!=6:raise AssertionError("diagnostic must retain six actual original incidence IDs")
+            physical_Q.append(tuple(int(x) for x in value))
+        elif name=="SCHEMA":
             if value!=["AA4CP1"]:raise AssertionError("wrong exact join schema")
         elif len(value)==1:
             out[name]=int(value[0])
@@ -85,6 +91,7 @@ def full_original_sevenclass_right_join(model, *, timeout_seconds=1200):
                 key:out["BOTH_physical_right_source_"+key] for key in "ABC"},
             "one_full_original_source_incidence_host":True,
             "one_entire_globally_injected_f_g":True,
+            "physical_Q_ID_sets":tuple(physical_Q) if dump_physical_Q else None,
             "root_230":"OPEN_WITH_FORMAL_BLOCKER"}
 
 
