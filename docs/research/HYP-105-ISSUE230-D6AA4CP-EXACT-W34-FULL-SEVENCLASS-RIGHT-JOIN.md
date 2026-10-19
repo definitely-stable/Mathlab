@@ -51,7 +51,7 @@ Each accepted original Q contributes exactly one historical positive class and i
 
 ## Exact final ORIGINAL source-W34 results and independent proof-audit boundary
 
-The following are complete **fixed-map** observations for TWO actual genuine symplectic W(3,4) incidence hosts with 85 POINT factors, 85 LINE factors, 425 different ORIGINAL incidence IDs and physical pair alphabet K14. They use TWO different complete globally injected pairs f,g (a deterministic `lex` source-label assignment, and a genuinely correlated deterministic shuffled `random` assignment). Every ORIGINAL six-incidence-ID Q is held fixed on both physical projections. Unweighted ROOT-relevant accepted seven-motif `S` is separately reported from the historical accepted GF5 necessary weighted numerator `W`.
+The following are complete **fixed-map** observations for TWO globally injected physical labeling configurations on genuine symplectic W(3,4), each with 85 POINT factors, 85 LINE factors, 425 different ORIGINAL incidence IDs and physical pair alphabet K14. They use TWO different complete globally injected pairs f,g (a deterministic `lex` source-label assignment, and a genuinely correlated deterministic shuffled `random` assignment). Every ORIGINAL six-incidence-ID Q is held fixed on both physical projections. Unweighted ROOT-relevant accepted seven-motif `S` is separately reported from the historical accepted GF5 necessary weighted numerator `W`.
 
 | Accepted historical positive class | Original W34 lex | Original W34 random |
 | --- | ---: | ---: |
@@ -83,7 +83,7 @@ The corrected implementation uses a dynamically sized `std::vector<uint64_t> fco
 
 ### Runtime scope and root verdict
 
-This is an EXACT practical finite W34 full sevenclass original sixflag solver but **NOT** a new uniform efficient all-h counting theorem. Its RIGHT enumeration examines roughly 1.4 billion completed candidate source-Q branches per genuine W34 input (before prunes, the tested leaf count as reported by C++), and source factor LINE A/B/C shape constraints plus monotone LEFT physical degree pruning make it tractable on GitHub-hosted Linux. The input source remains the original symplectic GQ and the historical fixed sevenpositive GF5 taxonomy, never an independently sampled physical surrogate.
+This is an EXACT practical finite W34 full sevenclass original sixflag solver but **NOT** a new uniform efficient all-h counting theorem. Its RIGHT enumeration examines roughly 1.4 billion completed candidate source-Q combinations per genuine W34 input **at the terminal recursion level after early-degree pruning** (the C++ `source_Q_right_deg2_tested` counter), and source factor LINE A/B/C shape constraints plus monotone LEFT physical degree pruning make it tractable on GitHub-hosted Linux. The input source remains the original symplectic GQ and the historical fixed sevenpositive GF5 taxonomy, never an independently sampled physical surrogate.
 
 A positive finite W34 `S` from two fixed complete f,g schemes, even alongside positive W32, does not prove a universal infimum `S_s>=c*s^6` as h→∞, since no all-h c>0 for *every* fixed complete correlated f,g is derived. It also does NOT refute the possibility that other original f_s,g_s at larger h give S=o(s^6). No full R3 or ASET bound is implied. Root #230 **OPEN_WITH_FORMAL_BLOCKER**.
 
