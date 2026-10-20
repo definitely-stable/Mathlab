@@ -123,8 +123,63 @@ class AA4CRExactOriginalBBoMatchingGate(unittest.TestCase):
     def test_05_original_W34_random_true_source_partial_3path_permanent_duality(self):
         self._higher_real_partial(2,"random",72)
 
+    def _full_real_original_W34_BBo_census(self,scheme,expected):
+        model=fixture(2,scheme)
+        r=original_BBo_exact_three_matching_transfer(
+            model,collect_original_Q=True)
+        self.assertEqual(r["actual_unique_NONINCIDENT_original_3path_anchors"],
+                         85*(85-5))
+        self.assertEqual(r["historical_accepted_original_BBo_sixflag_Q"],expected)
+        self.assertEqual(r["historical_accepted_GF5_weighted_numerator"],
+                         GF5_BBO_WEIGHT*expected)
+        self.assertTrue(_independent_true_original_id_referee(model,r))
+        self.assertEqual(r["three_by_three_source_PERMANENT_one"],expected)
+        print("AA4CR_TRUE_W34_FULL_ORIGINAL_BBO",scheme,
+              {k:v for k,v in r.items() if k!="actual_distinct_original_sixflag_Q_sets"},
+              "exact_independent_AA4CP_W34_root_class_regression",expected,flush=True)
+
+    def test_07_genuine_original_W34_lex_ALL_BBo_against_AA4CP_full_root_class(self):
+        # Independent right-FIRST C++ source-to-LEFT GF5 join AA4-CP
+        # measured exact historic W34 lex B/B-overlap = 22,111.
+        self._full_real_original_W34_BBo_census("lex",22111)
+
+    def test_08_genuine_original_W34_random_ALL_BBo_against_AA4CP_full_root_class(self):
+        # Independent original W34 random complete f/g root census:
+        # historic B/B-overlap class = 24,168.
+        self._full_real_original_W34_BBo_census("random",24168)
+
     def test_06_original_W38_true_source_sample_and_malformed_GQ_guards(self):
-        self._higher_real_partial(3,"lex",1)
+        # On W38 choose one NONTRIVIAL source P3 whose four actual
+        # physical edges are pairwise disjoint in BOTH typed pair maps.
+        # The first 0,0 lex anchor alone could give a vacuous zero
+        # before exercising the actual 3x3 permanent oracle.
+        model38=fixture(3,"lex")
+        _,V,_,f38,g38,pl38,lp38=_validated_original(model38)
+        witness=None
+        for p in range(min(V,15)):
+            for l in range(V):
+                if l in pl38[p]:
+                    continue
+                path=original_nonincident_threepath(p,l,pl38,lp38)
+                q=path[1][0]
+                l0=path[0][1]
+                if set(f38[p]).isdisjoint(f38[q]) and set(g38[l]).isdisjoint(g38[l0]):
+                    witness=(p,l)
+                    break
+            if witness is not None:
+                break
+        self.assertIsNotNone(witness)
+        z=original_BBo_exact_three_matching_transfer(model38,anchor_pairs=(witness,))
+        rev=original_BBo_exact_three_matching_transfer(
+            original_dual_model_immutable_source_Q(model38),
+            anchor_pairs=((witness[1],witness[0]),))
+        self.assertEqual(z["physical_disjoint_original_3path_anchors"],1)
+        self.assertGreater(z["paired_two_sided_C4_templates"],0)
+        self.assertEqual(z["actual_distinct_original_sixflag_Q_sets"],
+                         rev["actual_distinct_original_sixflag_Q_sets"])
+        self.assertTrue(_independent_true_original_id_referee(model38,z))
+        print("AA4CR_TRUE_ORIGINAL_W38_NONVACUOUS_MATCHING",witness,
+              {k:v for k,v in z.items() if k!="actual_distinct_original_sixflag_Q_sets"},flush=True)
         model=fixture(1,"lex")
         s,V,a,f,g,pl,lp=_validated_original(model)
         with self.assertRaises(ValueError):
