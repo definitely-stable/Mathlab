@@ -51,6 +51,11 @@ class AA4CRExactOriginalBBoMatchingGate(unittest.TestCase):
         self.assertEqual(got,exact)
         self.assertEqual(result["historical_accepted_original_BBo_sixflag_Q"],
                          old["seven_class_motif_counts"]["B/B-overlap"])
+        expected=(27,108,8) if scheme=="lex" else (13,52,1)
+        self.assertEqual((
+            result["physical_disjoint_original_3path_anchors"],
+            result["paired_two_sided_C4_templates"],
+            result["three_by_three_source_PERMANENT_one"]),expected)
         self.assertEqual(result["actual_unique_NONINCIDENT_original_3path_anchors"],
                          15*(15-3))
         self.assertEqual(result["historical_accepted_GF5_weighted_numerator"],
@@ -108,6 +113,12 @@ class AA4CRExactOriginalBBoMatchingGate(unittest.TestCase):
         self.assertTrue(_independent_true_original_id_referee(model,z))
         self.assertEqual(z["three_by_three_source_PERMANENT_one"],
                          z["historical_accepted_original_BBo_sixflag_Q"])
+        if power==2 and budget==72:
+            expected=(12,74196,71) if scheme=="lex" else (34,176828,235)
+            self.assertEqual((
+                z["physical_disjoint_original_3path_anchors"],
+                z["paired_two_sided_C4_templates"],
+                z["three_by_three_source_PERMANENT_one"]),expected)
         self.assertEqual(z["three_by_three_source_PERMANENT_zero"]+
                          z["three_by_three_source_PERMANENT_one"],
                          z["paired_two_sided_C4_templates"])
@@ -169,12 +180,14 @@ class AA4CRExactOriginalBBoMatchingGate(unittest.TestCase):
             if witness is not None:
                 break
         self.assertIsNotNone(witness)
+        self.assertEqual(witness,(0,74))
         z=original_BBo_exact_three_matching_transfer(model38,anchor_pairs=(witness,))
         rev=original_BBo_exact_three_matching_transfer(
             original_dual_model_immutable_source_Q(model38),
             anchor_pairs=((witness[1],witness[0]),))
         self.assertEqual(z["physical_disjoint_original_3path_anchors"],1)
-        self.assertGreater(z["paired_two_sided_C4_templates"],0)
+        self.assertEqual(z["paired_two_sided_C4_templates"],828100)
+        self.assertEqual(z["three_by_three_source_PERMANENT_one"],23)
         self.assertEqual(z["actual_distinct_original_sixflag_Q_sets"],
                          rev["actual_distinct_original_sixflag_Q_sets"])
         self.assertTrue(_independent_true_original_id_referee(model38,z))
