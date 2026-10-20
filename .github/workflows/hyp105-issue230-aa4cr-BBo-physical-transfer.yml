@@ -62,3 +62,23 @@ jobs:
           python-version: "3.12"
       - name: Genuine W38 source GQ actual incidence flags, one immutable nonincident P3 original anchor, two complete fixed original maps dual transpose, exact source 3x3 permanent GF5 acceptance and malformed source factor failure guards
         run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cr_exact_BBo_three_matching_transfer.py' -v -k test_06
+  true_original_W34_lex_COMPLETE_original_BBo_vs_independent_full_root:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: FULL genuine W34 original 6800 nonincident P3 anchors all immutable original sixflag BBo GF5 physical accepted Q, exactly 22111 historic BBo class from independent AA4-CP full sevenclass original root census
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cr_exact_BBo_three_matching_transfer.py' -v -k test_07
+  true_original_W34_random_COMPLETE_original_BBo_vs_independent_full_root:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: FULL independent true W34 random complete globally injected original f,g sixflag BBo physical source C4 3x3 matching count 24168 equals independent AA4-CP full sevenclass historical GF5 original root ledger
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cr_exact_BBo_three_matching_transfer.py' -v -k test_08
