@@ -92,6 +92,23 @@ AA4-CS guarantees macroscopic **NONVACUOUS ANCHORS**, not positive `Phi`. The re
 
 If so (a SUFFICIENT, not necessary root condition), `S_s(f,g)>=U_BB_overlap(X,Y;f,g)>=eta*A>eta*s^6/128` would close Branch A. No such eta is shown. Alternatively the OTHER SIX historical seven-GF5 accepted original classes could compensate failing per(B)=0, but there is no demonstrated crossclass fixed-map positive inequality. **The unconditional conclusion of this PR ends at THREE ORIGINAL incidence flags**: no root A/B/C, no full R3, no ASET exponent.
 
+## 3a. Frozen authentic original model cut falsifiers, no asymptotic extrapolation
+
+On each row below, complete globally injected arbitrary correlated typed original f,g are fixed for the entire test. The true source Q object is the UNIQUE THREE-incidence path `p--l0--q--l`, not a synthetic path and not an accepted GF5 sixflag. The first physical halfcut uses X={0,...,k-1}, Y={a-k,...,a-1}, with k=floor(a/2). All results were checked by two INDEPENDENT GQ source traversals: POINT-first `p--l0--q--l` and LINE-first `l--q--l0--p`, and match previous #617 genuine source `macro_path_cut` path counts EXACTLY.
+
+| True original symplectic host & full typed maps | Original nonincident source P3 T | Original P3 passing BOTH physical disjointness A | Failed f(p)/f(q) condition | Failed g(l)/g(l0) condition | Failed BOTH, counted twice |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| W(3,2) lex | 8 | 1 | 4 | 6 | 3 |
+| W(3,2) S72 | 7 | **0** | 6 | 4 | 3 |
+| W(3,4) lex | 299 | 123 | 96 | 106 | 26 |
+| W(3,4) random | 379 | 209 | 84 | 106 | 20 |
+| W(3,8) lex | 16,893 | **12,358** | 2,318 | 2,461 | 244 |
+| W(3,8) random | 17,415 | **13,832** | 1,904 | 1,895 | 216 |
+
+Every row obeys exactly `A=T-bad_f-bad_g+bad_both`, including the finite **zero** for W32 S72. This is consistent with (and does not challenge) the asymptotic threshold h>=14. For W38 lex first cut, e.g. `16893-2318-2461+244=12358`: this is the real source GQ count of P3 paths with both physical disjoint edges and **not** a count of historical sixflag GF5-positive B/B-overlap Q.
+
+For the *finite integer arithmetic regression* `h=14, s=16,384`, exact minimal physical parameters are `a=2,965,912`, `m=1,099,577,957,519`, and `2(s+1)+8(a-2)s=388,747,788,290`; thus `m` exceeds the sufficient threshold. These numbers are a unit-test sample of the preceding **symbolic proof**, not its foundation. The proof itself applies to every dyadic h>=14 with no upper bound.
+
 ## 4. Exact ORIGINAL source finite independent validation
 
 The exact Python source-model oracle reads real source W(3,2), W(3,4), W(3,8) (15/85/585 true original typed factor IDs, full 45/425/5265 true source flags), verifies the two global complete physical pair injections, and for FOUR full globally fixed half-coordinate cut pairs on each of two independently built source maps (W32 lex/S72; W34 lex/random; W38 lex/random) independently counts every genuine nonincident true original p,l and resolves its UNIQUE middle (q,l0). It records exact left-only/right-only/both physical intersection failures and both physically disjoint actual original P3 survivors. Its exact path count is compared to the PREEXISTING #617 macro-path-cut source certificate and the independent GQ original LINE-first (l→q→l0→p) source traversal, not just arithmetic bounds. For every cut it checks `A=T-bad_f-bad_g+bad_both`, both one-sided bad caps, original type injection, and the min-alphabet source occupancy certificate. h1/h2/h3 finite GQ runs do NOT pretend to meet the h>=14 universal threshold.
