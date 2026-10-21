@@ -1,0 +1,62 @@
+name: hyp105-issue230-aa4cs-true-original-physical-disjoint-P3-cut
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cs_uniform_disjoint_original_source_cut.py"
+      - "research/test_hyp105_issue230_d6aa4cs_uniform_disjoint_original_source_cut.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CS-UNIFORM-P3-PHYSICAL-DISJOINTNESS.md"
+      - ".github/workflows/hyp105-issue230-aa4cs-uniform-disjoint-3path.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine_original_W32_both_complete_maps_8_cuts_two_independent_P3_oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real W32 lex/S72 45 distinct source incidence flags, 4 physical halfcuts each, original POINT-first and independent LINE-first unique P3 and exact typed f/g overlap rejection census
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cs_uniform_disjoint_original_source_cut.py' -v -k test_01
+  genuine_original_W34_both_complete_maps_8_cuts_two_independent_P3_oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True W34 lex/random original 425 distinct six-source GQ flags, 4 source half-coordinate cuts each, exact correlated complete typed f,g physical both-edge-disjoint source P3 genuine middle factor census
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cs_uniform_disjoint_original_source_cut.py' -v -k test_02
+  genuine_original_W38_both_complete_maps_8_cuts_two_independent_P3_oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real W38 lex/random 5265 true original source GQ flags, complete injected correlated typed maps, 4 physical halfalphabet cuts each, independent opposite-oriented original unique P3 source oracle and one-sided physical bad-path bounds
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cs_uniform_disjoint_original_source_cut.py' -v -k test_03
+  all_h_symbolic_bound_exact_integer_regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact integer minimal physical K_a and halfcut m threshold all dyadic s=2^h for h=1..26, compare documented independent analytic proof all h>=14, no finite-fit asymptotic promotion
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cs_uniform_disjoint_original_source_cut.py' -v -k test_04
+  failclosed_global_original_incidence_and_physical_cut:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject duplicate physical original factor images, missing original source incidence flag, invalid physical cuts, invalid noninteger h without changing original f/g or historic 7 GF5 classification
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cs_uniform_disjoint_original_source_cut.py' -v -k test_05
