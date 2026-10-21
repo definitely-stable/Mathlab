@@ -71,6 +71,22 @@ class AA4CSUniformRealGQSourceThreepathDisjointness(unittest.TestCase):
             self.assertEqual(z["true_original_incidence_edges_between_cuts"],
                              q["original_flag_edges_between_cuts"])
             self.assertTrue(independent_original_source_transpose_P3_disjointness(model,z))
+            if i==0:
+                frozen={
+                    (2,"lex"):(8,1,4,6,3),
+                    (2,"S72"):(7,0,6,4,3),
+                    (4,"lex"):(299,123,96,106,26),
+                    (4,"random"):(379,209,84,106,20),
+                    (8,"lex"):(16893,12358,2318,2461,244),
+                    (8,"random"):(17415,13832,1904,1895,216),
+                }
+                self.assertEqual((
+                    z["actual_original_nonincident_source_3paths_T"],
+                    z["both_physically_disjoint_source_3paths"],
+                    z["left_physical_disjointness_blocked_paths"],
+                    z["right_physical_disjointness_blocked_paths"],
+                    z["both_disjointness_blocked_paths"],
+                ),frozen[s,scheme])
             self.assertEqual(z["both_physically_disjoint_source_3paths"],
                 z["actual_original_nonincident_source_3paths_T"]
                 -z["left_physical_disjointness_blocked_paths"]
