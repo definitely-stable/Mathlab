@@ -43,7 +43,7 @@ def allh_zero_spoke_arithmetic(h):
     source_spoke_capacity=V-t*(s+1)-2
     if h>=4:
         if not (a>=6 and H<=2*n and source_spoke_capacity>=t and
-                a-2<3*s**1.5/2):
+                4*(a-2)**2 < 9*s**3):
             raise AssertionError("all-h constructive adversarial source spoke budget failed")
     return {"h":h,"s":s,"V":V,"a":a,"H":H,
             "spoke_source_factors_per_side":t,
