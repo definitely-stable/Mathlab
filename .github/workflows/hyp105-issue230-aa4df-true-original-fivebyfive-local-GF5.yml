@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4df-true-original-fivebyfive-local-GF5
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4df_fivebyfive_local_compensation.py"
+      - "research/test_hyp105_issue230_d6aa4df_fivebyfive_local_compensation.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DF-TRUE-ORIGINAL-FIVEBYFIVE-GF5-LOCAL-COMPENSATION.md"
+      - ".github/workflows/hyp105-issue230-aa4df-true-original-fivebyfive-local-GF5.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual_original_4cycle_plus_doubled_oneB_twoC_source_profile_gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact original globally occupied K_a source C4 four edge cycle and doubled original source pair: unique physical B repeated factor, precisely two C point/line source profiles
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4df_fivebyfive_local_compensation.py' -v -k test_01
+  W32_TRUE_original_fivebyfive_ALL_actual_SOURCE_C4_GF5_and_zero_local_rescue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: W32 lex S72 fixed globally complete TRUE original SOURCE maps, 12 real nonincident original P3 anchors, ALL physical two C4 completions and all IMMUTABLE original 5x5 incidence-ID six-subsets vs authoritative 7GF5 checker, genuine marked Hall but no local positive Q witness
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4df_fivebyfive_local_compensation.py' -v -k test_02
+  original_W32_POINT_LINE_duality_local_5x5_G5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W32 lex/S72 complete true-original dual typed source f/g, physical point-line local C4×C4 source sixflag classifier invariant under true original dual and Hall zero-local-positive
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4df_fivebyfive_local_compensation.py' -v -k test_03
+  original_W34_unrestricted_local_C4_pair_historical_seven_census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W34 lex/random globally full correlated typed original maps and 8 real source P3 anchors ALL paired physical C4s and ALL induced TRUE original 5x5 source incidence six-ID Q sets independently classified with full seven positive GF5 oracle
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4df_fivebyfive_local_compensation.py' -v -k test_04
+  original_W38_explicitly_PARTIAL_original_C4_compensation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original W38 lex/random only 4 true original source anchors x first 8 physical point/line C4 triples each; do NOT promote to global original W38 sevenclass count
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4df_fivebyfive_local_compensation.py' -v -k test_05
+  immutable_original_source_sixflag_invalid_forged_maps_FAILCLOSED:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fail closed malformed actual ORIGINAL six incidence IDs, invalid physical original C4 triples, duplicate typed globally injected source factor edges, invalid sampling caps
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4df_fivebyfive_local_compensation.py' -v -k test_06
