@@ -1,0 +1,62 @@
+name: hyp105-issue230-aa4cy-genuine-original-second-moment-raw
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cy_second_moment_original_raw.py"
+      - "research/test_hyp105_issue230_d6aa4cy_second_moment_original_raw.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CY-SECOND-MOMENT-ORIGINAL-RAW.md"
+      - ".github/workflows/hyp105-issue230-aa4cy-second-moment-original-raw.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  allh_exact_integer_gq_secondmoment_s11half:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact h1..34 original GQ source degree, physical minimal K_a and analytic second-moment support all-h h>=24 feasibility
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cy_second_moment_original_raw.py' -v -k test_01
+  original_W32_every_cut_true_source_doubleflag_independent_moments:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W32 lex/S72 original immutable flags direct all-anchor 1st and 2nd moments versus completely independent genuine ORIGINAL two-flag Gram source enumerator
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cy_second_moment_original_raw.py' -v -k test_02
+  original_W34_W38_true_complete_maps_source_flagpair_gram:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W34/W38 lex/random one fully correlated source f/g each, physical cut ORIGINAL M flags and independent TWO distinct or repeated true original source flag Gram second moment
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cy_second_moment_original_raw.py' -v -k test_03
+  original_full_matrix_secondmoment_spectrum_and_nonimplications:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: GQ source Frobenius second moment upper independent geometric W32/W34/W38, exact Cauchy positivity, no promotion to true GF5-positive sixflag
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cy_second_moment_original_raw.py' -v -k test_04
+  source_and_physical_global_original_validation_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject forged s/h, malformed physical halfcuts, duplicated full original GQ source-factor labels
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cy_second_moment_original_raw.py' -v -k test_05
