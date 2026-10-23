@@ -26,6 +26,7 @@ factor IDs may still contribute global sevenclass motifs; root OPEN.
 """
 from collections import Counter
 from itertools import combinations
+from math import comb
 
 from hyp105_issue230_projection import fixture
 from hyp105_issue230_d6aa4cq_original_macro_path_cut_gate import _validated_original
