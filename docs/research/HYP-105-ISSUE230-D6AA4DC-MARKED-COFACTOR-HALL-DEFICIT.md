@@ -50,7 +50,7 @@ T = D + E;     U_BBo <= E <= 2U_BBo;
 therefore            D+U_BBo <=T<=D+2U_BBo.            (DC.2)
 ```
 
-Also count `T_support`: the number of DISTINCT actual anchored true-original spoke-to-spoke incidence flags (p,l;i,j) for which there EXISTS at least one paired occupied physical C4 completion containing both source spokes. Because T sums marked real-source flags over *each* valid completion PAIR, `T>=T_support`. For **ALL original cut anchors**, AA4-DB's new `T_BOTH_C4` counts exactly `T_support`. Thus for **EVERY** dyadic h>=96 and arbitrary fully complete globally injected correlated f,g and any physical halfcuts,
+Also count `T_support`: the number of DISTINCT actual anchored true-original spoke-to-spoke incidence flags (p,l;i,j) for which there EXISTS at least one paired occupied physical C4 completion containing both source spokes. Because T sums marked real-source flags over *each* valid completion PAIR, `T>=T_support`. IMPORTANT **cut-scope distinction**: AA4-DB requires both original SPOKE source-factor physical images to lie INSIDE their respective X,Y halfcuts, whereas this AA4-DC exact historical U_BBo enumerates ALL actual occupied physical C4 source triples attached to original anchors in the cuts, even when some completion/source SPOKE image extends outside the halfcut. Therefore `T_support_DC >= T_BOTH_C4_DB`; equality is NOT asserted in general. This larger historical exact-source C4 domain is essential: restricting only some spoke flags to cuts could make e(B)=0 even though the full perfect matching exists and would invalidate the 1<=e<=2u identity. Thus for **EVERY** dyadic h>=96 and arbitrary fully complete globally injected correlated f,g and any physical halfcuts,
 
 ```
 D(f,g;X,Y) + 2 U_BBo(f,g;X,Y)
