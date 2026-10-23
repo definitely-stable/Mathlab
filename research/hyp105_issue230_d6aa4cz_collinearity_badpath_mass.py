@@ -96,7 +96,7 @@ def original_collinear_overlap_from_actual_source_flags(labels,pl,lp):
         for j in pl[i]:
             unique.update(lp[j])
         unique.discard(i)
-        if len(unique)!=len(pl[i])*(len(lp[pl[i][0]])-1):
+        if len(unique)!=len(pl[i])*(len(lp[next(iter(pl[i]))])-1):
             raise AssertionError("genuine GQ point graph collinear uniqueness violation")
         count=sum(not occupied[i].isdisjoint(occupied[ii]) for ii in unique)
         counts.append(count)
