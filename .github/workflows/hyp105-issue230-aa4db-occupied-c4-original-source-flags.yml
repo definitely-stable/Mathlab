@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4db-occupied-c4-original-source-flags
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4db_occupied_c4_spoke_flag_mass.py"
+      - "research/test_hyp105_issue230_d6aa4db_occupied_c4_spoke_flag_mass.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DB-OCCUPIED-C4-SOURCE-FLAGS.md"
+      - ".github/workflows/hyp105-issue230-aa4db-occupied-c4-original-source-flags.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  allh_original_gq_heavy_hole_C4_extension_integer_falsifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact dyadic h1..110 original source true-flag physical K_a hole budget and all-h>=96 two-C4 positive mass gates
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4db_occupied_c4_spoke_flag_mass.py' -v -k test_01
+  full_original_W32_both_actual_occupied_C4_source_census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W32 lex/S72 full nonincident source P3 original immutable flag enumeration across 3 physical cuts using independent prior AA4-CR canonical C4 source triple oracle
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4db_occupied_c4_spoke_flag_mass.py' -v -k test_02
+  true_original_W34_full_immutable_gq_incidence_C4_independent_referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Complete original W34 lex/random every true nonincident double-disjoint SOURCE P3 original flag vs two actually occupied AA4-CR canonical physical 4cycle triples
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4db_occupied_c4_spoke_flag_mass.py' -v -k test_03
+  true_original_W38_both_C4_and_source_crossing_incidence_witness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W38 lex/random full typed complete global original maps, SAFE->both-occupied C4 true-source mass and independent original C4 witness triple check
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4db_occupied_c4_spoke_flag_mass.py' -v -k test_04
+  independent_actual_original_complete_Ka_missing_degrees_and_local_failure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check every missing physical edge degree and prove any SAFE C4 failure touches high-hole original factor image on real W32/W34/W38
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4db_occupied_c4_spoke_flag_mass.py' -v -k test_05
+  malformed_original_global_source_factor_maps_and_physical_cut_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject invalid dyadic h, repeated original source typed factor K_a pair labels and malformed physical halfcuts
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4db_occupied_c4_spoke_flag_mass.py' -v -k test_06
