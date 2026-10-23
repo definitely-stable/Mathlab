@@ -41,6 +41,10 @@ def original_three_by_three_cofactor_certificate(rows):
         type(v) is not int or v not in (0,1) for r in B for v in r
     ):
         raise ValueError("exact genuine 3x3 binary SOURCE incidence rows required")
+    # A REAL GQ source 3x3 subgraph has no C4 (girth eight).
+    if any(sum(B[i][j]*B[ii][j] for j in range(3))>=2
+           for i,ii in combinations(range(3),2)):
+        raise ValueError("original GQ source girth8 forbids a 3x3 C4 submatrix")
     def per2(i,j):
         rr=[p for p in range(3) if p!=i]
         cc=[l for l in range(3) if l!=j]
@@ -167,6 +171,10 @@ def exact_original_C4_marked_cofactor_energy(
                 counts["true_original_complement_2x2_extendible_mark_mass"]+=extension
                 counts["original_Hall_defective_marked_source_flag_mass"]+=deficit
                 counts["genuine_source_3x3_perfect_matchings"]+=c["true_original_3x3_permanent"]
+                if c["true_original_3x3_permanent"]:
+                    counts["cofactor_rejected_marks_on_matching_C4_pairs"]+=deficit
+                else:
+                    counts["cofactor_rejected_marks_on_zero_matching_C4_pairs"]+=marked
                 classifications["matching" if c["true_original_3x3_permanent"] else
                                 "Hall_no_matching"]+=1
                 if c["minimal_true_original_Hall_deficiency"]:
@@ -186,6 +194,9 @@ def exact_original_C4_marked_cofactor_energy(
     D=counts["original_Hall_defective_marked_source_flag_mass"]
     E=counts["true_original_complement_2x2_extendible_mark_mass"]
     U=counts["genuine_source_3x3_perfect_matchings"]
+    if (D!=counts["cofactor_rejected_marks_on_zero_matching_C4_pairs"]+
+            counts["cofactor_rejected_marks_on_matching_C4_pairs"]):
+        raise AssertionError("original cofactor-deficit zero/positive C4 decomposition failed")
     if T!=D+E or not U<=E<=2*U:
         raise AssertionError("genuine original ALL anchored C4 marked-deficit identities failed")
     if T<len(mark_support):
@@ -198,6 +209,10 @@ def exact_original_C4_marked_cofactor_energy(
         "source_occupied_C4_source_cross_flag_mark_mass_T":T,
         "source_2x2_cofactor_extendible_flag_mass_E":E,
         "source_Hall_defective_C4_spoke_flag_mass_D":D,
+        "source_cofactor_rejected_marks_on_zero_matching_pairs":
+            counts["cofactor_rejected_marks_on_zero_matching_C4_pairs"],
+        "source_cofactor_rejected_marks_on_matching_pairs":
+            counts["cofactor_rejected_marks_on_matching_C4_pairs"],
         "source_original_3x3_perfect_matching_BBo_U":U,
         "distinct_original_spoke_cross_source_flags_with_two_actual_C4_witnesses":len(mark_support),
         "source_true_Hall_failure_class_counts":dict(classifications),
