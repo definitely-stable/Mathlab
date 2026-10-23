@@ -56,6 +56,32 @@ If a genuine finite witness satisfies `D_local>0` and `S_local=0`, then the prop
 
 A transparent diagnostic: any actual 5x5 induced TRUE original source incidence graph with fewer than SIX source incidence IDs has `S_local=0` automatically, regardless of its physical occupancy, because historical GF5 Q uses SIX DISTINCT original source incidence IDs. It may STILL have an original marked 3×3 cofactor failure D_local>0, showing why no solely-local premise forces a compensating sixflag. The new finite oracle locates/exhibits such a witness only from ACTUAL immutable W3 source flags, not synthetic GQ-like matrix data.
 
+## 3a. VERIFIED actual TRUE ORIGINAL W(3,2) obstruction and W(3,4) class census
+
+**Actual true-original W(3,2), full globally complete lex original f/g images:** the nonincident original source P3 anchor `(p,l)=(0,14)` has ONE actually occupied POINT physical C4 source triple `(2,8,13)` and one actually occupied LINE physical C4 source triple `(5,7,11)`. The combined actual ORIGINAL factor reservoirs are
+```
+P5=(0,2,8,10,13)       original SOURCE point factor IDs
+L5=(2,5,7,11,14)       original SOURCE line factor IDs
+immutable original source incidence-ID list inside P5×L5=(6,15,34,8,43).
+B_3x3 (the actual ORIGINAL source incidence of the paired C4 triples)
+  =((0,0,1),
+    (0,1,0),
+    (0,0,0)).
+```
+The paired physically occupied C4s possess **two genuine marked source spoke-crossing incidence flags**, but the third genuine original POINT center source factor has zero incidences to ALL three selected original LINE factors, giving a true source Hall witness `{row 2}→∅`. In the WHOLE local P5×L5 original incidence graph there are exactly FIVE immutable original incidence IDs, so **not even one ORIGINAL sixflag Q exists**, positive or negative. This is an exact finite counterexample in the accepted ORIGINAL symplectic GQ and one full globally correlated complete physical map, not a fabricated 3×3 forest.
+
+For W(3,2), twelve chosen real nonincident double-disjoint original source anchors:
+- **lex**: 48 paired physically occupied original C4 reservoirs; accepted positive GF5 source sixflags WITH C4-PAIR multiplicity `B/B-overlap=6, C/B=2`; 25 actual marked-Hall-failing local C4 pairs have ZERO local positive historical GF5 Q.
+- **S72**: 48 paired original C4 reservoirs; `B/B-overlap=1`; 39 actual marked-Hall-failing pairs have ZERO local positive original sixflags. Both use the full global original f/g injections and ALL C4 pairs for the selected anchors.
+
+For W(3,4), **eight chosen genuine original nonincident source anchors** per globally fixed full typed embedding, enumerating ALL their physical paired C4 completions and EVERY available local six-ID source incidence Q:
+- **lex:** 44,046 paired C4 reservoirs, `B/B-overlap=67`, `B/B-disjoint=2`, `C/B=35`; **9,419** actual marked-Hall-failing C4 reservoirs have ZERO accepted LOCAL positive GF5 six-ID Q.
+- **random:** 42,530 paired C4 reservoirs, `B/B-overlap=67`, `B/B-disjoint=1`, `C/B=23`; **9,725** actual marked-Hall-failing C4 reservoirs have ZERO local positive GF5 sixflag.
+
+Counts above are ORIGINAL six-source-incidence-ID **LOCAL reservoir C4-pair multiplicities** on the stated selected anchors, NOT full-source global `S_s` and NOT necessarily distinct accepted Q sets across all original anchors. W(3,8) lex/random checks are explicitly capped to four original P3 anchors×8×8 actual physical C4 pairs; no claim that they exhaust the source.
+
+This grounds a rigorous, project-specific **per-local-C4-pair NO-GO:** a universal rule charging every original marked-source cofactor-Hall failure to at least one positive historical GF5 source sixflag whose BOTH source factor types remain inside the SAME paired-C4+P3 original P5×L5 reservoir cannot exist. It says nothing about transfers using ADDITIONAL TRUE original factors elsewhere in the same global f/g.
+
 ## 4. Implementation and independent true-original falsifiers
 
 - `research/hyp105_issue230_d6aa4df_fivebyfive_local_compensation.py` provides an EXACT factor-image C4+disjoint doubled-source physical classification independent from actual source incidence. It computes the two allowed C choices/unique B repeated factor. It then enumerates ALL TRUE immutable original incidences in the local 5x5 original factor product, and EVERY SIX-SOURCE-ID subset, under one fixed full globally injected original f/g, applying both (1) an independently implemented source-profile+physical-degrees seven-label calculation and (2) the authoritative original ANY-a historical seven-tag oracle `classify_seven_all_a_original_Q` from AA4-CG. Their results MUST AGREE on each actual immutable-source Q. Unlike signed physical orbit events, all six original incidence IDs are literally the same on point/line projections.
