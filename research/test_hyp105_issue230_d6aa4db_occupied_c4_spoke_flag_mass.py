@@ -186,7 +186,7 @@ class AA4DBTrueOriginalOccupiedC4(unittest.TestCase):
                         base=labels[i];double=labels[j]
                         for source_id in range(min(V,120)):
                             spoke=labels[source_id]
-                            if not(set(spoke)&set(base)) or set(spoke)&set(double):
+                            if source_id==i or len(set(spoke)&set(base))!=1 or set(spoke)&set(double):
                                 continue
                             w=occupied_C4_completion_containing_original_SAFE_spoke(
                                 base,double,spoke,inverse,a)
