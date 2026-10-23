@@ -54,6 +54,23 @@ A completely independent test `research/test_hyp105_issue230_d6aa4dg_two_externa
 
 Finite examples validate the code, not the universality of the theorem; the graph-degree argument is the ALL-h proof. The requested global AA4-DG **compensation theorem** is still OPEN: possible physical cross-edge completion does not guarantee actual source incidences needed for SIX immutable flags on BOTH typed maps, and this theorem provides no lower bound on the historical original all-seven count.
 
+## 3a. Independently verified exact-source six-ID examples at the minimal nonlocal width
+
+**ACTUAL ORIGINAL W(3,2), same frozen globally complete original typed maps, first eight selected genuinely nonincident original P3×paired occupied physical C4 reservoirs, SIX immutable ORIGINAL incidence IDs on both sides; count WITH paired-C4 source reservoir multiplicity:**
+
+| Full original typed map | A-left/B-right | B-left/A-right | D6 (A/A) | C/A |
+|---|---:|---:|---:|---:|
+| lex | 8 | 6 | 10 | 4 |
+| S72 | 6 | 2 | 0 | 1 |
+
+The source finite oracle verifies that the A-side uses exactly the unique occupied physical pair-images of its eight or fewer two-external SOURCE factors, and EVERY Q is a six-DISTINCT-ORIGINAL-INCIDENCE-ID set accepted by the pre-existing full historical GF5 source classifier. These are SOURCE **C4-PAIR-WEIGHTED** counts on eight selected completion pairs, NOT entire W32 global S counts, NOT 28 distinct original Q sets globally.
+
+**TRUE original W(3,4), first three C4 completion pairs of selected genuine original nonincident P3 under the full fixed typed maps:** `lex` has one A-left/B-right accepted historical ORIGINAL sixflag in its minimal two-external source-factor templates; `random` has zero among those three paired C4 reservoirs. No lower bound for all three-pair sets, all W34, or all-h follows. The full globally injected typed original mapping and ORIGINAL source incidence relation remain exactly frozen throughout each finite run.
+
+**Independent falsification methodology:** a SECOND code path enumerates EVERY pair of ORIGINAL source-factor IDs outside the five-factor local reservoir, chooses every four of the five local ORIGINAL factor IDs, computes six-coordinate physical 2regularity directly, and checks set equality with the four-omitted-C4-edge×two-cross-matching catalogue. On complete physical K6 it finds exactly EIGHT A templates and ZERO possible A templates with only one outside ORIGINAL factor. Independently enumerating six distinct immutable original incidence IDs for the paired true source factors and running the historical GF5 classifier agrees with the first nonlocal catalogue/source-ID checker for all specified W32 and W34 capped physical C4 examples.
+
+This shows the exact two-external mechanism is **nonempty and can produce historically accepted original A-class sixflags**, but their existence is NOT automatic under all correlated global f/g: physical bridge labels may be missing, or genuine original incidence edges may fail the sixflag matching conditions.
+
 ## 4. Why this is scientifically useful, without overstating it
 
 The previous AA4-DF locally negative witness showed a single Hall-defective marked source incidence need NOT yield ANY positive original GF5 sixflag using only its 5+5 original source factor IDs. AA4-DG rules out a broad attempted repair: merely incorporating one outside source factor per typed side still cannot reach FOUR of the SEVEN classes (those containing A). A mathematically viable compensation argument for those classes MUST genuinely LEAVE the local reservoir by >=2 SOURCE original factor IDs on the A side. The exact eight physical bridge possibilities provides a bounded branching interface into a richer original source-incidence search. That is materially more discriminating than unrestricted "search all source factor 6-sets".
