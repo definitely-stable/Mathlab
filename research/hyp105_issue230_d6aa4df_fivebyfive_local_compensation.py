@@ -94,27 +94,6 @@ def original_local_five_factor_physical_certificate(
         f,g,point_base,point_doubled,point_triple,
         line_base,line_doubled,line_triple):
     """Structural proof-witness for any ACTUALLY occupied paired C4."""
-    def side(labels,base,double,triple):
-        base,double=frozenset(labels[base]),frozenset(labels[double])
-        triple=tuple(triple)
-        if len(triple)!=3 or len(set(triple))!=3 or base&double:
-            raise ValueError("actual distinct original source C4 triple and disjoint doubled required")
-        if base in (frozenset(labels[i]) for i in triple) or any(
-            frozenset(labels[i])&double for i in triple
-        ):
-            raise ValueError("source occupied C4 triple cannot be anchor/doubled physical pair")
-        cycle=tuple([base]+[frozenset(labels[i]) for i in triple])
-        degree=Counter(u for edge in cycle for u in edge)
-        if len(degree)!=4 or any(n!=2 for n in degree.values()):
-            raise ValueError("four ACTUALLY occupied source images must form physical 4cycle")
-        spokes=tuple(i for i in triple if len(set(labels[i])&base)==1)
-        center=tuple(i for i in triple if set(labels[i]).isdisjoint(base))
-        if len(spokes)!=2 or len(center)!=1:
-            raise ValueError("actual occupied C4 triple is not 2 spokes + center")
-        if set(labels[spokes[0]])&set(labels[spokes[1]]):
-            raise AssertionError("opposite actual original source C4 spokes should be disjoint")
-        physical_B_repeated_factor=double_source_id
-        return None
     # Deliberately define without using the seven source classifier:
     # 4cycle has exactly 2 opposite-edge matchings; isolated doubled
     # original physical image extends each to a 3-edge perfect matching.
