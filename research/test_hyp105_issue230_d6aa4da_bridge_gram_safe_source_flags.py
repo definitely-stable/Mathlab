@@ -95,7 +95,7 @@ class AA4DATrueOriginalBridgeGram(unittest.TestCase):
                 self.assertTrue(x["allh_gate_h_ge_96"])
                 self.assertLessEqual((a-2)**2,4*s**3)
                 self.assertGreaterEqual(4*k*k,s**3)
-                self.assertLessEqual(4*V*s*d*(a-2),32*s**6*(s**(1/2) if False else __import__("math").isqrt(s)))
+                self.assertLessEqual(4*V*s*d*(a-2),32*s**6*__import__("math").isqrt(s))
                 self.assertGreaterEqual(s,(384*16384)**4)
                 self.assertGreater(x["allh_SAFE_positive_nonincident_double_disjoint_P3_floor_integer"],0)
             else:self.assertFalse(x["allh_gate_h_ge_96"])
