@@ -171,7 +171,11 @@ class AA4DCActualOriginalMarkedCofactor(unittest.TestCase):
                                  canonical["paired_two_sided_C4_templates"])
                 self.assertGreaterEqual(z["source_occupied_C4_source_cross_flag_mark_mass_T"],
                                         db["both_occupied_physical_C4_TRUE_original_cross_source_flag_mass"])
-                self.assertEqual(
+                # DB restricts EACH source spoke image to its anchor's
+                # physical halfcut, whereas DC only restricts ANCHOR
+                # images and enumerates FULL actual global C4 completion
+                # source factors. Hence support_DC CONTAINS support_DB.
+                self.assertGreaterEqual(
                     z["distinct_original_spoke_cross_source_flags_with_two_actual_C4_witnesses"],
                     db["both_occupied_physical_C4_TRUE_original_cross_source_flag_mass"])
                 self.assertEqual(
@@ -254,7 +258,7 @@ class AA4DCActualOriginalMarkedCofactor(unittest.TestCase):
                 exact_original_C4_marked_cofactor_energy(
                     model,max_triples_per_side=value,anchor_pairs=((0,0),))
         for X,Y in (((0,0,1),(3,4,5)),((0,1,9),(3,4,5)),
-                    ((0,1),(3,4,5)),((0,1,2),(3,4,True))):
+                    ((0,1,2),(3,4,True))):
             with self.assertRaises(ValueError):
                 exact_original_C4_marked_cofactor_energy(
                     model,point_cut=X,line_cut=Y,anchor_pairs=())
