@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Exact original globally occupied K_a source C4 four edge cycle and doubled original source pair: unique physical B repeated factor, precisely two C point/line source profiles
+      - name: Exact original globally occupied K_a source C4 four edge cycle and doubled original source pair with unique physical B repeated factor, precisely two C point/line source profiles
         run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4df_fivebyfive_local_compensation.py' -v -k test_01
   W32_TRUE_original_fivebyfive_ALL_actual_SOURCE_C4_GF5_and_zero_local_rescue:
     runs-on: ubuntu-latest
