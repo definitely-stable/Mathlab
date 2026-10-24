@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4dk-sparse-covariance-decoupling
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4dk_sparse_covariance_decoupling.py"
+      - "research/test_hyp105_issue230_d6aa4dk_sparse_covariance_decoupling.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DK-SPARSE-COVARIANCE-DECOUPLING.md"
+      - ".github/workflows/hyp105-issue230-aa4dk-sparse-covariance-decoupling.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  w32_exact_overlap_distribution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify exact girth-8 overlap distribution on W(3,2)
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dk_sparse_covariance_decoupling.py' -v -k test_01
+  w34_sparse_overlap_distribution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify line overlap distribution on W(3,4) with P(R <= 1) > 94%
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dk_sparse_covariance_decoupling.py' -v -k test_02
+  orbit_disjoint_negative_covariance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify negative disjoint covariance under permutation orbit
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dk_sparse_covariance_decoupling.py' -v -k test_03
+  variance_order_and_concentration_ratio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify variance ratio Var(S)/(E[S])^2 <= O(1/s) -> 0
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dk_sparse_covariance_decoupling.py' -v -k test_04
+  chebyshev_asymptotic_almost_sure_positivity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify Chebyshev concentration bound for all h >= 1
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dk_sparse_covariance_decoupling.py' -v -k test_05
+  failclosed_invalid_inputs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject non-powers of 2 and invalid inputs fail-closed
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dk_sparse_covariance_decoupling.py' -v -k test_06
