@@ -62,13 +62,19 @@ def independent_forward_original_A_source_Q_provenance(model,
                     LA=original_two_external_A_completion_catalogue(g,l,l0,lc)
                     # factor-side A combinations from ACTUALLY OCCUPIED
                     # physical images; B/C sides kept original-local.
+                    # HISTORICAL Q must use the actual A-template
+                    # on its A-profile side. AA4-DG's broad SOURCE
+                    # factor superset census did not enforce this,
+                    # so a C/A source Q could be falsely attributed to
+                    # an A-source template on its C side. Preserve the
+                    # accepted original Q; REJECT the false provenance.
                     source_sets=(
-                        ((P,L5) for P in PA),
-                        ((P5,L) for L in LA),
-                        ((P,L) for P in PA for L in LA),
+                        ("POINT_A",((P,L5) for P in PA)),
+                        ("LINE_A",((P5,L) for L in LA)),
+                        ("BOTH_A",((P,L) for P in PA for L in LA)),
                     )
                     accepted_here=set()
-                    for candidates in source_sets:
+                    for case,candidates in source_sets:
                         for P,L in candidates:
                             flag_ids=tuple(source_flag[i,j] for i in P for j in L
                                            if (i,j) in source_flag)
@@ -77,6 +83,16 @@ def independent_forward_original_A_source_Q_provenance(model,
                                 if Q in accepted_here:continue
                                 kind=classify_seven_all_a_original_Q(Q,f,g,inc)
                                 if kind in A_SIDE_POSITIVE_CLASSES:
+                                    p_mult=tuple(sorted(Counter(inc[z][0] for z in Q).values()))
+                                    l_mult=tuple(sorted(Counter(inc[z][1] for z in Q).values()))
+                                    pA=p_mult==(1,1,1,1,1,1)
+                                    lA=l_mult==(1,1,1,1,1,1)
+                                    if case=="POINT_A" and not(pA and not lA):
+                                        continue
+                                    if case=="LINE_A" and not(lA and not pA):
+                                        continue
+                                    if case=="BOTH_A" and not(pA and lA):
+                                        continue
                                     accepted_here.add(Q)
                                     Q_provenance[Q].add((p,l,tuple(pc),tuple(lc)))
                                     classes[kind]+=1
@@ -217,6 +233,29 @@ class AA4DHConstantOriginalSourceInverse(unittest.TestCase):
                   "examined_paired_C4",pairs,
                   "distinct_TRUE_source_six_ID_Q",len(Qw),
                   "historical_A_classes",dict(classes),flush=True)
+
+    def test_03b_PREVIOUS_DG_superset_false_A_source_attribution_regression(self):
+        model=fixture(1,"lex")
+        Q=(3,4,18,20,43,44)
+        s,V,a,f,g,pl,lp=_validated_original(model)
+        inc=tuple(model["incidences"])
+        self.assertEqual(classify_seven_all_a_original_Q(Q,f,g,inc),"C/A")
+        # Genuine historical positive Q, but its earlier parent
+        # A-bridge physical source-factor SUPERSET provenance to
+        # actual original anchor (0,14) is wrong: LINE profile C
+        # belongs to physical SOURCE factors outside LINE L5.
+        inv=inverse_true_original_historical_A_Q_bridge_certificate(model,Q)
+        self.assertEqual(inv["original_source_ACTUAL_nonincident_P3_paired_C4_reuse_count"],0)
+        self.assertNotIn((0,14,(2,8,13),(5,7,11)),
+            set(inv["actual_true_original_source_P3_C4_representations"]))
+        self.assertNotIn((0,14,(2,8,13),(5,8,10)),
+            set(inv["actual_true_original_source_P3_C4_representations"]))
+        Qw,_,_=independent_forward_original_A_source_Q_provenance(
+            model,limit_reservoirs=12)
+        self.assertNotIn(Q,Qw)
+        print("AA4DH_REJECT_BROAD_PARENT_DG_FALSE_MINIMAL_SOURCE_PROFILE_C_ON_A_SUPERSET",
+              Q,"historical_positive_C/A_but_zero_strict_twoexternal_bridge_representations",
+              flush=True)
 
     def test_04_TRUE_original_W34_selected_source_sixflags_positive_not_synthetic(self):
         for scheme in ("lex","random"):
