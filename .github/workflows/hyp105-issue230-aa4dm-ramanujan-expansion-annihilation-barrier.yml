@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4dm-ramanujan-expansion-annihilation-barrier
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4dm_ramanujan_expansion_annihilation_barrier.py"
+      - "research/test_hyp105_issue230_d6aa4dm_ramanujan_expansion_annihilation_barrier.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DM-RAMANUJAN-EXPANSION-ANNIHILATION-BARRIER.md"
+      - ".github/workflows/hyp105-issue230-aa4dm-ramanujan-expansion-annihilation-barrier.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  super_ramanujan_spectrum_all_h:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify that bipartite incidence graph of W(3,s) is strictly super-Ramanujan
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dm_ramanujan_expansion_annihilation_barrier.py' -v -k test_01
+  expander_mixing_bounds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify bipartite expander mixing lemma bounds on test point and line sets
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dm_ramanujan_expansion_annihilation_barrier.py' -v -k test_02
+  simultaneous_annihilation_tradeoff_positive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify that spectral expander retention ensures strictly positive D6+BA+AB floor
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dm_ramanujan_expansion_annihilation_barrier.py' -v -k test_03
+  w32_all_schemes_tradeoff_census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify genuine W(3,2) empirical trade-off min(D6 + BA + AB) == 65 > 0
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dm_ramanujan_expansion_annihilation_barrier.py' -v -k test_04
+  all_h_hyp105_resolution_summary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify formal resolution summary of Hypothesis 105 across all 5 stages
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dm_ramanujan_expansion_annihilation_barrier.py' -v -k test_05
+  failclosed_invalid_inputs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject non-powers of 2, non-integers, invalid subset dimensions fail-closed
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dm_ramanujan_expansion_annihilation_barrier.py' -v -k test_06
