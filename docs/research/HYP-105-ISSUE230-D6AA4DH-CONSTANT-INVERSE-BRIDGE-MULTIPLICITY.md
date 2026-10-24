@@ -84,6 +84,35 @@ Hence `S_s(f,g)>=M_A_total/576`. **THIS is a rigorously unconditional inverse/tr
 - `research/test_hyp105_issue230_d6aa4dh_constant_multiplicity_inverse.py`: first proves the upper via an independent exhaustive physical complete K6 **actual sharpness** witness: six-edge C6 typed original physical support has 24 A inverse representations, while two triangles produce ZERO; B has 4, C has 24. SECOND separately enumerates EVERY physically valid paired source 4cycle+doubled image on K6, filtering only exact 4-local+2-external factor configurations for A and corresponding B/C repeated original profiles, and checks perfect equality with the new inverse counts. THIRD, REAL ORIGINAL symplectic W(3,2) frozen globally complete lex/S72: a completely separate AA4-DG-forward true original P3×actual C4 and ORIGINAL six-ID historical GF5 source class enumerator collects selected source Q and provenance pairs. For EACH SOURCE Q the new inverse full global-source algorithm returns ALL possible genuine original anchor paired C4 representations and the original forward provenance must be included (and class weighted sums agree exactly on observed sample). Genuine W34 lex/random and W38 lex/random smaller strictly capped original source P3/C4 samples also cross-check, never claimed full global W34/W38 root S. Invalid repeated six original incidence IDs, forged global typed source labels, physical source 2factors or profiles fail closed.
 - Hosted isolated six-job CI (K6 two independent brute, W32 actual original forward inverse, W34 true-original source, W38 sample, malformed original SOURCE input). Dedicated exact PR-head SUCCESS plus Proof Audit/INDEX and Full Research recorded separately. This is still not an independent qualified peer review.
 
+## 5a. INDEPENDENT SCIENTIFIC AUDIT — parent AA4-DG's original source superset attribution is too broad
+
+The new genuine-original forward-vs-inverse falsifier initially FAILED (correctly) on a historical POSITIVE immutable original W(3,2) `lex` six-incidence-ID set
+
+```
+Q=(3,4,18,20,43,44), accepted label C/A,
+source POINT profile A, source LINE profile C.
+```
+
+The broad previous AA4-DG forward sixflag loop included source Q via paired original physical C4 source anchor `(p,l)=(0,14)`, point C4 `(2,8,13)` and LINE C4 `(5,7,11)` (also `(5,8,10)`). However the actual ORIGINAL source path has doubled source LINE factor `l0=2`, while the accepted source Q's LINE C-profile original repeated factor support consists of `{1,6,14}`: it does NOT contain doubled line factor 2. Thus Q cannot lie in the STRICT five-source LINE reservoir for that original anchor. Parent AA4-DG had enumerated SOURCE factor SUPERSETS `POINT_A × LINE_A`, selected six genuine original incidence flags from them, then accepted Q with POINT A/LINE C without requiring the actual ORIGINAL LINE C source support be inside the line LOCAL five-factor C4+doubled reservoir.
+
+**This is a real scope/attribution error in the parent finite AA4-DG A-side sample census, not a bogus historical Q.** The historical original positive `C/A` classification of Q is genuine and unchanged. It merely must NOT be charged to that local MINIMUM two-external A mechanism. AA4-DG's purely PHYSICAL eight-template theorem remains valid. Do not cite ALL parent #633 A-side sample totals as strict-minimum source provenance evidence without applying the corrected check.
+
+AA4-DH's separate independent forward original sixflag implementation now enforces:
+1. `POINT_A × LINE_local`: TRUE ORIGINAL source Q must have POINT profile A, and LINE profile B or C using only the designated original local L5 factors.
+2. `LINE_A × POINT_local`: LINE profile A, POINT profile B or C using only the designated original local P5 factors.
+3. `POINT_A × LINE_A`: BOTH true original typed Q profiles A, i.e. a D6 candidate.
+
+The strict test now confirms Q above has **ZERO** actual anchored source P3×paired C4 inverse representations in the strict AA4-DG minimum-width domain. It confirms all strict forward provenance is included in complete Q-first inverse on actual W32 lex/S72. The finite strict source subset is consequently smaller than the supersets counted by earlier DG when these differed.
+
+**Exact final correction-check finite data (selected source P3/C4 reservoirs, with paired-C4 multiplicity, not global S):**
+
+- TRUE original W(3,2), `lex`, first **12** physically occupied P3×C4 reservoir pairs: **15 DISTINCT positive actual original A-side six-ID Q**, strict source C4-pair multiplicity `A-left/B-right=9`, `B-left/A-right=7`, `D6=11`, `C/A=4`.
+- TRUE original W(3,2), `S72`, first 12 physical P3×C4 reservoirs: **8 distinct Q**, strict source C4-pair multiplicity `A-left/B-right=6`, `B-left/A-right=2`, `C/A=1`.
+- TRUE original W(3,4), `lex`, first three original P3×C4 reservoir pairs: **one** historical A-left/B-right positive six-source-flag Q; `random` first three: zero.
+- TRUE original W(3,8), `lex`/`random`, first TWO reservoirs: zero accepted strict-minimal original A-positive Q, explicitly PARTIAL.
+
+**All counts above are for different limited source reservoir selections. No global all-W32/W34/W38 sevenclass census, positive all-h mass or asymptotic fit follows.** The important new rigorous theorem is the CONSTANT upper bound, not extrapolation from the finite profiles.
+
 ## 6. Next stage and strict scientific limitations
 
 This theorem closes the **reuse/multiplicity** portion of the AA4-DG global motif-transfer problem at an absolute constant 576, much stronger than a naive O(s²) or O(s^4) charge. It does NOT prove a uniform positive count of actual six ORIGINAL source incidence IDs for those minimum-width physical A templates. An analytic lower on occupied physical bridge candidates is itself insufficient without actual original W3 source incidence constraints, and a positive finite W32/W34 mean cannot be extrapolated.
