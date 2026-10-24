@@ -1,32 +1,30 @@
-"""HYP-105 Canonical Core: Three-Lemma Resolution Architecture.
+"""HYP-105 Canonical Core: Three-Lemma Architecture and Status Audit.
 
-This module unifies and replaces the sprawling historical exploration of Hypothesis 105
-(Issue #230) into a single, self-contained, minimal mathematical engine.
+This module unifies the mathematical foundations of Hypothesis 105 (Issue #230)
+into a rigorous, self-contained architecture.
 
-THE THREE CANONICAL LEMMAS:
-1. Lemma 1 (Global Transversal Carrier):
+THE THREE CANONICAL COMPONENTS:
+1. Lemma 1 (Global Transversal Carrier — PROVED):
    In the generalized quadrangle W(3,s) (s = 2^h, h >= 1), every physical 6-point cycle
    P_6 in K_a carries at least tau(P_6) >= (1 - 15/(s+1)^2)(s+1)^6 distinct line matchings.
    There are zero uncovered points across the full geometry.
 
-2. Lemma 2 (Girth-8 Line-Overlap Sparsity & Negative Disjoint Covariance):
-   Due to girth 8, pairwise 6-flag line overlaps satisfy P(R <= 1) >= 1 - O(s^-3).
-   The disjoint majority (R = 0) contributes strictly negative covariance Cov_0 < 0
-   under the permutation orbit Orb(E), damping variance to Var(S)/(E[S])^2 <= O(s^-1) -> 0.
-   Chebyshev concentration guarantees almost-sure positivity S(f, g') >= (140 - o(1))s^6.
+2. Lemma 2 (Girth-8 Line-Overlap Sparsity & Covariance Status):
+   Due to girth 8, pairwise 6-flag line overlaps satisfy P(R <= 1) >= 1 - O(s^-3) (PROVED).
+   Disjoint covariance is NOT universally negative (REFUTED for 2-factors on K_6, Cov = +0.000518 > 0).
+   The variance decay ratio Var(S)/(E[S])^2 <= O(s^-1) remains an OPEN CONJECTURE.
 
-3. Lemma 3 (Super-Ramanujan Spectrum & Simultaneous Annihilation Barrier):
-   The bipartite incidence graph has degree d = s + 1 and second eigenvalue
-   lambda_2 = sqrt(2s) < 2 sqrt(s) (strictly super-Ramanujan).
-   By the expander mixing lemma, any displacement of flux away from D6 cycles is
-   forced into incident vertex collisions, guaranteeing:
-     D6 + (BA + AB) >= c_0 * (1 - sqrt(2s)/(s+1)) * s^6 > 0.
-   Simultaneous annihilation (D6 = 0 and BA = 0 and AB = 0) is mathematically impossible,
-   refuting infinite counterfamily Branch B.
+3. Lemma 3 (Super-Ramanujan Spectrum & Simultaneous Annihilation Status):
+   The bipartite incidence graph has degree d = s + 1, second eigenvalue
+   lambda_2 = sqrt(2s) < 2 sqrt(s) (PROVED), with certified multiplicities
+   2 + s(s+1)^2 + s(s^2+1) = 2V (at s=4: +/-5: 1 each, +/-sqrt(8): 50 each, 0: 68).
+   The simultaneous annihilation compensation lower bound D6 + BA + AB >= Omega(s^6)
+   remains an OPEN CONJECTURE. Branch B is NOT refuted.
 
-CONSTRUCTIVE DERANDOMIZATION:
+CONSTRUCTIVE DERANDOMIZATION (PROVED EXISTENTIAL):
    The Method of Conditional Expectations deterministically computes a bijection g*
    achieving S(f, g*) >= E[S] >= (140 - o(1))s^6 in polynomial time O(V^3).
+   Universal Branch A (forall f, g) remains an OPEN PROBLEM.
 """
 from fractions import Fraction
 from math import comb, sqrt
@@ -58,7 +56,7 @@ def canonical_parameters(s):
 
 
 # -------------------------------------------------------------------------
-# LEMMA 1: Global Unanchored Transversal Carrier (AA4-DJ)
+# LEMMA 1: Global Unanchored Transversal Carrier (AA4-DJ) — PROVED
 # -------------------------------------------------------------------------
 def transversal_carrier_retention(s):
     """Lemma 1: Transversal matching lower bound per physical 6-cycle."""
@@ -66,7 +64,6 @@ def transversal_carrier_retention(s):
     if s >= 4:
         retention = Fraction(1) - Fraction(15, (s + 1) ** 2)
     else:
-        # Exact W(3,2) minimum matching count across all 70 cycles is 238
         retention = Fraction(200, (s + 1) ** 6)
     min_matchings = int(retention * ((s + 1) ** 6))
     return {
@@ -74,14 +71,15 @@ def transversal_carrier_retention(s):
         "retention_fraction": retention,
         "min_matchings_per_cycle": min_matchings,
         "asymptotic_order": "Omega(s^6)",
+        "status": "PROVED",
     }
 
 
 # -------------------------------------------------------------------------
-# LEMMA 2: Girth-8 Hypergeometric Sparsity & Negative Covariance (AA4-DK)
+# LEMMA 2: Girth-8 Hypergeometric Sparsity (PROVED) & Covariance Status
 # -------------------------------------------------------------------------
 def girth8_overlap_sparsity_and_covariance(s):
-    """Lemma 2: Hypergeometric line-overlap distribution and negative covariance."""
+    """Lemma 2: Hypergeometric line-overlap distribution and covariance audit."""
     params = canonical_parameters(s)
     V = params["V"]
 
@@ -91,11 +89,10 @@ def girth8_overlap_sparsity_and_covariance(s):
     p_r1 = Fraction(comb(6, 1) * comb(V - 6, 5), denom)
     p_le1 = p_r0 + p_r1
 
-    # Disjoint covariance factor: (comb(V-6, 6)/comb(V, 6) - 1) < 0
-    cov0_factor = p_r0 - Fraction(1)
-
-    # Variance-to-mean-squared bound constant
-    var_mean_ratio_bound = Fraction(10, s)
+    # Naive disjoint covariance factor: (comb(V-6, 6)/comb(V, 6) - 1) < 0
+    # Note: Refuted for 2-factors by K_6 counterexample (Cov = +519/1002001 > 0).
+    naive_cov0_factor = p_r0 - Fraction(1)
+    heuristic_var_ratio = Fraction(10, s)
 
     return {
         "s": s,
@@ -104,16 +101,18 @@ def girth8_overlap_sparsity_and_covariance(s):
         "P_R1": p_r1,
         "P_R_le_1": p_le1,
         "sparsity_exceeds_90pct": float(p_le1) > 0.90 if s >= 4 else True,
-        "cov0_is_strictly_negative": cov0_factor < 0,
-        "var_mean_ratio_bound": var_mean_ratio_bound,
+        "naive_cov0_is_negative": naive_cov0_factor < 0,
+        "universal_negative_covariance_holds": False,
+        "heuristic_var_mean_ratio": heuristic_var_ratio,
+        "variance_concentration_status": "OPEN_CONJECTURE_UNPROVEN",
     }
 
 
 # -------------------------------------------------------------------------
-# LEMMA 3: Super-Ramanujan Spectrum & Simultaneous Annihilation Barrier (AA4-DM)
+# LEMMA 3: Super-Ramanujan Spectrum (PROVED) & Annihilation Barrier (OPEN)
 # -------------------------------------------------------------------------
 def super_ramanujan_annihilation_barrier(s):
-    """Lemma 3: Bipartite spectrum and simultaneous annihilation barrier."""
+    """Lemma 3: Bipartite spectrum and simultaneous annihilation barrier status."""
     params = canonical_parameters(s)
     d = params["d"]
     lambda_2 = sqrt(2 * s)
@@ -121,7 +120,11 @@ def super_ramanujan_annihilation_barrier(s):
     is_super_ramanujan = lambda_2 < ramanujan_bound
     expander_ratio = lambda_2 / d
     expander_retention = 1.0 - expander_ratio
-    theoretical_floor_s6 = max(0.0, 140.0 * expander_retention)
+    heuristic_floor_s6 = max(0.0, 140.0 * expander_retention)
+
+    mult_pm_d = 1
+    mult_pm_lam2 = (s * (s + 1) ** 2) // 2
+    mult_zero = s * (s ** 2 + 1)
 
     return {
         "s": s,
@@ -131,8 +134,15 @@ def super_ramanujan_annihilation_barrier(s):
         "is_super_ramanujan": is_super_ramanujan,
         "expander_ratio": expander_ratio,
         "expander_retention": expander_retention,
-        "theoretical_floor_s6": theoretical_floor_s6,
-        "simultaneous_zero_refuted": theoretical_floor_s6 > 0.0,
+        "heuristic_floor_s6": heuristic_floor_s6,
+        "multiplicities": {
+            "+/-d": mult_pm_d,
+            "+/-lambda_2": mult_pm_lam2,
+            "zero": mult_zero,
+            "total": 2 * mult_pm_d + 2 * mult_pm_lam2 + mult_zero,
+        },
+        "annihilation_barrier_status": "OPEN_CONJECTURE_UNPROVEN",
+        "branch_b_status": "OPEN_NOT_REFUTED",
     }
 
 
@@ -203,27 +213,21 @@ def derandomize_transversal_carrier(V, events, universe_size=None):
         available.remove(best_target)
         history.append(best_phi)
 
+    final_score = int(history[-1])
     return {
         "assignment": assignment,
         "initial_expectation": initial_phi,
-        "final_score": int(history[-1]),
-        "potential_history": history,
-        "monotonically_nondecreasing": all(history[i + 1] >= history[i] for i in range(len(history) - 1)),
+        "final_score": final_score,
         "derandomized_exceeds_mean": history[-1] >= initial_phi,
+        "monotonically_nondecreasing": all(history[i + 1] >= history[i] for i in range(len(history) - 1)),
     }
 
 
 # -------------------------------------------------------------------------
-# Exact W(3,2) Canonical Empirical Certificate
+# Verified Genuine W(3,2) Canonical Certificate
 # -------------------------------------------------------------------------
 def verify_w32_canonical_certificate():
-    """Exact empirical audit of all 4 canonical schemes on genuine W(3,2).
-
-    Certifies that:
-      - D6 + BA + AB >= 65 > 0 across ALL schemes
-      - min S(f, g) >= 68 > 0
-      - Zero mass is impossible.
-    """
+    """Exact empirical audit of 4 canonical schemes on genuine W(3,2)."""
     schemes = {
         "lex": {"D6": 15, "BA": 98, "AB": 110, "core": 223, "S": 259},
         "reverse": {"D6": 3, "BA": 77, "AB": 74, "core": 154, "S": 169},
@@ -238,7 +242,8 @@ def verify_w32_canonical_certificate():
         "min_total_S": min_total,
         "certified_core_floor": 65,
         "certified_total_floor": 68,
-        "zero_mass_refuted": min_core > 0 and min_total > 0,
+        "zero_mass_refuted_in_sample": min_core > 0 and min_total > 0,
+        "is_universal_proof": False,
     }
 
 
@@ -251,14 +256,16 @@ def canonical_proof_summary():
         "Hypothesis": 105,
         "Issue": 230,
         "CanonicalLemmas": {
-            "Lemma1_TransversalCarrier": "tau(P6) >= (1 - O(s^-2))s^6 matchings per physical C6",
-            "Lemma2_SparseNegativeCovariance": "P(R<=1) >= 1 - O(s^-3), Cov0 < 0, Var/E^2 <= O(s^-1)",
-            "Lemma3_SuperRamanujanBarrier": "lambda_2 = sqrt(2s) < 2 sqrt(s), D6 + BA + AB >= Omega(s^6)",
+            "Lemma1_TransversalCarrier": "PROVED: tau(P6) >= (1 - O(s^-2))s^6 matchings per physical C6",
+            "Lemma2_SparseHypergeometricOverlap": "PROVED: P(R<=1) >= 1 - O(s^-3); universal negative covariance REFUTED",
+            "Lemma3_SuperRamanujanSpectrum": "PROVED: lambda_2 = sqrt(2s) < 2 sqrt(s); compensation law is OPEN CONJECTURE",
         },
         "Resolution": {
-            "Branch_A_ConstructiveCarrier": "PROVED_OMEGA_S6",
-            "Branch_A_AlmostSureOrbit": "PROVED_CONCENTRATED",
-            "Branch_B_Counterfamily": "REFUTED_NO_GO",
-            "W32_DeterministicInfimum": "CERTIFIED_GE_68",
+            "Branch_A_ConstructiveCarrier": "PROVED_EXISTENTIAL_OMEGA_S6",
+            "Branch_A_UniversalPointwise": "OPEN_WITH_FORMAL_BLOCKER",
+            "Branch_A_AlmostSureOrbit": "OPEN_CONJECTURE_UNPROVEN",
+            "Branch_B_Counterfamily": "OPEN_NOT_REFUTED",
+            "W32_DeterministicSampleMin": "CERTIFIED_GE_68_IN_AUDITED_SAMPLE",
+            "Overall_Status": "OPEN_WITH_FORMAL_BLOCKER",
         },
     }

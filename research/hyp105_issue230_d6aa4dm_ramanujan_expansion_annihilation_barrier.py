@@ -1,55 +1,77 @@
-"""AA4-DM: Ramanujan expander mixing and simultaneous D6/BA/AB annihilation barrier.
+"""AA4-DM: Ramanujan expander spectrum and simultaneous annihilation barrier analysis.
 
-Strict child of AA4-DL. Proves that the bipartite incidence graph of the generalized
-quadrangle W(3,s) (s = 2^h, h >= 1) is a super-Ramanujan bipartite expander:
+Strict child of AA4-DL. Analyzes the bipartite incidence graph of the generalized
+quadrangle W(3,s) (s = 2^h, h >= 1) as a super-Ramanujan bipartite expander:
+  - Total bipartite vertices: 2V = 2(s+1)(s^2+1)
   - Bipartite degree d = s + 1
   - Second eigenvalue lambda_2 = sqrt(2s) < 2 sqrt(s)
   - Expander ratio lambda_2 / d = sqrt(2s)/(s+1) = O(s^{-1/2}) -> 0
 
-Theorem AA4-DM.1 (Simultaneous Annihilation Barrier):
-An adversary attempting to zero out D6 (aligned A/A 6-cycles) must perturb the
-permutation orbit away from cycle alignments. Because W(3,s) is an optimal expander,
-any flux displaced from physical 6-cycles cannot vanish into thin air; it is
-forced by the Expander Mixing Lemma into incident vertex collisions, generating
-a strictly positive lower bound in B-left/A-right and A-left/B-right:
-  D6 + (B/A + A/B) >= c_0 * (1 - O(s^{-1/2})) s^6 > 0.
-Simultaneous annihilation (D6 = 0 and BA = 0 and AB = 0) is mathematically impossible.
+Exact Bipartite Adjacency Spectrum Multiplicities:
+  - +/-(s+1) with multiplicity 1 each (total 2)
+  - +/-sqrt(2s) with multiplicity (1/2)*s*(s+1)^2 each (total s*(s+1)^2)
+  - 0 with multiplicity s*(s^2+1)
+  Total multiplicity sum: 2 + s*(s+1)^2 + s*(s^2+1) = 2(s+1)(s^2+1) = 2V.
+  For s=4 (170 vertices):
+    +/-5: mult 1 each; +/-sqrt(8): mult 50 each; 0: mult 68. Total = 170.
 
-On genuine W(3,2), across all 4 canonical schemes (including strict local minima S68 and S72):
-  - lex:     D6 = 15, BA = 98, AB = 110  => D6 + BA + AB = 223, S = 259
-  - reverse: D6 = 3,  BA = 77, AB = 74   => D6 + BA + AB = 154, S = 169
-  - S68:     D6 = 0,  BA = 44, AB = 21   => D6 + BA + AB = 65,  S = 68
-  - S72:     D6 = 0,  BA = 36, AB = 31   => D6 + BA + AB = 67,  S = 72
-The minimum D6 + BA + AB is 65 > 0, certifying the compensation mechanism.
+Conjecture AA4-DM.2 (Simultaneous Annihilation Barrier — OPEN):
+An adversary attempting to zero out D6 (aligned A/A 6-cycles) must perturb the
+permutation orbit away from cycle alignments.
+Heuristic conjecture:
+  D6 + (B/A + A/B) >= c_0 * (1 - O(s^{-1/2})) s^6 > 0.
+CRITICAL CORRECTION:
+The Bipartite Expander Mixing Lemma controls single-edge incidence flux,
+not 6-tuples of incidences forming specific GF(5) cycle classes.
+Transferring edge expansion to signed motif conservation remains an open problem.
+Consequently, Branch B is NOT fully refuted.
 """
 from fractions import Fraction
 from math import comb, sqrt
 
 
 def ramanujan_spectrum_parameters(s):
-    """Exact spectral parameters of the bipartite point-line incidence graph of W(3,s)."""
+    """Exact spectral parameters and multiplicities of the bipartite incidence graph of W(3,s)."""
     if type(s) is not int or s < 2 or (s & (s - 1)) != 0:
         raise ValueError("s must be an integer power of 2 >= 2")
 
     V = (s + 1) * (s * s + 1)
+    total_vertices = 2 * V
     d = s + 1
+
     # Classical GQ W(3,s) incidence spectrum:
     # Eigenvalues are: +(s+1), +sqrt(2s), 0, -sqrt(2s), -(s+1)
     lambda_1 = d
     lambda_2 = sqrt(2 * s)
     ramanujan_bound = 2.0 * sqrt(s)
-    is_super_ramanujan = lambda_2 < ramanujan_bound  # sqrt(2s) = 1.414*sqrt(s) < 2*sqrt(s)
+    is_super_ramanujan = lambda_2 < ramanujan_bound
     expander_ratio = lambda_2 / d
+
+    # Exact multiplicities derived via strongly regular point graph srg(v, k, lambda, mu):
+    mult_pm_d = 1
+    mult_pm_lam2 = (s * (s + 1) ** 2) // 2
+    mult_zero = s * (s ** 2 + 1)
+    total_mult = 2 * mult_pm_d + 2 * mult_pm_lam2 + mult_zero
+
+    if total_mult != total_vertices:
+        raise AssertionError(f"Spectrum multiplicity sum {total_mult} != graph vertices {total_vertices}")
 
     return {
         "s": s,
         "V": V,
+        "total_vertices": total_vertices,
         "degree_d": d,
         "lambda_1": lambda_1,
         "lambda_2": lambda_2,
         "ramanujan_bound": ramanujan_bound,
         "is_super_ramanujan": is_super_ramanujan,
         "expander_ratio": expander_ratio,
+        "multiplicities": {
+            "+/-d": mult_pm_d,
+            "+/-lambda_2": mult_pm_lam2,
+            "zero": mult_zero,
+            "total": total_mult,
+        },
     }
 
 
@@ -84,19 +106,22 @@ def expander_mixing_bounds(s, X_size, Y_size):
 
 
 def simultaneous_annihilation_tradeoff(s):
-    """Analytic lower bound on D6 + BA + AB based on Ramanujan expander flux."""
+    """Conjectured lower bound on D6 + BA + AB based on Ramanujan expander flux."""
     params = ramanujan_spectrum_parameters(s)
-    # The minimum asymptotic coefficient is derived from orbit mean ~ 140 s^6
-    # and the spectral expander ratio (1 - lambda_2 / d)
     expander_retention = 1.0 - params["expander_ratio"]
-    theoretical_floor_s6 = max(0.0, 140.0 * expander_retention)
+    # 140.0 is the mean orbit heuristic coefficient
+    heuristic_floor_s6 = max(0.0, 140.0 * expander_retention)
 
     return {
         "s": s,
         "expander_ratio": params["expander_ratio"],
         "expander_retention": expander_retention,
-        "theoretical_floor_s6": theoretical_floor_s6,
-        "annihilation_barrier_positive": theoretical_floor_s6 > 0.0,
+        "heuristic_floor_s6": heuristic_floor_s6,
+        "status": "OPEN_CONJECTURE_UNPROVEN",
+        "formal_blocker": (
+            "Expander mixing bounds single edge incidences, not 6-tuples of distinct "
+            "incidences forming specific signed GF(5) cycle classes."
+        ),
     }
 
 
@@ -104,9 +129,9 @@ def w32_all_schemes_tradeoff_census():
     """Exact empirical audit of all 4 canonical schemes on genuine W(3,2).
 
     Certifies that:
-      - D6 + BA + AB >= 65 > 0 across ALL schemes
+      - D6 + BA + AB >= 65 > 0 across the 4 tested canonical schemes
       - When D6 = 0 (on S68 and S72), BA + AB compensates with 65 and 67
-      - Simultaneous zero D6 = 0 and BA = 0 and AB = 0 is impossible.
+      - In these 4 schemes, simultaneous zero D6 = 0 and BA = 0 and AB = 0 does not occur.
     """
     data = {
         "lex": {
@@ -152,29 +177,30 @@ def w32_all_schemes_tradeoff_census():
         "schemes": results,
         "min_core_sum": min_core_sum,
         "min_total_S": min_total_s,
-        "simultaneous_zero_refuted": min_core_sum > 0,
-        "certified_core_floor": 65,
+        "simultaneous_zero_refuted_in_sample": min_core_sum > 0,
+        "certified_core_floor_in_sample": 65,
     }
 
 
 def all_h_hyp105_resolution_summary():
-    """Formal synthesis of the complete proof architecture of Hypothesis 105."""
+    """Formal status of the complete proof architecture of Hypothesis 105."""
     return {
         "Hypothesis": 105,
         "Issue": 230,
         "Geometry": "Generalized Quadrangle W(3,s), s = 2^h, h >= 1",
         "KeyTheorems": {
-            "AA4-DI": "Local reservoir point-coverage density barrier O(s^-10)",
-            "AA4-DJ": "Universal finite-width support barrier & Global unanchored transversal carrier tau(P6) >= (1 - o(1))s^6",
-            "AA4-DK": "Girth-8 line-overlap sparsity P(R<=1) >= 1 - O(s^-2), negative disjoint covariance, Chebyshev concentration",
-            "AA4-DL": "Constructive polynomial-time Method of Conditional Expectations derandomization S(f, g*) >= (140 - o(1))s^6",
-            "AA4-DM": "Super-Ramanujan expander spectrum lambda_2 = sqrt(2s) < 2 sqrt(s), simultaneous D6/BA/AB annihilation barrier",
+            "AA4-DI": "Local reservoir point-coverage density barrier O(s^-10) (PROVED)",
+            "AA4-DJ": "Universal finite-width support barrier & Global unanchored transversal carrier tau(P6) >= (1 - o(1))s^6 (PROVED)",
+            "AA4-DK": "Girth-8 line-overlap sparsity P(R<=1) >= 1 - O(s^-2) (PROVED); disjoint covariance negative universally (REFUTED)",
+            "AA4-DL": "Constructive polynomial-time Method of Conditional Expectations derandomization S(f, g*) >= (140 - o(1))s^6 (PROVED EXISTENTIAL)",
+            "AA4-DM": "Super-Ramanujan expander spectrum lambda_2 = sqrt(2s) < 2 sqrt(s) (PROVED); simultaneous annihilation barrier (CONJECTURE)",
         },
         "ResolutionStatus": {
-            "ConstructiveDerandomizedCarrier": "PROVED_OMEGA_S6",
-            "AlmostSureOrbitConcentration": "PROVED_CONCENTRATED",
-            "SimultaneousAnnihilation": "REFUTED_NO_GO",
-            "W32_DeterministicInfimum": "CERTIFIED_GE_68",
-            "MathlabRepositoryGovernance": "OPEN_WITH_FORMAL_BLOCKER_FOR_EXTERNAL_AUDIT",
+            "ConstructiveDerandomizedCarrier": "PROVED_EXISTENTIAL_OMEGA_S6",
+            "AlmostSureOrbitConcentration": "OPEN_CONJECTURE_UNPROVEN",
+            "SimultaneousAnnihilation": "OPEN_CONJECTURE_UNPROVEN",
+            "Branch_B_Refutation": "NOT_REFUTED",
+            "W32_DeterministicInfimum": "CERTIFIED_GE_68_IN_AUDITED_SAMPLE",
+            "MathlabRepositoryGovernance": "OPEN_WITH_FORMAL_BLOCKER",
         },
     }

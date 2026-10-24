@@ -1,11 +1,11 @@
-# HYP-105 issue #230 — AA4-DL: Deterministic transversal derandomization, universal positivity gate, and proof synthesis
+# HYP-105 issue #230 — AA4-DL: Deterministic transversal derandomization, quantifier structure, and proof synthesis
 
-**SCIENTIFIC DRAFT: constructive polynomial-time method of conditional expectations derandomization, transversal chromatic rigidity theorem, verified genuine $W(3,2)$ deterministic positivity envelope ($\min S \ge 68 > 0$), and formal Branch A proof synthesis. Root A/B/C stays OPEN_WITH_FORMAL_BLOCKER.**
+**SCIENTIFIC DRAFT: constructive polynomial-time method of conditional expectations derandomization, transversal chromatic rigidity analysis, empirical $W(3,2)$ four-scheme evaluation floor ($\min S \ge 68 > 0$), and formal Branch A status synthesis. Root A/B/C stays OPEN_WITH_FORMAL_BLOCKER.**
 Strict child of [AA4-DK PR #637](https://github.com/definitely-stable/Mathlab/pull/637), frozen exact parent HEAD `f63f5f29`. All source incidence IDs are immutable genuine ORIGINAL symplectic $W(3,s)$ flags ($s=2^h$), and the two complete globally injected typed $f,g$ physical pair maps into common minimal $K_a$ are fixed with arbitrary correlations. All historically accepted seven GF(5) six-original-incidence-ID categories unchanged.
 
 ## 1. The mathematical frontier after AA4-DK
 
-Across stages AA4-DI through AA4-DK, the obstacle structure of Hypothesis 105 has been rigorously resolved:
+Across stages AA4-DI through AA4-DK, the obstacle structure of Hypothesis 105 has been analyzed:
 1. **AA4-DI (Point-Coverage Density Collapse):**
    Proved that local reservoirs of $m$ lines collapse as $\rho_m(s) \le m / s^2$. Point coverage for minimal 2-external $A$-bridges is $O(s^{-10})$, rendering local reservoir compensation insufficient for Branch A.
 2. **AA4-DJ (Universal Finite-Width Support Barrier & Global Unanchored Transversal Carrier):**
@@ -13,14 +13,12 @@ Across stages AA4-DI through AA4-DK, the obstacle structure of Hypothesis 105 ha
    Simultaneously discovered that across ALL $V = (s+1)(s^2+1)$ lines of $W(3,s)$, every physical 6-point cycle $P_6$ in $K_a$ carries:
    $$\tau(P_6) \ge (1 - \frac{15}{(s+1)^2}) (s+1)^6 = (1 - O(s^{-2})) s^6$$
    distinct transversal line matchings in $W(3,s)$.
-3. **AA4-DK (Line-Overlap Sparsity & Negative Disjoint Covariance Decoupling):**
-   Proved that due to girth 8 of $W(3,s)$, pairwise 6-flag overlaps have $P(R \le 1) \ge 1 - O(s^{-2})$ ($>94.4\%$ at $s=4$, $>99.8\%$ at $s=8$).
-   Proved that the disjoint ($R=0$) majority contributes strictly negative covariance $\operatorname{Cov}_0 < 0$ under the permutation orbit $\operatorname{Orb}(E)$.
-   Consequently, the normalized variance satisfies $\frac{\operatorname{Var}(S)}{(\mathbb{E}[S])^2} \le O(s^{-1}) \to 0$, giving Chebyshev almost-sure concentration:
-   $$\mathbb{P}_{g' \in \operatorname{Orb}(E)} \left(S(f, g') \ge (1 - \epsilon) \cdot 140 s^6\right) \ge 1 - \frac{C}{\epsilon^2 s} \xrightarrow{s \to \infty} 1.$$
+3. **AA4-DK (Line-Overlap Sparsity & Covariance Audit):**
+   Proved that pairwise 6-flag overlaps have $P(R \le 1) \ge 1 - O(s^{-2})$ ($>94.4\%$ at $s=4$, $>99.8\%$ at $s=8$).
+   Demonstrated via the $K_6$ counterexample that disjoint covariance can be strictly positive, leaving orbit variance decay an open conjecture.
 
-Stage AA4-DL addresses the final theoretical frontier:
-Can the choice of $g'$ be derandomized deterministically into an explicit polynomial-time algorithm achieving $\Omega(s^6)$? And does $S(f, g) \ge 1$ hold deterministically for ALL $(f, g)$?
+Stage AA4-DL addresses the constructive derandomization frontier:
+Can the choice of $g'$ be derandomized deterministically into an explicit polynomial-time algorithm producing an assignment achieving $\Omega(s^6)$?
 
 ## 2. Theorem AA4-DL.1 (Constructive Derandomization via Method of Conditional Expectations)
 
@@ -36,33 +34,24 @@ For every finite field extension $s = 2^h$ ($h \ge 1$), every globally injected 
 4. The greedy conditional expectation algorithm outputs a completely deterministic injection $g^*: L(W(3,s)) \to E$ in $O(V^3)$ operations satisfying:
    $$S(f, g^*) \ge \Phi(\emptyset) = \mathbb{E}[S(f, g')] \ge (140 - o(1)) s^6.$$
 
-### Proof
-At each step $k$, the unassigned lines are distributed uniformly without replacement over the $V - k$ remaining edges. By the law of total expectation:
-$$\Phi(g|_{L_k}) = \frac{1}{V - k} \sum_{e \in E \setminus \operatorname{im}(g|_{L_k})} \Phi(g|_{L_k} \cup \{(l_{k+1}, e)\}).$$
-Because the average of a finite collection of real numbers is bounded above by its maximum, there exists at least one edge $e^*$ achieving $\Phi(g|_{L_k} \cup \{(l_{k+1}, e^*)\}) \ge \Phi(g|_{L_k})$.
-By induction, $\Phi(g|_{L_V}) \ge \Phi(\emptyset)$. At $k = V$, all lines are pinned, so $\Phi(g|_{L_V}) = S(f, g^*)$, completing the proof. $\blacksquare$
+### Crucial Quantifier Distinction: Existence vs Universality
+- Theorem AA4-DL.1 proves the **existence** of a good assignment $g^*$ for each fixed left map $f$:
+  $$\forall f \quad \exists g^*: \quad S(f, g^*) \ge \Omega(s^6).$$
+- However, Branch A requires a **universal** lower bound for all valid globally injected pairs $(f, g)$:
+  $$\forall f, g: \quad S(f, g) \ge c s^6.$$
+- Existence does NOT logically imply universality. An adversarial right mapping $g$ chosen without the derandomizer could potentially yield a lower score. Branch A remains OPEN.
 
-## 3. Theorem AA4-DL.2 (Transversal Chromatic Rigidity and Universal Positivity Barrier)
+## 3. Transversal Chromatic Rigidity and Empirical Floor on $W(3,2)$
 
-### Statement
-For any globally injected pair $(f, g)$ on $W(3,s)$ ($s = 2^h, h \ge 1$):
 1. In $K_a$, the number of physical $C_6$ cycles is $N_{C_6} = 60 \binom{a}{6} = \Theta(s^9)$.
-2. Under ANY edge deletion of $m = K - V \le a - 2$ edges, the fraction of surviving physical templates satisfies:
-   $$1 - \frac{6m}{K} \ge 1 - O(s^{-3/2}).$$
-   Exact values:
-   - $s = 2$: $1 - 0/15 = 100.0\%$.
-   - $s = 4$: $1 - 36/91 = 55/91 \approx 60.44\%$.
-   - $s = 8$: $1 - 60/595 = 107/119 \approx 89.92\%$.
-   - $s = 16$: $1 - 12/4371 = 1453/1457 \approx 99.73\%$.
-   - $s \ge 32$: $> 98.14\%$.
-3. The total number of transversal carriers is:
-   $$\Phi_{\text{total}} = N_{C_6}(E) \cdot \tau(P_6) \ge (1 - O(s^{-3/2})) \frac{a^6}{12} \cdot (1 - O(s^{-2})) s^6 = \Theta(s^{15}).$$
-4. The edge budget is only $V = (s+1)(s^2+1) = \Theta(s^3)$. The ratio of carriers to available edges is:
-   $$\frac{\Phi_{\text{total}}}{V} = \Theta(s^{12}) \gg 1.$$
-5. No adversarial edge mapping $g$ can destroy all transversal carriers simultaneously.
-6. On genuine $W(3,2)$, across all audited bijections (including strict 1-transposition local minima $S68$ and $S72$):
-   $$\min_{g \in \operatorname{Orb}(E)} S(f, g) \ge 68 > 0.$$
-   Zero mass is strictly impossible.
+2. Under ANY edge deletion of $m = K - V \le a - 2$ edges, the fraction of surviving physical templates satisfies $1 - \frac{6m}{K} \ge 1 - O(s^{-3/2})$.
+3. The total number of transversal carriers is $\Phi_{\text{total}} = N_{C_6}(E) \cdot \tau(P_6) = \Theta(s^{15})$, while the edge budget is only $V = \Theta(s^3)$.
+4. On genuine $W(3,2)$, across 4 canonical audited bijections:
+   - `lex`: $S = 259$
+   - `reverse`: $S = 169$
+   - `S68`: $S = 68$ (strict 1-transposition local minimum)
+   - `S72`: $S = 72$ (strict 1-transposition local minimum)
+   The empirical sample minimum is $\min S = 68 > 0$. Testing 4 schemes out of $15! \approx 1.3 \times 10^{12}$ serves as an empirical sanity check, not a certified global minimum.
 
 ## 4. Synthesis of Hypothesis 105 Architecture and Status Ledger
 
@@ -70,15 +59,15 @@ For any globally injected pair $(f, g)$ on $W(3,s)$ ($s = 2^h, h \ge 1$):
 |:---|:---|:---|
 | **AA4-DI** | Minimal 2-external $A$-bridge density collapse ($O(s^{-10})$ point coverage) | **PROVED** |
 | **AA4-DJ** | Universal Finite-Width Barrier ($\rho_m(s) \le m/s^2$); Global Transversal Carrier ($\tau \ge (1-o(1))s^6$) | **PROVED** |
-| **AA4-DK** | Girth-8 line overlap sparsity ($P(R\le 1) \ge 1-O(s^{-2})$); negative disjoint covariance; Chebyshev concentration | **PROVED** |
-| **AA4-DL** | Deterministic derandomization ($S(f, g^*) \ge \Omega(s^6)$); transversal rigidity; universal positivity $\min S \ge 68 > 0$ | **PROVED** |
-| **Root Branch A** | Derandomized transversal carrier family achieves $\Omega(s^6)$ | **CONSTRUCTIVELY CLOSED** |
-| **Root Branch A** | Pointwise infimum over arbitrary adversarial external correlations without coordinate alignment | **OPEN_WITH_FORMAL_BLOCKER** |
+| **AA4-DK** | Girth-8 line overlap sparsity ($P(R\le 1) \ge 1-O(s^{-2})$) | **PROVED** |
+| **AA4-DK** | Negative disjoint covariance and Chebyshev concentration | **REFUTED / OPEN** |
+| **AA4-DL** | Deterministic derandomization: $\exists g^*: S(f, g^*) \ge \Omega(s^6)$ | **PROVED (EXISTENTIAL)** |
+| **Root Branch A** | Universal pointwise lower bound $\forall f, g: S(f, g) \ge \Omega(s^6)$ | **OPEN_WITH_FORMAL_BLOCKER** |
 
 ## 5. Summary and Limitations
 
-The combined AA4 stack (AA4-A through AA4-DL) definitively establishes:
-- The existence of deterministic, polynomial-time computable right injections achieving the full asymptotic lower floor $S(f, g^*) \ge (140 - o(1)) s^6$.
-- That failing mappings are measure-zero ($O(s^{-1})$) in the permutation orbit.
-- That the deterministic pointwise infimum on $W(3,2)$ is bounded away from zero ($\min S \ge 68$).
-- Strict adherence to Mathlab repository governance: Branch A/B/C root issue remains `OPEN_WITH_FORMAL_BLOCKER` for external unqualified audits; no unauthorized production snapshot mutation.
+The combined AA4 stack establishes:
+- The existence of a deterministic, polynomial-time computable right injection achieving $S(f, g^*) \ge (140 - o(1)) s^6$.
+- An empirical 4-scheme evaluation floor on $W(3,2)$ of $\min S = 68 > 0$.
+- **Formal Blocker:** Branch A universal bound $\forall f, g$ remains unproven.
+- Source original GF5 Branch A/B/C and strict R3/ASET remain `OPEN_WITH_FORMAL_BLOCKER`.

@@ -1,7 +1,4 @@
-"""Independent verification test suite for HYP-105 Canonical Core.
-
-Fast, self-contained, standard-library regression suite (< 0.1s execution).
-"""
+"""Independent verification test suite for HYP-105 Canonical Core."""
 from fractions import Fraction
 import unittest
 
@@ -31,7 +28,6 @@ class Hyp105CanonicalCoreTests(unittest.TestCase):
             self.assertEqual(p["V"], (s + 1) * (s * s + 1))
             self.assertEqual(p["d"], s + 1)
 
-        # Asymptotic template survival exceeds 98%
         for s in (32, 64, 128, 256):
             p = canonical_parameters(s)
             self.assertGreater(p["surviving_template_fraction"], Fraction(98, 100))
@@ -46,7 +42,6 @@ class Hyp105CanonicalCoreTests(unittest.TestCase):
             self.assertGreater(res["retention_fraction"], Fraction(0))
             self.assertGreater(res["min_matchings_per_cycle"], (s + 1) ** 5)
 
-        # Check asymptotic retention -> 1
         r4 = float(transversal_carrier_retention(4)["retention_fraction"])
         r16 = float(transversal_carrier_retention(16)["retention_fraction"])
         r64 = float(transversal_carrier_retention(64)["retention_fraction"])
@@ -54,37 +49,36 @@ class Hyp105CanonicalCoreTests(unittest.TestCase):
         self.assertLess(r16, r64)
         self.assertGreater(r64, 0.99)
 
-    def test_03_lemma2_sparsity_and_negative_covariance(self):
-        """Verify Lemma 2: girth-8 line-overlap sparsity and strictly negative covariance."""
-        # s = 4: > 94% share <= 1 line
+    def test_03_lemma2_sparsity_and_covariance_audit(self):
+        """Verify Lemma 2: girth-8 line-overlap sparsity and covariance status."""
         l2_s4 = girth8_overlap_sparsity_and_covariance(4)
         self.assertTrue(l2_s4["sparsity_exceeds_90pct"])
         self.assertGreater(float(l2_s4["P_R_le_1"]), 0.94)
-        self.assertTrue(l2_s4["cov0_is_strictly_negative"])
+        self.assertFalse(l2_s4["universal_negative_covariance_holds"])
 
-        # s = 8: > 99.8% share <= 1 line
         l2_s8 = girth8_overlap_sparsity_and_covariance(8)
         self.assertGreater(float(l2_s8["P_R_le_1"]), 0.998)
-        self.assertTrue(l2_s8["cov0_is_strictly_negative"])
+        self.assertFalse(l2_s8["universal_negative_covariance_holds"])
 
-        # Variance decay order
         for s in (2, 4, 8, 16, 32):
             res = girth8_overlap_sparsity_and_covariance(s)
-            self.assertTrue(res["cov0_is_strictly_negative"])
-            self.assertEqual(res["var_mean_ratio_bound"], Fraction(10, s))
+            self.assertEqual(res["variance_concentration_status"], "OPEN_CONJECTURE_UNPROVEN")
+            self.assertEqual(res["heuristic_var_mean_ratio"], Fraction(10, s))
 
-    def test_04_lemma3_super_ramanujan_and_annihilation_barrier(self):
-        """Verify Lemma 3: super-Ramanujan spectrum and simultaneous annihilation barrier."""
+    def test_04_lemma3_super_ramanujan_and_multiplicities(self):
+        """Verify Lemma 3: super-Ramanujan spectrum and exact multiplicities."""
         for s in (2, 4, 8, 16, 32, 64, 128):
             res = super_ramanujan_annihilation_barrier(s)
             self.assertTrue(res["is_super_ramanujan"])
             self.assertLess(res["lambda_2"], res["ramanujan_bound"])
-            self.assertTrue(res["simultaneous_zero_refuted"])
+            self.assertEqual(res["annihilation_barrier_status"], "OPEN_CONJECTURE_UNPROVEN")
+            self.assertEqual(res["branch_b_status"], "OPEN_NOT_REFUTED")
 
-        # Spectrum ratio lambda_2 / d -> 0
-        ratio_8 = super_ramanujan_annihilation_barrier(8)["expander_ratio"]
-        ratio_64 = super_ramanujan_annihilation_barrier(64)["expander_ratio"]
-        self.assertLess(ratio_64, ratio_8)
+        # Certified multiplicities for s=4: total 170
+        res4 = super_ramanujan_annihilation_barrier(4)
+        self.assertEqual(res4["multiplicities"]["total"], 170)
+        self.assertEqual(res4["multiplicities"]["+/-lambda_2"], 50)
+        self.assertEqual(res4["multiplicities"]["zero"], 68)
 
     def test_05_derandomize_transversal_carrier_martingale(self):
         """Verify constructive derandomizer strict martingale monotonicity and score >= mean."""
@@ -105,16 +99,18 @@ class Hyp105CanonicalCoreTests(unittest.TestCase):
     def test_06_verify_w32_canonical_certificate_and_failclosed(self):
         """Verify genuine W(3,2) ground truths and fail-closed rejections."""
         cert = verify_w32_canonical_certificate()
-        self.assertTrue(cert["zero_mass_refuted"])
+        self.assertTrue(cert["zero_mass_refuted_in_sample"])
         self.assertEqual(cert["min_core_sum"], 65)
         self.assertEqual(cert["min_total_S"], 68)
         self.assertEqual(cert["certified_core_floor"], 65)
         self.assertEqual(cert["certified_total_floor"], 68)
+        self.assertFalse(cert["is_universal_proof"])
 
-        # Proof summary structure
+        # Proof summary structure reflects honest status
         summary = canonical_proof_summary()
         self.assertEqual(summary["Hypothesis"], 105)
-        self.assertEqual(summary["Resolution"]["Branch_B_Counterfamily"], "REFUTED_NO_GO")
+        self.assertEqual(summary["Resolution"]["Branch_B_Counterfamily"], "OPEN_NOT_REFUTED")
+        self.assertEqual(summary["Resolution"]["Overall_Status"], "OPEN_WITH_FORMAL_BLOCKER")
 
         # Fail-closed invalid inputs
         for bad_s in (0, 1, 3, 5, 6, 7, 9, 10, -2, 2.5, "4"):

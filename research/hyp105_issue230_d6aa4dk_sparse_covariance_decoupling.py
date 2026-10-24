@@ -1,4 +1,4 @@
-"""AA4-DK: Sparse covariance decoupling and asymptotic orbit concentration.
+"""AA4-DK: Line-overlap sparsity, covariance analysis, and orbit concentration status.
 
 Mathematical results:
 1. Girth-8 Line Overlap Sparsity Theorem (all h >= 1, s = 2^h):
@@ -13,27 +13,25 @@ Mathematical results:
    - s = 8: P(R <= 1) > 99.0% (94.0% share 0, 5.8% share 1, 0.2% share 2).
    - s = 16: P(R <= 1) > 99.8% (98.6% share 0, 1.4% share 1).
 
-2. Covariance Decoupling Theorem:
-   Under the uniform permutation orbit of the right map g' in Orb(E),
-   the covariance between two 6-line indicators sharing r edges is:
-   - For r = 0: Cov_0 = [comb(V-6, 6)/comb(V, 6) - 1] * p_A^2 < 0.
-     The massive r=0 majority contributes a strictly NEGATIVE covariance!
-   - For r = 1: Cov_1 = O(s^-15) on W(3,s).
-   The variance-to-mean-squared ratio satisfies:
-       Var_{g'}(S(f, g')) / (E_{g'}[S])^2 <= O(s^-1) -> 0 as s -> infty.
-
-3. Asymptotic Almost-Sure Lower Bound:
-   By Chebyshev's inequality applied to the decoupled variance:
-       P_{g'}(S(f, g') < (1 - epsilon) E[S]) <= Var(S) / (epsilon^2 E[S]^2) = O(1 / (epsilon^2 * s)).
-   For any epsilon > 0, as s -> infty:
-       P_{g'}(S(f, g') >= (1 - epsilon) * 140 * s^6) -> 1.
-   The measure of any adversarial or failing right mappings in the
-   permutation orbit decays to ZERO at rate O(s^-1).
+2. Rigorous Covariance Analysis & K_6 Counterexample to Universal Negative Covariance:
+   In earlier drafts, it was conjectured that disjoint 6-line sets always yield
+   negative covariance under random permutations.
+   CRITICAL CORRECTION (Counterexample V=15, complete physical K_6):
+   For physical 2-regularity (|T_A| = 70 two-factors):
+       P(A) = 70 / 5005 = 2 / 143.
+       Ordered pairs of disjoint 2-factors in K_6 = 300.
+       Total ordered pairs of disjoint 6-subsets = 5005 * 84 = 420420.
+       P(A1 \\cap A2) = 300 / 420420 = 5 / 7007.
+       Cov(1_A1, 1_A2) = 5/7007 - (2/143)^2 = +519 / 1002001 approx +0.000518 > 0!
+   Because the covariance is strictly POSITIVE, the universal negative covariance
+   claim is REFUTED for structured physical factors, and the variance concentration
+   Var(S)/(E[S])^2 = O(s^-1) remains an OPEN CONJECTURE.
 
 Root #230 remains OPEN_WITH_FORMAL_BLOCKER.
 """
 from collections import Counter
 from fractions import Fraction
+import itertools
 from math import comb
 import random
 
@@ -49,7 +47,6 @@ def gq_line_overlap_distribution(s):
     total_comb = comb(V, 6)
     dist = {}
     for r in range(7):
-        # Ways to pick r shared lines from first 6-set, and 6-r from remaining V-6 lines
         ways = comb(6, r) * comb(V - 6, 6 - r)
         dist[r] = Fraction(ways, total_comb)
 
@@ -99,7 +96,6 @@ def measure_sampled_flag_line_overlaps(model, num_samples=150, seed=42):
     if len(sampled_flags) < num_samples // 2:
         raise ValueError("Insufficient 6-flags sampled")
 
-    # Measure pairwise line overlaps
     overlap_counts = Counter()
     total_pairs = 0
     for i in range(len(sampled_flags)):
@@ -122,40 +118,83 @@ def measure_sampled_flag_line_overlaps(model, num_samples=150, seed=42):
     }
 
 
+def exact_k6_two_factor_covariance():
+    """Exact calculation on V=15, K_6: proves covariance of disjoint 2-factors is strictly positive."""
+    vertices = list(range(6))
+    edges = list(itertools.combinations(vertices, 2))
+    assert len(edges) == 15
+
+    two_factors = []
+    for subset in itertools.combinations(range(15), 6):
+        deg = [0] * 6
+        for e_idx in subset:
+            u, v = edges[e_idx]
+            deg[u] += 1
+            deg[v] += 1
+        if all(d == 2 for d in deg):
+            two_factors.append(frozenset(subset))
+
+    assert len(two_factors) == 70  # 60 cycles C6 + 10 pairs 2*C3
+
+    disjoint_tf_pairs = 0
+    for tf1 in two_factors:
+        for tf2 in two_factors:
+            if tf1.isdisjoint(tf2):
+                disjoint_tf_pairs += 1
+
+    total_disjoint_6_pairs = comb(15, 6) * comb(15 - 6, 6)
+    p_A = Fraction(len(two_factors), comb(15, 6))
+    p_joint = Fraction(disjoint_tf_pairs, total_disjoint_6_pairs)
+    cov = p_joint - (p_A ** 2)
+
+    return {
+        "V": 15,
+        "num_two_factors": len(two_factors),
+        "disjoint_pairs_count": disjoint_tf_pairs,
+        "total_disjoint_6_pairs": total_disjoint_6_pairs,
+        "p_A": p_A,
+        "p_joint": p_joint,
+        "covariance": cov,
+        "is_strictly_positive": cov > 0,
+        "counterexample_refutes_universal_negative_cov": True,
+    }
+
+
 def exact_r0_covariance_sign(V, p_A):
-    """Verify that r=0 line overlap contributes strictly negative covariance in Orb(E)."""
+    """Audit the naive disjoint subset formula vs genuine permutation covariance."""
     if V <= 12 or p_A <= 0:
         raise ValueError("V > 12 and p_A > 0 required")
-    # P(two disjoint 6-subsets under uniform permutation) = comb(V-6, 6) / comb(V, 6) < 1
+    # Under independent subset drawing, prob_disjoint < 1, giving negative naive formula:
     prob_disjoint = Fraction(comb(V - 6, 6), comb(V, 6))
-    cov_0 = (prob_disjoint - 1) * (p_A**2)
+    naive_cov_0 = (prob_disjoint - 1) * (p_A**2)
+
+    # Note: On actual graphs with degree constraints (e.g. K_6 2-factors),
+    # true covariance is POSITIVE (+0.000518). The naive formula does not hold.
     return {
         "V": V,
         "p_A": p_A,
         "prob_disjoint_under_permutation": prob_disjoint,
-        "covariance_r0": cov_0,
-        "is_strictly_negative": (cov_0 < 0),
+        "naive_covariance_r0": naive_cov_0,
+        "naive_formula_negative": (naive_cov_0 < 0),
+        "universal_negative_covariance_holds": False,
+        "note": "Refuted for 2-regular subgraphs by K_6 counterexample (Cov = +0.000518 > 0)",
     }
 
 
 def variance_ratio_decay_bound(s):
-    """Compute asymptotic variance-to-mean-squared upper bound O(s^-1)."""
+    """Status of asymptotic variance-to-mean-squared ratio Var(S)/(E[S])^2."""
     if not isinstance(s, int) or s < 2 or (s & (s - 1)) != 0:
         raise ValueError("s must be a power of 2 >= 2")
 
     V = (s + 1) * (s**2 + 1)
-    # The dominant positive covariance comes from r=1 overlaps:
-    # There are comb(V, 6) * comb(6, 1) * comb(V-6, 5) pairs with r=1.
-    # The normalized variance-to-mean-squared ratio is bounded by C / s:
-    bound = Fraction(10, s)
-    # Chebyshev failure bound for epsilon = 1/2:
-    failure_prob_half = Fraction(40, s)
+    # The heuristic 10/s bound is an UNPROVEN conjecture because disjoint covariance
+    # is not universally negative.
+    heuristic_bound = Fraction(10, s)
 
     return {
         "s": s,
         "V": V,
-        "variance_ratio_upper_bound": bound,
-        "chebyshev_failure_prob_at_half_mean": failure_prob_half,
-        "almost_sure_retention_bound": max(0.0, float(1 - failure_prob_half)),
-        "asymptotic_order": "O(s^-1)",
+        "heuristic_variance_ratio_conjecture": heuristic_bound,
+        "status": "OPEN_CONJECTURE_UNPROVEN",
+        "formal_blocker": "Covariance between disjoint motifs can be positive due to graph regularity constraints.",
     }

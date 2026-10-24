@@ -1,8 +1,7 @@
 """AA4-DL: deterministic transversal derandomization and universal positivity gate.
 
 Strict child of AA4-DK. Synthesizes the global unanchored transversal carrier
-theorem (AA4-DJ) and girth-8 line-overlap sparsity / negative disjoint
-covariance concentration (AA4-DK) into a constructive deterministic proof:
+theorem (AA4-DJ) and girth-8 line-overlap sparsity into a constructive algorithm:
 
 1. Method of Conditional Expectations Derandomization:
    For every globally injected left map f and every right physical image
@@ -15,14 +14,21 @@ covariance concentration (AA4-DK) into a constructive deterministic proof:
    The deterministic assignment g* produced in O(V^3) time achieves
      S(f, g*) >= E_{g' in Orb(E)} S(f, g') >= (140 - o(1)) s^6.
 
-2. Transversal Chromatic Rigidity and Universal Positivity:
+   CRITICAL QUANTIFIER DISTINCTION:
+   This derandomization proves the EXISTENCE of a good right injection g* for
+   each given f:
+     exists g*: S(f, g*) >= Omega(s^6).
+   It does NOT prove the universal lower bound for ALL right injections:
+     forall f, g: S(f, g) >= c s^6.
+   Universal Branch A remains an OPEN PROBLEM.
+
+2. Transversal Chromatic Rigidity and Empirical Floor:
    In any physical image E of size V = binom(a, 2) - m:
    The surviving physical C6 cycles count N_{C6} = (1 - 6m/K) * 60 binom(a, 6) = Theta(s^9).
    Each cycle carries tau(P_6) >= (1 - 15/(s+1)^2)(s+1)^6 line matchings.
    The total transversal volume is Theta(s^{15}), while the edge budget is V = Theta(s^3).
-   No single edge injection can destroy all transversal carriers simultaneously.
-   On genuine W(3,2), the deterministic global minimum over all audited
-   injections satisfies min S(f, g) >= 68 > 0 (zero mass is strictly impossible).
+   On genuine W(3,2), the four audited canonical bijections (lex, reverse, S68, S72)
+   yield min S = 68 > 0.
 """
 from collections import Counter
 from fractions import Fraction
@@ -117,9 +123,6 @@ def synthetic_conditional_expectation_derandomization(V, events, universe_size=N
     if universe_size < V:
         raise ValueError("universe_size must be at least V")
 
-    # Initial expectation calculation
-    # Each event is a dict or tuple of required (item -> target) mappings
-    # If an event requires r specific mappings, its probability under uniform random injection is 1 / falling(universe_size, r)
     def falling_fact(n, k):
         ans = 1
         for i in range(k):
@@ -127,14 +130,11 @@ def synthetic_conditional_expectation_derandomization(V, events, universe_size=N
         return ans
 
     def compute_potential(current_assignment):
-        # current_assignment: dict mapping item -> target
-        assigned_items = set(current_assignment.keys())
         assigned_targets = set(current_assignment.values())
         rem_targets = universe_size - len(assigned_targets)
 
         phi = Fraction(0)
         for reqs, weight in events:
-            # reqs: tuple of (item, target)
             conflict = False
             unassigned_count = 0
             for item, target in reqs:
@@ -144,7 +144,6 @@ def synthetic_conditional_expectation_derandomization(V, events, universe_size=N
                         break
                 else:
                     if target in assigned_targets:
-                        # target was already taken by a different item
                         conflict = True
                         break
                     unassigned_count += 1
@@ -173,7 +172,6 @@ def synthetic_conditional_expectation_derandomization(V, events, universe_size=N
                 best_target = target
 
         if best_target is None or best_phi < history[-1]:
-            # By conditional expectation martingale property, best_phi must be >= history[-1]
             raise AssertionError(
                 f"Conditional expectation failed to maintain potential: {best_phi} < {history[-1]}"
             )
@@ -193,15 +191,14 @@ def synthetic_conditional_expectation_derandomization(V, events, universe_size=N
 
 
 def w32_universal_positivity_envelope():
-    """Exact deterministic lower envelope on genuine W(3,2) across audited bijections.
+    """Empirical evaluation on genuine W(3,2) across 4 canonical test bijections.
 
-    Pinned facts:
+    Evaluated schemes:
       - lex: S = 259
       - reverse: S = 169
       - S68: S = 68 (strict 1-transposition local minimum)
       - S72: S = 72 (strict 1-transposition local minimum)
-    Universal lower bound: min S(f, g) >= 68 > 0.
-    Zero mass is impossible.
+    Note: Testing 4 schemes does not establish a universal minimum across all 15! bijections.
     """
     schemes = {
         "lex": 259,
@@ -217,31 +214,23 @@ def w32_universal_positivity_envelope():
         "max_S": max_val,
         "strictly_positive": min_val > 0,
         "certified_floor": 68,
+        "sample_size": 4,
+        "is_universal_proof": False,
     }
 
 
 def all_h_branch_a_status_ledger():
-    """Formal mathematical status ledger for Hypothesis 105 Branch A after AA4-DL.
-
-    Synthesizes the complete proof stack:
-    1. AA4-DI: Minimal local 2-external A-bridges suffer O(s^-10) point-coverage collapse.
-    2. AA4-DJ: Universal Finite-Width Barrier (rho_m(s) <= m/s^2) rules out finite-width reservoirs;
-       Global Unanchored Transversal Carrier proves tau(P_6) >= (1 - O(s^-2)) s^6 matchings.
-    3. AA4-DK: Girth-8 line overlap sparsity (P(R<=1) >= 1 - O(s^-2)) and negative disjoint covariance
-       decouple orbit variance, yielding Var(S)/(E[S])^2 <= O(s^-1) -> 0 and Chebyshev concentration.
-    4. AA4-DL: Method of Conditional Expectations derandomizes the carrier into a deterministic
-       polynomial-time construction achieving S(f, g*) >= (140 - o(1)) s^6 for all left f and right E.
-       Transversal chromatic rigidity ensures min S(f, g) >= 68 > 0 on W(3,2).
-    """
+    """Formal mathematical status ledger for Hypothesis 105 Branch A after AA4-DL."""
     return {
-        "Branch_A_derandomized_carrier": "PROVED_CONSTRUCTIVE_OMEGA_S6",
-        "Branch_A_almost_sure_orbit": "PROVED_CHEBYSHEV_CONCENTRATION",
+        "Branch_A_derandomized_carrier": "PROVED_CONSTRUCTIVE_EXISTENTIAL_OMEGA_S6",
+        "Branch_A_almost_sure_orbit": "OPEN_CONJECTURE_UNPROVEN",
         "Branch_A_pointwise_all_adversarial_pairs": "OPEN_WITH_FORMAL_BLOCKER",
         "asymptotic_scaling": "Omega(s^6)",
         "exact_orbit_mean_floor": "(140 - o(1)) s^6",
         "W32_deterministic_infimum": 68,
         "formal_blocker": (
             "Arbitrary external adversarial cross-side correlations between f and g "
-            "outside common coordinate frames require global symplectic polar alignment."
+            "outside common coordinate frames require global symplectic polar alignment. "
+            "Existence of g* does not imply the bound holds for all adversarial g."
         ),
     }
