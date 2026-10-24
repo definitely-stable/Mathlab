@@ -180,8 +180,17 @@ class AA4DHConstantOriginalSourceInverse(unittest.TestCase):
                     inv["original_source_ACTUAL_nonincident_P3_paired_C4_reuse_count"],
                     ORIGINAL_HISTORICAL_A_CLASS_CAPS[
                         inv["historical_true_original_GF5_label"]])
-                self.assertTrue(provenance.issubset(
-                    set(inv["actual_true_original_source_P3_C4_representations"])))
+                if not provenance.issubset(set(inv["actual_true_original_source_P3_C4_representations"])):
+                    self.fail("AA4DH SOURCE INVERSE LOST ORIGINAL Q "
+                        +repr({"scheme":scheme,"source_Q":Q,
+                               "class":inv["historical_true_original_GF5_label"],
+                               "source_point_profile":inv["original_POINT_side_profile"],
+                               "source_line_profile":inv["original_LINE_side_profile"],
+                               "point_inverse_n":inv["POINT_inverse_occupied_original_C4_representation_count"],
+                               "line_inverse_n":inv["LINE_inverse_occupied_original_C4_representation_count"],
+                               "forward_missing":sorted(provenance-
+                                   set(inv["actual_true_original_source_P3_C4_representations"])),
+                               "inverse_first":inv["actual_true_original_source_P3_C4_representations"][:5]}))
                 self.assertLessEqual(len(provenance),
                     inv["original_source_ACTUAL_nonincident_P3_paired_C4_reuse_count"])
                 seen[inv["historical_true_original_GF5_label"]]+=len(provenance)
