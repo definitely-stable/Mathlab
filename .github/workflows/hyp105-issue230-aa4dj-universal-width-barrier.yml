@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4dj-universal-width-barrier
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4dj_universal_width_barrier.py"
+      - "research/test_hyp105_issue230_d6aa4dj_universal_width_barrier.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DJ-UNIVERSAL-WIDTH-BARRIER.md"
+      - ".github/workflows/hyp105-issue230-aa4dj-universal-width-barrier.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  universal_finite_width_density_bounds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify universal rho_m(s) <= m / s^2 and adversarial suppression for s > sqrt(m)
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dj_universal_width_barrier.py' -v -k test_01
+  synthetic_global_transversal_formula:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify global transversal matching recursion against inclusion-exclusion bound
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dj_universal_width_barrier.py' -v -k test_02
+  W32_all70_c6_cycles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit ALL 70 physical C6 point cycles on W(3,2) lex and S72
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dj_universal_width_barrier.py' -v -k test_03
+  W34_c6_cycles_sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit sample physical C6 cycles on W(3,4) lex and random
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dj_universal_width_barrier.py' -v -k test_04
+  analytic_all_h_global_transversal_scale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify all-h asymptotic growth tau(P6) >= (1 - 15/(s+1)^2) * (s+1)^6
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dj_universal_width_barrier.py' -v -k test_05
+  failclosed_invalid_inputs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject non-powers of 2, non-positive m, malformed point sets
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dj_universal_width_barrier.py' -v -k test_06
