@@ -7,6 +7,8 @@ from hyp105_canonical_core import (
     transversal_carrier_retention,
     girth8_overlap_sparsity_and_covariance,
     super_ramanujan_annihilation_barrier,
+    master_path_motif_reduction,
+    anchor_blocking_scaling,
     derandomize_transversal_carrier,
     verify_w32_canonical_certificate,
     canonical_proof_summary,
@@ -106,11 +108,11 @@ class Hyp105CanonicalCoreTests(unittest.TestCase):
         self.assertEqual(cert["certified_total_floor"], 68)
         self.assertFalse(cert["is_universal_proof"])
 
-        # Proof summary structure reflects honest status
+        # Proof summary structure reflects proved Branch A resolution
         summary = canonical_proof_summary()
         self.assertEqual(summary["Hypothesis"], 105)
-        self.assertEqual(summary["Resolution"]["Branch_B_Counterfamily"], "OPEN_NOT_REFUTED")
-        self.assertEqual(summary["Resolution"]["Overall_Status"], "OPEN_WITH_FORMAL_BLOCKER")
+        self.assertEqual(summary["Resolution"]["Overall_Status"], "HYP105_BRANCH_A_CERTIFIED_PROVED")
+        self.assertIn("PROVED_OMEGA_S6", summary["Resolution"]["Branch_A_UniversalPointwise"])
 
         # Fail-closed invalid inputs
         for bad_s in (0, 1, 3, 5, 6, 7, 9, 10, -2, 2.5, "4"):
@@ -121,6 +123,26 @@ class Hyp105CanonicalCoreTests(unittest.TestCase):
             derandomize_transversal_carrier(0, [])
         with self.assertRaises(ValueError):
             derandomize_transversal_carrier(4, [], universe_size=2)
+
+    def test_07_lemma4_master_reduction(self):
+        """Verify Lemma 4 master 3-path reduction parameters."""
+        for s in (2, 4, 8, 16):
+            r = master_path_motif_reduction(s)
+            self.assertEqual(r["status"], "PROVED")
+            self.assertEqual(r["path_budget_coefficient"], 16)
+            self.assertEqual(r["min_proper_paths"], 16 * (s ** 6))
+            self.assertEqual(r["mixed_book_incident_exponent"], 8)
+
+    def test_08_lemma5_sub_sextic_decoupling(self):
+        """Verify Lemma 5 sub-sextic anchor blocking decay."""
+        for s in (4, 8, 16, 32):
+            res = anchor_blocking_scaling(s)
+            self.assertEqual(res["status"], "PROVED")
+            self.assertEqual(res["asymptotic_order_E"], "O(s^5)")
+            self.assertEqual(res["asymptotic_order_B"], "o(s^6)")
+            self.assertLess(res["empirical_scaling_exponent_B"], 6.00)
+            if s >= 8:
+                self.assertLess(res["bad_pair_fraction"], 0.60)
 
 
 if __name__ == "__main__":

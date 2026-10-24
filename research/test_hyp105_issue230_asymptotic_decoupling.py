@@ -46,6 +46,41 @@ class TestHyp105AsymptoticDecoupling(unittest.TestCase):
         self.assertLess(ratio4, 0.80)
         self.assertLess(ratio4, ratio2)
 
+    def test_w34_ei_decomposition(self):
+        """Verify the exact E and I atom counts on W(3,4) lex."""
+        m4 = fixture(2, 'lex')
+        c = ProjectionClosure(m4)
+        a = c.a
+        e_count = 0
+        i_count = 0
+        for u, nbrs in enumerate(c.adj):
+            x0, y0 = divmod(u, a)
+            for v, _ in nbrs:
+                x1, y1 = divmod(v, a)
+                for w, _ in c.adj[v]:
+                    x2, y2 = divmod(w, a)
+                    if x2 in (x0, x1) or y2 in (y0, y1): continue
+                    for z, _ in c.adj[w]:
+                        x3, y3 = divmod(z, a)
+                        if x3 in (x0, x1, x2) or y3 in (y0, y1, y2): continue
+                        q = c.fi.get(tuple(sorted((x0, x3))))
+                        r = c.gi.get(tuple(sorted((y0, y3))))
+                        if q is None or r is None or (q, r) in c.edge_id: continue
+                        p, l = c.projection[q, r]
+                        fp = set(c.f[p])
+                        gl = set(c.g[l])
+                        le = bool(fp & {x0, x3})
+                        re = bool(gl & {y0, y3})
+                        li = bool(fp & {x1, x2})
+                        ri = bool(gl & {y1, y2})
+                        if le or re:
+                            e_count += 1
+                        elif li or ri:
+                            i_count += 1
+        self.assertEqual(e_count, 38020)
+        self.assertEqual(i_count, 17364)
+        self.assertEqual(e_count + i_count, 55384)
+
 
 if __name__ == '__main__':
     unittest.main()
