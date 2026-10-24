@@ -190,6 +190,24 @@ class AA4DHConstantOriginalSourceInverse(unittest.TestCase):
                                "line_inverse_n":inv["LINE_inverse_occupied_original_C4_representation_count"],
                                "forward_missing":sorted(provenance-
                                    set(inv["actual_true_original_source_P3_C4_representations"])),
+                               "source_expected_typed_inversions":tuple(
+                                  (original_nonincident_threepath(p,l,
+                                       _validated_original(model)[5],
+                                       _validated_original(model)[6])[1][0],
+                                   p,pc,
+                                   original_nonincident_threepath(p,l,
+                                       _validated_original(model)[5],
+                                       _validated_original(model)[6])[0][1],
+                                   l,lc)
+                                  for p,l,pc,lc in sorted(provenance)[:3]),
+                               "inverse_POINT_first":inverse_original_typed_ABC_C4_representations(
+                                  _validated_original(model)[3],
+                                  tuple(model["incidences"][z][0] for z in Q)
+                                  )["representations"][:24],
+                               "inverse_LINE_first":inverse_original_typed_ABC_C4_representations(
+                                  _validated_original(model)[4],
+                                  tuple(model["incidences"][z][1] for z in Q)
+                                  )["representations"][:24],
                                "inverse_first":inv["actual_true_original_source_P3_C4_representations"][:5]}))
                 self.assertLessEqual(len(provenance),
                     inv["original_source_ACTUAL_nonincident_P3_paired_C4_reuse_count"])
