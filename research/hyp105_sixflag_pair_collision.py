@@ -57,6 +57,9 @@ def source_sixflag_collision_census(power, f, g, *, verify_with_previous=True):
             physical_adj[v1].append(v0)
     if any(len(v) != len(set(v)) for v in physical_adj.values()):
         raise AssertionError("injective source images cannot create parallel arcs")
+    adjacency_sets = defaultdict(set, {
+        vertex:set(neighbors) for vertex,neighbors in physical_adj.items()
+    })
 
     grouped = defaultdict(list)
     proper = missing = incident = 0
@@ -106,6 +109,8 @@ def source_sixflag_collision_census(power, f, g, *, verify_with_previous=True):
     good_P = good_Q = 0
     class_bad = [0,0,0,0]
     class_good = [0,0,0,0]
+    middle_C1 = end_C1 = middle_appearances = end_appearances = 0
+    max_middle = max_end = 0
     for (q,r), directed_triplets in grouped.items():
         counts = Counter(directed_triplets)
         if any(n != 2 for n in counts.values()):
@@ -142,6 +147,53 @@ def source_sixflag_collision_census(power, f, g, *, verify_with_previous=True):
         if t*(t-1)//2-one_shared_from_flag_index != local[0]//8:
             raise AssertionError("six-original-flag disjoint orbit census mismatch")
 
+        for original_id,n in source_flag_occurrences.items():
+            p,l = divmod(original_id,V)
+            left_shared = set(f[p]).intersection(f[q])
+            right_shared = set(g[l]).intersection(g[r])
+            if not left_shared and not right_shared:
+                # Four crossedge point/line labels induce a girth-8 graph
+                # with at most 8 flags; each middle orbit uses two.
+                if n > 4:
+                    raise AssertionError("middle flag occupancy exceeds four")
+                directed = sum(
+                    (u1,x1) in adjacency_sets[u0,x0] and
+                    (u3,x3) in adjacency_sets[u2,x2]
+                    for u0,u3 in (f[q],f[q][::-1])
+                    for x0,x3 in (g[r],g[r][::-1])
+                    for u1,u2 in (f[p],f[p][::-1])
+                    for x1,x2 in (g[l],g[l][::-1])
+                )
+                if directed != 2*n:
+                    raise AssertionError("independent middle-placement join mismatch")
+                middle_C1 += n*(n-1)//2
+                middle_appearances += n
+                max_middle = max(max_middle,n)
+            elif len(left_shared) == len(right_shared) == 1:
+                u0, = left_shared
+                x0, = right_shared
+                v0 = (u0,x0)
+                v1 = (next(u for u in f[p] if u != u0),
+                      next(x for x in g[l] if x != x0))
+                v3 = (next(u for u in f[q] if u != u0),
+                      next(x for x in g[r] if x != x0))
+                # Orient from the unique endpoint corner of the shared
+                # end flag; the remaining path is a proper codegree join.
+                joined = sum(
+                    len({v0[0],v1[0],v2[0],v3[0]}) == 4 and
+                    len({v0[1],v1[1],v2[1],v3[1]}) == 4
+                    for v2 in adjacency_sets[v1].intersection(adjacency_sets[v3])
+                )
+                if joined != n:
+                    raise AssertionError("independent end-flag codegree join mismatch")
+                if n > min(len(adjacency_sets[v1])-1,len(adjacency_sets[v3])):
+                    raise AssertionError("end-flag degree bound failed")
+                end_C1 += n*(n-1)//2
+                end_appearances += n
+                max_end = max(max_end,n)
+            else:
+                raise AssertionError("source flag cannot mix middle/end coordinate types")
+
         candidate = [(p,l0) for p in lines[r] for l0 in original_incidence[q]
                      if p in lines[l0]]
         if len(candidate) != 1:
@@ -169,6 +221,12 @@ def source_sixflag_collision_census(power, f, g, *, verify_with_previous=True):
     if (bad_P+good_P != P or bad_Q+good_Q != Q_direct
             or any(class_bad[i]+class_good[i] != Q[i] for i in range(4))):
         raise AssertionError("bad/good endpoint collision partition failed")
+    if (middle_C1+end_C1 != C1 or 2*middle_appearances != P
+            or end_appearances != P or 4*middle_C1 > 3*P):
+        raise AssertionError("middle/end flag-posting decomposition failed")
+    max_degree = max(map(len,physical_adj.values()),default=0)
+    if 2*end_C1 > (max_degree-2)*P:
+        raise AssertionError("end-flag collision degree envelope failed")
     if verify_with_previous:
         if power == 1:
             from hyp105_weighted_variance_transfer import w32_weighted_census
@@ -184,6 +242,12 @@ def source_sixflag_collision_census(power, f, g, *, verify_with_previous=True):
         "s":s,"V":V,"a":a,"U":U,
         "physical_proper":proper,"missing":missing,"incident":incident,
         "P":P,"Q":Q_direct,"C0":C0,"C1":C1,
+        "C1_middle":middle_C1,"C1_end":end_C1,
+        "middle_flag_appearances":middle_appearances,
+        "end_flag_appearances":end_appearances,
+        "max_middle_flag_occupancy":max_middle,
+        "max_end_flag_occupancy":max_end,
+        "max_corner_degree":max_degree,
         "Q0_six_distinct_source_flags":Q[0],
         "Q1_five_distinct_source_flags":Q[1],
         "Q2_forbidden_two_shared_flags":Q[2],

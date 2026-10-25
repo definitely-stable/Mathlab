@@ -1,0 +1,476 @@
+{
+  "sourceContext": {
+    "issue": {
+      "url": "https://github.com/definitely-stable/Mathlab/issues/230",
+      "title": "HYP-105 B3.2-E1-B: all-label six-motif Ω(s^6) obstruction or infinite correlated counterexample",
+      "updatedAt": "2026-10-25T17:03:06Z",
+      "body": "Parent [HYP-105 #176](https://github.com/definitely-stable/Mathlab/issues/176), upstream [#169](https://github.com/definitely-stable/Mathlab/issues/169). Follows merged [#224](https://github.com/definitely-stable/Mathlab/pull/224), merged [#225](https://github.com/definitely-stable/Mathlab/pull/225), and finite E1-A [PR #227](https://github.com/definitely-stable/Mathlab/pull/227).\n\n## Objective: prove a nontrivial ALL-h statement, not fit finite W32 observations\n\nLet f_s,g_s range over ALL injective maps from the V_s=(s+1)(s^2+1) typed factor vertices of W(3,s), s=2^h, into unordered physical coordinate pairs of K_{a_s}, a_s=min{a:binom(a,2)>=V_s}. Let D6, U_B_left/right and U_CA/U_CB/U_BB_overlap/U_BB_disjoint count ORIGINAL DISTINCT six-incidence factor sets satisfying accepted positive six-coordinate GF5 classes, NOT signed-event counts or physical label automorphism orbits.\n\nAccepted all-h fixed-label necessary R3 floor:\n\n```text\n51^6 R3(f_s,g_s) >=\n5643 D6 + 45600(U_B_left + U_B_right)\n+ 43320 U_CA + 49050 U_CB\n+ 51750 U_BB_overlap + 45010 U_BB_disjoint.\n```\n\n## Disjunctive proof gate\n\n**Branch A — universal obstruction:** prove `inf_{f_s,g_s} S_s(f_s,g_s) = Omega(s^6)` for S equal the sum of those seven disjoint motif multiplicities. Then no allowed deterministic pair-label family reaches R3=O(s^(6-eps)) via this particular GQ construction / classical alteration. Beware this would NOT rule out all general weighted ASET constructions or other hypergraph-extraction algorithms. Prove all h with positive constant independent of h and no Sp(4,s) assumed symmetry of arbitrary physical labels.\n\n**Branch B — counterexample to A:** exhibit for an infinite s=2^h sequence a concrete correlated f_s,g_s with S_s=o(s^6), plus rigorous all-h bound. Such a witness invalidates A but is NOT by itself an R3 upper because uncounted positive GF5 four/six-coordinate classes may dominate. The actual strict extraction goal needs **same maps** R2=O(s^(26/5-eps2)) and entire R3=O(s^(6-eps3)).\n\n**Branch C — model-equivalent reduction:** If neither A nor B closes, isolate an explicit incidence-tensor/cycle-pair-count inequality (with precise norms, constants, input label alphabet and restrictions) equivalent to one of the assertions. Establish spectral/cell-probe/rank limitations or explicit counterexamples with independent exact finite falsifiers. Do not label mere simulation a theorem.\n\n## Required independent evidence\n\n1. Index all 631 previously positive leading forest partition types and 11,032 subleading necessary shape types by original factor-endpoint partition (keep physical projections distinct). Finite exact counts for W32 E1-A are baseline only: lex U=(13,1,8,14), reverse-line U=(1,1,7,6), with fixed GF5 risk floors 1,656,350/51^6 and 724,680/51^6.\n2. Compare D6, Q4, accepted single-cherry U_B and four NEW U counts ON ONE physical labeling. Optimize proxies only as declared *lower-risk surrogates*, never full R3.\n3. For any theorem claim demand explicit s=2^h quantifiers, exact GF5 nonzero/checksum4 51-column palette, no assumed independence between correlated maps, no finite-h asymptotic fit.\n4. Independent mathematical proof + two methods of oracle falsification, exact PR-head GitHub-hosted Research SUCCESS, postmerge main Research SUCCESS.\n5. Status outcomes: PROVED_A, COUNTEREXAMPLE_B, RESTRICTED_THEOREM_C or OPEN_WITH_FORMAL_BLOCKER. No ASET exponent until full strict all-h estimates close.\n\nDo not close #176 or #169 as a consequence of merely accepting E1-A. No Rust or external repo changes."
+    },
+    "latestComment": {
+      "url": "https://github.com/definitely-stable/Mathlab/issues/230#issuecomment-6400542033",
+      "id": 6400542033,
+      "body": "HYP-105 / issue #230 — AA4-SFC **all-h six-original-incidence-ID collision structure** implemented in [Draft PR #648](https://github.com/definitely-stable/Mathlab/pull/648), exact head `e32d42f9b98d978387fa20b22ce6a6ff1d81a8c7`. Main unchanged; ROOT REMAINS **OPEN_WITH_FORMAL_BLOCKER** (no A/B/C theorem).\n\n**Exact all-h new partial theorem (true symplectic W(3,2^h); arbitrary correlated COMPLETE separately globally injected POINT and LINE maps):** every coordinate-distinct directed physical 3-path whose two projected original source endpoint IDs form a genuinely nonincident (POINT q, LINE r) pair uses three distinct original source flags (also distinct point IDs, distinct line IDs). The unordered triple of source **incidence IDs** has exactly two directed paths with fixed original endpoint pair: path and full reverse. Any two DIFFERENT such reversal-orbits sharing the same endpoint pair have either 0 or 1 common original incidence ID, **never 2**: two common incidence IDs would induce two shared edges between the same fixed two end-coordinates of a simple physical coordinate 3-edge path, which forces the entire coordinate path on both sides and hence the same source-flag orbit.\n\nWrite P=sum_E N3, Q=sum_E N3². Let C0 = number of unordered pairs of distinct reversal-orbits with same original typed nonincident endpoints and **0** common source flag IDs (**six distinct original incidence IDs**); C1 similarly **1** common source flag ID (**five distinct IDs**). Then universally:\n```\nN3(q,r) is even;\nQ=2P+8C0+8C1;\n(Q_0,Q_1,Q_2,Q_3)=(8C0,8C1,0,2P).\n```\nNew second independent *inverted source-flag postings* formula, m_alpha(q,r)=# reverse-orbits containing original source flag alpha:\n```\nC1 = sum_(q,r in E) sum_(alpha genuine original flag) binom(m_alpha(q,r),2)\nC0 = sum_(q,r in E) binom(N3(q,r)/2,2) - C1.\n```\nThis directly decomposes the open chi² target into five-ID and six-ID orbit collisions:\n`chi²=U*(2P+8C0+8C1)/P²-1` for P>0. If *separately* P=Theta(U)=Theta(s^6), universal chi²=O(1) iff C0+C1=O(U). No such all-h bound proved.\n\n**Independent exact true-source GF2/GF4 finite integer certificates** (walk-by-walk recovered source incidence IDs vs independent prior fixed-endpoint corner-join Q oracle, plus pairwise orbit intersection vs inverted flag posting):\n- W(3,2) seed41: (P,Q,Q0,Q1,Q2,Q3,C0,C1)=(986,8612,4608,2032,0,1972,576,254).\n- W(3,2) seed91: (860,6312,3224,1368,0,1720,403,171).\n- W(3,4) explicit global full-label adversarial witness: (58730,676700,486880,72360,0,117460,60860,9045).\nA zero-overlap pair of 3-paths has six true original incidence IDs, but may **fail the separate GF(5) palette/7-family acceptance filters** of root #230. Neither Q0 nor C0 is identified with the accepted original six-motif count.\n\n[Mathematical proof and limits](https://github.com/definitely-stable/Mathlab/blob/e32d42f9b98d978387fa20b22ce6a6ff1d81a8c7/docs/research/HYP-105-SIXFLAG-PATH-COLLISIONS.md); [true original source-ID oracle](https://github.com/definitely-stable/Mathlab/blob/e32d42f9b98d978387fa20b22ce6a6ff1d81a8c7/research/hyp105_sixflag_pair_collision.py); [tests](https://github.com/definitely-stable/Mathlab/blob/e32d42f9b98d978387fa20b22ce6a6ff1d81a8c7/research/test_hyp105_sixflag_pair_collision.py).\n\n**Final exact-head CI:** [AA4-SFC specialized #40214446520](https://github.com/definitely-stable/Mathlab/actions/runs/40214446520) COMPLETED SUCCESS; [INDEX #40214446489](https://github.com/definitely-stable/Mathlab/actions/runs/40214446489) COMPLETED SUCCESS; full [Research #40214446504](https://github.com/definitely-stable/Mathlab/actions/runs/40214446504) QUEUED when checked, not called SUCCESS. Independent qualified proof-referee gate still required; keep Draft.\n\n**Next P0:** derive actual upper bounds on source-original flag overlap occupancies m_alpha(q,r), especially C1, and disjoint six-original-ID C0, with arbitrary globally correlated maps; test whether these are O(U) against adversaries, and only then address full GF(5) seven-family accepted six-flag transfer."
+    },
+    "recentPullRequests": [
+      {
+        "number": 648,
+        "url": "https://github.com/definitely-stable/Mathlab/pull/648",
+        "title": "[DRAFT] HYP-105 / #230: Extremal Coordinate Invariants, Certified Counterexample, and Formal Blockers",
+        "headSha": "e32d42f9b98d978387fa20b22ce6a6ff1d81a8c7",
+        "base": "main",
+        "state": "open",
+        "draft": true,
+        "merged": false
+      },
+      {
+        "number": 647,
+        "url": "https://github.com/definitely-stable/Mathlab/pull/647",
+        "title": "[DRAFT] HYP-105 / #230: Extremal Coordinate Marginal Conservation Law and Sub-Sextic Anchor Decoupling Remediation",
+        "headSha": "9a0bcc37b851a58488778163556846681837a99e",
+        "base": "main",
+        "state": "open",
+        "draft": true,
+        "merged": false
+      },
+      {
+        "number": 646,
+        "url": "https://github.com/definitely-stable/Mathlab/pull/646",
+        "title": "[DRAFT] HYP-105 / #230: Sub-Sextic Anchor Decoupling Analysis, Conditional Bounds, and Formal Blockers",
+        "headSha": "fca2f8c24971fba1decce529acb88849e9168fe3",
+        "base": "main",
+        "state": "open",
+        "draft": true,
+        "merged": false
+      },
+      {
+        "number": 645,
+        "url": "https://github.com/definitely-stable/Mathlab/pull/645",
+        "title": "[DRAFT] HYP-105 / #230: Sub-Sextic Anchor Decoupling Analysis, Conditional Bounds, and Formal Blockers",
+        "headSha": "fca2f8c24971fba1decce529acb88849e9168fe3",
+        "base": "main",
+        "state": "open",
+        "draft": true,
+        "merged": false
+      },
+      {
+        "number": 644,
+        "url": "https://github.com/definitely-stable/Mathlab/pull/644",
+        "title": "HYP-105 #230 Phase 1: Canonical 3-lemma core proof architecture and local bridge deprecation",
+        "headSha": "0172b4fb52820a8d05485c55d767ab7abe6396fd",
+        "base": "research/hyp105-issue230-aa4dm-ramanujan-expansion-annihilation-barrier",
+        "state": "open",
+        "draft": true,
+        "merged": false
+      },
+      {
+        "number": 643,
+        "url": "https://github.com/definitely-stable/Mathlab/pull/643",
+        "title": "HYP-105 #230 AA4-DM: super-Ramanujan expander spectrum, simultaneous annihilation barrier, and Branch B refutation",
+        "headSha": "30a66a5df33b562a3507f2defff7f8d4488a2902",
+        "base": "research/hyp105-issue230-aa4dl-deterministic-orbit-derandomization",
+        "state": "open",
+        "draft": true,
+        "merged": false
+      },
+      {
+        "number": 642,
+        "url": "https://github.com/definitely-stable/Mathlab/pull/642",
+        "title": "HYP-105 #230 AA4-DL: deterministic transversal derandomization, universal positivity min S >= 68, and Branch A synthesis",
+        "headSha": "98394306c6ebeb98bceb3bc3599ce1634155bec2",
+        "base": "research/hyp105-issue230-aa4dk-sparse-covariance-decoupling",
+        "state": "open",
+        "draft": true,
+        "merged": false
+      }
+    ],
+    "baselineWorkflowRuns": [
+      {
+        "id": 40214446504,
+        "name": "research",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 4636,
+        "jobs_url": "https://api.github.com/repos/definitely-stable/Mathlab/actions/runs/40214446504/jobs",
+        "logs_url": "https://api.github.com/repos/definitely-stable/Mathlab/actions/runs/40214446504/logs",
+        "workflow_id": 377828642
+      },
+      {
+        "id": 40214446520,
+        "name": "hyp105-issue230-weighted-endpoint",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 8,
+        "jobs_url": "https://api.github.com/repos/definitely-stable/Mathlab/actions/runs/40214446520/jobs",
+        "logs_url": "https://api.github.com/repos/definitely-stable/Mathlab/actions/runs/40214446520/logs",
+        "workflow_id": 396145543
+      },
+      {
+        "id": 40214446489,
+        "name": "index001-c5-page-epochs",
+        "status": "completed",
+        "conclusion": "success",
+        "run_number": 2684,
+        "jobs_url": "https://api.github.com/repos/definitely-stable/Mathlab/actions/runs/40214446489/jobs",
+        "logs_url": "https://api.github.com/repos/definitely-stable/Mathlab/actions/runs/40214446489/logs",
+        "workflow_id": 380246902
+      }
+    ]
+  },
+  "localRunId": "de521a45-300c-4126-b462-e31520d994e1",
+  "createdAtUtc": "2026-10-25T19:25:42.717911+00:00",
+  "clientDate": "2026-10-26",
+  "gitSha": "e32d42f9b98d978387fa20b22ce6a6ff1d81a8c7",
+  "gitBranch": "feature/hyp105-clean-extremal-coordinate-invariants",
+  "revisionScope": "Base HEAD plus uncommitted follow-up; sourceHashes pin the executed local sources. No published snapshot update.",
+  "model": {
+    "family": "GPT-6",
+    "exactRuntimeIdentifier": null,
+    "identifierSource": "Developer runtime description; exact variant is not exposed."
+  },
+  "pythonVersion": "3.13.15",
+  "liveMathlabReportingDelivered": false,
+  "liveMathlabReportingReason": "No registered Mathlab get_research/start_research_run/report_research_event tools.",
+  "question": "For every correlated complete pair injection on W(3,2^h), can S_seven=Omega(s^6) be proved? Here isolate SFC shared-one-flag collision occupancies.",
+  "conclusion": "Scoped all-h middle occupancy <=4 and C1_middle<=3P/4 proved by girth-8; end occupancy is a proper common-neighbor count. Root remains OPEN_WITH_FORMAL_BLOCKER.",
+  "why": "At most four outer source points and four outer lines induce at most eight genuine source flags; each middle orbit uses a disjoint pair. Endpoint postings have a different codegree contraction.",
+  "nextStep": "Bound aggregate proper end-posting collision energy retaining original nonincident endpoint conditioning.",
+  "conditions": [
+    "True original W(3,2^h), h>=1.",
+    "Complete separately injective typed f and g into the minimal pair alphabet; arbitrary correlations.",
+    "Proper coordinate-distinct directed paths before internal blocking, grouped by true original nonincident endpoints."
+  ],
+  "limitations": [
+    "C1=O(s^2 P) is too weak to prove the desired uniform O(s^6).",
+    "No bounds on C0, uniform P=Theta(s^6), chi-square, or internal blocking established.",
+    "Candidate path pairs are not identified with the seven GF(5)-accepted six-source-incidence classes.",
+    "Exact runtime model variant unavailable; no model identifier invented.",
+    "No new hosted CI, Lean proof, external qualified referee, push or publication."
+  ],
+  "openQuestions": [
+    "Can C1_end be bounded by O(s^6) uniformly?",
+    "Can six-distinct-source-flag collisions C0 and P be controlled on the same maps?",
+    "What rigorous transfer links these path-pair candidates to accepted GF(5) classes?"
+  ],
+  "experimentIds": [
+    "de521a45-300c-4126-b462-e31520d994e1:source-occupancy-census"
+  ],
+  "experiments": [
+    {
+      "id": "de521a45-300c-4126-b462-e31520d994e1:source-occupancy-census",
+      "cwd": "C:\\Reposit\\math lab\\research",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-c",
+        "import json\nfrom pathlib import Path\nfrom hyp105_sixflag_pair_collision import source_sixflag_collision_census\nfrom hyp105_weighted_variance_transfer import witness_maps\ncertificate = json.loads(Path('hyp105_w34_adversarial_certificate.json').read_text(encoding='utf-8'))\ncases = [(1, *witness_maps(41), 'W32_seed41'), (1, *witness_maps(91), 'W32_seed91'), (2, certificate['f'], certificate['g'], 'W34_certificate')]\nprint(json.dumps({name: source_sixflag_collision_census(power,f,g) for power,f,g,name in cases}, sort_keys=True, indent=2))\n"
+      ],
+      "parameters": {
+        "W32Seeds": [
+          41,
+          91
+        ],
+        "W34Certificate": "research/hyp105_w34_adversarial_certificate.json",
+        "verifyWithPrevious": true
+      },
+      "exitCode": 0,
+      "stdout": "{\n  \"W32_seed41\": {\n    \"C0\": 576,\n    \"C1\": 254,\n    \"C1_end\": 201,\n    \"C1_middle\": 53,\n    \"P\": 986,\n    \"Q\": 8612,\n    \"Q0_six_distinct_source_flags\": 4608,\n    \"Q1_five_distinct_source_flags\": 2032,\n    \"Q2_forbidden_two_shared_flags\": 0,\n    \"Q3_reverse_orbit\": 1972,\n    \"U\": 180,\n    \"V\": 15,\n    \"a\": 6,\n    \"bad_C0\": 484,\n    \"bad_C1\": 217,\n    \"bad_P\": 822,\n    \"bad_Q\": 7252,\n    \"bad_Q_strata\": [\n      3872,\n      1736,\n      0,\n      1644\n    ],\n    \"end_flag_appearances\": 986,\n    \"good_P\": 164,\n    \"good_Q\": 1360,\n    \"good_Q_strata\": [\n      736,\n      296,\n      0,\n      328\n    ],\n    \"incident\": 336,\n    \"max_N3\": 18,\n    \"max_corner_degree\": 9,\n    \"max_end_flag_occupancy\": 4,\n    \"max_middle_flag_occupancy\": 3,\n    \"middle_flag_appearances\": 493,\n    \"missing\": 0,\n    \"occupied_source_endpoint_pairs\": 158,\n    \"physical_proper\": 1322,\n    \"reverse_orbits\": 493,\n    \"root_GF5_sevenclass_proved\": false,\n    \"s\": 2,\n    \"uniform_chi_square_proved\": false,\n    \"zero_source_endpoint_pairs\": 22\n  },\n  \"W32_seed91\": {\n    \"C0\": 403,\n    \"C1\": 171,\n    \"C1_end\": 126,\n    \"C1_middle\": 45,\n    \"P\": 860,\n    \"Q\": 6312,\n    \"Q0_six_distinct_source_flags\": 3224,\n    \"Q1_five_distinct_source_flags\": 1368,\n    \"Q2_forbidden_two_shared_flags\": 0,\n    \"Q3_reverse_orbit\": 1720,\n    \"U\": 180,\n    \"V\": 15,\n    \"a\": 6,\n    \"bad_C0\": 275,\n    \"bad_C1\": 110,\n    \"bad_P\": 636,\n    \"bad_Q\": 4352,\n    \"bad_Q_strata\": [\n      2200,\n      880,\n      0,\n      1272\n    ],\n    \"end_flag_appearances\": 860,\n    \"good_P\": 224,\n    \"good_Q\": 1960,\n    \"good_Q_strata\": [\n      1024,\n      488,\n      0,\n      448\n    ],\n    \"incident\": 240,\n    \"max_N3\": 18,\n    \"max_corner_degree\": 8,\n    \"max_end_flag_occupancy\": 3,\n    \"max_middle_flag_occupancy\": 3,\n    \"middle_flag_appearances\": 430,\n    \"missing\": 0,\n    \"occupied_source_endpoint_pairs\": 157,\n    \"physical_proper\": 1100,\n    \"reverse_orbits\": 430,\n    \"root_GF5_sevenclass_proved\": false,\n    \"s\": 2,\n    \"uniform_chi_square_proved\": false,\n    \"zero_source_endpoint_pairs\": 23\n  },\n  \"W34_certificate\": {\n    \"C0\": 60860,\n    \"C1\": 9045,\n    \"C1_end\": 8805,\n    \"C1_middle\": 240,\n    \"P\": 58730,\n    \"Q\": 676700,\n    \"Q0_six_distinct_source_flags\": 486880,\n    \"Q1_five_distinct_source_flags\": 72360,\n    \"Q2_forbidden_two_shared_flags\": 0,\n    \"Q3_reverse_orbit\": 117460,\n    \"U\": 6800,\n    \"V\": 85,\n    \"a\": 14,\n    \"bad_C0\": 37490,\n    \"bad_C1\": 5569,\n    \"bad_P\": 35616,\n    \"bad_Q\": 415704,\n    \"bad_Q_strata\": [\n      299920,\n      44552,\n      0,\n      71232\n    ],\n    \"end_flag_appearances\": 58730,\n    \"good_P\": 23114,\n    \"good_Q\": 260996,\n    \"good_Q_strata\": [\n      186960,\n      27808,\n      0,\n      46228\n    ],\n    \"incident\": 3440,\n    \"max_N3\": 38,\n    \"max_corner_degree\": 18,\n    \"max_end_flag_occupancy\": 4,\n    \"max_middle_flag_occupancy\": 3,\n    \"middle_flag_appearances\": 29365,\n    \"missing\": 8306,\n    \"occupied_source_endpoint_pairs\": 6613,\n    \"physical_proper\": 70476,\n    \"reverse_orbits\": 29365,\n    \"root_GF5_sevenclass_proved\": false,\n    \"s\": 4,\n    \"uniform_chi_square_proved\": false,\n    \"zero_source_endpoint_pairs\": 187\n  }\n}\n",
+      "stderr": "",
+      "results": {
+        "W32_seed41": {
+          "C0": 576,
+          "C1": 254,
+          "C1_end": 201,
+          "C1_middle": 53,
+          "P": 986,
+          "Q": 8612,
+          "Q0_six_distinct_source_flags": 4608,
+          "Q1_five_distinct_source_flags": 2032,
+          "Q2_forbidden_two_shared_flags": 0,
+          "Q3_reverse_orbit": 1972,
+          "U": 180,
+          "V": 15,
+          "a": 6,
+          "bad_C0": 484,
+          "bad_C1": 217,
+          "bad_P": 822,
+          "bad_Q": 7252,
+          "bad_Q_strata": [
+            3872,
+            1736,
+            0,
+            1644
+          ],
+          "end_flag_appearances": 986,
+          "good_P": 164,
+          "good_Q": 1360,
+          "good_Q_strata": [
+            736,
+            296,
+            0,
+            328
+          ],
+          "incident": 336,
+          "max_N3": 18,
+          "max_corner_degree": 9,
+          "max_end_flag_occupancy": 4,
+          "max_middle_flag_occupancy": 3,
+          "middle_flag_appearances": 493,
+          "missing": 0,
+          "occupied_source_endpoint_pairs": 158,
+          "physical_proper": 1322,
+          "reverse_orbits": 493,
+          "root_GF5_sevenclass_proved": false,
+          "s": 2,
+          "uniform_chi_square_proved": false,
+          "zero_source_endpoint_pairs": 22
+        },
+        "W32_seed91": {
+          "C0": 403,
+          "C1": 171,
+          "C1_end": 126,
+          "C1_middle": 45,
+          "P": 860,
+          "Q": 6312,
+          "Q0_six_distinct_source_flags": 3224,
+          "Q1_five_distinct_source_flags": 1368,
+          "Q2_forbidden_two_shared_flags": 0,
+          "Q3_reverse_orbit": 1720,
+          "U": 180,
+          "V": 15,
+          "a": 6,
+          "bad_C0": 275,
+          "bad_C1": 110,
+          "bad_P": 636,
+          "bad_Q": 4352,
+          "bad_Q_strata": [
+            2200,
+            880,
+            0,
+            1272
+          ],
+          "end_flag_appearances": 860,
+          "good_P": 224,
+          "good_Q": 1960,
+          "good_Q_strata": [
+            1024,
+            488,
+            0,
+            448
+          ],
+          "incident": 240,
+          "max_N3": 18,
+          "max_corner_degree": 8,
+          "max_end_flag_occupancy": 3,
+          "max_middle_flag_occupancy": 3,
+          "middle_flag_appearances": 430,
+          "missing": 0,
+          "occupied_source_endpoint_pairs": 157,
+          "physical_proper": 1100,
+          "reverse_orbits": 430,
+          "root_GF5_sevenclass_proved": false,
+          "s": 2,
+          "uniform_chi_square_proved": false,
+          "zero_source_endpoint_pairs": 23
+        },
+        "W34_certificate": {
+          "C0": 60860,
+          "C1": 9045,
+          "C1_end": 8805,
+          "C1_middle": 240,
+          "P": 58730,
+          "Q": 676700,
+          "Q0_six_distinct_source_flags": 486880,
+          "Q1_five_distinct_source_flags": 72360,
+          "Q2_forbidden_two_shared_flags": 0,
+          "Q3_reverse_orbit": 117460,
+          "U": 6800,
+          "V": 85,
+          "a": 14,
+          "bad_C0": 37490,
+          "bad_C1": 5569,
+          "bad_P": 35616,
+          "bad_Q": 415704,
+          "bad_Q_strata": [
+            299920,
+            44552,
+            0,
+            71232
+          ],
+          "end_flag_appearances": 58730,
+          "good_P": 23114,
+          "good_Q": 260996,
+          "good_Q_strata": [
+            186960,
+            27808,
+            0,
+            46228
+          ],
+          "incident": 3440,
+          "max_N3": 38,
+          "max_corner_degree": 18,
+          "max_end_flag_occupancy": 4,
+          "max_middle_flag_occupancy": 3,
+          "middle_flag_appearances": 29365,
+          "missing": 8306,
+          "occupied_source_endpoint_pairs": 6613,
+          "physical_proper": 70476,
+          "reverse_orbits": 29365,
+          "root_GF5_sevenclass_proved": false,
+          "s": 4,
+          "uniform_chi_square_proved": false,
+          "zero_source_endpoint_pairs": 187
+        }
+      }
+    }
+  ],
+  "nextSteps": [
+    {
+      "goal": "Upper bound C1_end via the exact proper codegree joins.",
+      "evidence": "Independent path postings and direct joins agree for both W32 witnesses and the explicit W34 certificate.",
+      "expectedCheck": "A uniform all-h inequality for the aggregate end collision energy or a genuine correlated all-h obstruction.",
+      "stopCondition": "Do not substitute endpoint pair density, independent random labeling, or GF(5) acceptance without a source-respecting proof."
+    }
+  ],
+  "checks": [
+    {
+      "id": "related-research-tests",
+      "title": "related-research-tests",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "unittest",
+        "test_hyp105_extremal_coordinate_invariants",
+        "test_hyp105_w34_adversarial_certificate",
+        "test_hyp105_w34_weighted_endpoint",
+        "test_hyp105_weighted_variance_transfer",
+        "test_hyp105_physical_degree_energy",
+        "test_hyp105_sixflag_pair_collision",
+        "-v"
+      ],
+      "cwd": "C:\\Reposit\\math lab\\research",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "test_canonical_parameters_powers_of_two (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_canonical_parameters_powers_of_two)\nVerify parameters for W(3,s) across powers of 2. ... ok\ntest_convex_optimization_degree_bound_universality (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_convex_optimization_degree_bound_universality)\nVerify sum d_u(d_u - 1) <= 2V(a - 2) for uniform and peaked distributions. ... ok\ntest_exact_large_h_alphabet (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_exact_large_h_alphabet)\nMinimal K_a uses integer arithmetic, including s=2**1024. ... ok\ntest_formal_resolution_status (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_formal_resolution_status)\nVerify fail-closed governance and certified counterexample reporting. ... ok\ntest_leading_coefficient_is_sqrt2 (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_leading_coefficient_is_sqrt2)\nVerify leading coefficient of sum binom(d_u, 2) is sqrt(2), NOT 1/sqrt(2). ... ok\ntest_missing_edge_star_degree_identity (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_missing_edge_star_degree_identity)\nTest exact identity on a realizable (not arbitrary) K_a labeling. ... ok\ntest_path_universe_separation (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_path_universe_separation)\nVerify path universes are distinguished to prevent denominator conflation. ... ok\ntest_small_s_bad_ratio_exceeds_unity (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_small_s_bad_ratio_exceeds_unity)\nVerify 4(a-2)/(s(s+1)) > 1.0 for s in {2, 4, 8, 16}. ... ok\ntest_candidate_finite_floor_refuted_with_exact_rational (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_candidate_finite_floor_refuted_with_exact_rational) ... ok\ntest_certificate_is_not_a_self_consistency_only_check (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_certificate_is_not_a_self_consistency_only_check) ... ok\ntest_independent_original_incidence_recount (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_independent_original_incidence_recount)\nRecount ALL integer census fields, never trusting JSON as oracle. ... ok\ntest_typed_bad_endpoint_bound_and_partition (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_typed_bad_endpoint_bound_and_partition) ... ok\ntest_valid_typed_images_and_exact_graph (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_valid_typed_images_and_exact_graph) ... ok\ntest_bad_endpoint_implies_blocked_physical_path (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_bad_endpoint_implies_blocked_physical_path)\nThe point/line projection blocks EVERY bad-pair proper path. ... ok\ntest_fail_closed_invalid_injections (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_fail_closed_invalid_injections) ... ok\ntest_independent_physical_coordinate_relabeling (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_independent_physical_coordinate_relabeling)\nPermutation of x- and y-coordinate alphabets must not change N3. ... ok\ntest_moment_upper_bound_is_explicitly_conditional (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_moment_upper_bound_is_explicitly_conditional) ... ok\ntest_two_independent_oracle_methods_and_exact_moments (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_two_independent_oracle_methods_and_exact_moments) ... ok\ntest_both_covariance_signs_on_genuine_w32 (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_both_covariance_signs_on_genuine_w32) ... ok\ntest_exact_centered_variance_and_equality_case (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_exact_centered_variance_and_equality_case) ... ok\ntest_existing_w34_ledger_centered_cauchy (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_existing_w34_ledger_centered_cauchy) ... ok\ntest_invalid_typed_maps_fail_closed (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_invalid_typed_maps_fail_closed) ... ok\ntest_lex_complete_labeling_negative_sign (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_lex_complete_labeling_negative_sign) ... ok\ntest_physical_coordinate_permutations_preserve_sign (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_physical_coordinate_permutations_preserve_sign) ... ok\ntest_tensor_reconstruction_and_absence_of_parallel_arcs (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_tensor_reconstruction_and_absence_of_parallel_arcs) ... ok\ntest_all_h_minimal_alphabet_integer_only (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_all_h_minimal_alphabet_integer_only) ... ok\ntest_exact_gq_centered_spectral_projector_polynomial (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_exact_gq_centered_spectral_projector_polynomial) ... ok\ntest_independent_coordinate_permutations_preserve_centered_energy (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_independent_coordinate_permutations_preserve_centered_energy) ... ok\ntest_physical_edge_injection_and_original_flags_fail_closed (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_physical_edge_injection_and_original_flags_fail_closed) ... ok\ntest_true_w32_graph_degrees_against_independent_physical_adjacency (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_true_w32_graph_degrees_against_independent_physical_adjacency) ... ok\ntest_true_w34_graph_degrees_against_direct_original_flags (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_true_w34_graph_degrees_against_direct_original_flags) ... ok\ntest_both_true_w32_covariance_sign_witnesses (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_both_true_w32_covariance_sign_witnesses) ... ok\ntest_middle_bound_on_all_complement_paired_four_by_four_hosts (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_middle_bound_on_all_complement_paired_four_by_four_hosts) ... ok\ntest_middle_end_postings_against_independent_source_certificates (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_middle_end_postings_against_independent_source_certificates) ... ok\ntest_original_typed_injection_is_fail_closed (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_original_typed_injection_is_fail_closed) ... ok\ntest_physical_coordinate_relabelings_leave_all_counts_unchanged (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_physical_coordinate_relabelings_leave_all_counts_unchanged) ... ok\ntest_true_symplectic_w34_sixflag_collision_moment (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_true_symplectic_w34_sixflag_collision_moment) ... ok\n\n----------------------------------------------------------------------\nRan 37 tests in 8.515s\n\nOK\n"
+    },
+    {
+      "id": "research-catalog",
+      "title": "research-catalog",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/catalog.py",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "RESEARCH_INDEX_VALIDATION_PASS entries=61\nRESEARCH_INDEX_BACKLINKS_PASS\nRESEARCH_INDEX_GENERATED_DOC_PASS\nRESEARCH_INDEX_THEMES_PASS\n",
+      "stderr": ""
+    },
+    {
+      "id": "known-stop-registry",
+      "title": "known-stop-registry",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/known_registry.py",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "KNOWN_REGISTRY_SCHEMA_PASS 55\nKNOWN_REGISTRY_AUTHORITY_PATHS_PASS\nKNOWN_REGISTRY_GENERATED_VIEW_PASS\nKNOWN_REGISTRY_DISPOSITIONS {'CLOSED_PROVED': 17, 'DEFER': 3, 'MODEL_MISMATCH': 6, 'PRIOR_ART': 22, 'STOP_PRODUCT': 5, 'SUPERSEDED': 2}\n",
+      "stderr": ""
+    },
+    {
+      "id": "literature-validation",
+      "title": "literature-validation",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/literature.py",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "LITERATURE_SCHEMA_AND_SOURCE_PINS_PASS\nLITERATURE_CANONICAL_IDENTITIES_PASS\nLITERATURE_GENERATED_DOCUMENTS_PASS\nLITERATURE_NO_NOVELTY_PROMOTION_PASS\n",
+      "stderr": ""
+    },
+    {
+      "id": "diff-whitespace",
+      "title": "diff-whitespace",
+      "status": "passed",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "source-evidence-integrity",
+      "title": "Exact baseline Git blob hashes, local source hashes, verbatim evidence and stored run assertions",
+      "status": "passed",
+      "details": "Git blob LF and executed checkout bytes distinguished explicitly; five baseline blobs, all local source pins, verbatim quotes, stored 37-test output and all occupancy identities verified."
+    }
+  ],
+  "sourceHashes": {
+    "research/hyp105_sixflag_pair_collision.py": "ce8f9c633f1e23331a6b69b5720df0cd5b31d3148b550b93af5ff1def6c89ddc",
+    "research/test_hyp105_sixflag_pair_collision.py": "0e67c83fd37e94f5d200e8db1cbfeaf88aa42c9609850e786798f06c2843d63c",
+    "research/hyp105_b1_symplectic.py": "6451bcb7e76bc722bcde280985131c41b415712f23787c353ad29df729a5b80f",
+    "research/hyp105_physical_degree_energy.py": "1cae451ba1d85315bd36cc05e67bcc0dc77e7d8129f8005ccf985cf077fe1b33",
+    "research/hyp105_w34_independent_oracle.py": "43b1fa3f735fde9568a025e4d0706e1f691c6df75e4296ab004c814569d4d439",
+    "research/hyp105_w34_weighted_endpoint.py": "a954740e0721bff89d7887f6594e8ce52e93d8d6ac27b0a72e3c886733834454",
+    "research/hyp105_weighted_variance_transfer.py": "2935e1568c5a422d200260da57e320cbfe1b0724244217c24d7bc991def7d823",
+    "research/hyp105_extremal_coordinate_invariants.py": "274508e8172c85a39ced5cd7a94b51859545e90fea116a805d3c90f74693b874",
+    "research/hyp105_w34_adversarial_certificate.json": "4b9abbce4f3c9c9986e199ca9f819cdd69a00ca9e8f0e919a44d5ca9cd68fb58",
+    "docs/research/HYP-105-SIXFLAG-PATH-COLLISIONS.md": "d0c21c98d33f1b9cdaf83e8f4a5fa383a523d6ed53d73690577915dd429fa626",
+    "docs/research/HYP-105-ISSUE230-SFC-INDEPENDENT-AUDIT-2026-10-26.md": "009b7becc6aa6ea93470e168f95e860225d6234c35ff175796a3046b3b19bf2b",
+    "docs/research/HYP-105-PHYSICAL-DEGREE-ENERGY.md": "1aa5e5bccec323d83f21d26458f6f35a458dad0a14de62d78a974346744f5345",
+    "docs/research/HYP-105-G5-C3-B1-0-SYMPLECTIC-GF4.md": "2be875df0e44fc13e744660fbfe4357f62a2b8011c34c0d53545090d4b63c49d",
+    "research/test_hyp105_extremal_coordinate_invariants.py": "a545b395c3bec4546bb1dcbb5a86beb9834a5caa53a722f050f6729db9a33a8e",
+    "research/test_hyp105_w34_adversarial_certificate.py": "6ca9a1d366e61bcfeecd442e498bd2eb9bb29d9fae9a1b1c0e889f5a388299b0",
+    "research/test_hyp105_w34_weighted_endpoint.py": "3479d8ebb1bc29570cc020609af5234b6431d33938a05e4a466180f70d4c72f0",
+    "research/test_hyp105_weighted_variance_transfer.py": "7de7bac28d53af4732b0a35bd67a980529f6d082ea73f8b2eb062899282068af",
+    "research/test_hyp105_physical_degree_energy.py": "8bd35b23a0e4120c3dbccca1c4751b3140edc39bfc517b01a84696009f91294b"
+  },
+  "trackedDiffSha256": "3c3e1213a4518531887bb16c2fbf3b2f77a7e8f8cd9a83ebacb0402ad06bf301",
+  "claims": [
+    {
+      "id": "middle-cap",
+      "text": "Every middle posting has occupancy at most four, and C1_middle<=3P/4.",
+      "evidence": [
+        {
+          "recordId": "docs/research/HYP-105-ISSUE230-SFC-INDEPENDENT-AUDIT-2026-10-26.md",
+          "documentVersion": "009b7becc6aa6ea93470e168f95e860225d6234c35ff175796a3046b3b19bf2b",
+          "quote": "Hence \\(2m_\\alpha(q,r)\\le8\\). Missing coordinate labels only remove vertices or incidences."
+        }
+      ],
+      "checkIds": [
+        "related-research-tests"
+      ]
+    },
+    {
+      "id": "end-obstruction",
+      "text": "End postings satisfy the exact proper common-neighbor formula; its degree envelope remains too loose.",
+      "evidence": [
+        {
+          "recordId": "docs/research/HYP-105-ISSUE230-SFC-INDEPENDENT-AUDIT-2026-10-26.md",
+          "documentVersion": "009b7becc6aa6ea93470e168f95e860225d6234c35ff175796a3046b3b19bf2b",
+          "quote": "The end posting is a proper common-neighbor count; it need not satisfy the middle constant bound."
+        }
+      ],
+      "checkIds": [
+        "related-research-tests"
+      ]
+    }
+  ],
+  "baselineGitBlobHashes": {
+    "docs/research/HYP-105-SIXFLAG-PATH-COLLISIONS.md": "4ad305a5acb45fa2b0ec4b12695bf6ac770c97c95fd08acdb26c61a2ade522cc",
+    "research/hyp105_sixflag_pair_collision.py": "bd2d9e1e4a28ebb1d0803fe0b5eb9b23d0b364f0bcead8da83bcda957598882c",
+    "docs/research/HYP-105-PHYSICAL-DEGREE-ENERGY.md": "fe0b97847993f7368cea36d5690b1351cee960f5b6d7528db7131bd8aa0debfc",
+    "research/hyp105_b1_symplectic.py": "62d4e274e7ed7772d892f18aaa3d0852cfe7a2c36687b23f2ba48910afb292f1",
+    "research/hyp105_w34_adversarial_certificate.json": "792b10d997b831b1c6f2e53df2ceff5dfdb604c2b23edb22350f56bf408101af"
+  }
+}
