@@ -2,6 +2,7 @@
 import json
 import os
 import unittest
+from collections import Counter, deque
 
 from hyp105_sixflag_pair_collision import source_sixflag_collision_census
 from hyp105_weighted_variance_transfer import witness_maps
@@ -71,6 +72,59 @@ class TestSixOriginalFlagCollision(unittest.TestCase):
             source_sixflag_collision_census(1,f,g[:-1])
         with self.assertRaises(ValueError):
             source_sixflag_collision_census(3,f,g)
+
+    def test_middle_end_postings_against_independent_source_certificates(self):
+        cases = [
+            (1, *witness_maps(41), (53,201,3,4)),
+            (1, *witness_maps(91), (45,126,3,3)),
+            (2, self.cert["f"], self.cert["g"], (240,8805,3,4)),
+        ]
+        for power, f, g, expected in cases:
+            with self.subTest(power=power, expected=expected):
+                c = source_sixflag_collision_census(
+                    power,f,g,verify_with_previous=False
+                )
+                self.assertIn("C1_middle",c)
+                self.assertEqual(tuple(c[k] for k in (
+                    "C1_middle","C1_end",
+                    "max_middle_flag_occupancy","max_end_flag_occupancy",
+                )),expected)
+                self.assertEqual(c["C1_middle"]+c["C1_end"],c["C1"])
+                self.assertEqual(2*c["middle_flag_appearances"],c["P"])
+                self.assertEqual(c["end_flag_appearances"],c["P"])
+                self.assertLessEqual(4*c["C1_middle"],3*c["P"])
+
+    def test_middle_bound_on_all_complement_paired_four_by_four_hosts(self):
+        pairs = sorted({tuple(sorted(((p,l),(p^1,l^1))))
+                        for p in range(4) for l in range(4)})
+        histogram = Counter()
+        for mask in range(1 << len(pairs)):
+            edges = [edge for i,pair in enumerate(pairs) if mask & (1 << i)
+                     for edge in pair]
+            adjacency = [set() for _ in range(8)]
+            for p,l in edges:
+                adjacency[p].add(l+4)
+                adjacency[l+4].add(p)
+            valid = True
+            # Independently detect a short cycle by finding an alternate
+            # path for each edge, without using the census or its bound.
+            for p,l in edges:
+                target = l+4
+                distances = {p:0}
+                queue = deque([p])
+                while queue:
+                    u = queue.popleft()
+                    for v in adjacency[u]:
+                        if {u,v} == {p,target} or v in distances:
+                            continue
+                        distances[v] = distances[u]+1
+                        queue.append(v)
+                if target in distances and distances[target] < 7:
+                    valid = False
+                    break
+            if valid:
+                histogram[mask.bit_count()] += 1
+        self.assertEqual(histogram,{0:1,1:8,2:24,3:32,4:8})
 
     def test_physical_coordinate_relabelings_leave_all_counts_unchanged(self):
         f,g = witness_maps(91)
