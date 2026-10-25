@@ -55,6 +55,16 @@ class TestPhysicalDegreeEnergy(unittest.TestCase):
                     self.assertEqual(audit["degree_matrix"][u][x],
                                      len(adj.get((u,x), ())))
             self.assertEqual(audit["degree_sum"], 4*45)
+            # Frozen cross-language exact integer oracle on the same
+            # actual symplectic W(3,2) flags, not inferred from bounds.
+            self.assertEqual(
+                (audit["max_corner_degree"], audit["degree_square_sum"],
+                 audit["residual_energy_num_over_V2"],
+                 audit["residual_energy_upper_num_over_V2"],
+                 audit["all_three_walk_upper"]),
+                (9, 1002, 22950, 72000, 9018) if seed == 41 else
+                (8, 970, 15750, 72000, 7760),
+            )
             self.assertGreater(audit["residual_energy_upper_num_over_V2"],
                                audit["residual_energy_num_over_V2"])
             self.assertGreaterEqual(audit["pointwise_min_slack"], 0)
@@ -77,6 +87,13 @@ class TestPhysicalDegreeEnergy(unittest.TestCase):
         self.assertEqual(tuple(tuple(row) for row in direct),
                          audit["degree_matrix"])
         self.assertEqual(audit["degree_sum"], 1700)
+        self.assertEqual(
+            (audit["max_corner_degree"], audit["degree_square_sum"],
+             audit["residual_energy_num_over_V2"],
+             audit["residual_energy_upper_num_over_V2"],
+             audit["all_three_walk_upper"]),
+            (18, 16124, 8079200, 100857600, 290232),
+        )
         self.assertGreaterEqual(audit["residual_energy_upper_num_over_V2"],
                                 audit["residual_energy_num_over_V2"])
         self.assertGreaterEqual(audit["pointwise_min_slack"], 0)

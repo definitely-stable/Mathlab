@@ -127,3 +127,16 @@ A useful next advance must exploit the special four-distinct-first-coordinate/fo
 - [Independent falsifiers](../../research/test_hyp105_physical_degree_energy.py) use true projective \(W(3,2)\) and \(W(3,4)\) original flags, compare graph degree matrices against direct corner adjacency reconstructions, check the exact \(X^2=2sV X\) polynomial and integer residual upper bounds, independently relabel physical coordinates, and reject malformed noninjective maps.
 - All numerical W(3,4) labelings use the existing explicit globally injected adversarial certificate; no stored census counts are used to construct the matrices.
 - Scope: **SCOPED DEGREE-ENERGY THEOREM**, not root Branch A/B/C; exact-HEAD CI and independent qualified mathematical referee still required. Never merge the scientific Draft solely because the CI passes.
+
+
+## 7. Cross-language independent finite integer witnesses
+
+The existing exact symplectic original flags and complete typed maps were recomputed using a separate integer finite-field implementation. The following finite values are frozen as independent regression targets; each residual energy is the **numerator** \(V^2\|E\|_F^2\), not \(\|E\|_F^2\) itself.
+
+| Genuine fixed input | \(\Delta_H\) | \(\sum D_{ux}^2\) | \(V^2\|E\|_F^2\) | spectral upper numerator | \(\Delta_H\sum D^2\) |
+|---|---:|---:|---:|---:|---:|
+| \(W(3,2)\), LCG seed 41 | 9 | 1,002 | 22,950 | 72,000 | 9,018 |
+| \(W(3,2)\), LCG seed 91 | 8 | 970 | 15,750 | 72,000 | 7,760 |
+| \(W(3,4)\), explicit adversarial witness | 18 | 16,124 | 8,079,200 | 100,857,600 | 290,232 |
+
+The exact numeric residuals are comfortably within the proven bounds; small finite slack does not establish an all-h \(P=O(s^6)\) or \(\chi^2(N_3)=O(1)\). The generic all-3-walk envelopes are larger than the actual proper nonincident path counts of 986/860/58,730, demonstrating why coordinate-injective projection information must be retained in the next step.
