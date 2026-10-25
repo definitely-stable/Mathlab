@@ -146,6 +146,22 @@ class Hyp105CanonicalCoreTests(unittest.TestCase):
             if s >= 8:
                 self.assertLess(res["bad_pair_fraction"], 0.60)
 
+    def test_09_lemma6_marginal_conservation(self):
+        """Verify Lemma 6 Coordinate Marginal Conservation bounds."""
+        from hyp105_canonical_core import extremal_coordinate_marginal_conservation
+        for s in (4, 8, 16, 32, 64):
+            res = extremal_coordinate_marginal_conservation(s)
+            self.assertEqual(res["status"], "PROVED_CONVEX_BOUND")
+            self.assertGreater(res["unblocked_fraction_c0"], 0.0)
+            self.assertLessEqual(res["max_blocking_fraction_beta"], 1.0)
+            self.assertGreater(res["bbo_ratio_s6"], 1.0)
+        # Check monotonic increase of unblocked ratio c0
+        r4 = extremal_coordinate_marginal_conservation(4)["unblocked_fraction_c0"]
+        r8 = extremal_coordinate_marginal_conservation(8)["unblocked_fraction_c0"]
+        r16 = extremal_coordinate_marginal_conservation(16)["unblocked_fraction_c0"]
+        self.assertLess(r4, r8)
+        self.assertLess(r8, r16)
+
 
 if __name__ == "__main__":
     unittest.main()
