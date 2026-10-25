@@ -1,16 +1,17 @@
 """Tests for HYP-105 Issue #230 Extremal Coordinate Marginal Conservation Law."""
 import json
+import math
 import os
 import unittest
 from collections import Counter
 
 from hyp105_issue230_projection import fixture, ProjectionClosure
-from hyp105_issue230_d5_retained_energy import true_spread_global_model
 from hyp105_issue230_extremal_marginal_conservation import (
     canonical_gq_parameters,
     extremal_degree_collision_bound,
     blocking_fraction_theoretical_bound,
     verify_bbo_unconditional_sextic_floor,
+    path_universe_census,
 )
 
 
@@ -43,6 +44,18 @@ class TestExtremalMarginalConservation(unittest.TestCase):
             peaked_sum = k * (a - 1) * (a - 2) + rem * max(0, rem - 1)
             self.assertLessEqual(peaked_sum, max_bound)
 
+    def test_leading_coefficient_is_sqrt2(self):
+        """Verify that the leading coefficient of sum binom(d_u, 2) is sqrt(2), NOT 1/sqrt(2)."""
+        for s in [4, 8, 16, 32, 64]:
+            p = canonical_gq_parameters(s)
+            V, a, m = p["V"], p["a"], p["m"]
+            base = (a * (a - 1) * (a - 2) - 2 * (2 * a - 3) * m) // 2
+            s_9_2 = s ** 4.5
+            ratio = base / s_9_2
+            # Must approach sqrt(2) approx 1.4142, NOT 1/sqrt(2) approx 0.7071
+            self.assertGreater(ratio, 1.40, f"Ratio {ratio} must exceed 1.40 for s={s}")
+            self.assertLess(abs(ratio - math.sqrt(2)), 0.50)
+
     def test_c4_freeness_pencil_inequality_on_genuine_models(self):
         """Verify sum_l binom(v_l(u), 2) <= binom(d_u, 2) on genuine W(3,2) and W(3,4)."""
         configs = [
@@ -56,10 +69,7 @@ class TestExtremalMarginalConservation(unittest.TestCase):
             c = ProjectionClosure(m)
             a = c.a
 
-            # Compute d_u for all u
             coord_deg = Counter(x for p in range(c.v) for x in c.f[p])
-
-            # Compute v_l(u) for each line l and coordinate u
             pencil_pairs = Counter()
             for pts in c.lines:
                 deg = Counter(x for q in pts for x in c.f[q])
@@ -75,66 +85,35 @@ class TestExtremalMarginalConservation(unittest.TestCase):
                     f"C4-freeness violated for u={u} in s={c.s} {name}",
                 )
 
-    def test_exterior_bad_endpoint_pairs_bound(self):
-        """Verify that actual endpoint bad pairs never exceed the theoretical bound."""
-        from hyp105_issue230_anchor_blocking import _original_endpoint_pair_census
+    def test_small_s_bad_ratio_exceeds_unity(self):
+        """Verify that 4(a-2)/(s(s+1)) > 1.0 for s in {2, 4, 8, 16}.
 
-        for s_val, name in [(1, "lex"), (1, "S68"), (2, "lex"), (2, "random")]:
-            m = fixture(s_val, name)
-            c = ProjectionClosure(m)
-            census, _, _ = _original_endpoint_pair_census(c)
-            actual_bad = census["union_endpoint_bad_pair_count"]
+        Demonstrates that the theoretical analytical bound provides zero guarantee
+        of positive good pairs at small s, explaining the need for computational certificates.
+        """
+        for s in [2, 4, 8, 16]:
+            res = extremal_degree_collision_bound(s)
+            self.assertTrue(
+                res["ratio_exceeds_unity"],
+                f"Ratio for s={s} must exceed 1.0 (got {res['theoretical_bad_ratio_bound']})",
+            )
+            self.assertGreater(res["theoretical_bad_ratio_bound"], 1.0)
 
-            b = extremal_degree_collision_bound(c.s)
-            self.assertLess(actual_bad, b["max_bad_endpoint_pairs"])
+    def test_path_universe_separation(self):
+        """Verify that path universes are properly structured to prevent denominator conflation."""
+        u4 = path_universe_census(4)
+        self.assertEqual(u4["total_gq_3paths"], 85 * 5 * 16)  # 6800
+        self.assertIn("P_proper", u4["description"])
+        self.assertIn("P_noninc", u4["description"])
+        self.assertIn("P_unblocked", u4["description"])
 
-    def test_c0_monotonic_positivity_and_convergence(self):
-        """Verify that c_0(s) > 0 for all s >= 4 and increases monotonically."""
-        c0_vals = []
-        for s in [4, 8, 16, 32, 64]:
-            res = blocking_fraction_theoretical_bound(s)
-            self.assertGreater(res["c_0"], 0.0)
-            self.assertLess(res["beta_max"], 1.0)
-            self.assertEqual(res["status"], "PROVED_UNCONDITIONAL")
-            c0_vals.append((s, res["c_0"]))
-
-        # Verify strict positivity and asymptotic growth
-        self.assertGreaterEqual(c0_vals[0][1], 0.176)  # s=4
-        self.assertGreaterEqual(c0_vals[1][1], 0.556)  # s=8
-        for i in range(len(c0_vals) - 1):
-            self.assertLess(c0_vals[i][1], c0_vals[i + 1][1])
-
-    def test_unconditional_sextic_overlap_floor(self):
-        """Verify BBo(f, g) >= 8 c_0 s^6 = Omega(s^6) unconditionally."""
-        for s in [4, 8, 16, 32]:
-            self.assertTrue(verify_bbo_unconditional_sextic_floor(s))
-            res = blocking_fraction_theoretical_bound(s)
-            # Must strictly exceed 1.0 * s^6 for all s >= 4
-            self.assertGreater(res["bbo_ratio_s6"], 1.0)
-
-    def test_w34_adversarial_results_consistency(self):
-        """Verify theory against the 10 adversarial optimization runs on W(3,4)."""
-        json_path = os.path.join(
-            os.path.dirname(__file__), "hyp105_w34_adversarial_results.json"
-        )
-        if not os.path.exists(json_path):
-            self.skipTest("Adversarial JSON results not present")
-
-        with open(json_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-
-        s6 = 4096
-        for run_name, run_data in data.items():
-            final_bbo = run_data["final_bbo"]
-            ratio = run_data["final_ratio"]
-            census = run_data["census"]
-            blocked_ratio = census["blocked_ratio"]
-
-            # Theory states beta <= 0.824, leaving >= 17.6% unblocked
-            self.assertLessEqual(blocked_ratio, 0.824)
-            # Final BBo must remain strictly positive and above 1.0 s^6
-            self.assertGreater(final_bbo, s6)
-            self.assertGreater(ratio, 1.30)
+    def test_unconditional_floor_status_is_open(self):
+        """Verify that verify_bbo_unconditional_sextic_floor returns False (fail-closed)."""
+        self.assertFalse(verify_bbo_unconditional_sextic_floor(4))
+        b = blocking_fraction_theoretical_bound(4)
+        self.assertEqual(b["status"], "OPEN_WITH_FORMAL_BLOCKER")
+        self.assertTrue(b["candidate_c0_refuted"])
+        self.assertIn("contradicted by certified minimum 5400", b["refutation_detail"])
 
 
 if __name__ == "__main__":

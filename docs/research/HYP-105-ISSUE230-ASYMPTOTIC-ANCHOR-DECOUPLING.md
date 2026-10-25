@@ -155,49 +155,66 @@ Sub-sextic blocking $B(f, g) = o(s^6)$ via spectral 6th moment on $H'$ remains a
 
 ---
 
-## 5. Analytical Resolution via Extremal Coordinate Marginal Conservation (Theorem 3)
+## 5. Extremal Coordinate Marginal Conservation Law: Proved Results and Formal Blockers
 
 ### Theorem 3 (Extremal Coordinate Marginal Conservation Law)
-**STATUS: PROVED CONVEX BOUND (Independent of $H'$ Spectral 6th Moment).**
+**STATUS: PARTIALLY PROVED WITH FORMAL BLOCKERS (OPEN_WITH_FORMAL_BLOCKER).**
 
-For dyadic prime powers $s = 2^h$ and any injective pair embeddings $f: P \hookrightarrow \binom{[a]}{2}$ and $g: L \hookrightarrow \binom{[a]}{2}$ on $W(3,s)$:
-The simultaneous 3-path blocking fraction satisfies:
-$$\boxed{\beta(f, g) = \frac{B(f, g)}{P} \le 1 - c_0(s), \quad \text{where } c_0(s) \ge 1 - O\left(s^{-1/2}\right) > 0 \quad \text{for all } s \ge 4.}$$
-
-#### Proof Architecture:
+#### Proved Combinatorial Invariants:
 1. **Extremal Degree Ceiling on $K_a$:**
-   In $K_a$, the coordinate degree sequences satisfy $\sum_{u=0}^{a-1} d_u = 2V$ and $0 \le d_u \le a-1$. By convexity of $\phi(x) = x(x-1)$, the total pair collision potential satisfies:
-   $$\sum_{u=0}^{a-1} d_u(d_u - 1) \le 2V(a - 2).$$
+   In $K_a$ ($a = \min\{t : \binom{t}{2} \ge V\} = (\sqrt{2} + o(1)) s^{3/2}$), the coordinate degree sequences satisfy $\sum_{u=0}^{a-1} d_u = 2V$ and $0 \le d_u \le a-1$.
+   Because the number of missing edges is $m = \binom{a}{2} - V \le a - 2 < a$, the complement graph has deficit sum $2m < 2a$.
+   The exact degree pair sum satisfies:
+   $$\sum_{u=0}^{a-1} \binom{d_u}{2} = \frac{a(a-1)(a-2)}{2} - (2a-3)m + \frac{1}{2} \sum \delta_u^2 = (\sqrt{2} + o(1)) s^{9/2},$$
+   with variation bounded by $\frac{1}{2} \sum \delta_u^2 \le \frac{m(m+1)}{2} = O(a^2) = O(s^3)$.
+   > [!NOTE]
+   > The leading coefficient is $\sqrt{2} \approx 1.4142$, NOT $1/\sqrt{2} \approx 0.7071$.
 2. **Collinear Pair Compression via $C_4$-Freeness:**
    Because $W(3,s)$ has girth 8 ($C_4$-free bipartite incidence graph), any two points share at most one line. For line pencils $v_l(u) = |\{q \in P(l) : u \in f(q)\}|$:
-   $$\sum_{l \in L} \binom{v_l(u)}{2} \le \binom{d_u}{2} \implies |E_L^{\text{pairs}}| \le s \sum_{u=0}^{a-1} d_u(d_u - 1) \le 2s V (a - 2).$$
-3. **Sub-Unity Blocking and Asymptotic Convergence:**
-   Over total non-incident pairs $V_{\text{noninc}} = s^2(s+1)V$, the collision fraction is bounded by:
-   $$\rho_E \le \frac{4(a - 2)}{s(s+1)} \le \frac{4\sqrt{2}}{\sqrt{s}} = O\left(s^{-1/2}\right).$$
-   Combined with Ramanujan interior decay $\rho_I \le O(s^{-1/2})$, we obtain $\beta(f, g) \le C s^{-1/2} < 1$ for all $s \ge 4$, with $\lim_{s \to \infty} c_0(s) = 1$.
-4. **Unconditional Sextic Floor:**
-   Because total proper paths satisfy $P \ge 16 s^6 (1 - o(1))$:
-   $$\boxed{\operatorname{BBo}(f, g) = \frac{1}{2} P_{\text{unblocked}} \ge \frac{1}{2} c_0(s) P \ge 8 c_0(s) s^6 = \mathbf{\Omega(s^6)} \quad \forall f, g.}$$
-   - $s=4$: $c_0(4) \ge 0.176 \implies \operatorname{BBo} \ge 1.41 s^6$ (strictly bounding adversarial min $1.32 s^6$).
-   - $s=8$: $c_0(8) \ge 0.556 \implies \operatorname{BBo} \ge 4.45 s^6$ (strictly bounding empirical spread $5.50 s^6$).
-   - $s \to \infty$: $c_0(s) \to 1.000 \implies \operatorname{BBo} \to 8.00 s^6$.
+   $$\sum_{l \in L} \binom{v_l(u)}{2} \le \binom{d_u}{2} \implies \sum_{u=0}^{a-1} \sum_{l \in L} \binom{v_l(u)}{2} \le \sum_{u=0}^{a-1} \binom{d_u}{2} \le (\sqrt{2} + o(1)) s^{9/2}.$$
+3. **Bad Endpoint Pair Ratio:**
+   Over total non-incident pairs $V_{\text{noninc}} = s^2(s+1)V$, the bad endpoint pair fraction is bounded by:
+   $$\rho_E \le \frac{4(a - 2)}{s(s+1)} = O\left(s^{-1/2}\right).$$
+
+#### The Three Formal Blockers Preventing Universal $\operatorname{BBo} = \Omega(s^6)$ Proof:
+1. **P0 — The Multiplicity Barrier on $E_{\text{bad}}$:**
+   $\rho_E$ limits the fraction of bad endpoint pairs, NOT the measure on physical 3-paths.
+   The number of paths contributed by bad pairs is $|E(f, g)| = \sum_{(q, r) \in E_{\text{bad}}} N_3(q, r)$.
+   Because physical 3-walk multiplicity $N_3$ varies widely (reaching 18 on $W(3,4)$, and max degree $4(s+1)^2$), bounding $\sum_{E_{\text{bad}}} N_3(q, r)$ requires controlling the second moment:
+   $$\sum_{(q, r) \in E_{\text{bad}}} N_3(q, r) \le |E_{\text{bad}}|^{1/2} \left(\sum N_3^2\right)^{1/2} = O(s^{5.5/2}) \cdot O(s^{7/2}) = O(s^{6.25}) \gg O(s^6).$$
+   Thus, bounding $|E| = o(s^6)$ remains unproved.
+2. **P0 — Conditioned Layer Density for Internal Collisions:**
+   Internal collisions occur along intermediate steps of 3-walks. Bounding $I(f, g) = o(s^6)$ requires controlling coordinate collisions conditioned on projection layers $\mathcal{F}(p)$. The global spectral gap of $W(3,s)$ does not govern this conditional distribution.
+3. **P1 — Small-$s$ Theoretical Bound Failure:**
+   The theoretical ratio $\frac{4(a-2)}{s(s+1)}$ exceeds $1.0$ for all $s \le 31$:
+   - $s=2$: $2.667 > 1$
+   - $s=4$: $2.400 > 1$
+   - $s=8$: $1.833 > 1$
+   - $s=16$: $1.353 > 1$
+   - $s=32$: $0.981 < 1$
+   - $s=64$: $0.701 < 1$
+   For finite $s \le 31$, the analytical upper bound exceeds 100% of all pairs and provides ZERO guaranteed positive floor on good pairs.
+
+#### Concrete Certified Refutation of Candidate Floor $8 c_0(4) 4^6 = 5768$:
+In `research/hyp105_w34_adversarial_certificate.json`, simulated annealing reached:
+$$\operatorname{BBo}(f, g) = 5,400 < 5,768 = \lceil 8 \cdot 0.176 \cdot 4096 \rceil.$$
+(And up to $5,261$ in quench runs).
+This conclusively refutes the candidate formula $\operatorname{BBo} \ge 8 c_0(s) s^6$ based on uncalibrated path universes.
 
 ---
 
 ## 6. Current Mathematical Status of Branch A and HYP-105
 
 ### Summary of Formal Status
-1. **Universal Synchronized Floor ($\forall s \ge 4$):**
-   $$\text{Status: } \mathbf{ESTABLISHED\_VIA\_MARGINAL\_CONSERVATION}$$
-   $\operatorname{BBo}(f, g) \ge 8 c_0(s) s^6 = \Omega(s^6)$ holds unconditionally for all $s \ge 4$ and all globally injective pair maps $f, g$.
-2. **Branch A Universal Pointwise Lower Bound ($\forall h \ge 1$):**
-   $$\text{Status: } \mathbf{OPEN\_WITH\_FORMAL\_BLOCKER \quad (AUDITED\_CONVEX\_FLOOR)}$$
-   - $s = 2$: $S \ge 68$ certified strict algebraic minimum (core $BA+AB \ge 65$).
-   - $s = 4$: $S \ge \operatorname{BBo} \ge 1.318 s^6$ (adversarially exhausted floor).
-   - $s = 8$: $S \ge \operatorname{BBo} \ge 5.500 s^6$ (monotonic unblocked fraction $55.6\%$).
-   - Universal proof across all $f, g$ for the full 7-class sum is protected by the Marginal Conservation Law.
+1. **Branch A Universal Pointwise Lower Bound ($\forall h \ge 1$):**
+   $$\text{Status: } \mathbf{OPEN\_WITH\_FORMAL\_BLOCKER}$$
+   - Spectral 6th moment on $H'$ is blocked by the second-moment gap $\Omega(s^7)$ and unpruned surplus $N_3 > 2$.
+   - Coordinate Marginal Conservation proves the degree invariant and collinear pencil bound, but path multiplicity on $E_{\text{bad}}$ and conditioned layer density on $I$ remain open formal blockers.
+2. **Branch A Constructive Existential Bound:**
+   $$\text{Status: } \mathbf{PROVED\_EXISTENTIAL\_OMEGA\_S6}$$
+   Constructive Method of Conditional Expectations (Lemma 1 + AA4-DL) guarantees $S(f, g^*) \ge 140 s^6$.
 3. **Branch B Counterfamily:**
-   $$\text{Status: } \mathbf{OPEN\_NOT\_REFUTED \quad (REFUTED\_ON\_W32\_AND\_W34)}$$
-   An asymptotic $o(s^6)$ counterfamily is strictly refuted on $W(3,2)$ and $W(3,4)$, and asymptotically precluded by Theorem 3. Formal repository acceptance remains fail-closed under `OPEN_NOT_REFUTED`.
+   $$\text{Status: } \mathbf{OPEN\_NOT\_REFUTED}$$
+   Neither an asymptotic $o(s^6)$ counterfamily nor its impossibility has been proved.
 4. **Overall Status of HYP-105 (#230):**
    $$\boxed{\mathbf{OPEN\_WITH\_FORMAL\_BLOCKER}}$$

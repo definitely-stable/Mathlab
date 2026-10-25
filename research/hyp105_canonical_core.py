@@ -327,11 +327,16 @@ def verify_w32_canonical_certificate():
 def extremal_coordinate_marginal_conservation(s):
     """Lemma 6: Extremal Coordinate Marginal Conservation Law on W(3,s).
 
-    Proves that for any injective pair embeddings f: P -> binom([a], 2) and
-    g: L -> binom([a], 2), the simultaneous path collision fraction satisfies:
-      beta(f, g) <= 1 - c_0(s),   where c_0(s) >= 1 - O(s^(-1/2)) > 0 for all s >= 4.
-    Guarantees that the synchronized BB-overlap count satisfies:
-      BBo(f, g) >= (1/2) c_0(s) P >= 8 c_0(s) s^6 = Omega(s^6) unconditionally.
+    PROVED:
+      - Coordinate degree potential sum_{u} d_u(d_u - 1) <= 2V(a - 2)
+      - Collinear pencil collision sum sum_l binom(v_l(u), 2) <= binom(d_u, 2)
+      - Bad endpoint pair ratio rho_E <= 4(a - 2) / (s(s + 1)) = O(s^{-1/2})
+
+    FORMAL BLOCKERS:
+      - Multiplicity barrier: sum_{E_bad} N_3(q, r) uncontrolled due to second moment Omega(s^7)
+      - Conditioned layer density for internal collisions in fibers F(p)
+      - Small-s ratio 4(a-2)/(s(s+1)) > 1 for all s <= 31
+      - Refuted candidate bound: c_0(4)=0.176 -> BBo >= 5768 refuted by certified minimum 5400
     """
     from hyp105_issue230_extremal_marginal_conservation import (
         blocking_fraction_theoretical_bound,
@@ -345,11 +350,11 @@ def extremal_coordinate_marginal_conservation(s):
         "a": deg_bound["a"],
         "max_degree_potential": deg_bound["max_d_sum"],
         "theoretical_bad_ratio_ceiling": deg_bound["theoretical_bad_ratio_bound"],
-        "max_blocking_fraction_beta": bound["beta_max"],
-        "unblocked_fraction_c0": bound["c_0"],
-        "min_synchronized_BBo": bound["min_bbo"],
-        "bbo_ratio_s6": bound["bbo_ratio_s6"],
-        "status": "PROVED_CONVEX_BOUND",
+        "ratio_exceeds_unity": deg_bound["ratio_exceeds_unity"],
+        "certified_empirical_min_bbo": bound["certified_empirical_min_bbo"],
+        "certified_empirical_ratio_s6": bound["certified_empirical_ratio_s6"],
+        "candidate_c0_refuted": bound["candidate_c0_refuted"],
+        "status": "PARTIALLY_PROVED_WITH_FORMAL_BLOCKERS",
     }
 
 
@@ -367,7 +372,7 @@ def canonical_proof_summary():
             "Lemma3_SuperRamanujanSpectrum": "PROVED: lambda_2 = sqrt(2s) < 2 sqrt(s); bipartite multiplicities certified",
             "Lemma4_PathMotifReduction": "CONDITIONAL_REDUCTION: (16 - o(1))s^6 <= B + 2S + sqrt(192mS); incident compensation >= s^8",
             "Lemma5_SubSexticAnchorDecoupling": "OPEN_CONJECTURE: Tr(A_H'^6)=O(s^6) unproven (2nd moment gap, N_3>2 on generic pairs in unpruned H); conditioned layer density unproven",
-            "Lemma6_CoordinateMarginalConservation": "PROVED: beta(f, g) <= 1 - c_0(s), c_0(s) >= 1 - O(s^-1/2); establishes BBo >= 8 c_0(s) s^6",
+            "Lemma6_CoordinateMarginalConservation": "PARTIALLY_PROVED_WITH_FORMAL_BLOCKERS: degree invariant & pencil bound PROVED; bad-path multiplicity & internal blocking BLOCKED; candidate bound 5768 REFUTED by 5400",
         },
         "Resolution": {
             "Branch_A_UniversalPointwise": "OPEN_WITH_FORMAL_BLOCKER: Anchor decoupling has 2nd moment gap, unpruned generic walk surplus, and unconditioned layer density",

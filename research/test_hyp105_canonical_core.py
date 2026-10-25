@@ -147,20 +147,19 @@ class Hyp105CanonicalCoreTests(unittest.TestCase):
                 self.assertLess(res["bad_pair_fraction"], 0.60)
 
     def test_09_lemma6_marginal_conservation(self):
-        """Verify Lemma 6 Coordinate Marginal Conservation bounds."""
+        """Verify Lemma 6 Coordinate Marginal Conservation bounds and formal blockers."""
         from hyp105_canonical_core import extremal_coordinate_marginal_conservation
         for s in (4, 8, 16, 32, 64):
             res = extremal_coordinate_marginal_conservation(s)
-            self.assertEqual(res["status"], "PROVED_CONVEX_BOUND")
-            self.assertGreater(res["unblocked_fraction_c0"], 0.0)
-            self.assertLessEqual(res["max_blocking_fraction_beta"], 1.0)
-            self.assertGreater(res["bbo_ratio_s6"], 1.0)
-        # Check monotonic increase of unblocked ratio c0
-        r4 = extremal_coordinate_marginal_conservation(4)["unblocked_fraction_c0"]
-        r8 = extremal_coordinate_marginal_conservation(8)["unblocked_fraction_c0"]
-        r16 = extremal_coordinate_marginal_conservation(16)["unblocked_fraction_c0"]
-        self.assertLess(r4, r8)
-        self.assertLess(r8, r16)
+            self.assertEqual(res["status"], "PARTIALLY_PROVED_WITH_FORMAL_BLOCKERS")
+            self.assertGreater(res["max_degree_potential"], 0)
+            self.assertGreater(res["theoretical_bad_ratio_ceiling"], 0.0)
+
+        # Confirm that s=4 candidate bound c0=0.176 is documented as refuted
+        res4 = extremal_coordinate_marginal_conservation(4)
+        self.assertTrue(res4["candidate_c0_refuted"])
+        self.assertEqual(res4["certified_empirical_min_bbo"], 5400)
+        self.assertTrue(res4["ratio_exceeds_unity"])
 
 
 if __name__ == "__main__":
