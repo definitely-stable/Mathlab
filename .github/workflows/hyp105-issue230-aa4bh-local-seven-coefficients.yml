@@ -1,0 +1,50 @@
+name: hyp105-issue230-aa4bh-localized-original-seven-GF5-compensation
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bh_local_seven_compensation.py"
+      - "research/test_hyp105_issue230_d6aa4bh_local_seven_compensation.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BH-LOCAL-SEVEN-COEFFICIENT-COMPENSATION.md"
+      - ".github/workflows/hyp105-issue230-aa4bh-local-seven-coefficients.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  historical-W32-all-seven-and-twoindependent-priors:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Five TRUE W32 complete globally-fixed f/g selected GF5 seven class counts versus independent source join and two-color squarefree trace
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bh_local_seven_compensation.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bh_local_seven_compensation.py' -v -k test_02
+  original-W34-nononto-physical-local-fibers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Two real W34 globally correlated full f/g typed physical nononto supports, all local right six-coordinate masks, independent original six-ID GF5 classification
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bh_local_seven_compensation.py' -v -k test_03
+      - name: Independent REAL W34 six-original-flag C6 source-first physical right alignment versus 7GF5 local D6 coefficient
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bh_local_seven_compensation.py' -v -k test_04
+  all-h-scope-and-strict-original-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All dyadic h1 through 80 formal all-seven fixed map source-squarezero coefficient identity scope and invalid model/palette rejections
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bh_local_seven_compensation.py' -v -k test_05
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bh_local_seven_compensation.py' -v -k test_06

@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4di-coupled-incidence-density-gate
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4di_coupled_incidence_density.py"
+      - "research/test_hyp105_issue230_d6aa4di_coupled_incidence_density.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DI-COUPLED-INCIDENCE-DENSITY-GATE.md"
+      - ".github/workflows/hyp105-issue230-aa4di-coupled-incidence-density-gate.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  analytic_point_coverage_density_bounds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Analytic O(s^-2) point density, O(s^-10) 5-point coverage, O(s^-12) D6 matching
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4di_coupled_incidence_density.py' -v -k test_01
+  synthetic_point_coverage_and_deficit_gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Synthetic deficit gate and point coverage necessary conditions
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4di_coupled_incidence_density.py' -v -k test_02
+  W32_deficit_and_coupling_audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W32 lex S72 full audit confirming all positive Qs have zero deficit
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4di_coupled_incidence_density.py' -v -k test_03
+  W34_density_collapse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W34 lex random density collapse witness (< 5% sample, < 0.3% global)
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4di_coupled_incidence_density.py' -v -k test_04
+  W38_explicit_partial_zero_coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W38 lex random explicit partial zero coverage
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4di_coupled_incidence_density.py' -v -k test_05
+  failclosed_invalid_inputs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject non-powers of 2, malformed point/line sets, invalid dimensions
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4di_coupled_incidence_density.py' -v -k test_06

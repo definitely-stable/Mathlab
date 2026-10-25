@@ -1,0 +1,47 @@
+name: hyp105-issue230-d6aa4e-global-assignment-dual
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4e_global_assignment_dual.py"
+      - "research/test_hyp105_issue230_d6aa4e_global_assignment_dual.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4E-GLOBAL-ASSIGNMENT-DUAL.md"
+      - ".github/workflows/hyp105-issue230-d6aa4e-global-assignment-dual.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-typed-injection-dual-and-no-go:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test exact Hungarian, independent permutations and actual GF5 W32 classifier
+        run: python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4e_global_assignment_dual.py" -v
+      - name: Verify machine-readable mathematical boundary
+        run: |
+          python research/hyp105_issue230_d6aa4e_global_assignment_dual.py --w32 > /tmp/aa4e.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("/tmp/aa4e.json").read_text())
+          assert r["slice"]=="HYP105-ISSUE230-D6-AA4-E-UNARY-ASSIGNMENT-DUAL"
+          assert r["all_h_typed_source_injection"]
+          assert not r["root_A_or_B_solved"]
+          assert all(0<=z["m"]<z["a"]-1 for z in r["capacity"])
+          t=r["tiny_falsifiers"]
+          assert t["physical_capacity_sharp"]=={"local_min_sum":0,"dual":1,"true_min":1}
+          assert t["shared_factor_coherence_sharp"]=={"local_min_sum":0,"dual":1,"true_min":1}
+          assert t["unary_global_dual_no_go"]["all_unary_potentials_upper_bound"]==0
+          assert t["unary_global_dual_no_go"]["true_min"]==1
+          assert not t["universal_W3s_GF5_bound_proved"]
+          assert t["Branch_A"]==t["Branch_B"]=="OPEN"
+          w=r["original_W32"]
+          assert w["same_original_W32_geometry"] and w["same_left_and_right_occupied_K6_edges"]
+          assert (w["S68"],w["S72"])==(68,72)
+          assert (w["GF5_S68_numerator"],w["GF5_S72_numerator"])==(3112510,3283610)
+          assert not w["image_occupancy_alone_determines_seven_S"]
+          print("D6-AA4-E exact dual/NO-GO and genuine original W32 image-only falsifier PASS")
+          PY

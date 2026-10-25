@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4dc-original-marked-hall-cofactor
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4dc_marked_cofactor_hall_deficit.py"
+      - "research/test_hyp105_issue230_d6aa4dc_marked_cofactor_hall_deficit.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DC-MARKED-COFACTOR-HALL-DEFICIT.md"
+      - ".github/workflows/hyp105-issue230-aa4dc-original-marked-hall-cofactor.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exhaustive_512_gq_acyclic_original_matched_marked_Hall_sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaust all 512 binary source 3x3 incidence candidates, genuine W3 girth8 forest filter, Hall certificates, independent exact permutations and spoke minor marks
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dc_marked_cofactor_hall_deficit.py' -v -k test_01
+  exact_dyadic_h1_110_original_marked_GF5_dichotomy_root_unclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Integer original W3 h1..110 conservative h96 all-complete-map D+2 U_BBo>=s7/2^15 proven-threshold arithmetic without asserting Branch A or root C
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dc_marked_cofactor_hall_deficit.py' -v -k test_02
+  authentic_original_W32_all_nonincident_C4_completions_historical_Q:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W32 lex/S72 all ORIGINAL nonincident source paths ×3 halfcuts all physical C4 pair combinations; independent AA4-CR immutable six-ID historical GF5 BBo and AA4-DB source flag support
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dc_marked_cofactor_hall_deficit.py' -v -k test_03
+  original_W34_genuine_source_permanent_cofactor_two_independent_censuses:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True original W34 lex/random fixed global complete maps canonical all source C4 triples of sampled 8 eligible genuine original P3s and two independently implemented source 3matching/marked cofactor methods
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dc_marked_cofactor_hall_deficit.py' -v -k test_04
+  true_original_W38_explicitly_partial_physical_C4_permanent_no_root_promotion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real W38 lex/random genuine source incidence C4 mark/no matching sample strictly bounded by 4 genuine P3×8×8 triples, never presented as exhaustive original BBo
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dc_marked_cofactor_hall_deficit.py' -v -k test_05
+  malformed_original_3x3_cycles_labels_cuts_and_partial_gate_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject invalid source 3x3 real-GQ C4/C6 cycles, nonbinary values, invalid original source factor pair injection or physical halfcut and illegal partial sampling cap
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dc_marked_cofactor_hall_deficit.py' -v -k test_06

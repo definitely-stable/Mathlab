@@ -1,0 +1,58 @@
+name: hyp105-issue230-d6y-capacity-adjacency-cut
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6y_capacity_adjacency_cut.py"
+      - "research/test_hyp105_issue230_d6y_capacity_adjacency_cut.py"
+      - "docs/research/HYP-105-ISSUE230-D6Y-CAPACITY-ADJACENCY-CUT.md"
+      - ".github/workflows/hyp105-issue230-d6y-capacity-adjacency-cut.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sharp-original-physical-image-capacity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact all-h sharp occupied image adjacency, exhaustive finite extremizers and selected lifted marginal gap
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6y_capacity_adjacency_cut.py' -v
+      - name: Formal scope and finite original W34 exact quadratic capacity falsifier
+        run: |
+          python research/hyp105_issue230_d6y_capacity_adjacency_cut.py > /tmp/d6y.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from fractions import Fraction
+          x=json.loads(Path('/tmp/d6y.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6Y-SHARP-GLOBAL-IMAGE-ADJACENCY-CUT'
+          assert x['theorem']=='ALL-H-SHARP-GLOBAL-TYPED-PHYSICAL-IMAGE-ADJACENCY'
+          assert x['global_injection_both_typed_sides']=='EXACT-ALL-H'
+          assert x['stronger_quadratic_global_image_cut']=='NECESSARY-AND-SHARP'
+          assert x['not_full_GF5_seven_lower']
+          assert not x['general_Sherali_Adams_gap_PROVED']
+          assert not x['original_global_S_PROVED_A']
+          assert not x['infinite_correlated_counterexample_PROVED_B']
+          assert x['Branch_A']==x['Branch_B']=='OPEN'
+          assert len(x['all_h_parameters'])==len(x['pairwise_pseudo_orbit'])==8
+          row=x['all_h_parameters'][1]
+          pair=x['pairwise_pseudo_orbit'][1]
+          assert (row['s'],row['a'],row['V'],row['K'],row['missing_physical_edges'])==(4,14,85,91,6)
+          assert row['sharp_max_occupied_adjacent_unordered_pairs']==963
+          assert Fraction(row['pairwise_lifted_capacity_upper'])==Fraction(2,7)
+          assert Fraction(row['true_global_random_original_pair_adjacent_upper'])==Fraction(321,1190)
+          assert Fraction(pair['expected_total_adjacent_original_point_pairs'])==1020
+          assert Fraction(pair['global_image_quadratic_capacity_cut_slack'])==-57
+          assert pair['selected_rank_two_physical_column_lifts_feasible']
+          assert pair['standard_SA_feasibility_not_claimed']
+          assert len(x['finite_full_pair_oracle'])==2
+          assert len(x['independent_full_missing_edge_oracle'])==3
+          print({'sharp_s4':row,'pair_gap_s4':pair,
+                 'small_missing_extremizers':x['independent_full_missing_edge_oracle']})
+          PY

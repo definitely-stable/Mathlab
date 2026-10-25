@@ -1,0 +1,42 @@
+name: hyp105-issue230-aa4br-seven-original-signed-flux
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4br_all_seven_signed_source_flux.py"
+      - "research/test_hyp105_issue230_d6aa4br_all_seven_signed_source_flux.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BR-ALL-SEVEN-SIGNED-SOURCE-FLUX.md"
+      - ".github/workflows/hyp105-issue230-aa4br-signed-flux.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-W32-source-class:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4br_all_seven_signed_source_flux.py' -v -k test_01
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4br_all_seven_signed_source_flux.py' -v -k test_03
+  original-W32-signed-flux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4br_all_seven_signed_source_flux.py' -v -k test_02
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4br_all_seven_signed_source_flux.py' -v -k test_04
+  source-negative-and-signed-orbit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4br_all_seven_signed_source_flux.py' -v -k test_05
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4br_all_seven_signed_source_flux.py' -v -k test_06

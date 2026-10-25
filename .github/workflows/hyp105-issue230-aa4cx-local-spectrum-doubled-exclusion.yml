@@ -1,0 +1,62 @@
+name: hyp105-issue230-aa4cx-true-original-spectrum-double-exclusion
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cx_local_spectrum_doubled_exclusion.py"
+      - "research/test_hyp105_issue230_d6aa4cx_local_spectrum_doubled_exclusion.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CX-LOCAL-SPECTRUM-DOUBLED-EXCLUSION.md"
+      - ".github/workflows/hyp105-issue230-aa4cx-local-spectrum-doubled-exclusion.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  allh_exact_integer_s5_source_spectral_and_double_exclusion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All dyadic h1..30, all-h >=24 genuine W3 original source spectral local cap, minimal physical a, Omega s5 raw-flag-positive floor and exact doubled exclusion budget
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cx_local_spectrum_doubled_exclusion.py' -v -k test_01
+  genuine_W32_complete_original_all_anchors_direct_immutable_source_flags:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine original W32 lex/S72 every nonincident source P3 anchor on 3 physical cuts and independent original incidence flag-first raw/safe doubled-exclusion oracles
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cx_local_spectrum_doubled_exclusion.py' -v -k test_02
+  genuine_W34_W38_complete_correlated_source_maps_physical_exclusions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine original W34 and W38 lex/random full original maps, real three-incidence-ID paths, raw/double-safe physical source spokes, independent original six-ID semantics
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cx_local_spectrum_doubled_exclusion.py' -v -k test_03
+  true_source_local_spectral_cap_independent_integer_referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent genuine original W32 W34 W38 local expander upper E(A,B), exact integer squared nontrivial sqrt 2s bound
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cx_local_spectrum_doubled_exclusion.py' -v -k test_04
+  malformed_original_global_map_or_physical_cuts_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject invalid dyadic parameters, duplicate original typed global physical label images and malformed coordinate halfcut IDs
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cx_local_spectrum_doubled_exclusion.py' -v -k test_05

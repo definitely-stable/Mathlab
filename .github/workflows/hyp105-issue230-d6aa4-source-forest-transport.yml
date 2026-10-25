@@ -1,0 +1,64 @@
+name: hyp105-issue230-d6aa4-source-forest-transport
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4_source_forest_transport.py"
+      - "research/test_hyp105_issue230_d6aa4_source_forest_transport.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4-SOURCE-FOREST-TRANSPORT.md"
+      - ".github/workflows/hyp105-issue230-d6aa4-source-forest-transport.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-source-transport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All-h 130x130 abstract ORIGINAL source-forest mask and exact small Fréchet oracle
+        run: python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4_source_forest_transport.py" -v
+      - name: One exhaustive ORIGINAL W32 source denominator and both S68/S72 conditional transport diagnostics
+        run: |
+          python research/hyp105_issue230_d6aa4_source_forest_transport.py > /tmp/issue230-aa4.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/issue230-aa4.json').read_text())
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-A-SOURCE-FOREST-TRANSPORT"
+          a=x["source_support"]
+          assert a["pair_patterns"]==16900
+          assert a["admissible_abstract_source_forests"]==16270
+          assert a["excluded_by_girth_or_duplicate"]==630
+          assert a["allowed_positive_positional_pairs"]==11430
+          assert a["allowed_nonseven_AA_pairs"]==4840
+          z=x["w32_source_stratified_transport"]
+          assert z["source_partition_denominator_enumerated_once"]==8145060
+          assert z["source_strata_are_not_global_assignment_marginals"]
+          rows=z["records"]
+          assert [r["scheme"] for r in rows]==["S68","S72"]
+          for r,seven,regular,weighted in zip(rows,(68,72),(331,358),(3112510,3283610)):
+              assert r["original_sixsets"]==8145060
+              assert r["left_regular_original_sixsets"]==62370
+              assert r["right_regular_original_sixsets"]==62370
+              assert r["actual"]["S"]==seven
+              assert r["actual"]["proxy"]==regular
+              assert r["actual"]["GF5_floor_numerator"]==weighted
+              assert r["sharp_frechet_minimum_joint_regular"]<=regular
+              assert r["valid_nonAA_GF5_seven_lower_from_source_partition_marginals"]<=seven
+              assert r["requires_global_assignment_extension"]
+              print(r["scheme"],"exact selected",seven,
+                    "two-sided regular",regular,
+                    "conditional Frechet proxy floor",r["sharp_frechet_minimum_joint_regular"],
+                    "conditional GF5 S floor",r["valid_nonAA_GF5_seven_lower_from_source_partition_marginals"],
+                    "active original source strata",r["source_sixposition_keys_with_regular_marginal"])
+          assert x["status"]=="RESTRICTED_THEOREM_C_OPEN_FEASIBILITY"
+          assert not x["all_h_positive_GF5_bound"]
+          assert not x["full_R3_upper"]
+          assert x["Branch_A"]==x["Branch_B"]=="OPEN"
+          PY

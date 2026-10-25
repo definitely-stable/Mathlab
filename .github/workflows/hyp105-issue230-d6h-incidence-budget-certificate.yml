@@ -1,0 +1,61 @@
+name: hyp105-issue230-d6h-incidence-budget-certificate
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6h_incidence_budget_certificate.py"
+      - "research/test_hyp105_issue230_d6h_incidence_budget_certificate.py"
+      - "docs/research/HYP-105-ISSUE230-D6H-INCIDENCE-BUDGET-CERTIFICATE.md"
+      - ".github/workflows/hyp105-issue230-d6h-incidence-budget-certificate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-incidence-budget-sufficient-theorem:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact synthetic exhaustive oracle and original all-seven W32 budgets
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6h_incidence_budget_certificate.py' -v
+      - name: Emit bounded-exception theorem evidence without claiming all-h expansion
+        run: |
+          python research/hyp105_issue230_d6h_incidence_budget_certificate.py > /tmp/hyp105-d6h.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x = json.loads(Path("/tmp/hyp105-d6h.json").read_text())
+          assert x["slice"] == "HYP105-ISSUE230-D6H-INCIDENCE-BUDGET-SUFFICIENT-CERTIFICATE"
+          assert x["all_h_incidence_budget_upper_theorem"] == "PROVED"
+          assert x["all_h_uniform_K"] == "OPEN"
+          assert x["all_h_exception_small_o_s6"] == "OPEN"
+          assert x["root_branch_A_or_B"] == "OPEN"
+          rows = x["W32_true_original_complete_seven_cases"]
+          assert len(rows) == 4
+          for row in rows:
+              assert row["E"] + row["I"] == row["blocked_C"]
+              for case in row["capacity_rows"]:
+                  b = case["certificates"]
+                  exact = case["exact_D6F_exception"]
+                  assert exact <= b["best_certified_exception_upper"]
+                  assert exact <= b["uniform"]["certified_integer_exception_upper"]
+                  assert exact <= b["uniform"]["equal_source_thirds_exception_upper"]
+                  assert exact <= b["largest_load_orientation"]["certified_integer_exception_upper"]
+                  assert exact <= b["greedy_remaining_load_orientation"]["certified_integer_exception_upper"]
+                  print({
+                      "true_W32": row["scheme"],
+                      "K": case["K"],
+                      "E": row["E"],
+                      "I": row["I"],
+                      "complete_S": row["true_original_complete_seven_S"],
+                      "exact_exception": exact,
+                      "incidence_budget_upper": b["best_certified_exception_upper"],
+                      "uniform_upper": b["uniform"]["certified_integer_exception_upper"],
+                      "equal_thirds_upper": b["uniform"]["equal_source_thirds_exception_upper"],
+                  })
+          PY

@@ -1,0 +1,46 @@
+name: hyp105-issue230-d6u-proper-scope-nogo
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6u_proper_scope_nogo.py"
+      - "research/test_hyp105_issue230_d6u_proper_scope_nogo.py"
+      - "docs/research/HYP-105-ISSUE230-D6U-PROPER-SCOPE-NOGO.md"
+      - ".github/workflows/hyp105-issue230-d6u-proper-scope-nogo.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-proper-scope-nogo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All six-factor multiplicities, adversarial conditional pins, true original W32 GF5 classes
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6u_proper_scope_nogo.py' -v
+      - name: Formal all-h scope limit and machine-readable fail-closed output
+        run: |
+          python research/hyp105_issue230_d6u_proper_scope_nogo.py > /tmp/d6u.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/d6u.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6U-PROPER-SCOPE-ZERO-NOGO'
+          assert x['theorem']=='ALL-H-EVERY-PROPER-LOCAL-SCOPE-GF5-MINIMUM-ZERO'
+          assert x['original_sixset_min_typed_scope']==7
+          assert x['all_conditional_minima_for_k_le_6']=='ZERO'
+          assert x['stronger_every_proper_scope_minimum']=='ZERO'
+          assert x['general_Sherali_Adams_no_go'] is False
+          assert x['Branch_A']==x['Branch_B']=='OPEN'
+          assert x['finite_constructive_check']['scope_size']==7
+          assert x['finite_constructive_check']['prescribed_size']==6
+          assert x['finite_constructive_check']['seven_GF5_positive_indicator']==0
+          assert not (x['finite_constructive_check']['left_two_regular'] and
+                      x['finite_constructive_check']['right_two_regular'])
+          print(x)
+          PY

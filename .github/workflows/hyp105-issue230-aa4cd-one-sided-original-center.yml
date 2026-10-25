@@ -1,0 +1,49 @@
+name: hyp105-issue230-aa4cd-one-sided-original-center
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cd_one_sided_original_center.py"
+      - "research/test_hyp105_issue230_d6aa4cd_one_sided_original_center.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CD-ONE-SIDED-ORIGINAL-CENTER.md"
+      - ".github/workflows/hyp105-issue230-aa4cd-one-sided-original-center.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-original-one-sided-fourier-source-support-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exhaustive 2^16 exact 4bit necessary support negative/positive kernel and genuine original W34 GF4 nononto K14 support
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cd_one_sided_original_center.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cd_one_sided_original_center.py' -v -k test_06
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cd_one_sided_original_center.py' -v -k test_07
+  true-original-all-seven-W32-g-conditioned-one-sided-source-envelope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real symplectic W32 all 62,370 original left eligible Q, all seven historical GF5 SOURCE classes, original right physical-only negative highpass and all64 uniform, adversarial full g reversal
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cd_one_sided_original_center.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cd_one_sided_original_center.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cd_one_sided_original_center.py' -v -k test_05
+  true-original-W32-independent-seven-GF5-full64-centered-certificates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent HISTORICAL original W32 selected all-seven true GF5 51-column weighted 64 global-map census validates one-sided original center and all-cube signed tails
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cd_one_sided_original_center.py' -v -k test_04

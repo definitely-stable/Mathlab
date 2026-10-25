@@ -1,0 +1,42 @@
+name: hyp105-issue230-aa4bs-true-original-seven-walsh-covariance
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bs_true_original_walsh_covariance.py"
+      - "research/test_hyp105_issue230_d6aa4bs_true_original_walsh_covariance.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BS-TRUE-ORIGINAL-WALSH-COVARIANCE.md"
+      - ".github/workflows/hyp105-issue230-aa4bs-walsh-covariance.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-true-source-sixflag-coefficient-count:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bs_true_original_walsh_covariance.py' -v -k test_01
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bs_true_original_walsh_covariance.py' -v -k test_06
+  historical-original-all-seven-cube-full-independent-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bs_true_original_walsh_covariance.py' -v -k test_02
+  historical-original-class-covariance-and-source-locality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bs_true_original_walsh_covariance.py' -v -k test_03
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bs_true_original_walsh_covariance.py' -v -k test_04
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bs_true_original_walsh_covariance.py' -v -k test_05

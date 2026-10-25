@@ -1,0 +1,42 @@
+name: hyp105-issue230-aa4bu-real-original-five-GQ-packet
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bu_five_original_GQ_spectrum.py"
+      - "research/test_hyp105_issue230_d6aa4bu_five_original_GQ_spectrum.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BU-FIVE-GQ-SPECTRUM.md"
+      - ".github/workflows/hyp105-issue230-aa4bu-five-GQ-packet.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-true-GQ-five-source-line-A-B:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: 
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_five_original_GQ_spectrum.py' -v -k test_01
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_five_original_GQ_spectrum.py' -v -k test_06
+  independent-true-W32-W34-intersection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_five_original_GQ_spectrum.py' -v -k test_02
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_five_original_GQ_spectrum.py' -v -k test_03
+  independent-full-original-W32-seventh-GF5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_five_original_GQ_spectrum.py' -v -k test_04
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bu_five_original_GQ_spectrum.py' -v -k test_05

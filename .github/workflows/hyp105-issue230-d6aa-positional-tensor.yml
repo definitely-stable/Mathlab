@@ -1,0 +1,50 @@
+name: hyp105-issue230-d6aa-positional-tensor
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa_positional_tensor.py"
+      - "research/test_hyp105_issue230_d6aa_positional_tensor.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA-POSITIONAL-COLLISION-TENSOR.md"
+      - ".github/workflows/hyp105-issue230-d6aa-positional-tensor.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  positional-collision-tensor-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently enumerate all 130 graphs, original S68/S72 62370 sixsets, triple collision and all-order source joint moments
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa_positional_tensor.py' -v
+      - name: Emit fail-closed mathematical-scope report (no Branch A/B claims)
+        run: |
+          python research/hyp105_issue230_d6aa_positional_tensor.py > /tmp/issue230-d6aa.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/issue230-d6aa.json').read_text())
+          assert x["slice"] == "HYP105-ISSUE230-D6-AA1-AA3"
+          assert x["position_graph_census"] == {
+              "A_C6":60, "A_C3_plus_C3":10, "B":45, "C":15,"total":130}
+          assert [r["scheme"] for r in x["original_W32"]] == ["S68","S72"]
+          assert [r["S_seven"] for r in x["original_W32"]] == [68,72]
+          assert all(r["candidate_count"]==62370 for r in x["original_W32"])
+          assert x["all_h_local_exact_Phi"]
+          assert x["all_h_single_side_moments_exact"]
+          assert x["joint_original_incidence_moment_identity"]
+          assert not x["full_GF5_R3"]
+          assert not x["all_h_positive_S_lower"]
+          assert x["Branch_A"]==x["Branch_B"]=="OPEN"
+          for r in x["original_W32"]:
+              assert sum(r["by_class"].values()) == r["S_seven"]
+              print(r["scheme"],r["S_seven"],
+                    "seven-GF5 necessary numerator",r["GF5_floor_numerator"],
+                    "left candidates",r["candidate_count"])
+          PY

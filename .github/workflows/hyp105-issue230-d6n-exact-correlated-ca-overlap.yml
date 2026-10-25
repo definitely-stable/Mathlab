@@ -1,0 +1,59 @@
+name: hyp105-issue230-d6n-exact-correlated-ca-overlap
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6n_exact_correlated_ca_overlap.py"
+      - "research/test_hyp105_issue230_d6n_exact_correlated_ca_overlap.py"
+      - "docs/research/HYP-105-ISSUE230-D6N-EXACT-CORRELATED-CA-OVERLAP.md"
+      - ".github/workflows/hyp105-issue230-d6n-exact-correlated-ca-overlap.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-six-line-ca-correlation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaustively audit local physical A pairs and genuine original W32 right support
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6n_exact_correlated_ca_overlap.py' -v
+      - name: Pin fixed-right correlation and exact uniform-injection moments
+        run: |
+          python research/hyp105_issue230_d6n_exact_correlated_ca_overlap.py > /tmp/hyp105-d6n.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from fractions import Fraction
+          data = json.loads(Path('/tmp/hyp105-d6n.json').read_text())
+          assert data['slice'] == 'HYP105-ISSUE230-D6N-EXACT-ORIGINAL-CORRELATED-CA-OVERLAP'
+          assert data['theorem'] == 'EXACT-ALL-FINITE-H-ONE-DIRECTION-SECOND-MOMENT-IDENTITY'
+          assert data['Branch_A'] == 'OPEN' and data['Branch_B'] == 'OPEN'
+          assert data['full_seven_S_for_W34_W38'] == 'NOT-CLAIMED'
+          rows = data['finite_W32_rows']
+          assert [r['scheme'] for r in rows] == ['lex','reverse','S68','S72']
+          assert [r['original_C_sixsets_six_distinct_right_lines'] for r in rows] == [209,209,297,297]
+          assert [r['right_random_exact_mean'] for r in rows] == ['38/13','38/13','54/13','54/13']
+          assert [r['actual_fixed_g_Cleft_Aright_sixsets'] for r in rows] == [4,0,0,2]
+          assert [r['complete_right_physical_A_patterns_available'] for r in rows] == [70]*4
+          for row in rows:
+              W=row['original_C_sixsets_six_distinct_right_lines']
+              assert sum(row['ordered_support_pairs_by_shared_original_line_count']) == W*W
+              mu=Fraction(row['right_random_exact_mean'])
+              var=Fraction(row['right_random_exact_variance'])
+              second=Fraction(row['right_random_exact_second_moment'])
+              assert second == mu*mu+var and var >= 0
+              assert 0 < Fraction(row['right_random_P_positive_lower_Paley_Zygmund']) <= 1
+              assert Fraction(row['actual_fixed_g_minus_right_random_mean']) == (
+                  row['actual_fixed_g_Cleft_Aright_sixsets']-mu)
+              assert row['not_an_all_g_lower_bound']
+              print({'scheme':row['scheme'], 'W':W, 'observed':row['actual_fixed_g_Cleft_Aright_sixsets'],
+                     'expected':str(mu), 'variance':str(var),
+                     'correlation_discrepancy':row['actual_fixed_g_minus_right_random_mean'],
+                     'A_right_available':row['complete_right_physical_A_patterns_available']})
+          PY

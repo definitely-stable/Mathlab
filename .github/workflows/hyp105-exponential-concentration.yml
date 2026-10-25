@@ -1,0 +1,72 @@
+name: hyp105-exponential-concentration
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_exponential_concentration.py"
+      - "research/test_hyp105_exponential_concentration.py"
+      - "docs/research/HYP-105-EXPONENTIAL-CONCENTRATION-CHEEGER.md"
+      - ".github/workflows/hyp105-exponential-concentration.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bipartite_cheeger_constant:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify bipartite Cheeger isoperimetric constant and limit 0.5
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_exponential_concentration.py' -v -k test_01
+  cheeger_pointwise_infimum_positivity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify analytical pointwise infimum positivity across all dyadic fields
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_exponential_concentration.py' -v -k test_02
+  janson_dependency_chernoff_exponential_decay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify subexponential Janson tail bounds for sparse dependency graph
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_exponential_concentration.py' -v -k test_03
+  flag_overlap_covariance_spectrum:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify covariance spectrum refutes NA and validates dependency graph
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_exponential_concentration.py' -v -k test_04
+  verify_calibrated_w32_envelope_strict_lower_bound:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify genuine W(3,2) calibrated envelope strictly satisfies floor <= empirical_min_S
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_exponential_concentration.py' -v -k test_05
+  failclosed_invalid_inputs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify fail-closed rejection of invalid epsilon and non-dyadic s
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_exponential_concentration.py' -v -k test_06

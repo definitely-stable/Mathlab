@@ -1,0 +1,123 @@
+# HYP-105 / #230 — AA4-CG: Four shared original LINE packets, two-edge physical completion dichotomy
+
+**Scientific Draft**, strict child of [AA4-CF PR #606](https://github.com/definitely-stable/Mathlab/pull/606), frozen exact parent HEAD `1ed4dfbbbfd280637ff566a105c8355323724fc1`. This is only an exact incremental partial theorem for original W(3,s). ROOT issue #230 remains `OPEN_WITH_FORMAL_BLOCKER`; no main / accepted registry changes.
+
+## Research frontier: why four, why original W34, and what was not previously proved
+
+The current root problem requires **all h** original symplectic `W(3,2^h)`, ALL fully globally injected correlated typed f,g and the original same-six-distinct-incidence-ID selected seven GF5 class sum `S_s(f,g)=Omega(s^6)`, or a genuine original infinite `o(s^6)` counterfamily, or an exact root-qualified reduction. None has been accepted. #602 supplied a single-original-Q affine physical parity test; #603 a rank-one impossibility; #604 one-sided signed source center; #605 same six packets common right mask; #606 a **cross-family** 7packet five-common-edge uniqueness. All are original model faithful but none guarantees positivity at arbitrary unchanged global f,g.
+
+**New gap**: two SIX-original-flag Q families may share exactly FOUR packets and use two different extra pairs each. #606's five-edge uniqueness is not applicable: a fixed four-edge graph can admit two different physical two-edge completions on exactly six vertices, and can admit two completions with DIFFERENT SIXTH vertex. The latter phenomenon cannot appear in K6 but survives for arbitrarily large physical alphabets. A sound crossfamily proof requires classifying both, rather than inventing a spurious all-h C4-only obstruction.
+
+Why no W32 eightpacket numerical certification? Genuine W(3,2) has `V=(s+1)(s²+1)=15` original LINE factors. Eight disjoint two-factor swap packets require SIXTEEN distinct original LINE IDs, impossible. Therefore eightpacket theorem is **vacuous at h=1**. Genuine original W(3,4) has `V=85`, and a minimal physical alphabet `a=14`, so it is the first TRUE ORIGINAL symplectic family on which this scope can be independently falsified. An abstract K6-only test would conceal the new vertex-replacement branch and is not sufficient.
+
+Candidate routes: an unsupported universal four-edge no-coexistence (false); overlapping original two-sided GF5 crossclass coercivity (open), general packet-factor Hall defect (open); and the actual **exact four-edge completion dichotomy** selected here. Classical background is physical graph degree sequences and standard degree-preserving double-edge switches; the abstract classification is elementary graph theory. Scoped new Mathlab contribution is the true-original global eightpacket 256-map two-family application, explicit W34 counterexample to a stronger false lemma, and independent true historical GF5 checks, rather than claiming to invent 2-switches or solve original R3.
+
+## 1. All-h conditional two-edge-completion dichotomy — FULL quantifiers
+
+For EVERY `h>=2`, `s=2^h`, authentic `W(3,s)`, EVERY complete globally injected arbitrary correlated typed original POINT f and LINE g, fix eight pairwise disjoint whole-original-LINE-factor image swap packets `P_0,...,P_7`. Each packet has TWO distinct real original LINE source factor IDs. Toggling any subset of these packets acts on the ONE COMPLETE original g, preserving occupied labels and global injectivity; all 256 states `g^x` are legitimate.
+
+Consider TRUE original six-DISTINCT-incidence-ID Q_A touching exactly one selected LINE factor from each of packets 0,1,2,3,4,5; and Q_B touching one from 0,1,2,3,6,7. The source incidence IDs remain FIXED at every complete global state. Suppose the FOUR source LINE choices from common packets 0,1,2,3 agree, so the two physical right six-edge projections share FOUR actual unordered simple physical edges `F=(e_0,e_1,e_2,e_3)`. Global injection ensures that the other two edges of each family are distinct and that ALL eight physical edges are globally different. Denote exclusive unordered edge pairs `A=(a_1,a_2)`, `B=(b_1,b_2)`.
+
+Assume BOTH completed six-edge graphs `F ∪ A` and `F ∪ B` are **physical 2regular on exactly six vertices**, the exact necessary geometric condition for HISTORICAL seven GF5 positivity. Then ONE AND ONLY ONE of these two alternatives holds:
+
+**Case I — fixed six vertices / alternating C4 (double-edge switch)**. `F` meets exactly SIX vertices. Precisely FOUR vertices have F-degree 1 and two have F-degree 2. Each pair A and B is a perfect matching of the SAME four F-degree-one terminals. Since the whole physical map is injective, the matchings are distinct and edge-disjoint. Their four exclusive edges form an alternating physical FOUR-CYCLE on these terminals. The two completed 2factors have the SAME six-coordinate support. An individual F has at most THREE distinct two-edge simple-graph completions, at most TWO alternatives to any one.
+
+**Case II — five shared vertices / cherry-center replacement**. `F` meets exactly FIVE vertices. Precisely TWO vertices u,v have F-degree 1 and the other THREE have F-degree 2. Then A consists of `{u,w_A},{v,w_A}` for ONE new physical vertex `w_A` outside `V(F)`, while B consists of `{u,w_B},{v,w_B}` for a DIFFERENT new vertex `w_B != w_A` outside F. The two completed graphs have DIFFERENT six-coordinate physical supports, with vertex `w_A` replaced by `w_B`. An individual F in physical alphabet K_a has at most `a-5` such completions, and at most `a-6` alternatives to any accepted one.
+
+There is NO other case. In particular, a four-edge F on 4 or fewer distinct physical vertices cannot occur inside either valid six-edge 2factor: if F met 4 vertices, its total degree 8 would require all F-degrees=2, leaving two completely new vertices needing two degree each; the remaining 2 distinct simple graph edges cannot give both new vertices degree2 without reusing an edge. If F met >6 vertices, one completion already could not be 2regular on six.
+
+**Proof**: each valid 2factor has total degree 12; the four shared edges contribute degree8 and the two exclusive edges contribute degree4. Every F vertex has degree <=2. Let `p=|V(F)|`. Since all F vertices belong to each completed 2factor, `p<=6`. Simplicity and max degree2 imply p>=4. For p=4, the F degree sum=8 forces all four vertices degree2 and leaves two unseen degree2 vertices whose four missing incidences cannot be supplied by two *different simple* edges. For p=5, the positive degree sum8 forces degree pattern `(2,2,2,1,1)`; one new degree2 vertex must be attached to both degree1 terminals by exactly the two extra edges, so the two distinct completion edge pairs must use different new center vertices. For p=6, pattern `(2,2,1,1,1,1)`; the two new edges must perfectly match the four degree1 terminals, and two distinct edge-disjoint perfect matchings on four terminals unite into a C4. No source symmetries, independence or randomized maps are assumed.
+
+**Important falsification of stronger claim**: the all-h statement `shared-four-source-pins => no simultaneous 2factor` is FALSE. Both case I and case II are genuinely realizable. This is an opposite-direction result to #606's FIVE-fixed-edge no-coexistence and is exactly why continuing from 7 to 8 packets requires new mathematics.
+
+## 2. Physical family masks and mixed Gram on a single 256-state complete ORIGINAL g cube
+
+Let `R_A(x)` be right 2regularity of the six actual physical edges selected from packet indexes (0,1,2,3,4,5) and `R_B(x)` from (0,1,2,3,6,7), evaluated under the SAME complete global g^x; each is a 256-bit Boolean mask. For each source Q family orientation sixbit `t,u`, embed those ORIGINAL factor-choice bits into the corresponding eight global packet positions. Their original physical right admissibility is exactly a translation:
+
+```text
+R_QA(x)=R_A(x XOR lift_A(t))
+R_QB(x)=R_B(x XOR lift_B(u)).
+```
+
+Define the exact mixed 64x64 Gram `J_g(t,u) = sum_{x∈F2^8} R_A(x XOR lift_A(t)) R_B(x XOR lift_B(u))`. Unlike the 7packet #606 `J=0` when five pins agree, here SAME-FOUR orientation Gram entries can be STRICTLY POSITIVE. Their individual 256 global-state summands must be classified precisely as Case I or Case II above. The historical seven GF5 accepted indicators are subsets of these physical masks and therefore any historically accepted simultaneous pair obeys the dichotomy, too. This applies uniformly for all allowed original h>=2; no asymptotic positive bound is inferred.
+
+As before, the mixed physical Gram is a nonnegative counting matrix, not itself necessarily PSD as an isolated cross-block; a full indicator Gram is PSD. If f-only original Q histograms `H_A(t),H_B(u)` are available, a true original historical weighted necessary-score upper surrogate obeys the exact bilinear contraction `Σ_x B_A(x)B_B(x)=Σ_{t,u}H_A(t)H_B(u)J_g(t,u)` just as in #606. We do NOT assert that historical positive GF5 indicators equal the right physical 2factor masks.
+
+## 3. Independent exact adversarial checks
+
+1. **Complete physical K7 degree-case falsifier**: enumerate all `C(21,4)=5,985` four-edge sets in K7 and all two-edge candidate complements from the remaining 17 edges. For every unordered pair of different physical-valid edge-pair completions with four distinct exclusive edges, reconstruct degrees INDEPENDENTLY of the classification function. Exact expected enumeration: `3,360` four-edge sets with any valid completion, `3,150` jointly live pairs of Case I (alternating C4), and `1,470` jointly live pairs of Case II (vertex replacement). Both cases MUST occur: a test that silently drops Case II is a false theorem.
+2. **Genuine original symplectic W(3,4), 85 typed POINT and 85 LINE factors, 425 real original incidence flags**, exactly minimal `a=14`, no fabricated original-GQ. Construct two REAL distinct sixflag sets Q_A,Q_B sharing four actual incidence IDs and selecting distinct original LINE factors from each exclusive packet. Keep their original six POINT image edges a true physical C6, so the f-side necessary sixcoord condition is genuinely satisfied. Assign a COMPLETE globally injected 85-edge original g with all 8 selected LINE images fixed to physically realizable Case I or Case II, fill the remaining original LINE images injectively from the genuine physical K14 edge support. Test every one of 256 whole-factor global swaps against an INDEPENDENT literal original-Q right degree-2 checker and the actual historical selected seven-GF5 classifier.
+3. Check two independent CASE-I and CASE-II complete original physical g witnesses, with R_A(0)=R_B(0)=1, and independently classify EVERY one of their jointly physical-valid global states by the true original eight physical LINE images. Check the EXACT 64x64 Gram from its raw 256 complete maps, including nonzero equal-four-pins entries (contrasting #606).
+4. Fail closed for missing eighth packet, source-overlapping packet pair, repeated physical edge images, forbidden physical self-loops, malformed inputs, incorrect s or non-real original six-incidence flag sets. No simulated high-h graph supports a scientific claim.
+
+## 3a. Exact HEAD original-W34 and complete W32 historical classifier compatibility
+
+**Historical seven-GF5 classification compatibility caveat FOUND and corrected:** the pre-existing historical small-W32 helper `classify_seven_prechecked` delegates to `_half_projection_kind`, which initializes `deg=[0]*6`. It is therefore **not a general-K_a original-h historical classifier**, and applying it directly to K14 raises `IndexError`. No change was made to historical accepted W32 code or proof results. AA4-CG now supplies the **standalone alphabet-independent** `classify_seven_all_a_original_Q`: exact source multiplicity A/B/C from the SAME original six-incidence IDs, literal degree2 on six actual physical coordinates, historical seven-tag source partition decisions, and for A/A the exact original dual six-position D6 aligned connected cycle. Its acceptance criterion is the unchanged seven historical structural model, not an invented eighth class or randomized scoring rule.
+
+Before the W34 outcome, TWO entire original W32 genuine six-ID left physical eligible censuses were checked INDEPENDENTLY against the original legacy classifier:
+- `lex`: exactly **62,370/62,370** equal tags, with accepted counts D6=15, B-left/A-right=98, A-left/B-right=110, C/A=13, C/B=1, B/B-overlap=8, B/B-disjoint=14.
+- `S72`: exactly **62,370/62,370** equal tags, with accepted counts B-left/A-right=36, A-left/B-right=31, C/A=2, B/B-overlap=1, B/B-disjoint=2. All other selected class counts zero.
+
+This is exhaustive backward-compatibility at W32 for the tested fixed global f,g, not a mathematical proof that every future label permutation in larger alphabets is identical to prior W32 code. The structural derivation on the true six-ID source and physical degree conditions is direct and works for any finite physical a.
+
+**REAL W34 explicit outcomes**, with one complete globally injected g of 85 different actual physical unordered K14 images in each case, SAME unchanged true original Q_A and Q_B with four shared incidence IDs, all 256 complete original whole-factor g swaps:
+
+| Actual original h=2 configuration | A physical-positive global states | B physical-positive global states | Simultaneously physically positive states | Actual original same-map historical seven-GF5 |
+|---|---:|---:|---:|---|
+| Shared six physical vertices, 2-switch C4 | 4 | 4 | 1 | Neither Q historic positive at x=0; no jointly accepted global x |
+| Five shared physical vertices, replacement of sixth vertex | 4 | 4 | 1 | **Both independently classified D6 at x=0**, and exactly one jointly historical D6-positive global state |
+
+In the second row the two historical positive D6 motifs are **real original different six-incidence sets** with common four original source incidence IDs on ONE SAME complete W34 f,g; the right six-coordinate vertex support differs while the source sixposition dual cycle is identical and aligned with the left sixposition dual cycle. This finite original witness completely disproves the overly strong proposed four-shared-original-LINE-pins no-coexistence assertion (while fully preserving the five-shared-edge result from #606). It does not invalidate root Branch A or yield any all-h motif abundance.
+
+The general all-h two-type lemma is purely deterministic degree-counting; these authentic finite witnesses falsify missing cases. The separate K7 independent exhaustive run verified **all** 5,985 four-edge sets, exactly 3,360 with any completion, and exactly 3,150 jointly live distinct Case-I completion pairs plus 1,470 jointly live distinct Case-II pairs.
+
+## 3b. NEW constructive ALL-h genuine-original D6/D6 four-pin co-acceptance theorem
+
+The W34 vertex-replacement counterexample above is **not** merely an accidental finite pattern. It extends CONSTRUCTIVELY to **every dyadic s=2^h, h>=2**, for a suitable complete globally injected typed original physical pair map f,g, while preserving every true original six-incidence ID on both sides. This proves a sharp NO-GO against any proposed universal original-f/g pairwise five-edge exclusion theorem extended to only four common original LINE pins; it still does NOT address the root universal positive seven-GF5 abundance.
+
+**Formal existence theorem.** For each h>=2 take authentic W(3,s), with `V=(s+1)(s²+1)` POINT and LINE source factors and degree `s+1>=5`. Select any SIX different original POINT factor IDs `p_0,...,p_5`. Make eight incidence slots: one slot for each `p_0,...,p_3`, **TWO** slots for each `p_4,p_5` (one A-exclusive and one B-exclusive incidence). Assign these slots to EIGHT distinct real original LINE factor IDs, each incident to its assigned POINT factor, by Hall's marriage theorem:
+
+- A nonempty subset of slots belonging to only ONE source POINT has at most TWO slots, whereas its original LINE-star neighborhood has size `s+1>=5`.
+- A subset touching at least TWO distinct original POINT IDs has a LINE-neighborhood of size at least `2(s+1)-1 >=9`, since TWO distinct GQ POINT factor IDs lie on at most ONE common LINE factor. This is greater than the total number EIGHT of requested slots.
+- Therefore EVERY slot subset has at least as many distinct available original LINE neighbors as slot occurrences. Hall guarantees a simultaneously injective assignment to eight different true original LINE factor IDs `L_0,...,L_7`. There are at least 16 original LINE IDs for eight disjoint swap packets when h>=2, so choose a further eight unused original LINE IDs as swap partners.
+
+Set the six selected true POINT-image unordered coordinate pairs to the ordered physical C6:
+
+```text
+f(p0)={0,1},  f(p1)={1,2},  f(p2)={2,3},
+f(p3)={3,4},  f(p4)={4,5},  f(p5)={0,5}.
+```
+
+Complete f injectively on ALL remaining V-6 original POINT factor IDs using any unused edges of physical K_a. For s>=4 the minimal physical alphabet has `a>=14`, in particular coordinates 0,...,6 exist and `C(a,2)>=V`. Choose the LINE images under ONE complete original globally injected g:
+
+```text
+g(L0)={0,1}, g(L1)={1,2}, g(L2)={2,3}, g(L3)={3,4},
+g(L4)={4,5}, g(L5)={0,5},
+g(L6)={4,6}, g(L7)={0,6}.
+```
+
+All eight physical edges are distinct. Complete g injectively on ALL remaining V-8 original LINE factor IDs. Let Q_A be the six DISTINCT original incidence IDs `(p_i,L_i)` for i=0,..,5, and let Q_B use the EXACT same first four original incidence IDs but `(p_4,L_6)` and `(p_5,L_7)`. Both physical LEFT projections use exactly the genuine original C6 on coordinate set {0,1,2,3,4,5}. Right Q_A uses this identical C6. Right Q_B uses physical cycle {0,1,2,3,4,6} with the last two right images differing by a CHERRY-center replacement of coordinate 5 by coordinate 6.
+
+Crucially, on the SIX original incidence-column positions, the LEFT and BOTH RIGHT degree-two dual graphs are the SAME connected sixcycle (the last replacement changes only the physical coordinate name, NOT the incidence-position dual). The immutable original source POINT and LINE factor profiles on both sides are A/A: six distinct POINT factors and six distinct LINE factors in each Q. Therefore the accepted historical A/A aligned-D6 rule classifies **BOTH Q_A and Q_B as D6 on the SAME complete original f,g**, i.e.
+
+```text
+for every h>=2 exists complete globally injected original (f_h,g_h)
+and distinct real original six-incidence ID Q_A,Q_B,
+|Q_A ∩ Q_B|=4,
+such that I^GF5_D6(Q_A,f_h,g_h)=I^GF5_D6(Q_B,f_h,g_h)=1.
+```
+
+Their original RIGHT six-coordinate sets differ: A uses vertex 5, B vertex 6. No image assignment is changed per Q; both use the SINGLE completed g_h and the SAME original incidence graph. This construction works for EVERY h>=2, NOT via finite sampling extrapolation. A universal all-h original model claim that four shared source LINE factors block simultaneous GF5 positivity is therefore definitively FALSE.
+
+**Finite independent all-original witness checks:** the exact h=2 W34 85 original source-factors and 425 incidence flags construction above, and now h=3 true symplectic W(3,8) with `V=585` ORIGINAL POINT and LINE factors and `585*(8+1)=5,265` original incidence flags. For h=3 the original full physical minimal alphabet is K35 (not K6 or K14), and the 256 full global original LINE-map swaps preserve injection and both Q unchanged. Expected both h2/h3 vertex-replacement witnesses: R_A active=4, R_B active=4, joint physical 1 state; both true historical Q are D6 at the unchanged global x=0 and jointly positive on exactly one of 256 complete g states. Code regression forbids accidentally dropping this valid h-uniform exception.
+
+**Scope caveat**: the existential paired-motif theorem means there EXISTS a suitable pair f_h,g_h for every h>=2. It is logically the reverse quantifier from Branch A, which requires a positive `Omega(s^6)` bound for ALL arbitrary f,g, and is not a counterexample to Branch A or an infinite o(s^6) Branch B family. Two simultaneously positive D6 source sixflags are only TWO motifs, not an asymptotically counted reservoir.
+
+## 4. Novelty, limitations, provenance, next proof obstruction
+
+The underlying degree-sequence completion classification is elementary; standard graph degree switches are well established and **not claimed as new general graph theory**. The original scientific gain over #606 is the EXACT bifurcation in genuine W(3,2^h) correlated global eightpacket Q families, including the higher-physical-alphabet vertex replacement overlooked by K6-only heuristics; the explicit authentic W34 original-incidence demonstration and independent complete 256-map historical checks prevent an erroneous original all-h no-coexistence extrapolation.
+
+**NOT root A/B/C.** This is a conditional classification of two *necessary* physical eligible original Q; it does NOT imply a positive contribution from an otherwise forbidden Q, does not turn a physical upper surrogate into a historical GF5 lower bound, does not construct infinite original o(s^6), is not model-equivalent Branch C, and does not close full R3/ASET. h=1 genuinely has too few original LINE factors to even define eight disjoint packets.
+
+**Recommended next step**, only if this is independently accepted: quantify how many real original multi-family Q coincidences fall in Case I versus Case II across *varying* physical image maps in authentic h>=2 geometry, and prove or falsify a definite crossclass GF5-positive compensation inequality. Merely further enlarging the finite packet cube without such a mechanism does not approach the universal all-seven S lower bound.
+

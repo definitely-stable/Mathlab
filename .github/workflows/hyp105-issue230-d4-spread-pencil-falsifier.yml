@@ -1,0 +1,70 @@
+name: hyp105-issue230-d4-spread-pencil-falsifier
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d4_spread_pencil_falsifier.py"
+      - "research/test_hyp105_issue230_d4_spread_pencil_falsifier.py"
+      - "docs/research/HYP-105-ISSUE230-D4-SPREAD-PENCIL-FALSIFIER.md"
+      - ".github/workflows/hyp105-issue230-d4-spread-pencil-falsifier.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-original-spread-route-falsifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine GF4 GF8 original spread and all-h exact arithmetic
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d4_spread_pencil_falsifier.py' -v
+      - name: Full W34 W38 original minimal alphabet global f/g constructive witness
+        run: |
+          python research/hyp105_issue230_d4_spread_pencil_falsifier.py > /tmp/issue230-d4.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from fractions import Fraction
+          r=json.loads(Path("/tmp/issue230-d4.json").read_text())
+          assert r["slice"]=="HYP105-ISSUE230-D4-TRUE-SYMPLECTIC-SPREAD-ROUTE-FALSIFIER"
+          assert r["all_h_Mf_asymptotic_lower_coefficient"]=="3/32"
+          assert r["all_h_Wmean_asymptotic_lower_coefficient"]=="9/32"
+          assert r["universal_original_Mf_o_s39over10"]=="FALSE"
+          assert r["universal_original_Wmean_o_s59over10"]=="FALSE"
+          assert r["universal_FULL_signed_W_G_o_s59over10"]=="NOT ESTABLISHED"
+          assert r["universal_PR394_pruned_W_H_o_s59over10"]=="NOT ESTABLISHED"
+          assert r["universal_all_seven_S_lower"]=="OPEN"
+          assert r["infinite_Branch_B_S_small"]=="NOT ESTABLISHED"
+          actual={row["s"]:row for row in r["actual_original_geometry_certificates"]}
+          assert set(actual)=={4,8}
+          for s,row in actual.items():
+              assert row["global_left_unordered_pair_injection"]
+              assert row["global_right_unordered_pair_injection"]
+              assert row["spread_partitions_all_original_points"]
+              assert row["all_spread_lines_are_true_original_W3s"]
+              assert row["Mf_actual"]>=row["forced_original_collinear_shared_coordinate_Mf_floor"]
+              assert row["true_original_right_label_star_min"]>=row["a"]-3
+              assert Fraction(row["W_original_mean"]) >= Fraction(
+                  row["exact_rational_mean_lower_numerator"],
+                  row["exact_rational_mean_lower_denominator"])
+              assert row["mean_lower_checked"] is True
+              assert row["original_7_family_S_lower_proved"] is False
+              assert row["infinite_original_S_small_counterexample_proved"] is False
+          assert actual[8]["forced_original_collinear_shared_coordinate_Mf_floor"]==288
+          assert actual[8]["selected_disjoint_original_spread_lines"]==8
+          assert len(r["symbolic_all_h_parameter_certificates"])==7
+          for row in r["symbolic_all_h_parameter_certificates"]:
+              assert row["selected_disjoint_original_spread_lines"]<=row["total_spread_lines"]
+              assert row["selected_original_points"]<=row["V"]
+              assert row["selected_original_points"]<=row["unused_physical_pair_capacity_after_selected"]
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY

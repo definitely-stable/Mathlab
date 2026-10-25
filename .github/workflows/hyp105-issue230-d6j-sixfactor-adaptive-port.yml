@@ -1,0 +1,60 @@
+name: hyp105-issue230-d6j-sixfactor-adaptive-port
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6j_sixfactor_adaptive_port.py"
+      - "research/test_hyp105_issue230_d6j_sixfactor_adaptive_port.py"
+      - "docs/research/HYP-105-ISSUE230-D6J-SHARP-SIXFACTOR-ADAPTIVE-PORT.md"
+      - ".github/workflows/hyp105-issue230-d6j-sixfactor-adaptive-port.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-adaptive-port-exact-factor-six:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run independent exhaustive flow witnesses and sharp six factor tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6j_sixfactor_adaptive_port.py' -v
+      - name: Emit actual complete true original GF5 seven-positive W32 report
+        run: |
+          python research/hyp105_issue230_d6j_sixfactor_adaptive_port.py > /tmp/hyp105-d6j.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          j=json.loads(Path("/tmp/hyp105-d6j.json").read_text())
+          assert j["slice"]=="HYP105-ISSUE230-D6J-SHARP-SIX-FACTOR-ADAPTIVE-PORT"
+          assert j["universal_six_factor_sandwich"]=="PROVED-ALL-FINITE-SYSTEMS"
+          assert j["optimal_adaptive_recipient_port_allocation"]=="EXACT-INTEGRAL-WITNESS"
+          assert j["W34_W38_full_seven_original_positive_S"]=="UNKNOWN-NO-BB-SUBSTITUTION"
+          assert j["all_h_fixed_K"]=="OPEN"
+          assert j["root_Branch_A_or_B"]=="OPEN"
+          expected={"lex":(942,259,786,156,4,165),
+                    "reverse":(898,169,676,222,6,53),
+                    "S68":(606,68,544,62,9,62),
+                    "S72":(658,72,600,58,10,10)}
+          assert len(j["genuine_complete_seven_W32_cases"])==4
+          for x in j["genuine_complete_seven_W32_cases"]:
+              C,S,E,I,K,deficit=expected[x["scheme"]]
+              assert (x["C"],x["S"],x["E"],x["I"])==(C,S,E,I)
+              assert x["K_full"]==K and x["K_uniform"]==K
+              assert x["full_exact_exception_at_K_full"]==0
+              assert x["six_factor_lower_upper_at_K_full"]==[0,0]
+              assert x["port_budget_used"]==C
+              assert x["K_minus_one_exact_full_exception"]==deficit
+              assert x["K_minus_one_uniform_lower_upper"]==[0,deficit]
+              assert x["K_minus_one_optimal_adaptive_port_flow"]==C-deficit
+              assert x["nonzero_optimal_adaptive_recipient_port_allocations"]>0
+              print({"true_original_W32_scheme":x["scheme"],"K_full":K,
+                     "K_uniform":K,"C":C,"S_complete_seven":S,
+                     "nonzero_exception_at_K_minus_one":deficit,
+                     "adaptive_nonzero_Q_to_e":x[
+                       "nonzero_optimal_adaptive_recipient_port_allocations"]})
+          PY

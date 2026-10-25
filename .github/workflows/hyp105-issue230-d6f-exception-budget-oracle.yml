@@ -1,0 +1,60 @@
+name: hyp105-issue230-d6f-exception-budget-oracle
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6f_exception_budget_oracle.py"
+      - "research/test_hyp105_issue230_d6f_exception_budget_oracle.py"
+      - "docs/research/HYP-105-ISSUE230-D6F-EXCEPTION-BUDGET-ORACLE.md"
+      - ".github/workflows/hyp105-issue230-d6f-exception-budget-oracle.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exception-budget-oracle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: D6-F exact exception budget tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6f_exception_budget_oracle.py' -v
+      - name: Emit D6-F finite complete-W32 exception frontier report
+        run: |
+          python research/hyp105_issue230_d6f_exception_budget_oracle.py > /tmp/hyp105-d6f.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/hyp105-d6f.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6F-EXCEPTION-BUDGET-ORACLE'
+          assert x['all_h_exception_mass_bound']=='OPEN'
+          assert x['W34_W38_complete_seven_family_S']=='UNKNOWN-NOT-REPLACED-BY-BB'
+          expected={
+              'lex':(942,259,4,165),
+              'reverse':(898,169,6,53),
+              'S68':(606,68,9,62),
+              'S72':(658,72,10,10),
+          }
+          rows=x['W32_COMPLETE_positive_all_seven_exception_frontiers']
+          assert len(rows)==4
+          for row in rows:
+              C,S,K,E=expected[row['scheme']]
+              assert row['C_blocked_oriented']==C
+              assert row['full_seven_positive_S']==S
+              assert row['D6D_exact_zero_exception_K']==K
+              assert row['zero_exception_capacity']['minimum_capacity_K']==K
+              assert row['K_minus_one_budget']['minimal_exception_mass']==E
+              assert row['K_minus_one_global_source_closed_excess']==E
+              assert row['frontier']['exception_mass_nonincreasing_in_K']
+              assert row['frontier']['max_chargeable_mass_nondecreasing_in_K']
+              print({'D6F-W32':row['scheme'], 'C':C, 'S':S, 'zero_exception_K':K,
+                     'exception_at_K_minus_1':E})
+          PY

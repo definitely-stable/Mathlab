@@ -1,0 +1,72 @@
+name: hyp105-canonical-core
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_canonical_core.py"
+      - "research/test_hyp105_canonical_core.py"
+      - "docs/research/HYP-105-CANONICAL-CORE-PROOF.md"
+      - ".github/workflows/hyp105-canonical-core.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  canonical_parameters_and_template_survival:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify parameters V, a, K and surviving template fraction
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_canonical_core.py' -v -k test_01
+  lemma1_transversal_carrier_retention:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify Lemma 1 transversal matching lower bounds
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_canonical_core.py' -v -k test_02
+  lemma2_sparsity_and_negative_covariance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify Lemma 2 girth-8 sparsity and negative covariance
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_canonical_core.py' -v -k test_03
+  lemma3_super_ramanujan_and_annihilation_barrier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify Lemma 3 super-Ramanujan spectrum and annihilation barrier
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_canonical_core.py' -v -k test_04
+  derandomize_transversal_carrier_martingale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify constructive derandomizer strict martingale monotonicity
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_canonical_core.py' -v -k test_05
+  verify_w32_canonical_certificate_and_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify genuine W(3,2) ground truths and fail-closed rejections
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_canonical_core.py' -v -k test_06
