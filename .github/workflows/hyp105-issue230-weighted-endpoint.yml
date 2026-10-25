@@ -1,0 +1,32 @@
+name: hyp105-issue230-weighted-endpoint
+
+on:
+  pull_request:
+    paths:
+      - 'research/hyp105_w34_independent_oracle.py'
+      - 'research/hyp105_w34_weighted_endpoint.py'
+      - 'research/test_hyp105_w34_weighted_endpoint.py'
+      - 'research/test_hyp105_w34_adversarial_certificate.py'
+      - 'docs/research/HYP-105-WEIGHTED-ENDPOINT-FRONTIER.md'
+      - '.github/workflows/hyp105-issue230-weighted-endpoint.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  weighted-endpoint-independent-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Recount true symplectic W(3,4) witness and weighted pair 3-walks
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_w34_weighted_endpoint.py' -v
+          python -m unittest discover -s research -p 'test_hyp105_w34_adversarial_certificate.py' -v
+      - name: Exact dyadic algebra and formal fail-closed gate
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_extremal_coordinate_invariants.py' -v
