@@ -12,6 +12,9 @@ on:
       - 'research/test_hyp105_physical_degree_energy.py'
       - 'research/hyp105_sixflag_pair_collision.py'
       - 'research/test_hyp105_sixflag_pair_collision.py'
+      - 'research/hyp105_end_posting_subfield.py'
+      - 'research/test_hyp105_end_posting_subfield.py'
+      - 'docs/research/HYP-105-END-POSTING-SUBFIELD-INVESTIGATION.md'
       - 'docs/research/HYP-105-SIXFLAG-PATH-COLLISIONS.md'
       - 'docs/research/HYP-105-PHYSICAL-DEGREE-ENERGY.md'
       - 'research/test_hyp105_w34_adversarial_certificate.py'
@@ -38,6 +41,7 @@ jobs:
           python -m unittest discover -s research -p 'test_hyp105_weighted_variance_transfer.py' -v
           python -m unittest discover -s research -p 'test_hyp105_physical_degree_energy.py' -v
           python -m unittest discover -s research -p 'test_hyp105_sixflag_pair_collision.py' -v
+          python -m unittest discover -s research -p 'test_hyp105_end_posting_subfield.py' -v
           python -m unittest discover -s research -p 'test_hyp105_w34_adversarial_certificate.py' -v
       - name: Exact dyadic algebra and formal fail-closed gate
         run: |

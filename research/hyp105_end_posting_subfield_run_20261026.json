@@ -1,0 +1,1169 @@
+{
+  "localRunId": "a7addc19-de05-4c07-a626-3c00b846355c",
+  "gitSha": "1ee8a76dbf407ed8f08d96184b1aa25b9e64753d",
+  "revisionScope": "Parent PR649 HEAD plus uncommitted follow-up; exact local source bytes pinned below.",
+  "createdAtUtc": "2026-10-25T20:02:05.342118+00:00",
+  "clientDate": "2026-10-26",
+  "model": {
+    "family": "GPT-6",
+    "exactRuntimeIdentifier": null,
+    "limitation": "Exact runtime variant not exposed; not guessed."
+  },
+  "pythonVersion": "3.13.15",
+  "liveMathlabReportingDelivered": false,
+  "question": "Can the SFC end posting maximum be bounded by a constant to close the root variance target?",
+  "conclusion": "No: on every s=t^2 with dyadic t>=4, legal complete injections have one end posting >=s^2. The existing O(s^2) maximum order is sharp on this subsequence. Genuine W34 finite posting=28; root OPEN_WITH_FORMAL_BLOCKER.",
+  "why": "A nearly disjoint symplectic translate of a subfield W(3,t) supplies paired original flags embedded into two coordinate stars; retain original nonincident endpoints.",
+  "conditions": [
+    "True symplectic W(3,s), s=t^2, t=2^k, k>=2 for the infinite theorem.",
+    "The finite W34 construction uses separate explicit truncation and source checks.",
+    "Complete separately injected typed f/g; same fixed correlated maps throughout."
+  ],
+  "limitations": [
+    "One posting forces only C1_end=Omega(s^4); it does not refute aggregate O(s^6).",
+    "No uniform bounds on P,C0,chi-square,internal blocking,seven-GF5 acceptance or ASET exponents.",
+    "No W16 full geometry enumeration or qualified mathematical referee.",
+    "Exact runtime model variant unavailable."
+  ],
+  "openQuestions": [
+    "Can the aggregate end energy be controlled using the nonincident-tail neighborhood difference?",
+    "Can C0 and P be uniformly bounded on the same maps?",
+    "Can any resulting physical-path theorem transfer to the seven original GF5 motif classes?"
+  ],
+  "nextStep": "Study aggregate proper codegree energy weighted by Gamma(v1) minus Gamma(v3), retaining original endpoint conditioning.",
+  "experimentIds": [
+    "a7addc19-de05-4c07-a626-3c00b846355c:W34-full-injection"
+  ],
+  "experiments": [
+    {
+      "id": "a7addc19-de05-4c07-a626-3c00b846355c:W34-full-injection",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-c",
+        "import json\nfrom hyp105_end_posting_subfield import paired_subfield_w34_witness\nfrom hyp105_sixflag_pair_collision import source_sixflag_collision_census\nf,g,w=paired_subfield_w34_witness()\nprint(json.dumps({'f':f,'g':g,'provenance':w,'census':source_sixflag_collision_census(2,f,g)},sort_keys=True,indent=2))\n"
+      ],
+      "cwd": "C:\\Reposit\\math lab\\research",
+      "exitCode": 0,
+      "stdout": "{\n  \"census\": {\n    \"C0\": 103619,\n    \"C1\": 20855,\n    \"C1_end\": 20468,\n    \"C1_middle\": 387,\n    \"P\": 73840,\n    \"Q\": 1143472,\n    \"Q0_six_distinct_source_flags\": 828952,\n    \"Q1_five_distinct_source_flags\": 166840,\n    \"Q2_forbidden_two_shared_flags\": 0,\n    \"Q3_reverse_orbit\": 147680,\n    \"U\": 6800,\n    \"V\": 85,\n    \"a\": 14,\n    \"bad_C0\": 55711,\n    \"bad_C1\": 10549,\n    \"bad_P\": 38650,\n    \"bad_Q\": 607380,\n    \"bad_Q_strata\": [\n      445688,\n      84392,\n      0,\n      77300\n    ],\n    \"end_flag_appearances\": 73840,\n    \"good_P\": 35190,\n    \"good_Q\": 536092,\n    \"good_Q_strata\": [\n      383264,\n      82448,\n      0,\n      70380\n    ],\n    \"incident\": 7856,\n    \"max_N3\": 84,\n    \"max_corner_degree\": 32,\n    \"max_end_flag_occupancy\": 28,\n    \"max_middle_flag_occupancy\": 3,\n    \"middle_flag_appearances\": 36920,\n    \"missing\": 9510,\n    \"occupied_source_endpoint_pairs\": 6657,\n    \"physical_proper\": 91206,\n    \"reverse_orbits\": 36920,\n    \"root_GF5_sevenclass_proved\": false,\n    \"s\": 4,\n    \"uniform_chi_square_proved\": false,\n    \"zero_source_endpoint_pairs\": 143\n  },\n  \"f\": [\n    [\n      1,\n      3\n    ],\n    [\n      1,\n      4\n    ],\n    [\n      1,\n      5\n    ],\n    [\n      0,\n      2\n    ],\n    [\n      0,\n      3\n    ],\n    [\n      1,\n      6\n    ],\n    [\n      1,\n      7\n    ],\n    [\n      0,\n      4\n    ],\n    [\n      0,\n      5\n    ],\n    [\n      0,\n      6\n    ],\n    [\n      2,\n      6\n    ],\n    [\n      0,\n      7\n    ],\n    [\n      2,\n      12\n    ],\n    [\n      0,\n      8\n    ],\n    [\n      0,\n      9\n    ],\n    [\n      0,\n      10\n    ],\n    [\n      0,\n      11\n    ],\n    [\n      0,\n      12\n    ],\n    [\n      0,\n      13\n    ],\n    [\n      1,\n      2\n    ],\n    [\n      3,\n      4\n    ],\n    [\n      1,\n      8\n    ],\n    [\n      2,\n      8\n    ],\n    [\n      3,\n      5\n    ],\n    [\n      3,\n      6\n    ],\n    [\n      1,\n      9\n    ],\n    [\n      1,\n      10\n    ],\n    [\n      3,\n      7\n    ],\n    [\n      3,\n      8\n    ],\n    [\n      0,\n      1\n    ],\n    [\n      3,\n      9\n    ],\n    [\n      3,\n      10\n    ],\n    [\n      3,\n      11\n    ],\n    [\n      3,\n      12\n    ],\n    [\n      2,\n      13\n    ],\n    [\n      3,\n      13\n    ],\n    [\n      4,\n      5\n    ],\n    [\n      1,\n      11\n    ],\n    [\n      1,\n      12\n    ],\n    [\n      4,\n      6\n    ],\n    [\n      4,\n      7\n    ],\n    [\n      1,\n      13\n    ],\n    [\n      4,\n      8\n    ],\n    [\n      2,\n      7\n    ],\n    [\n      4,\n      9\n    ],\n    [\n      4,\n      10\n    ],\n    [\n      4,\n      11\n    ],\n    [\n      4,\n      12\n    ],\n    [\n      4,\n      13\n    ],\n    [\n      2,\n      4\n    ],\n    [\n      5,\n      6\n    ],\n    [\n      5,\n      7\n    ],\n    [\n      5,\n      8\n    ],\n    [\n      2,\n      10\n    ],\n    [\n      5,\n      9\n    ],\n    [\n      5,\n      10\n    ],\n    [\n      5,\n      11\n    ],\n    [\n      5,\n      12\n    ],\n    [\n      5,\n      13\n    ],\n    [\n      6,\n      7\n    ],\n    [\n      2,\n      9\n    ],\n    [\n      6,\n      8\n    ],\n    [\n      2,\n      3\n    ],\n    [\n      6,\n      9\n    ],\n    [\n      6,\n      10\n    ],\n    [\n      6,\n      11\n    ],\n    [\n      6,\n      12\n    ],\n    [\n      6,\n      13\n    ],\n    [\n      7,\n      8\n    ],\n    [\n      7,\n      9\n    ],\n    [\n      7,\n      10\n    ],\n    [\n      7,\n      11\n    ],\n    [\n      2,\n      5\n    ],\n    [\n      7,\n      12\n    ],\n    [\n      7,\n      13\n    ],\n    [\n      8,\n      9\n    ],\n    [\n      8,\n      10\n    ],\n    [\n      8,\n      11\n    ],\n    [\n      8,\n      12\n    ],\n    [\n      8,\n      13\n    ],\n    [\n      9,\n      10\n    ],\n    [\n      9,\n      11\n    ],\n    [\n      9,\n      12\n    ],\n    [\n      2,\n      11\n    ],\n    [\n      9,\n      13\n    ]\n  ],\n  \"g\": [\n    [\n      1,\n      3\n    ],\n    [\n      1,\n      4\n    ],\n    [\n      1,\n      5\n    ],\n    [\n      0,\n      1\n    ],\n    [\n      0,\n      2\n    ],\n    [\n      1,\n      6\n    ],\n    [\n      1,\n      7\n    ],\n    [\n      0,\n      3\n    ],\n    [\n      0,\n      4\n    ],\n    [\n      1,\n      8\n    ],\n    [\n      1,\n      9\n    ],\n    [\n      0,\n      5\n    ],\n    [\n      2,\n      7\n    ],\n    [\n      0,\n      6\n    ],\n    [\n      0,\n      7\n    ],\n    [\n      0,\n      8\n    ],\n    [\n      2,\n      8\n    ],\n    [\n      2,\n      5\n    ],\n    [\n      0,\n      9\n    ],\n    [\n      0,\n      10\n    ],\n    [\n      0,\n      11\n    ],\n    [\n      1,\n      10\n    ],\n    [\n      1,\n      11\n    ],\n    [\n      0,\n      12\n    ],\n    [\n      0,\n      13\n    ],\n    [\n      1,\n      12\n    ],\n    [\n      1,\n      13\n    ],\n    [\n      1,\n      2\n    ],\n    [\n      3,\n      4\n    ],\n    [\n      3,\n      5\n    ],\n    [\n      2,\n      13\n    ],\n    [\n      3,\n      6\n    ],\n    [\n      3,\n      7\n    ],\n    [\n      3,\n      8\n    ],\n    [\n      3,\n      9\n    ],\n    [\n      3,\n      10\n    ],\n    [\n      3,\n      11\n    ],\n    [\n      2,\n      4\n    ],\n    [\n      3,\n      12\n    ],\n    [\n      3,\n      13\n    ],\n    [\n      4,\n      5\n    ],\n    [\n      2,\n      10\n    ],\n    [\n      4,\n      6\n    ],\n    [\n      2,\n      6\n    ],\n    [\n      2,\n      11\n    ],\n    [\n      4,\n      7\n    ],\n    [\n      4,\n      8\n    ],\n    [\n      4,\n      9\n    ],\n    [\n      4,\n      10\n    ],\n    [\n      2,\n      12\n    ],\n    [\n      4,\n      11\n    ],\n    [\n      4,\n      12\n    ],\n    [\n      2,\n      9\n    ],\n    [\n      4,\n      13\n    ],\n    [\n      5,\n      6\n    ],\n    [\n      5,\n      7\n    ],\n    [\n      5,\n      8\n    ],\n    [\n      5,\n      9\n    ],\n    [\n      5,\n      10\n    ],\n    [\n      5,\n      11\n    ],\n    [\n      5,\n      12\n    ],\n    [\n      5,\n      13\n    ],\n    [\n      2,\n      3\n    ],\n    [\n      6,\n      7\n    ],\n    [\n      6,\n      8\n    ],\n    [\n      6,\n      9\n    ],\n    [\n      6,\n      10\n    ],\n    [\n      6,\n      11\n    ],\n    [\n      6,\n      12\n    ],\n    [\n      6,\n      13\n    ],\n    [\n      7,\n      8\n    ],\n    [\n      7,\n      9\n    ],\n    [\n      7,\n      10\n    ],\n    [\n      7,\n      11\n    ],\n    [\n      7,\n      12\n    ],\n    [\n      7,\n      13\n    ],\n    [\n      8,\n      9\n    ],\n    [\n      8,\n      10\n    ],\n    [\n      8,\n      11\n    ],\n    [\n      8,\n      12\n    ],\n    [\n      8,\n      13\n    ],\n    [\n      9,\n      10\n    ],\n    [\n      9,\n      11\n    ],\n    [\n      9,\n      12\n    ],\n    [\n      9,\n      13\n    ]\n  ],\n  \"provenance\": {\n    \"alpha\": [\n      29,\n      3\n    ],\n    \"endpoint\": [\n      3,\n      4\n    ],\n    \"line_permutation\": [\n      62,\n      37,\n      17,\n      76,\n      35,\n      43,\n      12,\n      81,\n      24,\n      16,\n      52,\n      25,\n      71,\n      66,\n      2,\n      54,\n      58,\n      64,\n      7,\n      63,\n      61,\n      41,\n      44,\n      6,\n      42,\n      49,\n      30,\n      75,\n      56,\n      1,\n      69,\n      73,\n      77,\n      45,\n      67,\n      74,\n      14,\n      39,\n      51,\n      47,\n      3,\n      40,\n      78,\n      65,\n      27,\n      38,\n      60,\n      15,\n      31,\n      5,\n      21,\n      22,\n      23,\n      68,\n      20,\n      29,\n      70,\n      9,\n      0,\n      11,\n      10,\n      26,\n      18,\n      55,\n      48,\n      79,\n      19,\n      50,\n      57,\n      13,\n      53,\n      80,\n      34,\n      59,\n      46,\n      72,\n      33,\n      82,\n      83,\n      84,\n      8,\n      32,\n      28,\n      4,\n      36\n    ],\n    \"point_permutation\": [\n      62,\n      49,\n      72,\n      27,\n      15,\n      10,\n      43,\n      24,\n      81,\n      30,\n      46,\n      78,\n      5,\n      56,\n      2,\n      59,\n      65,\n      75,\n      40,\n      20,\n      33,\n      22,\n      9,\n      42,\n      82,\n      60,\n      53,\n      4,\n      67,\n      18,\n      73,\n      39,\n      36,\n      79,\n      29,\n      48,\n      8,\n      83,\n      12,\n      21,\n      44,\n      34,\n      74,\n      17,\n      38,\n      6,\n      32,\n      77,\n      47,\n      68,\n      55,\n      57,\n      3,\n      41,\n      11,\n      84,\n      23,\n      45,\n      31,\n      7,\n      80,\n      1,\n      54,\n      66,\n      58,\n      37,\n      76,\n      35,\n      19,\n      64,\n      0,\n      63,\n      61,\n      71,\n      52,\n      16,\n      25,\n      14,\n      51,\n      28,\n      69,\n      26,\n      50,\n      70,\n      13\n    ],\n    \"retained_subfield_flags\": 28,\n    \"source_overlap\": [\n      3,\n      2\n    ],\n    \"subfield_lines\": [\n      0,\n      1,\n      2,\n      5,\n      6,\n      9,\n      10,\n      21,\n      22,\n      25,\n      26\n    ],\n    \"subfield_points\": [\n      0,\n      1,\n      2,\n      5,\n      6,\n      21,\n      25,\n      26,\n      37,\n      38,\n      41\n    ]\n  }\n}\n",
+      "stderr": "",
+      "results": {
+        "census": {
+          "C0": 103619,
+          "C1": 20855,
+          "C1_end": 20468,
+          "C1_middle": 387,
+          "P": 73840,
+          "Q": 1143472,
+          "Q0_six_distinct_source_flags": 828952,
+          "Q1_five_distinct_source_flags": 166840,
+          "Q2_forbidden_two_shared_flags": 0,
+          "Q3_reverse_orbit": 147680,
+          "U": 6800,
+          "V": 85,
+          "a": 14,
+          "bad_C0": 55711,
+          "bad_C1": 10549,
+          "bad_P": 38650,
+          "bad_Q": 607380,
+          "bad_Q_strata": [
+            445688,
+            84392,
+            0,
+            77300
+          ],
+          "end_flag_appearances": 73840,
+          "good_P": 35190,
+          "good_Q": 536092,
+          "good_Q_strata": [
+            383264,
+            82448,
+            0,
+            70380
+          ],
+          "incident": 7856,
+          "max_N3": 84,
+          "max_corner_degree": 32,
+          "max_end_flag_occupancy": 28,
+          "max_middle_flag_occupancy": 3,
+          "middle_flag_appearances": 36920,
+          "missing": 9510,
+          "occupied_source_endpoint_pairs": 6657,
+          "physical_proper": 91206,
+          "reverse_orbits": 36920,
+          "root_GF5_sevenclass_proved": false,
+          "s": 4,
+          "uniform_chi_square_proved": false,
+          "zero_source_endpoint_pairs": 143
+        },
+        "f": [
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            2,
+            12
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            0,
+            10
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            0,
+            12
+          ],
+          [
+            0,
+            13
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            1,
+            10
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            3,
+            10
+          ],
+          [
+            3,
+            11
+          ],
+          [
+            3,
+            12
+          ],
+          [
+            2,
+            13
+          ],
+          [
+            3,
+            13
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            1,
+            13
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            4,
+            10
+          ],
+          [
+            4,
+            11
+          ],
+          [
+            4,
+            12
+          ],
+          [
+            4,
+            13
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            5,
+            9
+          ],
+          [
+            5,
+            10
+          ],
+          [
+            5,
+            11
+          ],
+          [
+            5,
+            12
+          ],
+          [
+            5,
+            13
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            6,
+            10
+          ],
+          [
+            6,
+            11
+          ],
+          [
+            6,
+            12
+          ],
+          [
+            6,
+            13
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            7,
+            10
+          ],
+          [
+            7,
+            11
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            7,
+            12
+          ],
+          [
+            7,
+            13
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            8,
+            11
+          ],
+          [
+            8,
+            12
+          ],
+          [
+            8,
+            13
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            9,
+            11
+          ],
+          [
+            9,
+            12
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            9,
+            13
+          ]
+        ],
+        "g": [
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            0,
+            10
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            1,
+            10
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            0,
+            12
+          ],
+          [
+            0,
+            13
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            13
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            2,
+            13
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            3,
+            10
+          ],
+          [
+            3,
+            11
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            12
+          ],
+          [
+            3,
+            13
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            4,
+            10
+          ],
+          [
+            2,
+            12
+          ],
+          [
+            4,
+            11
+          ],
+          [
+            4,
+            12
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            4,
+            13
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            5,
+            9
+          ],
+          [
+            5,
+            10
+          ],
+          [
+            5,
+            11
+          ],
+          [
+            5,
+            12
+          ],
+          [
+            5,
+            13
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            6,
+            10
+          ],
+          [
+            6,
+            11
+          ],
+          [
+            6,
+            12
+          ],
+          [
+            6,
+            13
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            7,
+            10
+          ],
+          [
+            7,
+            11
+          ],
+          [
+            7,
+            12
+          ],
+          [
+            7,
+            13
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            8,
+            11
+          ],
+          [
+            8,
+            12
+          ],
+          [
+            8,
+            13
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            9,
+            11
+          ],
+          [
+            9,
+            12
+          ],
+          [
+            9,
+            13
+          ]
+        ],
+        "provenance": {
+          "alpha": [
+            29,
+            3
+          ],
+          "endpoint": [
+            3,
+            4
+          ],
+          "line_permutation": [
+            62,
+            37,
+            17,
+            76,
+            35,
+            43,
+            12,
+            81,
+            24,
+            16,
+            52,
+            25,
+            71,
+            66,
+            2,
+            54,
+            58,
+            64,
+            7,
+            63,
+            61,
+            41,
+            44,
+            6,
+            42,
+            49,
+            30,
+            75,
+            56,
+            1,
+            69,
+            73,
+            77,
+            45,
+            67,
+            74,
+            14,
+            39,
+            51,
+            47,
+            3,
+            40,
+            78,
+            65,
+            27,
+            38,
+            60,
+            15,
+            31,
+            5,
+            21,
+            22,
+            23,
+            68,
+            20,
+            29,
+            70,
+            9,
+            0,
+            11,
+            10,
+            26,
+            18,
+            55,
+            48,
+            79,
+            19,
+            50,
+            57,
+            13,
+            53,
+            80,
+            34,
+            59,
+            46,
+            72,
+            33,
+            82,
+            83,
+            84,
+            8,
+            32,
+            28,
+            4,
+            36
+          ],
+          "point_permutation": [
+            62,
+            49,
+            72,
+            27,
+            15,
+            10,
+            43,
+            24,
+            81,
+            30,
+            46,
+            78,
+            5,
+            56,
+            2,
+            59,
+            65,
+            75,
+            40,
+            20,
+            33,
+            22,
+            9,
+            42,
+            82,
+            60,
+            53,
+            4,
+            67,
+            18,
+            73,
+            39,
+            36,
+            79,
+            29,
+            48,
+            8,
+            83,
+            12,
+            21,
+            44,
+            34,
+            74,
+            17,
+            38,
+            6,
+            32,
+            77,
+            47,
+            68,
+            55,
+            57,
+            3,
+            41,
+            11,
+            84,
+            23,
+            45,
+            31,
+            7,
+            80,
+            1,
+            54,
+            66,
+            58,
+            37,
+            76,
+            35,
+            19,
+            64,
+            0,
+            63,
+            61,
+            71,
+            52,
+            16,
+            25,
+            14,
+            51,
+            28,
+            69,
+            26,
+            50,
+            70,
+            13
+          ],
+          "retained_subfield_flags": 28,
+          "source_overlap": [
+            3,
+            2
+          ],
+          "subfield_lines": [
+            0,
+            1,
+            2,
+            5,
+            6,
+            9,
+            10,
+            21,
+            22,
+            25,
+            26
+          ],
+          "subfield_points": [
+            0,
+            1,
+            2,
+            5,
+            6,
+            21,
+            25,
+            26,
+            37,
+            38,
+            41
+          ]
+        }
+      },
+      "parameters": {
+        "fieldPower": 2,
+        "subfieldPower": 1,
+        "freeCoordinateCount": 11,
+        "transvections": [
+          [
+            [
+              0,
+              1,
+              3,
+              3
+            ],
+            2
+          ],
+          [
+            [
+              1,
+              1,
+              2,
+              2
+            ],
+            3
+          ],
+          [
+            [
+              0,
+              0,
+              1,
+              3
+            ],
+            2
+          ],
+          [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            1
+          ]
+        ],
+        "completion": "lexicographic"
+      }
+    }
+  ],
+  "nextSteps": [
+    {
+      "goal": "Prove an aggregate end-posting energy bound rather than a constant maximum.",
+      "evidence": "Infinite quadratic maximum construction and W34 occupancy28 disallow a constant cap.",
+      "expectedCheck": "Uniform source-respecting inequality or explicit correlated obstruction under nonincident-tail conditioning.",
+      "stopCondition": "Reject any argument that replaces Gamma(v1) minus Gamma(v3) with unrestricted tails, or equates physical candidate pairs with GF5-accepted sixsets."
+    }
+  ],
+  "checks": [
+    {
+      "id": "related-tests",
+      "title": "related-tests",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "unittest",
+        "test_hyp105_end_posting_subfield",
+        "test_hyp105_sixflag_pair_collision",
+        "test_hyp105_w34_weighted_endpoint",
+        "test_hyp105_weighted_variance_transfer",
+        "test_hyp105_physical_degree_energy",
+        "test_hyp105_extremal_coordinate_invariants",
+        "test_hyp105_w34_adversarial_certificate",
+        "test_ci_research_shards",
+        "-v"
+      ],
+      "cwd": "C:\\Reposit\\math lab\\research",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "test_exact_parameter_sanity_separate_from_all_h_proof (test_hyp105_end_posting_subfield.TestEndPostingSubfield.test_exact_parameter_sanity_separate_from_all_h_proof) ... ok\ntest_full_source_collision_census (test_hyp105_end_posting_subfield.TestEndPostingSubfield.test_full_source_collision_census) ... ok\ntest_source_translate_and_complete_injections (test_hyp105_end_posting_subfield.TestEndPostingSubfield.test_source_translate_and_complete_injections) ... ok\ntest_target_posting_by_original_incidence_products (test_hyp105_end_posting_subfield.TestEndPostingSubfield.test_target_posting_by_original_incidence_products) ... ok\ntest_both_true_w32_covariance_sign_witnesses (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_both_true_w32_covariance_sign_witnesses) ... ok\ntest_middle_bound_on_all_complement_paired_four_by_four_hosts (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_middle_bound_on_all_complement_paired_four_by_four_hosts) ... ok\ntest_middle_end_postings_against_independent_source_certificates (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_middle_end_postings_against_independent_source_certificates) ... ok\ntest_original_typed_injection_is_fail_closed (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_original_typed_injection_is_fail_closed) ... ok\ntest_physical_coordinate_relabelings_leave_all_counts_unchanged (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_physical_coordinate_relabelings_leave_all_counts_unchanged) ... ok\ntest_true_symplectic_w34_sixflag_collision_moment (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_true_symplectic_w34_sixflag_collision_moment) ... ok\ntest_bad_endpoint_implies_blocked_physical_path (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_bad_endpoint_implies_blocked_physical_path)\nThe point/line projection blocks EVERY bad-pair proper path. ... ok\ntest_fail_closed_invalid_injections (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_fail_closed_invalid_injections) ... ok\ntest_independent_physical_coordinate_relabeling (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_independent_physical_coordinate_relabeling)\nPermutation of x- and y-coordinate alphabets must not change N3. ... ok\ntest_moment_upper_bound_is_explicitly_conditional (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_moment_upper_bound_is_explicitly_conditional) ... ok\ntest_two_independent_oracle_methods_and_exact_moments (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_two_independent_oracle_methods_and_exact_moments) ... ok\ntest_both_covariance_signs_on_genuine_w32 (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_both_covariance_signs_on_genuine_w32) ... ok\ntest_exact_centered_variance_and_equality_case (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_exact_centered_variance_and_equality_case) ... ok\ntest_existing_w34_ledger_centered_cauchy (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_existing_w34_ledger_centered_cauchy) ... ok\ntest_invalid_typed_maps_fail_closed (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_invalid_typed_maps_fail_closed) ... ok\ntest_lex_complete_labeling_negative_sign (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_lex_complete_labeling_negative_sign) ... ok\ntest_physical_coordinate_permutations_preserve_sign (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_physical_coordinate_permutations_preserve_sign) ... ok\ntest_tensor_reconstruction_and_absence_of_parallel_arcs (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_tensor_reconstruction_and_absence_of_parallel_arcs) ... ok\ntest_all_h_minimal_alphabet_integer_only (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_all_h_minimal_alphabet_integer_only) ... ok\ntest_exact_gq_centered_spectral_projector_polynomial (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_exact_gq_centered_spectral_projector_polynomial) ... ok\ntest_independent_coordinate_permutations_preserve_centered_energy (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_independent_coordinate_permutations_preserve_centered_energy) ... ok\ntest_physical_edge_injection_and_original_flags_fail_closed (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_physical_edge_injection_and_original_flags_fail_closed) ... ok\ntest_true_w32_graph_degrees_against_independent_physical_adjacency (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_true_w32_graph_degrees_against_independent_physical_adjacency) ... ok\ntest_true_w34_graph_degrees_against_direct_original_flags (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_true_w34_graph_degrees_against_direct_original_flags) ... ok\ntest_canonical_parameters_powers_of_two (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_canonical_parameters_powers_of_two)\nVerify parameters for W(3,s) across powers of 2. ... ok\ntest_convex_optimization_degree_bound_universality (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_convex_optimization_degree_bound_universality)\nVerify sum d_u(d_u - 1) <= 2V(a - 2) for uniform and peaked distributions. ... ok\ntest_exact_large_h_alphabet (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_exact_large_h_alphabet)\nMinimal K_a uses integer arithmetic, including s=2**1024. ... ok\ntest_formal_resolution_status (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_formal_resolution_status)\nVerify fail-closed governance and certified counterexample reporting. ... ok\ntest_leading_coefficient_is_sqrt2 (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_leading_coefficient_is_sqrt2)\nVerify leading coefficient of sum binom(d_u, 2) is sqrt(2), NOT 1/sqrt(2). ... ok\ntest_missing_edge_star_degree_identity (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_missing_edge_star_degree_identity)\nTest exact identity on a realizable (not arbitrary) K_a labeling. ... ok\ntest_path_universe_separation (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_path_universe_separation)\nVerify path universes are distinguished to prevent denominator conflation. ... ok\ntest_small_s_bad_ratio_exceeds_unity (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_small_s_bad_ratio_exceeds_unity)\nVerify 4(a-2)/(s(s+1)) > 1.0 for s in {2, 4, 8, 16}. ... ok\ntest_candidate_finite_floor_refuted_with_exact_rational (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_candidate_finite_floor_refuted_with_exact_rational) ... ok\ntest_certificate_is_not_a_self_consistency_only_check (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_certificate_is_not_a_self_consistency_only_check) ... ok\ntest_independent_original_incidence_recount (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_independent_original_incidence_recount)\nRecount ALL integer census fields, never trusting JSON as oracle. ... ok\ntest_typed_bad_endpoint_bound_and_partition (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_typed_bad_endpoint_bound_and_partition) ... ok\ntest_valid_typed_images_and_exact_graph (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_valid_typed_images_and_exact_graph) ... ok\ntest_aggregate_full_suite_depends_on_all_four_shards (test_ci_research_shards.ResearchWorkflowShardTests.test_aggregate_full_suite_depends_on_all_four_shards) ... ok\ntest_all_shards_exist_and_require_hosted_setup (test_ci_research_shards.ResearchWorkflowShardTests.test_all_shards_exist_and_require_hosted_setup) ... ok\ntest_heavy_census_is_not_in_ten_minute_foundation (test_ci_research_shards.ResearchWorkflowShardTests.test_heavy_census_is_not_in_ten_minute_foundation) ... ok\ntest_no_silent_loss_or_duplicate_named_steps (test_ci_research_shards.ResearchWorkflowShardTests.test_no_silent_loss_or_duplicate_named_steps) ... ok\n\n----------------------------------------------------------------------\nRan 45 tests in 6.407s\n\nOK\n"
+    },
+    {
+      "id": "catalog",
+      "title": "catalog",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/catalog.py",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "RESEARCH_INDEX_VALIDATION_PASS entries=61\nRESEARCH_INDEX_BACKLINKS_PASS\nRESEARCH_INDEX_GENERATED_DOC_PASS\nRESEARCH_INDEX_THEMES_PASS\n",
+      "stderr": ""
+    },
+    {
+      "id": "known-registry",
+      "title": "known-registry",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/known_registry.py",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "KNOWN_REGISTRY_SCHEMA_PASS 55\nKNOWN_REGISTRY_AUTHORITY_PATHS_PASS\nKNOWN_REGISTRY_GENERATED_VIEW_PASS\nKNOWN_REGISTRY_DISPOSITIONS {'CLOSED_PROVED': 17, 'DEFER': 3, 'MODEL_MISMATCH': 6, 'PRIOR_ART': 22, 'STOP_PRODUCT': 5, 'SUPERSEDED': 2}\n",
+      "stderr": ""
+    },
+    {
+      "id": "literature",
+      "title": "literature",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/literature.py",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "LITERATURE_SCHEMA_AND_SOURCE_PINS_PASS\nLITERATURE_CANONICAL_IDENTITIES_PASS\nLITERATURE_GENERATED_DOCUMENTS_PASS\nLITERATURE_NO_NOVELTY_PROMOTION_PASS\n",
+      "stderr": ""
+    },
+    {
+      "id": "whitespace",
+      "title": "whitespace",
+      "status": "passed",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "source-integrity",
+      "title": "Observed source hashes and verbatim proof evidence",
+      "status": "passed",
+      "details": "All four cited source hashes, current source pins and exact claim quotes verified."
+    }
+  ],
+  "sourceHashes": {
+    "research/hyp105_end_posting_subfield.py": "86b1f522dba177d148d84512cf5953aab0a2f5671cc46c6d54a2e61f5977d237",
+    "research/test_hyp105_end_posting_subfield.py": "7caf9887180aa7a64571a2b86c4bf0d086c2da1a1f491bc2ab36313684568704",
+    "docs/research/HYP-105-END-POSTING-SUBFIELD-INVESTIGATION.md": "a3ae543652fb2de76b0d4f561a168a26e633d6c91643a79e2e3ae12ee5a663bd",
+    "research/hyp105_sixflag_pair_collision.py": "ce8f9c633f1e23331a6b69b5720df0cd5b31d3148b550b93af5ff1def6c89ddc",
+    "research/hyp105_b1_symplectic.py": "6451bcb7e76bc722bcde280985131c41b415712f23787c353ad29df729a5b80f",
+    "research/hyp105_physical_degree_energy.py": "1cae451ba1d85315bd36cc05e67bcc0dc77e7d8129f8005ccf985cf077fe1b33",
+    "research/hyp105_w34_weighted_endpoint.py": "a954740e0721bff89d7887f6594e8ce52e93d8d6ac27b0a72e3c886733834454",
+    "research/hyp105_w34_independent_oracle.py": "43b1fa3f735fde9568a025e4d0706e1f691c6df75e4296ab004c814569d4d439",
+    "research/hyp105_weighted_variance_transfer.py": "2935e1568c5a422d200260da57e320cbfe1b0724244217c24d7bc991def7d823",
+    "docs/research/HYP-105-G5-C3-B1-0-SYMPLECTIC-GF4.md": "2be875df0e44fc13e744660fbfe4357f62a2b8011c34c0d53545090d4b63c49d",
+    "docs/research/HYP-105-PHYSICAL-DEGREE-ENERGY.md": "1aa5e5bccec323d83f21d26458f6f35a458dad0a14de62d78a974346744f5345",
+    ".github/workflows/hyp105-issue230-weighted-endpoint.yml": "f5a7d2e578b8bd54a5f794421195bf6611cbeb58294ba9a9961c16b56f9748d7"
+  },
+  "claims": [
+    {
+      "id": "quadratic-posting",
+      "text": "For every dyadic t>=4 and s=t^2 there exist complete legal injections with m_alpha(q,r)>=(n-3)(t+1)>=s^2.",
+      "evidence": [
+        {
+          "recordId": "docs/research/HYP-105-END-POSTING-SUBFIELD-INVESTIGATION.md",
+          "documentVersion": "a3ae543652fb2de76b0d4f561a168a26e633d6c91643a79e2e3ae12ee5a663bd",
+          "quote": "Thus \\(m_\\alpha(q,r)\\ge|F_*|\\)."
+        }
+      ],
+      "checkIds": [
+        "related-tests"
+      ]
+    }
+  ]
+}
