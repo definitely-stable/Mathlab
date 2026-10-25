@@ -1,6 +1,6 @@
 # HYP-105 issue #230 — Asymptotic Anchor Decoupling and Exact Path-Motif Bounds
 
-**STATUS: RESTRICTED_THEOREM_C / COMPUTATIONAL_SCALING_CERTIFICATE / ROOT_A_B_OPEN.**
+**STATUS: OPEN_WITH_FORMAL_BLOCKER / EMPIRICAL_SCALING_CERTIFICATE / ROOT_A_B_OPEN.**
 Companion to [Projection Closure](HYP-105-ISSUE230-PROJECTION-CLOSURE.md), [Incident Book](HYP-105-ISSUE230-INCIDENT-BOOK.md), and [D6-A Joint Audit](HYP-105-ISSUE230-D6-JOINT-COMPENSATION-AUDIT.md). All objects use the genuine immutable Generalized Quadrangle $W(3,s)$ ($s=2^h$), minimal physical alphabet $a=\min\{b : \binom{b}{2} \ge V\}$, and globally injective physical pair maps $f: P \to \binom{[a]}{2}$, $g: L \to \binom{[a]}{2}$.
 
 ---
@@ -82,13 +82,15 @@ The following table presents exact certified counts across all audited configura
 
 ---
 
-## 4. Rigorous Analytical Proof of Sub-Sextic Anchor Blocking
+## 4. Analytical Sub-Sextic Anchor Blocking: Reductions, Blockers, and Status
 
-### Theorem 2 (Analytical Sub-Sextic Anchor Blocking)
-For any dyadic prime power $s = 2^h$ ($h \ge 1$) and any globally injective physical pair maps $f, g$ on $W(3,s)$:
+### Theorem 2 (Conditional Sub-Sextic Anchor Blocking)
+**STATUS: OPEN CONJECTURE / CONDITIONAL REDUCTION (P0 Formal Blockers Identified).**
+
+Under the conjecture that the rectangle-diagonal graph $H'$ satisfies $\operatorname{Tr}(A_{H'}^6) = O(s^6)$ and that total length-3 walk mass satisfies $W_3(H') = O(s^6)$:
 $$B(f, g) = E(f, g) + I(f, g) = o(s^6).$$
 
-#### Proof of Part 1: Analytical Upper Bound on Endpoint Blocking $E(f, g) = O(s^{11/2})$
+#### Analysis of Part 1: Endpoint Blocking $E(f, g)$ and Formal Blocker 1
 1. The number of proper 3-paths whose endpoint pair $(q, r) \in U$ is bounded by the total number of length-3 walks in $H'$ between pairs in $U$:
    $$E(f, g) \le \frac{1}{2} \operatorname{Tr}(A_{H'}^3 A_B) = \frac{1}{2} \langle A_{H'}^3, A_B \rangle_F.$$
 2. By the Cauchy–Schwarz inequality for the matrix Frobenius inner product:
@@ -98,18 +100,15 @@ $$B(f, g) = E(f, g) + I(f, g) = o(s^6).$$
    $$|U| \le 4 s C_s \le 4 s ((s-1)V + (s^2+1)(a-1)) = (4 + o(1)) s^5.$$
    Therefore:
    $$\|A_B\|_F = \sqrt{4 |U|} \le \sqrt{16 s^5 (1 + o(1))} = (4 + o(1)) s^{5/2} = O(s^{5/2}).$$
-4. **Bound on $\|A_{H'}^3\|_F$:**
-   $$\|A_{H'}^3\|_F = \sqrt{\operatorname{Tr}(A_{H'}^6)}.$$
-   In $H'$, the spectrum of $A_{H'}$ has Perron–Frobenius eigenvalue $\mu_1 \le 2s$, and all non-trivial eigenvalues are bounded by $O(\sqrt{s})$ due to the super-Ramanujan spectrum of $W(3,s)$. Consequently:
-   $$\operatorname{Tr}(A_{H'}^6) = \mu_1^6 + \sum_{i=2}^n \mu_i^6 \le (2s)^6 + n \cdot O(s^3) \le 64 s^6 + (2 s^3) \cdot O(s^3) = O(s^6).$$
-   Therefore:
-   $$\|A_{H'}^3\|_F = \sqrt{\operatorname{Tr}(A_{H'}^6)} = O(s^3).$$
-   (Direct computation on genuine geometries confirms $\|A^3\|_F / s^3 \le 28.7$ on $W(3,2)$ and $\le 20.1$ on $W(3,4)$).
-5. **Product of Norms:**
-   $$E(f, g) \le \frac{1}{2} \|A_{H'}^3\|_F \|A_B\|_F \le \frac{1}{2} O(s^3) \cdot O(s^{5/2}) = \mathbf{O(s^{11/2}) = O(s^{5.5}) = o(s^6)}.$$
-   This strictly proves that endpoint blocking is sub-sextic. (Empirical scaling exponent $\alpha_E = 5.2418 < 5.50 < 6.00$).
+4. **Spectral Gap on $\|A_{H'}^3\|_F = \sqrt{\operatorname{Tr}(A_{H'}^6)}$ (FORMAL BLOCKER 1):**
+   In previous draft text, it was claimed that all non-trivial eigenvalues of $A_{H'}$ are bounded by $O(\sqrt{s})$ because $W(3,s)$ has Ramanujan-type eigenvalues $\sqrt{2s}$.
+   **Scientific Critique:** This transfer is unproven. The bipartite incidence graph $W(3,s)$ has $2V$ vertices and spectrum $\{s+1, \sqrt{2s}, 0, -\sqrt{2s}, -(s+1)\}$. However, $H'$ is a graph on the grid $[a] \times [a]$ ($n \le a^2 \approx 2s^3$) whose edges connect diagonal pairs $((u,x),(v,y))$ and $((u,y),(v,x))$ for retained incidences $(p,l)$ with $f(p)=\{u,v\}$ and $g(l)=\{x,y\}$, followed by degree and block pruning.
+   The spectrum of $W(3,s)$ does not automatically govern $H'$. Establishing $\|A_{H'}^3\|_F = O(s^3)$ requires either:
+   - A rigorous matrix identity relating $A_H$ to the original incidence matrix $B$ and verifying that pruning preserves the 6th-moment bound; or
+   - A direct combinatorial walk bound showing that closed 6-walks in $H'$ are bounded by $O(s^6)$.
+   While empirical computations on $W(3,2)$ and $W(3,4)$ yield $(\operatorname{Tr}(A_{H'}^6))^{1/6}/s \approx 2.7$ (consistent with $O(s^6)$), the theoretical upper bound remains open.
 
-#### Proof of Part 2: Analytical Upper Bound on Internal Blocking $I(f, g) = O(s^{821/160})$
+#### Analysis of Part 2: Internal Blocking $I(f, g)$ and Formal Blockers 2 & 3
 1. $I(f, g)$ counts internal collisions on endpoint-good pairs $(q, r) \notin U$:
    $$x_1 \in f(p) \quad \lor \quad x_2 \in f(p) \quad \lor \quad y_1 \in g(l) \quad \lor \quad y_2 \in g(l).$$
    By path reversal symmetry, it suffices to bound the left internal collision $x_1 \in f(p) = \{u_p, v_p\}$.
@@ -117,38 +116,30 @@ $$B(f, g) = E(f, g) + I(f, g) = o(s^6).$$
    In $W(3,s)$, for every point $p \in P$, the number of nonincident pairs $(q, r)$ whose unique GQ projection point is $p$ is EXACTLY:
    $$|\pi_P^{-1}(p)| = (s+1) \cdot s \cdot s = s^2(s+1) = \Theta(s^3).$$
    All fibers have identically the same size; the projection $\pi_P: (q, r) \mapsto p$ is strictly uniform across $P$.
-3. **Block Degree Bound in $H'$:**
-   In the spectrally pruned graph $H'$, the row-block degree is uniformly bounded by $T \le s^{1/10}$ (equation 3 in [Projection Closure](HYP-105-ISSUE230-PROJECTION-CLOSURE.md)), while the minimum vertex degree satisfies $d_{\min} \ge s^{31/32}$.
-4. **Conditional Hit Probability:**
-   For any starting vertex $v_0 = (x_0, y_0)$, the number of neighbors with first coordinate in $f(p) = \{u_p, v_p\}$ is at most $2 T \le 2 s^{1/10}$. The fraction of neighbors of $v_0$ in $f(p)$ is bounded by:
-   $$\frac{2 T}{d_{\min}} \le \frac{2 s^{1/10}}{s^{31/32}} = 2 s^{-139/160} = O(s^{-0.86875}).$$
-5. **Summing over Paths:**
-   Multiplying by the total proper path count $P \le 16 s^6$:
-   $$I(f, g) \le 16 s^6 \cdot O(s^{-139/160}) = \mathbf{O(s^{6 - 139/160}) = O(s^{821/160}) = O(s^{5.13125}) = o(s^6)}.$$
-   This strictly proves that internal blocking is sub-sextic. (Empirical scaling exponent $\alpha_I = 5.6195 < 6.00$).
-
-#### Conclusion:
-$$B(f, g) = E(f, g) + I(f, g) = O(s^{5.5}) + O(s^{5.13}) = \mathbf{O(s^{5.5}) = o(s^6)}.$$
-$$\lim_{s \to \infty} \frac{B(f, g)}{s^6} = 0.$$
-$\blacksquare$
+3. **Block Degree Bound in $H'$ (FORMAL BLOCKER 2 - RETRACTION OF $T \le s^{1/10}$):**
+   The previous draft claimed $T \le s^{1/10}$. This claim was unproven and is mathematically false: on $W(3,4)$ lex, the maximum row block degree is 5, whereas $4^{1/10} \approx 1.15$.
+   The actual bound rigorously established in [Projection Closure](HYP-105-ISSUE230-PROJECTION-CLOSURE.md) is:
+   $$L = s^{3/4}, \qquad d_{\min} \ge s^{31/32}.$$
+   With the proven parameters $L = s^{3/4}$ and $d_{\min} \ge s^{31/32}$, the conditional fraction of neighbors of $v_0$ with first coordinate in $f(p)$ is bounded by:
+   $$\frac{2 L}{d_{\min}} \le 2 s^{3/4 - 31/32} = 2 s^{-7/32} = O(s^{-0.21875}).$$
+4. **Path Mass and Dependency Gap (FORMAL BLOCKER 3 - RETRACTION OF $P \le 16 s^6$):**
+   The previous draft used $P \le 16 s^6$ to claim $I(f,g) \le 16 s^6 \cdot O(s^{-139/160})$.
+   This step is doubly defective:
+   a. **Lower bound inverted into upper bound:** The stationary entropy theorem establishes a *lower* bound $P \ge (16 - o(1))s^6$. The actual counts are $P = 83,892 > 16 \cdot 4^6 = 65,536$ on $W(3,4)$ and $P = 5,461,066 > 16 \cdot 8^6 = 4,194,304$ on $W(3,8)$.
+   b. **Conditional dependence:** The projection point $p = \pi_P(q,r)$ depends on the endpoint pair $(q,r) = (\pi_f(v_0, v_3), \pi_g(v_0, v_3))$. One cannot simply multiply a marginal step probability $2L/d_{\min}$ by total path mass $P$ without conditioning on the endpoints or bounding the fiber sum $\sum_p |\gamma: x_1 \in f(p), \pi_P(\gamma) = p|$.
+   Conditioned on establishing $W_3(H') = O(s^6)$ and controlling the endpoint conditioning, the honest exponent with $L = s^{3/4}$ would be $6 - 7/32 = 5.78125 < 6$, which remains sub-sextic, but requires a rigorous fiber-wise counting argument.
 
 ---
 
-## 5. Closure of Branch A and Universal Positivity
+## 5. Current Mathematical Status of Branch A and HYP-105
 
-Combining the sub-sextic blocking theorem $B(f, g) = o(s^6)$ with the Master Reduction:
-$$(16 - o(1)) s^6 \le B(f, g) + 2 S(f, g) + \sqrt{192 m S(f, g)}$$
-yields:
-$$(16 - o(1)) s^6 \le 2 S(f, g) + o(s^6) \implies \boxed{S(f, g) \ge (8 - o(1)) s^6 \quad \text{as } s \to \infty}.$$
-
-Together with the finite exact checks:
-- $s = 2$: $S(f, g) \ge 68 \ge \mathbf{1.0625 \cdot s^6}$ (strictly certified by `W32BitmaskEvaluator`);
-- $s = 4$: $S(f, g) \ge BB_{\text{sync}} \ge 7\,532 \ge \mathbf{1.8388 \cdot s^6}$;
-- $s = 8$: $S(f, g) \ge BB_{\text{sync}} \ge 1\,441\,788 \ge \mathbf{5.5000 \cdot s^6}$;
-- $s \to \infty$: $S(f, g) \ge (8 - o(1)) \cdot s^6$.
-
-### Main Theorem (HYP-105 Branch A Resolution)
-For the absolute constant $c_0 = 1.0625 > 0$, for ALL dyadic field extensions $s = 2^h$ ($h \ge 1$), and for ALL globally injective physical pair maps $f, g$:
-$$\boxed{S_s(f, g) \ge c_0 \cdot s^6 > 0}.$$
-Branch B (existence of an infinite sequence with $S_s = o(s^6)$) is **completely refuted**.
-Branch A is **certified and closed**.
+### Summary of Formal Status
+1. **Branch A Universal Pointwise Lower Bound:**
+   $$\text{Status: } \mathbf{OPEN\_WITH\_FORMAL\_BLOCKER}$$
+   The universal statement $\forall s=2^h, \forall f, g: S_s(f, g) \ge \frac{17}{16} s^6$ is an **open conjecture**. It is strongly supported by finite geometry computations at $s=2, 4, 8$ where $BBo/s^6 \ge 1.84$ at $s=4$ and $\ge 5.50$ at $s=8$, but lacks complete analytical proof due to the formal blockers in $\operatorname{Tr}(A_{H'}^6)$ and path upper bounds.
+2. **Branch B Counterfamily:**
+   $$\text{Status: } \mathbf{OPEN\_NOT\_REFUTED}$$
+   Neither has an infinite counterfamily with $S_s = o(s^6)$ been constructed, nor has its existence been algebraically ruled out.
+3. **Finite Geometry Minimums ($W(3,2)$):**
+   $$\text{Status: } \mathbf{CERTIFIED\_GE\_68\_LOCAL}$$
+   $S=68$ is a certified strict 1-swap local minimum for the S68 configuration on $W(3,2)$, with core sum $BA+AB=65$. Global minimality over all $(15!)^2$ pair assignments remains unproven.

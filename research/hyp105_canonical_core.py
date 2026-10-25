@@ -224,43 +224,49 @@ def derandomize_transversal_carrier(V, events, universe_size=None):
 
 
 # -------------------------------------------------------------------------
-# LEMMA 4: Master Path-to-Motif Reduction & Mixed-Book Compensation (PROVED)
+# LEMMA 4: Master Path-to-Motif Reduction & Mixed-Book Compensation (CONDITIONAL)
 # -------------------------------------------------------------------------
 def master_path_motif_reduction(s):
-    """Lemma 4: Rigorous reduction from entropy 3-paths to 7 motif classes.
+    """Lemma 4: Reduction from entropy 3-paths to 7 motif classes.
 
-    (16 - o(1)) s^6 <= B(f, g) + 2 S(f, g) + sqrt(192 m S(f, g)),
+    Lower bound from stationary entropy: P >= (16 - o(1)) s^6.
+    Relation: (16 - o(1)) s^6 <= B(f, g) + 2 S(f, g) + sqrt(192 m S(f, g)),
     where m = 2 V Delta = (2 + o(1)) s^4.
     Incident endpoints are eliminated via Mixed-Book Theorem:
     P_inc >= eta * s^6 ==> D6 >= Omega(eta^2 * s^8) >> Omega(s^6).
+
+    NOTE: (16 - o(1)) s^6 is a LOWER bound on proper paths, NOT an upper bound.
     """
     params = canonical_parameters(s)
     V = params["V"]
     d = params["d"]
     m = 2 * V * d
-    min_proper_paths = 16 * (s ** 6)
+    lower_bound_proper_paths = 16 * (s ** 6)
     return {
         "s": s,
         "m_edges": m,
-        "path_budget_coefficient": 16,
-        "min_proper_paths": min_proper_paths,
+        "path_budget_lower_bound": lower_bound_proper_paths,
         "mixed_book_incident_exponent": 8,
-        "status": "PROVED",
+        "status": "CONDITIONAL_REDUCTION",
     }
 
 
 # -------------------------------------------------------------------------
-# LEMMA 5: Sub-Sextic Anchor Blocking Decoupling (PROVED)
+# LEMMA 5: Sub-Sextic Anchor Blocking Decoupling (OPEN CONJECTURE)
 # -------------------------------------------------------------------------
 def anchor_blocking_scaling(s):
     """Lemma 5: Sub-sextic decay of endpoint and internal anchor blocking.
 
-    1. Endpoint collisions: E(f, g) = O(s^5) = o(s^6) because
-       |U| <= O(s^5) is an O(1/s) fraction of V_noninc, and path congestion
-       on U matches uniform expander density (ratio = 1.03 at s=8).
-    2. Internal collisions: I(f, g) = O(s^(11/2)) = o(s^6) because
-       block degree in H' is bounded by T <= s^(1/10).
-    3. Total blocking: B(f, g) = E + I = O(s^5.37) = o(s^6).
+    FORMAL BLOCKERS under peer review:
+    1. Endpoint collisions: E(f, g) <= 1/2 ||A_H'^3||_F ||A_B||_F.
+       The bound ||A_H'^3||_F = O(s^3) assumes Tr(A_H'^6) = O(s^6), which
+       requires a dedicated spectral transfer proof from W(3,s) to H'
+       (H' is on physical coordinates [a] x [a], not the bipartite incidence graph).
+    2. Internal collisions: The proven block bound in Projection Closure is
+       L = s^(3/4), not s^(1/10). With L = s^(3/4), the conditional step
+       fraction is 2 s^(-7/32), yielding exponent 5.78125 rather than 5.13125.
+    3. Path upper bound: The assumption P <= 16 s^6 is FALSE (actual P = 83,892
+       at s=4 > 65,536; actual P = 5,461,066 at s=8 > 4,194,304).
     """
     params = canonical_parameters(s)
     V = params["V"]
@@ -272,12 +278,17 @@ def anchor_blocking_scaling(s):
         "V_noninc": V_noninc,
         "max_bad_pairs_U": max_bad_pairs,
         "bad_pair_fraction": float(bad_pair_fraction),
-        "asymptotic_order_E": "O(s^5)",
-        "asymptotic_order_I": "O(s^5.5)",
-        "asymptotic_order_B": "o(s^6)",
+        "asymptotic_order_E": "O(s^5.5)_CONJECTURAL",
+        "asymptotic_order_I": "O(s^5.78125)_CONDITIONAL",
+        "asymptotic_order_B": "o(s^6)_CONJECTURAL",
         "empirical_scaling_exponent_B": 5.3712,
         "asymptotic_S_lower_coefficient": 8.0,
-        "status": "PROVED",
+        "status": "OPEN_CONJECTURE",
+        "formal_blockers": [
+            "Tr(A_H'^6) spectral transfer from W(3,s) to H' unproven",
+            "P <= 16 s^6 upper bound is empirically false",
+            "Block bound T <= s^(1/10) unproven; proven L = s^(3/4)",
+        ],
     }
 
 
@@ -317,14 +328,14 @@ def canonical_proof_summary():
             "Lemma1_TransversalCarrier": "PROVED: tau(P6) >= (1 - O(s^-2))s^6 matchings per physical C6",
             "Lemma2_SparseHypergeometricOverlap": "PROVED: P(R<=1) >= 1 - O(s^-3); universal negative covariance REFUTED",
             "Lemma3_SuperRamanujanSpectrum": "PROVED: lambda_2 = sqrt(2s) < 2 sqrt(s); bipartite multiplicities certified",
-            "Lemma4_PathMotifReduction": "PROVED: (16 - o(1))s^6 <= B + 2S + sqrt(192mS); incident compensation >= s^8",
-            "Lemma5_SubSexticAnchorDecoupling": "PROVED: B(f, g) = O(s^5.37) = o(s^6); BB_sync >= (8 - o(1))s^6 as s -> inf",
+            "Lemma4_PathMotifReduction": "CONDITIONAL_REDUCTION: (16 - o(1))s^6 <= B + 2S + sqrt(192mS); incident compensation >= s^8",
+            "Lemma5_SubSexticAnchorDecoupling": "OPEN_CONJECTURE: requires Tr(A_H'^6)=O(s^6) spectral proof and verified path mass bound",
         },
         "Resolution": {
-            "Branch_A_UniversalPointwise": "PROVED_OMEGA_S6: S_s(f, g) >= c_0 * s^6, c_0 = 1.0625",
+            "Branch_A_UniversalPointwise": "OPEN_WITH_FORMAL_BLOCKER: Anchor decoupling has unproven Tr(A_H'^6) bound and invalid path upper bound",
             "Branch_A_ConstructiveCarrier": "PROVED_EXISTENTIAL_OMEGA_S6: S(f, g*) >= 140 s^6",
-            "Branch_B_Counterfamily": "REFUTED: S_s = o(s^6) algebraically and asymptotically impossible",
-            "W32_GlobalMinimum": "CERTIFIED_GE_68 (Strict local minimum S68, core >= 65)",
-            "Overall_Status": "HYP105_BRANCH_A_CERTIFIED_PROVED",
+            "Branch_B_Counterfamily": "OPEN_NOT_REFUTED: asymptotic o(s^6) family neither constructed nor rigorously ruled out",
+            "W32_LocalMinimum": "CERTIFIED_GE_68_LOCAL (Strict 1-swap local minimum S68, core >= 65; global minimum unproven)",
+            "Overall_Status": "OPEN_WITH_FORMAL_BLOCKER",
         },
     }

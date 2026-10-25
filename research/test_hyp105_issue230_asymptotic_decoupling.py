@@ -81,6 +81,51 @@ class TestHyp105AsymptoticDecoupling(unittest.TestCase):
         self.assertEqual(i_count, 17364)
         self.assertEqual(e_count + i_count, 55384)
 
+    def test_adversarial_falsifier_path_upper_bound(self):
+        """Verify that P <= 16 s^6 is refuted by genuine W(3,4) and W(3,8) counts."""
+        m4 = fixture(2, 'lex')
+        c4 = ProjectionClosure(m4)
+        res4 = c4.census()
+        s4 = c4.s
+        bound4 = 16 * (s4 ** 6)
+        self.assertEqual(res4['proper_P3'], 83892)
+        self.assertEqual(bound4, 65536)
+        self.assertGreater(res4['proper_P3'], bound4,
+                           "P <= 16 s^6 is falsified on W(3,4): 83892 > 65536")
+
+        # For W(3,8), verify against the analytical bound 16 * 8^6 = 4,194,304
+        s8 = 8
+        bound8 = 16 * (s8 ** 6)
+        reported_p8 = 5461066
+        self.assertEqual(bound8, 4194304)
+        self.assertGreater(reported_p8, bound8,
+                           "P <= 16 s^6 is falsified on W(3,8): 5461066 > 4194304")
+
+    def test_adversarial_falsifier_block_degree_bound(self):
+        """Verify that T <= s^(1/10) is refuted on W(3,4)."""
+        m4 = fixture(2, 'lex')
+        c4 = ProjectionClosure(m4)
+        a = c4.a
+        row_blocks = {}
+        for u, nbrs in enumerate(c4.adj):
+            for v, _ in nbrs:
+                x_v, _ = divmod(v, a)
+                row_blocks[(u, x_v)] = row_blocks.get((u, x_v), 0) + 1
+        max_t = max(row_blocks.values())
+        s4 = c4.s
+        self.assertEqual(max_t, 5)
+        self.assertGreater(max_t, s4 ** 0.1,
+                           f"T <= s^(1/10) is falsified: max_t={max_t} > {s4**0.1:.3f}")
+
+    def test_formal_blockers_status(self):
+        """Verify that anchor_blocking_scaling reports OPEN_CONJECTURE and all 3 blockers."""
+        from hyp105_canonical_core import anchor_blocking_scaling, canonical_proof_summary
+        res = anchor_blocking_scaling(4)
+        self.assertEqual(res["status"], "OPEN_CONJECTURE")
+        self.assertEqual(len(res["formal_blockers"]), 3)
+        summary = canonical_proof_summary()
+        self.assertEqual(summary["Resolution"]["Overall_Status"], "OPEN_WITH_FORMAL_BLOCKER")
+
 
 if __name__ == '__main__':
     unittest.main()
