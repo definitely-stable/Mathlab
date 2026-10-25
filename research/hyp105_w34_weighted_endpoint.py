@@ -97,6 +97,7 @@ def weighted_endpoint_profile(f, g, *, verify_join=True):
     line_of_pair = {frozenset(pair): k for k, pair in enumerate(g)}
     multiplicities = Counter()
     total_proper = missing = incident = 0
+    good_internal_blocked = 0
 
     # Method A: genuine source flag -> physical adjacency list -> 3-walk.
     for vertex0, neighbors in adjacency.items():
@@ -118,6 +119,18 @@ def weighted_endpoint_profile(f, g, *, verify_join=True):
                         incident += 1
                     else:
                         multiplicities[q, r] += 1
+                        # An unblocked walk cannot lie on a bad endpoint
+                        # pair. However good pairs can lose walks through
+                        # intermediate x/y coordinate collisions.
+                        if not any(bad[q, r]):
+                            p, l0 = projection[q, r]
+                            xcoords = {vertex0[0], vertex1[0],
+                                       vertex2[0], vertex3[0]}
+                            ycoords = {vertex0[1], vertex1[1],
+                                       vertex2[1], vertex3[1]}
+                            if (not xcoords.isdisjoint(f[p]) or
+                                    not ycoords.isdisjoint(g[l0])):
+                                good_internal_blocked += 1
 
     # Method B: per-(q,r) 4-corner adjacency-multigraph join contraction.
     if verify_join:
@@ -157,6 +170,15 @@ def weighted_endpoint_profile(f, g, *, verify_join=True):
     u, b, p, m = (result["source_nonincident_pairs"],
                    result["bad_pairs"], result["path_mass"],
                    result["bad_path_mass"])
+    # Exact projected-BBo identity for any fixed full map:
+    # 2 BBo_proj = P - M_bad - blocked_good.
+    # This is NOT an accepted historical six-original-flag GF(5) count.
+    projected_unblocked = p - m - good_internal_blocked
+    if projected_unblocked < 0 or projected_unblocked % 2:
+        raise AssertionError("proper projected unblocked paths must reverse-pair")
+    result["good_internal_blocked_path_mass"] = good_internal_blocked
+    result["projected_unblocked_path_mass"] = projected_unblocked
+    result["projected_synchronized_BBo"] = projected_unblocked // 2
     result["weighted_minus_unweighted_fraction"] = Fraction(m, p) - Fraction(b, u)
     result["covariance_indicator_N3"] = Fraction(m*u - b*p, u*u)
     result["bad_to_total_path_ratio"] = Fraction(m, p)

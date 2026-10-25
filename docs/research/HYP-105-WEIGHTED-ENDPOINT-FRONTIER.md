@@ -52,6 +52,19 @@ M_B\le P_{\mathrm{blocked}}.
 
 The converse is false: good-endpoint pairs can still have blocked physical walks because their intermediate physical coordinates collide with the projected source point or line.
 
+Let \\(I_G\\) be the exact number of such internally blocked **directed proper paths** on good endpoints. Reversing a coordinate-distinct physical directed path preserves the projection and blocked/unblocked status and has no fixed points. Thus the exact **projected physical B/B-overlap surrogate** satisfies the stronger deterministic identity
+
+\\[
+2\\,\\mathrm{BBo}_{\\mathrm{proj}}=P-M_B-I_G.
+\\]
+
+This is all-h for the specified projection model, NOT an identification with the historical accepted six-*original-incidence*-flag GF(5) class. In the finite W(3,4) witness:
+\\[
+2\\cdot5261=58730-35616-12592=10522.
+\\]
+
+The separate **good-endpoint internal blocking** term \\(I_G\\) is therefore another indispensable P0 obstacle: even if \\(M_B=o(s^6)\\), a universal bound for \\(I_G\\) or a cross-class GF(5) compensation argument is needed.
+
 ## 3. Exact independently indexed W(3,4) witness
 
 At the explicit `research/hyp105_w34_adversarial_certificate.json` mapping:

@@ -32,6 +32,12 @@ class TestWeightedEndpointProfile(unittest.TestCase):
         self.assertEqual((p["proper_P3"], p["missing"], p["incident"]),
                          (70476, 8306, 3440))
         self.assertEqual(p["path_mass"], 58730)
+        self.assertEqual(p["good_internal_blocked_path_mass"], 12592)
+        self.assertEqual(p["projected_unblocked_path_mass"], 10522)
+        self.assertEqual(p["projected_synchronized_BBo"], 5261)
+        self.assertEqual(2*p["projected_synchronized_BBo"],
+                         p["path_mass"]-p["bad_path_mass"]
+                         -p["good_internal_blocked_path_mass"])
         self.assertEqual(p["N3_sum_squares"], 676700)
         self.assertEqual((p["bad_N3_sum_squares"], p["good_N3_sum_squares"]),
                          (415704, 260996))
@@ -50,6 +56,11 @@ class TestWeightedEndpointProfile(unittest.TestCase):
                          exact_census["blocked"] + exact_census["unblocked"])
         self.assertLessEqual(p["bad_path_mass"], exact_census["blocked"])
         self.assertEqual(exact_census["blocked"] - p["bad_path_mass"], 12592)
+        self.assertEqual(exact_census["blocked"],
+                         p["bad_path_mass"] +
+                         p["good_internal_blocked_path_mass"])
+        self.assertEqual(exact_census["synchronized_BBo"],
+                         p["projected_synchronized_BBo"])
         self.assertEqual(exact_census["unblocked"], 10522)
 
     def test_independent_physical_coordinate_relabeling(self):
