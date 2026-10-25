@@ -17,7 +17,7 @@ This monograph provides a clean, self-contained presentation of the proved combi
    with variation bounded by $O(a^2) = O(s^3)$.
 2. **Collinear Pencil Compression:** By $C_4$-freeness of $W(3,s)$ (girth 8), any two points share at most one line. Thus:
    $$\sum_{l \in L} \binom{v_l(u)}{2} \le \binom{d_u}{2} \implies \sum_{u=0}^{a-1} \sum_{l \in L} \binom{v_l(u)}{2} \le (\sqrt{2} + o(1)) s^{9/2}.$$
-3. **Bad Endpoint Pair Ratio:** Over total non-incident pairs $V_{\text{noninc}} = V s^2 (s + 1)$, the fraction of pairs sharing an exterior coordinate is bounded by:
+3. **Typed Bad Endpoint Pair Ratio:** Over genuinely nonincident source (POINT, LINE) pairs $V_{\text{noninc}} = V s^2 (s + 1)$, the fraction of pairs sharing an exterior coordinate is bounded by:
    $$\rho_E \le \frac{4(a - 2)}{s(s + 1)} = O(s^{-1/2}).$$
 4. **Certified Refutation of Candidate Floor $5768$:** The candidate lower bound $\mathrm{BBo} \ge 8 c_0(4) 4^6 = 5768$ (asserted with $c_0(4) = 0.176$) is refuted by the certified adversarial configuration reaching $\mathrm{BBo} = 5,261 \le 5,400 < 5,768$ (deficit $\ge 368$ motifs).
 
@@ -52,12 +52,21 @@ $$\sum_{l \in L} \binom{v_l(u)}{2} \le \binom{d_u}{2}.$$
 Summing over all coordinates $u \in [a]$:
 $$\boxed{\sum_{u=0}^{a-1} \sum_{l \in L} \binom{v_l(u)}{2} \le \sum_{u=0}^{a-1} \binom{d_u}{2} \le (\sqrt{2} + o(1)) s^{9/2}.}$$
 
-### Theorem 3 (Bad Endpoint Pair Ratio Bound)
-A non-incident point pair $(q, r)$ is left-bad if there exists a line $l \ni q$ and $q' \in l$ such that $f(q') \cap f(r) \neq \emptyset$.
-The total number of bad non-incident endpoint pairs is bounded by:
-$$|E_{\text{bad}}| \le 4s V (a - 2).$$
-Over total non-incident pairs $V_{\text{noninc}} = V s^2 (s + 1)$:
-$$\rho_E = \frac{|E_{\text{bad}}|}{V_{\text{noninc}}} \le \frac{4(a - 2)}{s(s + 1)} = O(s^{-1/2}).$$
+### Theorem 3 (Unweighted TYPED Source Bad Endpoint Bound)
+For every genuinely original **POINT** $q$ and **LINE** $r$ that are nonincident,
+the unique source 3-edge path is $q-l_0-p-r$. Define left-bad by
+$f(q)\cap f(p)\ne\varnothing$, right-bad by
+$g(l_0)\cap g(r)\ne\varnothing$. For fixed $q$,
+at most $2(a-2)$ other source POINT images overlap $f(q)$.
+Each collinear $p$ has exactly $s$ eligible nonincident lines $r$
+whose unique original projection goes through $p$. Therefore
+$|E_L|\le 2Vs(a-2)$, and by duality $|E_R|\le 2Vs(a-2)$.
+A union bound, with no independence assumption, gives
+$$|E_L\cup E_R|\le 4Vs(a-2),\qquad
+\rho_E\le\frac{4(a-2)}{s(s+1)}=O(s^{-1/2}).$$
+
+**Scope:** these are *unweighted original typed point/line endpoints*,
+not physical 3-walks and not GF(5)-accepted six-original-incidence motifs.
 
 ---
 
@@ -67,12 +76,12 @@ In previous iterations, it was conjectured that:
 $$\operatorname{BBo}(f, g) \ge 8 c_0(s) s^6.$$
 For $s=4$, using $c_0(4) = 0.176$, this asserted $\operatorname{BBo} \ge \lceil 8 \cdot 0.176 \cdot 4096 \rceil = 5768$.
 
-### Certified Numerical Refutation:
+### Explicit Finite Witness and Reproducible Numerical Refutation:
 Using simulated annealing on $W(3,4)$, an explicit global labeling $(f^*, g^*)$ was found with:
 $$\operatorname{BBo}(f^*, g^*) = \mathbf{5,261 \le 5,400 < 5,768.}$$
-- **Full Certificate:** Saved in [`research/hyp105_w34_adversarial_certificate.json`](file:///c:/Reposit/math%20lab/research/hyp105_w34_adversarial_certificate.json).
-- **Independent Verification:** Tested in [`research/test_hyp105_w34_adversarial_certificate.py`](file:///c:/Reposit/math%20lab/research/test_hyp105_w34_adversarial_certificate.py) using raw $W(3,4)$ symplectic incidences.
-- **Deficit:** At least 368 motifs below the candidate floor (507 motifs below for quench).
+- **Full Certificate:** [JSON physical maps](../../research/hyp105_w34_adversarial_certificate.json).
+- **Independent Verification:** [independent oracle](../../research/hyp105_w34_independent_oracle.py) enumerates original GF(4) flags, physical 3-walks and unique source projections without optimizer/certificate count reuse. [Regression tests](../../research/test_hyp105_w34_adversarial_certificate.py) compare every integer census field.
+- **Deficit:** 507 motifs for the explicit witness; this is NOT a proven global minimum.
 
 ### Root Cause: Conflation of Path Spaces
 The candidate lower bound conflated different path universes:
@@ -95,9 +104,15 @@ The following three formal blockers prevent concluding $B(f, g) = o(s^6)$ or $\o
    The total bad path mass is:
    $$|E(f, g)| = \sum_{(q, r) \in E_{\text{bad}}} N_3(q, r).$$
    Physical 3-walk multiplicity $N_3(u, v)$ between physical vertices varies widely (reaching 18 on $W(3,4)$, max 57).
-   By Cauchy-Schwarz:
-   $$\sum_{(q, r) \in E_{\text{bad}}} N_3(q, r) \le |E_{\text{bad}}|^{1/2} \left(\sum N_3^2\right)^{1/2} = O(s^{5.5/2}) \cdot \Omega(s^{7/2}) = \mathbf{O(s^{6.25})} \gg O(s^6).$$
-   Bounding $|E(f, g)| = o(s^6)$ requires a non-trivial bound on the weighted second moment of $N_3$ restricted to $E_{\text{bad}}$, which remains open.
+   Cauchy–Schwarz states
+   $$\sum_{E_{\mathrm{bad}}}N_3\le |E_{\mathrm{bad}}|^{1/2}(\sum N_3^2)^{1/2}.$$
+   The former argument incorrectly derived an upper bound from
+   $\sum N_3^2=\Omega(s^7)$. That is **invalid**: a lower moment
+   bound cannot upper-bound the right-hand side. Even assuming a
+   separately established $O(s^7)$ upper second moment (not proved here),
+   the union bound $|E_{\mathrm{bad}}|=O(s^{11/2})$ only yields
+   $O(s^{25/4})$, too weak for $o(s^6)$.
+   This weighted path-multiplicity transfer is OPEN.
 
 2. **P0 — Conditioned Layer Density:**
    Internal collisions occur along intermediate steps of 3-walks. Bounding $I(f, g) = o(s^6)$ requires controlling coordinate collisions conditioned on projection layers $\mathcal{F}(p)$. The global spectral gap of $W(3,s)$ does not govern this conditional distribution.
@@ -131,3 +146,12 @@ The following three formal blockers prevent concluding $B(f, g) = o(s^6)$ or $\o
   ]
 }
 ```
+
+
+## 6. Proof-quality remediation (25 Oct 2026)
+
+- Exact minimal-alphabet parameter arithmetic now uses `math.isqrt` for every dyadic exponent, including $h=1024$, rather than float square root.
+- The witness $BBo=5261$ is independently reconstructed from the explicit $(f,g)$ physical edges and true immutable original symplectic incidence flags; it is NOT an optimization lower bound.
+- Typed endpoint bad-pair bounds cannot be promoted to path-weighted risk without an independent multiplicity/correlation estimate.
+- The earlier purported $O(s^{25/4})$ bound derived from an `Omega(s^7)` second-moment statement is withdrawn as invalid.
+- Root issue #230 remains OPEN_WITH_FORMAL_BLOCKER; no result on all-seven GF(5) original sixflag (S_s) or R3/ASET exponents.

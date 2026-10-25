@@ -26,18 +26,22 @@ Key Mathematical Theorems (PROVED):
    Summing over all coordinates u:
      sum_{u=0}^{a-1} sum_{l in L} binom(v_l(u), 2) <= sum_{u=0}^{a-1} binom(d_u, 2) <= (sqrt(2) + o(1)) s^{9/2}.
 
-3. Bad Endpoint Pair Fraction:
-   Over total non-incident pairs V_noninc = V s^2 (s + 1), the fraction of endpoint pairs
-   that share a coordinate is bounded by:
+3. TYPED Bad Endpoint Pair Fraction:
+   For each nonincident source POINT q and LINE r, its unique
+   GQ source 3-path is q--l0--p--r. Mark pair left-bad iff
+   f(q) meets f(p), right-bad iff g(l0) meets g(r).
+   The UNWEIGHTED bad fraction of V s^2(s+1) typed pairs obeys:
      rho_E <= 4(a - 2) / (s(s + 1)) = O(s^{-1/2}).
 
 Formal Blockers Preventing Universal Sextic Floor (OPEN_WITH_FORMAL_BLOCKER):
 1. Path Multiplicity Barrier on E_bad (P0):
    rho_E bounds the fraction of bad endpoint pairs, NOT the measure on physical 3-paths.
    The number of bad paths is sum_{(q,r) in E_bad} N_3(q, r).
-   Because physical 3-walk multiplicity N_3 varies widely (reaching 18 on W(3,4), max 57),
-   bounding this sum requires controlling the second moment sum N_3^2 >= Omega(s^7),
-   which yields only O(s^{6.25}) >> O(s^6) via Cauchy-Schwarz.
+   Physical path multiplicities may correlate with bad pairs.
+   A LOWER bound on sum N_3^2 cannot give an UPPER Cauchy-Schwarz
+   estimate. Even a separately proved O(s^7) second moment would
+   give only O(s^(25/4)) using |E_bad|=O(s^(11/2)):
+   insufficient to imply o(s^6).
 2. Conditioned Layer Density for Internal Collisions (P0):
    Spectral mixing of W(3,s) does not control physical coordinate assignments conditioned
    on projection layers F(p).
@@ -59,12 +63,15 @@ def canonical_gq_parameters(s: int) -> Dict[str, Any]:
         raise ValueError("s must be an integer power of 2 >= 2")
     V = (s + 1) * (s * s + 1)
     d = s + 1
-    a = math.ceil((1 + math.sqrt(1 + 8 * V)) / 2)
+    # Integer-exact for arbitrarily large s=2^h; float sqrt is unsafe.
+    a = (1 + math.isqrt(1 + 8 * V)) // 2
     while a * (a - 1) // 2 < V:
         a += 1
+    while (a - 1) * (a - 2) // 2 >= V:
+        a -= 1
     K = a * (a - 1) // 2
     m = K - V
-    d_bar = 2 * V / a
+    d_bar = Fraction(2 * V, a)  # exact large-h value
     V_noninc = V * (V - s - 1)
     s6 = s ** 6
     return {
@@ -85,15 +92,20 @@ def extremal_degree_collision_bound(s: int) -> Dict[str, Any]:
     p = canonical_gq_parameters(s)
     V, a, s_val, m = p["V"], p["a"], p["s"], p["m"]
 
-    # Maximum sum d_u(d_u - 1) under sum d_u = 2V, 0 <= d_u <= a-1
+    # Valid for all injected simple-edge graphs: max d_u <= a-1.
     max_d_sum = 2 * V * (a - 2)
 
     # Base degree pair sum binom(d_u, 2)
     base_pair_sum = (a * (a - 1) * (a - 2) - 2 * (2 * a - 3) * m) // 2
     max_pair_sum = base_pair_sum + (m * m + m) // 2
 
-    # Ratio over total nonincident pairs V_noninc = V * s^2 * (s + 1)
-    # theoretical_bad_ratio <= 4(a - 2) / (s(s + 1))
+    # Count typed (POINT q, LINE r) NONINCIDENT source pairs.
+    # The unique original GQ path is q--l0--p--r. For each q,
+    # at most 2(a-2) distinct physically overlapping p exist;
+    # each collinear p projects to exactly s eligible lines r.
+    # The dual argument handles right-bad pairs. Union bound:
+    # |E_bad| <= 4 V s (a-2). This does NOT bound physical
+    # path multiplicity weighted over E_bad.
     theoretical_bad_ratio = Fraction(4 * (a - 2), s_val * (s_val + 1))
 
     return {
@@ -101,6 +113,7 @@ def extremal_degree_collision_bound(s: int) -> Dict[str, Any]:
         "V": V,
         "a": a,
         "m": m,
+        "max_bad_typed_endpoints": 4 * s_val * V * (a - 2),
         "max_d_sum": max_d_sum,
         "base_pair_sum": base_pair_sum,
         "max_pair_sum": max_pair_sum,
@@ -136,7 +149,7 @@ def formal_resolution_status() -> Dict[str, Any]:
         "hypothesis": 105,
         "issue": 230,
         "status": "OPEN_WITH_FORMAL_BLOCKER",
-        "branch_a": "OPEN_WITH_FORMAL_BLOCKER (Path multiplicity barrier Omega(s^7))",
+        "branch_a": "OPEN_WITH_FORMAL_BLOCKER (uncontrolled weighted bad-path multiplicities)",
         "branch_b": "OPEN_NOT_REFUTED (Asymptotic o(s^6) family unproved)",
         "certified_counterexample_w34": {
             "bbo": 5261,
@@ -145,7 +158,7 @@ def formal_resolution_status() -> Dict[str, Any]:
             "deficit": 5768 - 5261,
         },
         "formal_blockers": [
-            "Path multiplicity barrier: sum_{E_bad} N_3(q, r) uncontrolled due to second moment Omega(s^7)",
+            "Path multiplicity barrier: no upper bound on bad-pair-weighted N_3; a lower moment cannot provide one",
             "Conditioned layer density: internal blocking in fibers F(p) lacks universal bound",
             "Small-s theoretical ratio: 4(a-2)/(s(s+1)) > 1 for all s <= 31",
         ],

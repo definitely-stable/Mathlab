@@ -74,6 +74,35 @@ class TestExtremalCoordinateInvariants(unittest.TestCase):
         self.assertIn("P_noninc", u4["universes"])
         self.assertIn("P_unblocked", u4["universes"])
 
+
+    def test_exact_large_h_alphabet(self):
+        """Minimal K_a uses integer arithmetic, including s=2**1024."""
+        from fractions import Fraction
+        for h in (1, 2, 4, 16, 36, 80, 1024):
+            p = canonical_gq_parameters(1 << h)
+            v, a = p["V"], p["a"]
+            self.assertLess((a-1)*(a-2)//2, v)
+            self.assertGreaterEqual(a*(a-1)//2, v)
+            self.assertEqual(p["m"], a*(a-1)//2-v)
+            self.assertLessEqual(p["m"], a-2)
+            self.assertEqual(p["d_bar"], Fraction(2*v, a))
+
+    def test_missing_edge_star_degree_identity(self):
+        """Test exact identity on a realizable (not arbitrary) K_a labeling."""
+        from itertools import combinations
+        for s in (2, 4, 8):
+            p = canonical_gq_parameters(s)
+            a, m = p["a"], p["m"]
+            missing = {(0, k) for k in range(1, m+1)}
+            edges = [e for e in combinations(range(a), 2) if e not in missing]
+            degrees = [sum(u in e for e in edges) for u in range(a)]
+            defect = [a-1-d for d in degrees]
+            actual = sum(d*(d-1)//2 for d in degrees)
+            predicted = a*(a-1)*(a-2)//2-(2*a-3)*m+sum(z*z for z in defect)//2
+            self.assertEqual(len(edges), p["V"])
+            self.assertEqual(actual, predicted)
+            self.assertLessEqual(actual, extremal_degree_collision_bound(s)["max_pair_sum"])
+
     def test_formal_resolution_status(self):
         """Verify fail-closed governance and certified counterexample reporting."""
         status = formal_resolution_status()

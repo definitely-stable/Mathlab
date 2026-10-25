@@ -1,102 +1,72 @@
-"""Test for HYP-105 Issue #230: W(3,4) Adversarial Certificate Verification and Refutation.
-
-Verifies:
-1. The explicit adversarial labeling (f, g) saved in hyp105_w34_adversarial_certificate.json
-   is valid and injective into binom([14], 2).
-2. The certified census values:
-   proper_P3, missing, incident, blocked, unblocked, and synchronized_BBo.
-3. Direct numerical refutation of candidate lower bound:
-   BBo(f, g) = 5261 <= 5400 < 5768 = ceil(8 * c_0(4) * 4^6),
-   conclusively refuting the candidate lower bound formula BBo >= 8 c_0 s^6 for c_0(4) = 0.176.
-"""
+"""True-original, optimizer-independent W(3,4) adversarial certificate tests."""
 import json
 import os
 import unittest
+from fractions import Fraction
 
-from hyp105_b1_symplectic import symplectic_gq
+from hyp105_w34_independent_oracle import (
+    independent_w34_census, independent_bad_endpoint_census,
+)
 
 
 class TestW34AdversarialCertificate(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cert_path = os.path.join(
-            os.path.dirname(__file__), "hyp105_w34_adversarial_certificate.json"
-        )
-        if not os.path.exists(cert_path):
-            raise unittest.SkipTest(f"Certificate file not found: {cert_path}")
+        with open(os.path.join(os.path.dirname(__file__),
+                               "hyp105_w34_adversarial_certificate.json"),
+                  encoding="utf-8") as stream:
+            cls.cert = json.load(stream)
 
-        with open(cert_path, "r", encoding="utf-8") as f:
-            cls.cert = json.load(f)
+    def test_valid_typed_images_and_exact_graph(self):
+        c = self.cert
+        self.assertEqual((c["s"], c["a"], c["V"]), (4, 14, 85))
+        for images in (c["f"], c["g"]):
+            self.assertEqual(len(images), 85)
+            self.assertEqual(len({tuple(x) for x in images}), 85)
+            self.assertTrue(all(0 <= x < y < 14 for x, y in images))
 
-        _, cls.points, cls.lines, cls.incidences = symplectic_gq(2)
+    def test_independent_original_incidence_recount(self):
+        """Recount ALL integer census fields, never trusting JSON as oracle."""
+        c = self.cert
+        actual = independent_w34_census(c["f"], c["g"])
+        expected = c["final_census"]
+        for key, value in actual.items():
+            with self.subTest(key=key):
+                self.assertEqual(value, expected[key])
+        self.assertEqual(actual["unblocked"], 10522)
+        self.assertEqual(actual["synchronized_BBo"], 5261)
+        self.assertEqual(c["final_bbo"], actual["synchronized_BBo"])
 
-    def test_certificate_structure_and_injectivity(self):
-        """Verify that f and g are valid injective mappings of 85 points and lines into K_14."""
-        cert = self.cert
-        self.assertEqual(cert["s"], 4)
-        self.assertEqual(cert["a"], 14)
-        self.assertEqual(cert["V"], 85)
+    def test_certificate_is_not_a_self_consistency_only_check(self):
+        c = self.cert
+        actual = independent_w34_census(c["f"], c["g"])
+        tampered = dict(c["final_census"], unblocked=10520,
+                        synchronized_BBo=5260)
+        # An internally consistent but forged figure is NOT evidence.
+        self.assertNotEqual(actual["unblocked"], tampered["unblocked"])
+        self.assertNotEqual(actual["synchronized_BBo"],
+                            tampered["synchronized_BBo"])
+        corrupted = list(map(list, c["f"]))
+        corrupted[0] = corrupted[1]
+        with self.assertRaises(ValueError):
+            independent_w34_census(corrupted, c["g"])
 
-        f = [tuple(p) for p in cert["f"]]
-        g = [tuple(p) for p in cert["g"]]
+    def test_candidate_finite_floor_refuted_with_exact_rational(self):
+        actual = independent_w34_census(self.cert["f"], self.cert["g"])
+        floor = (8 * Fraction(22, 125) * 4**6)
+        ceiling = -(-floor.numerator // floor.denominator)
+        self.assertEqual(ceiling, 5768)
+        self.assertEqual(actual["synchronized_BBo"], 5261)
+        self.assertLess(actual["synchronized_BBo"], ceiling)
 
-        self.assertEqual(len(f), 85)
-        self.assertEqual(len(g), 85)
-
-        # All pairs in [14] with u < v
-        for u, v in f:
-            self.assertLess(u, v)
-            self.assertGreaterEqual(u, 0)
-            self.assertLess(v, 14)
-
-        for u, v in g:
-            self.assertLess(u, v)
-            self.assertGreaterEqual(u, 0)
-            self.assertLess(v, 14)
-
-        # Injectivity
-        self.assertEqual(len(set(f)), 85, "Point map f must be injective")
-        self.assertEqual(len(set(g)), 85, "Line map g must be injective")
-
-    def test_certificate_census_consistency(self):
-        """Verify internal consistency of certified census categories."""
-        census = self.cert["final_census"]
-        proper_p3 = census["proper_P3"]
-        missing = census["missing"]
-        incident = census["incident"]
-        blocked = census["blocked"]
-        unblocked = census["unblocked"]
-        bbo = census["synchronized_BBo"]
-
-        # Census identity: non-incident valid paths = blocked + unblocked
-        valid_paths = proper_p3 - missing - incident
-        self.assertEqual(valid_paths, blocked + unblocked)
-        self.assertEqual(bbo, unblocked // 2)
-        self.assertEqual(self.cert["final_bbo"], bbo)
-        self.assertLessEqual(bbo, 5400)
-
-    def test_refutation_of_candidate_lower_bound_5768(self):
-        """Conclusively verify the contradiction identified by the peer reviewer:
-
-        Candidate bound asserted:
-          c_0(4) = 0.176 ==> BBo(f, g) >= ceil(8 * 0.176 * 4^6) = 5768.
-        Actual certified adversarial minimum:
-          BBo(f, g) = 5261 <= 5400.
-        Deficit: at least 368 motifs below the candidate bound!
-        """
-        actual_bbo = self.cert["final_bbo"]
-        c0_candidate = 0.176
-        claimed_floor = int(8.0 * c0_candidate * (4 ** 6)) + 1  # 5768
-
-        self.assertLessEqual(actual_bbo, 5400)
-        self.assertEqual(claimed_floor, 5768)
-        self.assertLess(
-            actual_bbo,
-            claimed_floor,
-            f"Actual BBo={actual_bbo} must strictly refute the candidate floor {claimed_floor}",
-        )
-        deficit = claimed_floor - actual_bbo
-        self.assertGreaterEqual(deficit, 368)
+    def test_typed_bad_endpoint_bound_and_partition(self):
+        c = self.cert
+        t = independent_bad_endpoint_census(c["f"], c["g"])
+        self.assertEqual(t["nonincident"], 85 * 4**2 * 5)
+        self.assertEqual(t["union"], t["left"] + t["right"] - t["both"])
+        self.assertLessEqual(t["union"], 4 * (14-2) * 85 * 4)
+        self.assertLessEqual(t["union"], t["nonincident"])
+        self.assertGreaterEqual(t["both"], 0)
 
 
 if __name__ == "__main__":
