@@ -163,19 +163,18 @@ class TestEndEnergyTailDifference(unittest.TestCase):
                     self.assertEqual(len(reached), 6)
                     ids = tuple(sorted(flag_id[flag]
                                        for flag in original_six))
-                    # The historical finite GF5 helper assumes a LOCAL
-                    # six-symbol palette (indices 0..5). The full legal
-                    # K14 injection is NOT to be modified: normalize only
-                    # these six source columns into the canonical K6
-                    # coordinate names before applying that helper.
-                    local = {coord: i for i, coord in enumerate(
-                        (*hubs, *frees))}
-                    local_f, local_g = list(f), list(g)
-                    for p, l in original_six:
-                        local_f[p] = tuple(sorted(local[x] for x in f[p]))
-                        local_g[l] = tuple(sorted(local[x] for x in g[l]))
+                    # Direct K14 global labels: the seven-family
+                    # classifier must NOT assume the W(3,2) K6 palette.
                     self.assertEqual(classify_seven_prechecked(
-                        ids, local_f, local_g, flags), "D6")
+                        ids, f, g, flags), "D6")
+                    # Source sixsets and accepted D6 are invariant
+                    # under independent full-alphabet permutations.
+                    fp = [tuple(sorted(((3*u+1)%14, (3*v+1)%14)))
+                          for u,v in f]
+                    gp = [tuple(sorted(((5*u+2)%14, (5*v+2)%14)))
+                          for u,v in g]
+                    self.assertEqual(classify_seven_prechecked(
+                        ids, fp, gp, flags), "D6")
                     self.assertNotIn(ids, sixsets)
                     sixsets.add(ids)
         self.assertEqual(len(sixsets), 96)
