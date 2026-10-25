@@ -8,6 +8,9 @@ on:
       - 'research/test_hyp105_w34_weighted_endpoint.py'
       - 'research/hyp105_weighted_variance_transfer.py'
       - 'research/test_hyp105_weighted_variance_transfer.py'
+      - 'research/hyp105_physical_degree_energy.py'
+      - 'research/test_hyp105_physical_degree_energy.py'
+      - 'docs/research/HYP-105-PHYSICAL-DEGREE-ENERGY.md'
       - 'research/test_hyp105_w34_adversarial_certificate.py'
       - 'docs/research/HYP-105-WEIGHTED-ENDPOINT-FRONTIER.md'
       - 'docs/research/HYP-105-WEIGHTED-VARIANCE-TRANSFER.md'
@@ -30,6 +33,7 @@ jobs:
         run: |
           python -m unittest discover -s research -p 'test_hyp105_w34_weighted_endpoint.py' -v
           python -m unittest discover -s research -p 'test_hyp105_weighted_variance_transfer.py' -v
+          python -m unittest discover -s research -p 'test_hyp105_physical_degree_energy.py' -v
           python -m unittest discover -s research -p 'test_hyp105_w34_adversarial_certificate.py' -v
       - name: Exact dyadic algebra and formal fail-closed gate
         run: |
