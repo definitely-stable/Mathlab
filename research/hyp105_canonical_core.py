@@ -255,19 +255,22 @@ def master_path_motif_reduction(s):
 # LEMMA 5: Sub-Sextic Anchor Blocking Decoupling (OPEN CONJECTURE)
 # -------------------------------------------------------------------------
 def anchor_blocking_scaling(s):
-    """Lemma 5: Sub-sextic decay of endpoint and internal anchor blocking.
+    """Lemma 5: Sub-sextic decay of endpoint and internal anchor blocking (OPEN CONJECTURE).
 
-    Analytical status and derivations:
-    1. Total Path Mass: P <= NB_3(H') <= (25.18 + o(1)) s^6 = O(s^6), proved via
-       GQ partial linearity and degree moments (empirical: NB_3/s^6 drops 62 -> 33 -> 25).
-    2. Endpoint collisions: E(f, g) <= 1/2 ||A_H'^3||_F ||A_B||_F <= O(s^5.5).
-       The bound ||A_H'^3||_F = O(s^3) is established via pair decomposition:
-       Tr(A_H'^6) = sum (N_3)^2 <= 4 n^2 + |U| * O(s) = O(s^6), where N_3 <= 2
-       on generic pairs by uniqueness of GQ projection paths q ~ l ~ p ~ r.
-    3. Internal collisions: I(f, g) = sum_{p in P} I(p) = O(s^5.78125) via fiber-wise
-       summation over |F(p)| = s^2(s+1) with proven block bound L = s^(3/4) and
-       minimum degree d_min >= s^(31/32).
-    4. Total blocking: B(f, g) = E + I = O(s^5.78125) = o(s^6).
+    Analytical status and formal blockers:
+    1. Total Path Mass: NB_3(H') = O(s^6) is bounded via GQ partial linearity, but the
+       empirical coefficient 25.18 on s in {2,4,8} lacks complete degree-correlation proof.
+    2. Endpoint collisions and 6th spectral moment Tr(A_H'^6):
+       - Mathematical flaw in 1st/2nd moment: bounding sum_{U} (N_3)^2 by |U| * avg(N_3)
+         confused the first and second moments. By Cauchy-Schwarz, sum_U N_3^2 >= (sum N_3)^2 / |U| = Omega(s^7),
+         while max N_3 <= 4(s+1)^2 yields only the trivial upper bound O(s^8), leaving O(s^6) unproven.
+       - Generic pair bound N_3 <= 2 refuted on unpruned H: on W(3,4), 60.4% of pairs have N_3 > 2
+         (max N_3 = 57). Establishing N_3 <= 2 requires proving coherent pruning H' removes all extraneous walks.
+    3. Internal collisions and conditioned layer density:
+       - Summation sum_p I(p) conditioned on projection p = pi_P(q, r) cannot be bounded by multiplying
+         the unconditioned step collision ratio 2L / d_min by total walk mass W_3 without proving
+         conditioned layer density I(p) <= C s^(-7/32) W_3(p).
+    4. Total blocking B(f, g) = o(s^6) remains an OPEN CONJECTURE.
     """
     params = canonical_parameters(s)
     V = params["V"]
@@ -279,17 +282,17 @@ def anchor_blocking_scaling(s):
         "V_noninc": V_noninc,
         "max_bad_pairs_U": max_bad_pairs,
         "bad_pair_fraction": float(bad_pair_fraction),
-        "asymptotic_order_E": "O(s^5.5)",
-        "asymptotic_order_I": "O(s^5.78125)",
-        "asymptotic_order_B": "O(s^5.78125)",
+        "asymptotic_order_E": "O(s^5.5)_CONJECTURAL",
+        "asymptotic_order_I": "O(s^5.78125)_CONJECTURAL",
+        "asymptotic_order_B": "O(s^5.78125)_CONJECTURAL",
         "empirical_scaling_exponent_B": 5.3712,
         "asymptotic_S_lower_coefficient": 8.0,
         "status": "OPEN_CONJECTURE",
         "conditional_basis": "Coherent pruning H' of PR #394 (L = s^(3/4), d_min >= s^(31/32))",
         "formal_blockers": [
-            "Tr(A_H'^6) spectral transfer from W(3,s) to H' unproven; bounded via pair decomposition",
-            "P <= 16 s^6 upper bound false; bounded by NB_3(H') <= 25.2 s^6",
-            "Block bound T <= s^(1/10) unproven; conditional on L = s^(3/4)",
+            "Spectral & second-moment gap in Tr(A_H'^6): bounding sum_U (N_3)^2 by |U|*avg(N_3) confused 1st and 2nd moments (Cauchy-Schwarz forces Omega(s^7), trivial max gives O(s^8)); N_3 <= 2 generic bound is refuted on unpruned H (60.4% > 2, max 57 on W(3,4)).",
+            "Internal blocking conditioned layer density: layer sum sum_p I(p) conditioned on projection p = pi_P(q,r) does not follow from unconditioned step ratio 2L/d_min without proving conditioned density I(p) <= C s^(-7/32) W_3(p).",
+            "Path upper bound constant and small-s global minimum: NB_3(H') <= 25.18 s^6 constant is empirical; universal floor S >= 68 on W(3,2) is certified local minimum only.",
         ],
     }
 
@@ -331,10 +334,10 @@ def canonical_proof_summary():
             "Lemma2_SparseHypergeometricOverlap": "PROVED: P(R<=1) >= 1 - O(s^-3); universal negative covariance REFUTED",
             "Lemma3_SuperRamanujanSpectrum": "PROVED: lambda_2 = sqrt(2s) < 2 sqrt(s); bipartite multiplicities certified",
             "Lemma4_PathMotifReduction": "CONDITIONAL_REDUCTION: (16 - o(1))s^6 <= B + 2S + sqrt(192mS); incident compensation >= s^8",
-            "Lemma5_SubSexticAnchorDecoupling": "OPEN_CONJECTURE: requires Tr(A_H'^6)=O(s^6) spectral proof and verified path mass bound",
+            "Lemma5_SubSexticAnchorDecoupling": "OPEN_CONJECTURE: Tr(A_H'^6)=O(s^6) unproven (2nd moment gap, N_3>2 on generic pairs in unpruned H); conditioned layer density unproven",
         },
         "Resolution": {
-            "Branch_A_UniversalPointwise": "OPEN_WITH_FORMAL_BLOCKER: Anchor decoupling has unproven Tr(A_H'^6) bound and invalid path upper bound",
+            "Branch_A_UniversalPointwise": "OPEN_WITH_FORMAL_BLOCKER: Anchor decoupling has 2nd moment gap, unpruned generic walk surplus, and unconditioned layer density",
             "Branch_A_ConstructiveCarrier": "PROVED_EXISTENTIAL_OMEGA_S6: S(f, g*) >= 140 s^6",
             "Branch_B_Counterfamily": "OPEN_NOT_REFUTED: asymptotic o(s^6) family neither constructed nor rigorously ruled out",
             "W32_LocalMinimum": "CERTIFIED_GE_68_LOCAL (Strict 1-swap local minimum S68, core >= 65; global minimum unproven)",

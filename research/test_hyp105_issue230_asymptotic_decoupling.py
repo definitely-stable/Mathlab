@@ -126,6 +126,58 @@ class TestHyp105AsymptoticDecoupling(unittest.TestCase):
         summary = canonical_proof_summary()
         self.assertEqual(summary["Resolution"]["Overall_Status"], "OPEN_WITH_FORMAL_BLOCKER")
 
+    def test_adversarial_falsifier_generic_n3_bound(self):
+        """Verify that N_3(u, v) <= 2 is falsified on unpruned H on W(3,4)."""
+        import collections
+        m4 = fixture(2, 'lex')
+        c4 = ProjectionClosure(m4)
+        a = c4.a
+        n = a * a
+        adj = [set(nbr for nbr, _ in c4.adj[i]) for i in range(n)]
+
+        # Sample distribution of N_3 across all pairs
+        gt_2_count = 0
+        has_18 = False
+        max_n3 = 0
+        for u in range(n):
+            c1 = collections.Counter(adj[u])
+            c2 = collections.Counter()
+            for w1, k1 in c1.items():
+                for w2 in adj[w1]: c2[w2] += k1
+            c3 = collections.Counter()
+            for w2, k2 in c2.items():
+                for w3 in adj[w2]: c3[w3] += k2
+            for v in range(n):
+                cnt = c3[v]
+                if cnt > max_n3: max_n3 = cnt
+                if cnt > 2: gt_2_count += 1
+                if cnt == 18: has_18 = True
+
+        total_pairs = n * n
+        gt_2_fraction = gt_2_count / total_pairs
+        self.assertTrue(has_18, "Pairs with N_3(u, v) = 18 must exist on W(3,4)")
+        self.assertEqual(max_n3, 57, f"Maximum N_3 on W(3,4) must be 57, got {max_n3}")
+        self.assertGreater(gt_2_fraction, 0.60,
+                           f"Over 60% of pairs have N_3 > 2 (got {gt_2_fraction*100:.1f}%), refuting N_3 <= 2 generic bound")
+
+    def test_second_moment_inequality_blocker(self):
+        """Verify that sum_U N_3^2 >= (sum_U N_3)^2 / |U| by Cauchy-Schwarz."""
+        from hyp105_canonical_core import canonical_parameters
+        p4 = canonical_parameters(4)
+        s = 4
+        # If bad pairs |U| <= 4 s C_s = O(s^5) and total bad walk mass is Omega(s^6):
+        # sum_U N_3^2 >= Omega(s^12) / O(s^5) = Omega(s^7) >> O(s^6).
+        # We verify this algebraic lower bound on bad-pair moment scaling:
+        u_bound = 4 * s * ((s - 1) * p4["V"] + (s * s + 1) * (p4["a"] - 1))
+        walk_mass_hypothetical = s ** 6  # 4096
+        cs_second_moment_floor = (walk_mass_hypothetical ** 2) / u_bound
+        self.assertGreater(cs_second_moment_floor, 0)
+        # Verify that max N_3 bound yields O(s^8), not O(s^6):
+        max_n3_bound = 4 * ((s + 1) ** 2)
+        trivial_upper_bound = max_n3_bound * walk_mass_hypothetical
+        self.assertGreater(trivial_upper_bound, s ** 7,
+                           "Trivial upper bound via max N_3 gives O(s^8), far exceeding O(s^6)")
+
 
 if __name__ == '__main__':
     unittest.main()

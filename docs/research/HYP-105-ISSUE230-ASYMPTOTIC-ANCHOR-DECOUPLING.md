@@ -84,11 +84,12 @@ The following table presents exact certified counts across all audited configura
 
 ## 4. Analytical Sub-Sextic Anchor Blocking via Pair Decomposition and Fiber Summation
 
-### Theorem 2 (Sub-Sextic Anchor Blocking via Structural Decomposition)
-**STATUS: CONDITIONAL THEOREM (Conditioned on Coherent Pruning $H'$ of PR #394).**
+### Theorem 2 (Sub-Sextic Anchor Blocking Decoupling — OPEN CONJECTURE)
+**STATUS: OPEN CONJECTURE WITH FORMAL MATHEMATICAL BLOCKERS.**
 
-For any dyadic prime power $s = 2^h$ and any globally injective physical pair maps $f, g$ on $W(3,s)$:
+For dyadic prime powers $s = 2^h$ and globally injective physical pair maps $f, g$ on $W(3,s)$, the conjecture states:
 $$B(f, g) = E(f, g) + I(f, g) = O(s^{5.78125}) = o(s^6).$$
+Rigorous scientific peer review (Oct 25, 2026) has identified the following formal blockers in the analytical derivation:
 
 #### Part 1: Bounding Total 3-Walk Mass $W_3(H') = O(s^6)$
 1. **Exact Degree Identity:**
@@ -100,50 +101,43 @@ $$B(f, g) = E(f, g) + I(f, g) = O(s^{5.78125}) = o(s^6).$$
    The total number of non-backtracking 3-walks satisfies:
    $$NB_3(H) = \sum_{u \sim v} (d(u)-1)(d(v)-1) \le (25.18 + o(1)) s^6 = O(s^6).$$
    (Empirical verification: $NB_3 / s^6 = 61.97$ at $s=2$, $32.55$ at $s=4$, $25.18$ at $s=8$).
-   Consequently, the proper path count is rigorously bounded above:
-   $$P \le NB_3(H) \le (25.2 + o(1)) s^6 = O(s^6).$$
+   *Formal Blocker:* While $O(s^6)$ scaling follows from partial linearity, the exact constant $25.18$ is empirical and lacks complete analytical proof with degree correlations.
+   Consequently, the proper path count satisfies:
+   $$P \le NB_3(H) = O(s^6).$$
 
-#### Part 2: Endpoint Blocking $E(f, g) = O(s^{11/2})$ via Pair Decomposition
+#### Part 2: Endpoint Blocking $E(f, g)$ and Spectral Moment $\operatorname{Tr}(A_{H'}^6)$ Formal Blockers
 1. The number of proper 3-paths whose endpoint pair $(q, r) \in U$ is bounded by:
    $$E(f, g) \le \frac{1}{2} \langle A_{H'}^3, A_B \rangle_F \le \frac{1}{2} \|A_{H'}^3\|_F \cdot \|A_B\|_F.$$
 2. **Bound on $\|A_B\|_F$:**
    By the Generalized Quadrangle Pencil Theorem:
    $$\|A_B\|_F = \sqrt{4 |U|} \le \sqrt{16 s^5 (1 + o(1))} = (4 + o(1)) s^{5/2} = O(s^{5/2}).$$
-3. **Rigorous Pair Decomposition of $\|A_{H'}^3\|_F = \sqrt{\operatorname{Tr}(A_{H'}^6)}$:**
-   Instead of an unproven spectral transfer of non-trivial eigenvalues, we express $\operatorname{Tr}(A_{H'}^6)$ as the sum of squared 3-walk counts over all vertex pairs:
-   $$\operatorname{Tr}(A_{H'}^6) = \sum_{w_0, w_3 \in V(H')} (N_3(w_0, w_3))^2.$$
-   We partition the $n^2 \approx 4 s^6$ pairs $(w_0, w_3)$ into generic pairs and bad pairs $U$:
-   - **Generic Pairs ($(w_0, w_3) \notin U$):**
-     By the Generalized Quadrangle Projection Axiom, between any non-incident point $q$ and line $r$, there is **exactly one** 3-path $q \sim l \sim p \sim r$ in $W(3,s)$. Because no coordinate collisions occur outside $U$, the number of length-3 walks is bounded by the 2 diagonal orientations:
-     $$N_3(w_0, w_3) \le 2 \quad \text{for generic pairs}.$$
-     The sum over generic pairs is at most $4 n^2 \le 4 (2s^3)^2 = 16 s^6$.
-   - **Bad Pairs ($(w_0, w_3) \in U$):**
-     $|U| \le 4 s C_s = O(s^5)$. By Theorem 1, $\max N_3 \le 4(s+1)^2$, with average value on $U$ bounded by $O(s)$.
-     The sum over bad pairs is $O(s^5) \cdot O(s) = O(s^6)$.
-   - **Total Frobenius Norm:**
-     $$\operatorname{Tr}(A_{H'}^6) = \sum_{\text{generic}} (N_3)^2 + \sum_{U} (N_3)^2 = O(s^6) \implies \|A_{H'}^3\|_F = \sqrt{\operatorname{Tr}(A_{H'}^6)} = O(s^3).$$
-     (Empirically verified: $\|A^3\|_F / s^3 = 28.69$ at $s=2$, $20.05$ at $s=4$).
-4. **Product of Norms:**
-   $$E(f, g) \le \frac{1}{2} O(s^3) \cdot O(s^{5/2}) = \mathbf{O(s^{11/2}) = O(s^{5.5}) = o(s^6)}.$$
+3. **Formal Blocker A: Second-Moment Inconsistency in $\sum_{U} (N_3)^2$:**
+   The Frobenius norm satisfies $\|A_{H'}^3\|_F^2 = \operatorname{Tr}(A_{H'}^6) = \sum_{w_0, w_3} (N_3(w_0, w_3))^2$.
+   Attempting to bound $\sum_{U} (N_3)^2$ by $|U| \cdot \operatorname{avg}_U(N_3) = O(s^5) \cdot O(s) = O(s^6)$ is **mathematically invalid**:
+   - The first moment (average) does not bound the second moment (sum of squares) from above.
+   - By Cauchy-Schwarz:
+     $$\sum_{(w_0, w_3) \in U} (N_3(w_0, w_3))^2 \ge \frac{1}{|U|} \left( \sum_{U} N_3 \right)^2 \ge \frac{\Omega(s^{12})}{O(s^5)} = \mathbf{\Omega(s^7)}.$$
+   - The standard upper bound via maximum degree:
+     $$\sum_{U} N_3^2 \le \max_U(N_3) \sum_U N_3 \le 4(s+1)^2 \cdot O(s^6) = \mathbf{O(s^8)}.$$
+   - Bounding $\operatorname{Tr}(A_{H'}^6)$ by $O(s^6)$ on bad pairs $U$ is therefore mathematically unproven and contradicts Cauchy-Schwarz whenever bad-pair walk mass reaches $\Theta(s^6)$.
+4. **Formal Blocker B: Generic Pairs Have $N_3 > 2$ on Unpruned $H$:**
+   The assertion that $N_3(w_0, w_3) \le 2$ on generic pairs outside $U$ due to GQ projection uniqueness $q \sim l \sim p \sim r$ is **false on unpruned $H$**:
+   - Empirical census on $W(3,4)$ shows that **60.4% of all pairs** (23,202 out of 38,416) have $N_3(w_0, w_3) > 2$, with values reaching up to $N_3 = 57$.
+   - Pairs with $N_3 = 18$ exist between disjoint coordinates.
+   - While the projection in $W(3,s)$ is unique, intermediate vertices in $H = [a] \times [a]$ can route through extraneous grid diagonals without violating endpoint projection.
+   - Proving $N_3 \le 2$ requires proving that coherent pruning $H'$ eliminates all extraneous walks, which remains an unproved open problem.
 
-#### Part 3: Internal Blocking $I(f, g) = O(s^{5.78125})$ via Exact Fiber Summation
+#### Part 3: Internal Blocking $I(f, g)$ and Conditioned Layer Density Formal Blocker
 1. $I(f, g)$ counts internal collisions on endpoint-good pairs $(q, r) \notin U$:
    $$I(f, g) = \sum_{p \in P} I(p), \qquad I(p) = \sum_{(q, r) \in \mathcal{F}(p)} \sum_{\gamma \in \text{Paths}(q, r)} \mathbf{1}_{\{x_1, x_2\} \cap f(p) \neq \emptyset \lor \{y_1, y_2\} \cap g(l) \neq \emptyset}.$$
-2. **Fiber Uniformity:**
-   Every point $p \in P$ has a fiber of exactly $|\mathcal{F}(p)| = s^2(s+1) = \Theta(s^3)$ non-incident pairs $(q, r)$ whose unique GQ projection point is $p$.
-3. **Block Degree and Step Pruning:**
-   In the pruned graph $H'$, the row-block degree is bounded by $L = s^{3/4}$, and minimum degree satisfies $d_{\min} \ge s^{31/32}$.
-   For each starting vertex $v_0$ of a path in $\mathcal{F}(p)$, the fraction of neighbors with first coordinate in $f(p) = \{u_p, v_p\}$ is at most:
-   $$\frac{2 L}{d_{\min}} \le 2 s^{3/4 - 31/32} = 2 s^{-7/32} = O(s^{-0.21875}).$$
-4. **Fiber Collision Mass:**
-   Integrating over the fiber $\mathcal{F}(p)$ and the total path capacity $W_3(H') = O(s^6)$:
-   $$I(f, g) \le W_3(H') \cdot O(s^{-7/32}) = O(s^6) \cdot O(s^{-7/32}) = \mathbf{O(s^{6 - 7/32}) = O(s^{185/32}) = O(s^{5.78125}) = o(s^6)}.$$
-   (Empirical scaling: $I / s^6 = 4.24$ at $s=4$, dropping to $3.26$ at $s=8$).
+2. **Formal Blocker C: Conditioned Layer Density:**
+   - In pruned $H'$, the row-block degree satisfies $L = s^{3/4}$ and minimum degree $d_{\min} \ge s^{31/32}$, giving step fraction $2L / d_{\min} \le 2 s^{-7/32}$.
+   - However, the paths in $\mathcal{F}(p)$ are conditioned on their endpoints $(q, r)$ projecting to $p = \pi_P(q, r)$.
+   - Multiplying the unconditioned step collision ratio $2 s^{-7/32}$ by total walk mass $W_3(H') = O(s^6)$ is an unproven heuristic without establishing conditioned layer density:
+     $$I(p) \le C s^{-7/32} W_3(p) \quad \text{for all } p \in P.$$
 
 #### Conclusion:
-$$B(f, g) = E(f, g) + I(f, g) = O(s^{5.5}) + O(s^{5.78125}) = \mathbf{O(s^{5.78125}) = o(s^6)}.$$
-$$\lim_{s \to \infty} \frac{B(f, g)}{s^6} = 0.$$
-$\blacksquare$
+Sub-sextic blocking $B(f, g) = o(s^6)$ remains an **OPEN CONJECTURE** pending mathematical resolution of the second-moment gap, generic walk surplus, and conditioned layer density.
 
 ---
 
@@ -151,14 +145,16 @@ $\blacksquare$
 
 ### Summary of Formal Status
 1. **Asymptotic Lower Bound ($s \to \infty$):**
-   Combining the Master Reduction $(16 - o(1)) s^6 \le B(f, g) + 2 S(f, g) + \sqrt{192 m S(f, g)}$ with the conditional sub-sextic blocking theorem $B(f, g) = O(s^{5.78125}) = o(s^6)$ rigorously yields:
-   $$\boxed{S_s(f, g) \ge (8 - o(1)) s^6 \quad \text{as } s \to \infty}.$$
+   $$\text{Status: } \mathbf{CONDITIONAL\_OPEN\_CONJECTURE}$$
+   The statement $S_s(f, g) \ge (8 - o(1)) s^6$ is mathematically conditional on closing the formal blockers in Theorem 2. It is **NOT** certified proved.
 2. **Branch A Universal Pointwise Lower Bound ($\forall h \ge 1$):**
-   $$\text{Status: } \mathbf{CONDITIONAL\_ON\_SMALL\_S\_UNIFORMITY}$$
+   $$\text{Status: } \mathbf{OPEN\_WITH\_FORMAL\_BLOCKER}$$
    - $s = 2$: $S \ge 68$ certified strict 1-swap local minimum for $S68$ (global minimum over all $(15!)^2$ maps unexhausted).
    - $s = 4$: $S \ge BBo \ge 7\,532 \ge \mathbf{1.8388 \cdot s^6}$.
    - $s = 8$: $S \ge BBo \ge 1\,441\,788 \ge \mathbf{5.5000 \cdot s^6}$.
-   - $s \to \infty$: $S \ge (8 - o(1)) \cdot s^6$.
+   - Universal proof for all $f, g$ remains open.
 3. **Branch B Counterfamily:**
-   $$\text{Status: } \mathbf{ASYMPTOTICALLY\_RULED\_OUT\_FOR\_LARGE\_S}$$
-   An infinite family of counterexamples with $S_s = o(s^6)$ is algebraically impossible for sufficiently large $s$ due to $S_s \ge (8 - o(1)) s^6$. Formal closure for small $s \in \{2, 4\}$ remains open until the global minimum is exhausted.
+   $$\text{Status: } \mathbf{OPEN\_NOT\_REFUTED}$$
+   An asymptotic $o(s^6)$ counterfamily is neither constructed nor rigorously ruled out. Both Branch A and Branch B remain active open branches of HYP-105.
+4. **Overall Status of HYP-105 (#230):**
+   $$\boxed{\mathbf{OPEN\_WITH\_FORMAL\_BLOCKER}}$$
