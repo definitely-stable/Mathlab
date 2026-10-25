@@ -264,12 +264,12 @@ def anchor_blocking_scaling(s):
        - Mathematical flaw in 1st/2nd moment: bounding sum_{U} (N_3)^2 by |U| * avg(N_3)
          confused the first and second moments. By Cauchy-Schwarz, sum_U N_3^2 >= (sum N_3)^2 / |U| = Omega(s^7),
          while max N_3 <= 4(s+1)^2 yields only the trivial upper bound O(s^8), leaving O(s^6) unproven.
-       - Generic pair bound N_3 <= 2 refuted on unpruned H: on W(3,4), 60.4% of pairs have N_3 > 2
-         (max N_3 = 57). Establishing N_3 <= 2 requires proving coherent pruning H' removes all extraneous walks.
+       - Generic pair bound N_3 <= 2 refuted on both unpruned H and pruned H': on W(3,4), 60.4% of unpruned
+         pairs and 6.0%-8.1% of coherently pruned pairs have N_3 > 2 (max N_3 = 19-23 in H', >2,100 generic pairs).
     3. Internal collisions and conditioned layer density:
        - Summation sum_p I(p) conditioned on projection p = pi_P(q, r) cannot be bounded by multiplying
          the unconditioned step collision ratio 2L / d_min by total walk mass W_3 without proving
-         conditioned layer density I(p) <= C s^(-7/32) W_3(p).
+         conditioned layer density I(p) <= C s^(-7/32) W_3(p). Census on W(3,4) shows tight concentration (var=0.002, rho <= 0.58), but universal all-s bound remains unproved.
     4. Total blocking B(f, g) = o(s^6) remains an OPEN CONJECTURE.
     """
     params = canonical_parameters(s)
@@ -290,7 +290,7 @@ def anchor_blocking_scaling(s):
         "status": "OPEN_CONJECTURE",
         "conditional_basis": "Coherent pruning H' of PR #394 (L = s^(3/4), d_min >= s^(31/32))",
         "formal_blockers": [
-            "Spectral & second-moment gap in Tr(A_H'^6): bounding sum_U (N_3)^2 by |U|*avg(N_3) confused 1st and 2nd moments (Cauchy-Schwarz forces Omega(s^7), trivial max gives O(s^8)); N_3 <= 2 generic bound is refuted on unpruned H (60.4% > 2, max 57 on W(3,4)).",
+            "Spectral & second-moment gap in Tr(A_H'^6): bounding sum_U (N_3)^2 by |U|*avg(N_3) confused 1st and 2nd moments (Cauchy-Schwarz forces Omega(s^7), trivial max gives O(s^8)); N_3 <= 2 is refuted on unpruned H (60.4% > 2) and pruned H' (6.0%-8.1% > 2, max 23).",
             "Internal blocking conditioned layer density: layer sum sum_p I(p) conditioned on projection p = pi_P(q,r) does not follow from unconditioned step ratio 2L/d_min without proving conditioned density I(p) <= C s^(-7/32) W_3(p).",
             "Path upper bound constant and small-s global minimum: NB_3(H') <= 25.18 s^6 constant is empirical; universal floor S >= 68 on W(3,2) is certified local minimum only.",
         ],

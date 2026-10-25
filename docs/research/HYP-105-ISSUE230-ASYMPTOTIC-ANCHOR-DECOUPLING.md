@@ -120,12 +120,13 @@ Rigorous scientific peer review (Oct 25, 2026) has identified the following form
    - The standard upper bound via maximum degree:
      $$\sum_{U} N_3^2 \le \max_U(N_3) \sum_U N_3 \le 4(s+1)^2 \cdot O(s^6) = \mathbf{O(s^8)}.$$
    - Bounding $\operatorname{Tr}(A_{H'}^6)$ by $O(s^6)$ on bad pairs $U$ is therefore mathematically unproven and contradicts Cauchy-Schwarz whenever bad-pair walk mass reaches $\Theta(s^6)$.
-4. **Formal Blocker B: Generic Pairs Have $N_3 > 2$ on Unpruned $H$:**
-   The assertion that $N_3(w_0, w_3) \le 2$ on generic pairs outside $U$ due to GQ projection uniqueness $q \sim l \sim p \sim r$ is **false on unpruned $H$**:
-   - Empirical census on $W(3,4)$ shows that **60.4% of all pairs** (23,202 out of 38,416) have $N_3(w_0, w_3) > 2$, with values reaching up to $N_3 = 57$.
-   - Pairs with $N_3 = 18$ exist between disjoint coordinates.
-   - While the projection in $W(3,s)$ is unique, intermediate vertices in $H = [a] \times [a]$ can route through extraneous grid diagonals without violating endpoint projection.
-   - Proving $N_3 \le 2$ requires proving that coherent pruning $H'$ eliminates all extraneous walks, which remains an unproved open problem.
+4. **Formal Blocker B: Generic Pairs Have $N_3 > 2$ on Both Unpruned $H$ and Pruned $H'$:**
+   The assertion that $N_3(w_0, w_3) \le 2$ on generic pairs outside $U$ due to GQ projection uniqueness $q \sim l \sim p \sim r$ is **false on both unpruned $H$ and coherently pruned $H'$**:
+   - On unpruned $H$ on $W(3,4)$: **60.4% of all pairs** (23,202 out of 38,416) have $N_3(w_0, w_3) > 2$, with values reaching up to $N_3 = 57$.
+   - On coherently pruned $H'$ ($L \le 2, d_{\min} \ge 2$, retaining $m'=458-482$ edges): **extraneous walks survive aggressively**. Between $6.0\%$ and $8.1\%$ of all pairs ($2,316$ to $3,103$ pairs) still have $N_3(u, v) > 2$, reaching values up to **$\max N_3 = 19 - 23$**.
+   - Crucially, **over $67\% - 75\%$ of the $N_3 > 2$ pairs lie OUTSIDE the bad chords $U$** on generic pairs ($1,738$ to $2,107$ generic pairs).
+   - Of the 101 unpruned pairs with $N_3 = 18$, **70 pairs survive with $N_3 > 2$ after pruning** (e.g. $N_3 = 16, 15, 14, 13, 11$).
+   - Consequently, coherent pruning attenuates extraneous walks but does **not** suppress them to $\le 2$.
 
 #### Part 3: Internal Blocking $I(f, g)$ and Conditioned Layer Density Formal Blocker
 1. $I(f, g)$ counts internal collisions on endpoint-good pairs $(q, r) \notin U$:
@@ -135,6 +136,12 @@ Rigorous scientific peer review (Oct 25, 2026) has identified the following form
    - However, the paths in $\mathcal{F}(p)$ are conditioned on their endpoints $(q, r)$ projecting to $p = \pi_P(q, r)$.
    - Multiplying the unconditioned step collision ratio $2 s^{-7/32}$ by total walk mass $W_3(H') = O(s^6)$ is an unproven heuristic without establishing conditioned layer density:
      $$I(p) \le C s^{-7/32} W_3(p) \quad \text{for all } p \in P.$$
+3. **Audited Empirical Census of Layer Density on $W(3,4)$:**
+   Exact census across all 85 projection fibers $\mathcal{F}(p)$ reveals:
+   - **Tightly Concentrated Distribution:** $\rho(p) = I(p) / W_3(p)$ concentrates with variance $\approx 0.0020$ and $\sigma \approx 0.045$. All 85 points lie within $2.51 \sigma$ of the mean.
+   - **Absence of Pathological Fibers:** $\max_{p \in P} \rho(p) = 0.5728$ for `lex` and $0.5683$ for `spread` ($\le 0.58 \ll 1$). On endpoint-good paths, $\max \rho_{\text{good}}(p) \le 0.6613 \le 2/3$.
+   - **Natural $2/s$ Scaling:** The empirical mean $E[\rho(p)] \approx 0.47$ closely tracks the unconditioned dimensional scale $2/s = 0.50$.
+   - While finite data rules out catastrophic single-fiber concentration on $W(3,4)$, universal analytical proof of $\max_p \rho(p) \le C s^{-\alpha}$ for all $s$ remains open.
 
 #### Conclusion:
 Sub-sextic blocking $B(f, g) = o(s^6)$ remains an **OPEN CONJECTURE** pending mathematical resolution of the second-moment gap, generic walk surplus, and conditioned layer density.
