@@ -6,8 +6,11 @@ on:
       - 'research/hyp105_w34_independent_oracle.py'
       - 'research/hyp105_w34_weighted_endpoint.py'
       - 'research/test_hyp105_w34_weighted_endpoint.py'
+      - 'research/hyp105_weighted_variance_transfer.py'
+      - 'research/test_hyp105_weighted_variance_transfer.py'
       - 'research/test_hyp105_w34_adversarial_certificate.py'
       - 'docs/research/HYP-105-WEIGHTED-ENDPOINT-FRONTIER.md'
+      - 'docs/research/HYP-105-WEIGHTED-VARIANCE-TRANSFER.md'
       - '.github/workflows/hyp105-issue230-weighted-endpoint.yml'
   workflow_dispatch:
 
@@ -26,6 +29,7 @@ jobs:
       - name: Recount true symplectic W(3,4) witness and weighted pair 3-walks
         run: |
           python -m unittest discover -s research -p 'test_hyp105_w34_weighted_endpoint.py' -v
+          python -m unittest discover -s research -p 'test_hyp105_weighted_variance_transfer.py' -v
           python -m unittest discover -s research -p 'test_hyp105_w34_adversarial_certificate.py' -v
       - name: Exact dyadic algebra and formal fail-closed gate
         run: |
