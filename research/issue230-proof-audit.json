@@ -1,0 +1,240 @@
+{
+  "COUNTEREXAMPLE_B": false,
+  "PROVED_A": false,
+  "analytic": [
+    {
+      "Delta": 9,
+      "K": 595,
+      "V": 585,
+      "a": 35,
+      "cs_error_to_mean_squared_lower": "0",
+      "eta": "135/73",
+      "expected_BA_lower": "6303226661424000/255020243",
+      "half_random_constant_for_s_at_least_8": "180054835200/13841287201",
+      "rho": "4340/2295182187",
+      "s": 8,
+      "source_support_asymptotic": "(1/720+o(1))*s^13 uniformly in f",
+      "source_support_lower": 896516280,
+      "source_weight_per_meeting_pair_cap": 972,
+      "universal_S_lower_proved": false
+    },
+    {
+      "Delta": 17,
+      "K": 4371,
+      "V": 4369,
+      "a": 94,
+      "cs_error_to_mean_squared_lower": "3165428892394/264775",
+      "eta": "85/91",
+      "expected_BA_lower": "9872678256605482500/4231856833",
+      "half_random_constant_for_s_at_least_8": "180054835200/13841287201",
+      "rho": "9345/1582714455542",
+      "s": 16,
+      "source_support_asymptotic": "(1/720+o(1))*s^13 uniformly in f",
+      "source_support_lower": 7595509871950,
+      "source_weight_per_meeting_pair_cap": 3468,
+      "universal_S_lower_proved": false
+    },
+    {
+      "Delta": 33,
+      "K": 33930,
+      "V": 33825,
+      "a": 261,
+      "cs_error_to_mean_squared_lower": "1575189817994517661/18997440",
+      "eta": "495/1057",
+      "expected_BA_lower": "3989184724221153420902400/25674768161953",
+      "half_random_constant_for_s_at_least_8": "180054835200/13841287201",
+      "rho": "230272/16816973146079215",
+      "s": 32,
+      "source_support_asymptotic": "(1/720+o(1))*s^13 uniformly in f",
+      "source_support_lower": 57887384765548800,
+      "source_weight_per_meeting_pair_cap": 13068,
+      "universal_S_lower_proved": false
+    },
+    {
+      "Delta": 65,
+      "K": 266815,
+      "V": 266305,
+      "a": 731,
+      "cs_error_to_mean_squared_lower": "45096324839694161546193/400249850",
+      "eta": "325/1387",
+      "expected_BA_lower": "281132754270416169992149799520000/28309055141051769893",
+      "half_random_constant_for_s_at_least_8": "180054835200/13841287201",
+      "rho": "2463076/84927165423155309679",
+      "s": 64,
+      "source_support_asymptotic": "(1/720+o(1))*s^13 uniformly in f",
+      "source_support_lower": 450252021379889448720,
+      "source_weight_per_meeting_pair_cap": 50700,
+      "universal_S_lower_proved": false
+    },
+    {
+      "Delta": 129,
+      "K": 2114596,
+      "V": 2113665,
+      "a": 2057,
+      "cs_error_to_mean_squared_lower": "144863541877303274351508394/1132178175",
+      "eta": "1935/16513",
+      "expected_BA_lower": "3134192817502108082175171076832191200/4968567083183676872039",
+      "half_random_constant_for_s_at_least_8": "180054835200/13841287201",
+      "rho": "585105/9937134166367353744078",
+      "s": 128,
+      "source_support_asymptotic": "(1/720+o(1))*s^13 uniformly in f",
+      "source_support_lower": 3576596700828400973910576,
+      "source_weight_per_meeting_pair_cap": 199692,
+      "universal_S_lower_proved": false
+    }
+  ],
+  "base_commit": "179d4b93ae9aaea8f837a6aeb9bf4843380d5764",
+  "finite": [
+    {
+      "GF5_denominator": 17596287801,
+      "P2_margin": "19744/143",
+      "P7_margin": "27037/143",
+      "Q4": 50,
+      "Q7_GF5_floor_numerator": 11225795,
+      "S": 259,
+      "counterexample_B": false,
+      "dual_source_mass": 5793,
+      "mu_f": "10000/143",
+      "scheme": "lex",
+      "seven_vector": [
+        15,
+        98,
+        110,
+        13,
+        1,
+        8,
+        14
+      ],
+      "source_mass": 5000
+    },
+    {
+      "GF5_denominator": 17596287801,
+      "P2_margin": "11593/143",
+      "P7_margin": "14167/143",
+      "Q4": 32,
+      "Q7_GF5_floor_numerator": 7627209,
+      "S": 169,
+      "counterexample_B": false,
+      "dual_source_mass": 4428,
+      "mu_f": "10000/143",
+      "scheme": "reverse",
+      "seven_vector": [
+        3,
+        77,
+        74,
+        1,
+        1,
+        7,
+        6
+      ],
+      "source_mass": 5000
+    },
+    {
+      "GF5_denominator": 17596287801,
+      "P2_margin": "-2615/143",
+      "P7_margin": "-1900/143",
+      "Q4": 10,
+      "Q7_GF5_floor_numerator": 3283610,
+      "S": 72,
+      "counterexample_B": false,
+      "dual_source_mass": 4864,
+      "mu_f": "12196/143",
+      "scheme": "S72",
+      "seven_vector": [
+        0,
+        36,
+        31,
+        2,
+        0,
+        1,
+        2
+      ],
+      "source_mass": 6098
+    },
+    {
+      "GF5_denominator": 17596287801,
+      "P2_margin": "-2901/143",
+      "P7_margin": "-2472/143",
+      "Q4": 9,
+      "Q7_GF5_floor_numerator": 3112510,
+      "S": 68,
+      "counterexample_B": false,
+      "dual_source_mass": 4740,
+      "mu_f": "12196/143",
+      "scheme": "S68",
+      "seven_vector": [
+        0,
+        44,
+        21,
+        0,
+        0,
+        2,
+        1
+      ],
+      "source_mass": 6098
+    }
+  ],
+  "new_ASET_exponent": false,
+  "quartic_fixtures": [
+    {
+      "R": [
+        0,
+        1,
+        22,
+        27,
+        32,
+        38
+      ],
+      "meeting_pairs": 1,
+      "mode": "sharp",
+      "s": 4,
+      "weight": 25
+    },
+    {
+      "R": [
+        0,
+        1,
+        22,
+        27,
+        32,
+        38
+      ],
+      "meeting_pairs": 1,
+      "mode": "zero",
+      "s": 4,
+      "weight": 0
+    },
+    {
+      "R": [
+        0,
+        1,
+        74,
+        83,
+        92,
+        101
+      ],
+      "meeting_pairs": 1,
+      "mode": "sharp",
+      "s": 8,
+      "weight": 81
+    },
+    {
+      "R": [
+        0,
+        1,
+        74,
+        83,
+        92,
+        101
+      ],
+      "meeting_pairs": 1,
+      "mode": "zero",
+      "s": 8,
+      "weight": 0
+    }
+  ],
+  "root": "OPEN_WITH_FORMAL_BLOCKER",
+  "schema": "mathlab.issue230.proof-audit.v1",
+  "scope": "exact finite W32, W34/W38 source fixtures; analytic theorems require linked proofs",
+  "status": "RESTRICTED_THEOREM_C"
+}

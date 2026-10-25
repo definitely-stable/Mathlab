@@ -1,0 +1,77 @@
+name: hyp105-issue230-d5-retained-endpoint-energy
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d5_retained_energy.py"
+      - "research/test_hyp105_issue230_d5_retained_energy.py"
+      - "docs/research/HYP-105-ISSUE230-D5-RETENTION-ROBUST-ENERGY.md"
+      - ".github/workflows/hyp105-issue230-d5-retained-endpoint-energy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  true-original-GQ-retention-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent exact retained original GQ bad chord energy tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d5_retained_energy.py' -v
+      - name: Eight full coherent true W34 W38 retained edge certificates
+        run: |
+          python research/hyp105_issue230_d5_retained_energy.py > /tmp/hyp105-d5-retained.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          r=json.loads(Path("/tmp/hyp105-d5-retained.json").read_text())
+          assert r["slice"]=="HYP105-ISSUE230-D5-RETENTION-ROBUST-ORIGINAL-ENDPOINT-ENERGY"
+          assert r["all_h_asymptotic_retained_fraction"]=="R=o(s4) implies WH>=(9/32+o(1))*s6"
+          assert r["all_h_unconditional_D2_D3_WH_little_o_s59over10"]=="FALSE"
+          assert r["all_h_original_seven_family_S_lower"]=="OPEN"
+          assert r["all_h_small_S_branch_B"]=="OPEN"
+          assert r["adversarial_all_maps_counterexample_to_original_root"] is False
+          assert len(r["real_true_original_witnesses"])==8
+          baseline={(4,"balanced"):127932,(8,"balanced"):6614488}
+          pinned={
+            (4,"balanced","none"):(127932,0,120),
+            (4,"reverse","none"):(131936,0,120),
+            (4,"balanced","every-19"):(121234,45,117),
+            (4,"balanced","adversarial-original-selected"):(124146,24,96),
+            (8,"balanced","none"):(6614488,0,1152),
+            (8,"reverse","none"):(6663027,0,1152),
+            (8,"balanced","every-19"):(6267591,555,1099),
+            (8,"balanced","adversarial-original-selected"):(6474532,230,922),
+          }
+          for x in r["real_true_original_witnesses"]:
+              case=(x["s"],x["right_global_original_label_mode"],
+                    x["physical_edge_removal_scheme"])
+              assert (x["exact_original_bad_chord_energy_W_H"],
+                      x["arbitrarily_deleted_TRUE_physical_edges"],
+                      x["selected_kept_TRUE_physical_edges"])==pinned[case]
+              key=(x["s"],x["right_global_original_label_mode"])
+              assert x["same_global_original_pair_injections"] is True
+              assert x["all_original_graph_and_GQ_projections_verified"] is True
+              assert x["selected_nonspread_TRUE_physical_edges"]==2*x["selected_original_points"]*x["s"]
+              assert x["all_original_G_physical_edges"]==2*({4:85,8:585}[x["s"]])*(x["s"]+1)
+              assert x["selected_kept_TRUE_physical_edges"]==x["selected_nonspread_TRUE_physical_edges"]-x["removed_selected_true_physical_edges"]
+              assert Fraction(x["exact_original_bad_chord_energy_W_H"]) >= Fraction(x["first_true_original_projection_lower_s_times_Tsq"])
+              assert Fraction(x["first_true_original_projection_lower_s_times_Tsq"])>=Fraction(x["refined_retained_lower_num"],x["refined_retained_lower_den"])
+              assert Fraction(x["refined_retained_lower_num"],x["refined_retained_lower_den"])>=Fraction(x["robust_removed_edges_lower_num"],x["robust_removed_edges_lower_den"])
+              assert x["universal_S_six_positive_lower_proved"] is False
+              assert x["infinite_small_S_Branch_B_proved"] is False
+              if x["physical_edge_removal_scheme"]=="none" and key in baseline:
+                  assert x["exact_original_bad_chord_energy_W_H"]==baseline[key]
+          assert len(r["all_h_arithmetic_only"])==7
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY

@@ -1,0 +1,114 @@
+name: hyp105-issue230-d6aa4l-charge-energy-obstruction
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4l_charge_energy_obstruction.py"
+      - "research/test_hyp105_issue230_d6aa4l_charge_energy_obstruction.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4L-CHARGE-ENERGY-OBSTRUCTION.md"
+      - ".github/workflows/hyp105-issue230-d6aa4l-charge-energy-obstruction.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-source-charge-gram-and-W38-zero-Q:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All-h original GQ isolated six-flag count, real W38 positive zero-charge D6 and Gram energy oracles
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4l_charge_energy_obstruction.py" -v
+          python research/hyp105_issue230_d6aa4l_charge_energy_obstruction.py > /tmp/aa4l-theorem.json
+          python - <<'PY'
+          import json
+          from math import factorial
+          r=json.load(open("/tmp/aa4l-theorem.json"))
+          assert r["slice"]=="HYP105-ISSUE230-D6-AA4-L-ORIGINAL-PAIR-ENERGY-OBSTRUCTION"
+          assert r["source_pair_charge_Gram_exact_second_moment"]
+          assert not r["total_I_Omega_s6_PROVED"]
+          assert r["root_A"]==r["root_B"]=="OPEN"
+          assert not r["full_GF5_R3_PROVED"] and not r["ASET_exponent_PROVED"]
+          for a in r["all_h_s_ge_16_original_source_separated_flag_count_theorem"]:
+              assert a["s"]>=16 and not (a["s"]&(a["s"]-1))
+              assert a["all_h_s_ge_16_source_separated_six_flag_existence_PROVED"]
+              assert a["all_six_source_points_pairwise_NONCOLLINEAR"]
+              assert a["all_six_source_lines_pairwise_NONCONCURRENT"]
+              assert a["guaranteed_distinct_unordered_six_flag_sets"]>0
+              assert a["counts_source_sixsets_individually_realizable_not_same_f_g"]
+          w=r["actual_original_W38_positive_D6_with_ZERO_P_AND_L_charge"]
+          assert (w["s"],w["V"],w["true_original_incidence_count"])==(8,585,5265)
+          assert w["complete_GLOBAL_point_and_line_injections_verified"]
+          assert w["genuine_historical_GF5_class"]=="D6"
+          assert w["certified_selected_GF5_Q_numerator"]==5643
+          assert (w["actual_physically_disjoint_point_pairs_in_Q"],
+                  w["actual_physically_disjoint_line_pairs_in_Q"])==(9,9)
+          assert (w["actual_ELIGIBLE_source_collinear_point_pairs_in_Q"],
+                  w["actual_ELIGIBLE_source_concurrent_line_pairs_in_Q"])==(0,0)
+          assert w["positive_original_GF5_Q_with_zero_joint_charge_PROVED"]
+          assert w["entire_real_W38_positive_sixset_census_NOT_executed"]
+          assert w["does_not_construct_global_I_zero_family"]
+          print("TRUE ORIGINAL W38 POSITIVE D6 ZERO BOTH CHARGES",
+                w["chosen_original_six_incidence_IDs"],
+                w["chosen_original_six_source_points"],
+                w["chosen_original_six_source_lines"])
+          print("AA4-L all-h SOURCE isolated original six-flag theorem and W38 counterexample PASS")
+          PY
+  original-W32-pair-to-GF5-Gram-energy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaust true original 24 complete K6 maps and 62370 original sixsets per state, both pair-Q Gram oracles
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4l_charge_energy_obstruction.py --scheme "$SCHEME" > "/tmp/aa4l-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4l-"+os.environ["SCHEME"]+".json").read_text())
+          r=x["true_original_W32"]
+          assert r["scheme"]==os.environ["SCHEME"]
+          assert len(r["true_original_source_four_point_block"])==4
+          assert r["genuine_globally_injected_complete_maps"]==24
+          assert r["full_true_ORIGINAL_Q_candidates_per_map"]==62370
+          assert len(r["all_24_state_charge_energy"])==24
+          assert r["independent_original_pair_Q_Gram_moment_oracle"]=="PASS"
+          assert r["root_Branch_A"]==r["root_Branch_B"]=="OPEN"
+          known={"S68":68,"S72":72}
+          assert r["full_state_ranges"]["original_seven_S"]["min"]==known[r["scheme"]]
+          for state in r["all_24_state_charge_energy"]:
+              S=state["original_seven_S"]
+              assert S>=known[r["scheme"]]
+              a=state["source_P"];b=state["source_L"]
+              assert a["true_total_pair_Q_charge"]+b["true_total_pair_Q_charge"]==state["joint_actual_I"]
+              assert state["joint_projection_aware_S_lower"]<=S
+              for z,ty in ((a,"P"),(b,"L")):
+                  assert z["source_type"]==ty
+                  assert z["gram_energy_identity_independent_verified"]
+                  assert z["cauchy_energy_inequality_verified"]
+                  assert z["full_original_pair_major_audit"]=="PASS"
+                  assert z["source_pair_positive_Q_degree_second_moment"]==z["independent_ORIGINAL_Q_major_Gram"]
+                  assert z["source_pair_positive_Q_degree_first_moment"]==z["true_total_pair_Q_charge"]
+                  assert z["true_total_pair_Q_charge"]<=9*S
+                  assert z["true_source_eligible_pairs"]>=9
+                  assert z["source_pair_positive_Q_degree_first_moment"]**2<=z[
+                      "true_source_eligible_pairs"]*z["source_pair_positive_Q_degree_second_moment"]
+                  assert len(z["threshold_certificates"])==6
+          if r["scheme"]=="S72":
+              assert r["full_state_ranges"]["L_exact_zero_charge_source_pair_count"]["max"]>=1
+          print("SCHEME",r["scheme"],"BLOCK",r["true_original_source_four_point_block"])
+          for name,ran in r["full_state_ranges"].items():
+              print("TRUE ORIGINAL GF5 MOMENT",name,ran)
+          print("FULL TRUE ORIGINAL ALL 24 62370-Q source-pair GF5 exact GRAM + TWO ORACLES PASS")
+          PY

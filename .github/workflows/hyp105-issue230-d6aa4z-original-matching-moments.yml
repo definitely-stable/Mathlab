@@ -1,0 +1,85 @@
+name: hyp105-issue230-d6aa4z-original-matching-moments
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4z_original_matching_moments.py"
+      - "research/test_hyp105_issue230_d6aa4z_original_matching_moments.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4Z-ORIGINAL-MATCHING-MOMENTS.md"
+      - ".github/workflows/hyp105-issue230-d6aa4z-original-matching-moments.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-source-six-matching-and-one-P2-residual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Ten true-original all-h Godsil matching and P2-cavity theorem regression tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4z_original_matching_moments.py" -v
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4z_original_matching_moments import (
+              all_h_original_matching_source_AA,
+              all_h_original_one_P2_plus_four_matching_AB,
+              all_h_two_new_selected_GF5_ensemble_sectors)
+          for s,aa,ab in ((2,1566360,1666980),
+                          (4,5903320937600,894185475200)):
+              a=all_h_original_matching_source_AA(s)
+              b=all_h_original_one_P2_plus_four_matching_AB(s)
+              t=all_h_two_new_selected_GF5_ensemble_sectors(s)
+              assert a["source_original_A/A_six_distinct_point_line_flags"]==aa
+              assert b["source_original_A/B_one_P2_plus_4_disjoint_flags"]==ab
+              assert t["leading_six_selected_tags_over_s6"]==Fraction(1016,3)
+              assert t["ensemble_not_adversarial_minimum"]
+              assert t["source_original_BB_disjoint_still_UNCLOSED"]
+              print("TRUE ALL-h source GQ AA/AB",s,aa,ab,
+                    "six-class expected selected ORIGINAL GF5",t[
+                        "six_distinct_selected_GF5_tag_expectation"])
+          PY
+  genuine-actual-source-SAW-original-moment-crosschecks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        source_s: [2, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently traverse actual true W32/W34 source graph SAW path tree, original m6 and nonregular rooted residual m4
+        env:
+          ORIGINAL_S: ${{ matrix.source_s }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4z_original_matching_moments import (
+              all_h_original_matching_source_AA,
+              all_h_original_one_P2_plus_four_matching_AB,
+              independent_actual_true_GQ_six_matching_and_P2_4matching)
+          s=int(os.environ["ORIGINAL_S"])
+          model=fixture({2:1,4:2}[s],"lex")
+          result=independent_actual_true_GQ_six_matching_and_P2_4matching(
+              model,max_P2_samples=5)
+          a=all_h_original_matching_source_AA(s)
+          b=all_h_original_one_P2_plus_four_matching_AB(s)
+          assert result["all_original_full_source_matchings"][
+              "actual_matchings_m0_to_mk"]==a[
+              "original_source_matching_numbers_m0_to_m6"]
+          assert all(row["actual_source_residual_m4"]==b[
+              "original_true_P2_deleted_residual_4matching_count"]
+              for row in result["independently_checked_actual_P2_roots"])
+          assert result["true_original_GQ_projection_unique_anchor_VALIDATED"]
+          assert result["does_NOT_prove_every_physical_f_g_joint_GF5"]
+          print("Independent REAL original W(3,s)",s,
+                "SAW full m6",result["exact_original_source_U_AA"],
+                "actual residual P2 m4",b["original_true_P2_deleted_residual_4matching_count"],
+                "root samples",len(result["independently_checked_actual_P2_roots"]))
+          PY

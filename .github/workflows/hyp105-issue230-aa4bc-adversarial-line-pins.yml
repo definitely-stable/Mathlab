@@ -1,0 +1,51 @@
+name: hyp105-issue230-aa4bc-adversarial-original-line-pins
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bc_robust_pins.py"
+      - "research/test_hyp105_issue230_d6aa4bc_robust_pins.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BC-ADVERSARIAL-LINE-PINS.md"
+      - ".github/workflows/hyp105-issue230-aa4bc-adversarial-line-pins.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-robust-universal-partial-map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact rational all dyadic h and arbitrary k up to V over 1024, no fake large source GQ
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bc_robust_pins.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bc_robust_pins.py' -v -k test_05
+      - name: Print exact partial injection robust completion certificate
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4bc_robust_pins import certified_robust_pins_envelope
+          for s in (32,64,128,256,512,1024,4096):
+              V=(s+1)*(s*s+1)
+              z=certified_robust_pins_envelope(s,V//1024)
+              print("AA4BC",s,"pinned",z["actually_pinned"],"free",z["free_original_LINE_factors"],
+                    "mean_floor",z["conditional_mean_of_unpinned_GOOD_wedges_lower"],
+                    "relative_variance",z["conditional_relative_variance_upper"])
+              assert z["root_230"]=="OPEN_WITH_FORMAL_BLOCKER"
+              assert not z["ALL_fully_fixed_g_or_six_ID_GF5_PROVED"]
+          PY
+  independent-true-original-conditional-completions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real W32 literal source triples and physical triples, W34 support holes, 120 global extensions and BAD-set guard
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bc_robust_pins.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bc_robust_pins.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bc_robust_pins.py' -v -k test_04
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bc_robust_pins.py' -v -k test_06

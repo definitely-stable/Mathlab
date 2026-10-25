@@ -1,0 +1,65 @@
+name: hyp105-issue230-d6i-uniform-port-hall
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6i_uniform_port_hall.py"
+      - "research/test_hyp105_issue230_d6i_uniform_port_hall.py"
+      - "docs/research/HYP-105-ISSUE230-D6I-UNIFORM-PORT-WEIGHTED-HALL.md"
+      - ".github/workflows/hyp105-issue230-d6i-uniform-port-hall.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  uniform-original-port-Hall-cut:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaustive subset dual and exact original full-seven W32 comparisons
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6i_uniform_port_hall.py' -v
+      - name: Emit exact mincut original support certificates without all-h lower claims
+        run: |
+          python research/hyp105_issue230_d6i_uniform_port_hall.py > /tmp/hyp105-d6i.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("/tmp/hyp105-d6i.json").read_text())
+          assert x["slice"]=="HYP105-ISSUE230-D6I-EXACT-UNIFORM-PORT-WEIGHTED-HALL"
+          assert x["all_h_uniform_port_Hall_equivalence"]=="PROVED-RESTRICTED-FINITE-SYSTEMS"
+          assert x["all_h_uniform_K"]=="OPEN"
+          assert x["root_Branch_A_or_B"]=="OPEN"
+          assert x["W34_W38_full_positive_seven_S"]=="UNKNOWN-NO-BB-SUBSTITUTION"
+          expected={"lex":(942,786,156,259,4,165),
+                    "reverse":(898,676,222,169,6,53),
+                    "S68":(606,544,62,68,9,62),
+                    "S72":(658,600,58,72,10,10)}
+          assert len(x["genuine_W32_complete_seven_cases"])==4
+          for row in x["genuine_W32_complete_seven_cases"]:
+              C,E,I,S,K,deficit=expected[row["scheme"]]
+              assert (row["C"],row["E"],row["I"],row["S"])==(C,E,I,S)
+              assert row["D6D_exact_full_original_minimum_K"]==K
+              assert row["D6I_uniform_restricted_minimum_K"]==K
+              assert row["uniform_K_extra_over_full_original_K"]==0
+              cases=row["capacity_cases"]
+              assert len(cases)==2
+              assert [(j["K"],j["D6F_exact_exception"],
+                       j["D6H_uniform_exception_upper"]) for j in cases]==[
+                            (K-1,deficit,deficit),(K,0,0)]
+              for j in cases:
+                  p=j["port_cut"]
+                  cut=p["mincut"]
+                  assert p["exact_uniform_scaled_Hall_deficit_Delta6"]==cut["six_M_minus_K_D"]
+                  assert cut["scaled_flow_shortfall"]==cut["six_M_minus_K_D"]
+                  assert p["original_D6F_integer_exception_upper_floor_Delta6_div6"]>=j["D6F_exact_exception"]
+              print({"TRUE_W32_FULL_SEVEN":row["scheme"],
+                     "C":C,"S":S,"E":E,"I":I,"uniform_K":K,
+                     "K_minus_1_exception":deficit,
+                     "mincut_at_K_minus_1":cases[0]["port_cut"]["mincut"][
+                         "source_closed_original_incidence_support_F"]})
+          PY

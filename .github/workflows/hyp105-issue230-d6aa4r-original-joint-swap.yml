@@ -1,0 +1,60 @@
+name: hyp105-issue230-d6aa4r-original-joint-swap
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4r_original_joint_swap_certificate.py"
+      - "research/test_hyp105_issue230_d6aa4r_original_joint_swap_certificate.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4R-ORIGINAL-JOINT-SWAP.md"
+      - ".github/workflows/hyp105-issue230-d6aa4r-original-joint-swap.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-GQ-axiom-and-source-overlap-proof-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real original geometry C4 versus C6 adversarial regression and mixed source-support tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4r_original_joint_swap_certificate.py" -v
+  independently-enumerated-original-W32-global-four-map-GF5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check real globally shared point+line label swaps and all seven GF5 classes
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4r_original_joint_swap_certificate.py --scheme "$SCHEME" --point 0 1 --line 0 1 > "/tmp/aa4r-$SCHEME.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4r-"+os.environ["SCHEME"]+".json").read_text())
+          assert x["scope"].startswith("TRUE W32 same ORIGINAL incidence IDs")
+          assert x["seven_S_00_10_01_11"][0]=={"S68":68,"S72":72}[os.environ["SCHEME"]]
+          a,b,c,d=x["seven_S_00_10_01_11"]
+          assert d-b-c+a==x["genuine_two_type_mixed_delta"]
+          assert sum(x["mixed_delta_by_each_of_7_GF5_classes"].values())==x["genuine_two_type_mixed_delta"]
+          assert x["original_gq_combinatorial_ceiling"]["GQ_no_C4_r_at_most_three"]
+          assert x["original_sixsets_in_mixed_support"]<=x["original_gq_combinatorial_ceiling"]["mixed_original_sixset_ceiling"]
+          assert x["all_h_exact_two_type_swap_support_theorem"]
+          assert not x["full_all_h_global_S_lower_PROVED"]
+          assert not x["branch_B_infinite_counterfamily_PROVED"]
+          print("ORIGINAL TRUE W32",os.environ["SCHEME"],
+                "4 FULL MAP S=", x["seven_S_00_10_01_11"],
+                "MIXED S=", x["genuine_two_type_mixed_delta"],
+                "MIXED 51-GF5 NUMERATOR=",x["certified_GF5_mixed_numerator"],
+                "7 tags=",x["mixed_delta_by_each_of_7_GF5_classes"])
+          PY

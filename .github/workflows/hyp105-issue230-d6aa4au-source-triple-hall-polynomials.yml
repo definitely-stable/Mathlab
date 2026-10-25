@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4au-source-triple-hall-polynomials
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4au_source_triple_hall_polynomials.py"
+      - "research/test_hyp105_issue230_d6aa4au_source_triple_hall_polynomials.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AU-SOURCE-TRIPLE-HALL-POLYNOMIALS.md"
+      - ".github/workflows/hyp105-issue230-d6aa4au-source-triple-hall-polynomials.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-six-true-original-source-threeflag-motifs-and-boolean-source-algebra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: For EVERY original 2-power h<=60 exact six type source triple census including source BB P4>=s6 and four Hall polynomials; fabricated C4 C6 source guard
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4au_source_triple_hall_polynomials.OriginalSourcePolynomialAndTripleMotifs.test_01_all_h_closed_source_threeflag_census_and_positive_BB_s6 \
+            test_hyp105_issue230_d6aa4au_source_triple_hall_polynomials.OriginalSourcePolynomialAndTripleMotifs.test_02_independent_toy_four_pattern_incidence_polynomial_vs_forest
+  all-five-genuine-original-W32-all-global-wedge-template-pairs-three-independent-referees:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every true original W32 3-source-flag physically opposite globally GOOD D wedge, all occupied physical point-line residual pairs, exact four source-pattern polynomial vs original GQ forest and independent 3! source permutations, freeze full 4type tables
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4au_source_triple_hall_polynomials.OriginalSourcePolynomialAndTripleMotifs.test_03_all_five_true_original_W32_all_occupied_global_physical_pairs
+  genuine-original-W32-W34-source-triple-census-independent-point-line-incidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True symplectic source W32 exhaustive 14190 source 3-incidence triples plus W34 exact P4 center-edge and A/B repeated-line source-first counting against all-h population
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4au_source_triple_hall_polynomials.OriginalSourcePolynomialAndTripleMotifs.test_04_literal_true_W32_and_W34_original_source_triple_counts
+  true-original-W34-D6-source-three-referees-and-symplectic-typed-physical-isometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True W34 GF4 symplectic 3x3 source Hall four sector polynomial on each K14 physical globally occupied sample true D6 wedge, independent original forest/permutation and symplectic/typed physical relabel invariance
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4au_source_triple_hall_polynomials.OriginalSourcePolynomialAndTripleMotifs.test_05_true_original_W34_partial_positive_D6_sources_complete_polynomials \
+            test_hyp105_issue230_d6aa4au_source_triple_hall_polynomials.OriginalSourcePolynomialAndTripleMotifs.test_06_true_source_symplectic_and_independent_physical_type_permutations

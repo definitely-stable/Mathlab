@@ -1,0 +1,64 @@
+name: hyp105-issue230-aa4cg-eightpacket-fourshared-dichotomy
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py"
+      - "research/test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CG-FOUR-SHARED-EIGHTPACKET-DICHOTOMY.md"
+      - ".github/workflows/hyp105-issue230-aa4cg-eightpacket-fourshared.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-exhaustive-k7-four-edge-two-completion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Every 5985 four-edge K7 subset, exact 3150 C4 switches and 1470 vertex-replacement pairs independently classified
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py' -v -k test_01
+  genuine-original-W34-two-fully-injected-W34-witnesses:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Actual W(3,4) 85 original LINE labels, Q with same four ORIGINAL incidence IDs and independent literal historical GF5 across 256 COMPLETE maps
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py' -v -k test_02
+  original-eightpacket-mixed-gram-independent-and-invalid:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent 256-map literal original-Q raw right physical oracle and 64x64 mixed Gram, fail-closed invalid input
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py' -v -k test_06
+  general-historical-seven-GF5-classifier-full-W32-equivalence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compare generalized arbitrary-a seven-GF5 structural classifier with original W32 historic source classifier on 62370 genuine original Q for lex and S72
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py' -v -k test_04
+  genuine-original-W38-h3-allh-D6-construction-falsifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Actual symplectic W(3,8) 585 original POINT and LINE factors, 5265 true flags, Hall-SDR paired D6 original witness on 256 complete globally injected g swaps
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cg_four_shared_edge_two_completion.py' -v -k test_05

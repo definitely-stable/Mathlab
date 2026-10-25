@@ -1,0 +1,62 @@
+name: hyp105-issue230-aa4da-genuine-original-bridge-gram-safe-source
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4da_bridge_gram_safe_source_flags.py"
+      - "research/test_hyp105_issue230_d6aa4da_bridge_gram_safe_source_flags.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DA-BRIDGE-GRAM-SAFE-ORIGINAL-FLAGS.md"
+      - ".github/workflows/hyp105-issue230-aa4da-original-bridge-gram-safe-source-flags.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  allh_integer_source_bridge_gram_SAFE_positive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W3 h1..110 analytic all-h >=96 original source bridge Gram SAFE-positive moment inequality exact big integers, h95/96 gate
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4da_bridge_gram_safe_source_flags.py' -v -k test_01
+  genuine_original_W32_full_all_cut_safe_incidence_flags:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W32 lex S72 every original nonincident double-disjoint P3 immutable source flag IDs brute RAW and SAFE vs new physical original source bridge Gram loss
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4da_bridge_gram_safe_source_flags.py' -v -k test_02
+  genuine_original_W32_W34_independent_cube_original_bridge_flags:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True original W32 W34 every typed original bridge factor brute triple enumeration separate from inverse physical 4-edge candidate oracle; independently check actual original pencil Gram weights
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4da_bridge_gram_safe_source_flags.py' -v -k test_03
+  original_W34_W38_complete_global_SAFE_source_mass:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual genuine original W34/W38 lex/random globally complete typed pairmaps, double-disjoint true GQ 3path RAW SAFE flag masses with exact bridge Gram majorants
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4da_bridge_gram_safe_source_flags.py' -v -k test_04
+  malformed_original_source_map_and_physical_cuts_fail_closed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fail closed invalid dyadic h source IDs physical cuts or duplicated original typed global factor image
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4da_bridge_gram_safe_source_flags.py' -v -k test_05

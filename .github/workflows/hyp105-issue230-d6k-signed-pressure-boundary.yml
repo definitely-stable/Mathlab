@@ -1,0 +1,77 @@
+name: hyp105-issue230-d6k-signed-pressure-boundary
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6k_signed_pressure_boundary.py"
+      - "research/test_hyp105_issue230_d6k_signed_pressure_boundary.py"
+      - "docs/research/HYP-105-ISSUE230-D6K-SIGNED-PRESSURE-BOUNDARY.md"
+      - ".github/workflows/hyp105-issue230-d6k-signed-pressure-boundary.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-pressure-boundary-and-source-expansion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaustive incidence F subset dual and nontrivial spectral certificate
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6k_signed_pressure_boundary.py' -v
+      - name: Pin true original complete-seven W32 pressure-cut evidence
+        run: |
+          python research/hyp105_issue230_d6k_signed_pressure_boundary.py > /tmp/hyp105-d6k.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          j=json.loads(Path("/tmp/hyp105-d6k.json").read_text())
+          assert j["slice"]=="HYP105-ISSUE230-D6K-SIGNED-PRESSURE-BOUNDARY"
+          assert j["all_h_pressure_cut_identity"]=="PROVED-ALL-FINITE-SYSTEMS"
+          assert j["spectral_tree_gate"]=="PROVED-SUFFICIENT-NOT-GEOMETRY-UNIFORM"
+          assert j["S_s_Omega_s6"]=="OPEN" and j["Branch_A_or_B"]=="OPEN"
+          assert j["W34_W38_complete_seven_positive_S"]=="UNKNOWN-NO-BB-SUBSTITUTION"
+          expected={"lex":(942,786,156,259,4,165),
+                    "reverse":(898,676,222,169,6,53),
+                    "S68":(606,544,62,68,9,62),
+                    "S72":(658,600,58,72,10,10)}
+          rows=j["genuine_complete_seven_W32_cases"]
+          assert len(rows)==4
+          for x in rows:
+              C,E,I,S,K,deficit=expected[x["scheme"]]
+              assert (x["C"],x["E"],x["I"],x["S_complete_seven"],x["K_full"])==(C,E,I,S,K)
+              p=x["at_K_minus_one"]
+              assert p["active_original_incidence_N"]==45
+              assert p["positive_port_degree_sum_on_active_source_I"]==6*S
+              assert p["global_signed_pressure_G"]==6*deficit
+              assert p["uniform_exact_scaled_Hall_deficit_Delta6"]==6*deficit
+              assert p["exact_local_Hall_excess_over_global_source_pressure"]==0
+              assert p["minimum_cut_direct_pressure_boundary_witness"]["F_original_incidence_support"]==list(range(45))
+              assert p["minimum_cut_direct_pressure_boundary_witness"]["original_partial_source_boundary"]==0
+              assert p["exact_D6F_full_original_exception_mass"]==deficit
+              assert p["calibrated_pair_flow_global_only_Hall_deficit_CERTIFIED"]==(x["scheme"] in ("lex","reverse"))
+              if x["scheme"] in ("S68","S72"):
+                  w=p["centred_pair_pressure_calibration"]["failed_pair_cut_witness"]
+                  expected_pair={"S68":(372,28,1632,44),"S72":(1215,128,6975,42)}
+                  assert (w["exact_positive_pair_cut_shortfall"],
+                          w["original_pair_cut_weight"],
+                          w["sum_centred_integer_pressure"],
+                          len(w["original_incidence_support_F"]))==expected_pair[x["scheme"]]
+                  assert w["sum_centred_integer_pressure"]-45*w["original_pair_cut_weight"]==w["exact_positive_pair_cut_shortfall"]
+                  hyper=p["failed_pair_cut_evaluated_in_original_triple_hypergraph"]
+                  assert hyper["k"]==len(w["original_incidence_support_F"])
+                  assert hyper["six_M_minus_K_D"]<=p["uniform_exact_scaled_Hall_deficit_Delta6"]
+              assert x["at_K"]["uniform_exact_scaled_Hall_deficit_Delta6"]==0
+              print({"scheme":x["scheme"],"K":K,"C":C,"S_full_seven":S,
+                     "active_original_incidence_N":45,
+                     "K_minus_one_exact_exception":deficit,
+                     "pressure_variance_numerator":p["signed_pressure_variance_numerator_v"],
+                     "tree_spectral_gate":p["spectral_tree_global_only_Hall_deficit_CERTIFIED"],
+                     "calibrated_pair_flux":p["calibrated_pair_flow_global_only_Hall_deficit_CERTIFIED"],
+                     "flux_nonzero_pair_edges":p["centred_pair_pressure_calibration"]["nonzero_signed_original_pair_flux_count"],
+                     "failed_pair_cut":p["centred_pair_pressure_calibration"]["failed_pair_cut_witness"]})
+          PY

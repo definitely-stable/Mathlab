@@ -1,0 +1,78 @@
+name: hyp105-issue230-d6aa4t-quenched-aligned-d6
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4t_quenched_aligned_d6.py"
+      - "research/test_hyp105_issue230_d6aa4t_quenched_aligned_d6.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4T-QUENCHED-ALIGNED-D6.md"
+      - ".github/workflows/hyp105-issue230-d6aa4t-quenched-aligned-d6.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-original-gq-source-hall-and-positional-tensor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently verify all-h rational source Hall every-f quenched D6 theorem
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4t_quenched_aligned_d6.py" -v
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4t_quenched_aligned_d6 import all_h_fixed_point_map_quenched_d6_certificate
+          for h in range(1,14):
+              s=1<<h
+              r=all_h_fixed_point_map_quenched_d6_certificate(s)
+              exp=Fraction(r["every_f_quenched_D6_expectation_lower_num"],
+                           r["every_f_quenched_D6_expectation_lower_den"])
+              assert exp>=Fraction(s**6,98304)
+              assert r["all_h_every_f_conditional_EXPECTATION_omega_s6_PROVED"]
+              assert not r["all_h_min_over_both_maps_positive_PROVED"]
+              print(s,r["uniform_all_h_proof_mode"],
+                    "occupied C6 >=",r["physical_occupied_C6_floor"],
+                    "E_g D6 lower =",exp)
+          print("All h exact-genuine ORIGINAL connected D6 quenched guarantee VERIFIED")
+          PY
+  true-original-independent-60-position-D6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full 60 original-position C6 fibre joins under same two globally injected full K6 maps
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4t_quenched_aligned_d6.py --scheme "$SCHEME" > "/tmp/aa4t-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from fractions import Fraction
+          from pathlib import Path
+          z=json.loads(Path("/tmp/aa4t-"+os.environ["SCHEME"]+".json").read_text())
+          assert z["scope"].startswith("TRUE ORIGINAL W32")
+          assert z["physical_full_K6_connected_C6_count"]==60
+          assert z["D6_matched_exact_two_sided_original_count"]==0
+          assert z["right_positional_C6_matching_probability_num"]==1
+          assert z["right_positional_C6_matching_probability_den"]==5005
+          assert Fraction(z["uniform_complete_right_global_injection_D6_expectation_num"],
+                          z["uniform_complete_right_global_injection_D6_expectation_den"])==Fraction(
+                              z["T_f_connected_60_position_C6_tensor_total"],5005)
+          assert z["T_f_connected_60_position_C6_tensor_total"]>0
+          assert z["independent_original_W32_full_seven_oracles"]=="PASS"
+          assert not z["all_h_deterministic_min_over_f_g_PROVED"]
+          print("REAL W32",os.environ["SCHEME"],
+                "TRUE source positional T_f",z["T_f_connected_60_position_C6_tensor_total"],
+                "E_g D6",z["uniform_complete_right_global_injection_D6_expectation_num"],
+                "/",z["uniform_complete_right_global_injection_D6_expectation_den"],
+                "ACTUAL D6",z["D6_matched_exact_two_sided_original_count"])
+          PY

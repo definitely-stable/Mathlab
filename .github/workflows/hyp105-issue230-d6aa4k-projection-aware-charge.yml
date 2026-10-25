@@ -1,0 +1,105 @@
+name: hyp105-issue230-d6aa4k-projection-aware-charge
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4k_projection_aware_charge.py"
+      - "research/test_hyp105_issue230_d6aa4k_projection_aware_charge.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4K-PROJECTION-AWARE-PAIR-CHARGE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4k-projection-aware-charge.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-A-B-C-original-charge-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original physical projection exact A/B/C 9/6/3, independent pair-major, typed-GQ random falsifiers
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4k_projection_aware_charge.py" -v
+          python research/hyp105_issue230_d6aa4k_projection_aware_charge.py > /tmp/aa4k-theorem.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          r=json.load(open("/tmp/aa4k-theorem.json"))
+          assert r["slice"]=="HYP105-ISSUE230-D6-AA4-K-PROJECTION-AWARE-PAIR-CHARGE"
+          assert r["A_B_C_original_six_coordinate_exact_disjoint_cap"]=={"A":9,"B":6,"C":3}
+          assert r["all_h_original_P_or_L_charge_le_9S"]
+          assert r["all_h_joint_P_plus_L_charge_le_18S"]
+          assert not r["all_h_nonzero_total_charge_lower_proved"]
+          assert r["root_A"]==r["root_B"]=="OPEN"
+          for typ in ("P","L"):
+              q=r["exact_genuine_W38_D6_sharpness_"+typ]
+              assert q["s"]==8 and q["V"]==585
+              assert q["source_type"]==typ
+              assert q["globally_injective_complete_both_type_maps"]
+              assert q["historical_genuine_original_positional_seven_class"]=="D6"
+              assert q["selected_GF5_certified_D6_numerator"]==5643
+              assert q["positive_Q_source_collinear_disjoint_pair_count"]==9
+              assert q["projection_capacity_upper_9_ATTAINED"]
+              assert q["entire_W38_GF5_seven_census_NOT_done"]
+              print("TRUE ORIGINAL W38 SHARP NINE GF5 D6",typ,
+                    q["original_six_incidence_IDs"],q["original_six_distinct_pencil_source_factor_IDs"])
+          assert not r["full_R3_proved"] and not r["ASET_exponent_proved"]
+          x=r["all_h_conditional_average_multiplicity"]
+          assert x["s"]==4 and not x["any_global_positive_average_claim_ESTABLISHED"]
+          assert x["conditional_seven_Q_lower_using_sharp_projection_9"]>=x[
+               "AA4J_conditional_seven_Q_lower_using_loose_15"]
+          print("AA4-K all-h ORIGINAL positive Q A/B/C 9/6/3 and conditional averaged s6 gate PASS")
+          PY
+  original-W32-full-GF5-Q-class-sensitive-charge-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 24 globally type-injective original K6 maps, 62370 original sixsets each, all A/B/C GF5 pair charge
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4k_projection_aware_charge.py --scheme "$SCHEME" > "/tmp/aa4k-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from fractions import Fraction
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4k-"+os.environ["SCHEME"]+".json").read_text())
+          r=x["true_original_W32"]
+          assert r["scheme"]==os.environ["SCHEME"]
+          assert len(r["original_four_point_source_block"])==4
+          assert r["complete_globally_injected_source_states"]==24
+          assert r["complete_original_six_candidate_sets_per_state"]==62370
+          assert r["root_A"]==r["root_B"]=="OPEN"
+          assert r["strictly_one_true_original_Q_classification_per_state"]
+          baseline={"S68":68,"S72":72}[os.environ["SCHEME"]]
+          assert r["exact_ranges"]["original_seven_Q"]["min"]==baseline
+          for row in r["all_24_complete_original_GF5_results"]:
+              S=row["original_seven_Q"]
+              assert S>=baseline
+              assert row["all_h_unconditional_P_and_L_capacity_per_positive_Q"]==9
+              assert row["all_h_unconditional_joint_capacity_per_positive_Q"]==18
+              assert row["independent_AA4J_pair_major_charge_oracle"]=="PASS"
+              assert row["class_sensitive_exact_charges_conserved"]
+              assert row["joint_source_pair_to_original_GF5_positive_Q_charge"]<=row[
+                  "joint_A_B_C_projection_disjoint_capacity"]<=18*S
+              assert row["source_P_charge"]<=row["source_P_projection_disjoint_capacity"]<=9*S
+              assert row["source_L_charge"]<=row["source_L_projection_disjoint_capacity"]<=9*S
+              assert row["joint_loose_AA4J_S_floor"]<=row["joint_projection_aware_S_floor"]<=S
+              assert row["selected_GF5_numerator_floor_from_joint_charge"]<=row[
+                  "selected_GF5_51palette_numerator"]
+              assert Fraction(row["GF5_selected_numerator_per_joint_charge_rational_floor"])==Fraction(627,2)
+              assert sum(t["count"] for t in row["true_ORIGINAL_Q_by_class"].values())==S
+          print(r["scheme"],"TRUE ORIGINAL four-point block",r["original_four_point_source_block"])
+          for field,ran in r["exact_ranges"].items():
+              print("EXACT GF5",field,ran)
+          print("EXACT ORIGINAL full positional GF5 Q independent and 9/6/3 projection P/L pair-major PASS")
+          PY

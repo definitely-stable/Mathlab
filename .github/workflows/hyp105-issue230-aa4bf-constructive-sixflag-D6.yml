@@ -1,0 +1,53 @@
+name: hyp105-issue230-aa4bf-constructive-original-sixflag-GF5-D6
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bf_constructive_sixflag_D6.py"
+      - "research/test_hyp105_issue230_d6aa4bf_constructive_sixflag_D6.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BF-CONSTRUCTIVE-ORIGINAL-SIXFLAG-D6.md"
+      - ".github/workflows/hyp105-issue230-aa4bf-constructive-sixflag-D6.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-720-global-and-all-h-symbolic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Full 720 six-line global images, arbitrary adaptive order, all-h parent original GF5 sixflag floors, malformed global image guards
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bf_constructive_sixflag_D6.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bf_constructive_sixflag_D6.py' -v -k test_05
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bf_constructive_sixflag_D6.py' -v -k test_06
+      - name: Expose proof quantifiers with no fully fixed original g claim
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4bf_constructive_sixflag_D6 import all_h_original_D6_constructive_guarantee
+          for h in (5,6,7,8,12,24,48,80):
+              s=1<<h; V=(s+1)*(s*s+1)
+              c=all_h_original_D6_constructive_guarantee(s,V//16)
+              print("AA4BF",h,"parent mean / s6",
+                    c["parent_verified_expected_original_D6_floor"]/s**6,
+                    "constructive floor",c["constructed_selected_original_GF5_D6_floor"])
+              assert c["all_given_fully_fixed_original_f_g_lower_NOT_PROVED"]
+              assert c["root_230"]=="OPEN_WITH_FORMAL_BLOCKER"
+          PY
+  genuine-original-W32-D6-global-greedy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Actual original W32 f/g 6-incidence D6 historical source candidate ledger; independent mean and pinned partial tower
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bf_constructive_sixflag_D6.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bf_constructive_sixflag_D6.py' -v -k test_03
+      - name: Complete all 15 TRUE W32 original source LINE factors using reverse order and exact conditional D6 potential
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bf_constructive_sixflag_D6.py' -v -k test_04

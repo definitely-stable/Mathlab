@@ -1,0 +1,75 @@
+name: hyp105-issue230-d6l-directed-triple-calibration
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6l_directed_triple_calibration.py"
+      - "research/test_hyp105_issue230_d6l_directed_triple_calibration.py"
+      - "docs/research/HYP-105-ISSUE230-D6L-DIRECTED-TRIPLE-CALIBRATION.md"
+      - ".github/workflows/hyp105-issue230-d6l-directed-triple-calibration.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-three-port-directed-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaustive original hypergraph F dual, integer triple primal, pair separation
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6l_directed_triple_calibration.py' -v
+      - name: Pin genuine complete-positive-seven original W32 duals
+        run: |
+          python research/hyp105_issue230_d6l_directed_triple_calibration.py > /tmp/hyp105-d6l.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("/tmp/hyp105-d6l.json").read_text())
+          assert r["slice"]=="HYP105-ISSUE230-D6L-DIRECTED-ORIGINAL-TRIPLE-CALIBRATION"
+          assert r["all_finite_exact_directed_cut_duality"]=="PROVED"
+          assert r["all_h_uniform_K"]=="OPEN" and r["root_Branch_A_B"]=="OPEN"
+          assert r["W34_W38_complete_seven_S"]=="UNKNOWN-NO-BB-SUBSTITUTION"
+          expected={
+            "lex":(942,786,156,259,4,165),
+            "reverse":(898,676,222,169,6,53),
+            "S68":(606,544,62,68,9,62),
+            "S72":(658,600,58,72,10,10),
+          }
+          assert len(r["genuine_complete_original_W32_cases"])==4
+          for x in r["genuine_complete_original_W32_cases"]:
+              C,E,I,S,K,exception=expected[x["scheme"]]
+              assert (x["C"],x["E"],x["I"],
+                      x["S_complete_TRUE_GQ_seven_GF5_positive"],
+                      x["full_original_K"])==(C,E,I,S,K)
+              minus=x["K_minus_one"]
+              at=x["K_at_minimum"]
+              assert minus["true_original_exact_uniform_Delta6"]==6*exception
+              assert minus["true_original_D6F_integer_exception"]==exception
+              assert minus["true_original_exact_uniform_local_excess"]==0
+              assert at["true_original_exact_uniform_Delta6"]==0
+              for y in (minus,at):
+                  d=y["original_directed"]
+                  assert d["routed_q"]+d["directed_calibration_deficit_E"]==d["integer_q_supply"]
+                  assert d["directed_calibration_deficit_E"]<=y["original_pair"]["centred_pair_deficit_E"]
+                  if d["certified_zero_directed_calibration_deficit"]:
+                      assert d["dual_exact_deficit"]==0
+                  else:
+                      assert d["dual_exact_deficit"]==d["directed_calibration_deficit_E"]>0
+              pair_expected={"lex":0,"reverse":0,"S68":372,"S72":1215}
+              primal_expected={"lex":148,"reverse":179,"S68":123,"S72":180}
+              assert minus["original_pair"]["centred_pair_deficit_E"]==pair_expected[x["scheme"]]
+              assert minus["original_directed"]["directed_calibration_deficit_E"]==0
+              assert minus["original_directed"]["certified_zero_directed_calibration_deficit"]
+              assert minus["original_directed"]["triple_primal_nonzero_count"]==primal_expected[x["scheme"]]
+              print({"original_W32":x["scheme"],"S_full_seven":S,
+                     "original_K_min":K,"K_minus_one_exception":exception,
+                     "directed_E":minus["original_directed"]["directed_calibration_deficit_E"],
+                     "pair_E":minus["original_pair"]["centred_pair_deficit_E"],
+                     "directed_certified":minus["original_directed"]["certified_zero_directed_calibration_deficit"],
+                     "triple_flow_nonzero_primal":minus["original_directed"]["triple_primal_nonzero_count"]})
+          PY

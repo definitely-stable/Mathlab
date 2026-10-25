@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4cu-original-exterior3-matching-energy
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cu_exterior_matching_energy.py"
+      - "research/test_hyp105_issue230_d6aa4cu_exterior_matching_energy.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CU-EXTERIOR-ORIGINAL-MATCHING-ENERGY.md"
+      - ".github/workflows/hyp105-issue230-aa4cu-exterior-matching-energy.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true_original_W32_all_source_minors_full_matching_and_GQ_spectrum:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Complete original W32 ALL 455x455 source 3by3 minors det2 vs independent true permanent and 10560 real 3-matching flags
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cu_exterior_matching_energy.py' -v -k test_01
+  true_original_W34_independent_source_twoflag_walk_and_spectral_polynomial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine full W34 lex/random independent original two-edge source walk, no C4, 3-edge source matchings 11995200 and MMt spectral minimal polynomial
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cu_exterior_matching_energy.py' -v -k test_02
+  true_original_W32_all_anchors_and_FULL_K6_zero_compression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original W32 lex S72 entire 180-anchor BBo Q vs prior AA4CR; fully occupied K6 2x2 physical C4 completion with 4 zero true original incidence determinants
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cu_exterior_matching_energy.py' -v -k test_03
+  true_original_W34_W38_scoped_C4_exterior_vs_prior_matching:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: REAL complete original W34 lex/random source 72 anchors and W38 828100 C4 original source pairs match independent AA4CR exact TRUE original 3x3 permanent
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cu_exterior_matching_energy.py' -v -k test_04
+  all_h_exact_infinite_formula_integer_falsifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact unbounded-symbolic original GQ cubic-matching mass formula checked across dyadic orders h1..26 only as independent arithmetic falsifier
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cu_exterior_matching_energy.py' -v -k test_05
+  reject_duplicate_gq_source_factors_invalid_anchors_and_maps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original invalid incidence, repeated source triple factors, nonincident anchor validation, invalid s and typed injection fail closed
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cu_exterior_matching_energy.py' -v -k test_06

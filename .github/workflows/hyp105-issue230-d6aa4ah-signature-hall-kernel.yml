@@ -1,0 +1,64 @@
+name: hyp105-issue230-d6aa4ah-signature-hall-kernel
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ah_signature_hall_kernel.py"
+      - "research/test_hyp105_issue230_d6aa4ah_signature_hall_kernel.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AH-RANK-SIX-SOURCE-HALL-CHANNELS.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ah-signature-hall-kernel.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-abstract-rank-six:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every abstract 8bit pair 65536 signatures, 24 permutations and exact six rank minor
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ah_signature_hall_kernel.SixChannelAllOriginalHall.test_01_full_65536_abstract_signature_kernel_factorization \
+            test_hyp105_issue230_d6aa4ah_signature_hall_kernel.SixChannelAllOriginalHall.test_02_exact_rational_rank_six_identity_minor
+  true-original-W32-all-root-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All actual W32 point and line roots, all flags, globally fixed schemes and prior full GF5 guard
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ah_signature_hall_kernel.SixChannelAllOriginalHall.test_03_real_original_W32_three_maps_both_types_and_actual_rootpairs \
+            test_hyp105_issue230_d6aa4ah_signature_hall_kernel.SixChannelAllOriginalHall.test_05_entire_true_W32_triangle_subclass_vs_seven_class_baseline
+  genuine-original-W34-physical-holes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual W34 lex/random typed original, independent literal source matching and physical relabels
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ah_signature_hall_kernel.SixChannelAllOriginalHall.test_04_real_original_W34_holes_and_zero_Hall_without_fake_candidates \
+            test_hyp105_issue230_d6aa4ah_signature_hall_kernel.SixChannelAllOriginalHall.test_06_genuine_source_and_physical_relabel_invariance \
+            test_hyp105_issue230_d6aa4ah_signature_hall_kernel.SixChannelAllOriginalHall.test_07_six_channel_direct_Q_validation_for_real_W34
+  strict-domain-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject non-injective and fabricated original labels, malformed signatures and physical C4
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ah_signature_hall_kernel.SixChannelAllOriginalHall.test_08_invalid_original_source_and_signature_domains

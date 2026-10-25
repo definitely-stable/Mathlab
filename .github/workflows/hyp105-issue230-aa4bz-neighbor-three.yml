@@ -1,0 +1,48 @@
+name: hyp105-issue230-aa4bz-original-sixcube-neighbor-three
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bz_original_neighbor_three_kernel.py"
+      - "research/test_hyp105_issue230_d6aa4bz_original_neighbor_three_kernel.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BZ-ORIGINAL-NEIGHBOR-THREE-CENTER.md"
+      - ".github/workflows/hyp105-issue230-aa4bz-neighbor-three.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-original-physical-sixcube-neighbor-three-exact-rational-dual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All-h true source sixpacket physical degree parity proof, exact 139/128 radial signed dual and strict negative guards
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bz_original_neighbor_three_kernel.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bz_original_neighbor_three_kernel.py' -v -k test_05
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bz_original_neighbor_three_kernel.py' -v -k test_06
+  real-original-W32-all-k6-sixflag-Q-all-64-global-g-and-physical-K6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: REAL original W32 351/301 sixth source eligible Q each all64 true globally injected right maps; ALL physical K6 choose(15,6)=5005 graph configurations with maximum matching
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bz_original_neighbor_three_kernel.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bz_original_neighbor_three_kernel.py' -v -k test_03
+  true-original-W32-ALL-SEVEN-historical-GF5-center-g-independent-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All seven HISTORICAL ORIGINAL 51-column necessary weighted GF5 64 globally complete map center counts, strict f-only eta6 saving and alternate adversarial entire global g permutation
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bz_original_neighbor_three_kernel.py' -v -k test_04

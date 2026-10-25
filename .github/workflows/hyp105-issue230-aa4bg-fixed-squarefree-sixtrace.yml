@@ -1,0 +1,49 @@
+name: hyp105-issue230-aa4bg-fixed-original-squarefree-sixtrace
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bg_fixed_squarefree_D6_trace.py"
+      - "research/test_hyp105_issue230_d6aa4bg_fixed_squarefree_D6_trace.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BG-FIXED-SQUAREFREE-D6-TRACE.md"
+      - ".github/workflows/hyp105-issue230-aa4bg-fixed-squarefree-sixtrace.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-original-W32-full-fixed-two-color-sixtrace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Five genuine fixed f,g original W32 historic seven-GF5 D6, exact nilpotent matrix trace, independent literal closed walks
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bg_fixed_squarefree_D6_trace.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bg_fixed_squarefree_D6_trace.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bg_fixed_squarefree_D6_trace.py' -v -k test_03
+  gauge-spectrum-no-go-and-source-injection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent typed physical coordinate gauge, ordinary 6th-moment no-go, strict source validation
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bg_fixed_squarefree_D6_trace.py' -v -k test_04
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bg_fixed_squarefree_D6_trace.py' -v -k test_05
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bg_fixed_squarefree_D6_trace.py' -v -k test_07
+  real-original-W34-partial-not-full:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real W34 symplectic GF4 two-root exact squarefree trace independently crosschecked - never claimed a full D6 census
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bg_fixed_squarefree_D6_trace.py' -v -k test_06

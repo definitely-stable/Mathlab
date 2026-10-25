@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4ao-robust-port-occupancy
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ao_robust_port_occupancy.py"
+      - "research/test_hyp105_issue230_d6aa4ao_robust_port_occupancy.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AO-ROBUST-PORT-OCCUPANCY.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ao-robust-port-occupancy.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-and-K8-K9-independent-deletion-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Symbolic genuine W3 power-two palette h1..50 and independent physical K8/K9 missing-edge P5 enumeration
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ao_robust_port_occupancy.RobustOriginalDPortPhysical.test_01_all_h_exact_integer_missing_palette_thresholds \
+            test_hyp105_issue230_d6aa4ao_robust_port_occupancy.RobustOriginalDPortPhysical.test_02_independent_literal_missing_edge_oracle_K8_K9
+  every-genuine-original-W32-D-pair-five-global-labels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All five globally fixed W32 physical point/line injection pairs and EVERY actual original compatible two-flag D pair, S68 true Hall/A-A falsifier
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ao_robust_port_occupancy.RobustOriginalDPortPhysical.test_03_every_genuine_original_W32_D_pair_all_five_maps_exact
+  genuine-original-W34-K14-injections-and-good-ports:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Two genuine W34 complete typed physical global injections, 6 missing K14 edges each, independently enumerated real source D paths, physical good-port high-h bound
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ao_robust_port_occupancy.RobustOriginalDPortPhysical.test_04_true_original_W34_global_injection_6_holes_both_sides \
+            test_hyp105_issue230_d6aa4ao_robust_port_occupancy.RobustOriginalDPortPhysical.test_05_good_physical_ports_conditional_W38_real_global_labels
+  abstract-extremal-negative-and-original-nonlift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Concentrated m=a-2 physical edge deletion sharpness in abstract K8/K14/K35, original W32 true D non-extendibility, invalid inputs
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4ao_robust_port_occupancy.RobustOriginalDPortPhysical.test_06_sharp_abstract_port_isolation_and_original_six_Q_nonlift

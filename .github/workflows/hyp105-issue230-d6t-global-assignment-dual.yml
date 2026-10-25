@@ -1,0 +1,111 @@
+name: hyp105-issue230-d6t-global-assignment-dual
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6t_assignment_dual_certificate.py"
+      - "research/test_hyp105_issue230_d6t_assignment_dual_certificate.py"
+      - "docs/research/HYP-105-ISSUE230-D6T-GLOBAL-ASSIGNMENT-DUAL-NOGO.md"
+      - ".github/workflows/hyp105-issue230-d6t-global-assignment-dual.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-global-injection-dual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent Hungarian versus brute, two-sided GF5 dual NO-GO, original W32 complete three-line orbit
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6t_assignment_dual_certificate.py' -v
+      - name: Pin true ORIGINAL W32 assignment-dual soundness without claiming full 15-factor root
+        run: |
+          python research/hyp105_issue230_d6t_assignment_dual_certificate.py > /tmp/hyp105-d6t.json
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          from fractions import Fraction
+          x=json.loads(Path('/tmp/hyp105-d6t.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6T-GLOBAL-ASSIGNMENT-DUAL-CERTIFICATE'
+          assert x['theorem']=='ALL-H-TWO-SIDED-GLOBAL-INJECTION-PROJECTED-MARGINAL-DUAL'
+          assert x['all_h_sound_sufficient_dual_for_original_S_and_selected_GF5']
+          assert x['all_h_UNCONDITIONED_TWO_SIDED_degree_one_dual']=='IDENTICALLY_ZERO'
+          assert x['root_degree_one_dual_NO_GO_not_Branch_B']
+          assert x['all_h_full_original_12_local_factor_truth_tables']=='NOT-ENUMERATED'
+          assert x['W32_only_three_factor_frozen_complement']=='EXACT_FINITE_CONTROL'
+          assert x['global_all_f_g_theorem_PROVED_A'] is False
+          assert x['infinite_correlated_counterexample_PROVED_B'] is False
+          assert (x['Branch_A'],x['Branch_B'])==('OPEN','OPEN')
+          rows=x['rows']
+          assert len(rows)==2 and [r['scheme'] for r in rows]==['S68','S72']
+          pinned={
+              'S68':{
+                  'S_primal':[68,83,92,76,108,82],
+                  'GF5_primal':[3112510,3706986,4227460,3430023,4940790,3741890],
+                  'S_dual':'131/2','S_integer_floor':66,
+                  'GF5_dual':'2994550','GF5_min':3112510,
+                  'GF5_baseline':3112510,
+              },
+              'S72':{
+                  'S_primal':[72,87,84,114,68,88],
+                  'GF5_primal':[3283610,3937673,3830810,5203680,3104080,4017080],
+                  'S_dual':'121/2','S_integer_floor':61,
+                  'GF5_dual':'2760940','GF5_min':3104080,
+                  'GF5_baseline':3283610,
+              },
+          }
+          expected_permutation_order=[[0,1,2],[0,2,1],[1,0,2],
+                                      [1,2,0],[2,0,1],[2,1,0]]
+          for r in rows:
+              p=pinned[r['scheme']]
+              assert [x['permutation_image_indices'] for x in r['right_suborbit']]==expected_permutation_order
+              assert [x['S_seven'] for x in r['right_suborbit']]==p['S_primal']
+              assert [x['GF5_selected_lower_numerator'] for x in r['right_suborbit']]==p['GF5_primal']
+              assert r['projected_marginal_global_dual_S']['global_assignment_dual_lower']==p['S_dual']
+              assert r['projected_marginal_global_dual_S']['global_assignment_dual_integer_floor']==p['S_integer_floor']
+              assert r['projected_marginal_global_dual_GF5']['global_assignment_dual_lower']==p['GF5_dual']
+              assert r['exact_suborbit_min_GF5_selected_lower_numerator']==p['GF5_min']
+              assert r['independent_true_ORIGINAL_seven_GF5_baseline']['GF5_selected_lower_numerator']==p['GF5_baseline']
+              assert r['true_ORIGINAL_left_sixsets_accounted']==62370
+              assert r['six_legal_fixed_IMAGE_three_line_assignments_exhaustively_checked']
+              assert r['right_image_outside_three_original_factor_ids']=='FROZEN'
+              assert r['global_15_factor_right_image_assignment_min']=='NOT-COMPUTED'
+              assert r['Branch_A']=='OPEN' and r['Branch_B']=='OPEN'
+              assert len(r['right_suborbit'])==6
+              assert r['number_ORIGINAL_right_support_groups']<=8
+              assert len({tuple(z['permutation_image_indices']) for z in r['right_suborbit']})==6
+              assert r['exact_suborbit_min_S']==min(z['S_seven'] for z in r['right_suborbit'])
+              assert r['exact_suborbit_min_GF5_selected_lower_numerator']==min(
+                  z['GF5_selected_lower_numerator'] for z in r['right_suborbit'])
+              assert r['exact_suborbit_min_S']==68
+              assert r['independent_true_ORIGINAL_seven_GF5_baseline']['S_seven']=={
+                  'S68':68,'S72':72}[r['scheme']]
+              assert r['projected_marginal_global_dual_S']['scale']==27720
+              assert r['projected_marginal_global_dual_GF5']['scale']==27720
+              for score,label in (('S','exact_suborbit_min_S'),
+                                  ('GF5','exact_suborbit_min_GF5_selected_lower_numerator')):
+                  dual=r['projected_marginal_global_dual_'+score]
+                  exact=r[label]
+                  certified=Fraction(dual['global_assignment_dual_lower'])
+                  assert 0<=certified<=exact
+                  assert dual['global_assignment_dual_integer_floor']<=exact
+                  assert dual['local_factors_verified']==r['number_ORIGINAL_right_support_groups']
+                  assert dual['globally_injective_both_factor_sides']=='EXACTLY_ENFORCED_IN_ASSIGNMENT_MIN'
+                  assert dual['complete_local_truth_tables_required']
+                  assert dual['certificate_for_global_root_positive']=='NOT-CLAIMED'
+              print({'scheme':r['scheme'],
+                     'frozen_original_right_triple':r['original_right_factor_subset'],
+                     'exact_conditional_suborbit_min_S':r['exact_suborbit_min_S'],
+                     'certified_conditional_S_lower':
+                         r['projected_marginal_global_dual_S']['global_assignment_dual_lower'],
+                     'exact_conditional_suborbit_min_GF5_num':
+                         r['exact_suborbit_min_GF5_selected_lower_numerator'],
+                     'certified_conditional_GF5_num_lower':
+                         r['projected_marginal_global_dual_GF5']['global_assignment_dual_lower'],
+                     'full_six_permutation_primal':r['right_suborbit']})
+          PY

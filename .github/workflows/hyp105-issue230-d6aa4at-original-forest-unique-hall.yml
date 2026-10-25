@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6aa4at-original-forest-unique-hall
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4at_original_forest_unique_hall.py"
+      - "research/test_hyp105_issue230_d6aa4at_original_forest_unique_hall.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AT-ORIGINAL-FOREST-UNIQUE-HALL.md"
+      - ".github/workflows/hyp105-issue230-d6aa4at-original-forest-unique-hall.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-real-GQ-induced-forest-capacities-and-literal-degree-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Symbolic true W3 2-powers h1..60 forest 0/1 Hall per physical occupied residual template, repeated source-point/line factor leaf-degree uniqueness and rejection of fabricated C4/C6 source incidence cycles
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4at_original_forest_unique_hall.OriginalGQThreeflagForestHall.test_01_all_h_symbolic_original_source_unique_hall_capacity \
+            test_hyp105_issue230_d6aa4at_original_forest_unique_hall.OriginalGQThreeflagForestHall.test_02_independent_literal_girth8_forests_repeated_factor_degree_demand \
+            test_hyp105_issue230_d6aa4at_original_forest_unique_hall.OriginalGQThreeflagForestHall.test_03_reject_nonoriginal_source_four_or_six_incidence_cycles
+  every-actual-original-W32-five-global-labels-all-occupied-threeflag-Hall-template-pairs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: EVERY real original W32 GOOD opposite 3-flag wedge, BOTH fixed global typed point/line physical images, EVERY occupied T/P physical 3-factor residual pair, independent old 3! source Hall versus forest leaf uniqueness and five frozen source Hall charges
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4at_original_forest_unique_hall.OriginalGQThreeflagForestHall.test_04_all_five_real_original_W32_global_f_g_every_opposite_good_wedge
+  genuine-original-W34-two-global-physical-K14-injections-D6-Hall-witnesses:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine symplectic GF4 W34 original source lex/random complete globally injected typed physical K14 point/line maps (6 holes each), actual ORIGINAL six-ID D6 from prior bounded witness and exact source-forest Hall 0/1 per all residual physical pairs
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4at_original_forest_unique_hall.OriginalGQThreeflagForestHall.test_05_true_original_W34_witness_source_forest_Hall_vs_seven_Q
+  true-original-isometry-and-independent-typed-physical-relabeling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True symplectic original W32 source-flag incidence transvection and separate globally bijective point/line physical K6 permutations preserve exact Hall Q counts by T/P, reject forged original source inputs
+        run: |
+          PYTHONPATH=research python -m unittest -v \
+            test_hyp105_issue230_d6aa4at_original_forest_unique_hall.OriginalGQThreeflagForestHall.test_06_true_original_symplectic_invariance_and_forged_source_rejection

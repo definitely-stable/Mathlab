@@ -1,0 +1,83 @@
+name: hyp105-issue230-d6q-seven-right-image-orbit
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6q_seven_right_image_orbit.py"
+      - "research/test_hyp105_issue230_d6q_seven_right_image_orbit.py"
+      - "docs/research/HYP-105-ISSUE230-D6Q-SEVEN-RIGHT-IMAGE-ORBIT.md"
+      - ".github/workflows/hyp105-issue230-d6q-seven-right-image-orbit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-seven-fixed-right-image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaustive independent physical masks and genuine ORIGINAL W32/W34 fixed-image controls
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6q_seven_right_image_orbit.py' -v
+      - name: Pin all-seven fixed-IMAGE orbit and all-h nonclaims
+        run: |
+          python research/hyp105_issue230_d6q_seven_right_image_orbit.py > /tmp/hyp105-d6q.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from fractions import Fraction
+          x=json.loads(Path('/tmp/hyp105-d6q.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6Q-EXACT-ALL-SEVEN-FIXED-IMAGE-ORBIT'
+          assert x['theorem']=='EXACT-ALL-H-FIXED-RIGHT-IMAGE-ORBIT-SEVEN-CLASS-FIRST-MOMENT'
+          assert x['all_h_nontrivial_uniform_IMAGE_robust_MEAN_floor'] is True
+          assert x['right_IMAGE_fixed_not_uniformly_resampled'] is True
+          assert x['complete_W34_W38_ORIGINAL_seven_S']=='NOT-CLAIMED'
+          assert (x['Branch_A'],x['Branch_B'])==('OPEN','OPEN')
+          rows=x['original_W32_rows']
+          assert [r['scheme'] for r in rows]==['lex','reverse','S68','S72']
+          assert [r['fixed_actual_S_seven'] for r in rows]==[259,169,68,72]
+          assert rows[0]['expected_seven_class_counts']==rows[1]['expected_seven_class_counts']
+          assert rows[2]['expected_seven_class_counts']==rows[3]['expected_seven_class_counts']
+          weights={'D6':5643,'B-left/A-right':45600,'A-left/B-right':45600,
+                   'C/A':43320,'C/B':49050,
+                   'B/B-overlap':51750,'B/B-disjoint':45010}
+          for r in rows:
+              ps=r['exact_right_image_orbit_shape_probabilities']
+              assert ps=={'A':'2/143','B':'3/1001','C':'3/91','D6':'1/5005'}
+              assert r['original_left_candidates']==62370
+              assert r['profile_eligible_original_sixsets']+r['profile_ineligible_original_sixsets']==62370
+              expected={k:Fraction(v) for k,v in r['expected_seven_class_counts'].items()}
+              assert set(expected)==set(weights)
+              assert sum(expected.values(),Fraction())==Fraction(r['expected_all_seven_S'])
+              assert sum(weights[k]*v for k,v in expected.items())==Fraction(
+                  r['expected_GF5_seven_selected_lower_numerator'])
+              assert sum(r['fixed_actual_seven_class_counts'].values())==r['fixed_actual_S_seven']
+              assert r['conditional_expectation_not_all_g_lower'] is True
+              assert r['right_orbit_fixed_IMAGE_not_unconditional_completion'] is True
+              print({'scheme':r['scheme'],
+                     'full_seven_S_actual_fixed_g':r['fixed_actual_S_seven'],
+                     'full_seven_S_fixed_IMAGE_orbit_mean':r['expected_all_seven_S'],
+                     'GF5_selected_lower_numerator_fixed_IMAGE_orbit_mean':
+                         r['expected_GF5_seven_selected_lower_numerator'],
+                     'signed_all_class_joint_deficit':
+                         r['actual_minus_image_orbit_mean_S'],
+                     'original_candidates_by_class_and_right_profile':
+                         r['profile_counts_by_GF5_class_and_original_right_type']})
+          certs=x['all_h_uniform_right_IMAGE_bounds']
+          assert [t['s'] for t in certs]==[2,4,8]
+          for t in certs:
+              assert t['uniform_for_every_right_IMAGE_of_size_V']
+              assert t['NOT_a_bound_on_each_fixed_right_injection']
+              assert t['NOT_complete_W34_W38_original_seven_S']
+              assert t['all_admissible_right_images_have_all_four_template_families']
+              assert Fraction(t['six_edge_template_deletion_fraction'])<1
+              assert Fraction(t['new_all_f_all_IMAGE_permutation_orbit_S_mean_floor'])>0
+              print({'s':t['s'],'a':t['a'],'V':t['V'],'missing_edges':t['missing_pair_edges'],
+                     'fixed_IMAGE_universal_right_ORBIT_expected_S_floor':
+                         t['new_all_f_all_IMAGE_permutation_orbit_S_mean_floor'],
+                     'ratio_floor_per_s6':t['new_mean_floor_over_s6']})
+          PY

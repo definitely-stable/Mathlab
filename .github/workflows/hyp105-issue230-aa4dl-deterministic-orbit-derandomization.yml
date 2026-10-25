@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4dl-deterministic-orbit-derandomization
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4dl_deterministic_orbit_derandomization.py"
+      - "research/test_hyp105_issue230_d6aa4dl_deterministic_orbit_derandomization.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DL-DETERMINISTIC-ORBIT-DERANDOMIZATION.md"
+      - ".github/workflows/hyp105-issue230-aa4dl-deterministic-orbit-derandomization.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dense_template_survival_fraction_all_h:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify exact rational template survival fractions under ANY right image E
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dl_deterministic_orbit_derandomization.py' -v -k test_01
+  transversal_rigidity_counting_superlinear_carrier_ratio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify carrier volume Theta(s^15) vastly outnumbers edge budget Theta(s^3)
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dl_deterministic_orbit_derandomization.py' -v -k test_02
+  synthetic_conditional_expectation_derandomization:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify monotone potential non-decrease and score >= initial expectation
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dl_deterministic_orbit_derandomization.py' -v -k test_03
+  w32_universal_positivity_envelope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify genuine W(3,2) certified lower floor min S(f, g) >= 68 > 0
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dl_deterministic_orbit_derandomization.py' -v -k test_04
+  all_h_branch_a_status_ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify synthesis of Hypothesis 105 Branch A resolution status
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dl_deterministic_orbit_derandomization.py' -v -k test_05
+  failclosed_invalid_inputs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject non-powers of 2, non-integers, invalid dimensions fail-closed
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dl_deterministic_orbit_derandomization.py' -v -k test_06
