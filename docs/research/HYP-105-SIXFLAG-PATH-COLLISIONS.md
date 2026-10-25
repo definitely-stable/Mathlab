@@ -61,6 +61,36 @@ This is exact for **every dyadic \(h\ge1\) and all correlated admissible maps**.
 
 Important: **\(Q_0\) is a six-distinct-original-incidence-ID *candidate pair-of-physical-paths* count.** Merely having six distinct source IDs does not imply one of the seven historical accepted GF(5) six-incidence motifs. Do not promote \(C_0\) into the root theorem.
 
+### An independent **inverted source-flag** certificate for the five-flag collisions
+
+For any \((q,r)\in\mathcal E\), and any genuine original incidence ID \(\alpha=(p,l)\), let
+
+\[
+m_{\alpha}(q,r)
+=\bigl|\{O\in\mathcal O(q,r):\alpha\in\mathfrak t(O)\}\bigr|.
+\]
+
+Because any pair of different orbits shares **at most one** source ID (Theorem 1), an inverted incidence index counts \(C_1\) *exactly once* per pair:
+
+\[
+\boxed{
+C_1=\sum_{(q,r)\in\mathcal E}
+\sum_{\alpha\in\mathrm{Flags}(W)}
+\binom{m_{\alpha}(q,r)}2.
+}
+\]
+
+There are exactly \(\sum_\alpha m_\alpha(q,r)=3|\mathcal O(q,r)|\) flag appearances at every endpoint. Therefore
+
+\[
+\boxed{
+C_0=\sum_{(q,r)\in\mathcal E}
+\binom{|\mathcal O(q,r)|}{2}-C_1.
+}
+\]
+
+This is a second **independent indexing method** for the same Q0/Q1 decomposition: rather than compare every pair of orbit triplets, reconstruct an inverted posting list from genuine original flags and count its unordered collisions. It is valuable because \(C_1\) can now be attacked through source flag local occupancies \(m_\alpha(q,r)\) instead of the unstructured second moment \(Q\).
+
 ### Consequences for the center-variance barrier
 
 For \(P>0\), the exact AA4-VT divergence becomes

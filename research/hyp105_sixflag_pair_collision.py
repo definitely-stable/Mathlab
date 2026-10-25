@@ -125,6 +125,22 @@ def source_sixflag_collision_census(power, f, g, *, verify_with_previous=True):
             Q[j] += local[j]
         C0 += local[0]//8
         C1 += local[1]//8
+        # Independent inverted-source-flag ledger: every unordered
+        # pair of distinct orbits shares at MOST one source flag.
+        # Therefore its shared-flag count is exactly one iff counted
+        # once by this flag-posting inverted index.
+        source_flag_occurrences = Counter(
+            original_id for triplet in orbit_keys for original_id in triplet
+        )
+        one_shared_from_flag_index = sum(
+            n*(n-1)//2 for n in source_flag_occurrences.values()
+        )
+        if one_shared_from_flag_index != local[1]//8:
+            raise AssertionError("inverted original flag-index shared-one census mismatch")
+        if sum(source_flag_occurrences.values()) != 3*t:
+            raise AssertionError("each reversal orbit must contain three source flags")
+        if t*(t-1)//2-one_shared_from_flag_index != local[0]//8:
+            raise AssertionError("six-original-flag disjoint orbit census mismatch")
 
         candidate = [(p,l0) for p in lines[r] for l0 in original_incidence[q]
                      if p in lines[l0]]
