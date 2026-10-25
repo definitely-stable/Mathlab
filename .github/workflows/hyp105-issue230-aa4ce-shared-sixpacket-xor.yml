@@ -1,0 +1,44 @@
+name: hyp105-issue230-aa4ce-shared-sixpacket-xor
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ce_shared_sixpacket_xor_coupling.py"
+      - "research/test_hyp105_issue230_d6aa4ce_shared_sixpacket_xor_coupling.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CE-SHARED-SIXPACKET-XOR-COUPLING.md"
+      - ".github/workflows/hyp105-issue230-aa4ce-shared-sixpacket-xor.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-xor-convolution-and-autocorrelation-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent integer direct versus 64 Walsh convolution, physical K6 two-event Gram, parity incompatible pairs
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ce_shared_sixpacket_xor_coupling.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ce_shared_sixpacket_xor_coupling.py' -v -k test_02
+  genuine-original-W32-all-Q-all64-coherent-maps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authentic symplectic W32 lex/S72 351/301 same source Q all 64 complete g maps, independent physical degree and GF5 check, true weighted orientation convolution
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ce_shared_sixpacket_xor_coupling.py' -v -k test_03
+  original-f-only-source-histogram-and-failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original true f-only orientation hist unchanged under adversarial complete g permutation; malformed source and physical labels reject
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ce_shared_sixpacket_xor_coupling.py' -v -k test_04

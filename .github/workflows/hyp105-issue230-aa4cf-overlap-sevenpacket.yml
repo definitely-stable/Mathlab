@@ -1,0 +1,46 @@
+name: hyp105-issue230-aa4cf-overlapping-sevenpacket-mixed-gram
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cf_overlapping_sevenpacket_unique_completion.py"
+      - "research/test_hyp105_issue230_d6aa4cf_overlapping_sevenpacket_unique_completion.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CF-OVERLAPPING-SEVENPACKET-MIXED-GRAM.md"
+      - ".github/workflows/hyp105-issue230-aa4cf-overlap-sevenpacket.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exhaustive-k6-five-fixed-edge-single-completion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exhaustive 135135 K6 fixed-five physical edge pair oracles
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cf_overlapping_sevenpacket_unique_completion.py' -v -k test_01
+  both-families-physically-live-and-original-injection-guards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Two nonempty physical K6 original globally injected sevenpacket masks, positive mixed overlap guard, f-only and invalid packets
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cf_overlapping_sevenpacket_unique_completion.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cf_overlapping_sevenpacket_unique_completion.py' -v -k test_05
+  genuine-original-W32-twofamilies-128-complete-maps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original symplectic W32 lex/S72 independent true sixflag 7GF5 all 128 maps, mixed Gram and BOTH-LIVE original g
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cf_overlapping_sevenpacket_unique_completion.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cf_overlapping_sevenpacket_unique_completion.py' -v -k test_04

@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4ct-dense-original-C4-reservoir
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ct_dense_physical_c4_reservoir.py"
+      - "research/test_hyp105_issue230_d6aa4ct_dense_physical_c4_reservoir.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CT-DENSE-PHYSICAL-C4-RESERVOIR.md"
+      - ".github/workflows/hyp105-issue230-aa4ct-dense-c4-reservoir.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  adversarial_star_missing_edges_counterexample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Explicit dense graph with ZERO anchored C4 at a heavy vertex; disprove an unjustified every-anchor completion theorem
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ct_dense_physical_c4_reservoir.py' -v -k test_01
+  independent_physical_hole_count_vs_direct_four_cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Adversarial random K_a-minus-H physical graph and independently enumerated ordered C4, exact hole formula, heavy exception and lower bound
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ct_dense_physical_c4_reservoir.py' -v -k test_02
+  genuine_original_complete_GQ_W32_W34_W38_C4_counts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine original symplectic GQ complete injected f/g and 3 physically independent C4 counters over real source P3
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ct_dense_physical_c4_reservoir.py' -v -k test_03
+  all_h_symbolic_statement_integer_falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact dyadic h1..26 numerical checks of algebraically proved h>=14 bound, not a finite fit proof
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ct_dense_physical_c4_reservoir.py' -v -k test_04
+  original_GQ_nonheavy_source_paths_vs_prior_AA4CS:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True W32/W34/W38 original nonincident P3 source census, physical disjoint filters and hole-heavy factor exclusion vs AA4-CS
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ct_dense_physical_c4_reservoir.py' -v -k test_05
+  malformed_model_fails_closed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject duplicate physical image, invalid original source maps, bogus physical cuts and malformed arithmetic input
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ct_dense_physical_c4_reservoir.py' -v -k test_06

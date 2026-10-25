@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4cz-original-collinearity-badpath-mass
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cz_collinearity_badpath_mass.py"
+      - "research/test_hyp105_issue230_d6aa4cz_collinearity_badpath_mass.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CZ-GQ-COLLINEARITY-BAD-PATH-REMOVAL.md"
+      - ".github/workflows/hyp105-issue230-aa4cz-collinearity-badpath-mass.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact_dyadic_h1_75_collinearity_mass_and_double_disjoint_allh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Integer symbolic allh >=60 true W3 collinearity spectral star, N_bad O(s5), raw moment Cauchy and genuine source 3path lower with h59/60 boundary
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cz_collinearity_badpath_mass.py' -v -k test_01
+  real_W32_W34_W38_independent_original_coordinate_star_spectrum:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine original source point/dual LINE collinearity via independent physical-coordinate star-first and source-incidence first oracles W32 W34 W38 lex S72 random complete maps
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cz_collinearity_badpath_mass.py' -v -k test_02
+  genuine_W32_W34_full_original_projection_exact_bad_source_3path:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every original genuine nonincident p-l true source projection p-l0-q-l W32 W34, exact s multiplication conversion from source collinearity on both typed maps
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cz_collinearity_badpath_mass.py' -v -k test_03
+  independent_original_W32_all_cut_anchor_first_source_flag_mass_partition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual W32 lex/S72 every original nonincident cut anchor explicit real source incidence flags, independent exact bad/incident/double-disjoint raw mass census
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cz_collinearity_badpath_mass.py' -v -k test_04
+  genuine_original_W34_W38_full_correlated_flags_and_two_source_moments:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Real W34 W38 both complete lex/random typed original f/g, genuine nonincident paths, true two-source-flag second moment and double-disjoint positive raw mass
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cz_collinearity_badpath_mass.py' -v -k test_05
+  source_complete_injection_and_original_input_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Invalid dyadic h, repeated physical source images and malformed halfcut source labels rejected
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cz_collinearity_badpath_mass.py' -v -k test_06

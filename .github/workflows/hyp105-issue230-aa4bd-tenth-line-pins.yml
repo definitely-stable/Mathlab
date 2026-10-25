@@ -1,0 +1,50 @@
+name: hyp105-issue230-aa4bd-adversarial-10percent-original-line-pins
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bd_tenth_pins.py"
+      - "research/test_hyp105_issue230_d6aa4bd_tenth_pins.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BD-TENTH-PINNED-CLEAN-ENERGY.md"
+      - ".github/workflows/hyp105-issue230-aa4bd-tenth-line-pins.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mathematical-all-h-universal-10percent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Symbolic all-h tight CLEAN physical polynomial and 10 percent global original LINE freezes
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bd_tenth_pins.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bd_tenth_pins.py' -v -k test_05
+      - name: Show actual worst-fraction all-h exact rational certificate
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4bd_tenth_pins import tenth_pinned_GOOD_completion
+          for h in (5,6,7,8,10,16,32):
+              s=1<<h
+              V=(s+1)*(s*s+1)
+              c=tenth_pinned_GOOD_completion(s,V//10)
+              print("AA4BD",h,"pinned",c["pinned"],"mean_floor",c["conditional_mean_unpinned_original_GOOD_lower"],
+                    "relative_var",c["conditional_relative_variance_upper"])
+              assert c["root_230"]=="OPEN_WITH_FORMAL_BLOCKER"
+              assert not c["ALL_fully_fixed_g_or_six_original_ID_GF5_PROVED"]
+          PY
+  physical-K261-and-genuine-original-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent original full K261 support, missing-edge adversarial, true W32/W34 original pinned incidence
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bd_tenth_pins.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bd_tenth_pins.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bd_tenth_pins.py' -v -k test_04

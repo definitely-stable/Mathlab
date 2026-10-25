@@ -1,0 +1,87 @@
+name: hyp105-issue230-d6aa4i-original-spectral-coordinate
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4i_original_spectral_coordinate.py"
+      - "research/test_hyp105_issue230_d6aa4i_original_spectral_coordinate.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4I-ORIGINAL-SPECTRAL-COORDINATE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4i-original-spectral-coordinate.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-original-spectral-and-bipartite-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original genuine GQ spectral s5 and physical-coordinate bipartite independent falsifiers
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4i_original_spectral_coordinate.py" -v
+          python research/hyp105_issue230_d6aa4i_original_spectral_coordinate.py > /tmp/aa4i-allh.json
+          python - <<'PY'
+          import json
+          x=json.load(open("/tmp/aa4i-allh.json"))
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-I-ORIGINAL-SPECTRAL-COORDINATE"
+          assert x["all_h_source_collinear_physically_disjoint_omega_s5_PROVED"]
+          assert x["all_h_original_incidence_shared_coordinate_spectral_cut_PROVED"]
+          assert x["root_Branch_A"]==x["root_Branch_B"]=="OPEN"
+          assert not x["full_GF5_R3"] and not x["ASET_exponent"]
+          r={x["s"]:x for x in x["all_h_bounds"]}
+          assert (r[2]["V"],r[2]["a"],r[2]["K"],r[2]["m"])==(15,6,15,0)
+          assert r[2]["uniform_forced_physically_disjoint_collinear_lower"]==5
+          assert (r[4]["V"],r[4]["a"],r[4]["K"],r[4]["m"])==(85,14,91,6)
+          assert r[4]["uniform_forced_physically_disjoint_collinear_lower"]==374
+          assert all(z["uniform_forced_physically_disjoint_collinear_lower"]*4>=s**5
+                     for s,z in r.items() if s>=4)
+          print("AA4I TRUE ALL-h SOURCE PHYSICAL MIXED OMEGA(s5) CONDITIONAL-GF5-NONTRANSFER PASS")
+          PY
+  full-original-W32-seven-and-spectral-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original W32 complete 24-state point fiber, full GF5 and source spectral
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4i_original_spectral_coordinate.py --scheme "$SCHEME" > "/tmp/aa4i-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4i-"+os.environ["SCHEME"]+".json").read_text())
+          r=x["real_original_W32"]
+          assert r["scheme"]==os.environ["SCHEME"]
+          assert len(r["original_W32_genuine_four_point_block"])==4
+          assert r["all_complete_global_K6_source_states"]==24
+          assert r["historical_original_sixset_candidates_per_map"]==62370
+          assert r["minimum_original_seven_S"]=={"S68":68,"S72":72}[os.environ["SCHEME"]]
+          assert r["physical_image_center_degrees_unchanged"]
+          assert r["point_forced_original_collinear_physical_disjoint_minimum"]>=9
+          assert len(r["all_exact_genuine_source_scores"])==24
+          assert all(z["seven_original_Q"]>=r["minimum_original_seven_S"]
+                     and z["original_point_collinear_physically_disjoint"]>=9
+                     and z["selected_GF5_numerator"]>0
+                     for z in r["all_exact_genuine_source_scores"])
+          assert r["seven_GF5_minimum_over_all_W32_maps_NOT_claimed"]
+          assert r["universal_all_h_sixset_lower_NOT_claimed"]
+          print("ORIGINAL",r["scheme"],"FOUR POINT SOURCE BLOCK",r["original_W32_genuine_four_point_block"])
+          print("ORIGINAL ALL 24 S MIN",r["minimum_original_seven_S"])
+          print("ORIGINAL ALL 24 POINT COLLINEAR PHYSICAL-DISJOINT RANGE",
+                r["point_forced_original_collinear_physical_disjoint_minimum"],
+                r["point_forced_original_collinear_physical_disjoint_maximum"])
+          print("ORIGINAL ALL 24 BIPARTITE SOURCE-PHYSICAL INCIDENCE SHARING RANGE",
+                r["cross_original_incidence_coordinate_minimum"],
+                r["cross_original_incidence_coordinate_maximum"])
+          print("ORIGINAL FULL GF5 62370 CANDIDATES EACH 24 COMPLETE MAPS PASSED")
+          PY

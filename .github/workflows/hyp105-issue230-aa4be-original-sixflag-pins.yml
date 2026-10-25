@@ -1,0 +1,51 @@
+name: hyp105-issue230-aa4be-original-sixflag-GF5-D6-pins
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4be_original_D6_pins.py"
+      - "research/test_hyp105_issue230_d6aa4be_original_D6_pins.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BE-ORIGINAL-D6-PINNED-SIXFLAG.md"
+      - ".github/workflows/hyp105-issue230-aa4be-original-sixflag-pins.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true-original-all-h-sixflag-exact-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original six-incidence GF5 D6 all dyadic h and arbitrary k up to V over 16
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4be_original_D6_pins.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4be_original_D6_pins.py' -v -k test_05
+      - name: Print six-ORIGINAL-flag expected D6, mean and partial-map scope
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4be_original_D6_pins import original_D6_sixflag_pinned_envelope
+          for h in (5,6,7,8,12,24,48,80):
+              s=1<<h
+              V=(s+1)*(s*s+1)
+              z=original_D6_sixflag_pinned_envelope(s,V//16)
+              print("AA4BE",h,"original source pins",z["actual_original_LINE_pins"],
+                    "accepted original D6 mean / s6",
+                    z["one_global_conditional_original_sixID_D6_expected_count_lower"]/s**6)
+              assert z["root_230"]=="OPEN_WITH_FORMAL_BLOCKER"
+              assert z["seven_GF5_sum_for_EACH_complete_f_g_NOT_PROVED"]
+          PY
+  independent-genuine-original-W32-and-C6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Actual W32 true original six flag Q census, source girth, K6 720 global physical assignments
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4be_original_D6_pins.py' -v -k test_02
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4be_original_D6_pins.py' -v -k test_03
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4be_original_D6_pins.py' -v -k test_04

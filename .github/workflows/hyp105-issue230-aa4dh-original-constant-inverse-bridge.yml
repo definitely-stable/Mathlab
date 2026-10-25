@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4dh-original-constant-inverse-bridge
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4dh_constant_multiplicity_inverse.py"
+      - "research/test_hyp105_issue230_d6aa4dh_constant_multiplicity_inverse.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DH-CONSTANT-INVERSE-BRIDGE-MULTIPLICITY.md"
+      - ".github/workflows/hyp105-issue230-aa4dh-original-constant-inverse-bridge.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact_complete_original_physical_K6_sharp_A24_B4_C24:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Physical six-source original K6 occupied A connected C6 24 antipodal bridges vs disconnected triangles zero; B four and C twenty-four inverse source C4 original maps
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dh_constant_multiplicity_inverse.py' -v -k test_01
+  independent_exhaustive_6physical_source_4cycle_doubled_ABC_inverse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Second completely independent all physical ORIGINAL K6 4cycle+disjoint doubled source configurations brute exactly matches new inverse A/B/C and original source factor supports
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dh_constant_multiplicity_inverse.py' -v -k test_02
+  W32_actual_immutable_original_six_ID_GF5_forward_inverse_source_P3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine W32 lex S72 independent source original 6flag P3 C4 forward historical A-side GF5 provenance vs source Q-first ALL anchored true-original inverse and 576 uniform reuse cap
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dh_constant_multiplicity_inverse.py' -v -k test_03
+  W34_actual_complete_correlated_original_source_GF5_Q_validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original W34 lex random immutable genuine SOURCE six-ID positive GF5 motifs in selected actual C4 pairs all recovered by full typed source inverse without resampling correlated original f and g
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dh_constant_multiplicity_inverse.py' -v -k test_04
+  W38_EXPLICIT_PARTIAL_actual_original_sixflag_source_Q_inverse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original W38 lex random selected 2 actual C4 reservoirs only; no global h8 historical motif lower; true original P3 inverse consistency
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dh_constant_multiplicity_inverse.py' -v -k test_05
+  malformed_immutable_original_sixflag_and_source_global_pair_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject repeated actual original source incidence Q, forged typed factor images, non 6flag endpoint profiles and invalid original source factor IDs
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dh_constant_multiplicity_inverse.py' -v -k test_06

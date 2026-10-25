@@ -1,0 +1,61 @@
+name: hyp105-issue230-d6-joint-blocking-audit
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6_joint_blocking_audit.py"
+      - "research/test_hyp105_issue230_d6_joint_blocking_audit.py"
+      - "docs/research/HYP-105-ISSUE230-D6-JOINT-COMPENSATION-AUDIT.md"
+      - ".github/workflows/hyp105-issue230-d6-joint-blocking-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  true-original-coupled-compensation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: D6 exact original global f/g GF5 and 16-atom audits
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6_joint_blocking_audit.py' -v
+      - name: Emit and validate strictly scoped complete original finite ledgers
+        run: |
+          python research/hyp105_issue230_d6_joint_blocking_audit.py > /tmp/issue230-d6.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("/tmp/issue230-d6.json").read_text())
+          assert x["slice"]=="ISSUE230-D6-A-COUPLED-ENERGY-BLOCKING-SEVEN-AUDIT"
+          assert x["universal_compensation_C_upper"]=="OPEN"
+          assert x["conditional_small_S_W_upper"]=="OPEN"
+          assert x["all_h_universal_S_Omega_s6"]=="OPEN"
+          assert x["infinite_small_S_Branch_B"]=="OPEN"
+          rows=x["finite_complete_same_original_labelings"]
+          assert len(rows)==6
+          for r in rows:
+              assert r["complete_same_original_global_pair_maps"] is True
+              assert r["C_joint_blocked_proper_P3"]==r["E_endpoint_bad_proper_P3"]+r["I_safe_endpoint_internal_only_proper_P3"]
+              assert r["nonincident_endpoint_complete"]==r["C_joint_blocked_proper_P3"]+2*r["BB_sync_accepted_sixsets"]
+              assert r["proper_P3"]==r["original_endpoint_missing"]+r["original_endpoint_incident"]+r["nonincident_endpoint_complete"]
+              if r["s"]==2:
+                  assert r["full_seven_S"] is not None
+                  assert r["full_seven_S"]>=r["BB_sync_accepted_sixsets"]
+              else:
+                  assert r["s"]==4 and "D5-spread-" in r["scheme"]
+                  assert r["full_seven_S"] is None
+                  assert r["finite_ZERO_remainder_eta_ceiling_at_Lambda0"] is None
+              print({k:r[k] for k in (
+                  "s","scheme","D2_exact_bad_endpoint_energy_W",
+                  "E_endpoint_bad_proper_P3","I_safe_endpoint_internal_only_proper_P3",
+                  "C_joint_blocked_proper_P3","BB_sync_accepted_sixsets","full_seven_S",
+              )})
+          PY

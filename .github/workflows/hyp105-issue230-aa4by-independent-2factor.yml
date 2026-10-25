@@ -1,0 +1,42 @@
+name: hyp105-issue230-aa4by-original-2factor-sixcube-center
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4by_original_independent_2factor_kernel.py"
+      - "research/test_hyp105_issue230_d6aa4by_original_independent_2factor_kernel.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BY-ORIGINAL-2FACTOR-INDEPENDENT-CENTER.md"
+      - ".github/workflows/hyp105-issue230-aa4by-independent-2factor.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sharp-independent-graph-dual-and-physical-exchange:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4by_original_independent_2factor_kernel.py' -v -k test_01
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4by_original_independent_2factor_kernel.py' -v -k test_06
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4by_original_independent_2factor_kernel.py' -v -k test_05
+  real-original-source-Q-six-packet-independent-set-and-f-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4by_original_independent_2factor_kernel.py' -v -k test_02
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4by_original_independent_2factor_kernel.py' -v -k test_03
+  true-original-complete64-all-seven-fixed-center:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4by_original_independent_2factor_kernel.py' -v -k test_04

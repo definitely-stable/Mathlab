@@ -1,0 +1,62 @@
+name: hyp105-issue230-aa4cn-original-dual-block-pair-compensation
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cn_joint_dual_compatibility_block_ledger.py"
+      - "research/test_hyp105_issue230_d6aa4cn_joint_dual_compatibility_block_ledger.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CN-JOINT-DUAL-BLOCK-Q-PAIR-COMPENSATION.md"
+      - ".github/workflows/hyp105-issue230-aa4cn-dual-pair-compensation.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  both_four_shared_completion_types_K22_exact_96:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exhaust all original joint 96 fully injected f-map group dual states for both canonical completions; certify 12 and 6 disjoint 2x2 complete compatibility blocks
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cn_joint_dual_compatibility_block_ledger.py' -v -k test_01
+  TRUE_original_W32_fourcycle_full_Qpair_ledger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real W32 original source-GQ K6 45 incidence flags, direct historical GF5 classifier of every true original 6-ID D6 Q under 96 global complete f images, direct pair-acceptance ledger against 6K-M formula
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cn_joint_dual_compatibility_block_ledger.py' -v -k test_02
+  TRUE_original_W34_negative_full_fiber_Qpair_exact_integer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real W34 425 original incidence IDs and 12 LINE SDR, direct entire true original 5^6 Q-fiber pair historical GF5 countercheck on 96 one-global-map states, pin 12K-M=-6 and overlap-sector integers
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cn_joint_dual_compatibility_block_ledger.py' -v -k test_03
+  TRUE_original_W38_zero_full_fiber_Qpair_exact_integer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real W38 5265 original flags and 12 LINE SDR, both genuine 9^6 true sixflag Q fibers exact 96-map historical direct pair checks, pin EXACT M=12K cancellation with original overlap decomposition
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cn_joint_dual_compatibility_block_ledger.py' -v -k test_04
+  original_incidence_overlap_and_history_weight_guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Referee immutable original 6flag incidence overlap k0..4, exact 5643 weighted compensation, 45600/43320 baseline invariant, one true full f/g map per orbit state, no root verdict changes
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cn_joint_dual_compatibility_block_ledger.py' -v -k test_05

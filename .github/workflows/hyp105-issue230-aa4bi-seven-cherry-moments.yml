@@ -1,0 +1,48 @@
+name: hyp105-issue230-aa4bi-original-seven-GF5-cherry-moments
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bi_original_cherry_moment.py"
+      - "research/test_hyp105_issue230_d6aa4bi_original_cherry_moment.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BI-SOURCE-CHERRY-MOMENT-ENERGY.md"
+      - ".github/workflows/hyp105-issue230-aa4bi-seven-cherry-moments.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  true-original-W32-historical-seven-and-source-join:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All five genuine W32 full fixed f g maps independent two-side Q hist and historical GF5 risk
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bi_original_cherry_moment.py' -v -k test_01
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bi_original_cherry_moment.py' -v -k test_02
+  true-original-W34-nononto-physical-source-cherry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real symplectic W34 original f g lex random incomplete physical K14 mask-resolved four cherry moments and GF5 positive risk
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bi_original_cherry_moment.py' -v -k test_03
+  exact-class-ratios-and-all-h-proof-domain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Sharp classwise 51-palette cherry ratios and all-h genuine W3 domain no fake source
+        run: |
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bi_original_cherry_moment.py' -v -k test_04
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bi_original_cherry_moment.py' -v -k test_05
+          PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bi_original_cherry_moment.py' -v -k test_06

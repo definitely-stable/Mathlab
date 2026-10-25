@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4dd-genuine-original-dual-hall-vacancy
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4dd_dual_hall_vacancy.py"
+      - "research/test_hyp105_issue230_d6aa4dd_dual_hall_vacancy.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DD-DUAL-HALL-VACANCY.md"
+      - ".github/workflows/hyp105-issue230-aa4dd-original-dual-hall-vacancy.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exhaustive_512_binary_source_forest_point_line_dual_Hall_rows_columns:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every 3x3 GQ-incidence-admissible forest true-original 2x2 residual Hall vacant SOURCE point row/line column, exactly symmetric twelfths, independent transpose
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dd_dual_hall_vacancy.py' -v -k test_01
+  exact_dyadic_h1_110_original_four_vacancy_pigeonhole:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original W3 allh>=96 source GF5 BBo or FOUR typed source Hall vacancy classes >=s7/2^18, h95/96 explicit integer threshold, no root promotion
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dd_dual_hall_vacancy.py' -v -k test_02
+  actual_original_W32_complete_typed_dual_model_motif_agreement:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: True ORIGINAL W32 lex/S72 actual source point LINE factor dual, canonical genuine BBo immutable original sixflag Q agreement and four fractional Hall vacancy transpose
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dd_dual_hall_vacancy.py' -v -k test_03
+  original_W34_full_source_C4_two_independent_Hall_energy_censuses:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual W34 lex/random eight original nonincident anchors, ALL original source C4 pairs, dual Hall four-type fractional credits compared with separate AA4-DC cofactor/permutation oracle
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dd_dual_hall_vacancy.py' -v -k test_04
+  original_W38_explicitly_PARTIAL_source_C4_Hall_classes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: TRUE original W38 lex/random only 4 genuine anchors with 8x8 original C4 triple subset; fractional source Hall vacuum mass, no full model claim
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dd_dual_hall_vacancy.py' -v -k test_05
+  source_map_bad_3x3_minors_invalid_cuts_caps_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fail closed malformed full original W3 typed factor labels, 2x2 crossing flags, 3x3 non-GQ source minors, invalid physical cuts and partial sampling caps
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dd_dual_hall_vacancy.py' -v -k test_06

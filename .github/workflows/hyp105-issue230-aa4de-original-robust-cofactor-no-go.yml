@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4de-genuine-original-robust-cofactor-no-go
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4de_robust_cofactor_sparsity.py"
+      - "research/test_hyp105_issue230_d6aa4de_robust_cofactor_sparsity.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DE-ROBUST-COFACTOR-SPARSITY-NOGO.md"
+      - ".github/workflows/hyp105-issue230-aa4de-original-robust-cofactor-no-go.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original_gq_allh_96_cofactor_defect_s10_exact_integer_gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: TRUE ORIGINAL W3 h1..110 dyadic K_a missing-degree light source SAFE flag mass and universal s10 Hall-defect lower integer-gate falsifier
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4de_robust_cofactor_sparsity.py' -v -k test_01
+  true_original_W32_full_C4_pair_first_independent_source_Hall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine original W32 lex S72 complete occupied C4 all source triples source cofactor vs independent physical canonical C4-pair-first immutable original incidence permutation referee
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4de_robust_cofactor_sparsity.py' -v -k test_02
+  original_W34_full_uncapped_occupied_C4_and_2d_source_degree_cap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: W34 lex/random original complete correlated f/g true 3-ID P3 source marked vs C4-pair-first original immutable source 2x2 cofactor, exact no-capped 2d line-source-degree extension bound
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4de_robust_cofactor_sparsity.py' -v -k test_03
+  real_W38_EXPLICITLY_PARTIAL_original_C4_referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine original W38 lex/random 4 actual P3 x first 8 point/line C4 triple source cofactor samples, never overclaimed as global GF5 theorem
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4de_robust_cofactor_sparsity.py' -v -k test_04
+  original_typed_physical_Ka_exact_missing_coordinate_stars:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent genuine original W32/W34/W38 original typed source physical missing coordinate degree heavy light classification and charging bound
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4de_robust_cofactor_sparsity.py' -v -k test_05
+  source_injection_and_invalid_real_original_flags_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject forged original W3 dyadic dimensions globally noninjective typed source embeddings malformed anchors cuts caps and physical edges
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4de_robust_cofactor_sparsity.py' -v -k test_06

@@ -1,0 +1,52 @@
+name: hyp105-issue230-aa4cv-allh-original-zero-spoke-no-go
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cv_allh_zero_spoke_block.py"
+      - "research/test_hyp105_issue230_d6aa4cv_allh_zero_spoke_block.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CV-ALLH-ZERO-SPOKE-RECTANGLE.md"
+      - ".github/workflows/hyp105-issue230-aa4cv-original-zero-spoke-no-go.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  allh_source_and_physical_budgets_exact_integers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact integer s=2^h h1..26 physical a/H/t original point-neighborhood capacity and all-h proof prerequisite
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cv_allh_zero_spoke_block.py' -v -k test_01
+  REAL_original_W316_full_global_typed_maps_no_source_matching:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full genuine original W(3,16) from independent symplectic GF16 source, 74273 source incidence flags, complete f/g K94, all 64m two-C4 pairs covered by exact source-spoke proof, direct original minors sampled as independent falsifier
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cv_allh_zero_spoke_block.py' -v -k test_02
+  abstract_matching_2by2_rectangle_exhaustive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaust every 3x3 Boolean incidence completion outside forbidded spoke-spoke rectangle to independently prove every perfect matching impossible
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cv_allh_zero_spoke_block.py' -v -k test_03
+  original_and_physical_input_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Invalid dyadic s/h and wrong original GQ degree/source arrays rejected
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cv_allh_zero_spoke_block.py' -v -k test_04

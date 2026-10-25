@@ -1,0 +1,86 @@
+name: hyp105-issue230-d6m-gq-collinearity-ca-transfer
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6m_gq_collinearity_ca_transfer.py"
+      - "research/test_hyp105_issue230_d6m_gq_collinearity_ca_transfer.py"
+      - "docs/research/HYP-105-ISSUE230-D6M-GQ-COLLINEARITY-CA-TRANSFER.md"
+      - ".github/workflows/hyp105-issue230-d6m-gq-collinearity-ca-transfer.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-gq-collinearity-fixed-left-random-right-ca:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently enumerate true GQ line-choices, W32 seven-positive classifier, W34 geometry
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6m_gq_collinearity_ca_transfer.py' -v
+      - name: Pin exact all-h rational C/A transfer and original real W32/W34 profiles
+        run: |
+          python research/hyp105_issue230_d6m_gq_collinearity_ca_transfer.py > /tmp/hyp105-d6m.json
+          python - <<'PY'
+          from fractions import Fraction
+          import json
+          from pathlib import Path
+          x=json.loads(Path("/tmp/hyp105-d6m.json").read_text())
+          assert x["slice"]=="HYP105-ISSUE230-D6M-EXACT-GQ-COLLINEARITY-CA-TRANSFER"
+          assert x["all_h_exact_fixed_left_random_right_CA_expectation"]=="PROVED-ONE-SIDED-RANDOM-RIGHT"
+          assert x["all_h_uniform_expected_Cleft_Aright_coefficient"]=="35/3"
+          assert x["all_h_uniform_expected_BA_plus_CA_coefficient"]=="455/3"
+          assert x["all_h_selected_GF5_R3_expected_lower_numerator_coefficient"]=="6889400"
+          assert x["new_C_A_mean_scope"]=="C-left/A-right-ONLY-not-aggregate-C/A"
+          assert x["W32_fixed_left_lex_reverse_exactly_identical"]
+          assert x["full_seven_S_for_W34_W38"]=="UNKNOWN-NO-BB-SUBSTITUTION"
+          assert x["all_h_for_EVERY_correlated_global_f_g"]=="OPEN"
+          assert x["root_Branch_A_or_B"]=="OPEN"
+          rows=x["real_complete_GQ_fixed_left_profiles"]
+          assert len(rows)==6
+          expected={"lex":(2,15,45),"reverse":(2,15,45),
+                    "S68":(2,15,45),"S72":(2,15,45),
+                    "random":(4,85,425)}
+          for row in rows:
+              s,V,M=(expected[row["scheme"]] if row["s"]==2
+                     else (4,85,425))
+              assert (row["s"],row["V"],row["original_GQ_incidences"])==(s,V,M)
+              if s==2:
+                  assert type(row["actual_fixed_global_right_g_Cleft_Aright"]) is int
+                  assert row["actual_fixed_global_right_g_Cleft_Aright"]>=0
+                  assert row["actual_fixed_global_right_g_Cleft_Aright"]=={
+                      "lex":4,"reverse":0,"S68":0,"S72":2}[row["scheme"]]
+              else:
+                  assert row["actual_fixed_global_right_g_Cleft_Aright"] is None
+              assert row["expected_GF5_subclass_orientation"]=="C-left/A-right-ONLY"
+              assert row["all_right_g_lower_proved"] is False
+              assert sum(row["left_C_collinearity_original_point_triples_by_type"].values())==row["physical_left_C_matching_point_triples"]
+              assert Fraction(row["universal_lower_expected_Cleft_Aright"])<=Fraction(row["exact_expected_g_random_Cleft_Aright"])<=Fraction(row["universal_upper_expected_Cleft_Aright"])
+              if s==2:
+                  assert row["physical_left_C_matching_point_triples"]==15
+              print({"s":s,"scheme":row["scheme"],
+                     "left_physical_C_templates":row["physical_left_C_matching_point_triples"],
+                     "true_GQ_three_point_collinearity_types":row["left_C_collinearity_original_point_triples_by_type"],
+                     "exact_right_distinct_original_C_lifts":row["exact_left_C_sixsets_with_six_distinct_original_right_lines"],
+                     "exact_expected_Cleft_Aright_for_UNIFORM_random_right_g":row["exact_expected_g_random_Cleft_Aright"],
+                     "ACTUAL_fixed_right_g_Cleft_Aright":row["actual_fixed_global_right_g_Cleft_Aright"]})
+          for case in x["exact_all_h_rational_bound_checks"]:
+              assert Fraction(case["uniform_expected_Cleft_Aright_lower"])>0
+              assert Fraction(case["new_joint_disjoint_BA_plus_CA_expected_lower"])>=Fraction(case["uniform_expected_Cleft_Aright_lower"])
+              assert case["new_asymptotic_BA_plus_CA_mean_coefficient"]=="455/3"
+              assert case["accepted_GF5_floor_C_over_A_each_sixset"]==43320
+              assert case["accepted_GF5_floor_B_left_A_right_each_sixset"]==45600
+              assert Fraction(case["selected_GF5_R3_expected_lower_numerator"])==(
+                    43320*Fraction(case["uniform_expected_Cleft_Aright_lower"])+
+                    45600*Fraction(case["previous_B_left_A_right_expected_lower"]))
+              assert Fraction(case["selected_GF5_R3_expected_lower"])==(
+                    Fraction(case["selected_GF5_R3_expected_lower_numerator"])/51**6)
+              assert case["not_a_strict_full_GF5_R3_upper"]
+              assert case["right_g_uniform_random_injection_ONLY"]
+              assert not case["all_g_or_root_Branch_A_proved"]
+          PY

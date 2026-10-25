@@ -1,0 +1,86 @@
+name: hyp105-issue230-d6aa4ac-rooted-coupled-gap
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ac_rooted_coupled_gap.py"
+      - "research/test_hyp105_issue230_d6aa4ac_rooted_coupled_gap.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AC-ROOTED-BA-GAP-FOUR-SECTORS.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ac-rooted-coupled-gap.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  proof-and-exact-true-W32-rooted-coupling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Eight mathematical genuine original root-gap tests and exhaustive physical edge-orbit checks
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ac_rooted_coupled_gap.py" -v
+  independent-true-original-full-global-BA-AB:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine original W32 full globally injected repeated point and line rooted sparse tensor oracle
+        env:
+          ROOT_SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4ac_rooted_coupled_gap import true_W32_root_gap_certificate
+          scheme=os.environ["ROOT_SCHEME"]
+          z=true_W32_root_gap_certificate(fixture(1,scheme))
+          BA,AB=z["accepted_original_B_left_A_right"],z["accepted_original_A_left_B_right"]
+          assert (BA,AB)=={"S68":(44,21),"S72":(36,31)}[scheme]
+          assert z["true_original_root_source_universe"]==111132
+          assert z["B/A_A/B_selected_51palette_certified_numerator"]==45600*(BA+AB)
+          assert z["root_stratified_full_original_Q_Hamming_polarization_exact"]
+          print(json.dumps(z,sort_keys=True,indent=2))
+          PY
+  independent-all-h-integer-sector-and-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Original symplectic all-h anchored sectors plus non-physical genuine forest root source reserves
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from math import factorial
+          from hyp105_issue230_d6aa4ac_rooted_coupled_gap import (
+              all_h_second_anchor_sectors,all_h_repeated_source_root_universe,
+              root_gap_hamming_theorem)
+          for s in (2,4,8,16):
+              z=all_h_second_anchor_sectors(s)
+              assert z["four_canonical_sector_assignments_total"]==4*z[
+                  "per_canonical_orbit_sector_assignments"]
+              assert z["unanchored_global_two_map_assignments"]//z[
+                  "four_canonical_sector_assignments_total"]==z[
+                      "exact_search_assignment_reduction_factor"]
+              source=all_h_repeated_source_root_universe(s)
+              assert source["source_B/A_total"]==source["V"]*source[
+                  "original_source_B/A_Q_per_repeated_point_root"]
+              theorem=root_gap_hamming_theorem(s)
+              assert theorem["BA_plus_AB_exact_root_global_identity"]
+              assert theorem["full_seven_positive_S_lower_NOT_PROVED"]
+          assert all_h_second_anchor_sectors(2)[
+              "exact_search_assignment_reduction_factor"]==11025
+          assert all_h_second_anchor_sectors(2)[
+              "per_canonical_orbit_sector_assignments"]==factorial(13)**2
+          print("Original all-h sectors and root SOURCE analytic identities pass")
+          PY

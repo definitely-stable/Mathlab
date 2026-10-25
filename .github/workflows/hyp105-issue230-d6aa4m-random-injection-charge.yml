@@ -1,0 +1,93 @@
+name: hyp105-issue230-d6aa4m-random-injection-charge
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4m_random_injection_charge.py"
+      - "research/test_hyp105_issue230_d6aa4m_random_injection_charge.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4M-RANDOM-INJECTION-CHARGE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4m-random-injection-charge.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-all-h-probability-and-real-original-K6-patterns:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exact all-h random complete injections, independent actual K6 A/B pattern enumeration and W32 source six-flags
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4m_random_injection_charge.py" -v
+          python research/hyp105_issue230_d6aa4m_random_injection_charge.py > /tmp/aa4m-theorem.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          x=json.load(open("/tmp/aa4m-theorem.json"))
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-M-UNIFORM-INJECTION-CHARGE"
+          assert x["all_h_expected_I_omega_s6_but_not_uniform_minimum"]
+          assert not x["deterministic_all_h_I_omega_s6_PROVED"]
+          assert x["root_A"]==x["root_B"]=="OPEN"
+          assert not x["full_GF5_R3_PROVED"] and not x["ASET_exponent_PROVED"]
+          rows={y["s"]:y for y in x["all_h_exact_random_full_map_expectation_lower"]}
+          for s,row in rows.items():
+              B=Fraction(row["expected_true_B_left_A_right_seven_GF5_count_lower"])
+              I=Fraction(row["expected_internal_ORIGINAL_line_pair_GF5_charge_lower"])
+              assert I==Fraction(3,5)*B and I>0
+              assert not row["universal_all_maps_charge_lower_PROVED"]
+              assert not row["universal_S_s6_lower_PROVED"]
+          z=x["exact_original_W32_source_BA_sixset_count"]
+          assert z["s"]==2 and z["all_true_original_incidence_ID_count"]==45
+          assert z["independently_enumerated_original_B_point_A_line_Q_exact"]>=Fraction(z["all_h_greedy_source_lower"])
+          print("ALL-h REAL ORIGINAL GLOBAL-UNIFORM-INJECTION B/A STOCHASTIC CHARGE THEOREM PASS")
+          print("EXACT W32 ORIGINAL B/A SOURCE INCIDENCE COUNT",z)
+          for s in (2,4,8,16,32,64,128,256):
+              r=rows[s]
+              print("REAL GLOBAL RANDOM LOWER s",s,
+                    "expected B/A / s^6",r["rational_BA_expectation_lower_over_s6"],
+                    "internal source-L charge / s^6",r["rational_internal_charge_lower_over_s6"])
+          PY
+  real-original-W32-four-factor-GF5-B-A-internal-charge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently recompute true original 24 global four-point states, 62370 GF5 sixsets each and genuine shared-pencil charge
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4m_random_injection_charge.py --scheme "$SCHEME" > "/tmp/aa4m-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from fractions import Fraction
+          from pathlib import Path
+          x=json.loads(Path("/tmp/aa4m-"+os.environ["SCHEME"]+".json").read_text())
+          r=x["true_original_W32"]
+          assert r["scheme"]==os.environ["SCHEME"]
+          assert r["complete_genuinely_injected_K6_states"]==24
+          assert r["all_original_sixset_candidates_per_state"]==62370
+          assert len(r["true_original_source_four_point_block"])==4
+          assert len(r["all_24_full_original_GF5_observations"])==24
+          assert r["exact_ranges"]["seven_original_S"]["min"]=={"S68":68,"S72":72}[r["scheme"]]
+          assert r["all_h_random_injection_expectation_theorem_not_mean_of_this_fiber"]
+          for row in r["all_24_full_original_GF5_observations"]:
+              B=row["B_left_A_right_actual_positive_Q"]
+              internal=row["B_left_A_right_true_original_internal_line_charge"]
+              assert 0<=internal<=B<=row["seven_original_S"]
+              assert internal<=row["independent_class_sensitive_original_L_charge"]
+              assert B-internal==row["B_left_A_right_true_original_internal_line_charges_uncovered"]
+              assert row["actual_source_L_internal_charge_subset_verified"]
+          print("REAL ORIGINAL",r["scheme"],"BLOCK",r["true_original_source_four_point_block"])
+          for name,ran in r["exact_ranges"].items():
+              print("ORIGINAL GF5 SOURCE-CHARGE B/A",name,ran)
+          print("ALL 24 HISTORICAL ORIGINAL GF5 SIXSET B/A TRUE CONCURRENT LINE CHARGE PASS")
+          PY

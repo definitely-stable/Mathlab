@@ -1,0 +1,102 @@
+name: hyp105-issue230-d6aa4aw-sharp-original-twoport-marginal
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4aw_sharp_original_twoport_marginals.py"
+      - "research/test_hyp105_issue230_d6aa4aw_sharp_original_twoport_marginals.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AW-SHARP-TWOPORT-MARGINAL-TRANSFER.md"
+      - ".github/workflows/hyp105-issue230-d6aa4aw-sharp-original-twoport-marginal.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-true-original-sharp-integer-port-marginals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Seven independent sharp integer Fréchet and full real symplectic original source tests
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4aw_sharp_original_twoport_marginals.py" -v
+  all-h-symbolic-source-AA-gap-not-falsely-solved:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Every dyadic h1..60 honest global source AA floor and CONDITIONAL twoport minority transfer
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from fractions import Fraction
+          from hyp105_issue230_d6aa4aw_sharp_original_twoport_marginals import (
+              exact_sharp_integer_twoport_marginal_lower,
+              all_h_abstract_good_original_port_marginal_gate)
+          for h in range(1,61):
+              s=1<<h
+              z=all_h_abstract_good_original_port_marginal_gate(
+                  s,Fraction(s**6,16))
+              assert z["conditional_opposite_true_original_GOOD_3flag_lower"]==Fraction(s**6,32)
+              assert z["all_global_minority_product_positive_NOT_PROVED"]
+              assert z["selected_original_seven_GF5_sixQ_s6_NOT_PROVED"]
+              if h>=16:
+                  assert z["all_fixed_original_f_g_source_AA_good_wedges_lower"]>=Fraction(s**6,10)
+              q=exact_sharp_integer_twoport_marginal_lower(
+                  s,s,s,s)
+              assert q["exact_SHARP_fixed_both_marginals_minimum_opposite_wedges"]==s*s//2
+          print("all dyadic original source AA lower and honest CONDITIONAL twoport transfer PASS")
+          PY
+  genuine-W32-W34-fixed-global-source-physical-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {power: 1, scheme: lex}
+          - {power: 1, scheme: reverse}
+          - {power: 1, scheme: S68}
+          - {power: 1, scheme: S72}
+          - {power: 2, scheme: lex}
+          - {power: 2, scheme: random}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: TRUE original same global f/g GOOD physical 2x2 margins source Hall precondition
+        env:
+          POWER: ${{ matrix.power }}
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json,os
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4aw_sharp_original_twoport_marginals import (
+              exact_TRUE_original_twoport_marginal_repair_frontier)
+          m=fixture(int(os.environ["POWER"]),os.environ["SCHEME"])
+          z=exact_TRUE_original_twoport_marginal_repair_frontier(m)
+          assert z["physically_opposite_ACTUAL_original_GOOD_D_centered_3flag_wedges"]>=z[
+              "exact_only_port_marginal_sharp_lower"]>=z[
+              "universal_half_minority_product_ceiling_sum_lower"]>=z[
+              "number_of_both_physical_ports_active_TRUE_source_centers"]
+          assert z["true_original_centered_marginal_lower_slack"]>=0
+          assert z["no_all_global_minority_positive_lower_YET"]
+          assert z["positive_wedges_not_the_same_as_seven_GF5_sixID_Q"]
+          print(json.dumps({"s":z["s"],"scheme":os.environ["SCHEME"],
+              "source_GOOD_D_edges":z["actual_original_GOOD_D_edges"],
+              "AA_good_source_wedges":z["parent_real_source_AA_good_wedges"],
+              "opposite_typed_GOOD_3flag_wedges":z[
+                  "physically_opposite_ACTUAL_original_GOOD_D_centered_3flag_wedges"],
+              "sharp_fixed_marginal_only_lower":z[
+                  "exact_only_port_marginal_sharp_lower"],
+              "two_port_minority_ceil_lower":z[
+                  "universal_half_minority_product_ceiling_sum_lower"],
+              "two_port_positive_centers":z[
+                  "number_of_both_physical_ports_active_TRUE_source_centers"]},
+              sort_keys=True,indent=2))
+          PY

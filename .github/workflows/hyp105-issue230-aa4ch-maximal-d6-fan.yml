@@ -1,0 +1,52 @@
+name: hyp105-issue230-aa4ch-maximal-D6-fan-physical-gram-nogo
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ch_maximal_d6_fan_physical_gram_nogo.py"
+      - "research/test_hyp105_issue230_d6aa4ch_maximal_d6_fan_physical_gram_nogo.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CH-MAXIMAL-D6-FAN-PHYSICAL-GRAM-NOGO.md"
+      - ".github/workflows/hyp105-issue230-aa4ch-maximal-d6-fan.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  genuine-original-W34-h2-maximal-D6-fan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original W34 s4 fan FIVE simultaneous historic D6 source sixflags; one globally injective POINT factor swap removes all five while preserving both physical 2factors
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ch_maximal_d6_fan_physical_gram_nogo.py' -v -k test_01
+  genuine-original-W38-h3-maximal-D6-fan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original W38 s8 fan NINE simultaneous historic D6 original sixflags; independently validate literal original position-dual before after one POINT-factor swap
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ch_maximal_d6_fan_physical_gram_nogo.py' -v -k test_02
+  same-right-original-256global-maps-physical-Gram-versus-GF5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Same full original globally injected g and entire 256-map right physical mixed Gram, unchanged original left physical elig, but historic GF5 center D6 twice versus ZERO
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ch_maximal_d6_fan_physical_gram_nogo.py' -v -k test_03
+  Hall-failclosed-and-original-injection-guards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Full original injectivity and independent finite bipartite source SDR adversarial rejection
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ch_maximal_d6_fan_physical_gram_nogo.py' -v -k test_04

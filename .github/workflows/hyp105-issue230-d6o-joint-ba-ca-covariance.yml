@@ -1,0 +1,82 @@
+name: hyp105-issue230-d6o-joint-ba-ca-covariance
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6o_joint_ba_ca_covariance.py"
+      - "research/test_hyp105_issue230_d6o_joint_ba_ca_covariance.py"
+      - "docs/research/HYP-105-ISSUE230-D6O-JOINT-BA-CA-COVARIANCE.md"
+      - ".github/workflows/hyp105-issue230-d6o-joint-ba-ca-covariance.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-joint-ba-ca-covariance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent true-original W32 physical-template and overlap oracles
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6o_joint_ba_ca_covariance.py' -v
+      - name: Pin exact joint B/C moment, GF5 risk and fixed-label nonclaims
+        run: |
+          python research/hyp105_issue230_d6o_joint_ba_ca_covariance.py > /tmp/hyp105-d6o.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from fractions import Fraction
+          x=json.loads(Path('/tmp/hyp105-d6o.json').read_text())
+          assert x["slice"]=="HYP105-ISSUE230-D6O-EXACT-JOINT-BA-CA-COVARIANCE"
+          assert x["theorem"]=="ALL-FINITE-H-EXACT-MIXED-COVARIANCE"
+          assert x["fixed_right_all_g_identity"] is True
+          assert x["uniform_right_random_only_moments"] is True
+          assert x["Branch_A"]=="OPEN" and x["Branch_B"]=="OPEN"
+          assert x["complete_W34_W38_seven_S"]=="NOT-CLAIMED"
+          rows=x["cases"]
+          assert [r["scheme"] for r in rows]==["lex","reverse","S68","S72"]
+          assert [r["C"]["original_sixsets_with_distinct_right_lines"] for r in rows]==[209,209,297,297]
+          assert [r["C"]["actual_fixed_g_directional_sixsets"] for r in rows]==[4,0,0,2]
+          for r in rows:
+              B=r["B"]
+              C=r["C"]
+              wb=B["original_sixsets_with_distinct_right_lines"]
+              wc=C["original_sixsets_with_distinct_right_lines"]
+              assert wb>0 and wc>0
+              N_BC=r["ordered_BC_original_line_overlap"]["ordered_overlap_spectrum"]
+              assert sum(N_BC)==wb*wc and len(N_BC)==7
+              mu_B=Fraction(B["right_random_mean"])
+              mu_C=Fraction(C["right_random_mean"])
+              var_B=Fraction(B["right_random_variance"])
+              var_C=Fraction(C["right_random_variance"])
+              cov=Fraction(r["joint_BC_covariance"])
+              assert Fraction(r["B_plus_C_right_random_variance"]) == var_B+var_C+2*cov
+              assert Fraction(r["B_plus_C_right_random_mean"]) == mu_B+mu_C
+              assert 0<Fraction(r["B_plus_C_random_right_P_positive_Paley_Zygmund"])<=1
+              kB=r["GF5_selected_positive_numerator_weights"]["B"]
+              kC=r["GF5_selected_positive_numerator_weights"]["C"]
+              assert (kB,kC)==(45600,43320)
+              assert Fraction(r["GF5_selected_numerator_right_random_variance"]) == (
+                  kB*kB*var_B+kC*kC*var_C+2*kB*kC*cov)
+              assert Fraction(r["GF5_selected_numerator_right_random_mean"]) == (
+                  kB*mu_B+kC*mu_C)
+              assert r["GF5_selected_numerator_actual_fixed_g"] == (
+                  kB*B["actual_fixed_g_directional_sixsets"]+
+                  kC*C["actual_fixed_g_directional_sixsets"])
+              assert r["GF5_selected_numerator_actual_fixed_g"]<=r["true_full_seven_S"]*max(kB,kC,51750)
+              assert r["right_random_positive_mean_is_not_all_g_lower"]
+              assert r["separate_right_random_events_are_not_independent"]
+              print({"scheme":r["scheme"],"B_original_lifts":wb,"C_original_lifts":wc,
+                     "B_actual":B["actual_fixed_g_directional_sixsets"],
+                     "C_actual":C["actual_fixed_g_directional_sixsets"],
+                     "BC_covariance":r["joint_BC_covariance"],
+                     "B_plus_C_Paley_Zygmund":r["B_plus_C_random_right_P_positive_Paley_Zygmund"],
+                     "GF5_numerator_conditional_mean":r["GF5_selected_numerator_right_random_mean"],
+                     "S_full_W32":r["true_full_seven_S"]})
+          assert rows[0]["B"]["right_random_mean"]==rows[1]["B"]["right_random_mean"]
+          assert rows[0]["joint_BC_covariance"]==rows[1]["joint_BC_covariance"]
+          PY

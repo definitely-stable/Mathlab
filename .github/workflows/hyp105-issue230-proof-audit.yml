@@ -1,0 +1,36 @@
+name: hyp105-issue230-proof-audit
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  proof-audit-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Independent source, quartic, geometric and rational falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_proof_audit.py'
+      - name: Original GQ projection and exact closure multiplicity falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_projection.py'
+      - name: Complete original projection closure ledger for W32 W34 W38
+        run: python research/hyp105_issue230_projection.py
+      - name: Exact same-map seven-Q4 report and true W34-W38 global fixtures
+        run: python research/hyp105_issue230_proof_audit.py
+      - name: Independent source-permanent controls without repository classifier imports
+        run: python research/hyp105_issue230_independent.py
+      - name: Compile independent definition-level original sixset oracle
+        run: g++ -O2 -std=c++17 research/hyp105_issue230_bruteforce.cpp -o /tmp/hyp105-issue230-bruteforce
+      - name: Exhaust every original W32 sixset and require the exact falsifier
+        run: /tmp/hyp105-issue230-bruteforce

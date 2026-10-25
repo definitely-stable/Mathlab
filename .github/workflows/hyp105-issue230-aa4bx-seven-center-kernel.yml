@@ -1,0 +1,42 @@
+name: hyp105-issue230-aa4bx-seven-true-original-center-kernel
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4bx_all_seven_center_kernel.py"
+      - "research/test_hyp105_issue230_d6aa4bx_all_seven_center_kernel.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4BX-ALL-SEVEN-CENTER-KERNEL.md"
+      - ".github/workflows/hyp105-issue230-aa4bx-seven-center-kernel.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-all-h-sharp-boolean-source-kernel-and-input-guards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_all_seven_center_kernel.py' -v -k test_01
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_all_seven_center_kernel.py' -v -k test_06
+  historical-seven-true-original-64-global-maps-vs-f-quenched-envelope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_all_seven_center_kernel.py' -v -k test_02
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_all_seven_center_kernel.py' -v -k test_03
+  independent-original-Q-local-signed-tail-and-full-Walsh-inversion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_all_seven_center_kernel.py' -v -k test_04
+      - run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4bx_all_seven_center_kernel.py' -v -k test_05

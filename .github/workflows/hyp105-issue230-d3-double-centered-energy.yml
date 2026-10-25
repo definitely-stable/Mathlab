@@ -1,0 +1,87 @@
+name: hyp105-issue230-d3-double-centered-energy
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d3_double_centered_energy.py"
+      - "research/test_hyp105_issue230_d3_double_centered_energy.py"
+      - "docs/research/HYP-105-ISSUE230-D3-DOUBLE-CENTERED-ENERGY.md"
+      - ".github/workflows/hyp105-issue230-d3-double-centered-energy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  exact-original-GQ-spectral-energy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent ORIGINAL W32 W34 W38 double-centered residual tests
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d3_double_centered_energy.py' -v
+      - name: All seven same-map exact degree and signed energy regressions
+        run: |
+          python research/hyp105_issue230_d3_double_centered_energy.py > /tmp/issue230-d3-report.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          r=json.loads(Path("/tmp/issue230-d3-report.json").read_text())
+          assert r["slice"]=="ISSUE230-D3-DOUBLE-CENTERED-ORIGINAL-GQ-ENERGY"
+          assert r["uniform_W_upper_o_s59over10"]=="OPEN"
+          assert r["all_h_seven_S_lower"]=="OPEN"
+          rows={(x["s"],x["scheme"]):x for x in r["records"]}
+          assert len(rows)==7
+          pinned={
+              (2,"lex"):2977,(2,"reverse"):2709,(2,"S68"):3289,
+              (2,"S72"):3303,(4,"lex"):133432,
+              (4,"random"):115088,(8,"random"):4927736,
+          }
+          for key,energy in pinned.items():
+              x=rows[key]
+              assert x["physical_full_G_endpoint_energy_W"]==energy
+              assert Fraction(x["W_mean"])+Fraction(x["W_centered_correlation"])==energy
+              assert Fraction(x["W_mean"])<=Fraction(x["W_mean_cap_original_star"])
+              assert x["mean_original_weight_integer"]==x["mean_physical_weight_integer"]
+              assert x["left_bad_pair_count"]==2*x["s"]*x["left_concurrent_physical_Mf"]
+              assert x["right_bad_pair_count"]==2*x["s"]*x["true_dual_concurrent_physical_Mg"]
+              assert x["spectral_R_has_ZERO_row_column_sums"] is True
+              assert x["double_centered_original_bad_relation_ZERO_row_column_sums"] is True
+              assert x["exact_integer_double_centered_Cauchy"] is True
+              assert Fraction(x["Cauchy_ratio_squared"])<=1
+              assert Fraction(x["original_GQ_residual_R_Frobenius_squared"])<=8*x["s"]*(x["a"]-1)*x["V"]
+              assert x["universal_W_H_small_o_s59over10_proved"] is False
+              assert x["universal_internal_only_I_small_proved"] is False
+              assert x["issue230_Branch_A"]=="OPEN"
+              assert x["issue230_Branch_B"]=="OPEN"
+          pinned_signed={
+            (2,"lex"):("3060/1","-83/1",26,32),
+            (2,"reverse"):("2700/1","9/1",26,21),
+            (2,"S68"):("3320/1","-31/1",35,24),
+            (2,"S72"):("3340/1","-37/1",35,25),
+            (4,"lex"):("2207655/17","60689/17",235,305),
+            (4,"random"):("1910476/17","46020/17",226,237),
+            (8,"random"):("313987787/65","6315053/65",2298,2341),
+          }
+          for key,(mean,correlation,mf,mg) in pinned_signed.items():
+              x=rows[key]
+              assert x["W_mean"]==mean
+              assert x["W_centered_correlation"]==correlation
+              assert x["left_concurrent_physical_Mf"]==mf
+              assert x["true_dual_concurrent_physical_Mg"]==mg
+          assert rows[2,"S68"]["centered_B_Frobenius_squared"]=="568/9"
+          assert rows[2,"S68"]["original_GQ_residual_R_Frobenius_squared"]=="30/1"
+          assert rows[8,"random"]["centered_B_Frobenius_squared"]=="874968726/1225"
+          assert rows[8,"random"]["original_GQ_residual_R_Frobenius_squared"]=="1120628/65"
+          assert rows[2,"S68"]["union_bad_original_pair_count"]==166
+          assert rows[8,"random"]["union_bad_original_pair_count"]==70174
+          print(json.dumps(r,sort_keys=True,indent=2))
+          PY

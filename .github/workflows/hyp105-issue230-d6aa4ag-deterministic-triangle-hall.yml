@@ -1,0 +1,83 @@
+name: hyp105-issue230-d6aa4ag-deterministic-triangle-hall
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ag_deterministic_triangle_hall.py"
+      - "research/test_hyp105_issue230_d6aa4ag_deterministic_triangle_hall.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4AG-DETERMINISTIC-TRIANGLE-HALL-BARRIER.md"
+      - ".github/workflows/hyp105-issue230-d6aa4ag-deterministic-triangle-hall.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  all-h-and-genuine-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent pure integer all-h, full K6 K7, actual original W32 W34
+        run: python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4ag_deterministic_triangle_hall.py" -v
+  original-W34-point-physical-Hall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual W34 original point-root both globally injected opposite maps
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4ag_deterministic_triangle_hall import original_triangle_hall_cohort
+          for scheme in ("lex","random"):
+              z=original_triangle_hall_cohort(fixture(2,scheme),
+                        side=0,root=0,pair_offset=0,max_C4=6)
+              assert z["physical_C4_total"]>=945
+              assert z["accepted_original_GF5_restricted"] == z["original_Hall_positive"]+z["induced_original_C8_extra"]
+              print(json.dumps({"scheme":scheme,"cert":z},sort_keys=True))
+          PY
+  original-W34-line-physical-Hall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual W34 original line-root both globally injected opposite maps
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          import json
+          from hyp105_issue230_projection import fixture
+          from hyp105_issue230_d6aa4ag_deterministic_triangle_hall import original_triangle_hall_cohort
+          for scheme in ("lex","random"):
+              z=original_triangle_hall_cohort(fixture(2,scheme),
+                        side=1,root=0,pair_offset=0,max_C4=6)
+              assert z["physical_C4_total"]>=945
+              assert z["accepted_original_GF5_restricted"] == z["original_Hall_positive"]+z["induced_original_C8_extra"]
+              print(json.dumps({"scheme":scheme,"cert":z},sort_keys=True))
+          PY
+  rational-asymptotic-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: No floating point and no extrapolation h19 through h32
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from hyp105_issue230_d6aa4ag_deterministic_triangle_hall import analytic_triangle_hall_barrier
+          for h in range(19,33):
+              s=1<<h
+              z=analytic_triangle_hall_barrier(s)
+              assert z["indexed_occupied_pre_Hall_lower"] >= s**14//256
+              assert z["full_seven_GF5_omega_s6_NOT_PROVED"]
+          print("all-h symbolic integer sufficient threshold checks h19..32 successful")
+          PY

@@ -1,0 +1,62 @@
+name: hyp105-issue230-aa4cw-genuine-original-multianchor-spoke-leakage
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4cw_multi_anchor_spoke_leakage.py"
+      - "research/test_hyp105_issue230_d6aa4cw_multi_anchor_spoke_leakage.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CW-MULTIANCHOR-SPOKE-LEAKAGE.md"
+      - ".github/workflows/hyp105-issue230-aa4cw-multi-anchor-spoke-leakage.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  allh_exact_integer_mixing_physical_threshold:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: All dyadic h1..30 minimal original physical alphabet, real W3 dimensions, heavy-hole and source spectral s^4.5 proof integer falsifiers
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cw_multi_anchor_spoke_leakage.py' -v -k test_01
+  original_W32_all_real_flags_all_nonincident_cut_pairs_three_oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine complete W32 lex and S72 45 original incidence flags, every cut p-l, independent original source-flag-first and direct 2factor physical overlap census
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cw_multi_anchor_spoke_leakage.py' -v -k test_02
+  original_W34_W38_real_unchanged_globals_eight_cuts_each:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual symplectic W34 W38 lex/random complete genuine original global f/g, four physical halfcuts each, exact source-first vs immutable incidence flag-first raw spoke exposure
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cw_multi_anchor_spoke_leakage.py' -v -k test_03
+  true_nonincident_unique_original_P3_no_GF5_promotion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine original W32 nonincident source anchors, immutable three actual flag IDs and explicit NO C4/permanent implication
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cw_multi_anchor_spoke_leakage.py' -v -k test_04
+  original_global_injection_and_cut_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fail closed on fake dyadic s, duplicate global source factor physical images, malformed or duplicate physical cut coordinates
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4cw_multi_anchor_spoke_leakage.py' -v -k test_05

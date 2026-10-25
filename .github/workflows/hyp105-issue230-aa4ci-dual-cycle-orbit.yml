@@ -1,0 +1,62 @@
+name: hyp105-issue230-aa4ci-dual-aware-six-point-orbit
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4ci_dual_cycle_orbit_fiber_invariant.py"
+      - "research/test_hyp105_issue230_d6aa4ci_dual_cycle_orbit_fiber_invariant.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4CI-DUAL-CYCLE-S6-ORBIT-FIBER.md"
+      - ".github/workflows/hyp105-issue230-aa4ci-dual-cycle-orbit.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-W34-all720-complete-global-point-maps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine W34 15625 ORIGINAL same-source-POINT incidence Q, right B/C/D6 coacceptance; independent actual historical classifier over ALL 720 globally injected original f permutations
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ci_dual_cycle_orbit_fiber_invariant.py' -v -k test_01
+  original-W38-60-distinct-complete-orbit-duals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine W38 531441 original six-incidence Q, 60 distinct labeled original incidence-position dual cycles, exact weighted GF5 independent original full-map orbit referees
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ci_dual_cycle_orbit_fiber_invariant.py' -v -k test_02
+  original-W32-historical-legacy-and-S6-referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True symplectic W32 lex and S72 six-original-POINT fiber complete 3^6 original six-ID Q and ALL 720 complete original f permutations
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ci_dual_cycle_orbit_fiber_invariant.py' -v -k test_03
+  genuine-allh-D6-fan-12-versus-708-distribution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent literal original W34/W38 historical GF5 on all 720 global f images for AA4-CH named fan, exact 12 all D6 and 708 zero
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ci_dual_cycle_orbit_fiber_invariant.py' -v -k test_04
+  disconnected-left-and-injection-failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 60 cyclic incidence duals 12 permutations each, original f injection preservation, reject invalid/disconnected physical sixfactor preconditions
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4ci_dual_cycle_orbit_fiber_invariant.py' -v -k test_05

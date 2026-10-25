@@ -1,0 +1,62 @@
+name: hyp105-issue230-d6w-overlap-separator-marginal
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6w_overlap_separator_marginal_dual.py"
+      - "research/test_hyp105_issue230_d6w_overlap_separator_marginal_dual.py"
+      - "docs/research/HYP-105-ISSUE230-D6W-OVERLAP-SEPARATOR-MARGINAL-DUAL.md"
+      - ".github/workflows/hyp105-issue230-d6w-overlap-separator-marginal.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-overlap-separator-certificate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent signed typed dual, 1-site pseudo gap, 2-site proof, real W32 complete original census
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_d6w_overlap_separator_marginal_dual.py' -v
+      - name: Exact all-h certificate scope and S68/S72 GF5 pinned pair-dual closure
+        run: |
+          python research/hyp105_issue230_d6w_overlap_separator_marginal_dual.py > /tmp/d6w.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/d6w.json').read_text())
+          assert x['slice']=='HYP105-ISSUE230-D6W-OVERLAP-SEPARATOR-MARGINAL-DUAL'
+          assert x['all_h_verified_sound_if_complete_ORIGINAL_truth_tables']=='EXACT-SIGNED-TYPED-SEPARATOR-DUAL'
+          assert x['all_h_root_complete_truth_tables']=='NOT-ENUMERATED'
+          assert x['finite_W32_only_saturated_triple_pair_separator_rank']==2
+          assert x['full_three_site_zero_cost_anchor']=='EXPLICIT-REQUIRED'
+          assert x['generic_Sherali_Adams_rank_two_exactness'] is False
+          assert x['original_global_min_PROVED_A'] is False
+          assert x['infinite_counterexample_PROVED_B'] is False
+          assert x['Branch_A']==x['Branch_B']=='OPEN'
+          expected={
+            ('S68','S_seven'):(68,68),
+            ('S72','S_seven'):(68,67),
+            ('S68','GF5_selected_numerator'):(3112510,3112510),
+            ('S72','GF5_selected_numerator'):(3104080,3056200),
+          }
+          assert len(x['W32_conditioned'])==2
+          for r in x['W32_conditioned']:
+              assert r['true_original_left_sixsets']==62370
+              assert r['right_permutations_exhaustive']==6
+              for name,z in r['objectives'].items():
+                  new,old=expected[r['scheme'],name]
+                  assert z['global_conditional_exact_primal']==new
+                  assert z['verified_pair_separator_integer_dual']==new
+                  assert z['D6V_max_three_factor_cluster_lower']==old
+                  assert z['gap_closed_beyond_D6V']==new-old
+                  assert z['separator_rank']==2
+                  assert z['zero_cost_full_three_site_anchor_explicit']
+                  assert z['frozen_left_and_other_twelve_right_originals']
+                  print(r['scheme'],name,'prior=',old,'dual=',new,'gain=',new-old)
+          PY

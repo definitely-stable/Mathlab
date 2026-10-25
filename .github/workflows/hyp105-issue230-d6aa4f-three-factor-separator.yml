@@ -1,0 +1,75 @@
+name: hyp105-issue230-d6aa4f-three-factor-separator
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4f_three_factor_separator.py"
+      - "research/test_hyp105_issue230_d6aa4f_three_factor_separator.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4F-THREE-FACTOR-SEPARATOR.md"
+      - ".github/workflows/hyp105-issue230-d6aa4f-three-factor-separator.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-source-separator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independently falsify false pair consistency
+        run: |
+          python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4f_three_factor_separator.py" -v
+          python research/hyp105_issue230_d6aa4f_three_factor_separator.py > /tmp/aa4f-toy.json
+          python - <<'PY'
+          import json
+          r=json.load(open("/tmp/aa4f-toy.json"))
+          assert r["slice"]=="HYP105-ISSUE230-D6-AA4-F-THREE-FACTOR-SEPARATOR"
+          assert r["all_h_conditional_frozen_outside_hierarchy"] and not r["all_h_start_map_independent_positivity"]
+          assert r["Branch_A"]==r["Branch_B"]=="OPEN"
+          z=r["triangle"]
+          assert (z["independent_Q_lower"],z["pairwise_source_coherent_lower"],
+                  z["three_source_joint_exact_minimum"])==(0,0,1)
+          print("SOURCE TRIANGLE EXACT (0,0,1) AND INDEPENDENT TESTS PASS")
+          PY
+  original-seven-gf5-source-fibers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [S68, S72]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Full true ORIGINAL W32 seven-class sixset census across complete source triads
+        env:
+          SCHEME: ${{ matrix.scheme }}
+        run: |
+          python research/hyp105_issue230_d6aa4f_three_factor_separator.py --scheme "$SCHEME" > "/tmp/aa4f-$SCHEME.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          r=json.loads(Path("/tmp/aa4f-"+os.environ["SCHEME"]+".json").read_text())
+          a=r["true_W32"]
+          assert a["scheme"]==os.environ["SCHEME"]
+          for ty in ("P","L"):
+              b=a["by_type"][ty]
+              assert b["all_genuine_original_Q_six_position_classifiers"]
+              assert len(b["original_typed_block_ids"])==3
+              assert b["original_W32_candidates_per_full_state"]==62370
+              for key in ("seven","selected_GF5_numerator"):
+                  z=b[key]
+                  assert z["globally_coherent_states"]==6
+                  assert 0<=z["independent_Q_lower"]<=z["pairwise_source_coherent_lower"]<=z["three_source_joint_exact_minimum"]
+                  assert z["pair_to_triple_gap"]==z["three_source_joint_exact_minimum"]-z["pairwise_source_coherent_lower"]
+                  assert len(z["all_global_state_scores"])==6
+              assert b["seven"]["three_source_joint_exact_minimum"]>=b["AA4C_unchanged_old_original_Q_floor"]
+              assert b["selected_GF5_numerator"]["three_source_joint_exact_minimum"]>=b["AA4C_unchanged_old_GF5_numerator_floor"]
+              print(a["scheme"],ty,"S",{k:b["seven"][k] for k in ("independent_Q_lower","pairwise_source_coherent_lower","three_source_joint_exact_minimum","pair_to_triple_gap")})
+              print(a["scheme"],ty,"GF5",{k:b["selected_GF5_numerator"][k] for k in ("independent_Q_lower","pairwise_source_coherent_lower","three_source_joint_exact_minimum","pair_to_triple_gap")})
+          print("TRUE ORIGINAL W32 SOURCE FACTOR + ALL GF5 POSITIONS PASS")
+          PY

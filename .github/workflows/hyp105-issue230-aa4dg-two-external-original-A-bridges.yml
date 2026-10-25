@@ -1,0 +1,72 @@
+name: hyp105-issue230-aa4dg-two-external-original-A-bridges
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4dg_two_external_A_bridge.py"
+      - "research/test_hyp105_issue230_d6aa4dg_two_external_A_bridge.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4DG-TWO-EXTERNAL-A-SOURCE-BRIDGES.md"
+      - ".github/workflows/hyp105-issue230-aa4dg-two-external-original-A-bridges.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  K6_exhaustive_four_local_two_external_A_perfect_matching:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Exhaustive canonical six-coordinate complete physical source K6 two-external A bridge factorization (8 exact templates), no one-external A
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dg_two_external_A_bridge.py' -v -k test_01
+  original_W32_W34_globally_complete_source_A_physical_bridge_referee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Genuine ORIGINAL W32 lex S72 and W34 lex random actual complete point/line source images with independent exhaustive physical 4local+2external factor A sets
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dg_two_external_A_bridge.py' -v -k test_02
+  original_W32_immutable_sixflag_A_positive_nonlocal_comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: REAL ORIGINAL W32 six immutable W3 incidence IDs, actual globally complete physical f/g, 8 selected occupied C4 pair source reservoirs and independent historical A-side positive seven-GF5 classifier
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dg_two_external_A_bridge.py' -v -k test_03
+  genuine_W34_source_six_incidence_HISTORICAL_A_oracle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Actual W34 lex random full typed injected correlated original source physical images, three C4 reservoirs and independent original 6-ID A/B C/A D6 tests (not full global W34 motif count)
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dg_two_external_A_bridge.py' -v -k test_04
+  W38_EXPLICIT_PARTIAL_genuine_original_A_bridge_source_geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: TRUE ORIGINAL W38 lex random single genuine P3 two actual physical C4 source reservoirs, no extrapolated h family original sixflag lower bound
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dg_two_external_A_bridge.py' -v -k test_05
+  malformed_actual_original_P3_factor_labels_and_cap_failclosed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reject duplicate globally injected true original typed physical pairs, invalid original nonincident P3, invalid physical C4 source factors and partial cap
+        run: PYTHONPATH=research python -m unittest discover -s research -p 'test_hyp105_issue230_d6aa4dg_two_external_A_bridge.py' -v -k test_06

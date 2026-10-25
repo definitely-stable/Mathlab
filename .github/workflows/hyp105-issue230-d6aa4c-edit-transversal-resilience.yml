@@ -1,0 +1,92 @@
+name: hyp105-issue230-d6aa4c-edit-transversal-resilience
+
+on:
+  pull_request:
+    paths:
+      - "research/hyp105_issue230_d6aa4c_edit_transversal.py"
+      - "research/test_hyp105_issue230_d6aa4c_edit_transversal.py"
+      - "docs/research/HYP-105-ISSUE230-D6AA4C-EDIT-TRANSVERSAL-RESILIENCE.md"
+      - ".github/workflows/hyp105-issue230-d6aa4c-edit-transversal-resilience.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-source-edit-transversal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Independent toy hypergraph and genuine ORIGINAL W32 simultaneous point/line relabel tests
+        run: python -m unittest discover -s research -p "test_hyp105_issue230_d6aa4c_edit_transversal.py" -v
+      - name: Complete two-sided typed factor source transversal audit for both W32 fixed maps
+        run: |
+          python research/hyp105_issue230_d6aa4c_edit_transversal.py > /tmp/issue230-aa4c.json
+          python - <<'PY'
+          import json
+          from math import comb
+          from pathlib import Path
+          x=json.loads(Path("/tmp/issue230-aa4c.json").read_text())
+          assert x["slice"]=="HYP105-ISSUE230-D6-AA4-C-ORIGINAL-FACTOR-EDIT-TRANSVERSAL"
+          assert x["all_h_support_invariance_theorem"]
+          assert x["arbitrary_injective_pair_reassignments_on_original_factor_block"]
+          assert x["no_fixed_physical_image_requirement"]
+          assert [r["scheme"] for r in x["W32"]]==["S68","S72"]
+          assert not x["all_h_universal_positive_bound"] and not x["full_GF5_R3"]
+          assert x["Branch_A"]==x["Branch_B"]=="OPEN"
+          for row,S,Y in zip(x["W32"],(68,72),(3112510,3283610)):
+              assert row["true_original_W32"] and row["all_62370_original_left_candidates_checked"]
+              assert (row["original_positive_sixsets"],row["original_GF5_certified_numerator"])==(S,Y)
+              profiles=row["typed_original_factor_coverage"]
+              for kind in ("point_only","line_only"):
+                  profile=profiles[kind]
+                  assert profile["number_exact_supports_checked"]==32768
+                  assert profile["minimum_transversal_is_exact"]
+                  assert 1<=profile["minimum_transversal_size"]<=15
+                  assert profile["by_exact_edit_support_size"][-1]["min_unchanged_original_positive_sixsets"]==0
+                  assert profile["by_exact_edit_support_size"][0]["min_unchanged_original_positive_sixsets"]==S
+              mixed=profiles["mixed_both_types"]
+              assert mixed["number_exact_supports_checked"]==sum(comb(30,k) for k in range(6))
+              assert mixed["max_edit_radius_exhaustively_checked"]==5
+              assert mixed["by_exact_edit_support_size"][0]["min_unchanged_original_positive_sixsets"]==S
+              assert row["AA4B_pinned_block_unchanged_positive_S"]<={ "S68":68,"S72":68}[row["scheme"]]
+              assert row["AA4B_pinned_block_unchanged_GF5_numerator"]<={ "S68":3112510,"S72":3104080}[row["scheme"]]
+              expected={
+                "S68":{
+                  "point_only":([68,35,16,4,0,0],[3112510,1602150,735750,182400,0,0],[0,0,0,0,2,180]),
+                  "line_only":([68,37,16,4,0,0],[3112510,1692760,741900,182400,0,0],[0,0,0,0,22,360]),
+                  "mixed_both_types":([68,35,15,4,0,0],[3112510,1602150,696300,182400,0,0],[0,0,0,0,53,3938])},
+                "S72":{
+                  "point_only":([72,38,17,4,0,0],[3283610,1733800,772330,177840,0,0],[0,0,0,0,4,195]),
+                  "line_only":([72,41,14,2,0,0],[3283610,1870600,638400,91200,0,0],[0,0,0,0,27,415]),
+                  "mixed_both_types":([72,38,14,1,0,0],[3283610,1733800,638400,45600,0,0],[0,0,0,0,119,5312])}}
+              for mode,triples in expected[row["scheme"]].items():
+                  prof=profiles[mode]
+                  assert prof["minimum_transversal_size"]==4
+                  assert prof["minimum_transversal_is_exact"]
+                  first6=prof["by_exact_edit_support_size"][:6]
+                  assert [z["min_unchanged_original_positive_sixsets"] for z in first6]==triples[0]
+                  assert [z["min_unchanged_certified_GF5_numerator"] for z in first6]==triples[1]
+                  assert [z["number_source_support_transversals"] for z in first6]==triples[2]
+              assert (row["AA4B_pinned_block_unchanged_positive_S"],
+                      row["AA4B_pinned_block_unchanged_GF5_numerator"])=={
+                           "S68":(10,462150),"S72":(0,0)}[row["scheme"]]
+              print(row["scheme"],"S",S,"Y",Y)
+              for name in ("point_only","line_only","mixed_both_types"):
+                  p=profiles[name]
+                  print(" TYPE",name,"tau",p["minimum_transversal_size"],
+                      "tau_is_exact",p["minimum_transversal_is_exact"],
+                      "support_sets",p["number_exact_supports_checked"])
+                  for z in p["by_exact_edit_support_size"]:
+                      if z["edit_support_size"]<=5:
+                          print("  b",z["edit_support_size"],
+                                "worst_unchanged_S",z["min_unchanged_original_positive_sixsets"],
+                                "worst_unchanged_Y",z["min_unchanged_certified_GF5_numerator"],
+                                "hitting_blocks",z["number_source_support_transversals"])
+              print(" AA4B-block lower",row["AA4B_pinned_block_unchanged_positive_S"],
+                    row["AA4B_pinned_block_unchanged_GF5_numerator"])
+          PY
