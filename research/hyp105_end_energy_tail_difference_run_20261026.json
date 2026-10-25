@@ -1,0 +1,279 @@
+{
+  "localRunId": "6524d8d4-2aad-42ad-bb96-644be92e3031",
+  "gitSha": "e012581a4b5db90daa17ed62513d6ad3a292b86d",
+  "revisionScope": "PR650 parent plus uncommitted exact tail-energy follow-up; source hashes pin local sources.",
+  "createdAtUtc": "2026-10-25T20:21:02.160970+00:00",
+  "clientDate": "2026-10-26",
+  "model": {
+    "family": "GPT-6",
+    "exactRuntimeIdentifier": null,
+    "limitation": "Exact runtime variant unavailable; no identifier inferred."
+  },
+  "pythonVersion": "3.13.15",
+  "liveMathlabReportingDelivered": false,
+  "question": "Can the unrestricted C1_end=O(s^6) sufficient premise for the N3 variance route hold on every correlated complete pair injection?",
+  "conclusion": "No: for every t=2^k>=8 and s=t^2, a packed genuine-source family has C1_end>=(3/819200)s^(15/2). Root seven-GF5 conjecture remains OPEN_WITH_FORMAL_BLOCKER. With globally coherent free indexing, the same family for t>=16 has accepted D6>=2^-35*s^(21/2), so it has large root-model risk despite the failed moment premise.",
+  "why": "Pack many nearly disjoint paired subfield supports, retain common-J incidences, and permute K-line pairings to create many genuine nonincident tails with large proper common joins.",
+  "conditions": [
+    "True original W(3,t^2); dyadic t>=8 for negative moment-route theorem.",
+    "Complete separately globally injected typed f/g into the minimal physical alphabet.",
+    "Tail eligibility retains source nonincidence and both coordinate properness checks.",
+    "The positive D6 theorem uses coherent global free-symbol indexing and dyadic t>=16."
+  ],
+  "limitations": [
+    "Five-original-ID collision counterfamily is not an o(s^6) seven-original-six-ID counterfamily.",
+    "No root Branch A/B/C acceptance or ASET exponent claim.",
+    "No large ambient field enumeration; quantified claim uses the analytic construction.",
+    "Qualified external mathematical referee remains outstanding.",
+    "Exact runtime model variant not exposed."
+  ],
+  "openQuestions": [
+    "Can a uniform same-map compensation inequality convert high five-ID noise into accepted six-ID GF5 risk?",
+    "Can the six-distinct-ID sector be controlled directly without a false bounded-variance premise?"
+  ],
+  "nextStep": "Bypass five-ID moment noise and pursue original six-ID GF5 compensation on the same fixed correlated maps.",
+  "experimentIds": [
+    "6524d8d4-2aad-42ad-bb96-644be92e3031:tail-difference-oracle"
+  ],
+  "experiments": [
+    {
+      "id": "6524d8d4-2aad-42ad-bb96-644be92e3031:tail-difference-oracle",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-c",
+        "import json\nfrom pathlib import Path\nfrom hyp105_end_energy_tail_difference import end_energy_tail_difference\nfrom hyp105_end_posting_subfield import paired_subfield_w34_witness\nfrom hyp105_weighted_variance_transfer import witness_maps\ncert=json.loads(Path('hyp105_w34_adversarial_certificate.json').read_text(encoding='utf-8'))\nf,g,w=paired_subfield_w34_witness()\ncases=[('W32_seed41',1,*witness_maps(41)),('W32_seed91',1,*witness_maps(91)),('W34_certificate',2,cert['f'],cert['g']),('W34_subfield',2,f,g)]\ng2=list(g)\nK=(1,2,9,21,25)\nsigma=dict(zip(K,(9,21,1,25,2)))\nfor l in K: g2[w['line_permutation'][sigma[l]]]=g[w['line_permutation'][l]]\ncases.append(('W34_subfield_tail_twist',2,f,g2))\nprint(json.dumps({name:end_energy_tail_difference(power,f,g) for name,power,f,g in cases},sort_keys=True,indent=2))\n"
+      ],
+      "cwd": "C:\\Reposit\\math lab\\research",
+      "parameters": {
+        "W32Seeds": [
+          41,
+          91
+        ],
+        "W34Cases": [
+          "prior explicit certificate",
+          "paired subfield",
+          "paired subfield K-line twist"
+        ],
+        "tailK": [
+          1,
+          2,
+          9,
+          21,
+          25
+        ],
+        "tailPermutation": [
+          9,
+          21,
+          1,
+          25,
+          2
+        ]
+      },
+      "exitCode": 0,
+      "stdout": "{\n  \"W32_seed41\": {\n    \"C1_end\": 201,\n    \"eligible_tail_postings_with_codegree_at_least_two\": 291,\n    \"max_end_occupancy\": 4,\n    \"root_sevenclass_proved\": false,\n    \"s\": 2,\n    \"unmasked_envelope\": 1002\n  },\n  \"W32_seed91\": {\n    \"C1_end\": 126,\n    \"eligible_tail_postings_with_codegree_at_least_two\": 231,\n    \"max_end_occupancy\": 3,\n    \"root_sevenclass_proved\": false,\n    \"s\": 2,\n    \"unmasked_envelope\": 733\n  },\n  \"W34_certificate\": {\n    \"C1_end\": 8805,\n    \"eligible_tail_postings_with_codegree_at_least_two\": 10238,\n    \"max_end_occupancy\": 4,\n    \"root_sevenclass_proved\": false,\n    \"s\": 4,\n    \"unmasked_envelope\": 21342\n  },\n  \"W34_subfield\": {\n    \"C1_end\": 20468,\n    \"eligible_tail_postings_with_codegree_at_least_two\": 16423,\n    \"max_end_occupancy\": 28,\n    \"root_sevenclass_proved\": false,\n    \"s\": 4,\n    \"unmasked_envelope\": 40407\n  },\n  \"W34_subfield_tail_twist\": {\n    \"C1_end\": 20255,\n    \"eligible_tail_postings_with_codegree_at_least_two\": 15022,\n    \"max_end_occupancy\": 16,\n    \"root_sevenclass_proved\": false,\n    \"s\": 4,\n    \"unmasked_envelope\": 37837\n  }\n}\n",
+      "stderr": "",
+      "results": {
+        "W32_seed41": {
+          "C1_end": 201,
+          "eligible_tail_postings_with_codegree_at_least_two": 291,
+          "max_end_occupancy": 4,
+          "root_sevenclass_proved": false,
+          "s": 2,
+          "unmasked_envelope": 1002
+        },
+        "W32_seed91": {
+          "C1_end": 126,
+          "eligible_tail_postings_with_codegree_at_least_two": 231,
+          "max_end_occupancy": 3,
+          "root_sevenclass_proved": false,
+          "s": 2,
+          "unmasked_envelope": 733
+        },
+        "W34_certificate": {
+          "C1_end": 8805,
+          "eligible_tail_postings_with_codegree_at_least_two": 10238,
+          "max_end_occupancy": 4,
+          "root_sevenclass_proved": false,
+          "s": 4,
+          "unmasked_envelope": 21342
+        },
+        "W34_subfield": {
+          "C1_end": 20468,
+          "eligible_tail_postings_with_codegree_at_least_two": 16423,
+          "max_end_occupancy": 28,
+          "root_sevenclass_proved": false,
+          "s": 4,
+          "unmasked_envelope": 40407
+        },
+        "W34_subfield_tail_twist": {
+          "C1_end": 20255,
+          "eligible_tail_postings_with_codegree_at_least_two": 15022,
+          "max_end_occupancy": 16,
+          "root_sevenclass_proved": false,
+          "s": 4,
+          "unmasked_envelope": 37837
+        }
+      }
+    }
+  ],
+  "nextSteps": [
+    {
+      "goal": "Prove a genuine original-six-ID compensation dichotomy.",
+      "evidence": "Uniform C1_end upper O(s^6) is false; counterfamily retains the original nonincident-tail condition.",
+      "expectedCheck": "An all-map accepted seven-GF5 lower bound or source-respecting counterexample to a proposed intermediate implication.",
+      "stopCondition": "Do not reopen the falsified C1_end bound under unchanged unrestricted assumptions; changes require a different statistic or explicit map restriction."
+    }
+  ],
+  "checks": [
+    {
+      "id": "related-tests",
+      "title": "related-tests",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-m",
+        "unittest",
+        "test_hyp105_end_energy_tail_difference",
+        "test_hyp105_end_posting_subfield",
+        "test_hyp105_sixflag_pair_collision",
+        "test_hyp105_w34_weighted_endpoint",
+        "test_hyp105_weighted_variance_transfer",
+        "test_hyp105_physical_degree_energy",
+        "test_hyp105_extremal_coordinate_invariants",
+        "test_hyp105_w34_adversarial_certificate",
+        "test_ci_research_shards",
+        "-v"
+      ],
+      "cwd": "C:\\Reposit\\math lab\\research",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": "test_coordinate_permutations_preserve_tail_energy (test_hyp105_end_energy_tail_difference.TestEndEnergyTailDifference.test_coordinate_permutations_preserve_tail_energy) ... ok\ntest_genuine_nonincident_tails_with_large_proper_common_join (test_hyp105_end_energy_tail_difference.TestEndEnergyTailDifference.test_genuine_nonincident_tails_with_large_proper_common_join) ... ok\ntest_injections_and_supported_finite_scope_fail_closed (test_hyp105_end_energy_tail_difference.TestEndEnergyTailDifference.test_injections_and_supported_finite_scope_fail_closed) ... ok\ntest_original_source_witnesses_match_separate_orbit_index (test_hyp105_end_energy_tail_difference.TestEndEnergyTailDifference.test_original_source_witnesses_match_separate_orbit_index) ... ok\ntest_packed_family_parameter_sanity_not_an_asymptotic_fit (test_hyp105_end_energy_tail_difference.TestEndEnergyTailDifference.test_packed_family_parameter_sanity_not_an_asymptotic_fit) ... ok\ntest_three_hubs_give_six_accepted_original_D6_sets (test_hyp105_end_energy_tail_difference.TestEndEnergyTailDifference.test_three_hubs_give_six_accepted_original_D6_sets) ... ok\ntest_exact_parameter_sanity_separate_from_all_h_proof (test_hyp105_end_posting_subfield.TestEndPostingSubfield.test_exact_parameter_sanity_separate_from_all_h_proof) ... ok\ntest_full_source_collision_census (test_hyp105_end_posting_subfield.TestEndPostingSubfield.test_full_source_collision_census) ... ok\ntest_source_translate_and_complete_injections (test_hyp105_end_posting_subfield.TestEndPostingSubfield.test_source_translate_and_complete_injections) ... ok\ntest_target_posting_by_original_incidence_products (test_hyp105_end_posting_subfield.TestEndPostingSubfield.test_target_posting_by_original_incidence_products) ... ok\ntest_both_true_w32_covariance_sign_witnesses (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_both_true_w32_covariance_sign_witnesses) ... ok\ntest_middle_bound_on_all_complement_paired_four_by_four_hosts (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_middle_bound_on_all_complement_paired_four_by_four_hosts) ... ok\ntest_middle_end_postings_against_independent_source_certificates (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_middle_end_postings_against_independent_source_certificates) ... ok\ntest_original_typed_injection_is_fail_closed (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_original_typed_injection_is_fail_closed) ... ok\ntest_physical_coordinate_relabelings_leave_all_counts_unchanged (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_physical_coordinate_relabelings_leave_all_counts_unchanged) ... ok\ntest_true_symplectic_w34_sixflag_collision_moment (test_hyp105_sixflag_pair_collision.TestSixOriginalFlagCollision.test_true_symplectic_w34_sixflag_collision_moment) ... ok\ntest_bad_endpoint_implies_blocked_physical_path (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_bad_endpoint_implies_blocked_physical_path)\nThe point/line projection blocks EVERY bad-pair proper path. ... ok\ntest_fail_closed_invalid_injections (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_fail_closed_invalid_injections) ... ok\ntest_independent_physical_coordinate_relabeling (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_independent_physical_coordinate_relabeling)\nPermutation of x- and y-coordinate alphabets must not change N3. ... ok\ntest_moment_upper_bound_is_explicitly_conditional (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_moment_upper_bound_is_explicitly_conditional) ... ok\ntest_two_independent_oracle_methods_and_exact_moments (test_hyp105_w34_weighted_endpoint.TestWeightedEndpointProfile.test_two_independent_oracle_methods_and_exact_moments) ... ok\ntest_both_covariance_signs_on_genuine_w32 (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_both_covariance_signs_on_genuine_w32) ... ok\ntest_exact_centered_variance_and_equality_case (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_exact_centered_variance_and_equality_case) ... ok\ntest_existing_w34_ledger_centered_cauchy (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_existing_w34_ledger_centered_cauchy) ... ok\ntest_invalid_typed_maps_fail_closed (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_invalid_typed_maps_fail_closed) ... ok\ntest_lex_complete_labeling_negative_sign (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_lex_complete_labeling_negative_sign) ... ok\ntest_physical_coordinate_permutations_preserve_sign (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_physical_coordinate_permutations_preserve_sign) ... ok\ntest_tensor_reconstruction_and_absence_of_parallel_arcs (test_hyp105_weighted_variance_transfer.TestWeightedVarianceTransfer.test_tensor_reconstruction_and_absence_of_parallel_arcs) ... ok\ntest_all_h_minimal_alphabet_integer_only (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_all_h_minimal_alphabet_integer_only) ... ok\ntest_exact_gq_centered_spectral_projector_polynomial (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_exact_gq_centered_spectral_projector_polynomial) ... ok\ntest_independent_coordinate_permutations_preserve_centered_energy (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_independent_coordinate_permutations_preserve_centered_energy) ... ok\ntest_physical_edge_injection_and_original_flags_fail_closed (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_physical_edge_injection_and_original_flags_fail_closed) ... ok\ntest_true_w32_graph_degrees_against_independent_physical_adjacency (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_true_w32_graph_degrees_against_independent_physical_adjacency) ... ok\ntest_true_w34_graph_degrees_against_direct_original_flags (test_hyp105_physical_degree_energy.TestPhysicalDegreeEnergy.test_true_w34_graph_degrees_against_direct_original_flags) ... ok\ntest_canonical_parameters_powers_of_two (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_canonical_parameters_powers_of_two)\nVerify parameters for W(3,s) across powers of 2. ... ok\ntest_convex_optimization_degree_bound_universality (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_convex_optimization_degree_bound_universality)\nVerify sum d_u(d_u - 1) <= 2V(a - 2) for uniform and peaked distributions. ... ok\ntest_exact_large_h_alphabet (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_exact_large_h_alphabet)\nMinimal K_a uses integer arithmetic, including s=2**1024. ... ok\ntest_formal_resolution_status (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_formal_resolution_status)\nVerify fail-closed governance and certified counterexample reporting. ... ok\ntest_leading_coefficient_is_sqrt2 (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_leading_coefficient_is_sqrt2)\nVerify leading coefficient of sum binom(d_u, 2) is sqrt(2), NOT 1/sqrt(2). ... ok\ntest_missing_edge_star_degree_identity (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_missing_edge_star_degree_identity)\nTest exact identity on a realizable (not arbitrary) K_a labeling. ... ok\ntest_path_universe_separation (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_path_universe_separation)\nVerify path universes are distinguished to prevent denominator conflation. ... ok\ntest_small_s_bad_ratio_exceeds_unity (test_hyp105_extremal_coordinate_invariants.TestExtremalCoordinateInvariants.test_small_s_bad_ratio_exceeds_unity)\nVerify 4(a-2)/(s(s+1)) > 1.0 for s in {2, 4, 8, 16}. ... ok\ntest_candidate_finite_floor_refuted_with_exact_rational (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_candidate_finite_floor_refuted_with_exact_rational) ... ok\ntest_certificate_is_not_a_self_consistency_only_check (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_certificate_is_not_a_self_consistency_only_check) ... ok\ntest_independent_original_incidence_recount (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_independent_original_incidence_recount)\nRecount ALL integer census fields, never trusting JSON as oracle. ... ok\ntest_typed_bad_endpoint_bound_and_partition (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_typed_bad_endpoint_bound_and_partition) ... ok\ntest_valid_typed_images_and_exact_graph (test_hyp105_w34_adversarial_certificate.TestW34AdversarialCertificate.test_valid_typed_images_and_exact_graph) ... ok\ntest_aggregate_full_suite_depends_on_all_four_shards (test_ci_research_shards.ResearchWorkflowShardTests.test_aggregate_full_suite_depends_on_all_four_shards) ... ok\ntest_all_shards_exist_and_require_hosted_setup (test_ci_research_shards.ResearchWorkflowShardTests.test_all_shards_exist_and_require_hosted_setup) ... ok\ntest_heavy_census_is_not_in_ten_minute_foundation (test_ci_research_shards.ResearchWorkflowShardTests.test_heavy_census_is_not_in_ten_minute_foundation) ... ok\ntest_no_silent_loss_or_duplicate_named_steps (test_ci_research_shards.ResearchWorkflowShardTests.test_no_silent_loss_or_duplicate_named_steps) ... ok\n\n----------------------------------------------------------------------\nRan 51 tests in 7.826s\n\nOK\n"
+    },
+    {
+      "id": "catalog",
+      "title": "catalog",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/catalog.py",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "RESEARCH_INDEX_VALIDATION_PASS entries=61\nRESEARCH_INDEX_BACKLINKS_PASS\nRESEARCH_INDEX_GENERATED_DOC_PASS\nRESEARCH_INDEX_THEMES_PASS\n",
+      "stderr": ""
+    },
+    {
+      "id": "known-registry",
+      "title": "known-registry",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/known_registry.py",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "KNOWN_REGISTRY_SCHEMA_PASS 55\nKNOWN_REGISTRY_AUTHORITY_PATHS_PASS\nKNOWN_REGISTRY_GENERATED_VIEW_PASS\nKNOWN_REGISTRY_DISPOSITIONS {'CLOSED_PROVED': 17, 'DEFER': 3, 'MODEL_MISMATCH': 6, 'PRIOR_ART': 22, 'STOP_PRODUCT': 5, 'SUPERSEDED': 2}\n",
+      "stderr": ""
+    },
+    {
+      "id": "literature",
+      "title": "literature",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "research/literature.py",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "LITERATURE_SCHEMA_AND_SOURCE_PINS_PASS\nLITERATURE_CANONICAL_IDENTITIES_PASS\nLITERATURE_GENERATED_DOCUMENTS_PASS\nLITERATURE_NO_NOVELTY_PROMOTION_PASS\n",
+      "stderr": ""
+    },
+    {
+      "id": "whitespace",
+      "title": "whitespace",
+      "status": "passed",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "id": "positive-constant-arithmetic",
+      "title": "Exact rational D6 matching and Hamilton-cycle constant checks",
+      "status": "passed",
+      "command": [
+        "C:\\Users\\Dmitry\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-c",
+        "from fractions import Fraction\nfrom math import comb\nfor k in (*range(4,20),32,128,1024):\n    t=1<<k\n    n=(t+1)*(t*t+1)\n    e=n*(t+1)\n    R=n//256\n    E=Fraction(5*e,8)\n    assert R>=3 and n>=32\n    assert E-2*(t+1)>=Fraction(e,2) and E-4*(t+1)>=Fraction(e,2)\n    lower=comb(R,3)*E*(E-2*(t+1))*(E-4*(t+1))\n    assert lower>=Fraction(t**21,1<<35)\nprint('COHERENT_D6_EXACT_RATIONAL_CONSTANTS_PASS k=4..19,32,128,1024')\n"
+      ],
+      "cwd": "C:\\Reposit\\math lab",
+      "exitCode": 0,
+      "stdout": "COHERENT_D6_EXACT_RATIONAL_CONSTANTS_PASS k=4..19,32,128,1024\n",
+      "stderr": ""
+    },
+    {
+      "id": "independent-agent-review",
+      "title": "Independent read-only proof and code review",
+      "status": "passed",
+      "details": "Separate agent verified packet packing, complete injections, tail nonincidence, exact C1 normalization, coherent D6 source-factor matching/duals, source-sixset no-overcount and constants; no actionable defects. It executed all six new tests plus independent K33 enumeration and exact rational checks. Not a qualified human referee."
+    }
+  ],
+  "sourceHashes": {
+    "research/hyp105_end_energy_tail_difference.py": "7328ad9d5124d494f8f766a1b63a7f4f9198232802ff55ee155cf414e5173ac1",
+    "research/test_hyp105_end_energy_tail_difference.py": "f614eddb3ea084e45559d4dc81a8467167cfef7d1e884ee5f505a47ce0a14aa4",
+    "research/hyp105_end_posting_subfield.py": "86b1f522dba177d148d84512cf5953aab0a2f5671cc46c6d54a2e61f5977d237",
+    "research/hyp105_sixflag_pair_collision.py": "ce8f9c633f1e23331a6b69b5720df0cd5b31d3148b550b93af5ff1def6c89ddc",
+    "research/hyp105_b1_symplectic.py": "6451bcb7e76bc722bcde280985131c41b415712f23787c353ad29df729a5b80f",
+    "research/hyp105_physical_degree_energy.py": "1cae451ba1d85315bd36cc05e67bcc0dc77e7d8129f8005ccf985cf077fe1b33",
+    "research/hyp105_w34_weighted_endpoint.py": "a954740e0721bff89d7887f6594e8ce52e93d8d6ac27b0a72e3c886733834454",
+    "research/hyp105_w34_independent_oracle.py": "43b1fa3f735fde9568a025e4d0706e1f691c6df75e4296ab004c814569d4d439",
+    "research/hyp105_weighted_variance_transfer.py": "2935e1568c5a422d200260da57e320cbfe1b0724244217c24d7bc991def7d823",
+    "research/hyp105_g5e2b3e1b0_seven_signature.py": "d5916d8df23de6bdc6e68cc2e04274c27f6bd2d3c1611109946eb10978731c24",
+    "research/hyp105_g5e2b3e1a_fixed_leading.py": "277ed0869b79d730426359a65df3e4ffee6c64533d6fe819eacca64bca525c31",
+    "research/hyp105_g5e2b3b1_critical_flows.py": "2014470a88cac57955a40c5afb453c4c0718d92d58cfe21a52b70cba56cbce97",
+    "research/hyp105_w34_adversarial_certificate.json": "4b9abbce4f3c9c9986e199ca9f819cdd69a00ca9e8f0e919a44d5ca9cd68fb58",
+    "docs/research/HYP-105-END-ENERGY-TAIL-DIFFERENCE.md": "46042db815047930d78cc57626a802c3bb85187ce3a602992505fa2e72d2aef4",
+    "docs/research/HYP-105-END-POSTING-SUBFIELD-INVESTIGATION.md": "a3ae543652fb2de76b0d4f561a168a26e633d6c91643a79e2e3ae12ee5a663bd",
+    "docs/research/HYP-105-SIXFLAG-PATH-COLLISIONS.md": "1db254d202ef6f8f6e4817ab5f9f373d35dd1e3a370ac4ed9e1e86866ddae497",
+    ".github/workflows/hyp105-issue230-weighted-endpoint.yml": "bfd776e4e4bce3cd37ec0b84b4928b3cdca6fb5195248046f56efbd3e4c06325"
+  },
+  "claims": [
+    {
+      "id": "five-id-noise",
+      "text": "There exist complete genuine-source injections with C1_end>=(3/819200)s^(15/2) on the stated infinite subsequence.",
+      "evidence": [
+        {
+          "recordId": "docs/research/HYP-105-END-ENERGY-TAIL-DIFFERENCE.md",
+          "documentVersion": "46042db815047930d78cc57626a802c3bb85187ce3a602992505fa2e72d2aef4",
+          "quote": "This is an infinite dyadic subsequence, sufficient to contradict an asserted uniform all-h \\(C_{1,\\mathrm{end}}=O(s^6)\\)."
+        }
+      ],
+      "checkIds": [
+        "related-tests"
+      ]
+    },
+    {
+      "id": "coherent-positive-compensation",
+      "text": "On the same globally coherently indexed family, t>=16 implies D6>=2^-35*s^(21/2), independently of tail permutations and full-map completion.",
+      "evidence": [
+        {
+          "recordId": "docs/research/HYP-105-END-ENERGY-TAIL-DIFFERENCE.md",
+          "documentVersion": "46042db815047930d78cc57626a802c3bb85187ce3a602992505fa2e72d2aef4",
+          "quote": "This is a lower bound for the historical accepted original six-incidence-ID \\(D_6\\) class, whose left and right named-column duals are the same connected C6."
+        }
+      ],
+      "checkIds": [
+        "related-tests",
+        "positive-constant-arithmetic"
+      ]
+    }
+  ]
+}

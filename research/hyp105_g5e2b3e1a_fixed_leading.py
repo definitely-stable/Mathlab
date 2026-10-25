@@ -41,12 +41,18 @@ def _half_projection_kind(incidences, labels):
         kind="C"
     else:
         return None
-    deg=[0]*6
+    # A selected original six-column motif may use ANY six physical
+    # coordinates of K_a, a >= 6. Historical W(3,2) models happened
+    # to use labels 0..5, but larger-alphabet all-h families do not.
+    # Count only the selected coordinate support, not a fixed K6 array.
+    deg=Counter()
     for endpoint in endpoints:
         u,v=labels[endpoint]
+        if u==v:
+            return None  # physical K_a factors have no loops
         deg[u]+=1
         deg[v]+=1
-    return kind if deg==[2]*6 else None
+    return kind if len(deg)==6 and all(k==2 for k in deg.values()) else None
 
 
 def _four_cycles_on_four(vertices):
