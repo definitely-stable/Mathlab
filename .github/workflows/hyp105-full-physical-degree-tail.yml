@@ -1,0 +1,41 @@
+name: hyp105-full-physical-degree-tail
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-full-physical-degree-tail.yml'
+      - 'docs/research/HYP-105-FULL-PHYSICAL-DEGREE-TAIL*.md'
+      - 'docs/research/HYP-105-ENDPOINT-BOOK-NORMAL-FORM.md'
+      - 'research/hyp105_full_physical_degree_tail.py'
+      - 'research/test_hyp105_full_physical_degree_tail.py'
+      - 'research/fixtures/hyp105_full_physical_degree_tail_results.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  genuine-source-tail-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact source conflicts, paired cuts, endpoints and historical D6
+        run: python -m unittest discover -s research -p 'test_hyp105_full_physical_degree_tail.py' -v
+      - name: Parent pair-codegree historical D6 regression
+        run: python -m unittest discover -s research -p 'test_hyp105_pair_codegree_transversality_kernel.py' -v
+      - name: Reproduce full source-ID certificate
+        run: |
+          python research/hyp105_full_physical_degree_tail.py /tmp/hyp105-full-degree-tail
+          cmp research/fixtures/hyp105_full_physical_degree_tail_results.json /tmp/hyp105-full-degree-tail/full_physical_degree_tail_results.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-full-physical-degree-tail-certificates
+          path: /tmp/hyp105-full-degree-tail
