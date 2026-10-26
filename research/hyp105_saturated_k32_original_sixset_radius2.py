@@ -61,7 +61,7 @@ def original_sixset_coordinate_degree_signature(ids, flags, f, g):
     }
 
 
-def genuine_W34_protected_k32_radius_two():
+def genuine_W34_protected_k32_radius_two(*, return_inputs=False):
     """TRUE W34 fully injected 8-flag source matching; sharp original D6 r=2.
 
     Six ORIGINAL source flags are arranged on hub/free physical
@@ -199,7 +199,7 @@ def genuine_W34_protected_k32_radius_two():
     if len(old_prov)!=12 or len(new_prov)!=16:
         raise AssertionError("each TRUE original incidence supplies two physical edges")
 
-    return {
+    report = {
         "s":s,"V":V,"a":a,
         "true_original_protected_ids":old,
         "true_original_two_additional_ids":ids[6:],
@@ -222,3 +222,6 @@ def genuine_W34_protected_k32_radius_two():
         "all_h_one_flag_accepted_GF5_compensation_excluded":True,
         "all_h_root_sevenclass_Omega_s6_proved":False,
     }
+    if return_inputs:
+        return report, tuple(f), tuple(g), tuple(flags), tuple(lc), tuple(rc)
+    return report
