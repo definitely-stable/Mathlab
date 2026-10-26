@@ -101,3 +101,65 @@ The two-step return flags for the same finite inputs are counted independently, 
 The former physical graph spectral and uncorrected six-cycle route discards the local return constraints and is empirically extremely loose. The above theorem compresses every coordinate defect into a **finite catalogue of local source-factor cherries and three-factor physical triangles**, with a uniform multiplicity cap nine. An actual advance toward the root must obtain source-geometric inequalities on their six-cycle **completion masses** \(W_2,W_3\), *or* prove a **same-fixed-f,g compensation inequality** involving additional, distinct original accepted GF(5) sixsets.
 
 Neither has been established here. In particular, lower-bounding the ordinary physical C6 count is not enough if \(W_2+W_3\) remains comparable, and filtering repeated original source flag IDs does not isolate D6. Keep PR Draft, all original incidence quantifiers, exact-head hosted CI and an independent qualified mathematical referee gate.
+
+
+## 7. NEW all-h original-source pencil wedge conservation theorem (AA4-LCR-W)
+
+The preceding defect witness reduction leaves the quantitative size of the two-step witness sum \(W_2\) open. A more primitive quantity has a **rigorous \(\Theta(s^5)\) universal upper envelope**: the number \(J_x\) of all **unoriented length-two wedges of H** whose start and end have the SAME first coordinate, counted once by their physical middle corner and two physical endpoint corners. Let \(J_y\) count the analogous second-coordinate wedges. These count local *wedges*, NOT their C6 completions.
+
+For each genuine original source point \(p\) and physical second-coordinate symbol \(y\), write
+
+\[
+d_p(y)=|\{l\text{ an ORIGINAL line incident to }p:y\in g(l)\}|.
+\]
+
+For each genuine original line \(l\) and first-coordinate symbol \(x\) put
+
+\[
+e_l(x)=|\{p\text{ an ORIGINAL point on }l:x\in f(p)\}|.
+\]
+
+**Theorem (all-h, fixed arbitrary correlated injections):**
+
+\[
+\boxed{
+J_x=2\sum_{p,y}\binom{d_p(y)}2,\qquad
+J_y=2\sum_{l,x}\binom{e_l(x)}2,
+}
+\]
+
+and separately
+
+\[
+\boxed{0\le J_x,J_y\le 2V\binom{s+1}{2}=Vs(s+1)=O(s^5).}
+\]
+
+*Proof of equality.* A two-edge wedge with first-coordinate return \(x_0=x_2\) uses two consecutive genuine ORIGINAL source flags \((p,l_1),(p,l_2)\) with the same point factor \(p\) by the all-h return theorem. Let \(y_1\) be the second coordinate of its central physical corner. Both physical g-line edges contain \(y_1\), and because \(g\) is injective, the two different source lines have distinct other physical endpoints \(y_0\ne y_2\). Each unordered pair of original incident lines meeting at a particular symbol \(y_1\) produces exactly TWO physically distinct wedges: one for each possible central first-coordinate endpoint of \(f(p)\). Hence \(J_x=2\sum_{p,y}\binom{d_p(y)}2\). The line-side proof is dual.
+
+*Proof of upper bound.* Each original point is incident to exactly \(d=s+1\) different source lines, with \(d\) **different** physical edges under global \(g\)-injectivity. Two distinct physical pair-edges intersect in at most one coordinate. Consequently for each source point \(p\), \(\sum_y\binom{d_p(y)}2\le\binom d2\), counting each unordered pair of incident source lines at most once. Sum over \(V\) source points and multiply by 2. Repeat dually on the original source lines. No random labels, no independence, no uniform physical-degree premise. \(\square\)
+
+For each wedge \(w\) let \(\operatorname{comp}_6(w)\) be the number of physically simple unoriented C6s containing that **particular** x/y-coordinate returning wedge. By literal double counting:
+
+\[
+\boxed{
+W_{2,x}=\sum_{w\in\mathcal J_x}\operatorname{comp}_6(w),
+\qquad
+W_{2,y}=\sum_{w\in\mathcal J_y}\operatorname{comp}_6(w).
+}
+\]
+
+Therefore a **separately proved** uniform or average \(O(s)\) bound on completions per original-source pencil wedge would imply \(W_2=O(s^6)\). This additional bound is NOT proved. In particular, \(J_x,J_y=O(s^5)\) alone cannot be presented as any \(O(s^6)\) bound for the **total 6-cycle defect**.
+
+### Independent source/physical finite source-ID evidence
+
+Two completely different counting methods agree exactly: (i) sum original GQ incidence-pencil coordinate degrees \(\binom{d_p(y)}2\), and (ii) enumerate every simple physical two-edge wedge around a corner and group physical neighbors by equal opposite-axis coordinate. Both maintain the original source flags and independently injected point/line pair labels.
+
+| Legal true-source map | \(J_x\) | \(J_y\) | Universal bound for each | Largest original point-pencil symbol degree | Largest original line-pencil symbol degree |
+|---|---:|---:|---:|---:|---:|
+| W(3,2) lex K6 | 64 | 52 | 90 | 3 | 3 |
+| W(3,2) reverse-line K6 | 42 | 52 | 90 | 2 | 3 |
+| W(3,4) full adversarial K14 | 624 | 602 | 1,700 | 5 | 5 |
+
+The exact arithmetic is independently frozen in [the pencil-wedge module](../../research/hyp105_original_source_pencil_wedges.py) and [dual-method tests](../../research/test_hyp105_original_source_pencil_wedges.py).
+
+**Updated next P0:** prove or falsify a meaningful source-sensitive upper bound for physical C6 completions per pencil returning wedge. The most promising local object is a length-four simple physical path between two given physical corners with a shared first or second coordinate. Generic degree-norm bounds discard the GQ incidence-pair constraints and currently remain too weak. The parallel pure-three-step return class still needs a separate source-physical triangle-completion analysis, and full seven-class *same-map* compensation remains open.

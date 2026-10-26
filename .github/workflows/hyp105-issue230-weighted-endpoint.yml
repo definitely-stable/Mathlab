@@ -21,6 +21,8 @@ on:
       - 'research/test_hyp105_physical_rainbow_c6.py'
       - 'research/hyp105_local_coordinate_return_c6.py'
       - 'research/test_hyp105_local_coordinate_return_c6.py'
+      - 'research/hyp105_original_source_pencil_wedges.py'
+      - 'research/test_hyp105_original_source_pencil_wedges.py'
       - 'docs/research/HYP-105-LOCAL-COORDINATE-RETURN-C6.md'
       - 'docs/research/HYP-105-PHYSICAL-RAINBOW-C6.md'
       - 'docs/research/HYP-105-END-ENERGY-TAIL-DIFFERENCE.md'
@@ -54,6 +56,7 @@ jobs:
           python -m unittest discover -s research -p 'test_hyp105_end_energy_tail_difference.py' -v
           python -m unittest discover -s research -p 'test_hyp105_physical_rainbow_c6.py' -v
           python -m unittest discover -s research -p 'test_hyp105_local_coordinate_return_c6.py' -v
+          python -m unittest discover -s research -p 'test_hyp105_original_source_pencil_wedges.py' -v
           python -m unittest discover -s research -p 'test_hyp105_w34_adversarial_certificate.py' -v
       - name: Exact dyadic algebra and formal fail-closed gate
         run: |
