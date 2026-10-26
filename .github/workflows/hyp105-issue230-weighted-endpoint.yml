@@ -31,6 +31,8 @@ on:
       - 'research/test_hyp105_coherent_wedge_completion_obstruction.py'
       - 'research/hyp105_triple_codegree_d6_compensation.py'
       - 'research/test_hyp105_triple_codegree_d6_compensation.py'
+      - 'research/hyp105_pair_codegree_triangle_d6.py'
+      - 'research/test_hyp105_pair_codegree_triangle_d6.py'
       - 'docs/research/HYP-105-TRIPLE-CODEGREE-D6-COMPENSATION.md'
       - 'docs/research/HYP-105-COHERENT-WEDGE-COMPLETION-NOGO.md'
       - 'docs/research/HYP-105-SOURCE-SPECTRAL-PENCIL-WEDGES.md'
@@ -73,6 +75,7 @@ jobs:
           python -m unittest discover -s research -p 'test_hyp105_source_spectral_pencil_wedges.py' -v
           python -m unittest discover -s research -p 'test_hyp105_coherent_wedge_completion_obstruction.py' -v
           python -m unittest discover -s research -p 'test_hyp105_triple_codegree_d6_compensation.py' -v
+          python -m unittest discover -s research -p 'test_hyp105_pair_codegree_triangle_d6.py' -v
           python -m unittest discover -s research -p 'test_hyp105_w34_adversarial_certificate.py' -v
       - name: Exact dyadic algebra and formal fail-closed gate
         run: |

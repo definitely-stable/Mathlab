@@ -116,3 +116,70 @@ It does **not** show:
 The new complete original \(W(3,4)\) negative control (4,972 D6 but zero K3,3 support) makes the missing bridge concrete. The next best step is a **dichotomy involving both** (i) coordinate-transverse triple-neighbor matching mass and (ii) accepted non-K3,3 original sixflag classes/other physical rainbow C6s, with quantitative constants and true source-ID original incidence quantifiers. A proof that defects alone imply triple-star spread is not available.
 
 Root status stays **OPEN_WITH_FORMAL_BLOCKER**. The all-\(h\) count identities are independent of existence of the infinite packet construction; specialized hosted GF2/GF4 finite oracles are evidence, not substitutes for an independent qualified mathematical referee.
+
+
+## 6. AA4-PC3 extension — an EXACT ALL-h representation of ALL D6 through pair-codegree triangles
+
+**New stronger theorem:** the fully saturated triple-*common*-neighbor sector in section 2 is only one term in a universal exact **triangle of three PAIR-common-neighbor posting lists**. This extension is essential: the true W(3,4) adversarial case has 4,972 accepted original D6 but ZERO coordinate-transverse K3,3.
+
+For every unordered coordinate-injective physical hub triple \(U=\{h_0<h_1<h_2\}\), let
+
+\[
+Q_{ij}(U)=
+\{z\in N(h_i)\cap N(h_j):
+z_0\notin X(U),\ z_1\notin Y(U)\},
+\]
+
+where \(X(U)\), \(Y(U)\) are its three first and three second hub-coordinate symbols. Define the exact transversal witness population for this fixed hub triple
+
+\[
+T_3(U)=\sum_{\substack{z_{01}\in Q_{01}(U)\\
+z_{12}\in Q_{12}(U)\\
+z_{20}\in Q_{20}(U)}}
+\mathbf1\!\left[
+|\{(z_{01})_0,(z_{12})_0,(z_{20})_0\}|=3,\ 
+|\{(z_{01})_1,(z_{12})_1,(z_{20})_1\}|=3
+\right].
+\]
+
+**Theorem (all-h exact original-six-source-ID D6 pair-codegree triangle identity):**
+
+\[
+\boxed{2D_6(f,g)=\sum_{\substack{U\subseteq V(H),\,|U|=3\\
+U\text{ coordinate-injective}}}T_3(U).}
+\]
+
+*Proof.* Each counted ordered triple of pairwise common neighbors gives the physical simple cycle
+
+\[
+h_0-z_{01}-h_1-z_{12}-h_2-z_{20}-h_0.
+\]
+
+The enforced coordinate-exclusion and coordinate-injectivity make all six first coordinates and all six second coordinates distinct. Each of its six physical arcs is backed by a UNIQUE TRUE original symplectic source incidence flag; by the preceding AA4-RC6 theorem the resulting six ORIGINAL source flag IDs, original point IDs and original line IDs are distinct and belong to the historic seven-family GF5-accepted **D6** class.
+
+Conversely every such original D6 corresponds uniquely to a simple physical coordinate-rainbow C6. It has exactly two alternating three-corner vertex classes. Either may be chosen as its hub triple \(U\); after sorting that triple \(h_0<h_1<h_2\), each of the three free corners is **uniquely** assigned as the common neighbor between its two consecutive hubs. Thus each accepted ORIGINAL D6 sixset is counted **exactly twice**, and no other sixsets enter the sum. This proves the identity without spectral inequalities, probability, synthetic source graph edges or any f/g independence. \(\square\)
+
+**Relation to AA4-TCN K3,3:** if the three pair witnesses also belong to \(N(h_0)\cap N(h_1)\cap N(h_2)\), they form a complete genuine physical K3,3 and contribute to the saturated term \(\sum_U6m_3(T(U))\) in the *oriented* count. Hence the exact positive decomposition is
+
+\[
+\boxed{
+D_6(f,g)
+=D_{6,K_{3,3}}(f,g)+D_{6,\text{missing chord}}(f,g),
+}
+\]
+
+where the second nonnegative term counts original accepted D6 cycles whose six physical arcs exist but at least one of the three additional cross chords needed to form the alternating K3,3 does not. This is an exact **same-fixed-map positive split**, not a hypothetical claim that only K3,3 can yield D6.
+
+**Independent genuine-original-source finite checks:** the new implementation builds pair-codegree lists by inverting original physical two-edge wedges, enumerates coordinate-transverse triple witnesses (not physical C6 via DFS), recovers each of six actual original incidence IDs, verifies six distinct point and line factor IDs and the historical GF(5) classifier, and checks each original sixset appears **exactly twice**. Separate previously implemented full-physical-C6 and K3,3 oracles independently certify the totals:
+
+| Genuine complete typed label map | Pair-witness oriented triples | Original accepted D6 | K3,3-supported D6 | Non-K3,3 accepted D6 |
+|---|---:|---:|---:|---:|
+| W(3,2), lex K6 | 30 | 15 | 6 | 9 |
+| W(3,2), reverse-line K6 | 6 | 3 | 0 | 3 |
+| W(3,4), adversarial K14 | **9,944** | **4,972** | **0** | **4,972** |
+
+The coherent full-source W(3,4) planted hub/free K4,4 witness supplies at least 96 K3,3-supported accepted source D6 motifs and is crosschecked by the pair-codegree representation. Importantly, the 4,972 source D6 in the adversarial W34 case come **entirely** from the *three PAIR-codegree lists*, without any physical triple-common-neighbor K3,3. This settles the gap in the positive certificate coverage of that example.
+
+**Updated next mathematical P0:** seek a universal lower bound for the **coordinate-transverse triangle mass \( \sum_U T_3(U)\)**, or a **same-fixed-map lower-bound dichotomy across this mass and the other six accepted original GF5 classes**. Unlike the uncorrected physical six-cycle moment, \(T_3\) contains **only correctly accepted six-original-ID GF5 D6 motifs**; high physical defect and five-ID path collision noise are entirely absent from its summands. A lower bound on raw pair-codegrees without the cross-coordinate transversality indicator is NOT sufficient, so the remaining blocker is genuine and quantitative.
+
+The exact identity provides no unconditional asymptotic lower bound itself. Root HYP-105 #230 stays **OPEN_WITH_FORMAL_BLOCKER**, independent scientific proof review required. The finite h=1,2 oracle is a falsifier, not an all-h computational proof.
