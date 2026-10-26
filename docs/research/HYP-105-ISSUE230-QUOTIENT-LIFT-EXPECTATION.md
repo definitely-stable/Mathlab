@@ -66,6 +66,6 @@ Every resulting physical right C6 with its opposite-edge repeated-point pairing 
     E C_generic >= ((2H)^3/12)*T
       *(1-3A/s-3A/Q-12/H-3A/H)*H^(-3)*(1-6/H),
 
-which proves (1) when its right side is useful; otherwise (1) is trivial. The finite oracle checks the exact triangle counts, a definition-level C/A witness and all H^6=4096 line-lift assignments in its H=4 example, of which exactly H^3=64 succeed.
+which proves (1) when its right side is useful; otherwise (1) is trivial. The finite oracle checks the exact quotient-triple counts, a definition-level C/A witness and all H^6=4096 line-lift assignments in its H=4 example, of which exactly H^3=64 succeed.
 
 The unproved deterministic direction is sparse stability: does o(s^6) actual C/A mass force approximate C4 cancellation of the physical edge lift function? Universal C4 cancellation would force endpoint-additive lifts, but this hypothesis is substantially stronger than the source-realized seven-motif condition. No removal theorem or capacity obstruction for arbitrary nonlinear endpoint completion is asserted.
