@@ -1,0 +1,135 @@
+{
+  "1+1+1+1+1+1": {
+    "named_factor_multiplicity_profile": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_projection_falling_factorial_coefficients": {
+      "4": "30",
+      "5": "510",
+      "6": "70"
+    },
+    "positive_GF5_weight_computed_here": false
+  },
+  "2+1+1+1+1": {
+    "named_factor_multiplicity_profile": [
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "physical_projection_falling_factorial_coefficients": {
+      "4": "30",
+      "5": "36",
+      "6": "3/2"
+    },
+    "positive_GF5_weight_computed_here": false
+  },
+  "2+2+1+1": {
+    "named_factor_multiplicity_profile": [
+      2,
+      2,
+      1,
+      1
+    ],
+    "physical_projection_falling_factorial_coefficients": {
+      "4": "9",
+      "5": "3"
+    },
+    "positive_GF5_weight_computed_here": false
+  },
+  "2+2+2": {
+    "named_factor_multiplicity_profile": [
+      2,
+      2,
+      2
+    ],
+    "physical_projection_falling_factorial_coefficients": {
+      "3": "1",
+      "4": "4",
+      "5": "3/2",
+      "6": "1/8"
+    },
+    "positive_GF5_weight_computed_here": false
+  },
+  "3+1+1+1": {
+    "named_factor_multiplicity_profile": [
+      3,
+      1,
+      1,
+      1
+    ],
+    "physical_projection_falling_factorial_coefficients": {
+      "4": "6",
+      "5": "1/2"
+    },
+    "positive_GF5_weight_computed_here": false
+  },
+  "3+2+1": {
+    "named_factor_multiplicity_profile": [
+      3,
+      2,
+      1
+    ],
+    "physical_projection_falling_factorial_coefficients": {
+      "3": "1",
+      "4": "1"
+    },
+    "positive_GF5_weight_computed_here": false
+  },
+  "3+3": {
+    "named_factor_multiplicity_profile": [
+      3,
+      3
+    ],
+    "physical_projection_falling_factorial_coefficients": {
+      "3": "1",
+      "4": "1/4"
+    },
+    "positive_GF5_weight_computed_here": false
+  },
+  "4+1+1": {
+    "named_factor_multiplicity_profile": [
+      4,
+      1,
+      1
+    ],
+    "physical_projection_falling_factorial_coefficients": {
+      "3": "1"
+    },
+    "positive_GF5_weight_computed_here": false
+  },
+  "4+2": {
+    "named_factor_multiplicity_profile": [
+      4,
+      2
+    ],
+    "physical_projection_falling_factorial_coefficients": {
+      "3": "1",
+      "4": "1/4"
+    },
+    "positive_GF5_weight_computed_here": false
+  },
+  "5+1": {
+    "named_factor_multiplicity_profile": [
+      5,
+      1
+    ],
+    "physical_projection_falling_factorial_coefficients": {},
+    "positive_GF5_weight_computed_here": false
+  },
+  "6": {
+    "named_factor_multiplicity_profile": [
+      6
+    ],
+    "physical_projection_falling_factorial_coefficients": {
+      "2": "1/2"
+    },
+    "positive_GF5_weight_computed_here": false
+  }
+}

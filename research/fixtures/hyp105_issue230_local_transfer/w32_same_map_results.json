@@ -1,0 +1,66 @@
+[
+  {
+    "scheme": "lex",
+    "seven": {
+      "D6": 15,
+      "B-left/A-right": 98,
+      "A-left/B-right": 110,
+      "C/A": 13,
+      "C/B": 1,
+      "B/B-overlap": 8,
+      "B/B-disjoint": 14
+    },
+    "S": 259,
+    "Q4": 50,
+    "GF5_floor_numerator": 11225795,
+    "GF5_denominator": 17596287801
+  },
+  {
+    "scheme": "reverse",
+    "seven": {
+      "D6": 3,
+      "B-left/A-right": 77,
+      "A-left/B-right": 74,
+      "C/A": 1,
+      "C/B": 1,
+      "B/B-overlap": 7,
+      "B/B-disjoint": 6
+    },
+    "S": 169,
+    "Q4": 32,
+    "GF5_floor_numerator": 7627209,
+    "GF5_denominator": 17596287801
+  },
+  {
+    "scheme": "S68",
+    "seven": {
+      "D6": 0,
+      "B-left/A-right": 44,
+      "A-left/B-right": 21,
+      "C/A": 0,
+      "C/B": 0,
+      "B/B-overlap": 2,
+      "B/B-disjoint": 1
+    },
+    "S": 68,
+    "Q4": 9,
+    "GF5_floor_numerator": 3112510,
+    "GF5_denominator": 17596287801
+  },
+  {
+    "scheme": "S72",
+    "seven": {
+      "D6": 0,
+      "B-left/A-right": 36,
+      "A-left/B-right": 31,
+      "C/A": 2,
+      "C/B": 0,
+      "B/B-overlap": 1,
+      "B/B-disjoint": 2
+    },
+    "S": 72,
+    "Q4": 10,
+    "GF5_floor_numerator": 3283610,
+    "GF5_denominator": 17596287801
+  }
+]

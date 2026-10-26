@@ -1,0 +1,43 @@
+name: hyp105-issue230-local-transfer-barriers
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  scoped-original-source-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact local scope and independent source geometry checks
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_local_transfer_barriers.py' -v
+      - name: Legal quotient charts and actual C/A lift expectation falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_issue230_quotient_charge.py' -v
+      - name: Regenerate original partitions separately from physical polynomials
+        run: |
+          python research/hyp105_issue230_partition_index.py /tmp/issue230-partitions
+          cmp research/fixtures/hyp105_issue230_local_transfer/original_partitions.csv /tmp/issue230-partitions/original_partitions.csv
+      - name: Exact local-capacity certificates
+        run: python research/hyp105_issue230_local_capacity_barrier.py /tmp/issue230-capacity
+      - name: Quotient-charge certificate
+        run: |
+          python research/hyp105_issue230_quotient_charge.py /tmp/issue230-quotient-charge
+          cmp research/fixtures/hyp105_issue230_local_transfer/quotient_charge_evidence.json /tmp/issue230-quotient-charge/quotient_charge_evidence.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: issue230-local-scoped-certificates
+          path: |
+            /tmp/issue230-partitions
+            /tmp/issue230-capacity
+            /tmp/issue230-quotient-charge
