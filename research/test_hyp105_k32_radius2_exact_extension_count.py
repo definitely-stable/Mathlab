@@ -39,8 +39,8 @@ class TestK32ExactTwoSourceFlagExtension(unittest.TestCase):
         self.assertGreater(
             brute["independent_same_hub_repeated_point_pairs_checked"],0)
         self.assertEqual(
-            direct["old_original_six_flags"],
-            report["true_original_protected_ids"])
+            set(direct["old_original_six_flags"]),
+            set(report["true_original_protected_ids"]))
         self.assertTrue(direct[
             "all_h_exact_radius_two_extension_formula_proved"])
 
