@@ -6,6 +6,9 @@ on:
       - '.github/workflows/hyp105-coherent-c6-codegree-trace.yml'
       - 'research/hyp105_coherent_c6_codegree_trace.py'
       - 'research/test_hyp105_coherent_c6_codegree_trace.py'
+      - 'research/hyp105_codegree_triangle_hall_stability.py'
+      - 'research/test_hyp105_codegree_triangle_hall_stability.py'
+      - 'docs/research/HYP-105-CODEGREE-TRIANGLE-HALL-STABILITY.md'
       - 'docs/research/HYP-105-COHERENT-C6-CODEGREE-TRACE.md'
       - 'research/hyp105_full_physical_degree_tail.py'
   workflow_dispatch:
@@ -28,5 +31,7 @@ jobs:
           python-version: '3.12'
       - name: Exact codegree C6 identity and genuine original D6
         run: python -m unittest discover -s research -p 'test_hyp105_coherent_c6_codegree_trace.py' -v
+      - name: Hall SDR strong-codegree saturation and true original source regressions
+        run: python -m unittest discover -s research -p 'test_hyp105_codegree_triangle_hall_stability.py' -v
       - name: Parent full physical degree-tail original-source regression
         run: python -m unittest discover -s research -p 'test_hyp105_full_physical_degree_tail.py' -v
