@@ -178,7 +178,7 @@ def genuine_source_saturated_unit_transfer(power,f,g,selected_ids):
     }
 
 
-def real_W34_two_disjoint_saturated_blocks():
+def real_W34_two_disjoint_saturated_blocks(*, return_inputs=False):
     """Two independent physical K3,2 blocks from 16 GENUINE W34 source flags.
 
     Full completed maps include 4 extra source flags, each group has 2
@@ -237,4 +237,6 @@ def real_W34_two_disjoint_saturated_blocks():
             report["two_swap_D6_extension_memberships"]<4 or
             report["distinct_accepted_original_D6_from_saturated_blocks"]<4):
         raise AssertionError("two real disjoint K3,2 sharp positive example failed")
+    if return_inputs:
+        return report,tuple(f),tuple(g),tuple(flags),protected_ids
     return report
