@@ -16,6 +16,9 @@ on:
       - 'research/test_hyp105_k32_saturated_unit_multiplicity.py'
       - 'research/hyp105_saturated_fresh_extension_zero_w34.py'
       - 'research/test_hyp105_saturated_fresh_extension_zero_w34.py'
+      - 'research/hyp105_conditional_fresh_line_lift_expectation.py'
+      - 'research/test_hyp105_conditional_fresh_line_lift_expectation.py'
+      - 'docs/research/HYP-105-CONDITIONAL-FRESH-LINE-LIFT-EXPECTATION.md'
       - 'docs/research/HYP-105-SATURATED-FRESH-ZERO-W34.md'
       - 'docs/research/HYP-105-K32-SATURATED-UNIT-MULTIPLICITY.md'
       - 'docs/research/HYP-105-K32-RADIUS2-EXACT-EXTENSION-COUNT.md'
@@ -53,5 +56,7 @@ jobs:
         run: python -m unittest discover -s research -p 'test_hyp105_k32_saturated_unit_multiplicity.py' -v
       - name: Zero full-H fresh extensions with identical selected original source G
         run: python -m unittest discover -s research -p 'test_hyp105_saturated_fresh_extension_zero_w34.py' -v
+      - name: Exact conditional original source line-lift expectation and independent finite enumerator
+        run: python -m unittest discover -s research -p 'test_hyp105_conditional_fresh_line_lift_expectation.py' -v
       - name: Parent full physical degree-tail original-source regression
         run: python -m unittest discover -s research -p 'test_hyp105_full_physical_degree_tail.py' -v
