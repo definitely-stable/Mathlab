@@ -134,3 +134,41 @@ The independent actual-source full-H rectangle oracle of #665 and historical GF5
 PR #665's ZERO completion shows \(\mathbb E M>0\) cannot become an all-map lower bound on \(M\). To advance the original seven-class universal conjecture, the next task must analyze **all accepted original GF5 motif classes or truly global remaining geometric constraints in the fixed completion**, rather than simply repeating the annealed estimate. A valuable immediate test is a **complete same-map original seven-family census** (or a certified class-specific lower statistic) on the two true W34 completions with the same f and selected G, to learn where accepted mass moves when the local two-flag sector vanishes. A W34 finite comparison is not an asymptotic proof; each accepted candidate must be enumerated or bounded with genuine incidence-ID provenance.
 
 Root \`OPEN_WITH_FORMAL_BLOCKER\`; keep scientific Draft, hosted specialized/INDEX/Research exact HEAD CI and qualified external proof referee. No merge into main.
+
+
+## 7. Stronger constructive result: deterministic method of conditional expectations
+
+The averaging conclusion (5) can be made **algorithmic** without sampling any random completed line-label map. Assume the original complete f, the partial g_J, the genuine original incidence list and the same selected coherent saturated family are supplied.
+
+Pick any not-yet-labeled **original source line** \(\ell\in U\). At a current partial line-label injection with \(Q'\) unoccupied coordinate-pair labels, consider each legal choice \(\tau\in\mathcal Q'\) of the physical pair label for this one actual source line. Let \(\Phi(g_{J\cup\{\ell\mapsto\tau\}})\) denote the exact rational expected full-H saturated extension mass of formula (3) after that one additional original line-label assignment. The uniform-injection conditional distribution makes this specific next slot **uniform across all \(Q'\) still available pair labels**, including slots that may ultimately stay unoccupied. Thus the *tower law* is the **exact rational identity**
+
+\[
+\boxed{
+\Phi(g_J)=\frac1{Q'}\sum_{\tau\in\mathcal Q'}
+\Phi(g_{J\cup\{\ell\mapsto\tau\}}).
+}
+\tag{6}
+\]
+
+Consequently **at least one** choice satisfies \(\Phi_{\rm child}\ge\Phi_{\rm current}\). Choose a maximizing candidate (breaking ties lexicographically), fix it, and repeat until all originally unfixed source line IDs have a distinct assigned line-pair label. The conditional expectation is then an **integer equal to the actual final fresh-neighbor population**, because no original source line remains unassigned. All original incidences, all complete f labels, all selected original source IDs and every selected old line-label pair are unchanged.
+
+**Constructive theorem (all h, exact rational arithmetic):** This procedure terminates with a globally injected complete true source line map \(g_*\supseteq g_J\) such that
+
+\[
+\boxed{
+M(f,g_*;G)\ge
+\mathbb E_{g|U}[M(f,g;G)\mid f,g_J],\qquad
+D_6(f,g_*)\ge
+2\,M(f,g_*;G)
+\ge 2\,\mathbb E M.
+}
+\tag{7}
+\]
+
+The code evaluates every conditional probability **exactly as a Python Fraction**, checks (6) exactly at EACH assignment step, chooses the maximal conditional expectation, enforces monotonicity and the final integer identity, and verifies the resulting *actual* full W(3,4) physical graph and historical GF5-accepted six-ID D6 sectors using the separate prior #664 true-original-source oracle. It never estimates anything by sampling or simulated GF5 acceptances.
+
+For the protected W(3,4) frozen selected G from #665, the fully deterministic constructive algorithm fills the remaining **73** actual original source-line labels into currently available K14 pair-label slots without changing the 12 selected old line labels. The completed source remains **exactly the same original symplectic W(3,4)** with 85 original points/lines and 425 true incidences; both physical diagonals remain original-ID traceable. The finite regression checks exact tower-law equality at every step, resulting source-label injection, and the lower guarantee (7).
+
+**Critical quantifier limitation:** This is a constructive **there exists** proof for a particular completion \(g_*\), not a uniform lower bound for EVERY admissible \(g\). The ZERO completion of #665 is still an explicit legal source map with \(M=0\); the algorithm does not show its D6 mass or seven-family risk vanish. Thus this method of conditional expectations cannot alone solve the original universal HYP-105 \(\Omega(s^6)\) problem.
+
+**Efficiency:** The implementation is intentionally a finite exact reference algorithm, examining every remaining label pair for each remaining source line and recomputing (3) by source-point/line-incidence counts. The all-h correctness proof does not imply an all-h polynomial bound in \(\log s\), and no asymptotic optimal time complexity is claimed.

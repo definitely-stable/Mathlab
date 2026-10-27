@@ -254,3 +254,94 @@ def genuine_source_conditional_saturated_line_lift(
     result["selected_original_diagonal_edges"]=len(provenance)
     result["all_genuine_source_incidence_flags"]=len(flags)
     return result
+
+
+def deterministically_complete_line_labels_by_conditional_expectation(
+        power,full_point_pairs,reference_complete_line_pairs,
+        selected_original_source_IDs):
+    """Produce a FULL genuine source g with M(g) >= exact E[M|selected].
+
+    Classical method of conditional expectations applied to the NEW
+    exact original-incidence rectangle oracle. Original source IDs,
+    complete f and the selected old source g line pairs remain fixed.
+
+    At each step choose the lexicographically first remaining source
+    line and try EVERY available physical K_a pair slot. Uniform
+    injections make the conditional mean of all child expectations
+    EXACTLY the current expectation; choose the maximizer. After all
+    source lines have been frozen, expected M equals actual integer M.
+    This is deterministic and exact, not a randomized sample; no
+    pointwise all-map HYP-105 root claim is made.
+    """
+    from hyp105_k32_saturated_unit_multiplicity import (
+        genuine_source_saturated_unit_transfer,
+    )
+    s,V,flags=genuine_source(power)
+    a=minimal_alphabet(V)
+    f=tuple(map(tuple,full_point_pairs))
+    g0=tuple(map(tuple,reference_complete_line_pairs))
+    _verify_typed_injections(a,V,f,g0)
+    original=genuine_source_conditional_saturated_line_lift(
+        power,f,g0,selected_original_source_IDs)
+    ids=original["selected_original_source_IDs"]
+    selected,_=physical(ids,flags,f,g0)
+    blocks=saturated_bipartite_k32_list(selected)
+    fixed={flags[i][1]:g0[flags[i][1]] for i in ids}
+    initial=original["expected_total_fresh_common_neighbor_mass"]
+    current=initial
+    steps=0
+    for line in range(V):
+        if line in fixed:
+            continue
+        used=set(fixed.values())
+        available=(z for z in combinations(range(a),2) if z not in used)
+        candidates=[]
+        for pair in available:
+            candidate=dict(fixed)
+            candidate[line]=pair
+            q=expected_fresh_mass_for_fixed_saturated_blocks(
+                a,flags,f,candidate,blocks,source_point_count=V,
+                source_line_count=V)
+            candidates.append((q["expected_total_fresh_common_neighbor_mass"],pair))
+        if not candidates:
+            raise AssertionError("no legal global source line-label injection left")
+        if sum((v for v,_ in candidates),Fraction())!=(
+                len(candidates)*current):
+            raise AssertionError("conditional tower law failed for true source injections")
+        best,pair=max(candidates,key=lambda p:(p[0],tuple(-z for z in p[1])))
+        if best<current:
+            raise AssertionError("conditional-expectation monotonicity failed")
+        fixed[line]=pair
+        current=best
+        steps+=1
+    if len(fixed)!=V or len(set(fixed.values()))!=V or (
+            current.denominator!=1):
+        raise AssertionError("deterministic completed source g is not valid")
+    g=tuple(fixed[l] for l in range(V))
+    _verify_typed_injections(a,V,f,g)
+    if any(g[flags[i][1]]!=g0[flags[i][1]] for i in ids):
+        raise AssertionError("selected original source labels were changed")
+    actual=genuine_source_saturated_unit_transfer(
+        power,f,g,ids)
+    if actual["full_H_fresh_common_neighbor_mass"]!=int(current):
+        raise AssertionError("last exact conditional expectation differs from full original source M")
+    if actual["two_swap_D6_extension_memberships"]<2*current or (
+            current<initial):
+        raise AssertionError("greedy real-source accepted GF5 D6 guarantee failed")
+    return {
+        "s":s,"V":V,
+        "source_IDs_selected":ids,
+        "frozen_old_original_line_pairs":len(ids),
+        "line_assignments_chosen_deterministically":steps,
+        "initial_exact_expected_fresh_mass":initial,
+        "final_actual_fresh_mass":int(current),
+        "final_two_swap_original_GF5_accepted_D6":
+            actual["two_swap_D6_extension_memberships"],
+        "fully_injective_completed_original_line_pairs":g,
+        "all_source_incidence_flags":len(flags),
+        "source_selected_saturated_blocks":
+            actual["saturated_original_source_K32_blocks"],
+        "method_of_conditional_expectations_verified":True,
+        "pointwise_all_completions_lower_proved":False,
+        "root_sevenclass_Omega_s6_proved":False,
+    }

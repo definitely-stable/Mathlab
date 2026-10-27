@@ -15,6 +15,7 @@ from hyp105_conditional_fresh_line_lift_expectation import (
     conditional_line_slot_probability,
     expected_fresh_mass_for_fixed_saturated_blocks,
     genuine_source_conditional_saturated_line_lift,
+    deterministically_complete_line_labels_by_conditional_expectation,
 )
 
 
@@ -132,6 +133,39 @@ class TestConditionalFreshLineLiftExpectation(unittest.TestCase):
             direct["zero"]["independent_original_source_rectangle_count"],0)
         self.assertEqual(direct["same_saturated_selected_K32_blocks"],2)
         self.assertEqual(pos["source_saturated_blocks"],2)
+
+    def test_true_W34_conditional_expectation_deterministic_derandomization(self):
+        initial,f,g,flags,ids=(
+            real_W34_two_disjoint_saturated_blocks(return_inputs=True))
+        report=deterministically_complete_line_labels_by_conditional_expectation(
+            2,f,g,ids)
+        expected=genuine_source_conditional_saturated_line_lift(
+            2,f,g,ids)
+        self.assertEqual(report["source_selected_saturated_blocks"],2)
+        self.assertEqual(
+            report["line_assignments_chosen_deterministically"],73)
+        self.assertEqual(report["all_source_incidence_flags"],425)
+        self.assertEqual(report["initial_exact_expected_fresh_mass"],
+                         expected["expected_total_fresh_common_neighbor_mass"])
+        self.assertGreaterEqual(
+            report["final_actual_fresh_mass"],
+            report["initial_exact_expected_fresh_mass"])
+        self.assertGreaterEqual(
+            report["final_two_swap_original_GF5_accepted_D6"],
+            2*report["initial_exact_expected_fresh_mass"])
+        self.assertEqual(
+            len(set(report["fully_injective_completed_original_line_pairs"])),
+            85)
+        self.assertTrue(
+            report["method_of_conditional_expectations_verified"])
+        # Selection labels NEVER change; these two complete g maps
+        # may differ on all other true original lines.
+        for i in ids:
+            line=flags[i][1]
+            self.assertEqual(
+                report["fully_injective_completed_original_line_pairs"][line],
+                g[line])
+        self.assertFalse(report["root_sevenclass_Omega_s6_proved"])
 
     def test_incomplete_source_or_noninjective_frozen_lines_fail_closed(self):
         a=6
