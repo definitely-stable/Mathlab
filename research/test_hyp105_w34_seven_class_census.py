@@ -75,6 +75,49 @@ class TestOriginalSevenClassW34Census(unittest.TestCase):
     def test_TRUE_W34_POS_ZERO_all_seven_exhaustive_source_census(self):
         result = true_W34_positive_zero_all_seven_census()
         self.assertTrue(result["all_seven_classes_finite_W34_exhaustive"])
+        # Exact independently hosted W34 source-ID certificate, not a fit.
+        self.assertEqual(
+            result["positive"]["all_seven_original_GF5_classes"],
+            {
+                "D6": 7567,
+                "B-left/A-right": 177564,
+                "A-left/B-right": 173412,
+                "C/A": 22122,
+                "C/B": 4070,
+                "B/B-overlap": 22802,
+                "B/B-disjoint": 21921,
+            })
+        self.assertEqual(
+            result["zero"]["all_seven_original_GF5_classes"],
+            {
+                "D6": 8110,
+                "B-left/A-right": 170578,
+                "A-left/B-right": 168080,
+                "C/A": 21349,
+                "C/B": 4336,
+                "B/B-overlap": 23262,
+                "B/B-disjoint": 19827,
+            })
+        self.assertEqual(
+            (result["positive"]["global_S_seven"],
+             result["zero"]["global_S_seven"]),
+            (429458, 415542))
+        self.assertEqual(result["global_S_seven_zero_minus_positive"],
+                         -13916)
+        self.assertEqual(
+            (result["positive"]["GF5_seven_necessary_R3_floor_numerator"],
+             result["zero"]["GF5_seven_necessary_R3_floor_numerator"]),
+            (19371832431, 18722310780))
+        self.assertEqual(
+            result["certified_GF5_R3_floor_numerator_zero_minus_positive"],
+            -649521651)
+        # Falsifies monotone local-M or global-D6 proxies for the actual
+        # same-model seven-family S and its GF5 weighted necessary floor.
+        self.assertGreater(
+            result["zero"]["all_seven_original_GF5_classes"]["D6"],
+            result["positive"]["all_seven_original_GF5_classes"]["D6"])
+        self.assertLess(result["zero"]["global_S_seven"],
+                        result["positive"]["global_S_seven"])
         self.assertEqual(
             result["zero_minus_positive_by_historical_GF5_class"]["D6"],
             543)
