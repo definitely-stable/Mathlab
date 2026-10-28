@@ -57,3 +57,49 @@ At one finite \(s=4\), a complete seven-class POS/ZERO comparison resolves wheth
 Even when a local \(D6\) proxy fails monotonicity (#667), the full seven-class source census is only a finite falsifier or finite positive example. Next mathematical step after inspecting its certified counts: derive an **all-map, same-fixed-\(f,g\)** deterministic compensation inequality between the *global* seven accepted original source classes, anchored in the full source incidence tensor or codegree identities, with explicit asymptotic constants or an admissible counterfamily. A finite optimizer, annealed expectation, or heuristic local penalty cannot replace that universal quantified step.
 
 **References:** [root issue #230](https://github.com/definitely-stable/Mathlab/issues/230); [#665 local ZERO](https://github.com/definitely-stable/Mathlab/pull/665); [#666 conditional expectation](https://github.com/definitely-stable/Mathlab/pull/666); [#667 exact global D6 displacement](https://github.com/definitely-stable/Mathlab/pull/667). The present work is a scientific Draft stacked directly on #667; parent/main are not mutated.
+
+
+## 5. Exact hosted certificate — W34 POS versus ZERO (28 October 2026)
+
+The specialized GitHub-hosted [run #40632519617](https://github.com/definitely-stable/Mathlab/actions/runs/40632519617) finished **SUCCESS** on initial PR head \`4725aeca1eebf7c3a669c54ed65bfda1b5d09ed6\` with the exact machine-readable certificate \`HYP105_AA4_SEVEN34_CERTIFICATE\`. All W32 independent historical seven-class checks and both full genuine W34 model computations passed. The following *numerical assertions are now pinned as exact regressions in subsequent PR head* and require the new exact-head hosted checks before final integration.
+
+| Historical original sixflag accepted GF(5) class | POS complete map | ZERO complete map | ZERO − POS |
+|---|---:|---:|---:|
+| D6 (independent original source #667) | 7,567 | 8,110 | +543 |
+| B-left/A-right | 177,564 | 170,578 | −6,986 |
+| A-left/B-right | 173,412 | 168,080 | −5,332 |
+| C/A | 22,122 | 21,349 | −773 |
+| C/B | 4,070 | 4,336 | +266 |
+| B/B-overlap | 22,802 | 23,262 | +460 |
+| B/B-disjoint | 21,921 | 19,827 | −2,094 |
+| **Complete original sixset sum S_seven** | **429,458** | **415,542** | **−13,916** |
+
+The ZERO completion, while having **more** global accepted original D6 (\(+543\), from parent #667), actually has **fewer** accepted original sixsets over ALL SEVEN historical classes (−13,916 = −3.24036% of POS). The largest structural difference is in the two one-sided B/A classes (joint count change −12,318). This is a certified **FINITE, same-f/same-frozen-g_J inverse-order counterexample** to treating global D6 (or the selected local saturated-parent M) as a monotonically aligned proxy for the *full seven-class* \(S_{\rm seven}\).
+
+The strictly necessary full-palette GF(5) third-order **lower floor** also changes in the same direction as S, with exact numerators:
+
+\[
+  51^6R_3(f,g_{\rm POS})\ge
+  \underbrace{19{,}371{,}832{,}431}_{\text{seven-family necessary numerator}},
+\]
+\[
+  51^6R_3(f,g_{\rm ZERO})\ge
+  \underbrace{18{,}722{,}310{,}780}_{\text{seven-family necessary numerator}},
+\]
+so the ZERO minus POS difference between these **certified necessary lower-floor numerators** is precisely \(-649{,}521{,}651\). In rational \(R_3\) units these are \(19{,}371{,}832{,}431/17{,}596{,}287{,}801\approx1.1009045\) and \(18{,}722{,}310{,}780/17{,}596{,}287{,}801\approx1.0639921\). **This is a comparison of lower floors, NOT proof that the actual total R3 decreases.** Additional positive GF(5) events outside the seven selected families, and additional signs within them, can differ.
+
+The exhaustive B/C-only native enumeration examined the exact canonical source candidates:
+- POS: **1,211,625,000** B candidates (both typed directions), **72,540,000** C candidates.
+- ZERO: **1,201,268,750** B candidates, **72,893,000** C candidates.
+
+All six source-ID witnesses for the non-D6 classes passed the separate historical GF(5) accepted-class classifier; the complete W32 reference census on lex/reverse mappings also exactly matched historical accepted seven-class counts and numerical weighted floor. D6 values came from separate source-ID physical rainbow-cycle enumeration. The canonical B/C enumeration algorithm counts an arbitrary accepted sixset with its repeated factor and square/matching **once**, not one copy per coordinate automorphism. The input is all 425 actual original symplectic flags, not an abstract synthetic physical graph.
+
+### Refined formal STOP and next allowed mathematical question
+
+The last two original W34 maps **disprove a specific proposed monotonic proof heuristic**:
+\[
+D6_{\rm ZERO}>D6_{\rm POS},
+\qquad
+S_{\rm ZERO}<S_{\rm POS},
+\]
+under fixed complete f and fixed selected source physical structure. They do **not** prove an all-h universal negative correlation, nor refute any universally valid inequality \(S\ge D6\). The rigorous all-h root \(S_s(f,g)=\Omega(s^6)\) remains **OPEN_WITH_FORMAL_BLOCKER**. Future work must prove an all-map same-completion lower bound on the **full** positive original motif functional, or formulate a precise model-equivalent all-h reduction; simply increasing global D6 or decreasing one local saturated-parent statistic cannot safely rank seven-class \(S\) for arbitrary correlated completions.
