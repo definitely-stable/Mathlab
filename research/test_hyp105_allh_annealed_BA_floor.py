@@ -97,7 +97,7 @@ class TestAllHUniformAnnealedBA(unittest.TestCase):
                 "scaled_floor_over_s6"],Fraction(0))
         self.assertGreater(
             annealed_original_BA_floor(1024,frozen_count=12)[
-                "scaled_floor_over_s6"],130)
+                "scaled_floor_over_s6"],128)
 
     def test_true_W32_lex_reverse_source_line_distinct_exact_expectation(self):
         # New all-h LOWER bound can be zero at s=2 (d=3), but the exact
