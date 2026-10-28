@@ -49,3 +49,47 @@ If the ZERO map still has positive accepted D6, then **zero saturated-parent ext
 The original all-map conjecture asks for `inf_(f,g) S_seven(f,g) = Omega(s^6)` for all dyadic h. A local selected graph and frozen f/g_J cannot force its two-flag completion mass (#665). Even if exact full D6 remains large in the two finite W34 examples, a rigorous all-map lower certificate requires a quantitative **source-incidence correlation mechanism** for arbitrary adversarial unselected labels, or an explicit **compensation inequality for the OTHER six historically accepted original GF(5) classes**. No current local expectation, frozen conservation, finite census or positive example substitutes for that gate.
 
 References: [root issue #230](https://github.com/definitely-stable/Mathlab/issues/230), [AA4-K32ZERO #665](https://github.com/definitely-stable/Mathlab/pull/665), [AA4-K32LIFT #666](https://github.com/definitely-stable/Mathlab/pull/666), original-source D6 identities [#652](https://github.com/definitely-stable/Mathlab/pull/652), [#657](https://github.com/definitely-stable/Mathlab/pull/657), [#658](https://github.com/definitely-stable/Mathlab/pull/658).
+
+
+## 6. Exact certified W34 results — source-ID and independent PC3 agree
+
+The first exact-head GitHub-hosted specialized job [#40631479651](https://github.com/definitely-stable/Mathlab/actions/runs/40631479651) **SUCCEEDED**, with all three tests passing. Its machine-readable `HYP105_AA4_FIXD6_CERTIFICATE` reports:
+
+| TRUE original W34 statistic, complete injected fixed map | POS completion | ZERO completion |
+|---|---:|---:|
+| Identical selected genuine original flags | 12 | 12 |
+| Selected saturated K3,2 blocks | 2 | 2 |
+| Full-H fresh hub-pair mass (local) | 4 | 0 |
+| Accepted original D6 two-source-ID local extensions | 8 | 0 |
+| **ENTIRE global accepted original GF5 D6 population** | **7567** | **8110** |
+| Complete physical K3,3 contribution | 0 | 0 |
+| Accepted original D6 outside complete K3,3 | 7567 | 8110 |
+| Original D6 sixsets with >=4 selected original flags | 8 | 0 |
+| Original D6 sixsets using only frozen source lines | 0 | 0 |
+
+Thus **D6_ZERO - D6_POS = +543**, roughly +7.18% relative to POS. The strict order **reverses** the local saturated-parent fresh-mass order (M_POS=4 > M_ZERO=0, but D6_POS=7567 < D6_ZERO=8110). This is a precisely scoped **finite non-monotonicity counterexample** to treating the local M statistic as a monotone proxy for global D6, even with identical full f, identical selected original flags, identical frozen g_J, and full genuine source W34. It is NOT a counterexample to root #230's universal asymptotic conjecture: ZERO has **more**, not fewer, accepted D6 overall, and only s=4 is covered.
+
+The exact stratification by number k of *unfrozen actual original source lines* among the SIX ORIGINAL source flags:
+
+| k | POS D6 | ZERO D6 |
+|---:|---:|---:|
+| 0 | 0 | 0 |
+| 1 | 0 | 0 |
+| 2 | 63 | 62 |
+| 3 | 331 | 314 |
+| 4 | 1285 | 1364 |
+| 5 | 3058 | 3329 |
+| 6 | 2830 | 3041 |
+| **Total** | **7567** | **8110** |
+
+No complete physical K3,3 occurs in either original full map, although thousands of original GF5 D6 occur; the strict **pair**-codegree / missing-chord sector accounts for all accepted D6. This independently demonstrates that K3,3-only positive certificates are incomplete even for these two legal source models.
+
+The old 12 selected original flags alone are not a full universal risk certificate. Both maps have zero completely frozen-line D6 sixsets, so the all-h frozen-line conservation lemma is correctly checked but offers no positive mass for this finite selected J.
+
+Certified necessary GF(5) D6-only R3 floor, in exact fractions:
+- POS: `5643 * 7567 / 51^6 = 1581503/651714363`.
+- ZERO: `5643 * 8110 / 51^6 = 1694990/651714363`.
+
+These are **D6-only R3 necessary contributions**, not seven-class exact GF(5) R3 and not a strict all-h R3 upper or ASET result. On the original root theorem, the accepted branch status stays **OPEN_WITH_FORMAL_BLOCKER**. In particular, other six original accepted GF(5) classes have not been globally counted on these W34 models.
+
+**Review consequence:** methods that attempt to lower `S_seven` by minimizing the number of *selected* saturated-parent fresh neighbors M have no monotonic guarantee even for the global accepted D6 component. Future universal analysis must handle the FULL correlated original factor-label completion and all six additional accepted original motifs; the finite inverse ordering is a falsifier of monotone-M heuristics, not a proof of a universal compensation inequality.
