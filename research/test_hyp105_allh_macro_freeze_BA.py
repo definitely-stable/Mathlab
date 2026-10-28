@@ -164,6 +164,40 @@ class TestAllHMacroscopicOriginalFrozenLineBA(unittest.TestCase):
         self.assertEqual(len(set(chosen)),6)
         self.assertTrue(all(line not in J for line in chosen))
 
+    def test_hosted_exact_annealed_macroscopic_certificate(self):
+        # Data are *lower bounds on conditional expectations*, not
+        # enumerations of fixed correlated full right source maps.
+        import json
+        from math import isqrt
+        cases=[]
+        for s,b,k in (
+            (128,128**2, min(128+1-6,isqrt(128)+12)),
+            (2048,2048**2, min(2048+1-6,
+                isqrt((2048**2*(2049**2))//((2049)*(2048**2+1)))+
+                isqrt(2049)+2)),
+            (1024,((1025)*(1024**2+1))//16,1025//2),
+            (8192,((8193)*(8192**2+1))//16,8193//2),
+        ):
+            r=robust_annealed_BA_floor(s,b,k)
+            cases.append({
+                "s":s,"b":b,"k":k,
+                "guaranteed_good_original_source_points":
+                    r["guaranteed_good_original_source_points"],
+                "guaranteed_good_physical_C4_per_good_point":
+                    r["good_point_physical_C4_floor"],
+                "conditional_expected_original_BA_floor_integer":
+                    r["floor_of_expected_original_BA"],
+                "scaled_floor_over_s6_decimal":
+                    format(float(r["scaled_expected_BA_floor_over_s6"]),".9f"),
+            })
+        print("HYP105_AA4_MFREEZE_CERTIFICATE="+json.dumps({
+            "scope":"all-h uniform conditional mean, not pointwise completed g",
+            "sublinear_V_leading_constant":140,
+            "fixed_fraction_one_sixteenth_conservative_liminf":
+                "1225/2048",
+            "root_A_B_C_proved":False,"cases":cases
+        },sort_keys=True))
+
     def test_invalid_freezes_and_thresholds_fail_closed(self):
         with self.assertRaises(ValueError):
             robust_annealed_BA_floor(3,0,0)
