@@ -190,6 +190,17 @@ class TestAllHMacroscopicOriginalFrozenLineBA(unittest.TestCase):
                 "scaled_floor_over_s6_decimal":
                     format(float(r["scaled_expected_BA_floor_over_s6"]),".9f"),
             })
+        exact_int_pins={
+            (128,16384,23):135219412709729,
+            (2048,4194304,92):7386773253140524627958,
+            (1024,67174464,512):998176565698393171,
+            (8192,34363933184,4096):265710832346165395959821,
+        }
+        self.assertEqual(
+            {(x["s"],x["b"],x["k"]):
+                x["conditional_expected_original_BA_floor_integer"]
+             for x in cases},
+            exact_int_pins)
         print("HYP105_AA4_MFREEZE_CERTIFICATE="+json.dumps({
             "scope":"all-h uniform conditional mean, not pointwise completed g",
             "sublinear_V_leading_constant":140,
