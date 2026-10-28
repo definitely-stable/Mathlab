@@ -74,7 +74,7 @@ The specialized GitHub-hosted [run #40632519617](https://github.com/definitely-s
 | B/B-disjoint | 21,921 | 19,827 | −2,094 |
 | **Complete original sixset sum S_seven** | **429,458** | **415,542** | **−13,916** |
 
-The ZERO completion, while having **more** global accepted original D6 (\(+543\), from parent #667), actually has **fewer** accepted original sixsets over ALL SEVEN historical classes (−13,916 = −3.24036% of POS). The largest structural difference is in the two one-sided B/A classes (joint count change −12,318). This is a certified **FINITE, same-f/same-frozen-g_J inverse-order counterexample** to treating global D6 (or the selected local saturated-parent M) as a monotonically aligned proxy for the *full seven-class* \(S_{\rm seven}\).
+The ZERO completion, while having **more** global accepted original D6 (\(+543\), from parent #667), actually has **fewer** accepted original sixsets over ALL SEVEN historical classes (−13,916 = −3.24036% of POS). The largest structural difference is in the two one-sided B/A classes (joint count change −12,318). This is a certified **FINITE, same-f/same-frozen-g_J inverse-order counterexample** to treating **global D6** as a monotonically aligned proxy for the *full seven-class* \(S_{\rm seven}\). The selected saturated-parent M also decreases (4 to 0) and therefore is NOT falsified as a monotone S proxy by THIS pair; its universal validity remains unproved.
 
 The strictly necessary full-palette GF(5) third-order **lower floor** also changes in the same direction as S, with exact numerators:
 
@@ -96,10 +96,10 @@ All six source-ID witnesses for the non-D6 classes passed the separate historica
 
 ### Refined formal STOP and next allowed mathematical question
 
-The last two original W34 maps **disprove a specific proposed monotonic proof heuristic**:
+The last two original W34 maps **disprove monotonic ranking by global D6**, not by every local proxy:
 \[
 D6_{\rm ZERO}>D6_{\rm POS},
 \qquad
 S_{\rm ZERO}<S_{\rm POS},
 \]
-under fixed complete f and fixed selected source physical structure. They do **not** prove an all-h universal negative correlation, nor refute any universally valid inequality \(S\ge D6\). The rigorous all-h root \(S_s(f,g)=\Omega(s^6)\) remains **OPEN_WITH_FORMAL_BLOCKER**. Future work must prove an all-map same-completion lower bound on the **full** positive original motif functional, or formulate a precise model-equivalent all-h reduction; simply increasing global D6 or decreasing one local saturated-parent statistic cannot safely rank seven-class \(S\) for arbitrary correlated completions.
+under fixed complete f and fixed selected source physical structure. They do **not** prove an all-h universal negative correlation, nor refute any universally valid inequality \(S\ge D6\). In these two particular maps the local saturated-parent mass M decreases from 4 to 0 **together with S**, so this pair does NOT falsify monotonicity of M versus S; it only shows that M and global D6 can order maps oppositely (#667), while global D6 and S can likewise order maps oppositely (this slice). The rigorous all-h root \(S_s(f,g)=\Omega(s^6)\) remains **OPEN_WITH_FORMAL_BLOCKER**. Future work must prove an all-map same-completion lower bound on the **full** positive original motif functional, or formulate a precise model-equivalent all-h reduction; simply increasing global D6 or decreasing one local saturated-parent statistic cannot safely rank seven-class \(S\) for arbitrary correlated completions.
