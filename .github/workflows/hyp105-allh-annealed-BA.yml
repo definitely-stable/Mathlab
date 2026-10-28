@@ -1,0 +1,27 @@
+name: hyp105-allh-annealed-BA
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-allh-annealed-BA.yml'
+      - 'research/hyp105_allh_annealed_BA_floor.py'
+      - 'research/test_hyp105_allh_annealed_BA_floor.py'
+      - 'docs/research/HYP-105-ALLH-ANNEALED-BA-FLOOR.md'
+      - 'research/hyp105_g5e2b3e1a_fixed_leading.py'
+      - 'research/hyp105_g5e2a_pair_embeddings.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  allh-original-BA-exact-oracles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True-source W32 historical oracle, K6/K7 exact two-factors, K8 C4 deletions and all-h formulas
+        run: python -m unittest discover -s research -p 'test_hyp105_allh_annealed_BA_floor.py' -v
