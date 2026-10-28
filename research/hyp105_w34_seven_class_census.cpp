@@ -84,6 +84,12 @@ struct Model {
 struct Result {
   U count[6]={};
   U bShapes=0,cShapes=0,bCandidates=0,cCandidates=0;
+  array<array<int,6>,6> witnesses={};
+  array<bool,6> hasWitness={};
+  void accept(int tag,array<int,6> ids){
+    ++count[tag];
+    if(!hasWitness[tag]){witnesses[tag]=ids;hasWitness[tag]=true;}
+  }
 };
 static inline int opposite_type(const array<int,6>& ids) {
   int doubled=0;
@@ -139,7 +145,7 @@ static void count_B(const Model& m,int axis,Result& out) {
                                 flags[id4][1-axis],flags[id5][1-axis]};
               int type=opposite_type(opp);
               if(type==1) {
-                ++out.count[axis==0?0:1];
+                out.accept(axis==0?0:1,{id0,id1,id2,id3,id4,id5});
               } else if(type==2 && axis==0) {
                 int repeated=-1;
                 for(int h=0;h<6&&repeated<0;++h)
@@ -147,7 +153,7 @@ static void count_B(const Model& m,int axis,Result& out) {
                     if(opp[h]==opp[z]){repeated=opp[h];break;}
                 if(repeated<0)throw runtime_error("missing B repeated factor");
                 int overlap=(o0==repeated)||(o1==repeated);
-                ++out.count[overlap?4:5];
+                out.accept(overlap?4:5,{id0,id1,id2,id3,id4,id5});
               }
             }
           }
@@ -161,7 +167,7 @@ static void count_C(const Model& m,int axis,Result& out) {
   auto& by=m.by[axis];
   auto& packed=m.otherPack[axis];
   auto& flags=m.flag;
-  struct Choice{U mask;int o0,o1;};
+  struct Choice{U mask;int o0,o1;int id0,id1;};
   vector<vector<Choice>> choices(m.V);
   for(int p=0;p<m.V;++p) {
     const auto& F=by[p];
@@ -169,7 +175,7 @@ static void count_C(const Model& m,int axis,Result& out) {
     for(size_t j=i+1;j<F.size();++j) {
       int id0=F[i],id1=F[j];
       choices[p].push_back({packed[id0]+packed[id1],
-                            flags[id0][1-axis],flags[id1][1-axis]});
+                            flags[id0][1-axis],flags[id1][1-axis],id0,id1});
     }
   }
   vector<unsigned> labelMask(m.V);
@@ -188,8 +194,8 @@ static void count_C(const Model& m,int axis,Result& out) {
           ++out.cCandidates;
           if((m4+z.mask)&m.forbidden)continue;
           int type=opposite_type({x.o0,x.o1,y.o0,y.o1,z.o0,z.o1});
-          if(type==1)++out.count[2];
-          if(type==2)++out.count[3];
+          if(type==1)out.accept(2,{x.id0,x.id1,y.id0,y.id1,z.id0,z.id1});
+          if(type==2)out.accept(3,{x.id0,x.id1,y.id0,y.id1,z.id0,z.id1});
         }
       }
     }
@@ -209,6 +215,11 @@ int main() {
     for(U n:res.count)cout<<" "<<n;
     cout<<"\nSTATS "<<res.bShapes<<" "<<res.cShapes
         <<" "<<res.bCandidates<<" "<<res.cCandidates<<"\n";
+    for(int i=0;i<6;++i)if(res.hasWitness[i]){
+      cout<<"WITNESS "<<i;
+      for(int x:res.witnesses[i])cout<<" "<<x;
+      cout<<"\n";
+    }
     return 0;
   }catch(const exception& e) {
     cerr<<"HYP105_EXACT_SEVEN_FAIL_CLOSED: "<<e.what()<<"\n";
