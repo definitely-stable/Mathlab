@@ -144,6 +144,30 @@ class TestAllHUniformAnnealedBA(unittest.TestCase):
                     "original_B_source_sixsets_all_distinct_unfrozen_lines"],
                     count["original_B_source_sixsets_all_distinct_unfrozen_lines"])
 
+    def test_exact_big_integer_annealed_lower_certificate(self):
+        import json
+        targets={
+            (8,0):3795360,
+            (32,12):4909680614,
+            (1024,12):148947266879204451885,
+        }
+        rows=[]
+        for (s,b), expected_floor in targets.items():
+            r=annealed_original_BA_floor(s,frozen_count=b)
+            estimate=r[
+                "conditional_expected_original_B_left_A_right_floor"]
+            self.assertEqual(estimate.numerator//estimate.denominator,
+                             expected_floor)
+            rows.append({"s":s, "frozen_source_lines":b,
+                         "floor_of_expected_original_BA":expected_floor,
+                         "exact_ratio_over_s6":
+                         str(r["scaled_floor_over_s6"])})
+        print("HYP105_AA4_ANNBA_CERTIFICATE="+json.dumps({
+            "scope":"true W(3,2^h) all-h conditional annealed, not adversarial",
+            "asymptotic_liminf_constant_when_b_over_s_goes_to_zero":140,
+            "cases":rows, "root_A_B_C_proved":False
+        },sort_keys=True))
+
     def test_validation_fail_closed(self):
         model=pair_labeled_symplectic(1,"lex")
         with self.assertRaises(ValueError):
