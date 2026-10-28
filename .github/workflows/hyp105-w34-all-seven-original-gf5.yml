@@ -1,0 +1,30 @@
+name: hyp105-w34-all-seven-original-gf5
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-w34-all-seven-original-gf5.yml'
+      - 'research/hyp105_w34_seven_class_census.cpp'
+      - 'research/hyp105_w34_seven_class_census.py'
+      - 'research/test_hyp105_w34_seven_class_census.py'
+      - 'docs/research/HYP-105-W34-SEVEN-CLASS-EXACT-CENSUS.md'
+      - 'research/hyp105_w34_fixed_map_d6_stratified.py'
+      - 'research/hyp105_g5e2b3e1b0_seven_signature.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-W34-all-seven-original-GF5:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      HYP105_FULL_W34_SEVEN: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile native exact original sixflag B/C census, W32 independent historical referee, W34 full seven-class POS and ZERO maps
+        run: python -m unittest discover -s research -p 'test_hyp105_w34_seven_class_census.py' -v
