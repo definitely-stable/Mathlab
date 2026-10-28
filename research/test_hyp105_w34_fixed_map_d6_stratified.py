@@ -79,6 +79,24 @@ class TestTrueW34FixedMapD6Displacement(unittest.TestCase):
             report["positive"]["accepted_original_D6_two_flag_extension_lower"], 8)
         self.assertEqual(
             report["zero"]["accepted_original_D6_two_flag_extension_lower"], 0)
+        # Exact, nonfitted genuine W(3,4) regression against silent fixture drift.
+        self.assertEqual(
+            report["positive"]["global_accepted_original_GF5_D6"], 7567)
+        self.assertEqual(
+            report["zero"]["global_accepted_original_GF5_D6"], 8110)
+        self.assertEqual(report["global_D6_zero_minus_positive"], 543)
+        self.assertEqual(report["frozen_only_original_D6_count"], 0)
+        self.assertEqual(
+            report["positive"]["D6_by_unfrozen_source_lines"],
+            {0: 0, 1: 0, 2: 63, 3: 331, 4: 1285, 5: 3058, 6: 2830})
+        self.assertEqual(
+            report["zero"]["D6_by_unfrozen_source_lines"],
+            {0: 0, 1: 0, 2: 62, 3: 314, 4: 1364, 5: 3329, 6: 3041})
+        self.assertEqual(report["positive"]["global_K33_sector_D6"], 0)
+        self.assertEqual(report["zero"]["global_K33_sector_D6"], 0)
+        self.assertLess(
+            report["positive"]["global_accepted_original_GF5_D6"],
+            report["zero"]["global_accepted_original_GF5_D6"])
         self.assertFalse(report["complete_original_seven_class_census"])
         self.assertFalse(report["universal_all_h_S_s_omega_s6_proved"])
         self.assertFalse(report["infinite_counterexample_to_root"])
