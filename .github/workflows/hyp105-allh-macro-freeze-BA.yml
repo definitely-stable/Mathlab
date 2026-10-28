@@ -1,0 +1,26 @@
+name: hyp105-allh-macro-freeze-BA
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-allh-macro-freeze-BA.yml'
+      - 'docs/research/HYP-105-ALLH-MACRO-FROZEN-LINE-ANNEALED-BA.md'
+      - 'research/hyp105_allh_macro_freeze_BA.py'
+      - 'research/test_hyp105_allh_macro_freeze_BA.py'
+      - 'research/hyp105_allh_annealed_BA_floor.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  allh-macroscopic-freeze-exact-source-falsifiers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original genuine W32 W34 frozen-pencil exact audits, physically enumerated C4, dyadic macro-freeze bounds
+        run: python -m unittest discover -s research -p 'test_hyp105_allh_macro_freeze_BA.py' -v
