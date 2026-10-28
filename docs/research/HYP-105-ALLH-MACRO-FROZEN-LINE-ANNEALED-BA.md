@@ -135,3 +135,19 @@ This is a genuine positive-density *conditional first-moment robustness* result 
 - Exact full Research and INDEX CI required before scientific acceptance. Draft stays open pending independent mathematical proof referee.
 
 **Formal limitation:** \(\mathbb E_{g\mid g_J} U_{B/A}\ge c s^6\) even after freezing \(c'V\) original right labels does NOT give \(\inf_{f,g} S_s(f,g)=\Omega(s^6)\). An adversary can still choose a completed \(g\) in a rare lower tail. No Branch A/B/C, no exact \(R_3\), no ASET exponent. This partial theorem rules out explaining the lack of fixed-map positivity solely through *macroscopically many but not too dense* frozen right source labels: a uniform injection on the rest still has order-\(s^6\) accepted B/A in expectation. Next high-value target: control the conditional **lower tail of the B/A count** under such macroscopic freezes, or demonstrate genuine all-map seven-class compensation for atypical completed maps. Beware earlier #487 overlap-signature results: joint right-cycle probabilities can depend on the shared original line positions, not only their overlap cardinality.
+
+
+## 7. Independently emitted hosted finite exact rational certificates
+
+The hosted original-pencil/C4/exact-Fraction [CI run #40700948426](https://github.com/definitely-stable/Mathlab/actions/runs/40700948426) returned SUCCESS with tag \`HYP105_AA4_MFREEZE_CERTIFICATE\` and the following **floors of guaranteed conditional expectations** (NOT actual deterministic completed-map sixset counts):
+
+| Dyadic s | Number b frozen ORIGINAL line factors | Original-pencil k | Floor of rigorous conditional expected ORIGINAL B/A |
+|---:|---:|---:|---:|
+| 128 | s² = 16,384 | 23 | 135,219,412,709,729 |
+| 2048 | s² = 4,194,304 | 92 | 7,386,773,253,140,524,627,958 |
+| 1024 | floor(V/16) = 67,174,464 | 512 | 998,176,565,698,393,171 |
+| 8192 | floor(V/16) = 34,363,933,184 | 4096 | 265,710,832,346,165,395,959,821 |
+
+The corresponding rational lower-bound multiples of \(s^6\), displayed only for readability, are approximately 30.7453, 100.1094, 0.86578 and 0.87916 respectively; the exact certificate and checks use integer/Fraction arithmetic and do **not** depend on these decimals. These exact integer floor numbers are independently pinned into regression assertions in the next commit.
+
+The \(s^2\) frozen-line cases are precisely the regime where the older #669 \(d-b\) construction had become zero, despite a positive original-GQ source conditional expectation. The \(V/16\) cases certify *uniform* positive first-moment bounds under completely adversarial frozen line selection and frozen assigned pair labels — with the other \(15/16\) of original lines assigned by one uniform injection without replacement. No assumption that the frozen labels or source lines are random has been introduced.
