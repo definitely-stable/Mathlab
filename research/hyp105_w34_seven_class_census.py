@@ -166,7 +166,7 @@ def true_W34_positive_zero_all_seven_census():
     if len(f) != V or tuple(flags) != original or len(flags) != 425:
         raise AssertionError("not true original symplectic W34")
     J = frozenset(flags[i][1] for i in selected)
-    if len(selected) != len(J) != 12:
+    if len(selected) != 12 or len(J) != 12:
         raise AssertionError("wrong original frozen selected source")
     free = tuple(z for z in combinations(range(14), 2)
                  if z not in {g_pos[l] for l in J})
