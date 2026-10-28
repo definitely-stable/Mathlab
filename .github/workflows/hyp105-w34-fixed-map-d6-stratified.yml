@@ -1,0 +1,27 @@
+name: hyp105-w34-fixed-map-d6-stratified
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-w34-fixed-map-d6-stratified.yml'
+      - 'research/hyp105_w34_fixed_map_d6_stratified.py'
+      - 'research/test_hyp105_w34_fixed_map_d6_stratified.py'
+      - 'docs/research/HYP-105-W34-FIXED-MAP-D6-DISPLACEMENT.md'
+      - 'research/hyp105_saturated_fresh_extension_zero_w34.py'
+      - 'research/hyp105_pair_codegree_triangle_d6.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-w34-global-D6-displacement:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact original-source W32 and W34 global D6 displacement and independent pair-codegree oracle
+        run: python -m unittest discover -s research -p 'test_hyp105_w34_fixed_map_d6_stratified.py' -v
