@@ -1,0 +1,36 @@
+name: hyp105-universal-sextic-obstruction
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-universal-sextic-obstruction.yml'
+      - 'docs/research/HYP-105-UNIVERSAL-SEXTIC-OBSTRUCTION*.md'
+      - 'research/hyp105_universal_sextic_obstruction.py'
+      - 'research/test_hyp105_universal_sextic_obstruction.py'
+      - 'research/fixtures/hyp105_universal_sextic_obstruction.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-source-falsifiers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Mixed full/core bounds, selector moments and original BBo
+        run: python -m unittest discover -s research -p 'test_hyp105_universal_sextic_obstruction.py' -v
+      - name: Parent full physical degree-tail regression
+        run: python -m unittest discover -s research -p 'test_hyp105_full_physical_degree_tail.py' -v
+      - name: Independently reproduce frozen source certificate
+        run: |
+          python research/hyp105_universal_sextic_obstruction.py /tmp/hyp105-universal-sextic-obstruction.json
+          cmp research/fixtures/hyp105_universal_sextic_obstruction.json /tmp/hyp105-universal-sextic-obstruction.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-universal-sextic-obstruction
+          path: /tmp/hyp105-universal-sextic-obstruction.json
