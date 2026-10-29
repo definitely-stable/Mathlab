@@ -192,6 +192,41 @@ class TestAllHOriginalBAOverlapSecondMoment(unittest.TestCase):
         with self.assertRaises(ValueError):
             unrestricted_twofactor_pair_intersection_counts(5)
 
+    def test_TRUE_W32_original_pair_moment_exact_numerical_regressions(self):
+        cases={
+            "lex": {
+                "n":5000,
+                "H":(444340,3812726,9229530,8297702,2865426,339960,10316),
+                "N":(300,720,1710,1200,900,0,70),
+                "mean":Fraction(10000,143),
+                "second":Fraction(2142290,429),
+                "variance":Fraction(6347470,61347),
+                "PZ":Fraction(30000000,30634747),
+            },
+            "lex-one-frozen": {
+                "n":2736,
+                "H":(74064,848242,2555168,2748138,1104102,150614,5368),
+                "N":(60,192,570,480,420,0,42),
+                "mean":Fraction(5472,143),
+                "second":Fraction(12217264,8085),
+                "variance":Fraction(703947536,15030015),
+                "PZ":Fraction(1375496640,1419493361),
+            },
+        }
+        for name,pin in cases.items():
+            with self.subTest(name=name):
+                J=(0,) if name.endswith("one-frozen") else ()
+                x=certified_true_W32_BA_pair_moment("lex",J)
+                self.assertEqual(x["source_left_B_original_sixsets_with_six_distinct_lines"],pin["n"])
+                self.assertEqual(x["original_ordered_sixset_pairs_by_common_source_lines"],pin["H"])
+                self.assertEqual(x["right_physical_twofactor_pair_counts_by_common_edges"],pin["N"])
+                self.assertEqual(x["E_original_BA"],pin["mean"])
+                self.assertEqual(x["E_original_BA_squared"],pin["second"])
+                self.assertEqual(x["variance_original_BA"],pin["variance"])
+                self.assertEqual(x["Paley_Zygmund_probability_original_BA_positive_lower"],pin["PZ"])
+                self.assertEqual(sum(pin["H"]),pin["n"]**2)
+                self.assertGreater(pin["PZ"],Fraction(96,100))
+
     def test_machine_readable_original_W32_second_moment_certificate(self):
         cases={}
         for label,J in (("lex",()),("reverse-line",()),
