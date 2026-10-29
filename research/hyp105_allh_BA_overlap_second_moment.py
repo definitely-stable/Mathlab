@@ -136,6 +136,38 @@ def unrestricted_twofactor_pair_intersection_counts(a):
     return tuple(nr)
 
 
+def one_frozen_twofactor_pair_intersection_counts(a):
+    """NEW all-a exact one-frozen-edge identity, no finite brute assumption.
+
+    Every ordered pair (F,G) of unrestricted physical twofactors with
+    |F intersection G|=r uses exactly 12-r DIFFERENT K_a physical edges.
+    The automorphism group S_a is transitive on edges of K_a, hence
+    each fixed physical pair e occurs in exactly (12-r)/M of these
+    ordered pairs, where M=binom(a,2). Removing ONE forbidden pair
+    therefore leaves N_r*(M-12+r)/M factor pairs. All are exact ints.
+
+    The conditional right A pair event probabilities p_r are IDENTICAL
+    with and without this frozen one-source-line physical pair, because
+    (M-1)_(12-r)=(M)_(12-r)*(M-12+r)/M.
+    This holds for every a>=6 and ANY identity of one frozen physical
+    K_a pair. The original source candidate FAMILY can still shrink
+    when its original line ID is excluded.
+    """
+    counts=unrestricted_twofactor_pair_intersection_counts(a)
+    M=comb(a,2)
+    out=[]
+    for r,n in enumerate(counts):
+        numerator=n*(M-12+r)
+        if numerator%M:
+            raise AssertionError("K_a edge-transitivity single-freeze identity not integral")
+        out.append(numerator//M)
+    if sum(out)!=(
+        70*comb(a,6)-28*comb(a-2,4)
+    )**2:
+        raise AssertionError("one frozen physical edge remaining factor pair count wrong")
+    return tuple(out)
+
+
 def _validate_forbidden(a, frozen_pairs):
     F=tuple(tuple(z) for z in frozen_pairs)
     if len(set(F))!=len(F) or any(
@@ -172,17 +204,21 @@ def conditional_right_A_pair_probabilities(a, frozen_pairs=()):
     """Return exact P_r=Pr(two right A acceptances | overlap r).
 
     With zero F the exact all-a compressed template formula applies;
-    with nonzero frozen F the direct independent a=6,7 finite oracle
-    supplies exact N_r. At general a,F the valid all-h statement is
+    with exactly ONE frozen physical pair, an all-a S_a edge symmetry
+    identity supplies exact N_r and in fact p_r(one frozen)=p_r(no freeze).
+    With >=2 frozen physical pairs, the direct a=6,7 oracle supplies N_r. At general a,F the valid all-h statement is
     P_r=N_r(a,F)*r!*(6-r)!^2/(M-|F|)_(12-r); formula remains true,
     but this implementation deliberately does NOT claim a fast
-    polynomial frozen-F evaluator.
+    general multi-frozen-F evaluator.
     """
     if type(a) is not int or a<6:
         raise ValueError("a must be at least six")
     F=_validate_forbidden(a,frozen_pairs)
-    nr=(independent_small_frozen_pair_kernel(a,F)
-        if F else unrestricted_twofactor_pair_intersection_counts(a))
+    nr=(unrestricted_twofactor_pair_intersection_counts(a)
+        if not F else
+        one_frozen_twofactor_pair_intersection_counts(a)
+        if len(F)==1 else
+        independent_small_frozen_pair_kernel(a,F))
     M=comb(a,2)-len(F)
     out=[]
     for r,n in enumerate(nr):
@@ -248,9 +284,11 @@ def exact_BA_second_moment_from_masks(masks,V,a,*,frozen_pairs=()):
         "source_left_B_original_sixsets_with_six_distinct_lines":len(masks),
         "original_ordered_sixset_pairs_by_common_source_lines":overlaps,
         "right_physical_twofactor_pair_counts_by_common_edges":(
-            independent_small_frozen_pair_kernel(a,frozen_pairs)
-            if frozen_pairs else
             unrestricted_twofactor_pair_intersection_counts(a)
+            if not frozen_pairs else
+            one_frozen_twofactor_pair_intersection_counts(a)
+            if len(frozen_pairs)==1 else
+            independent_small_frozen_pair_kernel(a,frozen_pairs)
         ),
         "right_A_pair_joint_probabilities_by_source_line_overlap":P,
         "E_original_BA":first,
