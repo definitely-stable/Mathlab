@@ -105,15 +105,42 @@ Crucially \(A_{t,k,r}\) is a tiny FINITE integer tensor: over all k it requires 
 \]
 Terms with \(6-k>a-6\) vanish. The factor \(\binom a6\) chooses six physical vertices for F; \(n_t\) chooses its physical 2factor on them; the remaining factor chooses the additional 6−k physical vertices for G, while \(A_{t,k,r}\) selects which k coordinates are shared and all 70 valid possible G shapes on those six vertices. The sum is **exact**, without diagram overcount or finite-h extrapolation. The identity \(\sum_rN_r=[70\binom a6]^2\) holds exactly; \(N_5=0\) (two distinct 2regular six-edge graphs cannot differ by exactly one physical edge). In particular the right **all-h unrestricted** physical pair kernel is obtained by substituting (BA2-POLYNOMIAL) into (BA2-KERNEL), with seven rational values \(p_0,\ldots,p_6\), no expensive enumeration of all \(\binom a6\) factor sets.
 
-For nonempty frozen J, (BA2-KERNEL) and (BA2-MOMENT) remain **exact for every physical forbidden pair SET** \(g_J(J)\), but the pair-count coefficient \(N_r(\mathcal P)\) can depend on the actual FORBIDDEN physical K_a edges, not only their number b. This slice provides independent direct tiny-physical-alphabet oracles for a=6,7 with arbitrary forbidden sets; it does NOT falsely claim that the unrestricted closed polynomial applies after arbitrary right-edge deletion, nor an all-a fast frozen-F evaluation. The all-h polynomial is specifically for J empty.
+For nonempty frozen J, (BA2-KERNEL) and (BA2-MOMENT) remain **exact for every physical forbidden pair SET** \(g_J(J)\), but the pair-count coefficient \(N_r(\mathcal P)\) can depend on the actual FORBIDDEN physical K_a edges, not only their number b. This slice provides an **ALL-a exact one-frozen-edge specialization** proved in Section 5, and independent direct tiny-physical-alphabet oracles for a=6,7 with arbitrary TWO forbidden edges. It does NOT falsely claim that the unrestricted closed polynomial applies after TWO or more arbitrary right-edge deletions, nor a general all-a fast multi-frozen-F evaluation. The all-h polynomial is specifically for J empty.
 
-## 5. Implemented independent falsifiers and genuine original W32 certificates
+## 5. NEW: exact all-h one-frozen-source-line *kernel invariance*
+
+The independent CI discovered a wrong test assumption: on genuine W32, freezing one original line's physical right pair edge did **not** change any of the seven conditional right A/A pair probabilities for original candidate sixsets that avoided this line. This is NOT a coincidence of W32.
+
+For ALL physical alphabets \(a\ge6\), any single frozen physical edge \(e\in E(K_a)\), let \(M=\binom a2\). Every ordered pair \((F,G)\) of physical six-edge 2factors with \(|F\cap G|=r\) occupies exactly \(12-r\) different physical K_a pair edges in the union \(F\cup G\). The full symmetric group \(S_a\) acts transitively on the **individual physical pair edges** \(e\in E(K_a)\) while preserving the class \(|F\cap G|=r\). Therefore the number of such ordered 2factor pairs containing ANY fixed \(e\) is precisely
+\[
+ \frac{12-r}{M}N_r(K_a).
+\]
+Every numerator here is an exact integer by orbit counting. Thus
+\[
+\boxed{\quad
+N_r(K_a\setminus\{e\})
+   =N_r(K_a)\,\frac{M-12+r}{M}.\quad}\tag{BA2-ONE-FROZEN}
+\]
+With \(b=1\), \((M-1)_{12-r}=(M)_{12-r}(M-12+r)/M\); hence the factors cancel:
+\[
+\boxed{\quad
+p_r(K_a\setminus\{e\})=p_r(K_a)
+\qquad(\forall a\ge6,\ r=0,\ldots,6).\quad}\tag{BA2-ANCHOR-INVARIANCE}
+\]
+
+This proves **exact all-h conditional pair-kernel invariance after fixing ONE ORIGINAL right source line pair label** for any allowed original W(3,s), any complete fixed point map f, and any choice of frozen original line factor and legal physical edge image, provided counted original sixsets avoid that original line factor.
+
+**Crucial distinction:** the ORIGINAL source candidate family \(\mathcal B_f(\{\ell\})\) does SHRINK when a particular source line \(\ell\) is excluded; its size and overlap histogram \(H_r\) can change. The theorem does NOT say the unconditional total B/A second moment is unchanged after removing candidates. It says only the right conditional *kernel* \(p_r\) for each fixed pair of eligible source sixsets is unchanged.
+
+The K6, K7 and K8 direct independently enumerated physical forbidden-single-pair 2factor pair kernels reproduce (BA2-ONE-FROZEN); the symbolic formula is exact for arbitrary much larger a and does NOT depend on computational extrapolation. This also explains why the earlier test expecting one-frozen \(p_r\neq p_r(\emptyset)\) was an invalid scientific assumption: it is refuted by a general group-action proof, not by rounding.
+
+## 6. Implemented independent falsifiers and genuine original W32 certificates
 
 - \`research/hyp105_allh_BA_overlap_second_moment.py\`: enumerate 70 K6 2factors, derive exact two-isomorphism-type \(A_{t,k,r}\), and evaluate seven unrestricted \(N_r(K_a)\) for arbitrary integer \(a\ge6\), exact Fraction \(p_r\). Direct frozen-F finite oracle for a=6,7. Construct genuine W32 source B sixsets from the EXISTING historical all-original-incidence-ID selected_left_six enumerator, and build full original-source overlap H_r using six-bit original LINE ID supports with integer multiplicities (do not collapse different Q with same six source lines). Exact E, E², Var and Paley lower.
 - \`research/test_hyp105_allh_BA_overlap_second_moment.py\`: independently enumerate all K6, K7 and K8 six-edge 2factors and directly count ordered physical factor-pair intersections against the two-template all-a formula; separately test arbitrary frozen 1/2 physical pair edges for K6, K7; confirm \(p_6\) equals exact one-event probability, nonnegative variance and independently sourced original W32 historical f=lex and reverse-line full sixset second moments including a true frozen original line; original IDs and malformed cases fail closed. No external random seed, Monte Carlo or floating-point estimates.
 - \`.github/workflows/hyp105-allh-BA-pair-kernel.yml\`: dedicated Python 3.12 GitHub-hosted fail-closed exact test pipeline. Once exact SHA CI passes, pin the numeric W32 conditional second-moment certificates and publish the exact evidence on issue #230. No modification of historical source or parent Draft PRs.
 
-## 6. Sharp statement of what remains open
+## 7. Sharp statement of what remains open
 
 The exact 7-value kernel reduces variance to \(\sum_r H_rp_r-(\sum_Q1)^2p_6^2\) for arbitrary genuine original W(3,s), f. It does **not** bound the size of **source** support-overlap coefficients \(H_r\) uniformly in arbitrary f at all h and cannot alone show concentration, even for random g, much less prove a lower bound for EVERY deterministic correlated completed g. The critical next analytic tasks are to bound \(H_r\) using true GQ source incidence geometry and physical f injectivity, and then find a *deterministic* same-map compensation mechanism across all seven classes or an infinite sub-sextic counterfamily. As previous historical finite W32 fixtures have actual D6=0 under fixed g despite a positive annealed D6 mean, no Jensen/Paley implication may be upgraded to a universal root all-g claim.
 
