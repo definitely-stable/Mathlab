@@ -13,6 +13,7 @@ from hyp105_allh_BA_overlap_second_moment import (
     factor_components,
     genuine_W32_left_B_source_masks,
     independent_small_frozen_pair_kernel,
+    one_frozen_twofactor_pair_intersection_counts,
     source_support_overlap_pairs,
     twofactors_on_six,
     unrestricted_twofactor_pair_intersection_counts,
@@ -83,6 +84,26 @@ class TestAllHOriginalBAOverlapSecondMoment(unittest.TestCase):
                     self.assertGreaterEqual(x,0)
                     self.assertLessEqual(x,1)
 
+    def test_one_frozen_physical_pair_kernel_all_a_invariant(self):
+        for a in (6,7,8,12,14,32,64,128):
+            with self.subTest(a=a):
+                full=unrestricted_twofactor_pair_intersection_counts(a)
+                one=one_frozen_twofactor_pair_intersection_counts(a)
+                M=comb(a,2)
+                self.assertEqual(one,tuple(
+                    n*(M-12+r)//M for r,n in enumerate(full)))
+                self.assertTrue(all(
+                    n*(M-12+r)%M==0 for r,n in enumerate(full)))
+                self.assertEqual(sum(one),
+                    (70*comb(a,6)-28*comb(a-2,4))**2)
+                self.assertEqual(
+                    conditional_right_A_pair_probabilities(a,((0,1),)),
+                    conditional_right_A_pair_probabilities(a))
+        for a in (6,7,8):
+            allowed=independent_2factors(a,((0,1),))
+            self.assertEqual(independent_pair_counts(allowed),
+                one_frozen_twofactor_pair_intersection_counts(a))
+
     def test_frozen_right_images_arbitrary_K6_K7_independent_direct(self):
         for a,F in ((6,()),(6,((0,1),)),(6,((0,1),(2,3))),
                     (7,((0,1),)),(7,((0,1),(2,3)))):
@@ -101,7 +122,7 @@ class TestAllHOriginalBAOverlapSecondMoment(unittest.TestCase):
                         falling(M,12-r)))
                 self.assertEqual(p[6],Fraction(720*len(L),falling(M,6)))
         with self.assertRaises(ValueError):
-            conditional_right_A_pair_probabilities(8,((0,1),))
+            conditional_right_A_pair_probabilities(8,((0,1),(2,3)))
         with self.assertRaises(ValueError):
             conditional_right_A_pair_probabilities(6,((0,1),(0,1)))
         with self.assertRaises(ValueError):
@@ -146,9 +167,16 @@ class TestAllHOriginalBAOverlapSecondMoment(unittest.TestCase):
                          q["source_left_B_original_sixsets_with_six_distinct_lines"])
         self.assertGreater(q["E_original_BA"],0)
         self.assertGreaterEqual(q["variance_original_BA"],0)
-        self.assertNotEqual(
+        # K_a edge-transitivity: ONE frozen right physical pair does
+        # NOT change the conditional A/A pair kernel for candidates
+        # that avoid that original source line. The original source
+        # candidate family itself still shrinks.
+        self.assertEqual(
             q["right_A_pair_joint_probabilities_by_source_line_overlap"],
             conditional_right_A_pair_probabilities(6))
+        self.assertEqual(
+            q["right_physical_twofactor_pair_counts_by_common_edges"],
+            one_frozen_twofactor_pair_intersection_counts(6))
         self.assertLess(
             len(masks), len(genuine_W32_left_B_source_masks("lex")[1]))
 
