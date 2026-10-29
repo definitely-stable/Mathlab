@@ -140,6 +140,56 @@ The K6, K7 and K8 direct independently enumerated physical forbidden-single-pair
 - \`research/test_hyp105_allh_BA_overlap_second_moment.py\`: independently enumerate all K6, K7 and K8 six-edge 2factors and directly count ordered physical factor-pair intersections against the two-template all-a formula; separately test arbitrary frozen 1/2 physical pair edges for K6, K7; confirm \(p_6\) equals exact one-event probability, nonnegative variance and independently sourced original W32 historical f=lex and reverse-line full sixset second moments including a true frozen original line; original IDs and malformed cases fail closed. No external random seed, Monte Carlo or floating-point estimates.
 - \`.github/workflows/hyp105-allh-BA-pair-kernel.yml\`: dedicated Python 3.12 GitHub-hosted fail-closed exact test pipeline. Once exact SHA CI passes, pin the numeric W32 conditional second-moment certificates and publish the exact evidence on issue #230. No modification of historical source or parent Draft PRs.
 
+### Exact independently source-checked finite W(3,2) conditional second-moment certificate
+
+The historical original source-ID left B generator enumerates **10,935** W32 left-B sixset candidates. Exactly **5,000** of those six-incidence sets have SIX distinct original right source line-factor IDs, and therefore belong to the original B/A conditional indicator family \(X_f\) for either W32 lex or reverse-line scenario (they have the same fixed physical point map f). The exact **full source** overlap profile, with ORDEREDED original candidate pairs, is:
+\[
+(H_0,\ldots,H_6)
+=(444340,\ 3812726,\ 9229530,\ 8297702,\
+ 2865426,\ 339960,\ 10316),\quad
+\sum_rH_r=5000^2.
+\]
+Note \(H_6=10{,}316>5{,}000\): different ORIGINAL six-incidence-ID sets can have the same SIX original line-factor IDs. Collapsing their masks would corrupt both mean and variance.
+
+Directly enumerated physical K6 right 2-factor ordered-pair coefficients:
+\[
+ (N_0,\ldots,N_6)=(300,720,1710,1200,900,0,70),
+ \qquad\sum_rN_r=70^2.
+\]
+Inserting these exact independent source/physical coefficients in the all-h identity gives for a uniformly random COMPLETE legal original right pair-label injection g:
+\[
+\begin{aligned}
+\mathbb E_g X_f &= \frac{10000}{143},\\
+\mathbb E_g X_f^2&=\frac{2142290}{429},\\
+\operatorname{Var}_g X_f&=\frac{6347470}{61347},\\
+\Pr_g(X_f>0)&\ge\frac{30000000}{30634747}
+                    \quad\text{(exact Paley lower, about 97.9%)}.
+\end{aligned}
+\]
+This last inequality is a mathematically rigorous statement about the **uniform-completion ENSEMBLE** for that fixed true W32 point injection, not the particular deterministic reverse-line or lex complete right injection.
+
+Fix **ONE ACTUAL original source line factor**, with its own genuine right physical pair edge from the W32 model, and remove all source B sixsets using that original line. The resulting true-source conditional subfamily has exactly **2,736** different ORIGINAL six-incidence-ID sets and the exact support-overlap profile
+\[
+(H_0,\ldots,H_6)
+=(74064,848242,2555168,2748138,1104102,150614,5368),
+\qquad\sum_rH_r=2736^2.
+\]
+The *physical pair kernel probability* \(p_r\) is IDENTICAL to its unrestricted version, while the actual physical 2factor pair counts decrease to \((60,192,570,480,420,0,42)\). Consequently the exact conditional second moments for the restricted source subfamily are
+\[
+ \mathbb E_g X_f=\frac{5472}{143},
+ \quad
+ \mathbb E_g X_f^2=\frac{12217264}{8085},
+ \quad
+ \operatorname{Var}_g X_f=\frac{703947536}{15030015},
+\]
+\[
+ \Pr_g(X_f>0\mid g_{\{\ell\}})
+ \ge\frac{1375496640}{1419493361}
+ \quad\text{(exact Paley lower, about 96.9%).}
+\]
+
+Every integer coefficient and rational certificate here is computed by historical-original-source flags AND independently brute-enumerated physical pair factors, then **pinned exactly in regression tests**. They prove neither all-h concentration nor positivity for every particular legal completed correlated g. Because this section compares two different original sixset families (with and without excluded source line), the change in \(H_r\) is NOT an additional physical-kernel covariance term.
+
 ## 7. Sharp statement of what remains open
 
 The exact 7-value kernel reduces variance to \(\sum_r H_rp_r-(\sum_Q1)^2p_6^2\) for arbitrary genuine original W(3,s), f. It does **not** bound the size of **source** support-overlap coefficients \(H_r\) uniformly in arbitrary f at all h and cannot alone show concentration, even for random g, much less prove a lower bound for EVERY deterministic correlated completed g. The critical next analytic tasks are to bound \(H_r\) using true GQ source incidence geometry and physical f injectivity, and then find a *deterministic* same-map compensation mechanism across all seven classes or an infinite sub-sextic counterfamily. As previous historical finite W32 fixtures have actual D6=0 under fixed g despite a positive annealed D6 mean, no Jensen/Paley implication may be upgraded to a universal root all-g claim.
