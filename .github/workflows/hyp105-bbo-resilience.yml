@@ -1,0 +1,36 @@
+name: hyp105-bbo-resilience
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-bbo-resilience.yml'
+      - 'docs/research/HYP-105-BBO-RESILIENCE*.md'
+      - 'research/hyp105_bbo_resilience.py'
+      - 'research/test_hyp105_bbo_resilience.py'
+      - 'research/fixtures/hyp105_bbo_resilience.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-six-id-deletion-controls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All-source exposure and historical original six-ID avoidance
+        run: python -m unittest discover -s research -p 'test_hyp105_bbo_resilience.py' -v
+      - name: Parent bounded-core original-ID regression
+        run: python -m unittest discover -s research -p 'test_hyp105_universal_sextic_obstruction.py' -v
+      - name: Regenerate frozen exact source evidence
+        run: |
+          python research/hyp105_bbo_resilience.py /tmp/hyp105_bbo_resilience.json
+          cmp research/fixtures/hyp105_bbo_resilience.json /tmp/hyp105_bbo_resilience.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-bbo-resilience-original-source-certificate
+          path: /tmp/hyp105_bbo_resilience.json
