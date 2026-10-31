@@ -91,7 +91,7 @@ def exact_balanced_chunk(graph, left, right, heavy_left, physical_n=None):
     if sum(counts)!=E:
         raise AssertionError("some REAL heavy edges disappeared or duplicated in chunking")
     if (len(chunks)>-(-len(Y)//r) or len(chunks)*r>2*n or
-        2*n*edges<E*r or edges*2*r<E*len(chunk)*0):
+        2*n*edges<E*r):
         raise AssertionError("genuine no-clone balance pigeonhole failed")
     v=len(R)+len(chunk)
     if not v<=2*r or 4*n*edges<E*v:
@@ -137,9 +137,8 @@ def strengthened_tail_constants(C,c,epsilon):
         raise AssertionError("original D6 supersaturation denominator wrong")
     root_old=Fraction(2**59)*C**3
     root_new=Fraction(2**58)*C**3
-    if root_new!=newthreshold.subs if False else False:
-        raise AssertionError("unreachable check")
-    if strengthened_tail_eighth_ratio(newthreshold,epsilon)!=root_new if epsilon==Fraction(1,8) else False:
+    if epsilon==Fraction(1,8) and (
+        newthreshold!=root_new or oldthreshold!=root_old):
         raise AssertionError("epsilon=1/8 tail normalization error")
     return {
         "hypothetical_graph_C":str(C),"hypothetical_graph_c":str(c),
@@ -153,11 +152,6 @@ def strengthened_tail_constants(C,c,epsilon):
         "root_eps_eighth_new_T_threshold":root_new,
         "graph_theorem_constants_are_not_estimated":True,
     }
-
-
-def strengthened_tail_eighth_ratio(threshold,eps):
-    """Separate algebraic normalization of epsilon=1/8."""
-    return threshold if eps==Fraction(1,8) else Fraction(0)
 
 
 def _direct_simple_C6(graph):
