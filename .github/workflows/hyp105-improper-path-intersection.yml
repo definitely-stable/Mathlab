@@ -1,0 +1,27 @@
+name: hyp105-improper-path-intersection
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-improper-path-intersection.yml'
+      - 'docs/research/HYP-105-IMPROPER-PATH-INTERSECTION.md'
+      - 'research/hyp105_improper_path_intersection.py'
+      - 'research/test_hyp105_improper_path_intersection.py'
+      - 'research/hyp105_exact_bipartite_sixth_moment.py'
+      - 'research/hyp105_selector_positive_correlation.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-source-improper-two-three-walks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All 4096 valid 2x4 physical graphs and true W32 W34 dual source exact P2/B2 and P3 bounds
+        run: python -m unittest discover -s research -p 'test_hyp105_improper_path_intersection.py' -v
