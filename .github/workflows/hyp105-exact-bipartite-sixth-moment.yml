@@ -1,0 +1,26 @@
+name: hyp105-exact-bipartite-sixth-moment
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-exact-bipartite-sixth-moment.yml'
+      - 'docs/research/HYP-105-EXACT-BIPARTITE-SIXTH-MOMENT.md'
+      - 'research/hyp105_exact_bipartite_sixth_moment.py'
+      - 'research/test_hyp105_exact_bipartite_sixth_moment.py'
+      - 'research/hyp105_selector_positive_correlation.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-exact-sixwalks-and-source-D6:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All 4096 bipartite 3x4 graphs three independent six-walks plus true W32 W34 source-D6 selected graphs
+        run: python -m unittest discover -s research -p 'test_hyp105_exact_bipartite_sixth_moment.py' -v
