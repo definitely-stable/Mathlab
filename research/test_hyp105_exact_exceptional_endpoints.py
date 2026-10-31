@@ -56,7 +56,11 @@ class TestExactOriginalExceptionalEndpointReferee(unittest.TestCase):
             g=tuple(g0[(i+shift)%len(g0)] for i in range(len(g0)))
             with self.subTest(shift=shift):
                 x=self.check_source_vs_physical(1,f,g)
-                self.assertGreater(
+                self.assertEqual(
+                    x["source_first_four_way_endpoint_partition"]["missing_physical"],
+                    4*(x["M"]**2-x["V"]**2))
+                # Minimal W32 has M=V=15, so no missing physical pairs.
+                self.assertEqual(
                     x["source_first_four_way_endpoint_partition"]["missing_physical"],0)
                 self.assertGreater(
                     x["source_first_four_way_endpoint_partition"]["original_incident"],0)
