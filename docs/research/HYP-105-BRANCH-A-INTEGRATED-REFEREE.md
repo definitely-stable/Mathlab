@@ -133,6 +133,21 @@ For true W(3,2) and W(3,4) independently sourced ORIGINAL incidence-ID data, exe
 
 All tests keep a single fixed source GQ and f,g for each comparison, and distinguish source full flags from original core flags. Small W32/W34 computations are falsifiers of source provenance/orientation mistakes and do not by themselves prove all-h root acceptance.
 
+### 5a. Concrete cross-PR review finding: avoid double-counting the parent's certificate key
+
+The new integrated CI initially found an **audit-harness counterexample**, not a counterexample to the source theorem. In `finite_source_certificate` from #672, `path_partition["proper"]` is a **TOTAL**, while the five keys `missing`, `incident`, `bad_endpoint`, `internal_blocked_good`, `unblocked` form a **DISJOINT PARTITION OF THAT TOTAL**. The first version of this integration harness incorrectly summed *all six* counters, counting the whole proper-path population twice. In particular, the correct invariant is
+
+```text
+parent["path_partition"]["proper"]
+  == sum(parent["path_partition"][k]
+         for k in ("missing","incident","bad_endpoint",
+                   "internal_blocked_good","unblocked"))
+  == physical_first_direct_proper_threewalk_count
+  == source_reconstructed_weighted_proper_endpoint_population.
+```
+
+The final integration check enforces exactly this four-way equality, and independently checks the five physical endpoint classifications as an additional conservation law. This is a **representation-contract bug** confined to the new integration audit and fixed there, not a flaw in #672's mathematical count of physical proper paths or in its original signed/GF(5) source models. A successful exact-head CI confirms the corrected contract; finite controls do not prove all-h asymptotics.
+
 ## 6. Acceptance verdict and explicit outstanding work
 
 **Verified mathematical integration (relative to listed all-h input lemmas):** the original-\(D_6\) heavy-tail dichotomy, dense paired-original core, positive-correlation path selector, bipartite selected-graph sixth moment, **UNCUT** core fourth moment, exact weighted endpoint exceptional Cauchy step, FULL source / CORE physical mixed blocked triples, and ORIGINAL B/B-overlap exact 0/2 directed-path image normalization concatenate without changing fixed f,g or treating source IDs as physical edges. The same improved constants \(\sigma_r,L_6,L_4,L_E,B_0\) propagate to a finite dyadic \(h_0\) for every actual positive graph theorem constants C,c.
