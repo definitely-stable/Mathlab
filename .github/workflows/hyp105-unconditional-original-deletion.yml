@@ -1,0 +1,27 @@
+name: hyp105-unconditional-original-deletion
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-unconditional-original-deletion.yml'
+      - 'docs/research/HYP-105-UNCONDITIONAL-ORIGINAL-DELETION-ROBUSTNESS.md'
+      - 'research/hyp105_unconditional_original_deletion.py'
+      - 'research/test_hyp105_unconditional_original_deletion.py'
+      - 'research/hyp105_universal_sextic_obstruction.py'
+      - 'research/hyp105_bbo_resilience.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unconditional-same-map-original-six-ID-deletion:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact all-h symbolic SS6 constants, source six-ID D6/BBo deletion W32 W34 and heavy old-Q witnesses
+        run: python -m unittest discover -s research -p 'test_hyp105_unconditional_original_deletion.py' -v
