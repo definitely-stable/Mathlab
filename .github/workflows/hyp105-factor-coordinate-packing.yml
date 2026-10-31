@@ -1,0 +1,26 @@
+name: hyp105-factor-coordinate-packing
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-factor-coordinate-packing.yml'
+      - 'docs/research/HYP-105-FACTOR-COORDINATE-TRANSVERSAL-PACKING.md'
+      - 'research/hyp105_transversal_hierarchy.py'
+      - 'research/test_hyp105_transversal_hierarchy.py'
+      - 'research/hyp105_unconditional_original_deletion.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-source-factor-and-two-half-physical-coordinate-transversals:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine W32 W34 factor-coordinate exposure, original GF5 full class and three packing-scale controls
+        run: python -m unittest discover -s research -p 'test_hyp105_transversal_hierarchy.py' -v
