@@ -108,25 +108,36 @@ class TestIndependentOriginalBBoInverse(unittest.TestCase):
     def test_nonoverlap_genuine_source_sixsets_and_invalid_original_IDs_fail_closed(self):
         m=pair_labeled_symplectic(1,"lex")
         flags,f,g=m["incidences"],m["left_labels"],m["right_labels"]
-        sample_bbo=None
+        sample_compatible=None
+        sample_incompatible=None
         checked_other=Counter()
         for ids,kind in selected_left_six(m):
             if kind!="B":continue
             tag=classify_seven_prechecked(ids,f,g,flags)
-            if tag=="B/B-overlap" and sample_bbo is None:
-                sample_bbo=ids
+            if tag=="B/B-overlap":
+                inverse=inverse_original_BBo_paths(ids,flags,f,g)
+                if len(inverse)==2 and sample_compatible is None:
+                    sample_compatible=ids
+                if len(inverse)==0 and sample_incompatible is None:
+                    sample_incompatible=ids
             elif tag=="B/B-disjoint" and checked_other["disjoint"]<25:
                 self.assertEqual(
                     inverse_original_BBo_paths(ids,flags,f,g),())
                 checked_other["disjoint"]+=1
-            if sample_bbo is not None and checked_other["disjoint"]==25:
+            if (sample_compatible is not None and
+                sample_incompatible is not None and
+                checked_other["disjoint"]>=1):
                 break
-        self.assertIsNotNone(sample_bbo)
-        # A concrete legal f,g need not have 25 B/B-disjoint witnesses.
-        # Do not impose an invented nonzero-class population threshold.
+        self.assertIsNotNone(sample_compatible)
+        self.assertIsNotNone(sample_incompatible)
+        # Both true-original outcomes exist: this inverse is NOT
+        # surjective on all historical B/B-overlap GF5 source sixsets.
         self.assertGreater(checked_other["disjoint"],0)
         self.assertEqual(
-            len(inverse_original_BBo_paths(sample_bbo,flags,f,g)),2)
+            len(inverse_original_BBo_paths(sample_compatible,flags,f,g)),2)
+        self.assertEqual(
+            inverse_original_BBo_paths(sample_incompatible,flags,f,g),())
+        sample_bbo=sample_compatible
         for bad in ((True,)+sample_bbo[1:],(-1,)+sample_bbo[1:],
                     sample_bbo[:5],sample_bbo[:5]+(45,),
                     (sample_bbo[0],)*6):
