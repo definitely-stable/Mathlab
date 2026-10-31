@@ -238,7 +238,10 @@ def true_original_finite_integration_certificate(power,f,g,core_ids=None):
         "actual_core_physical_all_directed_threewalks":
             parent["all_directed_three_walks"]==B2["physical"]["direct_threewalk_total"],
         "actual_core_physical_proper_threewalks":
-            (sum(parent["path_partition"].values())==
+            (parent["path_partition"].get("proper",0)==
+             sum(parent["path_partition"].get(k,0) for k in (
+                 "missing","incident","bad_endpoint",
+                 "internal_blocked_good","unblocked"))==
              weighted["physical_proper_path_total"]==
              B2["physical"]["direct_proper_threewalks"]),
         "actual_true_original_source_mixed_blocked_triples":
