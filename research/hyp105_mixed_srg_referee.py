@@ -26,6 +26,42 @@ from hyp105_full_physical_degree_tail import genuine_source, physical, conflict_
 from hyp105_physical_degree_energy import minimal_alphabet, _verify_typed_injections
 
 
+def exact_allh_first_mixed_factor_envelopes(s):
+    """Strictly sharper uniform ALL-h first mixed-factor bound than #672.
+
+    Proof for every s>=2 (indeed all integers): the trial alphabet
+    t=s²+2 has choose(t,2)-V=(s²+1)*s*(s-2)/2>=0.
+    Therefore minimal a<=s²+2 and d*(a-1)<=d*(s²+1)=V.
+
+    Old #672: A_f<=4*d²*(V+s²*(a-1)).
+    New SRG: A_f<=4*V*(s²-1+d*(a-1))-8*E_f.
+    Difference old-minus-new-uniform:
+      4*d*(2*V-d*(a-1)) >=4*d*V>0.
+    This uniformly improves the exact finite bound for EVERY embedding;
+    exponent of the asymptotic blocking error is not changed.
+    """
+    if type(s) is not int or s<2 or s&(s-1):
+        raise ValueError("s must be dyadic >=2")
+    V=(s+1)*(s*s+1)
+    d=s+1
+    a=minimal_alphabet(V)
+    if a>s*s+2:
+        raise AssertionError("minimal K_a all-h algebraic trial violated")
+    old=4*d*d*(V+s*s*(a-1))
+    new=4*V*(s*s-1+d*(a-1))
+    gap=4*d*(2*V-d*(a-1))
+    if old-new!=gap or gap<4*d*V:
+        raise AssertionError("exact all-h SRG universal strict improvement failed")
+    return {
+        "s":s,"V":V,"a":a,
+        "older_672_first_square_uniform":old,
+        "new_allh_SRG_first_square_uniform":new,
+        "strict_improvement_integer":gap,
+        "minimum_proven_strict_improvement":4*d*V,
+        "allh_algebraic_proof_not_extrapolation":True,
+    }
+
+
 def exact_source_star_collinearity_energy(s, source_flags, source_pair_labels):
     """Independent finite source oracle for the ALL-h exact SRG identity.
 
@@ -76,7 +112,9 @@ def exact_source_star_collinearity_energy(s, source_flags, source_pair_labels):
         raise AssertionError("exact W3 SRG identity/source physical star collision incorrect")
     if sum(map(len,S))!=2*V or any(len(points)>a-1 for points in S):
         raise AssertionError("global source point injection star bound broken")
-    spectral_prior=d*d*(s*s*sum(len(z)**2 for z in S)//V + 2*V)
+    envelopes=exact_allh_first_mixed_factor_envelopes(s)
+    if 2*square_by_C>envelopes["new_allh_SRG_first_square_uniform"]:
+        raise AssertionError("exact source SRG squared energy exceeds improved uniform bound")
     return {
         "s":s,"V":V,"a":a,
         "original_source_neighbors":tuple(map(frozenset,C)),
@@ -86,6 +124,7 @@ def exact_source_star_collinearity_energy(s, source_flags, source_pair_labels):
             adjacent_in_stars,
         "exact_source_star_srg_energy":square_by_C,
         "exact_source_star_srg_closed_form":closed,
+        "allh_uniform_strict_improvement_over_672":envelopes["strict_improvement_integer"],
         "all_h_identity_abstract_proved_not_by_extrapolation":True,
     }
 
