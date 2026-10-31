@@ -41,7 +41,13 @@ Then `|Q_T|<=8s³/T`. Fix any `epsilon>0`, and call an ORIGINAL flag heavy if at
 M_f,M_g\le C_s=(s²+1)(s²+a-2)<(3/2)s⁴\quad(s\ge64).
 \]
 
+**Independent derivation of the pencil-book constant, not an assumed random-map collision estimate.** Let B be the genuine point-line incidence matrix of W(3,s); its squared singular spectrum is d², 2s, 0 with d=s+1. For any ORIGINAL line-star L_y of size k_y (line factors whose physical g-label contains coordinate y), decompose 1_(L_y) into its constant part and orthogonal complement, obtaining ||B 1_(L_y)||² <= 2s k_y+(s²+1)k_y²/V. Separate global injection gives k_y<=a-1, sum_y k_y=2V, sum_y k_y²<=2V(a-1). Hence
+`2M_g =sum_y||B1_(L_y)||²-2Vd <= 4sV+2(s²+1)(a-1)-2Vd`, so
+`M_g<=(s-1)V+(s²+1)(a-1)=C_s`. The ORIGINAL point-star dual proves `M_f<=C_s` without independent f/g assumptions.
+
 The ORIGINAL source-ID conflict graph has exactly `M_f+M_g<=2C_s` edges. Caro–Wei gives a nonconflicting original-flag subset of size at least `L²/(4C_s+L)`; two conditional-expectation bichromatic cuts retain at least one quarter with **both diagonals per ID**. For `E_T>=epsilon*s⁴`, the resulting selected graph contains at least `beta*s⁴` genuinely original flags and as many distinct heavy *witness edges*, `beta=epsilon²/2⁷`. It is a real simple physical graph G, and the conflict-free + two-cut construction ensures every simple physical C6 is coordinate-proper, has six distinct original IDs and produces an accepted ORIGINAL D6 sixset; different C6s have different sixsets.
+
+**Explicit inverse for source-ID injectivity of physical C6.** A coordinate-proper physical sixcycle supplies six pairwise distinct ORIGINAL point IDs and six pairwise distinct ORIGINAL line IDs. The six f-pair labels form a single simple cycle on six distinct left coordinate symbols, and the six g-pair labels form one on six distinct right symbols. If the same ORIGINAL sixset produced another physical C6, its ORIGINAL flags prescribe exactly the same labeled edge sets in BOTH typed sixcycles; the consecutive original point-pair edge order of a simple C6 is unique up to cyclic rotation and reversal. The given original flag-to-line pairing then determines each simultaneous right-edge intersection uniquely. Therefore the two physical cycles coincide as unoriented undirected cycles. In particular the apparent two physical diagonals per flag create no extra multiplicity: the flag assignment plus the two coordinate C6s uniquely determine the selected physical cycle.
 
 Assign witness endpoints to the FULL-H heavy Q_T. Half have heavy endpoints on the same one of two physical bipartite sides X. Put `R=Q_T intersect X`, `r=|R|<=8s³/T`, and partition the actual opposite side Y into at most `2n/r` chunks of size <=r (where `n=a²<=4s³`). A winning actual un-cloned subgraph `F=G[R,Y*]` satisfies
 
@@ -140,7 +146,9 @@ E_{\rm exceptional}
 \le21s⁵\quad(s\ge64).\tag{R12}
 \]
 
-The exact source identities are `leftbad=2s Mf`, `rightbad=2s Mg`, overlap J; they count true original source projections q--ell--p--r, not independent left/right events. The bound 21 uses the minimal-alphabet estimate and `Mf,Mg<=Cs` from the genuine GQ spectrum. Weighting the actual bad endpoint cells by P3 and using Cauchy with (R8), their total proper-path mass is at most
+The exact source identities are `leftbad=2s Mf`, `rightbad=2s Mg`, overlap J; they count true original source projections q--ell--p--r, not independent left/right events. To see `leftbad=2s Mf`, each unordered ORIGINAL collinear point pair `{q,p}` sharing one physical f-symbol lies on one original line ell and contributes the two directions `q->p`; for each, there are exactly s other original lines r through p (excluding ell), with q nonincident r by the GQ axiom. This gives `2s Mf` source endpoint pairs. The point-line dual proves `2s Mg`. Inclusion-exclusion subtracts the *actual joint* overlap J, not an independence product.
+
+**Explicit 21s^5 arithmetic.** For s>=64, the minimal physical alphabet satisfies `a<=(ceil(3s sqrt(s)/2)) < (97/64)s sqrt(s)` (the integer trial binomial bound from #682). Since `0<=M-V<a-1` and `M+V<=a²`, the missing-label term is below `4a³ <= (1/2)(97/64)^3 s^5`. Also `4N<=s^5/8` and `C_s/s^4 <= (4097/4096)(609/512)`. Since J>=0 and Mf+Mg<=2C_s, the coefficient of s^5 in (R12) is strictly less than `(1/2)(97/64)^3+1/8+16(4097/4096)(609/512) <21`. No finite-h curve fitting or source-independent endpoint assumption enters this bound. The bound 21 uses the minimal-alphabet estimate and `Mf,Mg<=Cs` from the genuine GQ spectrum. Weighting the actual bad endpoint cells by P3 and using Cauchy with (R8), their total proper-path mass is at most
 
 \[
 L_E s^{11/2},\qquad L_E=\sqrt{21}\,\sigma_3^{-1}\sqrt{L_6}.\tag{R13}
