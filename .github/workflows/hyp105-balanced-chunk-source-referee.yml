@@ -1,0 +1,26 @@
+name: hyp105-balanced-chunk-source-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-balanced-chunk-source-referee.yml'
+      - 'docs/research/HYP-105-BALANCED-CHUNK-SOURCE-REFEREE.md'
+      - 'research/hyp105_balanced_chunk_source_referee.py'
+      - 'research/test_hyp105_balanced_chunk_source_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-source-full-heavy-no-clone-chunk:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All 28672 bipartite chunks; true W32/W34 heavy-source D6 and exact all-h 2x tail refinement
+        run: python -m unittest discover -s research -p 'test_hyp105_balanced_chunk_source_referee.py' -v
