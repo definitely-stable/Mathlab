@@ -1,0 +1,26 @@
+name: hyp105-gf5-original-sixid-flow-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-gf5-original-sixid-flow-referee.yml'
+      - 'docs/research/HYP-105-GF5-ORIGINAL-SIXID-FLOW-REFEREE.md'
+      - 'research/hyp105_gf5_original_sixid_flow_referee.py'
+      - 'research/test_hyp105_gf5_original_sixid_flow_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-genuine-original-six-id-full-gf5:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 90 signed BBo full-51 GF5 cases, independent IE and tree oracles, genuine W32/W34 original IDs
+        run: python -m unittest discover -s research -p 'test_hyp105_gf5_original_sixid_flow_referee.py' -v
