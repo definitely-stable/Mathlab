@@ -1,0 +1,26 @@
+name: hyp105-bbo-inverse-source-bridge
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-bbo-inverse-source-bridge.yml'
+      - 'docs/research/HYP-105-BBO-INVERSE-ORIGINAL-SOURCE-BRIDGE.md'
+      - 'research/hyp105_BBo_inverse_source_bridge.py'
+      - 'research/test_hyp105_BBo_inverse_source_bridge.py'
+      - 'research/hyp105_bbo_resilience.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-six-ID-inverse-bbo-path:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine W32 five-g-source historical inverse vs forward, W34 sparse deleted-anchor 0-or-2 exact paths
+        run: python -m unittest discover -s research -p 'test_hyp105_BBo_inverse_source_bridge.py' -v
