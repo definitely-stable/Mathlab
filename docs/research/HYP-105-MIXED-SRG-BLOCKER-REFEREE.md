@@ -47,6 +47,52 @@ Summing over physical x yields the new exact ALL-h source-energy identity
 \]
 The \(-4E_f\) term is an explicit *f-dependent nonnegative subtraction* discarded by #672's more conservative spectral estimate. It is NOT assumed to be strictly positive uniformly in arbitrary f or sufficient to reduce the exponent of the error term. It also gives a simple new exact diagnostic for the quality of a particular f embedding: the source spectral energy and hence a Cauchy ingredient can be measured using original collinear same-coordinate collisions instead of constructing the large C matrix.
 
+### 2a. NEW: a **strictly stronger UNIFORM all-h bound** for the first source blocker
+
+The exact SRG identity is not only a pointwise f-dependent correction. Combining it with the globally injected simple physical K_a pairs gives a **strictly better f-uniform** first-factor bound than #672's formula (14), for EVERY dyadic s≥2.
+
+Since \(|S_x|\le a-1\) and \(\sum_x|S_x|=2V\), we have
+\[
+ \sum_x|S_x|^2\le(a-1)\sum_x|S_x|=2V(a-1).
+\]
+As \(E_f\ge0\), (MIX-ENERGY) implies
+\[
+ A_f
+ \le4(s^2-1)V+4(s+1)V(a-1)-8E_f.
+\]
+In particular the new uniform all-h bound is
+\[
+ \boxed{\quad A_f\le U_{\rm SRG}(s)
+   :=4V[s^2-1+(s+1)(a-1)].\quad}\tag{MIX-UNIFORM}
+\]
+Compare the previous #672 first squared-factor envelope
+\[
+ U_{\rm OLD}(s)=4(s+1)^2[V+s^2(a-1)].
+\]
+The exact difference simplifies to
+\[
+ \boxed{\quad U_{\rm OLD}-U_{\rm SRG}
+ =4(s+1)[2V-(s+1)(a-1)].\quad}\tag{MIX-GAP}
+\]
+For every \(s\ge2\), take the *trial physical alphabet size* \(t=s^2+2\). A direct exact polynomial check yields
+\[
+ \binom{s^2+2}{2}-V
+ =\frac{s(s-2)(s^2+1)}2\ge0.
+\]
+Since a is MINIMAL with \(\binom a2\ge V\), \(a\le s^2+2\) and hence
+\[
+ (s+1)(a-1)\le(s+1)(s^2+1)=V.
+\]
+Thus
+\[
+\boxed{\quad
+ U_{\rm OLD}(s)-U_{\rm SRG}(s)
+ \ge4(s+1)V>0\qquad(\forall s=2^h\ge2).\quad}
+\]
+This gives a **rigorous unconditional strict improvement of the finite uniform first-blocker squared constant**, even if \(E_f=0\). The extra \(-8E_f\) further improves the per-embedding bound when ORIGINAL collinear source points share physical f-coordinates. **The order remains \(O(s^{11/2})\)** and the mixed triple and completed-blocker error exponents \(23/4\) and \(47/8\) are unchanged; no inflated asymptotic claim follows.
+
+The pure-integer helper \`exact_allh_first_mixed_factor_envelopes(s)\` computes both bounds and their positive integer difference for every dyadic s using the exact minimal alphabet; CI tests h=1,…,18 and h=25,40,64. Those checks are falsifiers of the implementation, while the algebraic proof above covers ALL dyadic h.
+
 ## 3. New pointwise sharpened source mixed-blocker bound
 
 Fix any ORIGINAL core flag-ID set I and its physical paired graph \(H_0\). Put
