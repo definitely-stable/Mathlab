@@ -1,0 +1,26 @@
+name: hyp105-four-internal-blocker-weighted-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-four-internal-blocker-weighted-referee.yml'
+      - 'docs/research/HYP-105-FOUR-INTERNAL-BLOCKER-WEIGHTED-REFEREE.md'
+      - 'research/hyp105_four_internal_blocker_weighted_referee.py'
+      - 'research/test_hyp105_four_internal_blocker_weighted_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-four-position-weighted-referee:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All small graphs; true ORIGINAL W32/W34 four-position full/core audit
+        run: python -m unittest discover -s research -p 'test_hyp105_four_internal_blocker_weighted_referee.py' -v
