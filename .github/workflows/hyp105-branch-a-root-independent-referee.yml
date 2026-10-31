@@ -1,0 +1,26 @@
+name: hyp105-branch-a-root-independent-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-branch-a-root-independent-referee.yml'
+      - 'docs/research/HYP-105-BRANCH-A-ROOT-REFEREE.md'
+      - 'research/hyp105_branch_a_root_independent_referee.py'
+      - 'research/test_hyp105_branch_a_root_independent_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-root-original-id-referee:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real W32/W34 ORIGINAL source IDs, all 512 graph cases and exact dyadic thresholds
+        run: python -m unittest discover -s research -p 'test_hyp105_branch_a_root_independent_referee.py' -v
