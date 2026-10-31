@@ -14,11 +14,34 @@ from hyp105_full_physical_degree_tail import genuine_source
 from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
 from hyp105_mixed_srg_referee import (
     exact_source_star_collinearity_energy,
+    exact_allh_first_mixed_factor_envelopes,
     exact_mixed_blocker_referee,
 )
 
 
 class MixedSpectralSourceReferee(unittest.TestCase):
+    def test_strictly_improved_UNIFORM_all_h_first_blocker_envelope(self):
+        # This is exact algebra for arbitrary s; code merely falsifies
+        # implementation over a wide dyadic ladder. The ALL-h proof is
+        # the closed trial-alphabet inequality in the manuscript.
+        for h in list(range(1,19)) + [25,40,64]:
+            s=1<<h
+            with self.subTest(h=h):
+                b=exact_allh_first_mixed_factor_envelopes(s)
+                V=(s+1)*(s*s+1)
+                a=b["a"]
+                self.assertLessEqual(a,s*s+2)
+                self.assertLessEqual((s+1)*(a-1),V)
+                self.assertEqual(
+                    b["older_672_first_square_uniform"]-
+                    b["new_allh_SRG_first_square_uniform"],
+                    4*(s+1)*(2*V-(s+1)*(a-1)))
+                self.assertGreaterEqual(
+                    b["strict_improvement_integer"],4*(s+1)*V)
+                self.assertTrue(b["allh_algebraic_proof_not_extrapolation"])
+        with self.assertRaises(ValueError):
+            exact_allh_first_mixed_factor_envelopes(3)
+
     def test_genuine_W32_original_SRG_exact_energy_under_correlated_reassignments(self):
         model=pair_labeled_symplectic(1,"lex")
         s,V,flags=genuine_source(1)
