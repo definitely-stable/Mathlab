@@ -50,7 +50,7 @@ def _bipartition(graph, left=None, right=None):
     nodes=set(graph)
     if any(v in ns or not set(ns)<=nodes for v,ns in graph.items()):
         raise ValueError("graph must be simple with all endpoint keys")
-    if any(u not in graph[v] for v,ns in graph.items() for u in ns):
+    if any(v not in graph[u] for v,ns in graph.items() for u in ns):
         raise ValueError("graph adjacency must be symmetric")
     if (left is None)!=(right is None):
         raise ValueError("supply both typed bipartition sides or neither")
