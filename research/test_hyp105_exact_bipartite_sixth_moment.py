@@ -42,7 +42,7 @@ class TestExactSixthMomentReferee(unittest.TestCase):
                 x["trace_A4"]**2,2*x["edges"]*x["trace_A6"])
             self.assertEqual(
                 x["noninjective_sixwalks"],
-                x["left_collision_decomposition"]["noninjective_closed_six_walK_count"])
+                x["left_collision_decomposition"]["noninjective_closed_six_walk_count"])
         self.assertTrue(True)
 
     def test_explicit_sixcycle_complete_bipartite_stars_and_empty_graphs(self):
@@ -65,8 +65,6 @@ class TestExactSixthMomentReferee(unittest.TestCase):
                 self.assertTrue(q["full_exact_independent_6walk_DFS_checked"])
                 self.assertEqual(
                     q["trace_A6"],
-                    q["primitive_injective_C6_rooted_count"]
-                      if "primitive_injective_C6_rooted_count" in q else
                     12*q["simple_physical_C6"]+q["noninjective_sixwalks"])
                 self.assertEqual(q["left_collision_decomposition"][
                     "simple_C6"],q["simple_physical_C6"])
@@ -114,9 +112,7 @@ class TestExactSixthMomentReferee(unittest.TestCase):
                 for row in q["certificates"]:
                     z=row["physical_moment"]
                     self.assertEqual(
-                        z["trace_A6"],z["primitive_injective_C6_rooted_count"]
-                        if "primitive_injective_C6_rooted_count" in z else
-                        12*z["simple_physical_C6"]+z["noninjective_sixwalks"])
+                        z["trace_A6"],12*z["simple_physical_C6"]+z["noninjective_sixwalks"])
                     self.assertLessEqual(
                         z["trace_A6"],z["tighter_all_h_Young_upper"])
                     self.assertEqual(
