@@ -78,6 +78,35 @@ class TestOriginalFactorAndPhysicalCoordinateTransversal(unittest.TestCase):
                     self.assertFalse(x["root_branch_A_external_scientific_acceptance"])
                     self.assertTrue(x["parent_674_theorem_not_independently_reproved"])
 
+    def test_nonvacuous_symbolic_s_at_formal_sufficient_threshold(self):
+        # s is a HUGE symbolic dyadic integer; NO attempt is made to
+        # construct the true W(3,s) or verify any all-h geometry.
+        # The graph inputs C=c=1 are FORMAL and are NOT claimed to be
+        # the actual Simonovits supersaturation constants.
+        s=1<<1320
+        q=asymptotic_transversal_hierarchy(s,1,Fraction(1))
+        self.assertTrue(q["actual_s_meets_sufficient_threshold"])
+        rho=(q["strict_lower_original_flag_disjoint_pack"]*6)/s**4
+        self.assertGreater(q["original_flag_deletion_budget"],0)
+        self.assertGreater(
+            q["source_point_plus_line_factor_deletion_budget"],0)
+        self.assertGreater(
+            q["left_plus_right_physical_symbol_deletion_budget"],0)
+        self.assertGreater(
+            Fraction(q["left_plus_right_physical_symbol_deletion_budget"],
+                     q["a"]),rho/3)
+        self.assertLess(
+            Fraction(q["left_plus_right_physical_symbol_deletion_budget"],
+                     q["a"]),2*rho/3)
+        self.assertLess(
+            q["strict_lower_left_and_right_physical_symbol_disjoint_pack"],
+            Fraction(q["a"],6))
+        self.assertGreater(
+            q["strict_lower_left_and_right_physical_symbol_disjoint_pack"],1)
+        self.assertGreater(
+            q["strict_lower_original_point_and_line_factor_disjoint_pack"],1)
+        self.assertGreater(q["strict_lower_original_flag_disjoint_pack"],1)
+
     def test_true_original_geometry_physical_and_factor_exposure(self):
         for power in (1,2):
             m=pair_labeled_symplectic(power,"lex")
