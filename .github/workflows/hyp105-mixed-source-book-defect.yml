@@ -1,0 +1,26 @@
+name: hyp105-mixed-source-book-defect
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-mixed-source-book-defect.yml'
+      - 'docs/research/HYP-105-MIXED-SOURCE-BOOK-INCIDENT-DEFECT.md'
+      - 'research/hyp105_mixed_source_book_defect.py'
+      - 'research/test_hyp105_mixed_source_book_defect.py'
+      - 'research/hyp105_mixed_srg_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-full-core-book-incidence-projection:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Three independent true W32 W34 source-book, physical-triple and full/core tensor exact equality checks
+        run: python -m unittest discover -s research -p 'test_hyp105_mixed_source_book_defect.py' -v
