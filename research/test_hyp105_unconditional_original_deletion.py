@@ -41,9 +41,6 @@ def independent_full_heavy_tail_survives_original_flag_deletion(
     # original source conflict graph, even after arbitrary Z deletion.
     E=sum(map(len,conflict.values()))//2
     if L:
-        assert L*L <= (2*E+L)*sum(
-            1 for i in conflict for _ in range(0)
-        ) + L*L  # harmless integer sanity
         from fractions import Fraction as F
         cw=sum((F(1,len(v)+1) for v in conflict.values()),F())
         assert cw>=F(L*L,2*E+L)
