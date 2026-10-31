@@ -233,7 +233,11 @@ def finite_independent_physical_endpoint_partition(power,f,g):
                             counts["original_nonincident_good"]+=1
     if sum(counts.values())!=4*comb(a,2)**2:
         raise AssertionError("physical-first all ordered endpoint pairs undercounted")
-    return dict(counts)
+    # Every class must exist as a zero-inclusive slot: at W(3,2)
+    # minimal K_6 is fully occupied (M=V=15), so missing=0.
+    return {key:counts[key] for key in (
+        "missing_physical","original_incident",
+        "original_nonincident_endbad","original_nonincident_good")}
 
 
 def finite_genuine_core_path_endpoint_mass(power,f,g,core_ids=None):
