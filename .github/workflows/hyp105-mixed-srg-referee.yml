@@ -1,0 +1,26 @@
+name: hyp105-mixed-srg-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-mixed-srg-referee.yml'
+      - 'docs/research/HYP-105-MIXED-SRG-BLOCKER-REFEREE.md'
+      - 'research/hyp105_mixed_srg_referee.py'
+      - 'research/test_hyp105_mixed_srg_referee.py'
+      - 'research/hyp105_universal_sextic_obstruction.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-full-core-mixed-blocker-and-dual-SRG:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Original W32 W34 dual source SRG spectral identity and exact full/core physical blocked triple referee
+        run: python -m unittest discover -s research -p 'test_hyp105_mixed_srg_referee.py' -v
