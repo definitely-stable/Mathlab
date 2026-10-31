@@ -1,0 +1,26 @@
+name: hyp105-selector-positive-correlation
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-selector-positive-correlation.yml'
+      - 'docs/research/HYP-105-SELECTOR-POSITIVE-CORRELATION.md'
+      - 'research/hyp105_selector_positive_correlation.py'
+      - 'research/test_hyp105_selector_positive_correlation.py'
+      - 'research/hyp105_universal_sextic_obstruction.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-positive-local-minima-and-original-GQ-paths:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent all-five-vertex conflict graphs exact 5! priority oracles and true W32 W34 original 2/3-paths
+        run: python -m unittest discover -s research -p 'test_hyp105_selector_positive_correlation.py' -v
