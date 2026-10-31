@@ -1,0 +1,27 @@
+name: hyp105-exact-exceptional-endpoints
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-exact-exceptional-endpoints.yml'
+      - 'docs/research/HYP-105-EXACT-EXCEPTIONAL-ENDPOINTS.md'
+      - 'research/hyp105_exact_exceptional_endpoints.py'
+      - 'research/test_hyp105_exact_exceptional_endpoints.py'
+      - 'research/hyp105_improper_path_intersection.py'
+      - 'research/hyp105_exact_bipartite_sixth_moment.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independently-audit-original-physical-endpoint-partition:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True W32 W34 source vs physical four-class exact census, weighted 3paths and all-h integer thresholds
+        run: python -m unittest discover -s research -p 'test_hyp105_exact_exceptional_endpoints.py' -v
