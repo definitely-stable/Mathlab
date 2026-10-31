@@ -1,0 +1,26 @@
+name: hyp105-branch-a-integrated-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-branch-a-integrated-referee.yml'
+      - 'docs/research/HYP-105-BRANCH-A-INTEGRATED-REFEREE.md'
+      - 'research/hyp105_branch_a_integrated_referee.py'
+      - 'research/test_hyp105_branch_a_integrated_referee.py'
+      - 'research/hyp105_exact_exceptional_endpoints.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-original-branch-a-proof-obligations:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Source-ID full/core cross-stack referee, arbitrary C/c rational symbolic stress, exact s0/h0 all-h integrator
+        run: python -m unittest discover -s research -p 'test_hyp105_branch_a_integrated_referee.py' -v
