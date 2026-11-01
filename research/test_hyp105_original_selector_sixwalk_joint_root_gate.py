@@ -140,6 +140,19 @@ class OriginalSelectorSixwalkJointRoot(unittest.TestCase):
     def test_only_hypothetical_graph_Cc_one_and_sample_print_from_ci(self):
         z=exact_root_ablation_grid(1,1)
         self.assertEqual(z["same_original_heavy_T"],39352331442479)
+        # EXACT TEST-ONLY numerical constants C_graph=c_graph=1, NOT
+        # their existential values from published SS6.
+        # Source/selector/sixwalk all-h integer arithmetic independently
+        # frozen from hosted CI; all four hold heavy T unchanged.
+        self.assertEqual({name:v["joint_certified_dyadic_h"]
+                          for name,v in z["four_matched_runs"].items()},
+                         {"baseline_702":684,
+                          "sixwalk_only_703":682,
+                          "selector_only_679":668,
+                          "joint_679_703":666})
+        self.assertEqual(z["gain_in_dyadic_h"],18)
+        self.assertEqual(integrated_dense_closure(1,1)[
+            "dyadic_h0_combined_exact_rational"],685)
         self.assertTrue(z["no_genuine_numeric_C_graph_c_graph_claim"])
         self.assertGreaterEqual(z["gain_in_dyadic_h"],0)
         for name,v in z["four_matched_runs"].items():
