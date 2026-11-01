@@ -1,0 +1,27 @@
+name: hyp105-original-selector-sixwalk-joint-root-gate
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-original-selector-sixwalk-joint-root-gate.yml'
+      - 'docs/research/HYP-105-ORIGINAL-SELECTOR-SIXWALK-JOINT-ROOT-GATE.md'
+      - 'research/hyp105_original_selector_sixwalk_joint_root_gate.py'
+      - 'research/test_hyp105_original_selector_sixwalk_joint_root_gate.py'
+      - 'research/hyp105_dense_global_exact_dyadic_closure_referee.py'
+      - 'research/hyp105_selector_positive_correlation.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-selector-jensen-sixwalk-root:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact 2x2 conservative versus proved original selector and sixth-walk root ledger, W32/W34 true ORIGINAL and Jensen falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_original_selector_sixwalk_joint_root_gate.py' -v
