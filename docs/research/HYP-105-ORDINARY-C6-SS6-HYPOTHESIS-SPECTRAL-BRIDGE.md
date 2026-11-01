@@ -104,6 +104,29 @@ This completes the proof. No external constants, distributional assumptions, gra
 
 **Essential scientific limitation:** for a general true W(3,s) selected/trimmed F, the established #684 estimates `d(F)>=beta*s/16` (from e/v and the definition of d), `n(F)<=16s^3/T` and `Delta(F)<=T*s` DO NOT establish (SG6) for arbitrary giant fixed T, beta. All quantities in (SG6) can scale at the same s-power and the available constants do not force the desired inequality. In particular, unlike the **published** ordinary supersaturation theorem, this elementary argument requires a substantial degree-to-max-degree separation, so it **CANNOT REPLACE (SG1) IN THE GENERAL HEAVY-TAIL BRANCH**. It is a valid independent certificate in the restricted favorable cases.
 
+### NEW additional EXACT original-source one-diagonal subgraph theorem
+
+There is a particularly important source-to-graph edge case: the **published** ordinary C6 theorem is applied NOT to the whole ORIGINAL source-selected graph G (where both flag diagonals survive), but to the smaller balanced **ordinary subgraph F**, where at most ONE of a flag's two diagonal edges might be present. Therefore requiring F to preserve paired diagonals would be an INVALID application hypothesis.
+
+The full ORIGINAL selected G obeys two independent typed binary coordinate cuts `lc,rc`. For every physical cell v=(x,y), define its *binary physical parity sector* `eta(v)=lc(x) XOR rc(y)`. Every actual physical edge in G flips BOTH cuts, hence its two endpoints have the SAME parity eta. Thus G is the disjoint union of two actual ordinary subgraphs G_0,G_1 on the eta=0 and eta=1 physical vertices, with NO edges between them.
+
+Every retained actual ORIGINAL source flag (p,ell) has f(p)={x,z} and g(ell)={y,w} bichromatic on both cuts, and produces **exactly two genuine opposite-corner physical diagonal edges**:
+`(x,y)--(z,w)` and `(x,w)--(z,y)`. They lie in DIFFERENT eta sectors, because the left x coordinate is the same on their first endpoints whereas right y/w have opposite colors. Hence **EACH original flag contributes EXACTLY ONE actual physical edge to EACH sector G_i**. This does not clone source flags or introduce new original IDs. Any physical simple C6 lies entirely in one sector and by the original no-cherry plus both-cut argument has six distinct left coordinate symbols and six distinct right symbols, thus six distinct source flag owners and a genuine ORIGINAL D6 sixset.
+
+Therefore, for every true original W(3,2^h) and any fixed correlated complete f,g with a source-coherent two-cut selected G, the following deterministic identities hold:
+
+\[
+\boxed{
+e(G_0)=e(G_1)=|I_G|,\quad
+e(G)=2|I_G|,\quad
+C_6(G)=C_6(G_0)+C_6(G_1),\quad
+\#C_6(F)\le\#C_6(G)\le D_6(f,g)
+\quad (\forall F\subseteq G).
+}\tag{SG9}
+\]
+
+The last inequality is **valid for any actual ordinary subgraph F of G**, whether it preserves both, one or zero of a given original flag's physical diagonals. This is exactly why the actual balanced chunk F=G[R,Y_*] in #684 satisfies the ordinary graph theorem's source-ID application conditions. The new independent referee constructs both sectors directly from actual ORIGINAL W32/W34 flag IDs and BOTH physical diagonals, separately counts their ordinary physical six-cycles, checks every cycle's six ORIGINAL IDs and injectivity into original D6, and demands sector cycle counts sum to the parent G count; protected genuine W34 control has exactly 96 source-distinct D6 in G. This is a finite falsifier of the formal all-h identity above, **not** a proof that the balanced chunk automatically satisfies the external density threshold for arbitrary small s.
+
 ## 4. Direct ordinary/source bridge and independent finite falsifiers
 
 The new standalone Python module `research/hyp105_ordinary_c6_ss6_hypothesis_spectral_bridge.py` does **not** import #680's closed-walk moment calculator, #691's ordinary C6 codegree formula or #684's selected-chunk operator. From scratch:
