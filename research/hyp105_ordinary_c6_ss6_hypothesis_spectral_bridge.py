@@ -258,3 +258,87 @@ def true_original_selected_graph_ss6_gate(power,f,g,ids,lc,rc):
         "source_sixID_flag_injection":True,
         "this_finite_audit_does_NOT_derive_external_C_graph":True,
     }
+
+
+def true_original_one_diagonal_per_flag_sector_referee(power,f,g,ids,lc,rc):
+    """NEW exact ORIGINAL ID theorem F⊆G: each color-parity sector retains
+    EXACTLY one diagonal of every retained original source flag.
+
+    Whole selected G is a disjoint union of two color-parity sectors
+    (lc(x) XOR rc(y)); every source flag's two physical diagonals lie in
+    OPPOSITE sectors. Hence both sector graphs are actual ordinary
+    subgraphs with ONE (not two) diagonal per flag, and every C6 still
+    maps injectively to six distinct genuine ORIGINAL incidence IDs.
+    """
+    whole=true_original_selected_graph_ss6_gate(power,f,g,ids,lc,rc)
+    _,V,flags,a,f,g=_original_pair_maps(power,f,g)
+    graph=defaultdict(set)
+    owner={}
+    for i in ids:
+        p,ell=flags[i]
+        x,z=f[p];y,w=g[ell]
+        for u,v in (((x,y),(z,w)),((x,w),(z,y))):
+            edge=frozenset((u,v))
+            if edge in owner:raise AssertionError("duplicate source original physical edge")
+            owner[edge]=i
+            graph[u].add(v);graph[v].add(u)
+    out=[]
+    allsix=set()
+    total=0
+    for sector in (0,1):
+        vertices=tuple(v for v in graph if lc[v[0]]^rc[v[1]]==sector)
+        F={v:set(w for w in graph[v] if w in vertices) for v in vertices}
+        FL=tuple(sorted(v for v in vertices if lc[v[0]]==0))
+        FR=tuple(sorted(v for v in vertices if lc[v[0]]==1))
+        audit=exact_c6_gate(F,FL,FR)
+        ids_in_sector=[owner[frozenset((u,v))]
+                       for u in F for v in F[u] if u<v]
+        if sorted(ids_in_sector)!=sorted(ids):
+            raise AssertionError("color parity sector not exactly one diagonal per original source flag")
+        actualsets=set()
+        for x,y,z in combinations(FL,3):
+            xy=F[x]&F[y];yz=F[y]&F[z];zx=F[z]&F[x]
+            for q in xy:
+                for r in yz:
+                    if r==q:continue
+                    for t in zx:
+                        if t in (q,r):continue
+                        cyc=(x,q,y,r,z,t)
+                        original=tuple(owner[frozenset((cyc[k],cyc[(k+1)%6]))]
+                                       for k in range(6))
+                        if (len(set(original))!=6
+                            or len({flags[i][0] for i in original})!=6
+                            or len({flags[i][1] for i in original})!=6
+                            or len({v[0] for v in cyc})!=6
+                            or len({v[1] for v in cyc})!=6):
+                            raise AssertionError("unpaired actual source F sixcycle not original D6")
+                        six=frozenset(original)
+                        if six in actualsets or six in allsix:
+                            raise AssertionError("original sixset reused by different physical cycles")
+                        actualsets.add(six)
+        if len(actualsets)!=audit["ordinary_unoriented_simple_C6"]:
+            raise AssertionError("unpaired sector C6 count disagrees with independently recovered original sixsets")
+        total+=len(actualsets)
+        allsix.update(actualsets)
+        out.append({
+            "parity_sector":sector,
+            "actual_ordinary_physical_edges":audit["e"],
+            "actual_ORIGINAL_ids_present_once":len(set(ids_in_sector)),
+            "ordinary_simple_unoriented_C6":audit["ordinary_unoriented_simple_C6"],
+            "distinct_ORIGINAL_D6_flag_sixsets":len(actualsets),
+            "published_unknown_C_graph_still_required_if_spectral_fails":
+                not audit["spectral_direct_condition_met"],
+        })
+    if total!=whole["ordinary_graph_audit"]["ordinary_unoriented_simple_C6"]:
+        raise AssertionError("G is not exact disjoint union of two color-parity sectors")
+    return {
+        "s":whole["s"],
+        "selected_original_source_flags":len(ids),
+        "both_paired_diagonals_in_parent_G":2*len(ids),
+        "each_UNPAIRED_sector_exactly_one_original_flag_diagonal":True,
+        "unpaired_sectors":tuple(out),
+        "sum_sector_C6_equals_parent_C6":total,
+        "parent_original_D6_census":whole["injected_distinct_original_D6_sixsets"],
+        "all_cycles_still_distinct_ORIGINAL_six_ID_D6":True,
+        "applicable_to_any_actual_F_subset_of_G":True,
+    }
