@@ -154,6 +154,21 @@ Tests compare the matched old baseline EXACT integer inputs to the independently
 
 **The hypothetical C_graph=c_graph=1 regression is TEST ONLY**, never a claim that these are genuine published Simonovits/Jiang–Yepremyan graph constants. The repository CI outputs all four h choices for that algebra test, with the shared exact original T and loss fractions; the markdown numeric comparison should be updated only after verifying those CI outputs. Any smaller h is a **sufficient** all-h threshold conditional on the named prior proofs, not a minimum possible optimal threshold or outside acceptance.
 
+### Exact hosted-regression results, HYPOTHETICAL ONLY C_graph=c_graph=1
+
+The first successful original PR-head hosted specialist run #41322416973 computed a true-original joint heavy \(T=39\,352\,331\,442\,479\) identically in ALL four 2×2 profiles. With **exact rational denominator \(4096\)** for upper-bounding both fractional dyadic roots, the sufficient dyadic thresholds are:
+
+| Matched scenario | Exact sufficient \(h_{\rm joint}\) |
+|---|---:|
+| #702 algebra/moment parameters, improved radical arithmetic only | **684** |
+| sharper #686/#703 sixth moment only | **682** |
+| sharper #679 ORIGINAL one-path selector only | **668** |
+| BOTH prior independent proven improvements | **666** |
+
+Thus at *identical heavy \(T\)*, selector improvements account for a **16-h reduction** at the same old \(L_6\), the sixth-walk improvement for **2-h**, and jointly for **18-h** relative to the new exact matched base. The frozen [#702](https://github.com/definitely-stable/Mathlab/pull/702) calculator reported \(h_{\rm joint}=685\) with exactly the same conservative selector/L6 parameters, but it used coarser **denominator 256** dyadic radical upper rounding; the sharper root **684** is a one-level *rounding-certificate* gain, NOT mathematically attributable to #679 or #703. Comparing **666 directly to 685** mixes this one-level arithmetic rounding change with the two theorem-input changes; the reported matched proof-input gain is **18**, not 19.
+
+Every figure here is ONLY a test of conditional algebra with a deliberately fictional numerical choice \(C_{\rm graph}=c_{\rm graph}=1\). **No actual numerical values of the published external graph SS6 constants have been identified**, so **none of 666, 668, 682, 684, 685 is a certified unconditional numerical \(h_0\) for the real original HYP-105**. The regression test freezes these illustrative values and the mathematically proved actual conclusion remains existential \(\exists h_0(C_{\rm graph},c_{\rm graph})\).
+
 ## 6. Scientific acceptance and STOP
 
 The new combined gate is a technically meaningful all-h strengthening obtained by carrying ALREADY PROVED source-selector and sixth-walk lemmas through the SAME global root, not a new proof of those historical inputs, GF5 original six-ID classification or external ordinary C6 supersaturation. It does not independently verify the entire heavy-tail balanced chunk, original source-core deletion, B/B FULL-source anchor or colored GF5 acceptance chain. It does not justify R3/ASET exponent changes or assign any numerical published graph constants. Root issue #230 stays **OPEN_WITH_FORMAL_BLOCKER** pending a qualified external extremal-combinatorics proof referee. Never merge stacked scientific Draft PRs or change main without permission.
