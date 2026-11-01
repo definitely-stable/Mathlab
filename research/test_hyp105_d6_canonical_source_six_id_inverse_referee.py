@@ -9,6 +9,7 @@ from hyp105_d6_canonical_source_six_id_inverse_referee import (
     physical_original_edge_graph,
     independent_original_six_id_inverse_referee,
     true_original_gq_six_id_inverse_referee,
+    exhaustive_original_sixset_inverse_table,
 )
 
 
@@ -102,6 +103,24 @@ class OriginalSixIDCanonicalInverse(unittest.TestCase):
         self.assertEqual(report["ordinary_simple_unoriented_C6"],60)
         self.assertEqual(report["nonrainbow_ordinary_C6"],0)
         self.assertEqual(report["distinct_TRUE_original_D6_sixsets"],60)
+
+    def test_W34_full_original_sixset_source_FIRST_8008_separate_from_physical_DFS(self):
+        # Protected actual W34 source contains 16 genuine incidence IDs;
+        # enumerate ALL 16-choose-6=8008 sixsets WITHOUT reading the graph.
+        f,g,ids=planted_original_k44()
+        _,_,flags=genuine_source(2)
+        src=exhaustive_original_sixset_inverse_table(flags,f,g,ids)
+        self.assertEqual(src["source_sixsets_exhaustively_tested"],8008)
+        self.assertEqual(src["source_D6_exact_count"],96)
+        self.assertTrue(src["source_first_not_using_physical_cycle_DFS"])
+        # Separate physical-first DFS builds ORIGINAL source owners on two
+        # distinct actual paired diagonals for every retained source flag.
+        physical=true_original_gq_six_id_inverse_referee(2,f,g,ids)
+        self.assertEqual(src["source_only_inverse_lookup"],
+                         physical["physical_cycle_to_original_sixset"])
+        self.assertEqual(physical["rainbow_ordinary_C6"],96)
+        with self.assertRaises(ValueError):
+            exhaustive_original_sixset_inverse_table(flags,f,g,ids,limit=8007)
 
     def test_true_original_W32_W34_independent_source_greedy_coherent_two_cuts(self):
         for power in (1,2):
