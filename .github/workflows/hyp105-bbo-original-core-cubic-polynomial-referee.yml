@@ -1,0 +1,26 @@
+name: hyp105-bbo-original-core-cubic-polynomial-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-bbo-original-core-cubic-polynomial-referee.yml'
+      - 'docs/research/HYP-105-BBO-ORIGINAL-CORE-CUBIC-POLYNOMIAL-REFEREE.md'
+      - 'research/hyp105_BBo_original_core_cubic_polynomial_referee.py'
+      - 'research/test_hyp105_BBo_original_core_cubic_polynomial_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-bbo-core-cubic:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True ORIGINAL W32/W34 source-first BBo cubic CORE polynomial versus independent physical graph DFS and exact Bernoulli deletion moments
+        run: python -m unittest discover -s research -p 'test_hyp105_BBo_original_core_cubic_polynomial_referee.py' -v
