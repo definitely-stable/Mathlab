@@ -68,6 +68,26 @@ class ExactEffectiveDegreeMixedBlocker(unittest.TestCase):
         self.assertTrue(z["strict_improvement"])
         self.assertGreater(z["old_cauchy_bound"],z["new_cauchy_bound"])
 
+    def test_generic_full_candidate_support_has_no_universal_strict_gain(self):
+        # For EVERY first physical edge and EVERY possible final vertex:
+        # m(u,w)=deg(u), Xi=B, Theta_T=Theta identically.
+        # Thus generic cellwise Cauchy alone CANNOT certify a uniform
+        # strict gain in exponent; genuine original source restrictions
+        # would be needed for any such claim.
+        for graph in (
+            {0:{1},1:{0}},
+            {0:{2,3,4},1:{2,3,4},2:{0,1},3:{0,1},4:{0,1}},
+            {0:{1,2},1:{0,2},2:{0,1}},
+        ):
+            full=tuple((v0,u,w) for v0 in graph for u in graph[v0]
+                       for w in graph)
+            z=arbitrary_graph_cellwise_certificate(graph,full)
+            self.assertEqual(z["Xi_effective_first_edge"],z["triples"])
+            self.assertEqual(z["supported_degree_weighted_moment"],
+                             z["full_degree_weighted_moment"])
+            self.assertEqual(z["new_cauchy_bound"],z["old_cauchy_bound"])
+            self.assertFalse(z["strict_improvement"])
+
     def test_true_original_W32_full_and_deletions_compare_earlier_referee(self):
         _,V,flags=genuine_source(1)
         for k in (0,1,3):
