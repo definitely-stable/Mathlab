@@ -1,0 +1,26 @@
+name: hyp105-sharp-signed-r3-floor-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-sharp-signed-r3-floor-referee.yml'
+      - 'docs/research/HYP-105-SHARP-TEN-SIGN-R3-FLOOR.md'
+      - 'research/hyp105_sharp_signed_r3_floor_referee.py'
+      - 'research/test_hyp105_sharp_signed_r3_floor_referee.py'
+      - 'research/hyp105_gf5_original_sixid_flow_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-full-ten-sign-original-r3-floor:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently verify all 100 51-palette signs and all genuine W32/W34 BBo/D6 sharp lifts
+        run: python -m unittest discover -s research -p 'test_hyp105_sharp_signed_r3_floor_referee.py' -v
