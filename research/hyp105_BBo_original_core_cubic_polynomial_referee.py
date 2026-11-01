@@ -182,7 +182,7 @@ def evaluate_original_BBo_core_polynomial(catalog,core_ids,forbidden_ids=()):
     }
 
 
-def independent_physical_first_BBo_core_census(power,f,g,core_ids):
+def independent_physical_first_BBo_core_census(power,f,g,core_ids,forbidden_ids=()):
     """OTHER DIRECTION: independent real physical 3-edge graph-walk DFS.
 
     No call into the source cubic catalog nor #694. Every surviving path
@@ -191,6 +191,7 @@ def independent_physical_first_BBo_core_census(power,f,g,core_ids):
     """
     s,V,flags,a,f,g=_source_input(power,f,g)
     I=_subset_check(set(range(len(flags))),core_ids,"CORE")
+    Z=_subset_check(set(range(len(flags))),forbidden_ids,"forbidden")
     project=_source_projections(V,flags)
     invf={z:i for i,z in enumerate(f)}
     invg={z:i for i,z in enumerate(g)}
@@ -220,6 +221,7 @@ def independent_physical_first_BBo_core_census(power,f,g,core_ids):
                         continue
                     T=tuple(owner[frozenset((path[j],path[j+1]))] for j in range(3))
                     Q=tuple(sorted(T+aa))
+                    if any(i in Z for i in Q):continue
                     if len(set(Q))!=6:
                         raise AssertionError("source graph created a non-six-ID BBo")
                     sixsets[Q].add(path)
