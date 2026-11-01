@@ -1,0 +1,26 @@
+name: hyp105-sharp-source-conflict-cw-heavy-chunk-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-sharp-source-conflict-cw-heavy-chunk-referee.yml'
+      - 'docs/research/HYP-105-SHARP-SOURCE-CONFLICT-CW-HEAVY-CHUNK-REFEREE.md'
+      - 'research/hyp105_sharp_source_conflict_cw_heavy_chunk_referee.py'
+      - 'research/test_hyp105_sharp_source_conflict_cw_heavy_chunk_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-conflict-cw-source-heavy-chunk:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent exact dyadic source book and constructive original Caro-Wei plus real W32/W34 full-heavy source witness chunk
+        run: python -m unittest discover -s research -p 'test_hyp105_sharp_source_conflict_cw_heavy_chunk_referee.py' -v
