@@ -130,8 +130,10 @@ class TrueOriginalBBoCubicCore(unittest.TestCase):
                 self.assertEqual(before-after,predicted)
 
     def test_true_W32_nonuniform_independent_flag_retention_exact_moments(self):
-        f,g=maps(1,1)
+        f,g=maps(1,0)
         full=source_first_original_BBo_cubic_catalog(1,f,g)
+        self.assertGreater(full["aligned_original_BBo_sixset_count"],0,
+                           "nonuniform moment fixture must have positive true original BBo image")
         Q,T=next(iter(full["sixset_supports"].items()))
         pool=tuple(dict.fromkeys((*T,*range(45))))[:7]
         sub=source_first_original_BBo_cubic_catalog(1,f,g,pool)
