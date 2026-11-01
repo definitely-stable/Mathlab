@@ -166,7 +166,7 @@ class ExactBipartiteOriginalSixWalkMobius(unittest.TestCase):
             (1,f,g,(True,),left,right),
             (1,f,g,(len(flags),),left,right),
             (1,f,g,(),left[:-1],right),
-            (1,f,g,(),left,(0,)*6),
+            (1,f,g,(0,),left,(0,)*6),
         ):
             with self.assertRaises(ValueError):
                 source_coherent_actual_physical_bipartite_rows(
