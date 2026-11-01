@@ -94,6 +94,7 @@ class IndependentProper3Exceptions(unittest.TestCase):
 
     def test_true_W32_all_full_map_original_endpoint_classes_and_BBo_two_to_one(self):
         _,V,flags=genuine_source(1)
+        positive_sixsets=0
         for k in (0,1,3,7,11):
             f,g=source_labels(1,k)
             z=exact_original_proper3_exceptional_referee(1,f,g)
@@ -107,6 +108,8 @@ class IndependentProper3Exceptions(unittest.TestCase):
                              2*z["original_BBo_image"]["produced_original_BBo_sixsets"])
             self.assertEqual(z["original_BBo_image"]["directed_paths_per_original_sixset"],
                              (2,) if z["original_BBo_image"]["unblocked_original_paths"] else ())
+            positive_sixsets+=z["original_BBo_image"]["produced_original_BBo_sixsets"]
+        self.assertGreater(positive_sixsets,0,"original finite checks must include genuine positive BBo source sixsets")
 
     def test_true_W32_original_sparse_core_and_anchor_outside_core(self):
         _,_,flags=genuine_source(1)
