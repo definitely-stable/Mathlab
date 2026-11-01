@@ -213,10 +213,25 @@ def independent_physical_core_histogram(power,f,g,core_ids):
             for c in graph[b]:
                 for d in graph[c]:
                     path=(a,b,c,d)
-                    result=_classify(path,f,g,projection,invf,invg)
-                    if result is None:
+                    # Deliberately independent physical-first classification:
+                    # no call to the ORIGINAL oriented-flag oracle _classify.
+                    xs=(a[0],b[0],c[0],d[0])
+                    ys=(a[1],b[1],c[1],d[1])
+                    if len(set(xs))!=4 or len(set(ys))!=4:
                         continue
-                    endgood,mask,anchors=result
+                    q=invf.get(tuple(sorted((xs[0],xs[3]))))
+                    rr=invg.get(tuple(sorted((ys[0],ys[3]))))
+                    if q is None or rr is None:
+                        continue
+                    closure=projection.get((q,rr))
+                    if closure is None:
+                        continue
+                    p,ell,anchors=closure
+                    endgood=(xs[0] not in f[p] and xs[3] not in f[p]
+                             and ys[0] not in g[ell] and ys[3] not in g[ell])
+                    mask=(int(xs[1] in f[p]) + 2*int(xs[2] in f[p])
+                          + 4*int(ys[1] in g[ell])
+                          + 8*int(ys[2] in g[ell]))
                     counts[endgood,mask]+=1
                     for j in range(4):
                         if mask & (1<<j):
