@@ -1,0 +1,26 @@
+name: hyp105-ordinary-c6-ss6-hypothesis-spectral-bridge
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-ordinary-c6-ss6-hypothesis-spectral-bridge.yml'
+      - 'docs/research/HYP-105-ORDINARY-C6-SS6-HYPOTHESIS-SPECTRAL-BRIDGE.md'
+      - 'research/hyp105_ordinary_c6_ss6_hypothesis_spectral_bridge.py'
+      - 'research/test_hyp105_ordinary_c6_ss6_hypothesis_spectral_bridge.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-ordinary-c6-external-gate-and-explicit-spectral:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact all-simple-bipartite C6/trace oracle, published-hypothesis rational gate and original W32/W34 six-source-ID provenance
+        run: python -m unittest discover -s research -p 'test_hyp105_ordinary_c6_ss6_hypothesis_spectral_bridge.py' -v
