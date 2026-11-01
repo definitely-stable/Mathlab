@@ -1,0 +1,26 @@
+name: hyp105-mixed-source-collinearity-energy-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-mixed-source-collinearity-energy-referee.yml'
+      - 'docs/research/HYP-105-MIXED-SOURCE-COLLINEARITY-ENERGY-REFEREE.md'
+      - 'research/hyp105_mixed_source_collinearity_energy_referee.py'
+      - 'research/test_hyp105_mixed_source_collinearity_energy_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-mixed-source-energy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact true ORIGINAL GQ collinearity A2 spectral energy, original f-book, FULL/CORE Cauchy and true W32/W34
+        run: python -m unittest discover -s research -p 'test_hyp105_mixed_source_collinearity_energy_referee.py' -v
