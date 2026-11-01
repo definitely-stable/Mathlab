@@ -83,7 +83,13 @@ class TrueOriginalBBoCubicCore(unittest.TestCase):
         for deleted in T:
             res2,_=compare_core(self,1,f,g,cat,tuple(i for i in T if i!=deleted))
             self.assertEqual(res2["produced_true_ORIGINAL_BBo_sixsets"],0)
-        forb=evaluate_original_BBo_core_polynomial(cat,T,forbidden_ids=(next(iter(anchors)),))
+        forbidden_anchor=next(iter(anchors))
+        forb=evaluate_original_BBo_core_polynomial(cat,T,forbidden_ids=(forbidden_anchor,))
+        physical_forbidden=independent_physical_first_BBo_core_census(
+            1,f,g,T,forbidden_ids=(forbidden_anchor,))
+        self.assertEqual(
+            forb["produced_true_ORIGINAL_BBo_sixsets"],
+            physical_forbidden["actual_original_BBo_sixset_count"])
         self.assertLess(forb["produced_true_ORIGINAL_BBo_sixsets"],
                         res["produced_true_ORIGINAL_BBo_sixsets"])
         self.assertEqual(evaluate_original_BBo_core_polynomial(cat,(),())[
@@ -111,6 +117,17 @@ class TrueOriginalBBoCubicCore(unittest.TestCase):
         self.assertEqual(second,moments["exact_expected_square_if_computed"])
         self.assertEqual(second-expected*expected,
                          moments["exact_variance_if_computed"])
+        # Exact one-ID removal influence for EVERY tested original CORE.
+        for mask in range(128):
+            core=set(pool[j] for j in range(7) if mask>>j&1)
+            for removed in core:
+                before=evaluate_original_BBo_core_polynomial(
+                    sub,tuple(core))["produced_true_ORIGINAL_BBo_sixsets"]
+                after=evaluate_original_BBo_core_polynomial(
+                    sub,tuple(core-{removed}))["produced_true_ORIGINAL_BBo_sixsets"]
+                predicted=sum(1 for T in sub["sixset_supports"].values()
+                              if removed in T and set(T)<=core)
+                self.assertEqual(before-after,predicted)
 
     def test_true_W32_nonuniform_independent_flag_retention_exact_moments(self):
         f,g=maps(1,1)
