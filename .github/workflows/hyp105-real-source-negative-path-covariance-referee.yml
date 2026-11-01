@@ -1,0 +1,27 @@
+name: hyp105-real-source-negative-path-covariance-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-real-source-negative-path-covariance-referee.yml'
+      - 'docs/research/HYP-105-REAL-SOURCE-NEGATIVE-PATH-COVARIANCE-REFEREE.md'
+      - 'research/hyp105_real_source_negative_path_covariance_referee.py'
+      - 'research/test_hyp105_real_source_negative_path_covariance_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-source-covariance-adversarial-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exhaustive priority and color falsifiers plus true W32/W34 source checks
+        run: python -m unittest discover -s research -p 'test_hyp105_real_source_negative_path_covariance_referee.py' -v
+      - name: Print exact original-source negative covariance certificates (not external scientific acceptance)
+        run: python research/hyp105_real_source_negative_path_covariance_referee.py
