@@ -151,11 +151,11 @@ def true_original_d6_full_signed_lift(power, *, independent_tree=False):
             "signed_vector":values,"signed_mass":sum(values)}
 
 
-def stronger_root_r3_floor(D6,BBo, *, geom_delta=None):
+def stronger_root_r3_floor(D6,BBo):
     """Exact lower risk for two DISJOINT ORIGINAL sixset classes.
 
-    The optional geometric result is a separately accepted premise:
-    D6+BBo>=delta*s^6 is NOT proved by this function.
+    A separately accepted geometric input D6+BBo>=delta*s^6 is
+    NOT proved, assumed, accepted or evaluated by this function.
     """
     if (type(D6) is not int or type(BBo) is not int or D6<0 or BBo<0):
         raise ValueError("nonnegative integer ORIGINAL sixset multiplicities required")
