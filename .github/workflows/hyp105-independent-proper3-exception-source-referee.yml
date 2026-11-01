@@ -1,0 +1,26 @@
+name: hyp105-independent-proper3-exception-source-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-independent-proper3-exception-source-referee.yml'
+      - 'docs/research/HYP-105-INDEPENDENT-PROPER3-EXCEPTION-SOURCE-REFEREE.md'
+      - 'research/hyp105_independent_proper3_exception_source_referee.py'
+      - 'research/test_hyp105_independent_proper3_exception_source_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-proper3-endpoint-bbo-mass:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent exact 64-mask proper P3, endpoint tensor, original full-source exceptional books and six-ID BBo mass
+        run: python -m unittest discover -s research -p 'test_hyp105_independent_proper3_exception_source_referee.py' -v
