@@ -24,8 +24,7 @@ The unique GQ projection of every nonincident original point/line pair
 regardless of whether any of those flags survived I.
 
 Given a coordinate-proper directed physical three-edge CORE walk
-`W=(v0,v1,v2,v3)` with six distinct first/second? More precisely,
-**FOUR distinct first coordinates and FOUR distinct second coordinates**,
+`W=(v0,v1,v2,v3)` with **FOUR distinct first coordinates and FOUR distinct second coordinates**,
 if endpoint label pairs decode unique ORIGINAL q,r with q nonincident r,
 let its four internal-blocker mask be
 
@@ -173,7 +172,7 @@ before selecting any core.
 **PHYSICAL-first oracle:** for each independently chosen CORE I,
 reconstruct a physical adjacency list by pairing original flag
 diagonals; enumerate actual directed physical three-walks and
-classify the nonincident original endpoints. Compute the GQ projection
+classify the nonincident original endpoints. The physical-first oracle also classifies coordinate-properness, projected endpoints, endgood and blocker masks independently, without calling the source-first path classifier. Compute the GQ projection
 by a DIFFERENT source procedure: original q's line pencil followed by
 line intersections, rather than the first method's line r point-star
 traversal.
