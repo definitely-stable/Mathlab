@@ -6,7 +6,8 @@ import unittest
 
 from hyp105_ordinary_c6_ss6_hypothesis_spectral_bridge import (
     exact_c6_gate,independent_closed_six_walk_oracle,
-    exact_balanced_chunk_parameter_gate,true_original_selected_graph_ss6_gate,\n    true_original_one_diagonal_per_flag_sector_referee,
+    exact_balanced_chunk_parameter_gate,true_original_selected_graph_ss6_gate,
+    true_original_one_diagonal_per_flag_sector_referee,
 )
 from hyp105_full_physical_degree_tail import genuine_source,planted_original_k44
 
