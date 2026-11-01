@@ -56,13 +56,27 @@ def bipartite_c6_codegree(rows,nright):
 def bipartite_c6_direct_six_vertex_oracle(rows,nright):
     """Completely independent brute force x<y<z and a,b,c all DISTINCT."""
     rows=_bit_inputs(rows,nright)
+    # Enumerate ONLY ACTUAL common right-neighbor candidates.
+    # This is still a direct three-right-vertex injective oracle,
+    # never the codegree IE formula. It avoids O(|X|^3 |Y|^3)
+    # enumeration on large sparse genuine W34 physical graphs.
     result=0
     for x,y,z in combinations(range(len(rows)),3):
-        for a,b,c in permutations(range(nright),3):
-            if ((rows[x]>>a)&1 and (rows[y]>>a)&1 and
-                (rows[y]>>b)&1 and (rows[z]>>b)&1 and
-                (rows[z]>>c)&1 and (rows[x]>>c)&1):
-                result+=1
+        xy=rows[x]&rows[y]
+        yz=rows[y]&rows[z]
+        zx=rows[z]&rows[x]
+        if not (xy and yz and zx):
+            continue
+        aa=tuple(i for i in range(nright) if (xy>>i)&1)
+        bb=tuple(i for i in range(nright) if (yz>>i)&1)
+        cc=tuple(i for i in range(nright) if (zx>>i)&1)
+        for a in aa:
+            for b in bb:
+                if a==b:
+                    continue
+                for c in cc:
+                    if c!=a and c!=b:
+                        result+=1
     return result
 
 
@@ -146,12 +160,16 @@ def selected_original_coherent_provenance(power,f,g,source_flag_ids,left_colors,
         pair01=rows[a0]&rows[b0]
         pair12=rows[b0]&rows[c0]
         pair20=rows[c0]&rows[a0]
-        for j in range(len(right)):
-            if not (pair01>>j)&1:continue
-            for k in range(len(right)):
-                if k==j or not (pair12>>k)&1:continue
-                for h in range(len(right)):
-                    if h==j or h==k or not (pair20>>h)&1:continue
+        if not (pair01 and pair12 and pair20):
+            continue
+        ys01=tuple(j for j in range(len(right)) if (pair01>>j)&1)
+        ys12=tuple(k for k in range(len(right)) if (pair12>>k)&1)
+        ys20=tuple(h for h in range(len(right)) if (pair20>>h)&1)
+        for j in ys01:
+            for k in ys12:
+                if k==j:continue
+                for h in ys20:
+                    if h==j or h==k:continue
                     cycle=(left[a0],right[j],left[b0],right[k],left[c0],right[h])
                     if len(set(cycle))!=6:
                         raise AssertionError("C6 repeats physical vertex")
