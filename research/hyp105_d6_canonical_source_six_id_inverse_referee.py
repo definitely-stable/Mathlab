@@ -266,3 +266,36 @@ def true_original_gq_six_id_inverse_referee(power,f,g,ids=None,
         **independent_original_six_id_inverse_referee(
             flags,f,g,ids,left_colors,right_colors,sector,edge_filter)
     )
+
+
+def exhaustive_original_sixset_inverse_table(flags,f,g,ids,limit=10000):
+    """SOURCE-FIRST, exhaustive genuine-original six-ID C6 table.
+
+    Completely independent of all graph-first DFS and its owner sets.
+    Only suitable for bounded original ID subsets, NEVER a claim of
+    exhaustive full W(3,s) enumeration at large s. Uses exactly the
+    original source six IDs, no projected surrogate.
+    """
+    flags,f,g=_typed_source(flags,f,g)
+    ids=tuple(ids)
+    if (len(set(ids))!=len(ids) or
+        any(type(i) is not int or i<0 or i>=len(flags) for i in ids)):
+        raise ValueError("only distinct real ORIGINAL source IDs")
+    if type(limit) is not int or limit<1:
+        raise ValueError("positive integer exhaustive source cap required")
+    n=comb(len(ids),6) if len(ids)>=6 else 0
+    if n>limit:
+        raise ValueError("explicit original source sixset limit exceeded")
+    original={}
+    for six in combinations(sorted(ids),6):
+        candidate=source_sixset_canonical_inverse(flags,f,g,six)
+        if candidate is not None:
+            original[six]=candidate
+    if len(set(original.values()))!=len(original):
+        raise AssertionError("two genuine original six-ID D6 sets reconstruct the same physical C6")
+    return {
+        "source_sixsets_exhaustively_tested":n,
+        "source_D6_exact_count":len(original),
+        "source_only_inverse_lookup":tuple(sorted(original.items())),
+        "source_first_not_using_physical_cycle_DFS":True,
+    }
