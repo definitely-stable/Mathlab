@@ -104,8 +104,14 @@ class OriginalDenseIntegratedRoot(unittest.TestCase):
         self.assertEqual(
             r["conditional_signed_GF5_R3_floor"],
             min(Fraction(54162)*r["root_delta"],Fraction(53526,8))/51**6)
-        self.assertGreater(
-            r["dyadic_h0_combined_exact_rational"],6)
+        self.assertEqual(r["original_heavy_tail_T"],39352331442479)
+        self.assertEqual(r["dyadic_h0_individually_budgeted"],697)
+        self.assertEqual(r["dyadic_h0_combined_exact_rational"],685)
+        self.assertEqual(integrated_dense_closure(1,1,prior_B0=True)[
+            "dyadic_h0_combined_exact_rational"],693)
+        self.assertLessEqual(
+            sum(r["joint_certified_relative_losses_upper"]),Fraction(1,4))
+        self.assertTrue(r["graph_constants_ACTUALLY_UNKNOWN_NOT_CERTIFIED"])
 
     def test_true_original_W32_full_independent_source_physical_mass_conservation(self):
         s,V,flags=genuine_source(1)
