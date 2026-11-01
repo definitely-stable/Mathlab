@@ -1,0 +1,26 @@
+name: hyp105-d6-canonical-source-six-id-inverse-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-d6-canonical-source-six-id-inverse-referee.yml'
+      - 'docs/research/HYP-105-D6-CANONICAL-SOURCE-SIX-ID-INVERSE-REFEREE.md'
+      - 'research/hyp105_d6_canonical_source_six_id_inverse_referee.py'
+      - 'research/test_hyp105_d6_canonical_source_six_id_inverse_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-true-original-six-id-inverse:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent all-six-factor edge-labelled cycle inverse vs actual physical DFS; W32/W34 coherent/unpaired control
+        run: python -m unittest discover -s research -p 'test_hyp105_d6_canonical_source_six_id_inverse_referee.py' -v
