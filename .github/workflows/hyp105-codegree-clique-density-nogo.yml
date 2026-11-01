@@ -1,0 +1,26 @@
+name: hyp105-codegree-clique-density-nogo
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-codegree-clique-density-nogo.yml'
+      - 'docs/research/HYP-105-CODEGREE-CLIQUE-DENSITY-NOGO.md'
+      - 'research/hyp105_codegree_clique_density_nogo.py'
+      - 'research/test_hyp105_codegree_clique_density_nogo.py'
+      - 'research/hyp105_independent_codegree_c6_source_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  projective-plane-all-primes-codegree-nogo:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent PG2 prime incidence no-go, C6 geometry and balanced-density rational threshold
+        run: python -m unittest discover -s research -p 'test_hyp105_codegree_clique_density_nogo.py' -v
