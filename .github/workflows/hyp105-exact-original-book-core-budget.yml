@@ -1,0 +1,26 @@
+name: hyp105-exact-original-book-core-budget
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-exact-original-book-core-budget.yml'
+      - 'docs/research/HYP-105-EXACT-ORIGINAL-BOOK-CORE-BUDGET.md'
+      - 'research/hyp105_exact_original_book_core_budget.py'
+      - 'research/test_hyp105_exact_original_book_core_budget.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-all-h-original-book-budget:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All-h exact N,Cs analytic proof and independent original W32/W34 books; integer h0
+        run: python -m unittest discover -s research -p 'test_hyp105_exact_original_book_core_budget.py' -v
