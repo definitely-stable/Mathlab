@@ -1,0 +1,26 @@
+name: hyp105-original-gq-incidence-spectral-kernel-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-original-gq-incidence-spectral-kernel-referee.yml'
+      - 'docs/research/HYP-105-ORIGINAL-GQ-INCIDENCE-SPECTRAL-KERNEL-REFEREE.md'
+      - 'research/hyp105_original_gq_incidence_spectral_kernel_referee.py'
+      - 'research/test_hyp105_original_gq_incidence_spectral_kernel_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-true-original-spectral-and-dual-book:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All-h GQ combinatorial spectrum; exact original-line/point-book kernel polynomial source falsifier W32 W34
+        run: python -m unittest discover -s research -p 'test_hyp105_original_gq_incidence_spectral_kernel_referee.py' -v
