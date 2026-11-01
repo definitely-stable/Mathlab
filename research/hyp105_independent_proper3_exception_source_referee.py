@@ -213,6 +213,20 @@ def _source_sixset_image(graph,edge_owner,flags,source,f,g,classes):
                         Counter(flags[i][0] for i in six).most_common(1)[0][1]!=2 or
                         Counter(flags[i][1] for i in six).most_common(1)[0][1]!=2):
                         raise AssertionError("not six distinct ORIGINAL BBo source flags")
+                    # Independent ORIGINAL sixset-CLASS structural audit:
+                    # both physical factor projections must be 2-regular
+                    # on exactly SIX different coordinate symbols.
+                    degree_left=Counter(x for i in six for x in f[flags[i][0]])
+                    degree_right=Counter(y for i in six for y in g[flags[i][1]])
+                    points=Counter(flags[i][0] for i in six)
+                    lines=Counter(flags[i][1] for i in six)
+                    if (len(degree_left)!=6 or len(degree_right)!=6 or
+                        set(degree_left.values())!={2} or
+                        set(degree_right.values())!={2} or
+                        sorted(points.values())!=[1,1,1,1,2] or
+                        sorted(lines.values())!=[1,1,1,1,2] or
+                        sum(flags[i]==(p,ell) for i in six)!=1):
+                        raise AssertionError("original B/B-overlap GF5 class structural profile invalid")
                     counts[six]+=1
                     paths+=1
     if any(v!=2 for v in counts.values()) or 2*len(counts)!=paths:
