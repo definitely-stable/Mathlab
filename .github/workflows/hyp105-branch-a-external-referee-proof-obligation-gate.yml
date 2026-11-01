@@ -1,0 +1,30 @@
+name: hyp105-branch-a-external-referee-proof-obligation-gate
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-branch-a-external-referee-proof-obligation-gate.yml'
+      - 'docs/research/HYP-105-BRANCH-A-EXTERNAL-REFEREE-DOSSIER.md'
+      - 'research/hyp105_branch_a_external_referee_proof_obligation_gate.py'
+      - 'research/test_hyp105_branch_a_external_referee_proof_obligation_gate.py'
+      - 'docs/research/HYP-105-UNIVERSAL-SEXTIC-OBSTRUCTION.md'
+      - 'docs/research/HYP-105-BRANCH-A-ROOT-REFEREE.md'
+      - 'docs/research/HYP-105-SHARP-TEN-SIGN-R3-FLOOR.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scientific-scope-obligations-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify 13 historical original-source theorem claims, 8 scope transfers, 8 reviewer questions and fail-closed claim-mutation guards
+        run: python -m unittest discover -s research -p 'test_hyp105_branch_a_external_referee_proof_obligation_gate.py' -v
+      - name: Emit self-labelled machine-checkable reviewer dependency report, not external scientific acceptance
+        run: python research/hyp105_branch_a_external_referee_proof_obligation_gate.py
