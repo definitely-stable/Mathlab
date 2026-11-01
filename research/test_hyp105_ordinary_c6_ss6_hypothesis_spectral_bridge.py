@@ -6,7 +6,7 @@ import unittest
 
 from hyp105_ordinary_c6_ss6_hypothesis_spectral_bridge import (
     exact_c6_gate,independent_closed_six_walk_oracle,
-    exact_balanced_chunk_parameter_gate,true_original_selected_graph_ss6_gate,
+    exact_balanced_chunk_parameter_gate,true_original_selected_graph_ss6_gate,\n    true_original_one_diagonal_per_flag_sector_referee,
 )
 from hyp105_full_physical_degree_tail import genuine_source,planted_original_k44
 
@@ -133,6 +133,40 @@ class OrdinaryC6PublishedInputAndSelfContainedSpectral(unittest.TestCase):
                     self.assertEqual(z["injected_distinct_original_D6_sixsets"],
                                      z["ordinary_graph_audit"]["ordinary_unoriented_simple_C6"])
                     self.assertTrue(z["ordinary_graph_audit"]["external_statement_is_ordinary_SIMPLE_graphs_not_homomorphisms"])
+
+    def test_true_original_W34_two_one_diagonal_unpaired_sectors_full_D6_image(self):
+        f,g,ids=planted_original_k44()
+        lc=tuple(0 if i<4 else 1 if i<8 else 0 for i in range(14))
+        z=true_original_one_diagonal_per_flag_sector_referee(2,f,g,ids,lc,lc)
+        self.assertEqual(z["both_paired_diagonals_in_parent_G"],32)
+        self.assertTrue(z["each_UNPAIRED_sector_exactly_one_original_flag_diagonal"])
+        self.assertEqual(z["sum_sector_C6_equals_parent_C6"],96)
+        self.assertEqual(z["parent_original_D6_census"],96)
+        self.assertTrue(z["all_cycles_still_distinct_ORIGINAL_six_ID_D6"])
+        self.assertTrue(z["applicable_to_any_actual_F_subset_of_G"])
+        for sector in z["unpaired_sectors"]:
+            self.assertEqual(sector["actual_ordinary_physical_edges"],16)
+            self.assertEqual(sector["actual_ORIGINAL_ids_present_once"],16)
+            self.assertEqual(sector["ordinary_simple_unoriented_C6"],
+                             sector["distinct_ORIGINAL_D6_flag_sixsets"])
+        self.assertGreater(sum(x["ordinary_simple_unoriented_C6"] for x
+                               in z["unpaired_sectors"]),0)
+
+    def test_true_original_W32_W34_one_diagonal_selected_sectors(self):
+        for h in (1,2):
+            for shift in (0,3):
+                with self.subTest(power=h,shift=shift):
+                    f,g,ids,lc,rc=independently_selected_original(h,shift)
+                    z=true_original_one_diagonal_per_flag_sector_referee(
+                        h,f,g,ids,lc,rc)
+                    self.assertEqual(z["both_paired_diagonals_in_parent_G"],
+                                     2*len(ids))
+                    self.assertTrue(z["all_cycles_still_distinct_ORIGINAL_six_ID_D6"])
+                    self.assertEqual(
+                        z["sum_sector_C6_equals_parent_C6"],
+                        z["parent_original_D6_census"])
+                    for sector in z["unpaired_sectors"]:
+                        self.assertEqual(sector["actual_ORIGINAL_ids_present_once"],len(ids))
 
     def test_fail_closed_nonbipartite_non_simple_and_source_conflicts(self):
         for g,L,R in (
