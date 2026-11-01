@@ -1,0 +1,25 @@
+name: hyp105-original-four-blocker-cubic-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-original-four-blocker-cubic-referee.yml'
+      - 'docs/research/HYP-105-ORIGINAL-FOUR-BLOCKER-CUBIC-REFEREE.md'
+      - 'research/hyp105_original_four_blocker_cubic_referee.py'
+      - 'research/test_hyp105_original_four_blocker_cubic_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-R5-four-mask-source-cubic-independent-review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify all-original triples against independently reconstructed actual physical cores
+        run: python -m unittest discover -s research -p 'test_hyp105_original_four_blocker_cubic_referee.py' -v
