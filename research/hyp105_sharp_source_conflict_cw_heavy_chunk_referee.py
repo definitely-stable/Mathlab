@@ -43,12 +43,9 @@ def true_original_source_book_symbolic(s):
     N=(s+1)*V
     a=minimum_original_alphabet(V)
     Cs=(s*s+1)*(s*s+a-2)
-    # 1.5s sqrt(s) need no floating point at all:
-    # a <= ceil(3*s*sqrt(s)/2) <= (97/64)s sqrt(s).
-    # Certificate first inequality via exact squaring of bounds:
-    if (2*a-2)**2>9*s**3+4*(2*a-2):
-        # Not used as proof; verify with exact rational square separately below.
-        pass
+    # Analytic upper from #690:
+    # a <= ceil(3*s*sqrt(s)/2) <= (97/64)*s*sqrt(s).
+    # Check final envelope by exact integer squaring; no float sqrt.
     # Bound a <= 97*s*sqrt(s)/64 iff (64*a)^2<=97²*s³.
     if (64*a)**2>97**2*s**3:
         raise AssertionError("minimal alphabet prior #690 envelope violated")
