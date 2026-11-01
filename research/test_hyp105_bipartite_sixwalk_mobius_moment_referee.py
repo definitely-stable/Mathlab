@@ -145,7 +145,19 @@ class ExactBipartiteOriginalSixWalkMobius(unittest.TestCase):
         self.assertEqual(protected["actual_physical_edges"],32)
         out=self.assert_independent(protected["rows"],protected["nright"],True)
         self.assertEqual(out["actual_unoriented_simple_C6"],96)
-        self.assertEqual(out["trA6_by_two_independent_bipartite_parities"],2*4**6*2)
+        # REAL protected W34 consists of one K4,4 (16 edges)
+        # PLUS 16 disjoint K2 edges from the opposite source diagonal
+        # parity sector -- NOT TWO copies of K4,4.
+        left_degree=[row.bit_count() for row in protected["rows"]]
+        right_degree=[sum((row>>j)&1 for row in protected["rows"])
+                      for j in range(protected["nright"])]
+        from collections import Counter
+        self.assertEqual(Counter(left_degree+right_degree),
+                         Counter({4:8,1:32}))
+        self.assertEqual(out["trA4_by_two_independent_bipartite_parities"],
+                         2*4**4+2*16)
+        self.assertEqual(out["trA6_by_two_independent_bipartite_parities"],
+                         2*4**6+2*16)
 
     def test_invalid_graph_bitsets_and_original_source_fail_closed(self):
         for rows,nright in (([0b10000],4),([True],4),
