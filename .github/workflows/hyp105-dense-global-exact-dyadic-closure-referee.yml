@@ -1,0 +1,26 @@
+name: hyp105-dense-global-exact-dyadic-closure-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-dense-global-exact-dyadic-closure-referee.yml'
+      - 'docs/research/HYP-105-DENSE-GLOBAL-EXACT-DYADIC-CLOSURE-REFEREE.md'
+      - 'research/hyp105_dense_global_exact_dyadic_closure_referee.py'
+      - 'research/test_hyp105_dense_global_exact_dyadic_closure_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-true-original-branch-root-joint-ledger:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Conditional all-h exact-dyadic branch gate and true-original W32/W34 seven-population source/physical path mass
+        run: python -m unittest discover -s research -p 'test_hyp105_dense_global_exact_dyadic_closure_referee.py' -v
