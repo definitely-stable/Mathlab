@@ -1,0 +1,26 @@
+name: hyp105-bipartite-sixwalk-mobius-moment-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-bipartite-sixwalk-mobius-moment-referee.yml'
+      - 'docs/research/HYP-105-BIPARTITE-SIXWALK-MOBIUS-MOMENT-REFEREE.md'
+      - 'research/hyp105_bipartite_sixwalk_mobius_moment_referee.py'
+      - 'research/test_hyp105_bipartite_sixwalk_mobius_moment_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-bipartite-sixwalk-mobius:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact sixwalk versus ordinary sixcycle signed Möbius identity, all labeled 3x4 and 4x4 graphs, true original W32/W34 source cuts
+        run: python -m unittest discover -s research -p 'test_hyp105_bipartite_sixwalk_mobius_moment_referee.py' -v
