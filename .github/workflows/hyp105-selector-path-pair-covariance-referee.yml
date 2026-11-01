@@ -1,0 +1,26 @@
+name: hyp105-selector-path-pair-covariance-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-selector-path-pair-covariance-referee.yml'
+      - 'docs/research/HYP-105-SELECTOR-PATH-PAIR-COVARIANCE-REFEREE.md'
+      - 'research/hyp105_selector_path_pair_covariance_referee.py'
+      - 'research/test_hyp105_selector_path_pair_covariance_referee.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-selector-path-pair-covariance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact priority simplex integral vs all source permutations, typed parity CSP, true W32/W34 original path-pair moment
+        run: python -m unittest discover -s research -p 'test_hyp105_selector_path_pair_covariance_referee.py' -v
