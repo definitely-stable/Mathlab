@@ -29,6 +29,34 @@ def brute_color(edges):
     return Fraction(passed,2**len(vertices))
 
 
+def brute_full_joint_source_and_both_colorings(graph,flags,f,g,P,Q):
+    """Completely separate END-TO-END direct priority-and-two-color oracle.
+
+    Enumerates all n! ORIGINAL source priority orders and all 2^(L+R)
+    typed physical bit assignments. It never calls the new formula.
+    Only for <=4 source flags and small used physical alphabets.
+    """
+    targets=set(P[1])|set(Q[1])
+    left_symbols=sorted({x for i in targets for x in f[flags[i][0]]})
+    right_symbols=sorted({y for i in targets for y in g[flags[i][1]]})
+    assert len(graph)<=4 and len(left_symbols)+len(right_symbols)<=8
+    total=accepted=0
+    for priority in permutations(tuple(graph)):
+        ranks={v:i for i,v in enumerate(priority)}
+        source_ok=all(all(ranks[t]<ranks[w] for w in graph[t])
+                      for t in targets)
+        for bits in product((0,1),repeat=len(left_symbols)+len(right_symbols)):
+            total+=1
+            if not source_ok:continue
+            lc=dict(zip(left_symbols,bits[:len(left_symbols)]))
+            rc=dict(zip(right_symbols,bits[len(left_symbols):]))
+            if all(lc[f[flags[i][0]][0]]!=lc[f[flags[i][0]][1]] and
+                   rc[g[flags[i][1]][0]]!=rc[g[flags[i][1]][1]]
+                   for i in targets):
+                accepted+=1
+    return Fraction(accepted,total)
+
+
 def finite_labels(h,k=0):
     _,V,_=genuine_source(h)
     a=2
@@ -126,6 +154,38 @@ class ExactPathPairSelector(unittest.TestCase):
         self.assertEqual(moment["exact_variance"],Fraction(9,64))
         self.assertEqual(moment["ordered_positive_covariance_pairs"],4)
         self.assertTrue(moment["jensen_second_moment_valid"])
+
+    def test_independent_end_to_end_all_source_permutations_and_both_typed_cuts(self):
+        odd_flags=((0,0),(1,1),(2,2))
+        odd_f=((0,1),(1,2),(0,2))
+        odd_g=((0,1),(1,2),(2,3))
+        odd_conflict={i:set() for i in range(3)}
+        odd_p=(((0,0),(1,1),(2,2)),(0,1))
+        odd_q=(((1,1),(2,2),(0,3)),(1,2))
+        src_flags=((0,0),(1,1),(0,2),(1,3))
+        src_f=((0,1),(1,2))
+        src_g=((0,1),(1,3),(0,2),(2,3))
+        src_conflict={0:{2},1:{3},2:{0},3:{1}}
+        src_p=(((0,0),(1,1),(2,3)),(0,1))
+        src_q=(((0,0),(1,2),(2,3)),(2,3))
+        pos_flags=((0,0),(1,1),(2,2),(3,3))
+        pos_f=((0,1),(1,3),(0,2),(2,3))
+        pos_conflict={i:set() for i in range(4)}
+        pos_p=(((0,0),(1,1),(3,3)),(0,1))
+        pos_q=(((0,0),(2,2),(3,3)),(2,3))
+        for graph,flags,f,g,P,Q in (
+            (odd_conflict,odd_flags,odd_f,odd_g,odd_p,odd_q),
+            (src_conflict,src_flags,src_f,src_g,src_p,src_q),
+            (pos_conflict,pos_flags,pos_f,pos_f,pos_p,pos_q),
+        ):
+            with self.subTest(flags=flags):
+                observed=brute_full_joint_source_and_both_colorings(
+                    graph,flags,f,g,P,Q)
+                calculated=exact_joint_path_selector_law(
+                    graph,flags,f,g,P,Q)["joint_full_path_probability"]
+                self.assertEqual(observed,calculated)
+        self.assertEqual(brute_full_joint_source_and_both_colorings(
+            pos_conflict,pos_flags,pos_f,pos_f,pos_p,pos_q),Fraction(1,64))
 
     def test_strict_shared_source_neighborhood_positive_but_no_path_assumption(self):
         graph={0:{2},1:{2},2:{0,1}}
