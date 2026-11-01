@@ -61,7 +61,7 @@ CLAIMS = (
           ("collinearity", "full/core", "original"), ("ENDPOINT","CORE","WALK6")),
     Claim("BBO", "CORE_PATH_TO_ORIGINAL_SIXSET",
           "docs/research/HYP-105-BBO-ORIGINAL-CORE-CUBIC-POLYNOMIAL-REFEREE.md",
-          ("cubic", "nonanchor", "anchor"), ("ENDPOINT","BLOCKER","GQ")),
+          ("cubic", "non-anchor", "anchor"), ("ENDPOINT","BLOCKER","GQ")),
     Claim("ROOT", "ALL_DYADIC_FIXED_MAPS",
           "docs/research/HYP-105-ORIGINAL-SELECTOR-SIXWALK-JOINT-ROOT-GATE.md",
           ("dyadic", "jensen", "graph"), ("TAIL","CORE","D6","SELECTOR",
