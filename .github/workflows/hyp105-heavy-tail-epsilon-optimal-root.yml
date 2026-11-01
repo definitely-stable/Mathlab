@@ -1,0 +1,26 @@
+name: hyp105-heavy-tail-epsilon-optimal-root
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-heavy-tail-epsilon-optimal-root.yml'
+      - 'docs/research/HYP-105-HEAVY-TAIL-EPSILON-OPTIMAL-ROOT.md'
+      - 'research/hyp105_heavy_tail_epsilon_optimal_root.py'
+      - 'research/test_hyp105_heavy_tail_epsilon_optimal_root.py'
+      - 'research/hyp105_full_physical_degree_tail.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-gq-optimal-heavy-epsilon-proof:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact 13-over-32 core budget and new symbolic h0; independent genuine W32/W34 source pruning
+        run: python -m unittest discover -s research -p 'test_hyp105_heavy_tail_epsilon_optimal_root.py' -v
