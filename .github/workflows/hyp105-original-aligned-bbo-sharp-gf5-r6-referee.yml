@@ -1,0 +1,27 @@
+name: hyp105-original-aligned-bbo-sharp-gf5-r6-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-original-aligned-bbo-sharp-gf5-r6-referee.yml'
+      - 'docs/research/HYP-105-ORIGINAL-ALIGNED-BBO-SHARP-GF5-R6-REFEREE.md'
+      - 'research/hyp105_original_aligned_bbo_gf5_fourier_referee.py'
+      - 'research/test_hyp105_original_aligned_bbo_gf5_fourier_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-real-original-R6-alignment-and-GF5-third-oracle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prove exact original BBo 0/2 fiber and all 90 GF5 Fourier signed events
+        run: python -m unittest discover -s research -p 'test_hyp105_original_aligned_bbo_gf5_fourier_referee.py' -v
+      - name: Emit exact true W32/W34 aligned-versus-unaligned coefficient census
+        run: python research/hyp105_original_aligned_bbo_gf5_fourier_referee.py
