@@ -229,6 +229,127 @@ f,g, candidate costs, actual local
 changes and independent full 12.7m
 physical GF5 audit proof provenance.
 
+## 5A. Verified actual full W34 original-source DIRECT R3 improvements
+
+The GitHub-hosted genuine W34 independent 3-job
+[run #41608653224](https://github.com/definitely-stable/Mathlab/actions/runs/41608653224)
+completed **SUCCESS** for BOTH real 425-original-flag
+`lex` and `reverse-line` optimizations plus the
+mathematically independent 51/51 source-palette
+GF5 small-source reference test.
+
+Every W34 run began with the exact same full
+original 425-ID ordered GF5 coefficient array
+committed by frozen #714 (not a new
+uncontrolled seed or re-labelled physical f,g).
+At each selection round it independently
+recounted ALL 86/96 genuine six-DISTINCT-
+original-ID signed events, evaluated the
+four highest-participation original flag
+IDs against ALL 51 legal GF5 coefficient
+patterns, chose a real strict signed R3
+improvement with non-increasing R2,
+and re-ran a COMPLETE independent
+12,704,100-triple 28D GF5 external
+source audit AFTER EACH accepted source edit.
+
+| Real W34 fixed f,g | D2 before → after | D3 before → after | Genuine six-distinct-ID R3 before → after | Real ORIGINAL source IDs edited |
+|---|---:|---:|---:|---|
+| lex | **1 → 1** | **507 → 497** | **86 → 76** | **28 (21→3), 38 (30→7)** |
+| reverse-line | **0 → 0** | **96 → 83** | **96 → 83** | **135 (21→13), 175 (33→4)** |
+
+The first lex edit removes exactly 5 real
+3+3 signed events; its second removes another
+5. The first reverse-line edit removes
+exactly 7; its second another 6.
+In both W34 models the two complete
+source assignments preserve the SAME
+physically injected point/line pair maps,
+all 425 source IDs, every original
+four-coordinate physical support and
+the legal nonzero checksum4 palette.
+
+Crucially, unlike the previous raw D3
+optimisation, these are independently
+confirmed strict improvements in
+the **ACTUAL six-distinct-original-flag R3**.
+Their R2 guardrails are fulfilled exactly:
+lex retains ONE genuine 2+2 signed
+event; reverse-line retains ZERO.
+
+The exact SOURCE coefficients, all 425
+original flag ID ordered palette indices
+for both schemes, two consecutive
+strictly improving source changes,
+all eight evaluated original source
+hotspots per model, each accepted
+source change's ENTIRE 51-way
+`(ΔD2,ΔD3,ΔR3)` table,
+and exact full external proof witness
+counts are permanently committed in
+
+`research/hyp105_w34_direct_r3_repaired_source_certificates.json`.
+
+A NEW independently written STATIC
+certificate test reads that file,
+rebuilds both actual complete W34
+symplectic source models,
+confirms exactly those two source IDs
+changed on each side relative to
+the FROZEN #714 source,
+checks all 425 GF5 columns are legal,
+recounts all 90,100 true original
+two-subset sums and then performs
+a FRESH complete external 12.7-million
+triple GF5 audit on the saved final
+425-source-ID arrays. The full
+original signed risk MUST exactly
+match `(D2,D3,R3)=(1,497,76)`
+and `(0,83,83)` respectively.
+
+**Scientific STOP:** even though both
+full deterministic signed R3 risks
+strictly decreased and reverse-line
+retained R2=0, neither result has
+R3=0. Thus neither creates an ASET
+of all 425 ORIGINAL columns,
+and no lower-bound or nonexistence
+statement follows from a two-round,
+four-hotspot finite search.
+
+**Proposed next scientifically
+meaningful direction:** extend
+verified direct-R3 source-local
+descent beyond two improvements,
+possibly with deterministic
+multi-source escape from local
+minima, while keeping every
+full-28D fixed-source risk proof
+and explicit R2 constraint.
+A uniform positive-power all-h
+mathematical result is still
+the true unsolved root #230 target.
+
+### CI governance collateral fix
+
+The previously frozen #714 full Research
+was blocked by UCT-005's textual
+conditional-hardness inventory treating
+the incidental phrase `equal-3sum`
+as a reference to the unrelated
+complexity-theoretic 3SUM conjecture.
+This scientific Draft corrects that
+inherited single document phrase
+to `equal three-source subset sums`
+**only on this child branch**.
+It changes neither the UCT-005
+security/hardness dependency audit
+nor its approved source manifest.
+Root/parent governance is untouched.
+The Research CI must still pass
+on this child HEAD before claiming
+whole-repository acceptance.
+
 ## 6. Limits, blockers and next allowed mathematics
 
 A strict finite R3 improvement is
