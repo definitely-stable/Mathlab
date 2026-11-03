@@ -3,7 +3,6 @@
   "source_provenance": "dedicated GitHub Actions 41597511084 full third-GF5-oracle + direct/parity W32 sevenclass census",
   "selected_family_only": true,
   "not_full_R3": true,
-  "claims_no_ASET_exponent": false,
   "certificates": {
     "lex": {
       "scheme": "lex",
@@ -117,5 +116,6 @@
       ],
       "exact_direct_signed_events": 0
     }
-  }
+  },
+  "new_ASET_exponent_proved": false
 }
