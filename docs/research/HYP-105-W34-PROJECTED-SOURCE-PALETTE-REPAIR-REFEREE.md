@@ -176,6 +176,111 @@ predicted values exactly. No partial
 census or unverified local-risk value
 is ever promoted to final proof.
 
+## 4A. Actual hosted complete W34 R2-first source repair outcomes
+
+Hosted dedicated [first repair CI #41606244186](https://github.com/definitely-stable/Mathlab/actions/runs/41606244186)
+completed ALL THREE GitHub-hosted jobs SUCCESS: independent
+51-by-51 exhaustive real W32 source projection test,
+full true W34 lex source repair, full true W34 reverse-line
+source repair. Each repaired global source assignment was
+rechecked against an ENTIRE fresh 12,704,100-original-triple
+GF5^28 external disk census, including true source
+intersection correction and independent full R2.
+
+| Fixed REAL original W34 scheme | D2 before → after | D3 before → after | TRUE full R3det before → after | edited ORIGINAL flag IDs |
+|---|---:|---:|---:|---|
+| lex | **3 → 1** | **1,349 → 507** | **86 → 86** | **45, 143** |
+| reverse-line | **1 → 0** | **517 → 96** | **96 → 96** | **184** |
+
+Every edited original flag retains exactly the
+same four physical coordinates, original
+point/line factor ownership and global
+source ID. Only its source-wide legal GF5
+checksum-4 coefficient palette is changed;
+all other source IDs retain the original
+domain-separated SHA256 seed0 assignment.
+
+For lex, the exact original source changes
+were ID 45: palette **38→3**, then
+ID 143: palette **35→2**, each
+removing one actual original 2+2 event.
+For reverse-line, ID 184: palette **18→8**,
+removing its sole original 2+2 event.
+
+**Important independent mathematical observation:**
+each eliminated true R2 event removes exactly
+`N-4=421` overlapping equal-triple pairs,
+and NO six-distinct-original-ID 3+3 event
+in these particular experiments.
+Indeed the exact all-N identity gives
+
+\[
+(1349-507)=421(3-1)+86-86=842,
+\]
+
+\[
+(517-96)=421(1-0)+96-96=421.
+\]
+
+This is a CONCRETE counterexample to the
+tempting inference that a substantial
+decrease in D3 is itself progress
+on the actual six-distinct-ID R3.
+The algorithm correctly claims
+only the quantity it optimizes.
+
+The **complete reproducible exact scientific evidence**
+was emitted by the hosted full source workers
+and permanently committed to
+`research/hyp105_w34_r2first_repaired_source_certificates.json`:
+both 425-source-ID ordered legal GF5 palette arrays,
+all actually edited ORIGINAL source IDs,
+the entire 51-candidate projected cross score
+on each edit, full D2/D3/R3 before/after,
+and true 28-coordinate physical GF5
+signed witnesses. Independent tests parse
+the committed STATIC artifact, reconstruct
+both true source maps and original 425 flags,
+check that ONLY the stated 2/1 original
+source ID coefficient variables changed,
+recompute the exact R2 from all 90,100
+actual two-flag sums, enforce both 421
+overlap-correction equalities, and directly
+verify each final real W34 six-original-flag
+28D signed collision witness.
+
+**The correct NEXT mathematical target is a
+direct R3 objective**, not blind D3 descent.
+The same exact two-point support projection
+method can also obtain, for EACH of the
+51 palettes, the change `ΔD2(t)`
+from comparing affected source pairs
+`{i,j}` against unaffected pairs
+`{k,l}`. There are only 424
+affected one-other-original-source
+choices and 89,676 unaffected pairs,
+so its exact computation is smaller
+than the 12.6m-triple D3 projection.
+
+Then by the independently established
+all-N identity, for EVERY palette t
+
+\[
+\boxed{
+ΔR3_{det}(t)=ΔD3(t)-421\,ΔD2(t).
+}
+\]
+
+Thus future source repair can CHOOSE A
+PALETTE TO MINIMIZE ACTUAL FULL R3,
+and impose D2=0 or nonincrease as a
+separate hard guardrail. This can be
+tested for every source candidate using
+the all-51 exact projection histogram
+rather than 51 full external risk scans.
+No such direct-R3 repair is silently
+claimed as implemented in this slice.
+
 ## 5. What counts as success, and scientific STOP
 
 A certified D3 decrease for either real W34 source scheme
