@@ -17,7 +17,7 @@ from hyp105_w32_complete_r3_triple_sum_referee import (
     committed_sevenclass_indices,_sums_by_cardinality,
 )
 from hyp105_w34_external_triple_r3_referee import (
-    exact_gf5_original_vectors,
+    exact_gf5_original_vectors,exact_full_original_external_r3,
 )
 from hyp105_w34_projected_source_palette_repair_referee import (
     _two_sum_collision_source_pairs,
@@ -122,6 +122,85 @@ class DirectFullR3GF5Original51PaletteTests(unittest.TestCase):
                         "all_51_legal_source_D2_cross_counts"][t]-pair_score[
                             "current_exact_D2_cross_count"]
                     self.assertEqual(direct,predicted)
+
+    def test_committed_true_W34_425_original_direct_R3_source_certificates(self):
+        # Exact hosted run arrays are COMMITTED as immutable scientific
+        # witnesses, not merely reconstructed from the 2-round selector.
+        # Independently rerun the full 12,704,100 original triple external
+        # 28D GF5 audit on BOTH saved complete source assignments.
+        c=json.loads(Path(__file__).with_name(
+            "hyp105_w34_direct_r3_repaired_source_certificates.json"
+        ).read_text(encoding="utf-8"))
+        self.assertTrue(c["source_geometry_unchanged"])
+        self.assertTrue(c["all_425_original_flag_IDs_maintained"])
+        self.assertFalse(c["new_asymptotic_ASET_exponent_proved"])
+        self.assertEqual(c["hosted_full_source_GitHub_run_id"],41608653224)
+        self.assertEqual(set(c["schemes"]),{"lex","reverse-line"})
+        wanted={
+            "lex":{"initial":(1,507,86),"final":(1,497,76),
+                   "edits":((28,21,3),(38,30,7))},
+            "reverse-line":{"initial":(0,96,96),"final":(0,83,83),
+                            "edits":((135,21,13),(175,33,4))},
+        }
+        for scheme,z in c["schemes"].items():
+            with self.subTest(scheme=scheme):
+                w=wanted[scheme]
+                model=self.w34[scheme]
+                indices=tuple(z["repaired_all_original_425_palettes"])
+                previous=tuple(self.prior["schemes"][scheme][
+                    "all_425_ORIGINAL_flag_palette_indices"])
+                self.assertEqual(z["all_original_425_flag_count"],425)
+                self.assertEqual(len(indices),425)
+                self.assertEqual(tuple(z[
+                    "exact_source_baseline_D2_D3_TRUE_R3"]),w["initial"])
+                self.assertEqual(tuple(z[
+                    "final_exact_original_R2_D3_R3"]),w["final"])
+                self.assertEqual(z["changed_original_source_flag_count"],2)
+                changes=tuple(
+                    (step["source_ID"],step["old_original_palette"],
+                     step["new_original_palette"])
+                    for step in z["accepted_changes"])
+                self.assertEqual(changes,w["edits"])
+                self.assertEqual(
+                    {i for i,(a,b) in enumerate(zip(previous,indices)) if a!=b},
+                    {step[0] for step in w["edits"]})
+                self.assertTrue(z["source_original_pair_maps_unchanged"])
+                self.assertTrue(z[
+                    "all_accepted_steps_independently_12704100_rechecked"])
+                self.assertEqual(len(z["candidate_source_audit"]),8)
+                for step in z["accepted_changes"]:
+                    initial=step["before_D2_D3_true_R3"]
+                    after=step["after_exact_D2_D3_true_R3"]
+                    self.assertGreater(initial[2],after[2])
+                    self.assertLessEqual(after[0],initial[0])
+                    self.assertEqual(
+                        step["true_R3_drop"],initial[2]-after[2])
+                    self.assertTrue(step[
+                        "fresh_full_true_ORIGINAL_12_704_100_triples_verified"])
+                    self.assertEqual(len(step[
+                        "all_51_exact_candidate_delta_D2_D3_TRUE_R3"]),51)
+                source_ids,vectors=exact_gf5_original_vectors(model,indices)
+                self.assertEqual(len(set(source_ids)),425)
+                self.assertEqual(len(set(vectors)),425)
+                self.assertTrue(all(sum(v)%5==4 and
+                    sum(bool(a) for a in v)==4 for v in vectors))
+                self.assertEqual(len(_two_sum_collision_source_pairs(
+                    model,indices)),w["final"][0])
+                # New clean source-to-physical external census, independent
+                # of the 51-way projected source-derivative selector.
+                fresh=exact_full_original_external_r3(
+                    model,indices,max_triples=12704100,max_witnesses=8)
+                self.assertEqual((
+                    fresh["R2_signed_2v2_events_exact"],
+                    fresh["equal_sum_pairs_of_distinct_ORIGINAL_triples"],
+                    fresh["FULL_six_distinct_original_ID_3v3_signed_event_count"]),
+                    w["final"])
+                self.assertEqual(
+                    fresh["all_triples_exact_external_disk_records_processed"],
+                    12704100)
+                self.assertTrue(fresh[
+                    "independent_original_R2_to_R3_overlap_identity_verified"])
+                self.assertFalse(fresh["complete_source_GF5_zero_to_three_ASET"])
 
     def test_genuine_source_input_budget_rejection_and_no_false_optimism(self):
         model=self.w34["lex"]
