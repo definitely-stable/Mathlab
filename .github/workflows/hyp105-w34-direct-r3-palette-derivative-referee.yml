@@ -1,0 +1,49 @@
+name: hyp105-w34-direct-r3-palette-derivative-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-w34-direct-r3-palette-derivative-referee.yml'
+      - 'docs/research/HYP-105-W34-DIRECT-R3-PALETTE-DERIVATIVE-REFEREE.md'
+      - 'research/hyp105_w34_direct_r3_palette_derivative_referee.py'
+      - 'research/test_hyp105_w34_direct_r3_palette_derivative_referee.py'
+      - 'research/hyp105_w34_direct_r3_repaired_source_certificates.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-51-palette-W32-full-GF5-R2-R3-derivative:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All-51 REAL W32 GF5 source ΔD2, ΔD3, ΔR3 independently verified by fresh full exact sums
+        run: python -m unittest discover -s research -p 'test_hyp105_w34_direct_r3_palette_derivative_referee.py' -v
+
+  genuine-W34-strict-direct-R3-local-source-descent:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse-line]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check genuine full 12.7-million-original-triple scratch disk capacity
+        run: df -h .
+      - name: Independently discover ALL actual signed R3 source hotspots, optimize exact 51 source palettes, fully audit after EACH edit
+        run: |
+          python research/hyp105_w34_direct_r3_palette_derivative_referee.py --scheme ${{ matrix.scheme }} --candidates 4 --updates 2 | tee w34-direct-r3-${{ matrix.scheme }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-W34-exact-direct-R3-derivative-${{ matrix.scheme }}
+          path: w34-direct-r3-${{ matrix.scheme }}.json
+          retention-days: 30
