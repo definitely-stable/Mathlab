@@ -55,7 +55,7 @@ Therefore for any two choices t,u from the same legal 51-palette,
 This is an EXACT global-objective identity, not a local heuristic,
 random score, or a proxy for R3. In particular choosing a palette
 with a strictly smaller true cross-collision count strictly
-decreases the FULL equal-3sum collision count D3.
+decreases the FULL count D3 of equal three-source subset sums.
 
 **Mathematical limitation:** minimizing D3 is a legitimate
 sufficient direction for full 0..3 ASET; if D3 becomes zero,
