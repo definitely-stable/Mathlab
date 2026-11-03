@@ -1,0 +1,34 @@
+name: hyp105-w32-complete-r3-triple-sum-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-w32-complete-r3-triple-sum-referee.yml'
+      - 'docs/research/HYP-105-W32-COMPLETE-R3-TRIPLE-SUM-REFEREE.md'
+      - 'research/hyp105_w32_complete_r3_triple_sum_referee.py'
+      - 'research/test_hyp105_w32_complete_r3_triple_sum_referee.py'
+      - 'research/hyp105_w32_exact_triple_sum_local_repair_referee.py'
+      - 'research/test_hyp105_w32_exact_triple_sum_local_repair_referee.py'
+      - 'research/hyp105_w32_full_r3_original_45flag_certificates.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  all-original-source-full-GF5-R3-triple-hash:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact full original W32 3-vs-3 census and independent 12-ID brute spot checks
+        run: python -m unittest discover -s research -p 'test_hyp105_w32_complete_r3_triple_sum_referee.py' -v
+      - name: Verify exact 51-palette localized FULL R3 monotone repair of same source maps
+        run: python -m unittest discover -s research -p 'test_hyp105_w32_exact_triple_sum_local_repair_referee.py' -v
+      - name: Emit exact original 45-flag full triple-sum repair certificates
+        run: python research/hyp105_w32_exact_triple_sum_local_repair_referee.py
+      - name: Report full actual ORIGINAL 45-flag collision profile vs selected seven leading families
+        run: python research/hyp105_w32_complete_r3_triple_sum_referee.py
