@@ -153,6 +153,90 @@ class ExactOriginalW34RadixReferee(unittest.TestCase):
                 self.assertEqual(ext["all_source_sixsets_implicitly_covered"],
                                  math.comb(10,6))
 
+    def test_allN_exact_R2_to_R3_shared_triple_identity_on_genuine_source(self):
+        # For distinct full original columns:
+        # equal triple pairs = genuine R3 + (N-4)*genuine R2.
+        # This is a completely separate source-2sum census: it
+        # crosschecks the duplicate-pair IE correction on real data.
+        for scheme,m in self.w32.items():
+            source=committed_sevenclass_indices()[scheme]
+            z=exact_full_original_external_r3(
+                m,source,max_triples=14190,
+                max_bucket_bytes=2_000_000)
+            self.assertTrue(z[
+                "independent_original_R2_to_R3_overlap_identity_verified"])
+            self.assertEqual(
+                z["equal_sum_pairs_of_distinct_ORIGINAL_triples"],
+                z["FULL_six_distinct_original_ID_3v3_signed_event_count"]+
+                41*z["R2_signed_2v2_events_exact"])
+        saved=json.loads(Path(__file__).with_name(
+            "hyp105_w34_full_425flag_r3_seed0_certificates.json"
+        ).read_text(encoding="utf-8"))
+        self.assertEqual(saved["source_ORIGINAL_flag_count"],425)
+        self.assertEqual(saved["true_original_triple_count"],12704100)
+        self.assertEqual(saved["external_lossless_bytes"],152449200)
+        self.assertFalse(saved["new_asymptotic_exponent_proved"])
+        self.assertEqual(set(saved["schemes"]),{"lex","reverse-line"})
+        expected={"lex":(86,3,1349,1263),"reverse-line":(96,1,517,421)}
+        for scheme in expected:
+            with self.subTest(scheme=scheme):
+                R=saved["schemes"][scheme]["exact_complete_source_risk"]
+                actual=(R["FULL_six_distinct_original_ID_3v3_signed_event_count"],
+                        R["all_original_1_2_source_sum_checks"][
+                            "two_source_sum_collisions"],
+                        R["equal_sum_pairs_of_distinct_ORIGINAL_triples"],
+                        R["equal_triples_sharing_original_ID_not_signed_R3"])
+                self.assertEqual(actual,expected[scheme])
+                self.assertEqual(actual[2],actual[0]+421*actual[1])
+                self.assertEqual(actual[3],421*actual[1])
+                self.assertEqual(R["peak_one_sorted_external_bucket_bytes"]<1_000_000,True)
+                self.assertFalse(R["complete_source_GF5_zero_to_three_ASET"])
+                self.assertTrue(R["all_425_original_flags_in_scope"])
+                self.assertEqual(R["all_source_triple_count"],12704100)
+                self.assertEqual(R["all_triples_exact_external_disk_records_processed"],
+                                 12704100)
+
+    def test_saved_real_W34_signed_witnesses_independently_satisfy_all_28_equations(self):
+        stored=json.loads(Path(__file__).with_name(
+            "hyp105_w34_full_425flag_r3_seed0_certificates.json"
+        ).read_text(encoding="utf-8"))
+        for scheme in ("lex","reverse-line"):
+            with self.subTest(scheme=scheme):
+                model=pair_labeled_symplectic(2,scheme)
+                idx=deterministic_original_checksum_palettes(model,seed=0)
+                ids,v=exact_gf5_original_vectors(model,idx)
+                self.assertEqual(len(ids),425)
+                samples=stored["schemes"][scheme][
+                    "exact_complete_source_risk"][
+                    "verified_independent_true_source_witnesses"]
+                self.assertEqual(len(samples),8)
+                for witness in samples:
+                    pos=tuple(witness["positive_ORIGINAL_three"])
+                    neg=tuple(witness["negative_ORIGINAL_three"])
+                    six=tuple(witness["six_distinct_ORIGINAL_flag_IDs"])
+                    self.assertEqual(tuple(sorted(pos+neg)),six)
+                    self.assertEqual(len(set(six)),6)
+                    self.assertEqual(
+                        tuple(model["incidences"][z] for z in six),
+                        tuple(tuple(x) for x in witness[
+                            "actual_original_point_line_incidence_flags"]))
+                    a=tuple(sum(v[z][k] for z in pos)%5 for k in range(28))
+                    b=tuple(sum(v[z][k] for z in neg)%5 for k in range(28))
+                    self.assertEqual(a,b)
+                    self.assertEqual(a,tuple(witness[
+                        "complete_GF5_physical_sum"]))
+                    profiles=[]
+                    for side,labels in ((0,model["left_labels"]),
+                                        (1,model["right_labels"])):
+                        degree=Counter(q for z in six
+                                     for q in labels[model["incidences"][z][side]])
+                        profiles.append(tuple(sorted(degree.values(),reverse=True)))
+                    self.assertEqual(tuple(profiles),tuple(
+                        tuple(x) for x in witness[
+                        "two_original_physical_coordinate_profiles"]))
+                    self.assertNotIn(1,profiles[0])
+                    self.assertNotIn(1,profiles[1])
+
     def test_fail_closed_w34_and_never_return_partial_exact_risk(self):
         m=self.w34
         idx=deterministic_original_checksum_palettes(m)
