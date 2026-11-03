@@ -1,0 +1,108 @@
+name: hyp105-w34-rebased-active-oneexchange-audit
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-w34-rebased-active-oneexchange-audit.yml'
+      - 'docs/research/HYP-105-W34-REBASED-ACTIVE-ONEEXCHANGE-AUDIT.md'
+      - 'research/hyp105_w34_oneexchange_exact.cpp'
+      - 'research/hyp105_w34_rebased_oneexchange_referee.py'
+      - 'research/test_hyp105_w34_rebased_oneexchange_referee.py'
+      - 'research/hyp105_w34_rebased_oneexchange_certificates.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-exact-51-real-W32-vs-Python-full-original-oracles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile native ORIGINAL GF5 source 51-palette checker and compare 102 full W32 physical 1/2/3-sum oracles
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_w34_rebased_oneexchange_referee.py' -v
+
+  prepare-complete-real-W34-original-R3-witness-incidence-inputs:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently enumerate EVERY current true W34 original 3v3 signed event, prove all active IDs and freeze full 425-source input SHA256
+        run: |
+          python research/hyp105_w34_rebased_oneexchange_referee.py --prepare inputs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: w34-rebased-oneexchange-complete-original-inputs
+          path: inputs/
+          retention-days: 30
+          if-no-files-found: error
+
+  exhaustive-source-active-51-palette-matrix:
+    needs:
+      - prepare-complete-real-W34-original-R3-witness-incidence-inputs
+    runs-on: ubuntu-24.04
+    timeout-minutes: 70
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        scheme: [lex, reverse-line]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: w34-rebased-oneexchange-complete-original-inputs
+          path: inputs
+      - name: Compile optimized deterministic exact GF5 original C++ source oracle
+        run: |
+          g++ -O3 -std=c++17 -Wall -Wextra -pedantic research/hyp105_w34_oneexchange_exact.cpp -o /tmp/hyp105-w34-oneexchange-exact
+      - name: Independently evaluate ALL 51 physical GF5 palettes for EACH assigned genuine active ORIGINAL source ID
+        run: |
+          mkdir -p shards
+          /tmp/hyp105-w34-oneexchange-exact "inputs/${{ matrix.scheme }}.txt" ${{ matrix.shard }} 8 "shards/${{ matrix.scheme }}-${{ matrix.shard }}.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: w34-rebased-oneexchange-shard-${{ matrix.scheme }}-${{ matrix.shard }}
+          path: shards/
+          retention-days: 30
+          if-no-files-found: error
+
+  independent-all-active-aggregate-and-full-28D-GF5-source-audit:
+    needs:
+      - independent-exact-51-real-W32-vs-Python-full-original-oracles
+      - prepare-complete-real-W34-original-R3-witness-incidence-inputs
+      - exhaustive-source-active-51-palette-matrix
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: w34-rebased-oneexchange-complete-original-inputs
+          path: inputs
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: w34-rebased-oneexchange-shard-*
+          merge-multiple: true
+          path: shards
+      - name: Verify all 425-source active degrees, complete eight shards per map and every 51 candidate; rehash entire 12,704,100 original triple GF5 space after best strict edit
+        run: |
+          python research/hyp105_w34_rebased_oneexchange_referee.py --inputs inputs --shards shards --aggregate artifacts/hyp105_w34_all_active_oneexchange_certificates.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-w34-rebased-oneexchange-certificate
+          path: artifacts/hyp105_w34_all_active_oneexchange_certificates.json
+          retention-days: 30
+          if-no-files-found: error
