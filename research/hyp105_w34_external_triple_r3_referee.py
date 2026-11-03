@@ -413,4 +413,12 @@ def report_w34_exact(*,schemes=("lex",),seed=0):
 
 
 if __name__=="__main__":
-    print(json.dumps(report_w34_exact(),sort_keys=True,indent=2))
+    import argparse
+    parser=argparse.ArgumentParser(
+        description="EXACT full true original W34 GF5 3v3 on one fixed map")
+    parser.add_argument("--scheme",choices=("lex","reverse-line"),
+                        default="lex")
+    parser.add_argument("--seed",type=int,default=0)
+    args=parser.parse_args()
+    print(json.dumps(report_w34_exact(schemes=(args.scheme,),seed=args.seed),
+                     sort_keys=True,indent=2))
