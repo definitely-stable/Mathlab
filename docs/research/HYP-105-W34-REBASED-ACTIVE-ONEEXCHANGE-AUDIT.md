@@ -205,6 +205,169 @@ real W32 all-51 physical GF5
 falsification cases, which are different
 from the source-local optimized C++ costs.
 
+## 4A. ACTUAL second complete true W34 one-exchange experiment
+
+The initial dedicated GitHub-hosted
+[scientific Actions #41719425649](https://github.com/definitely-stable/Mathlab/actions/runs/41719425649)
+completed **SUCCESS** including original W34 source-input
+preparation, 16 out of 16 deterministic
+independent source-palette search shards,
+the independent 102-case W32 physics falsifier,
+and the mandatory complete signed-GF5
+aggregator.
+
+All starting true original W34 source assignments
+are the EXACT 425-ID **AFTER** source arrays
+committed in frozen #717, not their obsolete
+pre-edit counterparts. The independent full
+12,704,100-original-triple 28D GF5 census
+recounted the 58/65 true signed six-ID
+events and established entirely NEW
+source activity degrees:
+
+| Real original W34 fixed complete f,g | lex | reverse-line |
+|---|---:|---:|
+| Genuine prior full source R2 | 1 | 0 |
+| Prior original six-distinct-ID R3 | 58 | 65 |
+| NEW active source ID count | **239** | **263** |
+| NEW strictly inactive/prunable original IDs | 186 | 162 |
+| NEW six-source signed event degree sum | **348** | **390** |
+| Genuine 51-palette candidate evaluations | **12,189** | **13,413** |
+| All active source IDs with a strict R2-guarded R3 improvement | **239** | **263** |
+| Best legal single-source true R3 reduction | −4 | −4 |
+| ORIGINAL flag ID chosen | **276** | **285** |
+| Current legal 51-checksum4 palette index changed | **6→0** | **50→3** |
+| Original full source R2 after new edit | 1 | 0 |
+| Original full equal-three-source count D3 | **475** | **61** |
+| Original full TRUE signed six-ID R3 | **54** | **61** |
+
+All **502 currently active ORIGINAL source IDs** were
+exhaustively evaluated for **ALL 51 legal GF5
+coefficient choices**: **25,602 genuine exact options**
+in total. All 425−239=186 lex
+and all 425−263=162 reverse-line
+inactive source IDs are excluded
+ONLY by the proved zero-current-incidence
+pruning theorem, not a heuristic cutoff.
+
+An independently determined sharp distribution
+of the strict R2-safe maximum R3 drop obtainable
+by the best one-source palette for EACH active ID:
+
+| Maximum strict true R3 decrease for one real active source ID | lex count | reverse-line count |
+|---|---:|---:|
+| 1 | 160 | 167 |
+| 2 | 54 | 70 |
+| 3 | 20 | 21 |
+| 4 | 5 | 5 |
+| All real active source IDs | **239** | **263** |
+
+The hard no-increase-R2 constraint rejects
+147 lex and 174 reverse-line local
+source-palette candidates. The chosen
+full 425-original-flag source assignments
+keep source point/line factor mappings
+f,g unchanged; **ONLY one globally
+shared ORIGINAL source flag coefficient
+changes per fixed original map**.
+The selected source edits were independently
+checked by rebuilding all 425 physical
+GF5 source columns, rehashing ALL 90,100
+true pair sums and independently scanning
+ALL 12,704,100 three-source subsets with
+the old #713 external exact GF5 auditor.
+All recorded 28D actual six-ID balanced
+source witnesses were verified.
+
+**Finite conclusion:** EVERY ONE of
+the 239/263 currently active source
+flag IDs still has at least ONE
+strictly improving R2-safe one-flag
+coefficient move. Consequently the
+frozen #717 starting source assignments
+at R3=58/65 are NOT guarded
+one-exchange local minima, just as
+the older #716 assignments were not.
+This is an exact fact about
+these two PARTICULAR full W34
+global source coefficient assignments;
+there is no general all-h theorem
+that arbitrary nonzero assignments
+must behave this way.
+
+### Immutable full scientific source evidence
+
+The [complete first Actions artifact](https://github.com/definitely-stable/Mathlab/actions/runs/41719425649/artifacts/13271373616)
+stores ALL 502 original source IDs' exact
+51-entry physical GF5 projected
+source signed R3/R2 histograms,
+the fresh original source incident
+witness degrees and both exact final
+425-ID coefficient vectors. Its
+complete standalone JSON has
+**1,100,226 bytes** and SHA256
+
+`d90523f53744fb223d336cade3adaa76b5fccc0b6a380839b32f1d546beaea39`.
+
+The compact PERMANENT certificate
+`research/hyp105_w34_rebased_oneexchange_certificates.json`
+pins this full source artifact's
+exact hash and GitHub ID, BOTH
+complete 425-index pre/post
+ORIGINAL GF5 source palette arrays,
+the new SOURCE input SHA256 hashes,
+the full 239/263-source
+R2-guarded improvements histogram,
+the best original source edits
+276:6→0 and 285:50→3,
+and the independently accepted
+full source risks `(1,475,54)`
+and `(0,61,61)`.
+
+An additional NEW static scientific
+test reads BOTH permanently committed
+full original source arrays and
+independently rebuilds the
+actual symplectic W34 factor incidence
+geometry and both physical global
+f,g maps, confirms ONLY the stated
+source IDs changed relative to
+the previous frozen #717 values,
+and FRESHLY recomputes ALL
+12,704,100 true original GF5
+three-subsets and their six-ID
+signed R3 events for EACH map.
+No conclusions rely only on
+the original best-palette
+C++ source-local predictor.
+
+### Exact next scientific target
+
+The strictly monotone true
+signed R3 descent can continue
+on the new full source assignments,
+but their signed-event hypergraphs
+need ANOTHER fresh complete
+independent census. The current
+random-looking finite fact that
+ALL active flags have an improving
+R2-safe palette under fixed
+f,g suggests investigating
+whether an explicit upper bound on
+the average \(H_i(t)\) over the
+51 legal GF5 choices can produce
+a **conditional source-local
+descent certificate**, with
+the no-increase-R2 condition
+treated exactly rather than
+assumed away.
+
+Neither the observed consistent
+four-event best one-source drop
+nor a sequence of strict decreases
+establishes a full 425-column
+ASET or uniform all-h theorem.
+
 ## 5. Scope and hard STOP
 
 The result concerns two chosen fixed
