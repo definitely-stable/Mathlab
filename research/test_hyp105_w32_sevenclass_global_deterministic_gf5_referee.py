@@ -1,6 +1,8 @@
 """Independent actual W32 45-source-ID complete seven leading GF5 parity CSP tests."""
 from collections import Counter
 from fractions import Fraction
+from pathlib import Path
+import json
 import unittest
 
 from hyp105_original_gf5_deterministic_extraction_referee import PALETTES,DENOM
@@ -102,6 +104,32 @@ class W32OriginalSevenFamilyDeterministic(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     check_supplied_full_original_certificate(
                         m,tuple(PALETTES.index((1,1,1,1)) for _ in range(45)))
+
+    def test_committed_complete_45_original_source_certificate_is_independently_valid(self):
+        path=Path(__file__).with_name(
+            "hyp105_w32_sevenclass_original_45flag_certificates.json")
+        payload=json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(payload["selected_family_only"])
+        self.assertTrue(payload["not_full_R3"])
+        self.assertEqual(set(payload["certificates"]),set(self.models))
+        for scheme,m in self.models.items():
+            with self.subTest(scheme=scheme):
+                cert=payload["certificates"][scheme]
+                indices=tuple(cert["palette_indices_in_original_flag_ID_order"])
+                self.assertEqual(cert["original_source_flag_count"],45)
+                self.assertEqual(cert["selected_original_sixset_count"],
+                                 len(m["motifs"]))
+                self.assertEqual(len(indices),45)
+                self.assertEqual(
+                    indices,_source_palette_by_id(scheme,cert["deterministic_seed"],45))
+                self.assertEqual(
+                    Fraction(cert["exact_signed_event_mean"]),
+                    Fraction(PINNED[scheme]["numerator"],DENOM))
+                result=check_supplied_full_original_certificate(m,indices)
+                self.assertEqual(result["actual_ten_sign_event_count"],0)
+                self.assertEqual(result["colliding_original_sixset_count"],0)
+                self.assertEqual(cert["exact_direct_signed_events"],0)
+                self.assertGreater(cert["all_ones_signed_events"],0)
 
     def test_parity_rejects_illegal_G5_source_assignment_and_scope(self):
         m=self.models["lex"]
