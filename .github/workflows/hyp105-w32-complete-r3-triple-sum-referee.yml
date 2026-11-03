@@ -9,7 +9,7 @@ on:
       - 'research/test_hyp105_w32_complete_r3_triple_sum_referee.py'
       - 'research/hyp105_w32_exact_triple_sum_local_repair_referee.py'
       - 'research/test_hyp105_w32_exact_triple_sum_local_repair_referee.py'
-      - 'research/hyp105_w32_complete_r3_actual_certificates.json'
+      - 'research/hyp105_w32_full_r3_original_45flag_certificates.json'
   workflow_dispatch:
 
 permissions:
