@@ -81,6 +81,48 @@ class IndependentOriginalRootLedger(unittest.TestCase):
             self.assertGreaterEqual(y**k,x)
             if y:self.assertLess((y-1)**k,x)
 
+    def test_true_W32_W34_original_sixID_heavy_and_dense_GF5_sources(self):
+        # Independently recombine BOTH true original six-source-ID classes:
+        # historical D6 matching flag lift and #708 genuine aligned BBo.
+        # The actual finite geometry is not manufactured from a template.
+        from hyp105_gf5_original_sixid_flow_referee import (
+            planted_original_d6, original_projected_column_edges,
+        )
+        from hyp105_original_aligned_bbo_gf5_fourier_referee import (
+            aligned_template_types, lift_template,
+            source_coordinate_edges, count_actual_physical_owner_paths,
+            gf5_fourier_potential_oracle, SIGNS,
+        )
+        typ=next(t for t in aligned_template_types() if t["aligned"])
+        for power in (1,2):
+            with self.subTest(power=power):
+                d=planted_original_d6(power)
+                ids=d["ids"];flags=d["flags"]
+                self.assertEqual(len({flags[i][0] for i in ids}),6)
+                self.assertEqual(len({flags[i][1] for i in ids}),6)
+                edges=original_projected_column_edges(
+                    flags,ids,d["f"],d["g"])
+                self.assertEqual(
+                    sum(gf5_fourier_potential_oracle(edges,s) for s in SIGNS),
+                    SHARP_D6)
+                _s,_v,ff,bbids,f,g=lift_template(power,typ)
+                self.assertEqual(len({ff[i][0] for i in bbids}),5)
+                self.assertEqual(len({ff[i][1] for i in bbids}),5)
+                self.assertEqual(
+                    count_actual_physical_owner_paths(ff,bbids,f,g),2)
+                e=source_coordinate_edges(ff,bbids,f,g)
+                self.assertEqual(
+                    sum(gf5_fourier_potential_oracle(e,s) for s in SIGNS),
+                    SHARP_PRODUCED_BBO)
+                self.assertTrue(set(bbids[:3]).isdisjoint(bbids[3:]))
+
+    def test_frozen_hypothetical_h0_regression_is_explicitly_not_published(self):
+        # C=c=1 are ILLUSTRATIVE exact arithmetic inputs only.
+        r=whole_root_certificate(1,1)
+        self.assertEqual(r["old_dense_one_eighth_sufficient_h"],666)
+        self.assertEqual(r["new_heavy_only_sufficient_h"],667)
+        self.assertTrue(r["external_graph_constants_numeric_are_UNKNOWN"])
+
     def test_inputs_not_guessed_published_constants(self):
         for bad in (0,-1,True,1.0,None,"1"):
             with self.assertRaises(ValueError):_rational_positive(bad)
