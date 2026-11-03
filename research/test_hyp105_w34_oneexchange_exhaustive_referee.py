@@ -151,7 +151,7 @@ class AcceleratedExhaustiveOriginalSourceOneExchange(unittest.TestCase):
                          capture_output=True,text=True)
         self.assertNotEqual(p.returncode,0)
         self.assertIn("FAIL CLOSED",p.stderr)
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             construct_exact_source_text(
                 self.model,self.indices[:-1],self.full,
                 ((0,0),))
