@@ -198,9 +198,10 @@ six invented synthetic flag IDs:
   which has EXACTLY the expected weight 53838.
 - A distinct genuine ORIGINAL six-point/six-line matching realizes
   D6 with EXACT signed mass 54162.
-- A protected genuine W34 K4,4 source-owned CORE yields MULTIPLE
-  overlapping produced ORIGINAL BBo sixsets under the SAME fixed
-  maps f,g; palette variables are shared for repeated original IDs.
+- A pair of genuine W34 source-projected BBo configurations is planted
+  coherently under the SAME fixed complete f,g, with exactly ONE
+  genuinely shared ORIGINAL path-owner flag. Their eleven source
+  palette variables are shared across both signed-event sets.
 - Each selected family has its exact initial Fraction expected risk
   and a direct final signed-constraint census, which must agree with
   the conditional expected final integer.
