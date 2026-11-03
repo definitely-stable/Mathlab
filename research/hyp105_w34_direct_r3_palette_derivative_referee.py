@@ -120,7 +120,7 @@ def all_51_exact_original_source_D2_cross_cost(model,indices,source_id):
     }
 
 
-def all_51_direct_R3_derivative(model,indices,source_id,*
+def all_51_direct_R3_derivative(model,indices,source_id,*,
                                baseline_D2,baseline_D3,
                                max_other_triples=12_614_424):
     """Exact all-51 true six-distinct-original-ID R3 derivative.
