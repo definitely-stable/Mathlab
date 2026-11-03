@@ -95,7 +95,7 @@ def _field_sum(vectors, ids):
 
 def _direct_signed_six_column_check(vectors, positives,negatives):
     """Independent 12 physical coordinate equations, all original IDs."""
-    if (len(positives)!=len(negatives)!=3 or
+    if (len(positives)!=3 or len(negatives)!=3 or
         set(positives)&set(negatives)):
         raise ValueError("true distinct 3-vs-3 source triples required")
     return all((sum(vectors[i][k] for i in positives)
