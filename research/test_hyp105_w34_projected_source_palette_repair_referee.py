@@ -11,6 +11,8 @@ full pair R2 baseline, source identity and fail-closed 12.6m budget.
 """
 from itertools import combinations
 from fractions import Fraction
+from pathlib import Path
+import json
 import unittest
 
 from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
@@ -134,6 +136,81 @@ class OriginalW34ProjectedGF5SourceRepair(unittest.TestCase):
         self.assertEqual(sum(1 for _ in combinations(range(425),2)),90100)
         self.assertEqual(sum(1 for _ in combinations(range(424),2)),89676)
         self.assertEqual(sum(1 for _ in combinations(range(424),3)),12614424)
+
+    def test_saved_full_W34_425_original_source_repair_certificates(self):
+        # FROZEN independent full 12,704,100-triple CI results, not just
+        # desired local improvement or source-projection self-consistency.
+        path=Path(__file__).with_name(
+            "hyp105_w34_r2first_repaired_source_certificates.json")
+        payload=json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(payload["true_ORIGINAL_flags"],425)
+        self.assertEqual(payload["physical_GF5_coordinates"],28)
+        self.assertEqual(payload["full_source_triples_checked_per_scheme"],12704100)
+        self.assertTrue(payload["source_original_geometry_unchanged"])
+        self.assertFalse(payload["new_asymptotic_exponent_proved"])
+        self.assertFalse(payload["full_0to3_ASET_found"])
+        self.assertEqual(set(payload["schemes"]),{"lex","reverse-line"})
+        expected={
+            "lex":{"prior":(3,1349,86),"after":(1,507,86),"ids":(45,143)},
+            "reverse-line":{"prior":(1,517,96),"after":(0,96,96),"ids":(184,)},
+        }
+        for scheme,c in payload["schemes"].items():
+            with self.subTest(scheme=scheme):
+                want=expected[scheme]
+                self.assertEqual(
+                    (c["original_full_D2_before"],c["original_full_D3_before"],
+                     c["original_full_signed_R3_before"]),want["prior"])
+                self.assertEqual(
+                    (c["new_exact_full_source_R2"],c["new_exact_full_source_D3"],
+                     c["new_exact_full_source_signed_R3"]),want["after"])
+                self.assertEqual(
+                    tuple(x["original_source_id"] for x in
+                          c["accepted_true_original_source_changes"]),
+                    want["ids"])
+                self.assertEqual(c["evaluated_original_source_IDs"],
+                                 list(want["ids"]))
+                self.assertTrue(c[
+                    "all_12_704_100_original_triples_independently_rechecked"])
+                self.assertFalse(c["full_0_to_3_ASET_success"])
+                self.assertEqual(len(c["all_425_ORIGINAL_flag_palette_indices"]),425)
+                self.assertEqual(c["new_exact_full_source_D3"]-421*
+                                 c["new_exact_full_source_R2"],
+                                 c["new_exact_full_source_signed_R3"])
+                # Do NOT falsely equate a strict D3 improvement to R3:
+                # here all improvement came from lifted R2 overlap pairs.
+                self.assertEqual(
+                    c["original_full_D3_before"]-c["new_exact_full_source_D3"],
+                    421*(c["original_full_D2_before"]-
+                         c["new_exact_full_source_R2"]))
+                model=pair_labeled_symplectic(2,scheme)
+                original=deterministic_original_checksum_palettes(
+                    model,seed=0)
+                revised=tuple(c["all_425_ORIGINAL_flag_palette_indices"])
+                differing=tuple(i for i,(x,y) in enumerate(zip(original,revised))
+                                if x!=y)
+                self.assertEqual(set(differing),set(want["ids"]))
+                self.assertEqual(len(_two_sum_collision_source_pairs(
+                    model,revised)),want["after"][0])
+                _,vec=exact_gf5_original_vectors(model,revised)
+                self.assertEqual(len(vec),425)
+                self.assertEqual(len(set(vec)),425)
+                self.assertTrue(all(sum(v)%5==4 and
+                                    sum(bool(x) for x in v)==4 for v in vec))
+                # Independent direct 28-coordinate verification of
+                # actual six distinct ORIGINAL source witnesses.
+                for sample in c["full_original_exact_signed_witnesses"]:
+                    pos=tuple(sample["six_distinct_ORIGINAL_flag_IDs"])
+                    plus=tuple(sample["positive_ORIGINAL_three"])
+                    minus=tuple(sample["negative_ORIGINAL_three"])
+                    self.assertEqual(tuple(sorted(plus+minus)),pos)
+                    self.assertEqual(len(set(pos)),6)
+                    left=tuple(sum(vec[i][k] for i in plus)%5
+                               for k in range(28))
+                    right=tuple(sum(vec[i][k] for i in minus)%5
+                                for k in range(28))
+                    self.assertEqual(left,right)
+                    self.assertEqual(left,tuple(
+                        sample["complete_GF5_physical_sum"]))
 
     def test_source_partial_budget_and_illegal_IDs_fail_closed(self):
         model=self.w34
