@@ -1,0 +1,27 @@
+name: hyp105-original-gf5-deterministic-extraction-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-original-gf5-deterministic-extraction-referee.yml'
+      - 'docs/research/HYP-105-ORIGINAL-GF5-DETERMINISTIC-EXTRACTION-REFEREE.md'
+      - 'research/hyp105_original_gf5_deterministic_extraction_referee.py'
+      - 'research/test_hyp105_original_gf5_deterministic_extraction_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-original-gf5-exact-conditional-expectation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent real W32/W34 GF5 direct assignment and original sixset event checks
+        run: python -m unittest discover -s research -p 'test_hyp105_original_gf5_deterministic_extraction_referee.py' -v
+      - name: Emit concrete source-ID GF5 zero-conflict witness
+        run: python research/hyp105_original_gf5_deterministic_extraction_referee.py
