@@ -7,6 +7,7 @@ on:
       - 'docs/research/HYP-105-W32-SEVENCLASS-GLOBAL-DETERMINISTIC-GF5-REFEREE.md'
       - 'research/hyp105_w32_sevenclass_global_deterministic_gf5_referee.py'
       - 'research/test_hyp105_w32_sevenclass_global_deterministic_gf5_referee.py'
+      - 'research/hyp105_w32_sevenclass_original_45flag_certificates.json'
   workflow_dispatch:
 
 permissions:
