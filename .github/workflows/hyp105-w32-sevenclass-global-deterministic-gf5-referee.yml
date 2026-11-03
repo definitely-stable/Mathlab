@@ -1,0 +1,27 @@
+name: hyp105-w32-sevenclass-global-deterministic-gf5-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-w32-sevenclass-global-deterministic-gf5-referee.yml'
+      - 'docs/research/HYP-105-W32-SEVENCLASS-GLOBAL-DETERMINISTIC-GF5-REFEREE.md'
+      - 'research/hyp105_w32_sevenclass_global_deterministic_gf5_referee.py'
+      - 'research/test_hyp105_w32_sevenclass_global_deterministic_gf5_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  all-45-original-W32-sevenclass-signed-FG2-certificate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently reclassify all 62370 source candidates and recompute all ten GF5 events
+        run: python -m unittest discover -s research -p 'test_hyp105_w32_sevenclass_global_deterministic_gf5_referee.py' -v
+      - name: Emit reproducible 45 original source flag GF5 zero-leading-event certificate
+        run: python research/hyp105_w32_sevenclass_global_deterministic_gf5_referee.py
