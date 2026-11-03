@@ -5,11 +5,7 @@ import unittest
 
 from hyp105_gf5_original_sixid_flow_referee import (
     planted_original_bb_overlap,planted_original_d6,
-    gf5_flow_inclusion_exclusion,
-)
-from hyp105_full_physical_degree_tail import planted_original_k44
-from hyp105_BBo_original_core_cubic_polynomial_referee import (
-    source_first_original_BBo_cubic_catalog,
+    gf5_flow_inclusion_exclusion, _fill_f_g,
 )
 from hyp105_original_gf5_deterministic_extraction_referee import (
     PALETTES,SIGNS,DENOM,_completion_count,_motif_conditional_mass,
@@ -62,23 +58,83 @@ class ExactOriginalGF5Deterministic(unittest.TestCase):
             self.assertLess(r["baseline_exact_expected_signed_events"],1)
             self.assertEqual(len(r["stepwise_exact_risk_trace"]),6)
 
-    def test_overlapping_same_map_true_W34_K44_selected_source_sextuples(self):
-        f,g,ids=planted_original_k44()
-        catalog=source_first_original_BBo_cubic_catalog(2,f,g,ids)
-        Q=tuple(catalog["sixset_supports"])
-        self.assertGreaterEqual(len(Q),2)
-        selected=Q[:min(4,len(Q))]
-        family=prepare_original_family(2,f,g,selected)
-        self.assertTrue(all(m["kind"]=="BBo-produced" for m in family["motifs"]))
-        self.assertTrue(any(set(q)&set(r) for q,r in combinations(selected,2)))
-        result=deterministic_gf5_assign(family,max_motifs=8)
-        self.assertEqual(result["selected_ORIGINAL_sixset_count"],len(selected))
-        self.assertEqual(result["baseline_exact_expected_signed_events"],
-                         Fraction(len(selected)*53838,DENOM))
-        self.assertEqual(result["conditioned_exact_signed_event_count"],0)
-        self.assertTrue(result["zero_selected_motif_signed_events"])
+    def test_two_actual_overlapping_W34_original_BBo_on_same_fixed_maps(self):
+        # Build TWO distinct real ORIGINAL source q--ell--p--r sextuples,
+        # reusing ONE genuinely identical source owner flag i0.
+        # No synthetic flags, no independent palette per sextuple.
+        w=planted_original_bb_overlap(2)
+        flags=w["flags"]
+        V=w["V"]
+        first=tuple(w["ids"])
+        shared=first[3]
+        usedp={flags[i][0] for i in first}
+        usedl={flags[i][1] for i in first}
+        pencils=[set() for _ in range(V)]
+        through=[set() for _ in range(V)]
+        flags_id={flag:i for i,flag in enumerate(flags)}
+        for p,line in flags:
+            pencils[p].add(line)
+            through[line].add(p)
+        collinear=[set().union(*(through[line] for line in pencils[q]))-{q}
+                   for q in range(V)]
+        chosen=None
+        for q in range(V):
+            if q in usedp:continue
+            for r in range(V):
+                if r in usedl or r in pencils[q]:continue
+                anchors=collinear[q]&through[r]
+                if len(anchors)!=1:
+                    raise AssertionError("actual W34 projection not unique")
+                p=next(iter(anchors))
+                links=pencils[q]&pencils[p]
+                if len(links)!=1:
+                    raise AssertionError("genuine connecting W34 line missing")
+                ell=next(iter(links))
+                if p in usedp or ell in usedl:continue
+                fresh_p=usedp|{q,p}
+                fresh_l=usedl|{r,ell}
+                match=[]
+                for j,(u,line) in enumerate(flags):
+                    if u not in fresh_p and line not in fresh_l:
+                        match.append(j)
+                        fresh_p.add(u);fresh_l.add(line)
+                        if len(match)==2:break
+                if len(match)==2:
+                    chosen=(q,p,ell,r,tuple(match))
+                    break
+            if chosen is not None:break
+        self.assertIsNotNone(chosen)
+        q,p,ell,r,extra=chosen
+        second=(flags_id[q,ell],flags_id[p,ell],flags_id[p,r],
+                shared,*extra)
+        self.assertEqual(len(set(second)),6)
+        self.assertEqual(set(first)&set(second),{shared})
+        # First source path owners are (0,1),(1,2),(2,3).
+        # The second path shares its FIRST owner (0,1), and uses
+        # two NEW owners (1,6),(6,7), with endpoint (0,7).
+        # Its NEW FULL anchor factors are (8,9), outside path symbols.
+        fs={flags[i][0]:w["f"][flags[i][0]] for i in first}
+        gs={flags[i][1]:w["g"][flags[i][1]] for i in first}
+        fs[q]=(0,7);fs[p]=(8,9)
+        gs[r]=(0,7);gs[ell]=(8,9)
+        for idx,pair in zip(extra,((1,6),(6,7))):
+            u,line=flags[idx]
+            fs[u]=pair;gs[line]=pair
+        a=14
+        f,g=_fill_f_g(V,a,fs,gs)
+        family=prepare_original_family(2,f,g,(first,second))
+        self.assertEqual(
+            [m["kind"] for m in family["motifs"]],
+            ["BBo-produced","BBo-produced"])
+        out=deterministic_gf5_assign(family,max_motifs=8)
+        self.assertEqual(out["selected_ORIGINAL_sixset_count"],2)
+        self.assertEqual(out["baseline_exact_expected_signed_events"],
+                         Fraction(2*53838,DENOM))
+        self.assertEqual(out["conditioned_exact_signed_event_count"],0)
+        self.assertTrue(out["zero_selected_motif_signed_events"])
+        self.assertEqual(len(out["deterministic_original_palette_assignment"]),11)
         self.assertEqual(direct_original_signed_events(
-            family,result["deterministic_original_palette_assignment"]),())
+            family,out["deterministic_original_palette_assignment"]),())
 
     def test_exact_affine_completions_vs_brute_last_unassigned_palette(self):
         w=planted_original_d6(1)
