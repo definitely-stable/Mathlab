@@ -94,7 +94,7 @@ class RebasedAfter717ScientificTests(
                     model,curr,full,active)
                 self.assertTrue(source_text.startswith(
                     f"HYP105_W34_ALL1_V1 {scheme} 425 28 51 "))
-                self.assertEqual(int(source_text.split()[9]),len(active))
+                self.assertEqual(int(source_text.split()[8]),len(active))
                 # No source edit other than exact #717 136/270 is smuggled in.
                 self.assertEqual(sum(a!=b for a,b in zip(pre,curr)),1)
 
