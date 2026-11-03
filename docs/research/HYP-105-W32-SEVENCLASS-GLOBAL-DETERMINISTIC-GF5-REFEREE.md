@@ -208,6 +208,24 @@ An all-ones palette assignment, which satisfies the per-original
 checksum condition, supplies an actual positive control with
 signed events (e.g. true ORIGINAL D6 alternating signs).
 
+### Permanently committed full ORIGINAL-source GF5 witness
+
+The exact 45-entry ORIGINAL flag-ID ordered palette-index arrays for
+BOTH full W32 maps are committed as
+`research/hyp105_w32_sevenclass_original_45flag_certificates.json`.
+They were initially emitted by the full independent GitHub Actions
+run #41597511084, then saved verbatim to source control. A separate
+test now loads the *static* JSON, checks that its 45 values reproduce
+the documented deterministic SHA256 seed, verifies every value lies
+in the original 51-checksum GF5 palette, and independently recomputes
+all 259 / 169 original sixset sign constraints with BOTH parity and
+brute-physical GF5 algorithms. The positive all-ones control yielded
+**96** true signed events in `lex` and **11** in `reverse-line`;
+the committed global witnesses each yielded exactly **0**.
+The lex and reverse-line seed values are BOTH **0**. This is an
+actual committed reusable exact certificate, not a screenshot,
+simulated fixture, or undocumented CI-only output.
+
 ## 6. Scientific review: what this DOES and DOES NOT settle
 
 **Established:** all seven leading classes and all 45 true original
