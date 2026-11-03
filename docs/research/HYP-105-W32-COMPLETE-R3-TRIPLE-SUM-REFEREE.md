@@ -136,6 +136,98 @@ verified by the NEW GF5 triple hash. This earlier construction
 already proved a full 45-column finite ASET result; we do
 not misrepresent its existence as a discovery in this PR.
 
+## 3A. NEW exact local ORIGINAL source repair — theorem, not a blind search
+
+The full census exposes an important honest falsification of #711:
+the frozen full source palette `lex` has **SEVEN** TRUE full-R3
+3+3 events, and `reverse-line` has **FOUR**, while their respective
+seven-leading-class event counts are BOTH exactly ZERO. On the
+unaccounted events the physically repeated coordinate profiles
+include (3,3,2,2,2), (4,3,3,2), (5,3,2,2) and (3,3,3,3).
+No original sixset or GF5 signed event has been fabricated or
+ignored. These are concrete counterexamples to the logically
+invalid inference `seven-leading zero -> full R3 zero` for
+the SAME original W32 source f,g.
+
+**New exact single-original-flag descent lemma:** choose one
+original source flag i and hold EVERY other original flag palette
+fixed. Partition all triples into U, the C(N-1,3) triples NOT
+containing i, and I_i, the C(N-1,2) triples containing i.
+The number of unordered equal-sum pairs of triples is
+
+```
+  Q = Q(U,U) + Q(I_i,I_i) + Q(U,I_i).
+```
+
+Under ANY change of the SINGLE original palette of flag i:
+
+- Q(U,U) is invariant because NONE of those original three-source
+  subset sums contains i.
+- Q(I_i,I_i) is invariant because the common c_i cancels
+  when comparing two triple sums both containing i:
+  c_i+c_a+c_b=c_i+c_c+c_d iff c_a+c_b=c_c+c_d.
+- Therefore the ENTIRE exact global change of Q is equal to
+  the change of the cross-term `Q(U,I_i)` alone.
+
+For W32, independently hash the **13,244** true original
+triple sums on the 44 other flag IDs, then precompute the
+**946** pair sums on those other flag IDs. For EACH of the
+51 physically legal checksum4 source palettes `omega_i`,
+compute the new 946 affected triple sums and count how many
+collide with the 13,244 fixed unaffected triple sums. Pick
+the first strictly better palette. This minimizes the
+**EXACT GLOBAL** all-3-subset collision count for that one
+source ID, not a heuristic proxy or expectation.
+
+A selected move has a guaranteed **strictly decreasing nonnegative
+integer** global triple-collision objective. The implementation
+checks the predicted cross-term difference against a FRESH
+independent recomputation of ALL 14,190 original three-subset sums
+after EVERY accepted move. Repeatedly process source IDs that
+participate in actual currently equal triple sums. If no
+improving one-variable move exists, STOP with the nonzero
+remaining risk: a local minimum is NOT proof of nonexistence
+of a global full-zero assignment. Thus the algorithm is
+mathematically safe but not claimed globally complete.
+
+**Actual successful hosted W32 repairs of the frozen #711 witnesses:**
+
+| Fixed true W32 original f,g | Prior full 3v3 events | Source IDs edited | New full 3v3 events |
+|---|---:|---|---:|
+| `lex` | **7** | **29, 40, 23** | **0** |
+| `reverse-line` | **4** | **17, 30** | **0** |
+
+All other ORIGINAL flag IDs retain EXACTLY the same 51-palette
+choice they had in the frozen #711 certificates. After these
+three/two legal SOURCE-local changes, both completed sources
+have **exactly 14,190 DISTINCT 3-subset GF5^12 sums**, **990
+distinct 2-subset sums**, **45 distinct 1-subset sums** and
+the unique empty-subset sum. Across different sizes checksum4
+prevents equality; thus all 1+45+990+14190=**15,226**
+original subset sums of sizes 0..3 are pairwise distinct.
+
+**Permanent exact artifact:** the true fully verified
+45 ORIGINAL source-flag-ID ordered palette arrays for BOTH
+fixed maps are committed in
+`research/hyp105_w32_full_r3_original_45flag_certificates.json`.
+The new hosted test parses the STATIC file, proves that
+exactly these 3/2 source IDs differ from prior #711,
+and independently recomputes the entire original full 3-sum
+hash, all k=1,2,3 uniqueness results, and all 259/169
+historical seven-family direct physical GF5 signs.
+The source maps f,g and all 45 original flag IDs remain
+unchanged, with no coordinate relabeling or newly invented source.
+
+**Novelty boundary:** #G5-D had already generated another
+45-column exact GF5 ASET witness at W32; the *existence*
+of a finite 45-column example is NOT newly claimed.
+The new contribution is the source-preserving, exact quantified
+full-R3 repair of the specific 45-ID assignments from #711,
+the 14,190-triple source-complete independent verifier, its
+coordinate-multiplicity counterexamples, and the 946-pair
+single-variable optimization identity. Nothing here proves
+a uniform positive-power all-h asymptotic result.
+
 ## 4. What the final exact certificate can and cannot establish
 
 Two different, fully checkable conditions are reported:
