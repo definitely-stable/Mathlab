@@ -1,0 +1,27 @@
+name: hyp105-global-root-heavy-only-sharp-signed-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-global-root-heavy-only-sharp-signed-referee.yml'
+      - 'docs/research/HYP-105-GLOBAL-ROOT-HEAVY-ONLY-SHARP-SIGNED-REFEREE.md'
+      - 'research/hyp105_global_root_heavy_only_sharp_signed_referee.py'
+      - 'research/test_hyp105_global_root_heavy_only_sharp_signed_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-root-full-proof-ledger:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit exact source book heavy-core R5/R6 and sharp no-min root
+        run: python -m unittest discover -s research -p 'test_hyp105_global_root_heavy_only_sharp_signed_referee.py' -v
+      - name: Show hypothetical rational graph constants separately from published unknowns
+        run: python research/hyp105_global_root_heavy_only_sharp_signed_referee.py
