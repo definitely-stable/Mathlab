@@ -111,6 +111,7 @@ class W32OriginalSevenFamilyDeterministic(unittest.TestCase):
         payload=json.loads(path.read_text(encoding="utf-8"))
         self.assertTrue(payload["selected_family_only"])
         self.assertTrue(payload["not_full_R3"])
+        self.assertFalse(payload["new_ASET_exponent_proved"])
         self.assertEqual(set(payload["certificates"]),set(self.models))
         for scheme,m in self.models.items():
             with self.subTest(scheme=scheme):
