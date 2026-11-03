@@ -1,0 +1,48 @@
+name: hyp105-w34-exact-external-triples-full-r3
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-w34-exact-external-triples-full-r3.yml'
+      - 'docs/research/HYP-105-W34-EXACT-EXTERNAL-TRIPLE-R3-REFEREE.md'
+      - 'research/hyp105_w34_external_triple_r3_referee.py'
+      - 'research/test_hyp105_w34_external_triple_r3_referee.py'
+      - 'research/hyp105_w34_fixed_425flag_full_r3_seed0.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-W32-regressions-and-real-W34-short-brute:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact independent radix signature tests, full historical W32 and actual 28D W34 brute
+        run: python -m unittest discover -s research -p 'test_hyp105_w34_external_triple_r3_referee.py' -v
+  true-W34-full-425-original-flags-lossless-disk-R3:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse-line]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Confirm hosted scratch disk budget for 152 MB exact original triples
+        run: df -h .
+      - name: Exhaust ALL 12,704,100 genuine W34 original three-flag GF5 vectors
+        run: |
+          python research/hyp105_w34_external_triple_r3_referee.py --scheme ${{ matrix.scheme }} --seed 0 | tee w34-exact-original-${{ matrix.scheme }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-W34-full-GF5-R3-${{ matrix.scheme }}
+          path: w34-exact-original-${{ matrix.scheme }}.json
+          retention-days: 30
