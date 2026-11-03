@@ -142,6 +142,139 @@ A witness always includes its true source
 point/line incidence factors and actual physical
 coordinate multiplicity profiles.
 
+## 3A. NEW universal exact R2-to-R3 overlap identity
+
+The first full source W34 hosted census produced a surprising precise
+consistency check: of all equal-GF5 triple-sum pairs, exactly `1263`
+(lex) and `421` (reverse-line) share an original source ID.
+This is NOT an arbitrary empirical coincidence.
+
+**New all-N identity:** provided all ORIGINAL weighted source columns
+`c_i` are DISTINCT, let `D_2` be the number of distinct unordered
+pairs of two-source subsets whose exact GF5 vector sums agree,
+and let `D_3` be the number of distinct unordered pairs of
+three-source subsets whose exact GF5 vector sums agree.
+Let `R_3^{det}` be the number of unordered signed 3+3
+collisions on six DISTINCT ORIGINAL source IDs, counted with
+all ten balanced partitions. Then
+
+\[
+\boxed{D_3=R_3^{det}+(N-4)D_2.}
+\]
+
+**Proof.** Partition equal-sum pairs of distinct ORIGINAL
+triples by the cardinality of their intersection.
+With ZERO common source IDs, the equality is exactly
+one genuine six-distinct-source-ID 3+3 signed event.
+With ONE shared flag ID i, cancel the same c_i
+on both sides. This is exactly one pair of DISJOINT
+original two-source subsets A,B of the other four
+IDs with equal sums, plus a choice of shared
+source flag i among the remaining N-4 original IDs.
+Every such pair of original 2-subsets can be lifted
+in EXACTLY N-4 ways; no double count because the
+intersection singleton i is uniquely identified.
+With TWO shared original IDs, cancellation would
+force two DIFFERENT remaining original columns
+to have equal full GF5 vectors, impossible because
+all columns are distinct. Intersection size THREE
+would make the two triples IDENTICAL and is excluded
+from D3. This is a bijective classification. QED.
+
+Any pair of distinct original 2-subsets with
+equal sums and ONE shared source ID likewise
+forces two original columns equal, which is
+impossible; therefore D2 itself consists
+precisely of genuine original 2+2 signed
+events for this true globally injected model.
+
+This second theorem provides an **independent
+exact cross-check** on the external bucket
+triple intersection IE: the code counts D2
+via an entirely separate original two-subset
+sum table, and asserts the identity for
+every complete W32 and W34 source audit.
+It is also computationally useful: if one
+has exact D2 and D3, no source-triple
+pairwise intersection analysis is needed
+to obtain the true six-distinct-ID R3.
+
+## 3B. Actual completed exhaustive W(3,4) ORIGINAL results
+
+GitHub-hosted dedicated [run #41603089629](https://github.com/definitely-stable/Mathlab/actions/runs/41603089629),
+on the same exact frozen source SHA `050d5e9f4f0dfabb439a953e7aa90069fe39b8d6`,
+completed SUCCESS on two separate Ubuntu-24.04
+full 425-source workers plus one independent
+W32/W34 validation worker.
+
+For both true W34 fixed `f,g` schemes the source
+palette `omega_i` was deterministically
+assigned ONCE per original flag ID from the
+domain-separated SHA256 seed **0**. The exact
+FULL **12,704,100** original triple sums and
+all 1/2 source subset sums were processed
+without a missing-source or partial-coverage
+exception.
+
+| Observed exact ORIGINAL statistic | W34 lex | W34 reverse-line |
+|---|---:|---:|
+| True ORIGINAL source flags | 425 | 425 |
+| Source GF5 physical coordinates | 28 | 28 |
+| All original GF5 triple sums processed | 12,704,100 | 12,704,100 |
+| Distinct complete triple-sum signatures | 12,702,751 | 12,703,583 |
+| **D2: equal two-subset sum pairs** | **3** | **1** |
+| D3: equal three-subset sum pairs | 1,349 | 517 |
+| Of D3: pairs sharing at least one source ID | 1,263 | 421 |
+| **Full six-distinct-original-flag 3+3 events** | **86** | **96** |
+| Is seed0 a full 0..3 GF5 ASET? | **No** | **No** |
+| Exact disk records written (bytes) | 152,449,200 | 152,449,200 |
+| Peak one sorted bucket payload (bytes) | 605,208 | 605,040 |
+
+The independently derived all-N identity matches both
+full-source runs EXACTLY, since N-4=421:
+
+\[
+ 1349=86+421\cdot3,\qquad
+ 517=96+421\cdot1.
+\]
+
+Thus the **86/96 positive full R3 findings**
+are NOT 1349/517 events counted
+with source intersections; the latter are
+unqualified equal-triple-sum pair counts.
+The original ID overlap correction is
+essential and was checked using BOTH
+the new linear-time source-incidence
+intersection formula and the independent
+full original R2-based identity.
+
+**Permanent source-controlled exact evidence:**
+`research/hyp105_w34_full_425flag_r3_seed0_certificates.json`
+stores the full hosted output for both
+W34 schemes, exact source counts, R2/R3
+values, actual peak bucket size and
+**eight distinct-source-ID signed 28D physical
+witnesses per scheme**. A second set of tests
+loads these STATIC records, regenerates
+the unchanged original f,g and the exact
+seed0 GF5 source palette for all 425 IDs,
+and independently verifies every one of
+these sixteen witness equations using
+the full 28 physical coordinates and the
+real point/line source flags.
+
+**Scope of this negative result:** positive
+R2/R3 for THESE TWO fixed seed0 assignments
+does NOT prove that no alternate coefficient
+assignment (possibly via exact local repair)
+can make the full 425-source ASET valid.
+It does not contradict the previous finite
+45-column zero examples, the older G5-D
+constructive source, nor large-s Branch A's
+lower bound on EXPECTED random signed R3.
+There is no mathematically valid new
+asymptotic exponent claim here.
+
 ## 4. Mathematical scope of the W34 experiment
 
 This slice accepts the **complete legal** geometry and
