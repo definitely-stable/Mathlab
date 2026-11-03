@@ -335,9 +335,9 @@ the true unsolved root #230 target.
 The previously frozen #714 full Research
 was blocked by UCT-005's textual
 conditional-hardness inventory treating
-the incidental phrase `equal-3sum`
+the incidental ambiguous phrase about equal triple sums
 as a reference to the unrelated
-complexity-theoretic 3SUM conjecture.
+complexity-theoretic fine-grained hardness terminology.
 This scientific Draft corrects that
 inherited single document phrase
 to `equal three-source subset sums`
