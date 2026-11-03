@@ -12,6 +12,8 @@ import unittest
 
 from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
 from hyp105_original_gf5_deterministic_extraction_referee import PALETTES
+from hyp105_g5d_affine_weights import verify_independent_full_sums
+from test_hyp105_g5c_signed_oracles import direct_aset_collision
 from hyp105_w32_sevenclass_global_deterministic_gf5_referee import (
     true_original_w32_seven_hypergraph,
     hypergraph_direct_event_census,
@@ -200,6 +202,11 @@ class IndependentCompleteOriginalW32R3(unittest.TestCase):
                 self.assertEqual(result["duplicate_equal_1_sum_pairs"],0)
                 self.assertEqual(result["duplicate_equal_2_sum_pairs"],0)
                 self.assertEqual(result["duplicate_equal_3_sum_pairs"],0)
+                # TWO historical independent 0..3 ASET source verifiers,
+                # neither calling this slice's triple-bucket algorithm.
+                vectors=true_original_source_vectors(family["source"],revised)
+                self.assertTrue(verify_independent_full_sums(vectors))
+                self.assertIsNone(direct_aset_collision(vectors,5,3))
                 self.assertTrue(result[
                     "all_45_original_source_0_to_3_subset_sums_unique"])
                 # Independently brute every one of all ten signs for all
