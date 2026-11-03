@@ -338,6 +338,27 @@ def exact_full_original_external_r3(
     if (full_processed!=number_of_triples
         or identical!=signed+overlap):
         raise AssertionError("lost ORIGINAL three-subset source or collision pairs")
+    # NEW ALL-N INDEPENDENT R2 -> R3 overlapping-triplet identity.
+    # All original columns are distinct: each has a different actual
+    # 2+2 source support under separate globally pair-injective f,g.
+    # A two-subset equal-sum pair cannot share one source ID without
+    # implying equal singleton original columns. Thus each duplicate
+    # 2-sum is a genuine disjoint 2v2 signed source event.
+    # Every equal-sum pair of distinct triples with one shared ID is
+    # exactly such a 2v2 event extended by any of the n-4 other IDs.
+    # Overlap of TWO triple IDs would imply equal singleton columns.
+    if short["one_source_sum_collisions"]!=0:
+        raise AssertionError("true globally injected ORIGINAL source has equal columns")
+    independent_r2_overlap=(n-4)*short["two_source_sum_collisions"]
+    if independent_r2_overlap!=overlap:
+        raise AssertionError(
+            ("exact source R2 -> overlap triple-pair identity failed",
+             independent_r2_overlap,overlap))
+    independent_full_r3=identical-independent_r2_overlap
+    if independent_full_r3!=signed:
+        raise AssertionError(
+            ("two independent full original GF5 R3 methods disagree",
+             independent_full_r3,signed))
     if not distinct_sigs or not number_of_triples:
         raise AssertionError("empty full ORIGINAL triple census")
     zero_all=sum((short["one_source_sum_collisions"],
@@ -355,6 +376,11 @@ def exact_full_original_external_r3(
         "equal_sum_pairs_of_distinct_ORIGINAL_triples":identical,
         "equal_triples_sharing_original_ID_not_signed_R3":overlap,
         "FULL_six_distinct_original_ID_3v3_signed_event_count":signed,
+        "independently_derived_signed_R3_using_all_R2_overlap_identity":
+            independent_full_r3,
+        "R2_signed_2v2_events_exact":short["two_source_sum_collisions"],
+        "independent_original_R2_to_R3_overlap_multiplier":n-4,
+        "independent_original_R2_to_R3_overlap_identity_verified":True,
         "no_false_negative_from_hashed_or_sampled_sums":True,
         "complete_source_GF5_zero_to_three_ASET":zero_all,
         "all_original_1_2_source_sum_checks":short,
@@ -399,6 +425,22 @@ def report_w34_exact(*,schemes=("lex",),seed=0):
         if (result["all_source_triple_count"]!=W34_TRIPLES or
             result["all_425_original_flags_in_scope"] is not True):
             raise AssertionError("not a FULL true W34 source R3 census")
+        if seed==0:
+            # Source-backed exact W34 first-run pinned regression,
+            # NEVER an asymptotic conjecture or another GF5 map.
+            expected={
+                "lex":(86,3,1349,1263),
+                "reverse-line":(96,1,517,421),
+            }[scheme]
+            observed=(
+                result["FULL_six_distinct_original_ID_3v3_signed_event_count"],
+                result["R2_signed_2v2_events_exact"],
+                result["equal_sum_pairs_of_distinct_ORIGINAL_triples"],
+                result["equal_triples_sharing_original_ID_not_signed_R3"],
+            )
+            if observed!=expected:
+                raise AssertionError(("real original W34 seed0 full census drift",
+                                     scheme,observed,expected))
         out.append({
             "scheme":scheme,"seed":seed,
             "all_original_source_425_palettes_same_single_global_assignment":True,
