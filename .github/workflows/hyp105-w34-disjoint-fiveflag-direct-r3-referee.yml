@@ -1,0 +1,49 @@
+name: hyp105-w34-disjoint-fiveflag-direct-r3-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-w34-disjoint-fiveflag-direct-r3-referee.yml'
+      - 'docs/research/HYP-105-W34-DISJOINT-FIVEFLAG-DIRECT-R3-REFEREE.md'
+      - 'research/hyp105_w34_disjoint_fiveflag_r3_referee.py'
+      - 'research/test_hyp105_w34_disjoint_fiveflag_r3_referee.py'
+      - 'research/hyp105_w34_disjoint5_repaired_source_certificates.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  all-51-real-W32-direct-disjoint-vs-two-independent-complete-R3-oracles:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All 51 real original GF5 source edits x 2 flags versus independent complete 45-original-ID R3 and prior exact R2/D3 derivative
+        run: python -m unittest discover -s research -p 'test_hyp105_w34_disjoint_fiveflag_r3_referee.py' -v
+
+  full-W34-disjoint-fiveflag-source-R3-monotone-continuation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 58
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse-line]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify original W34 full 12.7m-triple scratch disk budget
+        run: df -h .
+      - name: Direct six-DISTINCT-original-ID source R3 incidence histogram all 51 palettes, 3 rounds x 4 actual signed hotspots, full physical audit after each accepted edit
+        run: |
+          python research/hyp105_w34_disjoint_fiveflag_r3_referee.py --scheme ${{ matrix.scheme }} --candidates 4 --updates 3 | tee w34-disjoint5-${{ matrix.scheme }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-w34-disjoint5-true-R3-${{ matrix.scheme }}
+          path: w34-disjoint5-${{ matrix.scheme }}.json
+          retention-days: 30
