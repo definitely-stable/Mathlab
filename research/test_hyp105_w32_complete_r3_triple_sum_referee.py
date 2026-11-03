@@ -132,17 +132,7 @@ class IndependentCompleteOriginalW32R3(unittest.TestCase):
                     vec=true_original_source_vectors(family["source"],idx)
                     first_motif=next(m["ids"] for m in family["motifs"]
                                      if m["kind"]=="D6")
-                    chosen=tuple(sorted(set(first_motif)
-                           |set(i for i in range(45) if i not in first_motif) ))
-                    # Exactly twelve distinct ORIGINAL IDs, guaranteed
-                    # to contain a complete accepted source D6 motif.
-                    universe=tuple(sorted(
-                        set(first_motif)|set(
-                            i for i in range(45) if i not in first_motif
-                        ).intersection(set(range(45)))
-                    ))[:12]
-                    # A proper canonical selection of twelve that
-                    # retains all six D6 owner IDs.
+                    # Keep the six witness ORIGINAL IDs and add six real others.
                     universe=tuple(sorted(first_motif+
                         tuple(i for i in range(45) if i not in first_motif)[:6]))
                     self.assertEqual(len(universe),12)
@@ -169,6 +159,55 @@ class IndependentCompleteOriginalW32R3(unittest.TestCase):
             buckets,duplicates=_sums_by_cardinality(vectors,k)
             self.assertEqual(duplicates,0)
             self.assertEqual(len(buckets),(45,990,14190)[k-1])
+
+    def test_saved_complete_45_original_source_full_GF5_aset_certificates(self):
+        # New frozen exact CI-derived full ASET certificates (not the old
+        # selected-only seven leading witness, which had 7/4 full events).
+        path=Path(__file__).with_name(
+            "hyp105_w32_full_r3_original_45flag_certificates.json")
+        data=json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(data["original_incidence_flag_count"],45)
+        self.assertEqual(data["all_possible_distinct_original_sixsets"],8145060)
+        self.assertTrue(data["all_source_G5_0to3_certificate"])
+        self.assertFalse(data["asymptotic_new_exponent_proved"])
+        self.assertEqual(
+            data["expected_unique_subset_sums_cardinalities_0_to_3"]["total"],
+            15226)
+        self.assertEqual(set(data["schemes"]),set(self.seven))
+        expected_updates={"lex":(29,40,23),"reverse-line":(17,30)}
+        for scheme,family in self.seven.items():
+            with self.subTest(scheme=scheme):
+                c=data["schemes"][scheme]
+                revised=tuple(c["source_flag_ID_order_palette_indices"])
+                self.assertEqual(len(revised),45)
+                self.assertEqual(tuple(c["changed_original_source_ids"]),
+                                 expected_updates[scheme])
+                actual_changed=tuple(
+                    i for i,(a,b) in enumerate(zip(self.saved[scheme],revised))
+                    if a!=b)
+                self.assertEqual(set(actual_changed),
+                                 set(expected_updates[scheme]))
+                self.assertEqual(c["initial_full_signed_R3_events"],
+                                 7 if scheme=="lex" else 4)
+                self.assertEqual(c["final_full_signed_R3_events"],0)
+                self.assertTrue(c["original_zero_to_three_subset_sums_injective"])
+                result=full_original_r3_triple_hash_census(
+                    family["source"],revised,
+                    leading_original_sixsets=(m["ids"] for m in family["motifs"]))
+                self.assertEqual(result[
+                    "FULL_original_distinct_sixflag_3v3_signed_events"],0)
+                self.assertEqual(result["distinct_full_GF5_triple_sums"],14190)
+                self.assertEqual(result["duplicate_equal_1_sum_pairs"],0)
+                self.assertEqual(result["duplicate_equal_2_sum_pairs"],0)
+                self.assertEqual(result["duplicate_equal_3_sum_pairs"],0)
+                self.assertTrue(result[
+                    "all_45_original_source_0_to_3_subset_sums_unique"])
+                # Independently brute every one of all ten signs for all
+                # accepted seven class source sixsets on the full witness.
+                accepted=hypergraph_direct_event_census(
+                    family,{i:PALETTES[t] for i,t in enumerate(revised)},
+                    independent_parity=True)
+                self.assertEqual(accepted["actual_ten_sign_event_count"],0)
 
     def test_bad_original_signature_and_malformed_signed_indices_rejected(self):
         m=self.seven["lex"]["source"]
