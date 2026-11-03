@@ -41,7 +41,7 @@ and
 
 **Theorem.** Let R3(t) denote the number of
 all balanced signed 3-positive/3-negative events on
-SIX DISTICT ORIGINAL source IDs under fixed
+SIX DISTINCT ORIGINAL source IDs under fixed
 global coefficient assignment except at source
 flag i with legal palette t. Then for any two legal
 palettes t,u,
@@ -281,6 +281,121 @@ The finite case may
 make no further improvement;
 that does NOT prove global
 no-zero existence.
+
+## 5A. ACTUAL complete W34 signed source experiment — three new steps
+
+The first full GitHub-hosted
+[dedicated run #41627440702](https://github.com/definitely-stable/Mathlab/actions/runs/41627440702)
+completed SUCCESS on ALL THREE jobs:
+two separate genuine 425-ORIGINAL-source
+W34 physical GF5^28 three-round
+strict signed R3 searches, plus
+four independent source-mathematics
+test groups with every legal GF5
+palette checked on real W32.
+
+The new true original 51-way
+DISJOINT pair/triple GF5
+derivative agrees with the
+independent full signed R3
+baseline on every source hotspot
+actually chosen. Each proposed
+source palette is accepted only
+under STRICT smaller true R3
+and nonincreasing exact R2,
+and every accepted move has a
+fresh COMPLETE 12,704,100-triple
+physical GF5^28 external
+source audit and actual full
+six-distinct-ID signed event
+inventory.
+
+| TRUE original fixed W34 source model | Before from #715 (D2,D3,R3) | After 3 further actual original-source coefficient edits | Real ORIGINAL source IDs changed |
+|---|---|---|---|
+| lex | (1,497,76) | **(1,483,62)** | **94: 28→2 (−5), 102: 26→6 (−5), 98: 25→0 (−4)** |
+| reverse-line | (0,83,83) | **(0,69,69)** | **101: 40→34 (−5), 359: 33→3 (−5), 59: 14→4 (−4)** |
+
+Consequently the true total
+six-original-flag signed 3+3
+GF5 R3 risk is reduced by
+**14 more actual events on
+EACH fixed map**.
+The original global f,g
+and all 425 physical source
+column supports remain
+EXACTLY unchanged. The
+lex map retains its single
+real source R2 event;
+reverse-line retains R2=0.
+The current genuine R3
+event counts are 62 and 69
+respectively — they are NOT
+full-zero 425-flag ASET
+certificates. In particular
+the reverse-line full D3
+equals R3=69, since
+R2=0 and N-4=421.
+
+**Permanent real immutable evidence:**
+`research/hyp105_w34_disjoint5_repaired_source_certificates.json`
+stores, for BOTH maps:
+all 425 exact source-ID
+ordered legal GF5 palette
+indices; three actual
+one-original-source edits;
+the initial/final exact
+source D2,D3,R3; all 12
+real source hotspot
+evaluations, including
+51 exact direct signed R3
+deltas per chosen source;
+and the full 12,704,100-
+triple external source
+independent proof flags.
+
+An additional static
+certificate referee
+loads that PERMANENT data,
+rebuilds the actual symplectic
+W(3,4) source point/line
+geometry and separately
+injected f,g maps,
+checks that ONLY 3 actual
+source IDs changed per
+map compared with frozen
+#715, recomputes ALL
+90,100 real original
+two-source sums,
+and runs a NEW, fully
+independent 12,704,100-
+triple exact GF5 external
+R3 census on BOTH final
+complete source assignments.
+It also checks all 28
+physical GF5 coordinates
+of every saved witness.
+These checks do not call
+the source-disjoint
+local-search algorithm
+to calculate expected
+final counts.
+
+**Scope and stop condition:** this
+is a real, reproducible
+finite W34 construction
+with strictly improving
+signed event counts,
+not a proof of a
+globally optimal assignment.
+The bounded three-round,
+four-hotspot source search
+may stop even if other
+single-source or multi-source
+changes would improve the
+risk; moreover R3 remains
+nonzero on both maps.
+The all-h HYP-105
+theorem remains open.
 
 ## 6. Limits
 
