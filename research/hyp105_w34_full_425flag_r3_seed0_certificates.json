@@ -1,0 +1,1576 @@
+{
+  "schema": "mathlab.hyp105.original-gf5-full-w34-exact-r3.v1",
+  "claim": "COMPLETE true original symplectic W(3,4) full fixed-palette GF5 3v3 signed event count; not a random expectation or all-h result",
+  "source_original_s": 4,
+  "source_original_point_count": 85,
+  "source_original_line_count": 85,
+  "source_ORIGINAL_flag_count": 425,
+  "physical_coordinates_GF5": 28,
+  "true_original_triple_count": 12704100,
+  "external_lossless_bytes": 152449200,
+  "certified_by_GitHub_hosted_run": 41603089629,
+  "original_first_verified_HEAD": "050d5e9f4f0dfabb439a953e7aa90069fe39b8d6",
+  "new_asymptotic_exponent_proved": false,
+  "fixed_source_seed": 0,
+  "schemes": {
+    "lex": {
+      "source_fixed_original_pair_map": "lex",
+      "original_GF5_palette_assignment": "SHA256 deterministic source flag palettes from research/hyp105_w34_external_triple_r3_referee.py, seed=0",
+      "hosted_original_worker_job_id": 125806250326,
+      "exact_complete_source_risk": {
+        "FULL_six_distinct_original_ID_3v3_signed_event_count": 86,
+        "all_425_original_flags_in_scope": true,
+        "all_original_1_2_source_sum_checks": {
+          "distinct_one_source_sums": 425,
+          "distinct_two_source_sums": 90097,
+          "one_source_sum_collisions": 0,
+          "two_source_sum_collisions": 3
+        },
+        "all_source_sixsets_implicitly_covered": 7899625349700,
+        "all_source_triple_count": 12704100,
+        "all_triples_exact_external_disk_records_processed": 12704100,
+        "complete_source_GF5_zero_to_three_ASET": false,
+        "distinct_complete_GF5_three_source_sums": 12702751,
+        "does_not_prove_all_h_or_new_asymptotic_exponent": true,
+        "equal_sum_pairs_of_distinct_ORIGINAL_triples": 1349,
+        "equal_triples_sharing_original_ID_not_signed_R3": 1263,
+        "exact_on_disk_bucket_bytes": 152449200,
+        "no_false_negative_from_hashed_or_sampled_sums": true,
+        "nontrivial_full_source_signature_groups": 1349,
+        "peak_one_sorted_external_bucket_bytes": 605208,
+        "peak_one_sorted_external_bucket_records": 50434,
+        "selected_original_flag_count": 425,
+        "source_legal_ORIGINAL_flag_ID_count": 425,
+        "source_m_GF5_physical_coordinates": 28,
+        "source_s": 4,
+        "verified_independent_true_source_witnesses": [
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                7,
+                30
+              ],
+              [
+                82,
+                32
+              ],
+              [
+                50,
+                39
+              ],
+              [
+                10,
+                42
+              ],
+              [
+                76,
+                72
+              ],
+              [
+                50,
+                77
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              4,
+              1,
+              0,
+              0,
+              0,
+              1,
+              2,
+              0,
+              3,
+              0,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              164,
+              197,
+              387
+            ],
+            "positive_ORIGINAL_three": [
+              150,
+              210,
+              364
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              150,
+              164,
+              197,
+              210,
+              364,
+              387
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                4,
+                2,
+                2,
+                2,
+                2
+              ],
+              [
+                4,
+                2,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                64,
+                19
+              ],
+              [
+                49,
+                24
+              ],
+              [
+                48,
+                48
+              ],
+              [
+                63,
+                54
+              ],
+              [
+                17,
+                70
+              ],
+              [
+                18,
+                75
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              3,
+              2,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              1,
+              0,
+              0,
+              1,
+              4,
+              0,
+              0,
+              0,
+              0,
+              4
+            ],
+            "negative_ORIGINAL_three": [
+              122,
+              242,
+              350
+            ],
+            "positive_ORIGINAL_three": [
+              98,
+              273,
+              375
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              98,
+              122,
+              242,
+              273,
+              350,
+              375
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ],
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                29,
+                31
+              ],
+              [
+                75,
+                34
+              ],
+              [
+                13,
+                55
+              ],
+              [
+                35,
+                56
+              ],
+              [
+                84,
+                63
+              ],
+              [
+                20,
+                83
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              3,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              174,
+              281,
+              319
+            ],
+            "positive_ORIGINAL_three": [
+              156,
+              275,
+              415
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              156,
+              174,
+              275,
+              281,
+              319,
+              415
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ],
+              [
+                2,
+                2,
+                2,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                3,
+                0
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                49,
+                12
+              ],
+              [
+                64,
+                19
+              ],
+              [
+                49,
+                24
+              ],
+              [
+                28,
+                70
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              0,
+              1,
+              0,
+              2,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4
+            ],
+            "negative_ORIGINAL_three": [
+              98,
+              122,
+              351
+            ],
+            "positive_ORIGINAL_three": [
+              3,
+              30,
+              64
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              3,
+              30,
+              64,
+              98,
+              122,
+              351
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ],
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                31,
+                3
+              ],
+              [
+                32,
+                3
+              ],
+              [
+                59,
+                48
+              ],
+              [
+                28,
+                70
+              ],
+              [
+                58,
+                73
+              ],
+              [
+                28,
+                78
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              0,
+              3,
+              0,
+              0,
+              2,
+              3,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              3,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              19,
+              351,
+              368
+            ],
+            "positive_ORIGINAL_three": [
+              18,
+              243,
+              391
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              18,
+              19,
+              243,
+              351,
+              368,
+              391
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                4,
+                2,
+                2,
+                2,
+                2
+              ],
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                12,
+                8
+              ],
+              [
+                50,
+                39
+              ],
+              [
+                54,
+                39
+              ],
+              [
+                41,
+                41
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              3,
+              0,
+              0,
+              2,
+              3,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              42,
+              198,
+              207
+            ],
+            "positive_ORIGINAL_three": [
+              2,
+              3,
+              197
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              2,
+              3,
+              42,
+              197,
+              198,
+              207
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ],
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                29,
+                31
+              ],
+              [
+                29,
+                35
+              ],
+              [
+                9,
+                37
+              ],
+              [
+                9,
+                39
+              ],
+              [
+                72,
+                62
+              ],
+              [
+                32,
+                71
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              3,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              4,
+              0,
+              4,
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              176,
+              195,
+              314
+            ],
+            "positive_ORIGINAL_three": [
+              156,
+              185,
+              356
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              156,
+              176,
+              185,
+              195,
+              314,
+              356
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                4,
+                3,
+                3,
+                2
+              ],
+              [
+                2,
+                2,
+                2,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                14,
+                6
+              ],
+              [
+                43,
+                12
+              ],
+              [
+                31,
+                55
+              ],
+              [
+                13,
+                56
+              ],
+              [
+                31,
+                63
+              ],
+              [
+                43,
+                75
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              276,
+              280,
+              316
+            ],
+            "positive_ORIGINAL_three": [
+              33,
+              62,
+              377
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              33,
+              62,
+              276,
+              280,
+              316,
+              377
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ],
+              [
+                4,
+                2,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          }
+        ]
+      }
+    },
+    "reverse-line": {
+      "source_fixed_original_pair_map": "reverse-line",
+      "original_GF5_palette_assignment": "SHA256 deterministic source flag palettes from research/hyp105_w34_external_triple_r3_referee.py, seed=0",
+      "hosted_original_worker_job_id": 125806250714,
+      "exact_complete_source_risk": {
+        "FULL_six_distinct_original_ID_3v3_signed_event_count": 96,
+        "all_425_original_flags_in_scope": true,
+        "all_original_1_2_source_sum_checks": {
+          "distinct_one_source_sums": 425,
+          "distinct_two_source_sums": 90099,
+          "one_source_sum_collisions": 0,
+          "two_source_sum_collisions": 1
+        },
+        "all_source_sixsets_implicitly_covered": 7899625349700,
+        "all_source_triple_count": 12704100,
+        "all_triples_exact_external_disk_records_processed": 12704100,
+        "complete_source_GF5_zero_to_three_ASET": false,
+        "distinct_complete_GF5_three_source_sums": 12703583,
+        "does_not_prove_all_h_or_new_asymptotic_exponent": true,
+        "equal_sum_pairs_of_distinct_ORIGINAL_triples": 517,
+        "equal_triples_sharing_original_ID_not_signed_R3": 421,
+        "exact_on_disk_bucket_bytes": 152449200,
+        "no_false_negative_from_hashed_or_sampled_sums": true,
+        "nontrivial_full_source_signature_groups": 517,
+        "peak_one_sorted_external_bucket_bytes": 605040,
+        "peak_one_sorted_external_bucket_records": 50420,
+        "selected_original_flag_count": 425,
+        "source_legal_ORIGINAL_flag_ID_count": 425,
+        "source_m_GF5_physical_coordinates": 28,
+        "source_s": 4,
+        "verified_independent_true_source_witnesses": [
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                56,
+                20
+              ],
+              [
+                63,
+                20
+              ],
+              [
+                55,
+                56
+              ],
+              [
+                52,
+                58
+              ],
+              [
+                52,
+                69
+              ],
+              [
+                60,
+                69
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              2,
+              0,
+              4,
+              0,
+              4,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              103,
+              292,
+              347
+            ],
+            "positive_ORIGINAL_three": [
+              101,
+              283,
+              348
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              101,
+              103,
+              283,
+              292,
+              347,
+              348
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ],
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                23,
+                53
+              ],
+              [
+                23,
+                61
+              ],
+              [
+                72,
+                71
+              ],
+              [
+                51,
+                73
+              ],
+              [
+                36,
+                76
+              ],
+              [
+                39,
+                76
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0,
+              0,
+              1,
+              1,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              359,
+              381,
+              382
+            ],
+            "positive_ORIGINAL_three": [
+              266,
+              306,
+              367
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              266,
+              306,
+              359,
+              367,
+              381,
+              382
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                2,
+                2,
+                2,
+                2,
+                2,
+                2
+              ],
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                10,
+                6
+              ],
+              [
+                6,
+                27
+              ],
+              [
+                70,
+                29
+              ],
+              [
+                64,
+                41
+              ],
+              [
+                67,
+                46
+              ],
+              [
+                73,
+                47
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              2,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              3,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              135,
+              233,
+              239
+            ],
+            "positive_ORIGINAL_three": [
+              32,
+              149,
+              208
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              32,
+              135,
+              149,
+              208,
+              233,
+              239
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ],
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                2,
+                12
+              ],
+              [
+                84,
+                28
+              ],
+              [
+                12,
+                52
+              ],
+              [
+                40,
+                59
+              ],
+              [
+                19,
+                80
+              ],
+              [
+                20,
+                82
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              2,
+              3,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              3,
+              4,
+              0,
+              0,
+              0,
+              3,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              260,
+              297,
+              410
+            ],
+            "positive_ORIGINAL_three": [
+              60,
+              144,
+              400
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              60,
+              144,
+              260,
+              297,
+              400,
+              410
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                2,
+                2,
+                2,
+                2,
+                2,
+                2
+              ],
+              [
+                2,
+                2,
+                2,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                21,
+                1
+              ],
+              [
+                24,
+                1
+              ],
+              [
+                75,
+                13
+              ],
+              [
+                80,
+                13
+              ],
+              [
+                72,
+                16
+              ],
+              [
+                77,
+                16
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              2,
+              0,
+              2,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              9,
+              67,
+              83
+            ],
+            "positive_ORIGINAL_three": [
+              6,
+              68,
+              81
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              6,
+              9,
+              67,
+              68,
+              81,
+              83
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ],
+              [
+                4,
+                4,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                29,
+                27
+              ],
+              [
+                33,
+                28
+              ],
+              [
+                22,
+                45
+              ],
+              [
+                73,
+                47
+              ],
+              [
+                13,
+                54
+              ],
+              [
+                13,
+                55
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0,
+              0,
+              0,
+              3,
+              4,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              141,
+              239,
+              270
+            ],
+            "positive_ORIGINAL_three": [
+              136,
+              226,
+              275
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              136,
+              141,
+              226,
+              239,
+              270,
+              275
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                4,
+                3,
+                3,
+                2
+              ],
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                5,
+                23
+              ],
+              [
+                47,
+                31
+              ],
+              [
+                48,
+                35
+              ],
+              [
+                10,
+                44
+              ],
+              [
+                52,
+                47
+              ],
+              [
+                73,
+                47
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              3,
+              4,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              4,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              157,
+              237,
+              239
+            ],
+            "positive_ORIGINAL_three": [
+              115,
+              177,
+              220
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              115,
+              157,
+              177,
+              220,
+              237,
+              239
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ],
+              [
+                3,
+                3,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          },
+          {
+            "actual_original_point_line_incidence_flags": [
+              [
+                18,
+                6
+              ],
+              [
+                19,
+                7
+              ],
+              [
+                15,
+                64
+              ],
+              [
+                80,
+                64
+              ],
+              [
+                54,
+                74
+              ],
+              [
+                18,
+                75
+              ]
+            ],
+            "complete_GF5_physical_sum": [
+              0,
+              1,
+              0,
+              0,
+              2,
+              0,
+              0,
+              2,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              3,
+              0,
+              0,
+              0,
+              0
+            ],
+            "negative_ORIGINAL_three": [
+              39,
+              320,
+              375
+            ],
+            "positive_ORIGINAL_three": [
+              34,
+              324,
+              373
+            ],
+            "six_distinct_ORIGINAL_flag_IDs": [
+              34,
+              39,
+              320,
+              324,
+              373,
+              375
+            ],
+            "two_original_physical_coordinate_profiles": [
+              [
+                4,
+                2,
+                2,
+                2,
+                2
+              ],
+              [
+                2,
+                2,
+                2,
+                2,
+                2,
+                2
+              ]
+            ],
+            "verified_exact_28_or_12_coordinate_equations": true
+          }
+        ]
+      }
+    }
+  }
+}
