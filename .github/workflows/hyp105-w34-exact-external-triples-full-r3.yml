@@ -7,7 +7,7 @@ on:
       - 'docs/research/HYP-105-W34-EXACT-EXTERNAL-TRIPLE-R3-REFEREE.md'
       - 'research/hyp105_w34_external_triple_r3_referee.py'
       - 'research/test_hyp105_w34_external_triple_r3_referee.py'
-      - 'research/hyp105_w34_fixed_425flag_full_r3_seed0.json'
+      - 'research/hyp105_w34_full_425flag_r3_seed0_certificates.json'
   workflow_dispatch:
 
 permissions:
