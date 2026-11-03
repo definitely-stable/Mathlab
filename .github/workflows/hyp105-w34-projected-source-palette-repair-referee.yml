@@ -1,0 +1,49 @@
+name: hyp105-w34-projected-source-palette-repair-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-w34-projected-source-palette-repair-referee.yml'
+      - 'docs/research/HYP-105-W34-PROJECTED-SOURCE-PALETTE-REPAIR-REFEREE.md'
+      - 'research/hyp105_w34_projected_source_palette_repair_referee.py'
+      - 'research/test_hyp105_w34_projected_source_palette_repair_referee.py'
+      - 'research/hyp105_w34_r2first_repaired_source_certificates.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-W32-all51-full-triple-independence-and-real-W34-projection:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify every one of all 51 source palettes against independent W32 14190 triples and true W34 source projections
+        run: python -m unittest discover -s research -p 'test_hyp105_w34_projected_source_palette_repair_referee.py' -v
+
+  real-W34-exact-R2-first-source-palette-repair:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse-line]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Host original source external W34 scratch disk and RAM budget
+        run: df -h .
+      - name: All-51 exact projected source-local minimization and independent FULL 12704100 triple rehash
+        run: |
+          python research/hyp105_w34_projected_source_palette_repair_referee.py --scheme ${{ matrix.scheme }} --max-evaluations 3 --max-source-updates 2 | tee w34-source-r2first-${{ matrix.scheme }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-W34-exact-51-source-repair-${{ matrix.scheme }}
+          path: w34-source-r2first-${{ matrix.scheme }}.json
+          retention-days: 30
