@@ -5,6 +5,10 @@ on:
     paths:
       - '.github/workflows/hyp105-aa4-original-GF5-palette-distance.yml'
       - 'research/hyp105_original_random_palette_distance.py'
+      - 'research/hyp105_original_ten_sign_exclusive.py'
+      - 'research/test_hyp105_original_ten_sign_exclusive.py'
+      - 'research/hyp105_original_ten_sign_exclusive_certificates.json'
+      - 'research/test_hyp105_original_ten_sign_exclusive_certificates.py'
       - 'research/test_hyp105_original_random_palette_distance.py'
       - 'research/test_hyp105_original_random_palette_distance_certificates.py'
       - 'research/hyp105_original_random_palette_distance_certificates.json'
@@ -27,11 +31,14 @@ jobs:
         run: |
           python -m unittest discover -s research -p 'test_hyp105_original_random_palette_distance.py' -v
           python -m unittest discover -s research -p 'test_hyp105_original_random_palette_distance_certificates.py' -v
+          python -m unittest discover -s research -p 'test_hyp105_original_ten_sign_exclusive.py' -v
       - name: Compute exact genuine ORIGINAL W32 signed motif disjoint-pack probability certificates for BOTH full globally injected maps
         run: |
           mkdir -p proof
           python -u research/hyp105_original_random_palette_distance.py \
             | tee proof/original-W32-GF5-sixflag-packing-probability.json.log
+          python -u research/hyp105_original_ten_sign_exclusive.py \
+            | tee proof/original-W32-ten-GF5-signed-exclusive-packing-probability.json.log
       - uses: actions/upload-artifact@v4
         with:
           name: hyp105-original-source-palettes-anti-concentration-W32
