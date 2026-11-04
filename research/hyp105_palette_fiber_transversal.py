@@ -79,17 +79,19 @@ def local_palette_fibers(columns, i, support):
                 legal_index = index_by_residue.get(residue)
                 if legal_index is not None:
                     hist[legal_index] += 1
+    bad_r1 = frozenset(j for j, value in enumerate(legal)
+                        if any(value == tuple(columns[z]) for z in others))
     bad_r3 = frozenset(j for j, value in enumerate(h3) if value > 0)
     bad_r2 = frozenset(j for j, value in enumerate(h2)
                        if value > h2[old_index])
-    safe = frozenset(range(51)) - bad_r2 - bad_r3
+    safe = frozenset(range(51)) - bad_r1 - bad_r2 - bad_r3
     return {
         "h2": tuple(h2), "h3": tuple(h3),
         "old_palette": old_index,
-        "bad_r2": bad_r2, "bad_r3": bad_r3,
+        "bad_r1": bad_r1, "bad_r2": bad_r2, "bad_r3": bad_r3,
         "safe": safe,
-        "safe_exact_count": 51-len(bad_r2 | bad_r3),
-        "safe_union_lower_bound": max(0,51-len(bad_r2)-len(bad_r3)),
+        "safe_exact_count": 51-len(bad_r1 | bad_r2 | bad_r3),
+        "safe_union_lower_bound": max(0,51-len(bad_r1)-len(bad_r2)-len(bad_r3)),
         "legal_columns": legal,
     }
 

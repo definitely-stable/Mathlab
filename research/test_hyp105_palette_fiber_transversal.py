@@ -36,9 +36,10 @@ class PaletteFiberTransversalTests(unittest.TestCase):
         report = local_palette_fibers(source, 0, (0,1,2,3))
         self.assertEqual(report["old_palette"],23)
         self.assertEqual(report["bad_r3"],frozenset((9,16,22,23)))
-        self.assertEqual(report["bad_r2"],frozenset())
-        self.assertEqual(report["safe_exact_count"],47)
-        self.assertEqual(report["safe_union_lower_bound"],47)
+        self.assertEqual(report["bad_r1"],frozenset((5,12,20,31,37)))
+        self.assertEqual(report["bad_r2"],frozenset((2,3,13,20,27,36,44,45,47)))
+        self.assertEqual(report["safe_exact_count"],34)
+        self.assertEqual(report["safe_union_lower_bound"],33)
         base_r2 = signed_events(source,2)
         base_r3 = signed_events(source,3)
         for t, value in enumerate(report["legal_columns"]):
@@ -50,7 +51,8 @@ class PaletteFiberTransversalTests(unittest.TestCase):
             h3 = sum(0 in a or 0 in b for a,b in current_r3)
             self.assertEqual(report["h2"][t], h2)
             self.assertEqual(report["h3"][t], h3)
-            expected_safe = h3==0 and len(current_r2)<=len(base_r2)
+            expected_safe = (h3==0 and len(current_r2)<=len(base_r2)
+                             and len(set(new))==len(new))
             self.assertEqual(t in report["safe"], expected_safe)
             self.assertEqual(
                 len(current_r2)-len(base_r2),
@@ -69,9 +71,10 @@ class PaletteFiberTransversalTests(unittest.TestCase):
         one[0] = PALETTES[0]
         self.assertEqual(signed_events(one,3),predicted_remaining(initial,(0,)))
         r = local_palette_fibers(one,1,(0,1,2,3))
-        self.assertIn(0,r["safe"])
+        self.assertNotIn(0,r["safe"])  # duplicate singleton with source ID 0
+        self.assertIn(1,r["safe"])
         two = one[:]
-        two[1] = PALETTES[0]
+        two[1] = PALETTES[1]
         self.assertEqual(signed_events(two,3),
                          predicted_remaining(initial,(0,1)))
         self.assertEqual(len(signed_events(two,2)),0)

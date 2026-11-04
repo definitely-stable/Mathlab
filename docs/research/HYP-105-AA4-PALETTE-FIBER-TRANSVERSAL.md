@@ -16,19 +16,19 @@ Every event containing i has exactly one global orientation placing i on the pos
 
 Let W_{i,k} be the multiset of full physical residues sum(B)-sum(A) over all qualifying disjoint original other-ID A,B. For each palette t, H_{i,k}(t) is the multiplicity of the COMPLETE vector c_i(t) in W_{i,k}. In particular, a residue can forbid t only when it vanishes at EVERY physical coordinate outside J_i and equals the legal four-coordinate pattern ON J_i. A single qualifying pair/triple forces at most one of the 51 t, but different pairs/triples may force the same t.
 
-Define B3(i)={t:H_{i,3}(t)>0}, B2(i)={t:H_{i,2}(t)>H_{i,2}(old)}. For every fixed legal original source assignment:
+Define B3(i)={t:H_{i,3}(t)>0}, B2(i)={t:H_{i,2}(t)>H_{i,2}(old)}, and B1(i)={t:c_i(t)=c_j for some other ORIGINAL j}. On genuine separately injected W(3,s) source B1 is IDENTICALLY EMPTY: distinct incidence flags have distinct joint point/line physical supports, since f and g are each injective and all four coefficients are nonzero. We retain B1 for adversarial abstract-vector checks. For every fixed legal original source assignment:
 
-CleanSafe(i) = P_i \ (B3(i) union B2(i))
+CleanSafe(i) = P_i \ (B1(i) union B2(i) union B3(i))
 
-is EXACTLY the set of replacements which (a) create zero true signed six-distinct-original R3 events containing i, and (b) do not increase total genuine R2. All events avoiding i are unchanged. Hence a clean R2-safe recoloring exists if and only if |B3 union B2| < 51. Its count is 51-|B3 union B2| and the computable conservative lower bound is
+is EXACTLY the set of replacements which (a) preserve singleton injectivity, (b) create zero true signed six-distinct-original R3 events containing i, and (c) do not increase total genuine R2. All events avoiding i are unchanged. Hence a clean R2-safe recoloring exists if and only if |B1 union B3 union B2| < 51. Its count is 51-|B1 union B3 union B2| and the computable conservative lower bound is
 
-|CleanSafe(i)| >= max(0, 51-|B3|-|B2|).
+|CleanSafe(i)| >= max(0, 51-|B1|-|B3|-|B2|).
 
 This is a sufficient coverage inequality, NOT a general bound on the sizes of B3 and B2. Even if the AVERAGE H3 over 51 patterns is small, the R2 admissibility filter must be intersected explicitly; an unqualified inference that some simultaneously safe t exists is invalid.
 
-Proof: the complete residue equality is exactly the defining signed equation, and each source event with i has a unique i-positive orientation. Every altered k-event contains i, so E_k(new) outside i is unchanged. Thus the new incident k-event count equals H_{i,k}(new), and the total R2 difference is H_{i,2}(new)-H_{i,2}(old). Intersect the conditions H3(new)=0 and H2(new)<=H2(old); take the complement within 51. The lower bound follows by the union bound on two finite sets. QED.
+Proof: the complete residue equality is exactly the defining signed equation, and each source event with i has a unique i-positive orientation. Every altered k-event contains i, so E_k(new) outside i is unchanged. Thus the new incident k-event count equals H_{i,k}(new), and the total R2 difference is H_{i,2}(new)-H_{i,2}(old). Also forbid singleton equality with every untouched original column. Intersect H3(new)=0, H2(new)<=H2(old) and singleton injectivity; take the complement within 51. The lower bound follows by the union bound on two finite sets. QED.
 
-A weaker but sometimes cheaper sufficient criterion is: number of distinct source-residual values on the legal 51-pattern support plus number of R2-worsening patterns is at most 50. Bounding the number of original 2+3 witnesses instead of distinct residues also works, but is strictly more conservative when collisions share a palette.
+A weaker but sometimes cheaper sufficient criterion is: number of distinct source-residual values on the legal 51-pattern support plus number of R2-worsening patterns plus singleton-equality patterns is at most 50. Bounding the number of original 2+3 witnesses instead of distinct residues also works, but is strictly more conservative when collisions share a palette.
 
 ## Theorem 2 — exact composition and transversal necessity
 
@@ -65,6 +65,6 @@ More importantly, root #230 Branch A concerns an all-f,g lower bound on seven OR
 
 The dedicated Python oracle uses the COMPLETE GF5^m residues, disjoint original IDs, exactly 51 legal checksum4 patterns, and an algorithmically different direct pair/triple sum enumeration to cross-check H2/H3. It tests EVERY legal 51-replacement option for a fixed six-original-vector witness, including palettes creating NEW conflicts, full event SET subtraction, R2 nonincrease, a second consecutive safe edit and exact transversal bounds. Tests fail when incident-event orientation or distinct-original-ID conditions are corrupted.
 
-The UCT-005 D1-B incidental algorithm-term inventory remains fail-closed. The inherited #719 FULL Research failure is from three unregistered textual 3SUM mentions (one prose and two identical JSON keys), not a GF5 mathematical failure. This child registers them by EXACT reviewed source lines and exact expected counts, extending the audit without excluding paths, suppressing tests or weakening the upstream dependency-hardness firewall.
+The UCT-005 D1-B incidental algorithm-term inventory remains fail-closed. The inherited #719 FULL Research failure is from three unregistered textual computational-problem mentions (one prose and two identical JSON keys), not a GF5 mathematical failure. This child registers them by EXACT reviewed source lines and exact expected counts, extending the audit without excluding paths, suppressing tests or weakening the upstream dependency-hardness firewall.
 
 Next actual mathematical frontier: derive a nontrivial h-uniform upper bound on forbidden legal palette fibers (or an all-h obstruction to such a bound) from true W(3,s) incidence and arbitrary correlated pair labels. The present iff criterion, two finite certificates and event transversals are inputs, not that missing theorem.
