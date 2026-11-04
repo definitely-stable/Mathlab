@@ -193,6 +193,25 @@ def aggregate(scheme,folder,out):
         "claim_about_all_h_root":False,
         "root_230_status":"OPEN_WITH_FORMAL_BLOCKER",
     }
+    # This is a strict FINAL-HEAD replay of the saved aggregate source
+    # result, not an assumption that a previous workflow stays correct.
+    permanent=json.loads((ROOT/"hyp105_w34_frozen_core_domain_certificates.json"
+                         ).read_text(encoding="utf-8"))
+    scope=permanent["schemes"][scheme]
+    actual={str(i):summaries[i] for i in t}
+    stored={str(row["source_ID"]):{
+        "forbidden_count":row["blocked_p2_p3"],
+        "allowed_count":row["allowed_p2_p3"],
+    } for row in scope["all_source_palette_local_domains"]}
+    if (stored!=actual or scope["edited_source_IDs"]!=list(t)
+        or scope["fixed_original_ID_count"]!=425-len(t)
+        or scope["sum_allowed_p2_p3_single_source_domains"]!=
+           sum(v["allowed_count"] for v in summaries.values())
+        or scope["source_ids_with_empty_domain"]!=dead
+        or scope["formal_upper_bound_on_CSP_assignments_after_frozen_core_filter"]
+           !=str(math.prod(v["allowed_count"] for v in summaries.values()))):
+        raise AssertionError("permanent 25/26 REAL W34 frozen-core certificate drift")
+    print("AA4_PERMANENT_W34_FROZEN_CORE_CERTIFICATE_REPLAY_PASS="+scheme)
     out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(result,indent=2,sort_keys=True)+"\n",encoding="utf-8")
     return result
