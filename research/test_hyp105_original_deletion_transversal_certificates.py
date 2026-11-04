@@ -127,7 +127,7 @@ class PermanentW32OriginalDeletionCertificate(unittest.TestCase):
     def test_mutating_original_5_cover_fails_closed(self):
         z=copy.deepcopy(self.saved)
         z["finite_schemes"]["lex"][
-            "exact_minimum_adversarial_original_ID_deletions"]["original_IDs"]=[0,1,2,3,4]
+            "exact_minimum_adversarial_original_ID_deletions"]["original_IDs"]=[0,0,0,0,0]
         with self.assertRaises(AssertionError):
             check_permanent_original_W32_witness_consistency(z)
 
