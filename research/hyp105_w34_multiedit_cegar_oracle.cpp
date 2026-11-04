@@ -191,6 +191,8 @@ static SignedEvent equal_event(const std::vector<int>&a,
     for(int q:b)if(std::find(a.begin(),a.end(),q)==a.end())y.push_back(q);
     require(x.size()==y.size()&&x.size()>=1&&x.size()<=3,
             "signed original equal-sum overlap invalid");
+    std::sort(x.begin(),x.end());
+    std::sort(y.begin(),y.end());
     SignedEvent result;
     result.k=int(x.size());
     if(y<x)std::swap(x,y);
