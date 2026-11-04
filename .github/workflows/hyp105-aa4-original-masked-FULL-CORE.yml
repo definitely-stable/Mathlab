@@ -1,0 +1,66 @@
+name: hyp105-aa4-original-masked-FULL-CORE
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-masked-FULL-CORE.yml'
+      - 'research/hyp105_original_masked_mixed_blocker.py'
+      - 'research/test_hyp105_original_masked_mixed_blocker.py'
+      - 'research/hyp105_original_masked_mixed_blocker_certificates.json'
+      - 'research/test_hyp105_original_masked_mixed_blocker_certificates.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-MASKED-MIXED-BLOCKER.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-masked-full-core-sixsource-mixed-referee:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent ORIGINAL source masked FULL/CORE point-line books vs direct physical paths and 6-ID positive GF5 source reconstruction W32/W34
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_masked_mixed_blocker.py' -v
+      - name: Independently replay FINAL permanent true-source W32/W34 masked FULL/CORE certificate with six negative corruption guards
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_masked_mixed_blocker_certificates.py' -v
+      - name: Exact original W32/W34 source-masked all-N full/core contraction and source 6-ID positive path event certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_masked_mixed_blocker.py \
+            | tee proof/hyp105-original-Z-masked-FULL-CORE-source-6ID.json.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("proof/hyp105-original-Z-masked-FULL-CORE-source-6ID.json.log")
+          lines=p.read_text(encoding="utf-8").splitlines()
+          prefix="AA4_ORIGINAL_MASKED_MIXED_CERTIFICATE="
+          assert len(lines)==1 and lines[0].startswith(prefix), "no complete, unique original-source proof record"
+          data=json.loads(lines[0][len(prefix):])
+          assert data["schema"]=="mathlab.hyp105.original-masked-FULL-CORE-mixed-blocker.v1"
+          assert data["root_230_status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert data["full_allh_Branch_A_proved_here"] is False
+          assert [(x["s"],x["scheme"]) for x in data["cases"]]==[
+             (2,"lex"),(2,"reverse-line"),(4,"lex"),(4,"reverse-line")]
+          assert all(x["source_masked_mixed_identity_exact"] and
+                     x["fullcore_deletion_sensitivity_identity_all_N"] and
+                     x["all_source_first_physical_masked_triples_match"] and
+                     x["physical_weighted_blocker_W2_le_BDeltaTr4"] and
+                     x["source_original_G7_full_nonZ_certificate"]["two_directed_paths_per_original_BBo_source_sixset"]
+                     for x in data["cases"]),"physically invalid original six-ID source proof"
+          print("AA4_ZMIX_STRICT_PROOF_JSON_ACCEPTED")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-masked-FULL-CORE-physical-sixID-referee
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
