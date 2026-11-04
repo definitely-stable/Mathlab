@@ -141,7 +141,7 @@ class RealOriginalFrozenCoreW32Tests(unittest.TestCase):
     def test_invalid_original_physical_source_fails_closed(self):
         lines=self.input.splitlines()
         fields=lines[1].split()
-        fields[5]="0"
+        fields[5+int(fields[1])]="0"  # guaranteed nonzero original support
         lines[1]=" ".join(fields)
         bad=self.root/"corrupt.txt"
         bad.write_text("\n".join(lines)+"\n",encoding="utf-8")
