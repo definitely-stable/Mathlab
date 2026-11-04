@@ -1,0 +1,70 @@
+name: hyp105-aa4-original-adaptive-selector-moments
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-adaptive-selector-moments.yml'
+      - 'research/hyp105_original_adaptive_selector_moments.py'
+      - 'research/test_hyp105_original_adaptive_selector_moments.py'
+      - 'research/hyp105_original_adaptive_selector_moments_certificates.json'
+      - 'research/test_hyp105_original_adaptive_selector_moments_certificates.py'
+      - 'docs/research/HYP-105-AA4-ADAPTIVE-ORIGINAL-SELECTOR-MOMENTS.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-adaptive-priority-fourth-sixth-source-moment:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently verify actual ORIGINAL W32/W34 source-conflict priorities, true physical 2/3 paths, weighted Jensen, 4/6 moments and selected positive D6 C6 injection
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_adaptive_selector_moments.py' -v
+      - name: Exact complete original W32/W34 SOURCE-adaptive priority and positive D6 physical cycle machine-proof certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_adaptive_selector_moments.py \
+            | tee proof/original-W32-W34-adaptive-priority-weighted-moment.json.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          content=Path("proof/original-W32-W34-adaptive-priority-weighted-moment.json.log").read_text(encoding="utf-8").splitlines()
+          prefix="AA4_ADAPTIVE_ORIGINAL_SELECTOR_MOMENT_CERTIFICATE="
+          assert len(content)==1 and content[0].startswith(prefix),"missing true source proof JSON"
+          cert=json.loads(content[0][len(prefix):])
+          assert cert["schema"]=="mathlab.hyp105.AA4-ORIGINAL-path-adaptive-selector-CI-proof.v1"
+          assert cert["root_230_status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert cert["all_h_Branch_A_proved_here"] is False
+          assert [(x["s"],x["scheme"]) for x in cert["exact_original_source_cases"]]==[
+            (2,"lex"),(2,"reverse-line"),(4,"lex"),(4,"reverse-line")]
+          for x in cert["exact_original_source_cases"]:
+              assert x["physical_core_edges"]==2*x["retained_original_source_flags"]
+              for r in ("r2","r3"):
+                  z=x[r]
+                  from fractions import Fraction
+                  a=Fraction(z["original_adaptive_weighted_endpoint_Frobenius_square"])
+                  b=Fraction(z["uniform_sigma_squared_times_exact_original_proper_endpoint_Frobenius_square"])
+                  assert b<=a<=z["physical_original_full_core_trace_A_to_2r"]
+                  assert z["weighted_original_selector_Jensen_bound_verified"]
+          for name,z in cert["selector_actual_original_positive_D6_witness"].items():
+              assert name in ("lex","reverse-line")
+              assert z["selected_physical_simple_C6"]>=1
+              assert z["planted_original_six_flag_IDs"] in z["actual_original_flag_IDs_D6"]
+              assert z["selector_C6_source_injective"]
+          print("AA4_ADAPTIVE_ORIGINAL_SELECTOR_STRICT_PROOF_JSON_ACCEPTED")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-true-original-adaptive-selector-moments-source-proof
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
