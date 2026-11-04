@@ -1,0 +1,94 @@
+name: hyp105-aa4-frozen-core-original-palettes
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-frozen-core-original-palettes.yml'
+      - 'research/hyp105_w34_frozen_core_palette.cpp'
+      - 'research/hyp105_frozen_core_fiber.py'
+      - 'research/test_hyp105_frozen_core_fiber.py'
+      - 'docs/research/HYP-105-AA4-FROZEN-CORE-PALETTE-FIBERS.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-W32-full-GF5-falsifiers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check genuine W32 independent complete 12D source equations, all 51 patterns and invalid support
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_frozen_core_fiber.py' -v
+
+  exhaustive-original-W34-minimum-source-cover-fixed-core:
+    needs: independent-original-W32-full-GF5-falsifiers
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse-line]
+        shard: [0, 1, 2, 3]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare actual original W34 globally pair-injective 425 source and exact min-cover target
+        run: |
+          mkdir -p proof input
+          python research/hyp105_frozen_core_fiber.py \
+            --scheme '${{ matrix.scheme }}' --prepare input/source.txt
+      - name: Compile independent projected GF5 2+2 / 3+3 exact frozen source oracle
+        run: |
+          g++ -O3 -std=c++17 -Wall -Wextra -pedantic \
+            research/hyp105_w34_frozen_core_palette.cpp -o input/frozen-source
+      - name: Enumerate every fixed-original pair and triple for all 51 legal patterns of each sharded target
+        run: |
+          input/frozen-source input/source.txt \
+            'proof/${{ matrix.scheme }}-${{ matrix.shard }}-of-4.json' ${{ matrix.shard }} 4
+      - name: Independently verify ALL forbidden 51-palette witnesses on REAL complete GF5^28 original physical source coordinates
+        run: |
+          python research/hyp105_frozen_core_fiber.py \
+            --scheme '${{ matrix.scheme }}' \
+            --verify 'proof/${{ matrix.scheme }}-${{ matrix.shard }}-of-4.json' \
+            --shard ${{ matrix.shard }} --shards 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-frozen-${{ matrix.scheme }}-${{ matrix.shard }}
+          path: proof/
+          retention-days: 90
+          if-no-files-found: error
+
+  aggregate-all-original-25-26-minimum-cover-domains:
+    needs: exhaustive-original-W34-minimum-source-cover-fixed-core
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: hyp105-frozen-*
+          path: proof/
+          merge-multiple: true
+      - name: Independently check all 25+26 ORIGINAL source IDs, 51 patterns each, exact four shards per map and archived full physical witness subsets
+        run: |
+          python research/hyp105_frozen_core_fiber.py \
+            --scheme lex --aggregate proof/ --out proof/lex-summary.json
+          python research/hyp105_frozen_core_fiber.py \
+            --scheme reverse-line --aggregate proof/ --out proof/reverse-line-summary.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-W34-complete-minimum-cover-fixed-core-certificate
+          path: proof/
+          retention-days: 90
+          if-no-files-found: error
