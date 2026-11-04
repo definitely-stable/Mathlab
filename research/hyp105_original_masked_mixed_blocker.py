@@ -1,4 +1,4 @@
-"""AA4-ZMIX: exact original-source-deletion-commuting FULL/CORE mixed-blocker lemma.
+r"""AA4-ZMIX: exact original-source-deletion-commuting FULL/CORE mixed-blocker lemma.
 
 All finite original physical W(3,2),W(3,4) refutations below are entirely
 independent of prior #672/#674 original mixed-book code, #676/#678 source
@@ -427,7 +427,8 @@ if __name__=="__main__":
             "full_allh_Branch_A_proved_here":False}
     for power,scheme,core,Z in cases:
         m=pair_labeled_symplectic(power,scheme)
-        core=None if core is None else tuple(i for i in core if i not in Z)
+        core=(tuple(i for i in range(len(m["incidences"])) if i not in Z)
+              if core is None else tuple(i for i in core if i not in Z))
         result=full_original_masked_mixed_referee(
             power,m["left_labels"],m["right_labels"],core,Z)
         result["scheme"]=scheme
