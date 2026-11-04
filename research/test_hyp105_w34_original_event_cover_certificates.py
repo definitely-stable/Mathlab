@@ -14,10 +14,10 @@ from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
 from hyp105_w34_external_triple_r3_referee import exact_gf5_original_vectors
 from hyp105_original_event_cover import (
     normalize_edges,canonical_signed_partition,covers,
-    verify_disjoint_packing,bounded_exact_cover)
+    verify_disjoint_packing,bounded_exact_cover,dominated_source_kernel)
 
 ROOT=Path(__file__).parent
-RESULTS={"lex":(1,475,54,27,24,27),
+RESULTS={"lex":(1,475,54,27,25,25),
          "reverse-line":(0,61,61,29,26,26)}
 
 
@@ -56,6 +56,7 @@ class OriginalW34EventCoverCertificateTests(unittest.TestCase):
         self.assertEqual(c["actual_true_original_W34_N"],425)
         self.assertEqual(c["physical_GF5_dimension"],28)
         self.assertEqual(c["original_triplet_census_per_scheme"],12704100)
+        self.assertEqual(c["domination_exact_cover_reanalysis_run_id"],41858006050)
         self.assertEqual(c["root_status"],"OPEN_WITH_FORMAL_BLOCKER")
         self.assertTrue(c["no_all_h_theorem"])
         self.assertTrue(c["no_asymptotic_exponent"])
@@ -93,6 +94,14 @@ class OriginalW34EventCoverCertificateTests(unittest.TestCase):
                 edges=normalize_edges(a+b for es in (e2,e3)
                                      for a,b in es)
                 self.assertEqual(len(edges),z["distinct_original_ID_hyperedges"])
+                kept,dropped=dominated_source_kernel(edges)
+                self.assertEqual(
+                    len(kept),z["source_candidates_after_incidence_domination"])
+                self.assertEqual(
+                    len(kept)+len(dropped),
+                    z["active_original_event_IDs_before_domination"])
+                self.assertEqual((len(kept),len(dropped)),
+                                 (74,157) if scheme=="lex" else (80,175))
                 trace=[e["original_source_flag_ID"]
                        for e in parent["exact_global_source_palette_edit_trace"]]
                 self.assertEqual(trace,z["existing_719_true_original_source_edits"])
@@ -132,8 +141,8 @@ class OriginalW34EventCoverCertificateTests(unittest.TestCase):
                 # Re-run *complete* k=23 branch rejection; k=24 was
                 # NOT completed, so the honest result is [24,27].
                 self.assertEqual(z["packing_certified_lower"],23)
-                self.assertEqual(z["exhaustively_refuted_cardinalities"],[23])
-                self.assertEqual(z["bounded_exact_search_status"],"BOUNDED")
+                self.assertEqual(z["exhaustively_refuted_cardinalities"],[23,24])
+                self.assertEqual(z["bounded_exact_search_status"],"EXACT")
                 run=bounded_exact_cover(
                     edges,upper_cover=z["explicit_original_ID_hitting_set"],
                     max_nodes=250000)
@@ -142,6 +151,8 @@ class OriginalW34EventCoverCertificateTests(unittest.TestCase):
                 self.assertEqual((run["status"],run["lower"],run["upper"]),
                                  ("EXACT",25,25))
                 self.assertEqual(run["exhausted_depths"],(23,24))
+                self.assertEqual(run["original_active_ids"],231)
+                self.assertEqual(run["nondominated_candidate_ids"],74)
 
 
 if __name__=="__main__":
