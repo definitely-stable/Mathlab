@@ -273,6 +273,177 @@ Research shards must still
 complete SUCCESS before a
 full Research green claim.
 
+## 4A. COMPLETE real original W34 GF5 0-to-3 ASET constructed on BOTH fixed f/g maps
+
+The initial independent hosted
+[scientific Actions #41785719789](https://github.com/definitely-stable/Mathlab/actions/runs/41785719789)
+finished **SUCCESS on ALL THREE jobs**:
+- the original W32 two consecutive exact source-erasure
+  independent physical GF5 falsifier;
+- the full 425-source **lex** W34 proof;
+- the full 425-source **reverse-line** W34 proof.
+
+The algorithm reached genuine zero source-risk on
+BOTH real original W34 global separately pair-injective
+point/line source maps:
+
+| Fixed actual W(3,4) ORIGINAL source f/g scheme | Prior complete (R2,D3,TRUE six-ID R3) | Actual final complete (R2,D3,TRUE R3) | Genuine one-ORIGINAL-flag source recolorings | Independent FULL external 12,704,100-triple source checkpoints |
+|---|---|---|---:|---:|
+| **lex** | (1,475,54) | **(0,0,0)** | **27** | **6** |
+| **reverse-line** | (0,61,61) | **(0,0,0)** | **29** | **6** |
+
+The lex source also removed the original
+one remaining source 2+2 signed risk
+in its FIRST recoloring:
+source ID **188, palette 38→1**,
+R2:1→0 and true R3:54→53.
+No R2 event reappeared. The subsequent
+26 clean recolorings deleted the other
+53 signed six-source R3 events exactly,
+without introducing any new one.
+For reverse-line R2 was zero at every step;
+29 recolorings delete exactly 61 true
+source R3 events.
+
+The two complete exact original source
+425-column final legal GF5 coefficient
+assignments are permanently committed in
+
+`research/hyp105_w34_zero_incidence_erasure_certificates.json`.
+
+This file includes for EACH map:
+- all 425 ordered ORIGINAL source
+  palette indices BEFORE and AFTER;
+- EVERY real source ID recolored,
+  old/new true checksum4 legal palette,
+  number of actual six-distinct-ID
+  signed R3 events eliminated;
+- exact complete original R2/D3/R3
+  after EVERY source edit;
+- the initial and final six independent
+  physical GF5 FULL 12,704,100-triple
+  external-disk rehash checkpoints,
+  all requiring the **ENTIRE canonical
+  signed six-source event set**
+  to match the theorem's deletion-only
+  prediction, not merely matching
+  the total event count;
+- GitHub Actions IDs and SHA256 of
+  the complete full proof trace.
+
+The complete immutable hosted traces are
+available as
+[lex scientific artifact #13300718437](https://github.com/definitely-stable/Mathlab/actions/runs/41785719789/artifacts/13300718437)
+(28,958-byte JSON, SHA256
+`250bf7f6417561047d74083d01177a50a91b2473bef01b346e447526be85102d`)
+and
+[reverse-line scientific artifact #13301800312](https://github.com/definitely-stable/Mathlab/actions/runs/41785719789/artifacts/13301800312)
+(30,427-byte JSON, SHA256
+`36d28dd294c283e00a6e46179385fa4d65ac04706f1ceaddc0d66c292c183f7e`).
+The code reproduces these traces
+deterministically. Recheck the fixed
+source array against the permanent
+certificate, not only against
+downloadable short-lived Actions artifacts.
+
+### Complete 0-to-3 ASET theorem for this finite physical source certificate
+
+Write `S_k` for all GF5^28 sums
+of k-DISTINCT original W34 source
+columns, k=0,1,2,3.
+
+**Within each cardinality:** the independently
+exact current physical source referee
+reports:
+\[
+ |S_0|=1,\quad |S_1|=425,\quad
+ |S_2|=\binom{425}{2}=90,100,\quad
+ |S_3|=\binom{425}{3}=12,704,100.
+\]
+No two different genuine original
+subsets of the same size k≤3
+have equal full GF(5)^28 sum.
+
+**Between different cardinalities:** each
+legally globally reused ORIGINAL source
+column c_i has 4 nonzero physical
+coordinates whose GF5 checksum satisfies
+\(\sum_{j=0}^{27} (c_i)_j=4\pmod5\).
+Consequently any k-source sum has
+total physical coordinate checksum
+\(4k\pmod5\). For k=0,1,2,3
+these are **0,4,3,2**, which
+are pairwise different in GF5.
+Thus different source-subset
+cardinalities in 0..3
+CANNOT collide, regardless
+of the actual individual indices.
+
+**Conclusion:** for EACH of the two
+complete fixed original W34
+source coefficient assignments
+the subset-sum map
+\[
+ (I,\ |I|\le3)\longmapsto
+ \sum_{i\in I}c_i\in GF(5)^{28}
+\]
+is INJECTIVE. Its domain contains
+\[
+ 1+425+90,100+12,704,100
+ =\boxed{12,794,626}
+\]
+different original subsets,
+all mapped to different complete
+physical GF5 vectors.
+
+This is an exact CONSTRUCTIVE
+**425-column 0-to-3 GF5 ASET
+on genuine symplectic W(3,4)**
+for both frozen original
+global source geometries,
+not merely the vanishing
+of a proxy 3SUM score.
+
+### Mandatory independent final scientific peer check
+
+A NEW verifier
+`research/hyp105_w34_zero_incidence_final_certificate_verify.py`
+parses both committed exact full 425-source
+arrays and traces; replays all 27/29
+changes against the earlier immutable
+#718 physical coefficient arrays;
+reconstructs both actual original
+symplectic W34 f/g and original
+point-line incidence flags;
+checks the globally shared nonzero
+checksum4 source palettes and
+425 distinct 28-coordinate
+original source columns; recomputes
+EVERY one of 90,100 true
+source two-subset sums;
+and re-enumerates ALL 12,704,100
+true original GF5^28 three-subset
+sums for EACH map using the
+separate historical #713
+exact external disk-sorted
+signature oracle.
+
+It MUST confirm exact `(R2,D3,R3)=(0,0,0)`,
+all 12,704,100 triple signatures distinct,
+and no single/multi-cardinality
+counterexamples. It does NOT call
+the new erasure algorithm or
+its C++ source-local 51-option
+candidate evaluator to establish
+that final fact. This last
+mandatory independent CI is
+a separate hosted job on the
+FINAL committed source SHA.
+Do NOT call the committed
+dual finite certificates
+referee-ACCEPT until this
+job completes SUCCESS.
+
 ## 5. Scientific limits
 
 If actual W34 zero R2 and R3
