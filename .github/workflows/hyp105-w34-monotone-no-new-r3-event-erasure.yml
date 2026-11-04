@@ -1,0 +1,71 @@
+name: hyp105-w34-monotone-no-new-r3-event-erasure
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-w34-monotone-no-new-r3-event-erasure.yml'
+      - '.github/workflows/research.yml'
+      - 'research/hyp105_w34_zero_incidence_erasure_referee.py'
+      - 'research/test_hyp105_w34_zero_incidence_erasure_referee.py'
+      - 'research/hyp105_w34_zero_incidence_erasure_certificates.json'
+      - 'research/hyp105_w34_zero_incidence_final_certificate_verify.py'
+      - 'docs/research/HYP-105-W34-MONOTONE-NO-NEW-R3-ERASURE-REFEREE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-W32-source-erasure-independent-exact-two-step-falsifier:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify exact GF5 SOURCE sign-event hypergraph SET erasure on true original W32 across two consecutive source edits
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_w34_zero_incidence_erasure_referee.py' -v
+
+  true-original-W34-exact-no-new-event-erasure:
+    needs:
+      - true-original-W32-source-erasure-independent-exact-two-step-falsifier
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse-line]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify real W34 425 ORIGINAL source f/g and enumerate ALL initial 54/61 signed 3+3 event witnesses
+        run: |
+          python -m py_compile research/hyp105_w34_zero_incidence_erasure_referee.py
+      - name: Monotone physical GF5^28 source conflict erasure, 51 exact palettes per edited ID and complete 12.7m source-triple checkpoints
+        run: |
+          python research/hyp105_w34_zero_incidence_erasure_referee.py --scheme ${{ matrix.scheme }} --max-steps 72 --checkpoint-every 6 --out "proof/hyp105-w34-${{ matrix.scheme }}-no-new-r3-erasure.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-w34-exact-zero-new-r3-erasure-${{ matrix.scheme }}
+          path: proof/
+          retention-days: 30
+          if-no-files-found: error
+
+  independent-immutable-two-full-real-W34-425-source-GF5-ASET-certificates:
+    needs:
+      - true-original-W32-source-erasure-independent-exact-two-step-falsifier
+      - true-original-W34-exact-no-new-event-erasure
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently rebuild BOTH committed complete 425-ORIGINAL-flag W34 physical GF5^28 ASET source arrays and scan every 1/2/3 subset sum
+        run: |
+          python research/hyp105_w34_zero_incidence_final_certificate_verify.py

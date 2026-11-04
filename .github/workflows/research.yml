@@ -18,7 +18,12 @@ concurrency:
 jobs:
   lent-001-foundation:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # This shard runs ALL research/test_*.py, including independent exact
+    # full W34 GF5 source certificate checks added in stacked HYP-105.
+    # It hit the former 20min timeout on #718 while all other research
+    # shards and specialist CI succeeded. Do not skip the tests:
+    # expand the hosted runner budget instead.
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
 
