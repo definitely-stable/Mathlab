@@ -174,6 +174,8 @@ def main():
         committed=json.loads(args.verify_committed_file.read_text(encoding="utf-8"))
         expected=committed["schemes"][args.scheme]
         if report!=expected:
+            print("AA4_NEW_ORIGINAL_COVER_CERTIFICATE="+json.dumps(
+                report,sort_keys=True,separators=(",",":")),flush=True)
             raise AssertionError("committed genuine ORIGINAL W34 event/certified-cover certificate drift")
         print("AA4_PERMANENT_ORIGINAL_EVENT_CERTIFICATE_REPLAY_PASS="+args.scheme)
     args.out.parent.mkdir(parents=True,exist_ok=True)
