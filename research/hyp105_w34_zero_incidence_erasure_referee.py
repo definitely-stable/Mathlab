@@ -290,12 +290,25 @@ def erasure_source_descent(scheme,*,max_steps=72,checkpoint_every=8):
                     permitted.append((next_r2,-reduction,palette))
                 if permitted:
                     selected=min(permitted)
-                    choice=(source_id,row,selected[2],selected[0])
-                    # Exhaust all currently present R2 endpoints
-                    # before moving on: priority then lex first.
-                    if r2==0 or selected[0]<r2 or
-                       source_id not in set(chain.from_iterable(
-                           chain.from_iterable(pair) for pair in twos)):
+                    proposal=(source_id,row,selected[2],selected[0])
+                    if (choice is None or
+                        (proposal[3],-degree.get(source_id,0),
+                         source_id,selected[2]) <
+                        (choice[3],-degree.get(choice[0],0),
+                         choice[0],choice[2])):
+                        choice=proposal
+                    # An R2 decrease is never reversed; R2=0 stays 0.
+                    # For R2=0, the first highest-degree source with
+                    # zero-incidence palette is enough for a valid step.
+                    if selected[0]<r2 or r2==0:
+                        break
+                    # If R2>0, first try all current real 2+2 source
+                    # endpoints, then choose the first available
+                    # currently R3-active source if R2 cannot decrease.
+                    pair_endpoints=set(chain.from_iterable(
+                        chain.from_iterable(pair) for pair in twos))
+                    if (source_id not in pair_endpoints and
+                        degree.get(source_id,0)>0):
                         break
                 else:
                     rejected_no_zero+=1
