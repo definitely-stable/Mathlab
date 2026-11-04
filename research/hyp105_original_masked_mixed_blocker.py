@@ -415,8 +415,8 @@ def full_original_masked_mixed_referee(power,f,g,core_ids=None,deleted_ids=(),
     return base
 
 
-if __name__=="__main__":
-    import json
+def canonical_true_original_W32_W34_masked_mixed_certificate():
+    """Complete replayable fixed genuine-source 2+4 source-ID proof cases."""
     from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
     cases=[(1,"lex",None,(0,)),
            (1,"reverse-line",tuple(i for i in range(45) if i%3),tuple(range(0,45,9))),
@@ -433,5 +433,11 @@ if __name__=="__main__":
             power,m["left_labels"],m["right_labels"],core,Z)
         result["scheme"]=scheme
         report["cases"].append(result)
+    return report
+
+
+if __name__=="__main__":
+    import json
     print("AA4_ORIGINAL_MASKED_MIXED_CERTIFICATE="+json.dumps(
-        report,sort_keys=True,separators=(",",":")),flush=True)
+        canonical_true_original_W32_W34_masked_mixed_certificate(),
+        sort_keys=True,separators=(",",":")),flush=True)
