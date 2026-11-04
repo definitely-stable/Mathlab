@@ -152,3 +152,21 @@ The tests cover genuine W(3,2) AND W(3,4) globally injected lex/reverse-line map
 **This does NOT prove:** the published graph C6 supersaturation theorem's numerical valid constants, a new D6+BBo Ω(s⁶) result for every possible globally injected f,g, the #672 selector/moment/exceptional-endpoint lemmas, all-h root HYP-105 #230, or a new ASET power. It is an independently derived original-source-mask commutation and G7 bridge: a stronger **necessary acceptance gate**, but not automatic acceptance of #672/#674. Scientific Draft review and qualified mathematical assessment remain separate from finite successful GitHub CI.
 
 **Next allowed mathematical gate after this slice:** independently reconstruct the #672 all-h sixth/fourth moment selector and the 47/8 error bound from first principles with explicitly proven original source projection, or isolate a specific failure. No all-h Branch A/B/C promotion until those gaps are closed.
+
+
+## 6. Actual original W32/W34 independently replayed certificate and measured mask effects
+
+The strict **GitHub-hosted** specialist run [#41911792907](https://github.com/definitely-stable/Mathlab/actions/runs/41911792907) succeeded **12/12 independent tests** (six true physical-source masked mixed-book / G7 tests and six permanent source-proof replay/tamper tests) plus a separate **FAIL-CLOSED** JSON certificate generation/parse gate under \`set -euo pipefail\`. A prior green workflow whose proof generator failed was explicitly REJECTED and repaired: a standalone W32 example accidentally retained an original ID in the core while simultaneously putting it in Z, and \`tee\` had hidden the nonzero exit code. Current CI checks the completed all-four-case proof JSON itself and rejects missing/invalid incomplete output.
+
+The exact complete original-ID proof is permanently stored in \`research/hyp105_original_masked_mixed_blocker_certificates.json\` and independently replayed on the same tree:
+
+| Genuine source / frozen separate injected map | Core ORIGINAL flags | Deleted ORIGINAL flags | Masked exact mixed \(\Theta_{A,C}\) | Original-owner deletion loss \(\Theta_{I,C}-\Theta_{A,C}\) | Exact source \(B_{A,C}\) records | Source positive six-ID BBo motifs after Z | Directed good paths whose FULL projection anchors lie OUTSIDE C |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| W(3,2) lex | 44 | 1 | 980 | 21 | 2,023 | 2 | 0 |
+| W(3,2) reverse-line | 30 | 5 | 578 | 58 | 1,214 | 0 | 0 |
+| W(3,4) lex | 165 | 14 | 6,658 | 216 | 19,754 | **541** | **1,022** |
+| W(3,4) reverse-line | 177 | 15 | 6,826 | 220 | 20,184 | **449** | **834** |
+
+All source book counts equal the independently evaluated ACTUAL source-major/physical-edge-major original p,q,r record census. The mixed per-owner deletion losses equal the sums of the four real CORE vertex degrees of EACH removed original incidence ID, not an estimate. The complete physical two-step weighted completions satisfy \(\ W^2\le B\Delta_C\,\mathrm{tr}(A_C^4)\). Every accepted true original BBo sixset has two source-backed directed proper paths related by reversal, contains six DISTINCT real incidence flags, avoids ALL deleted Z, and has an explicitly checked historical positive GF5 source topology. For the two W34 cases, respectively **1,022 and 834 directed accepted paths** use at least one projection anchor OUTSIDE THE RETAINED CORE yet outside Z, demonstrating that replacing original FULL anchors by core-only anchors would incorrectly remove genuine witnesses.
+
+The table reports particular finite real original source maps and cores, NOT an asymptotic \(\Omega(s^6)\) theorem. These W32/W34 positive counts do NOT discharge #672's sixth-moment selector or published external balanced-C6 supersaturation input. Scientifically, they close the explicitly masked original bookkeeping/source provenance subclaim (ZMIX-1)–(ZMIX-7) but not the remaining all-h proof-chain acceptance gate.
