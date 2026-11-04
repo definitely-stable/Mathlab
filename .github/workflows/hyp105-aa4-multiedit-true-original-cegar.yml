@@ -1,0 +1,100 @@
+name: hyp105-aa4-multiedit-true-original-cegar
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-multiedit-true-original-cegar.yml'
+      - 'research/hyp105_w34_multiedit_cegar_oracle.cpp'
+      - 'research/hyp105_w34_multiedit_cegar.py'
+      - 'research/test_hyp105_w34_multiedit_cegar.py'
+      - 'docs/research/HYP-105-AA4-MULTIEDIT-CEGAR.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-genuine-W32-complete-source-referee-falsifiers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent complete physical GF5 source pair/triple equations versus native cached oracle, true signed nogoods and sound bounded CSP
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_w34_multiedit_cegar.py' -v
+
+  true-original-W34-minimum-editable-source-CEGAR:
+    needs: independent-genuine-W32-complete-source-referee-falsifiers
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse-line]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare complete original W34 physical 425-source fixed-core and source one-editable domains
+        run: |
+          mkdir -p input/frozen proof input/binary
+          python research/hyp105_frozen_core_fiber.py \
+            --scheme '${{ matrix.scheme }}' --prepare input/true-frozen-original-source.txt
+          g++ -O3 -std=c++17 -Wall -Wextra \
+            research/hyp105_w34_frozen_core_palette.cpp \
+            -o input/frozen-referee
+          for shard in 0 1 2 3; do
+            input/frozen-referee input/true-frozen-original-source.txt \
+              "input/frozen/${{ matrix.scheme }}-${shard}-of-4.json" "$shard" 4
+            python research/hyp105_frozen_core_fiber.py \
+              --scheme '${{ matrix.scheme }}' \
+              --verify "input/frozen/${{ matrix.scheme }}-${shard}-of-4.json" \
+              --shard "$shard" --shards 4
+          done
+      - name: Generate all 25/26 original source pairwise binary GF5 compatibility witnesses and independently recheck 28D arithmetic
+        run: |
+          python research/hyp105_w34_twoedit_binary_csp.py \
+            --scheme '${{ matrix.scheme }}' --frozen input/frozen \
+            --prepare input/original-complete-binary-source.txt
+          g++ -O3 -std=c++17 -Wall -Wextra \
+            research/hyp105_w34_twoedit_binary.cpp \
+            -o input/binary-referee
+          for shard in 0 1 2 3; do
+            input/binary-referee input/original-complete-binary-source.txt \
+              "input/binary/${{ matrix.scheme }}-binary-${shard}-of-4.json" \
+              "$shard" 4
+            python research/hyp105_w34_twoedit_binary_csp.py \
+              --scheme '${{ matrix.scheme }}' --frozen input/frozen \
+              --verify "input/binary/${{ matrix.scheme }}-binary-${shard}-of-4.json" \
+              --shard "$shard" --shards 4
+          done
+      - name: Compile original full physical 28D GF5 dynamic source pair/triple CEGAR oracle
+        run: |
+          g++ -O3 -std=c++17 -Wall -Wextra \
+            research/hyp105_w34_multiedit_cegar_oracle.cpp \
+            -o input/true-multiedit-native-referee
+      - name: Bounded physical ORIGINAL source CEGAR with verified signed hyperclauses and mandatory independent full 12.7m external rehash on any candidate
+        run: |
+          python -u research/hyp105_w34_multiedit_cegar.py \
+            --scheme '${{ matrix.scheme }}' \
+            --frozen input/frozen \
+            --binary input/binary \
+            --source input/original-complete-binary-source.txt \
+            --native input/true-multiedit-native-referee \
+            --out 'proof/true-original-${{ matrix.scheme }}-multiedit-cegar.json' \
+            --max-rounds 64 --node-budget 100000
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-W34-multiedit-cegar-${{ matrix.scheme }}
+          path: |
+            proof/
+            input/frozen/*.json
+            input/binary/*.json
+            input/original-complete-binary-source.txt
+          retention-days: 90
+          if-no-files-found: warn
