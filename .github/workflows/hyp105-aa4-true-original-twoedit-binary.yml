@@ -7,6 +7,8 @@ on:
       - 'research/hyp105_w34_twoedit_binary.cpp'
       - 'research/hyp105_w34_twoedit_binary_csp.py'
       - 'research/test_hyp105_w34_twoedit_binary_csp.py'
+      - 'research/hyp105_w34_twoedit_binary_csp_certificates.json'
+      - 'research/test_hyp105_w34_twoedit_binary_csp_certificates.py'
       - 'docs/research/HYP-105-AA4-TWO-EDIT-BINARY-CSP.md'
   workflow_dispatch:
 
@@ -25,6 +27,7 @@ jobs:
       - name: ALL 51x51 true W32 complete physical GF5 two-source source-disjoint signed sectors versus independent direct exhaustive equations
         run: |
           python -m unittest discover -s research -p 'test_hyp105_w34_twoedit_binary_csp.py' -v
+          python -m unittest discover -s research -p 'test_hyp105_w34_twoedit_binary_csp_certificates.py' -v
 
   construct-complete-original-W34-fixed-core:
     needs: independent-real-W32-full-51x51-source-falsifiers
