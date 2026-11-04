@@ -1,0 +1,38 @@
+name: hyp105-aa4-original-GF5-palette-distance
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-GF5-palette-distance.yml'
+      - 'research/hyp105_original_random_palette_distance.py'
+      - 'research/test_hyp105_original_random_palette_distance.py'
+      - 'research/hyp105_original_random_palette_distance_certificates.json'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-RANDOM-PALETTE-DISTANCE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-source-disjoint-signed-GF5-anticoncentration:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently certify real W32/W34 original-source D6 and BBo nonzero signed physical GF5 flow counts, true six-ID-disjoint independence and rational Chernoff guards
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_random_palette_distance.py' -v
+      - name: Compute exact genuine ORIGINAL W32 signed motif disjoint-pack probability certificates for BOTH full globally injected maps
+        run: |
+          mkdir -p proof
+          python -u research/hyp105_original_random_palette_distance.py \
+            | tee proof/original-W32-GF5-sixflag-packing-probability.json.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-source-palettes-anti-concentration-W32
+          path: proof/
+          retention-days: 100
+          if-no-files-found: error
