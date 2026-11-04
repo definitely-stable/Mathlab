@@ -1,0 +1,40 @@
+name: hyp105-aa4-original-masked-FULL-CORE
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-masked-FULL-CORE.yml'
+      - 'research/hyp105_original_masked_mixed_blocker.py'
+      - 'research/test_hyp105_original_masked_mixed_blocker.py'
+      - 'research/hyp105_original_masked_mixed_blocker_certificates.json'
+      - 'research/test_hyp105_original_masked_mixed_blocker_certificates.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-MASKED-MIXED-BLOCKER.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-masked-full-core-sixsource-mixed-referee:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent ORIGINAL source masked FULL/CORE point-line books vs direct physical paths and 6-ID positive GF5 source reconstruction W32/W34
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_masked_mixed_blocker.py' -v
+      - name: Exact original W32/W34 source-masked all-N full/core contraction and source 6-ID positive path event certificate
+        run: |
+          mkdir -p proof
+          python -u research/hyp105_original_masked_mixed_blocker.py \
+            | tee proof/hyp105-original-Z-masked-FULL-CORE-source-6ID.json.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-masked-FULL-CORE-physical-sixID-referee
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
