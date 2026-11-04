@@ -1,0 +1,56 @@
+name: hyp105-aa4-exact-W34-minimum-recolorings
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-exact-W34-minimum-recolorings.yml'
+      - 'research/hyp105_w34_minimal_source_recolor_certificates.json'
+      - 'research/hyp105_w34_minimum_recolor_referee.py'
+      - 'research/test_hyp105_w34_minimum_recolor_certificates.py'
+      - 'docs/research/HYP-105-AA4-EXACT-W34-MINIMUM-RECOLORINGS.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-minimum-source-theorem-and-certificate-falsifiers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently reproduce real W34 exact min original-source 25/26 hitting-set proof and reject corrupted source/asymptotic claims
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_w34_minimum_recolor_certificates.py' -v
+      - name: Run fresh independent real W34 signed initial event proofs and exact 90,100-pair final checks
+        run: |
+          python research/hyp105_w34_minimum_recolor_referee.py --scheme lex
+          python research/hyp105_w34_minimum_recolor_referee.py --scheme reverse-line
+
+  all-original-W34-initial-and-final-GF5-full-sum-certificates:
+    needs: independent-minimum-source-theorem-and-certificate-falsifiers
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse-line]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent final-source W34 GF5^28 full 12,704,100 initial and final triple sums, 90,100 final pair sums, exact minimum source hitting-set proof
+        run: |
+          mkdir -p proof
+          python -u research/hyp105_w34_minimum_recolor_referee.py \
+            --scheme '${{ matrix.scheme }}' --full | tee 'proof/${{ matrix.scheme }}-finite-minimal-original-W34.txt'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-W34-exact-minimum-recolor-${{ matrix.scheme }}
+          path: proof/
+          retention-days: 120
+          if-no-files-found: error
