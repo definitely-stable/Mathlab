@@ -1,0 +1,53 @@
+name: hyp105-aa4-original-event-cover
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-event-cover.yml'
+      - 'research/hyp105_original_event_cover.py'
+      - 'research/hyp105_w34_original_event_cover_referee.py'
+      - 'research/test_hyp105_original_event_cover.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-EVENT-COVER.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-event-cover-tiny-bruteforce:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent exhaustive 4/6-source hitting sets and signed-ID falsifiers
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_event_cover.py' -v
+
+  all-original-W34-source-signed-events:
+    needs: independent-original-event-cover-tiny-bruteforce
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse-line]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All original 12,704,100 physical GF5 triple sums and certified finite event-cover bounds
+        run: |
+          python research/hyp105_w34_original_event_cover_referee.py \
+            --scheme '${{ matrix.scheme }}' \
+            --max-nodes 250000 \
+            --out 'proof/w34-original-${{ matrix.scheme }}-event-cover.json'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-w34-full-original-event-cover-${{ matrix.scheme }}
+          path: proof/
+          retention-days: 60
+          if-no-files-found: error
