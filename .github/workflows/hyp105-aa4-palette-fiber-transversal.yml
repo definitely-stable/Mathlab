@@ -1,0 +1,41 @@
+name: hyp105-aa4-palette-fiber-transversal
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-palette-fiber-transversal.yml'
+      - 'docs/research/HYP-105-AA4-PALETTE-FIBER-TRANSVERSAL.md'
+      - 'research/hyp105_palette_fiber_transversal.py'
+      - 'research/test_hyp105_palette_fiber_transversal.py'
+      - 'research/uct005_d1b_conditional_audit.py'
+      - 'research/test_uct005_d1b_conditional_audit.py'
+      - 'docs/research/UCT-005-D1B-CONDITIONAL-DEPENDENCY-REGISTER.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-GF5-fiber-and-transversal-oracle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact all-51 full-GF5 miniature source events, two clean edits and real W34 frozen trace partition
+        run: python -m unittest discover -s research -p 'test_hyp105_palette_fiber_transversal.py' -v
+
+  independent-conditional-source-term-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Preserve fail-closed UCT-005 source-dependency inventory and review the exact three inherited nonhardness mentions
+        run: |
+          python -m unittest discover -s research -p 'test_uct005_d1b_conditional_audit.py' -v
+          python research/uct005_d1b_conditional_audit.py

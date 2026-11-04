@@ -22,7 +22,7 @@ class ConditionalHardnessAuditTests(unittest.TestCase):
         self.assertEqual(self.manifest["decision"],
                          "NO_EXPLICIT_3SUM_APSP_DEPENDENT_MATHLAB_THEOREM_LOCATED")
         self.assertIn("implicit", self.manifest["completeness"].lower())
-        self.assertEqual(len(self.manifest["documented_occurrences"]), 15)
+        self.assertEqual(len(self.manifest["documented_occurrences"]), 17)
         self.assertEqual(len(self.manifest["catalog_occurrences"]), 4)
 
     def test_import015_dynamic_lz77_conditional_scope_and_exact_source(self):
@@ -46,6 +46,27 @@ class ConditionalHardnessAuditTests(unittest.TestCase):
         self.assertEqual(len(doc), 4)
         self.assertTrue(all(x["kind"] == "SETH_INDEPENDENT_CONDITIONAL_PRIOR_ART"
                             for x in doc))
+
+    def test_exact_scoped_nonthreshold_source_mentions_and_duplicate_gate(self):
+        scoped=[x for x in self.manifest["documented_occurrences"]
+                if x["path"] in {
+                    "docs/research/HYP-105-W34-MONOTONE-NO-NEW-R3-ERASURE-REFEREE.md",
+                    "research/hyp105_w34_zero_incidence_erasure_certificates.json",
+                }]
+        self.assertEqual(len(scoped), 2)
+        self.assertEqual(sorted(x.get("expected_count", 1) for x in scoped),[1,2])
+        self.assertTrue(all(x["kind"]=="SCOPED_SOURCE_AUDIT" for x in scoped))
+        self.assertEqual(audit(), [])
+        mutated=copy.deepcopy(self.manifest)
+        item=next(x for x in mutated["documented_occurrences"]
+                  if x["path"].endswith("erasure_certificates.json"))
+        item["expected_count"]=1
+        self.assertIn("DUPLICATED_ANCHOR", " ".join(audit_docs(mutated,ROOT)))
+        item["expected_count"]=3
+        self.assertIn("MISSING_EXPECTED_ANCHOR", " ".join(audit_docs(mutated,ROOT)))
+        item["expected_count"]=2
+        item["expected_line"] += " altered"
+        self.assertIn("CHANGED_REVIEWED_MENTION"," ".join(audit_docs(mutated,ROOT)))
 
     def test_new_unreviewed_document_hardness_claim_fails_closed(self):
         manifest = copy.deepcopy(self.manifest)

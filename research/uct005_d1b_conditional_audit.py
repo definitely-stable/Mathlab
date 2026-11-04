@@ -41,26 +41,32 @@ def doc_mentions(root, excluded):
 
 
 def audit_docs(manifest, root):
+    """Fail closed on unreviewed text, altered lines and unauthorized repeats."""
     expected = manifest["documented_occurrences"]
     errors = []
-    used = set()
+    used = {}
     for path, line_no, line in doc_mentions(root, set(manifest["excluded_paths"])):
         matching = [index for index, item in enumerate(expected)
                     if item["path"] == path and item["anchor"] in line]
         if len(matching) != 1:
             errors.append(f"{path}:{line_no}: UNREVIEWED_HARDNESS_MENTION ({len(matching)} anchors)")
-        elif matching[0] in used:
-            errors.append(f"{path}:{line_no}: DUPLICATED_ANCHOR {expected[matching[0]]['anchor']}")
         else:
             index = matching[0]
-            used.add(index)
+            used[index] = used.get(index, 0) + 1
             if line != expected[index].get("expected_line"):
                 errors.append(f"{path}:{line_no}: CHANGED_REVIEWED_MENTION {expected[index]['anchor']}")
+            allowed = expected[index].get("expected_count", 1)
+            if used[index] > allowed:
+                errors.append(f"{path}:{line_no}: DUPLICATED_ANCHOR {expected[index]['anchor']}")
     for index, item in enumerate(expected):
         if item["kind"] not in KINDS:
             errors.append(f"{item['path']}: unknown classification {item['kind']}")
-        if index not in used:
-            errors.append(f"{item['path']}: MISSING_EXPECTED_ANCHOR {item['anchor']}")
+        allowed = item.get("expected_count", 1)
+        if type(allowed) is not int or allowed < 1:
+            errors.append(f"{item['path']}: INVALID_EXPECTED_COUNT {allowed}")
+        elif used.get(index, 0) < allowed:
+            errors.append(f"{item['path']}: MISSING_EXPECTED_ANCHOR {item['anchor']}"
+                          f" ({used.get(index, 0)}/{allowed})")
     return errors
 
 

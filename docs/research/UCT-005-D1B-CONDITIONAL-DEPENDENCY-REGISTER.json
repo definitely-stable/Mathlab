@@ -121,6 +121,20 @@
       "anchor": "- **UCT-005 / INDEX-001:**",
       "kind": "SETH_INDEPENDENT_CONDITIONAL_PRIOR_ART",
       "expected_line": "- **UCT-005 / INDEX-001:** incremental transitive-cover maintenance and SETH-conditional LZ77 recomputation complexity require separate accounting for RAM, SSD reads, writes, full history replay, and proof size. *Kill:* claiming a conditional time bound as unconditional physical write lower bound."
+    },
+    {
+      "path": "docs/research/HYP-105-W34-MONOTONE-NO-NEW-R3-ERASURE-REFEREE.md",
+      "anchor": "of a proxy 3SUM score.",
+      "kind": "SCOPED_SOURCE_AUDIT",
+      "expected_line": "of a proxy 3SUM score.",
+      "expected_count": 1
+    },
+    {
+      "path": "research/hyp105_w34_zero_incidence_erasure_certificates.json",
+      "anchor": "\"full_12704100_original_3sum_physical_GF5_independent_checkpoints\": [",
+      "kind": "SCOPED_SOURCE_AUDIT",
+      "expected_line": "\"full_12704100_original_3sum_physical_GF5_independent_checkpoints\": [",
+      "expected_count": 2
     }
   ],
   "catalog_occurrences": [
