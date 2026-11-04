@@ -7,6 +7,8 @@ on:
       - 'research/hyp105_original_event_cover.py'
       - 'research/hyp105_w34_original_event_cover_referee.py'
       - 'research/test_hyp105_original_event_cover.py'
+      - 'research/test_hyp105_w34_original_event_cover_certificates.py'
+      - 'research/hyp105_w34_original_event_cover_certificates.json'
       - 'docs/research/HYP-105-AA4-ORIGINAL-EVENT-COVER.md'
   workflow_dispatch:
 
@@ -25,6 +27,7 @@ jobs:
       - name: Independent exhaustive 4/6-source hitting sets and signed-ID falsifiers
         run: |
           python -m unittest discover -s research -p 'test_hyp105_original_event_cover.py' -v
+          python -m unittest discover -s research -p 'test_hyp105_w34_original_event_cover_certificates.py' -v
 
   all-original-W34-source-signed-events:
     needs: independent-original-event-cover-tiny-bruteforce
@@ -44,6 +47,7 @@ jobs:
           python research/hyp105_w34_original_event_cover_referee.py \
             --scheme '${{ matrix.scheme }}' \
             --max-nodes 250000 \
+            --verify-committed-file research/hyp105_w34_original_event_cover_certificates.json \
             --out 'proof/w34-original-${{ matrix.scheme }}-event-cover.json'
       - uses: actions/upload-artifact@v4
         with:
