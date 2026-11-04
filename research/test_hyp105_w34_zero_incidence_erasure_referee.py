@@ -62,8 +62,8 @@ class TrueOriginalZeroNewR3Erasure(unittest.TestCase):
             old_events={canonical_event(w) for w in events}
             reduced={canonical_event(w) for w in events
                      if i not in w["six_distinct_ORIGINAL_flag_IDs"]}
-            new_r2=r2+d2["all_51_legal_source_D2_cross_counts"][t]-
-                         d2["current_exact_D2_cross_count"]
+            new_r2=(r2+d2["all_51_legal_source_D2_cross_counts"][t]
+                    -d2["current_exact_D2_cross_count"])
             self.assertGreater(len(old_events),len(reduced))
             self.assertLessEqual(new_r2,r2)
             indices[i]=t
