@@ -266,6 +266,15 @@ def aggregate(scheme,fixed_core_shards,binary_shards,out):
         "claim_about_all_h_seven_motifs":False,
         "root_230_status":"OPEN_WITH_FORMAL_BLOCKER",
     }
+    permanent=json.loads((RESEARCH_ROOT/
+        "hyp105_w34_twoedit_binary_csp_certificates.json").read_text(
+            encoding="utf-8"))
+    if (permanent["schema"]!=
+            "mathlab.hyp105.original-W34-full-two-editable-binary-CSP-certificate.v1"
+        or permanent["scientific_parent_722_exact_SHA"]!=PARENT_722
+        or result!=permanent["schemes"][scheme]):
+        raise AssertionError("permanent full ORIGINAL GF5 W34 two-edit CSP source certificate drift")
+    print("AA4_PERMANENT_EXACT_GF5_BINARY_CSP_REPLAY_PASS="+scheme)
     out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(result,indent=2,sort_keys=True)+"\n",
                    encoding="utf-8")
