@@ -83,12 +83,41 @@ def greedy_cover(edges, seed_cover=()):
     return tuple(sorted(candidate))
 
 
-def bounded_exact_cover(edges, upper_cover, max_nodes=250000):
-    """Exhaust every target size below an upper cover, or return sound bounds.
+def dominated_source_kernel(edges):
+    """Exact unweighted transversal reduction using incidence containment.
 
-    Complete branch on every source ID of one uncovered ORIGINAL edge.
-    Pruning uses disjoint-edge packing and max-degree necessary bounds.
-    A budget stop NEVER turns an unproved lower bound into a theorem.
+    If incidence(v) is a subset of incidence(u), choosing u dominates
+    choosing v for source-ID COVER purposes. A minimum cover exists
+    without v. For equal incidence masks retain the least ORIGINAL ID.
+    This is NOT a theorem about GF5 legal recoloring feasibility.
+    """
+    edges = normalize_edges(edges)
+    masks = {v: sum(1<<j for j,e in enumerate(edges) if v in e)
+             for e in edges for v in e}
+    kept = []
+    dropped = {}
+    for v,m in sorted(masks.items()):
+        dominators = [u for u,q in masks.items() if u!=v and
+                      (m&q)==m and (m!=q or u<v)]
+        if dominators:
+            dropped[v]=min(dominators,
+                           key=lambda u:(-masks[u].bit_count(),u))
+        else:
+            kept.append(v)
+    if len(kept)+len(dropped)!=len(masks):
+        raise AssertionError("original source incidence domination incomplete")
+    if any(not any(v in e for v in kept) for e in edges):
+        raise AssertionError("domination pruning deleted every representative")
+    return tuple(kept),dropped
+
+
+def bounded_exact_cover(edges, upper_cover, max_nodes=250000):
+    """Exact original source-ID transversal or rigorous bounded interval.
+
+    Exhaustive branching uses only nondominated flags: every deleted
+    v has a certified incidence-superset witness u, so some minimum
+    solution avoids v. Complete per-k UNSAT search validates lower.
+    An incomplete depth NEVER increases the certified lower bound.
     """
     edges = normalize_edges(edges)
     cover = tuple(sorted(set(upper_cover)))
@@ -97,12 +126,17 @@ def bounded_exact_cover(edges, upper_cover, max_nodes=250000):
     if type(max_nodes) is not int or max_nodes < 1:
         raise ValueError("positive exact solver budget required")
     if not edges:
-        return dict(status="EXACT", lower=0, upper=0,
-                    cover=(), nodes=0, exhausted_depths=())
+        return dict(status="EXACT", lower=0, upper=0, cover=(), nodes=0,
+                    exhausted_depths=(),original_active_ids=0,
+                    nondominated_candidate_ids=0)
+    kept,dropped=dominated_source_kernel(edges)
+    masks = {v: sum(1<<j for j,e in enumerate(edges) if v in e)
+             for v in kept}
+    candidates = tuple(tuple(v for v in e if v in masks) for e in edges)
+    if any(not group for group in candidates):
+        raise AssertionError("source domination left an uncovered original event")
     base = len(greedy_packing(edges))
-    masks = {v:sum(1<<j for j,e in enumerate(edges) if v in e)
-             for e in edges for v in e}
-    full=(1<<len(edges))-1
+    full = (1<<len(edges))-1
     nodes = 0
     exhausted = False
     proved = []
@@ -122,24 +156,31 @@ def bounded_exact_cover(edges, upper_cover, max_nodes=250000):
                 return False
             if memo.get(remaining,-1)>=slots:
                 return False
-            active=[e for j,e in enumerate(edges) if remaining & (1<<j)]
-            # Greedy pairwise disjoint ORIGINAL event edges: each needs
-            # its own distinct picked flag.
+            active=[j for j in range(len(edges)) if remaining & (1<<j)]
+            # Pairwise vertex-disjoint ORIGINAL event edges demand
+            # distinct selected source IDs (safe packing lower bound).
             used=set()
-            lb=0
-            for e in active:
+            packing_lb=0
+            for j in active:
+                e=edges[j]
                 if used.isdisjoint(e):
-                    lb+=1
+                    packing_lb+=1
                     used.update(e)
-            degree=Counter(v for e in active for v in e)
+            degree=Counter(v for j in active for v in candidates[j])
             max_degree=max(degree.values())
-            if max(lb,(len(active)+max_degree-1)//max_degree)>slots:
+            if max(packing_lb,
+                   (len(active)+max_degree-1)//max_degree)>slots:
                 memo[remaining]=slots
                 return False
-            pivot=min(active,key=lambda e:
-                      (sum(degree[v] for v in e),len(e),e))
-            for v in sorted(pivot,key=lambda x:(-degree[x],x)):
-                answer=search(remaining & ~masks[v], slots-1)
+            # Branch on the smallest remaining NONDOMINATED source
+            # options of one uncovered event. This is exhaustive after
+            # the proved containment reduction, not a heuristic omission.
+            pivot=min(active,key=lambda j:
+                      (len(candidates[j]),
+                       -sum(degree[v] for v in candidates[j]),j))
+            for v in sorted(candidates[pivot],
+                            key=lambda x:(-degree[x],x)):
+                answer=search(remaining & ~masks[v],slots-1)
                 if answer is None:
                     return None
                 if answer is not False:
@@ -157,15 +198,20 @@ def bounded_exact_cover(edges, upper_cover, max_nodes=250000):
         else:
             answer=tuple(sorted(set(answer)))
             if len(answer)>k or not covers(edges, answer):
-                raise AssertionError("incomplete cover claimed as exact")
+                raise AssertionError("incomplete original cover claimed exact")
             return dict(status="EXACT",lower=len(answer),upper=len(answer),
                         cover=answer,nodes=nodes,
-                        exhausted_depths=tuple(proved))
+                        exhausted_depths=tuple(proved),
+                        original_active_ids=len(kept)+len(dropped),
+                        nondominated_candidate_ids=len(kept))
     if not exhausted:
-        raise AssertionError("valid upper bound must be found")
-    return dict(status="BOUNDED",lower=proved[-1]+1 if proved else base,
+        raise AssertionError("known true upper bound must be found")
+    return dict(status="BOUNDED",
+                lower=proved[-1]+1 if proved else base,
                 upper=len(cover),cover=cover,nodes=nodes,
-                exhausted_depths=tuple(proved))
+                exhausted_depths=tuple(proved),
+                original_active_ids=len(kept)+len(dropped),
+                nondominated_candidate_ids=len(kept))
 
 
 def brute_force_min_cover(edges):
