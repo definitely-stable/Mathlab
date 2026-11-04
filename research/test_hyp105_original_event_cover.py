@@ -3,6 +3,7 @@ import unittest
 from hyp105_original_event_cover import (
     normalize_edges,covers,verify_disjoint_packing,greedy_packing,
     greedy_cover,bounded_exact_cover,brute_force_min_cover,
+    dominated_source_kernel,
     canonical_signed_partition)
 
 
@@ -50,6 +51,25 @@ class OriginalEventCoverTests(unittest.TestCase):
         ):
             with self.assertRaises(ValueError):
                 canonical_signed_partition(v,3)
+
+    def test_strict_source_incidence_domination_is_exact_only_for_cover(self):
+        # 0 occurs in BOTH events, each other original flag only once.
+        a=normalize_edges(((0,1,2,3),(0,4,5,6)))
+        kept,dropped=dominated_source_kernel(a)
+        self.assertEqual(kept,(0,))
+        self.assertEqual(set(dropped),set(range(1,7)))
+        self.assertEqual(bounded_exact_cover(
+            a,upper_cover=(0,),max_nodes=50)["lower"],1)
+        # Disjoint 4-ID events: all four IDs per event equivalent,
+        # and only the lowest ID representative should remain.
+        b=normalize_edges(((0,1,2,3),(4,5,6,7)))
+        kept,dropped=dominated_source_kernel(b)
+        self.assertEqual(kept,(0,4))
+        self.assertEqual(len(dropped),6)
+        self.assertEqual(bounded_exact_cover(
+            b,upper_cover=(0,4),max_nodes=50)["lower"],2)
+        # This source-cover dominance theorem does NOT claim that
+        # the dominating source has a permissible clean GF5 palette.
 
     def test_small_budget_sound_bounds(self):
         edges=normalize_edges(((0,1,2,3),(4,5,6,7),(8,9,10,11),
