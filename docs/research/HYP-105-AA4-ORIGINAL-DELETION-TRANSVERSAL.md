@@ -131,3 +131,64 @@ and
 The specialized \`.github/workflows/hyp105-aa4-original-deletion-transversal-binomial.yml\` runs only GitHub-hosted Ubuntu and saves the complete **original-source hyperedge list, exact τ and ν witnesses, all 0..4 adversarial Z distributions, and exact probability bounds** as machine-readable Actions artifacts. The final permanent certificate is replayed by a separate negative-mutation referee. The tests use genuine W32 original 45 flags, never a synthetic replacement, and the all-h algebra test does not claim finite checks prove the geometry.
 
 After this finite interface is accepted, the **actual unresolved proof gate** toward root #230 remains a fully independent mathematical proof or correction of the asymptotic original physical-heavy-degree, mixed full/core path blocker, and six-original-ID positive-class reconstruction in #659/#672/#674. Earlier internal audits found no fatal error but do not substitute for a mathematically qualified external review. Keep #230 OPEN_WITH_FORMAL_BLOCKER, no merges, no upstream/main mutations.
+
+
+## 5. Exact NEW genuine W(3,2) results from GitHub-hosted original all-Z proof
+
+The first original source complete specialized run [#41902452182](https://github.com/definitely-stable/Mathlab/actions/runs/41902452182) finished **SUCCESS**. Its executable original symplectic proof with 45 real incidence IDs was independently tested with six original finite source/deletion/binomial tests and three separate symbolic all-h conditional constant tests. The full ORIGINAL source hyperedge and exact finite result is permanently stored in \`research/hyp105_original_deletion_transversal_certificates.json\`; the independently replayed permanent certificate, tampering tests and final-head specialist must also succeed before this draft is accepted.
+
+**Exact finite theorem (TWO fixed original W32 maps only):**
+
+\[
+\boxed{
+\begin{array}{c|cc}
+\text{genuine W32 global source pair maps}&
+\tau(\mathcal H_{D6\cup BBo})&\nu(\mathcal H_{D6\cup BBo})\\\hline
+\mathrm{lex}&\mathbf5&\mathbf4\\
+\mathrm{reverse\mbox{-}line}&\mathbf3&\mathbf3
+\end{array}}
+\]
+
+Exact optimum source-ID deletion supports:
+- lex **five** genuine original flags \(\{0,25,26,33,34\}\), hitting ALL **23** accepted D6 and BBo sixsets; exhaustive source hyperedge branching shows no four-original-ID deletion hits all.
+- reverse-line **three** genuine original flags \(\{1,13,33\}\), hitting ALL **10** accepted sixsets; THREE pairwise ORIGINAL-ID-disjoint genuine accepted sixsets give the matching lower bound.
+
+Exact maximum genuine ORIGINAL source-six-ID disjoint packings have **four** lex motifs and **three** reverse-line motifs. The previously recorded greedy lex packing in #726 of cardinality three was only maximal, NOT maximum. The exact new lex 4-element ORIGINAL-source pack has actual six-original-flag ID sets
+
+\[
+\{3,9,19,26,34,37\},\quad
+\{2,13,17,33,36,38\},\quad
+\{6,10,16,25,32,39\},\quad
+\{0,11,18,29,35,44\},
+\]
+
+with **24 pairwise distinct original flag IDs**, not merely disjoint physical coordinates or abstract edge IDs. The independent include/exclude DP proves the absence of five disjoint accepted motifs among all 23 lex hyperedges.
+
+The full exact **ALL** adversarial original-ID deletion distributions, not samples or Monte Carlo trials, are:
+
+| Number of original flags deleted | Number of adversarial deletion sets C(45,k) | Lex MIN surviving accepted actual 6sets | Reverse-line MIN surviving accepted actual 6sets |
+|---:|---:|---:|---:|
+| 0 | 1 | 23 | 10 |
+| 1 | 45 | 15 | 5 |
+| 2 | 990 | 9 | 1 |
+| 3 | 14,190 | 5 | 0 |
+| 4 | 148,995 | **2** | 0 |
+
+The number of distinct worst deletion sets for each row (k=0,1,2,3,4) is exactly \((1,2,3,4,7)\) for lex and \((1,1,1,6,276)\) for reverse-line. The sum of surviving genuine source motifs over all \(k\)-deletions equals the independently predicted exact count \(|\mathcal H|\binom{39}{k}\). All 15/8 and 3/7 true original class memberships agree with the independently constructed physical duals and the historical source seven-class classifier on **all 62,370** left-positive original candidate sixsets.
+
+**Exact 10-sign palette consequence:** The lex finite f,g yields \(\nu=4\), improving the strict all-51-palette random 0-to-3 full ASET upper bound from the prior #726 greedy 3-vertex source pack to
+
+\[
+\Pr_{\mathbf c}(\mathrm{full}\ 0{:}3\mathrm{\ source\ ASET})
+ \le (1-53526/51^6)^{\mathbf4}.
+\]
+
+The reverse-line finite source yields the bound \((1-53526/51^6)^\mathbf3\). These are uniform-q bounds that hold for ANY 51-pattern uniform independent original palette assignment on the given frozen physical maps. They are NOT the exact probability of all source ASET conditions and NOT the probability of arbitrary deterministic coefficients. The larger cardinality of the exact four-pack makes lex strictly stronger than the former three-pack bound, although the actual per-motif signed coefficients could give a still sharper product.
+
+**Important limitation:** \(\tau_{\rm lex}=5>\nu_{\rm lex}=4\) is a genuine finite cover/packing gap (typical of six-uniform hypergraphs); it does not disprove or strengthen asymptotic all-map \(\tau,\nu=\Omega(s^4)\) in #674. In reverse-line they coincide at 3. None of these finite results proves the heavy-tail or mixed full/core analytic inequalities needed for every large dyadic s.
+
+## 6. What the independent parent #674 audit DID and DID NOT establish
+
+The independent source review checked the exact all-h **constant interface** against the parent formula with several formal normalized \(C_{\mathrm{graph}},c_{\mathrm{graph}}\) pairs. It separately verified the count of at most two erased physical heavy edges per removed ORIGINAL flag, the source count and 3/4-core original-flag deletion budget, the original endpoint \(Z\)-mask term and all three sub-sextic exponent thresholds. We found **no arithmetic contradiction** in those formal inequalities.
+
+This does NOT independently prove the load-bearing all-\(h\) geometric physical path-to-six-ID transfer or the published C6 supersaturation theorem's valid numerical constants. Neither W32 finite admissible maps nor exhaustive k<=4 source flag deletions test the actual large-s threshold, which is enormous even for formal C=1. The still required mathematical review is in #672 Sections 3–7, #659's balanced-chunk graph theorem applicability, and #674's full-scope arbitrary original-ID source deletion argument. No qualified human external review is claimed, and root #230 remains **OPEN_WITH_FORMAL_BLOCKER**.
