@@ -8,6 +8,7 @@ on:
       - 'research/hyp105_w34_zero_incidence_erasure_referee.py'
       - 'research/test_hyp105_w34_zero_incidence_erasure_referee.py'
       - 'research/hyp105_w34_zero_incidence_erasure_certificates.json'
+      - 'research/hyp105_w34_zero_incidence_final_certificate_verify.py'
       - 'docs/research/HYP-105-W34-MONOTONE-NO-NEW-R3-ERASURE-REFEREE.md'
   workflow_dispatch:
 
@@ -53,3 +54,18 @@ jobs:
           path: proof/
           retention-days: 30
           if-no-files-found: error
+
+  independent-immutable-two-full-real-W34-425-source-GF5-ASET-certificates:
+    needs:
+      - true-original-W32-source-erasure-independent-exact-two-step-falsifier
+      - true-original-W34-exact-no-new-event-erasure
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently rebuild BOTH committed complete 425-ORIGINAL-flag W34 physical GF5^28 ASET source arrays and scan every 1/2/3 subset sum
+        run: |
+          python research/hyp105_w34_zero_incidence_final_certificate_verify.py
