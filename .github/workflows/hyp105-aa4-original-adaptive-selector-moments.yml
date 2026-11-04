@@ -36,6 +36,9 @@ jobs:
       - name: Independent exact ALL 512 simple bipartite 3x3 sixth moment falsifiers and genuine original W32/W34 47over8 selector ledger
         run: |
           python -m unittest discover -s research -p 'test_hyp105_original_selector_symbolic_ledger.py' -v
+      - name: Independently replay permanent tightened ORIGINAL sixth-moment and 47over8 analytical ledger with seven fail-closed tamper gates
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_selector_symbolic_ledger_certificates.py' -v
       - name: Exact complete original W32/W34 SOURCE-adaptive priority and positive D6 physical cycle machine-proof certificate
         shell: bash
         run: |
