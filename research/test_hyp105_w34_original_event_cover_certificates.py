@@ -137,9 +137,11 @@ class OriginalW34EventCoverCertificateTests(unittest.TestCase):
                 run=bounded_exact_cover(
                     edges,upper_cover=z["explicit_original_ID_hitting_set"],
                     max_nodes=250000)
+                # New incidence-containment kernel independently
+                # finishes k=23,24 UNSAT and finds a true k=25 cover.
                 self.assertEqual((run["status"],run["lower"],run["upper"]),
-                                 ("BOUNDED",24,27))
-                self.assertEqual(run["exhausted_depths"],(23,))
+                                 ("EXACT",25,25))
+                self.assertEqual(run["exhausted_depths"],(23,24))
 
 
 if __name__=="__main__":
