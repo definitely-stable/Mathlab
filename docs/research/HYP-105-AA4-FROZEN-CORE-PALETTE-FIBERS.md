@@ -31,3 +31,21 @@ An independent W(3,2) finite original-source unit test directly brute-force eval
 If ANY D_i(F) is empty, this proves NO legal final source assignment supported on THAT particular T, but says nothing about alternative minimum covers. If ALL D_i(F) are nonempty, it proves only one-variable necessary feasibility. Interactions involving two or more editable source IDs require a separate sound source CSP and independent full 12,704,100-triple final GF5 audit of any resulting candidate. Neither the old nor current finite W34 results establish root HYP-105 Branch A/B/C, all-h safe recoloring existence, or an improved ASET exponent.
 
 Keep status OPEN_WITH_FORMAL_BLOCKER.
+
+
+## Verified finite source result on the two selected true W34 minimum covers
+
+The first complete GitHub-hosted true-original GF5 frozen-core specialist matrix #41867605339 reconstructed all eight source-shard outputs, with independent source-physical 28D witness checks and direct W32 brute-force falsifiers.
+
+| Actual original fixed f/g map | Minimum ABSTRACT edit cover | Fixed original source core F | Single-source patterns tested | Patterns surviving all F-only original 2v2/3v3 constraints | Minimum surviving source domain | Maximum |
+|---|---:|---:|---:|---:|---:|---:|
+| lex | 25 | 400 | 1,275 | 463 | 6 | 32 |
+| reverse-line | 26 | 399 | 1,326 | 479 | 11 | 28 |
+
+Every one of the 25/26 source IDs retains at least one legal coefficient pattern against the 400/399 frozen original columns. No simple one-variable fixed-core obstruction was found for EITHER of these PARTICULAR minimum covers. The most restricted actual lex source is ORIGINAL ID25 with 6 of 51 physical patterns allowed (45 blocked). For reverse-line ORIGINAL ID343 retains 11 of 51 (40 blocked).
+
+The Cartesian products of these INDEPENDENT NECESSARY domains have exact sizes 10752697353827425399603200000000 for lex and 350470701699920323408827305164800 for reverse-line. These are only *upper bounds on the potential candidate search space* after frozen-core filtering; they are NOT numbers of genuine valid joint assignments, and provide neither a success probability nor an ASET existence result.
+
+Permanent inspectable finite source domain summary and all original target-ID counts: research/hyp105_w34_frozen_core_domain_certificates.json. It pins exact originating frozen source input SHA256 values, current research parent, true source ID lists, eight GitHub job references and precise count per original flag. The FULL per-pattern exact counts plus distinct original physical signed-event witnesses are published as specialist GitHub Actions artifacts and checked by the independent W34 physical verifier in the specialist workflow. The FINAL HEAD aggregation must match the permanent summary, and the standalone permanent source tests require exact 51-pattern totals and correct original symplectic W34 f,g source arrays.
+
+**Critical next mathematical gate:** model constraints with at least TWO edited original IDs. The complete fixed-core one-source necessary gate does NOT imply a 25-edit or 26-edit full GF5 assignment; it eliminates only the zero/one-variable collision sectors. A genuine CSP over full signed 2v2/3v3 equations involving 2+ chosen sources, with independent final 12,704,100 triple-sum physical verification, is required before claiming existence or impossibility for even the selected fixed minimal covers. Alternative minimum covers are not ruled out.
