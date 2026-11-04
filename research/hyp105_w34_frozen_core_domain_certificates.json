@@ -1,0 +1,460 @@
+{
+  "schema": "mathlab.hyp105.W34-true-original-min-cover-frozen-core-51-domains.v1",
+  "date_utc": "2026-11-04",
+  "root_issue": 230,
+  "source_parent_721_exact_SHA": "25178580d7c820bdfc0c909c4f72df70ad38d2c2",
+  "original_zero_ASET_parent_PR": 719,
+  "original_minimum_cover_parent_PR": 721,
+  "source_specialist_run_id": 41867605339,
+  "source_all_shards_are_real_425_original_W34_physical_GF5_28D": true,
+  "all_51_palette_per_source_original_frozen_pairs_and_triples_exhaustive": true,
+  "status": "BOTH_SPECIFIC_MINIMUM_COVERS_HAVE_NONEMPTY_FROZEN_CORE_DOMAINS_NOT_YET_MULTI_SOURCE_FEASIBILITY",
+  "global_f_g_uncorrelated_assumed": false,
+  "full_zero_to_three_multi_source_assignments_constructed": false,
+  "root_A_B_C_closed": false,
+  "schemes": {
+    "lex": {
+      "edited_source_IDs": [
+        3,
+        19,
+        25,
+        44,
+        55,
+        92,
+        120,
+        123,
+        125,
+        156,
+        203,
+        245,
+        267,
+        285,
+        305,
+        308,
+        316,
+        317,
+        324,
+        338,
+        340,
+        364,
+        383,
+        405,
+        413
+      ],
+      "fixed_original_ID_count": 400,
+      "complete_original_F_pairs": 79800,
+      "complete_original_F_triples": 10586800,
+      "original_source_context_sha256": "b9fe11d51dc771f7a34329836ed2715afe3b58deb93dbda8690fddf7fe41f9d6",
+      "source_shards": [
+        {
+          "shard": 0,
+          "job_id": 126705926668,
+          "verified_original_source_ids": [
+            44,
+            92,
+            120,
+            156,
+            308,
+            316,
+            324,
+            340,
+            364
+          ]
+        },
+        {
+          "shard": 1,
+          "job_id": 126705927009,
+          "verified_original_source_ids": [
+            25,
+            125,
+            245,
+            285,
+            305,
+            317,
+            405,
+            413
+          ]
+        },
+        {
+          "shard": 2,
+          "job_id": 126705926836,
+          "verified_original_source_ids": [
+            338
+          ]
+        },
+        {
+          "shard": 3,
+          "job_id": 126705926503,
+          "verified_original_source_ids": [
+            3,
+            19,
+            55,
+            123,
+            203,
+            267,
+            383
+          ]
+        }
+      ],
+      "all_source_palette_local_domains": [
+        {
+          "source_ID": 3,
+          "blocked_p2_p3": 37,
+          "allowed_p2_p3": 14
+        },
+        {
+          "source_ID": 19,
+          "blocked_p2_p3": 30,
+          "allowed_p2_p3": 21
+        },
+        {
+          "source_ID": 25,
+          "blocked_p2_p3": 45,
+          "allowed_p2_p3": 6
+        },
+        {
+          "source_ID": 44,
+          "blocked_p2_p3": 36,
+          "allowed_p2_p3": 15
+        },
+        {
+          "source_ID": 55,
+          "blocked_p2_p3": 40,
+          "allowed_p2_p3": 11
+        },
+        {
+          "source_ID": 92,
+          "blocked_p2_p3": 34,
+          "allowed_p2_p3": 17
+        },
+        {
+          "source_ID": 120,
+          "blocked_p2_p3": 31,
+          "allowed_p2_p3": 20
+        },
+        {
+          "source_ID": 123,
+          "blocked_p2_p3": 31,
+          "allowed_p2_p3": 20
+        },
+        {
+          "source_ID": 125,
+          "blocked_p2_p3": 39,
+          "allowed_p2_p3": 12
+        },
+        {
+          "source_ID": 156,
+          "blocked_p2_p3": 35,
+          "allowed_p2_p3": 16
+        },
+        {
+          "source_ID": 203,
+          "blocked_p2_p3": 37,
+          "allowed_p2_p3": 14
+        },
+        {
+          "source_ID": 245,
+          "blocked_p2_p3": 36,
+          "allowed_p2_p3": 15
+        },
+        {
+          "source_ID": 267,
+          "blocked_p2_p3": 25,
+          "allowed_p2_p3": 26
+        },
+        {
+          "source_ID": 285,
+          "blocked_p2_p3": 43,
+          "allowed_p2_p3": 8
+        },
+        {
+          "source_ID": 305,
+          "blocked_p2_p3": 33,
+          "allowed_p2_p3": 18
+        },
+        {
+          "source_ID": 308,
+          "blocked_p2_p3": 19,
+          "allowed_p2_p3": 32
+        },
+        {
+          "source_ID": 316,
+          "blocked_p2_p3": 23,
+          "allowed_p2_p3": 28
+        },
+        {
+          "source_ID": 317,
+          "blocked_p2_p3": 31,
+          "allowed_p2_p3": 20
+        },
+        {
+          "source_ID": 324,
+          "blocked_p2_p3": 31,
+          "allowed_p2_p3": 20
+        },
+        {
+          "source_ID": 338,
+          "blocked_p2_p3": 29,
+          "allowed_p2_p3": 22
+        },
+        {
+          "source_ID": 340,
+          "blocked_p2_p3": 26,
+          "allowed_p2_p3": 25
+        },
+        {
+          "source_ID": 364,
+          "blocked_p2_p3": 33,
+          "allowed_p2_p3": 18
+        },
+        {
+          "source_ID": 383,
+          "blocked_p2_p3": 30,
+          "allowed_p2_p3": 21
+        },
+        {
+          "source_ID": 405,
+          "blocked_p2_p3": 28,
+          "allowed_p2_p3": 23
+        },
+        {
+          "source_ID": 413,
+          "blocked_p2_p3": 30,
+          "allowed_p2_p3": 21
+        }
+      ],
+      "total_51_pattern_tests": 1275,
+      "sum_allowed_p2_p3_single_source_domains": 463,
+      "min_domain": 6,
+      "max_domain": 32,
+      "source_ids_with_empty_domain": [],
+      "formal_upper_bound_on_CSP_assignments_after_frozen_core_filter": "10752697353827425399603200000000",
+      "significance": "NECESSARY_ONLY_NOT_A_GUARANTEED_SAT_ASSIGNMENT"
+    },
+    "reverse-line": {
+      "edited_source_IDs": [
+        3,
+        4,
+        27,
+        29,
+        34,
+        42,
+        60,
+        74,
+        83,
+        95,
+        125,
+        176,
+        186,
+        196,
+        207,
+        231,
+        232,
+        237,
+        294,
+        318,
+        323,
+        330,
+        337,
+        343,
+        391,
+        415
+      ],
+      "fixed_original_ID_count": 399,
+      "complete_original_F_pairs": 79401,
+      "complete_original_F_triples": 10507399,
+      "original_source_context_sha256": "f9beff4a4840c46ff0239a9a39a2e489683f2b16a540d8357de1a666dd7f4e6f",
+      "source_shards": [
+        {
+          "shard": 0,
+          "job_id": 126705926904,
+          "verified_original_source_ids": [
+            4,
+            60,
+            176,
+            196,
+            232
+          ]
+        },
+        {
+          "shard": 1,
+          "job_id": 126705926451,
+          "verified_original_source_ids": [
+            29,
+            125,
+            237,
+            337
+          ]
+        },
+        {
+          "shard": 2,
+          "job_id": 126705926582,
+          "verified_original_source_ids": [
+            34,
+            42,
+            74,
+            186,
+            294,
+            318,
+            330
+          ]
+        },
+        {
+          "shard": 3,
+          "job_id": 126705926377,
+          "verified_original_source_ids": [
+            3,
+            27,
+            83,
+            95,
+            207,
+            231,
+            323,
+            343,
+            391,
+            415
+          ]
+        }
+      ],
+      "all_source_palette_local_domains": [
+        {
+          "source_ID": 3,
+          "blocked_p2_p3": 31,
+          "allowed_p2_p3": 20
+        },
+        {
+          "source_ID": 4,
+          "blocked_p2_p3": 34,
+          "allowed_p2_p3": 17
+        },
+        {
+          "source_ID": 27,
+          "blocked_p2_p3": 32,
+          "allowed_p2_p3": 19
+        },
+        {
+          "source_ID": 29,
+          "blocked_p2_p3": 34,
+          "allowed_p2_p3": 17
+        },
+        {
+          "source_ID": 34,
+          "blocked_p2_p3": 34,
+          "allowed_p2_p3": 17
+        },
+        {
+          "source_ID": 42,
+          "blocked_p2_p3": 37,
+          "allowed_p2_p3": 14
+        },
+        {
+          "source_ID": 60,
+          "blocked_p2_p3": 37,
+          "allowed_p2_p3": 14
+        },
+        {
+          "source_ID": 74,
+          "blocked_p2_p3": 24,
+          "allowed_p2_p3": 27
+        },
+        {
+          "source_ID": 83,
+          "blocked_p2_p3": 23,
+          "allowed_p2_p3": 28
+        },
+        {
+          "source_ID": 95,
+          "blocked_p2_p3": 39,
+          "allowed_p2_p3": 12
+        },
+        {
+          "source_ID": 125,
+          "blocked_p2_p3": 39,
+          "allowed_p2_p3": 12
+        },
+        {
+          "source_ID": 176,
+          "blocked_p2_p3": 34,
+          "allowed_p2_p3": 17
+        },
+        {
+          "source_ID": 186,
+          "blocked_p2_p3": 28,
+          "allowed_p2_p3": 23
+        },
+        {
+          "source_ID": 196,
+          "blocked_p2_p3": 35,
+          "allowed_p2_p3": 16
+        },
+        {
+          "source_ID": 207,
+          "blocked_p2_p3": 24,
+          "allowed_p2_p3": 27
+        },
+        {
+          "source_ID": 231,
+          "blocked_p2_p3": 25,
+          "allowed_p2_p3": 26
+        },
+        {
+          "source_ID": 232,
+          "blocked_p2_p3": 28,
+          "allowed_p2_p3": 23
+        },
+        {
+          "source_ID": 237,
+          "blocked_p2_p3": 32,
+          "allowed_p2_p3": 19
+        },
+        {
+          "source_ID": 294,
+          "blocked_p2_p3": 35,
+          "allowed_p2_p3": 16
+        },
+        {
+          "source_ID": 318,
+          "blocked_p2_p3": 32,
+          "allowed_p2_p3": 19
+        },
+        {
+          "source_ID": 323,
+          "blocked_p2_p3": 37,
+          "allowed_p2_p3": 14
+        },
+        {
+          "source_ID": 330,
+          "blocked_p2_p3": 35,
+          "allowed_p2_p3": 16
+        },
+        {
+          "source_ID": 337,
+          "blocked_p2_p3": 31,
+          "allowed_p2_p3": 20
+        },
+        {
+          "source_ID": 343,
+          "blocked_p2_p3": 40,
+          "allowed_p2_p3": 11
+        },
+        {
+          "source_ID": 391,
+          "blocked_p2_p3": 33,
+          "allowed_p2_p3": 18
+        },
+        {
+          "source_ID": 415,
+          "blocked_p2_p3": 34,
+          "allowed_p2_p3": 17
+        }
+      ],
+      "total_51_pattern_tests": 1326,
+      "sum_allowed_p2_p3_single_source_domains": 479,
+      "min_domain": 11,
+      "max_domain": 28,
+      "source_ids_with_empty_domain": [],
+      "formal_upper_bound_on_CSP_assignments_after_frozen_core_filter": "350470701699920323408827305164800",
+      "significance": "NECESSARY_ONLY_NOT_A_GUARANTEED_SAT_ASSIGNMENT"
+    }
+  }
+}
