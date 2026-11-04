@@ -47,3 +47,21 @@ An aggregating checker verifies all 300/325 original source pairs and every true
 - If this specific T is proven UNSAT, alternative 25/26-ID minimum covers remain possible and must not be ruled out.
 
 No claim of an all-h seven-motif result, improved asymptotic ASET exponent or root Branch A/B/C closure.
+
+
+## Actual complete original W34 binary-sector result
+
+The hosted first exact physical-source run #41875839319 completed full true-original W34 pair-index computations on both frozen minimum covers, over every frozen 1/2/3 subset needed by all four two-editable signed-event topologies. The independent genuine-W32 51x51 direct 12D GF5 full-equation unit suite passed 4/4, and the complete W34 28D signed witness verifiers passed for every excluded pair value.
+
+| Original fixed W34 globally injected f,g scheme | Edited original IDs | Full binary variable pairs | D_i(F)*D_j(F) candidates | Forbidden by genuine complete GF5 2v2 or 3v3 with EXACTLY 2 edits | Still pairwise allowed | Arc consistency removals |
+|---|---:|---:|---:|---:|---:|---:|
+| lex | 25 | 300 | 102,462 | **1,362** | **101,100** | **0** |
+| reverse-line | 26 | 325 | 110,024 | **1,271** | **108,753** | **0** |
+
+No pair of editable original IDs has an entirely empty two-source compatibility relation for either frozen real-source map. Every original variable retains its complete #722 single-variable necessary domain after arc consistency, so the binary CSP is ARC-CONSISTENT. This is explicitly NOT a proof that a global assignment exists; arc-consistency has no general sufficiency for cyclic finite-domain binary CSPs and cannot exclude genuine source conflicts with 3-6 edited ORIGINAL source IDs.
+
+This closes the independent EXACT zero/one/two-editable-source conflict analysis for these TWO particular frozen 25/26-ID covers. The new full certificate is stored in research/hyp105_w34_twoedit_binary_csp_certificates.json, including every 300/325 relation cardinality, all one-source palette arrays, the sound AC3 proof log, the true original parent provenance, and strict flags refusing theorem promotion. The FULL per-palette true signed-event witness equations and every binary pair compatibility matrix are exported as GitHub Actions artifacts and reverified against the permanent source certificate at the precise FINAL PR HEAD by the hosted specialist workflow.
+
+The operative next problem is no longer single-source forbidden fibers or pairwise arc consistency: compute FULL signed 3v3/2v2 constraints involving THREE or MORE changed original source IDs, then solve the finite-domain CSP (e.g. counterexample-guided exact source assignment checks), and independently audit any candidate using all 12,704,100 original triple GF5^28 signatures and all 90,100 pair sums. If a particular minimum original ID cover is UNSAT, that does NOT imply every other 25/26-ID minimum cover is impossible.
+
+The original root #230 HYP-105 all-h seven-motif Ω(s^6) versus infinite correlated obstruction A/B/C statement remains OPEN_WITH_FORMAL_BLOCKER.
