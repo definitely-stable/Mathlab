@@ -7,6 +7,8 @@ on:
       - 'research/hyp105_w34_frozen_core_palette.cpp'
       - 'research/hyp105_frozen_core_fiber.py'
       - 'research/test_hyp105_frozen_core_fiber.py'
+      - 'research/hyp105_w34_frozen_core_domain_certificates.json'
+      - 'research/test_hyp105_w34_frozen_core_domain_certificates.py'
       - 'docs/research/HYP-105-AA4-FROZEN-CORE-PALETTE-FIBERS.md'
   workflow_dispatch:
 
@@ -25,6 +27,7 @@ jobs:
       - name: Check genuine W32 independent complete 12D source equations, all 51 patterns and invalid support
         run: |
           python -m unittest discover -s research -p 'test_hyp105_frozen_core_fiber.py' -v
+          python -m unittest discover -s research -p 'test_hyp105_w34_frozen_core_domain_certificates.py' -v
 
   exhaustive-original-W34-minimum-source-cover-fixed-core:
     needs: independent-original-W32-full-GF5-falsifiers
