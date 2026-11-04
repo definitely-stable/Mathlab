@@ -26,6 +26,9 @@ jobs:
       - name: Independent ORIGINAL source masked FULL/CORE point-line books vs direct physical paths and 6-ID positive GF5 source reconstruction W32/W34
         run: |
           python -m unittest discover -s research -p 'test_hyp105_original_masked_mixed_blocker.py' -v
+      - name: Independently replay FINAL permanent true-source W32/W34 masked FULL/CORE certificate with six negative corruption guards
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_masked_mixed_blocker_certificates.py' -v
       - name: Exact original W32/W34 source-masked all-N full/core contraction and source 6-ID positive path event certificate
         shell: bash
         run: |
