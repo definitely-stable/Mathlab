@@ -1,0 +1,150 @@
+name: hyp105-aa4-true-original-twoedit-binary
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-true-original-twoedit-binary.yml'
+      - 'research/hyp105_w34_twoedit_binary.cpp'
+      - 'research/hyp105_w34_twoedit_binary_csp.py'
+      - 'research/test_hyp105_w34_twoedit_binary_csp.py'
+      - 'docs/research/HYP-105-AA4-TWO-EDIT-BINARY-CSP.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-real-W32-full-51x51-source-falsifiers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: ALL 51x51 true W32 complete physical GF5 two-source source-disjoint signed sectors versus independent direct exhaustive equations
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_w34_twoedit_binary_csp.py' -v
+
+  construct-complete-original-W34-fixed-core:
+    needs: independent-real-W32-full-51x51-source-falsifiers
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse-line]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build exact real 425-original GF5 fixed-source and compile immutable per-ID 51-pattern referee
+        run: |
+          mkdir -p input/fixed
+          python research/hyp105_frozen_core_fiber.py \
+            --scheme '${{ matrix.scheme }}' --prepare input/frozen-source.txt
+          g++ -O3 -std=c++17 -Wall -Wextra -pedantic \
+            research/hyp105_w34_frozen_core_palette.cpp -o input/frozen-referee
+          for shard in 0 1 2 3; do
+            input/frozen-referee input/frozen-source.txt \
+              "input/fixed/${{ matrix.scheme }}-${shard}-of-4.json" "$shard" 4
+            python research/hyp105_frozen_core_fiber.py \
+              --scheme '${{ matrix.scheme }}' \
+              --verify "input/fixed/${{ matrix.scheme }}-${shard}-of-4.json" \
+              --shard "$shard" --shards 4
+          done
+          python research/hyp105_w34_twoedit_binary_csp.py \
+            --scheme '${{ matrix.scheme }}' --frozen input/fixed \
+            --prepare input/real-original-binary-source.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-binary-actual-fixed-${{ matrix.scheme }}
+          path: |
+            input/frozen-source.txt
+            input/fixed/*.json
+            input/real-original-binary-source.txt
+          retention-days: 75
+          if-no-files-found: error
+
+  enumerate-all-true-original-W34-two-edited-signed-source-constraints:
+    needs: construct-complete-original-W34-fixed-core
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [lex, reverse-line]
+        shard: [0, 1, 2, 3]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 85
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: hyp105-binary-actual-fixed-${{ matrix.scheme }}
+          path: input/
+      - name: Compile lossless full ORIGINAL source GF5 28D binary two-editable exact referee
+        run: |
+          g++ -O3 -std=c++17 -Wall -Wextra -pedantic \
+            research/hyp105_w34_twoedit_binary.cpp -o input/true-binary-oracle
+      - name: Enumerate every true F-triple/F-pair, two editable source pair and exact legal checksum4 palette combinations
+        run: |
+          mkdir -p proof
+          input/true-binary-oracle input/real-original-binary-source.txt \
+            'proof/${{ matrix.scheme }}-binary-${{ matrix.shard }}-of-4.json' ${{ matrix.shard }} 4
+      - name: Independently recheck EVERY forbidden complete 2v2/3v3 signed 28D physical GF5 source witness
+        run: |
+          python research/hyp105_w34_twoedit_binary_csp.py \
+            --scheme '${{ matrix.scheme }}' --frozen input/fixed/ \
+            --verify 'proof/${{ matrix.scheme }}-binary-${{ matrix.shard }}-of-4.json' \
+            --shard ${{ matrix.shard }} --shards 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-binary-${{ matrix.scheme }}-${{ matrix.shard }}
+          path: proof/
+          retention-days: 75
+          if-no-files-found: error
+
+  certify-original-W34-full-pairwise-CSP-and-arc-consistency:
+    needs: enumerate-all-true-original-W34-two-edited-signed-source-constraints
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: hyp105-binary-actual-fixed-lex
+          path: input/lex
+      - uses: actions/download-artifact@v4
+        with:
+          name: hyp105-binary-actual-fixed-reverse-line
+          path: input/reverse-line
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: hyp105-binary-lex-*
+          path: binary/lex
+          merge-multiple: true
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: hyp105-binary-reverse-line-*
+          path: binary/reverse-line
+          merge-multiple: true
+      - name: Check ALL 300/325 original source pairs, all signed physical witnesses and AC3 deletions without assuming multi-source feasibility
+        run: |
+          python research/hyp105_w34_twoedit_binary_csp.py \
+            --scheme lex --frozen input/lex/fixed \
+            --aggregate binary/lex --out proof/lex.json
+          python research/hyp105_w34_twoedit_binary_csp.py \
+            --scheme reverse-line --frozen input/reverse-line/fixed \
+            --aggregate binary/reverse-line --out proof/reverse-line.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-W34-two-editable-true-GF5-binary-CSP-complete
+          path: proof/
+          retention-days: 75
+          if-no-files-found: error
