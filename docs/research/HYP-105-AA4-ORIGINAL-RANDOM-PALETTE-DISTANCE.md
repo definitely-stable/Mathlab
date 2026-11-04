@@ -97,3 +97,17 @@ The standalone all-\(N\) theorem requires ONLY one actual accepted physical orig
 Unlike the #725 finite 25/26 optimum, this proof is UNIFORM IN ORIGINAL GF(5) COEFFICIENT RANDOMNESS on ANY given fixed pair of physical factor maps and does not alter those maps. Its dependence on standard Chernoff is classical, not novel as a concentration inequality. The model-specific contribution is the precise six-ORIGINAL-ID, 51-palette one-signed-event probability and valid separation of random rarity from deterministic finite optimal recoloring.
 
 **Next legitimate scientific gate:** independently validate the foundational all-map #672 → #674 geometric deletion argument, especially the mixed full/core blocker and source-signed D6/BBo positive transfer, and seek an independent qualified mathematical referee. Until then neither the all-h source packing nor the conditional exponential corollary should be marked an accepted root result.
+
+
+## 6. Independently frozen finite evidence (complete genuine W32 source)
+
+The first hosted specialist successful original-source run is [#41897978383](https://github.com/definitely-stable/Mathlab/actions/runs/41897978383). All five independent GF5/W32/W34 physical and probabilistic theorem tests passed. Full EXACT integer-rational original-source sixset probability results are retained in \`research/hyp105_original_random_palette_distance_certificates.json\`, not converted through IEEE-754 floating point. The final-head permanent replay specialist [#41898227490](https://github.com/definitely-stable/Mathlab/actions/runs/41898227490) succeeded its original five tests AND four negative permanent certificate tests, and replayed both true W32 complete original motif censuses.
+
+| Genuine original W32 complete fixed global maps | Accepted real D6 sixsets | Accepted real BBo sixsets | Original flag-disjoint GREEDY packing | Exact chosen canonical 3v3 signed GF5 counts per packed sixset |
+|---|---:|---:|---:|---|
+| lex | 15 | 8 | **3** (2 D6, 1 BBo) | (5265,5265,5184) |
+| reverse-line | 3 | 7 | **3** (2 D6, 1 BBo) | (5265,5265,5463) |
+
+The six ORIGINAL source flags of each selected sixset are listed explicitly in the permanent JSON certificate; their selected physical GF5 signed event counts match the independent 4096-term edge-deletion oracle AND the separate 4^7 spanning-tree current oracle. The source packings are MAXIMAL under this deterministic greedy source order (no other accepted D6/BBo original sixset avoids their 18 IDs), but are not asserted to have maximum cardinality. Their full exact independent Poisson-binomial coefficient distributions and rational no-event products are also in the immutable certificate. Three specific real source-sixset signed events give only a SMALL finite bound: there is absolutely no claim that this W32 witness alone proves any asymptotic decay.
+
+The parent #725 original W34 25/26 legal zero-source recolors are **specific deterministic** old-to-new coefficient arrays, NOT uniform random GF5 samples. Both phenomena are consistent.
