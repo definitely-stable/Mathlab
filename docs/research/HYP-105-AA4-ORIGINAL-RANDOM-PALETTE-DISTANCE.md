@@ -21,7 +21,7 @@ The single chosen event therefore satisfies
 =\frac{575}{1955143089}>0.}\tag{1}
 \]
 
-**This is a probability of ONE specified signed event**, not the probability of the union of ten dependent signs and not the expected sum of all ten. In particular, the sharper 54,162 / 53,526 all-ten **expected signed event counts** must NOT be substituted as probabilities in this argument. We deliberately use the rigorous minimum 5175 to avoid this mistake.
+**This is a probability of ONE specified signed event**, not automatically the probability of the union of ten different signs. The previous 54,162 / 53,526 all-ten **expected signed event counts** must NOT be substituted as probabilities WITHOUT first proving that the ten events cannot co-occur. Section 7 NEWLY PROVES this mutual-exclusion property for the D6 and B/B-overlap ORIGINAL source topologies, giving a sharper q10 bound. The one-sign q bound remains a valid independently useful baseline.
 
 ## 2. NEW all-\(N\) random palette repair theorem
 
@@ -111,3 +111,79 @@ The first hosted specialist successful original-source run is [#41897978383](htt
 The six ORIGINAL source flags of each selected sixset are listed explicitly in the permanent JSON certificate; their selected physical GF5 signed event counts match the independent 4096-term edge-deletion oracle AND the separate 4^7 spanning-tree current oracle. The source packings are MAXIMAL under this deterministic greedy source order (no other accepted D6/BBo original sixset avoids their 18 IDs), but are not asserted to have maximum cardinality. Their full exact independent Poisson-binomial coefficient distributions and rational no-event products are also in the immutable certificate. Three specific real source-sixset signed events give only a SMALL finite bound: there is absolutely no claim that this W32 witness alone proves any asymptotic decay.
 
 The parent #725 original W34 25/26 legal zero-source recolors are **specific deterministic** old-to-new coefficient arrays, NOT uniform random GF5 samples. Both phenomena are consistent.
+
+
+## 7. NEW stronger all-N theorem: ALL TEN original 3v3 signs are mutually EXCLUSIVE for D6/BBo
+
+A general expected count of ten overlapping signed events is NOT a probability of their union. However, the accepted ORIGINAL D6 and B/B-overlap classes have a structural property that makes the TEN SIGN EVENTS for one given sixset **pairwise disjoint**. This precise proof was missing from the initial q=5175 one-sign version. We now establish the stronger fact directly from the true physical source-coordinate dual, without independence assumptions.
+
+### Lemma 7A — no INTERNAL four-original-flag R2 equality
+
+Let \(Q\) consist of six distinct ORIGINAL columns of a genuine accepted \(D_6\) or B/B-overlap sixset, with all **four legal physical nonzero GF5 entries** per source. Each of the SIX coordinates in the left projection, and each of the SIX coordinates in the right projection, appears in exactly TWO original columns. Build the two colored coordinate-dual graphs on the SIX named original source column indices: a dual edge \(ij\) means one true physical coordinate appears in exactly columns \(i,j\). Both colored duals are 2-regular multigraphs on all six named columns.
+
+If some four distinct named original columns could satisfy a physical signed \(2+2\) equality, their four-ID subset \(A\) must be a union of WHOLE CONNECTED COMPONENTS of BOTH colored duals: a dual edge crossing \(A\) and its two-column complement would put a SINGLE nonzero GF5 term in that physical coordinate's signed equation, which cannot equal zero. This necessary condition depends only on genuine physical support, not on the coefficient values.
+
+- For D6, EACH colored dual is the same connected six-cycle. It has NO proper nonempty union of components, so NO four-column support can satisfy a signed 2v2 equality.
+- For B/B-overlap, the left dual consists of a doubled pair on named IDs \(A_L=\{0,1\}\) and a simple four-cycle on its complement; the right dual has a doubled pair \(A_R=\{0,2\}\) and a simple four-cycle on its complement. Their repeated two-ID sets intersect in **exactly one ORIGINAL incidence ID**, so their respective closed FOUR-ID subsets \([6]\setminus A_L\) and \([6]\setminus A_R\) are different. There is NO four-ID set simultaneously closed in both colored duals. Therefore NO signed 2v2 physical GF5 equality is possible among any four of these six ORIGINAL columns under ANY legal coefficient choices.
+
+Distinct original incidence IDs also have DISTINCT full physical four-coordinate supports because the same globally fixed f and g are injective on typed original factor labels: equality of supports requires the same original point AND line, hence the same incidence ID. Since all palette entries on their four supports are nonzero, no two selected original source columns can have equal complete 28D/12D GF5 vectors. This proves the singleton (1v1) no-collision premise.
+
+### Lemma 7B — two distinct balanced 3v3 signs on the SAME sixset force R1 or R2
+
+Index the SIX original columns by 0,...,5. The TEN *global-sign-unordered* balanced 3v3 signs have plus-triples \(P\subset[6]\), \(|P|=3\), \(0\in P\), identifying a partition and its complement ONCE. Take two DIFFERENT plus-triples \(P,P'\). Necessarily \(|P\cap P'|=1\) or 2.
+
+The two signed GF5 equalities mean \(2\sum_{i\in P}c_i-\sum_{i=0}^5c_i=0\) and the analogous equation for \(P'\). Subtraction and invertibility of \(2\) in GF5 imply the EXACT equality
+
+\[
+ \sum_{i\in P\setminus P'}c_i
+ =\sum_{j\in P'\setminus P}c_j.
+\]
+
+If \(|P\cap P'|=2\), this is an equal-singleton equality between two DIFFERENT original source columns, impossible by fixed-source support injection. If \(|P\cap P'|=1\), this is an equal **2+2** source equation on four different original column IDs, impossible by Lemma 7A. Thus the original ten signed physical GF5 events are mutually EXCLUSIVE, not merely positively weighted or uncorrelated. QED.
+
+### Theorem AA4-PALDIST-TEN — exact TEN-sign union probability
+
+Because the ten events on ONE sixset cannot co-occur, their probability union is **exactly** the sum of their ten full-51-palette signed GF5 counts divided by \(51^6\). The separate independently verified exact flow arithmetic in AA4-SIGN10 gives, for EVERY accepted original sixset with valid complete global f,g,
+
+\[
+\begin{array}{ll}
+D_6: & \Pr(\text{at least one balanced 3v3 equality on }Q)
+       =\frac{54162}{51^6},\\
+B/B\text{-overlap}:&
+\Pr(\text{at least one balanced 3v3 equality on }Q)
+       \in\{\frac{53526}{51^6},\frac{53838}{51^6}\}.
+\end{array}
+\tag{6}
+\]
+
+Therefore the uniform chosen original MOTIF event probability is at least
+
+\[
+\boxed{q_{10}=\frac{53526}{51^6}
+             =\frac{17842}{5865429267}
+             >10\frac{5175}{51^6}.}\tag{7}
+\]
+
+The ten signs within one original motif are **NOT independent**; they are MUTUALLY EXCLUSIVE. Across pairwise ORIGINAL-SIX-ID-disjoint motifs, the UNION events are independent because each uses a disjoint set of six original coefficient variables. Hence the proof of Theorem AA4-PALDIST in Section 2 applies VERBATIM with \(q_{10}\) in place of the weaker \(q\):
+
+\[
+\Pr(\text{FULL 0-to-3 ASET})\le (1-q_{10})^t
+       \le\exp(-q_{10}t),\qquad
+\Pr(d<q_{10}t/2)\le\exp(-q_{10}t/8).
+\tag{8}
+\]
+
+**Conditional on accepting previously unaccepted geometric Draft #674**, its source-six-ID disjoint packing \(t>\rho s^4/6\) yields the SHARPER all-h corollary, for arbitrary fixed correlated complete global f,g and sufficiently large dyadic s:
+
+\[
+\boxed{\Pr(\text{random 51-palette full ASET})\le
+          \exp(-q_{10}\rho s^4/6),}\qquad
+\boxed{\Pr(d<q_{10}\rho s^4/12)\le
+          \exp(-q_{10}\rho s^4/48).}\tag{9}
+\]
+
+This is an **order-of-magnitude stronger** coefficient-level obstruction than using any single signed partition, and crucially proves the missing union-probability step. It remains a theorem about **random coefficient rarity**, not deterministic impossibility, and inherits the all-h geometric scope limitation of #674. No new Root #230 acceptance is claimed.
+
+The new source module \`research/hyp105_original_ten_sign_exclusive.py\` independently examines all FIFTEEN possible original four-ID subsets of the true twelve-edge colored dual, explicitly rejecting every possible support-closed four-subset. Its genuine-source W(3,2) and W(3,4) control uses the ORIGINAL globally injected physical f/g maps and both independent 4096-edge-IE / 4^7-tree GF5 flow algorithms to evaluate ALL TEN signs. The independent negative test uses a deliberate ABSTRACT three-doubled-pair dual with a closed four-subset, which must be rejected; that abstract adversary is NOT substituted as original W(3,s) evidence.
+
+The real frozen W32 full packings now receive exact probabilities of the **UNION of ten signed events** for each of their three disjoint genuine original sextuples. All source palettes remain independent over distinct original IDs, not across signs.
