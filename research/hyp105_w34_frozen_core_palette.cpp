@@ -159,7 +159,7 @@ static Result evaluate(const Model&z,int center){
     std::unordered_map<uint64_t,std::vector<int>> single;
     pairs.reserve(F.size()*3);single.reserve(F.size()*2);
     for(int x:F)single[key(pr[x].out,groups)].push_back(x);
-    for(size_t a=0;a+1<F.size();a++)for(size_t b=a+1<F.size();b++){
+    for(size_t a=0;a+1<F.size();a++)for(size_t b=a+1;b<F.size();b++){
         int ia=F[a],ib=F[b];
         array<int,6> limb{};
         for(int g=0;g<groups;g++)
@@ -236,7 +236,8 @@ static void save(const Model&z,const std::vector<Result>&rows,
      <<z.frozen.size()<<",\"shard\":"<<shard<<",\"shards\":"
      <<shards<<",\"edited_original_IDs\":[";
     for(size_t j=0;j<z.edited.size();j++){
-        if(j)o<<",";o<<z.edited[j];
+        if(j)o<<",";
+        o<<z.edited[j];
     }
     o<<"],\"results\":[";
     for(size_t r=0;r<rows.size();r++){
@@ -250,7 +251,9 @@ static void save(const Model&z,const std::vector<Result>&rows,
          <<",\"blocked_count\":"<<blocked<<",\"allowed_palettes\":[";
         bool comma=false;
         for(int p=0;p<NP;p++)if(!zrow.forbidden[p].has){
-            if(comma)o<<",";comma=true;o<<p;
+            if(comma)o<<",";
+            comma=true;
+            o<<p;
         }
         o<<"],\"patterns\":[";
         for(int p=0;p<NP;p++) {
