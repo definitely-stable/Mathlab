@@ -32,6 +32,7 @@ jobs:
           python -m unittest discover -s research -p 'test_hyp105_original_random_palette_distance.py' -v
           python -m unittest discover -s research -p 'test_hyp105_original_random_palette_distance_certificates.py' -v
           python -m unittest discover -s research -p 'test_hyp105_original_ten_sign_exclusive.py' -v
+          python -m unittest discover -s research -p 'test_hyp105_original_ten_sign_exclusive_certificates.py' -v
       - name: Compute exact genuine ORIGINAL W32 signed motif disjoint-pack probability certificates for BOTH full globally injected maps
         run: |
           mkdir -p proof
