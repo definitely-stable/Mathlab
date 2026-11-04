@@ -176,3 +176,66 @@ The independent tests reconstruct source conflict pairs **again** through the hi
 All arithmetic in the certificate is EXACT (rational strings / integer trace) and all malformed original source inputs fail closed. Workflow \`.github/workflows/hyp105-aa4-original-adaptive-selector-moments.yml\` uses GitHub-hosted Ubuntu only, requires actual complete proof JSON under \`set -euo pipefail\`, and runs independent negative corruption/frozen-certificate replay checks. **No local PC** needed.
 
 The mathematical advance is genuinely **path-adaptive priority preservation**, stronger than the uniform selector used in #672; we do not assert a changed \(s^{47/8}\) exponent or claim to have proved every all-h geometric prerequisite. The ultimate remaining root scientific gate is independently accepting/correcting the heavy-tail geometric selection and external balanced C6 supersaturation transfer, combined with this and #728's already audited source/fullcore interface. Until then #672/#674/root #230 remain scientific Draft / OPEN_WITH_FORMAL_BLOCKER.
+
+
+## 6. NEW exact independent tightening of original selector L6 and 47/8 numerical proof ledger
+
+The companion independently developed \`research/hyp105_original_selector_symbolic_ledger.py\` verifies the elementary original source-selected graph sixth-moment coefficient **72** rather than the parent conservative **144**. This is *not* a claim that published graph supersaturation constants can be chosen as \(C_{\rm graph}=c_{\rm graph}=1\): it requires none of those constants. The proof is the explicit Young inequality
+
+\[
+6\Delta\sqrt{2mX}
+\ \le\ \frac{X}{2}+36m\Delta^2
+\quad (X\ge0).
+\]
+
+Combined with \(\ X\le12C_6+6\Delta\sqrt{2mX}\), we obtain
+
+\[
+\boxed{\ X=\operatorname{tr}(A_G^6)
+\ \le\ 24C_6(G)+72m_G\Delta_G^2. \ }\tag{SELMOM-L6-TIGHT}
+\]
+
+For the #672 SOURCE CORE numerical hypotheses, the exact sufficient bound becomes \(L_{6,\rm tight}=24+288T^2\), compared with the old safe \(L_{6,\rm parent}=24+576T^2\). This halves the leading \(T^2\) coefficient; it does not claim a reduction in the exponent of s. The independent integer-only symbolic referee computes the tighter \(\ L_4=2\sigma_2^{-2}\sqrt{8L_{6,\rm tight}}+56T\), upper-enveloped by the ceiling of the integer square root, and the resulting four-position original mixed-blocker constant. For any formal integer source core cap \(K\ge0\) and physical cap \(T\ge1\), it verifies *without floating-point arithmetic* that the strengthened L4 and four-blocker constants never exceed their historical parent envelopes, and that
+
+\[
+ \boxed{\ \frac{11/2+6}{2}=\frac{23}{4},\qquad
+ \frac{23/4+1+5}{2}=\frac{47}{8},\qquad
+ 6-\frac{47}{8}=\frac18>0. \ }
+\]
+
+It does **not** independently prove that the f,g geometric source core satisfies the prerequisite \(m_C\le4s^4\), \(\Delta_C\le Ts\), \(Q_x+Q_y\le28s^4\) or the full/core mixed original collinearity energy for every sufficiently large dyadic s. The prior #659/#672/#674 analytic provenance of those premises remains a distinct scientific review gate.
+
+The tests independently enumerate **ALL 512 simple bipartite graphs** contained in \(K_{3,3}\) as algebraic negative falsifiers for BOTH \(\operatorname{tr}A^6\le12C_6+6\Delta\,\operatorname{tr}A^4\) and the new tightened moment inequality. These abstract six-vertex graphs are only independent universal *algebra* falsifiers — they are NOT substituted for the true symplectic original source. The same checks also run on SIX separately generated genuine original SOURCE-selector outputs on W(3,2)/W(3,4), built from actual original flag priorities, fixed globally injected f,g and both required physical coordinate color cuts. All source-selected graph inputs pass the true-original factor-pair provenance and bichromatic edge tests.
+
+## 7. Actual ORIGINAL W32/W34 finite weighted source certificate results
+
+The first hosted true-original specialized run [#41914849598](https://github.com/definitely-stable/Mathlab/actions/runs/41914849598) passed all six source priority/color/Jensen/D6 injection tests and strict machine-readable proof JSON. The permanent original full exact rational certificate is \`research/hyp105_original_adaptive_selector_moments_certificates.json\`, independently reproduced by eight permanent replay/tamper tests. The analytical tightened-L6 symbolic and six true-original selected graph evidence is retained in \`research/hyp105_original_selector_symbolic_ledger_certificates.json\`, with its own seven replay/tamper tests.
+
+| Genuine symplectic ORIGINAL source / frozen global maps | Core original incidence IDs | Deleted actual original IDs | Max original flag conflict K | Actual proper physical 2-paths | Actual proper physical 3-paths | Exact true physical core \(\operatorname{tr}(A_C^6)\) |
+|---|---:|---:|---:|---:|---:|---:|
+| W(3,2), lex | 45 | 0 | 4 | 614 | 1,346 | 52,674 |
+| W(3,2), reverse-line | 30 | 3 | 3 | 272 | 292 | 8,868 |
+| W(3,4), lex | 205 | 15 | 3 | 3,042 | 9,622 | 109,480 |
+| W(3,4), reverse-line | 164 | 14 | 4 | 2,168 | 5,304 | 85,748 |
+
+For every row **both** new adaptive path moment Frobenius squares are computed as exact rational numbers and obey \(\sigma_r^2\|P_r\|_F^2<\|W_r\|_F^2\le\operatorname{tr}(A_C^{2r})\) for r=2 and r=3. No Monte Carlo approximate selector probability was substituted. For example, for genuine W(3,2) lex:
+
+\[
+ \|W_2\|_F^2=\frac{3493493}{203212800},
+ \qquad
+ \|W_3\|_F^2=\frac{310019889}{3283356876800}.
+\]
+
+A separate deterministic true physical selector **FORCES a selected positive six-coordinate simple C6** from an ORIGINAL historical source D6:
+- W(3,2) lex: real original source flag IDs \(\{0,11,18,29,35,44\}\), **1** selected physical C6, all six true owner IDs distinct.
+- W(3,2) reverse-line: real original source flag IDs \(\{1,8,17,18,40,42\}\), **1** selected physical C6, all six true owner IDs distinct.
+
+This ensures the sixcycle-to-D6 original GF(5) bridge test is NOT merely vacuous because random priority/color selections often contain zero C6. Both actual source graph constructors and owner maps are independently checked against a preexisting separate source conflict bucket and physical diagonal oracle. The exact-sharp safe sixth-moment inequality on selected graphs has also been checked by a completely independent physical matrix-power implementation.
+
+**Acceptance gates:** the GH-hosted specialist workflow must on its FINAL head pass all independent original geometry tests, complete source rational/moment proof replay, all 512 algebraic bipartite checks, the six actual selected true-original source graphs, all negative tamper tests and strict \`set -euo pipefail\` JSON verification. Full Research and INDEX workflows must also be green on that same HEAD. The all-h geometric source six-motif obstruction remains a separate pending scientific proof review, not replaced by test success.
+
+## 8. What was independently proved and what remains
+
+**New independently derived theorem:** path-adaptive retention probability and weighted original-source 4th/6th moment inequality (SELMOM-1)–(SELMOM-4), the conservative source D6 injection (SELMOM-5), and the true bipartite sixth-moment coefficient strengthening (SELMOM-L6-TIGHT) as universal discrete combinatorial statements. Their formulas were implemented and independently falsified on genuine original GQ source data.
+
+**Still not newly proved in this slice:** uniform large-h existence of a source core satisfying #659/#674 heavy degree and all source-conflict caps for every f,g, source collinearity operator norm and full original geometric mixed source spectrum, numerical valid balanced graph C6 supersaturation constants, root all-h Branch A/B/C, any impossibility of deterministic specially chosen full GF5 ASET, or a new ASET exponent. The mathematically responsible next gate is independent line-by-line proof verification of the external balance/chunk supersaturation application in #659 and its exact original-source-heavy edge-to-six-positive-motif transfer, now that selector/moment and masked FULL/CORE interfaces have independent all-N proofs.
