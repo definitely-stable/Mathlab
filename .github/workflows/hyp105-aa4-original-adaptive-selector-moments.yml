@@ -8,6 +8,10 @@ on:
       - 'research/test_hyp105_original_adaptive_selector_moments.py'
       - 'research/hyp105_original_adaptive_selector_moments_certificates.json'
       - 'research/test_hyp105_original_adaptive_selector_moments_certificates.py'
+      - 'research/hyp105_original_selector_symbolic_ledger.py'
+      - 'research/test_hyp105_original_selector_symbolic_ledger.py'
+      - 'research/hyp105_original_selector_symbolic_ledger_certificates.json'
+      - 'research/test_hyp105_original_selector_symbolic_ledger_certificates.py'
       - 'docs/research/HYP-105-AA4-ADAPTIVE-ORIGINAL-SELECTOR-MOMENTS.md'
   workflow_dispatch:
 
@@ -29,6 +33,9 @@ jobs:
       - name: Independent FINAL permanent ORIGINAL W32/W34 rational selector proof replay plus corrupted evidence fail-closed gates
         run: |
           python -m unittest discover -s research -p 'test_hyp105_original_adaptive_selector_moments_certificates.py' -v
+      - name: Independent exact ALL 512 simple bipartite 3x3 sixth moment falsifiers and genuine original W32/W34 47over8 selector ledger
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_selector_symbolic_ledger.py' -v
       - name: Exact complete original W32/W34 SOURCE-adaptive priority and positive D6 physical cycle machine-proof certificate
         shell: bash
         run: |
@@ -63,6 +70,37 @@ jobs:
               assert z["planted_original_six_flag_IDs"] in z["actual_original_flag_IDs_D6"]
               assert z["selector_C6_source_injective"]
           print("AA4_ADAPTIVE_ORIGINAL_SELECTOR_STRICT_PROOF_JSON_ACCEPTED")
+          PY
+      - name: Exact independent original analytic selector L6-tighter and 47over8 source blocker exponent certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_selector_symbolic_ledger.py \
+            | tee proof/original-analytic-selector-L6-L4-47over8.json.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("proof/original-analytic-selector-L6-L4-47over8.json.log")
+          ls=p.read_text(encoding="utf-8").splitlines()
+          prefix="AA4_ORIGINAL_SELECTOR_ANALYTIC_LEDGER_CERTIFICATE="
+          assert len(ls)==1 and ls[0].startswith(prefix),"missing exact true-source analytic proof"
+          data=json.loads(ls[0][len(prefix):])
+          assert data["schema"]=="mathlab.hyp105.original-selector-analytic-47over8-checks.v1"
+          assert data["root_230_status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert data["no_new_allh_geometric_proof_claimed"]
+          assert len(data["true_original_bipartite_source_graph_cases"])==6
+          assert len(data["formal_parameter_pairs"])==4
+          assert all(int(x["original_parent_L6_24plus576T2"])>=
+                     int(x["original_L6_tighter_24plus288T2"])
+                     and x["original_internal_blocking_exponent"]=="47/8"
+                     and x["strict_gap_to_six"]=="1/8"
+                     and x["allh_prior_graph_CHUNK_supersaturation_requires_external_acceptance"]
+                     for x in data["formal_parameter_pairs"])
+          assert all(x["actual_trace6_le_24C6_plus_72mDelta2"]
+                     and x["actual_trace6_le_12C6_plus_6Delta_trace4"]
+                     for x in data["true_original_bipartite_source_graph_cases"])
+          print("AA4_ORIGINAL_SELECTOR_SYMBOLIC_47OVER8_STRICT_PROOF_ACCEPTED")
           PY
       - uses: actions/upload-artifact@v4
         if: always()
