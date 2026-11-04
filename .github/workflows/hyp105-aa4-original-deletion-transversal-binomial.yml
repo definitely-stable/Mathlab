@@ -1,0 +1,44 @@
+name: hyp105-aa4-original-deletion-transversal-binomial
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-deletion-transversal-binomial.yml'
+      - 'research/hyp105_original_deletion_transversal_referee.py'
+      - 'research/test_hyp105_original_deletion_transversal_referee.py'
+      - 'research/hyp105_original_deletion_palette_allh_bridge.py'
+      - 'research/test_hyp105_original_deletion_palette_allh_bridge.py'
+      - 'research/hyp105_original_deletion_transversal_certificates.json'
+      - 'research/test_hyp105_original_deletion_transversal_certificates.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-DELETION-TRANSVERSAL.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-true-original-W32-adversarial-deletion-and-binomial:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent exact-source GQ W32 lex/reverse motifs and ALL original deletion sets up to four IDs
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_deletion_transversal_referee.py' -v
+      - name: Independently validate original geometric #674 symbolic parameter interface and conditional GF5 binomial bound
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_deletion_palette_allh_bridge.py' -v
+      - name: Reproduce true ORIGINAL 45-source flag six-motif exact minimum deletion, maximum source packing and whole adversarial deletion census
+        run: |
+          mkdir -p proof
+          python -u research/hyp105_original_deletion_transversal_referee.py \
+            | tee proof/original-W32-full-adversarial-deletion-transversal-packing.json.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-W32-exact-adversarial-deletion-transversal-binomial
+          path: proof/
+          retention-days: 100
+          if-no-files-found: error
