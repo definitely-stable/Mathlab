@@ -150,6 +150,8 @@ def source_cover_report(scheme, max_nodes=250000):
         "transversal_certified_lower":result["lower"],
         "bounded_exact_search_status":result["status"],
         "bounded_exact_search_visited_nodes":result["nodes"],
+        "active_original_event_IDs_before_domination":result["original_active_ids"],
+        "source_candidates_after_incidence_domination":result["nondominated_candidate_ids"],
         "exhaustively_refuted_cardinalities":
             list(result["exhausted_depths"]),
         "full_original_event_witness_count":
