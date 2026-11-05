@@ -26,11 +26,9 @@ jobs:
       - name: Independently reconstruct TRUE ORIGINAL W32/W34 source Z-masked low-tail, all physical paths and dual original source four-blockers
         run: |
           python -m unittest discover -s research -p 'test_hyp105_original_lowtail_alln_energy.py' -v
-      - name: Independent permanent original source/physical all-N lowtail six-ID proof replay and negative tamper tests
+      - name: MANDATORY independent permanent true original W32/W34 source/physical all-N lowtail six-ID proof replay and negative tamper tests
         run: |
-          if [[ -f research/test_hyp105_original_lowtail_alln_energy_certificates.py ]]; then
-            python -m unittest discover -s research -p 'test_hyp105_original_lowtail_alln_energy_certificates.py' -v
-          fi
+          python -m unittest discover -s research -p 'test_hyp105_original_lowtail_alln_energy_certificates.py' -v
       - name: Fail-closed exact four ORIGINAL source complete physical three-walk/positive six-ID BBo proof JSON
         shell: bash
         run: |
