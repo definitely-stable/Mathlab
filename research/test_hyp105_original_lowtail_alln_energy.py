@@ -109,6 +109,46 @@ class TestRealOriginalAllNLowTailEnergy(unittest.TestCase):
             self.assertGreater(source["B"],0)
             self.assertGreater(dual["B"],0)
 
+    def test_independent_existing_true_GQ_original_six_ID_BBo_avoidance_oracle(self):
+        # #673 reconstructs original source BBo paths by a different
+        # source projection + physically owned flags implementation.
+        from hyp105_bbo_resilience import avoidance_certificate
+        canonical=canonical_original_lowtail_allN()
+        for row in canonical["genuine_true_original_cases"]:
+            with self.subTest(s=row["s"],scheme=row["scheme"]):
+                power=1 if row["s"]==2 else 2
+                scheme=row["scheme"]
+                m=self.maps[power,scheme]
+                other=avoidance_certificate(
+                    power,m["left_labels"],m["right_labels"],
+                    row["deleted_original_flag_IDs"],
+                    core_ids=row["original_core_source_IDs"])
+                self.assertEqual(
+                    set(tuple(x) for x in row["real_positive_original_BBo_six_IDs"]),
+                    set(tuple(x) for x in other["produced_sixsets"]))
+                self.assertEqual(
+                    row["actual_original_good_unblocked_directed3"],
+                    other["unblocked_paths_avoiding_all_six_forbidden_ids"])
+
+    def test_original_Qx_Qy_are_independently_the_physical_A_squared_row_column_returns(self):
+        for h,scheme in ((1,"lex"),(2,"lex"),(2,"reverse-line")):
+            m=self.maps[h,scheme]
+            n=len(m["incidences"])
+            Z=tuple(range(1,n,31))
+            C=tuple(i for i in range(n) if i not in Z and i%5 in (0,1,4))
+            s,V,a,flags,f,g,C,Z=_source(
+                h,m["left_labels"],m["right_labels"],C,Z)
+            graph,_=_true_physical(flags,f,g,C,a)
+            _,_,_,A2=_physical_trace_and_three_walks(graph)
+            xreturns=sum(num for u,row in A2.items()
+                         for v,num in row.items() if u[0]==v[0])
+            yreturns=sum(num for u,row in A2.items()
+                         for v,num in row.items() if u[1]==v[1])
+            z=full_original_lowtail_source_energy_certificate(
+                h,f,g,C,Z)
+            self.assertEqual(xreturns,z["original_source_Qx"])
+            self.assertEqual(yreturns,z["original_source_Qy"])
+
     def test_strict_fail_closed_false_original_IDs_and_maps(self):
         m=self.maps[1,"lex"]
         f,g=m["left_labels"],m["right_labels"]
