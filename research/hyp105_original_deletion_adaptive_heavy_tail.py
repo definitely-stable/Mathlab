@@ -248,7 +248,7 @@ def _real_original_selector_adaptive_heavy(power,f,g,deleted_ids,T):
     oppositeY={v for v in seladj if lb[v[0]]!=chosen_side}
     original_cell_graph={v:set() for v in heavyR|oppositeY}
     for u in heavyR:
-        for v in seladj.get(u,()) & oppositeY:
+        for v in set(seladj.get(u,())) & oppositeY:
             original_cell_graph[u].add(v)
             original_cell_graph[v].add(u)
     win=_local_balanced_no_clone(original_cell_graph,heavyR,oppositeY,a*a)
@@ -339,8 +339,6 @@ def exact_allh_robust_source_tail_constants(C_graph,c_graph,epsilon):
         raise AssertionError("SS6 original epsilon-beta constant normalized incorrectly")
     T_root_new=2**64*C**3
     T_root_old=2**65*C**3
-    if T_root_new!=T_improved.subs if False else False:
-        raise AssertionError("never")
     if T_root_new!=Fraction(2**40)*C**3/Fraction(1,16)**6:
         raise AssertionError("root original deletion robust threshold incorrect")
     return {
