@@ -177,7 +177,7 @@ def _local_balanced_no_clone(Fgraph,R,Y,physical_n):
         E=tuple(sorted((u,v) for u in sorted(R) for v in chunk
                        if v in Fgraph.get(u,())))
         records.append((len(E),chunk,E))
-    _num,win,actual=max(records,key=lambda z:(z[0],tuple(-v[0]*100000-v[1] for v in z[1])))
+    _num,win,actual=max(records,key=lambda z:z[0])  # deterministic first chunk on equal counts; arbitrary true vertex labels
     E=sum(len(Fgraph.get(u,())&set(Y)) for u in R)
     if len(actual)*2*physical_n<E*r:
         raise AssertionError("true balanced chunk source edge pigeonhole false")
