@@ -142,17 +142,16 @@ class OriginalSourceDeletionAdaptiveHeavyTail(unittest.TestCase):
             # Determine bipartition from true physical first-coordinate
             # binary cut using edges, never from synthetic source copies.
             if A and any(A.values()):
-                root=next(v for v in A if A[v])
-                left=set();right=set()
-                side={root:0};work=[root]
-                for v in work:
-                    for u in A[v]:
-                        if u not in side:
-                            side[u]=1-side[v];work.append(u)
-                        else:self.assertNotEqual(side[u],side[v])
-                # Zero-edge isolates may choose either bipartition.
-                for v in A:
-                    side.setdefault(v,0)
+                side={}
+                for root in A:
+                    if root in side:continue
+                    side[root]=0
+                    work=[root]
+                    for v in work:
+                        for u in A[v]:
+                            if u not in side:
+                                side[u]=1-side[v];work.append(u)
+                            else:self.assertNotEqual(side[u],side[v])
                 left={v for v in A if side[v]==0}
                 right=set(A)-left
                 out=exact_c6_gate(A,left,right)
