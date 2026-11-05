@@ -1,0 +1,74 @@
+name: hyp105-aa4-original-deletion-robust-heavy-SS6
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-deletion-robust-heavy-SS6.yml'
+      - 'research/hyp105_original_deletion_adaptive_heavy_tail.py'
+      - 'research/test_hyp105_original_deletion_adaptive_heavy_tail.py'
+      - 'research/hyp105_original_deletion_adaptive_heavy_tail_certificates.json'
+      - 'research/test_hyp105_original_deletion_adaptive_heavy_tail_certificates.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-DELETION-ROBUST-HEAVY-SS6.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-source-Z-robust-adaptive-balanced-ordinary-SS6:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent TRUE original W32/W34 heavy tail after adversarial Z, exact Caro-Wei source conflict and 28672 no-clone balanced chunk cases
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_deletion_adaptive_heavy_tail.py' -v
+      - name: Independent permanent true ORIGINAL W32/W34 exact SOURCE heavy SS6 proof replay and 7 negative forgery checks
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_deletion_adaptive_heavy_tail_certificates.py' -v
+      - name: Exact complete TRUE ORIGINAL Z-robust source heavy, adaptive density e/v and ordinary six-cycle injection JSON
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_deletion_adaptive_heavy_tail.py \
+            | tee proof/hyp105-original-Z-deletion-adaptive-heavy-SS6.json.log
+          python - <<'PY'
+          from pathlib import Path
+          from fractions import Fraction
+          import json
+          p=Path("proof/hyp105-original-Z-deletion-adaptive-heavy-SS6.json.log")
+          ls=p.read_text(encoding="utf-8").splitlines()
+          prefix="AA4_ORIGINAL_ADAPTIVE_ZTAIL_CERTIFICATE="
+          assert len(ls)==1 and ls[0].startswith(prefix), "No complete actual original GQ six-ID source proof record"
+          d=json.loads(ls[0][len(prefix):])
+          assert d["schema"]=="mathlab.hyp105.AA4-true-original-deletion-robust-heavy-SS6.v1"
+          assert d["root_230_status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert d["root_allh_Branch_A_proved_here"] is False
+          assert [(x["s"],x["scheme"]) for x in d["genuine_source_cases"]]==[
+            (2,"lex"),(2,"reverse-line"),(4,"lex"),(4,"reverse-line")]
+          for x in d["genuine_source_cases"]:
+              assert not x.get("empty_tail",False)
+              assert x["no_cloned_vertices_or_source_IDs"]
+              assert x["source_c6_injects_original_positive_D6_after_Z"]
+              assert x["unknown_published_C_graph_c_graph_NOT_guessed"]
+              assert x["actual_original_heavy_edges_removed_by_Z"]<=2*len(x["deleted_original_flag_IDs"])
+              f=x["actual_uncloned_balanced_chunk"]
+              assert Fraction(f["source_chunk_e_over_v"])>=Fraction(x["exact_adaptive_guaranteed_density"])
+              assert Fraction(x["actual_winner_eCubed_over_vFourth"])>=Fraction(x["exact_external_C_graph_CUBED_sufficient_data_threshold"])
+          for f in d["formal_constants"]:
+              assert Fraction(f["root_674_NEW_T_for_same_full_tail_deletion_hypothesis"]) * 2 == Fraction(
+                  f["root_674_old_T_for_full_tail_eighth_original_deletion_at_most_1over32"])
+              assert not f["actual_published_graph_constants_numerical_values_VERIFIED"]
+          print("AA4_ORIGINAL_ZROBUST_ADAPTIVE_SS6_STRICT_JSON_ACCEPTED")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-real-original-SS6-adaptive-deleted-heavy-chunk
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
