@@ -139,8 +139,6 @@ class OriginalSourceDeletionAdaptiveHeavyTail(unittest.TestCase):
             for v,u in w["winner_actual_physical_edges"]:
                 v=tuple(v);u=tuple(u)
                 A[v].add(u);A[u].add(v)
-            C={tuple(v) for v in w["winner_original_physical_vertices"]
-               if v[0]!=next(iter(A))[0]}
             # Determine bipartition from true physical first-coordinate
             # binary cut using edges, never from synthetic source copies.
             if A and any(A.values()):
@@ -158,7 +156,7 @@ class OriginalSourceDeletionAdaptiveHeavyTail(unittest.TestCase):
                 left={v for v in A if side[v]==0}
                 right=set(A)-left
                 out=exact_c6_gate(A,left,right)
-                self.assertEqual(out["simple_C6_unrooted_unoriented"],
+                self.assertEqual(out["ordinary_unoriented_simple_C6"],
                                  z["actual_winner_uncloned_physical_C6"])
             self.assertEqual(len(w["winner_actual_physical_edges"]),
                              sum(map(len,A.values()))//2)
