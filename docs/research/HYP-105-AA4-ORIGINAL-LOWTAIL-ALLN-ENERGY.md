@@ -123,3 +123,42 @@ Previous #672/#674 argue that, after source heavy-tail and conflict removal, **f
 The new benefit is a SINGLE all-N SOURCE-ID-preserving, deletion-mask-aware inequality with completely separated physical/source inputs, independently computed dual blocker books, and exact finite per-instance rejection gates; this makes incorrect source/coordinate substitutions or hidden dependence on f/g randomization falsifiable. Future scientific priority: independently obtain/check strong analytic upper bounds for the low-tail original collinearity F1 energies for all admissible fixed f,g under the same Z mask, or find a geometric correlated counterexample.
 
 No merge, issue closure, arbitrary host theorem, numerical published C_graph/c_graph guess or new ASET exponent.
+
+
+## 6. Independently checked complete genuine ORIGINAL W32/W34 finite source results
+
+The specialist source test [GitHub Actions #41958240123](https://github.com/definitely-stable/Mathlab/actions/runs/41958240123) on the then-exact source HEAD completed **SUCCESS: 7 independent all-original tests + 8 permanent exact replay/tamper tests**, and a separate required full four-case source JSON proof gate under \`set -euo pipefail\`. The complete **58,657-character** genuine source six-ID certificates are retained in \`research/hyp105_original_lowtail_alln_energy_certificates.json\` and independently rebuilt by the permanent checker. The seven ordinary tests include a *different prior* #673 source-projection oracle with independently constructed physical paths and original six-ID BBo outputs: **exactly the same positive SIX-ID source sets** result in all four distinct true original f,g,Z,C cases. Separate literal physical \(A_C^2\) two-walk return measurements reproduce both original point/line \(Q_x,Q_y\) source-pencil equalities.
+
+| True original symplectic source/frozen global maps | Retained C ORIGINAL flag IDs | Deleted Z ORIGINAL flags | ALL directed physical 3-walks | Proper directed physical 3-paths | Paths excluded by exact ORIGINAL endpoint+Z mask | Paths excluded by ≥1 of FOUR internal geometric blockers | Genuine positive ORIGINAL BBo sixsets |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| W(3,2) lex | 30 | 1 | 2,254 | 416 | 370 | 44 | **1** |
+| W(3,2) reverse-line | 34 | 1 | 2,504 | 448 | 362 | 86 | 0 |
+| W(3,4) lex | 247 | 14 | 43,880 | 18,624 | 12,114 | 3,442 | **1,534** |
+| W(3,4) reverse-line | 176 | 15 | 14,592 | 5,854 | 3,748 | 1,180 | **463** |
+
+Each row independently verifies the **exact** original source identity
+\[
+\#(\mathrm{proper\ directed\ physical\ 3paths})
+=\#(\mathrm{masked/bad\ endpoint\ paths})
++\#(\mathrm{internally\ blocked\ admissible\ paths})
++2\#(\mathrm{accepted\ original\ BBo\ sixsets}).
+\]
+
+On W(3,4), the newly integrated ORIGINAL projection bad-endpoint union consists of:
+
+| W34 frozen maps | Missing original f/g endpoint labels | Original incident q,r | Original-end-bad projection | Projection anchors with ≥1 deleted ORIGINAL ID | EXACT union of bad ordered physical endpoints |
+|---|---:|---:|---:|---:|---:|
+| lex | 4,224 | 1,700 | 14,592 | 1,272 | **21,788** |
+| reverse-line | 4,224 | 1,700 | 14,600 | 1,216 | **21,740** |
+
+This disjoint five-state classification counts *real* original projected ID flags, rather than summing independent invented source-coordinate error populations. Specifically, the ORIGINAL deletion-projection component in these examples is **1,272** vs the old coarse bound \(12s^2|Z|=2,688\) for lex and **1,216** vs \(2,880\) for reverse-line. The source-projection mask is therefore materially sharper and provably complete for these finite original cases.
+
+The two dual internal point/line source books are genuinely **different**:
+- W34 lex \(B_x=28,073\), \(B_y=28,355\).
+- W34 reverse-line \(B_x=20,095\), \(B_y=19,505\).
+
+The four independently recorded actual physical blocker populations also differ: W34 lex \((1046,1046,1138,1138)\); reverse-line \((357,357,411,411)\). Treating the point and line sources as numerically identical would be wrong even for these ordinary globally injected complete original maps.
+
+**Essential limitation / correct interpretation:** the all-N bound (LOWCERT) is rigorous and nonnegative after taking \(\max\{0,\cdot\}\), but its **conservative analytic right side is negative in all four small-source fixtures before the maximum**. The strong positive 1/1,534/463 historical ORIGINAL BBo counts in the table are obtained by the **exact source/physical partition (LOWCERT-EXACT)** and independently verified original classifier, **NOT** by pretending the coarse analytic inequality is positive at W32/W34. Improving its all-h positive use requires separately accepted source existence/caps and moment estimates (or stronger numerical low-tail certificates), not numerical extrapolation from the small true source cases.
+
+The completed checks are proof-oriented finite falsifiers of the exact combinatorial identity and each independently named all-N bound. They cannot certify a uniform all-map \(\Omega(s^6)\) theorem, numerical unknown external graph-theorem constants or a new ASET exponent. Root #230 must remain OPEN_WITH_FORMAL_BLOCKER.
