@@ -26,6 +26,9 @@ jobs:
       - name: Independent TRUE original W32/W34 heavy tail after adversarial Z, exact Caro-Wei source conflict and 28672 no-clone balanced chunk cases
         run: |
           python -m unittest discover -s research -p 'test_hyp105_original_deletion_adaptive_heavy_tail.py' -v
+      - name: Independent permanent true ORIGINAL W32/W34 exact SOURCE heavy SS6 proof replay and 7 negative forgery checks
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_deletion_adaptive_heavy_tail_certificates.py' -v
       - name: Exact complete TRUE ORIGINAL Z-robust source heavy, adaptive density e/v and ordinary six-cycle injection JSON
         shell: bash
         run: |
