@@ -151,3 +151,23 @@ The pure ordinary no-clone combinatorial test independently enumerates all \(2^{
 The new **data-adaptive source-heavy SS6 gate and robust heavy-branch theorem** are rigorous given the published graph theorem (for its actual existential C,c); the proof is self-contained beyond the source model, the published theorem, and established #659/#684 original spectral Caro–Wei source lemma. The full universal root claim #230 requires ALSO an independently accepted low-tail case with selected original dense core, proper three-path completion, source collinearity and all four mixed FULL/CORE blockers, and the exact ORIGINAL six-ID lifting across the seven positive classes. Earlier #672/#674 low-tail Drafts have computationally audited internal source/physical interfaces, but that is **not equivalent to independent mathematical acceptance of the entire all-h theorem**.
 
 Do not claim that numerical small W32/W34 executions satisfy SS6 with its unknown *actual* constants. Do not replace unknown published C,c with 1. The next most important research step after this robust heavy-branch source proof is to combine the sharper T with an independently re-proven original low-tail incidence-spectral bound, or find a counterexample in the actual core/proper-path six-ID lift. The root remains **OPEN_WITH_FORMAL_BLOCKER**.
+
+
+## 6. Exact completed REAL original W32/W34 source evidence
+
+The first mathematically strict genuine ORIGINAL source hosted specialist success is [#41953660391](https://github.com/definitely-stable/Mathlab/actions/runs/41953660391): 6 exact source/ordinary tests, the independently exhaustive 28,672 no-clone ordinary 3×4 cases and a separate full certificate regeneration/parse gate under \`set -euo pipefail\`. Original source IDs, full heavy-Q, source-owner deletion, source conflict edges, Caro–Wei, selected two-cut physical diagonals, physical graph F, and exact external SS6 hypothesis ratios are permanently stored in \`research/hyp105_original_deletion_adaptive_heavy_tail_certificates.json\`. The final permanent replay suite runs all calculations from original geometry again and includes seven invalid-source/tampered-claim guards.
+
+| Genuine original fixed global maps | T (finite case, **not** theorem's huge T) | Original FULL physical heavy vertices q | FULL heavy physical edges | ORIGINAL heavy edges removed by Z | Surviving heavy physical edges | Heavy ORIGINAL flag owners L | ACTUAL source conflict pairs e_J | Source flags after both cuts | TRUE ordinary F e/v | True simple C6(F) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---|---:|
+| W(3,2) lex | 1/2 | 36 | 90 | 2 | 88 | 44 | 54 | 10 | 20/34 | 0 |
+| W(3,2) reverse-line | 3/4 | 35 | 90 | 6 | 84 | 42 | 39 | 11 | 22/34 | 0 |
+| W(3,4) lex | 1 | 185 | 850 | 8 | 842 | 421 | 520 | 79 | 108/136 | 0 |
+| W(3,4) reverse-line | 5/4 | 165 | 847 | 10 | 837 | 420 | 513 | 73 | 124/146 | **1** |
+
+The W(3,4) reverse-line actual winning ordinary physical F contains ONE simple positive source-backed C6 with exactly six different ORIGINAL incidence IDs **\`[47,224,229,273,300,355]\`**, all avoiding its original deleted Z. The selected full physical source G has one original D6 witness lex W(3,4), \`[111,116,203,224,383,412]\` (not necessarily inside its winning F). These concrete nonvacuous six-original-source-ID cycle controls are independent of the unknown actual numeric external graph supersaturation constant.
+
+The complete exact **cubic** ratios \(\ e(F)^3/v(F)^4\) and sufficient adaptive bounds \(\ L^6/[2^{16}n^3 q(L+2e_J)^3]\) for all four cases are saved as exact rational numerator/denominator strings. No finite W32/W34 row is declared to meet the real published SS6 density threshold, because the actual numeric \(C_{\rm graph}\) is unspecified. Tests may use formal trial C to verify the algebra but never turn it into an authoritative C constant.
+
+The heavy branch's asymptotic improvement is also independently checked by exact rational symbolic arithmetic: for **purely hypothetical** \(C_{\rm graph}=1,\varepsilon=1/16\), the new sufficient \(T=2^{64}\), old \(T=2^{65}\); for a formal \(C_{\rm graph}=7/3\), both thresholds scale by \(343/27\). **Neither trial numerical value is claimed to be the actual paper's constant.**
+
+A qualification about interpretation: exact source \(Z\) deletion robustness does not mean that each selected six-source witness is independent of every other source motif's coefficients, nor that a rare, specially optimized full ASET cannot exist. The result is a deterministic heavy-tail geometric \(D_6\) lower (conditional on the proved, constant-unspecified external graph theorem), not the full all-h seven-class statement or the 0:3 ASET obstruction.
