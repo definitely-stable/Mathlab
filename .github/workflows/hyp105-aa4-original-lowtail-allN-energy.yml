@@ -1,0 +1,69 @@
+name: hyp105-aa4-original-lowtail-allN-energy
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-lowtail-allN-energy.yml'
+      - 'research/hyp105_original_lowtail_alln_energy.py'
+      - 'research/test_hyp105_original_lowtail_alln_energy.py'
+      - 'research/hyp105_original_lowtail_alln_energy_certificates.json'
+      - 'research/test_hyp105_original_lowtail_alln_energy_certificates.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-LOWTAIL-ALLN-ENERGY.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-allowed-deleted-lowtail-dual-four-blocker:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently reconstruct TRUE ORIGINAL W32/W34 source Z-masked low-tail, all physical paths and dual original source four-blockers
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_lowtail_alln_energy.py' -v
+      - name: MANDATORY independent permanent true original W32/W34 source/physical all-N lowtail six-ID proof replay and negative tamper tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_lowtail_alln_energy_certificates.py' -v
+      - name: Fail-closed exact four ORIGINAL source complete physical three-walk/positive six-ID BBo proof JSON
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_lowtail_alln_energy.py \
+            | tee proof/hyp105-original-allN-source-masked-lowtail.json.log
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from fractions import Fraction
+          p=Path("proof/hyp105-original-allN-source-masked-lowtail.json.log")
+          ls=p.read_text(encoding="utf8").splitlines()
+          prefix="AA4_TRUE_ORIGINAL_ALLN_LOWTAIL_CERTIFICATE="
+          assert len(ls)==1 and ls[0].startswith(prefix),"missing exact full ORIGINAL GQ source proof"
+          z=json.loads(ls[0][len(prefix):])
+          assert z["schema"]=="mathlab.hyp105.original-LOWTAIL-allN-energy-source.v1"
+          assert z["root_230_status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert z["allh_unconditional_ROOT_230_claim"] is False
+          assert [(v["s"],v["scheme"]) for v in z["genuine_true_original_cases"]]==[
+            (2,"lex"),(2,"reverse-line"),(4,"lex"),(4,"reverse-line")]
+          for v in z["genuine_true_original_cases"]:
+              assert v["all_N_complete_original_source_path_partition"]
+              assert v["all_N_symmetric_original_masked_four_blocker_bound"]
+              assert v["actual_original_good_unblocked_directed3"]==2*v["real_positive_original_BBo_sixsets"]
+              assert v["physical_real_edge_count"]==2*v["original_core_source_count"]
+              assert Fraction(v["actual_original_good_unblocked_directed3"])>=Fraction(
+                  v["all_N_abstract_energy_good3_lower"])
+              assert v["allh_positive_root_Branch_A_proved_here"] is False
+          print("AA4_ORIGINAL_ALLN_LOWTAIL_STRICT_PROOF_ACCEPTED")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-lowtail-allN-sixID-source-proof
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
