@@ -4,7 +4,8 @@ from fractions import Fraction
 from math import comb
 
 from hyp105_original_lowtail_cap_closure import (
-    cap_closure, ceil_sqrt, replay_frozen_original_lowtail, source_energy
+    cap_closure, ceil_sqrt, replay_frozen_original_lowtail, source_energy,
+    uniform_projection_mask_radius
 )
 from hyp105_full_physical_degree_tail import genuine_source
 from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
@@ -75,6 +76,22 @@ class TestOriginalCollinearityCap(unittest.TestCase):
             # Its squared normalized error / (L*s^12) is 12*rho.
             ratios.append(12*rho)
         self.assertEqual(ratios,[Fraction(3,256)]*3)
+
+    def test_sharper_fixed_density_projection_absorption_exact_rational(self):
+        # FORMAL T=2^65: not an assertion of the unknown C_graph=1.
+        r=uniform_projection_mask_radius(64,2**65)
+        self.assertFalse(r["root_A_claim"])
+        self.assertTrue(r["improves_historical_mask_budget"])
+        new=Fraction(r["rho_mask"])
+        old=Fraction(r["prior_rho_mask"])
+        self.assertGreater(new,70*old)
+        self.assertLess(new,76*old)
+        from math import comb
+        q3=64*comb(3*65,3)
+        L6=24+288*(2**65)**2
+        self.assertEqual(12*new*q3*q3*L6,Fraction(1,64))
+        with self.assertRaises(ValueError):
+            uniform_projection_mask_radius(64,0)
 
     def test_reject_invalid_cap_inputs(self):
         for x in (-1,1.5,True):
