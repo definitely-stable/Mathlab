@@ -508,7 +508,10 @@ def canonical_referee():
                 root_Branch_A_unconditionally_accepted=False,
                 BBo_inverse_is_not_all_class_surjectivity=True,
                 genuine_original_lowtail=low_rows,
-                genuine_original_heavy=heavy_rows)
+                genuine_original_heavy=heavy_rows,
+        exhaustive_W32_original_BBo_source_vs_image=[
+            exhaustive_original_W32_BBo_left_B_scan(z)
+            for z in ("lex","reverse-line")])
 
 
 if __name__=="__main__":
