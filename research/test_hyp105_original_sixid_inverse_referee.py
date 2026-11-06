@@ -54,7 +54,7 @@ class TestActualOriginalSixIdInverse(unittest.TestCase):
                     inverse=inverse_bbo(ids,c,geo,C,Z,owner)
                     self.assertEqual(len(inverse),2)
                     self.assertEqual(inverse[0],inverse[1][::-1])
-                    self.assertTrue(set(topo["isolated"])<=set(C))
+                    self.assertTrue(set(topo["iso"])<=set(C))
                     self.assertFalse(set(topo["anchors"])&set(Z))
 
     def test_original_BBo_projection_anchor_is_NOT_forced_into_CORE(self):
@@ -119,7 +119,7 @@ class TestActualOriginalSixIdInverse(unittest.TestCase):
         C=z["original_core_source_IDs"];Z=z["deleted_original_flag_IDs"]
         for shift in (1,17):
             with self.subTest(shift=shift):
-                c=source_case(2,"reverse-line",right_shift=shift)
+                c=source_case(2,"reverse-line",shift=shift)
                 geo=geometry(c)
                 result=physical_first_bbo(c,geo,C,Z)
                 self.assertGreater(result["proper"],0)
