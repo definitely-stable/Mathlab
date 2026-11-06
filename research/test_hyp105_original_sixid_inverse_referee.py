@@ -6,7 +6,7 @@ from pathlib import Path
 from hyp105_original_sixid_inverse_referee import (
     bbo_structure, canonical_referee, geometry, independent_cycles,
     inverse_bbo, inverse_d6, original_seeded_d6, owned_graph,
-    physical_first_bbo, source_case,
+    physical_first_bbo, source_case, exhaustive_original_W32_BBo_left_B_scan,
 )
 from hyp105_g5e2b3e1b0_seven_signature import classify_seven_prechecked
 
@@ -128,6 +128,40 @@ class TestActualOriginalSixIdInverse(unittest.TestCase):
                     self.assertEqual(len(inverse_bbo(ids,c,geo,C,Z)),2)
                     self.assertEqual(classify_seven_prechecked(
                         ids,c["f"],c["g"],c["flags"]),"B/B-overlap")
+
+    def test_exhaustive_original_W32_all_BBo_source_vs_image(self):
+        # Independent source-first ALL 10,935 actual ORIGINAL LEFT-B
+        # candidate flag sixsets, checked against the independently built
+        # actual full physical path image and the historical GF5 classifier.
+        from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
+        from hyp105_g5e2b3e1a_fixed_leading import selected_left_six
+        for scheme in ("lex","reverse-line"):
+            with self.subTest(scheme=scheme):
+                z=exhaustive_original_W32_BBo_left_B_scan(scheme)
+                self.assertEqual(z["complete_original_LEFT_B_source_candidates"],10935)
+                self.assertTrue(z["original_BBo_inverse_0_or_2_for_ALL_full_source_sixsets"])
+                self.assertEqual(
+                    z["all_original_BBo_sixsets"],
+                    z["original_BBo_sixsets_with_physical_3path"]+
+                    z["original_BBo_source_sixsets_without_aligned_physical_3path"])
+                model=pair_labeled_symplectic(1,scheme)
+                historical=set()
+                for ids,_ in selected_left_six(model):
+                    if classify_seven_prechecked(
+                            ids,model["left_labels"],model["right_labels"],
+                            model["incidences"])=="B/B-overlap":
+                        historical.add(ids)
+                self.assertEqual(z["all_original_BBo_sixsets"],len(historical))
+                if z["first_nonimage_six_original_IDs"] is not None:
+                    ids=tuple(z["first_nonimage_six_original_IDs"])
+                    self.assertIn(ids,historical)
+                    case=source_case(1,scheme)
+                    self.assertEqual(inverse_bbo(
+                        ids,case,geometry(case),range(45)),())
+                case=source_case(1,scheme)
+                physical=physical_first_bbo(case,geometry(case),range(45),())
+                self.assertEqual(z["original_BBo_sixsets_with_physical_3path"],
+                                 len(physical["sets"]))
 
     def test_source_sixid_malformed_and_deletion_refusals(self):
         z=next(z for z in low_rows() if z["s"]==2 and z["scheme"]=="lex")
