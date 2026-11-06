@@ -391,6 +391,87 @@ def original_seeded_d6(c,seed,Z=()):
                 physical_C6=len(physical),sixsets=sixsets)
 
 
+
+def exhaustive_original_W32_BBo_left_B_scan(scheme):
+    """Original source-first 10,935-candidate exhaustive LEFT-B scan.
+
+    Does not invoke prior seven-family classifier or previous physical path
+    enumerator. The genuine fixed W32 point mapping is a K6 pair bijection.
+    The LEFT B motif is one doubled original point factor and a 4-cycle on
+    the FOUR remaining coordinates. Enumerate all 15*3*3*3^4 = 10935
+    ORIGINAL six-ID candidate sets with named source line-flag choices.
+    Compare source-only BBo topology with its independent 0/2 inverse.
+    """
+    from itertools import permutations, product
+    c=source_case(1,scheme)
+    geo=geometry(c)
+    a=c["a"]
+    if a!=6 or c["V"]!=15:
+        raise AssertionError("not full original W32 physical K6 pair alphabet")
+    flags,f=c["flags"],c["f"]
+    by_p=defaultdict(list)
+    for i,(p,ell) in enumerate(flags):
+        by_p[p].append(i)
+    invf={pair:p for p,pair in enumerate(f)}
+    if len(invf)!=15 or len(by_p)!=15 or any(len(ids)!=3 for ids in by_p.values()):
+        raise AssertionError("not complete original 15 point 3-line pencil source")
+    n=0
+    accepted=set()
+    in_image=set()
+    no_image=[]
+    for p in range(15):
+        rest=tuple(sorted(set(range(a))-set(f[p])))
+        if len(rest)!=4:
+            raise AssertionError("original doubled f(p) does not leave four symbols")
+        u=rest[0]
+        cycles=set()
+        for permutation in permutations(rest[1:]):
+            vs=(u,)+permutation
+            e=tuple(sorted(tuple(sorted((vs[j],vs[(j+1)%4])))
+                           for j in range(4)))
+            cycles.add(e)
+        if len(cycles)!=3:
+            raise AssertionError("not precisely three genuine four-coordinate cycles")
+        for cyc in cycles:
+            other_points=tuple(invf[pair] for pair in cyc)
+            if len(set(other_points))!=4 or p in other_points:
+                raise AssertionError("source point factor duplicated outside doubled f")
+            for doubled in combinations(by_p[p],2):
+                for isolated in product(*(by_p[q] for q in other_points)):
+                    ids=tuple(sorted(doubled+isolated))
+                    if len(set(ids))!=6:
+                        raise AssertionError("left B source candidate repeats original ID")
+                    n+=1
+                    topo=bbo_structure(ids,c,geo)
+                    if topo is None:
+                        continue
+                    if ids in accepted:
+                        raise AssertionError("original left-B sixset enumerated twice")
+                    accepted.add(ids)
+                    paths=inverse_bbo(ids,c,geo,range(len(flags)))
+                    if paths:
+                        if len(paths)!=2 or paths[0]!=paths[1][::-1]:
+                            raise AssertionError("original BBo image not reverse pair")
+                        in_image.add(ids)
+                    else:
+                        no_image.append(ids)
+    if n!=10935:
+        raise AssertionError("failed exhaustive W32 LEFT B true source census")
+    if len(in_image)>len(accepted):
+        raise AssertionError("source image exceeded complete true original BBo")
+    return {
+        "s":2,"scheme":scheme,
+        "complete_original_LEFT_B_source_candidates":n,
+        "all_original_BBo_sixsets":len(accepted),
+        "original_BBo_sixsets_with_physical_3path":len(in_image),
+        "original_BBo_source_sixsets_without_aligned_physical_3path":
+            len(no_image),
+        "first_nonimage_six_original_IDs":
+            list(no_image[0]) if no_image else None,
+        "original_BBo_inverse_0_or_2_for_ALL_full_source_sixsets":True,
+    }
+
+
 def canonical_referee():
     root=Path(__file__).parent
     low=json.loads((root/"hyp105_original_lowtail_alln_energy_certificates.json").read_text())
