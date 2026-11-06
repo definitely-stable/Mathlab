@@ -1,0 +1,74 @@
+name: hyp105-aa4-original-joint-zcore-gate
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-joint-zcore-gate.yml'
+      - 'research/hyp105_original_joint_zcore_gate.py'
+      - 'research/test_hyp105_original_joint_zcore_gate.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-JOINT-ZCORE-GATE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actual-original-heavy-core-and-dyadic-proof:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Eight independent genuine original source and exact rational dyadic tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_joint_zcore_gate.py' -v
+      - name: Fail closed complete four original maps, heavy/core truncation, three anchor roles, rational all-h ledger
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_joint_zcore_gate.py | tee proof/original-joint-zcore.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          z=Path('proof/original-joint-zcore.json.log').read_text().splitlines()
+          prefix='AA4_TRUE_ORIGINAL_JOINTZCORE_CERTIFICATE='
+          assert len(z)==1 and z[0].startswith(prefix), 'missing complete original source certificate'
+          x=json.loads(z[0][len(prefix):])
+          assert x['schema']=='mathlab.hyp105.original-JOINTZCORE.v1'
+          assert x['formal_graph_constants_only'] is True
+          assert x['root_A_unconditionally_accepted'] is False
+          assert x['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          rows=x['genuine_original_source_pruning_cases']
+          assert len(rows)==8
+          assert {(r['s'],r['scheme']) for r in rows}=={
+              (2,'lex'),(2,'reverse-line'),(4,'lex'),(4,'reverse-line')}
+          for r in rows:
+              assert r['verified'] is True
+              assert r['full_edges']==2*r['source_original_count']
+              assert r['core_physical_edge_count']==2*r['original_core_flag_count']
+              assert r['original_core_budget_exact']==r['original_core_flag_count']
+          roles=x['exact_original_source_projection_anchor_exposures']
+          assert [(v['s'],v['original_flags']) for v in roles]==[(2,45),(4,425)]
+          assert all(v['three_roles_each_exact']==v['s']**2 for v in roles)
+          assert all(v['one_original_deleted_flag_endpoint_cap']==12*v['s']**2 for v in roles)
+          ledgers=x['conditional_exact_allh_ledgers']
+          assert len(ledgers)==3
+          for t in ledgers:
+              assert t['root_230_mathematical_acceptance'] is False
+              assert Fraction(t['lowtail_W3_coefficient'])==Fraction(27,16)
+              assert Fraction(t['lowtail_BBo_coefficient'])==Fraction(5,32)
+              assert Fraction(t['rho'])>Fraction(t['old_rho'])
+              assert t['s0_is_explicit_integer'] is True
+          print('AA4_GENUINE_ORIGINAL_JOINTZCORE_FINITE_AND_FORMAL_CERTIFICATE_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-joint-zcore-proof
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
