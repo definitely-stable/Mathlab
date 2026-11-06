@@ -1,0 +1,57 @@
+name: hyp105-aa4-original-lowtail-cap-closure
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-lowtail-cap-closure.yml'
+      - 'research/hyp105_original_lowtail_cap_closure.py'
+      - 'research/test_hyp105_original_lowtail_cap_closure.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-LOWTAIL-CAP-CLOSURE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-original-source-collinearity-and-selector-moments:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent genuine W32/W34 original point-line and lowtail caps
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_lowtail_cap_closure.py' -v
+      - name: Fail-closed complete original-source certificate and NO root acceptance
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_lowtail_cap_closure.py | tee proof/original-cap-closure.json.log
+          python - <<'PYCODE'
+          import json
+          from pathlib import Path
+          lines=Path('proof/original-cap-closure.json.log').read_text().splitlines()
+          prefix='AA4_ORIGINAL_CAP_CLOSURE_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing complete true-original certificate'
+          data=json.loads(lines[0][len(prefix):])
+          assert data['schema']=='mathlab.hyp105.original-cap-closure.v1'
+          assert data['allh_root_A_accepted'] is False
+          assert [(v['s'],v['scheme']) for v in data['cases']]==[
+              (2,'lex'),(2,'reverse-line'),(4,'lex'),(4,'reverse-line')]
+          for v in data['cases']:
+              assert v['exact_caps_pass'] is True
+              assert v['F1_point_cap']>=0 and v['F1_line_cap']>=0
+              assert v['source_induced_collinear_point_pairs']>=0
+              assert v['source_induced_collinear_line_pairs']>=0
+          print('AA4_ORIGINAL_CAP_CLOSURE_FINITE_SOURCE_GATES_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-cap-closure-source-evidence
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
