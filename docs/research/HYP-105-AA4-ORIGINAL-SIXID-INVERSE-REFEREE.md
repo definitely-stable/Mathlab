@@ -72,6 +72,34 @@ The original GQ projection is uniquely checked **before** inversion. All SIX nam
 
 The four original #731 low-tail test cases are W32 lex/reverse-line and W34 lex/reverse-line. Their preexisting ORIGINAL positive BBo sixsets counts are 1,0,1534,463; **all** positive six-ID sets are independently reinverted from their original source IDs, not estimated from expected density. Heavy true-original D6 source witnesses for both W34 maps remain nonzero.
 
+## 4a. NEW complete TRUE ORIGINAL W32 proof-method counterexamples: full BBo is not its 3path image
+
+The entirely independent source-first exhaustive enumerator covers all **10,935** left-B six-ORIGINAL-incidence-ID subsets of the complete original W(3,2) with fixed minimal K6 pair-label injection. It derives this number without the historical classifier: choose one of 15 original repeated point factors p, one of three distinct genuine four-coordinate factor C4s on the four physical symbols outside f(p), one of three pairs of ORIGINAL incidence flags at p, and one of three incident ORIGINAL line flags for each of the four remaining source point factors. The 15×3×3×3^4 candidate choices are distinct source sixsets, not physical path rotations or duplicated coordinate relabelings.
+
+For each candidate, the new independent source incidence topology + dual factor C4 checks determine B/B-overlap. The source-only inverse then reconstructs **zero or exactly two** directed actual physical paths on the full original source (C=I, Z empty). A SEPARATE test crosschecks the COMPLETE candidate family against the historical GF(5) seven-family classifier and a third, physical graph-first complete original source 3path oracle.
+
+| Genuine W(3,2) full original global map | Exhaustive left-B source sixset candidates | Historical original GF5-positive B/B-overlap sixsets | ORIGINAL BBo sixsets that have the aligned physical 3path inverse | Genuine BBo sixsets with NO physical 3path |
+|---|---:|---:|---:|---:|
+| lex | 10,935 | **8** | **2** | **6** |
+| reverse-line | 10,935 | **7** | **0** | **7** |
+
+Two exact named ORIGINAL nonimage witnesses, preserved in the permanent source certificate:
+
+- W(3,2) lex: incidence IDs **[11,13,22,25,27,29]** — historically positive B/B-overlap, but source-first inverse returns **0** physical proper threepaths even with C=ALL original 45 IDs and Z empty.
+- W(3,2) reverse-line: original incidence IDs **[15,16,18,22,32,33]** — also historically positive B/B-overlap with **0** aligned physical threepaths on full original source.
+
+**Scientific significance.** This is an actual genuine-original-source counterexample to the falsely stronger claim that EVERY historical B/B-overlap source sixset has a physical 3path image. It is **not** a counterexample to the universal HYP-105 Branch A conjecture or to the valid one-sided LOWCERT inequality, because that argument lower-bounds the entire positive original BBo population by a separately produced subset. The exact source-first inverse and its 0/2 dichotomy are therefore not a cosmetic refinement: they make the allowed proof direction falsifiable and establish a real non-surjectivity obstruction for any attempted reversal or equality of the two classes.
+
+### Proven positive heavy D6 inverse source witnesses
+
+The separate genuine W(3,4) original SOURCE-first D6 seeds are
+
+- lex [111,116,203,224,383,412],
+- lex [129,146,224,366,412,417],
+- reverse-line [47,224,229,273,300,355].
+
+They are independently extended to a genuine source conflict-free/bichromatic-cut graph, with respectively 77, 74 and 69 ORIGINAL selected flags, 154, 148 and 138 actual two-diagonal physical edges, and 2, 1 and 1 physical proper sixcycles. Every one is uniquely inverted back into its source six-ID set, with no rotation/reversal overcount. This is separate from the historical #730 heavy selector implementation.
+
 ## 5. Scientific boundary and remaining work
 
 The all-order combinatorial inverse lemmas (INV-D6), (INV-BB) are unconditional given the exact source model and stated core/deletion hypotheses. This slice supplies a separate independent mathematical check of the historically load-bearing original source-to-physical multiplicity and topological transfer, rather than another optimization of remote graph supersaturation constants.
