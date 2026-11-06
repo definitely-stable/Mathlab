@@ -50,6 +50,16 @@ jobs:
               assert x['independently_inverted_directed3']==2*x['original_BBo_sixsets']
               assert x['proper_physical_directed3']>=x['independently_inverted_directed3']
           assert all(x['anchors_outside_CORE_directed']>=0 for x in low)
+          exhaustive=v['exhaustive_W32_original_BBo_source_vs_image']
+          assert [(z['s'],z['scheme']) for z in exhaustive]==[
+              (2,'lex'),(2,'reverse-line')]
+          for z in exhaustive:
+              assert z['complete_original_LEFT_B_source_candidates']==10935
+              assert z['original_BBo_inverse_0_or_2_for_ALL_full_source_sixsets'] is True
+              assert (z['all_original_BBo_sixsets']==
+                      z['original_BBo_sixsets_with_physical_3path']+
+                      z['original_BBo_source_sixsets_without_aligned_physical_3path'])
+              assert z['original_BBo_sixsets_with_physical_3path']>0
           heavy=v['genuine_original_heavy']
           assert len(heavy)>=3
           assert all(x['s']==4 and x['physical_D6_C6']>=1 for x in heavy)
