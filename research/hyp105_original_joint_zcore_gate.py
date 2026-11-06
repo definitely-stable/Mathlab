@@ -288,6 +288,20 @@ def canonical_joint_original_certificates():
             for T,K in ((Fraction(1,2),2),(Fraction(20),64)):
                 rows.append(prune_genuine_original_source(p,scheme,T,K,Z))
     anchors=[projection_anchor_exposure(1),projection_anchor_exposure(2)]
+    mixed=[]
+    for scheme in ("lex","reverse-line"):
+        for threshold in (Fraction(4),Fraction(17,4),Fraction(9,2),
+                          Fraction(19,4),Fraction(5),Fraction(21,4),
+                          Fraction(11,2)):
+            v=prune_genuine_original_source(2,scheme,threshold,64,range(1,425,31))
+            if (0<v["full_heavy_physical_edges"]<v["full_edges"] and
+                    0<v["original_core_flag_count"]<411):
+                v["diagnostic_T"]=str(threshold)
+                v["both_full_heavy_and_paired_core_nonempty"]=True
+                mixed.append(v)
+                break
+    if not mixed:
+        raise AssertionError("no genuine original mixed heavy/low source witness")
     return {
         "schema":"mathlab.hyp105.original-JOINTZCORE.v1",
         "formal_graph_constants_only":True,
@@ -296,6 +310,7 @@ def canonical_joint_original_certificates():
         "conditional_exact_allh_ledgers":formal,
         "genuine_original_source_pruning_cases":rows,
         "exact_original_source_projection_anchor_exposures":anchors,
+        "genuine_original_nonvacuous_mixed_tail_core_witnesses":mixed,
     }
 
 
