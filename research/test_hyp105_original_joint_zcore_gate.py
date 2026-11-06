@@ -108,6 +108,9 @@ class TestActualOriginalJointGate(unittest.TestCase):
         self.assertEqual(len(z["genuine_original_source_pruning_cases"]),8)
         self.assertEqual(len(z["conditional_exact_allh_ledgers"]),3)
         self.assertEqual(len(z["exact_original_source_projection_anchor_exposures"]),2)
+        self.assertGreaterEqual(len(z["genuine_original_nonvacuous_mixed_tail_core_witnesses"]),1)
+        self.assertTrue(all(v["both_full_heavy_and_paired_core_nonempty"]
+                            for v in z["genuine_original_nonvacuous_mixed_tail_core_witnesses"]))
         self.assertTrue(all(row["verified"]
                             for row in z["genuine_original_source_pruning_cases"]))
 
