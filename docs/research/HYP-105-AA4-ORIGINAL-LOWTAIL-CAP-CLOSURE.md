@@ -143,12 +143,50 @@ The true source projection mask has \(E_*\le O(s^5)+12s^2|Z|\). Consequently its
 
 For every correlated f,g these caps are valid *when their explicit hypotheses hold*. They do **not** by themselves establish existence of \(|C|\ge c s^4\), \(\Delta\le Ts\), \(K\le K_0\), a suitable \(D_Z\) hypothesis, or the heavy-tail dichotomy. Those remain separate original-GQ geometric proof and scientific acceptance gates in #659/#672/#674/#730. No general weighted ASET claim, full R3 bound or root #230 acceptance follows here.
 
+## 5a. NEW exact improved quantitative original-deletion-mask absorption
+
+The preceding uniform selector and the new tighter sixth-moment coefficient permit an **explicit, stronger conditional deletion budget** than the original conservative #674 mask ledger. Assume, in addition to genuine original W(3,s) and fixed correlated f/g, that for the actual original deletion-free paired core (itself a subset of I\Z), the verified caps are
+
+\[
+m\le4s^4,\qquad \Delta\le Ts,\qquad K\le K_0,\qquad
+D_Z\le s^6,\qquad s\ge64.
+\]
+
+Here T is a real positive physical degree constant; an integer ceiling can be used in the executable exact rational ledger. Define
+
+\[
+q_3=64\binom{3(K_0+1)}3,\qquad
+L_6^{new}=24+288T^2.
+\]
+
+Equations (C9)–(C10) give the **actual ORIGINAL-source proper path moment**
+\(\|P_3\|_F^2\le q_3^2 L_6^{new}s^6\).
+The projection deletion part of the source endpoint union has at most \(12s^2|Z|\) ordered physical endpoints; the true FULL original GQ, not the pruned core, determines those projected anchors. Cauchy therefore bounds its contribution by
+
+\[
+M_{\rm Zmask}\le \sqrt{12s^2|Z|\,q_3^2L_6^{new}s^6}
+=q_3\sqrt{12L_6^{new}}\;s^4\sqrt{|Z|}.
+\]
+
+**Conditional quantitative lemma (CAP-RHO):** if
+
+\[
+\boxed{|Z|\le\rho_{\rm new}s^4,\qquad
+\rho_{\rm new}=\frac1{768\,q_3^2(24+288T^2)},}
+\tag{C13}
+\]
+
+then \(M_{\rm Zmask}\le s^6/8\) for every dyadic \(s\ge64\) and **every** correlated fixed legal f/g satisfying the displayed core and D6 caps. This is a *bounded sextic* error, not little-o. It must still be combined with the distinct original non-Z endpoint O(s^(11/2)) term, the other errors, and a positive dense-core leading term to infer a positive lower bound.
+
+For identical formal K,T input the old conservative #674/#672 error ledger used \(q_{3,old}=64\cdot27(K+1)^3\), \(L_{6,old}=24+576T^2\), and \(\rho_{old}=1/(768q_{3,old}^2L_{6,old})\). Our \(\rho_{\rm new}>\rho_{\rm old}\) **strictly for every K>=0,T>=1**. For FORMAL \(K=64,T=2^{65}\), the exact rational ratio \(\rho_{\rm new}/\rho_{\rm old}\) lies between 74 and 75. This is an algebraic sensitivity comparison; the published C6 graph supersaturation theorem supplies **existential** graph constants, NOT numeric \(C_{\rm graph}=1\). No root or full deletion-resilience theorem is promoted by this improved conditional budget.
+
+
 ## 6. Independent falsification and reproducibility
 
 The new research module reconstructs the **real ORIGINAL** W(3,2) and W(3,4) incidence graphs, both original point and line-dual collinearity graphs, checks every SRG common-neighbor parameter, independently computes both sides of (C2) as integers, and checks (C4), (C5)-(C7), (C10)-(C12). It computes K from actual original retained flag IDs and their original source-pencil conflicts.
 
 It crosschecks the original W32/W34 lex and reverse-line schemes against the existing **separately implemented** #731 full original six-ID source-path/GF(5) certificate (including adversarial Z and core C). It uses the genuine original 15-duad/15-syntheme W(3,2) construction as an additional manual algebra falsifier. Malformed original incidence, noninjective labels, bad caps, and the mistaken fixed-density little-o claim have negative tests.
 
-The dedicated hosted fail-closed workflow verifies seven unit tests and a machine-readable four-case certificate under explicit shell pipefail; published green CI is evidence of correct reproducibility of these finite statements only, **never** proof of universal all-h acceptance. Root #230 remains OPEN_WITH_FORMAL_BLOCKER, with no merge.
+The dedicated hosted fail-closed workflow verifies eight unit tests and a machine-readable four-case certificate under explicit shell pipefail; published green CI is evidence of correct reproducibility of these finite statements only, **never** proof of universal all-h acceptance. Root #230 remains OPEN_WITH_FORMAL_BLOCKER, with no merge.
 
 **Next critical step:** independently verify the dense source core existence and the quantitatively absorbed deletion-mask term on every legal fixed f,g, then do an independent mathematical review of the complete parent stack and exact-HEAD Research CI.
