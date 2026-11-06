@@ -70,6 +70,27 @@ class TestActualOriginalJointGate(unittest.TestCase):
                     self.assertGreater(z["original_Qx"],0)
                     self.assertGreater(z["original_Qy"],0)
 
+    def test_true_W34_mixed_heavy_and_nonempty_lowcore(self):
+        # Nonvacuous REAL original heavy flags coexist with a REAL retained
+        # original paired low core. No theorem-sized T is asserted for s=4.
+        observed=[]
+        for threshold in (Fraction(4),Fraction(17,4),Fraction(9,2),
+                          Fraction(19,4),Fraction(5),Fraction(21,4),
+                          Fraction(11,2)):
+            x=prune_genuine_original_source(
+                2,"lex",threshold,64,range(1,425,31))
+            if (0<x["full_heavy_physical_edges"]<x["full_edges"]
+                    and 0<x["original_core_flag_count"]<411):
+                observed.append(x)
+        self.assertTrue(observed,"missing real original mixed fullQ/lowcore witness")
+        for x in observed:
+            self.assertLessEqual(x["original_heavy_owner_deletion_loss"],
+                                 2*x["original_source_deleted_ids"])
+            self.assertEqual(x["original_core_budget_exact"],
+                             x["original_core_flag_count"])
+            self.assertEqual(x["core_physical_edge_count"],
+                             2*x["original_core_flag_count"])
+
     def test_exact_original_gq_three_anchor_role_multiplicity(self):
         for h in (1,2):
             z=projection_anchor_exposure(h)
