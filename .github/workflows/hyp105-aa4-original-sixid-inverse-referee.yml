@@ -1,0 +1,80 @@
+name: hyp105-aa4-original-sixid-inverse-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-sixid-inverse-referee.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-SIXID-INVERSE-REFEREE.md'
+      - 'research/hyp105_original_sixid_inverse_referee.py'
+      - 'research/test_hyp105_original_sixid_inverse_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-sixid-original-inverse:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent actual original six-ID D6/BBo inverses and adversarial original correlation tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_sixid_inverse_referee.py' -v
+      - name: Fail-closed actual original source GQ two-way inversion and strict six-ID proof
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_sixid_inverse_referee.py |
+            tee proof/aa4-original-sixid-inverse-source.json.log
+          python - <<'PYCODE'
+          import json
+          from pathlib import Path
+          p=Path('proof/aa4-original-sixid-inverse-source.json.log')
+          lines=p.read_text(encoding='utf8').splitlines()
+          marker='AA4_TRUE_ORIGINAL_SIXID_INVERSE_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(marker), 'missing one true-original certificate'
+          v=json.loads(lines[0][len(marker):])
+          assert v['schema']=='mathlab.hyp105.original-sixID-inverse-referee.v1'
+          assert v['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert v['root_Branch_A_unconditionally_accepted'] is False
+          assert v['BBo_inverse_is_not_all_class_surjectivity'] is True
+          low=v['genuine_original_lowtail']
+          assert [(x['s'],x['scheme'],x['original_BBo_sixsets']) for x in low]==[
+              (2,'lex',1),(2,'reverse-line',0),(4,'lex',1534),(4,'reverse-line',463)]
+          for x in low:
+              assert x['independently_inverted_directed3']==2*x['original_BBo_sixsets']
+              assert x['proper_physical_directed3']>=x['independently_inverted_directed3']
+          assert all(x['anchors_outside_CORE_directed']>=0 for x in low)
+          exhaustive=v['exhaustive_W32_original_BBo_source_vs_image']
+          assert [(z['s'],z['scheme']) for z in exhaustive]==[
+              (2,'lex'),(2,'reverse-line')]
+          for z in exhaustive:
+              assert z['complete_original_LEFT_B_source_candidates']==10935
+              assert z['original_BBo_inverse_0_or_2_for_ALL_full_source_sixsets'] is True
+              assert (z['all_original_BBo_sixsets']==
+                      z['original_BBo_sixsets_with_physical_3path']+
+                      z['original_BBo_source_sixsets_without_aligned_physical_3path'])
+          assert [(z['all_original_BBo_sixsets'],
+                   z['original_BBo_sixsets_with_physical_3path'],
+                   z['original_BBo_source_sixsets_without_aligned_physical_3path'])
+                  for z in exhaustive]==[(8,2,6),(7,0,7)]
+          assert all(z['first_nonimage_six_original_IDs'] is not None
+                     for z in exhaustive)
+          heavy=v['genuine_original_heavy']
+          assert len(heavy)>=3
+          assert all(x['s']==4 and x['physical_D6_C6']>=1 for x in heavy)
+          assert all(x['physical_edges']==2*x['selected_original_source'] for x in heavy)
+          print('AA4_TRUE_ORIGINAL_SIXID_TWO_WAY_INVERSE_ACCEPTED_FINITE')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-genuine-original-sixID-inverse
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
