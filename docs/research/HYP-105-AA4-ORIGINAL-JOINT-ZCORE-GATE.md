@@ -142,6 +142,17 @@ Two separate falsifiers are implemented.
 
 **Actual original GQ source:** independent W(3,2)/W(3,4) real geometry and lex/reverse-line complete injected maps, both actual original physical diagonals, unique owner table, original full-Q frozen BEFORE Z, heavy physical edge loss, full original source conflict graph, high-conflict original flags, paired surviving source core, true physical degree cap and both original return books. Eight actual finite core examples include low diagnostic T, nonempty adversarial Z, high-source-conflict deletion and a no-heavy control. Independently exact all-flag 3-role projection exposure counts are reproduced for both actual geometries. These tiny fixtures are NOT claimed to meet asymptotic T or the unspecified graph C6 threshold.
 
+### Nonvacuous real original W34 mixed full-Q/core witnesses
+
+The independent REAL W(3,4) physical source reproducer found the following frozen concrete instances with BOTH a nonempty genuine full-source heavy-Q and nonempty surviving paired original low core, using diagnostic T=4 and K=64 (not asymptotic T):
+
+| Genuine W(3,4) complete original maps | Full heavy physical edges | Adversarial deleted ORIGINAL flags Z | Lost heavy physical edges through Z | Surviving core ORIGINAL flags | Core max physical degree | Core max FULL original source conflict |
+|---|---:|---:|---:|---:|---:|---:|
+| lex | 107 | 14 | 5 | 328 | 15 | 7 |
+| reverse-line | 50 | 14 | 3 | 364 | 16 | 8 |
+
+The two-edge-per-original-ID rule, source original ownership, exact full-Q-before-Z, and paired surviving physical-core degree and conflict caps are verified for these particular true source cases. In both cases \(\Delta(H_C)\le Ts=16\). Original heavy loss 5 and 3 is below \(2|Z|=28\). These genuine finite examples demonstrate that neither the source-trimming code nor its tests rely solely on degenerate all-heavy/zero-core or no-heavy/full-core cases. They do NOT meet the gigantic, unknown-constant all-h theorem threshold, and do not themselves prove a sextic lower bound.
+
 GitHub-hosted Ubuntu 24.04 Python 3.12 specialist workflow executes nine tests and the uniquely parsed full original machine-readable JSON under fail-closed pipefail; INDEX and complete Research must be checked on the **same final head**. No synthetic host or random global label reassignment substitutes for an original finite source result.
 
 **Next allowed scientific step:** independently red-team the all-order six-source-ID reconstruction in #731 and the heavy physical C6-to-original D6 injection in #730 under arbitrary Z; verify multiplicity, source projection anchors outside core and GF(5) acceptance. Do not promote root #230 or merge until complete source mathematics is independently accepted.
