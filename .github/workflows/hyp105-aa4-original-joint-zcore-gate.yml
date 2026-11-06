@@ -51,6 +51,12 @@ jobs:
               assert r['full_edges']==2*r['source_original_count']
               assert r['core_physical_edge_count']==2*r['original_core_flag_count']
               assert r['original_core_budget_exact']==r['original_core_flag_count']
+          mixed=x['genuine_original_nonvacuous_mixed_tail_core_witnesses']
+          assert mixed and all(z['both_full_heavy_and_paired_core_nonempty'] for z in mixed)
+          for z in mixed:
+              assert 0<z['full_heavy_physical_edges']<z['full_edges']
+              assert 0<z['original_core_flag_count']<411
+              assert z['core_physical_edge_count']==2*z['original_core_flag_count']
           roles=x['exact_original_source_projection_anchor_exposures']
           assert [(v['s'],v['original_flags']) for v in roles]==[(2,45),(4,425)]
           assert all(v['three_roles_each_exact']==v['s']**2 for v in roles)
