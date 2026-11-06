@@ -59,7 +59,12 @@ jobs:
               assert (z['all_original_BBo_sixsets']==
                       z['original_BBo_sixsets_with_physical_3path']+
                       z['original_BBo_source_sixsets_without_aligned_physical_3path'])
-              assert z['original_BBo_sixsets_with_physical_3path']>0
+          assert [(z['all_original_BBo_sixsets'],
+                   z['original_BBo_sixsets_with_physical_3path'],
+                   z['original_BBo_source_sixsets_without_aligned_physical_3path'])
+                  for z in exhaustive]==[(8,2,6),(7,0,7)]
+          assert all(z['first_nonimage_six_original_IDs'] is not None
+                     for z in exhaustive)
           heavy=v['genuine_original_heavy']
           assert len(heavy)>=3
           assert all(x['s']==4 and x['physical_D6_C6']>=1 for x in heavy)
