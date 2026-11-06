@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Eight independent genuine original source and exact rational dyadic tests
+      - name: Nine independent genuine original source and exact rational dyadic tests
         run: |
           python -m unittest discover -s research -p 'test_hyp105_original_joint_zcore_gate.py' -v
       - name: Fail closed complete four original maps, heavy/core truncation, three anchor roles, rational all-h ledger
