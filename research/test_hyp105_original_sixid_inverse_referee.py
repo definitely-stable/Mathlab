@@ -139,6 +139,12 @@ class TestActualOriginalSixIdInverse(unittest.TestCase):
             with self.subTest(scheme=scheme):
                 z=exhaustive_original_W32_BBo_left_B_scan(scheme)
                 self.assertEqual(z["complete_original_LEFT_B_source_candidates"],10935)
+                self.assertEqual(
+                    (z["all_original_BBo_sixsets"],
+                     z["original_BBo_sixsets_with_physical_3path"],
+                     z["original_BBo_source_sixsets_without_aligned_physical_3path"]),
+                    {"lex":(8,2,6),"reverse-line":(7,0,7)}[scheme])
+                self.assertIsNotNone(z["first_nonimage_six_original_IDs"])
                 self.assertTrue(z["original_BBo_inverse_0_or_2_for_ALL_full_source_sixsets"])
                 self.assertEqual(
                     z["all_original_BBo_sixsets"],
