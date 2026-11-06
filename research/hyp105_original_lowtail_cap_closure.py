@@ -120,6 +120,33 @@ def cap_closure(s,V,a,total_flags,core_count,allowed_count,
             "allh_root_A_accepted":False}
 
 
+
+def uniform_projection_mask_radius(K,T):
+    """Exact improved deletion-mask absorption budget, CONDITIONAL on caps.
+
+    For m<=4*s^4, Delta<=T*s, D6_original_avoid<=s^6,
+    ||P3||_F^2<=q3^2*(24+288*T^2)*s^6.  If |Z|<=rho*s^4
+    then the deleted-original-anchor mask contributes <=s^6/8
+    at rho=1/(768*q3^2*(24+288*T^2)).
+    This does NOT prove existence of such a core or root Branch A.
+    """
+    if type(K) is not int or K<0 or type(T) is not int or T<1:
+        raise ValueError("formal integer conflict/physical caps required")
+    k=K+1
+    q3=64*comb(3*k,3)
+    old_q3=64*27*k**3
+    L6=24+288*T*T
+    old_L6=24+576*T*T
+    rho=Fraction(1,768*q3*q3*L6)
+    old_rho=Fraction(1,768*old_q3*old_q3*old_L6)
+    if rho<=old_rho:
+        raise AssertionError("new original mask budget failed to improve")
+    return {"selector3_inverse":q3,"L6_tight":L6,
+            "rho_mask":str(rho),"prior_rho_mask":str(old_rho),
+            "improves_historical_mask_budget":True,
+            "root_A_claim":False}
+
+
 def replay_frozen_original_lowtail():
     """Independent four-case exact ORIGINAL W32/W34 source / LOWCERT oracle."""
     import json
