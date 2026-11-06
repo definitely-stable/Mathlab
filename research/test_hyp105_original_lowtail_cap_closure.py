@@ -49,7 +49,10 @@ class TestOriginalCollinearityCap(unittest.TestCase):
         s,V,flags=genuine_source(1)
         x=pair_labeled_symplectic(1,"lex")
         bad=list(flags)
-        bad[0]=(bad[0][0],bad[1][1])
+        point=bad[0][0]
+        occupied={ell for p,ell in flags if p==point}
+        missing=next(ell for ell in range(V) if ell not in occupied)
+        bad[0]=(point,missing)  # a genuinely nonincident new original pair
         with self.assertRaises(ValueError):
             source_energy(s,bad,x["left_labels"],6)
 
