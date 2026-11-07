@@ -452,7 +452,7 @@ def _fresh_heavy_case(h,scheme,T,deleted,shift_f=0,shift_g=0):
         "actual_winner_m_over_v":str(Fraction(m,vF)),
         "actual_winner_e3_over_v4":str(Fraction(m**3,vF**4)),
         "actual_no_clone_winner":{
-            "winner_m":m,"winner_v":v,"num_chunks":win["num_chunks"],
+            "winner_m":m,"winner_v":vF,"num_chunks":win["num_chunks"],
             "E_cross":win["E_cross"],
             "heavy_R":win["R"],"opp_Y":win["Y"],
             "actual_winner_vertices":len(win["actual_winner_vertices"]),
