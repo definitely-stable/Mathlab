@@ -229,7 +229,8 @@ def _original_finite_case(h,scheme,deleted,shift_f=0,shift_g=0,degree_T=4):
     from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
     if type(h) is not int or h not in (1,2):
         raise ValueError("finite true source only W(3,2) or W(3,4)")
-    s,V,flags=genuine_source(h)
+    s,V,rawflags=genuine_source(h)
+    flags=tuple(map(tuple,rawflags))
     model=pair_labeled_symplectic(h,scheme)
     f=tuple(tuple(sorted(x)) for x in model["left_labels"])
     g=tuple(tuple(sorted(x)) for x in model["right_labels"])
@@ -265,10 +266,28 @@ def _original_finite_case(h,scheme,deleted,shift_f=0,shift_g=0,degree_T=4):
     heavy_after={e for e in heavy_full if edgeowner[e] not in z}
     if len(heavy_full)-len(heavy_after)>2*len(z):
         raise AssertionError("real original source deletion lost >2 Q edges")
-    # Compute the original paired core without reassigning original IDs.
+    # Independently compute the original FULL J conflict degrees before Z.
+    # Point-pencil: distinct original flags on same genuine point p
+    # conflict iff their real line-pair labels overlap. Dual for lines.
+    groups_p=defaultdict(list);groups_l=defaultdict(list)
+    for i,(p,l) in enumerate(flags):
+        groups_p[p].append(i);groups_l[l].append(i)
+    original_conflict={i:set() for i in range(len(flags))}
+    for groups,which in ((groups_p,0),(groups_l,1)):
+        for grp in groups.values():
+            for i,j in combinations(grp,2):
+                p1,l1=flags[i];p2,l2=flags[j]
+                A=g[l1] if which==0 else f[p1]
+                B=g[l2] if which==0 else f[p2]
+                if set(A)&set(B):
+                    original_conflict[i].add(j)
+                    original_conflict[j].add(i)
+    high_conflict={i for i,nbs in original_conflict.items() if len(nbs)>K}
+    owners_Q={edgeowner[e] for e in heavy_full}
+    # True ORIGINAL paired source LOW C excludes actual high-Q owners,
+    # FULL source J-degree >K and arbitrary named original Z.
     C=tuple(i for i in range(len(flags))
-            if i not in z and all(e[0] not in Q and e[1] not in Q
-               for e in edgeowner if edgeowner[e]==i))
+            if i not in z and i not in high_conflict and i not in owners_Q)
     core=defaultdict(set);core_edgeowner={}
     # Include ALL physical coordinate vertices, including genuine isolates,
     # when invoking the uncut Blakley--Roy all-graph inequality.
@@ -294,6 +313,7 @@ def _original_finite_case(h,scheme,deleted,shift_f=0,shift_g=0,degree_T=4):
         "original_full_Q_before_Z_vertices":len(Q),
         "original_full_Q_touching_edges":len(heavy_full),
         "original_full_Q_surviving_edges":len(heavy_after),
+        "original_FULL_J_high_conflict_deleted_ID_count":len(high_conflict),
         "original_paired_core_flag_count":len(C),
         "original_paired_core_physical_edge_count":m,
         "physical_vertices_including_isolates":n*n,
@@ -306,8 +326,7 @@ def _original_finite_case(h,scheme,deleted,shift_f=0,shift_g=0,degree_T=4):
 
 
 def canonical_report():
-    cases=tuple((Fraction(1),Fraction(1)),
-                ) if False else (
+    cases=(
         (Fraction(1),Fraction(1)),
         (Fraction(2),Fraction(1,5)),
         (Fraction(7,3),Fraction(1,17)))
