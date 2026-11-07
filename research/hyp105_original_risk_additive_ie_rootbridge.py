@@ -176,8 +176,26 @@ def all_abstract_sixset_GF5_certificate():
         })
     LL,RR=_d6_typed_dual_template()
     d6=all_ten_signs_by_IE(LL,RR)
+    compatible=[]
+    for j,k,L,R in _bbo_typed_dual_templates():
+        centerL=_single_owner_path_center(L,(3,4,5))
+        centerR=_single_owner_path_center(R,(3,4,5))
+        value=templates[3*j+k]["sum_ten"]
+        compatible.append({"left_C4":j,"right_C4":k,
+                           "same_three_original_path_owner_CENTER":centerL==centerR,
+                           "left_center":centerL,"right_center":centerR,
+                           "ten_sign_sum":value})
+    yes=[z for z in compatible if z["same_three_original_path_owner_CENTER"]]
+    no=[z for z in compatible if not z["same_three_original_path_owner_CENTER"]]
+    if not (len(yes)==3 and len(no)==6
+            and all(z["ten_sign_sum"]==53838 for z in yes)
+            and all(z["ten_sign_sum"]==53526 for z in no)):
+        raise AssertionError("physical-produced BBo synchronized three-source-owner C4 center theorem false")
     results={
         "nine_complete_original_BBo_templates":templates,
+        "nine_BBo_TEMPLATE_C4_center_compatibility":compatible,
+        "three_physical_path_COMPATIBLE_BBo_minimum_ten_sign_weight":53838,
+        "six_NONIMAGE_C4_center_mismatched_templates_weight":53526,
         "D6_ten_exact_weights":d6["ten_exact_signed_51palette_weights"],
         "D6_ten_sum":d6["ten_sign_sum"],
         "D6_connected":d6["dual_graph_connected"],
@@ -234,6 +252,29 @@ def _typed_dual_factor(labels,source_vertices):
     return tuple(tuple(sorted(incidence[z])) for z in sorted(incidence))
 
 
+def _single_owner_path_center(edges,owners):
+    """Center of physical 3path among 3 ORIGINAL singly used owner columns.
+
+    A 4-cycle on the three original physical-core owner columns plus one
+    closing source anchor has EXACTLY two direct dual edges among those
+    three owner columns. Their unique common vertex is the center.
+    This is an actual column-index topology invariant, independent
+    of physical coordinate labels or sign coefficients.
+    """
+    owners=tuple(owners)
+    if len(owners)!=3 or len(set(owners))!=3:
+        raise ValueError("three distinct ORIGINAL singly used source owners")
+    subset=set(owners)
+    inside=[(u,v) for u,v in edges if u in subset and v in subset]
+    if len(inside)!=2:
+        raise ValueError("not a genuine four-cycle with three singleton path owners")
+    counts=Counter(u for edge in inside for u in edge)
+    mids=[u for u in owners if counts[u]==2]
+    if len(mids)!=1:
+        raise AssertionError("C4 3-owner path lacks a unique middle")
+    return mids[0]
+
+
 def _one_source_sixset(c,ids):
     """Original incidence IDs, NEVER synthetic physical vertices as owners."""
     ids=tuple(sorted(ids))
@@ -257,6 +298,13 @@ def _one_source_sixset(c,ids):
         ell=next(k for k,v in cl.items() if v==2)
         if sum(c["flags"][i]==(p,ell) for i in ids)!=1:
             raise ValueError("original BBo repeated point/line do not overlap on exactly one flag")
+        core_owners=tuple(j for j,(a,b) in enumerate(zip(points,lines))
+                          if cp[a]==1 and cl[b]==1)
+        if len(core_owners)!=3:
+            raise AssertionError("BBo singleton original source owner index count not three")
+        produced_path_compatible=(
+            _single_owner_path_center(L,core_owners)==
+            _single_owner_path_center(R,core_owners))
         kind="BBo"
     else:
         raise ValueError("not a genuine ORIGINAL D6/BBo sixset")
@@ -266,10 +314,15 @@ def _one_source_sixset(c,ids):
     if ((kind=="D6" and flows["ten_sign_sum"]!=54162) or
             (kind=="BBo" and flows["ten_sign_sum"]<53526)):
         raise AssertionError("real original source GF5 class minimum not attained")
+    if kind=="BBo":
+        predicted=53838 if produced_path_compatible else 53526
+        if flows["ten_sign_sum"]!=predicted:
+            raise AssertionError("actual ORIGINAL BBo C4 synchronized center GF5 dichotomy invalid")
     return {
         "original_source_six_incidence_IDs":ids,
         "type":kind,
         "ten_sign_sum":flows["ten_sign_sum"],
+        "physical_path_compatible_BBo_C4_center":produced_path_compatible if kind=="BBo" else None,
         "ten_sign_weights":flows["ten_exact_signed_51palette_weights"],
         "ten_sign_masks":SIGN_MASKS,
         "physical_dual_graph_connected":flows["dual_graph_connected"],
@@ -302,6 +355,7 @@ def genuine_original_risk_fixtures():
             "s":model["s"],"scheme":scheme,"shift_f":shf,"shift_g":shg,
             "type":a["type"],"original_source_six_incidence_IDs":ids,
             "ten_sign_sum":a["ten_sign_sum"],
+            "physical_path_compatible_BBo_C4_center":a["physical_path_compatible_BBo_C4_center"],
             "ten_sign_weights":a["ten_sign_weights"],
             "actual_event_probability":a["full_51palette_probability"],
             "dual_connected":a["physical_dual_graph_connected"],
@@ -352,6 +406,7 @@ def root_symbolic_bridge(C0,c0):
     s0=max(64,444*T,(8*E)**2,(8*D)**8)
     h0=(s0-1).bit_length()
     low=Fraction(23,48)
+    low_produced_weight=53838
     floor=54162*delta/PAL**6
     checks={
         "true_original_HEAVY_source_graph_C6_threshold":
@@ -367,6 +422,8 @@ def root_symbolic_bridge(C0,c0):
         "original_source_sixset_classes_are_DISJOINT_by_point_line_profile":True,
         "LOW_branch_53526times_BBo_dominates_HEAVY_54162times_delta":
             53526*low>=54162*delta,
+        "NEW_physical_produced_BBo_53838_ten_sign_sum_dominates_root":
+            low_produced_weight*low>=54162*delta,
         "all_order_dyadic_s0_threshold_exact":
             1<<h0>=s0>1<<(h0-1),
         "full_R3_is_exact_SUM_not_probability_of_union":True,
@@ -382,6 +439,7 @@ def root_symbolic_bridge(C0,c0):
         "s0":s0,"h0":h0,
         "heavy_D6_class_full_ten_event_floor":54162,
         "LOW_BBo_class_full_ten_event_floor":53526,
+        "NEW_LOW_physical_PRODUCED_BBo_exact_ten_event_weight":53838,
         "LOW_BBo_sixset_sextic_floor":str(low),
         "universal_original_source_conditional_R3_rational_floor":str(floor),
         "full_51palette_six_column_denominator":PAL**6,
@@ -405,6 +463,7 @@ def canonical_report():
         "each_source_sixID_AND_unordered_sign_mask_is_one_unique_event_index":True,
         "per_original_source_column_G5_nonzero_checksum4_palette_size":PAL,
         "all_order_sixset_to_full_R3_additive_embedding_proved":True,
+        "all_order_physical_produced_BBo_SAME_owner_C4_center_for_both_typed_factors":True,
         "all_order_conditional_HEAVY_LOWER_to_R3_composition_proved":True,
         "genuine_EXTERNAL_ordinary_C6_graph_theorem_constants_numerically_known":False,
         "full_sixset_GF5_independent_inclusion_exclusion":flow,
