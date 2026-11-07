@@ -373,6 +373,76 @@ def genuine_source_falsifier(h,scheme,deleted,shf=0,shg=0,threshold=4):
     }
 
 
+
+def genuine_original_d6_seed_cycle(scheme,source_ids):
+    """Third independently implemented source-first W34 D6 physical C6 oracle.
+
+    Six distinct ORIGINAL incidence IDs -> 12 true physical diagonals
+    -> ordinary DFS physical C6, canonical rotations/reversals -> ensure
+    exactly one proper C6 and source alignment, without old inverse.
+    """
+    from hyp105_full_physical_degree_tail import genuine_source
+    from hyp105_g5e2a_pair_embeddings import pair_labeled_symplectic
+    s,V,fl=genuine_source(2)
+    flags=tuple(map(tuple,fl))
+    m=pair_labeled_symplectic(2,scheme)
+    f=tuple(tuple(sorted(p)) for p in m["left_labels"])
+    g=tuple(tuple(sorted(p)) for p in m["right_labels"])
+    ids=tuple(source_ids)
+    if len(ids)!=len(set(ids)) or len(ids)!=6 or any(
+        type(i) is not int or not 0<=i<len(flags) for i in ids
+    ):
+        raise ValueError("seed must be exactly 6 distinct ORIGINAL W34 IDs")
+    left={flags[i][0] for i in ids}
+    right={flags[i][1] for i in ids}
+    if len(left)!=6 or len(right)!=6:
+        raise ValueError("not a genuine ORIGINAL distinct point/line D6 seed")
+    adj=defaultdict(set);owner={}
+    for i in ids:
+        p,l=flags[i];x,z=f[p];y,w=g[l]
+        for a,b in (((x,y),(z,w)),((x,w),(z,y))):
+            key=tuple(sorted((a,b)))
+            if key in owner:
+                raise AssertionError("ORIGINAL W34 sixset has multiply owned physical edge")
+            owner[key]=i
+            adj[a].add(b);adj[b].add(a)
+    cycles=set()
+    def canon(path):
+        q=tuple(path)
+        return min(t[k:]+t[:k] for t in (q,q[::-1]) for k in range(6))
+    for start in sorted(adj):
+        def dfs(walk):
+            if len(walk)==6:
+                if start in adj[walk[-1]]:
+                    cycles.add(canon(walk))
+                return
+            for nxt in adj[walk[-1]]:
+                if nxt not in walk:
+                    dfs(walk+[nxt])
+        dfs([start])
+    proper=[]
+    for c in sorted(cycles):
+        if len({v[0] for v in c})!=6 or len({v[1] for v in c})!=6:
+            continue
+        source_owners=tuple(owner[tuple(sorted((c[k],c[(k+1)%6])))]
+                            for k in range(6))
+        if set(source_owners)!=set(ids):
+            raise AssertionError("actual physical C6 lost six original owners")
+        proper.append((c,source_owners))
+    if len(proper)!=1:
+        raise AssertionError("actual D6 ORIGINAL sixset has not exactly one physical proper C6")
+    return {
+        "scheme":scheme,"s":s,
+        "genuine_original_source_six_IDs":ids,
+        "physical_original_seed_diagonals":len(owner),
+        "all_physical_simple_C6_seed":len(cycles),
+        "physical_coordinate_proper_C6_seed":len(proper),
+        "source_cycle_six_ORIGINAL_distinct_owner_IDs":True,
+        "same_original_source_owner_order_in_two_physical_factors":True,
+        "no_invented_physical_C6_clones":True,
+    }
+
+
 def canonical_report():
     formal=[
         original_all_order_theorem(Fraction(1),Fraction(1)),
@@ -386,6 +456,11 @@ def canonical_report():
         genuine_source_falsifier(2,"reverse-line",tuple(range(2,425,29)),11,23,3),
         genuine_source_falsifier(2,"lex",tuple(range(1,425,31)),7,19,3),
     ]
+    heavy_original=[
+        genuine_original_d6_seed_cycle("lex",(111,116,203,224,383,412)),
+        genuine_original_d6_seed_cycle("lex",(129,146,224,366,412,417)),
+        genuine_original_d6_seed_cycle("reverse-line",(47,224,229,273,300,355)),
+    ]
     return {
         "schema":SCHEMA,
         "root_230_status":ROOT_STATE,
@@ -398,6 +473,7 @@ def canonical_report():
         "root_ASET_exponent_proved":False,
         "full_original_source_formal_quantified_theorem_probes":formal,
         "actual_original_symplectic_source_falsifiers":actual,
+        "actual_original_W34_physical_C6_to_D6_heavy_seed_falsifiers":heavy_original,
     }
 
 
