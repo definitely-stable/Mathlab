@@ -1,0 +1,109 @@
+name: hyp105-aa4-original-global-rho-pareto-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-global-rho-pareto-referee.yml'
+      - 'research/hyp105_original_global_rho_pareto_referee.py'
+      - 'research/test_hyp105_original_global_rho_pareto_referee.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-GLOBAL-RHO-PARETO-REFEREE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-allh-original-source-risk-pareto:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run 12 original source quantifier, 22 DAG and exact rational Pareto tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_global_rho_pareto_referee.py' -v
+      - name: Fail closed exact true original source all-order rho Pareto and five genuine cases
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_global_rho_pareto_referee.py |
+            tee proof/aa4-original-global-rho-pareto.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          lines=Path('proof/aa4-original-global-rho-pareto.json.log').read_text(
+              encoding='utf8').splitlines()
+          prefix='AA4_ORIGINAL_GLOBAL_RHO_PARETO_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing unique original source all-h Pareto JSON'
+          x=json.loads(lines[0][len(prefix):])
+          assert x['schema']=='mathlab.hyp105.original-global-rho-pareto-source-referee.v1'
+          assert x['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert x['final_ROOT_Branch_A_independently_accepted'] is False
+          assert x['root_new_ASET_exponent_proved'] is False
+          assert x['published_ordinary_C6_graph_constants_numerically_known'] is False
+          assert x['all_order_original_named_Z_PARETO_parameterization_proved']
+          assert x['all_order_rho_STAR_strictly_improves_parent_rho_more_than_50percent']
+          assert x['same_preexisting_ALLH_dyadic_threshold_h0']
+          assert x['all_order_zero_original_Z_low_BBo_floor_119over48']
+          assert x['all_order_new_rho_keeps_same_HEAVY_R3_floor']
+          assert x['root_risk_R3_is_additive_3v3_event_probability_SUM']
+          dag=x['all_order_original_source_typed_dependency_DAG']
+          assert len(dag)==22
+          seen=set()
+          for row in dag:
+              assert row['gate'] not in seen
+              assert set(row['requires'])<=seen
+              assert row['exact_scope']
+              seen.add(row['gate'])
+          assert dag[-1]['gate']=='ROOT_HEAVY_LOW_R3_IMPLICATION'
+          assert sum(row['scientific_claim_status']=='PUBLISHED_EXISTENTIAL_INPUT'
+                     for row in dag)==1
+          assert 'EXTERNAL_ORDINARY_C6_SS6' in seen
+          formal=x['formal_graph_constant_Pareto_gates']
+          assert [(a['C0_FORMAL'],a['c0_FORMAL'],a['h0']) for a in formal]==[
+              ('1','1',810),('2','1/5',840),('7/3','1/17',847)]
+          for a in formal:
+              assert all(a['all_quantified_original_source_Pareto_gates'].values())
+              old=Fraction(a['rho_old_from_parent_740'])
+              new=Fraction(a['rho_new_max_same_R3_sufficient'])
+              delta=Fraction(a['delta'])
+              tstar=Fraction(a['t_star'])
+              assert new>3*old/2
+              assert Fraction(a['rho_new_over_parent'])==new/old
+              assert Fraction(a['rho_new_over_parent'])<Fraction(119**2,96**2)
+              assert new<Fraction(1,32)
+              assert tstar==Fraction(119,24)-Fraction(2*54162,53838)*delta
+              assert new==tstar**2/Fraction(
+                  12*(64*__import__('math').comb(195,3))**2*
+                  (24+153*int(a['T'])**2))
+              assert Fraction(a['BBo_ZERO_deletion_original_sixID_floor'])==Fraction(119,48)
+              assert Fraction(a['BBo_NEW_rho_original_sixID_floor'])==Fraction(54162,53838)*delta
+              assert a['LOW_weighted_R3_at_new_rho']==a['HEAVY_weighted_R3_at_new_rho']
+              assert a['external_graph_numeric_constants_certified'] is False
+          real=x['actual_original_full_Q_Z_and_Blakley_Roy_finite_falsifiers']
+          assert len(real)==5
+          assert [(a['s'],a['scheme']) for a in real][:4]==[
+              (2,'lex'),(2,'reverse-line'),(4,'lex'),(4,'reverse-line')]
+          assert any(a['original_paired_core_flag_count']>0 for a in real)
+          for a in real:
+              assert a['original_deleted_ID_count']>0
+              assert a['real_original_source_unique_edge_owners'] is True
+              assert a['real_original_full_Q_frozen_before_Z'] is True
+              assert a['real_original_3walk_degree_edge_center_identity'] is True
+              assert a['original_paired_core_physical_edge_count']==2*a['original_paired_core_flag_count']
+              assert a['original_FULL_J_high_conflict_deleted_ID_count']>=0
+              assert a['original_full_Q_touching_edges']-a['original_full_Q_surviving_edges']<=2*a['original_deleted_ID_count']
+              assert a['original_paired_core_uncut_W3']>=Fraction(a['independent_true_graph_Blakley_Roy_lower'])
+          print('AA4_TRUE_ORIGINAL_GLOBAL_RHO_PARETO_22_GATE_PROOF_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-global-rho-pareto-proof
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
