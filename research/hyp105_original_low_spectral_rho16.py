@@ -432,7 +432,7 @@ def _walk_coordinate_referee(c,core,C):
         "checks":checks,
     }
 
-def _actual_produced_bbo(c,geo,core,owner,Z):
+def _actual_produced_bbo(c,geo,core,owner,C,Z):
     """INDEPENDENT physical-first proper path -> six ORIGINAL incidence IDs.
 
     Actual endpoint-good projected anchor SOURCE IDs only need avoid Z,
@@ -441,6 +441,7 @@ def _actual_produced_bbo(c,geo,core,owner,Z):
     """
     f,g,flags=c["f"],c["g"],c["flags"]
     if Z is None:Z=set()
+    Cset=set(C)
     invf={p:i for i,p in enumerate(f)}
     invg={p:i for i,p in enumerate(g)}
     src=Counter()
@@ -473,11 +474,12 @@ def _actual_produced_bbo(c,geo,core,owner,Z):
                     if len(set(all_ids))!=6:
                         raise AssertionError("BBo produced six ORIGINAL incidence owners collide")
                     eligible_paths+=1
-                    anchors_outside_core+=any(i not in Cset for i in anchors) if False else 0
+                    anchors_outside_core+=any(i not in Cset for i in anchors)
                     src[all_ids]+=1
     if any(v!=2 for v in src.values()):
         raise AssertionError("ORIGINAL produced BBo directed path reversal is not exactly 2")
-    return {"accepted_original_proper_directed_paths":eligible_paths,
+    return {"original_projected_anchor_outside_paired_core_paths":anchors_outside_core,
+            "accepted_original_proper_directed_paths":eligible_paths,
             "distinct_produced_original_BBo_sixID_sets":len(src),
             "exact_two_directed_reversals_per_sixset":True,
             "sample_original_sixsets":[list(k) for k in sorted(src)[:4]]}
@@ -489,7 +491,7 @@ def genuine_original_finite_case(h,scheme,T,K0,deleted,shiftf=0,shiftg=0):
     C,graph,owner,prune=_true_low_core(c,geo,T,K0,Z)
     endpoint=_endpoint_referee(c,geo,Z)
     walks=_walk_coordinate_referee(c,graph,C)
-    produced=_actual_produced_bbo(c,geo,graph,owner,Z)
+    produced=_actual_produced_bbo(c,geo,graph,owner,C,Z)
     if any(i in Z for i in C):raise AssertionError("deleted actual source flag remained core")
     return {
         "s":c["s"],"scheme":scheme,
