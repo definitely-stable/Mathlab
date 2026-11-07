@@ -45,6 +45,50 @@ SOURCE_MOTIF_CLASSES=(
 )
 
 
+
+# IMPORTANT SCIENTIFIC RED-TEAM: many mathematical gates require a
+# WRITTEN predecessor proof, not a fabricated 'computed=True' success.
+# This explicit provenance map distinguishes cited all-h derivations
+# from exact rational proof-budget comparisons checked by the program.
+REFERENCED_MATHEMATICAL_GATES={
+    "published_graph_C6_theorem_constants_are_existential_not_claimed_numeric":
+        "Jiang–Yepremyan 2020 DOI 10.1017/S0963548320000206, r=2 k=3",
+    "source_analytic_V_N_a_Cs_envelope_all_s_ge_64_is_invoked":
+        "HYP-105-AA4-ORIGINAL-HEAVY-NO-CLONE-SHARP-SS6.md §1",
+    "true_original_full_Q_is_frozen_BEFORE_named_source_Z":
+        "HYP-105-AA4-ORIGINAL-HEAVY-NO-CLONE-SHARP-SS6.md §2",
+    "full_original_J_source_conflict_bound_eJ_le_5s4_over2":
+        "HYP-105-AA4-ORIGINAL-SRG-MIXED-REDTEAM.md §2",
+    "actual_original_paired_physical_core_degree_le_Ts":
+        "HYP-105-AA4-ORIGINAL-LOW-SPECTRAL-RHO16.md §4",
+    "original_SRG_point_line_branches_do_not_assume_f_g_independence":
+        "HYP-105-AA4-ORIGINAL-SRG-MIXED-REDTEAM.md §2",
+    "selected_original_coordinate_cut_six_cycles_are_proper":
+        "HYP-105-AA4-ORIGINAL-SELECTOR-JENSEN-SHARP-FOURTH.md §4",
+    "original_physical_C6_to_D6_injective_source_six_ID":
+        "HYP-105-AA4-ORIGINAL-SIXID-INVERSE-REFEREE.md §2",
+    "low_actual_physical_3return_spectral_bound":
+        "HYP-105-AA4-ORIGINAL-LOW-SPECTRAL-RHO16.md §2",
+    "low_original_GQ_projection_24s5_and_12s2Z":
+        "HYP-105-AA4-ORIGINAL-LOW-SPECTRAL-RHO16.md §3",
+    "low_A_full_not_C_only_source_four_blockers":
+        "HYP-105-AA4-ORIGINAL-SRG-MIXED-REDTEAM.md §5",
+    "low_physical_produced_original_BBo_exact_two_reversed_paths":
+        "HYP-105-AA4-ORIGINAL-SIXID-INVERSE-REFEREE.md §3",
+    "BBo_produced_full_10_signs_exact_53838":
+        "HYP-105-AA4-ORIGINAL-RISK-ADDITIVE-IE-ROOTBRIDGE.md §3.2",
+    "D6_full_10_signs_exact_54162":
+        "HYP-105-AA4-ORIGINAL-RISK-ADDITIVE-IE-ROOTBRIDGE.md §2-3",
+    "R3_mathematically_is_additive_indexed_event_expectation":
+        "HYP-105-G5-E0-BOUNDARY-FLOWS.md E0.3; RISK-ADDITIVE-IE §1",
+    "source_sixset_keys_are_unordered_ORIGINAL_incidence_IDs":
+        "HYP-105-AA4-ORIGINAL-SIXID-INVERSE-REFEREE.md §§2-3",
+    "accepted_D6_and_BBo_original_sixsets_are_disjoint_keys":
+        "HYP-105-AA4-ORIGINAL-RISK-ADDITIVE-IE-ROOTBRIDGE.md §4",
+    "no_new_ASET_exponent_asserted":
+        "issue #230 Branch A acceptance scope and current manuscript §0",
+}
+
 def exact_ceil(q):
     if type(q) is not Fraction:
         raise ValueError("require exact external constant Fraction")
@@ -129,6 +173,9 @@ def original_all_order_theorem(C0,c0):
     }
     if not all(gates.values()) or len(gates)!=31:
         raise AssertionError("quantified original source theorem gate invalid")
+    if (not set(REFERENCED_MATHEMATICAL_GATES)<=set(gates)
+            or not all(REFERENCED_MATHEMATICAL_GATES.values())):
+        raise AssertionError("unattributed source lemma or external theorem input")
     return {
         "C0_FORMAL":str(C0),"c0_FORMAL":str(c0),"T":T,"q2":q2,"q3":q3,
         "L6":L6,"L4":L4,"B0":B0,"E":E,"D":D,
@@ -145,6 +192,10 @@ def original_all_order_theorem(C0,c0):
         "HEAVY_original_source_D6_risk_floor":str(R3_floor),
         "LOW_original_source_BBo_risk_floor":str(BBO_PRODUCED_WEIGHT*BBO_at_star/Fraction(PAL**6)),
         "quantified_30_original_math_gates":gates,
+        "mathematical_gate_lemma_PROVENANCE_not_mechanized_proofs":
+            REFERENCED_MATHEMATICAL_GATES,
+        "arithmetic_gates_checked_numerically":
+            sorted(set(gates)-set(REFERENCED_MATHEMATICAL_GATES)),
         "formal_graph_constant_values_are_CERTIFIED_PUBLISHED":False,
         "root_issue_status":"OPEN_WITH_FORMAL_BLOCKER",
     }
