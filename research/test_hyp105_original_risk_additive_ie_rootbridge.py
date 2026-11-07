@@ -81,11 +81,7 @@ class TestOriginalAdditiveRiskIE(unittest.TestCase):
         self.assertEqual(e["D6_ten_sum"],other["D6_ten_sign_total"])
         self.assertEqual(
             e["independent_full_100_signed_flow_table_SHA256"],
-            other["template_evidence_SHA256"]
-            if "template_evidence_SHA256" in other
-            else other["source_template_SHA256"]
-            if "source_template_SHA256" in other
-            else other["signed_template_flow_SHA256"]
+            other["exact_all_template_weights_SHA256"]
         )
 
     def test_genuine_W32_W34_SOURCE_sixID_positive_GF5_and_template_injection(self):
