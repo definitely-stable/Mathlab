@@ -147,7 +147,7 @@ class TestOriginalHeavyAdaptiveSS6(unittest.TestCase):
             self.assertLess(new["h0"],old["h0"])
             for k in ("q2","q3"):
                 self.assertEqual(new[k],old[k])
-            self.assertEqual(Fraction(new["delta"])/Fraction(old["delta"]),
+            self.assertEqual(Fraction(new["delta"])/Fraction(old["delta_original_seven_motif_S_s"]),
                              Fraction(R_OLD,R_NEW)**6)
             self.assertGreater(Fraction(new["rho_star"]),Fraction(0))
 
