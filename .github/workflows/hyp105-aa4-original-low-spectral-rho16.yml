@@ -1,0 +1,96 @@
+name: hyp105-aa4-original-low-spectral-rho16
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-low-spectral-rho16.yml'
+      - 'research/hyp105_original_low_spectral_rho16.py'
+      - 'research/test_hyp105_original_low_spectral_rho16.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-LOW-SPECTRAL-RHO16.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-low-spectral-rho16:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Twelve true ORIGINAL source spectral gap3, GQ endpoint and rho16 tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_low_spectral_rho16.py' -v
+      - name: Fail-closed entire exact original LOW spectral, GQ, BBo and formal source certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_low_spectral_rho16.py |
+            tee proof/aa4-original-low-spectral-rho16.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          lines=Path('proof/aa4-original-low-spectral-rho16.json.log').read_text(
+              encoding='utf8').splitlines()
+          prefix='AA4_ORIGINAL_LOW_SPECTRAL_RHO16_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing entire single original low spectral source JSON'
+          x=json.loads(lines[0][len(prefix):])
+          assert x['schema']=='mathlab.hyp105.original-low-spectral-endpoint-rho16.v1'
+          assert x['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert x['root_Branch_A_unconditionally_accepted'] is False
+          assert x['root_ASET_exponent_proved'] is False
+          assert x['actual_external_graph_SS6_constants_numerical_values_known'] is False
+          assert x['all_order_symmetric_A3_coordinate_return_spectral_proof'] is True
+          assert x['all_order_original_nonZ_endpoint_24s5_count_proof'] is True
+          assert x['all_order_improved_original_LOW_BBo_23over48_conditional'] is True
+          formal=x['formal_graph_theorem_ledger']
+          assert [(z['C0_FORMAL'],z['c0_FORMAL'],z['h0']) for z in formal]==[
+              ('1','1',810),('2','1/5',840),('7/3','1/17',847)]
+          for v in formal:
+              assert all(v['checks'].values())
+              assert Fraction(v['rho'])*12*v['q3']**2*v['L6']==16
+              assert Fraction(v['W3_min_sextic'])==Fraction(16,3)
+              assert Fraction(v['LOW_BBo_min_sextic'])==Fraction(23,48)
+              assert Fraction(v['source_rho_improvement_factor'])>30
+              assert Fraction(v['R3_accept_signed_sum_lower_numerator'])==(
+                  54162*Fraction(v['delta']))
+              assert v['risk_denominator']==51**6
+              assert v['root_230_accepted'] is False
+          cases=x['genuine_original_source_cases']
+          assert len(cases)==5
+          assert [(v['s'],v['scheme']) for v in cases][:4]==[
+              (2,'lex'),(2,'reverse-line'),(4,'lex'),(4,'reverse-line')]
+          assert all(v['original_deleted_source_IDs']>0 and
+                     v['original_low_paired_core_flags']>0 and
+                     not v['root_230_unconditionally_accepted']
+                     for v in cases)
+          for v in cases:
+              end=v['original_ENDPOINT']
+              src=v['actual_ORIGINAL_source_spectral_3walk']
+              bbo=v['actual_original_good_BBo_sixID_projection']
+              assert all(end['checks'].values())
+              assert end['original_three_anchor_exposure_s2_each']
+              assert all(src['checks'].values())
+              assert src['source_Qx']==src['physical_A2_coordinate_returns_x']
+              assert src['source_Qy']==src['physical_A2_coordinate_returns_y']
+              assert src['improper_threewalks']<=3*src['physical_max_degree']*(src['source_Qx']+src['source_Qy'])
+              assert src['physical_A3_coordinate_gap3_x']<=src['physical_max_degree']*src['source_Qx']
+              assert src['physical_A3_coordinate_gap3_y']<=src['physical_max_degree']*src['source_Qy']
+              assert bbo['accepted_original_proper_directed_paths']==2*bbo['distinct_produced_original_BBo_sixID_sets']
+              assert bbo['exact_two_directed_reversals_per_sixset'] is True
+          assert any(v['actual_ORIGINAL_source_spectral_3walk']['actual_bad_gap3']>0 for v in cases)
+          assert any(v['actual_original_good_BBo_sixID_projection']['distinct_produced_original_BBo_sixID_sets']>0 for v in cases)
+          print('AA4_TRUE_ORIGINAL_SPECTRAL_GAP3_ENDPOINTS_RHO16_SOURCE_BBO_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-low-spectral-rho16-proof
+          path: proof/
+          if-no-files-found: warn
+          retention-days: 120
