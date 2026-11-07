@@ -1,0 +1,109 @@
+name: hyp105-aa4-branch-a-standalone-source-proof
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-branch-a-standalone-source-proof.yml'
+      - 'research/hyp105_branch_a_standalone_source_proof.py'
+      - 'research/test_hyp105_branch_a_standalone_source_proof.py'
+      - 'docs/research/HYP-105-AA4-BRANCH-A-STANDALONE-SOURCE-PROOF.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-seven-motif-original-branch-a-standalone-proof:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run independent quantified root S_s and genuine ORIGINAL D6/BBo tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_branch_a_standalone_source_proof.py' -v
+      - name: Fail closed ORIGINAL seven-class source theorem and full five real GQ + three D6 physical C6 proof
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_branch_a_standalone_source_proof.py |
+            tee proof/aa4-branch-a-standalone-original-source.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          lines=Path('proof/aa4-branch-a-standalone-original-source.json.log').read_text(
+              encoding='utf8').splitlines()
+          prefix='AA4_BRANCH_A_STANDALONE_SOURCE_PROOF_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing unique original all-h root proof'
+          q=json.loads(lines[0][len(prefix):])
+          assert q['schema']=='mathlab.hyp105.branch-a-standalone-source-proof.v1'
+          assert q['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert q['root_full_scientific_governance_acceptance'] is False
+          assert q['root_ASET_exponent_proved'] is False
+          assert q['root_Branch_A_mathematical_implication_is_explicit_all_h']
+          assert q['root_S_s_is_original_sixID_MOTIF_sum_not_signed_event_count']
+          assert q['all_h_candidate_is_absolute_positive_existence_not_explicit_h']
+          assert q['no_published_numeric_graph_supersaturation_constants_assumed']
+          assert list(q['root_issue_seven_disjoint_accepted_original_classes'])==[
+              'D6','U_B_left','U_B_right','U_CA','U_CB',
+              'U_BB_overlap','U_BB_disjoint']
+          formal=q['full_original_source_formal_quantified_theorem_probes']
+          assert [(z['C0_FORMAL'],z['c0_FORMAL'],z['h0']) for z in formal]==[
+              ('1','1',810),('2','1/5',840),('7/3','1/17',847)]
+          for x in formal:
+              assert len(x['quantified_30_original_math_gates'])==31
+              assert all(x['quantified_30_original_math_gates'].values())
+              assert not x['formal_graph_constant_values_are_CERTIFIED_PUBLISHED']
+              assert Fraction(x['deletion_improvement_ratio'])>Fraction(3,2)
+              assert Fraction(x['rho_star'])<Fraction(1,32)
+              assert Fraction(x['rho_star'])<Fraction(3,64)
+              d=Fraction(x['delta_original_seven_motif_S_s'])
+              assert 0<d<=Fraction(1,370944**6)
+              assert Fraction(x['S_s_universal_positive_motif_floor'])==d
+              risk=Fraction(x['R3_full_additive_original_GF5_risk_floor'])
+              assert risk==Fraction(54162,51**6)*d
+              assert risk==Fraction(x['HEAVY_original_source_D6_risk_floor'])
+              assert risk==Fraction(x['LOW_original_source_BBo_risk_floor'])
+              assert Fraction(x['low_BBo_produced_at_max_deletion_floor'])==Fraction(54162,53838)*d
+              assert Fraction(x['low_BBo_produced_ZERO_original_ID_deletion_floor'])==Fraction(119,48)
+              assert (1<<x['h0'])>=x['s0']>(1<<(x['h0']-1))
+          samples=q['actual_original_symplectic_source_falsifiers']
+          assert len(samples)==5
+          assert [(z['s'],z['scheme']) for z in samples][:4]==[
+              (2,'lex'),(2,'reverse-line'),(4,'lex'),(4,'reverse-line')]
+          assert all(z['true_ORIGINAL_paired_CORE_IDs']>0 for z in samples)
+          for x in samples:
+              s=x['s'];V=(s+1)*(s*s+1)
+              assert x['ORIGINAL_adversarial_Z_deleted_IDs']>0
+              assert x['original_incidence_IDs_total']==(s+1)*V
+              assert x['exact_original_full_GQ_offincident_projections']==V*(V-s-1)
+              assert x['each_original_flag_projection_exposure_per_role']==s*s
+              assert x['true_original_full_source_J_edges']==(
+                  x['true_original_point_collinear_f_label_collisions']+
+                  x['true_original_line_collinear_g_label_collisions'])
+              assert x['actual_physical_full_original_two_diagonal_edges']==2*x['original_incidence_IDs_total']
+              assert x['actual_ORIGINAL_Q_edges_deleted_at_most_2Z']<=2*x['ORIGINAL_adversarial_Z_deleted_IDs']
+              assert x['true_CORE_physical_edges']==2*x['true_ORIGINAL_paired_CORE_IDs']
+              assert x['actual_proper_directed_physical_P3']>=x['real_produced_BBo_accepted_directed_3paths']
+              assert x['real_produced_BBo_accepted_directed_3paths']==2*x['real_produced_BBo_distinct_original_six_ID_sets']
+              assert x['source_produced_BBo_exact_two_directed_reversal']
+          assert sum(z['real_produced_BBo_distinct_original_six_ID_sets'] for z in samples)>0
+          heavy=q['actual_original_W34_physical_C6_to_D6_heavy_seed_falsifiers']
+          assert len(heavy)==3
+          assert all(z['s']==4 and z['physical_original_seed_diagonals']==12 and
+                     z['physical_coordinate_proper_C6_seed']==1 and
+                     z['source_cycle_six_ORIGINAL_distinct_owner_IDs'] and
+                     z['same_original_source_owner_order_in_two_physical_factors'] for z in heavy)
+          print('AA4_TRUE_ORIGINAL_SEVEN_MOTIF_BRANCH_A_STANDALONE_S_AND_R3_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-branch-a-standalone-seven-motif-proof
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
