@@ -352,8 +352,8 @@ def canonical_report():
             "external_graph_numeric_constants_certified":False,
         })
     actual=[
-        _original_finite_case(1,"lex",(0,),degree_T=2),
-        _original_finite_case(1,"reverse-line",(1,13,33),degree_T=2),
+        _original_finite_case(1,"lex",(0,),degree_T=4),
+        _original_finite_case(1,"reverse-line",(1,13,33),degree_T=4),
         _original_finite_case(2,"lex",tuple(range(0,425,23)),degree_T=3),
         _original_finite_case(2,"reverse-line",tuple(range(2,425,29)),degree_T=3),
         _original_finite_case(2,"lex",tuple(range(1,425,31)),7,19,3),
