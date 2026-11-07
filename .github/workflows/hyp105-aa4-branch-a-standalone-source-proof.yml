@@ -56,6 +56,12 @@ jobs:
               ('1','1',810),('2','1/5',840),('7/3','1/17',847)]
           for x in formal:
               assert len(x['quantified_30_original_math_gates'])==31
+              proofrefs=x['mathematical_gate_lemma_PROVENANCE_not_mechanized_proofs']
+              arithmetic=x['arithmetic_gates_checked_numerically']
+              assert len(proofrefs)==18 and len(arithmetic)==13
+              assert set(proofrefs).isdisjoint(arithmetic)
+              assert set(proofrefs)|set(arithmetic)==set(x['quantified_30_original_math_gates'])
+              assert all(proofrefs.values())
               assert all(x['quantified_30_original_math_gates'].values())
               assert not x['formal_graph_constant_values_are_CERTIFIED_PUBLISHED']
               assert Fraction(x['deletion_improvement_ratio'])>Fraction(3,2)
