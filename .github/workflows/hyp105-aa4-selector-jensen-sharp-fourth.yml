@@ -1,0 +1,100 @@
+name: hyp105-aa4-selector-jensen-sharp-fourth
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-selector-jensen-sharp-fourth.yml'
+      - 'research/hyp105_original_selector_sharp_fourth_referee.py'
+      - 'research/test_hyp105_original_selector_sharp_fourth_referee.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-SELECTOR-JENSEN-SHARP-FOURTH.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-selector-sharp-fourth:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Ten original source selector priority, color, Jensen and sharp fourth moment tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_selector_sharp_fourth_referee.py' -v
+      - name: Fail closed complete genuine original selector and formal all-h proof certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_selector_sharp_fourth_referee.py |
+            tee proof/aa4-original-selector-sharp-fourth.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          from fractions import Fraction
+          import json
+          z=Path('proof/aa4-original-selector-sharp-fourth.json.log').read_text().splitlines()
+          prefix='AA4_ORIGINAL_SELECTOR_SHARP4_CERTIFICATE='
+          assert len(z)==1 and z[0].startswith(prefix), 'exact ORIGINAL selector proof JSON missing'
+          x=json.loads(z[0][len(prefix):])
+          assert x['schema']=='mathlab.hyp105.original-selector-jensen-sharp4.v1'
+          assert x['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert x['root_Branch_A_unconditionally_accepted'] is False
+          assert x['root_ASET_exponent_proved'] is False
+          assert x['original_external_graph_SS6_numerical_constants_known'] is False
+          assert x['all_order_selector_probability_and_Jensen_independent_proof'] is True
+          assert x['all_order_exact_SHARP_fourth_moment_proof'] is True
+          assert x['all_order_selected_bipartite_sixth_moment_rederived'] is True
+          probs=x['coordinate_proper_color_probabilities']
+          assert [(z['r'],z['successful'],z['assignments'],z['exact_probability'])
+                  for z in probs]==[(2,4,64,'1/16'),(3,4,256,'1/64')]
+          ledgers=x['formal_graph_constant_ledgers']
+          assert [(z['C0_FORMAL'],z['c0_FORMAL'],z['old_h0'],z['sharp_h0'])
+                  for z in ledgers]==[
+                      ('1','1',876,872),
+                      ('2','1/5',906,902),
+                      ('7/3','1/17',912,908)]
+          for l in ledgers:
+              assert l['all_exact_checks_pass'] is True
+              assert l['external_graph_constants_are_NOT_numeric_claims'] is True
+              assert 2*int(l['sharp_L4'])==int(l['old_L4'])
+              assert int(l['sharp_D'])<=int(l['old_D'])
+              assert Fraction(l['rho'])>0
+              assert Fraction(l['delta'])>0
+              assert l['q2']==16*__import__('math').comb(130,2)
+              assert l['q3']==64*__import__('math').comb(195,3)
+          cases=x['genuine_original_source_selector_moment_cases']
+          assert [(z['s'],z['scheme']) for z in cases]==[
+              (2,'lex'),(2,'reverse-line'),(4,'lex'),(4,'reverse-line')]
+          for q in cases:
+              assert q['physical_core_edges']==2*q['original_core_flags']
+              assert all(q['checks'].values())
+              for key in ('original_proper_r2','original_proper_r3'):
+                  entry=q[key]
+                  assert entry['proper_paths']>0
+                  assert entry['all_check_pass'] is True
+                  sigma=Fraction(entry['selector_uniform_sigma'])
+                  lhs=sigma*sigma*entry['original_proper_endpoint_Frobenius2']
+                  rhs=Fraction(entry['original_adaptive_weighted_endpoint_Frobenius2'])
+                  assert lhs<=rhs<=entry['selected_energy_upper_original_trace']
+              v=q['SHARP_original_fourth']
+              assert all(v['checks'].values())
+              assert v['trace_A4']==v['proper_P2_norm2']+v['improper_B2_norm2']
+              assert v['old_double_ceiling']==2*v['sharp_fourth_ceiling']
+              assert v['trace_A4']<=v['sharp_fourth_ceiling']
+              assert v['trace_A4']**2<=2*v['actual_m']*v['trace_A6']
+              sixth=q['selected_sixth']
+              assert sixth['trace_A6']<=sixth['sixth_walk_injection_bound']
+              assert sixth['trace_A6']<=sixth['sixth_Young_bound']
+              assert q['selected_original_D6_injection']['injective'] is True
+          print('AA4_ORIGINAL_SELECTOR_JENSEN_SHARP_L4_ALLH_AND_GENUINE_SOURCE_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-genuine-original-selector-sharp-fourth
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
