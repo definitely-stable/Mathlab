@@ -207,6 +207,26 @@ class TestBranchAStandaloneOriginalSource(unittest.TestCase):
         with self.assertRaises(ValueError):
             original_adversarial_branch_witness(z,Fraction(-1),Fraction(1))
 
+    def test_18_external_or_predecessor_math_gates_not_falsely_called_machine_proofs(self):
+        # A green CI is an ARITHMETIC and finite-source falsifier, NOT
+        # a proof of cited spectral, selector, graph SS6 and inverse lemmata.
+        for z in self.x["full_original_source_formal_quantified_theorem_probes"]:
+            provenance=z["mathematical_gate_lemma_PROVENANCE_not_mechanized_proofs"]
+            numeric=z["arithmetic_gates_checked_numerically"]
+            self.assertEqual(len(provenance),18)
+            self.assertEqual(len(numeric),13)
+            self.assertEqual(len(provenance)+len(numeric),31)
+            self.assertFalse(set(provenance)&set(numeric))
+            self.assertEqual(set(provenance)|set(numeric),
+                             set(z["quantified_30_original_math_gates"]))
+            self.assertTrue(all(len(a.strip())>12 for a in provenance.values()))
+            self.assertIn("Jiang",provenance[
+                "published_graph_C6_theorem_constants_are_existential_not_claimed_numeric"])
+            self.assertIn("SIXID",provenance[
+                "original_physical_C6_to_D6_injective_source_six_ID"])
+            self.assertIn("RISK",provenance[
+                "R3_mathematically_is_additive_indexed_event_expectation"])
+
     def test_root_accepted_facts_do_not_promote_undischarged_governance(self):
         z=self.x
         self.assertEqual(z["schema"],SCHEMA)
