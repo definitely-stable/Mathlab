@@ -82,6 +82,43 @@ class TestOriginalSRGMixedReferee(unittest.TestCase):
                             r["physical_four_original_projection_blockers"]["proper_paths3"]>0
                             for r in rows))
 
+    def test_NEW_independent_all_order_blocker_triple_source_injection_proof(self):
+        # A direct source-first triple inventory has an explicit one-to-one
+        # map into Bx / true line-dual By. The number of middle 2-walk
+        # completions upper bounds actual first/second interior blocked
+        # directed proper paths. Cauchy bounds the completion mass by
+        # sqrt(B*Delta*trA4), with no independence assumption.
+        encountered=0
+        outside=0
+        for z in self.report["genuine_complete_original_cases"]:
+            blockers=z["physical_four_original_projection_blockers"]
+            a=blockers["four_separate_original_blocked_path_counts"]
+            self.assertEqual(a[0],a[1])
+            self.assertEqual(a[2],a[3])
+            for typ,B,blocked in (
+                ("point","original_point_source_first_triple_injection",a[0]),
+                ("line","original_LINE_dual_source_first_triple_injection",a[2]),
+            ):
+                with self.subTest(s=z["s"],scheme=z["scheme"],factor=typ):
+                    q=z[B]
+                    self.assertTrue(all(q["checks"].values()))
+                    self.assertLessEqual(q["original_source_candidate_triples"],
+                                         q["original_B_source_book"])
+                    self.assertLessEqual(
+                        blocked,
+                        q["physical_two_walk_completions_over_source_triples"])
+                    self.assertLessEqual(
+                        q["physical_two_walk_completions_over_source_triples"]**2,
+                        q["original_B_source_book"]*q["original_core_Delta"]*
+                        q["physical_trace_A4"])
+                    self.assertEqual(q["physical_trace_A4"],
+                                     blockers["physical_trace_A4"])
+                    encountered+=q["original_source_candidate_triples"]
+                    outside+=q["original_projection_anchor_outside_core_triples"]
+            self.assertTrue(z["source_first_all_four_blocker_positions_covered"])
+        self.assertGreater(encountered,0)
+        self.assertGreater(outside,0)
+
     def test_actual_true_original_Z_mask_is_not_physical_owner_or_label_reassignment(self):
         c=_source(1,"lex",shift_f=2,shift_g=3)
         adj,owners=_physical_graph(c,range(len(c["flags"])))
@@ -148,7 +185,8 @@ class TestOriginalSRGMixedReferee(unittest.TestCase):
         self.assertEqual(z["schema"],"mathlab.hyp105.original-source-SRGMIX.v1")
         self.assertEqual(z["root_230_status"],"OPEN_WITH_FORMAL_BLOCKER")
         self.assertTrue(z["original_all_order_SRG_bound_has_analytic_proof"])
-        self.assertTrue(z["all_order_four_blocker_Cauchy_full_referee_pending"])
+        self.assertFalse(z["all_order_four_blocker_Cauchy_full_referee_pending"])
+        self.assertTrue(z["all_order_four_blocker_Cauchy_source_triple_injection_derived"])
         self.assertFalse(z["root_universally_accepted"])
         self.assertEqual(len(z["genuine_complete_original_cases"]),7)
         self.assertTrue(all(v["all_referee_inequalities_valid"]
