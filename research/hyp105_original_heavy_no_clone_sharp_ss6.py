@@ -51,9 +51,11 @@ def genuine_envelope(s):
         raise ValueError("dyadic original s>=64 required")
     V=(s+1)*(s*s+1)
     N=(s+1)*V
-    a=2
+    a=(1+isqrt(1+8*V))//2
     while comb(a,2)<V:
         a+=1
+    while a>2 and comb(a-1,2)>=V:
+        a-=1
     cs=(s*s+1)*(s*s+a-2)
     checks={
         "V_le_33_32_s3":32*V<=33*s**3,
@@ -237,11 +239,10 @@ def _source_caro_wei(J):
         chosen.append(v)
         nextp=sum((Fraction(1,len(J[x]&left)+1)
                    for x in left),Fraction())
-        if nextp>potential[-1] or potential[-1]-nextp>1:
-            # The potential can sometimes increase after removals.
-            # Only the upper drop <=1 is an invariant; remove the first check.
-            if potential[-1]-nextp>1:
-                raise AssertionError("greedy true source Caro-Wei potential decreased >1")
+        # The residual potential can increase after deleting neighbors.
+        # Only its drop <=1 is the invariant behind min-degree greedy.
+        if potential[-1]-nextp>1:
+            raise AssertionError("greedy true source Caro-Wei potential dropped by >1")
         potential.append(nextp)
     if len(chosen)<weight or any(v in J[u] for u,v in combinations(chosen,2)):
         raise AssertionError("genuine source Caro-Wei greedy weight false")
