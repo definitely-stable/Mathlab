@@ -9,7 +9,7 @@ from hyp105_original_risk_additive_ie_rootbridge import (
     PAL, K, R, ROOT_STATUS, SIGN_MASKS,
     _cycles4, _bbo_typed_dual_templates, _d6_typed_dual_template,
     _validate_graph, _components_from_mask, all_ten_signs_by_IE,
-    all_abstract_sixset_GF5_certificate, _real_original,
+    all_abstract_sixset_GF5_certificate, _single_owner_path_center, _real_original,
     _typed_dual_factor, _one_source_sixset, genuine_original_risk_fixtures,
     root_symbolic_bridge, canonical_report,
 )
@@ -83,6 +83,42 @@ class TestOriginalAdditiveRiskIE(unittest.TestCase):
             e["independent_full_100_signed_flow_table_SHA256"],
             other["exact_all_template_weights_SHA256"]
         )
+
+    def test_NEW_all_order_physical_produced_BBo_synchronized_C4_center_and_53838_weight(self):
+        # Among nine all-order ORIGINAL BBo dual C4xC4 templates,
+        # the three physical path-owner singleton IDs must form the SAME
+        # ordered three-edge path on both typed physical coordinate
+        # cycles. The physical middle owner therefore has the same
+        # column index in both 4-cycles. Exactly THREE of nine templates
+        # satisfy this necessary condition, with exact ten-sign 53838;
+        # the other six have 53526 and cannot be produced by a proper
+        # single coherent physical 3path source lift.
+        e=self.x["full_sixset_GF5_independent_inclusion_exclusion"]
+        cls=e["nine_BBo_TEMPLATE_C4_center_compatibility"]
+        self.assertEqual(len(cls),9)
+        good=[x for x in cls if x["same_three_original_path_owner_CENTER"]]
+        bad=[x for x in cls if not x["same_three_original_path_owner_CENTER"]]
+        self.assertEqual(len(good),3)
+        self.assertEqual(len(bad),6)
+        self.assertEqual(
+            {(z["left_C4"],z["right_C4"]) for z in good},
+            {(0,0),(1,1),(2,2)})
+        self.assertTrue(all(z["ten_sign_sum"]==53838 and
+                            z["left_center"]==z["right_center"]
+                            for z in good))
+        self.assertTrue(all(z["ten_sign_sum"]==53526 and
+                            z["left_center"]!=z["right_center"]
+                            for z in bad))
+        self.assertEqual(e["three_physical_path_COMPATIBLE_BBo_minimum_ten_sign_weight"],53838)
+        self.assertEqual(e["six_NONIMAGE_C4_center_mismatched_templates_weight"],53526)
+        sixsets=self.x["genuine_actual_original_sixID_risk_examples"]["genuine_source_cases"]
+        produced=[z for z in sixsets if z["type"]=="BBo"]
+        self.assertEqual(len(produced),6)
+        self.assertTrue(all(z["physical_path_compatible_BBo_C4_center"] is True
+                            and z["ten_sign_sum"]==53838
+                            for z in produced))
+        self.assertTrue(all(z["physical_path_compatible_BBo_C4_center"] is None
+                            for z in sixsets if z["type"]=="D6"))
 
     def test_genuine_W32_W34_SOURCE_sixID_positive_GF5_and_template_injection(self):
         c=self.x["genuine_actual_original_sixID_risk_examples"]
@@ -197,6 +233,7 @@ class TestOriginalAdditiveRiskIE(unittest.TestCase):
         self.assertTrue(r["full_R3_is_SUM_of_distinct_unordered_3v3_signed_event_probabilities"])
         self.assertFalse(r["R3_is_probability_of_UNION_of_signed_events"])
         self.assertTrue(r["all_order_sixset_to_full_R3_additive_embedding_proved"])
+        self.assertTrue(r["all_order_physical_produced_BBo_SAME_owner_C4_center_for_both_typed_factors"])
         self.assertFalse(r["genuine_EXTERNAL_ordinary_C6_graph_theorem_constants_numerically_known"])
         self.assertFalse(r["root_final_independent_all_dependencies_mathematically_accepted"])
         self.assertFalse(r["root_ASET_exponent_proved"])
