@@ -1,0 +1,99 @@
+name: hyp105-aa4-original-gf5-tree-flow-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-gf5-tree-flow-referee.yml'
+      - 'research/hyp105_original_gf5_tree_flow_referee.py'
+      - 'research/test_hyp105_original_gf5_tree_flow_referee.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-GF5-TREE-FLOW-REFEREE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-gf5-tree-and-palette:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Ten original GF5 source flow tests including 90 all-h BBo templates
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_gf5_tree_flow_referee.py' -v
+      - name: Fail-closed complete original 51-palette and 90-template GF5 proof
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_gf5_tree_flow_referee.py |
+            tee proof/aa4-original-gf5-tree-flow.json.log
+          python - <<'PYCODE'
+          import json
+          from pathlib import Path
+          lines=Path('proof/aa4-original-gf5-tree-flow.json.log').read_text(
+              encoding='utf8').splitlines()
+          tag='AA4_ORIGINAL_GF5_TREE_FLOW_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(tag), 'missing exact original full proof certificate'
+          x=json.loads(lines[0][len(tag):])
+          assert x['schema']=='mathlab.hyp105.original-gf5-tree-flow-referee.v1'
+          assert x['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert x['full_original_Branch_A_accepted'] is False
+          assert x['allh_structural_GF5_templates_checked'] is True
+          assert (x['uniform_BBo_per_sign_lower'],
+                  x['uniform_BBo_all_ten_sign_lower'])==(5175,53526)
+          assert (x['uniform_D6_designated_alternating_flow'],
+                  x['uniform_D6_all_ten_sign_total'])==(5643,54162)
+          t=x['template_evidence']
+          assert t['schema']=='mathlab.hyp105.original-gf5-tree-flow-templates.v1'
+          assert t['BBo_signed_events']==90
+          assert len(t['templates_BBo'])==9
+          assert len(t['balanced_sign_masks'])==10
+          assert len(t['exact_all_template_weights_SHA256'])==64
+          assert t['BBo_minimum_per_sign']==5175
+          assert t['BBo_minimum_ten_sign_total']==53526
+          assert t['BBo_maximum_ten_sign_total']==53838
+          assert t['BBo_total_sign_sum_distribution']=={'53526':6,'53838':3}
+          assert all(len(z['signed_weights'])==10 and
+                     min(z['signed_weights'])>=5175 and
+                     sum(z['signed_weights'])>=53526
+                     for z in t['templates_BBo'])
+          assert t['D6_signed_weights']==[
+              5265,5454,5454,5265,5454,5643,5454,5454,5454,5265]
+          assert t['D6_alternating_mask']==21
+          assert t['D6_alternating_signed_weight']==5643
+          assert t['D6_ten_sign_total']==54162
+          assert t['independent_full_51_palette_MITM']=={
+              'BBo_min_example':5175,'BBo_other_sign':5535,
+              'D6_alternating':5643,'D6_other_sign':5265}
+          assert [(z['s'],z['scheme'],z['all_original_LEFT_B_candidate_source_sixsets'],
+                   z['complete_original_BBo_sixsets'])
+                  for z in x['exhaustive_actual_W32_BBo_GF5']]==[
+                      (2,'lex',10935,8),(2,'reverse-line',10935,7)]
+          for z in x['exhaustive_actual_W32_BBo_GF5']:
+              assert z['least_actual_original_BBo_signed_weight']>=5175
+              assert z['least_actual_original_BBo_all_signs_total']>=53526
+              assert z['first_three_genuine_source_GF5_witnesses']
+          w34=x['actual_W34_BBo_GF5_witnesses']
+          assert [(z['s'],z['scheme']) for z in w34]==[
+              (4,'lex'),(4,'reverse-line')]
+          assert all(len(z['actual_original_BBo_samples'])==3 for z in w34)
+          assert all(z['minimum_one_sign']>=5175 and z['all_ten_sign_total']>=53526
+                     for row in w34 for z in row['actual_original_BBo_samples'])
+          d6=x['actual_W34_D6_GF5_witnesses']
+          assert len(d6)==3
+          assert all(z['class']=='D6' and
+                     z['D6_alternating_GF5_weight']==5643 and
+                     z['all_ten_sign_total']==54162 for z in d6)
+          print('AA4_ORIGINAL_GF5_90_TEMPLATES_ALLH_AND_51_PALETTE_FINITE_GATES_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-gf5-flow-90-template-proof
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
