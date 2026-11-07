@@ -403,6 +403,32 @@ def six_source_class(case,ids):
     return "B/B-overlap"
 
 
+
+def alternating_D6_sign_mask(left):
+    """Canonical alternating balanced sign for any aligned ORIGINAL D6."""
+    if not _connected_cycle6(left):
+        raise ValueError("not one true original six-column D6 dual factor cycle")
+    adj=defaultdict(set)
+    for u,v in left:
+        adj[u].add(v);adj[v].add(u)
+    parity={0:0}
+    stack=[0]
+    while stack:
+        u=stack.pop()
+        for v in adj[u]:
+            if v not in parity:
+                parity[v]=parity[u]^1
+                stack.append(v)
+            elif parity[v]==parity[u]:
+                raise AssertionError("nonbipartite alleged original D6 cycle")
+    if len(parity)!=6:
+        raise AssertionError("disconnected alleged original D6 factor")
+    mask=sum(1<<i for i in range(6) if parity[i]==0)
+    if mask.bit_count()!=3:
+        raise AssertionError("original alternate source six-ID signs not balanced")
+    return mask
+
+
 def original_six_GF5_weights(case,ids):
     klass=six_source_class(case,ids)
     if klass not in ("D6","B/B-overlap"):
@@ -413,12 +439,16 @@ def original_six_GF5_weights(case,ids):
         if min(weights)<5175 or sum(weights)<53526:
             raise AssertionError("actual true ORIGINAL BBo violates template GF5 floor")
     else:
+        alt=alternating_D6_sign_mask(left)
+        if flow_count_by_tree_chords(edges,alt)!=5643:
+            raise AssertionError("actual ORIGINAL D6 alternating GF5 coefficient not 5643")
         if sum(weights)!=54162 or min(weights)<5265:
             raise AssertionError("actual true ORIGINAL D6 changed ten-sign flow total")
     return {"class":klass,"source_six_incidence_IDs":list(ids),
             "ten_balanced_sign_exact_GF5_weights":list(weights),
             "minimum_one_sign":min(weights),
-            "all_ten_sign_total":sum(weights)}
+            "all_ten_sign_total":sum(weights),
+            "D6_alternating_GF5_weight":5643 if klass=="D6" else None}
 
 
 def exhaustive_W32_original_BBo_GF5(scheme):
