@@ -111,7 +111,8 @@ def optimal_source_rho_frontier(C0,c0):
     low_old_risk=BBO_PRODUCED_GF5*Bbo_old/Fraction(PAL**6)
     low_star_risk=BBO_PRODUCED_GF5*Bbo_star/Fraction(PAL**6)
     low_zero_risk=BBO_PRODUCED_GF5*Bbo_zero/Fraction(PAL**6)
-    old_parent_rho=Fraction(16,12*a["q3"]**2*(24+288*a["T"]**2))
+    # Frozen #739 used ONE mask sextic unit; #740 then increased this to SIXTEEN.
+    old_parent_rho=Fraction(1,12*a["q3"]**2*(24+288*a["T"]**2))
     source_core_fraction=Fraction(1)-Fraction(1,8)-Fraction(5,64)-rho_star
     full_Q_deleted_heavy_lower=Fraction(1,8)-2*rho_star
     improvement=rho_star/rho_old
