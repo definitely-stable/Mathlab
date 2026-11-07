@@ -1,0 +1,109 @@
+name: hyp105-aa4-original-heavy-no-clone-sharp-ss6
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-heavy-no-clone-sharp-ss6.yml'
+      - 'research/hyp105_original_heavy_no_clone_sharp_ss6.py'
+      - 'research/test_hyp105_original_heavy_no_clone_sharp_ss6.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-HEAVY-NO-CLONE-SHARP-SS6.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-heavy-no-clone-sharp-ss6:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Ten independent true original heavy source Caro-Wei, no-clone and sharp SS6 tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_heavy_no_clone_sharp_ss6.py' -v
+      - name: Fail-closed original heavy all-h rational budgets, real source and five mutation gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_heavy_no_clone_sharp_ss6.py |
+            tee proof/aa4-original-heavy-no-clone-sharp-ss6.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          lines=Path('proof/aa4-original-heavy-no-clone-sharp-ss6.json.log').read_text(
+              encoding='utf8').splitlines()
+          prefix='AA4_ORIGINAL_HEAVY_SHARP_SS6_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing unique true ORIGINAL source proof certificate'
+          x=json.loads(lines[0][len(prefix):])
+          assert x['schema']=='mathlab.hyp105.original-heavy-no-clone-sharp-SS6.v1'
+          assert x['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert x['root_Branch_A_unconditionally_accepted'] is False
+          assert x['root_ASET_exponent_proved'] is False
+          assert x['external_published_C_graph_c_graph_values_numerically_known'] is False
+          assert x['all_order_exact_physical_source_envelope_derived'] is True
+          assert x['all_order_original_Caro_Wei_cuts_no_clone_heavy_proved'] is True
+          assert x['all_order_SS6_d6_conditional_improvement_proved'] is True
+          assert x['all_order_original_lowtail_lemma_inherited_not_reproved'] is True
+          assert x['new_R']==370944
+          assert Fraction(x['new_SS6_T_coefficient'])==Fraction(17,2)*370944**3
+          assert int(x['old_SS6_T_coefficient'])==2**64
+          assert Fraction(x['D6_sixset_lower_improvement_factor'])==Fraction(2**120,370944**6)
+          assert Fraction(x['D6_sixset_lower_improvement_factor'])>500
+          formal=x['formal_graph_constant_ledgers']
+          assert [(z['C0_FORMAL'],z['c0_FORMAL'],z['h0_sharp_heavy_and_L4'])
+                  for z in formal]==[
+                      ('1','1',818),
+                      ('2','1/5',848),
+                      ('7/3','1/17',854)]
+          assert all(z['all_conditional_exact_budgets'] and
+                     not z['external_graph_SS6_constants_numerically_known']
+                     for z in formal)
+          for z in formal:
+              C,c=Fraction(z['C0_FORMAL']),Fraction(z['c0_FORMAL'])
+              assert int(z['T_sharp_heavy'])==(
+                  (Fraction(17,2)*370944**3*C**3).__ceil__())
+              assert int(z['T_sharp_heavy'])<int(z['T_old'])
+              assert Fraction(z['delta_sharp_heavy'])==c/370944**6
+              assert Fraction(z['density_sharp_heavy'])==Fraction(1,370944)
+              assert Fraction(z['rho'])>0
+          env=x['actual_original_envelopes']
+          assert [z['s'] for z in env]==[64,128,256,1024]
+          assert all(all(v['checks'].values()) for v in env)
+          cases=x['genuine_true_original_heavy_cases']
+          assert len(cases)==5
+          assert [(z['s'],z['scheme']) for z in cases][:4]==[
+              (2,'lex'),(2,'reverse-line'),(4,'lex'),(4,'reverse-line')]
+          assert all(z['deleted_original_ID_count']>0 and
+                     z['full_original_Q_before_Z']>0 and
+                     z['actual_original_deleted_tail_edges']<=2*z['deleted_original_ID_count']
+                     for z in cases)
+          for z in cases:
+              w=z['actual_no_clone_winner']
+              assert w['source_no_clone'] is True
+              assert w['winner_real_physical_subgraph'] if 'winner_real_physical_subgraph' in w else w['true_original_edge_source_ownership_unchanged']
+              assert w['winner_m']==w['actual_winner_edges']
+              assert w['winner_v']==w['actual_winner_vertices']
+              assert w['winner_v']<=2*w['heavy_R']
+              assert Fraction(z['actual_winner_m_over_v'])>=Fraction(z['instance_sharp_source_density_lower'])
+              assert Fraction(z['actual_winner_e3_over_v4'])>=Fraction(z['instance_SS6_cubed_lower'])
+              assert z['actual_original_winner_D6_six_ID_count']==z['actual_original_no_clone_winner_C6']
+              assert z['root_unconditionally_accepted'] is False
+          assert any(z['actual_original_selected_C6']>0 for z in cases)
+          assert any(z['actual_original_no_clone_winner_C6']>0 for z in cases)
+          mutations=x['reject_improper_assumption_mutations']
+          assert len(mutations)==5
+          assert all(z['failed_gates'] for z in mutations)
+          print('AA4_TRUE_ORIGINAL_HEAVY_NO_CLONE_SHARP_SS6_SOURCE_GATES_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-heavy-no-clone-sharp-ss6
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
