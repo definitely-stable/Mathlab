@@ -1,0 +1,107 @@
+name: hyp105-aa4-original-risk-additive-ie-rootbridge
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-risk-additive-ie-rootbridge.yml'
+      - 'research/hyp105_original_risk_additive_ie_rootbridge.py'
+      - 'research/test_hyp105_original_risk_additive_ie_rootbridge.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-RISK-ADDITIVE-IE-ROOTBRIDGE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-additive-risk-100-flow-referee:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Thirteen genuine ORIGINAL R3 indexed-event risk and full-100 independent GF5 tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_risk_additive_ie_rootbridge.py' -v
+      - name: Fail closed exact source risk, all GF5 IE templates, genuine sixID and formal all-h composition
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_risk_additive_ie_rootbridge.py |
+            tee proof/aa4-original-risk-additive-ie-rootbridge.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          lines=Path('proof/aa4-original-risk-additive-ie-rootbridge.json.log').read_text(
+              encoding='utf8').splitlines()
+          prefix='AA4_ORIGINAL_RISK_ADDITIVE_IE_ROOTBRIDGE_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing unique actual original source proof JSON'
+          z=json.loads(lines[0][len(prefix):])
+          assert z['schema']=='mathlab.hyp105.original-risk-additive-IE-rootbridge.v1'
+          assert z['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert z['root_230_PROVED_A_accepted'] is False
+          assert z['root_ASET_exponent_proved'] is False
+          assert z['root_final_independent_all_dependencies_mathematically_accepted'] is False
+          assert z['genuine_EXTERNAL_ordinary_C6_graph_theorem_constants_numerically_known'] is False
+          assert z['full_R3_is_SUM_of_distinct_unordered_3v3_signed_event_probabilities'] is True
+          assert z['R3_is_probability_of_UNION_of_signed_events'] is False
+          assert z['each_source_sixID_AND_unordered_sign_mask_is_one_unique_event_index'] is True
+          assert z['all_order_sixset_to_full_R3_additive_embedding_proved'] is True
+          assert z['per_original_source_column_G5_nonzero_checksum4_palette_size']==51
+          f=z['full_sixset_GF5_independent_inclusion_exclusion']
+          b=f['nine_complete_original_BBo_templates']
+          assert len(b)==9
+          assert [(i['left_C4_choice'],i['right_C4_choice'])
+                  for i in b]==[(x,y) for x in range(3) for y in range(3)]
+          assert f['D6_ten_sum']==54162
+          assert f['BBo_exact_minimum_ten_sum']==53526
+          assert f['BBo_exact_minimum_single_sign']>=5175
+          assert f['D6_connected']
+          assert f['all_100_balanced_original_sixset_signed_events_strictly_positive']
+          assert all(len(i['ten_weights'])==10 and i['connected'] and
+                     all(n>0 for n in i['ten_weights']) and
+                     sum(i['ten_weights'])==i['sum_ten']>=53526 for i in b)
+          assert len(f['D6_ten_exact_weights'])==10
+          assert sum(f['D6_ten_exact_weights'])==54162
+          assert len(f['independent_full_100_signed_flow_table_SHA256'])==64
+          real=z['genuine_actual_original_sixID_risk_examples']
+          cases=real['genuine_source_cases']
+          assert len(cases)==9
+          assert sum(k['type']=='D6' for k in cases)==3
+          assert sum(k['type']=='BBo' for k in cases)==6
+          assert all(len(k['original_source_six_incidence_IDs'])==
+                     len(set(k['original_source_six_incidence_IDs']))==6 for k in cases)
+          assert all(k['dual_connected'] and len(k['ten_sign_weights'])==10 and
+                     sum(k['ten_sign_weights'])==k['ten_sign_sum'] for k in cases)
+          assert all(k['ten_sign_sum']>=(
+                    54162 if k['type']=='D6' else 53526) for k in cases)
+          pair=real['two_disjoint_actual_original_W32_BBo_source_sets']
+          assert set(pair['first_sixset']).isdisjoint(pair['second_sixset'])
+          assert pair['original_source_sets_disjoint']
+          assert pair['R3_sum_STRICTLY_greater_than_union_probability']
+          sumrisk=Fraction(pair['sum_of_two_local_signed_event_probabilities'])
+          both=Fraction(pair['probability_of_both_local_events'])
+          union=Fraction(pair['probability_of_union_of_two_local_events'])
+          assert both>0 and sumrisk-union==both
+          ledger=z['all_order_formal_graph_constant_gate_cases']
+          assert [(a['C0_FORMAL'],a['c0_FORMAL'],a['h0']) for a in ledger]==[
+              ('1','1',810),('2','1/5',840),('7/3','1/17',847)]
+          assert all(all(a['checks'].values()) for a in ledger)
+          for a in ledger:
+              assert Fraction(a['rho'])*12*a['q3']**2*a['L6']==16
+              assert Fraction(a['universal_original_source_conditional_R3_rational_floor'])==(
+                    Fraction(54162,51**6)*Fraction(a['delta']))
+              assert Fraction(a['LOW_BBo_sixset_sextic_floor'])==Fraction(23,48)
+              assert 53526*Fraction(23,48)>54162*Fraction(a['delta'])
+          print('AA4_TRUE_ORIGINAL_R3_ADDITIVE_INDEXED_100_GF5_IE_AND_ROOT_SCALARS_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-risk-additive-full100-GF5-IE
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
