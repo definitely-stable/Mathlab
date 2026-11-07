@@ -1,6 +1,6 @@
 # HYP-105 / #230 — AA4-SRGMIX: independently audited ORIGINAL collinearity, full-source collisions and mixed books
 
-**Scientific status:** new Draft strictly stacked on frozen green [#736](https://github.com/definitely-stable/Mathlab/pull/736), parent SHA b8f8d588969797b68ed5c8fb20b630f082ed7154. Main and previous PRs are not changed; root #230 remains OPEN_WITH_FORMAL_BLOCKER; do not merge, close the issue or claim an ASET exponent. This slice supplies independent **ALL-ORDER** SRG collision and FULL-allowed/CORE mixed source double-counting proofs, plus a separate genuine-original finite falsifier of the four individual internal-blocker inequalities under adversarial correlated maps. It does **not** by itself constitute an independent all-order proof of the full four-blocker Cauchy injection, ordinary graph supersaturation or the root theorem.
+**Scientific status:** new Draft strictly stacked on frozen green [#736](https://github.com/definitely-stable/Mathlab/pull/736), parent SHA b8f8d588969797b68ed5c8fb20b630f082ed7154. Main and previous PRs are not changed; root #230 remains OPEN_WITH_FORMAL_BLOCKER; do not merge, close the issue or claim an ASET exponent. This slice supplies independent **ALL-ORDER** SRG collision and FULL-allowed/CORE mixed source double-counting proofs, and a NEW explicit all-order source-triple injection proving the four original physical internal-blocker Cauchy inequalities. The genuine-original W32/W34 oracle independently falsifies every step. This does **not** independently accept the ordinary graph supersaturation or the full root theorem.
 
 ## 1. Precise original geometry and fixed correlated maps
 
@@ -174,25 +174,88 @@ B_y^2\le16(s+1)(K+1)|A|\Delta G_g.
 
 All this is an independently written ALL-ORDER double-counting argument, not a numerical extrapolation or another call to the old program.
 
-## 5. Direct physical four-blocker falsification, with explicit limits
+## 5. NEW independent ALL-ORDER four-blocker triple-to-source-book injection proof
 
-Build the TRUE original two-diagonal paired physical graph from retained original core C. Enumerate every directed length-three physical walk; restrict to those whose four first coordinates and four second coordinates are separately pairwise distinct. Decode its physical endpoint pair into q=f^{-1}{x0,x3}, r=g^{-1}{y0,y3}, requiring q nonincident r; reconstruct the **FULL genuine ORIGINAL GQ** unique projection q--ell--p--r. Check ALL THREE actual projected original incidence IDs avoid Z; critically these IDs may be outside C. Reject original endpoints intersecting f(p)/g(ell). Count the four distinct internal blockers independently:
+The previously outstanding path-to-source-book Cauchy step can be proved by an explicit **injective source witness map**, without assuming statistical independence, equal point/line books, anchor flags lying in C, or random physical labels. This result is stronger than merely passing finite falsification tests.
+
+### 5.1. FIRST interior x-coordinate blocker
+
+Write \(H_C\) for the true paired CORE physical graph, with adjacency \(A_C\), degree cap \(\Delta\), and \(t_4=\operatorname{tr}(A_C^4)=\sum_{v_1,v_3}(A_C^2(v_1,v_3))^2\). Let \(T_{x,1}\) be the set of **ordered physical triples** \((v_0,v_1,v_3)\) with
+
+1. \(v_0=(x_0,y_0)\) and \(v_1=(x_1,y_1)\) adjacent in the actual ORIGINAL paired core \(H_C\);
+2. \(f^{-1}\{x_0,x_3\}=q\) and \(g^{-1}\{y_0,y_3\}=r\) both exist under the fixed complete *globally injected* ORIGINAL labels, with q **not** incident to r;
+3. in the genuine FULL symplectic GQ the unique original projection of (q,r) is \(q-\ell-p-r\) with its three original source flags avoiding Z;
+4. \(x_1\in f(p)\).
+
+We deliberately do **not** require the interior middle two-walk to be coordinate proper; such overcounting only increases our upper bound. We also do **not** require the original projection flags to lie in C. The path's FIRST physical edge source ID \((u,\ell_u)\in C\) is unique, with \(f(u)=\{x_0,x_1\}\), \(g(\ell_u)=\{y_0,y_1\}\).
+
+Now take any triple \((v_0,v_1,v_3)\in T_{x,1}\). Its original source data furnish a unique term in the combinatorial expansion of \(B_x\):
+
+- retained first-edge ORIGINAL point u, pair orientation \((x,k)=(x_0,x_1)\);
+- projected original p, where \(k=x_1\in f(p)\);
+- unique projected original q, collinear with p, with \(x_0\in f(q)\), therefore counted by \(c_{x_0}(p)\);
+- full allowed ORIGINAL incidence \((p,r)\in A=I\setminus Z\) and retained ORIGINAL incidence \((u,\ell_u)\in C\), sharing the actual physical symbol \(y_0\in g(r)\cap g(\ell_u)\), therefore counted by the \(y_0\) summand of \(K_{AC}(p,u)\).
+
+The assignment from the ordered physical triple to its source-book witness is **injective**, not merely existence-preserving. Indeed, from the witness recover x0,x1 and u,p,q,r,ell_u,y0. The other endpoint \(x_3\) is uniquely forced as the remaining symbol of globally injected f(q), \(y_3\) as the remaining symbol of g(r), and \(y_1\) as the remaining symbol of g(ell_u). Thus the ORIGINAL physical triple \((v_0,v_1,v_3)\) is uniquely reconstructed from its source witness. This proves the all-order double-counting bound
 
 \[
-I_{x,1},I_{x,2},I_{y,1},I_{y,2}.
+\boxed{|T_{x,1}|\le B_x.}\tag{BLOCK-1}
 \]
 
-Without calling the prior LOWCERT code, the program independently reconstructs the true core physical \(t_4=\operatorname{tr}(A_C^4)\), physical maximum degree \(\Delta\), and mixed books \(B_x,B_y\), and validates separately on every genuine original finite adversarial case that
+Every true endpoint-good, Z-avoiding, coordinate-proper physical three-path with its first inner x-coordinate blocked by \(f(p)\) has a triple in \(T_{x,1}\). For a fixed triple the number of possible middle two-step completions \(v_1\to v_2\to v_3\) in the physical CORE graph is exactly \((A_C^2)(v_1,v_3)\). Therefore
+
+\[
+I_{x,1}\le\sum_{(v_0,v_1,v_3)\in T_{x,1}}
+(A_C^2)(v_1,v_3).
+\]
+
+Use Cauchy–Schwarz over physical triples. For fixed ordered physical pair (v1,v3), at most deg(v1) <=Delta different first neighbors v0 can occur. This yields
+
+\[
+\begin{aligned}
+I_{x,1}^2
+&\le |T_{x,1}|
+\sum_{T_{x,1}}(A_C^2)(v_1,v_3)^2\\
+&\le B_x\,\Delta\sum_{v_1,v_3}(A_C^2)(v_1,v_3)^2
+=\boxed{B_x\,\Delta\,t_4}.
+\end{aligned}
+\tag{BLOCK-2}
+\]
+
+This is a complete, explicit **ALL-ORDER** source-first proof of the difficult path-to-source mixed-book step of the original low-tail method. It depends only on genuine FULL GQ projection, unique original physical edge ownership and the original source FULL-allowed/CORE books already independently established in Sections 2–4.
+
+### 5.2. OTHER THREE blocker positions
+
+**Reversal** \(v_0,v_1,v_2,v_3\mapsto v_3,v_2,v_1,v_0\) is a bijection among the same admissible FULL-original-GQ endpoint-good directed physical proper paths: the original decoded q,r and their three named source anchors do not change, and the two endpoints have unchanged unordered factor labels. It exchanges the first and second inner x-blockers. Thus \(I_{x,2}=I_{x,1}\) and the same \(B_x\Delta t_4\) upper applies.
+
+**Genuine ORIGINAL point-line duality** swaps all original source points and lines, physical x/y factors and their globally injected f/g pair labels, without remapping original incidence IDs or allowing a source anchor in Z. Reapply the same triple injection independently in the line dual to derive \(I_{y,1}^2\le B_y\Delta t_4\); path reversal gives \(I_{y,2}^2\le B_y\Delta t_4\). In particular there is no unjustified assumption that \(B_x=B_y\) under correlation.
+
+Therefore, for every genuine \(W(3,s)\), any complete separately pair-injective correlated fixed maps f/g, any arbitrary deleted ORIGINAL source set Z and actual paired core \(C\subseteq I\setminus Z\):
 
 \[
 \boxed{
-I_{x,j}^2\le B_x\Delta t_4,\quad
+I_{x,j}^2\le B_x\Delta t_4,\qquad
 I_{y,j}^2\le B_y\Delta t_4,\qquad j=1,2.
 }
-\tag{MIX-FINITE}
+\tag{BLOCK-3}
 \]
 
-These are **finite falsifiers of the upstream four-blocker inequalities**, not a complete independent all-order combinatorial Cauchy injection. A gap in the all-order path-to-book counting would still have to be resolved on paper. The machine proof record explicitly preserves this STOP, rather than promoting root #230 merely because seven source fixtures pass.
+The sum of their four **possibly overlapping** blocker classes is consequently bounded by \(2\sqrt{B_x\Delta t_4}+2\sqrt{B_y\Delta t_4}\). This is the exact all-order four-position inequality used in the inherited LOWCERT proof; it does NOT assume the classes are disjoint.
+
+### 5.3. Independent finite red-team of the injective source map
+
+A second independent finite algorithm constructs all candidate triples in \(T_{x,1}\) directly from genuine physical first-core edges and independently decoded ORIGINAL q,r projection, even if no physical middle two-walk exists. It checks:
+
+\[
+|T_{x,1}|\le B_x,\qquad
+\Big(\sum_{T_{x,1}}A_C^2(v_1,v_3)\Big)^2
+\le |T_{x,1}|\sum_{T_{x,1}}(A_C^2(v_1,v_3))^2
+\le B_x\Delta t_4,
+\]
+
+then separately confirms the actual original valid first-inner blocked proper physical path count is at most this source-triple middle-completion sum. Reapply with fully swapped original point/line factors for the LINE dual. All four actual blockers and the source triple inventory are recorded independently in the durable JSON. These genuine W32/W34 finite probes falsify accidental implementation errors but are not substituted for the injectivity proof above.
+
+**Scientific boundary:** the previously pending *local* four-blocker source Cauchy injection is now an explicitly derived all-order lemma, but the **entire root #230 theorem** still requires review of other inherited G3 selector/chunk and G6 moment/supersaturation dependencies, correct quantifier composition and full acceptance. No automatic root/ASET promotion follows from this local closure.
 
 ## 6. Genuine-original adversarial finite trials and proof status
 
@@ -207,6 +270,6 @@ Seven real source cases use actual W(3,2) (45 flags) or W(3,4) (425 flags), lex/
 
 Original source generator is shared as a trusted test fixture, but **all spectra, collisions, books, physical and projected path combinatorics are newly independently implemented**. Only TEST code uses the historical SRG G-energy evaluator for cross-checking.
 
-All-order original source graph spectral/conflict cap and FULL/CORE F1/F2/Theta inequalities are now independently mathematically derived. **Remaining scientific blocker after this slice** is a genuinely independent paper-level/all-order proof of the physical blocker-position Cauchy injection, as well as the root high/low selector source theorem and complete external graph theorem application. Root Branch A stays OPEN_WITH_FORMAL_BLOCKER, no merge, no new ASET exponent.
+All-order original source graph spectral/conflict cap, FULL/CORE F1/F2/Theta inequalities and the explicit source-first four-blocker Cauchy injection are now independently derived. **Remaining scientific blockers** are the independent audit of the full heavy-source selector and no-clone chunk, sixth-moment selector and its interface with the root lowtail, plus acceptance of the actual external SS6 theorem application with existential constants. Root Branch A stays OPEN_WITH_FORMAL_BLOCKER, no merge, no new ASET exponent.
 
 Dedicated GitHub-hosted Ubuntu 24.04 Python 3.12 CI runs ten independent tests plus a strict complete ORIGINAL source JSON artifact. INDEX and full Research must be green at the **final exact PR HEAD** before engineering acceptance.
