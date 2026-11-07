@@ -127,7 +127,7 @@ def original_all_order_theorem(C0,c0):
             BBO_PRODUCED_WEIGHT*BBO_at_star/Fraction(PAL**6)==R3_floor,
         "no_new_ASET_exponent_asserted":True,
     }
-    if not all(gates.values()) or len(gates)!=30:
+    if not all(gates.values()) or len(gates)!=31:
         raise AssertionError("quantified original source theorem gate invalid")
     return {
         "C0_FORMAL":str(C0),"c0_FORMAL":str(c0),"T":T,"q2":q2,"q3":q3,
