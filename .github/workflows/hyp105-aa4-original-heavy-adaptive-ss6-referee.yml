@@ -68,7 +68,7 @@ jobs:
               assert Fraction(x['rho_star'])<Fraction(1,2**32)
               assert (1<<x['h0'])>=x['s0']>(1<<(x['h0']-1))
               d=Fraction(x['delta'])
-              assert d==Fraction(x['c0_FORMAL'],93313**6)
+              assert d==Fraction(x['c0_FORMAL'])/93313**6
               assert Fraction(x['new_original_SOURCE_motif_S_s_sextic_floor'])==d
               assert Fraction(x['new_signed_GF5_R3_sextic_floor'])==54162*d/51**6
               assert Fraction(x['BBo_LOW_produced_sextic_at_rho_star'])==Fraction(54162,53838)*d
