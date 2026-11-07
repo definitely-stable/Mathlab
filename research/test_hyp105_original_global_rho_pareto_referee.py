@@ -117,7 +117,7 @@ class TestOriginalGlobalRhoPareto(unittest.TestCase):
         self.assertEqual([(z["s"],z["scheme"]) for z in vals][:4],
                          [(2,"lex"),(2,"reverse-line"),
                           (4,"lex"),(4,"reverse-line")])
-        self.assertTrue(any(z["original_paired_core_physical_edge_count"]>0
+        self.assertTrue(all(z["original_paired_core_physical_edge_count"]>0
                             for z in vals))
         for v in vals:
             with self.subTest(s=v["s"],scheme=v["scheme"]):
