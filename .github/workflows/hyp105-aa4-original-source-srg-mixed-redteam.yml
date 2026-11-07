@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Ten genuine ORIGINAL point/line SRG, mixed-book and four-blocker tests
+      - name: Eleven genuine ORIGINAL SRG, FULL/CORE and source triple blocker tests
         run: |
           python -m unittest discover -s research -p 'test_hyp105_original_source_srg_mixed_referee.py' -v
       - name: Fail closed complete adversarial correlated original W32/W34 proof record
@@ -42,7 +42,8 @@ jobs:
           assert x['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
           assert x['root_universally_accepted'] is False
           assert x['original_all_order_SRG_bound_has_analytic_proof'] is True
-          assert x['all_order_four_blocker_Cauchy_full_referee_pending'] is True
+          assert x['all_order_four_blocker_Cauchy_full_referee_pending'] is False
+          assert x['all_order_four_blocker_Cauchy_source_triple_injection_derived'] is True
           cases=x['genuine_complete_original_cases']
           assert len(cases)==7
           assert [(z['s'],z['scheme']) for z in cases][:2]==[
@@ -64,6 +65,15 @@ jobs:
               assert len(paths['four_separate_original_blocked_path_counts'])==4
               assert all(paths['checks'].values())
               assert paths['proper_paths3']<=paths['physical_walks3']
+              for key in ('original_point_source_first_triple_injection',
+                          'original_LINE_dual_source_first_triple_injection'):
+                  triple=z[key]
+                  assert all(triple['checks'].values())
+                  assert triple['original_source_candidate_triples']<=triple['original_B_source_book']
+                  assert (triple['physical_two_walk_completions_over_source_triples']**2 <=
+                          triple['original_B_source_book']*triple['original_core_Delta']*
+                          triple['physical_trace_A4'])
+              assert z['source_first_all_four_blocker_positions_covered'] is True
           assert any(z['full_original_heavy_touching_ids']>0 for z in cases)
           assert any(z['original_core_flags']>0 and
                      z['physical_four_original_projection_blockers']['proper_paths3']>0
