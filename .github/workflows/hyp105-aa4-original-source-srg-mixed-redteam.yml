@@ -1,0 +1,89 @@
+name: hyp105-aa4-original-source-srg-mixed-redteam
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-source-srg-mixed-redteam.yml'
+      - 'research/hyp105_original_source_srg_mixed_referee.py'
+      - 'research/test_hyp105_original_source_srg_mixed_referee.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-SRG-MIXED-REDTEAM.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-source-srg-and-four-blockers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Eleven genuine ORIGINAL SRG, FULL/CORE and source triple blocker tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_source_srg_mixed_referee.py' -v
+      - name: Fail closed complete adversarial correlated original W32/W34 proof record
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_source_srg_mixed_referee.py |
+            tee proof/aa4-original-srg-mixed.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          import json
+          lines=Path('proof/aa4-original-srg-mixed.json.log').read_text().splitlines()
+          tag='AA4_ORIGINAL_SRGMIX_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(tag), 'missing single true original source certificate'
+          x=json.loads(lines[0][len(tag):])
+          assert x['schema']=='mathlab.hyp105.original-source-SRGMIX.v1'
+          assert x['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert x['root_universally_accepted'] is False
+          assert x['original_all_order_SRG_bound_has_analytic_proof'] is True
+          assert x['all_order_four_blocker_Cauchy_full_referee_pending'] is False
+          assert x['all_order_four_blocker_Cauchy_source_triple_injection_derived'] is True
+          cases=x['genuine_complete_original_cases']
+          assert len(cases)==7
+          assert [(z['s'],z['scheme']) for z in cases][:2]==[
+              (2,'lex'),(2,'reverse-line')]
+          assert {(z['s'],z['scheme']) for z in cases}=={
+              (2,'lex'),(2,'reverse-line'),(4,'lex'),(4,'reverse-line')}
+          assert all(z['all_referee_inequalities_valid'] is True for z in cases)
+          assert all(z['adversarial_deleted_original_ids']>0 for z in cases)
+          assert all(z['core_physical_edges']==2*z['original_core_flags']
+                     and z['max_original_core_degree']<=z['T']*z['s'] for z in cases)
+          assert all(z['original_point_conflict_count']<=z['original_source_point_spectral_Cs']
+                     and z['original_line_conflict_count']<=z['original_source_line_spectral_Cs']
+                     for z in cases)
+          for z in cases:
+              for key in ('original_full_core_point_books','original_full_core_LINE_dual_books'):
+                  assert all(z[key]['checks'].values())
+                  assert z[key]['B']**2<=z[key]['F1']*z[key]['F2']
+              paths=z['physical_four_original_projection_blockers']
+              assert len(paths['four_separate_original_blocked_path_counts'])==4
+              assert all(paths['checks'].values())
+              assert paths['proper_paths3']<=paths['physical_walks3']
+              for key in ('original_point_source_first_triple_injection',
+                          'original_LINE_dual_source_first_triple_injection'):
+                  triple=z[key]
+                  assert all(triple['checks'].values())
+                  assert triple['original_source_candidate_triples']<=triple['original_B_source_book']
+                  assert (triple['physical_two_walk_completions_over_source_triples']**2 <=
+                          triple['original_B_source_book']*triple['original_core_Delta']*
+                          triple['physical_trace_A4'])
+              assert z['source_first_all_four_blocker_positions_covered'] is True
+          assert any(z['full_original_heavy_touching_ids']>0 for z in cases)
+          assert any(z['original_core_flags']>0 and
+                     z['physical_four_original_projection_blockers']['proper_paths3']>0
+                     for z in cases)
+          print('AA4_ORIGINAL_SOURCE_SRG_MIXED_SPECTRAL_FOUR_BLOCKERS_FINITE_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-source-SRG-mixed-redteam
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
