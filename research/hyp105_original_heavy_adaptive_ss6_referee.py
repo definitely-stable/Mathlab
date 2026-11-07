@@ -41,6 +41,7 @@ SCHEMA="mathlab.hyp105.original-heavy-adaptive-ss6-referee.v1"
 ROOT_STATUS="OPEN_WITH_FORMAL_BLOCKER"
 R_OLD=370944
 R_NEW=93313
+R_ZERO_DELETION=93312
 K=64
 PAL=51
 D6_WEIGHT=54162
@@ -99,6 +100,8 @@ def standalone_quantified_theorem(C0,c0):
             independent_rho_upper<RHO_CAP and 0<rho_star<independent_rho_upper,
         "all_h_density_integer_R_NEW_tight_ceiling_93313":
             ceil_frac(heavy_density_denominator(RHO_CAP))==R,
+        "all_h_zero_original_Z_heavy_exact_density_R_93312":
+            heavy_density_denominator(Fraction(0))==R_ZERO_DELETION,
         "all_h_heavy_first_owner_L_keeps_TRUE_postZ_fraction":
             heavy_normalized_owner_lb==Fraction(1,16)-RHO_CAP,
         "all_h_true_original_J_Caro_Wei_bound_with_RHO":
@@ -135,6 +138,7 @@ def standalone_quantified_theorem(C0,c0):
     return {
         "C0_FORMAL":str(C0),"c0_FORMAL":str(c0),
         "R_OLD":R_OLD,"R_ADAPT":R,
+        "R_no_original_Z_exact":R_ZERO_DELETION,
         "T":T,"q2":q2,"q3":q3,"L6":L6,"L4":L4,"B0":B0,"E":E,"D":D,
         "s0":s0,"h0":h0,"delta":str(delta),
         "rho_star":str(rho_star),"rho_pre_adaptive_same_R":str(rho_previous),
