@@ -1,0 +1,89 @@
+name: hyp105-aa4-original-root-proof-dag-gate
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-root-proof-dag-gate.yml'
+      - 'research/hyp105_original_root_proof_dag_gate.py'
+      - 'research/test_hyp105_original_root_proof_dag_gate.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-ROOT-PROOF-DAG-GATE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-root-heavy-low-proof-dag:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Eleven independent original source and rational heavy-low SS6/GF5 proof DAG tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_root_proof_dag_gate.py' -v
+      - name: Fail-closed full mathematical source budget, weighted risk and counterfactual proof JSON
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_root_proof_dag_gate.py |
+            tee proof/aa4-original-root-proof-dag.json.log
+          python - <<'PYCODE'
+          from fractions import Fraction
+          from pathlib import Path
+          import json
+          lines=Path('proof/aa4-original-root-proof-dag.json.log').read_text(
+              encoding='utf8').splitlines()
+          prefix='AA4_ORIGINAL_ROOT_DAG_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing entire root proof DAG certificate'
+          x=json.loads(lines[0][len(prefix):])
+          assert x['schema']=='mathlab.hyp105.original-root-proof-dag.v1'
+          assert x['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert x['root_universally_accepted'] is False
+          assert x['root_ASET_exponent_proved'] is False
+          assert x['conditional_arithmetic_independently_closed'] is True
+          assert x['original_six_ID_source_lifts_independent_review_pending'] is True
+          assert x['original_graph_SS6_external_constants_existential'] is True
+          assert x['uniform_old_class_weight']==53526
+          assert x['uniform_new_branch_weight']==54162
+          assert Fraction(x['weighted_improvement_ratio'])==Fraction(9027,8921)
+          originals=x['actual_original_source_envelopes']
+          assert [r['s'] for r in originals]==[64,128,256,1024]
+          assert all(all(z['checks'].values()) and z['N']>0
+                     for z in originals)
+          ledgers=x['three_formal_rational_graph_theorem_ledgers']
+          assert [(v['C0_FORMAL'],v['c0_FORMAL']) for v in ledgers]==[
+              ('1','1'),('2','1/5'),('7/3','1/17')]
+          assert all(v['all_conditionals_hold'] and
+                     v['external_constants_numerically_verified'] is False
+                     for v in ledgers)
+          for v in ledgers:
+              c=Fraction(v['c0_FORMAL'])
+              assert Fraction(v['delta'])==c/2**120
+              assert Fraction(v['low_BBo_at_least_5_32'])==Fraction(5,32)
+              assert Fraction(v['new_weighted_uniform_numerator'])==54162*c/2**120
+              assert Fraction(v['new_weighted_uniform_numerator'])>\
+                     Fraction(v['old_weighted_uniform_numerator'])
+              assert v['D6_ten_GF5']==54162
+              assert v['BBo_min_ten_GF5']==53526
+              assert v['s0_bit_length']>0 and v['h0']>=64
+          counter=x['red_team_mutations']
+          assert len(counter)==4
+          assert {v['mutation'] for v in counter}=={
+              'graph_T_below_sufficient_threshold',
+              'deletion_rho_too_large',
+              'heavy_GF5_misweight',
+              'low_GF5_misweight'}
+          assert all(v['rejected'] and v['failed_gates'] for v in counter)
+          print('AA4_ORIGINAL_ROOT_DAG_HEAVY_LOW_WEIGHTED_GF5_CONDITIONAL_GATES_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-root-proof-dag-evidence
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
