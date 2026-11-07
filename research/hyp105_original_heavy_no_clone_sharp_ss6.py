@@ -400,13 +400,13 @@ def _fresh_heavy_case(h,scheme,T,deleted,shift_f=0,shift_g=0):
     if 2*len(cross)<len(kept):
         raise AssertionError("selected original heavy witness majority lost")
     win=_winner_chunk(cross,Rset,Yset,n)
-    m=win["winner_m"];v=win["winner_v"]
+    m=win["winner_m"];vF=win["winner_v"]
     q=len(Q)
     instance_alpha=Fraction(L*L,L+2*eJ)
     density=Fraction(L*L,32*n*(L+2*eJ))
     ss6_floor=Fraction(L**6,2**16*n**3*q*(L+2*eJ)**3)
-    if (Fraction(m,v)<density or
-            Fraction(m**3,v**4)<ss6_floor or v>2*q):
+    if (Fraction(m,vF)<density or
+            Fraction(m**3,vF**4)<ss6_floor or vF>2*q):
         raise AssertionError("true original no-clone graph density/SS6 transfer")
     # Owner of a physical edge in the winner is the unique original
     # incidence ID from selected whole flags, even if only one diagonal
@@ -449,8 +449,8 @@ def _fresh_heavy_case(h,scheme,T,deleted,shift_f=0,shift_g=0):
         "instance_original_alpha_CW_lower":str(instance_alpha),
         "instance_sharp_source_density_lower":str(density),
         "instance_SS6_cubed_lower":str(ss6_floor),
-        "actual_winner_m_over_v":str(Fraction(m,v)),
-        "actual_winner_e3_over_v4":str(Fraction(m**3,v**4)),
+        "actual_winner_m_over_v":str(Fraction(m,vF)),
+        "actual_winner_e3_over_v4":str(Fraction(m**3,vF**4)),
         "actual_no_clone_winner":{
             "winner_m":m,"winner_v":v,"num_chunks":win["num_chunks"],
             "E_cross":win["E_cross"],
