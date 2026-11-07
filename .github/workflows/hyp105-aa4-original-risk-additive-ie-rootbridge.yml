@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Thirteen genuine ORIGINAL R3 indexed-event risk and full-100 independent GF5 tests
+      - name: Fourteen genuine ORIGINAL R3 event, all-100 GF5 and synchronized produced BBo tests
         run: |
           python -m unittest discover -s research -p 'test_hyp105_original_risk_additive_ie_rootbridge.py' -v
       - name: Fail closed exact source risk, all GF5 IE templates, genuine sixID and formal all-h composition
@@ -56,6 +56,18 @@ jobs:
           assert len(b)==9
           assert [(i['left_C4_choice'],i['right_C4_choice'])
                   for i in b]==[(x,y) for x in range(3) for y in range(3)]
+          compatible=f['nine_BBo_TEMPLATE_C4_center_compatibility']
+          assert len(compatible)==9
+          yes=[a for a in compatible if a['same_three_original_path_owner_CENTER']]
+          no=[a for a in compatible if not a['same_three_original_path_owner_CENTER']]
+          assert len(yes)==3 and len(no)==6
+          assert {(a['left_C4'],a['right_C4']) for a in yes}=={(0,0),(1,1),(2,2)}
+          assert all(a['ten_sign_sum']==53838 and a['left_center']==a['right_center']
+                     for a in yes)
+          assert all(a['ten_sign_sum']==53526 and a['left_center']!=a['right_center']
+                     for a in no)
+          assert f['three_physical_path_COMPATIBLE_BBo_minimum_ten_sign_weight']==53838
+          assert z['all_order_physical_produced_BBo_SAME_owner_C4_center_for_both_typed_factors']
           assert f['D6_ten_sum']==54162
           assert f['BBo_exact_minimum_ten_sum']==53526
           assert f['BBo_exact_minimum_single_sign']>=5175
@@ -78,6 +90,11 @@ jobs:
                      sum(k['ten_sign_weights'])==k['ten_sign_sum'] for k in cases)
           assert all(k['ten_sign_sum']>=(
                     54162 if k['type']=='D6' else 53526) for k in cases)
+          assert all(k['ten_sign_sum']==53838 and
+                     k['physical_path_compatible_BBo_C4_center'] is True
+                     for k in cases if k['type']=='BBo')
+          assert all(k['physical_path_compatible_BBo_C4_center'] is None
+                     for k in cases if k['type']=='D6')
           pair=real['two_disjoint_actual_original_W32_BBo_source_sets']
           assert set(pair['first_sixset']).isdisjoint(pair['second_sixset'])
           assert pair['original_source_sets_disjoint']
@@ -95,6 +112,8 @@ jobs:
               assert Fraction(a['universal_original_source_conditional_R3_rational_floor'])==(
                     Fraction(54162,51**6)*Fraction(a['delta']))
               assert Fraction(a['LOW_BBo_sixset_sextic_floor'])==Fraction(23,48)
+              assert a['NEW_LOW_physical_PRODUCED_BBo_exact_ten_event_weight']==53838
+              assert 53838*Fraction(23,48)>54162*Fraction(a['delta'])
               assert 53526*Fraction(23,48)>54162*Fraction(a['delta'])
           print('AA4_TRUE_ORIGINAL_R3_ADDITIVE_INDEXED_100_GF5_IE_AND_ROOT_SCALARS_PASS')
           PYCODE
