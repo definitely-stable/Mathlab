@@ -1,0 +1,102 @@
+name: hyp105-aa4-original-heavy-adaptive-ss6-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-heavy-adaptive-ss6-referee.yml'
+      - 'research/hyp105_original_heavy_adaptive_ss6_referee.py'
+      - 'research/test_hyp105_original_heavy_adaptive_ss6_referee.py'
+      - 'docs/research/HYP-105-AA4-HEAVY-DELETION-ADAPTIVE-SS6-REFEREE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independently-verify-true-original-heavy-adaptive-ss6:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Twelve independent exact all-h source and real no-clone physical witness tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_heavy_adaptive_ss6_referee.py' -v
+      - name: Fail closed all-order R 93313 and genuine ORIGINAL physical heavy witness certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_heavy_adaptive_ss6_referee.py |
+            tee proof/aa4-original-heavy-adaptive-ss6.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from math import comb
+          from pathlib import Path
+          lines=Path('proof/aa4-original-heavy-adaptive-ss6.json.log').read_text(
+              encoding='utf8').splitlines()
+          prefix='AA4_ORIGINAL_HEAVY_ADAPTIVE_SS6_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing unique genuine original source certificate'
+          z=json.loads(lines[0][len(prefix):])
+          assert z['schema']=='mathlab.hyp105.original-heavy-adaptive-ss6-referee.v1'
+          assert z['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert z['root_ASET_exponent_proved'] is False
+          assert z['root_Branch_A_formally_peer_review_accepted'] is False
+          assert z['external_graph_SS6_actual_numeric_constants_verified'] is False
+          assert z['primary_root_target_is_seven_class_S_s_NOT_R3'] is True
+          assert z['R3_is_the_separate_additive_signed_event_expectation'] is True
+          assert z['prior_root_math_dependency_acceptance_still_outstanding'] is True
+          assert z['all_order_heavy_adaptive_density_theorem_proved_from_named_prior_lemmas'] is True
+          assert z['all_order_new_R_93313_and_delta_improvement_more_than_3900fold'] is True
+          formal=z['all_order_formal_external_C0_c0_probes']
+          assert [(x['C0_FORMAL'],x['c0_FORMAL'],x['h0']) for x in formal]==[
+              ('1','1',751),('2','1/5',781),('7/3','1/17',787)]
+          q3=64*comb(195,3)
+          rho_universal=Fraction(119,24)**2/(12*q3*q3*24)
+          assert rho_universal<Fraction(1,2**32)
+          assert Fraction(370944,93313)**6>3900
+          for x in formal:
+              assert x['R_ADAPT']==93313 and x['R_OLD']==370944
+              assert x['R_no_original_Z_exact']==93312
+              assert len(x['all_h_18_quantified_exact_rational_crossbranch_gates'])==19
+              assert all(x['all_h_18_quantified_exact_rational_crossbranch_gates'].values())
+              assert x['graph_supersaturation_numeric_C0_c0_are_published'] is False
+              assert Fraction(x['rho_star'])<rho_universal
+              assert Fraction(x['rho_star'])<Fraction(1,2**32)
+              assert (1<<x['h0'])>=x['s0']>(1<<(x['h0']-1))
+              d=Fraction(x['delta'])
+              assert d==Fraction(x['c0_FORMAL'])/93313**6
+              assert Fraction(x['new_original_SOURCE_motif_S_s_sextic_floor'])==d
+              assert Fraction(x['new_signed_GF5_R3_sextic_floor'])==54162*d/51**6
+              assert Fraction(x['BBo_LOW_produced_sextic_at_rho_star'])==Fraction(54162,53838)*d
+              assert Fraction(x['R_heavy_vs_frozen_root_delta_improvement_factor'])==Fraction(370944,93313)**6
+          cases=z['genuine_original_W32_W34_new_independent_heavy_physical_witnesses']
+          assert len(cases)==5
+          assert [(x['s'],x['scheme']) for x in cases][:4]==[
+              (2,'lex'),(2,'reverse-line'),(4,'lex'),(4,'reverse-line')]
+          assert all(x['diagnostic_heavy_nonvacuous'] for x in cases)
+          for x in cases:
+              assert x['Z']>0 and x['diagnostic_T']==1
+              assert x['original_surviving_heavy_edges']>0
+              assert x['surviving_original_heavy_IDs']>0
+              assert x['source_original_conflict_free_independent_flags']>=Fraction(x['source_caroweibound'])
+              assert x['after_two_REAL_coordinate_cuts_original_flags']>0
+              assert x['ordinary_NO_CLONE_heavy_F_physical_vertices']>0
+              assert x['ordinary_NO_CLONE_heavy_F_physical_edges']>0
+              assert x['source_IDs_and_physical_vertices_are_never_cloned']
+              assert x['physical_original_flag_diagonals_in_selected_graph']==2*x['after_two_REAL_coordinate_cuts_original_flags']
+              assert Fraction(x['actual_NO_CLONE_F_edge_density'])>=Fraction(
+                  x['actual_SOURCE_S_over_8a2_density_bound'])
+              assert x['original_full_heavy_edges']-x['original_surviving_heavy_edges']<=2*x['Z']
+          print('AA4_TRUE_ORIGINAL_HEAVY_R93313_3900X_S_AND_R3_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-heavy-adaptive-ss6-R93313
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
