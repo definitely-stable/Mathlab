@@ -85,6 +85,7 @@ jobs:
               assert x['Theta']==y['Theta']
               for b in (x,y):
                   assert b['Theta']==b['Theta_source_expansion']
+                  assert b['G']==b['FULL_original_SRG_energy_independent_formula']
                   assert b['Theta']<=b['sum_4A_core_physical_degree_bound']
                   assert b['B']*b['B']<=b['F1']*b['F2']
                   assert b['F1']<=2*b['G']
@@ -105,6 +106,8 @@ jobs:
               assert a['y1']<=c['line_first_inner_source_triples']['completion']
               assert a['y2']<=c['line_first_inner_source_triples']['completion']
           assert total_actual_blockers>0, 'vacuous four-blocker source test'
+          assert any(c['four_original_physical_actual_proper_P3_blockers']['genuine_full_GQ_anchors_in_A_OUTSIDE_C_good_paths']>0 for c in cases)
+          assert any(c['four_original_physical_actual_proper_P3_blockers']['proper_physical_original_sixID_unblocked_P3']>0 for c in cases)
           print('AA4_TRUE_ORIGINAL_GQ_Z_OVERLAP_FULL_A_C_FOUR_BLOCKER_REFEREE_PASS')
           PYCODE
       - uses: actions/upload-artifact@v4
