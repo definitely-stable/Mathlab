@@ -1,0 +1,184 @@
+name: hyp105-aa4-original-gq-projection-mixed-ac-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-gq-projection-mixed-ac-referee.yml'
+      - 'research/hyp105_original_gq_projection_mixed_ac_referee.py'
+      - 'research/hyp105_original_full_star_z_50pct_referee.py'
+      - 'research/test_hyp105_original_full_star_z_50pct_referee.py'
+      - 'research/test_hyp105_original_gq_projection_mixed_ac_referee.py'
+      - 'docs/research/HYP-105-AA4-GQ-PROJECTION-MIXED-AC-INDEPENDENT-REFEREE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-full-original-GQ-AC-four-blocker:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Twelve original full-GQ and mixed A/C blocker mathematical tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_gq_projection_mixed_ac_referee.py' -v
+      - name: Fail closed all ORIGINAL GQ roles, deletion overlap, mixed A/C source books, and four blocker paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_gq_projection_mixed_ac_referee.py |
+            tee proof/aa4-original-full-GQ-AC-mixed-blockers.json.log
+          python - <<'PYCODE'
+          import json
+          from math import comb
+          from pathlib import Path
+          lines=Path('proof/aa4-original-full-GQ-AC-mixed-blockers.json.log').read_text(
+              encoding='utf8').splitlines()
+          prefix='AA4_ORIGINAL_GQ_PROJECTION_MIXED_AC_REFEREE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing unique ORIGINAL full GQ/mixed A-C JSON'
+          z=json.loads(lines[0][len(prefix):])
+          assert z['schema']=='mathlab.hyp105.original-GQ-projection-AC-mixed-books-referee.v1'
+          assert z['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert z['root_Branch_A_independently_accepted'] is False
+          assert z['root_new_ASET_exponent'] is False
+          assert z['root_external_graph_SS6_numeric_constants_known'] is False
+          assert z['root_objective_original_seven_motif_S_s_not_R3']
+          assert z['new_exact_adversarial_original_Z_projection_overlap_rebate_identity']
+          assert z['prior_original_geometric_lemmas_need_full_independent_acceptance']
+          for v in z['ALL_h_genuine_original_endpoints_exact_arithmetic_envelopes']:
+              s=v['s'];a=v['a'];V=v['V']
+              assert s in [64,128,256,1024,65536]
+              assert comb(a-1,2)<V<=comb(a,2)
+              assert v['exact_missing_typed_endpoint_count']+v['original_incident_typed_endpoint_count']+v['max_original_SRGe_col_projected_endbad']<=24*s**5
+              assert len(v['all_order_9_source_GQ_endpoint_gates'])==9
+              assert all(v['all_order_9_source_GQ_endpoint_gates'].values())
+          cases=z['genuine_full_ORIGINAL_GQ_projection_and_mixed_AC_oracles']
+          assert len(cases)==6
+          assert [(c['s'],c['scheme']) for c in cases][:5]==[
+              (2,'lex'),(2,'reverse-line'),(4,'lex'),(4,'reverse-line'),(4,'lex')]
+          assert all(c['original_deleted_named_IDs']>0 and c['original_paired_C_IDs']>0 for c in cases)
+          assert any(c['original_full_A_IDs']>c['original_paired_C_IDs'] for c in cases)
+          assert any(c['original_fullGQ_endpoints']['typed_deleted_ORIGINAL_3role_overcount_credit']>0 for c in cases)
+          total_actual_blockers=0
+          for c in cases:
+              s=c['s'];V=(s+1)*(s*s+1)
+              ep=c['original_fullGQ_endpoints']
+              assert ep['original_nonincident_q_r_projection_pairs']==V*(V-s-1)
+              assert ep['exact_original_incidence_ID_3_source_roles_s2']
+              assert ep['exact_all_typed_ENDPOINT_census_complete']
+              assert ep['typed_deleted_RAW_full_GQ_projection_endpoints']+ep['typed_deleted_ORIGINAL_3role_overcount_credit']==12*s*s*c['original_deleted_named_IDs']
+              assert ep['typed_nonZ_endpoint_exception_count']==(
+                  ep['typed_missing_pair_endpoints']+
+                  ep['typed_original_incident_pair_endpoints']+
+                  ep['typed_original_nonZ_projection_endbad'])
+              assert ep['typed_original_nonZ_projection_endbad']<=8*s*(
+                  ep['true_original_collinear_f_overlap_pairs']+
+                  ep['true_original_collinear_g_overlap_pairs'])
+              assert c['original_full_A_IDs']>=c['original_paired_C_IDs']
+              assert c['original_CORE_real_physical_edges']==2*c['original_paired_C_IDs']
+              assert c['original_core_actual_Delta']<=s*c['diagnostic_T']
+              x=c['independent_FULL_A_CORE_C_mixed_point_book']
+              y=c['independent_FULL_A_CORE_C_mixed_line_book']
+              assert x['Theta']==y['Theta']
+              for b in (x,y):
+                  assert b['Theta']==b['Theta_source_expansion']
+                  assert b['G']==b['FULL_original_SRG_energy_independent_formula']
+                  assert b['Theta']<=b['sum_4A_core_physical_degree_bound']
+                  assert b['B']*b['B']<=b['F1']*b['F2']
+                  assert b['F1']<=2*b['G']
+                  assert b['F2']<=2*(s+1)*(c['full_original_K_conflict_cap']+1)*b['Theta']
+              for name,b in [('point_first_inner_source_triples',x),
+                             ('line_first_inner_source_triples',y)]:
+                  t=c[name]
+                  assert t['source_witness_injective']
+                  assert t['T']<=b['B']
+                  assert t['completion']**2<=t['T']*t['sumsq']
+                  assert t['completion']**2<=b['B']*c['original_core_actual_Delta']*t['tr4']
+              a=c['four_original_physical_actual_proper_P3_blockers']
+              total_actual_blockers+=sum(a[k] for k in ('x1','x2','y1','y2'))
+              assert a['blocked_any']<=sum(a[k] for k in ('x1','x2','y1','y2'))
+              assert a['endpoint_good']<=a['proper']
+              assert a['x1']<=c['point_first_inner_source_triples']['completion']
+              assert a['x2']<=c['point_first_inner_source_triples']['completion']
+              assert a['y1']<=c['line_first_inner_source_triples']['completion']
+              assert a['y2']<=c['line_first_inner_source_triples']['completion']
+          assert total_actual_blockers>0, 'vacuous four-blocker source test'
+          assert any(c['four_original_physical_actual_proper_P3_blockers']['genuine_full_GQ_anchors_in_A_OUTSIDE_C_good_paths']>0 for c in cases)
+          assert any(c['four_original_physical_actual_proper_P3_blockers']['proper_physical_original_sixID_unblocked_P3']>0 for c in cases)
+          print('AA4_TRUE_ORIGINAL_GQ_Z_OVERLAP_FULL_A_C_FOUR_BLOCKER_REFEREE_PASS')
+          PYCODE
+      - name: Eight independent new source complete point/line STAR 50 percent Z tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_full_star_z_50pct_referee.py' -v
+      - name: Fail closed all-h point/line original STAR 3/2 Z radius and six actual GQ source oracles
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -u research/hyp105_original_full_star_z_50pct_referee.py |
+            tee proof/aa4-original-full-star-50pct-Z.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from math import comb
+          from pathlib import Path
+          lines=Path('proof/aa4-original-full-star-50pct-Z.json.log').read_text(
+              encoding='utf8').splitlines()
+          prefix='AA4_ORIGINAL_FULL_STAR_Z_50PCT_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing unique original source STAR theorem'
+          x=json.loads(lines[0][len(prefix):])
+          assert x['schema']=='mathlab.hyp105.original-full-star-deletion-50pct.v1'
+          assert x['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert x['root_ASET_exponent_proved'] is False
+          assert x['root_Branch_A_independently_accepted'] is False
+          assert x['graph_C6_SS6_actual_numeric_constants_known'] is False
+          assert x['original_root_target_seven_class_S_s_not_R3']
+          assert x['new_original_POINT_LINE_STAR_mask_exact_all_h']
+          assert x['new_original_structured_Z_rho_exact_one_point_five_x']
+          ledgers=x['all_h_original_point_and_line_STAR_risk_preserving_ledgers']
+          assert [(q['C0_FORMAL'],q['c0_FORMAL'],q['h0']) for q in ledgers]==[
+              ('1','1',751),('2','1/5',781),('7/3','1/17',787)]
+          q3=64*comb(195,3)
+          for q in ledgers:
+              assert q['R']==93313
+              assert len(q['all_h_13_exact_structured_original_Z_theorem_gates'])==13
+              assert all(q['all_h_13_exact_structured_original_Z_theorem_gates'].values())
+              rho=Fraction(q['rho_FULL_POINT_OR_LINE_STAR_original_Z'])
+              old=Fraction(q['rho_arbitrary_original_Z'])
+              assert rho==Fraction(3,2)*old
+              assert rho<Fraction(1,2**32)
+              assert 8*q3*q3*q['L6']*rho==Fraction(q['t_star'])**2
+              delta=Fraction(q['delta'])
+              assert Fraction(q['same_seven_original_motif_S_s_floor'])==delta
+              assert Fraction(q['same_GF5_additive_R3_floor'])==Fraction(54162,51**6)*delta
+              assert not q['numerical_graph_constants_published']
+          cases=x['true_original_symplectic_full_STAR_GQ_falsifiers']
+          assert len(cases)==6
+          assert [(q['s'],q['type']) for q in cases][:4]==[
+              (2,'point'),(2,'line'),(4,'point'),(4,'line')]
+          for q in cases:
+              s=q['s'];Z=q['all_deleted_original_incidence_IDs']
+              assert Z==(s+1)*len(q['selected_original_source_stars'])
+              assert q['each_source_role_s2_exact']
+              assert q['original_SOURCE_STAR_50percent_more_deletion_exact']
+              assert q['source_projections_middle_STAR_selected']==s*s*Z
+              assert q['original_Z_overlap_rebate_exact']==(
+                  4*s*s*Z+4*q['source_extra_both_endpoint_and_middle_STAR_overlap'])
+              assert q['actual_original_Z_masked_directed_typed_endpoints']==(
+                  8*s*s*Z-4*q['source_extra_both_endpoint_and_middle_STAR_overlap'])
+              assert q['actual_original_Z_masked_directed_typed_endpoints']<=8*s*s*Z
+          assert cases[2]['actual_original_Z_masked_directed_typed_endpoints']==640
+          assert cases[2]['original_Z_overlap_rebate_exact']==320
+          print('AA4_TRUE_ORIGINAL_FULL_POINT_LINE_STAR_50PCT_MORE_Z_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-full-GQ-mixed-AC-blocker-referee
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
