@@ -322,6 +322,13 @@ def _incident_line(h,point,incident):
                 if (l in c["point_lines"][point])==incident)
 
 
+def _other_line(h,point,incident,except_line):
+    c=_fixture(h,"lex")
+    return next(l for l in range(c["V"])
+                if (l in c["point_lines"][point])==incident
+                and l!=except_line)
+
+
 def _separate_flag(h,excluded_point):
     c=_fixture(h,"lex")
     return next(i for i,(p,l) in enumerate(c["flags"])
@@ -345,9 +352,9 @@ def canonical_report():
         genuine_original_defect_case(
             2,"reverse-line",points=(0,),lines=(_incident_line(2,0,False),),shf=11,shg=23),
         genuine_original_defect_case(
-            2,"lex",points=(0,1),lines=(_incident_line(2,0,True),_incident_line(2,1,True))),
+            2,"lex",points=(0,1),lines=(_incident_line(2,0,True),_other_line(2,1,True,_incident_line(2,0,True)))),
         genuine_original_defect_case(
-            2,"reverse-line",points=(0,3),lines=(_incident_line(2,0,False),_incident_line(2,3,False)),shf=7,shg=19),
+            2,"reverse-line",points=(0,3),lines=(_incident_line(2,0,False),_other_line(2,3,False,_incident_line(2,0,False))),shf=7,shg=19),
         genuine_original_defect_case(
             2,"lex",extra_flags=(0,)),
         genuine_original_defect_case(
