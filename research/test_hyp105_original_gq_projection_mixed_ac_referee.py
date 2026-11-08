@@ -93,6 +93,7 @@ class TestOriginalGQProjectionMixedAC(unittest.TestCase):
             self.assertEqual(y["Theta"],y["Theta_source_expansion"])
             self.assertEqual(x["Theta"],y["Theta"])
             for v in (x,y):
+                self.assertEqual(v["G"],v["FULL_original_SRG_energy_independent_formula"])
                 self.assertLessEqual(v["Theta"],
                                      v["sum_4A_core_physical_degree_bound"])
                 self.assertLessEqual(v["B"]**2,v["F1"]*v["F2"])
@@ -140,6 +141,12 @@ class TestOriginalGQProjectionMixedAC(unittest.TestCase):
                                  sum(x[k] for k in ("x1","x2","y1","y2")))
             self.assertLessEqual(x["endpoint_good"],x["proper"])
         self.assertGreater(total,0,"require non-vacuous true blocked original GQ paths")
+        self.assertTrue(any(
+            t["four_original_physical_actual_proper_P3_blockers"][
+                "genuine_full_GQ_anchors_in_A_OUTSIDE_C_good_paths"]>0 for t in z))
+        self.assertTrue(any(
+            t["four_original_physical_actual_proper_P3_blockers"][
+                "proper_physical_original_sixID_unblocked_P3"]>0 for t in z))
 
     def test_mixed_book_full_allowed_A_is_not_wrongly_shrunk_to_paired_C(self):
         z=self.q["genuine_full_ORIGINAL_GQ_projection_and_mixed_AC_oracles"]
