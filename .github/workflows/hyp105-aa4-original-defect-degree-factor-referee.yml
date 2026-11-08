@@ -1,0 +1,65 @@
+name: hyp105-aa4-original-defect-degree-factor-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-defect-degree-factor-referee.yml'
+      - 'research/hyp105_original_defect_factor_referee.py'
+      - 'research/test_hyp105_original_defect_factor_referee.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-DEFECT-LOCAL-DEGREE-FACTOR.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-gq-degree-factor-iff:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent actual W32/W34 degree factor and GQ projections
+        run: python -m unittest discover -s research -p 'test_hyp105_original_defect_factor_referee.py' -v
+      - name: Fail-closed exact ORIGINAL two-oracle certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_defect_factor_referee.py | tee proof/aa4-original-degree-factor.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          text=Path('proof/aa4-original-degree-factor.json.log').read_text().splitlines()
+          prefix='AA4_ORIGINAL_DEGFACT_CERTIFICATE='
+          assert len(text)==1 and text[0].startswith(prefix), 'missing single certificate'
+          data=json.loads(text[0][len(prefix):])
+          assert data['schema']=='mathlab.hyp105.original-defect-local-degree-factor.v1'
+          assert data['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert data['new_root_A_PROVED'] is False
+          assert data['new_ASET_exponent'] is False
+          assert data['finite_verified_orders']==[2,4]
+          cases=data['independent_cases']
+          assert len(cases)==33
+          assert {c['s'] for c in cases}=={2,4}
+          assert all(c['original_GQ_roles_s2'] for c in cases)
+          for c in cases:
+              s,Z,D=c['s'],c['Z'],c['D']
+              assert 0<=D<=s*s*Z
+              assert Fraction(c['kappa'])==(Fraction(D,s*s*Z) if Z else 0)
+              assert (D==0)==c['is_full_star_union']
+              assert (D==0)==(c['number_uncovered']==0)
+              assert c['M_exact']<=c['M_D_upper']==8*s*s*Z+4*D<=12*s*s*Z
+              if c['case']=='single':
+                  assert D==s*s and c['M_exact']==12*s*s
+              if c['case'] in ('mixed-star','mixed-nonincident-stars'):
+                  assert D==0
+          print('ACCEPT scoped all-h manuscript / finite two-oracle falsifiers; root stays OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-original-defect-degree-factor-certificate
+          path: proof/aa4-original-degree-factor.json.log
