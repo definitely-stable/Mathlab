@@ -216,9 +216,11 @@ def genuine_original_defect_case(
             type(x) is not int or not 0<=x<n for x in seq
         ):
             raise ValueError("invalid or repeated original source point/line/flag")
-    Z={i for i,(p,l) in enumerate(flags)
-       if p in points or l in lines}
+    full_source_STAR_owners={i for i,(p,l) in enumerate(flags)
+                             if p in points or l in lines}
+    Z=set(full_source_STAR_owners)
     Z.update(extra_flags)
+    residual_nonSTAR_original_IDs=Z-full_source_STAR_owners
     if not Z:
         raise ValueError("require genuine nonempty ORIGINAL Z to test kappa")
     complete_mixed=bool(points) and bool(lines) and not extra_flags
@@ -286,6 +288,12 @@ def genuine_original_defect_case(
         raise AssertionError("new ORIGINAL GQ defect/overlap exact identity false")
     if defect>s*s*len(Z):
         raise AssertionError("original defect exceeds all middle-source exposures")
+    # NEW hybrid source-adversary ALL-h lemma: a middle ORIGINAL flag
+    # from complete selected POINT or LINE STARS cannot be isolated.
+    # Every isolated deleted middle flag must be among residual E;
+    # each such genuine original flag has exactly s^2 middle roles.
+    if defect>s*s*len(residual_nonSTAR_original_IDs):
+        raise AssertionError("original STAR plus arbitrary extra ID defect cap false")
     if complete_star and (defect!=0 or masked>8*s*s*len(Z)):
         raise AssertionError("complete mixed original point/line STAR source mask broken")
     return {
@@ -293,6 +301,10 @@ def genuine_original_defect_case(
         "selected_original_POINT_stars":points,
         "selected_original_LINE_stars":lines,
         "extra_ORIGINAL_deleted_incidence_IDs":extra_flags,
+        "actual_ORIGINAL_residual_extra_IDs_outside_full_STARS":
+            len(residual_nonSTAR_original_IDs),
+        "structurally_certified_original_kappa_extra_fraction":
+            str(Fraction(len(residual_nonSTAR_original_IDs),len(Z))),
         "is_complete_point_OR_line_star_UNION":complete_star,
         "is_genuine_MIXED_point_AND_line_star_UNION":complete_mixed,
         "actual_selected_point_line_original_incidence_overlap":incident_points_lines,
@@ -312,6 +324,8 @@ def genuine_original_defect_case(
         "new_DEFECT_based_mask_upper_8s2Z_plus_4D":
             8*s*s*len(Z)+4*defect,
         "old_arbitrary_original_Z_mask_upper_12s2Z":12*s*s*len(Z),
+        "all_h_full_MIXED_STAR_plus_any_extra_source_defect_bound":
+            defect<=s*s*len(residual_nonSTAR_original_IDs),
         "new_original_defect_formula_and_true_physical_masks_match":True,
     }
 
@@ -375,6 +389,7 @@ def canonical_report():
         "NEW_all_h_exact_original_defect_identity_proved_in_manuscript":True,
         "NEW_all_h_MIXED_point_AND_line_source_STAR_50percent_radius":True,
         "NEW_all_h_continuous_defect_kappa_radius":True,
+        "NEW_hybrid_MIXED_STARS_plus_arbitrary_extra_IDs_defect_bound":True,
         "all_h_15_FORMAL_independent_source_defect_interpolation_ledgers":algebra,
         "true_original_W32_W34_GQ_direct_physical_mask_cases":finite,
         "remaining_predecessor_proof_DAG_requires_final_mathematical_signoff":True,
