@@ -1,0 +1,119 @@
+name: hyp105-aa4-original-mixed-star-defect-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-mixed-star-defect-referee.yml'
+      - 'research/hyp105_original_mixed_star_defect_referee.py'
+      - 'research/test_hyp105_original_mixed_star_defect_referee.py'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-MIXED-STAR-DEFECT-INTERPOLATION.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-mixed-stars-defect-all-h-proof:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Twelve independent exact original GQ defect, mixed-stars and kappa tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_mixed_star_defect_referee.py' -v
+      - name: Strict complete source GQ 15 formal kappa ledgers plus ten actual physical source masks
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_mixed_star_defect_referee.py |
+            tee proof/aa4-original-mixed-star-defect.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from math import comb
+          from pathlib import Path
+          lines=Path('proof/aa4-original-mixed-star-defect.json.log').read_text(
+              encoding='utf8').splitlines()
+          prefix='AA4_ORIGINAL_MIXED_STAR_DEFECT_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing unique original GQ defect JSON'
+          z=json.loads(lines[0][len(prefix):])
+          assert z['schema']=='mathlab.hyp105.original-mixed-star-defect-interpolation.v1'
+          assert z['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert z['root_Branch_A_PROVED_A'] is False
+          assert z['root_new_ASET_exponent'] is False
+          assert z['published_graph_SS6_numerical_constants_verified'] is False
+          assert z['root_original_SEVEN_unweighted_motif_S_s_not_R3'] is True
+          assert z['R3_separate_additive_full_GF5_sign_event_SUM'] is True
+          assert z['NEW_all_h_exact_original_defect_identity_proved_in_manuscript'] is True
+          assert z['NEW_all_h_MIXED_point_AND_line_source_STAR_50percent_radius'] is True
+          assert z['NEW_all_h_continuous_defect_kappa_radius'] is True
+          assert z['remaining_predecessor_proof_DAG_requires_final_mathematical_signoff']
+          formal=z['all_h_15_FORMAL_independent_source_defect_interpolation_ledgers']
+          assert len(formal)==15
+          assert [(q['C0_FORMAL'],q['c0_FORMAL'],q['h0']) for q in formal[::5]]==[
+              ('1','1',751),('2','1/5',781),('7/3','1/17',787)]
+          for i in range(0,15,5):
+              group=formal[i:i+5]
+              assert [v['kappa'] for v in group]==['0','1/4','1/2','3/4','1']
+              vals=[Fraction(v['rho_original_defect_kappa_Z']) for v in group]
+              assert vals==sorted(vals,reverse=True)
+              assert vals[0]==Fraction(3,2)*vals[-1]
+              for v in group:
+                  k=Fraction(v['kappa'])
+                  assert len(v['all_h_17_independent_quantifier_gates'])==17
+                  assert all(v['all_h_17_independent_quantifier_gates'].values())
+                  assert v['R']==93313
+                  assert not v['external_graph_C0_c0_numerically_verified']
+                  assert Fraction(v['original_Z_rho_improvement_over_arbitrary'])==Fraction(3)/(2+k)
+                  rho=Fraction(v['rho_original_defect_kappa_Z'])
+                  assert rho==Fraction(v['rho_original_arbitrary_Z'])*Fraction(3)/(2+k)
+                  assert rho<Fraction(1,2**32)
+                  assert (8+4*k)*v['q3']**2*v['L6']*rho==Fraction(v['tstar'])**2
+                  assert Fraction(v['original_Z_endpoint_mask_multiplier'])==8+4*k
+                  assert Fraction(v['delta_original_seven_class_S_s'])==Fraction(v['c0_FORMAL'])/93313**6
+                  assert Fraction(v['separate_original_additive_GF5_R3_floor'])==(
+                      Fraction(54162,51**6)*Fraction(v['delta_original_seven_class_S_s']))
+                  assert (1<<v['h0'])>=v['s0']>(1<<(v['h0']-1))
+          cases=z['true_original_W32_W34_GQ_direct_physical_mask_cases']
+          assert len(cases)==10
+          assert all(v['original_deleted_SOURCE_ID_count']>0 for v in cases)
+          for v in cases:
+              s=v['s'];V=(s+1)*(s*s+1)
+              Z=v['original_deleted_SOURCE_ID_count']
+              D=v['D_isolated_original_middle_anchor_deletion_defect']
+              H=v['H_all_three_original_anchors_deleted']
+              F=v['F_two_ends_deleted_middle_NOT_deleted']
+              assert v['original_full_GQ_nonincident_q_r_projections']==V*(V-s-1)
+              assert v['all_three_original_source_anchor_roles_exact_s2']
+              assert v['physical_typed_real_endpoint_pairs_count']==4*V*(V-s-1)
+              assert v['original_GQ_middle_anchor_Z_exposures']==s*s*Z
+              assert v['new_original_defect_formula_and_true_physical_masks_match']
+              assert Fraction(v['exact_original_source_kappa_effective'])==Fraction(D,s*s*Z)
+              assert v['original_source_credit_Xi_Z']==4*(s*s*Z-D+H+F)
+              assert v['original_source_M_Z_mask_from_three_anchors']==(
+                  8*s*s*Z+4*D-4*H-4*F)
+              assert v['actual_REAL_physical_oriented_endpoint_Z_masks']==v['original_source_M_Z_mask_from_three_anchors']
+              assert v['original_source_M_Z_mask_from_three_anchors']<=8*s*s*Z+4*D
+              assert v['original_source_M_Z_mask_from_three_anchors']<=12*s*s*Z
+          assert all(v['is_genuine_MIXED_point_AND_line_star_UNION'] and
+                     v['D_isolated_original_middle_anchor_deletion_defect']==0 for v in cases[:6])
+          assert any(v['actual_selected_point_line_original_incidence_overlap']>0 for v in cases[:6])
+          assert any(v['actual_selected_point_line_original_incidence_overlap']==0 for v in cases[:6])
+          assert cases[6]['exact_original_source_kappa_effective']=='1'
+          assert cases[6]['original_source_credit_Xi_Z']==0
+          assert cases[6]['original_source_M_Z_mask_from_three_anchors']==192
+          assert 0<Fraction(cases[7]['exact_original_source_kappa_effective'])<1
+          assert all(v['D_isolated_original_middle_anchor_deletion_defect']==0 for v in cases[8:])
+          print('AA4_TRUE_ORIGINAL_GQ_MIXED_STARS_DEFECT_KAPPA15_PHYSICAL_MASKS_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-GQ-mixed-star-defect-15kappa
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
