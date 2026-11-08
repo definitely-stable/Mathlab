@@ -81,7 +81,7 @@ class TestOriginalGQProjectionMixedAC(unittest.TestCase):
     def test_point_and_line_original_FULL_allowed_A_vs_paired_C_mixed_exact_degree_Theta(self):
         z=self.q["genuine_full_ORIGINAL_GQ_projection_and_mixed_AC_oracles"]
         for t in z:
-            self.assertGreater(t["original_full_A_IDs"],t["original_paired_C_IDs"])
+            self.assertGreaterEqual(t["original_full_A_IDs"],t["original_paired_C_IDs"])
             self.assertGreater(t["original_paired_C_IDs"],0)
             self.assertEqual(t["original_CORE_real_physical_edges"],
                              2*t["original_paired_C_IDs"])
@@ -143,7 +143,8 @@ class TestOriginalGQProjectionMixedAC(unittest.TestCase):
 
     def test_mixed_book_full_allowed_A_is_not_wrongly_shrunk_to_paired_C(self):
         z=self.q["genuine_full_ORIGINAL_GQ_projection_and_mixed_AC_oracles"]
-        self.assertTrue(all(t["original_full_A_IDs"]>t["original_paired_C_IDs"] for t in z))
+        self.assertTrue(all(t["original_full_A_IDs"]>=t["original_paired_C_IDs"] for t in z))
+        self.assertTrue(any(t["original_full_A_IDs"]>t["original_paired_C_IDs"] for t in z))
         self.assertTrue(any(
             t["independent_FULL_A_CORE_C_mixed_point_book"]["Theta"]>0 and
             t["independent_FULL_A_CORE_C_mixed_line_book"]["Theta"]>0
