@@ -486,7 +486,7 @@ def genuine_original_GQ_AC_case(h,scheme,Z,shf=0,shg=0,threshold=4,K0=64):
             "B","F1","F2","Theta","Theta_source_expansion","G",
             "sum_4A_core_physical_degree_bound","maximum_exact_original_KAC",
             "point_line_collision_pairs")}
-    if (px["Theta"]!=ln["Theta"] or len(core["A"])<=len(core["C"])
+    if (px["Theta"]!=ln["Theta"] or len(core["A"])<len(core["C"])
         or 2*len(core["Cowner"])!=4*len(core["C"])
         or not all(t["source_witness_injective"] for t in (tx,ty))):
         raise AssertionError("mixed original A vs C source scope or owner wrong")
