@@ -67,7 +67,7 @@ class TestOriginalFullSourceStarZ50Percent(unittest.TestCase):
         x=cases[2]
         self.assertEqual(x["s"],4)
         self.assertEqual(x["type"],"point")
-        self.assertEqual(x["selected_original_source_stars"],[0])
+        self.assertEqual(tuple(x["selected_original_source_stars"]),(0,))
         self.assertEqual(x["all_deleted_original_incidence_IDs"],5)
         self.assertEqual(x["actual_original_Z_masked_directed_typed_endpoints"],640)
         self.assertEqual(x["original_Z_overlap_rebate_exact"],320)
@@ -79,9 +79,9 @@ class TestOriginalFullSourceStarZ50Percent(unittest.TestCase):
         self.assertEqual(z[3]["s"],4)
         self.assertEqual(z[3]["all_deleted_original_incidence_IDs"],5)
         self.assertEqual(z[4]["type"],"point")
-        self.assertEqual(z[4]["selected_original_source_stars"],[1,3])
+        self.assertEqual(tuple(z[4]["selected_original_source_stars"]),(1,3))
         self.assertEqual(z[5]["type"],"line")
-        self.assertEqual(z[5]["selected_original_source_stars"],[1,3])
+        self.assertEqual(tuple(z[5]["selected_original_source_stars"]),(1,3))
         for x in z[4:]:
             self.assertEqual(x["all_deleted_original_incidence_IDs"],10)
             self.assertGreaterEqual(x["source_extra_both_endpoint_and_middle_STAR_overlap"],0)
