@@ -93,6 +93,12 @@ class TestOriginalMixedStarDefectInterpolation(unittest.TestCase):
             H=q["H_all_three_original_anchors_deleted"]
             F=q["F_two_ends_deleted_middle_NOT_deleted"]
             self.assertLessEqual(D,s*s*Z)
+            self.assertTrue(q["all_h_full_MIXED_STAR_plus_any_extra_source_defect_bound"])
+            self.assertLessEqual(D,s*s*q[
+                "actual_ORIGINAL_residual_extra_IDs_outside_full_STARS"])
+            self.assertGreaterEqual(Fraction(q[
+                "structurally_certified_original_kappa_extra_fraction"]),
+                Fraction(q["exact_original_source_kappa_effective"]))
             self.assertEqual(
                 q["original_source_credit_Xi_Z"],
                 4*(s*s*Z-D+H+F))
@@ -155,6 +161,10 @@ class TestOriginalMixedStarDefectInterpolation(unittest.TestCase):
         self.assertLess(q["new_DEFECT_based_mask_upper_8s2Z_plus_4D"],
                         q["old_arbitrary_original_Z_mask_upper_12s2Z"])
         self.assertGreater(Fraction(3)/(2+k),1)
+        self.assertEqual(q["actual_ORIGINAL_residual_extra_IDs_outside_full_STARS"],1)
+        self.assertEqual(Fraction(q[
+            "structurally_certified_original_kappa_extra_fraction"]),Fraction(1,6))
+        self.assertEqual(k,Fraction(1,8))
 
     def test_TRUE_point_ONLY_line_ONLY_star_as_edge_cases(self):
         for q in self.z["true_original_W32_W34_GQ_direct_physical_mask_cases"][8:]:
@@ -215,6 +225,7 @@ class TestOriginalMixedStarDefectInterpolation(unittest.TestCase):
         self.assertTrue(z["NEW_all_h_exact_original_defect_identity_proved_in_manuscript"])
         self.assertTrue(z["NEW_all_h_MIXED_point_AND_line_source_STAR_50percent_radius"])
         self.assertTrue(z["NEW_all_h_continuous_defect_kappa_radius"])
+        self.assertTrue(z["NEW_hybrid_MIXED_STARS_plus_arbitrary_extra_IDs_defect_bound"])
         self.assertTrue(z["remaining_predecessor_proof_DAG_requires_final_mathematical_signoff"])
 
 
