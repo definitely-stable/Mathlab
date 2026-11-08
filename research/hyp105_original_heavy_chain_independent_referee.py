@@ -35,9 +35,9 @@ def heavy_uniform_formal_budget(s,rho):
         raise ValueError("exact nonnegative original source deletion density")
     V=(s+1)*(s*s+1)
     N=(s+1)*V
-    a=2
-    while comb(a,2)<V:
-        a+=1
+    a=(1+isqrt(1+8*V))//2
+    while comb(a,2)<V:a+=1
+    while a>2 and comb(a-1,2)>=V:a-=1
     Cs=(s*s+1)*(s*s+a-2)
     lam=Fraction(1,16)-rho
     density_den=72*(lam+5)/lam**2
@@ -440,7 +440,7 @@ def seeded_original_D6_case(s):
         raise AssertionError("no genuine original D6 from constructed six-ID seed")
     ids=tuple(selected)
     inv=inverse_D6_by_original_ids(ids,flags,f,g)
-    if inv is None or inv not in ({frozenset(E)},(inv,)):
+    if inv is None or len(inv)!=6 or not inv <= E:
         raise AssertionError("original source first six-ID inverse failed")
     return {"s":s,"matching_original_incidence_IDs":selected,
         "true_TWO_physical_diagonals_per_ID":2*len(selected),
