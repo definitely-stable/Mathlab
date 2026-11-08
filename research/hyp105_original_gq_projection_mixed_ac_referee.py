@@ -295,6 +295,13 @@ def _symbol_book(c,geo,core,typ):
     G=sum(v*v for v in cxy.values())
     colcoll=sum(bool(set(lab[p])&set(lab[q])) for p in range(c["V"])
                 for q in col[p] if p<q)
+    occupancies=Counter(sym for pair in lab for sym in pair)
+    # Independently derive original SRG matrix identity M²:
+    # M²=(s²-1)I-2M+(s+1)J, exact for each typed source.
+    exact_srg_energy=2*c["V"]*(c["s"]*c["s"]-1)-4*colcoll+(
+        c["s"]+1)*sum(v*v for v in occupancies.values())
+    if G!=exact_srg_energy:
+        raise AssertionError("actual original point/line FULL-SRG energy identity false")
     occupancy=defaultdict(list)
     for p,lr in enumerate(lab):
         for k in lr:occupancy[k].append(p)
@@ -333,7 +340,8 @@ def _symbol_book(c,geo,core,typ):
     if (Theta_source!=theta_physical or theta_physical>4*len(core["A"])*core["Delta"]
         or B*B>F1*F2 or F1>2*G or F2>Kcap*theta_physical):
         raise AssertionError("original mixed FULL A vs paired C source book Cauchy false")
-    return {"G":G,"B":B,"F1":F1,"F2":F2,"Theta":theta_physical,
+    return {"G":G,"FULL_original_SRG_energy_independent_formula":exact_srg_energy,
+            "B":B,"F1":F1,"F2":F2,"Theta":theta_physical,
             "Theta_source_expansion":Theta_source,
             "sum_4A_core_physical_degree_bound":4*len(core["A"])*core["Delta"],
             "maximum_exact_original_KAC":max(KAC.values(),default=0),
@@ -432,6 +440,8 @@ def _actual_blocked_paths(c,geo,core,tx,ty):
     invg={pair:l for l,pair in enumerate(g)}
     actual=Counter()
     valid_end=0;proper=0;blocked_any=0
+    genuine_good_anchors_outside_C=0
+    genuinely_unblocked_physical_P3=0
     for v0 in Cadj:
         for v1 in Cadj[v0]:
             for v2 in Cadj[v1]:
@@ -449,6 +459,8 @@ def _actual_blocked_paths(c,geo,core,tx,ty):
                         or set(g[r])&set(g[ell])):
                         continue
                     valid_end+=1
+                    if any(i not in core["C"] for i in anchors):
+                        genuine_good_anchors_outside_C+=1
                     now={
                         "x1":v1[0] in f[p],"x2":v2[0] in f[p],
                         "y1":v1[1] in g[ell],"y2":v2[1] in g[ell],
@@ -461,12 +473,17 @@ def _actual_blocked_paths(c,geo,core,tx,ty):
                         if t not in allowed:
                             raise AssertionError("actual SOURCE physical blocked P3 missing FULL original triple")
                     if any(now.values()):blocked_any+=1
+                    else:genuinely_unblocked_physical_P3+=1
     if (actual["x1"]>tx["completion"] or actual["x2"]>tx["completion"] or
         actual["y1"]>ty["completion"] or actual["y2"]>ty["completion"]):
         raise AssertionError("original true physical four blocker paths exceed mixed triple sum")
     if blocked_any>sum(actual.values()):
         raise AssertionError("four mixed blocker union overcount false")
     return {"proper":proper,"endpoint_good":valid_end,"blocked_any":blocked_any,
+            "genuine_full_GQ_anchors_in_A_OUTSIDE_C_good_paths":
+                genuine_good_anchors_outside_C,
+            "proper_physical_original_sixID_unblocked_P3":
+                genuinely_unblocked_physical_P3,
             "x1":actual["x1"],"x2":actual["x2"],
             "y1":actual["y1"],"y2":actual["y2"]}
 
@@ -484,6 +501,7 @@ def genuine_original_GQ_AC_case(h,scheme,Z,shf=0,shg=0,threshold=4,K0=64):
     def small(q):
         return {key:q[key] for key in (
             "B","F1","F2","Theta","Theta_source_expansion","G",
+            "FULL_original_SRG_energy_independent_formula",
             "sum_4A_core_physical_degree_bound","maximum_exact_original_KAC",
             "point_line_collision_pairs")}
     if (px["Theta"]!=ln["Theta"] or len(core["A"])<len(core["C"])
