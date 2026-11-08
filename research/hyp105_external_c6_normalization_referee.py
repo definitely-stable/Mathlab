@@ -143,6 +143,28 @@ def sixcycles_opposite_threepaths(n, edges):
     return opposing//3
 
 
+def closed_sixwalk_trace(n, edges):
+    """Independent length-six CLOSED WALK trace, intentionally not simple C6.
+
+    Distinguishes the published genuine six-CYCLE count from degenerate
+    length-six walks. K_{2,5} has 2000 closed walks but ZERO genuine C6.
+    """
+    A=_graph(n,edges)
+    total=0
+    for start in range(n):
+        counts=[0]*n
+        counts[start]=1
+        for _ in range(6):
+            nxt=[0]*n
+            for v,walks in enumerate(counts):
+                if walks:
+                    for w in A[v]:
+                        nxt[w]+=walks
+            counts=nxt
+        total+=counts[start]
+    return total
+
+
 def oriented_sixcycle_embeddings(n, edges):
     """THIRD source-agnostic oracle: each unoriented C6 has 12 embeddings."""
     A=_graph(n,edges)
@@ -179,11 +201,12 @@ def canonical_report():
         x=sixcycles_minroot_dfs(n,edges)
         y=sixcycles_opposite_threepaths(n,edges)
         z=oriented_sixcycle_embeddings(n,edges)
-        if x!=y or z!=12*x or x!=known:
+        closed=closed_sixwalk_trace(n,edges)
+        if x!=y or z!=12*x or x!=known or closed<z:
             raise AssertionError("C6 source-cycle orientation/count disagreement")
         graph_rows.append({"graph":label,"v":n,"e":len(edges),
              "unoriented_C6":x,"opposite_threepath_C6":y,
-             "oriented_embeddings":z,"expected_C6":known})
+             "oriented_embeddings":z,"closed_length6_walks":closed,"expected_C6":known})
     ledgers=[formal_external_transfer(C,c) for C,c in [
         (Fraction(1),Fraction(1)),
         (Fraction(2),Fraction(1,5)),
