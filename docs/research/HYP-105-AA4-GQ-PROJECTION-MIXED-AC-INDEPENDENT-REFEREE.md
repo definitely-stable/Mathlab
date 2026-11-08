@@ -245,3 +245,152 @@ GitHub-hosted Ubuntu-24.04/Python3.12 выполняет 12 независимы
 В рамках перечисленных самостоятельных письменных доказательств, независимой исходной реализации и истинного geometry oracle, **полная GQ projection, Z-role exposure и FULL A/Core C mixed-book/четыре blocker source injections** проверены на уровне конкретных математических переходов. Новый точный Z-overlap rebate действительно уменьшает mask count для некоторых конкретных Z, но **не** уменьшает worst-case universal deletion estimate и не даёт самостоятельного нового ASET exponent.
 
 Root #230 остаётся OPEN_WITH_FORMAL_BLOCKER: не все предшествующие ALL-h математические зависимости прошли финальную общую рецензию, а успешный CI не равен peer-reviewed publication. Следующий шаг — независимая систематическая проверка объединённой full-Branch-A версии, обнаружение/фиксация каждого первого неверного перехода или аккуратная acceptance matrix, затем только согласованное governance-решение. Ни main, ни родительские PR не менять, merge не выполнять, issue не закрывать автоматически.
+
+
+## 8. NEW ALL-h structured-adversary theorem: 50% more original-ID deletion for COMPLETE point-/line-STARS
+
+The new exact all-h GQ source projection overlap identity (GQ-2) proves a SECOND mathematically substantive result beyond the unconditional arbitrary-Z mask upper bound, when the adversarial ORIGINAL source set Z has a genuine **complete source-pencil STAR** form.
+
+### 8.1. The two valid source STAR families
+
+For ANY selected subset \(P_0\subseteq P\) of original symplectic GQ points, delete **ALL original flags incident to each selected point**:
+
+\[
+Z_{P_0}=\{(p,\ell)\in I:\ p\in P_0\},\qquad
+|Z_{P_0}|=(s+1)|P_0|.
+\tag{STAR-1}
+\]
+
+Alternatively, for ANY selected subset \(L_0\subseteq L\) of original lines, delete **ALL original flags incident to each selected line**:
+
+\[
+Z_{L_0}=\{(p,\ell)\in I:\ \ell\in L_0\},\qquad
+|Z_{L_0}|=(s+1)|L_0|.
+\tag{STAR-2}
+\]
+
+Both \(P_0,L_0\) may be chosen adversarially, including after seeing any fixed arbitrarily correlated separately globally pair-injected physical f/g. No randomness, independence, source homogeneity or choice of a preferred symplectic automorphism is assumed. This is a restriction only of the original DELETION PATTERN, not of the main maps.
+
+### 8.2. Independent exact original source GQ counting
+
+For every nonincident original (q,r), let its unique FULL-GQ projection be q--ell--p--r. Its three named distinct ORIGINAL anchors are (q,ell),(p,ell),(p,r).
+
+For the complete POINT-STAR deletion (STAR-1),
+
+\[
+\boxed{m_Z(q,r)=\mathbf 1_{q\in P_0}+2\mathbf 1_{p\in P_0}.}
+\tag{STAR-3}
+\]
+
+Whenever the projected middle point p lies in \(P_0\), **both original anchors** (p,ell) and (p,r) are deleted together. Every selected p is the middle projected source point in exactly (s+1)s² nonincident (q,r) projections: select one of s+1 original lines ell through p, one of s other q on ell, one of s other r lines through p. Thus the number of projections with p∈P0 is exactly \(s^2|Z|\). By (GQ-2), their two-deleted-anchor coincidences alone contribute at least \(4s^2|Z|\) to overlap rebate Xi_Z. More precisely, define
+
+\[
+\mathcal D_{P_0}:=\#\{(q,r):q\notin r,\ p(q,r)\in P_0,\ q\in P_0\}.
+\]
+
+Then (STAR-3) gives the **EXACT** all-h count:
+
+\[
+\boxed{
+\Xi_{Z_{P_0}}=4s^2|Z_{P_0}|+4\mathcal D_{P_0},
+\quad
+M_{Z_{P_0}}=8s^2|Z_{P_0}|-4\mathcal D_{P_0}
+\le8s^2|Z_{P_0}|.
+}
+\tag{STAR-4}
+\]
+
+The proof is just the pointwise identity \((m_Z-1)_+=\mathbf1_{p\in P_0}
++\mathbf1_{p\in P_0}\mathbf1_{q\in P_0}\); it uses FULL ORIGINAL GQ projection, not source CORE C.
+
+For the LINE-STAR deletion (STAR-2) the true ORIGINAL point-line dual is
+
+\[
+\boxed{m_Z(q,r)=2\mathbf1_{\ell(q,r)\in L_0}+\mathbf1_{r\in L_0}.}
+\tag{STAR-5}
+\]
+
+Each selected original ell is the projected *middle line* in precisely (s+1)s² projections; defining \(\mathcal D_{L_0}:=\#\{(q,r):q\notin r,\ell(q,r)\in L_0,\ r\in L_0\}\), independently obtain
+
+\[
+\boxed{
+\Xi_{Z_{L_0}}=4s^2|Z_{L_0}|+4\mathcal D_{L_0},
+\quad
+M_{Z_{L_0}}=8s^2|Z_{L_0}|-4\mathcal D_{L_0}
+\le8s^2|Z_{L_0}|.
+}
+\tag{STAR-6}
+\]
+
+In particular BOTH true complete source STAR types improve the worst-case endpoint mask factor from **12** down to **8** — a genuine deterministic all-h theorem about **structured adversarial ORIGINAL incidence-ID deletions**.
+
+### 8.3. NEW full original Branch A robustness for structured Z: 3/2 times the previous radius
+
+The independently documented #744 original source HEAVY no-clone lemma retains its improved uniform \(R=93313\), and the #745 priority/Jensen and selected C6 sixth-moment result is unchanged. Recall the existing mathematical constants after choosing once fixed rational published-existential SS6 bounds \(C_0\ge\max(1,C_{\rm graph})\), \(0<c_0\le\min(1,c_{\rm graph})\):
+
+\[
+\begin{gathered}
+T=\lceil\tfrac{17}{2}93313^3C_0^3\rceil,\quad
+q_3=64\binom{195}{3},\quad L_6=24+153T^2,\\
+\delta=c_0/93313^6,\quad
+t_\star=\frac{119}{24}-2\frac{54162}{53838}\delta,\quad
+s_0=\max\{64,444T,(8E)^2,(8D)^8\}.
+\end{gathered}
+\]
+
+For arbitrary original Z, the previous universal risk-preserving radius is \(\rho_{\rm arbitrary}=t_\star^2/(12q_3^2L_6)\). For TRUE complete POINT- or LINE-STAR source deletion, use the sharper exact mask upper \(M_Z\le8s^2|Z|\) from (STAR-4,6), and define
+
+\[
+\boxed{
+\rho_{\rm STAR}:=\frac{t_\star^2}{8q_3^2L_6}
+=\frac32\,\rho_{\rm arbitrary}.
+}
+\tag{STAR-7}
+\]
+
+It is critical to verify the new \(\rho_{\rm STAR}\) does not invalidate the HEAVY physical-density upgrade used to set R=93313. This holds uniformly and NONCIRCULARLY because \(L_6\ge24\), \(0<t_\star<119/24\) and q3 is fixed:
+
+\[
+0<\rho_{\rm STAR}<
+\frac32\frac{(119/24)^2}{12q_3^2\cdot24}
+<2^{-32}.
+\tag{STAR-8}
+\]
+
+Thus the same HEAVY no-clone source constant R=93313 is valid even with these larger structured deletions, the same LOW retained original CORE remains ≥3s⁴/4 because \(\rho_{\rm STAR}<3/64\), the same q3/Jensen/L6 bound applies, and ALL THREE independent non-Z path-error budgets still satisfy their previous ≤s⁶/8 sufficient condition at the SAME dyadic s0.
+
+By (STAR-4,6) the number of masked endpoints is ≤\(8s^2|Z|\le8\rho_{\rm STAR}s^6\), hence the Cauchy original physical 3path energy loss is
+
+\[
+q_3\sqrt{L_6s^6\cdot8\rho_{\rm STAR}s^6}
+=q_3\sqrt{8L_6\rho_{\rm STAR}}\,s^6
+=t_\star s^6.
+\]
+
+The previous root HEAVY/LOW composition closes **without changing T,s0,delta or the signed risk constant**: HEAVY produces at least \(\delta s^6\) real ORIGINAL D6 sixsets, or LOW with small D6 produces at least \((54162/53838)\delta s^6\) physically produced ORIGINAL BBo sixsets, via the already independent source one-sided 2-to-1 P3 inverse. Therefore:
+
+**THEOREM AA4-STARZ, conditional on explicitly cited prior all-h source selector/HEAVY/LOW/GF5 lemmas and the published existential ordinary C6 SS6 result.** Fix any valid absolute C0,c0 once. For EVERY dyadic s≥s0, EVERY separately complete globally pair-injective, arbitrarily correlated fixed original f/g labeling, and EVERY adversarial ORIGINAL Z of either full point-star (STAR-1) or full line-star (STAR-2) form with
+
+\[
+|Z|\le\boxed{\rho_{\rm STAR}s^4=\tfrac32\rho_{\rm arbitrary}s^4},
+\]
+
+the original SEVEN-class UNWEIGHTED motif total and accepted additive full GF5 signed-event risk satisfy
+
+\[
+\boxed{
+S_s(f,g)\ge\frac{c_0}{93313^6}s^6,\qquad
+R_3(f,g)\ge\frac{54162\,c_0}{93313^6\,51^6}s^6.
+}
+\tag{STAR-9}
+\]
+
+This is **50% more allowed named ORIGINAL incidence-ID deletions for complete point/line STAR patterns** while holding the original universal risk coefficient and sufficient all-h threshold fixed. It is not a 50% improvement for arbitrary deletion Z and not a new ASET extraction exponent. Since full STAR Z=empty is allowed, it also leaves the base universal \(S_s=\Omega(s^6)\) conclusion unchanged.
+
+### 8.4. Second independently implemented source and all-h arithmetic oracle
+
+New standalone source code research/hyp105_original_full_star_z_50pct_referee.py uses independently reconstructed genuine W32/W34 incidence flags, the true unique full GQ q--ell--p--r projection, and complete pair-injective physically shifted f/g fixtures; it explicitly counts m_Z(q,r) and \(\mathcal D_{P_0}/\mathcal D_{L_0}\) for full point- and line-star deletion sets (including two-star subsets). It requires both exact (STAR-4) and (STAR-6) source identities, not just the safe bound; verifies all three source roles independently and complete ORIGINAL flag count |Z|=(s+1)|P0| or (s+1)|L0|. The same file independently constructs NEW T,q3,L6,s0,h0,delta,t_star,rho_STAR from exact Fraction, and proves for three formal-only C0/c0 inputs \(h_0=751,781,787\), with \(\rho_{\rm STAR}/\rho_{\rm arbitrary}=3/2\) and unchanged heavy/low signed-risk floors. Actual numeric published graph constants are not assumed.
+
+The eight dedicated standalone negative/positive STAR tests include REAL ORIGINAL W32/W34 full-point-star AND full-line-star examples, independently shifted f/g, invalid duplicate STAR source indices and TEST-ONLY crosscheck of unchanged #744 root T/L6/s0/delta. These tests supplement the existing twelve genuine original full GQ/mixed A/C blocker tests, for **20 specialist tests total** plus two strict complete original-source JSON artifacts on GitHub-hosted Ubuntu-24.04/Python3.12. Finite tests do NOT establish the all-h theorem, which is proved by the direct projection multiplicity identities above.
+
+**Scientific STOP:** Full point/line STAR source-deletion robustness is a new mathematically meaningful restricted-Z strengthening. The arbitrary original-Z radius \(\rho_{\rm arbitrary}\), external theorem's unknown numerical C/c and the unfinished total source proof governance remain unchanged. Root #230 stays OPEN_WITH_FORMAL_BLOCKER and all PRs remain Draft until a separate final mathematical acceptance review. No merge or issue closure.
