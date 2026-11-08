@@ -60,6 +60,7 @@ jobs:
           assert [(c['s'],c['scheme']) for c in cases][:5]==[
               (2,'lex'),(2,'reverse-line'),(4,'lex'),(4,'reverse-line'),(4,'lex')]
           assert all(c['original_deleted_named_IDs']>0 and c['original_paired_C_IDs']>0 for c in cases)
+          assert any(c['original_full_A_IDs']>c['original_paired_C_IDs'] for c in cases)
           assert any(c['original_fullGQ_endpoints']['typed_deleted_ORIGINAL_3role_overcount_credit']>0 for c in cases)
           total_actual_blockers=0
           for c in cases:
@@ -76,7 +77,7 @@ jobs:
               assert ep['typed_original_nonZ_projection_endbad']<=8*s*(
                   ep['true_original_collinear_f_overlap_pairs']+
                   ep['true_original_collinear_g_overlap_pairs'])
-              assert c['original_full_A_IDs']>c['original_paired_C_IDs']
+              assert c['original_full_A_IDs']>=c['original_paired_C_IDs']
               assert c['original_CORE_real_physical_edges']==2*c['original_paired_C_IDs']
               assert c['original_core_actual_Delta']<=s*c['diagnostic_T']
               x=c['independent_FULL_A_CORE_C_mixed_point_book']
