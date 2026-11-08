@@ -1,0 +1,81 @@
+name: hyp105-aa4-heavy-source-d6-independent-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-source-d6-independent-referee.yml'
+      - 'docs/research/HYP-105-AA4-HEAVY-SOURCE-D6-INDEPENDENT-PROOF.md'
+      - 'research/hyp105_original_heavy_chain_independent_referee.py'
+      - 'research/test_hyp105_original_heavy_chain_independent_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-original-heavy-SRG-to-D6:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fourteen independent true original W32 W34 source heavy tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_heavy_chain_independent_referee.py' -v
+      - name: Strict whole original source HEAVY theorem and two source D6 falsifiers
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_heavy_chain_independent_referee.py |
+            tee proof/aa4-original-heavy-chain.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          rows=Path('proof/aa4-original-heavy-chain.json.log').read_text(encoding='utf8').splitlines()
+          prefix='AA4_HEAVYCHAIN_CERTIFICATE='
+          assert len(rows)==1 and rows[0].startswith(prefix), 'missing strict original HEAVY certificate'
+          z=json.loads(rows[0][len(prefix):])
+          assert z['schema']=='mathlab.hyp105.original-heavy-source-d6-independent.v1'
+          assert z['issue']==230 and z['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert z['root_PROVED_A'] is False and z['new_ASET_exponent'] is False
+          assert z['external_C0_c0_numeric_NOT_claimed'] and z['original_6motif_HEAVY_only']
+          formal=z['independent_all_h_FORMAL_arithmetic']
+          assert len(formal)==5
+          assert [a['s'] for a in formal]==[64,64,128,1024,65536]
+          for a in formal:
+              assert a['R']==93313
+              assert all(a['all_h_explicit_rational_and_source_gates'].values())
+              assert Fraction(a['density_R_at_rho'])<=93313
+              assert Fraction(a['lambda'])>0
+              assert a['root_PROVED_A'] is False
+          samples=z['true_original_W32_W34_six_heavy_diagnostic_cases']
+          assert len(samples)==6 and {(q['s'],q['mode']) for q in samples}=={
+              (s,mode) for s in (2,4) for mode in ('lex','reverse','shift')}
+          for q in samples:
+              assert q['diagnostic_T_NOT_all_h']==1
+              assert q['F_no_clone_and_no_sixset_duplication']
+              assert q['exact_J_typed_source_equality']
+              assert q['point_original_collinearity_f_overlap']+q['line_original_collinearity_g_overlap']==q['actual_original_conflict_J_edges']
+              assert q['TRUE_F_edges']>0 and q['TRUE_F_vertices']>0
+              assert q['physical_full_edges']==2*q['original_flags']
+              assert q['actual_independent_original_owners']>=Fraction(q['Caro_Wei_necessary_original_independent_lower'])
+              assert 4*q['after_BOTH_source_cuts']>=q['actual_independent_original_owners']
+              assert Fraction(q['actual_density_F'])>=Fraction(q['source_density_lower_S_over_8a2'])
+              assert q['unoriented_proper_C6']==q['distinct_original_D6_sixsets']
+              assert q['no_rotation_reverse_or_doubled_diagonal_overcount']
+          seeds=z['true_original_positive_D6_seed_cases']
+          assert len(seeds)==2 and [q['s'] for q in seeds]==[2,4]
+          for q in seeds:
+              assert q['source_J_independent'] and q['independent_original_sixID_inverse_success']
+              assert q['true_TWO_physical_diagonals_per_ID']==12
+              assert q['unoriented_proper_C6']>=1
+              assert q['unoriented_proper_C6']==q['distinct_original_D6_sixsets']
+          print('ACCEPT scoped original all-h HEAVY proof; Branch A full LOW not accepted')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-heavy-source-d6-independent-proof
+          path: proof/aa4-original-heavy-chain.json.log
