@@ -1,0 +1,108 @@
+name: hyp105-aa4-selector-sixwalk-independent-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-selector-sixwalk-independent-referee.yml'
+      - 'research/hyp105_original_selector_sixwalk_independent_referee.py'
+      - 'research/test_hyp105_original_selector_sixwalk_independent_referee.py'
+      - 'docs/research/HYP-105-AA4-SELECTOR-SIXWALK-INDEPENDENT-REFEREE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-original-source-selector-sixwalk-referee:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Twelve original source-priority/two-cut and exact K33 sixwalk/D6 tests
+        run: |
+          python -m unittest discover -s research -p 'test_hyp105_original_selector_sixwalk_independent_referee.py' -v
+      - name: Fail closed complete exact rank, 576 graph-masks and three real ORIGINAL D6 certificates
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_selector_sixwalk_independent_referee.py |
+            tee proof/aa4-original-selector-sixwalk-referee.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from math import comb, factorial
+          from pathlib import Path
+          lines=Path('proof/aa4-original-selector-sixwalk-referee.json.log').read_text(
+              encoding='utf8').splitlines()
+          prefix='AA4_ORIGINAL_SELECTOR_6WALK_REFEREE_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'missing unique exact ORIGINAL selector/6walk JSON'
+          x=json.loads(lines[0][len(prefix):])
+          assert x['schema']=='mathlab.hyp105.original-selector-sixwalk-independent-referee.v1'
+          assert x['root_230_status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert x['root_all_18_prior_source_lemmas_formally_machine_proved'] is False
+          assert x['root_Branch_A_s_motif_PROVED_A'] is False
+          assert x['root_ASET_exponent_proved'] is False
+          assert x['exact_external_C6_graph_SS6_constants_numerically_verified'] is False
+          assert x['original_root_target_is_SEVEN_class_unweighted_S_s']
+          assert x['original_R3_is_separate_additive_GF5_signed_event_SUM']
+          assert x['new_independent_exact_local_source_priority_probability_audited']
+          assert x['new_exhaustive_all_K33_bipartite_6walk_graphs_audited']
+          assert x['new_actual_original_W34_selected_D6_sixflag_inverse_audited']
+          cases=x['source_original_proper_path_rank_and_two_cut_exact_cases']
+          assert len(cases)==8
+          assert [(z['s'],z['r']) for z in cases]==[
+              (2,2),(2,3),(2,2),(2,3),(4,2),(4,3),(4,2),(4,3)]
+          for z in cases:
+              r=z['r']
+              b=z['original_J_closed_neighborhood_size_b']
+              assert b<=r*65 and b<=20
+              assert len(z['distinct_named_ORIGINAL_source_owners'])==r
+              assert z['all_source_owners_true_distinct_and_J_independent']
+              actual=Fraction(z['exact_source_priority_probability'])
+              first=Fraction(z['first_r_original_priority_sufficient_probability'])
+              assert actual>=first==Fraction(1,comb(b,r))
+              assert actual==Fraction(
+                  int(z['exact_original_favorable_relative_rank_permutations']),
+                  int(z['all_original_local_relative_rank_permutations']))
+              assert z['both_typed_physical_cuts_surviving_assignments']==4
+              assert z['full_two_coordinate_color_assignment_count']==2**(2*(r+1))
+              assert Fraction(z['exact_two_physical_factor_color_probability'])==Fraction(1,4**r)
+              assert Fraction(z['exact_actual_priority_times_color_probability'])==actual/4**r
+              assert Fraction(z['uniform_all_h_q_r_source_selector_probability_floor'])==Fraction(
+                  1,4**r*comb(65*r,r))
+          census=x['independent_graph_sixwalk_masks_exact_censuses']
+          assert [(c['left'],c['right'],c['all_bipartite_adjacency_masks'])
+                  for c in census]==[(2,3,64),(3,3,512)]
+          assert census[0]['graphs_with_at_least_one_genuine_C6']==0
+          assert census[1]['max_distinct_unoriented_C6']==6
+          assert census[1]['graphs_with_at_least_one_genuine_C6']>0
+          assert all(c['all_graphs_respect_12C6_plus_6Delta_traceA4'] and
+                     c['all_graphs_respect_24C6_plus_72mDelta2'] for c in census)
+          heavy=x['real_original_W34_D6_selected_graph_sixwalk_census']
+          assert len(heavy)==3
+          assert [q['source_scheme'] for q in heavy]==['lex','lex','reverse-line']
+          for q in heavy:
+              assert q['s']==4
+              assert q['all_real_original_owned_physical_diagonals']==12
+              assert q['proper_sixdistinct_both_coordinates_C6_count']==1
+              assert q['single_ORIGINAL_sixset_unoriented_physical_C6_multiplicity']==1
+              assert q['both_real_original_factor_coordinate_cuts_exist']
+              assert q['all_source_physical_C6_and_sixwalk_gates_pass']
+              assert q['selected_physical_actual_trace_A6']<=(
+                  12*q['physical_simple_C6_count']+
+                  6*q['real_original_selected_graph_degree_Delta']*
+                  q['selected_physical_actual_trace_A4'])
+              assert q['signed_C6_12_rooted_orientations']==12*q['physical_simple_C6_count']
+          print('AA4_TRUE_ORIGINAL_SOURCE_SELECTOR_576_GRAPH_SIXWALK_D6_REFEREE_PASS')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hyp105-original-source-selector-sixwalk-independent-referee
+          path: proof/
+          retention-days: 120
+          if-no-files-found: warn
