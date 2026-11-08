@@ -118,7 +118,7 @@ class TestOriginalMixedStarDefectInterpolation(unittest.TestCase):
             self.assertTrue(c["is_genuine_MIXED_point_AND_line_star_UNION"])
             self.assertGreater(len(c["selected_original_POINT_stars"]),0)
             self.assertGreater(len(c["selected_original_LINE_stars"]),0)
-            self.assertEqual(c["extra_ORIGINAL_deleted_incidence_IDs"],[])
+            self.assertEqual(tuple(c["extra_ORIGINAL_deleted_incidence_IDs"]),())
             self.assertEqual(c["D_isolated_original_middle_anchor_deletion_defect"],0)
             self.assertEqual(c["exact_original_source_kappa_effective"],"0")
             self.assertLessEqual(
@@ -133,7 +133,7 @@ class TestOriginalMixedStarDefectInterpolation(unittest.TestCase):
 
     def test_isolated_SINGLE_named_original_flag_has_exact_kappa_ONE_no_false_improvement(self):
         q=self.z["true_original_W32_W34_GQ_direct_physical_mask_cases"][6]
-        self.assertEqual(q["extra_ORIGINAL_deleted_incidence_IDs"],[0])
+        self.assertEqual(tuple(q["extra_ORIGINAL_deleted_incidence_IDs"]),(0,))
         self.assertFalse(q["is_complete_point_OR_line_star_UNION"])
         self.assertEqual(q["original_deleted_SOURCE_ID_count"],1)
         self.assertEqual(q["exact_original_source_kappa_effective"],"1")
