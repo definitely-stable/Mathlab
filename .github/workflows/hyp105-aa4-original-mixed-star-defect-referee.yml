@@ -51,6 +51,7 @@ jobs:
           assert z['NEW_all_h_exact_original_defect_identity_proved_in_manuscript'] is True
           assert z['NEW_all_h_MIXED_point_AND_line_source_STAR_50percent_radius'] is True
           assert z['NEW_all_h_continuous_defect_kappa_radius'] is True
+          assert z['NEW_hybrid_MIXED_STARS_plus_arbitrary_extra_IDs_defect_bound'] is True
           assert z['remaining_predecessor_proof_DAG_requires_final_mathematical_signoff']
           formal=z['all_h_15_FORMAL_independent_source_defect_interpolation_ledgers']
           assert len(formal)==15
@@ -91,6 +92,10 @@ jobs:
               assert v['all_three_original_source_anchor_roles_exact_s2']
               assert v['physical_typed_real_endpoint_pairs_count']==4*V*(V-s-1)
               assert v['original_GQ_middle_anchor_Z_exposures']==s*s*Z
+              assert v['all_h_full_MIXED_STAR_plus_any_extra_source_defect_bound']
+              assert D<=s*s*v['actual_ORIGINAL_residual_extra_IDs_outside_full_STARS']
+              assert Fraction(v['exact_original_source_kappa_effective'])<=Fraction(
+                  v['structurally_certified_original_kappa_extra_fraction'])
               assert v['new_original_defect_formula_and_true_physical_masks_match']
               assert Fraction(v['exact_original_source_kappa_effective'])==Fraction(D,s*s*Z)
               assert v['original_source_credit_Xi_Z']==4*(s*s*Z-D+H+F)
@@ -107,6 +112,9 @@ jobs:
           assert cases[6]['original_source_credit_Xi_Z']==0
           assert cases[6]['original_source_M_Z_mask_from_three_anchors']==192
           assert 0<Fraction(cases[7]['exact_original_source_kappa_effective'])<1
+          assert Fraction(cases[7]['exact_original_source_kappa_effective'])==Fraction(1,8)
+          assert cases[7]['actual_ORIGINAL_residual_extra_IDs_outside_full_STARS']==1
+          assert Fraction(cases[7]['structurally_certified_original_kappa_extra_fraction'])==Fraction(1,6)
           assert all(v['D_isolated_original_middle_anchor_deletion_defect']==0 for v in cases[8:])
           print('AA4_TRUE_ORIGINAL_GQ_MIXED_STARS_DEFECT_KAPPA15_PHYSICAL_MASKS_PASS')
           PYCODE
