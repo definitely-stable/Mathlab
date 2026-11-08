@@ -1,0 +1,81 @@
+name: hyp105-aa4-external-ordinary-c6-normalization
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-external-ordinary-c6-normalization.yml'
+      - 'research/hyp105_external_c6_normalization_referee.py'
+      - 'research/test_hyp105_external_c6_normalization_referee.py'
+      - 'docs/research/HYP-105-AA4-EXTERNAL-C6-THEOREM-NORMALIZATION-REFEREE.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-external-ss6-normalization:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Thirteen independent source-normalization, cycle-count and noncycle-walk tests
+        run: python -m unittest discover -s research -p 'test_hyp105_external_c6_normalization_referee.py' -v
+      - name: Strict published-r2-k3 graph normalization, two cycle oracles plus embeddings
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_external_c6_normalization_referee.py | tee proof/aa4-ext6.json.log
+          python - <<'PYCODE'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          txt=Path('proof/aa4-ext6.json.log').read_text(encoding='utf-8').splitlines()
+          prefix='AA4_EXT6_THEOREM_NORMALIZATION='
+          assert len(txt)==1 and txt[0].startswith(prefix), 'need unique complete JSON'
+          v=json.loads(txt[0][len(prefix):])
+          assert v['schema']=='mathlab.hyp105.external-ordinary-ss6-normalization.v1'
+          assert v['root_issue']==230 and v['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert v['external_DOI']=='10.1017/S0963548320000206'
+          assert v['root_PROVED_A'] is False and v['new_ASET_exponent'] is False
+          assert v['original_source_inverse_independently_signed_off'] is False
+          assert v['full_HEAVY_LOW_proof_independently_signed_off'] is False
+          arr=v['formal_graph_theorem_normalization']
+          assert len(arr)==3
+          assert [(r['C0_FORMAL'],r['c0_FORMAL']) for r in arr]==[
+              ('1','1'),('2','1/5'),('7/3','1/17')]
+          for r in arr:
+              assert r['R']==93313
+              assert r['Jiang_Yepremyan_Theorem_1_1_k3_r2'] is True
+              assert r['external_published_numeric_constants_VERIFIED'] is False
+              assert all(r['exact_all_h_external_quantifier_gates'].values())
+              C=Fraction(r['C0_FORMAL']);c=Fraction(r['c0_FORMAL'])
+              x=Fraction(17,2)*93313**3*C**3
+              assert r['T']-1<x<=r['T']
+              assert Fraction(r['C6_unoriented_conditional_sextic_coefficient'])==c/93313**6
+          rows=v['finite_graph_three_oracle_cases']
+          assert len(rows)==8
+          observed={r['graph']:r['unoriented_C6'] for r in rows}
+          assert observed=={'C6':1,'C6_with_two_isolated':1,'K6':60,'K7':420,
+                            'K33':6,'K34':24,'K25':0,'C5_no_six_cycle':0}
+          assert all(r['unoriented_C6']==r['opposite_threepath_C6']
+                     and r['oriented_embeddings']==12*r['unoriented_C6']
+                     for r in rows)
+          assert all(r['closed_length6_walks']>=r['oriented_embeddings'] for r in rows)
+          k25=next(r for r in rows if r['graph']=='K25')
+          k33=next(r for r in rows if r['graph']=='K33')
+          assert k25['unoriented_C6']==0 and k25['closed_length6_walks']==2000
+          assert k33['unoriented_C6']==6 and k33['closed_length6_walks']==1458
+          w=v['large_abstract_integer_budget_NOT_physical_source_witness']
+          assert w['s']==(1<<60) and w['v']>=6
+          assert w['external_density_threshold_verified_by_exact_cubes']
+          assert Fraction(w['external_C6_sextic_floor'])>=Fraction(w['inherited_C6_sextic_floor'])
+          print('ACCEPT scoped external theorem normalization; GLOBAL Branch A remains open')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-external-ordinary-c6-referee
+          path: proof/aa4-ext6.json.log
