@@ -7,7 +7,7 @@ from hyp105_external_c6_normalization_referee import (
     SCHEMA, ROOT_STATUS, R, _ceil, _complete, _bipartite,
     formal_external_transfer, verify_abstract_graph_budget,
     sixcycles_minroot_dfs, sixcycles_opposite_threepaths,
-    oriented_sixcycle_embeddings, canonical_report,
+    oriented_sixcycle_embeddings, closed_sixwalk_trace, canonical_report,
 )
 
 
@@ -93,6 +93,20 @@ class TestExternalOrdinaryC6Normalization(unittest.TestCase):
                 self.assertEqual(sixcycles_minroot_dfs(a+b,E),expected)
                 self.assertEqual(sixcycles_opposite_threepaths(a+b,E),expected)
                 self.assertEqual(oriented_sixcycle_embeddings(a+b,E),12*expected)
+
+    def test_COUNTEREXAMPLE_closed_walks_not_simple_C6_K25_K33(self):
+        # K_{2,5} has no simple sixcycle but 2*(2*5)^3 = 2000
+        # closed walks (eigenvalues +/- sqrt(10)).
+        a=_bipartite(2,5)
+        self.assertEqual(sixcycles_minroot_dfs(7,a),0)
+        self.assertEqual(sixcycles_opposite_threepaths(7,a),0)
+        self.assertEqual(closed_sixwalk_trace(7,a),2000)
+        b=_bipartite(3,3)
+        self.assertEqual(closed_sixwalk_trace(6,b),1458)
+        self.assertEqual(oriented_sixcycle_embeddings(6,b),72)
+        self.assertEqual(sixcycles_minroot_dfs(6,b),6)
+        self.assertGreater(closed_sixwalk_trace(6,b),
+                           oriented_sixcycle_embeddings(6,b))
 
     def test_cycles_with_isolated_vertices_same_C6_different_host_v(self):
         edges=[(i,(i+1)%6) for i in range(6)]
