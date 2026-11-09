@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Eighteen independent all-h source-compatible P3 rank/covariance tests
+      - name: Twenty independent all-h source-compatible P3 rank/covariance tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_compatible_path_covariance_referee.py' -v
       - name: Exact original W32 full four-class covariance and W34 partial source-oracle certificate
         shell: bash
@@ -72,6 +72,8 @@ jobs:
               assert w['physical_path_a']!=w['physical_path_b']
               p=Fraction(w['marginal_a'])*Fraction(w['marginal_b'])
               if k=='compatible':
+                  assert w['true_typed_cross_depth_x'] is False
+                  assert w['true_typed_cross_depth_y'] is False
                   assert Fraction(w['joint'])>=4*p
                   assert Fraction(w['covariance'])>=3*p
                   assert Fraction(w['rank_priority_ratio'])>=1
@@ -79,7 +81,12 @@ jobs:
               else:
                   assert Fraction(w['joint'])==0
                   assert Fraction(w['covariance'])==-p
+                  if k=='original_first_factor_odd_cycle':
+                      assert w['true_typed_cross_depth_x'] is True
+                  if k=='original_second_factor_odd_cycle':
+                      assert w['true_typed_cross_depth_y'] is True
           for i,r in enumerate(cases):
+              assert r['all_original_odd_cycles_equivalent_to_depth1_depth2_cross_hits'] is True
               assert r['actual_paired_original_physical_edges']==2*r['original_CORE_ID_count']
               assert r['same_end_ordered_path_pairs_audited']>0
               assert sum(r['same_end_ordered_path_pair_classes'].values())==r['same_end_ordered_path_pairs_audited']
