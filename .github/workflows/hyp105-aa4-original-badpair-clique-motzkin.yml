@@ -1,0 +1,105 @@
+name: hyp105-aa4-original-badpair-clique-motzkin
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-badpair-clique-motzkin.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-BADPAIR-CLIQUE-MOTZKIN.md'
+      - 'research/hyp105_original_badpair_clique_motzkin_referee.py'
+      - 'research/test_hyp105_original_badpair_clique_motzkin_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-badpair-clique-motzkin:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: All-h source clique and 23 independent true W32/W34 Motzkin tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_badpair_clique_motzkin_referee.py' -v
+      - name: Strict exact weighted ORIGINAL graph certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_badpair_clique_motzkin_referee.py |
+            tee proof/hyp105-aa4-original-badpair-clique-motzkin.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          from fractions import Fraction
+          import json
+          lines=Path('proof/hyp105-aa4-original-badpair-clique-motzkin.json.log').read_text().splitlines()
+          prefix='AA4_CLIQUE_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'one exact original source certificate'
+          c=json.loads(lines[0][len(prefix):])
+          assert c['schema']=='mathlab.hyp105.original-badpair-clique-motzkin.v1'
+          assert c['issue']==230 and c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['root_PROVED_A'] is False
+          assert c['formal_global_root_proof_not_promoted'] is True
+          assert c['numerical_published_graph_supersaturation_constants_not_claimed'] is True
+          assert c['new_all_h_original_selector_implies_incompatibility_clique_bound'] is True
+          assert c['new_all_h_original_B_M_motzkin_bound'] is True
+          assert c['new_all_h_single_typed_Bx_By_two_thirds_bound'] is True
+          assert c['new_fourfold_full_LOW_sixth_moment_claimed'] is False
+          assert c['target_original_B_over_M_less_than_3_over_4_proved'] is False
+          Q=c['all_h_original_endpoint_conditioned_clique_Q']
+          assert Q==16*65**3==4394000
+          assert Fraction(c['all_h_improved_epsilon'])==Fraction(1,Q)
+          assert Fraction(c['previous_epsilon'])==Fraction(1,256*65**6)
+          assert c['improvement_factor']==4394000
+          assert c['independent_typed_arc_K4_free_falsifier']['complete_true_abstract_typed_conflict_graph_clique_number']==3
+          t=c['independent_exhaustive_Motzkin_weighted_graph_falsifier']
+          assert t['all_labeled_five_vertex_simple_graphs']==1024
+          assert t['exact_graph_weight_inequalities_tested']==248832
+          assert t['equality_cases']>0 and t['strict_inequalities']>0
+          rows=c['true_original_W32_full_W34_partial']
+          assert len(rows)==6 and {x['s'] for x in rows}=={2,4}
+          assert [x['proper_directed_P3_scanned'] for x in rows[:3]]==[1346,1154,838]
+          assert [x['ordered_same_end_real_path_pairs'] for x in rows[:3]]==[4370,2942,1766]
+          assert [row['max_exact_true_original_incompatibility_clique'] for row in rows]==[6,4,6,3,3,7]
+          for i,row in enumerate(rows):
+              witness=row['actual_strongest_original_clique_path_owner_witness']
+              k=row['max_exact_true_original_incompatibility_clique']
+              assert witness['clique_size']==k
+              assert len(witness['real_original_physical_paths'])==k
+              assert len(witness['all_pairwise_conflict_sources'])==k*(k-1)//2
+              assert all(x['original_conflict_reason']!='compatible'
+                for x in witness['all_pairwise_conflict_sources'])
+              M=Fraction(row['exact_weighted_M'])
+              B=Fraction(row['exact_weighted_B'])
+              G=Fraction(row['exact_weighted_G'])
+              Bx=Fraction(row['exact_first_typed_only_weighted_Bx'])
+              By=Fraction(row['exact_second_typed_only_weighted_By'])
+              assert G+B==M and M>0 and B>=0 and G>0
+              assert G>=M/Q and B<=(1-Fraction(1,Q))*M
+              assert G>=Fraction(row['instance_specific_Motzkin_G_lower'])
+              assert Bx<=Fraction(2,3)*M and By<=Fraction(2,3)*M
+              assert Fraction(row['exact_original_J_only_weighted_Bj'])<=(1-Fraction(1,65**3))*M
+              assert row['max_exact_original_J_only_clique']<=65**3
+              assert row['source_J_only_Bj_at_most_1_minus_1_over_65cubed_M'] is True
+              assert row['max_exact_true_original_incompatibility_clique']<=Q
+              assert row['max_exact_first_typed_clique']<=3
+              assert row['max_exact_second_typed_clique']<=3
+              assert sum(row['original_endpoint_clique_histogram'].values())==row['physical_ordered_endpoint_bins']
+              assert sum(row['all_incompatibility_reasons'].values())==row['ordered_same_end_real_path_pairs']
+              assert row['actual_original_physical_edges']==2*row['retained_original_CORE_flags']
+              assert row['actual_original_max_J_degree']<=64
+              assert row['full_actual_original_proper_P3_census'] is (i<3)
+          assert rows[0]['all_incompatibility_reasons']=={
+             'compatible':2386,'true_original_J_conflict':1348,
+             'first_typed_inner_opposite_depth':464,
+             'second_typed_inner_opposite_depth':172}
+          assert Fraction(rows[0]['exact_weighted_M'])==Fraction(
+             170009657654496199,164130319761408000000)
+          print('ACCEPT all-h ORIGINAL conditional-selector clique <=4,394,000 and weighted Motzkin B/M; root stays OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-original-badpair-clique-motzkin
+          path: proof/hyp105-aa4-original-badpair-clique-motzkin.json.log
