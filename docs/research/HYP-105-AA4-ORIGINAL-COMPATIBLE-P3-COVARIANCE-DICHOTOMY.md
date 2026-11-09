@@ -121,6 +121,45 @@ This **explicit multiplicative decomposition** proves that every compatible same
 
 Equation D-6 gives a computable stronger bound for each compatible pair: its exact physical color amplification alone is \(2^{12-r_f(S)-r_g(S)}\ge4\), with any further gain from the exact original priority correlation. The new finite algorithm records the distribution of \(2^{10-r_f(S)-r_g(S)}\) — the integer power-of-two EXTRA factor above the guaranteed four. Such stronger instance-specific gains are not asserted uniform across all original f/g; the universal guarantee remains four.
 
+## 3.1. NEW stronger all-h finite-position criterion for each typed odd-cycle: no factor graph needed
+
+The disjoint structural alternatives in D-1 can be made more explicit for the SAME ordered physical endpoints. Write the x-coordinate traces of the two actual proper physical 3paths as
+
+\[
+\gamma_x=(x_0,a,b,x_3),\qquad
+\eta_x=(x_0,c,d,x_3),
+\]
+
+with four distinct symbols within EACH path. In any bichromatic coloring, a length-three typed path forces physical bit parity 0,1,0,1 along the depth indices 0,1,2,3 relative to the first endpoint. Since BOTH paths start at the same first symbol and end at the same last symbol, the two individual alternating assignments are consistent on the intersection of their used symbol sets **if and only if** every common inner physical symbol appears at the SAME parity depth in both paths. The endpoint symbols already agree at depths 0 and 3; no inner symbol can be an endpoint of its own proper path, and both paths share those endpoints.
+
+Therefore the union typed graph is bipartite if and only if
+
+\[
+\boxed{a\ne d\quad\text{AND}\quad b\ne c.}
+\tag{D-5a}
+\]
+
+Conversely, if a=d then a is required to have opposite bits by its depth-1 occurrence in γ versus its depth-2 occurrence in η; this produces a physical odd closed walk in the union. The case b=c is dual. If neither occurs, fix the first endpoint bit, color each path alternately, and their shared symbols agree by equal parity depths, furnishing a valid 2-coloring of the whole union. This is a two-way **ALL-h proof**, not a W32-specific pattern.
+
+Independently on y-coordinates, writing \(\gamma_y=(y_0,e,f,y_3)\), \(\eta_y=(y_0,g,h,y_3)\), the corresponding condition is \(e\ne h\) AND \(f\ne g\).
+
+Hence **every** pair of true original physical proper 3paths with the SAME ordered physical endpoints has a complete constant-time compatibility criterion:
+
+\[
+\boxed{
+\begin{array}{l}
+S_\gamma\cup S_\eta\text{ contains NO original source }J\text{ edge},\\
+x_1^\gamma\ne x_2^\eta,\quad x_2^\gamma\ne x_1^\eta,\\
+y_1^\gamma\ne y_2^\eta,\quad y_2^\gamma\ne y_1^\eta.
+\end{array}
+}
+\tag{D-5b}
+\]
+
+In other words: the two types of negative physical bit covariance arise **exactly** from four cross-depth inner coordinate equalities, not from arbitrary unexplained odd subgraphs. This is a more directly countable geometrical obstruction for the next source B mass estimate; all f,g may remain fixed and arbitrarily correlated. It does NOT imply pairwise compatibility unconditionally.
+
+The new independent referee computes BOTH (a) true original f/g physical factor graph bipartiteness via GF(2) rank BFS and (b) the FOUR cross-depth physical coordinate comparisons DIRECTLY from actual directed physical paths, and requires exact agreement for every one of the fully enumerated original W32 endpoint pairs and every sampled W34 pair. It intentionally keeps two independent implementations rather than replacing one with the other, so a false finite odd-cycle classification fails CI. The exact disjoint priority source J→first cross-depth→second cross-depth→compatible classes now give an implementable direct approach to bounding the incompatible weight B in D-7, without enumerating arbitrary physical symbol graph cycles.
+
 ## 4. NEW exact original LOW second-moment decomposition into compatible and incompatible pairs
 
 Let P3(u,v) be the true unselected coordinate-proper physical path count in the genuine ORIGINAL paired CORE, and X_ω(u,v) the number retained under ONE shared source selector. For each original path γ define its exact marginal p_γ>0, and fix ordered physical endpoints. Write \(\mathcal C_{u,v}\) for pairs of paths with compatible owner and typed factor union and \(\mathcal B_{u,v}\) for all incompatible pairs, where pairs are ORDERED and include identical path pairs.
