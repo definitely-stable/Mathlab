@@ -52,9 +52,10 @@ jobs:
           assert sum(r['seeded_proposal_categories'].values())==r['unique_completed_proxy_trials']
           assert r['random_seed']==230756
           assert r['strict_no_universal_extrapolation_from_finite_witness'] is True
-          assert r['mathematical_all_h_clique_five_necessary_for_B_over_M_ge_3_4'] is True
+          assert r['mathematical_all_h_clique_five_necessary_for_B_over_M_strict_gt_3_4'] is True
           assert r['mathematical_weighted_clique_bin_certifies_strict_B_below_3_4_when_sum_M_over_omega_gt_M_over_4'] is True
           assert r['mathematical_all_h_low_omega3_vs_high_omega5_mass_compensation_criterion'] is True
+          assert r['mathematical_all_h_omega4_equality_boundary_not_excluded'] is True
           baseline=r['predeclared_exact_true_source_baselines']
           assert len(baseline)==2
           assert [z['full_original_proper_directed_P3'] for z in baseline]==[1346,1154]
@@ -93,7 +94,7 @@ jobs:
               assert Fraction(local['exact_local_weighted_B'])/Fraction(local['exact_local_weighted_M'])==Fraction(local['exact_local_B_over_M'])
               assert Fraction(z['exact_Motzkin_bound_on_B_over_M'])==1-Fraction(z['exact_Motzkin_G_floor'])/M
               assert sum(z['bin_clique_histogram'].values())==z['physical_ordered_endpoint_bins']
-              if B/M>=Fraction(3,4):
+              if B/M>Fraction(3,4):
                   assert z['actual_max_original_incompatibility_clique']>=5
               if z['weighted_Motzkin_alone_proves_B_over_M_below_three_quarters']:
                   assert B/M<Fraction(3,4)
