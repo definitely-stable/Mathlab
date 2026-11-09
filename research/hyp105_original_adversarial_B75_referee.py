@@ -233,6 +233,7 @@ def exact_source_risk(f_perm,g_perm,retained=None,full_clique=True):
     risk_M_omega5=Fraction(0)
     counts=Counter()
     bins_by_omega=Counter()
+    mass_by_omega=defaultdict(Fraction)
     max_omega=0
     weights_cache={}
     priority_ints=0
@@ -283,11 +284,26 @@ def exact_source_risk(f_perm,g_perm,retained=None,full_clique=True):
                 raise AssertionError("weighted Motzkin-Straus violated for actual source bin")
             motzkin_good+=mass/omega
             bins_by_omega[omega]+=1
+            mass_by_omega[omega]+=mass
             max_omega=max(max_omega,omega)
             if omega>=5:risk_M_omega5+=mass
             if best_bin is None or (bad/mass)>best_bin["B_over_M"]:
+                realized_conflicts=[]
+                for ai,bi in combinations(range(n),2):
+                    reason=original_incompatibility(group[ai],group[bi],src["J"])
+                    if reason!="compatible":
+                        realized_conflicts.append({
+                            "member_indices":[ai,bi],
+                            "exact_original_incompatibility_reason":reason})
                 best_bin={"endpoint":[list(key[0]),list(key[1])],
-                    "B_over_M":bad/mass,"path_count":n,"clique":omega}
+                    "B_over_M":bad/mass,"path_count":n,"clique":omega,
+                    "weighted_B":str(bad),"weighted_M":str(mass),
+                    "genuine_original_physical_paths":[{
+                        "physical_vertices":[list(v) for v in path],
+                        "original_named_flag_owner_ids":list(os),
+                        "exact_source_selector_path_marginal":str(w)}
+                        for (path,os),w in zip(group,ws)],
+                    "all_incompatible_unordered_pairs":realized_conflicts}
         M+=mass
         B+=bad
         G+=good
@@ -300,6 +316,19 @@ def exact_source_risk(f_perm,g_perm,retained=None,full_clique=True):
         raise AssertionError("source weighted Motzkin graph certificate invalid")
     if full_clique and B/M>=TARGET and max_omega<=4:
         raise AssertionError("mathematical all-h critical clique-five necessity violated")
+    if full_clique:
+        if sum(mass_by_omega.values(),Fraction(0))!=M:
+            raise AssertionError("all source endpoint-clique mass bins must sum exactly to M")
+        low_omega_mass=sum((value for k,value in mass_by_omega.items() if k<=3),Fraction(0))
+        high_omega_mass=sum((value for k,value in mass_by_omega.items() if k>=5),Fraction(0))
+        # A sufficient all-order risk compensation criterion: local omega<=3
+        # saves at least 1/12 relative to 1/4; risky omega>=5 loses
+        # at most (1/4-1/Q) by the previous universal real source clique cap.
+        Q=16*65**3
+        compensation=M/Fraction(4)+low_omega_mass/Fraction(12)-(
+            Fraction(1,4)-Fraction(1,Q))*high_omega_mass
+        if G<compensation:
+            raise AssertionError("all-h endpoint local clique risk compensation fails")
     result={
         "s":2,"label_map_point_f_perm":list(f_perm),
         "label_map_line_g_perm":list(g_perm),
@@ -331,6 +360,12 @@ def exact_source_risk(f_perm,g_perm,retained=None,full_clique=True):
         result.update({
             "actual_max_original_incompatibility_clique":max_omega,
             "bin_clique_histogram":dict(sorted(bins_by_omega.items())),
+            "exact_bin_M_mass_by_clique_number":{
+                str(k):str(m) for k,m in sorted(mass_by_omega.items())},
+            "actual_M_share_bins_omega_at_most_3":str(low_omega_mass/M),
+            "exact_all_h_compensation_G_lower":str(compensation),
+            "simple_low_clique_compensation_certifies_strict_B75":
+                compensation>M/Fraction(4),
             "exact_Motzkin_G_floor":str(motzkin_good),
             "exact_Motzkin_bound_on_B_over_M":str(1-motzkin_good/M),
             "actual_mass_share_bins_omega_at_least_5":str(risk_M_omega5/M),
@@ -340,7 +375,11 @@ def exact_source_risk(f_perm,g_perm,retained=None,full_clique=True):
                 "physical_ordered_endpoints":best_bin["endpoint"],
                 "exact_local_B_over_M":str(best_bin["B_over_M"]),
                 "true_proper_path_count":best_bin["path_count"],
-                "incompatible_clique_size":best_bin["clique"]},
+                "incompatible_clique_size":best_bin["clique"],
+                "exact_local_weighted_B":best_bin["weighted_B"],
+                "exact_local_weighted_M":best_bin["weighted_M"],
+                "genuine_original_physical_path_witnesses":best_bin["genuine_original_physical_paths"],
+                "all_original_pairwise_conflicts":best_bin["all_incompatible_unordered_pairs"]},
         })
     return result
 
@@ -468,6 +507,7 @@ def deterministic_adversarial_scan(trials=320,seed=SEED,shortlist=5):
         "strict_no_universal_extrapolation_from_finite_witness":True,
         "mathematical_all_h_clique_five_necessary_for_B_over_M_ge_3_4":True,
         "mathematical_weighted_clique_bin_certifies_strict_B_below_3_4_when_sum_M_over_omega_gt_M_over_4":True,
+        "mathematical_all_h_low_omega3_vs_high_omega5_mass_compensation_criterion":True,
         "numerical_external_graph_C6_constants_claimed":False,
     }
 
