@@ -243,7 +243,7 @@ def _trace4(adj):
 
 
 def _mixed_book(c,C,Z,dual=False):
-    """Full A=I\Z / CORE C dual mixed book, independently rederived."""
+    """Full A=I minus Z / CORE C dual mixed book, independently rederived."""
     flags=c["flags"]
     f,g=c["f"],c["g"]
     bypoint=c["bypoint"];byline=c["byline"]
@@ -376,6 +376,8 @@ def finite_original_partition(s,mode,C_mode="full",Z_mode="none"):
     Delta=max((len(v) for v in adj.values()),default=0)
     t4=_trace4(adj)
     ep_counts,e_bad=_endpoints(c,Z)
+    for key in ("missing","incident","endbad","deleted","eligible"):
+        ep_counts.setdefault(key,0)
     counts=Counter()
     blockers=Counter()
     P3=Counter()
@@ -413,6 +415,11 @@ def finite_original_partition(s,mode,C_mode="full",Z_mode="none"):
                 raise AssertionError("admissible path contains deleted ORIGINAL anchor")
             counts["accepted"]+=1
             accepted[ids].add(path)
+    # Fail-closed stable certificate schema: all mutually exclusive seven
+    # categories MUST appear explicitly even if their count is zero.
+    for key in ("improper","end_missing","end_incident","end_endbad",
+                "end_deleted","blocker_union","accepted"):
+        counts.setdefault(key,0)
     if sum(counts.values())!=total_from_deg:
         raise AssertionError("exact directed 3walk source partition non-conservation")
     if counts["accepted"]!=sum(len(p) for p in accepted.values()):
