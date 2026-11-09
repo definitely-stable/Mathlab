@@ -164,13 +164,14 @@ class TestAdversarialExactOriginalB75(unittest.TestCase):
 
     def test_all_h_necessary_clique_five_critical_threshold(self):
         q=self.report
-        self.assertTrue(q["mathematical_all_h_clique_five_necessary_for_B_over_M_ge_3_4"])
+        self.assertTrue(q["mathematical_all_h_clique_five_necessary_for_B_over_M_strict_gt_3_4"])
         self.assertTrue(q["mathematical_weighted_clique_bin_certifies_strict_B_below_3_4_when_sum_M_over_omega_gt_M_over_4"])
         self.assertTrue(q["mathematical_all_h_low_omega3_vs_high_omega5_mass_compensation_criterion"])
+        self.assertTrue(q["mathematical_all_h_omega4_equality_boundary_not_excluded"])
         for row in self.leaders+self.baseline:
             B=Fraction(row["exact_ratio_B_over_M"])
             k=row["actual_max_original_incompatibility_clique"]
-            if B>=Fraction(3,4):
+            if B>Fraction(3,4):
                 self.assertGreaterEqual(k,5)
             if row["weighted_Motzkin_alone_proves_B_over_M_below_three_quarters"]:
                 self.assertLess(B,Fraction(3,4))
