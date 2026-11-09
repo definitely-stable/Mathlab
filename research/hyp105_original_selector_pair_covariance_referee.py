@@ -305,6 +305,38 @@ def find_original_covariance_witnesses(paths,c,search_cap=180):
         if ("positive" in found and "negative" in found and
             "zero_joint" in found):
             break
+    # These additional actual source witnesses isolate physical cut obstructions,
+    # with NO original J conflict. We deliberately search the FULL W32 tensor,
+    # not a synthetic odd-cycle algebra example.
+    all_by_end=defaultdict(list)
+    for path in paths:
+        all_by_end[(path[0][0],path[0][-1])].append(path)
+    for arr in all_by_end.values():
+        for x,y in combinations(arr,2):
+            S=tuple(sorted(set(x[1]+y[1])))
+            if any(j in c["J"][i] for i,j in combinations(S,2)):
+                continue
+            if ("negative_point_odd_cycle" not in found
+                and _typed_cut_exact(S,c,"point")==0):
+                r=exact_pair_referee(x,y,c)
+                if not (r["joint"]==0 and r["cov"]<0 and r["source_priority"]>0):
+                    raise AssertionError("genuine point odd-cycle witness invalid")
+                found["negative_point_odd_cycle"]=_pair_summary(x,y,r)
+            if ("negative_line_odd_cycle" not in found
+                and _typed_cut_exact(S,c,"point")>0
+                and _typed_cut_exact(S,c,"line")==0):
+                r=exact_pair_referee(x,y,c)
+                if not (r["joint"]==0 and r["cov"]<0 and r["source_priority"]>0):
+                    raise AssertionError("genuine line odd-cycle witness invalid")
+                found["negative_line_odd_cycle"]=_pair_summary(x,y,r)
+            if ("negative_point_odd_cycle" in found and
+                "negative_line_odd_cycle" in found):
+                break
+        if ("negative_point_odd_cycle" in found and
+            "negative_line_odd_cycle" in found):
+            break
+    if "negative_point_odd_cycle" not in found or "negative_line_odd_cycle" not in found:
+        raise AssertionError("true original W32 positive J-compatible odd-cut witnesses missing")
     if "positive" not in found or "negative" not in found:
         raise AssertionError("failed to find actual ORIGINAL positive and negative covariance")
     return found
