@@ -52,6 +52,12 @@ jobs:
           assert Fraction(full['exact_selected_second_moment'])>=Fraction(full['exact_jensen_mean_norm2'])
           assert Fraction(full['exact_selected_second_moment'])-Fraction(full['exact_jensen_mean_norm2'])==Fraction(full['exact_variance_sum'])
           assert Fraction(full['second_over_jensen_ratio'])>1
+          assert Fraction(full['exact_all_pairwise_covariances_sum'])==Fraction(full['exact_variance_sum'])
+          assert sum(full['ordered_path_pair_covariance_sign_counts'].values())==full['exact_ordered_physical_path_pairs']
+          assert full['ordered_path_pair_covariance_sign_counts']['positive']>0
+          assert full['ordered_path_pair_covariance_sign_counts']['negative']>0
+          assert sum(Fraction(x) for x in full['exact_covariance_by_shared_source_owner'].values())==Fraction(full['exact_variance_sum'])
+          assert full['ordered_path_pair_zero_joint_causes']['original_source_J_conflict']>0
           w=q['actual_original_both_sign_covariance_witnesses']
           for k,sign in (('positive',1),('negative',-1)):
               assert k in w and sign*Fraction(w[k]['covariance'])>0
