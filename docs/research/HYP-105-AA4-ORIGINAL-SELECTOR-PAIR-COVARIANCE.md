@@ -138,9 +138,55 @@ The main new script imports ONLY the true symplectic source fixture from AA4-DEG
 
 The tests use independent source ordinal DAG linear-extension subset dynamic programming and literal exhaustive physical symbol coloring, and insist on **distinct genuine-original positive and negative covariance path pairs**. Pure three-vertex abstract priority sanity checks are used ONLY as algebraic identities, never substituted for the real source experiments.
 
-The new hosted specialist workflow performs 16 independent test methods, emits one strict JSON certificate with actual source path-pair witnesses, true all-endpoint second moment and constraints, and retains ROOT_STATUS=OPEN_WITH_FORMAL_BLOCKER; INDEX and full Research CI run on the SAME final GitHub SHA.
+The new hosted specialist workflow performs 18 independent test methods, emits one strict JSON certificate with actual source path-pair witnesses, true all-endpoint second moment and constraints, and retains ROOT_STATUS=OPEN_WITH_FORMAL_BLOCKER; INDEX and full Research CI run on the SAME final GitHub SHA.
 
 **Scientific limitation:** PAIR-1–PAIR-6 are rigorous exact all-order probability identities. They are new independent source-compatible auditing tools for the LOW proper-P3 energy step, but do not prove an improved absolute bound on the all-h seven-class original six-motif S_s, publish explicit external C6 graph constants, close #230 or justify an ASET extraction exponent. The final root acceptance still requires an adversarial all-h audit of the original selector/Moment/point-line source books and GF5 positive-class mapping together with the previous HEAVY chain.
+
+## 7. New complete ORIGINAL W32 covariance stratification and exact certificate (empirical source result)
+
+The full original symplectic W(3,2) lex source has 45 actual incidence flags, 90 real physical opposite-diagonal edges, maximum actual J source degree 4, and 1,346 genuine coordinate-proper directed physical threepaths, grouped into 624 ordered physical endpoint bins. There are exactly 4,370 ordered pairs (γ,η) of such physical paths with IDENTICAL ordered endpoints, counted with multiplicity including γ=η. These are NOT sampled; the executable enumerates every one.
+
+The exact joint probability of every path pair is computed from PAIR-2/PAIR-3 on its original owner union. The independent exact second-moment/covariance ledger yields:
+
+| Full W32 exact property | Value |
+| --- | ---: |
+| P3 proper directed paths | 1,346 |
+| Source endpoint bins | 624 |
+| Ordered same-endpoint path pairs, exactly ||P3||_F² | 4,370 |
+| Ordered path pairs with positive covariance | 2,386 |
+| Ordered path pairs with negative covariance | 1,984 |
+| Mutually exclusive owing to TRUE J source-owner conflict | 1,348 |
+| Mutually exclusive owing to true first-factor ODD physical symbol cycle without J conflict | 464 |
+| Mutually exclusive owing to true second-factor ODD physical symbol cycle without J conflict or first-factor failure | 172 |
+
+In this actual instance the three disjoint reasons for a zero joint survival probability total 1,348+464+172=1,984. Both first- and second-factor odd-cycle witnesses are SOURCE-GROUNDED: each pair of paths individually survives with positive probability, the union of their source owners is independently J-free, but the physical factor symbol graph of their UNION is not bipartite. Therefore even source-conflict independence alone does NOT make the two-path indicators jointly realizable.
+
+Full exact rational selected second-moment values (on the same W32 true source, not a synthetic graph) are:
+
+\[
+\begin{aligned}
+\mathbb E\Vert X\Vert_F^2
+ &=\frac{2464778346891846823}{3826102303457280000},\\
+\Vert\mathbb EX\Vert_F^2
+ &=\frac{170009657654496199}{164130319761408000000},\\
+\mathbb E\Vert X\Vert_F^2-\Vert\mathbb EX\Vert_F^2
+ &=\frac{5489586524019325126911803}
+ {8535269018552500224000000}.
+\end{aligned}
+\]
+
+A genuinely **separate** sum over all 4,370 exact pairwise covariances equals that last fraction and is also partitioned by whether the two physical paths share at least one named ORIGINAL source owner. In this instance, the disjoint-owner path-pair group has negative total covariance while the shared-owner path-pair group has positive total covariance; they cancel partially and sum exactly to the nonnegative total variance.
+
+The observed exact selected-second/Jensen ratio in W32 is
+
+\[
+\frac{\mathbb E\Vert X\Vert_F^2}{\Vert\mathbb EX\Vert_F^2}
+ =\frac{5498427536246331892748400}{8841012227006765836597}.
+\]
+
+This illustrates a large Jensen slack at small finite source size, **not** a uniform all-h asymptotic improvement. Any attempted replacement of the uniform q3 selector factor must control both types of covariance and all possible correlated f,g, not merely match this W32 instance.
+
+The GitHub-hosted strict certificate additionally requires all ordered pair covariance sign counts to sum to 4,370, all exclusive zero-joint source/typed-odd-cycle categories to have valid true-original source witnesses, and the exact sum of positive and negative pairwise covariances to equal the independently computed nonnegative full endpoint variance. A separate ordinal-bitmask DP and literal bit-color enumeration validate the genuine-source odd-cycle witnesses, independently of the closed-form rank and bipartite graph formulas.
 
 ## Next mathematically allowed action
 
