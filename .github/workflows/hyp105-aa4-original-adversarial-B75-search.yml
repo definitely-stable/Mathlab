@@ -43,7 +43,6 @@ jobs:
           assert r['root_PROVED_A'] is False
           assert r['all_h_B_over_M_less_3_over_4_PROVED'] is False
           assert r['counterexample_to_asymptotic_B75_claimed'] is False
-          assert r['all_h_asymptotic_counterexample_claimed'] if False else True
           assert r['source_original_Z_deleted_in_search'] is False
           assert r['true_original_symplectic_order']==2
           assert r['global_pair_alphabet']==6
