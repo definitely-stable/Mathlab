@@ -144,6 +144,33 @@ class TestAllHOriginalBadPairMotzkin(unittest.TestCase):
             self.assertLessEqual(max(hist),r["max_proper_paths_in_one_endpoint_bin"])
             self.assertLessEqual(max(hist),Q)
 
+    def test_explicit_max_clique_true_original_paths_and_all_pairwise_witnesses(self):
+        self.assertEqual([r["max_exact_true_original_incompatibility_clique"]
+            for r in self.rows],[6,4,6,3,3,7])
+        for row in self.rows:
+            witness=row["actual_strongest_original_clique_path_owner_witness"]
+            k=row["max_exact_true_original_incompatibility_clique"]
+            self.assertEqual(witness["clique_size"],k)
+            self.assertEqual(len(witness["real_original_physical_paths"]),k)
+            self.assertEqual(len(witness["all_pairwise_conflict_sources"]),k*(k-1)//2)
+            c=_actual_source(row["s"],row["fixed_source_pair_scheme"],
+                             row["original_CORE_scheme"])
+            actual=[]
+            for a in witness["real_original_physical_paths"]:
+                physical=tuple(map(tuple,a["true_physical_vertices"]))
+                named=tuple(a["named_original_flag_owner_IDs"])
+                self.assertEqual(len(physical),4)
+                self.assertEqual(len(named),3)
+                self.assertTrue(set(named)<=set(c["ids"]))
+                self.assertGreater(Fraction(a["exact_source_priority_plus_two_cuts_marginal"]),0)
+                actual.append((physical,named))
+            for p in witness["all_pairwise_conflict_sources"]:
+                i,j=p["pair_indices"]
+                self.assertLess(i,j)
+                self.assertEqual(_pair_reason(actual[i],actual[j],c),
+                                 p["original_conflict_reason"])
+                self.assertNotEqual(p["original_conflict_reason"],"compatible")
+
     def test_independent_exact_all_1024_graphs_243_weights_Motzkin(self):
         r=self.report["independent_exhaustive_Motzkin_weighted_graph_falsifier"]
         self.assertEqual(r["all_labeled_five_vertex_simple_graphs"],1024)
