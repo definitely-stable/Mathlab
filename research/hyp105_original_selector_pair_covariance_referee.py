@@ -321,11 +321,18 @@ def exact_endpoint_moments(paths,c,hard_limit=100000):
     selected_second=Fraction(0)
     pair_occurrences=0
     one_sum=Fraction(0)
+    covariance_by_overlap={"shared_original_owner":Fraction(0),
+                           "disjoint_original_owners":Fraction(0)}
+    covariance_signs=Counter()
+    zero_joint_reasons=Counter()
+    total_covariance=Fraction(0)
     for endpoint in sorted(byend):
         arr=byend[endpoint]
         freq=Counter(tuple(sorted(os)) for os in arr)
-        mean=sum((mult*P_cache.setdefault(os,exact_joint(os,c))
-                  for os,mult in freq.items()),Fraction(0))
+        for os in freq:
+            if os not in P_cache:
+                P_cache[os]=exact_joint(os,c)
+        mean=sum((mult*P_cache[os] for os,mult in freq.items()),Fraction(0))
         expectation_norm2+=mean*mean
         one_sum+=mean
         ss=list(freq.items())
@@ -338,10 +345,33 @@ def exact_endpoint_moments(paths,c,hard_limit=100000):
                 owners=tuple(sorted(set(a)|set(b)))
                 if owners not in joint_cache:
                     joint_cache[owners]=exact_joint(owners,c)
-                selected_second+=n*joint_cache[owners]
+                joint=joint_cache[owners]
+                selected_second+=n*joint
+                covariance=joint-P_cache[a]*P_cache[b]
+                total_covariance+=n*covariance
+                overlap="shared_original_owner" if set(a)&set(b) else "disjoint_original_owners"
+                covariance_by_overlap[overlap]+=n*covariance
+                sign=("positive" if covariance>0 else
+                      "negative" if covariance<0 else "zero")
+                covariance_signs[sign]+=n
+                if not joint:
+                    if any(j in c["J"][i] for i,j in combinations(owners,2)):
+                        zero_joint_reasons["original_source_J_conflict"]+=n
+                    elif not _typed_cut_exact(owners,c,"point"):
+                        zero_joint_reasons["original_point_label_odd_cycle"]+=n
+                    elif not _typed_cut_exact(owners,c,"line"):
+                        zero_joint_reasons["original_line_label_odd_cycle"]+=n
+                    else:
+                        raise AssertionError("positive exact priority/cuts gave zero joint")
     proper2=sum(len(a)**2 for a in byend.values())
     if pair_occurrences!=proper2:
         raise AssertionError("full endpoint pair multiplicities not conserved")
+    if total_covariance!=selected_second-expectation_norm2:
+        raise AssertionError("exact ALL ORIGINAL endpoint pair covariances fail variance identity")
+    if sum(covariance_by_overlap.values())!=total_covariance:
+        raise AssertionError("source-owner overlap covariance ledger does not close")
+    if sum(covariance_signs.values())!=pair_occurrences:
+        raise AssertionError("positive/negative/zero covariance pair partition fails")
     if selected_second<expectation_norm2:
         raise AssertionError("Jensen violated on ORIGINAL exact selection")
     if not selected_second<=proper2:
@@ -354,6 +384,11 @@ def exact_endpoint_moments(paths,c,hard_limit=100000):
             "exact_jensen_mean_norm2":str(expectation_norm2),
             "exact_selected_second_moment":str(selected_second),
             "exact_variance_sum":str(selected_second-expectation_norm2),
+            "exact_all_pairwise_covariances_sum":str(total_covariance),
+            "ordered_path_pair_covariance_sign_counts":dict(covariance_signs),
+            "ordered_path_pair_zero_joint_causes":dict(zero_joint_reasons),
+            "exact_covariance_by_shared_source_owner":{
+                key:str(value) for key,value in covariance_by_overlap.items()},
             "exact_mean_total_path_count":str(one_sum),
             "second_over_jensen_ratio":str(selected_second/expectation_norm2)
                if expectation_norm2 else "undefined",
