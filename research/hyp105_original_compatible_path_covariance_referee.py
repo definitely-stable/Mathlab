@@ -165,6 +165,24 @@ def _constraint_rank(owners,c,typ):
     return len(graph)-components
 
 
+def typed_cross_depth_collision(path_a,path_b,axis):
+    """Odd typed physical pair-label cycle iff cross-parity inner hit.
+
+    Each proper 3path imposes alternating binary colors on depths 0,1,2,3.
+    With same typed endpoints, their union is bipartite iff the shared
+    inner symbols, if any, occur at the SAME parity-depth across paths.
+    """
+    if axis not in (0,1) or len(path_a)!=4 or len(path_b)!=4:
+        raise ValueError("original typed threepath plus axis required")
+    a=tuple(v[axis] for v in path_a)
+    b=tuple(v[axis] for v in path_b)
+    if a[0]!=b[0] or a[-1]!=b[-1]:
+        raise ValueError("same typed first and last physical coordinates required")
+    if len(set(a))!=4 or len(set(b))!=4:
+        raise ValueError("each typed original path must be proper")
+    return a[1]==b[2] or a[2]==b[1]
+
+
 def _probability(owners,c):
     S=tuple(sorted(set(owners)))
     p=_source_priority_exact(S,c["J"])
@@ -182,6 +200,13 @@ def pair_dichotomy(a,b,c,prior_cache=None):
     if va[0]!=vb[0] or va[-1]!=vb[-1]:
         raise ValueError("the universal factor-four theorem needs SAME endpoints")
     S=tuple(sorted(set(oa+ob)))
+    collision_x=typed_cross_depth_collision(va,vb,0)
+    collision_y=typed_cross_depth_collision(va,vb,1)
+    # Two independent implementations of the physical odd-cycle obstruction.
+    if (_constraint_rank(S,c,"x") is None)!=collision_x:
+        raise AssertionError("original first factor odd cycle != depth-cross")
+    if (_constraint_rank(S,c,"y") is None)!=collision_y:
+        raise AssertionError("original second factor odd cycle != depth-cross")
     def marginal(owners):
         if prior_cache is None:
             return _probability(owners,c)
@@ -235,6 +260,7 @@ def pair_dichotomy(a,b,c,prior_cache=None):
     if cause!="compatible" and covariance!=-PA*PB:
         raise AssertionError("incompatible paths must have exactly negative product")
     return {"cause":cause,"p_a":PA,"p_b":PB,"joint":joint,
+        "typed_cross_depth_x":collision_x,"typed_cross_depth_y":collision_y,
         "covariance":covariance,"rank_x_union":rankX,
         "rank_y_union":rankY,"original_priority_ratio":source_ratio,
         "minimum_two_typed_color_boost":4 if cause=="compatible" else 0,
@@ -250,6 +276,8 @@ def _display_pair(a,b,t):
             "marginal_a":str(t["p_a"]),"marginal_b":str(t["p_b"]),
             "covariance":str(t["covariance"]),
             "rank_first":t["rank_x_union"],"rank_second":t["rank_y_union"],
+            "true_typed_cross_depth_x":t["typed_cross_depth_x"],
+            "true_typed_cross_depth_y":t["typed_cross_depth_y"],
             "rank_priority_ratio":None if t["original_priority_ratio"] is None
                else str(t["original_priority_ratio"]),
             "typed_color_extra_boost":t["typed_color_extra_boost"]}
@@ -314,6 +342,7 @@ def endpoint_pair_audit(c,paths,max_pairs=None):
        "physical_ordered_endpoint_bins":len(byend),
        "same_end_ordered_path_pairs_audited":total,
        "same_end_ordered_path_pair_classes":dict(classes),
+       "all_original_odd_cycles_equivalent_to_depth1_depth2_cross_hits":True,
        "compatible_extra_physical_color_boost_histogram":{
            str(k):v for k,v in sorted(rank_boost_hist.items())},
        "weighted_compatible_marginal_product":str(weighted_compatible),
