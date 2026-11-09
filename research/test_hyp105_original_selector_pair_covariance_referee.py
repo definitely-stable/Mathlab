@@ -136,6 +136,18 @@ class TestAllHOriginalSelectorPairJointReferee(unittest.TestCase):
             Fraction(r["exact_selected_second_moment"])-
             Fraction(r["exact_jensen_mean_norm2"]))
         self.assertGreater(Fraction(r["second_over_jensen_ratio"]),1)
+        self.assertEqual(Fraction(r["exact_all_pairwise_covariances_sum"]),
+                         Fraction(r["exact_variance_sum"]))
+        self.assertEqual(
+            sum(r["ordered_path_pair_covariance_sign_counts"].values()),
+            r["exact_ordered_physical_path_pairs"])
+        self.assertGreater(r["ordered_path_pair_covariance_sign_counts"]["positive"],0)
+        self.assertGreater(r["ordered_path_pair_covariance_sign_counts"]["negative"],0)
+        self.assertEqual(
+            sum((Fraction(v) for v in r["exact_covariance_by_shared_source_owner"].values()),Fraction(0)),
+            Fraction(r["exact_variance_sum"]))
+        self.assertGreater(
+            r["ordered_path_pair_zero_joint_causes"]["original_source_J_conflict"],0)
 
     def test_genuine_complete_other_correlated_W32_and_W34_sampling(self):
         rows=self.canonical["true_original_source_cases"]
