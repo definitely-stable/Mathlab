@@ -213,7 +213,26 @@ A separate **abstract typed physical factor** falsifier constructs all nonloop i
 
 A second independent weighted graph oracle exhaustively checks **all 1024 labeled undirected simple graphs on five vertices, times 243 strictly positive integer weight vectors \(w_i\in\{1,2,3\}\)** — a total of **248,832 independently checked exact integer Motzkin inequalities**, with no use of the analytical weight-compression proof inside this test. The finite graphs include cliques of size 1–5 and both strict/equality cases. This is an independent falsification of CL-7, not a replacement for its all-order proof.
 
-Dedicated Github-hosted Ubuntu 24.04 Python 3.12 specialist runs 22 tests and a strict single-line JSON proof artifact, independently of standard INDEX and full Research. At EXACT final PR HEAD all must be checked before treating engineering acceptance as complete.
+Dedicated Github-hosted Ubuntu 24.04 Python 3.12 specialist runs 23 tests and a strict single-line JSON proof artifact, independently of standard INDEX and full Research. At EXACT final PR HEAD all must be checked before treating engineering acceptance as complete.
+
+## 5.1. Exact independently computed original clique and risk data (finite-source evidence)
+
+The independently implemented TRUE original source and exact real physical path census (no imports of #753/#754 path or probability algorithms in the MAIN source verifier) gives:
+
+| Genuine ORIGINAL geometry / fixed labels / named paired CORE | Physical proper P3 source paths examined | All ordered same-endpoint pairs examined | Largest exact incompatible clique | Largest original J-only clique | Largest x/y-only clique | Exact \(B/M\) |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| W(3,2), full lex | 1,346 **ALL** | 4,370 **ALL** | **6** | 4 | 3 / 3 | 395498199363009600 / 1190067603581473393 |
+| W(3,2), full reverse | 1,154 **ALL** | 2,942 **ALL** | **4** | 4 | 3 / 3 | 2197221736032 / 6861627242215 |
+| W(3,2), shifted labels + ORIGINAL Z17 (3 named flags deleted) | 838 **ALL** | 1,766 **ALL** | **6** | 4 | 3 / 3 | 31411666800 / 108515024243 |
+| W(3,4), lex and even retained CORE | 2,000 sampled | 2,898 sampled pair instances | 3 | 3 | 2 / 2 | 537345144000 / 7742146268341 |
+| W(3,4), reverse and even CORE | 2,000 sampled | 2,988 sampled pair instances | 3 | 3 | 2 / 2 | 269756640 / 4170785483 |
+| W(3,4), shifted and Z17 CORE | 2,000 sampled | 10,274 sampled pair instances | **7** | 6 | 3 / 3 | 32657322517943256 / 129569641883460221 |
+
+**Interpretation limits:** The W32 rows are exact complete directed proper-P3 source CORE path families and all same-endpoint pairs. W34 samples are the FIRST 2,000 deterministic actual true proper-P3 source paths, not random uniformly sampled paths and not full W34 tensor or full W34 clique maxima. The W34 row with a local clique of seven gives a genuine **lower bound seven** on the maximum possible clique in the complete W34 CORE; it is not a source-wide upper bound seven. All reported "largest" figures for W34 refer only to the tested sample.
+
+On the genuine W32 full lex configuration, some actual ORIGINAL endpoint bin contains SIX pairwise incompatible REAL physical P3 paths, while neither the first-typed nor second-typed physical coordinate incompatibility graph has clique larger than THREE. In the true sampled W34 shifted/Z17 configuration, SEVEN pairwise incompatible real paths appear in one endpoint bin. These are source-certified finite geometric witnesses that the all-h typed \(B^x,B^y\le2M/3\) inequalities CANNOT be naively substituted for the union total \(B\). Each maximum-clique witness is now exported in the strict JSON certificate with its ordered actual physical endpoints, all named ORIGINAL source incidence-ID owners, four physical path vertices per member, exact positive path-marginal probability, and the actual source \(J\)/typed-coordinate reason for EVERY pair in the clique. The test suite independently reloads the original symplectic source and verifies all pairwise conflicts from those REAL flags and physical vertices, not merely the clique cardinalities.
+
+The instance-specific Motzkin lower bound from the **observed** endpoint-wise clique numbers is much larger than the conservative all-h \(G\ge M/4\,394\,000\), but the latter is the only new universal quantitative statement proved by this PR. In the complete W32 cases the source \(B/M\) fractions are about 0.332, 0.320, and 0.289, respectively, so no counterexample to \(B/M<3/4\) was found in this finite source survey. However none of these small-s ratios proves the target for arbitrarily correlated labels at all large dyadic orders. The next all-h mathematical question is precisely whether genuine symplectic original incidence constraints force a stronger weighted bound, or whether an explicit adversarial fixed-label source produces a contrary ratio.
 
 ## 6. Precisely stated result and limitations
 
