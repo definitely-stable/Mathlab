@@ -166,6 +166,7 @@ class TestAdversarialExactOriginalB75(unittest.TestCase):
         q=self.report
         self.assertTrue(q["mathematical_all_h_clique_five_necessary_for_B_over_M_ge_3_4"])
         self.assertTrue(q["mathematical_weighted_clique_bin_certifies_strict_B_below_3_4_when_sum_M_over_omega_gt_M_over_4"])
+        self.assertTrue(q["mathematical_all_h_low_omega3_vs_high_omega5_mass_compensation_criterion"])
         for row in self.leaders+self.baseline:
             B=Fraction(row["exact_ratio_B_over_M"])
             k=row["actual_max_original_incompatibility_clique"]
@@ -173,6 +174,65 @@ class TestAdversarialExactOriginalB75(unittest.TestCase):
                 self.assertGreaterEqual(k,5)
             if row["weighted_Motzkin_alone_proves_B_over_M_below_three_quarters"]:
                 self.assertLess(B,Fraction(3,4))
+
+    def test_true_original_endpoint_mass_histogram_exact_and_compensation(self):
+        for r in self.leaders+self.baseline:
+            M=Fraction(r["exact_weighted_M"])
+            G=Fraction(r["exact_weighted_G"])
+            h={int(k):Fraction(v) for k,v in
+               r["exact_bin_M_mass_by_clique_number"].items()}
+            self.assertEqual(sum(h.values(),Fraction(0)),M)
+            small=sum((v for k,v in h.items() if k<=3),Fraction(0))
+            big=sum((v for k,v in h.items() if k>=5),Fraction(0))
+            self.assertEqual(Fraction(r["actual_M_share_bins_omega_at_most_3"]),small/M)
+            self.assertEqual(Fraction(r["actual_mass_share_bins_omega_at_least_5"]),big/M)
+            compensated=M/4+small/12-(Fraction(1,4)-Fraction(1,16*65**3))*big
+            self.assertEqual(Fraction(r["exact_all_h_compensation_G_lower"]),compensated)
+            self.assertGreaterEqual(G,compensated)
+            self.assertEqual(
+               r["simple_low_clique_compensation_certifies_strict_B75"],
+               compensated>M/4)
+            if compensated>M/4:
+                self.assertLess(Fraction(r["exact_ratio_B_over_M"]),Fraction(3,4))
+
+    def test_true_original_source_explicit_highest_local_bin_witness(self):
+        for r in self.leaders+self.baseline:
+            w=r["highest_local_bad_ratio_endpoint_bin"]
+            physical_paths=w["genuine_original_physical_path_witnesses"]
+            self.assertEqual(len(physical_paths),w["true_proper_path_count"])
+            c=genuine_source_for_assignment(
+                tuple(r["label_map_point_f_perm"]),
+                tuple(r["label_map_line_g_perm"]))
+            ep=tuple(map(tuple,w["physical_ordered_endpoints"]))
+            proper=[]
+            weights=[]
+            for path in physical_paths:
+                vs=tuple(map(tuple,path["physical_vertices"]))
+                os=tuple(path["original_named_flag_owner_ids"])
+                self.assertEqual(len(vs),4)
+                self.assertEqual(len(os),3)
+                self.assertEqual((vs[0],vs[-1]),ep)
+                self.assertTrue(set(os)<=set(c["ids"]))
+                for j in range(3):
+                    self.assertEqual(c["edges"][tuple(sorted((vs[j],vs[j+1])))],os[j])
+                p=Fraction(path["exact_source_selector_path_marginal"])
+                self.assertEqual(p,_exact_original_local_priority(os,c["J"])/64)
+                proper.append((vs,os))
+                weights.append(p)
+            expected_bad=Fraction(0)
+            observed=[]
+            for i,j in combinations(range(len(proper)),2):
+                reason=original_incompatibility(proper[i],proper[j],c["J"])
+                if reason!="compatible":
+                    expected_bad+=2*weights[i]*weights[j]
+                    observed.append({"member_indices":[i,j],
+                       "exact_original_incompatibility_reason":reason})
+            self.assertEqual(observed,w["all_original_pairwise_conflicts"])
+            expected_M=sum(weights,Fraction(0))**2
+            self.assertEqual(expected_bad,Fraction(w["exact_local_weighted_B"]))
+            self.assertEqual(expected_M,Fraction(w["exact_local_weighted_M"]))
+            self.assertEqual(expected_bad/expected_M,
+                Fraction(w["exact_local_B_over_M"]))
 
     def test_explicit_abstract_K4_equal_weight_is_boundary_not_strict(self):
         n=4
