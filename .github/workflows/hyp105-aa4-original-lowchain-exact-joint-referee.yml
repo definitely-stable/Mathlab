@@ -56,7 +56,7 @@ jobs:
               assert x['proved_independent_full_Branch_A'] is False
               assert x['published_numeric_graph_constants_claimed'] is False
           b=v['true_original_W32_W34_finite_joint_partitions']
-          assert len(b)==11
+          assert len(b)==13
           for x in b:
               assert x['original_exact_2to1_inverse_all_positive_sixsets']
               assert x['four_blocker_Cauchy_source_bound_valid']
