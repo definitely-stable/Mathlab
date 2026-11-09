@@ -1,0 +1,98 @@
+name: hyp105-aa4-original-compatible-P3-covariance-dichotomy
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-compatible-P3-covariance-dichotomy.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-COMPATIBLE-P3-COVARIANCE-DICHOTOMY.md'
+      - 'research/hyp105_original_compatible_path_covariance_referee.py'
+      - 'research/test_hyp105_original_compatible_path_covariance_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-source-compatible-p3-sign:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Eighteen independent all-h source-compatible P3 rank/covariance tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_compatible_path_covariance_referee.py' -v
+      - name: Exact original W32 full four-class covariance and W34 partial source-oracle certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_compatible_path_covariance_referee.py |
+            tee proof/hyp105-aa4-original-compatible-P3-covariance.json.log
+          python - <<'PYCODE'
+          from fractions import Fraction
+          from pathlib import Path
+          import json
+          lines=Path('proof/hyp105-aa4-original-compatible-P3-covariance.json.log').read_text().splitlines()
+          prefix='AA4_COMPATIBLE_PAIR_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'strict one-line source certificate'
+          o=json.loads(lines[0][len(prefix):])
+          assert o['schema']=='mathlab.hyp105.original-compatible-P3-covariance-dichotomy.v1'
+          assert o['issue']==230 and o['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert o['root_PROVED_A'] is False
+          assert o['same_endpoint_factor_four_all_h_THEOREM'] is True
+          assert o['negative_iff_SOURCE_or_TYPED_odd_cycle_all_h_THEOREM'] is True
+          cases=o['independent_original_full_W32_and_sample_W34_cases']
+          assert len(cases)==6 and {x['s'] for x in cases}=={2,4}
+          f=cases[0]
+          assert f['s']==2 and f['scheme']=='lex' and f['core']=='full'
+          assert f['original_flags']==45 and f['original_CORE_ID_count']==45
+          assert f['proper_directed_P3_scanned']==1346
+          assert f['physical_ordered_endpoint_bins']==624
+          assert f['same_end_ordered_path_pairs_audited']==4370
+          assert f['same_end_ordered_path_pair_classes']=={
+             'compatible':2386,'original_J_conflict':1348,
+             'original_first_factor_odd_cycle':464,
+             'original_second_factor_odd_cycle':172}
+          assert sum(f['same_end_ordered_path_pair_classes'].values())==4370
+          assert sum(f['compatible_extra_physical_color_boost_histogram'].values())==2386
+          assert Fraction(f['exact_selected_P3_second_moment'])==Fraction(
+              2464778346891846823,3826102303457280000)
+          assert Fraction(f['exact_mean_selected_P3_norm2'])==Fraction(
+              170009657654496199,164130319761408000000)
+          assert Fraction(f['independently_summed_original_pair_covariances'])==Fraction(
+              5489586524019325126911803,8535269018552500224000000)
+          good=Fraction(f['weighted_compatible_marginal_product'])
+          bad=Fraction(f['weighted_incompatible_marginal_product'])
+          assert good+bad==Fraction(f['exact_mean_selected_P3_norm2'])
+          assert Fraction(f['exact_selected_P3_second_moment'])>=4*good
+          assert Fraction(f['quantitative_color_rank_lower4'])==4*good
+          for k,w in f['true_original_first_witnesses'].items():
+              assert w['physical_path_a']!=w['physical_path_b']
+              p=Fraction(w['marginal_a'])*Fraction(w['marginal_b'])
+              if k=='compatible':
+                  assert Fraction(w['joint'])>=4*p
+                  assert Fraction(w['covariance'])>=3*p
+                  assert Fraction(w['rank_priority_ratio'])>=1
+                  assert w['rank_first']<=5 and w['rank_second']<=5
+              else:
+                  assert Fraction(w['joint'])==0
+                  assert Fraction(w['covariance'])==-p
+          for i,r in enumerate(cases):
+              assert r['actual_paired_original_physical_edges']==2*r['original_CORE_ID_count']
+              assert r['same_end_ordered_path_pairs_audited']>0
+              assert sum(r['same_end_ordered_path_pair_classes'].values())==r['same_end_ordered_path_pairs_audited']
+              assert Fraction(r['exact_selected_P3_second_moment'])>=Fraction(r['quantitative_color_rank_lower4'])
+              if i<3:
+                  assert r['complete_true_original_P3_and_joint_pairs']
+                  assert Fraction(r['exact_selected_P3_second_moment'])-Fraction(r['exact_mean_selected_P3_norm2'])==Fraction(r['independently_summed_original_pair_covariances'])
+              else:
+                  assert not r['complete_true_original_P3_and_joint_pairs']
+                  assert r['same_end_ordered_path_pairs_audited']==160
+          print('ACCEPT all-h compatible original P3 covariance SIGN + factor-FOUR and source finite census; root remains OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-original-compatible-P3-covariance
+          path: proof/hyp105-aa4-original-compatible-P3-covariance.json.log
