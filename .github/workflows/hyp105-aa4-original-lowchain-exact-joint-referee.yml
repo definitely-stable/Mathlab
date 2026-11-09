@@ -1,0 +1,84 @@
+name: hyp105-aa4-original-lowchain-exact-joint-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-lowchain-exact-joint-referee.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-LOWCHAIN-JOINT-PARTITION.md'
+      - 'research/hyp105_original_lowchain_partition_referee.py'
+      - 'research/test_hyp105_original_lowchain_partition_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-LOW-joint-GQ-partition:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fourteen independent original LOW source end-to-end tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_lowchain_partition_referee.py' -v
+      - name: Strict all-h formal bounds and exact W32 W34 joint original source partitions
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_lowchain_partition_referee.py |
+            tee proof/aa4-original-lowchain-joint.json.log
+          python - <<'PYCODE'
+          from fractions import Fraction
+          from pathlib import Path
+          import json
+          txt=Path('proof/aa4-original-lowchain-joint.json.log').read_text(encoding='utf8').splitlines()
+          prefix='AA4_LOWCHAIN_CERTIFICATE='
+          assert len(txt)==1 and txt[0].startswith(prefix), 'strict unique proof certificate required'
+          v=json.loads(txt[0][len(prefix):])
+          assert v['schema']=='mathlab.hyp105.original-lowchain-source-partition.v1'
+          assert v['issue']==230 and v['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert v['root_PROVED_A'] is False
+          assert v['original_FULL_LOW_chain_independently_judged_finished'] is False
+          assert v['published_numeric_graph_constants'] is False
+          a=v['exact_all_h_low_heavy_formal_glue']
+          assert len(a)==3
+          assert [(x['C0_FORMAL'],x['c0_FORMAL']) for x in a]==[
+              ('1','1'),('2','1/5'),('7/3','1/17')]
+          for x in a:
+              assert x['R']==93313
+              assert x['L6']==24+153*x['T']**2
+              assert all(x['all_h_LOWMATH_formal_bound_gates'].values())
+              assert Fraction(x['rho_star'])<Fraction(1,2**32)
+              assert Fraction(x['LOW_original_BBo_sextic_coefficient'])==Fraction(54162,53838)*Fraction(x['delta'])
+              assert x['proved_independent_full_Branch_A'] is False
+              assert x['published_numeric_graph_constants_claimed'] is False
+          b=v['true_original_W32_W34_finite_joint_partitions']
+          assert len(b)==11
+          for x in b:
+              assert x['original_exact_2to1_inverse_all_positive_sixsets']
+              assert x['four_blocker_Cauchy_source_bound_valid']
+              assert x['physical_core_edges']==2*x['original_CORE_ID_count']
+              assert x['W3_walks_directed_exact']==x['W3_partition_sum']
+              assert x['original_source_produced_BBo_directed']==2*x['original_source_produced_BBo_sixsets']
+              assert x['W3_walks_directed_exact']>=Fraction(x['W3_Blakley_Roy_lower_exact'])
+              assert x['proper_P3_bad_endpoint_weight']**2<=x['Cauchy_endpoint_error_squared_bound']
+              assert x['W3_source_partition']['blocker_union']<=sum(x['four_individual_interior_blockers'].values())
+              for k,book in (('x1',x['original_point_FULL_CORE_Bx']),('x2',x['original_point_FULL_CORE_Bx']),
+                             ('y1',x['original_line_dual_FULL_CORE_By']),('y2',x['original_line_dual_FULL_CORE_By'])):
+                  assert x['four_individual_interior_blockers'][k]**2<=book*x['physical_max_degree']*x['original_physical_fourth_trace']
+          for s in (2,4):
+              positive=next(x for x in b if x['s']==s and x['mode']=='seed' and x['C_mode']=='seed' and x['Z_mode']=='none')
+              deleted=next(x for x in b if x['s']==s and x['mode']=='seed' and x['C_mode']=='seed' and x['Z_mode']=='anchor')
+              assert positive['original_source_produced_BBo_directed']==2
+              assert positive['original_source_produced_BBo_sixsets']==1
+              assert deleted['original_source_produced_BBo_directed']==0
+              assert deleted['W3_walks_directed_exact']==positive['W3_walks_directed_exact']
+          print('ACCEPT original independent finite LOW conservation and exact formal all-h bounds; root remains OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-original-lowchain-joint-proof
+          path: proof/aa4-original-lowchain-joint.json.log
