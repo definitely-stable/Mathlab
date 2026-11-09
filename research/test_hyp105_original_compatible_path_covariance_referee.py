@@ -7,6 +7,7 @@ import unittest
 from hyp105_original_compatible_path_covariance_referee import (
     SCHEMA,ROOT_STATUS,actual_source,true_proper_p3,
     _source_priority_exact,_constraint_rank,_probability,pair_dichotomy,
+    typed_cross_depth_collision,
     endpoint_pair_audit,canonical_report
 )
 
@@ -138,6 +139,34 @@ class TestOriginalCompatibleCovarianceDichotomy(unittest.TestCase):
                (a[0][0],a[0][-1]))
         with self.assertRaises(ValueError):
             pair_dichotomy(a,b,self.c)
+
+    def test_true_source_first_second_odd_cycles_exactly_cross_depth(self):
+        w=self.full["true_original_first_witnesses"]
+        for name in ("compatible","original_J_conflict",
+                     "original_first_factor_odd_cycle",
+                     "original_second_factor_odd_cycle"):
+            z=w[name]
+            A=tuple(map(tuple,z["physical_path_a"]))
+            B=tuple(map(tuple,z["physical_path_b"]))
+            O=tuple(z["original_owner_ids_a"]+z["original_owner_ids_b"])
+            for side,typ in ((0,"x"),(1,"y")):
+                self.assertEqual(
+                    typed_cross_depth_collision(A,B,side),
+                    _constraint_rank(O,self.c,typ) is None)
+        self.assertTrue(w["original_first_factor_odd_cycle"]["true_typed_cross_depth_x"])
+        self.assertTrue(w["original_second_factor_odd_cycle"]["true_typed_cross_depth_y"])
+        self.assertFalse(w["compatible"]["true_typed_cross_depth_x"])
+        self.assertFalse(w["compatible"]["true_typed_cross_depth_y"])
+
+    def test_parity_collision_scope_rejects_unrelated_endpoints(self):
+        a=self.paths[0][0]
+        b=next(x[0] for x in self.paths if x[0][0]!=a[0])
+        with self.assertRaises(ValueError):
+            typed_cross_depth_collision(a,b,0)
+        with self.assertRaises(ValueError):
+            typed_cross_depth_collision(a,a,2)
+        with self.assertRaises(ValueError):
+            typed_cross_depth_collision(a[:3],a,0)
 
     def test_original_priority_separate_from_compatible_color_gain(self):
         w=self.full["true_original_first_witnesses"]["compatible"]
