@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: All-h source clique and 21 independent true W32/W34 Motzkin tests
+      - name: All-h source clique and 22 independent true W32/W34 Motzkin tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_badpair_clique_motzkin_referee.py' -v
       - name: Strict exact weighted ORIGINAL graph certificate
         shell: bash
@@ -72,6 +72,9 @@ jobs:
               assert G>=M/Q and B<=(1-Fraction(1,Q))*M
               assert G>=Fraction(row['instance_specific_Motzkin_G_lower'])
               assert Bx<=Fraction(2,3)*M and By<=Fraction(2,3)*M
+              assert Fraction(row['exact_original_J_only_weighted_Bj'])<=(1-Fraction(1,65**3))*M
+              assert row['max_exact_original_J_only_clique']<=65**3
+              assert row['source_J_only_Bj_at_most_1_minus_1_over_65cubed_M'] is True
               assert row['max_exact_true_original_incompatibility_clique']<=Q
               assert row['max_exact_first_typed_clique']<=3
               assert row['max_exact_second_typed_clique']<=3
