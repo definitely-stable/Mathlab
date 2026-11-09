@@ -248,6 +248,7 @@ def _original_endpoint_weight_audit(c,paths):
     buckets=Counter()
     largest_pair_family=0
     omega_total=0
+    omega_source=0
     omega_first=0
     omega_second=0
     M=Fraction(0)
@@ -255,6 +256,7 @@ def _original_endpoint_weight_audit(c,paths):
     G=Fraction(0)
     BX=Fraction(0)
     BY=Fraction(0)
+    BJ=Fraction(0)
     G_from_actual_omega=Fraction(0)
     full_pair_checks=0
     witnessed={}
@@ -264,6 +266,7 @@ def _original_endpoint_weight_audit(c,paths):
         largest_pair_family=max(largest_pair_family,n)
         weights=_original_path_weights(c,group)
         all_adj=[set() for _ in range(n)]
+        J_adj=[set() for _ in range(n)]
         x_adj=[set() for _ in range(n)]
         y_adj=[set() for _ in range(n)]
         per_G=Fraction(0)
@@ -272,6 +275,9 @@ def _original_endpoint_weight_audit(c,paths):
             reason=_pair_reason(group[i],group[j],c)
             if reason!="compatible":
                 all_adj[i].add(j);all_adj[j].add(i)
+            O=tuple(sorted(set(group[i][1]+group[j][1])))
+            if any(v in c["J"][u] for u,v in combinations(O,2)):
+                J_adj[i].add(j);J_adj[j].add(i)
             if _x_conflict(group[i],group[j],0):
                 x_adj[i].add(j);x_adj[j].add(i)
             if _x_conflict(group[i],group[j],1):
@@ -292,14 +298,18 @@ def _original_endpoint_weight_audit(c,paths):
                 else:
                     per_B+=weight
         k,bad,m=_motzkin_weighted_check(all_adj,weights)
+        kJ,bj,_=_motzkin_weighted_check(J_adj,weights)
         kx,bx,_=_motzkin_weighted_check(x_adj,weights)
         ky,by,_=_motzkin_weighted_check(y_adj,weights)
         buckets[k]+=1
         omega_total=max(omega_total,k)
+        omega_source=max(omega_source,kJ)
         omega_first=max(omega_first,kx)
         omega_second=max(omega_second,ky)
         if kx>3 or ky>3:
             raise AssertionError("actual oriented-arcs source typed K4 counterexample")
+        if kJ>(K+1)**3:
+            raise AssertionError("source-only clique exceeds conditional original priority bound")
         if k>Q:
             raise AssertionError("global original endpoint-conditioned clique bound false")
         if not per_B==bad or not per_B+per_G==m:
@@ -308,6 +318,8 @@ def _original_endpoint_weight_audit(c,paths):
             raise AssertionError("true original local Motzkin-Straus good lower bound")
         if bx>Fraction(2,3)*m or by>Fraction(2,3)*m:
             raise AssertionError("universal 2/3 single typed bad bound false")
+        if bj>(1-Fraction(1,(K+1)**3))*m:
+            raise AssertionError("universal source-priority J-only bad Motzkin bound false")
         # A selected source path in the endpoint-conditioned experiment has
         # probability at least 1/[16*(K+1)^3]. A mutually incompatible clique
         # can contain at most one selected path, hence k<=Q.
@@ -317,10 +329,12 @@ def _original_endpoint_weight_audit(c,paths):
         G+=per_G
         BX+=bx
         BY+=by
+        BJ+=bj
     if not M or G+B!=M:
         raise AssertionError("all original endpoint pair weights not conserved")
     if not (B<=(1-Fraction(1,Q))*M and
             BX<=Fraction(2,3)*M and BY<=Fraction(2,3)*M and
+            BJ<=(1-Fraction(1,(K+1)**3))*M and
             G>=G_from_actual_omega>=M/Q):
         raise AssertionError("all-h incompatible B source clique certificate false")
     return {
@@ -340,7 +354,9 @@ def _original_endpoint_weight_audit(c,paths):
         "actual_compatible_ratio_G_over_M":str(G/M),
         "exact_first_typed_only_weighted_Bx":str(BX),
         "exact_second_typed_only_weighted_By":str(BY),
+        "exact_original_J_only_weighted_Bj":str(BJ),
         "max_exact_true_original_incompatibility_clique":omega_total,
+        "max_exact_original_J_only_clique":omega_source,
         "max_exact_first_typed_clique":omega_first,
         "max_exact_second_typed_clique":omega_second,
         "original_endpoint_clique_histogram":dict(sorted(buckets.items())),
@@ -349,6 +365,7 @@ def _original_endpoint_weight_audit(c,paths):
         "theorem_uniform_Motzkin_G_over_M_lower":str(Fraction(1,Q)),
         "theorem_old_endpoint_conditioned_Jensen_epsilon":str(Fraction(1,Q_OLD_EPS_DENOM)),
         "improvement_factor_vs_previous_epsilon":Q_OLD_EPS_DENOM//Q,
+        "source_J_only_Bj_at_most_1_minus_1_over_65cubed_M":True,
         "first_factor_Bx_at_most_2thirds_M":True,
         "second_factor_By_at_most_2thirds_M":True,
         "root_PROVED_A":False,
