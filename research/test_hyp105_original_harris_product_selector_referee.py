@@ -200,6 +200,21 @@ class TestOriginalHarrisProductAllHReferee(unittest.TestCase):
         self.assertEqual(Fraction(d["Harris_local_product_floor"]),Fraction(1,8))
         self.assertEqual(Fraction(d["historical_local_first_r_floor"]),Fraction(1,4))
 
+    def test_three_owner_shared_outside_neighbors_give_strict_Harris_gain(self):
+        # J-free owners 0,1,2 compete with the SAME TWO neighbors 3,4.
+        # Exactly three owners must occupy the first three among 5 source
+        # ranks; the positive association has a strict rational gap.
+        J=[{3,4},{3,4},{3,4},{0,1,2},{0,1,2}]
+        source=_rank_exact_independent((0,1,2),J)
+        independent=_rank_independent_linear_extensions((0,1,2),J)
+        own_product=Fraction(1,3)**3
+        self.assertEqual(source,Fraction(1,10))
+        self.assertEqual(source,independent)
+        self.assertGreater(source,own_product)
+        self.assertEqual(
+            Fraction(_path_priority_cert((0,1,2),J)["Harris_local_product_floor"]),
+            own_product)
+
     def test_true_original_source_direct_priority_vs_independent_DP(self):
         c=_actual_original_source(2,"lex","full")
         proper=_actual_proper_paths(c,3,40)
