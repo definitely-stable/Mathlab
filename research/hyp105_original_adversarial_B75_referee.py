@@ -1,7 +1,7 @@
 """HYP-105 AA4-ADV: fail-closed deterministic adversarial ORIGINAL W(3,2) f/g survey.
 
 New mathematical gate: endpoint-bin Motzkin risk-tail necessity. If the
-total true weighted incompatible mass B/M can reach >=3/4 for an actual
+total true weighted incompatible mass B/M can exceed 3/4 for an actual
 source, at least one same-ordered-physical-endpoint bin with positive
 mass MUST have an actual incompatibility clique of size >=5: every
 bin with clique <=4 has B_bin/M_bin <=3/4 by weighted Motzkin-Straus.
@@ -314,7 +314,7 @@ def exact_source_risk(f_perm,g_perm,retained=None,full_clique=True):
         raise AssertionError("individual true source conflict weight > all pairs")
     if full_clique and not (G>=motzkin_good>=M/Fraction(16*65**3)):
         raise AssertionError("source weighted Motzkin graph certificate invalid")
-    if full_clique and B/M>=TARGET and max_omega<=4:
+    if full_clique and B/M>TARGET and max_omega<=4:
         raise AssertionError("mathematical all-h critical clique-five necessity violated")
     if full_clique:
         if sum(mass_by_omega.values(),Fraction(0))!=M:
@@ -505,7 +505,8 @@ def deterministic_adversarial_scan(trials=320,seed=SEED,shortlist=5):
         "best_exact_original_W32_full_source_witness":highest,
         "best_exact_original_W32_ratio":str(max_real),
         "strict_no_universal_extrapolation_from_finite_witness":True,
-        "mathematical_all_h_clique_five_necessary_for_B_over_M_ge_3_4":True,
+        "mathematical_all_h_clique_five_necessary_for_B_over_M_strict_gt_3_4":True,
+        "mathematical_all_h_omega4_equality_boundary_not_excluded":True,
         "mathematical_weighted_clique_bin_certifies_strict_B_below_3_4_when_sum_M_over_omega_gt_M_over_4":True,
         "mathematical_all_h_low_omega3_vs_high_omega5_mass_compensation_criterion":True,
         "numerical_external_graph_C6_constants_claimed":False,
