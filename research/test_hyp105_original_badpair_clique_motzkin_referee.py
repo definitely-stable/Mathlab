@@ -126,6 +126,15 @@ class TestAllHOriginalBadPairMotzkin(unittest.TestCase):
             self.assertLessEqual(r["max_exact_first_typed_clique"],3)
             self.assertLessEqual(r["max_exact_second_typed_clique"],3)
 
+    def test_true_original_J_only_clique_and_weighted_Motzkin_cap(self):
+        for r in self.rows:
+            M=Fraction(r["exact_weighted_M"])
+            BJ=Fraction(r["exact_original_J_only_weighted_Bj"])
+            self.assertGreaterEqual(BJ,0)
+            self.assertLessEqual(BJ,(1-Fraction(1,65**3))*M)
+            self.assertLessEqual(r["max_exact_original_J_only_clique"],65**3)
+            self.assertTrue(r["source_J_only_Bj_at_most_1_minus_1_over_65cubed_M"])
+
     def test_actual_source_small_bin_clique_histogram_conserves_endpoint_bins(self):
         for r in self.rows:
             hist={int(k):v for k,v in r["original_endpoint_clique_histogram"].items()}
