@@ -1,0 +1,113 @@
+name: hyp105-aa4-original-harris-product-selector
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-harris-product-selector.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-HARRIS-PRODUCT-SELECTOR.md'
+      - 'research/hyp105_original_harris_product_selector_referee.py'
+      - 'research/test_hyp105_original_harris_product_selector_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-harris-product-selector:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Twenty independent real ORIGINAL Harris product, full q2/q3/rho, bad-pair W32 tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_harris_product_selector_referee.py' -v
+      - name: Fail-closed independent exact original source all-h formal constant ledger
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_harris_product_selector_referee.py |
+            tee proof/hyp105-original-harris-product-selector.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          from fractions import Fraction
+          from math import comb
+          import json
+          data=Path('proof/hyp105-original-harris-product-selector.json.log').read_text().splitlines()
+          prefix='AA4_HARRIS_CERTIFICATE='
+          assert len(data)==1 and data[0].startswith(prefix), 'only strict original source certificate'
+          o=json.loads(data[0][len(prefix):])
+          assert o['schema']=='mathlab.hyp105.original-harris-product-selector.v1'
+          assert o['issue']==230 and o['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert o['root_PROVED_A'] is False
+          assert o['new_global_seven_class_root_proof_certified'] is False
+          assert o['external_C6_numeric_graph_constants_assumed'] is False
+          assert o['new_all_h_original_J_free_owner_Harris_product_theorem'] is True
+          assert o['source_adaptive_degree_floor_uniform_independent_of_f_g_correlation'] is True
+          assert o['HEAVY_real_no_clone_source_unchanged'] is True
+          formal=o['all_h_derived_original_LOW_arithmetic_FORMAL']
+          assert len(formal)==3
+          for x,(a,b) in zip(formal,((751,743),(781,773),(787,779))):
+              old,new=x['historical'],x['harris']
+              assert old['R']==new['R']==93313
+              assert old['q2']==134160 and old['q3']==77879360
+              assert new['q2']==67600 and new['q3']==17576000
+              assert old['T']==new['T'] and old['L6']==new['L6']
+              assert old['h0']==a and new['h0']==b and a-b==8
+              assert all(old['conditional_all_h_checks'].values())
+              assert all(new['conditional_all_h_checks'].values())
+              assert int(new['s0'])<int(old['s0'])
+              assert Fraction(new['rho'])>Fraction(old['rho'])>0
+              assert Fraction(new['rho'])<Fraction(1,2**32)
+              assert Fraction(new['rho'])/Fraction(old['rho'])==Fraction(old['q3'],new['q3'])**2
+              assert Fraction(x['adversarial_original_Z_deletion_radius_improvement'])==Fraction(77879360,17576000)**2
+              assert new['delta']==old['delta']
+              assert new['low_BBo_sextic_floor']==old['low_BBo_sextic_floor']
+              assert new['GF5_additive_accepted_signed_sextic_floor']==old['GF5_additive_accepted_signed_sextic_floor']
+              assert x['real_published_numeric_C0_c0_assumed'] is False
+          sources=o['true_original_W32_complete_W34_sample_physical_sources']
+          assert len(sources)==6 and {x['s'] for x in sources}=={2,4}
+          assert [x['r2_r3'][1]['genuine_physical_coordinate_proper_rpaths'] for x in sources[:3]]==[1346,1154,838]
+          for x in sources:
+              assert x['physical_REAL_edges']==2*x['retained_named_original_CORE_flags']
+              assert x['original_K64_admissible'] is True
+              for row in x['r2_r3']:
+                  assert row['r'] in (2,3)
+                  assert row['genuine_physical_coordinate_proper_rpaths']>0
+                  assert row['exact_source_priority_poset_DP_sampled_checks']>0
+                  z=row['least_factor_witness_true_original_physical_path']['source_certificate']
+                  assert Fraction(z['exact_priority_joint'])>=Fraction(z['Harris_local_product_floor'])
+                  assert Fraction(z['exact_priority_joint'])>=Fraction(z['historical_local_first_r_floor'])
+                  assert Fraction(z['exact_path_survival'])>=Fraction(z['new_uniform_K64_survival_floor'])
+              if x['s']==2:
+                  assert all(r['complete_original_physical_path_census'] for r in x['r2_r3'])
+              else:
+                  assert all(not r['complete_original_physical_path_census'] for r in x['r2_r3'])
+          graph=o['independent_abstract_J_small_graph_total_priority_falsifier']
+          assert graph['exhaustively_enumerated_simple_J_graphs']==1024
+          assert graph['strictly_positive_source_priority_association_cases']>0
+          pairs=o['independent_exact_W32_Harris_bad_pair_B_uniform_bound']
+          assert len(pairs)==3
+          counts=((2386,1348,464,172),(1654,744,444,100),(1050,440,208,68))
+          for p, (good,j,x,y) in zip(pairs,counts):
+              c=p['four_original_incompatibility_classes']
+              assert c=={'compatible':good,'original_J_conflict':j,
+                 'original_first_typed_opposite_depth_collision':x,
+                 'original_second_typed_opposite_depth_collision':y}
+              G=Fraction(p['actual_exact_compatible_G'])
+              B=Fraction(p['actual_exact_incompatible_B'])
+              M=Fraction(p['actual_exact_mean_Frobenius2_G_plus_B'])
+              eps=Fraction(p['all_h_universal_compatible_fraction_epsilon'])
+              assert eps==Fraction(1,256*65**6)
+              assert G+B==M and G>=eps*M and B<=(1-eps)*M
+              assert G>=Fraction(p['constructive_endpoint_conditioned_FKG_G_lower'])
+              assert p['ordered_same_end_real_path_pairs']==good+j+x+y
+          assert pairs[0]['ordered_same_end_real_path_pairs']==4370
+          print('ACCEPT original all-h Harris source selector; 19.6338x formal rho gain, full ORIGINAL W32 B census, ROOT remains OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-original-harris-selector
+          path: proof/hyp105-original-harris-product-selector.json.log
