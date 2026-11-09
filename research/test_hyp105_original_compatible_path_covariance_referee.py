@@ -160,7 +160,8 @@ class TestOriginalCompatibleCovarianceDichotomy(unittest.TestCase):
 
     def test_parity_collision_scope_rejects_unrelated_endpoints(self):
         a=self.paths[0][0]
-        b=next(x[0] for x in self.paths if x[0][0]!=a[0])
+        b=next(x[0] for x in self.paths if
+            (x[0][0][0],x[0][-1][0])!=(a[0][0],a[-1][0]))
         with self.assertRaises(ValueError):
             typed_cross_depth_collision(a,b,0)
         with self.assertRaises(ValueError):
