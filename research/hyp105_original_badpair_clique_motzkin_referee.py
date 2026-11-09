@@ -222,6 +222,15 @@ def _clique_number_neighbors(adj):
     return best
 
 
+def _explicit_true_original_clique_witness(adj,k):
+    """Separate brute-force finite clique member oracle; not Bron-Kerbosch."""
+    if k<1:raise ValueError("nonempty physical path clique required")
+    for group in combinations(range(len(adj)),k):
+        if all(j in adj[i] for i,j in combinations(group,2)):
+            return group
+    raise AssertionError("Bron-Kerbosch maximum has no independent exact member witness")
+
+
 def _motzkin_weighted_check(adj,ws):
     """Use exact positive Fraction weights; no external black-box library."""
     n=len(adj)
@@ -261,6 +270,7 @@ def _original_endpoint_weight_audit(c,paths):
     full_pair_checks=0
     witnessed={}
     graph_witnesses={}
+    max_clique_original_source_witness=None
     for endpoint, group in sorted(byendpoint.items()):
         n=len(group)
         largest_pair_family=max(largest_pair_family,n)
@@ -302,6 +312,23 @@ def _original_endpoint_weight_audit(c,paths):
         kx,bx,_=_motzkin_weighted_check(x_adj,weights)
         ky,by,_=_motzkin_weighted_check(y_adj,weights)
         buckets[k]+=1
+        if k>omega_total:
+            clique_ids=_explicit_true_original_clique_witness(all_adj,k)
+            max_clique_original_source_witness={
+                "actual_ordered_physical_endpoints":[list(endpoint[0]),list(endpoint[1])],
+                "clique_size":k,
+                "real_original_physical_paths":[
+                    {"named_original_flag_owner_IDs":list(group[i][1]),
+                     "true_physical_vertices":[list(v) for v in group[i][0]],
+                     "exact_source_priority_plus_two_cuts_marginal":str(weights[i])}
+                    for i in clique_ids],
+                "all_pairwise_conflict_sources":[
+                    {"pair_indices":[ii,jj],
+                     "original_conflict_reason":_pair_reason(group[i],group[j],c)}
+                    for ii,i in enumerate(clique_ids)
+                    for jj,j in enumerate(clique_ids) if ii<jj]}
+            if len(max_clique_original_source_witness["all_pairwise_conflict_sources"])!=k*(k-1)//2:
+                raise AssertionError("explicit ORIGINAL clique witness incomplete")
         omega_total=max(omega_total,k)
         omega_source=max(omega_source,kJ)
         omega_first=max(omega_first,kx)
@@ -360,6 +387,7 @@ def _original_endpoint_weight_audit(c,paths):
         "max_exact_first_typed_clique":omega_first,
         "max_exact_second_typed_clique":omega_second,
         "original_endpoint_clique_histogram":dict(sorted(buckets.items())),
+        "actual_strongest_original_clique_path_owner_witness":max_clique_original_source_witness,
         "instance_specific_Motzkin_G_lower":str(G_from_actual_omega),
         "theorem_global_clique_bound_Q":Q,
         "theorem_uniform_Motzkin_G_over_M_lower":str(Fraction(1,Q)),
