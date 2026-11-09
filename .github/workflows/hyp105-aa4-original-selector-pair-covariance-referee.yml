@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Sixteen exact original selector correlation, independent poset and color oracle tests
+      - name: Eighteen exact original selector correlation, independent poset and color oracle tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_selector_pair_covariance_referee.py' -v
       - name: Fail-closed joint all-h formula and genuine W32 full exact selected P3 moment certificate
         shell: bash
@@ -63,6 +63,13 @@ jobs:
               assert k in w and sign*Fraction(w[k]['covariance'])>0
               assert w[k]['physical_path1']!=w[k]['physical_path2']
           assert 'zero_joint' in w and Fraction(w['zero_joint']['joint'])==0
+          assert 'negative_point_odd_cycle' in w and 'negative_line_odd_cycle' in w
+          for key,side in (('negative_point_odd_cycle','point_cut'),('negative_line_odd_cycle','line_cut')):
+              z=w[key]
+              assert z['source_conflict'] is False and Fraction(z['source_priority'])>0
+              assert Fraction(z[side])==0 and Fraction(z['joint'])==0
+              assert Fraction(z['covariance'])<0
+              assert z['physical_path1']!=z['physical_path2']
           assert Fraction(w['zero_joint']['marginal1'])>0
           assert Fraction(w['zero_joint']['marginal2'])>0
           assert len(q['true_original_source_cases'])==6
