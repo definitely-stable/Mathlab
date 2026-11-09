@@ -182,10 +182,15 @@ def pair_dichotomy(a,b,c,prior_cache=None):
     if va[0]!=vb[0] or va[-1]!=vb[-1]:
         raise ValueError("the universal factor-four theorem needs SAME endpoints")
     S=tuple(sorted(set(oa+ob)))
-    PA=_probability(oa,c) if prior_cache is None else prior_cache.setdefault(
-         tuple(sorted(oa)),_probability(oa,c))
-    PB=_probability(ob,c) if prior_cache is None else prior_cache.setdefault(
-         tuple(sorted(ob)),_probability(ob,c))
+    def marginal(owners):
+        if prior_cache is None:
+            return _probability(owners,c)
+        key=tuple(sorted(owners))
+        if key not in prior_cache:
+            prior_cache[key]=_probability(owners,c)
+        return prior_cache[key]
+    PA=marginal(oa)
+    PB=marginal(ob)
     if not PA>0 or not PB>0:
         raise AssertionError("true proper original P3 survival must be positive")
     if any(j in c["J"][i] for i,j in combinations(S,2)):
