@@ -96,7 +96,6 @@ class TestAdversarialExactOriginalB75(unittest.TestCase):
             self.assertEqual(row["true_actual_physical_edges"],90)
             self.assertLessEqual(row["max_original_source_J_degree"],64)
             self.assertTrue(row["original_pair_injection"])
-            self.assertTrue(all(x==i for x,i in []))
 
     def test_candidates_global_f_g_fully_injective_not_frozen_lex(self):
         for row in self.leaders:
