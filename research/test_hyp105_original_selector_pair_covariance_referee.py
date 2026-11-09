@@ -113,6 +113,25 @@ class TestAllHOriginalSelectorPairJointReferee(unittest.TestCase):
                         Fraction(w["point_cut"])==0 or
                         Fraction(w["line_cut"])==0)
 
+    def test_genuine_original_J_compatible_point_odd_cycle_prevents_joint(self):
+        w=self.witnesses["negative_point_odd_cycle"]
+        self.assertFalse(w["source_conflict"])
+        self.assertGreater(Fraction(w["source_priority"]),0)
+        self.assertEqual(Fraction(w["point_cut"]),0)
+        self.assertEqual(Fraction(w["joint"]),0)
+        self.assertLess(Fraction(w["covariance"]),0)
+        self.assertNotEqual(w["physical_path1"],w["physical_path2"])
+
+    def test_genuine_original_J_compatible_line_odd_cycle_prevents_joint(self):
+        w=self.witnesses["negative_line_odd_cycle"]
+        self.assertFalse(w["source_conflict"])
+        self.assertGreater(Fraction(w["source_priority"]),0)
+        self.assertGreater(Fraction(w["point_cut"]),0)
+        self.assertEqual(Fraction(w["line_cut"]),0)
+        self.assertEqual(Fraction(w["joint"]),0)
+        self.assertLess(Fraction(w["covariance"]),0)
+        self.assertNotEqual(w["physical_path1"],w["physical_path2"])
+
     def test_independent_true_original_poset_and_both_bruteforce_cuts_for_witnesses(self):
         for row in self.witnesses.values():
             S=set(row["original_ID_owners1"]+row["original_ID_owners2"])
