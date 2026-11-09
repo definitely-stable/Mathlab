@@ -497,6 +497,8 @@ def canonical_report():
         (2,"seed","seed","none"),
         (2,"seed","seed","anchor"),
         (2,"seed","seed_plus","none"),
+        (4,"lex","full","none"),
+        (4,"reverse","full","none"),
         (4,"lex","even","sparse"),
         (4,"reverse","even","none"),
         (4,"seed","seed","none"),
