@@ -1,0 +1,86 @@
+name: hyp105-aa4-original-selector-pair-covariance-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-selector-pair-covariance-referee.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-SELECTOR-PAIR-COVARIANCE.md'
+      - 'research/hyp105_original_selector_pair_covariance_referee.py'
+      - 'research/test_hyp105_original_selector_pair_covariance_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-source-exact-selector-pair-covariance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Eighteen exact original selector correlation, independent poset and color oracle tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_selector_pair_covariance_referee.py' -v
+      - name: Fail-closed joint all-h formula and genuine W32 full exact selected P3 moment certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_selector_pair_covariance_referee.py |
+            tee proof/aa4-original-selector-pair-covariance.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          from fractions import Fraction
+          import json
+          txt=Path('proof/aa4-original-selector-pair-covariance.json.log').read_text().splitlines()
+          prefix='AA4_PAIRRANK_CERTIFICATE='
+          assert len(txt)==1 and txt[0].startswith(prefix), 'unique exact source certificate required'
+          q=json.loads(txt[0][len(prefix):])
+          assert q['schema']=='mathlab.hyp105.original-selector-exact-pair-covariance.v1'
+          assert q['issue']==230 and q['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert q['root_PROVED_A'] is False
+          assert q['all_h_new_branch_A_exponent_claimed'] is False
+          assert q['old_independence_of_paths_assumed'] is False
+          assert q['all_h_joint_priority_integral_formula_claimed']
+          assert q['all_h_two_color_bipartite_formula_claimed']
+          full=q['finite_actual_original_W32_lex_full_second_moment']
+          assert full['proper_directed_P3']>0
+          assert full['exact_ordered_physical_path_pairs']==full['actual_full_P3_frobenius2']
+          assert Fraction(full['exact_variance_sum'])>0
+          assert Fraction(full['exact_selected_second_moment'])>=Fraction(full['exact_jensen_mean_norm2'])
+          assert Fraction(full['exact_selected_second_moment'])-Fraction(full['exact_jensen_mean_norm2'])==Fraction(full['exact_variance_sum'])
+          assert Fraction(full['second_over_jensen_ratio'])>1
+          assert Fraction(full['exact_all_pairwise_covariances_sum'])==Fraction(full['exact_variance_sum'])
+          assert sum(full['ordered_path_pair_covariance_sign_counts'].values())==full['exact_ordered_physical_path_pairs']
+          assert full['ordered_path_pair_covariance_sign_counts']['positive']>0
+          assert full['ordered_path_pair_covariance_sign_counts']['negative']>0
+          assert sum(Fraction(x) for x in full['exact_covariance_by_shared_source_owner'].values())==Fraction(full['exact_variance_sum'])
+          assert full['ordered_path_pair_zero_joint_causes']['original_source_J_conflict']>0
+          w=q['actual_original_both_sign_covariance_witnesses']
+          for k,sign in (('positive',1),('negative',-1)):
+              assert k in w and sign*Fraction(w[k]['covariance'])>0
+              assert w[k]['physical_path1']!=w[k]['physical_path2']
+          assert 'zero_joint' in w and Fraction(w['zero_joint']['joint'])==0
+          assert 'negative_point_odd_cycle' in w and 'negative_line_odd_cycle' in w
+          for key,side in (('negative_point_odd_cycle','point_cut'),('negative_line_odd_cycle','line_cut')):
+              z=w[key]
+              assert z['source_conflict'] is False and Fraction(z['source_priority'])>0
+              assert Fraction(z[side])==0 and Fraction(z['joint'])==0
+              assert Fraction(z['covariance'])<0
+              assert z['physical_path1']!=z['physical_path2']
+          assert Fraction(w['zero_joint']['marginal1'])>0
+          assert Fraction(w['zero_joint']['marginal2'])>0
+          assert len(q['true_original_source_cases'])==6
+          assert {x['s'] for x in q['true_original_source_cases']}=={2,4}
+          for c in q['true_original_source_cases']:
+              assert c['actual_physical_paired_diagonal_edges']==2*c['retained_original_CORE_flags']
+              assert c['actual_source_J_max_degree']<=64
+              assert c['deterministic_sampled_proper_directed_3paths']>0
+          print('ACCEPT true original exact pair-dependent selector covariance; ROOT remains OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-original-selector-pair-covariance
+          path: proof/aa4-original-selector-pair-covariance.json.log
