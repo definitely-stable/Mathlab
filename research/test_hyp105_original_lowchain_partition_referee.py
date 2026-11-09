@@ -47,7 +47,7 @@ class TestOriginalLOWFullEndToEndPartition(unittest.TestCase):
 
     def test_complete_W32_W34_finite_real_original_joint_partitions(self):
         rows=self.report["true_original_W32_W34_finite_joint_partitions"]
-        self.assertEqual(len(rows),11)
+        self.assertEqual(len(rows),13)
         self.assertEqual({x["s"] for x in rows},{2,4})
         for q in rows:
             self.assertEqual(q["physical_core_edges"],2*q["original_CORE_ID_count"])
