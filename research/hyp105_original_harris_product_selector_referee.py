@@ -392,6 +392,96 @@ def finite_original_source_cert(s,scheme,core,path_limit=None):
         "r2_r3":records}
 
 
+def _original_source_incompatible_path_weight(c,paths):
+    """EXACT full ORIGINAL W32 weighted B, and a rigorous uniform all-h bound.
+
+    For each genuine ordered physical endpoint (u,v), fix its four endpoint
+    physical coloring bits to the alternating values of ANY proper 3path.
+    A path then survives both typed cuts with conditional probability 1/16,
+    rather than unconditional 1/64. If p_path denotes its UNCONDITIONAL
+    priority×both-cut survival, conditionally it survives with probability
+    4*p_path. Let Y=sum_path p_path * 1(selected) in this experiment.
+    E[Y]=4 sum_path p_path^2. Every realization's selected path pairs are
+    actually J-free and typed-color-compatible. Therefore
+       G_endpoint >= E[Y²] >= 16 * (sum_path p_path^2)^2.
+    Since p_path >= 1/(64*(K+1)^3), this implies
+       G >= (1/[256*(K+1)^6]) * ||E X||_F²
+       B <= (1 - 1/[256*(K+1)^6]) * ||E X||_F².
+    Weak but nonzero, no independence between actual original paths.
+    """
+    if c["s"]!=2:
+        raise ValueError("exact full-original finite B ledger only W32")
+    byend=defaultdict(list)
+    for path,os in paths:
+        byend[(path[0],path[-1])].append((path,os))
+    epsilon=Fraction(1,256*(K+1)**6)
+    proper=Fraction(1,64*(K+1)**3)
+    marg_cache={}
+    total_M=Fraction(0)
+    total_G=Fraction(0)
+    total_B=Fraction(0)
+    constructive_G=Fraction(0)
+    pair_classes=Counter()
+    n_pairs=0
+    for group in byend.values():
+        weights=[]
+        for path,os in group:
+            key=tuple(sorted(os))
+            if key not in marg_cache:
+                marg_cache[key]=_rank_exact_independent(os,c["J"])/64
+            p=marg_cache[key]
+            if p<proper:
+                raise AssertionError("new Harris full ORIGINAL p3 path floor violated")
+            weights.append(p)
+        W=sum(weights,Fraction(0))
+        M=W*W
+        G=Fraction(0)
+        B=Fraction(0)
+        low=16*sum((w*w for w in weights),Fraction(0))**2
+        for (path1,os1),pa in zip(group,weights):
+            for (path2,os2),pb in zip(group,weights):
+                S=tuple(sorted(set(os1+os2)))
+                if any(j in c["J"][i] for i,j in combinations(S,2)):
+                    kind="original_J_conflict"
+                elif (path1[1][0]==path2[2][0] or
+                      path1[2][0]==path2[1][0]):
+                    kind="original_first_typed_opposite_depth_collision"
+                elif (path1[1][1]==path2[2][1] or
+                      path1[2][1]==path2[1][1]):
+                    kind="original_second_typed_opposite_depth_collision"
+                else:
+                    kind="compatible"
+                pair_classes[kind]+=1
+                n_pairs+=1
+                if kind=="compatible":
+                    G+=pa*pb
+                else:
+                    B+=pa*pb
+        if G+B!=M or G<low or G<epsilon*M:
+            raise AssertionError("all-h original compatible weight B Harris certificate false")
+        total_M+=M
+        total_G+=G
+        total_B+=B
+        constructive_G+=low
+    if not total_M or total_G+total_B!=total_M:
+        raise AssertionError("bad/good source path mass not conserved")
+    if not (total_G>=constructive_G>=epsilon*total_M):
+        raise AssertionError("uniform all-h bad weight bound invalid")
+    return {"s":c["s"],"true_original_CORE_ID_count":len(c["ids"]),
+            "adversarial_original_Z_deleted":c["deleted_original_Z"],
+            "actual_full_coordinate_proper_directed_P3_count":len(paths),
+            "ordered_same_end_real_path_pairs":n_pairs,
+            "four_original_incompatibility_classes":dict(pair_classes),
+            "actual_exact_compatible_G":str(total_G),
+            "actual_exact_incompatible_B":str(total_B),
+            "actual_exact_mean_Frobenius2_G_plus_B":str(total_M),
+            "constructive_endpoint_conditioned_FKG_G_lower":
+                str(constructive_G),
+            "all_h_universal_compatible_fraction_epsilon":str(epsilon),
+            "all_h_B_less_equal_1_minus_epsilon_times_M":True,
+            "real_original_W32_compatible_fraction":str(total_G/total_M)}
+
+
 def _small_graph_rank_exhaustive(n=5):
     """Independent ALL original simple-graph precedence falsifier: n=5 graphs."""
     edges=list(combinations(range(n),2))
@@ -448,6 +538,14 @@ def canonical_report():
     ):
         source_cases.append(finite_original_source_cert(s,scheme,core,cap))
     graph=_small_graph_rank_exhaustive(5)
+    original_B=[]
+    for scheme,core in (("lex","full"),("reverse","full"),("shift","Z17")):
+        c=_actual_original_source(2,scheme,core)
+        paths=_actual_proper_paths(c,3)
+        row=_original_source_incompatible_path_weight(c,paths)
+        row["scheme"]=scheme
+        row["core"]=core
+        original_B.append(row)
     return {"schema":SCHEMA,"issue":230,"status":ROOT_STATUS,
         "root_PROVED_A":False,
         "new_all_h_original_J_free_owner_Harris_product_theorem":True,
@@ -457,6 +555,7 @@ def canonical_report():
         "all_h_derived_original_LOW_arithmetic_FORMAL":formal,
         "true_original_W32_complete_W34_sample_physical_sources":source_cases,
         "independent_abstract_J_small_graph_total_priority_falsifier":graph,
+        "independent_exact_W32_Harris_bad_pair_B_uniform_bound":original_B,
         "source_quantifiers":"all dyadic s and arbitrary correlated globally pair-injective fixed f/g, named original Z and paired core C",
         "new_global_seven_class_root_proof_certified":False}
 
