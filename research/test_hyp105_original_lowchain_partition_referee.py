@@ -34,8 +34,6 @@ class TestOriginalLOWFullEndToEndPartition(unittest.TestCase):
             self.assertEqual(q["q2"],16*comb(2*(K+1),2))
             self.assertEqual(q["q3"],64*comb(3*(K+1),3))
             self.assertEqual(q["L6"],24+153*q["T"]**2)
-            self.assertEqual(q["L4"],q["q2"]**2*
-                (q["L4"]-19*q["T"])//q["q2"]**2+19*q["T"]) if False else None
             self.assertLess(Fraction(q["rho_star"]),RHO_CAP)
             self.assertGreater(Fraction(q["delta"]),0)
             self.assertEqual(Fraction(q["LOW_original_BBo_sextic_coefficient"]),
@@ -53,6 +51,11 @@ class TestOriginalLOWFullEndToEndPartition(unittest.TestCase):
         self.assertEqual({x["s"] for x in rows},{2,4})
         for q in rows:
             self.assertEqual(q["physical_core_edges"],2*q["original_CORE_ID_count"])
+            self.assertEqual(set(q["W3_source_partition"]),{
+                "improper","end_missing","end_incident","end_endbad",
+                "end_deleted","blocker_union","accepted"})
+            self.assertEqual(set(q["endpoint_class_counts"]),{
+                "missing","incident","endbad","deleted","eligible"})
             self.assertEqual(q["W3_walks_directed_exact"],q["W3_partition_sum"])
             self.assertGreaterEqual(q["W3_walks_directed_exact"],
                                     Fraction(q["W3_Blakley_Roy_lower_exact"]))
@@ -64,8 +67,6 @@ class TestOriginalLOWFullEndToEndPartition(unittest.TestCase):
                                  q["Cauchy_endpoint_error_squared_bound"])
             self.assertLessEqual(q["W3_source_partition"]["blocker_union"],
                                  sum(q["four_individual_interior_blockers"].values()))
-            self.assertEqual(q["physical_vertices_including_isolates"],
-                             q["physical_vertices_including_isolates"])
 
     def test_seeded_original_W32_W34_first_order_positive_BBo_proper_path(self):
         for s in (2,4):
@@ -86,7 +87,6 @@ class TestOriginalLOWFullEndToEndPartition(unittest.TestCase):
         for s in (2,4):
             good=finite_original_partition(s,"seed","seed","none")
             bad=finite_original_partition(s,"seed","seed","anchor")
-            self.assertEqual(good["original_SOURCE_produced_BBo_directed"],2) if False else None
             self.assertEqual(good["original_source_produced_BBo_directed"],2)
             self.assertEqual(bad["original_source_produced_BBo_directed"],0)
             self.assertEqual(bad["original_Z_ID_count"],1)
