@@ -1,0 +1,127 @@
+name: hyp105-aa4-original-adversarial-B75-search
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-adversarial-B75-search.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-ADVERSARIAL-B75-SEARCH.md'
+      - 'research/hyp105_original_adversarial_B75_referee.py'
+      - 'research/test_hyp105_original_adversarial_B75_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-W32-adversarial-B75:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Twenty independent exact ORIGINAL source and adversarial replay tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_adversarial_B75_referee.py' -v
+      - name: Deterministic 320-trial true symplectic W32 two-label search and strict Fraction certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_adversarial_B75_referee.py |
+            tee proof/hyp105-original-adversarial-B75-search.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          from fractions import Fraction
+          import json
+          lines=Path('proof/hyp105-original-adversarial-B75-search.json.log').read_text().splitlines()
+          prefix='AA4_ADV_B75_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'only one source-canonical JSON cert'
+          r=json.loads(lines[0][len(prefix):])
+          assert r['schema']=='mathlab.hyp105.original-adversarial-B75-exact-source.v1'
+          assert r['issue']==230 and r['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert r['root_PROVED_A'] is False
+          assert r['all_h_B_over_M_less_3_over_4_PROVED'] is False
+          assert r['counterexample_to_asymptotic_B75_claimed'] is False
+          assert r['source_original_Z_deleted_in_search'] is False
+          assert r['true_original_symplectic_order']==2
+          assert r['global_pair_alphabet']==6
+          assert r['label_pairs_per_side']==15
+          assert r['proposal_budget']==320
+          assert 300<=r['unique_completed_proxy_trials']<=r['proposal_budget']+5
+          assert sum(r['seeded_proposal_categories'].values())==r['unique_completed_proxy_trials']
+          assert r['random_seed']==230756
+          assert r['strict_no_universal_extrapolation_from_finite_witness'] is True
+          assert r['mathematical_all_h_clique_five_necessary_for_B_over_M_strict_gt_3_4'] is True
+          assert r['mathematical_weighted_clique_bin_certifies_strict_B_below_3_4_when_sum_M_over_omega_gt_M_over_4'] is True
+          assert r['mathematical_all_h_low_omega3_vs_high_omega5_mass_compensation_criterion'] is True
+          assert r['mathematical_all_h_omega4_equality_boundary_not_excluded'] is True
+          baseline=r['predeclared_exact_true_source_baselines']
+          assert len(baseline)==2
+          assert [z['full_original_proper_directed_P3'] for z in baseline]==[1346,1154]
+          assert [z['ordered_same_end_path_pair_count'] for z in baseline]==[4370,2942]
+          assert Fraction(baseline[0]['exact_ratio_B_over_M'])==Fraction(
+              395498199363009600,1190067603581473393)
+          assert Fraction(baseline[1]['exact_ratio_B_over_M'])==Fraction(
+              2197221736032,6861627242215)
+          for z in r['exact_fraction_top_candidate_shortlist']+baseline:
+              f=tuple(z['label_map_point_f_perm']);g=tuple(z['label_map_line_g_perm'])
+              assert sorted(f)==list(range(15)) and sorted(g)==list(range(15))
+              assert z['true_actual_physical_edges']==90
+              assert z['paired_CORE_original_source_flags']==45
+              assert not z['original_named_deletions']
+              assert z['max_original_source_J_degree']<=64
+              M=Fraction(z['exact_weighted_M'])
+              B=Fraction(z['exact_weighted_B'])
+              G=Fraction(z['exact_weighted_G'])
+              assert M==G+B and M>0 and G>0
+              assert B/M==Fraction(z['exact_ratio_B_over_M'])
+              assert G/M==Fraction(z['exact_ratio_G_over_M'])
+              assert sum(z['disjoint_joint_incompatibility_class_counts'].values())==z['ordered_same_end_path_pair_count']
+              assert G>=Fraction(z['exact_Motzkin_G_floor'])>=M/Fraction(16*65**3)
+              all_bin_masses={int(k):Fraction(v) for k,v in z['exact_bin_M_mass_by_clique_number'].items()}
+              assert sum(all_bin_masses.values(),Fraction(0))==M
+              low=sum((v for k,v in all_bin_masses.items() if k<=3),Fraction(0))
+              high=sum((v for k,v in all_bin_masses.items() if k>=5),Fraction(0))
+              assert low/M==Fraction(z['actual_M_share_bins_omega_at_most_3'])
+              assert high/M==Fraction(z['actual_mass_share_bins_omega_at_least_5'])
+              compensation=M/4+low/12-(Fraction(1,4)-Fraction(1,16*65**3))*high
+              assert compensation==Fraction(z['exact_all_h_compensation_G_lower'])
+              assert G>=compensation
+              assert z['simple_low_clique_compensation_certifies_strict_B75'] is (compensation>M/4)
+              local=z['highest_local_bad_ratio_endpoint_bin']
+              assert len(local['genuine_original_physical_path_witnesses'])==local['true_proper_path_count']
+              assert Fraction(local['exact_local_weighted_B'])/Fraction(local['exact_local_weighted_M'])==Fraction(local['exact_local_B_over_M'])
+              assert Fraction(z['exact_Motzkin_bound_on_B_over_M'])==1-Fraction(z['exact_Motzkin_G_floor'])/M
+              assert sum(z['bin_clique_histogram'].values())==z['physical_ordered_endpoint_bins']
+              if B/M>Fraction(3,4):
+                  assert z['actual_max_original_incompatibility_clique']>=5
+              if z['weighted_Motzkin_alone_proves_B_over_M_below_three_quarters']:
+                  assert B/M<Fraction(3,4)
+              assert z['all_h_asymptotic_counterexample_claimed'] is False
+              assert z['root_PROVED_A'] is False
+          winner=r['best_exact_original_W32_full_source_witness']
+          assert Fraction(winner['exact_ratio_B_over_M'])==Fraction(r['best_exact_original_W32_ratio'])
+          assert Fraction(r['best_exact_original_W32_ratio'])>=Fraction(baseline[0]['exact_ratio_B_over_M'])
+          assert Fraction(r['best_exact_original_W32_ratio'])==Fraction(575861148421866450,1128817197918722087)
+          assert winner['full_original_proper_directed_P3']==1378
+          assert winner['ordered_same_end_path_pair_count']==5466
+          assert winner['actual_max_original_incompatibility_clique']==8
+          assert Fraction(winner['actual_mass_share_bins_omega_at_least_5'])==Fraction(277440244430073725,1128817197918722087)
+          local=winner['highest_local_bad_ratio_endpoint_bin']
+          assert local['physical_ordered_endpoints']==[[0,2],[2,0]]
+          assert local['true_proper_path_count']==12
+          assert local['incompatible_clique_size']==8
+          assert Fraction(local['exact_local_B_over_M'])==Fraction(284477084,355586449)
+          assert Fraction(local['exact_local_B_over_M'])>Fraction(3,4)
+          assert len(local['genuine_original_physical_path_witnesses'])==12
+          assert len(local['all_original_pairwise_conflicts'])>0
+          assert r['finite_exact_W32_B75_witness_found']==any(
+             z['counterexample_at_3_over_4_for_THIS_finite_W32']
+             for z in r['exact_fraction_top_candidate_shortlist']+baseline)
+          print('ACCEPT exact finite ORIGINAL W32 adversarial fixed f/g stress audit; no all-h root promotion')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-original-adversarial-B75-source
+          path: proof/hyp105-original-adversarial-B75-search.json.log
