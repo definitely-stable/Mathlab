@@ -196,6 +196,40 @@ class TestIndependentFullOriginalSymbolMomentReferee(unittest.TestCase):
                 row["counts"].get("strictly_safe_endpoint_bins_from_D_plus_G00",0),
                 row["counts"].get("strictly_safe_endpoint_bins_from_complete_exact_G",0))
 
+    def test_all_h_NET_original_middle_label_overlap_union_not_raw_doublecount(self):
+        self.assertTrue(self.report[
+            "all_h_corrected_middle_label_overlap_union_Ox_plus_Oy_minus_Oxy_exact"])
+        self.assertTrue(self.report[
+            "all_h_corrected_union_overlap_source_B75_sufficient_gate"])
+        for row in self.rows:
+            m={k:Fraction(v) for k,v in row["moments"].items()}
+            M=m["M"];D=m["D"];G=m["G"]
+            union=m["net_middle_label_union_overlap"]
+            self.assertEqual(union,m["Ox"]+m["Oy"]-m["Oxy"])
+            self.assertEqual(m["G00"],M-union)
+            self.assertTrue(0<=union<=M)
+            self.assertGreaterEqual(m["Ox"]+m["Oy"],union)
+            self.assertEqual(union/M,Fraction(
+                row["source_symbol_corrected_middle_label_union_overlap_fraction_M"]))
+            self.assertEqual((m["Ox"]+m["Oy"])/M,Fraction(
+                row["source_symbol_UNCORRECTED_x_plus_y_overlap_fraction_M"]))
+            self.assertEqual(row["source_symbol_uncorrected_raw_Ox_plus_Oy_sufficient_B75"],
+                             m["Ox"]+m["Oy"]<3*M/4+D)
+            self.assertEqual(row["source_symbol_corrected_union_overlap_sufficient_B75"],
+                             union<3*M/4+D)
+            self.assertEqual(G,D+M-union+m["G11"])
+            if row["source_symbol_corrected_union_overlap_sufficient_B75"]:
+                self.assertGreater(D+m["G00"],M/4)
+                self.assertLess(Fraction(row["exact_original_B_over_M"]),Fraction(3,4))
+        for row in self.rows[3:6]:
+            self.assertFalse(row["source_symbol_uncorrected_raw_Ox_plus_Oy_sufficient_B75"])
+            self.assertTrue(row["source_symbol_corrected_union_overlap_sufficient_B75"])
+            self.assertGreater(Fraction(
+                row["source_symbol_UNCORRECTED_x_plus_y_overlap_fraction_M"]),
+                Fraction(13,10))
+            self.assertLess(Fraction(
+                row["source_symbol_corrected_middle_label_union_overlap_fraction_M"]),1)
+
     def test_true_source_moment_source_fractional_positive_partition(self):
         for row in self.rows:
             self.assertEqual(
