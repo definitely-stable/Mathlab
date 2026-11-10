@@ -267,6 +267,8 @@ def _full_exact_case(s,scheme,core):
     counts=Counter()
     total_disjoint_bad=Fraction(0)
     total_all_disjoint_pairs=0
+    all_source_middle_pencil_bad_ordered_pair_count=0
+    all_source_middle_pencil_bad_weight=Fraction(0)
     compatible_disjoint=Fraction(0)
     cause_weight=defaultdict(Fraction)
     cause_count=Counter()
@@ -282,9 +284,15 @@ def _full_exact_case(s,scheme,core):
         for a,b in combinations(group,2):
             path_a,owners_a,pa=a
             path_b,owners_b,pb=b
-            if c["flags"][owners_a[1]][0]==c["flags"][owners_b[1]][0]:
-                continue
-            if c["flags"][owners_a[1]][1]==c["flags"][owners_b[1]][1]:
+            if (c["flags"][owners_a[1]][0]==c["flags"][owners_b[1]][0] or
+                    c["flags"][owners_a[1]][1]==c["flags"][owners_b[1]][1]):
+                # NEW ALL-h exact complement theorem: different physical P3
+                # paths sharing original middle POINT or LINE cannot survive
+                # together. Same middle flag handled by predecessor K22.
+                if _pair_bad(path_a,owners_a,path_b,owners_b,c["J"])=="compatible":
+                    raise AssertionError("forbidden fully compatible two ORIGINAL P3s sharing a middle point or line")
+                all_source_middle_pencil_bad_ordered_pair_count+=2
+                all_source_middle_pencil_bad_weight+=2*pa*pb
                 continue
             if _true_original_middle_pair_incidence_channel(
                     owners_a[1],owners_b[1],c)!=MIDDLE_CHANNEL:
@@ -426,6 +434,12 @@ def _full_exact_case(s,scheme,core):
             str(compressed["pathdiag"]+compressed["good"]),
         "compressed_original_source_middle_flag_pairs_examined":
             compressed["mid_pairs"],
+        "true_original_same_middle_point_or_line_distinct_path_bad_ordered_pairs":
+            all_source_middle_pencil_bad_ordered_pair_count,
+        "true_original_same_middle_point_or_line_distinct_path_bad_weight":
+            str(all_source_middle_pencil_bad_weight),
+        "exact_FULL_original_G_via_middle_diagonal_plus_disjoint_group_kernel":
+            str(compressed["pathdiag"]+compressed["good"]),
         "independent_physical_only_full_compatibility_source_weight":
             str(exact_physical_only_compatible),
         "independent_physical_only_full_incompatibility_source_weight":
@@ -452,8 +466,8 @@ def canonical_report():
         if actual!=expected:
             raise AssertionError("independent original disjoint-middle J/typed breakup not equal old exact B channel")
         source_floor=Fraction(row["exact_full_source_G_lower_by_diagonal_plus_disjoint_middle_good"])
-        if source_floor>Fraction(pr["G"]):
-            raise AssertionError("independent all-h ORIGINAL diag + compressed different middle good exceeds full true G")
+        if source_floor!=Fraction(pr["G"]):
+            raise AssertionError("NEW ALL-h exact FULL original G not equal diagonal + disjoint-middle compressed source kernel")
         if Fraction(row["exact_physical_path_diagonal_from_compressed_mid_source"])!=Fraction(pr["diagonal_source_path_weight"]):
             raise AssertionError("source-first 3path physical diagonal differs from parent complete J census")
         actualbadpairs=sum(row["disjoint_middle_true_J_vs_typed_bad_pair_counts"].values())
@@ -492,6 +506,8 @@ def canonical_report():
         "all_h_disjoint_middle_full_compatibility_physical_only_vertex_test":True,
         "all_h_exact_compressed_original_middle_source_label_and_shared_corner_good_kernel":True,
         "all_h_full_G_lower_by_source_physical_diagonal_plus_disjoint_mid_good":True,
+        "all_h_EXACT_entire_original_G_equals_diagonal_plus_disjoint_middle_source_good_kernel":True,
+        "all_h_distinct_paths_with_shared_middle_ORIGINAL_point_or_line_ALWAYS_incompatible":True,
         "all_h_disjoint_middle_J_midouter_outerouter_and_nonJ_typed_exact_partition":True,
         "complete_true_original_source_W32_W34_exact_disjoint_middle_census":rows,
         "orientation_compatibility_certificates":matrix,
