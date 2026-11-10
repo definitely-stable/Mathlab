@@ -119,6 +119,35 @@ The eight fully enumerated true-original physical populations are W32 full lex 1
 
 The new GitHub-hosted Ubuntu-24 Python-3.12 specialist runs a separate 18-test suite and a strict one-line machine-readable full-source certificate. Prior #757, INDEX and full Research workflows run as separate gates. All final-HEAD statuses must be checked; no acceptance of a new result solely because a parent workflow was green.
 
+## 4.1. Actual complete original W34 results, four ORIGINAL incidence channels
+
+The GitHub-hosted new GQ-K22 specialist first completed **SUCCESS, 18/18 tests and strict exact eight-case JSON certificate** on the implementation preceding this documentation-only change: see [workflow run #42777133563](https://github.com/definitely-stable/Mathlab/actions/runs/42777133563). The strict scientific final HEAD must be verified separately after any documentation change. The main program computed the entire genuine source CORE physical P3 and ALL same-endpoint pairs, not sampled; B and its four parts are stored as exact arbitrary-precision rational strings in the artifact. The following percentages are DISPLAY-ONLY rounded versions of those exact ratios, not the certifying arithmetic.
+
+| Complete actual ORIGINAL source | Share of B, same middle flag | Share of B, different flags sharing original point | Share of B, different flags sharing original line | Share of B, different original point AND line | Max same-mid paths |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| W(3,2) full lex | 9.3890% | 14.2438% | 13.7780% | 62.5893% | 2 |
+| W(3,2) full reverse | 20.6043% | 10.3590% | 8.7157% | 60.3210% | **3** |
+| W(3,2) shifted ORIGINAL Z17 | 11.9294% | 27.2751% | 8.7920% | 52.0034% | **3** |
+| **W(3,4) FULL lex** | **0.6154%** | **6.1902%** | **3.6369%** | **89.5575%** | 2 |
+| **W(3,4) FULL reverse** | **0.5492%** | **6.7555%** | **3.3445%** | **89.3508%** | 2 |
+| **W(3,4) FULL shifted** | **0.4862%** | **4.9974%** | **3.7409%** | **90.7755%** | 2 |
+| W(3,4) even retained CORE | 0.3048% | 5.3416% | 1.6022% | 92.7515% | 2 |
+| W(3,4) shifted Z17 CORE | 0.4599% | 5.0513% | 3.8232% | 90.6656% | 2 |
+
+In the three full original W34 label schemes, **89.35% to 90.78% of the total incompatible weight B** comes from distinct middle flags whose genuine original point AND original line are BOTH different. Thus even a perfect elimination of conflicts between paths with the SAME middle flag would remove **less than 0.62% of B** in these full finite schemes; eliminating merely point-shared or line-shared middle conflicts separately would not control the dominant cross-source part either. This is **finite-source diagnostic evidence** identifying the mathematically appropriate *next geometric obstruction*, NOT an all-h theorem claiming these proportions for arbitrary correlated fixed f/g.
+
+The sharper middle-three theorem is SHARP on the genuine full W32 reverse map: in actual ordered physical endpoint bin u=(0,2), v=(3,3), the named ORIGINAL middle flag **23** owns THREE distinct directed physical middle diagonals (and their real outer source edges), with original three-owner triples **(12,23,26), (27,23,7), (13,23,25)**. Their real physical sequences are
+
+- (0,2)→(2,4)→(5,1)→(3,3),
+- (0,2)→(5,1)→(2,4)→(3,3),
+- (0,2)→(5,4)→(2,1)→(3,3).
+
+Each true original edge owner triple and the three distinct directed middle physical diagonals are independently checked from the GQ incidence fixture. In FULL original W34 lex/reverse/shift the observed maximum middle same-source multiplicity is only TWO, but this cannot strengthen the all-h worst-case constant 3.
+
+The exhaustive physical rectangle exclusion checks covered **82,875, 82,450, 83,300** retained original flag × physically active vertex combinations for W34 full lex, full reverse and full shifted, respectively, and did not find a 4-corner counterexample. Separately, the original incidence K2,2-freeness was checked on every pair of true source points and every pair of true source lines for each s; the all-h theorem itself rests on the GQ partial-linearity axiom, NOT on this finite check.
+
+**Research consequence:** the next all-h proof or counterfamily should primarily analyze original same-endpoint paths whose middle named incidence IDs are disjoint in BOTH source point and source line. Charging only shared-middle source-ID, shared-point or shared-line pairs cannot uniformly address the dominant channel suggested by these genuine W34 instances. The strict four-way source ledger and all-h K22 theorem now make that next proof obligation explicitly inspectable.
+
 ## 5. Acceptance and next meaningful all-h step
 
 **Accepted mathematical scope (conditional on independent CI verifying the implementation):** all-order no-K2,2 source rectangle corner ≤3, sharp middle flag P3 count ≤3 per fixed endpoints, same-middle original incompatibility and exact source-grouped B ledger, and source-middle grouped local safety criterion. These statements follow analytically from original GQ geometry and algebra and have no all-order random-path independence loophole.
