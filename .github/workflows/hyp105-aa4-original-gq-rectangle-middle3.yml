@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Independent genuine ORIGINAL GQ sharp middle3 source, mass ledgers, and forged K22 rejection
+      - name: Eighteen independent genuine ORIGINAL GQ middle3, four-channel source ledgers, and forged K22 rejection
         run: python -m unittest discover -s research -p 'test_hyp105_original_gq_rectangle_middle3_referee.py' -v
       - name: Strict eight FULL SOURCE W32 W34 exact source owner and GQ K22 certificate
         shell: bash
@@ -46,6 +46,7 @@ jobs:
           assert o['all_h_true_original_GQ_rectangle_no_K2_2_strict_max_three_middle_paths'] is True
           assert o['all_h_distinct_same_middle_flag_paths_are_source_incompatible'] is True
           assert o['all_h_middle_owner_coarse_effective_multiplicity_safety_gate'] is True
+          assert o['all_h_four_original_middle_incidence_channels_form_exact_bad_weight_partition'] is True
           rows=o['complete_independently_verified_original_W32_W34_source_census']
           assert len(rows)==8
           assert [r['full_true_coordinate_proper_P3_count'] for r in rows[:5]]==[1346,1154,838,83892,82846]
@@ -75,6 +76,18 @@ jobs:
               different=Fraction(r['exact_incompatible_B_different_original_middle_flags'])
               assert M==B+G and B==same+different
               assert same==middle-D and D<=middle<=3*D
+              channels=('identical_original_middle_flag',
+                'distinct_middle_flags_shared_original_point',
+                'distinct_middle_flags_shared_original_line',
+                'distinct_middle_flags_distinct_original_point_and_line')
+              source_part=r['true_original_middle_incidence_bad_mass_four_channel_partition']
+              source_count=r['true_original_middle_incidence_bad_pair_four_channel_counts']
+              assert set(source_part)==set(source_count)==set(channels)
+              assert sum((Fraction(source_part[k]) for k in channels),Fraction(0))==B
+              assert Fraction(source_part[channels[0]])==same
+              assert sum((Fraction(source_part[k]) for k in channels[1:]),Fraction(0))==different
+              assert source_count[channels[0]]==r['same_middle_original_flag_incompatible_ordered_path_pairs']
+              assert sum(source_count.values())+r['full_disjoint_actual_path_pair_source_classes'].get('compatible',0)==r['true_original_ordered_same_endpoint_path_pairs']
               assert same>=0 and different>=0
               assert Fraction(r['exact_same_middle_original_owner_bad_fraction_of_total_B'])==(same/B if B else 0)
               assert 0<=Fraction(r['source_midflag_only_sufficient_safe_M_share'])<=1
