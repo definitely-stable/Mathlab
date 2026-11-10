@@ -215,6 +215,36 @@ then \(G>M/4\) and consequently the **GLOBAL** \(B/M<3/4\) for THAT original sou
 
 **What this changes for the next original research step:** any global 3/4 failure must be supported by a significant sum of source middle-symbol concentration second moments. It is now possible to state an exact analytic target involving only first-/second-factor symbol star squared masses and source point/line correction terms, instead of all same-endpoint physical path pairs. The next essential obstruction is to bound these star moments under genuine W(3,s) incidence and fixed adversarial f/g.
 
+### 6.1. NEW useful sequential strict local B75 proof gate (D → D+G00 → full G)
+
+The coarse largest-middle-symbol necessary condition (SYM-10) is mathematically correct but **not an effective discriminator on the current finite sources**: the initial full eight-case ORIGINAL W32/W34 scientific certificate found 100% of the same-endpoint M-mass satisfying that *necessary* high-symbol criterion and ZERO endpoint bins certified safe by its strict converse. This does **not** mean all bins are actually dangerous — even in FULL W34 only 8–24 endpoint bins have actual B/M>3/4. Reporting the heavy-symbol condition as a numerically successful adversarial classifier would be misleading.
+
+The exact new source moment decomposition instead supplies a much sharper **monotone three-stage proof certificate** at the individual physical endpoint:
+
+\[
+G_{uv}\ge D_{uv},\qquad
+G_{uv}\ge D_{uv}+G_{00,uv},\qquad
+G_{uv}=D_{uv}+G_{00,uv}+G_{11,uv},
+\tag{SYM-13}
+\]
+
+with both \(G_{00}\ge0\), \(G_{11}\ge0\). Thus a strict local B/M<3/4 is ALREADY proved if **any** of these successive lower bounds strictly exceeds \(M_{uv}/4\). Define the exact M-weighted fractions of all original endpoint families satisfying these strict tests as \(F_D,F_{D00},F_{FULL}\). They obey the universal inequalities
+
+\[
+\boxed{
+0\le F_D\le F_{D00}\le F_{FULL}\le1,
+\quad
+F_{D00}-F_D\ge0,
+\quad
+F_{FULL}-F_{D00}\ge0.
+}
+\tag{SYM-14}
+\]
+
+The first positive difference measures the actual SOURCE contribution of globally DISJOINT middle-label pairs beyond simple self-compatible path diagonals; the second measures further ORIGINAL source geometry benefit of the shared physical corners where both first-/second-middle symbol pairs overlap. An actual strict locally bad endpoint cannot be certified safe by any of the three tests, and its M-weight share is therefore at most \(1-F_{FULL}\). The exact Fraction program now records each percentage and incremental gain, verifies every monotonicity condition and exports counts with root status unchanged.
+
+For any fixed legal original f/g, the separately valid exact **GLOBAL** source certificate \(\sum_{uv}(D_{uv}+G_{00,uv})>M/4\) alone proves global B/M<3/4 — even without using G11 or individual cross-owner J. Current finite FULL W34 instances all satisfy this *instance* gate because their total D/M alone is approximately 42–44%; it is **NOT** proved uniformly for all legal original labelings and all dyadic orders. The intended next mathematical challenge remains proving such a uniform bound from true GQ source incidence and the weighted symbol collision moments, not extrapolating these fixed-instance tests.
+
 ## 7. Separate NEW all-h original source unweighted overlap capacity (minimal alphabet only)
 
 The original #230 ROOT fixes
@@ -261,7 +291,7 @@ The new MAIN referee imports only the independently audited genuine original sym
 - source symbol marginals summing to 2W and rectangle corners summing to 4W, all mixed overlap second moment identities, nonnegative G00/G11/B, finite pure-original source flags and the all-h minimal alphabet overlap capacity;
 - the heavy-symbol necessary risk condition and separate certification that actual locally bad bins are a subset of eligible high-symbol-concentration bins.
 
-The strict dedicated GitHub-hosted Ubuntu24 Python3.12 specialist runs 18 separate source geometry, mathematical and regression tests and a machine-readable eight-case exact Fraction JSON certificate. INDEX and full Research run independently and must be green on FINAL PR HEAD before claiming complete CI acceptance. Code, tests, workflow and this proof document remain stacked on frozen parent #759; no merge or root issue closure.
+The strict dedicated GitHub-hosted Ubuntu24 Python3.12 specialist runs 19 separate source geometry, mathematical and regression tests and a machine-readable eight-case exact Fraction JSON certificate. INDEX and full Research run independently and must be green on FINAL PR HEAD before claiming complete CI acceptance. Code, tests, workflow and this proof document remain stacked on frozen parent #759; no merge or root issue closure.
 
 **NEW accepted mathematics, subject to final independent hosted tests:** SYM-2/3 symbol-overlap moment identities, SYM-4/5/6 exact G00/G11 positive source weights, SYM-7 exact full-original M/G/B sparse second-moment kernel, SYM-10 source-weight heavy symbol necessary condition for strictly bad local B75, and SYM-11/12 minimal-alphabet **UNWEIGHTED** source-label overlap sparsity.
 
