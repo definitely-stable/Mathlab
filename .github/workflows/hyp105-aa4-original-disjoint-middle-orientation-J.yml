@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Twenty-three independent source-first all-h FULL ORIGINAL J and typed orientation tests
+      - name: Twenty-six independent ORIGINAL physical-only 4x4, no-source-J good kernel and full W34 tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_disjoint_middle_orientation_j_referee.py' -v
       - name: Strict FULL W32/W34 ORIGINAL disjoint-middle J versus typed certificate
         shell: bash
@@ -49,6 +49,8 @@ jobs:
           assert c['all_h_disjoint_middle_BAD_requires_at_least_one_middle_label_overlap'] is True
           assert c['all_h_proper_same_end_original_J_only_first_first_or_last_last'] is True
           assert c['all_h_disjoint_middle_full_compatibility_physical_only_vertex_test'] is True
+          assert c['all_h_exact_compressed_original_middle_source_label_and_shared_corner_good_kernel'] is True
+          assert c['all_h_full_G_lower_by_source_physical_diagonal_plus_disjoint_mid_good'] is True
           assert c['all_h_disjoint_middle_J_midouter_outerouter_and_nonJ_typed_exact_partition'] is True
           assert c['all_h_GLOBAL_B_over_M_below_three_quarters_proved'] is False
           assert c['infinite_correlated_counterfamily_claimed'] is False
@@ -84,6 +86,15 @@ jobs:
               assert r['first_true_original_zero_both_label_overlap_J_only_bad_witness'] is None
               assert Fraction(r['independent_physical_only_full_compatibility_source_weight'])==G
               assert Fraction(r['independent_physical_only_full_incompatibility_source_weight'])==B
+              D=Fraction(r['exact_physical_path_diagonal_from_compressed_mid_source'])
+              G00=Fraction(r['exact_compressed_original_middle_source_good_00_weight'])
+              G11=Fraction(r['exact_compressed_original_middle_source_good_11_sharedcorner_weight'])
+              exactGood=Fraction(r['exact_compressed_original_middle_source_good_total'])
+              assert exactGood==G00+G11==G
+              assert Fraction(r['exact_compressed_original_middle_source_bad_total'])==B
+              assert Fraction(r['exact_compressed_original_middle_source_pair_total'])==B+G
+              assert Fraction(r['exact_full_source_G_lower_by_diagonal_plus_disjoint_middle_good'])==D+G
+              assert D>0 and G>=0 and r['compressed_original_source_middle_flag_pairs_examined']>0
               assert r['first_true_original_single_label_overlap_same_depth_J_witness'] is not None
               assert r['first_true_original_two_overlap_shared_corner_compatible_witness'] is not None
               assert sum(n.values())+sum(v for k,v in
