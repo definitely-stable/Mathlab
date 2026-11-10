@@ -279,6 +279,51 @@ class TestOriginalDisjointMiddleOrientationAndJ(unittest.TestCase):
                 Fraction(r["exact_compressed_original_middle_source_bad_total"]),
                 Fraction(r["independent_physical_only_full_incompatibility_source_weight"]))
 
+    def test_exact_ALL_h_FULL_original_M_G_B_middle_source_quadratic_kernel(self):
+        self.assertTrue(self.result[
+            "all_h_EXACT_entire_original_G_equals_diagonal_plus_disjoint_middle_source_good_kernel"])
+        self.assertTrue(self.result[
+            "all_h_distinct_paths_with_shared_middle_ORIGINAL_point_or_line_ALWAYS_incompatible"])
+        self.assertTrue(self.result[
+            "all_h_EXACT_full_original_M_G_B_from_named_middle_source_quadratic_kernel"])
+        for r in self.rows:
+            M=Fraction(r["exact_FULL_original_M_from_grouped_middle_source_weights"])
+            B=Fraction(r["exact_FULL_original_B_from_grouped_middle_source_kernel"])
+            G=Fraction(r["exact_FULL_original_G_from_grouped_middle_source_kernel"])
+            D=Fraction(r["exact_physical_path_diagonal_from_compressed_mid_source"])
+            GD=Fraction(r["exact_compressed_original_middle_source_good_total"])
+            BP=Fraction(r["true_original_same_middle_point_or_line_distinct_path_bad_weight"])
+            BD=Fraction(r["exact_compressed_original_middle_source_bad_total"])
+            MD=Fraction(r["exact_compressed_original_middle_source_pair_total"])
+            self.assertGreater(M,0)
+            self.assertGreater(G,0)
+            self.assertGreaterEqual(B,0)
+            self.assertEqual(M,G+B)
+            self.assertEqual(G,D+GD)
+            self.assertEqual(B,BP+BD)
+            self.assertEqual(M,D+BP+MD)
+            self.assertEqual(G,Fraction(r[
+                "exact_FULL_original_G_via_middle_diagonal_plus_disjoint_group_kernel"]))
+            self.assertGreaterEqual(r[
+                "true_original_same_middle_point_or_line_distinct_path_bad_ordered_pairs"],0)
+
+    def test_all_original_W32_shared_middle_point_or_line_PATH_PAIRS_always_bad(self):
+        for scheme,core in (("lex","full"),("reverse","full"),("shift","Z17")):
+            c=_source(2,scheme,core)
+            byend={}
+            for p,owners in _true_original_proper_P3(c):
+                byend.setdefault((p[0],p[-1]),[]).append((p,owners))
+            count=0
+            for group in byend.values():
+                for (p,owners),(q,others) in combinations(group,2):
+                    pi,li=c["flags"][owners[1]]
+                    pj,lj=c["flags"][others[1]]
+                    if pi==pj or li==lj:
+                        self.assertNotEqual(_pair_bad(p,owners,q,others,c["J"]),
+                            "compatible")
+                        count+=1
+            self.assertGreater(count,0)
+
     def test_real_two_overlap_shared_corner_source_compatible_witness(self):
         observed=0
         for r in self.rows:
