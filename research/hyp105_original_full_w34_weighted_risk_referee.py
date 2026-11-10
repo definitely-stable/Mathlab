@@ -307,6 +307,23 @@ def _original_rectangle_no_k22_audit(c):
             "all_h_middle_flag_same_endpoint_P3_upper":3}
 
 
+def _true_original_middle_pair_incidence_channel(i,j,c):
+    """Disjoint ORIGINAL middle incidence flag pair types, no synthetic labels."""
+    p,l=c["flags"][i]
+    q,m=c["flags"][j]
+    if i==j:
+        if p!=q or l!=m:
+            raise AssertionError("same original source flag ID has conflicting incidence")
+        return "identical_original_middle_flag"
+    if p==q and l==m:
+        raise AssertionError("distinct original incidence IDs own same true named flag")
+    if p==q:
+        return "distinct_middle_flags_shared_original_point"
+    if l==m:
+        return "distinct_middle_flags_shared_original_line"
+    return "distinct_middle_flags_distinct_original_point_and_line"
+
+
 def _full_exact_case(s,scheme,core):
     c=_source(s,scheme,core)
     rectangle=_original_rectangle_no_k22_audit(c)
@@ -326,6 +343,8 @@ def _full_exact_case(s,scheme,core):
     M=Fraction(0);B=Fraction(0);G=Fraction(0)
     middle_owner_B_same=Fraction(0)
     middle_owner_B_different=Fraction(0)
+    middle_incidence_bad_masses=defaultdict(Fraction)
+    middle_incidence_bad_pair_counts=Counter()
     middle_group_quadratic=Fraction(0)
     same_middle_owner_bad_ordered_pairs=0
     mid_source_only_safe_bin_mass=Fraction(0)
@@ -403,6 +422,10 @@ def _full_exact_case(s,scheme,core):
                     localSameMidBadFromPairs+=2*p1*p2
                     sameMidBadPairsInBin+=2
                 if reason!="compatible":
+                    channel=_true_original_middle_pair_incidence_channel(
+                        owner1[1],owner2[1],c)
+                    middle_incidence_bad_masses[channel]+=2*p1*p2
+                    middle_incidence_bad_pair_counts[channel]+=2
                     localBad+=2*p1*p2
                     edges[i].add(j);edges[j].add(i)
                     cls[reason]+=2
@@ -463,6 +486,22 @@ def _full_exact_case(s,scheme,core):
         raise AssertionError("full original P3 weighted source tensor or class partition inconsistent")
     if middle_owner_B_same+middle_owner_B_different!=B:
         raise AssertionError("true original same/different middle flag bad weight partition failed")
+    expected_channels=(
+        "identical_original_middle_flag",
+        "distinct_middle_flags_shared_original_point",
+        "distinct_middle_flags_shared_original_line",
+        "distinct_middle_flags_distinct_original_point_and_line")
+    for name in expected_channels:
+        middle_incidence_bad_masses[name]+=Fraction(0)
+        middle_incidence_bad_pair_counts[name]+=0
+    if sum(middle_incidence_bad_masses.values(),Fraction(0))!=B:
+        raise AssertionError("source geometric point/line middle-pair four-channel B decomposition not conserved")
+    if middle_incidence_bad_masses["identical_original_middle_flag"]!=middle_owner_B_same:
+        raise AssertionError("original same-middle source bad mass differs from independent point/line ledger")
+    if sum((middle_incidence_bad_masses[z] for z in expected_channels[1:]),Fraction(0))!=middle_owner_B_different:
+        raise AssertionError("distinct-middle source pencil/disjoint-weight bad split not conserved")
+    if middle_incidence_bad_pair_counts["identical_original_middle_flag"]!=same_middle_owner_bad_ordered_pairs:
+        raise AssertionError("direct ORIGINAL middle ID same-pair count mismatch")
     if middle_owner_B_same!=middle_group_quadratic-raw_diag:
         raise AssertionError("source middle-owner collision energy not exact")
     if not 3*raw_diag>=middle_group_quadratic:
@@ -499,6 +538,10 @@ def _full_exact_case(s,scheme,core):
         "exact_original_middle_owner_quadratic_energy":str(middle_group_quadratic),
         "exact_incompatible_B_same_original_middle_flag":str(middle_owner_B_same),
         "exact_incompatible_B_different_original_middle_flags":str(middle_owner_B_different),
+        "true_original_middle_incidence_bad_mass_four_channel_partition":{
+            key:str(middle_incidence_bad_masses[key]) for key in expected_channels},
+        "true_original_middle_incidence_bad_pair_four_channel_counts":{
+            key:middle_incidence_bad_pair_counts[key] for key in expected_channels},
         "exact_same_middle_original_owner_bad_fraction_of_total_B":
             str(middle_owner_B_same/B) if B else "0",
         "source_midflag_only_sufficient_safe_endpoint_bins":
@@ -560,6 +603,7 @@ def canonical_report():
         "all_h_true_original_GQ_rectangle_no_K2_2_strict_max_three_middle_paths":True,
         "all_h_distinct_same_middle_flag_paths_are_source_incompatible":True,
         "all_h_middle_owner_coarse_effective_multiplicity_safety_gate":True,
+        "all_h_four_original_middle_incidence_channels_form_exact_bad_weight_partition":True,
         "complete_independently_verified_original_W32_W34_source_census":cases,
         "all_h_global_B_over_M_below_3_over_4_PROVED":False,
         "numerical_external_C6_graph_constants_claimed":False,
