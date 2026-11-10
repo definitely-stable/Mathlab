@@ -234,6 +234,51 @@ class TestOriginalDisjointMiddleOrientationAndJ(unittest.TestCase):
             self.assertTrue(any(_physical_endpoint_J_collision(p,q)))
         self.assertGreater(observed,0)
 
+    def test_new_all_h_source_middle_group_kernel_00_and_shared_corner_11(self):
+        self.assertTrue(self.result[
+            "all_h_exact_compressed_original_middle_source_label_and_shared_corner_good_kernel"])
+        self.assertTrue(self.result[
+            "all_h_full_G_lower_by_source_physical_diagonal_plus_disjoint_mid_good"])
+        for r in self.rows:
+            g00=Fraction(r["exact_compressed_original_middle_source_good_00_weight"])
+            g11=Fraction(r["exact_compressed_original_middle_source_good_11_sharedcorner_weight"])
+            g=Fraction(r["exact_compressed_original_middle_source_good_total"])
+            b=Fraction(r["exact_compressed_original_middle_source_bad_total"])
+            m=Fraction(r["exact_compressed_original_middle_source_pair_total"])
+            self.assertEqual(g00+g11,g)
+            self.assertEqual(b+g,m)
+            self.assertGreaterEqual(g00,0)
+            self.assertGreaterEqual(g11,0)
+            self.assertEqual(g,Fraction(r["disjoint_middle_actual_compatible_weight"]))
+            self.assertEqual(b,Fraction(r["disjoint_middle_actual_incompatible_weight"]))
+            self.assertEqual(g00,Fraction(r[
+                "disjoint_middle_complete_four_overlap_by_cause_exact_mass"].get("00/compatible","0")))
+            self.assertEqual(g11,Fraction(r[
+                "disjoint_middle_complete_four_overlap_by_cause_exact_mass"].get("11/compatible","0")))
+            self.assertGreater(r["compressed_original_source_middle_flag_pairs_examined"],0)
+
+    def test_all_h_positive_good_diagonal_plus_compressed_mid_mass(self):
+        for r in self.rows:
+            D=Fraction(r["exact_physical_path_diagonal_from_compressed_mid_source"])
+            good=Fraction(r["exact_compressed_original_middle_source_good_total"])
+            cert=Fraction(r["exact_full_source_G_lower_by_diagonal_plus_disjoint_middle_good"])
+            self.assertGreater(D,0)
+            self.assertGreaterEqual(good,0)
+            self.assertEqual(cert,D+good)
+            self.assertGreater(cert,0)
+
+    def test_disjoint_source_middle_group_exact_kernel_vs_ORIGINAL_W32_direct(self):
+        # Separate direct W32 path-pair geometry test already constructs source
+        # compatibility without J. Compare that exact full good with compressed
+        # middle-source weights from one full actual symplectic fixture.
+        for r in self.rows[:3]:
+            self.assertEqual(
+                Fraction(r["exact_compressed_original_middle_source_good_total"]),
+                Fraction(r["independent_physical_only_full_compatibility_source_weight"]))
+            self.assertEqual(
+                Fraction(r["exact_compressed_original_middle_source_bad_total"]),
+                Fraction(r["independent_physical_only_full_incompatibility_source_weight"]))
+
     def test_real_two_overlap_shared_corner_source_compatible_witness(self):
         observed=0
         for r in self.rows:
