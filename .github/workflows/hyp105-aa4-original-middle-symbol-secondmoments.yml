@@ -1,0 +1,108 @@
+name: hyp105-aa4-original-middle-symbol-secondmoments
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-middle-symbol-secondmoments.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-SYMBOL-SECOND-MOMENTS.md'
+      - 'research/hyp105_original_symbol_secondmoments_referee.py'
+      - 'research/test_hyp105_original_symbol_secondmoments_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-middle-symbol-secondmoments:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Eighteen independent ALL-h source symbol moments and genuine W32/W34 pairwise comparison tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_symbol_secondmoments_referee.py' -v
+      - name: Strict eight FULL ORIGINAL W32/W34 sparse symbol moment certificates
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_symbol_secondmoments_referee.py |
+            tee proof/hyp105-aa4-original-middle-symbol-secondmoments.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          from fractions import Fraction
+          from math import comb
+          import json
+          lines=Path('proof/hyp105-aa4-original-middle-symbol-secondmoments.json.log').read_text().splitlines()
+          prefix='AA4_SYMMOM_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'single strict full source certificate'
+          a=json.loads(lines[0][len(prefix):])
+          assert a['schema']=='mathlab.hyp105.original-middle-symbol-squared-moments.v1'
+          assert a['status']=='OPEN_WITH_FORMAL_BLOCKER' and a['issue']==230
+          assert a['root_PROVED_A'] is False
+          assert a['all_h_global_B_over_M_below_three_quarters_PROVED'] is False
+          assert a['infinite_original_correlated_counterexample_family_claimed'] is False
+          assert a['external_numeric_C6_graph_constants_claimed'] is False
+          assert a['ASET_exponent_claimed'] is False
+          assert a['this_does_NOT_claim_weighted_same_endpoint_overlap_sparsity'] is True
+          assert a['all_h_complete_original_M_G_B_exact_linear_sparse_symbol_second_moment_formulas'] is True
+          assert a['all_h_exact_original_x_y_and_both_pair_overlap_inclusion_exclusion'] is True
+          assert a['all_h_exact_good_disjoint_middle_00_11_physical_corner_square_moments'] is True
+          assert a['all_h_heavy_original_physical_symbol_necessary_for_local_B_above_three_quarters'] is True
+          assert a['all_h_minimal_pair_alphabet_source_label_overlap_degree_O_s_5_over_2'] is True
+          assert a['all_h_unweighted_flag_label_overlap_fraction_O_s_minus_3_over_2'] is True
+          cases=a['true_genuine_original_W32_W34_complete_full_moment_censuses']
+          assert len(cases)==8
+          assert [z['counts']['total_full_original_coordinate_proper_P3_paths'] for z in cases]==[
+              1346,1154,838,83892,82846,79404,9966,66418]
+          for c in cases:
+              assert c['full_source_real_physical_path_census'] is True
+              assert c['root_PROVED_A'] is False
+              assert c['source_real_physical_owned_edges']==2*c['source_original_retained_CORE_flag_count']
+              s=c['original_s']
+              assert c['source_GQ_points_and_lines_each']==(s+1)*(s*s+1)
+              M=Fraction(c['total_original_M'])
+              G=Fraction(c['total_original_G'])
+              B=Fraction(c['total_original_B'])
+              D=Fraction(c['moments']['D'])
+              Ox=Fraction(c['moments']['Ox']);Oy=Fraction(c['moments']['Oy'])
+              Oxy=Fraction(c['moments']['Oxy'])
+              G00=Fraction(c['moments']['G00'])
+              G11=Fraction(c['moments']['G11'])
+              assert M>0 and G>0 and B>=0 and M==G+B
+              assert G==D+G00+G11
+              assert G00==M-Ox-Oy+Oxy
+              assert Fraction(c['moments']['G11_tail'])+Fraction(c['moments']['G11_head'])==G11
+              assert 0<=Oxy<=min(Ox,Oy)
+              assert G>=Fraction(c['moments']['source_G_symbol_max_mass_lower_bound'])
+              assert Fraction(c['exact_original_B_over_M'])==B/M
+              assert Fraction(c['source_symbol_actual_strict_local_bad_M_share'])<=Fraction(c['source_symbol_heavy_weighted_M_share'])
+              assert Fraction(c['source_symbol_certified_strict_safe_M_share'])+Fraction(c['source_symbol_actual_strict_local_bad_M_share'])<=1
+              obs=c['unweighted_original_middle_flag_label_capacity']
+              env=obs['full_source_alphabet_minimal_capacity_envelope']
+              aa=c['source_actual_physical_pair_alphabet_size']
+              assert env['actual_alphabet']==aa==env['minimal_pair_alphabet']
+              assert comb(aa,2)>=c['source_GQ_points_and_lines_each']
+              assert comb(aa-1,2)<c['source_GQ_points_and_lines_each']
+              assert obs['max_original_middle_label_overlap_degree_in_CORE']<=env['unweighted_source_middle_pair_overlap_max_degree_cap']
+              assert env['raw_union_degree_cap']==2*((2*aa-3)*(s+1)-1)
+          assert Fraction(cases[0]['total_original_M'])==Fraction(
+              170009657654496199,164130319761408000000)
+          assert Fraction(cases[0]['exact_original_B_over_M'])==Fraction(
+              395498199363009600,1190067603581473393)
+          expect=[
+              Fraction(6455794325016624278974180549344,34112625017517015558762952579019),
+              Fraction(1112181511961691267640954528608,5419443488794004529193758698293),
+              Fraction(38485044924066111819475664,193743221070784284041268159)]
+          assert [Fraction(z['exact_original_B_over_M']) for z in cases[3:6]]==expect
+          caps=a['independent_all_h_minimal_alphabet_degree_capacity_examples']
+          assert [z['s'] for z in caps]==[2,4,8,16,32,64]
+          assert all(z['all_h_asymptotic_finite_source_degree_over_flags_O_s_minus_three_halves_if_minimal_alphabet'] for z in caps)
+          print('ACCEPT exact ALL-h ORIGINAL middle-source M/G/B sparse second moments and minimal alphabet capacity; ROOT OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-original-middle-symbol-moments
+          path: proof/hyp105-aa4-original-middle-symbol-secondmoments.json.log
