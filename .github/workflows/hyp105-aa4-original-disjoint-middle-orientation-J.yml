@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Twenty-six independent ORIGINAL physical-only 4x4, no-source-J good kernel and full W34 tests
+      - name: Twenty-eight independent ORIGINAL full M/G/B middle quadratic kernel and physical-only source theorem tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_disjoint_middle_orientation_j_referee.py' -v
       - name: Strict FULL W32/W34 ORIGINAL disjoint-middle J versus typed certificate
         shell: bash
@@ -51,6 +51,9 @@ jobs:
           assert c['all_h_disjoint_middle_full_compatibility_physical_only_vertex_test'] is True
           assert c['all_h_exact_compressed_original_middle_source_label_and_shared_corner_good_kernel'] is True
           assert c['all_h_full_G_lower_by_source_physical_diagonal_plus_disjoint_mid_good'] is True
+          assert c['all_h_EXACT_entire_original_G_equals_diagonal_plus_disjoint_middle_source_good_kernel'] is True
+          assert c['all_h_distinct_paths_with_shared_middle_ORIGINAL_point_or_line_ALWAYS_incompatible'] is True
+          assert c['all_h_EXACT_full_original_M_G_B_from_named_middle_source_quadratic_kernel'] is True
           assert c['all_h_disjoint_middle_J_midouter_outerouter_and_nonJ_typed_exact_partition'] is True
           assert c['all_h_GLOBAL_B_over_M_below_three_quarters_proved'] is False
           assert c['infinite_correlated_counterfamily_claimed'] is False
@@ -95,6 +98,15 @@ jobs:
               assert Fraction(r['exact_compressed_original_middle_source_pair_total'])==B+G
               assert Fraction(r['exact_full_source_G_lower_by_diagonal_plus_disjoint_middle_good'])==D+G
               assert D>0 and G>=0 and r['compressed_original_source_middle_flag_pairs_examined']>0
+              M_full=Fraction(r['exact_FULL_original_M_from_grouped_middle_source_weights'])
+              B_full=Fraction(r['exact_FULL_original_B_from_grouped_middle_source_kernel'])
+              G_full=Fraction(r['exact_FULL_original_G_from_grouped_middle_source_kernel'])
+              B_pencil=Fraction(r['true_original_same_middle_point_or_line_distinct_path_bad_weight'])
+              assert M_full==G_full+B_full
+              assert G_full==D+G
+              assert B_full==B_pencil+B
+              assert M_full==D+B_pencil+Fraction(r['exact_compressed_original_middle_source_pair_total'])
+              assert G_full==Fraction(r['exact_FULL_original_G_via_middle_diagonal_plus_disjoint_group_kernel'])
               assert r['first_true_original_single_label_overlap_same_depth_J_witness'] is not None
               assert r['first_true_original_two_overlap_shared_corner_compatible_witness'] is not None
               assert sum(n.values())+sum(v for k,v in
