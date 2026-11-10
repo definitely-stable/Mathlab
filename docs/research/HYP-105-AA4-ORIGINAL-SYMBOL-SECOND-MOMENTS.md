@@ -280,6 +280,45 @@ This is a genuine ALL-h incidence-and-minimal-label algebraic result, but **does
 
 The strict machine source capacity certificate also evaluates s=2,4,8,16,32,64 formula-only minimal alphabet envelopes and independently enumerates EVERY ordered source flag neighbor for the two actual finite GQs. It never claims to construct an unsupported W(3,8) incidence fixture merely because its algebraic capacity expression was evaluated.
 
+## 7.1. FINAL independent complete ORIGINAL W32/W34 observed symbol-moment and staged-B75 facts
+
+A NEW dedicated GitHub-hosted code-head specialist [#42867514538](https://github.com/definitely-stable/Mathlab/actions/runs/42867514538) completed **SUCCESS — 19/19 independent tests**, including manual direct ORIGINAL J/typed pairwise enumeration over every same-endpoint P3 pair in W32, an independently implemented previous FULL W34 lex source pairwise referee, and the eight-case strict machine-readable exact Fraction symbol-moment certificate. The following percentages are **display-rounded outputs**, NOT the arithmetic used for acceptance: each exact fraction is preserved in the JSON artifact.
+
+**Breakdown of the WHOLE original G/M source energy into three mathematically disjoint, nonnegative components:**
+
+| TRUE ORIGINAL fixed complete W(3,4) | Physical path diagonal D/M | Middle labels disjoint in both typed coordinates G00/M | Both typed middle labels overlap and shared inner corner G11/M | Exact full B/M |
+|---|---:|---:|---:|---:|
+| FULL lex | 42.6023% | 21.2847% | 17.1881% | 18.9249% |
+| FULL reverse | 41.8919% | 22.2626% | 15.3235% | 20.5221% |
+| FULL shifted | 43.9149% | 20.3884% | 15.8328% | 19.8639% |
+
+**The practical diagnostic that matters: exact M-weight of local endpoint bins where strict B_uv/M_uv<3/4 is already mathematically certified by each successive ORIGINAL source lower bound.**
+
+| Fixed original complete W(3,4) | D only certifies safe M | D+G00 certifies safe M | Full exact D+G00+G11 certifies safe M | Actual M share with locally bad >3/4 |
+|---|---:|---:|---:|---:|
+| FULL lex | 78.2012% | **99.4182%** | 99.9737% | 0.0263% (24 endpoint bins) |
+| FULL reverse | 75.5905% | **99.3395%** | 99.9525% | 0.0475% (24 bins) |
+| FULL shifted | 79.6068% | **99.6928%** | 99.9855% | 0.0145% (8 bins) |
+
+Therefore the NEW G00 source symbol-disjoint contribution alone increases the fraction of M on which strict local safety is **proved** by **21.2170, 23.7491, 20.0860 percentage points** in these three TRUE FULL W34 sources versus diagonal D alone. The additionally quantified G11 source inner-corner contribution provides **0.5555, 0.6130, 0.2926** percentage points of local-safe M respectively. These are FIXED original finite map source measurements, not guaranteed all-h gains. The safe fractions are **weighted by M_uv**, not fractions of endpoint bins or uniformly random middle flag pairs.
+
+**Negative result for an earlier new proof tactic:** On ALL eight tested W32/W34 ORIGINAL source cases, the high-single-symbol necessary-risk criterion SYM-10 accepts 100% of the physical endpoint M as *potentially* dangerous, hence its strict-safe converse certifies 0% of M. It is mathematically valid but **numerically vacuous as a risk filter on these sources**. This is why the stagewise exact ORIGINAL source moments above, especially G00, are the meaningful next research frontier. Do not report the 100% heavy-symbol necessary condition as an achieved full risk bound.
+
+**Separate all-h minimal-alphabet upper bound on unweighted SOURCE middle label overlap degree:**
+
+| Algebraic original dyadic order s | Minimal physical pair alphabet a_s | ORIGINAL F flags | Maximum theoretical overlapping other flags for one source flag | Bound as fraction of possible other flags |
+|---|---:|---:|---:|---:|
+| 2 | 6 | 45 | 44 | 100% (vacuous) |
+| 4 | 14 | 425 | 248 | 58.4906% |
+| 8 | 35 | 5,265 | 1,204 | 22.8723% |
+| 16 | 94 | 74,273 | 6,288 | 8.4662% |
+| 32 | 261 | 1,116,225 | 34,252 | 3.0686% |
+| 64 | 731 | 17,309,825 | 189,668 | 1.0957% |
+
+For s=8 and above these are **algebraic universal capacity bounds**, NOT simulated/constructed higher-order symplectic geometry; only W32/W34 true source pair overlaps are independently scanned directly. Although the unweighted global source overlap density tends to zero, it is logically incorrect to infer the SAME-ENDPOINT selector-marginal-weighted \(B/M\) tends to zero without bounding the source concentration of paths and weights.
+
+**Scientific STOP:** this slice achieves an exact full source sparse second-moment algorithm and exposes the precise high-risk source symbol collision term, but neither the observed 99% safe M certificate in fixed W34 nor the unweighted s^-3/2 incidence capacity proves universally fixed-correlated f/g B75, original seven-class Branch A, the GF5 event union or a new ASET extraction exponent.
+
 ## 8. Independent full original source validation and science STOP
 
 The new MAIN referee imports only the independently audited genuine original symplectic W32/W34 incidence/physical paired flag builder and the exact genuine original 3-owner priority probability from #757, then implements the NEW sparse source-symbol-moment algebra **WITHOUT** using any previous path-pair collision, clique, middle-owner-pair kernel or GF(5) code. The exact source risk identity is independently tested against:
