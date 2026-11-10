@@ -1,0 +1,93 @@
+name: hyp105-aa4-original-disjoint-middle-orientation-J
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-disjoint-middle-orientation-J.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-DISJOINT-MIDDLE-ORIENTATION-J.md'
+      - 'research/hyp105_original_disjoint_middle_orientation_j_referee.py'
+      - 'research/test_hyp105_original_disjoint_middle_orientation_j_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-disjoint-mid-orientation-J:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Sixteen independent source-first all-h orientation and true GQ tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_disjoint_middle_orientation_j_referee.py' -v
+      - name: Strict FULL W32/W34 ORIGINAL disjoint-middle J versus typed certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_disjoint_middle_orientation_j_referee.py |
+            tee proof/hyp105-aa4-original-disjoint-middle-orientation-J.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          from fractions import Fraction
+          import json
+          pre='AA4_DMID_CERTIFICATE='
+          lines=Path('proof/hyp105-aa4-original-disjoint-middle-orientation-J.json.log').read_text().splitlines()
+          assert len(lines)==1 and lines[0].startswith(pre), 'single strict source certificate'
+          c=json.loads(lines[0][len(pre):])
+          assert c['schema']=='mathlab.hyp105.original-disjoint-middle-orientation-J.v1'
+          assert c['issue']==230 and c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['root_PROVED_A'] is False
+          assert c['all_h_original_disjoint_middle_direct_source_J_edge_impossible'] is True
+          assert c['all_h_original_zero_both_overlap_typed_obstruction_impossible'] is True
+          assert c['all_h_four_by_four_source_oriented_diagonal_compatibility_exact'] is True
+          assert c['all_h_sharp_three_by_three_typed_compatibility_counts'] is True
+          assert c['all_h_disjoint_middle_J_midouter_outerouter_and_nonJ_typed_exact_partition'] is True
+          assert c['all_h_GLOBAL_B_over_M_below_three_quarters_proved'] is False
+          assert c['infinite_correlated_counterfamily_claimed'] is False
+          assert c['ASET_exponent_claimed'] is False
+          assert c['numeric_external_graph_C6_constants_claimed'] is False
+          expected={'00':(16,9),'10':(8,4),'01':(8,4),'11':(4,2)}
+          assert set(c['orientation_compatibility_certificates'])==set(expected)
+          for k,(tot,sub) in expected.items():
+              v=c['orientation_compatibility_certificates'][k]
+              assert v['full_four_by_four_typed_compatible_count']==tot
+              assert v['worst_case_actual_three_by_three_orientation_subsets_typed_compatible_min']==sub
+          rows=c['complete_true_original_source_W32_W34_exact_disjoint_middle_census']
+          assert len(rows)==8
+          assert [x['true_proper_directed_physical_P3_count'] for x in rows]==[
+              1346,1154,838,83892,82846,79404,9966,66418]
+          cause=('source_J_middle_to_outer','source_J_outer_to_outer_only',
+                 'no_source_J_first_typed_depth','no_source_J_second_typed_depth')
+          for r in rows:
+              assert r['full_source_complete_census'] is True
+              assert r['real_paired_physical_edges']==2*r['retained_original_flags']
+              assert r['true_original_ordered_physical_endpoint_bins']>0
+              assert r['original_source_priority_triples_exact']>0
+              w=r['disjoint_middle_true_J_vs_typed_bad_mass_exact']
+              n=r['disjoint_middle_true_J_vs_typed_bad_pair_counts']
+              assert tuple(w)==tuple(n)==cause
+              B=Fraction(r['disjoint_middle_actual_incompatible_weight'])
+              G=Fraction(r['disjoint_middle_actual_compatible_weight'])
+              assert B>=0 and G>=0 and sum((Fraction(w[k]) for k in cause),Fraction(0))==B
+              assert sum(n.values())+sum(v for k,v in
+                 r['disjoint_middle_complete_four_overlap_by_cause_integer_counts'].items()
+                 if k.endswith('/compatible'))==r['disjoint_middle_both_point_line_actual_ordered_path_pairs']
+              assert B+G==sum((Fraction(v) for v in
+                 r['disjoint_middle_complete_four_overlap_by_cause_exact_mass'].values()),Fraction(0))
+              assert all(r['disjoint_middle_complete_four_overlap_by_cause_integer_counts'].get(
+                      '00/'+x,0)==0 for x in cause[2:])
+              assert all(Fraction(r['disjoint_middle_complete_four_overlap_by_cause_exact_mass'].get(
+                      '00/'+x,'0'))==0 for x in cause[2:])
+              assert B==sum((Fraction(v) for v in
+                 r['disjoint_middle_actual_bad_overlap_signature_mass'].values()),Fraction(0))
+              assert r['root_PROVED_A'] is False
+          print('ACCEPT source-first disjoint middle true GQ J-vs-orientation 4x4/3x3 theorem; ROOT OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-original-disjoint-middle-J-orientation
+          path: proof/hyp105-aa4-original-disjoint-middle-orientation-J.json.log
