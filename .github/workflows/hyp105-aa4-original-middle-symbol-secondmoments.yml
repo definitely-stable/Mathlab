@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Nineteen independent ALL-h original source symbol moment and staged strict B75 tests
+      - name: Twenty independent ALL-h ORIGINAL source symbol and corrected union-overlap B75 tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_symbol_secondmoments_referee.py' -v
       - name: Strict eight FULL ORIGINAL W32/W34 sparse symbol moment certificates
         shell: bash
@@ -49,6 +49,8 @@ jobs:
           assert a['this_does_NOT_claim_weighted_same_endpoint_overlap_sparsity'] is True
           assert a['all_h_complete_original_M_G_B_exact_linear_sparse_symbol_second_moment_formulas'] is True
           assert a['all_h_exact_original_x_y_and_both_pair_overlap_inclusion_exclusion'] is True
+          assert a['all_h_corrected_middle_label_overlap_union_Ox_plus_Oy_minus_Oxy_exact'] is True
+          assert a['all_h_corrected_union_overlap_source_B75_sufficient_gate'] is True
           assert a['all_h_exact_good_disjoint_middle_00_11_physical_corner_square_moments'] is True
           assert a['all_h_heavy_original_physical_symbol_necessary_for_local_B_above_three_quarters'] is True
           assert a['all_h_strict_B75_monotone_diagonal_to_nooverlap_to_sharedcorner_safe_mass_gates'] is True
@@ -75,6 +77,13 @@ jobs:
               assert M>0 and G>0 and B>=0 and M==G+B
               assert G==D+G00+G11
               assert G00==M-Ox-Oy+Oxy
+              net=Fraction(c['moments']['net_middle_label_union_overlap'])
+              assert net==Ox+Oy-Oxy==M-G00
+              assert 0<=net<=M
+              assert Fraction(c['source_symbol_corrected_middle_label_union_overlap_fraction_M'])==net/M
+              assert Fraction(c['source_symbol_UNCORRECTED_x_plus_y_overlap_fraction_M'])==(Ox+Oy)/M
+              assert c['source_symbol_uncorrected_raw_Ox_plus_Oy_sufficient_B75'] is (Ox+Oy<3*M/4+D)
+              assert c['source_symbol_corrected_union_overlap_sufficient_B75'] is (net<3*M/4+D)
               assert Fraction(c['moments']['G11_tail'])+Fraction(c['moments']['G11_head'])==G11
               assert 0<=Oxy<=min(Ox,Oy)
               assert G>=Fraction(c['moments']['source_G_symbol_max_mass_lower_bound'])
@@ -107,6 +116,8 @@ jobs:
               Fraction(1112181511961691267640954528608,5419443488794004529193758698293),
               Fraction(38485044924066111819475664,193743221070784284041268159)]
           assert [Fraction(z['exact_original_B_over_M']) for z in cases[3:6]]==expect
+          assert all(z['source_symbol_corrected_union_overlap_sufficient_B75'] for z in cases[3:6])
+          assert all(not z['source_symbol_uncorrected_raw_Ox_plus_Oy_sufficient_B75'] for z in cases[3:6])
           caps=a['independent_all_h_minimal_alphabet_degree_capacity_examples']
           assert [z['s'] for z in caps]==[2,4,8,16,32,64]
           assert all(z['all_h_asymptotic_finite_source_degree_over_flags_O_s_minus_three_halves_if_minimal_alphabet'] for z in caps)
