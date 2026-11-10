@@ -115,6 +115,31 @@ class TestOriginalGQRectangleMiddleThree(unittest.TestCase):
             self.assertEqual(Fraction(r["exact_same_middle_original_owner_bad_fraction_of_total_B"]),
                              same/B if B else Fraction(0))
 
+    def test_independent_four_original_incidence_middle_channels_partition_B(self):
+        channels=(
+            "identical_original_middle_flag",
+            "distinct_middle_flags_shared_original_point",
+            "distinct_middle_flags_shared_original_line",
+            "distinct_middle_flags_distinct_original_point_and_line")
+        self.assertTrue(
+            self.r["all_h_four_original_middle_incidence_channels_form_exact_bad_weight_partition"])
+        for row in self.rows:
+            weights=row["true_original_middle_incidence_bad_mass_four_channel_partition"]
+            counts=row["true_original_middle_incidence_bad_pair_four_channel_counts"]
+            self.assertEqual(tuple(weights),channels)
+            self.assertEqual(tuple(counts),channels)
+            B=Fraction(row["B"])
+            same=Fraction(row["exact_incompatible_B_same_original_middle_flag"])
+            diff=Fraction(row["exact_incompatible_B_different_original_middle_flags"])
+            self.assertEqual(sum((Fraction(weights[z]) for z in channels),Fraction(0)),B)
+            self.assertEqual(Fraction(weights[channels[0]]),same)
+            self.assertEqual(sum((Fraction(weights[z]) for z in channels[1:]),Fraction(0)),diff)
+            self.assertEqual(counts[channels[0]],
+                row["same_middle_original_flag_incompatible_ordered_path_pairs"])
+            self.assertTrue(all(Fraction(weights[z])>=0 and counts[z]>=0 for z in channels))
+            self.assertEqual(sum(counts.values())+row["full_disjoint_actual_path_pair_source_classes"].get("compatible",0),
+                             row["true_original_ordered_same_endpoint_path_pairs"])
+
     def test_exact_bad_source_midpair_counts_real_incompatible(self):
         for row in self.rows:
             self.assertGreaterEqual(row["same_middle_original_flag_incompatible_ordered_path_pairs"],0)
