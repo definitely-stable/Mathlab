@@ -91,6 +91,39 @@ The clique-five necessity is strict: for a four-clique of equal weights, \(B/M=3
 
 **Scientific bound:** Without a source-geometric estimate of the global distribution of \(n_{\rm eff}\) and \(\omega\) for *arbitrary* original fixed correlated f/g as s grows, this theorem does NOT claim a global \(B/M<3/4\). Its improvement may be zero in some instances. It is also independent of the inherited selected sixth-moment upper \(L_6s^6\): do not illegitimately subtract B or promote full Branch A.
 
+### Stronger exact all-h compensation test for dangerous endpoint mass
+
+Partition the nonempty endpoint bins into **safe**
+\[
+\mathcal S=\{(u,v):\omega_{uv}\le4\ \text{OR}\ n_{\rm eff}(u,v)\le4\}
+\]
+and **jointly dangerous**
+\[
+\mathcal U=\{(u,v):\omega_{uv}\ge5\ \text{AND}\ n_{\rm eff}(u,v)>4\}.
+\]
+The union is disjoint and exhaustive. Write \(g_{uv}^{\rm cert}=\max\{M_{uv}/\omega_{uv},D_{uv}\}\), the exact proven compatible-mass lower bound of (W34-3). In a safe bin \(g_{uv}^{\rm cert}\ge M_{uv}/4\); in a dangerous bin \(g_{uv}^{\rm cert}<M_{uv}/4\). Define the nonnegative, **exact original source computable** quantities
+
+\[
+\begin{aligned}
+S&=\sum_{(u,v)\in\mathcal S}\left(g_{uv}^{\rm cert}-M_{uv}/4\right),\\
+T&=\sum_{(u,v)\in\mathcal U}\left(M_{uv}/4-g_{uv}^{\rm cert}\right).
+\end{aligned}
+\tag{W34-9}
+\]
+
+Then the exact telescoping of the independently proved all-h source risk bound yields
+
+\[
+\boxed{
+G\ge\sum_{uv}g_{uv}^{\rm cert}
+=\frac M4+S-T,\qquad
+S>T\ \Longrightarrow\ B/M<3/4.
+}
+\tag{W34-10}
+\]
+
+This criterion improves the previous #756 coarse two-tail \(L/H\) mass comparison because it charges the **ACTUAL rational source marginal weights** and the **effective path multiplicity** in every bin, rather than penalizing *all* clique≥5 bins as uniformly dangerous. No independence of distinct paths is assumed. The program stores S,T and verifies exact Fraction identity \(S-T=\sum_{uv}g_{uv}^{\rm cert}-M/4\) across EVERY original finite core. A failure of \(S>T\) does not imply an ORIGINAL \(B/M\ge3/4\) counterexample; (W34-10) remains only a sufficient, not necessary, certificate.
+
 ## 3. NEW all-h genuine ORIGINAL middle-flag inverse (no synthetic graph path injection)
 
 Each REAL physical edge \(\{a,b\}\) lies in exactly one original retained incidence flag \(i=(p,\ell)\) (physical edge ownership), because f and g separately injectively determine its two unordered coordinate pairs. That actual flag owns exactly TWO opposite rectangle diagonals. A directed real physical P3 \(\gamma=(u,a,b,v)\) has exactly one **directed middle physical edge** \(a\to b\), with middle ORIGINAL ID \(i_{\rm mid}\); and its inner coordinate pairs must satisfy
@@ -135,7 +168,57 @@ The full W34 lex/reverse 3path counts are **predeclared external regression chec
 
 The strict JSON result includes, for every case, all B/G/M exact Fraction totals, the number of properly directed physical P3, the full same-endpoint pair count, the clique histogram over all physical ordered endpoint bins, the maximum multiplicity per ORIGINAL middle flag, the exact diagonal M-weight, the previous Motzkin and new stronger hybrid G-weight floors, the weighted share of bins with clique≥5, the weighted share with BOTH clique≥5 and effective multiplicity>4, and the strongest true-original local bad ratio witness with its physical endpoints, all original source-flag owner triples, path vertices and exact probability weights. This evidence can expose a TRUE original risk counterexample if present but **finite W34 evidence cannot prove all-h asymptotic global B/M<3/4**, even if all its ratios stay below threshold.
 
-The dedicated GitHub-hosted Ubuntu 24.04 Python 3.12 specialist has an independent suite of 18 tests (including exact W32 baseline equations and full W34 lex/reverse required P3 populations) plus a strict fail-closed one-line machine certificate. INDEX and full Research must be checked at exact PR HEAD independently. The main source is standalone with respect to previous AA4 calculations; inherited source geometry fixture is the only imported component.
+The dedicated GitHub-hosted Ubuntu 24.04 Python 3.12 specialist has an independent suite of 19 tests (including exact W32 baseline equations and full W34 lex/reverse required P3 populations) plus a strict fail-closed one-line machine certificate. INDEX and full Research must be checked at exact PR HEAD independently. The main source is standalone with respect to previous AA4 calculations; inherited source geometry fixture is the only imported component.
+
+## 4.1. Independent completed GitHub-hosted ORIGINAL W34 results (FULL, not sampled)
+
+The first full-source specialist CI [#42751977327](https://github.com/definitely-stable/Mathlab/actions/runs/42751977327) completed **SUCCESS, 18/18 tests and strict exact rational certificate** on the complete first implementation (before adding the additional S/T compensation theorem gate). The numerical results below are from that independent run. The final scientific acceptance must use the subsequent final-head run with the 19-test compensation gate.
+
+| Genuine ORIGINAL retained source | Proper directed physical P3, ALL | Ordered same-endpoint pairs, ALL | Max actual incompatibility clique | Exact total B/M (decimal display only) | Maximum local B_uv/M_uv |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| W(3,2) full lex | 1,346 | 4,370 | 6 | 33.2333% | 74.6481% |
+| W(3,2) full reverse | 1,154 | 2,942 | 4 | 32.0219% | 73.7486% |
+| W(3,2) shifted, ORIGINAL Z17 CORE | 838 | 1,766 | 6 | 28.9468% | 76.0464% |
+| **W(3,4) FULL lex** | **83,892** | **358,424** | **8** | **18.9249%** | **81.5855%** |
+| **W(3,4) FULL reverse** | **82,846** | **360,670** | **8** | **20.5221%** | **82.1132%** |
+| **W(3,4) FULL shifted** | **79,404** | **323,816** | **7** | **19.8639%** | **84.6855%** |
+| W(3,4) even retained CORE, full census of CORE | 9,966 | 14,394 | 3 | 5.4307% | 66.3265% |
+| W(3,4) shifted Z17 CORE, full census of CORE | 66,418 | 241,434 | 7 | 17.3020% | 78.5714% |
+
+**IMPORTANT: exact rational authoritative values.** For the three W34 FULL maps, the verified exact global weighted bad ratios are, in source-map order lex/reverse/shift,
+
+\[
+\frac{6455794325016624278974180549344}{34112625017517015558762952579019},
+\quad
+\frac{1112181511961691267640954528608}{5419443488794004529193758698293},
+\quad
+\frac{38485044924066111819475664}{193743221070784284041268159}.
+\tag{W34-11}
+\]
+
+These are **fixed mapping-specific** ORIGINAL sources, not universal bounds for arbitrary original fixed correlated f/g and not estimates of an infinite asymptotic trajectory. They do NOT make the root all-h \(B/M<3/4\) hypothesis proven.
+
+The risk concentration in FULL W34 is revealing:
+
+| Exact FULL W34 source | M-weight in bins with omega≥5 | M-weight in bins with BOTH omega≥5 and n_eff>4 | Count of bins with actual LOCAL bad ratio >3/4 |
+| --- | ---: | ---: | ---: |
+| lex | 2.5542% | 1.9995% | 24 |
+| reverse | 3.0663% | 2.4284% | 24 |
+| shift | 1.7861% | 1.4387% | 8 |
+
+This confirms the extra effective multiplicity test discards a **nonzero fraction of the endpoint M-mass** formerly categorized as dangerous by clique≥5 alone. Even in FULL W34 many legitimate local source endpoint bins violate the strict 3/4 threshold, while their total mass share remains comparatively low in these finite mappings.
+
+The old weighted-Motzkin-only **certified global B/M upper** vs the new provable hybrid **certified global upper** (NOT the measured actual ratio) are:
+
+| Exact FULL W34 source | Motzkin-only upper bound | Hybrid Motzkin/diagonal upper bound | Strict proven gain |
+| --- | ---: | ---: | ---: |
+| lex | 45.2228% | 41.9567% | 3.2661 percentage points |
+| reverse | 46.5458% | 43.4817% | 3.0641 percentage points |
+| shift | 44.7244% | 41.5885% | 3.1359 percentage points |
+
+These are independent all-order inequalities applied to finite original geometry; they are looser than the exact measured risks (~19–21%) but formally stronger than the source predecessor bound. The full W34 original source middle-owner inversion passed on **every** actual physical path, with a maximum observed of only **two** P3s per original middle owner in any one endpoint bin; the theorem correctly retains the universal safe bound FOUR, since other true W32 configurations can attain three.
+
+**Next mathematical interpretation:** full W34 demonstrates that large local source conflict cliques (7–8) and per-bin bad ratios of ~85% can coexist with a global B/M of only ~20% for particular fixed label correlations. This is evidence for a potential global source charge/compensation approach, not its proof. The next all-h obstacle is to turn the genuine GQ incidence and source-middle inverse into a **uniform** bound on the total M-mass of jointly dangerous bins for arbitrary fixed f/g and all sufficiently large s. No false inference from the specific lex/reverse/shift labels to all f/g is made.
 
 ## 5. What this proves, does not prove, and next scientific gate
 
