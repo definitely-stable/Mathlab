@@ -8,6 +8,10 @@ from hyp105_original_disjoint_middle_orientation_j_referee import (
     SCHEMA,STATUS,CAUSES,OVERLAPS,FULL_CASES,MIDDLE_CHANNEL,
     _all_orientation_compatibility_matrix,
     _minimal_three_by_three_typed_compatible,
+    _all_full_original_source_compatibility_matrix,
+    _min_three_by_three_full_original_compatible,
+    _physical_endpoint_J_collision,
+    _physical_only_disjoint_middle_compatibility,
     _independent_true_middle_orientation_pair,
     _full_exact_case,
     canonical_report
@@ -55,6 +59,63 @@ class TestOriginalDisjointMiddleOrientationAndJ(unittest.TestCase):
             x=int(overlap[0]);y=int(overlap[1])
             self.assertEqual(_minimal_three_by_three_typed_compatible(x,y),target)
             self.assertEqual(self.result["orientation_compatibility_certificates"][overlap]["worst_case_actual_three_by_three_orientation_subsets_typed_compatible_min"],target)
+
+    def test_NEW_all_h_full_J_and_typed_original_4x4_16_0_0_2(self):
+        expected={"00":16,"10":0,"01":0,"11":2}
+        for overlap,n in expected.items():
+            ox=int(overlap[0]);oy=int(overlap[1])
+            matrix=_all_full_original_source_compatibility_matrix(ox,oy)
+            self.assertEqual(len(matrix),4)
+            self.assertTrue(all(len(r)==4 for r in matrix))
+            self.assertEqual(sum(map(sum,matrix)),n)
+            self.assertEqual(self.result["orientation_compatibility_certificates"][overlap][
+                "full_four_by_four_original_J_plus_typed_compatible_count"],n)
+        self.assertTrue(self.result[
+            "all_h_FULL_original_J_plus_typed_4x4_compatibility_counts_16_0_0_2"])
+
+    def test_NEW_sharp_full_original_3x3_minimum_9_0_0_0(self):
+        expected={"00":9,"10":0,"01":0,"11":0}
+        for o,val in expected.items():
+            x,y=map(int,o)
+            self.assertEqual(_min_three_by_three_full_original_compatible(x,y),val)
+            self.assertEqual(self.result["orientation_compatibility_certificates"][o][
+                "minimum_three_by_three_full_original_J_plus_typed_compatible_count"],val)
+
+    def test_new_all_h_outer_source_J_endpoint_vertex_test_independent(self):
+        self.assertTrue(self.result[
+            "all_h_proper_same_end_original_J_only_first_first_or_last_last"])
+        for s,sch,core in FULL_CASES[:3]:
+            c=_source(s,sch,core)
+            byend={}
+            for p,os in _true_original_proper_P3(c):
+                byend.setdefault((p[0],p[-1]),[]).append((p,os))
+            for group in byend.values():
+                for (p,os),(q,ot) in combinations(group,2):
+                    f1=c["flags"][os[1]];f2=c["flags"][ot[1]]
+                    if f1[0]==f2[0] or f1[1]==f2[1]:continue
+                    j1,j2=_physical_endpoint_J_collision(p,q)
+                    expected_J=any(ot[y] in c["J"][os[x]]
+                                   for x in range(3) for y in range(3))
+                    self.assertEqual(j1 or j2,expected_J)
+                    for x,y in ((0,2),(2,0),(1,0),(1,2),(0,1),(2,1)):
+                        self.assertNotIn(ot[y],c["J"][os[x]])
+
+    def test_new_full_original_compatibility_physical_only_every_W32_source_pair(self):
+        for sch,core in (("lex","full"),("reverse","full"),("shift","Z17")):
+            c=_source(2,sch,core)
+            byend={}
+            for p,os in _true_original_proper_P3(c):
+                byend.setdefault((p[0],p[-1]),[]).append((p,os))
+            for group in byend.values():
+                for (p,os),(q,ot) in combinations(group,2):
+                    f1=c["flags"][os[1]];f2=c["flags"][ot[1]]
+                    if f1[0]==f2[0] or f1[1]==f2[1]:continue
+                    ox=len(set(c["f"][f1[0]]) & set(c["f"][f2[0]]))
+                    oy=len(set(c["g"][f1[1]]) & set(c["g"][f2[1]]))
+                    phys=_physical_only_disjoint_middle_compatibility(p,q,ox,oy)
+                    self.assertEqual(phys,_pair_bad(p,os,q,ot,c["J"])=="compatible")
+        self.assertTrue(self.result[
+            "all_h_disjoint_middle_full_compatibility_physical_only_vertex_test"])
 
     def test_reject_non_boolean_overlap(self):
         for x,y in ((2,0),(0,2),(-1,0),(1,3)):
@@ -130,6 +191,13 @@ class TestOriginalDisjointMiddleOrientationAndJ(unittest.TestCase):
     def test_actual_original_zero_pair_label_overlap_source_J_only_witness(self):
         for r in self.rows:
             a=r["first_true_original_zero_both_label_overlap_J_only_bad_witness"]
+            self.assertIsNone(a)
+            self.assertEqual(Fraction(r["disjoint_middle_actual_bad_overlap_signature_mass"]["00"]),0)
+        self.assertTrue(self.result[
+            "all_h_disjoint_middle_BAD_requires_at_least_one_middle_label_overlap"])
+        return
+        for r in self.rows:
+            a=r["first_true_original_zero_both_label_overlap_J_only_bad_witness"]
             if a is None:continue
             self.assertIn(a["J_obstruction_cause"],CAUSES[:2])
             self.assertGreater(Fraction(a["exact_original_pair_weight"]),0)
@@ -143,6 +211,61 @@ class TestOriginalDisjointMiddleOrientationAndJ(unittest.TestCase):
             self.assertEqual(x[:2],(0,0))
             self.assertEqual(x[2],a["J_obstruction_cause"])
             self.assertEqual(_pair_bad(p,os,q,ot,c["J"]),"original_J_conflict")
+
+    def test_full_original_source_physical_only_Fraction_ledger_equals_J_graph(self):
+        for r in self.rows:
+            self.assertEqual(
+                Fraction(r["independent_physical_only_full_compatibility_source_weight"]),
+                Fraction(r["disjoint_middle_actual_compatible_weight"]))
+            self.assertEqual(
+                Fraction(r["independent_physical_only_full_incompatibility_source_weight"]),
+                Fraction(r["disjoint_middle_actual_incompatible_weight"]))
+            self.assertEqual(Fraction(r["disjoint_middle_true_J_vs_typed_bad_mass_exact"][
+                "source_J_middle_to_outer"]),0)
+            self.assertEqual(r["disjoint_middle_true_J_vs_typed_bad_pair_counts"][
+                "source_J_middle_to_outer"],0)
+            for sig in ("10","01"):
+                self.assertEqual(r[
+                    "disjoint_middle_complete_four_overlap_by_cause_integer_counts"].get(
+                    sig+"/compatible",0),0)
+
+    def test_true_single_overlap_same_depth_outer_J_actual_witness(self):
+        observed=0
+        for r in self.rows:
+            w=r["first_true_original_single_label_overlap_same_depth_J_witness"]
+            if w is None:continue
+            observed+=1
+            c=_source(r["original_s"],r["original_fixed_scheme"],r["original_CORE"])
+            p=tuple(map(tuple,w["path_a"]))
+            q=tuple(map(tuple,w["path_b"]))
+            os=w["original_flag_owners_a"];ot=w["original_flag_owners_b"]
+            self.assertEqual((p[0],p[-1]),(q[0],q[-1]))
+            ox,oy,cause,xbad,ybad,jmo,joo=(
+                _independent_true_middle_orientation_pair(p,os,q,ot,c))
+            self.assertNotEqual(ox,oy)
+            self.assertTrue(joo)
+            self.assertFalse(jmo)
+            self.assertFalse(xbad or ybad)
+            self.assertEqual(cause,"source_J_outer_to_outer_only")
+            self.assertTrue(any(_physical_endpoint_J_collision(p,q)))
+        self.assertGreater(observed,0)
+
+    def test_real_two_overlap_shared_corner_source_compatible_witness(self):
+        observed=0
+        for r in self.rows:
+            w=r["first_true_original_two_overlap_shared_corner_compatible_witness"]
+            if w is None:continue
+            observed+=1
+            c=_source(r["original_s"],r["original_fixed_scheme"],r["original_CORE"])
+            p=tuple(map(tuple,w["path_a"]))
+            q=tuple(map(tuple,w["path_b"]))
+            os=w["original_flag_owners_a"];ot=w["original_flag_owners_b"]
+            self.assertTrue(p[1]==q[1] or p[2]==q[2])
+            self.assertEqual(_pair_bad(p,os,q,ot,c["J"]),"compatible")
+            self.assertEqual(
+                _independent_true_middle_orientation_pair(p,os,q,ot,c)[:3],
+                (1,1,"compatible"))
+        self.assertGreater(observed,0)
 
     def test_actual_original_typed_only_middle_overlap_witness(self):
         witnessed=0
