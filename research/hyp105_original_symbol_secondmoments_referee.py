@@ -226,6 +226,15 @@ def _full_exact_symbol_moments_one_bin(group,c):
         raise AssertionError("strict local B/M>3/4 lacks necessary original heavy symbol")
     if cap_sum<threshold and not G>M/4:
         raise AssertionError("source heavy-symbol strict-safe sufficient condition violated")
+    strict_safe_diagonal=D>M/4
+    strict_safe_diagonal_plus_nooverlap=D+G00>M/4
+    strict_safe_exact_G=G>M/4
+    if strict_safe_diagonal and not strict_safe_diagonal_plus_nooverlap:
+        raise AssertionError("original monotone positive G00 cannot lose diagonal safe case")
+    if strict_safe_diagonal_plus_nooverlap and not strict_safe_exact_G:
+        raise AssertionError("original monotone positive G11 cannot lose prior safe case")
+    if G<M/4 and (strict_safe_diagonal or strict_safe_diagonal_plus_nooverlap or strict_safe_exact_G):
+        raise AssertionError("strict local bad source incorrectly certified safe by actual positive moments")
     return {
         "M":M,"G":G,"B":B,"D":D,
         "Ox":Ox,"Oy":Oy,"Oxy":Oxy,
@@ -233,6 +242,12 @@ def _full_exact_symbol_moments_one_bin(group,c):
         "G11":G11,"W":W,
         "max_x_symbol_middle_weight":maxX,"max_y_symbol_middle_weight":maxY,
         "sum_relative_largest_x_and_y_symbol_weight":cap_sum,
+        "strict_local_B75_safe_from_original_diagonal_only":
+            strict_safe_diagonal,
+        "strict_local_B75_safe_from_original_diagonal_plus_nooverlap_00":
+            strict_safe_diagonal_plus_nooverlap,
+        "strict_local_B75_safe_from_FULL_exact_original_symbol_moments":
+            strict_safe_exact_G,
         "source_local_bad_requires_heavy_symbol_fraction":
             cap_sum>=threshold,
         "source_strict_safe_from_symbol_stars":cap_sum<threshold,
@@ -264,6 +279,9 @@ def _full_moment_case(s,scheme,core):
     counts=defaultdict(int)
     M_heavy=Fraction(0);M_actualbad=Fraction(0)
     M_strictsafe=Fraction(0)
+    M_safe_diag=Fraction(0)
+    M_safe_diag00=Fraction(0)
+    M_safe_all=Fraction(0)
     worst=None
     for ends,group in bins.items():
         t=_full_exact_symbol_moments_one_bin(group,c)
@@ -277,6 +295,15 @@ def _full_moment_case(s,scheme,core):
         counts["max_true_original_middle_flags_per_endpoint_bin"]=max(
             counts["max_true_original_middle_flags_per_endpoint_bin"],
             t["source_original_midflag_count"])
+        if t["strict_local_B75_safe_from_original_diagonal_only"]:
+            M_safe_diag+=t["M"]
+            counts["strictly_safe_endpoint_bins_from_diagonal_D_only"]+=1
+        if t["strict_local_B75_safe_from_original_diagonal_plus_nooverlap_00"]:
+            M_safe_diag00+=t["M"]
+            counts["strictly_safe_endpoint_bins_from_D_plus_G00"]+=1
+        if t["strict_local_B75_safe_from_FULL_exact_original_symbol_moments"]:
+            M_safe_all+=t["M"]
+            counts["strictly_safe_endpoint_bins_from_complete_exact_G"]+=1
         if t["source_local_bad_requires_heavy_symbol_fraction"]:
             M_heavy+=t["M"]
             counts["heavy_symbol_candidate_endpoint_bins"]+=1
@@ -313,6 +340,10 @@ def _full_moment_case(s,scheme,core):
         raise AssertionError("true ORIGINAL heavy-symbol source M mass accounting failed")
     if M_actualbad+M_strictsafe>M:
         raise AssertionError("actual bad and certified strict-safe original bins overlap")
+    if not 0<=M_safe_diag<=M_safe_diag00<=M_safe_all<=M:
+        raise AssertionError("all-h ORIGINAL D / D+G00 / D+G00+G11 safety gates must improve monotonically")
+    if M_actualbad+M_safe_all>M:
+        raise AssertionError("actual strict bad B75 bins overlap full exact G strict safe bins")
     observed=_observed_full_original_flag_label_overlap_degree(c)
     rows={k:str(v) for k,v in sums.items()}
     return {
@@ -335,6 +366,20 @@ def _full_moment_case(s,scheme,core):
         "source_symbol_actual_cross_middle_pair_overlap_y_fraction_M":str(sums["Oy"]/M),
         "source_symbol_actual_both_middle_pair_overlap_fraction_M":str(sums["Oxy"]/M),
         "source_symbol_heavy_weighted_M_share":str(M_heavy/M),
+        "strict_local_B75_diagonal_only_certified_safe_M_share":
+            str(M_safe_diag/M),
+        "strict_local_B75_diagonal_plus_nooverlap_certified_safe_M_share":
+            str(M_safe_diag00/M),
+        "strict_local_B75_diagonal_plus_nooverlap_incremental_safe_M_share":
+            str((M_safe_diag00-M_safe_diag)/M),
+        "strict_local_B75_sharedcorner_11_incremental_safe_M_share":
+            str((M_safe_all-M_safe_diag00)/M),
+        "strict_local_B75_full_exact_moments_certified_safe_M_share":
+            str(M_safe_all/M),
+        "full_original_source_global_B75_sufficient_from_D_plus_G00_alone":
+            sums["D"]+sums["G00"]>M/4,
+        "full_original_source_global_B75_sufficient_from_D_plus_G00_G11":
+            G>M/4,
         "source_symbol_actual_strict_local_bad_M_share":str(M_actualbad/M),
         "source_symbol_certified_strict_safe_M_share":str(M_strictsafe/M),
         "worst_true_original_local_source_endpoint":worst,
@@ -363,6 +408,7 @@ def canonical_report():
         "all_h_exact_original_x_y_and_both_pair_overlap_inclusion_exclusion":True,
         "all_h_exact_good_disjoint_middle_00_11_physical_corner_square_moments":True,
         "all_h_heavy_original_physical_symbol_necessary_for_local_B_above_three_quarters":True,
+        "all_h_strict_B75_monotone_diagonal_to_nooverlap_to_sharedcorner_safe_mass_gates":True,
         "all_h_minimal_pair_alphabet_source_label_overlap_degree_O_s_5_over_2":True,
         "all_h_unweighted_flag_label_overlap_fraction_O_s_minus_3_over_2":True,
         "this_does_NOT_claim_weighted_same_endpoint_overlap_sparsity":True,
