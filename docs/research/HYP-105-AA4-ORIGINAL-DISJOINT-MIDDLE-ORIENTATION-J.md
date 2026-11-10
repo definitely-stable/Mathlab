@@ -115,18 +115,111 @@ B_{\mathrm{middle\;point,line\;disjoint}}
 
 All weights are EXACT marginal products \(p_\gamma p_\eta\), not joint selection probabilities. J/typed **events** can overlap; to make DM-6 disjoint we deliberately give original source J precedence, then x, then y. The underlying physical incompatibility criterion, determined before this decomposition, is unchanged.
 
-**Immediate all-h typed-obstruction isolation:** For \((\alpha,\beta)=(0,0)\), no x or y inner opposite-depth collision is possible. Therefore
+## 3.1. STRONGER ALL-h theorem: every source J obstruction collapses to TWO physical endpoint tests
+
+The initial DM-6 partition is correct but not sharp enough: the source-middle-to-outer J channel is actually IDENTICALLY ZERO for all coordinate-proper physical P3s with the SAME endpoints, not just in the W32/W34 cases. This has a short, rigorous original-source proof.
+
+Let the two actual proper paths have their four physical vertices written
+
+\[
+\gamma=(u,a,b,v),\qquad\eta=(u,c,d,v),\qquad
+u=(u_x,u_y),\ v=(v_x,v_y).
+\]
+
+Each ORIGINAL physical edge has the unique original point f-inverse of its unordered x pair and unique original line g-inverse of its unordered y pair. The two source owner triples are associated with edges \((u,a),(a,b),(b,v)\) and \((u,c),(c,d),(d,v)\).
+
+**No middle–outer J edges:** The middle x pair of either path contains precisely its two interior x coordinates, both distinct from BOTH its endpoint x coordinates \(u_x,v_x\) by coordinate-properness. The first outer x pair of EITHER path contains \(u_x\); the last outer x pair contains \(v_x\). Therefore the middle original point cannot equal any outer original point. The same argument with the y pairs excludes equality of their original lines. Since ORIGINAL J edges require a shared source point or line, middle-to-outer source J adjacency is impossible.
+
+**No first–last J edges:** The first outer physical x pair contains \(u_x\); the last outer x pair of EITHER proper path excludes \(u_x\). Thus their original points differ; their lines differ by the analogous y argument. This prohibits first-outer versus last-outer J adjacency (in both cross-path directions), independent of GQ order, original f/g correlations, or source J degree.
+
+**Middle–middle source J:** For the disjoint ORIGINAL middle flags considered in (DM-1), there is also no J middle–middle edge because their point and line are both different. Hence the ONLY potentially source-J-adjacent owner comparisons are (first,first) and (last,last) — **TWO**, instead of the original nine or preliminary eight.
+
+Now compare the two actual first physical edges \((u,a)\) and \((u,c)\). Their original first-edge owners share a genuine source point iff their first x pair labels are equal, which is equivalent to \(a_x=c_x\). They share a genuine source line iff \(a_y=c_y\). If \(a=c\), they are the SAME real physical edge and thus have the SAME named source owner; J has no self-edge, so there is NO conflict from this comparison. If \(a\ne c\), either equal typed coordinate gives a true J edge: on a shared original source point the other-side physical y pairs both contain \(u_y\); dually on a shared original line the x pairs both contain \(u_x\). So the first–first J event is EXACTLY
+
+\[
+E_{\rm first}
+=\mathbf1\bigl[a\ne c\ \wedge\
+   (a_x=c_x\vee a_y=c_y)\bigr].
+\tag{DM-8}
+\]
+
+Identically the last–last owner J event is EXACTLY
+
+\[
+E_{\rm last}
+=\mathbf1\bigl[b\ne d\ \wedge\
+   (b_x=d_x\vee b_y=d_y)\bigr].
+\tag{DM-9}
+\]
+
+Therefore the new all-h **physical source equality lemma** is
 
 \[
 \boxed{
-B_{\mathrm{disjointMiddle},00}
-=B_{\mathrm{J,\;middleOuter},00}
-+B_{\mathrm{J,\;outerOuterOnly},00}.
+\text{source-J conflict of }\gamma,\eta
+\iff E_{\rm first}\vee E_{\rm last}.
 }
-\tag{DM-7}
+\tag{DM-10}
 \]
 
-The truly hard source component is thus constrained to GQ-mediated external owner interactions when both middle label pairs are physically disjoint. Importantly, since #758's finite W34 source-disjoint channel is dominant, DM-7 and DM-6 tell the next all-h referee WHICH source J cross-incidence interactions still require a quantitative bound and which are merely physical typed orientations.
+The equation is valid whenever the two proper P3s have the same ordered physical endpoints and their true middle point AND line differ. No access to the FULL original J graph is needed to decide the source-J part of their incompatibility once the true physical proper paths and their unique middle-source IDs are known.
+
+## 3.2. STRONGER ALL-h full ORIGINAL compatibility theorem: 16 / 0 / 0 / 2
+
+Combine DM-10 with the exact typed opposite-inner-depth criterion. Let \(\alpha,\beta\in\{0,1\}\) be the middle source label overlap bits of (DM-2).
+
+**Case 00 (neither middle label pair overlaps).** The two paths have disjoint x inner symbols and disjoint y inner symbols. Thus no same-depth or opposite-depth inner typed coordinate equalities can occur. By DM-8/DM-9 there is NO endpoint-source J event either; by DM-3 no middle–middle J, and by properness no other J. Therefore **EVERY such actual pair is FULLY compatible**, and
+
+\[
+\boxed{B_{\mathrm{disjointMiddle},\,00}=0.}
+\tag{DM-11}
+\]
+
+This is stronger than the earlier correct but unhelpful observation that typed conflicts alone vanish. Any proposed true ORIGINAL zero-overlap bad-pair witness is an outright contradiction to this all-h source theorem, not a real GQ counterexample.
+
+**Case 10 or 01 (exactly ONE typed middle label overlap).** There is exactly one shared inner symbol, occurring once in each path. If it appears at OPPOSITE depths, the typed factor has an odd-cycle incompatibility. If it appears at the SAME depth, the two corresponding physical inner vertices agree in that typed coordinate but differ in the OTHER coordinate (the other middle pair labels are disjoint), hence \(E_{\rm first}\) or \(E_{\rm last}\) is a TRUE ORIGINAL J edge by DM-8 or DM-9. Thus **EVERY actual pair of such true original proper P3s is FULLY incompatible**. The classification into source J or typed only depends precisely on the direction of the shared middle typed symbol.
+
+**Case 11 (BOTH middle pair labels share one symbol).** For FULL compatibility, neither x nor y may have opposite-depth shared symbols; they must each occur at SAME depth in the two paths. If these two shared physical symbols occur at DIFFERENT depths from each other (x shared at first, y shared at last, or vice versa), an outer first–first or last–last pair has a same-depth partial typed collision and hence J conflict. Full compatibility is therefore possible ONLY when the shared x and y symbols occur BOTH at the FIRST inner vertex of both paths, giving \(a=c\), or BOTH at the LAST inner vertex of both paths, giving \(b=d\). In these two cases the corresponding outer source flag is IDENTICAL, not J-adjacent, while the other outer source flags differ in BOTH original point and line, so J and typed conflicts both vanish. Thus the exact source condition is
+
+\[
+\boxed{
+\gamma,\eta\text{ FULLY compatible}
+\iff(\alpha=\beta=0)
+\ \lor\
+(\alpha=\beta=1\ \wedge\ (a=c\ \lor\ b=d)).
+}
+\tag{DM-12}
+\]
+
+Note that \(\alpha=\beta=1\) is essential to the second branch; merely sharing an inner vertex is not claimed to prove compatibility for unrelated middle source types.
+
+As a consequence, among the FOUR directed middle-diagonal orientations of each true source flag, the FULL ORIGINAL **J-plus-typed** compatibility count is
+
+\[
+\boxed{
+C^{4\times4}_{\mathrm{full\ ORIGINAL}}(00,10,01,11)
+=(16,\;0,\;0,\;2).
+}
+\tag{DM-13}
+\]
+
+The first table 16/8/8/4 remains exactly valid for **typed-only** compatibility, but ignoring source J would double-count apparent good orientations. For three-element orientation subfamilies of two source middle flags (the maximal local multiplicity by GQ no-K2,2), the SHARP abstract FULL ORIGINAL minimal compatible counts are now \(9,0,0,0\): in overlap 11 the full compatibility matrix consists of only two disjoint matching edges, both of which can be covered by deleting one row and one column. Again, this abstract extremum does not assert that every 3×3 subset is realized as actual same-endpoint proper paths in a given GQ.
+
+**New exact global source support theorem (valid all-h, no fixed-alphabet-size assumption):**
+
+\[
+\boxed{
+B_{\mathrm{middlePointLineDisjoint}}
+=B_{\mathrm{middlePointLineDisjoint},\,10}
++B_{\mathrm{middlePointLineDisjoint},\,01}
++B_{\mathrm{middlePointLineDisjoint},\,11}.
+}
+\tag{DM-14}
+\]
+
+The disjoint-middle ORIGINAL bad-weight support is empty when BOTH middle source label pairs have disjoint symbols. Every weight is still the true original source marginal-product \(p_\gamma p_\eta\) and can be arbitrarily nonuniform, so the orientation counts do NOT automatically imply a constant-fraction global B bound. In particular, separate global pair-injection alone does NOT force overlap sparsity for arbitrarily large alphabet a: a fixed-label star family can make many pairs intersect.
+
+Finally, the new source referee recomputes **EVERY** real disjoint-middle original same-endpoint path-pair status in all eight finite W32/W34 source cases TWICE: once by original J plus true typed parity, and once by the simple PHYSICAL ONLY formula DM-12. Exact rational total good and bad weights MUST coincide between these independent calculations and also with the ancestor #758 four-channel source ledger. A true zero-overlap J-bad witness is now categorically forbidden; the strict JSON instead exports positive real source witnesses of a single-overlap same-depth outer J conflict and a two-overlap common-inner-corner fully compatible pair.
 
 ## 4. Independent complete true ORIGINAL W32/W34 falsification
 
@@ -142,14 +235,14 @@ Additional strict original witnesses contain all physical vertices of both selec
 - A real **zero both original middle label overlaps** source-J bad pair, necessarily arising from the eight external-owner comparisons; or
 - A real **typed-only bad pair** in which no source-J conflict exists, and the two true source middle labels share the necessary physical coordinate symbol.
 
-Independent orientation-matrix tests enumerate all 16 oriented middle source pairs for each overlap signature and all 16 separate 3x3 subfamily omissions, with analytically required sharp tables (DM-4),(DM-5). A 16-test independent suite and dedicated strict Ubuntu-24 GitHub-hosted specialist assert no fake direct source-J middle edge, no impossible 00 typed-only bad, complete exact pair/weight conservation and root scientific non-promotion.
+Independent orientation-matrix tests enumerate all 16 oriented middle source pairs for each overlap signature and all 16 separate 3x3 subfamily omissions, with analytically required sharp tables (DM-4),(DM-5). A 23-test independent suite and dedicated strict Ubuntu-24 GitHub-hosted specialist assert no fake direct source-J middle edge, no impossible 00 typed-only bad, complete exact pair/weight conservation and root scientific non-promotion.
 
 ## 5. Acceptance boundaries and next necessary research step
 
-**Proved all-h:** impossibility of direct J edge between different middle point and line, physical typed overlap necessity, 16/8/8/4 full orientation count, sharp 9/4/4/2 three-by-three typed-compatible count, and exact disjoint-middle B source-J/typed four-way partition with zero-overlap purely J channel.
+**Proved all-h:** no direct middle–middle J edge for distinct original middle point and line; source J middle-to-outer and first-to-last comparisons impossible for any proper same-endpoint paths; exact physical first–first/last–last partial-coordinate J criterion; typed-only 16/8/8/4 and sharp 9/4/4/2 3×3 counts; **FULL ORIGINAL J+typed 16/0/0/2 orientation compatibility** and physical-only criterion DM-12; **NO bad pairs with two disjoint middle physical label pairs**; exact original disjoint-middle bad-source/typed risk conservation. No universal global risk ratio is claimed.
 
 **Not proved:** a sufficiently strong all-h upper on any of these four weighted B cause components, an all-h 75% bound on global B/M for arbitrary correlated original f/g, an infinite correlated counterfamily, a complete accepted HEAVY/LOW/GF5 original Branch A theorem or any new ASET exponent. Full finite source counts and specific observed share of J versus typed risk are not asymptotic theorems.
 
-**Next source-level gate:** use true symplectic GQ unique projection of nonincident point-line and original source J pencil constraints to quantify the **external J middle–outer/outer–outer** terms of DM-6 under physically disjoint source middle pairs. If these are not dominant, attempt a uniform physical typed-overlap count, carefully respecting the possibility of arbitrarily large alphabet a and adversarial star-like pair-injective maps. Any claim that global pair-injection automatically makes physical pair-label overlaps rare requires an explicit constraint on a; in general a can be huge, and every source pair label may share a common symbol. Do not introduce an unproved minimal-alphabet assumption.
+**Next source-level gate:** exploit the new exact physical-only condition DM-12 to bound the source-weighted number of **SAME-ENDPOINT middle pair label overlaps** under actual original GQ incidence/projection and owner-priority marginals, or produce an infinite legal fixed-label correlated counterfamily. The middle–outer J term is identically zero, the outer–outer J term reduces exactly to first/last same-depth physical corner collisions, and all disjoint-middle overlap 00 bad mass vanishes. Do NOT assert pair-label overlaps are sparse from global injection if alphabet a is unrestricted or may grow adversarially. Any claim that global pair-injection automatically makes physical pair-label overlaps rare requires an explicit constraint on a; in general a can be huge, and every source pair label may share a common symbol. Do not introduce an unproved minimal-alphabet assumption.
 
 Root issue #230 remains OPEN_WITH_FORMAL_BLOCKER; no main merge, issue closure or proof acceptance promotion.
