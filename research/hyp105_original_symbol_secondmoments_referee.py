@@ -191,7 +191,10 @@ def _full_exact_symbol_moments_one_bin(group,c):
     # Ordered quadratic source-middle flag weights with NO overlaps on
     # x AND y. There are NO self-flag terms because f(i),g(i) each
     # overlap itself. Requires ONLY moment squares, no pairwise checks.
-    G00=M-Ox-Oy+Oxy
+    net_middle_label_union_overlap=Ox+Oy-Oxy
+    G00=M-net_middle_label_union_overlap
+    if not 0<=net_middle_label_union_overlap<=M:
+        raise AssertionError("true ORIGINAL f/g middle pair union-overlap weight out of bounds")
     # Actual source incompatible "same p" or "same l" first/last corner
     # duplicates are removed by exact inclusion-exclusion; the matching
     # (p,l) original flag is added back as double-subtracted, leaving
@@ -212,8 +215,10 @@ def _full_exact_symbol_moments_one_bin(group,c):
         raise AssertionError("two-typed original label overlap exceeds one-typed source overlap")
     if B < 0 or G+B!=M:
         raise AssertionError("full source M/G/B moments do not conserve")
-    if G != D+M-Ox-Oy+Oxy+G11:
-        raise AssertionError("original exact second moment kernel algebra failed")
+    if G != D+M-net_middle_label_union_overlap+G11:
+        raise AssertionError("original exact corrected collision union/source positivity algebra failed")
+    if B/M>THRESHOLD and not net_middle_label_union_overlap>3*M/4+D+G11:
+        raise AssertionError("true STRICT local B75 risk must exceed corrected original union-overlap threshold")
     maxX=max(X.values());maxY=max(Y.values())
     cap_sum=(maxX+maxY)/W
     # Σ_x X_x² <= (max_x X_x) Σ_x X_x = 2W*maxX,
@@ -238,6 +243,7 @@ def _full_exact_symbol_moments_one_bin(group,c):
     return {
         "M":M,"G":G,"B":B,"D":D,
         "Ox":Ox,"Oy":Oy,"Oxy":Oxy,
+        "net_middle_label_union_overlap":net_middle_label_union_overlap,
         "G00":G00,"G11_tail":G11_tail,"G11_head":G11_head,
         "G11":G11,"W":W,
         "max_x_symbol_middle_weight":maxX,"max_y_symbol_middle_weight":maxY,
@@ -286,7 +292,7 @@ def _full_moment_case(s,scheme,core):
     for ends,group in bins.items():
         t=_full_exact_symbol_moments_one_bin(group,c)
         for k in ("M","G","B","D","Ox","Oy","Oxy",
-                  "G00","G11_tail","G11_head","G11","W",
+                  "net_middle_label_union_overlap","G00","G11_tail","G11_head","G11","W",
                   "source_G_symbol_max_mass_lower_bound"):
             sums[k]+=t[k]
         counts["number_nonempty_original_endpoint_bins"]+=1
@@ -334,6 +340,12 @@ def _full_moment_case(s,scheme,core):
         raise AssertionError("full ORIGINAL all-h symbol sum not positive or conservative")
     if G != D+sums["G00"]+sums["G11"]:
         raise AssertionError("full ORIGINAL GOOD mass not decomposed into diagonal/no-overlap/shared-corner")
+    if sums["net_middle_label_union_overlap"]!=sums["Ox"]+sums["Oy"]-sums["Oxy"]:
+        raise AssertionError("full original corrected source f/g overlap union must be exact")
+    if sums["G00"]!=M-sums["net_middle_label_union_overlap"]:
+        raise AssertionError("all-h net source label overlap incorrectly double counted")
+    if B>3*M/4 and not sums["net_middle_label_union_overlap"]>3*M/4+D+sums["G11"]:
+        raise AssertionError("all-h global strict B75 risk necessary net overlap star charge violated")
     if not G>=sums["source_G_symbol_max_mass_lower_bound"]:
         raise AssertionError("all-h source symbol max concentration global G lower false")
     if not 0<=M_actualbad<=M_heavy<=M or not 0<=M_strictsafe<=M:
@@ -365,6 +377,14 @@ def _full_moment_case(s,scheme,core):
         "source_symbol_actual_cross_middle_pair_overlap_x_fraction_M":str(sums["Ox"]/M),
         "source_symbol_actual_cross_middle_pair_overlap_y_fraction_M":str(sums["Oy"]/M),
         "source_symbol_actual_both_middle_pair_overlap_fraction_M":str(sums["Oxy"]/M),
+        "source_symbol_corrected_middle_label_union_overlap_fraction_M":
+            str(sums["net_middle_label_union_overlap"]/M),
+        "source_symbol_UNCORRECTED_x_plus_y_overlap_fraction_M":
+            str((sums["Ox"]+sums["Oy"])/M),
+        "source_symbol_uncorrected_raw_Ox_plus_Oy_sufficient_B75":
+            sums["Ox"]+sums["Oy"]<3*M/4+D,
+        "source_symbol_corrected_union_overlap_sufficient_B75":
+            sums["net_middle_label_union_overlap"]<3*M/4+D,
         "source_symbol_heavy_weighted_M_share":str(M_heavy/M),
         "strict_local_B75_diagonal_only_certified_safe_M_share":
             str(M_safe_diag/M),
@@ -406,6 +426,8 @@ def canonical_report():
         "schema":SCHEMA,"issue":230,"status":ROOT_STATUS,
         "all_h_complete_original_M_G_B_exact_linear_sparse_symbol_second_moment_formulas":True,
         "all_h_exact_original_x_y_and_both_pair_overlap_inclusion_exclusion":True,
+        "all_h_corrected_middle_label_overlap_union_Ox_plus_Oy_minus_Oxy_exact":True,
+        "all_h_corrected_union_overlap_source_B75_sufficient_gate":True,
         "all_h_exact_good_disjoint_middle_00_11_physical_corner_square_moments":True,
         "all_h_heavy_original_physical_symbol_necessary_for_local_B_above_three_quarters":True,
         "all_h_strict_B75_monotone_diagonal_to_nooverlap_to_sharedcorner_safe_mass_gates":True,
