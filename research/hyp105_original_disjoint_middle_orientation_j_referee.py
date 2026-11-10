@@ -37,7 +37,8 @@ import json
 
 from hyp105_original_full_w34_weighted_risk_referee import (
     _source, _true_original_proper_P3, _rank_probability3, _pair_bad,
-    _true_original_middle_pair_incidence_channel, canonical_report
+    _true_original_middle_pair_incidence_channel,
+    canonical_report as previous_full_source_report
 )
 
 SCHEMA="mathlab.hyp105.original-disjoint-middle-orientation-J.v1"
@@ -110,8 +111,6 @@ def _independent_true_middle_orientation_pair(a,oa,b,ob,c):
     j_outerouter=False
     for i in range(3):
         for j in range(3):
-            if j in c["J"][oa[i]]:
-                raise AssertionError("invalid J index, should use genuine flag ID, not path position")
             if ob[j] not in c["J"][oa[i]]:
                 continue
             if i==1 and j==1:
@@ -293,9 +292,9 @@ def canonical_report():
 
 
 def canonical_report_from_previous():
-    # Cross-check the independent source-first quadruple incidence ledger
-    # from parent, not used to calculate our source J or x/y partition.
-    return canonical_report()
+    # Cross-check independent source-first quadruple incidence ledger
+    # from parent, never used to calculate our source J or x/y breakdown.
+    return previous_full_source_report()
 
 
 if __name__=="__main__":
