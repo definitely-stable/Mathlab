@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Eighteen independent genuine source W34 full path risk tests
+      - name: Nineteen independent genuine source W34 full path risk tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_full_w34_weighted_risk_referee.py' -v
       - name: Strict FULL W34 ORIGINAL complete physical path and weighted risk certificate
         shell: bash
@@ -74,6 +74,13 @@ jobs:
               assert 1-hybrid/M==Fraction(x['new_certified_B_over_M_hybrid_upper'])
               assert Fraction(x['M_share_jointly_omega_at_least_5_and_n_eff_gt_4'])<=Fraction(x['M_share_omega_at_least_5'])
               assert x['bins_with_actually_local_B_over_M_gt_3_over_4']<=x['bins_jointly_omega_at_least_5_and_n_eff_gt_4']
+              safe=Fraction(x['all_h_hybrid_safe_bin_slack_G_above_quarter'])
+              unsafe=Fraction(x['all_h_hybrid_unsafe_bin_deficit_G_below_quarter'])
+              assert safe>=0 and unsafe>=0
+              assert safe-unsafe==hybrid-M/4
+              assert safe-unsafe==Fraction(x['all_h_hybrid_slack_minus_deficit'])
+              assert x['all_h_hybrid_sufficient_global_B_below_three_quarters'] is (safe>unsafe)
+              if safe>unsafe: assert B/M<Fraction(3,4)
               e=x['top_actual_bad_local_endpoint_witness']
               assert len(e['real_path_vertices'])==len(e['real_path_owners'])==len(e['source_marginals'])==e['paths']
               assert Fraction(e['local_B'])/Fraction(e['local_M'])==Fraction(e['local_ratio'])
