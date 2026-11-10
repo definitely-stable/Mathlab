@@ -66,6 +66,62 @@ def _all_orientation_compatibility_matrix(ox,oy):
                        for b in range(4)) for a in range(4))
 
 
+def _all_full_original_source_compatibility_matrix(ox,oy):
+    """Actual J+typed compatibility of 4x4 ORIGINAL disjoint-middle arcs.
+
+    The binary orientation numbers now mean the *shared* physical symbol's
+    first/second inner depth. With no shared symbol, all orientations are
+    compatible. With exactly one shared typed symbol, SAME depth causes
+    an outer-first/outer-first or outer-last/outer-last ORIGINAL source J
+    conflict, while OPPOSITE depth causes typed conflict: zero good arcs.
+    With two shared symbols, only when BOTH shared symbols are the same
+    FIRST inner physical corner in both paths or same LAST inner corner
+    do source first/last owners coincide rather than J-conflict. Hence
+    exactly two good orientations from 16: (00,00) and (11,11).
+    """
+    if ox not in (0,1) or oy not in (0,1):
+        raise ValueError("pair-injective distinct original middles overlap in 0/1")
+    if not ox and not oy:
+        return tuple(tuple(True for _ in range(4)) for _ in range(4))
+    if ox!=oy:
+        return tuple(tuple(False for _ in range(4)) for _ in range(4))
+    return tuple(tuple(a==b and a in (0,3) for b in range(4)) for a in range(4))
+
+
+def _min_three_by_three_full_original_compatible(ox,oy):
+    A=_all_full_original_source_compatibility_matrix(ox,oy)
+    return min(sum(A[i][j] for i in range(4) if i!=mi
+                   for j in range(4) if j!=mj)
+               for mi in range(4) for mj in range(4))
+
+
+def _physical_endpoint_J_collision(a,b):
+    """Exact same-endpoint external source J by physical endpoints ONLY.
+
+    For two coordinate-proper P3s with same endpoints, middle-to-outer
+    and opposite-end outer-to-outer ORIGINAL J edges are impossible:
+    middle pair labels exclude both endpoint symbols, and the first
+    outer pair includes u but last outer pair excludes u, dually v.
+    J may occur ONLY between DISTINCT first inner physical vertices
+    sharing a typed symbol, or DISTINCT last inner physical vertices
+    sharing a typed symbol.
+    """
+    if a[0]!=b[0] or a[-1]!=b[-1]:
+        raise ValueError("same physical ordered endpoints required")
+    first=(a[1]!=b[1] and (a[1][0]==b[1][0] or a[1][1]==b[1][1]))
+    last=(a[2]!=b[2] and (a[2][0]==b[2][0] or a[2][1]==b[2][1]))
+    return first,last
+
+
+def _physical_only_disjoint_middle_compatibility(a,b,ox,oy):
+    """New all-h full ORIGINAL J+typed compatibility without reading J."""
+    if a[0]!=b[0] or a[-1]!=b[-1]:
+        raise ValueError("same physical ordered endpoints required")
+    if not ox and not oy:return True
+    if ox!=oy:return False
+    return a[1]==b[1] or a[2]==b[2]
+
+
 def _minimal_three_by_three_typed_compatible(ox,oy):
     """Independent tiny combinatorial oracle of ALL 4 choose 3 omissions."""
     A=_all_orientation_compatibility_matrix(ox,oy)
@@ -117,15 +173,22 @@ def _independent_true_middle_orientation_pair(a,oa,b,ob,c):
                 raise AssertionError("disjoint ORIGINAL middles cannot have direct J source conflict")
             if i==1 or j==1:j_midouter=True
             else:j_outerouter=True
-    if j_midouter:cause="source_J_middle_to_outer"
-    elif j_outerouter:cause="source_J_outer_to_outer_only"
+    if j_midouter:
+        raise AssertionError("ALL-h endpoint-proper source middle-to-outer J impossible")
+    first_J,last_J=_physical_endpoint_J_collision(a,b)
+    if j_outerouter != (first_J or last_J):
+        raise AssertionError("actual original source outer J iff same-depth partial physical corner collision")
+    if j_outerouter:cause="source_J_outer_to_outer_only"
     elif xbad:cause="no_source_J_first_typed_depth"
     elif ybad:cause="no_source_J_second_typed_depth"
     else:cause="compatible"
-    if not ox and not oy and not (j_midouter or j_outerouter) and cause!="compatible":
-        raise AssertionError("disjoint source labels force purely J original obstruction")
-    if not ox and not oy and cause in CAUSES[2:]:
-        raise AssertionError("actual typed non-J bad pair without any original label overlap")
+    predicted_good=_physical_only_disjoint_middle_compatibility(a,b,ox,oy)
+    if (cause=="compatible")!=predicted_good:
+        raise AssertionError("ALL-h FULL ORIGINAL physical-only disjoint-middle compatibility theorem violated")
+    if not ox and not oy and cause!="compatible":
+        raise AssertionError("ZERO original x/y middle label overlaps force FULL path compatibility")
+    if ox!=oy and cause=="compatible":
+        raise AssertionError("SINGLE original physical middle symbol overlap forces incompatibility")
     return ox,oy,cause,xbad,ybad,j_midouter,j_outerouter
 
 
@@ -148,7 +211,10 @@ def _full_exact_case(s,scheme,core):
     strict_by_overlap=defaultdict(Fraction)
     first_J_zerooverlap=None
     first_typed_only=None
-    min_genuine_path_jfree_proved=True
+    first_same_depth_original_source_J=None
+    first_shared_inner_corner_compatible=None
+    exact_physical_only_compatible=Fraction(0)
+    exact_physical_only_incompatible=Fraction(0)
     for ends,group in bins.items():
         for a,b in combinations(group,2):
             path_a,owners_a,pa=a
@@ -170,6 +236,20 @@ def _full_exact_case(s,scheme,core):
             counts[f"{overlap}/"+cause]+=2
             weights[f"{overlap}/"+cause]+=weight
             total_all_disjoint_pairs+=2
+            # Independent binary physical vertex predicate, NEVER uses J.
+            physical_good=_physical_only_disjoint_middle_compatibility(path_a,path_b,ox,oy)
+            if physical_good:
+                exact_physical_only_compatible+=weight
+                if ox==oy==1 and first_shared_inner_corner_compatible is None:
+                    first_shared_inner_corner_compatible={
+                        "actual_ordered_physical_endpoints":[list(ends[0]),list(ends[1])],
+                        "path_a":[list(v) for v in path_a],
+                        "path_b":[list(v) for v in path_b],
+                        "original_flag_owners_a":list(owners_a),
+                        "original_flag_owners_b":list(owners_b),
+                        "exact_original_pair_weight":str(weight)}
+            else:
+                exact_physical_only_incompatible+=weight
             if cause=="compatible":
                 compatible_disjoint+=weight
             else:
@@ -177,6 +257,16 @@ def _full_exact_case(s,scheme,core):
                 cause_weight[cause]+=weight
                 cause_count[cause]+=2
                 strict_by_overlap[overlap]+=weight
+                if (j_outerouter and ox!=oy and
+                        first_same_depth_original_source_J is None):
+                    first_same_depth_original_source_J={
+                        "actual_ordered_physical_endpoints":[list(ends[0]),list(ends[1])],
+                        "path_a":[list(v) for v in path_a],
+                        "path_b":[list(v) for v in path_b],
+                        "original_flag_owners_a":list(owners_a),
+                        "original_flag_owners_b":list(owners_b),
+                        "exact_original_pair_weight":str(weight),
+                        "source_x_y_middle_overlap":overlap}
                 if not ox and not oy and first_J_zerooverlap is None:
                     first_J_zerooverlap={
                         "actual_ordered_physical_endpoints":[list(ends[0]),list(ends[1])],
@@ -211,6 +301,13 @@ def _full_exact_case(s,scheme,core):
         raise AssertionError("source original J and typed bad-weight partition not conserved")
     if total_disjoint_bad+compatible_disjoint!=sum(weights.values(),Fraction(0)):
         raise AssertionError("ALL original disjoint middle pair weighted events not conserved")
+    if (exact_physical_only_incompatible!=total_disjoint_bad or
+            exact_physical_only_compatible!=compatible_disjoint):
+        raise AssertionError("independent ORIGINAL J-free physical coordinate-only full pair test disagrees with source J ledger")
+    if first_J_zerooverlap is not None:
+        raise AssertionError("impossible source J conflict when BOTH actual original middle pair labels are disjoint")
+    if cause_weight.get("source_J_middle_to_outer",Fraction(0)):
+        raise AssertionError("impossible original proper same-endpoint source J middle/outer mass")
     if any(weights.get("00/"+c,Fraction(0)) for c in CAUSES[2:]):
         raise AssertionError("zero x/y original middle overlap must exclude any typed-only bad")
     for cause in CAUSES:cause_weight[cause]+=Fraction(0);cause_count[cause]+=0
@@ -238,6 +335,14 @@ def _full_exact_case(s,scheme,core):
             key:str(weights[key]) for key in sorted(weights)},
         "first_true_original_zero_both_label_overlap_J_only_bad_witness":first_J_zerooverlap,
         "first_true_original_typed_only_bad_witness":first_typed_only,
+        "first_true_original_single_label_overlap_same_depth_J_witness":
+            first_same_depth_original_source_J,
+        "first_true_original_two_overlap_shared_corner_compatible_witness":
+            first_shared_inner_corner_compatible,
+        "independent_physical_only_full_compatibility_source_weight":
+            str(exact_physical_only_compatible),
+        "independent_physical_only_full_incompatibility_source_weight":
+            str(exact_physical_only_incompatible),
         "root_PROVED_A":False,
         "full_source_complete_census":True,
     }
@@ -271,9 +376,17 @@ def canonical_report():
         target={(0,0):(16,9),(1,0):(8,4),(0,1):(8,4),(1,1):(4,2)}[(ox,oy)]
         if (compatible,min3)!=target:
             raise AssertionError("all-h 4x4 source-oriented true middle arc compatibility theorem falsified")
+        full=_all_full_original_source_compatibility_matrix(ox,oy)
+        fullN=sum(map(sum,full))
+        fullmin3=_min_three_by_three_full_original_compatible(ox,oy)
+        fulltarget={(0,0):(16,9),(1,0):(0,0),(0,1):(0,0),(1,1):(2,0)}[(ox,oy)]
+        if (fullN,fullmin3)!=fulltarget:
+            raise AssertionError("ALL-h COMPLETE ORIGINAL J+typed orientation source compatibility theorem falsified")
         matrix[f"{ox}{oy}"]={
             "full_four_by_four_typed_compatible_count":compatible,
-            "worst_case_actual_three_by_three_orientation_subsets_typed_compatible_min":min3}
+            "worst_case_actual_three_by_three_orientation_subsets_typed_compatible_min":min3,
+            "full_four_by_four_original_J_plus_typed_compatible_count":fullN,
+            "minimum_three_by_three_full_original_J_plus_typed_compatible_count":fullmin3}
     return {
         "schema":SCHEMA,"issue":230,"status":STATUS,
         "root_PROVED_A":False,
@@ -281,6 +394,10 @@ def canonical_report():
         "all_h_original_zero_both_overlap_typed_obstruction_impossible":True,
         "all_h_four_by_four_source_oriented_diagonal_compatibility_exact":True,
         "all_h_sharp_three_by_three_typed_compatibility_counts":True,
+        "all_h_FULL_original_J_plus_typed_4x4_compatibility_counts_16_0_0_2":True,
+        "all_h_disjoint_middle_BAD_requires_at_least_one_middle_label_overlap":True,
+        "all_h_proper_same_end_original_J_only_first_first_or_last_last":True,
+        "all_h_disjoint_middle_full_compatibility_physical_only_vertex_test":True,
         "all_h_disjoint_middle_J_midouter_outerouter_and_nonJ_typed_exact_partition":True,
         "complete_true_original_source_W32_W34_exact_disjoint_middle_census":rows,
         "orientation_compatibility_certificates":matrix,
