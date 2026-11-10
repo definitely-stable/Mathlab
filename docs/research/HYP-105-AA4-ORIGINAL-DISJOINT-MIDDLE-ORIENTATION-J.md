@@ -311,6 +311,33 @@ This uses MAXIMUM, not an INVALID additive sum of two overlapping lower-bound co
 
 **Independent falsification:** The updated source referee evaluates DM-16 using only **source-middle grouped marginal weights and the original physical shared-corner test**, without iterating over path pairs or asking the original J graph. It separately scans EVERY true original same-endpoint path pair, computing source J/typed causes; the two methods' entire exact rational G_disjoint, B_disjoint and alpha=beta=00/11 good subweights must match for all eight COMPLETE W32/W34 cores. The same module independently checks \(D+G_{\rm disjoint}\le G_{\rm full}\) against the parent full-original source exact compatible-mass ledger. The 26-test suite includes separate exact checks of the nonpairwise kernel, diagonal separation, and W32 physical-only full pair equivalence.
 
+## 3.4. FINAL stronger all-h identity — ENTIRE ORIGINAL M, G, B from true middle-source groups
+
+The preceding inequality DM-18 is in fact an **equality**, for a source-geometric reason not needing any extra assumption. Let two **distinct** genuine coordinate-proper physical P3s share ordered endpoints (u,v). If their ORIGINAL middle incidence owners are the SAME named flag, the paths have different directed middle physical diagonals (a fixed directed middle edge uniquely determines the path), and those diagonals disagree in at least one typed orientation, so the two paths are incompatible (#758). If middle original flags are distinct but share their genuine ORIGINAL point p, their middle **x-coordinate pair labels are identical**. The shared two x-symbols cannot occupy opposite inner depths without a typed collision, and if their x-directions agree, the corresponding distinct first-inner (or last-inner) physical vertices have equal x-symbol but differing y-symbol, producing an ORIGINAL J conflict between the two first (or last) outer source owners. Dually, two different middle flags sharing an ORIGINAL line necessarily produce the same dichotomy in y. Therefore **any two different fully compatible physical P3s with same ordered endpoints must have middle owners with BOTH different ORIGINAL point AND different ORIGINAL line**.
+
+In those two-source-disjoint middle cases, the EXACT full compatibility criterion was already established in DM-12, and the independently computed group kernel DM-16 counts all of them. Diagonal path pairs are individually compatible. This yields the NEW exact all-h theorem
+
+\[
+\boxed{G_{uv}=D_{uv}+G_{uv}^{\mathrm{disjointMid}}.}
+\tag{DM-20}
+\]
+
+Moreover, if \(W_{uv,i}=\sum_{\gamma\in\Gamma_{uv}(i)}p_\gamma\) are exact positive source marginal sums for each true original middle flag i, then by elementary expansion
+
+\[
+\boxed{M_{uv}=\left(\sum_iW_{uv,i}\right)^2,\qquad
+B_{uv}=M_{uv}-D_{uv}-G_{uv}^{\mathrm{disjointMid}}.}
+\tag{DM-21}
+\]
+
+These are **exact**, not upper or lower approximations, for every dyadic \(W(3,s)\), every fixed arbitrary correlation of separately globally pair-injective f and g, every original named Z and retained paired source CORE, with proper original path owner conditions as above. The source middle kernel computes the ENTIRE weighted-compatible and incompatible physical path-pair products **without inspecting source-J conflict edges between individual path pairs**; the only remaining exponential/large-order challenge is to derive a universally strong lower bound on these exact quadratic forms under all allowed GQ incidence and f/g correlations.
+
+The formula also yields exact nonnegative conservation:
+\(B=B_{\rm sharedOriginalMiddlePointOrLine}+B_{\rm disjointMiddle}\).
+All distinct-path pairs whose middle source points or lines coincide contribute to the first term, whereas disjoint-middle B is the exact complement of DM-16 in its group-pair total. The exact source diagonal accounts for all repeated-path pairs.
+
+**Final-head GitHub-hosted proof acceptance for implementation:** [specialist #42783186358](https://github.com/definitely-stable/Mathlab/actions/runs/42783186358) **SUCCESS, 28/28 tests**, strict 8-case source JSON certificate, comparing the independently grouped all-order source \(M,G,B\) against all 8 previously accepted complete physical pairwise original-collision tensors as exact Fractions. [INDEX #42783186276](https://github.com/definitely-stable/Mathlab/actions/runs/42783186276) **SUCCESS** and [full Research #42783186316](https://github.com/definitely-stable/Mathlab/actions/runs/42783186316) **SUCCESS** on the same HEAD \`0359f97ef62301418745fa179b922dae18fb0b3a\`. This documentation enhancement will create a new HEAD and therefore the CI of that new HEAD must still be independently verified.
+
 ## 4. Independent complete true ORIGINAL W32/W34 falsification
 
 The dedicated source-first program imports the already independently audited genuine original symplectic geometry, global fixed f/g pair labeling, true source J pencil graph and complete physical proper-P3 enumeration from the frozen #758 referee, and then implements a **SEPARATE** source J versus typed classification WITHOUT asking #758's four-incidence ledger to calculate any of its values. Every same-ordered-endpoint pair with genuinely different named middle point AND middle line is classified by:
@@ -325,7 +352,7 @@ Additional strict original witnesses contain all physical vertices of both selec
 - A real **zero both original middle label overlaps** source-J bad pair, necessarily arising from the eight external-owner comparisons; or
 - A real **typed-only bad pair** in which no source-J conflict exists, and the two true source middle labels share the necessary physical coordinate symbol.
 
-Independent orientation-matrix tests enumerate all 16 oriented middle source pairs for each overlap signature and all 16 separate 3x3 subfamily omissions, with analytically required sharp tables (DM-4),(DM-5). A 26-test independent suite and dedicated strict Ubuntu-24 GitHub-hosted specialist assert no fake direct source-J middle edge, no impossible 00 typed-only bad, complete exact pair/weight conservation and root scientific non-promotion.
+Independent orientation-matrix tests enumerate all 16 oriented middle source pairs for each overlap signature and all 16 separate 3x3 subfamily omissions, with analytically required sharp tables (DM-4),(DM-5). A 28-test independent suite and dedicated strict Ubuntu-24 GitHub-hosted specialist assert no fake direct source-J middle edge, no impossible 00 typed-only bad, complete exact pair/weight conservation and root scientific non-promotion.
 
 ## 5. Acceptance boundaries and next necessary research step
 
