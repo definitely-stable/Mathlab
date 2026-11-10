@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Sixteen independent source-first all-h orientation and true GQ tests
+      - name: Twenty-three independent source-first all-h FULL ORIGINAL J and typed orientation tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_disjoint_middle_orientation_j_referee.py' -v
       - name: Strict FULL W32/W34 ORIGINAL disjoint-middle J versus typed certificate
         shell: bash
@@ -45,6 +45,10 @@ jobs:
           assert c['all_h_original_zero_both_overlap_typed_obstruction_impossible'] is True
           assert c['all_h_four_by_four_source_oriented_diagonal_compatibility_exact'] is True
           assert c['all_h_sharp_three_by_three_typed_compatibility_counts'] is True
+          assert c['all_h_FULL_original_J_plus_typed_4x4_compatibility_counts_16_0_0_2'] is True
+          assert c['all_h_disjoint_middle_BAD_requires_at_least_one_middle_label_overlap'] is True
+          assert c['all_h_proper_same_end_original_J_only_first_first_or_last_last'] is True
+          assert c['all_h_disjoint_middle_full_compatibility_physical_only_vertex_test'] is True
           assert c['all_h_disjoint_middle_J_midouter_outerouter_and_nonJ_typed_exact_partition'] is True
           assert c['all_h_GLOBAL_B_over_M_below_three_quarters_proved'] is False
           assert c['infinite_correlated_counterfamily_claimed'] is False
@@ -56,6 +60,9 @@ jobs:
               v=c['orientation_compatibility_certificates'][k]
               assert v['full_four_by_four_typed_compatible_count']==tot
               assert v['worst_case_actual_three_by_three_orientation_subsets_typed_compatible_min']==sub
+              f4,f3={'00':(16,9),'10':(0,0),'01':(0,0),'11':(2,0)}[k]
+              assert v['full_four_by_four_original_J_plus_typed_compatible_count']==f4
+              assert v['minimum_three_by_three_full_original_J_plus_typed_compatible_count']==f3
           rows=c['complete_true_original_source_W32_W34_exact_disjoint_middle_census']
           assert len(rows)==8
           assert [x['true_proper_directed_physical_P3_count'] for x in rows]==[
@@ -73,15 +80,23 @@ jobs:
               B=Fraction(r['disjoint_middle_actual_incompatible_weight'])
               G=Fraction(r['disjoint_middle_actual_compatible_weight'])
               assert B>=0 and G>=0 and sum((Fraction(w[k]) for k in cause),Fraction(0))==B
+              assert Fraction(w['source_J_middle_to_outer'])==0 and n['source_J_middle_to_outer']==0
+              assert r['first_true_original_zero_both_label_overlap_J_only_bad_witness'] is None
+              assert Fraction(r['independent_physical_only_full_compatibility_source_weight'])==G
+              assert Fraction(r['independent_physical_only_full_incompatibility_source_weight'])==B
+              assert r['first_true_original_single_label_overlap_same_depth_J_witness'] is not None
+              assert r['first_true_original_two_overlap_shared_corner_compatible_witness'] is not None
               assert sum(n.values())+sum(v for k,v in
                  r['disjoint_middle_complete_four_overlap_by_cause_integer_counts'].items()
                  if k.endswith('/compatible'))==r['disjoint_middle_both_point_line_actual_ordered_path_pairs']
               assert B+G==sum((Fraction(v) for v in
                  r['disjoint_middle_complete_four_overlap_by_cause_exact_mass'].values()),Fraction(0))
               assert all(r['disjoint_middle_complete_four_overlap_by_cause_integer_counts'].get(
-                      '00/'+x,0)==0 for x in cause[2:])
+                      '00/'+x,0)==0 for x in cause)
+              assert all(r['disjoint_middle_complete_four_overlap_by_cause_integer_counts'].get(
+                      x+'/compatible',0)==0 for x in ('10','01'))
               assert all(Fraction(r['disjoint_middle_complete_four_overlap_by_cause_exact_mass'].get(
-                      '00/'+x,'0'))==0 for x in cause[2:])
+                      '00/'+x,'0'))==0 for x in cause)
               assert B==sum((Fraction(v) for v in
                  r['disjoint_middle_actual_bad_overlap_signature_mass'].values()),Fraction(0))
               assert r['root_PROVED_A'] is False
