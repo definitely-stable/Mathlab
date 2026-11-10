@@ -50,6 +50,38 @@ Q=16*(K+1)**3
 THRESHOLD=Fraction(3,4)
 
 
+def _validate_original_incidence_no_K22(flags):
+    """INDEPENDENT genuine GQ axiom check: distinct source points share <=1 line."""
+    point_lines=defaultdict(set)
+    line_points=defaultdict(set)
+    for p,l in flags:
+        point_lines[p].add(l)
+        line_points[l].add(p)
+    point_pairs=0
+    line_pairs=0
+    shared_point_pair_lines_max=0
+    shared_line_pair_points_max=0
+    for a,b in combinations(sorted(point_lines),2):
+        point_pairs+=1
+        shared=len(point_lines[a]&point_lines[b])
+        shared_point_pair_lines_max=max(shared_point_pair_lines_max,shared)
+        if shared>1:
+            raise AssertionError("FORBIDDEN true source GQ incidence K2,2: two points share two lines")
+    for a,b in combinations(sorted(line_points),2):
+        line_pairs+=1
+        shared=len(line_points[a]&line_points[b])
+        shared_line_pair_points_max=max(shared_line_pair_points_max,shared)
+        if shared>1:
+            raise AssertionError("FORBIDDEN dual true source GQ incidence K2,2")
+    if not point_pairs or not line_pairs:
+        raise AssertionError("requires genuine nonempty point and line populations")
+    return {"original_point_pairs_checked":point_pairs,
+            "original_line_pairs_checked":line_pairs,
+            "max_original_lines_shared_by_two_points":shared_point_pair_lines_max,
+            "max_original_points_shared_by_two_lines":shared_line_pair_points_max,
+            "true_source_incidence_K2_2_free":True}
+
+
 def _source(s,scheme="lex",core="full"):
     if s not in (2,4) or type(s)!=int:
         raise ValueError("genuine symplectic W32/W34 only")
@@ -57,6 +89,7 @@ def _source(s,scheme="lex",core="full"):
     flags=tuple(map(tuple,genuine_symplectic_source(s)))
     if len(flags)!=(s+1)*V or len(set(flags))!=len(flags):
         raise AssertionError("not the genuine original symplectic point-line flags")
+    incidence_no_K22=_validate_original_incidence_no_K22(flags)
     a=2
     while comb(a,2)<V:a+=1
     pairs=list(combinations(range(a),2))
@@ -108,6 +141,7 @@ def _source(s,scheme="lex",core="full"):
     return {"s":s,"a":a,"V":V,"flags":flags,"f":tuple(x),"g":tuple(y),
             "ids":ids,"J":J,"owner":owner,"adj":adj,
             "source_J_max_degree":maxJ,"scheme":scheme,"core":core,
+            "original_incidence_no_K22":incidence_no_K22,
             "original_deleted_Z_flags":len(flags)-len(ids)}
 
 
@@ -264,7 +298,9 @@ def _original_rectangle_no_k22_audit(c):
                 raise AssertionError("FORBIDDEN K2,2 four original incidence flags found")
     if not audit_pairs or max_neighbors>3:
         raise AssertionError("invalid GQ source rectangle corner audit")
-    return {"original_source_rectangle_vertex_pairs_exhaustively_checked":audit_pairs,
+    return {"original_source_incidence_K2_2_independent_audit":
+                c["original_incidence_no_K22"],
+            "original_source_rectangle_vertex_pairs_exhaustively_checked":audit_pairs,
             "max_real_neighbors_of_source_rectangle_corners":max_neighbors,
             "real_source_three_corner_adjacency_witness":corners_three_witness,
             "four_neighbor_K2_2_incidence_forbidden":True,
