@@ -55,6 +55,29 @@ Thus the new universal GQ middle-source energy inequality is
 
 This independently isolates which source physical incompatibility arises solely within the same original middle incidence and which must be controlled **across** genuine original middle flags. It does not itself prove a uniform global B/M<3/4.
 
+### Four-channel ORIGINAL middle-incidence refinement — exact source ledger
+
+The exact all-h identity for B_sameMiddle leaves the question of the DIFFERENT middle-owner contribution. There is a further canonical source-first, mutually disjoint decomposition that does **not** depend on geometric label heuristic or random f/g independence. For any pair of genuinely different named original middle flags i=(p,l), j=(q,m), exactly ONE of the following occurs:
+
+- **Same middle flag:** i=j (already computed by Q_mid−D).
+- **Different flags, shared ORIGINAL point:** i≠j but p=q and l≠m.
+- **Different flags, shared ORIGINAL line:** i≠j but l=m and p≠q.
+- **Different ORIGINAL point AND line:** p≠q and l≠m.
+
+There are no other cases because named ORIGINAL incidence IDs are injective in the underlying true source. Independently of their actual J/x/y reason for being mutually incompatible, every ordered bad path pair is charged to exactly one of these four channels according to its TRUE physical middle-edge source flags. Thus for all s and fixed legal correlations:
+
+\[
+\boxed{
+B=B_{\mathrm{identicalMid}}+
+ B_{\mathrm{sharedPoint}}+
+ B_{\mathrm{sharedLine}}+
+ B_{\mathrm{disjointPointLine}}.
+}
+\tag{K22-B4}
+\]
+
+All four terms are nonnegative exact sums of individual true path marginal products. The first equals B_sameMiddle=Q_mid−D and the last three sum to B_crossMiddle. This is a **conservation partition**, not an asserted asymptotic bound on its larger terms. The independent full original W32/W34 referee checks the four-channel sum against B, the identical-middle component against the completely different Q−D formula, and the direct pair counts plus compatible counts against the exact ordered same-endpoint path-pair population. The split identifies the subsequent genuine original GQ source interaction requiring a global charge.
+
 ## 3. NEW source-middle grouped local risk safety gate
 
 Define the ORIGINAL middle-owner effective count ν_uv=M_uv/Q_uv. The previous #757 effective number of individual physical paths was n_eff=M_uv/D_uv. From D≤Q≤3D,
@@ -94,7 +117,7 @@ New checks additionally:
 
 The eight fully enumerated true-original physical populations are W32 full lex 1,346, full reverse 1,154, shifted-Z17 838; W34 FULL lex 83,892, FULL reverse 82,846, FULL shifted 79,404, even named CORE 9,966 and shifted-Z17 CORE 66,418. These W34 values are **complete proper directed P3 counts for the specified true cores**, not prior 2,000-path samples. All endpoint risk weights and new B_same/B_cross ratios are exact rational expressions, not float approximations or synthetic source probabilities.
 
-The new GitHub-hosted Ubuntu-24 Python-3.12 specialist runs a separate 17-test suite and a strict one-line machine-readable full-source certificate. Prior #757, INDEX and full Research workflows run as separate gates. All final-HEAD statuses must be checked; no acceptance of a new result solely because a parent workflow was green.
+The new GitHub-hosted Ubuntu-24 Python-3.12 specialist runs a separate 18-test suite and a strict one-line machine-readable full-source certificate. Prior #757, INDEX and full Research workflows run as separate gates. All final-HEAD statuses must be checked; no acceptance of a new result solely because a parent workflow was green.
 
 ## 5. Acceptance and next meaningful all-h step
 
