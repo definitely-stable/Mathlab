@@ -170,6 +170,32 @@ class TestIndependentFullOriginalSymbolMomentReferee(unittest.TestCase):
                 row["counts"].get("heavy_symbol_candidate_endpoint_bins",0))
             self.assertGreaterEqual(Fraction(row["source_symbol_certified_strict_safe_M_share"]),0)
 
+    def test_all_h_stagewise_strict_B75_proof_certificates_and_M_weight_improvement(self):
+        self.assertTrue(self.report[
+            "all_h_strict_B75_monotone_diagonal_to_nooverlap_to_sharedcorner_safe_mass_gates"])
+        for row in self.rows:
+            d=Fraction(row["strict_local_B75_diagonal_only_certified_safe_M_share"])
+            d0=Fraction(row["strict_local_B75_diagonal_plus_nooverlap_certified_safe_M_share"])
+            full=Fraction(row["strict_local_B75_full_exact_moments_certified_safe_M_share"])
+            inc0=Fraction(row["strict_local_B75_diagonal_plus_nooverlap_incremental_safe_M_share"])
+            inc11=Fraction(row["strict_local_B75_sharedcorner_11_incremental_safe_M_share"])
+            bad=Fraction(row["source_symbol_actual_strict_local_bad_M_share"])
+            self.assertTrue(0<=d<=d0<=full<=1)
+            self.assertEqual(inc0,d0-d)
+            self.assertEqual(inc11,full-d0)
+            self.assertLessEqual(bad,1-full)
+            self.assertTrue(
+                row["full_original_source_global_B75_sufficient_from_D_plus_G00_alone"])
+            self.assertTrue(
+                row["full_original_source_global_B75_sufficient_from_D_plus_G00_G11"])
+            self.assertLess(Fraction(row["exact_original_B_over_M"]),Fraction(3,4))
+            self.assertLessEqual(
+                row["counts"].get("strictly_safe_endpoint_bins_from_diagonal_D_only",0),
+                row["counts"].get("strictly_safe_endpoint_bins_from_D_plus_G00",0))
+            self.assertLessEqual(
+                row["counts"].get("strictly_safe_endpoint_bins_from_D_plus_G00",0),
+                row["counts"].get("strictly_safe_endpoint_bins_from_complete_exact_G",0))
+
     def test_true_source_moment_source_fractional_positive_partition(self):
         for row in self.rows:
             self.assertEqual(
