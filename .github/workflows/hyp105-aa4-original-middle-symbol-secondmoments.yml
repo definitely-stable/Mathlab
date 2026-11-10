@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Eighteen independent ALL-h source symbol moments and genuine W32/W34 pairwise comparison tests
+      - name: Nineteen independent ALL-h original source symbol moment and staged strict B75 tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_symbol_secondmoments_referee.py' -v
       - name: Strict eight FULL ORIGINAL W32/W34 sparse symbol moment certificates
         shell: bash
@@ -51,6 +51,7 @@ jobs:
           assert a['all_h_exact_original_x_y_and_both_pair_overlap_inclusion_exclusion'] is True
           assert a['all_h_exact_good_disjoint_middle_00_11_physical_corner_square_moments'] is True
           assert a['all_h_heavy_original_physical_symbol_necessary_for_local_B_above_three_quarters'] is True
+          assert a['all_h_strict_B75_monotone_diagonal_to_nooverlap_to_sharedcorner_safe_mass_gates'] is True
           assert a['all_h_minimal_pair_alphabet_source_label_overlap_degree_O_s_5_over_2'] is True
           assert a['all_h_unweighted_flag_label_overlap_fraction_O_s_minus_3_over_2'] is True
           cases=a['true_genuine_original_W32_W34_complete_full_moment_censuses']
@@ -79,6 +80,15 @@ jobs:
               assert G>=Fraction(c['moments']['source_G_symbol_max_mass_lower_bound'])
               assert Fraction(c['exact_original_B_over_M'])==B/M
               assert Fraction(c['source_symbol_actual_strict_local_bad_M_share'])<=Fraction(c['source_symbol_heavy_weighted_M_share'])
+              ddiag=Fraction(c['strict_local_B75_diagonal_only_certified_safe_M_share'])
+              d00=Fraction(c['strict_local_B75_diagonal_plus_nooverlap_certified_safe_M_share'])
+              dfull=Fraction(c['strict_local_B75_full_exact_moments_certified_safe_M_share'])
+              assert 0<=ddiag<=d00<=dfull<=1
+              assert d00-ddiag==Fraction(c['strict_local_B75_diagonal_plus_nooverlap_incremental_safe_M_share'])
+              assert dfull-d00==Fraction(c['strict_local_B75_sharedcorner_11_incremental_safe_M_share'])
+              assert dfull+Fraction(c['source_symbol_actual_strict_local_bad_M_share'])<=1
+              assert c['full_original_source_global_B75_sufficient_from_D_plus_G00_alone'] is True
+              assert c['full_original_source_global_B75_sufficient_from_D_plus_G00_G11'] is True
               assert Fraction(c['source_symbol_certified_strict_safe_M_share'])+Fraction(c['source_symbol_actual_strict_local_bad_M_share'])<=1
               obs=c['unweighted_original_middle_flag_label_capacity']
               env=obs['full_source_alphabet_minimal_capacity_envelope']
