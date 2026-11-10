@@ -211,7 +211,8 @@ def _compressed_original_middle_good_kernel(bins,c):
     No path-pair incompatibility graph or original J inspection occurs.
     """
     result={"total":Fraction(0),"good00":Fraction(0),
-            "good11":Fraction(0),"pathdiag":Fraction(0)}
+            "good11":Fraction(0),"pathdiag":Fraction(0),
+            "fullM":Fraction(0)}
     mid_pair_count=0
     nonempty_endpoint_bins=0
     for ends,paths in bins.items():
@@ -222,6 +223,7 @@ def _compressed_original_middle_good_kernel(bins,c):
             result["pathdiag"]+=w*w
         sortedm=sorted(bymid)
         weight={i:sum((w for p,w in bymid[i]),Fraction(0)) for i in sortedm}
+        result["fullM"]+=sum(weight.values(),Fraction(0))**2
         for i,j in combinations(sortedm,2):
             p,l=c["flags"][i];q,m=c["flags"][j]
             if p==q or l==m:
@@ -249,6 +251,10 @@ def _compressed_original_middle_good_kernel(bins,c):
         raise AssertionError("ALL-h original compressed source group kernel invalid")
     result["good"]=good
     result["bad"]=result["total"]-good
+    result["fullG"]=result["pathdiag"]+good
+    result["fullB"]=result["fullM"]-result["fullG"]
+    if result["fullB"]<0:
+        raise AssertionError("full ORIGINAL compressed source marginal-product energy must have nonnegative bad mass")
     result["mid_pairs"]=mid_pair_count
     result["bins"]=nonempty_endpoint_bins
     return result
@@ -383,6 +389,11 @@ def _full_exact_case(s,scheme,core):
     if (exact_physical_only_incompatible!=total_disjoint_bad or
             exact_physical_only_compatible!=compatible_disjoint):
         raise AssertionError("independent ORIGINAL J-free physical coordinate-only full pair test disagrees with source J ledger")
+    if compressed["fullM"]!=(
+            compressed["pathdiag"]+all_source_middle_pencil_bad_weight+compressed["total"]):
+        raise AssertionError("ALL original marginal-product M has unclassified source middle-owner path pair")
+    if compressed["fullB"]!=all_source_middle_pencil_bad_weight+total_disjoint_bad:
+        raise AssertionError("ALL original incompatible B not equal pencil paths plus disjoint-middle typed/J bad")
     if first_J_zerooverlap is not None:
         raise AssertionError("impossible source J conflict when BOTH actual original middle pair labels are disjoint")
     if cause_weight.get("source_J_middle_to_outer",Fraction(0)):
@@ -428,6 +439,12 @@ def _full_exact_case(s,scheme,core):
             str(compressed["bad"]),
         "exact_compressed_original_middle_source_pair_total":
             str(compressed["total"]),
+        "exact_FULL_original_M_from_grouped_middle_source_weights":
+            str(compressed["fullM"]),
+        "exact_FULL_original_B_from_grouped_middle_source_kernel":
+            str(compressed["fullB"]),
+        "exact_FULL_original_G_from_grouped_middle_source_kernel":
+            str(compressed["fullG"]),
         "exact_physical_path_diagonal_from_compressed_mid_source":
             str(compressed["pathdiag"]),
         "exact_full_source_G_lower_by_diagonal_plus_disjoint_middle_good":
@@ -466,8 +483,10 @@ def canonical_report():
         if actual!=expected:
             raise AssertionError("independent original disjoint-middle J/typed breakup not equal old exact B channel")
         source_floor=Fraction(row["exact_full_source_G_lower_by_diagonal_plus_disjoint_middle_good"])
-        if source_floor!=Fraction(pr["G"]):
-            raise AssertionError("NEW ALL-h exact FULL original G not equal diagonal + disjoint-middle compressed source kernel")
+        if (source_floor!=Fraction(pr["G"]) or
+                Fraction(row["exact_FULL_original_M_from_grouped_middle_source_weights"])!=Fraction(pr["M"]) or
+                Fraction(row["exact_FULL_original_B_from_grouped_middle_source_kernel"])!=Fraction(pr["B"])):
+            raise AssertionError("NEW ALL-h exact FULL ORIGINAL M/G/B source quadratic kernel differs from independent old original pairwise tensor")
         if Fraction(row["exact_physical_path_diagonal_from_compressed_mid_source"])!=Fraction(pr["diagonal_source_path_weight"]):
             raise AssertionError("source-first 3path physical diagonal differs from parent complete J census")
         actualbadpairs=sum(row["disjoint_middle_true_J_vs_typed_bad_pair_counts"].values())
@@ -508,6 +527,7 @@ def canonical_report():
         "all_h_full_G_lower_by_source_physical_diagonal_plus_disjoint_mid_good":True,
         "all_h_EXACT_entire_original_G_equals_diagonal_plus_disjoint_middle_source_good_kernel":True,
         "all_h_distinct_paths_with_shared_middle_ORIGINAL_point_or_line_ALWAYS_incompatible":True,
+        "all_h_EXACT_full_original_M_G_B_from_named_middle_source_quadratic_kernel":True,
         "all_h_disjoint_middle_J_midouter_outerouter_and_nonJ_typed_exact_partition":True,
         "complete_true_original_source_W32_W34_exact_disjoint_middle_census":rows,
         "orientation_compatibility_certificates":matrix,
