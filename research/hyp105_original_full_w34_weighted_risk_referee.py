@@ -223,6 +223,8 @@ def _full_exact_case(s,scheme,core):
     rank_high=0;rank_low=0
     M_high=Fraction(0);M_low=Fraction(0)
     M_risk_eff=Fraction(0)
+    safe_slack=Fraction(0)
+    unsafe_deficit=Fraction(0)
     loc_gt75=0
     extreme=None
     max_clique=0;max_family=0
@@ -281,6 +283,13 @@ def _full_exact_case(s,scheme,core):
             rank_low+=1;M_low+=localM
         if k>=5 and 4*localDiag<localM:
             num_unsafe_eff+=1;M_risk_eff+=localM
+            if localHybrid>=localM/4:
+                raise AssertionError("joint dangerous risk bin incorrectly classified")
+            unsafe_deficit+=localM/4-localHybrid
+        else:
+            if localHybrid<localM/4:
+                raise AssertionError("safe effective-multiplicity risk bin has negative slack")
+            safe_slack+=localHybrid-localM/4
         if localBad*4>3*localM:
             loc_gt75+=1
             if not (k>=5 and 4*localDiag<localM):
@@ -308,6 +317,8 @@ def _full_exact_case(s,scheme,core):
         raise AssertionError("universal diagonal physical path lower failed")
     if not 0<=M_risk_eff<=M_high<=M:
         raise AssertionError("high-clique source tail weights not monotone")
+    if hybrid-M/4!=safe_slack-unsafe_deficit:
+        raise AssertionError("exact all-h safe-slack/unsafe-deficit risk compensation identity violated")
     return {
         "original_s":s,"original_scheme":scheme,"original_CORE":core,
         "source_GQ_point_count":c["V"],"source_GQ_line_count":c["V"],
@@ -342,6 +353,11 @@ def _full_exact_case(s,scheme,core):
         "M_share_omega_at_most_3":str(M_low/M),
         "bins_jointly_omega_at_least_5_and_n_eff_gt_4":num_unsafe_eff,
         "M_share_jointly_omega_at_least_5_and_n_eff_gt_4":str(M_risk_eff/M),
+        "all_h_hybrid_safe_bin_slack_G_above_quarter":str(safe_slack),
+        "all_h_hybrid_unsafe_bin_deficit_G_below_quarter":str(unsafe_deficit),
+        "all_h_hybrid_slack_minus_deficit":str(safe_slack-unsafe_deficit),
+        "all_h_hybrid_sufficient_global_B_below_three_quarters":
+            safe_slack>unsafe_deficit,
         "bins_with_actually_local_B_over_M_gt_3_over_4":loc_gt75,
         "top_actual_bad_local_endpoint_witness":extreme,
         "source_rho_small_Z_admissibility_NOT_claimed":True,
