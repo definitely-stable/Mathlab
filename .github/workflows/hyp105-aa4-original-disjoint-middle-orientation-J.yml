@@ -69,7 +69,7 @@ jobs:
               assert r['original_source_priority_triples_exact']>0
               w=r['disjoint_middle_true_J_vs_typed_bad_mass_exact']
               n=r['disjoint_middle_true_J_vs_typed_bad_pair_counts']
-              assert tuple(w)==tuple(n)==cause
+              assert set(w)==set(n)==set(cause)  # JSON sort_keys does not retain semantic tuple order
               B=Fraction(r['disjoint_middle_actual_incompatible_weight'])
               G=Fraction(r['disjoint_middle_actual_compatible_weight'])
               assert B>=0 and G>=0 and sum((Fraction(w[k]) for k in cause),Fraction(0))==B
