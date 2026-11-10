@@ -221,6 +221,96 @@ The disjoint-middle ORIGINAL bad-weight support is empty when BOTH middle source
 
 Finally, the new source referee recomputes **EVERY** real disjoint-middle original same-endpoint path-pair status in all eight finite W32/W34 source cases TWICE: once by original J plus true typed parity, and once by the simple PHYSICAL ONLY formula DM-12. Exact rational total good and bad weights MUST coincide between these independent calculations and also with the ancestor #758 four-channel source ledger. A true zero-overlap J-bad witness is now categorically forbidden; the strict JSON instead exports positive real source witnesses of a single-overlap same-depth outer J conflict and a two-overlap common-inner-corner fully compatible pair.
 
+## 3.3. NEW exact non-pairwise ORIGINAL middle-source GOOD kernel and all-h positive lower bound
+
+The full compatibility condition DM-12 is strong enough to eliminate the entire path-pair source-J graph traversal from the disjoint-middle compatible-mass calculation. This produces a **positive compatible-pair quadratic form** expressed solely through true original middle-flag groups and the four physical corners.
+
+Fix an ordered physical endpoint bin (u,v). For each actual named ORIGINAL middle owner i=(p,l) of the genuine proper P3 paths in this bin, let
+
+\[
+\Gamma_i=\{\gamma=(u,a,b,v):\mathrm{midOwner}(\gamma)=i\},\quad
+W_i=\sum_{\gamma\in\Gamma_i}p_\gamma.
+\]
+
+For each actual physical corner z of that middle owner's rectangle, define the nonnegative source-grouped marginal weights
+
+\[
+T_i(z)=\sum_{\gamma\in\Gamma_i:\ a=z}p_\gamma,\qquad
+H_i(z)=\sum_{\gamma\in\Gamma_i:\ b=z}p_\gamma.
+\tag{DM-15}
+\]
+
+These are actual *source-priority-plus-typed-cuts path marginals*, not independent Bernoulli event products. An ORIGINAL flag owns just two opposite physical undirected diagonals, so for each specific middle oriented edge with tail z or head z the relevant P3 with fixed endpoints is unique if it exists. Each T_i(z),H_i(z) has therefore at most ONE term, but the formula remains correct if written as a sum.
+
+For a pair of **distinct ORIGINAL middle flags i=(p,l), j=(q,m)** with both p≠q and l≠m, let (alpha,beta) be their genuine middle label pair overlap bits. By DM-12:
+
+- If alpha=beta=0, EVERY cross-group source path pair is fully compatible, so its *ordered* good mass is EXACTLY \(2W_iW_j\).
+- If alpha!=beta, NONE of the cross-group path pairs is fully compatible, so its good mass is EXACTLY 0.
+- If alpha=beta=1, the two original physical rectangles share a UNIQUE corner z, the Cartesian product of their two shared physical symbols. A path from i and a path from j are fully compatible iff they both have FIRST internal vertex z or both have LAST internal vertex z. The exact **ordered** source good weight is therefore \(2[T_i(z)T_j(z)+H_i(z)H_j(z)]\).
+
+Summing over unordered distinct middle-owner SOURCE PAIRS gives the exact all-h identity
+
+\[
+\boxed{
+G_{uv}^{\mathrm{disjointMid}}
+=2\!\!\sum_{\substack{i<j;\ p_i\ne p_j,\ l_i\ne l_j\\
+\alpha_{ij}=\beta_{ij}=0}}\!\!W_iW_j
++
+2\!\!\sum_{\substack{i<j;\ p_i\ne p_j,\ l_i\ne l_j\\
+\alpha_{ij}=\beta_{ij}=1}}
+\left[T_i(z_{ij})T_j(z_{ij})+
+H_i(z_{ij})H_j(z_{ij})\right].
+}
+\tag{DM-16}
+\]
+
+This identity is **exact in all dyadic orders, not a bound**. It depends on the genuine original middle incidence ID and source f/g pair labels, and it does not need to examine any J owner conflict nor each path pair when evaluating the right side. Original source GQ is used in establishing real paired source edges and uniqueness, not replaced by a synthetic graph.
+
+The corresponding cross-group *total ordered pair weight* is
+
+\[
+M_{uv}^{\mathrm{disjointMid}}
+=2\sum_{i<j,\ p_i\ne p_j,\ l_i\ne l_j}W_iW_j.
+\]
+
+Hence the full disjoint-middle incompatible weight is **exactly**
+
+\[
+\boxed{
+B_{uv}^{\mathrm{disjointMid}}
+=M_{uv}^{\mathrm{disjointMid}}-
+G_{uv}^{\mathrm{disjointMid}}.
+}
+\tag{DM-17}
+\]
+
+The proof is term-by-term disjoint by the true middle owner pair and by DM-12. Every positive source group weight is a real original selector marginal. No independent-source/product-of-path-probabilities assumption is introduced.
+
+**NEW rigorous all-h compatible-mass lower bound.** All diagonal ordered path-pairs \((\gamma,\gamma)\) are self-compatible (previous #757), while all the different-middle-owner pairs counted in DM-16 are also compatible, and the two collections are **disjoint**. Thus for every ordered physical endpoint family
+
+\[
+\boxed{
+G_{uv}\ge D_{uv}+G_{uv}^{\mathrm{disjointMid}},
+\qquad
+D_{uv}=\sum_{\gamma\in\Gamma_{uv}}p_\gamma^2.
+}
+\tag{DM-18}
+\]
+
+In particular, together with #755's original weighted Motzkin–Straus lower bound, one may safely take
+
+\[
+\boxed{
+G_{uv}\ge
+\max\{M_{uv}/\omega_{uv},\ D_{uv}+G_{uv}^{\mathrm{disjointMid}}\}.
+}
+\tag{DM-19}
+\]
+
+This uses MAXIMUM, not an INVALID additive sum of two overlapping lower-bound contributions. Summing over all physical endpoint bins yields a genuinely new universally valid, explicitly source-computable lower bound on total G; it is not automatically strong enough for global G/M>1/4 under every adversarial fixed f/g.
+
+**Independent falsification:** The updated source referee evaluates DM-16 using only **source-middle grouped marginal weights and the original physical shared-corner test**, without iterating over path pairs or asking the original J graph. It separately scans EVERY true original same-endpoint path pair, computing source J/typed causes; the two methods' entire exact rational G_disjoint, B_disjoint and alpha=beta=00/11 good subweights must match for all eight COMPLETE W32/W34 cores. The same module independently checks \(D+G_{\rm disjoint}\le G_{\rm full}\) against the parent full-original source exact compatible-mass ledger. The 26-test suite includes separate exact checks of the nonpairwise kernel, diagonal separation, and W32 physical-only full pair equivalence.
+
 ## 4. Independent complete true ORIGINAL W32/W34 falsification
 
 The dedicated source-first program imports the already independently audited genuine original symplectic geometry, global fixed f/g pair labeling, true source J pencil graph and complete physical proper-P3 enumeration from the frozen #758 referee, and then implements a **SEPARATE** source J versus typed classification WITHOUT asking #758's four-incidence ledger to calculate any of its values. Every same-ordered-endpoint pair with genuinely different named middle point AND middle line is classified by:
@@ -235,11 +325,11 @@ Additional strict original witnesses contain all physical vertices of both selec
 - A real **zero both original middle label overlaps** source-J bad pair, necessarily arising from the eight external-owner comparisons; or
 - A real **typed-only bad pair** in which no source-J conflict exists, and the two true source middle labels share the necessary physical coordinate symbol.
 
-Independent orientation-matrix tests enumerate all 16 oriented middle source pairs for each overlap signature and all 16 separate 3x3 subfamily omissions, with analytically required sharp tables (DM-4),(DM-5). A 23-test independent suite and dedicated strict Ubuntu-24 GitHub-hosted specialist assert no fake direct source-J middle edge, no impossible 00 typed-only bad, complete exact pair/weight conservation and root scientific non-promotion.
+Independent orientation-matrix tests enumerate all 16 oriented middle source pairs for each overlap signature and all 16 separate 3x3 subfamily omissions, with analytically required sharp tables (DM-4),(DM-5). A 26-test independent suite and dedicated strict Ubuntu-24 GitHub-hosted specialist assert no fake direct source-J middle edge, no impossible 00 typed-only bad, complete exact pair/weight conservation and root scientific non-promotion.
 
 ## 5. Acceptance boundaries and next necessary research step
 
-**Proved all-h:** no direct middle–middle J edge for distinct original middle point and line; source J middle-to-outer and first-to-last comparisons impossible for any proper same-endpoint paths; exact physical first–first/last–last partial-coordinate J criterion; typed-only 16/8/8/4 and sharp 9/4/4/2 3×3 counts; **FULL ORIGINAL J+typed 16/0/0/2 orientation compatibility** and physical-only criterion DM-12; **NO bad pairs with two disjoint middle physical label pairs**; exact original disjoint-middle bad-source/typed risk conservation. No universal global risk ratio is claimed.
+**Proved all-h:** exact SOURCE-middle compressed positive GOOD kernel DM-16, independent full disjoint-middle B complement DM-17 and new compatible positive bound DM-18/DM-19; no direct middle–middle J edge for distinct original middle point and line; source J middle-to-outer and first-to-last comparisons impossible for any proper same-endpoint paths; exact physical first–first/last–last partial-coordinate J criterion; typed-only 16/8/8/4 and sharp 9/4/4/2 3×3 counts; **FULL ORIGINAL J+typed 16/0/0/2 orientation compatibility** and physical-only criterion DM-12; **NO bad pairs with two disjoint middle physical label pairs**; exact original disjoint-middle bad-source/typed risk conservation. No universal global risk ratio is claimed.
 
 **Not proved:** a sufficiently strong all-h upper on any of these four weighted B cause components, an all-h 75% bound on global B/M for arbitrary correlated original f/g, an infinite correlated counterfamily, a complete accepted HEAVY/LOW/GF5 original Branch A theorem or any new ASET exponent. Full finite source counts and specific observed share of J versus typed risk are not asymptotic theorems.
 
