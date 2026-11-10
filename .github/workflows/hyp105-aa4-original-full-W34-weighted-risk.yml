@@ -1,0 +1,89 @@
+name: hyp105-aa4-original-full-W34-weighted-risk
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-full-W34-weighted-risk.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-FULL-W34-RISK-NEFF.md'
+      - 'research/hyp105_original_full_w34_weighted_risk_referee.py'
+      - 'research/test_hyp105_original_full_w34_weighted_risk_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-original-full-W34-risk:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Eighteen independent genuine source W34 full path risk tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_full_w34_weighted_risk_referee.py' -v
+      - name: Strict FULL W34 ORIGINAL complete physical path and weighted risk certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_full_w34_weighted_risk_referee.py |
+            tee proof/hyp105-original-full-W34-weighted-risk.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          from fractions import Fraction
+          import json
+          lines=Path('proof/hyp105-original-full-W34-weighted-risk.json.log').read_text().splitlines()
+          pre='AA4_FULL_W34_RISK_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(pre), 'only strict one-line original source certificate'
+          c=json.loads(lines[0][len(pre):])
+          assert c['schema']=='mathlab.hyp105.original-full-W34-risk-effective-multiplicity.v1'
+          assert c['issue']==230 and c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['root_PROVED_A'] is False
+          assert c['all_h_new_source_hybrid_diagonal_plus_weighted_Motzkin_theorem'] is True
+          assert c['all_h_nonvacuous_risk_requires_omega5_AND_effective_multiplicity_gt4'] is True
+          assert c['all_h_unique_oriented_middle_physical_edge_and_max_four_paths_per_original_midflag'] is True
+          assert c['all_h_global_B_over_M_below_3_over_4_PROVED'] is False
+          assert c['numerical_external_C6_graph_constants_claimed'] is False
+          assert c['ASET_exponent_claimed'] is False
+          assert c['local_s2_counterexample_to_global_B_over_M_claimed'] is False
+          cases=c['complete_independently_verified_original_W32_W34_source_census']
+          assert len(cases)==8
+          assert [x['full_true_coordinate_proper_P3_count'] for x in cases[:3]]==[1346,1154,838]
+          assert [x['full_true_coordinate_proper_P3_count'] for x in cases[3:5]]==[83892,82846]
+          for i,x in enumerate(cases):
+              assert x['full_source_complete_census'] is True
+              s=x['original_s']
+              assert x['source_original_flag_ID_count']==(45 if s==2 else 425)
+              assert x['source_GQ_point_count']==(15 if s==2 else 85)
+              assert x['true_source_physical_edges']==2*x['source_retained_original_flags']
+              assert x['original_J_max_degree']<=64
+              assert 0 < x['max_same_original_middle_flag_P3_per_bin']<=4
+              assert x['true_original_ordered_same_endpoint_path_pairs']>=x['full_true_coordinate_proper_P3_count']
+              assert sum(x['full_disjoint_actual_path_pair_source_classes'].values())==x['true_original_ordered_same_endpoint_path_pairs']
+              assert sum(x['exact_clique_histogram'].values())==x['true_original_ordered_endpoint_bins']
+              assert x['max_incompatibility_clique_over_all_real_endpoints']<=16*65**3
+              M=Fraction(x['M']);B=Fraction(x['B']);G=Fraction(x['G'])
+              diag=Fraction(x['diagonal_source_path_weight'])
+              motz=Fraction(x['weighted_Motzkin_only_source_G_lower'])
+              hybrid=Fraction(x['new_weighted_hybrid_Motzkin_diagonal_G_lower'])
+              assert M>0 and G>0 and B>=0 and M==G+B
+              assert G>=hybrid>=diag>=0 and hybrid>=motz>=M/Fraction(16*65**3)
+              assert hybrid-motz==Fraction(x['hybrid_improvement_above_motzkin_G_lower'])
+              assert 1-hybrid/M==Fraction(x['new_certified_B_over_M_hybrid_upper'])
+              assert Fraction(x['M_share_jointly_omega_at_least_5_and_n_eff_gt_4'])<=Fraction(x['M_share_omega_at_least_5'])
+              assert x['bins_with_actually_local_B_over_M_gt_3_over_4']<=x['bins_jointly_omega_at_least_5_and_n_eff_gt_4']
+              e=x['top_actual_bad_local_endpoint_witness']
+              assert len(e['real_path_vertices'])==len(e['real_path_owners'])==len(e['source_marginals'])==e['paths']
+              assert Fraction(e['local_B'])/Fraction(e['local_M'])==Fraction(e['local_ratio'])
+          assert cases[0]['true_original_ordered_same_endpoint_path_pairs']==4370
+          assert Fraction(cases[0]['M'])==Fraction(170009657654496199,164130319761408000000)
+          assert Fraction(cases[0]['B_over_M'])==Fraction(395498199363009600,1190067603581473393)
+          assert Fraction(cases[1]['B_over_M'])==Fraction(2197221736032,6861627242215)
+          print('ACCEPT ALL eight full original CORE physical P3 source censuses (including three whole W34), weighted risk exact; ROOT OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-original-full-W34-risk
+          path: proof/hyp105-original-full-W34-weighted-risk.json.log
