@@ -115,6 +115,22 @@ class TestIndependentOriginalFullW34Risk(unittest.TestCase):
             self.assertEqual(hybrid-ms,Fraction(row["hybrid_improvement_above_motzkin_G_lower"]))
             self.assertGreaterEqual(diag,0)
 
+    def test_all_h_joint_unsafe_source_mass_compensation_exact(self):
+        for row in self.rows:
+            M=Fraction(row["M"])
+            hybrid=Fraction(row["new_weighted_hybrid_Motzkin_diagonal_G_lower"])
+            safe=Fraction(row["all_h_hybrid_safe_bin_slack_G_above_quarter"])
+            unsafe=Fraction(row["all_h_hybrid_unsafe_bin_deficit_G_below_quarter"])
+            self.assertGreaterEqual(safe,0)
+            self.assertGreaterEqual(unsafe,0)
+            self.assertEqual(safe-unsafe,hybrid-M/4)
+            self.assertEqual(safe-unsafe,
+                Fraction(row["all_h_hybrid_slack_minus_deficit"]))
+            self.assertEqual(row["all_h_hybrid_sufficient_global_B_below_three_quarters"],
+                safe>unsafe)
+            if safe>unsafe:
+                self.assertLess(Fraction(row["B_over_M"]),Fraction(3,4))
+
     def test_improved_neff_bin_obstruction_numerically_all_sources(self):
         for row in self.rows:
             self.assertLessEqual(row["bins_jointly_omega_at_least_5_and_n_eff_gt_4"],
