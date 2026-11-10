@@ -203,8 +203,77 @@ def _exact_clique(adj):
     return best
 
 
+
+def _original_rectangle_no_k22_audit(c):
+    """Independently verify the GQ no-K_{2,2} middle rectangle lemma.
+
+    Each middle ORIGINAL owner i=(p,l) carries four rectangle corners,
+    but only two opposite physical undirected diagonals. For ANY real
+    physical vertex u, if u were adjacent to ALL FOUR corners, the four
+    actual outer edges would have source owners at the Cartesian product
+    of TWO distinct points f^-1({u_x,xa/xb}) and TWO distinct lines
+    g^-1({u_y,ya/yb). All four would be genuine ORIGINAL incidence
+    flags, forbidden by partial-linearity of symplectic GQ. Thus at
+    most 3 physical neighbors of u are corners of any original rectangle.
+    If a proper path uses i in the middle, its first internal vertex is
+    one of these corners, and distinct directed middle edges have
+    distinct first endpoints. Hence <=3 paths with the same middle
+    owner in any fixed ordered endpoint family, not old <=4.
+    """
+    fi={tuple(sorted(pair)):i for i,pair in enumerate(c["f"])}
+    gi={tuple(sorted(pair)):i for i,pair in enumerate(c["g"])}
+    if len(fi)!=c["V"] or len(gi)!=c["V"]:
+        raise AssertionError("original point/line labels must be separately pair injected")
+    allflags=set(c["flags"])
+    max_neighbors=0
+    corners_three_witness=None
+    audit_pairs=0
+    for owner in c["ids"]:
+        p,l=c["flags"][owner]
+        xx=c["f"][p]
+        yy=c["g"][l]
+        corners=tuple((x,y) for x in xx for y in yy)
+        if len(set(corners))!=4:
+            raise AssertionError("not exactly four ORIGINAL source rectangle corners")
+        for u,N in c["adj"].items():
+            count=sum(v in N for v in corners)
+            audit_pairs+=1
+            max_neighbors=max(max_neighbors,count)
+            if count==3 and corners_three_witness is None:
+                corners_three_witness={
+                    "physical_vertex_u":list(u),
+                    "named_original_middle_flag":owner,
+                    "original_middle_point":p,
+                    "original_middle_line":l,
+                    "all_four_rectangle_corners":[list(v) for v in corners],
+                    "three_actual_neighboring_corners":[list(v) for v in corners if v in N]}
+            if count==4:
+                if u[0] in xx or u[1] in yy:
+                    raise AssertionError("physical neighbor shares a typed coordinate")
+                p0=fi.get(tuple(sorted((u[0],xx[0]))))
+                p1=fi.get(tuple(sorted((u[0],xx[1]))))
+                l0=gi.get(tuple(sorted((u[1],yy[0]))))
+                l1=gi.get(tuple(sorted((u[1],yy[1]))))
+                if any(z is None for z in (p0,p1,l0,l1)):
+                    raise AssertionError("all four real physical corners but missing original pair inverse")
+                if p0==p1 or l0==l1:
+                    raise AssertionError("original pair-injective distinct rectangle inverse failed")
+                square={(p0,l0),(p0,l1),(p1,l0),(p1,l1)}
+                if not square<=allflags:
+                    raise AssertionError("all four original owned physical edges but not genuine source flags")
+                raise AssertionError("FORBIDDEN K2,2 four original incidence flags found")
+    if not audit_pairs or max_neighbors>3:
+        raise AssertionError("invalid GQ source rectangle corner audit")
+    return {"original_source_rectangle_vertex_pairs_exhaustively_checked":audit_pairs,
+            "max_real_neighbors_of_source_rectangle_corners":max_neighbors,
+            "real_source_three_corner_adjacency_witness":corners_three_witness,
+            "four_neighbor_K2_2_incidence_forbidden":True,
+            "all_h_middle_flag_same_endpoint_P3_upper":3}
+
+
 def _full_exact_case(s,scheme,core):
     c=_source(s,scheme,core)
+    rectangle=_original_rectangle_no_k22_audit(c)
     binpaths=defaultdict(list)
     rank_cache={}
     middle_anchor_max=0
@@ -219,6 +288,12 @@ def _full_exact_case(s,scheme,core):
     if full_path_count==0:raise AssertionError("empty genuine original full source proper P3 set")
     J=c["J"]
     M=Fraction(0);B=Fraction(0);G=Fraction(0)
+    middle_owner_B_same=Fraction(0)
+    middle_owner_B_different=Fraction(0)
+    middle_group_quadratic=Fraction(0)
+    same_middle_owner_bad_ordered_pairs=0
+    mid_source_only_safe_bin_mass=Fraction(0)
+    mid_source_only_safe_bin_count=0
     raw_diag=Fraction(0);motz=Fraction(0);hybrid=Fraction(0)
     rank_high=0;rank_low=0
     M_high=Fraction(0);M_low=Fraction(0)
@@ -231,6 +306,7 @@ def _full_exact_case(s,scheme,core):
     last_row=None
     hist=Counter();cls=Counter()
     owned_middle_max=0
+    middle_multiplicity_three_witness=None
     mid_flags_duplicate_bin=0
     pairs_count=0
     num_unsafe_eff=0
@@ -239,27 +315,57 @@ def _full_exact_case(s,scheme,core):
         max_family=max(max_family,n)
         middle_directed=set()
         middle_by_id=Counter()
+        middle_pathweights=defaultdict(list)
         for path,os,w in group:
             key=(path[1],path[2])
             if key in middle_directed:
                 raise AssertionError("unique oriented middle physical edge determines full source 3path at fixed endpoints")
             middle_directed.add(key)
             middle_by_id[os[1]]+=1
+            middle_pathweights[os[1]].append(w)
         owned_middle_max=max(owned_middle_max,max(middle_by_id.values()))
-        if max(middle_by_id.values())>4:
-            raise AssertionError("one ORIGINAL middle flag has >4 directed diagonals for same ordered endpoints")
+        if max(middle_by_id.values())>3:
+            raise AssertionError("genuine ORIGINAL GQ no-K22 means one middle flag has <=3 paths per endpoints")
+        if 3 in middle_by_id.values() and middle_multiplicity_three_witness is None:
+            mid=next(i for i,n in middle_by_id.items() if n==3)
+            middle_multiplicity_three_witness={
+                "original_named_middle_source_flag":mid,
+                "actual_physical_ordered_endpoints":[list(ends[0]),list(ends[1])],
+                "three_real_paths":[
+                    {"original_flag_owners":list(os),
+                     "physical_vertices":[list(v) for v in path]}
+                    for path,os,_ in group if os[1]==mid]}
         mid_flags_duplicate_bin+=sum(v>1 for v in middle_by_id.values())
         weights=[w for _,_,w in group]
         W=sum(weights,Fraction(0))
         localM=W*W
         localDiag=sum((w*w for w in weights),Fraction(0))
+        localMidQuadratic=sum((sum(ws,Fraction(0))**2
+                                for ws in middle_pathweights.values()),Fraction(0))
+        localSameMidBad=localMidQuadratic-localDiag
+        if localSameMidBad<0 or localMidQuadratic>3*localDiag:
+            raise AssertionError("original no-K22 size<=3 and middle weight Cauchy violated")
+        # This source-only test does not need within-group individual path weights:
+        # D>=sum_mid W_mid^2/3, hence n_eff<=3*(W^2/sum_mid W_mid^2).
+        if 3*localM<=4*localMidQuadratic:
+            mid_source_only_safe_bin_count+=1
+            mid_source_only_safe_bin_mass+=localM
+            if 4*localDiag<localM:
+                raise AssertionError("false original 3-middle-flag source-only safety gate")
         localBad=Fraction(0)
+        localSameMidBadFromPairs=Fraction(0)
+        sameMidBadPairsInBin=0
         edges=[set() for _ in range(n)]
         for i in range(n):
             path1,owner1,p1=group[i]
             for j in range(i+1,n):
                 path2,owner2,p2=group[j]
                 reason=_pair_bad(path1,owner1,path2,owner2,J)
+                if owner1[1]==owner2[1]:
+                    if reason=="compatible":
+                        raise AssertionError("two different middle diagonals of ONE original flag must conflict in x or y")
+                    localSameMidBadFromPairs+=2*p1*p2
+                    sameMidBadPairsInBin+=2
                 if reason!="compatible":
                     localBad+=2*p1*p2
                     edges[i].add(j);edges[j].add(i)
@@ -267,6 +373,14 @@ def _full_exact_case(s,scheme,core):
                 else:cls["compatible"]+=2
         cls["compatible"]+=n
         pairs_count+=n*n
+        if localSameMidBadFromPairs!=localSameMidBad:
+            raise AssertionError("independent source-middle-group product and direct physical bad pairs disagree")
+        if localBad<localSameMidBad:
+            raise AssertionError("source same-middle bad pair weight exceeds global true incompatibility")
+        middle_owner_B_same+=localSameMidBad
+        middle_owner_B_different+=localBad-localSameMidBad
+        middle_group_quadratic+=localMidQuadratic
+        same_middle_owner_bad_ordered_pairs+=sameMidBadPairsInBin
         k=_exact_clique(edges)
         if not (1<=k<=Q):
             raise AssertionError("original all-h clique bound and source local risk invalid")
@@ -311,6 +425,12 @@ def _full_exact_case(s,scheme,core):
         raw_diag+=localDiag;motz+=localMot;hybrid+=localHybrid
     if sum(cls.values())!=pairs_count or M!=B+G:
         raise AssertionError("full original P3 weighted source tensor or class partition inconsistent")
+    if middle_owner_B_same+middle_owner_B_different!=B:
+        raise AssertionError("true original same/different middle flag bad weight partition failed")
+    if middle_owner_B_same!=middle_group_quadratic-raw_diag:
+        raise AssertionError("source middle-owner collision energy not exact")
+    if not 3*raw_diag>=middle_group_quadratic:
+        raise AssertionError("true GQ middle ownership <=3 source energy bound failed")
     if not G>=hybrid>=motz>=M/Fraction(Q):
         raise AssertionError("universal source hybrid risk lower certificate invalid")
     if not G>=hybrid>=raw_diag:
@@ -335,7 +455,20 @@ def _full_exact_case(s,scheme,core):
         "true_original_ordered_same_endpoint_path_pairs":pairs_count,
         "max_physical_paths_per_endpoint_bin":max_family,
         "max_same_original_middle_flag_P3_per_bin":owned_middle_max,
+        "true_original_GQ_rectangle_K22_audit":rectangle,
+        "genuine_original_three_same_middle_flag_path_witness":middle_multiplicity_three_witness,
         "same_middle_flag_repeated_in_bin_count":mid_flags_duplicate_bin,
+        "same_middle_original_flag_incompatible_ordered_path_pairs":
+            same_middle_owner_bad_ordered_pairs,
+        "exact_original_middle_owner_quadratic_energy":str(middle_group_quadratic),
+        "exact_incompatible_B_same_original_middle_flag":str(middle_owner_B_same),
+        "exact_incompatible_B_different_original_middle_flags":str(middle_owner_B_different),
+        "exact_same_middle_original_owner_bad_fraction_of_total_B":
+            str(middle_owner_B_same/B) if B else "0",
+        "source_midflag_only_sufficient_safe_endpoint_bins":
+            mid_source_only_safe_bin_count,
+        "source_midflag_only_sufficient_safe_M_share":
+            str(mid_source_only_safe_bin_mass/M),
         "max_incompatibility_clique_over_all_real_endpoints":max_clique,
         "exact_clique_histogram":dict(sorted(hist.items())),
         "full_disjoint_actual_path_pair_source_classes":dict(sorted(cls.items())),
@@ -388,6 +521,9 @@ def canonical_report():
         "all_h_new_source_hybrid_diagonal_plus_weighted_Motzkin_theorem":True,
         "all_h_nonvacuous_risk_requires_omega5_AND_effective_multiplicity_gt4":True,
         "all_h_unique_oriented_middle_physical_edge_and_max_four_paths_per_original_midflag":True,
+        "all_h_true_original_GQ_rectangle_no_K2_2_strict_max_three_middle_paths":True,
+        "all_h_distinct_same_middle_flag_paths_are_source_incompatible":True,
+        "all_h_middle_owner_coarse_effective_multiplicity_safety_gate":True,
         "complete_independently_verified_original_W32_W34_source_census":cases,
         "all_h_global_B_over_M_below_3_over_4_PROVED":False,
         "numerical_external_C6_graph_constants_claimed":False,
