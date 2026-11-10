@@ -285,8 +285,8 @@ def _full_exact_case(s,scheme,core):
             loc_gt75+=1
             if not (k>=5 and 4*localDiag<localM):
                 raise AssertionError("all-h necessary joint tail criterion violated")
-        if extreme is None or Fraction(localBad,localM)>Fraction(
-                extreme["local_B"],extreme["local_M"]):
+        if extreme is None or localBad/localM>(
+                Fraction(extreme["local_B"])/Fraction(extreme["local_M"])):
             extreme={"endpoints":[list(ends[0]),list(ends[1])],
                 "local_B":str(localBad),"local_M":str(localM),
                 "local_ratio":str(localBad/localM),
