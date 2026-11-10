@@ -195,22 +195,6 @@ class TestOriginalDisjointMiddleOrientationAndJ(unittest.TestCase):
             self.assertEqual(Fraction(r["disjoint_middle_actual_bad_overlap_signature_mass"]["00"]),0)
         self.assertTrue(self.result[
             "all_h_disjoint_middle_BAD_requires_at_least_one_middle_label_overlap"])
-        return
-        for r in self.rows:
-            a=r["first_true_original_zero_both_label_overlap_J_only_bad_witness"]
-            if a is None:continue
-            self.assertIn(a["J_obstruction_cause"],CAUSES[:2])
-            self.assertGreater(Fraction(a["exact_original_pair_weight"]),0)
-            c=_source(r["original_s"],r["original_fixed_scheme"],r["original_CORE"])
-            p=tuple(map(tuple,a["path_a"]))
-            q=tuple(map(tuple,a["path_b"]))
-            os=a["original_flag_owners_a"]
-            ot=a["original_flag_owners_b"]
-            self.assertEqual((p[0],p[-1]),(q[0],q[-1]))
-            x=_independent_true_middle_orientation_pair(p,os,q,ot,c)
-            self.assertEqual(x[:2],(0,0))
-            self.assertEqual(x[2],a["J_obstruction_cause"])
-            self.assertEqual(_pair_bad(p,os,q,ot,c["J"]),"original_J_conflict")
 
     def test_full_original_source_physical_only_Fraction_ledger_equals_J_graph(self):
         for r in self.rows:
