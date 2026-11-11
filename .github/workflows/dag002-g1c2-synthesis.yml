@@ -1,0 +1,33 @@
+name: dag002-g1c2-synthesis
+
+on:
+  push:
+    branches: [main, 'research/**']
+    paths:
+      - 'research/dag002_g1c2_synthesis.py'
+      - 'research/test_dag002_g1c2_synthesis.py'
+      - 'docs/research/DAG-002-ALG-001-G1-C2-A-PRICED-SYNTHESIS.md'
+      - '.github/workflows/dag002-g1c2-synthesis.yml'
+  pull_request:
+    paths:
+      - 'research/dag002_g1c2_synthesis.py'
+      - 'research/test_dag002_g1c2_synthesis.py'
+      - 'docs/research/DAG-002-ALG-001-G1-C2-A-PRICED-SYNTHESIS.md'
+      - '.github/workflows/dag002-g1c2-synthesis.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  exact-bounded-read-synthesis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact finite fixed-code certificate
+        run: python research/dag002_g1c2_synthesis.py
+      - name: Independent decoder/program/exhaustive falsification
+        run: python -m unittest discover -s research -p 'test_dag002_g1c2_synthesis.py' -v
