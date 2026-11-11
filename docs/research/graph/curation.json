@@ -1,0 +1,178 @@
+{
+  "schema": "mathlab.research-graph-curation.v1",
+  "policy": "Sources of truth are existing catalog/registry.json, catalog/literature.json, UCT-005-THEOREM-TREE.json, KNOWN-AND-STOPPED-RESEARCH.json and IMPORT-012-SOURCE-GENEALOGY.json. This file adds only curated aliases, tags and explicit traceable edges. No graph edge constitutes proof, priority, or theorem transfer.",
+  "taxonomy": [
+    {
+      "id": "authenticated-observability",
+      "prefLabel": "Authenticated observability",
+      "aliases": [
+        "аутентифицированная наблюдаемость",
+        "trusted anchor",
+        "PIN",
+        "freshness",
+        "F1"
+      ],
+      "broader": [
+        "dynamic-data-structures"
+      ]
+    },
+    {
+      "id": "physical-page-cost",
+      "prefLabel": "Physical page and GC cost",
+      "aliases": [
+        "page recourse",
+        "allocator bitmap",
+        "page writes",
+        "физические страницы",
+        "GC"
+      ],
+      "broader": [
+        "dynamic-data-structures"
+      ]
+    },
+    {
+      "id": "signed-trades",
+      "prefLabel": "Signed trades in finite fields",
+      "aliases": [
+        "signed-flow",
+        "six-motif",
+        "GF(5)",
+        "ASET",
+        "trade density"
+      ],
+      "broader": [
+        "combinatorics"
+      ]
+    },
+    {
+      "id": "causal-proof-transfer",
+      "prefLabel": "Typed proof-transfer and countermodels",
+      "aliases": [
+        "G4 bridge",
+        "Fano",
+        "Myhill-Nerode",
+        "proof transfer",
+        "контрпример"
+      ],
+      "broader": [
+        "lower-bounds"
+      ]
+    },
+    {
+      "id": "graph-retrieval",
+      "prefLabel": "Research graph and retrieval",
+      "aliases": [
+        "GraphRAG",
+        "knowledge graph",
+        "граф исследований",
+        "retrieval",
+        "indexing"
+      ],
+      "broader": [
+        "methodology"
+      ]
+    }
+  ],
+  "issue_anchors": [
+    {
+      "issue": 105,
+      "target": "T:UCT005",
+      "relation": "TRACKS_RESEARCH",
+      "evidence_path": "docs/research/UCT-005-THEOREM-TREE.json"
+    },
+    {
+      "issue": 223,
+      "target": "T:UCT005G3B2D1B0",
+      "relation": "TRACKS_RESEARCH",
+      "evidence_path": "docs/research/UCT-005-G3-B2-D1B0-F1-COST-AND-PIN-FREEZE.md"
+    },
+    {
+      "issue": 234,
+      "target": "B:G4-ATLAS",
+      "relation": "CURATES_BRIDGE_ATLAS",
+      "evidence_path": "docs/research/UCT-005-G4-TYPED-BRIDGES.json"
+    },
+    {
+      "issue": 230,
+      "target": "T:HYP105G5",
+      "relation": "TRACKS_RESEARCH",
+      "evidence_path": "docs/research/HYP-105-G5-A-TRADE-INTERSECTION.md"
+    },
+    {
+      "issue": 244,
+      "target": "T:UCT005G3B2D1B2B",
+      "relation": "TRACKS_RESEARCH",
+      "evidence_path": "docs/research/UCT-005-G3-B2-D1B2B-PAGE-COW-TREE.md"
+    }
+  ],
+  "document_annotations": [
+    {
+      "path": "docs/research/UCT-005-G3-B2-D1B0-F1-COST-AND-PIN-FREEZE.md",
+      "tags": [
+        "authenticated-observability",
+        "physical-page-cost"
+      ],
+      "aliases": [
+        "F1 frozen model",
+        "две offline readers"
+      ],
+      "focus": [
+        "T:UCT005G3B2D1B0"
+      ]
+    },
+    {
+      "path": "docs/research/UCT-005-G3-B2-D1B2B-PAGE-COW-TREE.md",
+      "tags": [
+        "physical-page-cost",
+        "authenticated-observability"
+      ],
+      "aliases": [
+        "byte-conserving COW tree",
+        "historical PIN"
+      ],
+      "focus": [
+        "T:UCT005G3B2D1B2B"
+      ]
+    },
+    {
+      "path": "docs/research/HYP-105-G5-A-TRADE-INTERSECTION.md",
+      "tags": [
+        "signed-trades"
+      ],
+      "aliases": [
+        "GF5 signed trade obstruction"
+      ],
+      "focus": [
+        "T:HYP105G5"
+      ]
+    },
+    {
+      "path": "docs/research/UCT-005-G4-TYPED-BRIDGES.json",
+      "tags": [
+        "causal-proof-transfer"
+      ],
+      "aliases": [
+        "G4 typed bridges"
+      ],
+      "focus": [
+        "B:G4-B01"
+      ]
+    }
+  ],
+  "relation_classes": {
+    "DOCUMENTED_AT": "provenance",
+    "MENTIONED_IN": "index_only",
+    "HAS_CHUNK": "index_only",
+    "TAGGED_WITH": "classification",
+    "CATALOG_RELATED": "semantic_non_implication",
+    "ORG_TREE": "organization_non_implication",
+    "SOURCE_GENEALOGY": "source_audited_non_implication",
+    "TRACKS_RESEARCH": "ownership_non_implication",
+    "CURATES_BRIDGE_ATLAS": "ownership_non_implication",
+    "BRIDGE_OF_ATLAS": "classification_non_implication",
+    "CURATED_FOCUS": "index_only",
+    "BROADER_TAG": "classification",
+    "MAPS_TO_RESEARCH": "model_overlap_non_implication",
+    "TEXT_MENTIONS_ID": "index_only"
+  }
+}
