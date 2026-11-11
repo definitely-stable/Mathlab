@@ -1,0 +1,16 @@
+name: Research navigation
+on:
+  pull_request:
+    paths: ['README.md', 'AGENTS.md', 'docs/RESEARCH-INDEX.md', 'docs/research/RESEARCH-MAP.json', 'research/validate_navigation.py', '.github/workflows/research-navigation.yml']
+  push:
+    branches: [main]
+    paths: ['README.md', 'AGENTS.md', 'docs/RESEARCH-INDEX.md', 'docs/research/RESEARCH-MAP.json', 'research/validate_navigation.py', '.github/workflows/research-navigation.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 research/validate_navigation.py
