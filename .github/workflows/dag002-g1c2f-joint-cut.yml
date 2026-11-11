@@ -1,0 +1,33 @@
+name: dag002-g1c2f-joint-cut
+
+on:
+  push:
+    branches: [main, 'research/**']
+    paths:
+      - 'research/dag002_g1c2f_joint_cut.py'
+      - 'research/test_dag002_g1c2f_joint_cut.py'
+      - 'docs/research/DAG-002-ALG-001-G1-C2-F-JOINT-CUT.md'
+      - '.github/workflows/dag002-g1c2f-joint-cut.yml'
+  pull_request:
+    paths:
+      - 'research/dag002_g1c2f_joint_cut.py'
+      - 'research/test_dag002_g1c2f_joint_cut.py'
+      - 'docs/research/DAG-002-ALG-001-G1-C2-F-JOINT-CUT.md'
+      - '.github/workflows/dag002-g1c2f-joint-cut.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  exact-joint-information-cut:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Conditional two-cut and canonical matching certificates
+        run: python research/dag002_g1c2f_joint_cut.py
+      - name: Independent exhaustive DAG, Hamming-ball and tamper tests
+        run: python -m unittest discover -s research -p 'test_dag002_g1c2f_joint_cut.py' -v
