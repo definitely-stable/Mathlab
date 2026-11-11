@@ -16,7 +16,28 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  scope:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      mode: ${{ steps.route.outputs.mode }}
+      foundation: ${{ steps.route.outputs.foundation }}
+      hyp_foundation: ${{ steps.route.outputs.hyp_foundation }}
+      hyp_census: ${{ steps.route.outputs.hyp_census }}
+      catalog: ${{ steps.route.outputs.catalog }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Fail-closed research scope policy regression tests
+        run: python -m unittest discover -s research -p 'test_ci_scope.py' -v
+      - name: Classify PR merge-parent diff (full for push and manual)
+        id: route
+        run: python research/ci_scope.py --event "${{ github.event_name }}" --output "$GITHUB_OUTPUT"
+
   lent-001-foundation:
+    needs: scope
+    if: ${{ needs.scope.outputs.foundation == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -105,6 +126,8 @@ jobs:
         run: python research/index001_workload_io.py
 
   research-hyp105-foundation:
+    needs: scope
+    if: ${{ needs.scope.outputs.hyp_foundation == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -184,6 +207,8 @@ jobs:
         run: python -m unittest discover -s research -p 'test_hyp105_g5e2b3e1b1a_one_sided.py'
 
   research-hyp105-exact-census:
+    needs: scope
+    if: ${{ needs.scope.outputs.hyp_census == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -233,6 +258,8 @@ jobs:
         run: python research/hyp105_g5e2b3d_joint_risk.py
 
   research-catalog-and-primitives:
+    needs: scope
+    if: ${{ needs.scope.outputs.catalog == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -287,9 +314,11 @@ jobs:
         run: python research/tom_authenticated_overwrite.py
 
   research-full-suite:
-    # A single explicit verdict: foundation-only SUCCESS is not full CI.
+    # Required stable status, NEVER green on incomplete requested work.
+    # In PRs this is a scoped validation; push main/manual stays FULL.
     if: ${{ always() }}
     needs:
+      - scope
       - lent-001-foundation
       - research-hyp105-foundation
       - research-hyp105-exact-census
@@ -297,18 +326,63 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Require all four research shards to pass
+      - name: Fail-closed full or scoped Research verdict
         env:
+          SCOPE_RESULT: ${{ needs.scope.result }}
+          MODE: ${{ needs.scope.outputs.mode }}
+          RUN_FOUNDATION: ${{ needs.scope.outputs.foundation }}
+          RUN_HYP_FOUNDATION: ${{ needs.scope.outputs.hyp_foundation }}
+          RUN_HYP_CENSUS: ${{ needs.scope.outputs.hyp_census }}
+          RUN_CATALOG: ${{ needs.scope.outputs.catalog }}
           FOUNDATION: ${{ needs.lent-001-foundation.result }}
           HYP_FOUNDATION: ${{ needs.research-hyp105-foundation.result }}
           HYP_CENSUS: ${{ needs.research-hyp105-exact-census.result }}
           CATALOG: ${{ needs.research-catalog-and-primitives.result }}
         run: |
           set -euo pipefail
-          for result in "$FOUNDATION" "$HYP_FOUNDATION" "$HYP_CENSUS" "$CATALOG"; do
-            if [ "$result" != "success" ]; then
-              echo "Research suite incomplete: shard result=$result" >&2
+          if [ "$SCOPE_RESULT" != "success" ]; then
+            echo "Research scope policy FAILED or was cancelled" >&2
+            exit 1
+          fi
+          case "$MODE" in
+            full|scoped|docs) ;;
+            *) echo "Invalid research route mode: $MODE" >&2; exit 1 ;;
+          esac
+          if [ "$MODE" = "full" ]; then
+            for result in "$FOUNDATION" "$HYP_FOUNDATION" "$HYP_CENSUS" "$CATALOG"; do
+              if [ "$result" != "success" ]; then
+                echo "FULL Research incomplete: $result" >&2
+                exit 1
+              fi
+            done
+            echo "FULL Research: all four independent shards SUCCESS"
+            exit 0
+          fi
+          verify_shard() {
+            local name="$1" selected="$2" actual="$3"
+            case "$selected" in
+              true)
+                if [ "$actual" != "success" ]; then
+                  echo "Required $name not successful: $actual" >&2
+                  exit 1
+                fi ;;
+              false)
+                if [ "$actual" != "skipped" ]; then
+                  echo "Unrequested $name unexpectedly ran/failed: $actual" >&2
+                  exit 1
+                fi ;;
+              *) echo "Invalid selection for $name: $selected" >&2; exit 1 ;;
+            esac
+          }
+          verify_shard lent-001-foundation "$RUN_FOUNDATION" "$FOUNDATION"
+          verify_shard research-hyp105-foundation "$RUN_HYP_FOUNDATION" "$HYP_FOUNDATION"
+          verify_shard research-hyp105-exact-census "$RUN_HYP_CENSUS" "$HYP_CENSUS"
+          verify_shard research-catalog-and-primitives "$RUN_CATALOG" "$CATALOG"
+          if [ "$MODE" = "docs" ]; then
+            if [ "$RUN_FOUNDATION$RUN_HYP_FOUNDATION$RUN_HYP_CENSUS$RUN_CATALOG" != "falsefalsefalsefalse" ]; then
+              echo "Docs-only cannot request scientific shards" >&2
               exit 1
             fi
-          done
-          echo "All four research shards succeeded."
+          fi
+          echo "SCOPED Research validated: mode=$MODE; selected flags $RUN_FOUNDATION/$RUN_HYP_FOUNDATION/$RUN_HYP_CENSUS/$RUN_CATALOG"
+          echo "No FULL-suite conclusion is claimed for this PR."
