@@ -1,0 +1,33 @@
+name: dag002-g2c2-file-pages
+
+on:
+  push:
+    branches:
+      - main
+      - "research/**"
+    paths:
+      - "research/dag002_g2c2_file_store.py"
+      - "research/test_dag002_g2c2_file_store.py"
+      - "docs/research/DAG-002-G2-B2-C2-A-FILE-STORE.md"
+      - ".github/workflows/dag002-g2c2-file-pages.yml"
+  pull_request:
+    paths:
+      - "research/dag002_g2c2_file_store.py"
+      - "research/test_dag002_g2c2_file_store.py"
+      - "docs/research/DAG-002-G2-B2-C2-A-FILE-STORE.md"
+      - ".github/workflows/dag002-g2c2-file-pages.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  exact-file-page-directory-oracles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Real pread and pwrite directory with bounded LRU tests
+        run: python -m unittest discover -s research -p 'test_dag002_g2c2_file_store.py' -v
