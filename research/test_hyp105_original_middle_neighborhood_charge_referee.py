@@ -31,6 +31,7 @@ class TestTrueOriginalMiddleNeighborhoodCharge(unittest.TestCase):
                   "all_h_original_point_line_source_pair_label_overlap_degree_capacity",
                   "all_h_weighted_neighborhood_Laplacian_variance_and_spectral_upper",
                   "all_h_bad_local_B75_forces_bounded_middle_owner_effective_support",
+                  "all_h_source_heavy_neighborhood_P3_path_support_at_most_three_times_global_degree",
                   "all_h_strict_local_BAD_B75_forces_one_heavy_original_middle_neighborhood",
                   "all_h_global_BAD_B75_forces_some_local_heavy_original_middle_neighborhood"):
             self.assertTrue(c[z])
@@ -135,8 +136,12 @@ class TestTrueOriginalMiddleNeighborhoodCharge(unittest.TestCase):
             self.assertIn(w["witness_original_middle_flag"],w["witness_source_flag_ids"])
             self.assertEqual(len(w["witness_middle_f_label"]),2)
             self.assertEqual(len(w["witness_middle_g_label"]),2)
-            self.assertLessEqual(w["witness_neighborhood_original_flag_count"],
-                                len(w["witness_source_flag_ids"]))
+            self.assertEqual(w["witness_neighborhood_original_flag_count"],
+                             len(w["witness_source_flag_ids"]))
+            self.assertLessEqual(w["witness_neighborhood_true_proper_physical_P3_count"],
+                3*w["witness_neighborhood_original_flag_count"])
+            self.assertLessEqual(w["witness_neighborhood_true_proper_physical_P3_count"],
+                w["endpoint_total_true_proper_physical_P3_count"])
         self.assertGreater(found,0)
 
     def test_IND_W32_complete_original_pathpair_source_label_overlap_direct(self):
@@ -227,6 +232,8 @@ class TestTrueOriginalMiddleNeighborhoodCharge(unittest.TestCase):
         self.assertEqual(x["G11"],0)
         self.assertEqual(x["weighted_source_neighbor_max_fraction"],1)
         self.assertEqual(x["delta_occupied_original_middle_flag_overlap_closed_degree"],1)
+        self.assertEqual(x["witness_max_neighborhood_physical_P3_count"],1)
+        self.assertTrue(x["all_h_source_neighborhood_at_most_three_real_P3s_per_middle_flag"])
         self.assertEqual(x["source_laplacian_nonnegative_variance"],0)
 
     def test_ALL_h_manual_nonuniform_source_weights_stress_algebra(self):
