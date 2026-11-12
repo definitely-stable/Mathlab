@@ -171,6 +171,14 @@ def _one_true_source_endpoint_charge(group,c):
     threshold=Fraction(3,4)+(D+G11)/M
     candidate_heavy=rho>=threshold
     safe_from_rho=rho<threshold
+    effective_support=M/Q
+    # If actual B/M>3/4, R/M>threshold and R<=delta*Q,
+    # so effective_support=M/Q < delta/threshold.
+    source_effective_support_safe=(delta*Q-D-G11)<3*M/4
+    if source_effective_support_safe and not B/M<Fraction(3,4):
+        raise AssertionError("source original middle effective-support strict-safe spectral certificate false")
+    if B/M>Fraction(3,4) and not effective_support<delta/threshold:
+        raise AssertionError("strict bad original source fails necessary bounded effective middle support")
     if B/M>Fraction(3,4) and not rho>threshold:
         raise AssertionError("strict original B75 BAD endpoint without source heavy middle-neighborhood witness")
     if safe_from_rho and not B/M<Fraction(3,4):
@@ -191,7 +199,11 @@ def _one_true_source_endpoint_charge(group,c):
         "Q_original_middle_flag_group_energy":Q,
         "delta_occupied_original_middle_flag_overlap_closed_degree":delta,
         "all_h_source_overlap_degree_capacity_including_self":d_global,
-        "source_middle_flag_effective_support":M/Q,
+        "source_middle_flag_effective_support":effective_support,
+        "strict_BAD_B75_requires_effective_support_below_active_delta_over_threshold":
+            effective_support<delta/threshold,
+        "source_effective_support_spectral_strict_SAFE_certificate":
+            source_effective_support_safe,
         "weighted_source_neighbor_max_fraction":rho,
         "top_degree_source_middle_weight_fraction":top_mass/W,
         "source_laplacian_nonnegative_variance":lap,
@@ -233,6 +245,7 @@ def _one_full_original_source_case(s,scheme,core):
     sums=defaultdict(Fraction)
     counts=defaultdict(int)
     M_bad=M_heavy=M_rho_safe=M_degree_safe=M_top_safe=Fraction(0)
+    M_effective_support_safe=Fraction(0)
     first_bad=None
     max_src_degree=0
     for ends,group in bins.items():
@@ -268,6 +281,9 @@ def _one_full_original_source_case(s,scheme,core):
         if z["source_max_neighbor_strict_SAFE_certificate"]:
             M_rho_safe+=z["M"]
             counts["source_max_neighborhood_certified_strict_safe_bins"]+=1
+        if z["source_effective_support_spectral_strict_SAFE_certificate"]:
+            M_effective_support_safe+=z["M"]
+            counts["source_effective_support_spectral_certified_strict_safe_bins"]+=1
         if z["source_weighted_degree_strict_SAFE_certificate"]:
             M_degree_safe+=z["M"]
             counts["source_degree_square_certified_strict_safe_bins"]+=1
@@ -280,7 +296,8 @@ def _one_full_original_source_case(s,scheme,core):
         raise AssertionError("ALL-h ORIGINAL complete source mass charge not consistent")
     if not 0<=M_bad<=M_heavy<=M or not 0<=M_rho_safe<=M:
         raise AssertionError("source heavy neighborhood bad endpoint containment false")
-    if M_rho_safe+M_bad>M or M_degree_safe+M_bad>M or M_top_safe+M_bad>M:
+    if (M_rho_safe+M_bad>M or M_degree_safe+M_bad>M or
+            M_top_safe+M_bad>M or M_effective_support_safe+M_bad>M):
         raise AssertionError("source degree/neighbor/source top-d false strict B75 certification")
     if M_rho_safe!=M-M_heavy:
         # Strict good rho gate rho<threshold and heavy candidate rho>=
@@ -304,6 +321,8 @@ def _one_full_original_source_case(s,scheme,core):
         "source_max_neighborhood_strict_SAFE_M_share":str(M_rho_safe/M),
         "source_weighted_degree_strict_SAFE_M_share":str(M_degree_safe/M),
         "source_top_degree_strict_SAFE_M_share":str(M_top_safe/M),
+        "source_effective_support_spectral_strict_SAFE_M_share":
+            str(M_effective_support_safe/M),
         "actual_source_strict_local_bad_M_share":str(M_bad/M),
         "max_occupied_middle_original_flag_overlap_closed_degree":max_src_degree,
         "source_overlap_all_h_minimal_alphabet_capacity":
@@ -325,6 +344,7 @@ def canonical_report():
         "all_h_source_closed_overlap_neighborhood_exact_postings_and_symbol_moment_mass":True,
         "all_h_original_point_line_source_pair_label_overlap_degree_capacity":True,
         "all_h_weighted_neighborhood_Laplacian_variance_and_spectral_upper":True,
+        "all_h_bad_local_B75_forces_bounded_middle_owner_effective_support":True,
         "all_h_strict_local_BAD_B75_forces_one_heavy_original_middle_neighborhood":True,
         "all_h_global_BAD_B75_forces_some_local_heavy_original_middle_neighborhood":True,
         "this_does_NOT_claim_all_h_uniform_75_percent_good_mass":True,
