@@ -171,6 +171,18 @@ F-1,\,
 
 This is an all-order deterministic **SOURCE LABEL SUPPORT** bound on the number of flags in any such heavy neighborhood. At minimal a_s it is \(O(s^{5/2})\) vs \(F=\Theta(s^4)\); therefore if global B/M≥3/4 an endpoint must concentrate more than 75% of weighted path middle-owner mass on **at most O(s^{5/2}) ORIGINAL incidence flags** belonging to one potential physical-label-overlap neighborhood. These are still quite numerous; this theorem is NOT an all-h contradiction by itself because weights may be extremely endpoint-biased.
 
+**NEW all-h original GQ physical-path support corollary.** The independently proved no-\(K_{2,2}\) GQ theorem in #758 shows that for fixed ordered endpoints any one genuine original middle incidence flag can own at most THREE actual proper physical directed P3s. Therefore the heavy neighborhood required in (N-8) can support at most
+
+\[
+\boxed{
+\#\{\gamma\in\Gamma_{uv}:\operatorname{midOwner}(\gamma)\in\mathcal N_i\}
+\le3|\mathcal N_i|\le3d_{\rm global}=O(s^{5/2}).
+}
+\tag{N-10a}
+\]
+
+A bad local endpoint thus concentrates strictly over \(3/4+(D+G_{11})/M\) of its **marginal physical-P3 path weight** on a set of no more than \(3d_{\rm global}\) real proper source paths (not merely on named flags). This does not exclude a fixed correlated f/g adversary, since all those path weights can be highly concentrated. The verifier now checks the sharp three-path limit for every real named middle source owner and records the actual number of P3 paths supported inside the first observed bad neighborhood.
+
 The actual endpoint-specific \(\delta\) can be far smaller than the global capacity; the referee measures both and never substitutes a random-label bound or a normalized all-source degree for the conditional endpoint degree.
 
 ## 5. NEW exact source graph Laplacian quadratic identity and effective-support dichotomy
@@ -235,6 +247,28 @@ The new standalone source referee imports ONLY the independently audited true OR
 The independent dedicated suite covers all EIGHT complete source cases, **W32** full lex/reverse/shift Z17 proper directed P3 counts 1,346 / 1,154 / 838, and **W34** full lex/reverse/shift/even CORE/shift Z17 CORE 83,892 / 82,846 / 79,404 / 9,966 / 66,418. No 2,000-path sampling, false small-Z extrapolation or substitution of unrelated graph edges. For W32, tests DIRECTLY enumerate EVERY same-endpoint ordered P3 pair and charge actual original middle-label overlaps independently of the new postings/moment method; for W34 all three FULL label schemes, tests compare EVERY endpoint bin's exact M/G/B/R/D/G11 against the already separately verified previous symbol-second-moment referee (#760). A separate algebra-only nonuniform reweighting adversarial test verifies N-11 without claiming arbitrary weights are actual selector marginals.
 
 **Hosted CI:** Ubuntu24 Python3.12 specialist with 17 independent tests plus strict machine-readable eight-source Fraction JSON, alongside inherited INDEX and full Research workflows. Final-HEAD statuses must be checked before any success claim; no merge and root stays open.
+
+## 6.1. Full original W32/W34 quantitative diagnostics (exact Fraction source certificates)
+
+The first code HEAD's hosted [specialist #43279620960](https://github.com/definitely-stable/Mathlab/actions/runs/43279620960) completed **SUCCESS, 17/17 independently checked tests plus strict eight-case rational JSON**. The parent suite also independently checked all real W32 source path pairs and EVERY endpoint bin in all three FULL W34 maps against the separate #760 second-moment referee. These are **full physical-P3 source censuses, not 2,000-path samples**. The additional N-10a proof and path-support validation change HEAD; final-head CI must be independently checked before claiming it green.
+
+The percentages below are **rounded displays** from exact Fraction results, and use the squared endpoint mass \(M_{uv}\) as the weighting:
+
+| TRUE ORIGINAL W(3,4) fixed mapping | Corrected overlap R/M | M-weight rigorously safe by MAX-neighborhood gate (N-9) | M-weight only potentially heavy | Actual locally strict-bad M-weight | Max occupied middle neighborhood degree \(\delta\) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| FULL lex | 78.7153% | **99.4284%** | 0.5716% | 0.0263% (24 bins) | 15 |
+| FULL reverse | 77.7374% | **99.3039%** | 0.6961% | 0.0475% (24 bins) | 17 |
+| FULL shifted | 79.6116% | **99.2496%** | 0.7504% | 0.0145% (8 bins) | 15 |
+
+The new MAX-neighborhood gate is useful but does **NOT** universally dominate previous #760's exact \(D+G_{00}\) endpoint gate: that gate certified 99.4182%, 99.3395%, and 99.6928% of \(M\) on the same fixed maps. In lex the new gate is slightly stronger; in reverse and shift it is weaker. Its main achievement is an explicit **localized necessary adversarial witness shape** rather than a universally improved numerical risk bound.
+
+The all-h weighted-degree/Laplacian-only gate certified 75.5429%, 78.1496%, 77.6916% of M; the effective-support \(\delta Q\) gate certified 49.0780%, 52.4393%, 52.4452%; top-\(\delta\) group mass gate certified 99.1029%, 98.9383%, 98.9850%. Degree, effective-support and maximum-neighborhood certificates must **not** be assumed ordered in strength without proof; for arbitrary weighted source graphs they can be incomparable.
+
+In the FIRST exported genuine locally bad W34 endpoint family of each FULL lex/reverse/shift case, the heavy source flag has exact \(\rho=\max_iN_i/W=1\): its neighborhood captures ALL middle-owner marginal weight at that endpoint, using only **6/6/7 actual original middle flags**, respectively (even though the all-h global minimal-alphabet support cap for s=4 is 249). This is finite evidence, **NOT an all-h theorem saying every bad source must have rho=1**. The sharp N-10a physical P3 support cap is checked separately.
+
+W32 FULL lex/reverse have NO strictly bad endpoint bins and the new N-9 gate certifies 100% of endpoint M. The genuine W32 shifted-Z17 CORE has two locally bad bins (3.0713% of its own M), which the heavy neighborhood gate marks as candidates. W34 shifted-Z17 CORE has six locally bad bins; W34 even retained CORE has none. Z17/even are genuine original named retained-core tests but not asserted to satisfy the all-h root small-Z deletion threshold at s=2/4.
+
+**Next true all-h proof obligation:** bound the **total M-weight** of conditional endpoint families possessing an original source neighborhood with \(N_i/W\ge3/4+(D+G_{11})/M\), or directly bound global \(\sum_{uv,i}w_{uv,i}N_{uv,i}\), using the real GQ incidence and physical endpoint restrictions. The 0.57–0.75% candidate-heavy M-masses in these three finite W34 maps are NOT universal upper bounds and are still much larger than actual strict-bad mass. Do not infer global B75 from the global unweighted O(s^-3/2) overlap graph density.
 
 ## 7. Acceptance, scientific result and next permitted proof step
 
