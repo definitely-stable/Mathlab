@@ -44,6 +44,7 @@ jobs:
                     'all_h_original_point_line_source_pair_label_overlap_degree_capacity',
                     'all_h_weighted_neighborhood_Laplacian_variance_and_spectral_upper',
                     'all_h_bad_local_B75_forces_bounded_middle_owner_effective_support',
+                    'all_h_source_heavy_neighborhood_P3_path_support_at_most_three_times_global_degree',
                     'all_h_strict_local_BAD_B75_forces_one_heavy_original_middle_neighborhood',
                     'all_h_global_BAD_B75_forces_some_local_heavy_original_middle_neighborhood'):
               assert r[k] is True,k
@@ -85,6 +86,12 @@ jobs:
               assert x['max_occupied_middle_original_flag_overlap_closed_degree']<=1+cap['unweighted_source_middle_pair_overlap_max_degree_cap']
               assert B/M<Fraction(3,4)
           assert rows[2]['first_actual_bad_real_original_source_neighborhood_witness'] is not None
+          for row in rows:
+              v=row['first_actual_bad_real_original_source_neighborhood_witness']
+              if v is not None:
+                  assert v['witness_neighborhood_original_flag_count']==len(v['witness_source_flag_ids'])
+                  assert v['witness_neighborhood_true_proper_physical_P3_count']<=3*v['witness_neighborhood_original_flag_count']
+                  assert v['witness_neighborhood_true_proper_physical_P3_count']<=v['endpoint_total_true_proper_physical_P3_count']
           assert any(x['first_actual_bad_real_original_source_neighborhood_witness'] is not None for x in rows[3:6])
           print('ACCEPT all-h genuine source 75% heavy closed neighborhood charge and Laplacian moment identities; ROOT OPEN')
           PYCODE
