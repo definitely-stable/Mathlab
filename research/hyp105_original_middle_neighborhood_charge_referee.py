@@ -53,6 +53,7 @@ def _one_true_source_endpoint_charge(group,c):
         raise ValueError("a genuine nonempty physical endpoint family required")
     f=c["f"];g=c["g"];flags=c["flags"]
     by_mid=defaultdict(Fraction)
+    by_mid_pathcount=defaultdict(int)
     x_occ=defaultdict(Fraction);y_occ=defaultdict(Fraction)
     xy_occ=defaultdict(Fraction);point_occ=defaultdict(Fraction)
     line_occ=defaultdict(Fraction)
@@ -71,7 +72,7 @@ def _one_true_source_endpoint_charge(group,c):
         a,b=path[1],path[2]
         if tuple(sorted((a[0],b[0])))!=f[p] or tuple(sorted((a[1],b[1])))!=g[l]:
             raise AssertionError("physical original middle directed edge source inverse failed")
-        by_mid[i]+=w;D+=w*w
+        by_mid[i]+=w;by_mid_pathcount[i]+=1;D+=w*w
         first[a]+=w;last[b]+=w
         fp[(p,a)]+=w;fl[(l,a)]+=w;fi[(i,a)]+=w
         lp[(p,b)]+=w;ll[(l,b)]+=w;li[(i,b)]+=w
@@ -94,6 +95,8 @@ def _one_true_source_endpoint_charge(group,c):
         for x in f[p]:postings_x[x].add(i)
         for y in g[l]:postings_y[y].add(i)
     q=len(by_mid)
+    if max(by_mid_pathcount.values())>3:
+        raise AssertionError("genuine original GQ no-K22 sharp three-P3-per-middle-owner theorem violated")
     neighborhood={}
     weighted_neighbor={}
     independent_symbol_formula={}
@@ -193,6 +196,10 @@ def _one_true_source_endpoint_charge(group,c):
         raise AssertionError("source middle overlap top-d risk cap falsely certified safe")
     witness_id=max(weighted_neighbor,key=weighted_neighbor.get)
     witness_p,witness_l=flags[witness_id]
+    witness_neighborhood_proper_p3_count=sum(
+        by_mid_pathcount[i] for i in neighborhood[witness_id])
+    if witness_neighborhood_proper_p3_count>3*degrees[witness_id]:
+        raise AssertionError("original physical P3 heavy source neighborhood sharp group-three limit violated")
     return {
         "M":M,"G":G,"B":B,"D":D,"G11":G11,"R":R_direct,
         "R_middle_symbol_second_moments":R_moment,
@@ -226,6 +233,9 @@ def _one_true_source_endpoint_charge(group,c):
         "witness_middle_f_label":list(f[witness_p]),
         "witness_middle_g_label":list(g[witness_l]),
         "witness_max_neighborhood_source_flag_count":degrees[witness_id],
+        "witness_max_neighborhood_physical_P3_count":
+            witness_neighborhood_proper_p3_count,
+        "all_h_source_neighborhood_at_most_three_real_P3s_per_middle_flag":True,
         "witness_max_neighborhood_source_weight":weighted_neighbor[witness_id],
         "witness_original_source_flag_ids":sorted(neighborhood[witness_id])
     }
@@ -273,6 +283,9 @@ def _one_full_original_source_case(s,scheme,core):
                     "witness_middle_g_label":z["witness_middle_g_label"],
                     "witness_neighborhood_original_flag_count":
                         z["witness_max_neighborhood_source_flag_count"],
+                    "witness_neighborhood_true_proper_physical_P3_count":
+                        z["witness_max_neighborhood_physical_P3_count"],
+                    "endpoint_total_true_proper_physical_P3_count":z["paths"],
                     "witness_source_flag_ids":z["witness_original_source_flag_ids"]
                 }
         if z["source_heavy_neighborhood_necessary_candidate"]:
@@ -345,6 +358,7 @@ def canonical_report():
         "all_h_original_point_line_source_pair_label_overlap_degree_capacity":True,
         "all_h_weighted_neighborhood_Laplacian_variance_and_spectral_upper":True,
         "all_h_bad_local_B75_forces_bounded_middle_owner_effective_support":True,
+        "all_h_source_heavy_neighborhood_P3_path_support_at_most_three_times_global_degree":True,
         "all_h_strict_local_BAD_B75_forces_one_heavy_original_middle_neighborhood":True,
         "all_h_global_BAD_B75_forces_some_local_heavy_original_middle_neighborhood":True,
         "this_does_NOT_claim_all_h_uniform_75_percent_good_mass":True,
