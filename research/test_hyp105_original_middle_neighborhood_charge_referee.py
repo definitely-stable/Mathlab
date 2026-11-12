@@ -30,6 +30,7 @@ class TestTrueOriginalMiddleNeighborhoodCharge(unittest.TestCase):
         for z in ("all_h_source_closed_overlap_neighborhood_exact_postings_and_symbol_moment_mass",
                   "all_h_original_point_line_source_pair_label_overlap_degree_capacity",
                   "all_h_weighted_neighborhood_Laplacian_variance_and_spectral_upper",
+                  "all_h_bad_local_B75_forces_bounded_middle_owner_effective_support",
                   "all_h_strict_local_BAD_B75_forces_one_heavy_original_middle_neighborhood",
                   "all_h_global_BAD_B75_forces_some_local_heavy_original_middle_neighborhood"):
             self.assertTrue(c[z])
@@ -113,6 +114,9 @@ class TestTrueOriginalMiddleNeighborhoodCharge(unittest.TestCase):
             self.assertTrue(0<=actual<=c<=1)
             self.assertTrue(0<=degsafe<=1)  # degree-energy and max-neighbor bounds are incomparable
             self.assertTrue(0<=topsafe<=safe<=1)
+            effsafe=Fraction(row["source_effective_support_spectral_strict_SAFE_M_share"])
+            self.assertTrue(0<=effsafe<=1)
+            self.assertLessEqual(actual+effsafe,1)
             self.assertLessEqual(actual+safe,1)
             self.assertLessEqual(actual+degsafe,1)
             self.assertLessEqual(actual+topsafe,1)
@@ -242,6 +246,30 @@ class TestTrueOriginalMiddleNeighborhoodCharge(unittest.TestCase):
         self.assertEqual(
             a["source_weighted_degree_square_energy"]-a["source_laplacian_nonnegative_variance"],
             a["R"])
+
+    def test_all_h_STRICT_effective_support_small_if_original_bad(self):
+        for r in self.rows:
+            self.assertTrue(0<=Fraction(
+                r["source_effective_support_spectral_strict_SAFE_M_share"])<=1)
+        c=_source(2,"shift","Z17")
+        bins=defaultdict(list);rank={}
+        for path,os in _true_original_proper_P3(c):
+            k=tuple(sorted(os))
+            if k not in rank:rank[k]=_rank_probability3(k,c["J"])/64
+            bins[(path[0],path[-1])].append((path,os,rank[k]))
+        checked=0
+        for group in bins.values():
+            z=_one_true_source_endpoint_charge(group,c)
+            if z["actual_strict_local_BAD_B_gt_three_quarters"]:
+                checked+=1
+                self.assertTrue(z[
+                    "strict_BAD_B75_requires_effective_support_below_active_delta_over_threshold"])
+                self.assertLess(z["source_middle_flag_effective_support"],
+                    z["delta_occupied_original_middle_flag_overlap_closed_degree"]/
+                    z["source_bad_threshold_heavy_neighborhood_fraction"])
+                self.assertFalse(z[
+                    "source_effective_support_spectral_strict_SAFE_certificate"])
+        self.assertGreater(checked,0)
 
     def test_root_global_bad_witness_dichotomy_no_unproven_promotion(self):
         # Global weighted B/M>=.75 would have SOME bin at least .75
