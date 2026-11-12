@@ -1,0 +1,101 @@
+name: hyp105-aa4-original-middle-neighborhood-charge
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-middle-neighborhood-charge.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-MIDDLE-NEIGHBORHOOD-CHARGE.md'
+      - 'research/hyp105_original_middle_neighborhood_charge_referee.py'
+      - 'research/test_hyp105_original_middle_neighborhood_charge_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-original-middle-neighborhood-charge:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Seventeen independent all-h original source heavy-neighborhood and full W32/W34 tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_middle_neighborhood_charge_referee.py' -v
+      - name: Strict all eight full original source neighborhood charging rational certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_middle_neighborhood_charge_referee.py |
+            tee proof/hyp105-aa4-original-middle-neighborhood-charge.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          from fractions import Fraction
+          import json
+          pre='AA4_NBRCHARGE_CERTIFICATE='
+          lines=Path('proof/hyp105-aa4-original-middle-neighborhood-charge.json.log').read_text().splitlines()
+          assert len(lines)==1 and lines[0].startswith(pre), 'one strict original source certificate'
+          r=json.loads(lines[0][len(pre):])
+          assert r['schema']=='mathlab.hyp105.original-middle-overlap-neighborhood-charge.v1'
+          assert r['issue']==230 and r['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          for k in ('all_h_source_closed_overlap_neighborhood_exact_postings_and_symbol_moment_mass',
+                    'all_h_original_point_line_source_pair_label_overlap_degree_capacity',
+                    'all_h_weighted_neighborhood_Laplacian_variance_and_spectral_upper',
+                    'all_h_bad_local_B75_forces_bounded_middle_owner_effective_support',
+                    'all_h_source_heavy_neighborhood_P3_path_support_at_most_three_times_global_degree',
+                    'all_h_strict_local_BAD_B75_forces_one_heavy_original_middle_neighborhood',
+                    'all_h_global_BAD_B75_forces_some_local_heavy_original_middle_neighborhood'):
+              assert r[k] is True,k
+          assert r['this_does_NOT_claim_all_h_uniform_75_percent_good_mass'] is True
+          assert r['root_PROVED_A'] is False
+          assert r['all_h_global_B_over_M_below_three_quarters_PROVED'] is False
+          assert r['ASET_exponent_claimed'] is False
+          assert r['infinite_correlated_counterfamily_claimed'] is False
+          rows=r['true_original_W32_W34_full_source_neighborhood_censuses']
+          assert len(rows)==8
+          assert [x['counts']['full_real_original_proper_directed_P3s'] for x in rows]==[
+              1346,1154,838,83892,82846,79404,9966,66418]
+          ratios=[
+              Fraction(6455794325016624278974180549344,34112625017517015558762952579019),
+              Fraction(1112181511961691267640954528608,5419443488794004529193758698293),
+              Fraction(38485044924066111819475664,193743221070784284041268159)]
+          assert [Fraction(x['exact_B_over_M']) for x in rows[3:6]]==ratios
+          for x in rows:
+              assert x['complete_original_actual_path_census'] is True
+              assert x['root_PROVED_A'] is False
+              assert x['actual_source_real_physical_diagonal_edges']==2*x['source_retained_CORE_original_flags']
+              M=Fraction(x['total_M']);G=Fraction(x['total_G']);B=Fraction(x['total_B'])
+              z={k:Fraction(v) for k,v in x['moments'].items()}
+              assert M>0 and G>0 and B>=0 and M==G+B
+              assert z['R']==z['source_weighted_degree_square_energy']-z['source_laplacian_nonnegative_variance']
+              assert z['R']<=z['source_spectral_degree_R_upper']
+              assert z['R']<=z['source_top_degree_R_upper']
+              assert z['R']<=z['source_max_single_group_R_upper']
+              assert z['R']<=z['source_max_neighbor_R_upper']
+              assert z['R']==B+z['D']+z['G11']
+              assert z['source_laplacian_nonnegative_variance']>=0
+              assert Fraction(x['original_neighborhood_overlap_R_over_M'])==z['R']/M
+              assert 0<=Fraction(x['actual_source_strict_local_bad_M_share'])<=Fraction(x['source_heavy_neighborhood_candidate_M_share'])<=1
+              assert Fraction(x['source_heavy_neighborhood_candidate_M_share'])+Fraction(x['source_max_neighborhood_strict_SAFE_M_share'])==1
+              assert Fraction(x['source_top_degree_strict_SAFE_M_share'])<=Fraction(x['source_max_neighborhood_strict_SAFE_M_share'])
+              assert Fraction(x['source_effective_support_spectral_strict_SAFE_M_share'])+Fraction(x['actual_source_strict_local_bad_M_share'])<=1
+              cap=x['source_overlap_all_h_minimal_alphabet_capacity']
+              assert x['original_minimal_alphabet']==cap['minimal_pair_alphabet']==cap['actual_alphabet']
+              assert x['max_occupied_middle_original_flag_overlap_closed_degree']<=1+cap['unweighted_source_middle_pair_overlap_max_degree_cap']
+              assert B/M<Fraction(3,4)
+          assert rows[2]['first_actual_bad_real_original_source_neighborhood_witness'] is not None
+          for row in rows:
+              v=row['first_actual_bad_real_original_source_neighborhood_witness']
+              if v is not None:
+                  assert v['witness_neighborhood_original_flag_count']==len(v['witness_source_flag_ids'])
+                  assert v['witness_neighborhood_true_proper_physical_P3_count']<=3*v['witness_neighborhood_original_flag_count']
+                  assert v['witness_neighborhood_true_proper_physical_P3_count']<=v['endpoint_total_true_proper_physical_P3_count']
+          assert any(x['first_actual_bad_real_original_source_neighborhood_witness'] is not None for x in rows[3:6])
+          print('ACCEPT all-h genuine source 75% heavy closed neighborhood charge and Laplacian moment identities; ROOT OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-middle-neighborhood-source-charges
+          path: proof/hyp105-aa4-original-middle-neighborhood-charge.json.log
