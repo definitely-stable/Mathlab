@@ -111,7 +111,7 @@ class TestTrueOriginalMiddleNeighborhoodCharge(unittest.TestCase):
             topsafe=Fraction(row["source_top_degree_strict_SAFE_M_share"])
             self.assertEqual(c+safe,1)
             self.assertTrue(0<=actual<=c<=1)
-            self.assertTrue(0<=degsafe<=safe<=1)
+            self.assertTrue(0<=degsafe<=1)  # degree-energy and max-neighbor bounds are incomparable
             self.assertTrue(0<=topsafe<=safe<=1)
             self.assertLessEqual(actual+safe,1)
             self.assertLessEqual(actual+degsafe,1)
