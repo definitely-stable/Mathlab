@@ -201,6 +201,32 @@ class TestOriginalGQTwoEndpointSourceContraction(unittest.TestCase):
             self.assertLessEqual(z["source_two_endpoint_min_degree_and_shadow_upper"],shadow)
             self.assertGreaterEqual(z["source_two_endpoint_min_degree_and_shadow_upper"],z["actual_proper_P3"])
 
+    def test_FULL_W34_independently_fixed_original_shadow_coupling_negative_result(self):
+        expected=[
+            (83892,2117602,2033710,28136,19066,284,182468398,232414728),
+            (82846,2037178,1954332,27648,19418,626,171649626,227950208),
+            (79404,2077654,1998250,27948,18494,222,165337138,214337828)
+        ]
+        for r,e in zip(self.rows[3:6],expected):
+            n,shadow,defect,bins,better_core,better_spec,combined_sq,old_sq=e
+            m=r["exact_full_two_endpoint_source_moments"]
+            c=r["counts"]
+            self.assertEqual(r["exact_TRUE_original_proper_directed_P3s"],n)
+            self.assertEqual(m["source_retained_CORE_projection_orientation_shadow"],shadow)
+            self.assertEqual(m["source_retained_shadow_to_true_physical_coupling_defect"],defect)
+            self.assertEqual(shadow,n+defect)
+            self.assertGreater(Fraction(defect,shadow),Fraction(95,100))
+            self.assertEqual(c["nonempty_ordered_physical_proper_P3_endpoint_bins"],bins)
+            self.assertEqual(c["bins_retained_source_shadow_strictly_beats_degree_product"],better_core)
+            self.assertEqual(c["bins_spectral_GQ_shadow_strictly_beats_degree_product"],better_spec)
+            self.assertLess(better_spec*100,bins*3)
+            self.assertGreater(better_core*10,bins*6)
+            self.assertEqual(m["degree_and_retained_upper_square_sum"],combined_sq)
+            self.assertEqual(m["degree_product_upper_square_sum"],old_sq)
+            self.assertGreater(old_sq,combined_sq)
+            self.assertGreater(Fraction(combined_sq,old_sq),Fraction(7,10))
+            self.assertLess(Fraction(combined_sq,old_sq),Fraction(4,5))
+
     def test_source_strict_fail_closed_same_endpoints_invalid(self):
         c=_source(2,"lex","full")
         u=next(iter(c["adj"]))
