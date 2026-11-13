@@ -235,6 +235,38 @@ Together with (GS-10) this implies the robust ALL-h source physical degree-squar
 
 This could serve as a legitimate host-graph norm input for the still-open original LOW/HEAVY proof. For the FULL original graph \(|I|=(s+1)V_s=\Theta(s^4)\), the resulting general bound is \(O(s^6)\). For an arbitrarily retained CORE it scales with the ACTUAL number of retained original incidence flags, not a guessed |Z| or renamed source flag count.
 
+### NEW all-h genuine physical P3 endpoint-fiber support O(s⁴) — first two-endpoint consequence
+
+For EVERY fixed ordered pair of physical vertices \(u,v\), a genuine coordinate-proper directed physical \(P_3=(u,a,b,v)\) in the retained ORIGINAL physical graph is uniquely specified by its FIRST interior physical vertex \(a\in N_{H_C}(u)\) and LAST interior physical vertex \(b\in N_{H_C}(v)\). The middle physical edge \(ab\) either exists in the true paired CORE or does not, and the coordinate-proper condition can only further DELETE such pairs. Consequently
+
+\[
+\boxed{
+|\Gamma_{uv}|\le d_C(u)d_C(v)
+\le \Delta(H_C)^2
+\le \Delta_{\rm spectral}(s)^2
+=O(s^4).
+}
+\tag{GS-13}
+\]
+
+This is a genuine all-h fixed-label **SAME-ENDPOINT FIBER SUPPORT** bound, not merely an arbitrary graph count: all involved edges are true original paired physical diagonals with unique source incidence owners, so the bound is valid for the ROOT proper-selector path collection as a subset. It improves the simpler original incidence bound \(O(s^5)\) obtained by squaring the naive \(O(s^{5/2})\) maximum degree.
+
+With the original PRIORITY-PLUS-TWO-CUT selector, every proper path marginal satisfies \(0<t_\gamma\le1/64\) (its three original owner local minima event has probability at most one, and its three actual source flag x/y pair cuts each have probability 1/4). Therefore its ordered endpoint path mass \(W_{uv}=\sum_{\gamma\in\Gamma_{uv}}t_\gamma\) satisfies
+
+\[
+\boxed{
+M_{uv}=W_{uv}^2
+\le \left(\frac{|\Gamma_{uv}|}{64}\right)^2
+\le\frac{\Delta_{\rm spectral}(s)^4}{4096}
+=O(s^8).
+}
+\tag{GS-14}
+\]
+
+This new quantitative all-h per-endpoint **upper** M bound cannot be reversed into a positive universal lower bound on total M or compatible nondegenerate six-incidence mass. The largest possible endpoint fiber may still be very sparse. It is nevertheless a valid way to introduce the genuine GQ incidence operator into the next two-endpoint weighted source charge.
+
+The new exact verifier enumerates EVERY TRUE original proper directed physical P3 in all eight W32/W34 fixed source configurations, groups them by their actual ordered physical endpoint pair, and strictly checks the pointwise stronger \(n_{uv}\le d_C(u)d_C(v)\) and the full root centered spectral \(\Delta^2\) bound. The true full paths per source case must match the independent frozen baseline **1,346/1,154/838** (W32) and **83,892/82,846/79,404/9,966/66,418** (W34). No sampling of 2,000 paths or invented all-order GQ fixture.
+
 **Critical limitation:** the physical degree second moment by itself is NOT the needed source weighted \(B/M\) estimate or the six-incidence motif floor. For example, replacing all higher spectral terms by worst-case \(\Delta\) in a generic sixth-walk bound can still produce an \(O(s^{10})\) error, far above the target \(O(s^6)\) six-motif scale. Neither the original-weighted endpoint conditional source overlap sum \(\sum_{uv,i}w_{uv,i}N_{uv,i}\) nor the original GF5 positive seven-class incidence motif sum has yet been controlled by GS-12.
 
 The new lemma therefore improves a **genuine original incidence-geometric bottleneck** while retaining the main scientific blocker. A valid subsequent step must couple the physical vertex symbol-star bound to original P3 endpoint distribution and source-selector marginal weights without treating f/g as random or using an invalid physical alphabet assumption.
@@ -249,11 +281,11 @@ The dedicated referee runs only on the TRUE original symplectic W32/W34 incidenc
 4. Check all ORIGINAL source \(\sum d=4F\) conservation (full and retained), \(\sum d^2\le4F\Delta\), real physical max-degree witnesses (actual vertex x,y, original star sizes, exact integer squared slack), and all real W32/W34 cases with fixed labels lex/reverse/shift and named retained cores full/even/Z17.
 5. Separate algebra-only minimal-alphabet cap examples s=2,4,8,16,32,64, with explicit STOP for unsupported high-s source fixtures; invalid order or negative source star size fails closed.
 
-The specialist GitHub-hosted Ubuntu24 Python3.12 workflow executes 15 independent tests plus a strict eight-source, exact-integer machine JSON certificate; INDEX and full Research must be green on the FINAL HEAD before announcing all-CI acceptance. No changes to main or ancestor PRs, no ROOT PROVED_A, motif S_s lower proof or ASET exponent.
+The specialist GitHub-hosted Ubuntu24 Python3.12 workflow executes 17 independent tests plus a strict eight-source, exact-integer machine JSON certificate; INDEX and full Research must be green on the FINAL HEAD before announcing all-CI acceptance. No changes to main or ancestor PRs, no ROOT PROVED_A, motif S_s lower proof or ASET exponent.
 
 ## 7.1. FULL genuine ORIGINAL GQ physical degree observations and strict CI (not all-h extrapolation)
 
-On the scientific code/test HEAD \`247790b5a0ff34c214920e84e884b33c5dc88832\`, the first hosted [specialist #43422311390](https://github.com/definitely-stable/Mathlab/actions/runs/43422311390) completed **SUCCESS, 15/15 independent tests**, plus the strict complete eight-case source JSON certificate. [INDEX #43422311342](https://github.com/definitely-stable/Mathlab/actions/runs/43422311342) completed **SUCCESS** and full [Research #43422311379](https://github.com/definitely-stable/Mathlab/actions/runs/43422311379) must be checked independently. This documentation addition changes HEAD, so success on the new FINAL HEAD must be verified again; never transfer CI acceptance blindly.
+On the scientific code/test HEAD \`247790b5a0ff34c214920e84e884b33c5dc88832\`, the first hosted [specialist #43422311390](https://github.com/definitely-stable/Mathlab/actions/runs/43422311390) completed **SUCCESS, 15/15 independent tests (before the subsequently added GS-13/GS-14 tests)**, plus the strict complete eight-case source JSON certificate. [INDEX #43422311342](https://github.com/definitely-stable/Mathlab/actions/runs/43422311342) completed **SUCCESS** and full [Research #43422311379](https://github.com/definitely-stable/Mathlab/actions/runs/43422311379) must be checked independently. This documentation addition changes HEAD, so success on the new FINAL HEAD must be verified again; never transfer CI acceptance blindly.
 
 All table values below are EXACT integer ORIGINAL source physical degree measurements, not fitted graph data. Degrees are computed twice: (a) from actual physical opposite-diagonal owned edges and (b) from ORIGINAL point-line incidence count \(\mathbf1_{P_x}^\top N\mathbf1_{L_y}\) at EVERY physical vertex.
 
