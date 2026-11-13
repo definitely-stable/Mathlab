@@ -249,7 +249,7 @@ The dedicated referee runs only on the TRUE original symplectic W32/W34 incidenc
 4. Check all ORIGINAL source \(\sum d=4F\) conservation (full and retained), \(\sum d^2\le4F\Delta\), real physical max-degree witnesses (actual vertex x,y, original star sizes, exact integer squared slack), and all real W32/W34 cases with fixed labels lex/reverse/shift and named retained cores full/even/Z17.
 5. Separate algebra-only minimal-alphabet cap examples s=2,4,8,16,32,64, with explicit STOP for unsupported high-s source fixtures; invalid order or negative source star size fails closed.
 
-The specialist GitHub-hosted Ubuntu24 Python3.12 workflow executes 14 independent tests plus a strict eight-source, exact-integer machine JSON certificate; INDEX and full Research must be green on the FINAL HEAD before announcing all-CI acceptance. No changes to main or ancestor PRs, no ROOT PROVED_A, motif S_s lower proof or ASET exponent.
+The specialist GitHub-hosted Ubuntu24 Python3.12 workflow executes 15 independent tests plus a strict eight-source, exact-integer machine JSON certificate; INDEX and full Research must be green on the FINAL HEAD before announcing all-CI acceptance. No changes to main or ancestor PRs, no ROOT PROVED_A, motif S_s lower proof or ASET exponent.
 
 ## 8. Mathematical acceptance, known prior art and next allowed root proof gate
 
