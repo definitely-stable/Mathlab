@@ -1,0 +1,119 @@
+name: hyp105-aa4-original-gq-spectral-physical-degree
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-gq-spectral-physical-degree.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-GQ-SPECTRAL-PHYSICAL-DEGREE.md'
+      - 'research/hyp105_original_GQ_spectral_physical_degree_referee.py'
+      - 'research/test_hyp105_original_GQ_spectral_physical_degree_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-gq-spectral-physical-degree:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Seventeen independent GQ spectrum and true original P3 endpoint-fiber tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_GQ_spectral_physical_degree_referee.py' -v
+      - name: Strict original full W32/W34 source spectral physical degree certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_GQ_spectral_physical_degree_referee.py |
+            tee proof/hyp105-aa4-original-gq-spectral-physical-degree.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          import json
+          from fractions import Fraction
+          from math import comb
+          p=Path('proof/hyp105-aa4-original-gq-spectral-physical-degree.json.log')
+          lines=p.read_text().splitlines()
+          prefix='AA4_GQSPEC_CERTIFICATE='
+          assert len(lines)==1 and lines[0].startswith(prefix), 'one strict full-source JSON'
+          z=json.loads(lines[0][len(prefix):])
+          assert z['schema']=='mathlab.hyp105.original-gq-incidence-spectral-physical-degree.v1'
+          assert z['issue']==230 and z['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          for key in (
+              'known_prior_art_real_GQ_incidence_spectrum_not_claimed_novel',
+              'all_h_original_GQ_incidence_polynomial_T_squared_2sT_plus_s_plus_one_J',
+              'all_h_CORRELATED_pair_labels_original_physical_degree_centered_spectral_bound',
+              'all_h_root_minimal_alphabet_original_physical_max_degree_O_s_squared',
+              'all_h_original_source_rectangle_corner_degree_equals_physical_degree',
+              'all_h_original_CORE_degree_not_more_than_full_GQ_degree',
+              'all_h_original_physical_degree_square_energy_leq_max_degree_times_4CORE',
+              'all_h_original_TRUE_proper_P3_fiber_support_O_s_to_fourth'
+          ):
+              assert z[key] is True,key
+          for key in ('root_PROVED_A','all_h_root_GLOBAL_original_P3_B75_proved',
+                      'all_h_root_six_motif_obstruction_proved',
+                      'original_HEAVY_LOW_GF5_full_chain_claimed_complete',
+                      'ASET_exponent_claimed'):
+              assert z[key] is False,key
+          cases=z['eight_complete_original_W32_W34_real_physical_source_degree_cases']
+          assert len(cases)==8
+          assert [(r['original_s'],r['original_fixed_scheme'],r['original_retained_CORE'])
+                   for r in cases]==[(2,'lex','full'),(2,'reverse','full'),(2,'shift','Z17'),
+                                     (4,'lex','full'),(4,'reverse','full'),(4,'shift','full'),
+                                     (4,'lex','even'),(4,'shift','Z17')]
+          expected_paths=[1346,1154,838,83892,82846,79404,9966,66418]
+          assert [r['true_original_coordinate_proper_P3_total_count'] for r in cases]==expected_paths
+          for r in cases:
+              s=r['original_s']
+              V=(s+1)*(s*s+1)
+              assert r['original_V']==V
+              assert r['original_ALL_named_source_flags']==(s+1)*V
+              assert r['all_physical_original_vertices_checked']==r['original_minimal_pair_alphabet']**2
+              assert r['exact_original_GQ_incidence_and_physical_graph_cross_oracles_passed'] is True
+              sp=r['actual_GQ_integer_incidence_spectrum_certificate']
+              assert sp['all_fixture_source_spectral_identities_passed'] is True
+              assert sp['exact_integer_T_squared_identity_entries_checked']==V*V
+              assert sp['known_REAL_incidence_singular_square_top']==(s+1)**2
+              assert sp['known_REAL_incidence_singular_square_nontrivial']==2*s
+              assert sp['known_spectral_multiplicity_2s']==s*(s+1)**2//2
+              assert sp['known_spectral_multiplicity_zero']==V-1-s*(s+1)**2//2
+              cap=r['root_minimal_alphabet_all_h_uniform_capacity']
+              assert r['original_minimal_pair_alphabet']==cap['original_minimal_pair_alphabet_a']
+              assert r['actual_CORE_original_max_physical_vertex_degree']<=r['actual_full_original_max_physical_vertex_degree']
+              assert r['actual_full_original_max_physical_vertex_degree']<=cap['uniform_best_spectral_K22_degree_cap']
+              assert r['original_full_physical_vertex_degree_square_sum']<=4*r['original_ALL_named_source_flags']*r['actual_full_original_max_physical_vertex_degree']
+              assert r['original_retained_physical_vertex_degree_square_sum']<=4*r['original_CORE_retained_named_source_flags']*r['actual_CORE_original_max_physical_vertex_degree']
+              assert r['actual_original_paired_physical_edges']==2*r['original_CORE_retained_named_source_flags']
+              witness=r['real_original_physical_degree_witness']
+              assert witness['actual_full_original_degree']==r['actual_full_original_max_physical_vertex_degree']
+              assert witness['exact_GQ_centered_mixing_squared_slack']>=0
+              assert r['all_h_REAL_physical_P3_endpoint_support_at_most_Delta_squared'] is True
+              assert r['nonempty_true_original_P3_ordered_physical_endpoint_bins']>0
+              w=r['max_true_original_proper_P3s_per_bin_witness']
+              assert w['proper_source_P3_count']==r['max_true_original_proper_P3s_per_physical_endpoint_bin']
+              assert w['proper_source_P3_count']<=w['exact_endpoint_degree_product_cap']
+              assert w['exact_endpoint_degree_product_cap']==w['first_endpoint_actual_physical_degree']*w['last_endpoint_actual_physical_degree']
+              assert w['proper_source_P3_count']<=w['uniform_original_spectral_Delta_squared_cap']
+              assert r['root_PROVED_A'] is False and r['full_all_h_B75_proved'] is False
+          cap=z['independent_all_order_algebraic_minimal_alphabet_spectral_capacity']
+          assert [r['original_s'] for r in cap]==[2,4,8,16,32,64]
+          expected={2:(6,11,15),4:(14,41,65),8:(35,145,306),
+                    16:(94,548,1581),32:(261,2129,8580),64:(731,8366,47450)}
+          for q in cap:
+              s=q['original_s'];a,center,naive=expected[s]
+              assert q['original_minimal_pair_alphabet_a']==a
+              assert q['uniform_centered_spectral_degree_cap']==center
+              assert q['uniform_original_source_naive_degree_cap']==naive
+              assert center<naive
+              assert q['uniform_best_spectral_K22_degree_cap']<=center
+              assert q['does_NOT_prove_original_weighted_B_over_M_below_three_quarters'] is True
+              assert q['no_GQ_fixture_claimed_for_s_greater_than_four'] is (s>4)
+          print('ACCEPT all-h ORIGINAL physical Delta O(s²) and genuine P3 endpoint fiber O(s⁴); ROOT OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-genuine-original-gq-spectral-degree
+          path: proof/hyp105-aa4-original-gq-spectral-physical-degree.json.log
