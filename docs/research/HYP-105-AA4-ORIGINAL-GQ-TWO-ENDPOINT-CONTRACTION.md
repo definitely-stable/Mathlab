@@ -79,6 +79,38 @@ This is a concrete failure mode to preserve in future proofs: pretending the two
 
 For retained CORE the exact second nonnegative deletion defect is \(E_{\rm deleted}=S_F-S_C\ge0\). For full CORE \(E_{\rm deleted}=0\), while \(E_{\rm coupling}\) can still be positive.
 
+### 3.1. NEW exact JOINT two-endpoint ORIGINAL incidence kernel (the missing correction)
+
+There is also a direct ALL-h exact source-indexed tensor contraction, without the independent-coordinate relaxation. For a TRUE original middle source flag i=(p,l) and each of its FOUR oriented opposite-diagonal edges a→b, set
+
+\[
+K_{uv}(i)=\sum_{a\to b\text{ among the 4 real middle directions of }i}
+\mathbf1[\,u\sim_{H_C}a\,]
+\mathbf1[\,b\sim_{H_C}v\,]
+\mathbf1[\,u_x,a_x,b_x,v_x\text{ all distinct}\,]
+\mathbf1[\,u_y,a_y,b_y,v_y\text{ all distinct}\,].
+\]
+
+Then the EXACT source-first identity is
+
+\[
+\boxed{n_{uv}=\sum_{i\in I_C}K_{uv}(i).}
+\tag{EP-4a}
+\]
+
+Indeed, each correct physical path has exactly one middle directed original source edge; conversely every counted orientation is a real adjacent coordinate-proper physical 3path. Coordinate properness forces the three original owner f-pairs (and separately g-pairs) to be distinct, so no two owners share the same genuine original point or line, and the true original J-properness requirement is satisfied. This is NOT a claim that original path selection events are independent.
+
+Let \(\widehat K_{uv}(i)\) be exactly the same sum with the two JOINT physical-neighbor tests \(u\sim a,b\sim v\) relaxed to their separate first and second coordinate projection memberships, as in EP-2. Then
+
+\[
+\boxed{\widehat K_{uv}(i)=\phi_{uv}(p)\psi_{uv}(l),\quad
+E_{\rm coupling}(u,v)=
+\sum_{i\in I_C}\bigl[\widehat K_{uv}(i)-K_{uv}(i)\bigr].}
+\tag{EP-4b}
+\]
+
+**Each individual summand is nonnegative** because a true physical neighbor implies BOTH coordinate memberships. This gives an exact source-flag-by-source-flag nonnegative defect decomposition, not merely a global integer difference; it identifies precisely the **JOINT endpoint physical-adjacency condition** that any next weighted GQ theorem must preserve. The independent verification does not assume the two coordinate factors are independent: it explicitly enumerates the four actual oriented ORIGINAL middle diagonals and recomputes both \(K\) and \(\widehat K\).
+
 ## 4. ALL-h centered REAL GQ weighted spectral upper (classical operator, NEW input vectors)
 
 Let \(S_\phi=\sum_p\phi(p)\), \(Q_\phi=\sum_p\phi(p)^2\), \(S_\psi=\sum_\ell\psi(\ell)\), \(Q_\psi=\sum_\ell\psi(\ell)^2\). The complete true original GQ incidence matrix \(N\) is \((s+1)\)-biregular and its largest nonconstant REAL singular value is \(\sqrt{2s}\).
@@ -165,7 +197,27 @@ The new referee uses genuine original symplectic flag and physical opposite-diag
 - Independently verify ALL numerical identities \(n\le S_C\le S_F\le U_{\rm GQ}\), \(n\le d(u)d(v)\), EP-7 in integers, \(\sum n^2\) and source shadow/deleted/coupling conservation. Export exact per-bin maxima and a genuine physical endpoint witness for the strongest improvement from the direct original CORE source shadow vs degree-product.
 - For **EVERY W32** active endpoint bin and deterministic physical endpoint samples including each largest W34 source P3 family, an entirely separate oracle iterates all FOUR real ORIENTED paired diagonal middle physical edges of each retained ORIGINAL incidence flag and checks its actual physical neighbor coupling. Exact first/second counts must equal \(S_C,n\), independently of the algebraic \(\phi^\top N_C\psi\) computation and previous path enumeration.
 - W32 full lex/reverse and shift Z17, plus W34 FULL lex/reverse/shift, lex even, shifted Z17: the complete directed proper P3 population must be exactly **1,346/1,154/838** and **83,892/82,846/79,404/9,966/66,418**. All eight are complete, not truncated sample populations.
-- A dedicated Ubuntu24 GitHub-hosted Python3.12 workflow runs 13 independent tests plus a strict single-line JSON/Fraction/integer source certificate; INDEX and FULL Research must be independently green on the FINAL HEAD. No CI green assertion will be carried forward from an earlier HEAD without rechecking.
+- A dedicated Ubuntu24 GitHub-hosted Python3.12 workflow runs 14 independent tests plus a strict single-line JSON/Fraction/integer source certificate; INDEX and FULL Research must be independently green on the FINAL HEAD. No CI green assertion will be carried forward from an earlier HEAD without rechecking.
+
+## 6.1. COMPLETE TRUE ORIGINAL W34 experimental falsification of uncorrected projection tightness
+
+The first dedicated full true source CI completed [specialist #43495403926](https://github.com/definitely-stable/Mathlab/actions/runs/43495403926) **SUCCESS, 13/13 independently checked tests plus exact eight-case integer machine JSON**, [INDEX #43495403852](https://github.com/definitely-stable/Mathlab/actions/runs/43495403852) **SUCCESS** on the initial scientific code HEAD \`77a979468fbdc934183c381e3afcc6a5049e96e1\`. The full Research workflow #43495403745 was independently running when the table was drafted. The new final-head additional finite-result test and documentation will trigger another CI, which must be separately checked. Exact integers below are complete source censuses, not extrapolated numerical estimates or random f/g expectations.
+
+| Genuine FULL ORIGINAL W(3,4), fixed f/g | Actual proper P3 n summed over ordered endpoint bins | Two-endpoint retained source orientation projection shadow S_C summed | Exact physical JOINT endpoint-coupling defect S_C−n | Fraction of all projected orientations NOT real proper paths | Nonempty endpoint bins where S_C beats d(u)d(v) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| FULL lex | **83,892** | 2,117,602 | **2,033,710** | **96.0383%** | 19,066 / 28,136 = 67.76% |
+| FULL reverse | **82,846** | 2,037,178 | **1,954,332** | **95.9333%** | 19,418 / 27,648 = 70.23% |
+| FULL shifted | **79,404** | 2,077,654 | **1,998,250** | **96.1782%** | 18,494 / 27,948 = 66.17% |
+
+The true original physical coordinate-proper projection shadow \(S_C\) is **24.59–26.17× larger** than the actual proper physical P3 count across these finite fixed-source labelings. Therefore a proof that treats independent x/y endpoint projections as a faithful approximation to joint actual physical source adjacency would be **strongly false even in these small full original cases**.
+
+The separate GQ SPECTRAL-ONLY relaxed upper \(U_{\rm GQ}\) beats the actual endpoint degree product \(d(u)d(v)\) for only **284/28,136 (1.01%)**, **626/27,648 (2.26%)**, and **222/27,948 (0.79%)** of the respective nonempty W34 endpoint families. This is a **negative practical result** for using only the true classical GQ spectral mixing on the independently projected source labels.
+
+However the exact source CORE projection contraction does give a valid **instance-dependent upper improvement**: the sum of squared endpoint upper bounds
+\(\sum_{uv}\min\{d(u)d(v),S_C(u,v)\}^2\)
+reduces from **232,414,728 to 182,468,398** in FULL lex (**21.49% reduction**), from **227,950,208 to 171,649,626** in reverse (**24.70% reduction**), and from **214,337,828 to 165,337,138** in shift (**22.86% reduction**). These bounds are still HUGE compared with the TRUE full proper path endpoint square sums **358,424 / 360,670 / 323,816**. Therefore the new upper bound, although mathematically exact as a source projection-relaxation certificate, is nowhere near a sharp enough estimate for the original universal weighted-good-mass proof.
+
+**RESEARCH DECISION:** Stop trying to improve the root's conditional weighted source collision bound via further refinements of the **SEPARATE x/y projection** spectral norm alone. The next valuable source proof must retain the JOINT endpoint-neighbor incidence masks in \(K_{uv}(i)\), then transfer the exact genuine shared selector 3-owner priority marginals to a source-flag-indexed weighted tensor \(W_{uv,i}\) and control its pair-label-overlap quadratic \(R/M\) with genuine GQ incidence. No all-h gain from finite fixed f/g percentages is claimed; the correct counterexample search must allow fully correlated f/g at arbitrary h.
 
 ## 7. Scientific conclusion, negative controls and next allowed action
 
