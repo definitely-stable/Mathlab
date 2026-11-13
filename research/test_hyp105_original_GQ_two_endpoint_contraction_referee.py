@@ -58,7 +58,7 @@ class TestOriginalGQTwoEndpointSourceContraction(unittest.TestCase):
     def test_all_h_two_coordinate_orientation_vector_exact_cases(self):
         pairs=((0,1),(0,2),(1,2),(2,3),(3,4))
         self.assertEqual(
-            _oriented_source_pair_star(pairs,{1,2,3},{1,2,3},5,6),
+            _oriented_source_pair_star(pairs,{0,1,2,3},{0,1,2,3},5,6),
             (2,2,2,2,0))
         self.assertEqual(
             _oriented_source_pair_star(pairs,{0,2},{1,3},4,5),
@@ -67,7 +67,7 @@ class TestOriginalGQTwoEndpointSourceContraction(unittest.TestCase):
             _oriented_source_pair_star(pairs,{0,2},{1,3},3,3),
             (0,0,0,0,0))
         self.assertEqual(
-            _oriented_source_pair_star(pairs,{0,2},{1,3},0,5),
+            _oriented_source_pair_star(pairs,{0},{1},0,5),
             (0,0,0,0,0))
 
     def test_every_source_all_h_exact_inequality_chain(self):
