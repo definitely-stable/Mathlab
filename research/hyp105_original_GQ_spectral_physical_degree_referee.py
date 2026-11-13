@@ -186,7 +186,7 @@ def _one_true_original_physical_source_degree_case(s,scheme,core):
         for x in f[p]:r[x]+=1
     for l in range(V):
         for y in g[l]:cc[y]+=1
-    if sum(r)!=sum(cc)!=2*V:
+    if sum(r)!=2*V or sum(cc)!=2*V:
         raise AssertionError("source physical pair incidence occupancy sum wrong")
     if max(r)>a-1 or max(cc)>a-1 or min(r)<0 or min(cc)<0:
         raise AssertionError("global pair-injective original physical star count wrong")
