@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Thirteen independent actual ORIGINAL GQ two-endpoint contraction and coupling tests
+      - name: Fourteen independent ORIGINAL GQ two-endpoint contraction and physical coupling tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_GQ_two_endpoint_contraction_referee.py' -v
       - name: Strict complete eight-original-source exact integer spectral and physical shadow cert
         shell: bash
@@ -94,7 +94,26 @@ jobs:
               assert w['source_WEIGHTED_centered_GQ_spectral_shadow_upper']==((r['original_s']+1)*S*T+isqrt(rad))//V
               assert w['all_h_source_orientation_phi_psi_range_0_to_2'] is True
               assert r['root_PROVED_A'] is False
-          print('ACCEPT TRUE original two-endpoint GQ weighted projection/physical coupling all-h upper; ROOT OPEN')
+          expect=[
+              (83892,2117602,2033710,28136,19066,284,182468398,232414728),
+              (82846,2037178,1954332,27648,19418,626,171649626,227950208),
+              (79404,2077654,1998250,27948,18494,222,165337138,214337828)]
+          for r,e in zip(rows[3:6],expect):
+              n,shadow,defect,bins,better_core,better_spec,combined_sq,old_sq=e
+              m=r['exact_full_two_endpoint_source_moments']
+              c=r['counts']
+              assert r['exact_TRUE_original_proper_directed_P3s']==n
+              assert m['source_retained_CORE_projection_orientation_shadow']==shadow
+              assert m['source_retained_shadow_to_true_physical_coupling_defect']==defect
+              assert shadow==n+defect
+              assert 100*defect>95*shadow
+              assert c['nonempty_ordered_physical_proper_P3_endpoint_bins']==bins
+              assert c['bins_retained_source_shadow_strictly_beats_degree_product']==better_core
+              assert c['bins_spectral_GQ_shadow_strictly_beats_degree_product']==better_spec
+              assert m['degree_and_retained_upper_square_sum']==combined_sq
+              assert m['degree_product_upper_square_sum']==old_sq
+              assert 7*old_sq<10*combined_sq<8*old_sq
+          print('ACCEPT TRUE original two-endpoint source GQ shadow, 96pct physical coupling defect and all-h bound; ROOT OPEN')
           PYCODE
       - uses: actions/upload-artifact@v4
         with:
