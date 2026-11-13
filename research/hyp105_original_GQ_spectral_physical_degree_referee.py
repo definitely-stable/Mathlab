@@ -27,7 +27,7 @@ from itertools import combinations
 from math import comb,isqrt
 import json
 
-from hyp105_original_full_w34_weighted_risk_referee import _source
+from hyp105_original_full_w34_weighted_risk_referee import _source, _true_original_proper_P3
 from hyp105_original_symbol_secondmoments_referee import _minimal_pair_alphabet
 
 SCHEMA="mathlab.hyp105.original-gq-incidence-spectral-physical-degree.v1"
@@ -261,6 +261,32 @@ def _one_true_original_physical_source_degree_case(s,scheme,core):
         raise AssertionError("actual original physical stars evade global centered cap")
     if not sum_ret_sq<=maxret*sum(retained):
         raise AssertionError("actual original physical degree second moment > Delta*sum degree")
+    # NEW ALL-h physical same-endpoint ORIGINAL P3 fiber bound:
+    # every path (u,a,b,v) is uniquely specified by a in N(u) and
+    # b in N(v), hence |Gamma_uv|<=d(u)*d(v)<=Delta^2.
+    # This uses real opposite-diagonal CORE physical edges, not
+    # a source-owner cloning or priority-independence argument.
+    physical_endpoint_family=defaultdict(int)
+    for path,owners in _true_original_proper_P3(c):
+        physical_endpoint_family[(path[0],path[-1])]+=1
+    if not physical_endpoint_family:
+        raise AssertionError("no actual ORIGINAL coordinate-proper P3 physical endpoint families")
+    largest_fiber=None
+    for ends,n in physical_endpoint_family.items():
+        u,v=ends
+        du=len(c["adj"][u]);dv=len(c["adj"][v])
+        if n>du*dv or n>maxret*maxret or n>bound["uniform_centered_spectral_degree_cap"]**2:
+            raise AssertionError("genuine all-h original spectral physical degree P3 endpoint fiber upper bound false")
+        if largest_fiber is None or n>largest_fiber["proper_source_P3_count"]:
+            largest_fiber={
+                "actual_ordered_physical_endpoints":[list(u),list(v)],
+                "proper_source_P3_count":n,
+                "first_endpoint_actual_physical_degree":du,
+                "last_endpoint_actual_physical_degree":dv,
+                "exact_endpoint_degree_product_cap":du*dv,
+                "uniform_original_spectral_Delta_squared_cap":
+                    bound["uniform_centered_spectral_degree_cap"]**2,
+            }
     if not sum_full_sq<=maxfull*sum(full):
         raise AssertionError("full original physical degree second moment > Delta*sum degree")
     return {
@@ -280,6 +306,14 @@ def _one_true_original_physical_source_degree_case(s,scheme,core):
         "exact_original_GQ_incidence_and_physical_graph_cross_oracles_passed":True,
         "original_source_point_and_line_pair_label_total_occupancy":2*V,
         "real_original_physical_degree_witness":tightest,
+        "true_original_coordinate_proper_P3_total_count":
+            sum(physical_endpoint_family.values()),
+        "nonempty_true_original_P3_ordered_physical_endpoint_bins":
+            len(physical_endpoint_family),
+        "max_true_original_proper_P3s_per_physical_endpoint_bin":
+            largest_fiber["proper_source_P3_count"],
+        "max_true_original_proper_P3s_per_bin_witness":largest_fiber,
+        "all_h_REAL_physical_P3_endpoint_support_at_most_Delta_squared":True,
         "root_minimal_alphabet_all_h_uniform_capacity":bound,
         "actual_GQ_integer_incidence_spectrum_certificate":spectrum,
         "root_PROVED_A":False,
@@ -303,6 +337,7 @@ def canonical_report():
         "all_h_original_source_rectangle_corner_degree_equals_physical_degree":True,
         "all_h_original_CORE_degree_not_more_than_full_GQ_degree":True,
         "all_h_original_physical_degree_square_energy_leq_max_degree_times_4CORE":True,
+        "all_h_original_TRUE_proper_P3_fiber_support_O_s_to_fourth":True,
         "all_h_root_GLOBAL_original_P3_B75_proved":False,
         "all_h_root_six_motif_obstruction_proved":False,
         "original_HEAVY_LOW_GF5_full_chain_claimed_complete":False,
