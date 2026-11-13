@@ -18,7 +18,7 @@ from hyp105_original_GQ_spectral_physical_degree_referee import (
     _one_true_original_physical_source_degree_case,
     canonical_report
 )
-from hyp105_original_full_w34_weighted_risk_referee import _source
+from hyp105_original_full_w34_weighted_risk_referee import _source, _true_original_proper_P3
 
 
 class TestTrueOriginalGQRealIncidenceSpectralPhysicalDegree(unittest.TestCase):
@@ -182,6 +182,44 @@ class TestTrueOriginalGQRealIncidenceSpectralPhysicalDegree(unittest.TestCase):
                 e=next(z for z in cases if z["original_retained_CORE"]=="even")
                 self.assertLess(e["actual_CORE_original_max_physical_vertex_degree"],
                                 e["actual_full_original_max_physical_vertex_degree"])
+
+    def test_ALL_h_REAL_original_PROPER_P3_same_endpoint_fiber_Delta_squared(self):
+        self.assertTrue(self.cert[
+            "all_h_original_TRUE_proper_P3_fiber_support_O_s_to_fourth"])
+        expected=[1346,1154,838,83892,82846,79404,9966,66418]
+        self.assertEqual(
+            [r["true_original_coordinate_proper_P3_total_count"] for r in self.rows],
+            expected)
+        for r in self.rows:
+            self.assertTrue(
+                r["all_h_REAL_physical_P3_endpoint_support_at_most_Delta_squared"])
+            n=r["max_true_original_proper_P3s_per_physical_endpoint_bin"]
+            w=r["max_true_original_proper_P3s_per_bin_witness"]
+            self.assertEqual(n,w["proper_source_P3_count"])
+            self.assertEqual(len(w["actual_ordered_physical_endpoints"]),2)
+            self.assertLessEqual(n,w["exact_endpoint_degree_product_cap"])
+            self.assertEqual(w["exact_endpoint_degree_product_cap"],
+                w["first_endpoint_actual_physical_degree"]*
+                w["last_endpoint_actual_physical_degree"])
+            self.assertLessEqual(n,r["actual_CORE_original_max_physical_vertex_degree"]**2)
+            self.assertLessEqual(n,w["uniform_original_spectral_Delta_squared_cap"])
+            self.assertGreater(r["nonempty_true_original_P3_ordered_physical_endpoint_bins"],0)
+
+    def test_independent_REAL_original_endpoint_fibers_not_cloned(self):
+        for scheme,core in (("lex","full"),("reverse","full"),("shift","Z17")):
+            c=_source(2,scheme,core)
+            byend=defaultdict(int)
+            for path,owners in _true_original_proper_P3(c):
+                byend[(path[0],path[-1])]+=1
+            row=next(r for r in self.rows if
+                     (r["original_s"],r["original_fixed_scheme"],
+                      r["original_retained_CORE"])==(2,scheme,core))
+            self.assertEqual(sum(byend.values()),
+                row["true_original_coordinate_proper_P3_total_count"])
+            self.assertEqual(max(byend.values()),
+                row["max_true_original_proper_P3s_per_physical_endpoint_bin"])
+            for (u,v),count in byend.items():
+                self.assertLessEqual(count,len(c["adj"][u])*len(c["adj"][v]))
 
     def test_centered_spectral_mixing_exact_rational_integer_falsifier(self):
         # Manual direct original GQ submatrix incidence count for every
