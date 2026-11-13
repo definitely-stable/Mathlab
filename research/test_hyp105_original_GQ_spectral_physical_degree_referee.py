@@ -156,6 +156,22 @@ class TestTrueOriginalGQRealIncidenceSpectralPhysicalDegree(unittest.TestCase):
                 z["actual_CORE_original_max_physical_vertex_degree"]*
                 4*z["original_CORE_retained_named_source_flags"])
 
+    def test_exact_real_physical_graph_second_moment_from_adjacency_independent(self):
+        for s,scheme,core in CASES:
+            c=_source(s,scheme,core)
+            row=next(q for q in self.rows if
+                (q["original_s"],q["original_fixed_scheme"],
+                 q["original_retained_CORE"])==(s,scheme,core))
+            a=c["a"]
+            adj_degrees=[len(c["adj"].get((x,y),()))
+                         for x in range(a) for y in range(a)]
+            self.assertEqual(sum(adj_degrees),4*len(c["ids"]))
+            self.assertEqual(sum(t*t for t in adj_degrees),
+                             row["original_retained_physical_vertex_degree_square_sum"])
+            self.assertEqual(max(adj_degrees),
+                             row["actual_CORE_original_max_physical_vertex_degree"])
+            self.assertEqual(len(c["owner"]),2*len(c["ids"]))
+
     def test_actual_SOURCE_core_pruning_only_reduces_true_physical_degrees(self):
         for s in (2,4):
             cases=[z for z in self.rows if z["original_s"]==s]
@@ -192,8 +208,8 @@ class TestTrueOriginalGQRealIncidenceSpectralPhysicalDegree(unittest.TestCase):
                 self.assertGreaterEqual(cap,0)
                 self.assertLessEqual(cap,r*c)
                 self.assertEqual(cap,_k22_degree_cap_integer(c,r))
-                self.assertTrue(cap*cap-r*cap<=r*c*(c-1)
-                    or cap*cap-c*cap<=c*r*(r-1))
+                self.assertLessEqual(cap*cap-r*cap,r*c*(c-1))
+                self.assertLessEqual(cap*cap-c*cap,c*r*(r-1))
         self.assertEqual(_k22_degree_cap_integer(0,12),0)
         self.assertEqual(_k22_degree_cap_integer(12,0),0)
 
