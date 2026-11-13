@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Fourteen independent GQ spectral polynomial and true physical source tests
+      - name: Fifteen independent GQ spectral polynomial and true physical source tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_GQ_spectral_physical_degree_referee.py' -v
       - name: Strict original full W32/W34 source spectral physical degree certificate
         shell: bash
