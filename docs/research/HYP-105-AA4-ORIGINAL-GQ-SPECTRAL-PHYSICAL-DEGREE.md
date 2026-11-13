@@ -251,6 +251,27 @@ The dedicated referee runs only on the TRUE original symplectic W32/W34 incidenc
 
 The specialist GitHub-hosted Ubuntu24 Python3.12 workflow executes 15 independent tests plus a strict eight-source, exact-integer machine JSON certificate; INDEX and full Research must be green on the FINAL HEAD before announcing all-CI acceptance. No changes to main or ancestor PRs, no ROOT PROVED_A, motif S_s lower proof or ASET exponent.
 
+## 7.1. FULL genuine ORIGINAL GQ physical degree observations and strict CI (not all-h extrapolation)
+
+On the scientific code/test HEAD \`247790b5a0ff34c214920e84e884b33c5dc88832\`, the first hosted [specialist #43422311390](https://github.com/definitely-stable/Mathlab/actions/runs/43422311390) completed **SUCCESS, 15/15 independent tests**, plus the strict complete eight-case source JSON certificate. [INDEX #43422311342](https://github.com/definitely-stable/Mathlab/actions/runs/43422311342) completed **SUCCESS** and full [Research #43422311379](https://github.com/definitely-stable/Mathlab/actions/runs/43422311379) must be checked independently. This documentation addition changes HEAD, so success on the new FINAL HEAD must be verified again; never transfer CI acceptance blindly.
+
+All table values below are EXACT integer ORIGINAL source physical degree measurements, not fitted graph data. Degrees are computed twice: (a) from actual physical opposite-diagonal owned edges and (b) from ORIGINAL point-line incidence count \(\mathbf1_{P_x}^\top N\mathbf1_{L_y}\) at EVERY physical vertex.
+
+| Actual TRUE ORIGINAL source configuration | Full source physical max degree | Retained physical max degree | Uniform all-h centered spectral cap | Real full physical \(\sum_z d(z)^2\) |
+| --- | ---: | ---: | ---: | ---: |
+| W(3,2), FULL lex | **9** | 9 | 11 | 1,026 |
+| W(3,2), FULL reverse | **8** | 8 | 11 | 968 |
+| W(3,2), shift/Z17 | **8** | 8 | 11 | 950 |
+| W(3,4), FULL lex | **25** | 25 | 41 | 16,918 |
+| W(3,4), FULL reverse | **18** | 18 | 41 | 16,818 |
+| W(3,4), FULL shift | **19** | 19 | 41 | 16,394 |
+| W(3,4), lex/even retained CORE | **25** | **13** | 41 | 16,918 |
+| W(3,4), shift/Z17 retained CORE | **19** | **18** | 41 | 16,394 |
+
+For comparison, at \(s=4\) the classical no-\(K_{2,2}\) Kővári–Sós–Turán two-set Cauchy bound permits degree 52, the naive source point degree bound permits 65, while the **new application of centered original GQ spectrum proves 41** for every fixed legal minimal-alphabet f/g pair labeling. The actual FULL lex maximum 25 still lies well below 41, so this certificate is a universal worst-case geometric bound, NOT a tight exact degree prediction. The lex/even retained CORE actual maximum 13 demonstrates the necessity of distinguishing FULL GQ spectral mixing from arbitrary CORE source incidence truncation.
+
+Importantly, the real \(\sum d^2\) values can be far smaller than the universal handshaking bound \(4F\Delta_{\rm spectral}\): for FULL W34 lex this generic cap is \(4\cdot425\cdot41=69\,700\), while the exact ORIGINAL source degree square energy is only **16,918**. Therefore using only \(\Delta_{\rm spectral}\) may discard most of the structure needed for a true weighted six-motif result. A legitimate next step should preserve the whole physical degree distribution and the source weighted middle overlap structure, instead of treating the new maximum-degree estimate as a completed Branch A proof.
+
 ## 8. Mathematical acceptance, known prior art and next allowed root proof gate
 
 **All-h PROVED (as mathematics, subject to strict head-CI implementation checks):** original GQ incidence spectral polynomial GS-2 (classical, not new); exact true ORIGINAL physical-vertex degree as a source-GQ symbol-star incidence GS-5/6 (source pairing application); CENTERED arbitrary correlated label mixing GS-7/8; root-minimal-alphabet uniform physical max degree \(\Delta=O(s^2)\) GS-10; exact physical degree conservation and square-energy GS-11/12.
