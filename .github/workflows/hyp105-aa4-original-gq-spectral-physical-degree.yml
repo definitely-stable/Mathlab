@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Fifteen independent GQ spectral polynomial and true physical source tests
+      - name: Seventeen independent GQ spectrum and true original P3 endpoint-fiber tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_GQ_spectral_physical_degree_referee.py' -v
       - name: Strict original full W32/W34 source spectral physical degree certificate
         shell: bash
@@ -49,7 +49,8 @@ jobs:
               'all_h_root_minimal_alphabet_original_physical_max_degree_O_s_squared',
               'all_h_original_source_rectangle_corner_degree_equals_physical_degree',
               'all_h_original_CORE_degree_not_more_than_full_GQ_degree',
-              'all_h_original_physical_degree_square_energy_leq_max_degree_times_4CORE'
+              'all_h_original_physical_degree_square_energy_leq_max_degree_times_4CORE',
+              'all_h_original_TRUE_proper_P3_fiber_support_O_s_to_fourth'
           ):
               assert z[key] is True,key
           for key in ('root_PROVED_A','all_h_root_GLOBAL_original_P3_B75_proved',
@@ -63,6 +64,8 @@ jobs:
                    for r in cases]==[(2,'lex','full'),(2,'reverse','full'),(2,'shift','Z17'),
                                      (4,'lex','full'),(4,'reverse','full'),(4,'shift','full'),
                                      (4,'lex','even'),(4,'shift','Z17')]
+          expected_paths=[1346,1154,838,83892,82846,79404,9966,66418]
+          assert [r['true_original_coordinate_proper_P3_total_count'] for r in cases]==expected_paths
           for r in cases:
               s=r['original_s']
               V=(s+1)*(s*s+1)
@@ -87,6 +90,13 @@ jobs:
               witness=r['real_original_physical_degree_witness']
               assert witness['actual_full_original_degree']==r['actual_full_original_max_physical_vertex_degree']
               assert witness['exact_GQ_centered_mixing_squared_slack']>=0
+              assert r['all_h_REAL_physical_P3_endpoint_support_at_most_Delta_squared'] is True
+              assert r['nonempty_true_original_P3_ordered_physical_endpoint_bins']>0
+              w=r['max_true_original_proper_P3s_per_bin_witness']
+              assert w['proper_source_P3_count']==r['max_true_original_proper_P3s_per_physical_endpoint_bin']
+              assert w['proper_source_P3_count']<=w['exact_endpoint_degree_product_cap']
+              assert w['exact_endpoint_degree_product_cap']==w['first_endpoint_actual_physical_degree']*w['last_endpoint_actual_physical_degree']
+              assert w['proper_source_P3_count']<=w['uniform_original_spectral_Delta_squared_cap']
               assert r['root_PROVED_A'] is False and r['full_all_h_B75_proved'] is False
           cap=z['independent_all_order_algebraic_minimal_alphabet_spectral_capacity']
           assert [r['original_s'] for r in cap]==[2,4,8,16,32,64]
@@ -101,7 +111,7 @@ jobs:
               assert q['uniform_best_spectral_K22_degree_cap']<=center
               assert q['does_NOT_prove_original_weighted_B_over_M_below_three_quarters'] is True
               assert q['no_GQ_fixture_claimed_for_s_greater_than_four'] is (s>4)
-          print('ACCEPT all-h known GQ real spectrum -> NEW correlated original physical vertex Delta O(s^2); ROOT OPEN')
+          print('ACCEPT all-h ORIGINAL physical Delta O(s²) and genuine P3 endpoint fiber O(s⁴); ROOT OPEN')
           PYCODE
       - uses: actions/upload-artifact@v4
         with:
