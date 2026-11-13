@@ -1,0 +1,121 @@
+name: hyp105-aa4-original-gq-two-endpoint-contraction
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-gq-two-endpoint-contraction.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-GQ-TWO-ENDPOINT-CONTRACTION.md'
+      - 'research/hyp105_original_GQ_two_endpoint_contraction_referee.py'
+      - 'research/test_hyp105_original_GQ_two_endpoint_contraction_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-gq-two-endpoint-proper-P3-shadow:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fourteen independent ORIGINAL GQ two-endpoint contraction and physical coupling tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_GQ_two_endpoint_contraction_referee.py' -v
+      - name: Strict complete eight-original-source exact integer spectral and physical shadow cert
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p proof
+          python -u research/hyp105_original_GQ_two_endpoint_contraction_referee.py |
+            tee proof/hyp105-aa4-original-gq-two-endpoint-contraction.json.log
+          python - <<'PYCODE'
+          from pathlib import Path
+          import json
+          from math import isqrt
+          prefix='AA4_GQ2EP_CERTIFICATE='
+          lines=Path('proof/hyp105-aa4-original-gq-two-endpoint-contraction.json.log').read_text().splitlines()
+          assert len(lines)==1 and lines[0].startswith(prefix), 'exactly one strict original source JSON'
+          z=json.loads(lines[0][len(prefix):])
+          assert z['schema']=='mathlab.hyp105.original-GQ-two-endpoint-oriented-shadow-contraction.v1'
+          assert z['status']=='OPEN_WITH_FORMAL_BLOCKER' and z['issue']==230
+          for key in (
+              'classical_GQ_real_incidence_spectrum_not_claimed_novel',
+              'all_h_original_CORRELATED_two_endpoint_GQ_incidence_weighted_projection_contraction',
+              'all_h_all_source_retained_and_full_GQ_shadow_ordering',
+              'all_h_original_weighted_centered_GQ_two_endpoint_spectral_upper',
+              'all_h_original_two_endpoint_physical_coupling_defect_nonnegative',
+              'all_h_original_P3_endpoint_count_square_Frobenius_shadow_upper',
+          ):
+              assert z[key] is True,key
+          for key in ('all_h_root_GLOBAL_original_P3_B75_proved',
+                      'all_h_root_original_six_motif_S_s_floor_proved',
+                      'original_HEAVY_LOW_GF5_complete_claimed',
+                      'ASET_exponent_claimed','root_PROVED_A'):
+              assert z[key] is False,key
+          rows=z['eight_complete_genuine_ORIGINAL_W32_W34_two_endpoint_spectral_cases']
+          assert len(rows)==8
+          assert [(r['original_s'],r['original_label_scheme'],r['original_retained_CORE']) for r in rows]==[
+              (2,'lex','full'),(2,'reverse','full'),(2,'shift','Z17'),
+              (4,'lex','full'),(4,'reverse','full'),(4,'shift','full'),
+              (4,'lex','even'),(4,'shift','Z17')]
+          assert [r['exact_TRUE_original_proper_directed_P3s'] for r in rows]==[
+              1346,1154,838,83892,82846,79404,9966,66418]
+          assert [r['max_original_true_proper_P3s_same_endpoint_bin'] for r in rows]==[
+              9,7,8,16,21,17,6,14]
+          for r in rows:
+              assert r['true_source_GQ_full_core_retained_proper_path_conservation'] is True
+              m=r['exact_full_two_endpoint_source_moments']
+              n=r['exact_TRUE_original_proper_directed_P3s']
+              n2=r['exact_original_proper_P3_endpoint_count_square']
+              assert n==m['source_actual_proper_path_count'] and n2==m['source_actual_proper_path_count_square']
+              assert m['source_retained_CORE_projection_orientation_shadow']==n+m['source_retained_shadow_to_true_physical_coupling_defect']
+              assert m['source_full_GQ_projection_orientation_shadow']==m['source_retained_CORE_projection_orientation_shadow']+m['source_full_shadow_to_retained_deleted_incidence_gap']
+              assert m['source_full_shadow_to_retained_deleted_incidence_gap']>=0
+              assert m['source_retained_shadow_to_true_physical_coupling_defect']>=0
+              for key in ('degree_product_upper_square_sum',
+                          'retained_middle_projection_upper_square_sum',
+                          'spectral_middle_projection_upper_square_sum',
+                          'degree_and_retained_upper_square_sum',
+                          'degree_and_spectral_upper_square_sum'):
+                  assert m[key]>=n2,key
+              w=r['max_real_original_P3_endpoint_witness']
+              assert w['actual_proper_P3']==r['max_original_true_proper_P3s_same_endpoint_bin']
+              assert 0<w['actual_proper_P3']<=w['source_retained_CORE_projection_orientation_shadow']<=w['source_full_GQ_projection_orientation_shadow']<=w['source_WEIGHTED_centered_GQ_spectral_shadow_upper']
+              assert w['actual_proper_P3']<=w['source_endpoint_actual_degree_product_upper']
+              assert w['source_weighted_GQ_mixing_squared_slack']>=0
+              V=(r['original_s']+1)*(r['original_s']**2+1)
+              S=w['source_phi_sum'];T=w['source_psi_sum']
+              Qs=w['source_phi_square_sum'];Qt=w['source_psi_square_sum']
+              rad=2*r['original_s']*(V*Qs-S*S)*(V*Qt-T*T)
+              assert rad>=0
+              assert (V*w['source_full_GQ_projection_orientation_shadow']-(r['original_s']+1)*S*T)**2<=rad
+              assert w['source_WEIGHTED_centered_GQ_spectral_shadow_upper']==((r['original_s']+1)*S*T+isqrt(rad))//V
+              assert w['all_h_source_orientation_phi_psi_range_0_to_2'] is True
+              assert r['root_PROVED_A'] is False
+          expect=[
+              (83892,2117602,2033710,28136,19066,284,182468398,232414728),
+              (82846,2037178,1954332,27648,19418,626,171649626,227950208),
+              (79404,2077654,1998250,27948,18494,222,165337138,214337828)]
+          for r,e in zip(rows[3:6],expect):
+              n,shadow,defect,bins,better_core,better_spec,combined_sq,old_sq=e
+              m=r['exact_full_two_endpoint_source_moments']
+              c=r['counts']
+              assert r['exact_TRUE_original_proper_directed_P3s']==n
+              assert m['source_retained_CORE_projection_orientation_shadow']==shadow
+              assert m['source_retained_shadow_to_true_physical_coupling_defect']==defect
+              assert shadow==n+defect
+              assert 100*defect>95*shadow
+              assert c['nonempty_ordered_physical_proper_P3_endpoint_bins']==bins
+              assert c['bins_retained_source_shadow_strictly_beats_degree_product']==better_core
+              assert c['bins_spectral_GQ_shadow_strictly_beats_degree_product']==better_spec
+              assert m['degree_and_retained_upper_square_sum']==combined_sq
+              assert m['degree_product_upper_square_sum']==old_sq
+              assert 7*old_sq<10*combined_sq<8*old_sq
+          print('ACCEPT TRUE original two-endpoint source GQ shadow, 96pct physical coupling defect and all-h bound; ROOT OPEN')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-aa4-original-GQ-two-endpoint-source
+          path: proof/hyp105-aa4-original-gq-two-endpoint-contraction.json.log
