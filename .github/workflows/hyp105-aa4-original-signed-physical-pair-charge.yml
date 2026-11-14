@@ -1,0 +1,76 @@
+name: hyp105-aa4-original-signed-physical-pair-charge
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-signed-physical-pair-charge.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-SIGNED-PHYSICAL-PAIR-CHARGE.md'
+      - 'research/hyp105_original_signed_physical_pair_charge_referee.py'
+      - 'research/test_hyp105_original_signed_physical_pair_charge_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-source-signed-G-B-pair-cones:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent literal true physical pair oracle and all eight source cases
+        run: python -m unittest discover -s research -p 'test_hyp105_original_signed_physical_pair_charge_referee.py' -v
+      - name: Strict all eight genuine ORIGINAL signed-cone B75 Fraction certificate
+        shell: bash
+        run: |
+          python research/hyp105_original_signed_physical_pair_charge_referee.py > signcharge.txt
+          python - signcharge.txt <<'PY'
+          from fractions import Fraction
+          import json,sys
+          data=open(sys.argv[1],encoding="utf-8").read().strip()
+          p="AA4_SIGNCHARGE_CERTIFICATE="
+          assert data.startswith(p),"missing true original signed risk certificate"
+          c=json.loads(data[len(p):])
+          assert c["schema"]=="mathlab.hyp105.original-signed-physical-pair-cone.v1"
+          assert c["issue"]==230 and c["status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert c["universal_all_h_original_signed_source_pair_cone_theorem"]
+          assert c["universal_all_h_original_B75_proved"] is False
+          assert c["root_original_seven_six_motif_Omega_s6_proved"] is False
+          assert c["ASET_exponent_claimed"] is False
+          z=c["complete_eight_source_case_certificates"]
+          assert len(z)==8
+          assert [x["counts"]["real_physical_directed_proper_P3"] for x in z]==[
+            1346,1154,838,83892,82846,79404,9966,66418]
+          for r in z:
+              M=Fraction(r["exact_original_M"])
+              G=Fraction(r["exact_original_G"])
+              B=Fraction(r["exact_original_B"])
+              GL=Fraction(r["original_CODEGREE_lower_G"])
+              GU=Fraction(r["original_CODEGREE_upper_G"])
+              BU=Fraction(r["original_CODEGREE_upper_B_signed_pair"])
+              MU=Fraction(r["original_CODEGREE_upper_M"])
+              old=Fraction(r["old_CODEGREE_common_B_over_M_upper"])
+              new=Fraction(r["new_SIGNED_cones_B_over_M_upper"])
+              assert 0<GL<=G<=GU
+              assert 0<=B<=BU
+              assert M==G+B and MU==GU+BU
+              assert 0<=B/M<=new<=old<1
+              assert new==BU/(BU+GL)
+              assert old==1-GL/MU
+              assert r["signed_CONE_B75_strict_certified"]==(3*GL>BU)
+              assert r["root_PROVED_A"] is False
+              print("ORIGINAL",r["s"],r["scheme"],r["retained_original_CORE"],
+                    "exact",str(B/M),"signed",str(new),"previous",str(old),
+                    "signed_global_margin",str(3*GL-BU),
+                    "local_signed_safe_bins",
+                    r["counts"]["strict_signed_B75_safe_endpoint_bins"])
+          print("ALL_EIGHT_TRUE_ORIGINAL_SIGNED_CONE_CERTIFICATES_ACCEPTED")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-signed-physical-pair-certificate
+          path: signcharge.txt
+          retention-days: 14
