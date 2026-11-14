@@ -148,9 +148,6 @@ def _source_signed_pair_one_case(s,scheme,core):
         raise AssertionError("signed ORIGINAL source risk upper worse than prior codegree")
     if (BU<3*GL)!=(signed_gate<THRESHOLD):
         raise AssertionError("new strict B75 signed source criterion mismatch")
-    if not sum((x for x in energies.values() if x < 0),Fraction(0)) == 0:
-        # signed margin is allowed negative; all other stored energies >=0.
-        pass
     return {
         "s":s,"scheme":scheme,"retained_original_CORE":core,
         "original_source_three_owner_sets":owner_triples,
