@@ -96,10 +96,17 @@ def _original_three_owner_codegree_selector_envelope(owners,J,pair_cache=None):
         pairs.append((p,p*singleton[k]))
     lower=max(v for _,v in pairs)
     upper=min(p for p,_ in pairs)
+    if not common_any:
+        # Stronger all-h EXACT branch: each owner minimum depends on
+        # its own rank and its J neighbors. Pairwise disjoint
+        # neighborhoods and pairwise J-independence make these THREE
+        # coordinate sets disjoint, hence the minima genuinely independent.
+        # A pair-event containment bound alone does NOT give equality.
+        if lower!=product:
+            raise AssertionError("disjoint genuine original J cannot amplify product")
+        upper=product
     if not product<=lower<=upper<=min(singleton.values()):
         raise AssertionError("original codegree selector envelope not nested")
-    if not common_any and lower!=product:
-        raise AssertionError("disjoint genuine original J cannot amplify product")
     return lower/64,upper/64,not common_any
 
 
