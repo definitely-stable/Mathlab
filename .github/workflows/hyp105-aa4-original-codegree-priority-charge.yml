@@ -1,0 +1,72 @@
+name: hyp105-aa4-original-codegree-priority-charge
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-codegree-priority-charge.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-CODEGREE-PRIORITY-CHARGE.md'
+      - 'research/hyp105_original_codegree_priority_referee.py'
+      - 'research/test_hyp105_original_codegree_priority_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-J-codegree-priority-and-G-over-M:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Eight independent two/three ORIGINAL priority/codegree exact rank tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_codegree_priority_referee.py' -v
+      - name: Strict genuine ORIGINAL codegree priority full eight-case JSON
+        shell: bash
+        run: |
+          python research/hyp105_original_codegree_priority_referee.py > codegsel.txt
+          python - codegsel.txt <<'PY'
+          from fractions import Fraction
+          import json,sys
+          data=open(sys.argv[1],encoding="utf-8").read().strip()
+          prefix="AA4_CODEGSEL_CERTIFICATE="
+          assert data.startswith(prefix), "missing original source priority exact certificate"
+          cert=json.loads(data[len(prefix):])
+          assert cert["schema"]=="mathlab.hyp105.original-codegree-priority-b75.v1"
+          assert cert["issue"]==230 and cert["status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert cert["all_h_ROOT_seven_motif_obstruction_proved"] is False
+          assert cert["all_h_strict_global_B75_all_fixed_correlated_maps_proved"] is False
+          assert cert["ASET_exponent_claimed"] is False
+          rows=cert["eight_complete_genuine_original_source_cases"]
+          assert len(rows)==8
+          assert [r["counts"]["real_proper_source_threepaths"] for r in rows]==[
+              1346,1154,838,83892,82846,79404,9966,66418]
+          for r in rows:
+              M=Fraction(r["exact_original_M"])
+              G=Fraction(r["exact_original_G"])
+              B=Fraction(r["exact_original_B"])
+              GL0=Fraction(r["original_Harris_lower_G_old"])
+              GL1=Fraction(r["original_CODEGREE_lower_G_new"])
+              MU0=Fraction(r["original_singleton_degree_M_upper_old"])
+              MU1=Fraction(r["original_CODEGREE_M_upper_new"])
+              MUn=Fraction(r["original_rankless_M_upper"])
+              old=Fraction(r["old_common_original_B_over_M_upper"])
+              new=Fraction(r["new_CODEGREE_common_original_B_over_M_upper"])
+              assert G+B==M
+              assert 0<GL0<=GL1<=G<=M<=MU1<=MU0<=MUn
+              assert 0<=B/M<=new<=old<1
+              assert r["all_h_NEW_codegree_priority_bounds_are_pointwise_valid"] is True
+              assert r["root_PROVED_A"] is False
+              print("ORIGINAL",r["s"],r["scheme"],r["retained_original_CORE"],
+                    "B/M",str(B/M),"new_B/M_bound",str(new),
+                    "old_B/M_bound",str(old),
+                    "upper_M_gain_ratio",str(MU0/MU1))
+          print("ALL_EIGHT_TRUE_ORIGINAL_CODEGREE_PRIORITY_ACCEPTED")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-codegree-priority-certificate
+          path: codegsel.txt
+          retention-days: 14
