@@ -92,7 +92,16 @@ Maximize over the three pair choices in C-5 and minimize over them in C-4. **All
 \tag{C-6}
 \]
 
-This **dominates both of #764's pointwise bounds**. It is valid for every legal fixed correlated f,g, any adversarial named Z and retained C and every actual coordinate-proper physical P3. No step assumes pair-event independence or independent physical labels. If all THREE source J neighborhoods are pairwise disjoint, the three events are actually independent and the two sides of C-6 agree with the exact path weight \(1/[64\prod(1+d_t)]\). The implementation checks this exact equality against the established exact 6-order three-owner Fraction rank oracle.
+This **dominates both of #764's pointwise bounds**. It is valid for every legal fixed correlated f,g, any adversarial named Z and retained C and every actual coordinate-proper physical P3. No step assumes pair-event independence or independent physical labels. **NEW sharp piecewise exact case (detected by first specialist CI).** In general C-6 is a valid interval, but merely bounding the triple event by a **pair event** is NOT an equality claim. If and only if the three source J-neighborhoods are pairwise disjoint **under this sufficient structural test**, each owner-minimum event depends on a disjoint set of random coordinates (the owner's own rank plus its private neighbors). Consequently all three minima genuinely factorize, so we may and do replace BOTH sides of the generic interval by the stronger **exact** pointwise value
+
+\[
+\boxed{w_\gamma=\ell_\gamma^{(2)}=u_\gamma^{(2)}
+=\frac1{64(1+d_i)(1+d_j)(1+d_k)} \qquad
+\text{if }N_J(i),N_J(j),N_J(k)\text{ are pairwise disjoint}.}
+\tag{C-6a}
+\]
+
+This is a sufficient exactness condition, not a claim that all possible equality cases require disjoint neighborhoods. The FIRST GitHub-hosted specialist test failed precisely because the implementation had used the generic pair-containment upper \(u=\min P_{ij}/64\) without applying the exact C-6a strengthening, while independent complete-priority tests correctly expected the disjoint-product value. The theorem C-6 itself was valid; the implementation is now made sharper rather than weakening the falsifying tests. CI acceptance must be checked on the FIXED final HEAD.
 
 ## 5. NEW exact-source weighted risk charging consequence
 
