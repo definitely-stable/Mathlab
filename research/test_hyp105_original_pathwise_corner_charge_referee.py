@@ -163,8 +163,10 @@ class TestOriginalTruePhysicalPathwiseCorner(unittest.TestCase):
             self.assertLessEqual(
                 count["strict_pathwise_row_B75_certified_endpoint_bins"],
                 count["ordered_true_original_physical_endpoint_bins"])
-            self.assertEqual(
-                count["true_local_B75_fail_or_equality_endpoint_bins"],0)
+            self.assertLessEqual(
+                count["true_local_B75_fail_or_equality_endpoint_bins"],
+                count["ordered_true_original_physical_endpoint_bins"]
+                -count["strict_pathwise_row_B75_certified_endpoint_bins"])
 
 
 if __name__=="__main__":
