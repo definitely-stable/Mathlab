@@ -1,0 +1,81 @@
+name: hyp105-aa4-original-pathwise-corner-charge
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-pathwise-corner-charge.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-PATHWISE-CORNER-CHARGE.md'
+      - 'research/hyp105_original_pathwise_corner_charge_referee.py'
+      - 'research/test_hyp105_original_pathwise_corner_charge_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-three-owner-physical-P3-pathwise-corner-charge:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent genuine physical per-P3 corner and B75 witness tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_pathwise_corner_charge_referee.py' -v
+      - name: Strict all eight ORIGINAL physical pathwise B75 Fraction risk certificates
+        shell: bash
+        run: |
+          python research/hyp105_original_pathwise_corner_charge_referee.py > pathcharge.txt
+          python - pathcharge.txt <<'PY'
+          import json,sys
+          from fractions import Fraction
+          data=open(sys.argv[1],encoding="utf-8").read().strip()
+          p="AA4_PATHCHARGE_CERTIFICATE="
+          assert data.startswith(p),"missing ORIGINAL per-path source certificate"
+          cert=json.loads(data[len(p):])
+          assert cert["schema"]=="mathlab.hyp105.original-pathwise-corner-physical-charge.v1"
+          assert cert["issue"]==230 and cert["status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert cert["universal_all_h_original_pathwise_correction_identity_proved"] is True
+          assert cert["universal_all_h_strict_B75_requires_one_real_heavy_path_proved"] is True
+          assert cert["universal_all_h_B75_for_all_fixed_correlated_f_g_proved"] is False
+          assert cert["root_original_all_label_seven_motif_Omega_s6_proved"] is False
+          assert cert["ASET_exponent_claimed"] is False
+          z=cert["complete_genuine_original_source_cases"]
+          assert len(z)==8
+          assert [x["counts"]["true_original_physical_proper_P3"] for x in z]==[
+              1346,1154,838,83892,82846,79404,9966,66418]
+          for r in z:
+              M=Fraction(r["exact_original_M"])
+              B=Fraction(r["exact_original_B"])
+              G=Fraction(r["exact_original_G"])
+              GL=Fraction(r["parent_SIGNCHARGE_G_lower"])
+              BU=Fraction(r["parent_SIGNCHARGE_B_upper"])
+              L=Fraction(r["new_original_pathwise_signed_deficit_global_lower"])
+              parent=Fraction(r["parent_SIGNCHARGE_B_over_M_bound"])
+              rowcap=Fraction(r["new_pathwise_signed_risk_upper_if_positive_else_one"])
+              best=Fraction(r["best_certified_risk_upper_parent_or_pathwise"])
+              assert G+B==M and 0<GL<=G and 0<=B<=BU
+              assert 3*G-B>=L
+              assert parent==BU/(BU+GL)
+              assert B/M<=best<=parent<1
+              assert best==min(parent,rowcap)
+              assert r["new_pathwise_signed_strict_B75_criterion"]==(L>0)
+              assert r["finite_complete_not_sampling"] is True
+              assert r["root_PROVED_A"] is False
+              print("ORIGINAL",r["s"],r["scheme"],r["retained_original_CORE"],
+                    "exact_B/M",str(B/M),"parent_B/M_upper",str(parent),
+                    "best_NEW_B/M_upper",str(best),"new_Lrow",str(L),
+                    "rows_nonpositive",
+                    r["counts"]["paths_with_nonpositive_codegree_local_signed_deficit"],
+                    "local_safe_bins",
+                    r["counts"]["strict_pathwise_row_B75_certified_endpoint_bins"],
+                    "middle-corner_obstructions",
+                    r["counts"]["paths_with_exact_bad_neighbor_fraction_above_75pct"])
+          print("ALL_EIGHT_TRUE_ORIGINAL_PATHWISE_CORNER_CHARGE_ACCEPTED")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-pathwise-corner-charge-certificate
+          path: pathcharge.txt
+          retention-days: 14
