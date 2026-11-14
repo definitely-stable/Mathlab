@@ -1,0 +1,64 @@
+name: hyp105-aa4-original-three-owner-joint-ports
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-three-owner-joint-ports.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-THREE-OWNER-JOINT-PORTS.md'
+      - 'research/hyp105_original_three_owner_joint_ports_referee.py'
+      - 'research/test_hyp105_original_three_owner_joint_ports_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-source-three-owner-port-selector:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Seven independent original-owner and exact rational selector tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_three_owner_joint_ports_referee.py' -v
+      - name: Strict genuine original full W32 W34 JSON acceptance
+        shell: bash
+        run: |
+          python research/hyp105_original_three_owner_joint_ports_referee.py > joint3.txt
+          python - joint3.txt <<'PY'
+          import json,sys
+          from fractions import Fraction
+          marker="AA4_JOINT3_CERTIFICATE="
+          data=open(sys.argv[1],encoding="utf-8").read().strip()
+          assert data.startswith(marker), "missing original JOINT3 machine certificate"
+          cert=json.loads(data[len(marker):])
+          assert cert["schema"]=="mathlab.hyp105.original-three-owner-joint-port-selector.v1"
+          assert cert["status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert cert["all_h_ROOT_seven_motif_sixset_theorem_proved"] is False
+          assert cert["ASET_exponent_claimed"] is False
+          rows=cert["actual_genuine_W32_W34_cases"]
+          assert len(rows)==8
+          assert [r["real_original_directed_proper_P3s"] for r in rows]==[
+              1346,1154,838,83892,82846,79404,9966,66418]
+          for row in rows:
+              M=Fraction(row["exact_original_M"])
+              G=Fraction(row["exact_original_G"])
+              B=Fraction(row["exact_original_B"])
+              LH=Fraction(row["original_Harris_lower_M"])
+              U=Fraction(row["original_priority_degree_upper_M"])
+              NU=Fraction(row["original_rankless_P3_count_square_upper_M"])
+              GL=Fraction(row["original_Harris_lower_positive_compatible_G"])
+              assert 0<GL<=G<=M<=U<=NU
+              assert LH<=M
+              assert G+B==M
+              assert B/M<=1-GL/U
+              assert row["root_PROVED_A"] is False
+          print("EXACT_ALL_EIGHT_TRUE_ORIGINAL_JOINT3_SOURCE_CASES_OK")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-three-owner-joint-ports-certificate
+          path: joint3.txt
+          retention-days: 14
