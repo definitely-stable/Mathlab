@@ -13,7 +13,7 @@ from hyp105_original_signed_physical_pair_charge_referee import (
     _original_independent_physical_pair_good,
 )
 from hyp105_original_pathwise_corner_charge_referee import (
-    SCHEMA,STATUS,EXPECTED,B75,_physical_original_pathwise_charges,
+    SCHEMA,STATUS,EXPECTED,B75,PROFILE,_physical_original_pathwise_charges,
     canonical_report,
 )
 
@@ -122,6 +122,78 @@ class TestOriginalTruePhysicalPathwiseCorner(unittest.TestCase):
                     self.assertGreater(N,3*charge["W"]/4+w+tail+head)
                 count+=1
         self.assertEqual(count,1154)
+
+    def test_all_eight_new_original_endpoint_weighted_heavy_path_bulk_bounds(self):
+        for z in self.report["complete_genuine_original_source_cases"]:
+            M=Fraction(z["exact_original_M"])
+            B=Fraction(z["exact_original_B"])
+            p=z["new_original_path_bad_neighbor_bulk_weighted_profiles"]
+            self.assertTrue(z["new_all_h_original_B75_needs_heavy_path_GLOBAL_BULK_mass"])
+            self.assertEqual(set(p),set(label for label,_ in PROFILE))
+            fractions=[]
+            for label,t in PROFILE:
+                profile=p[label]
+                self.assertEqual(Fraction(profile["bad_neighbor_threshold"]),t)
+                e=Fraction(profile["exact_original_source_endpoint_weighted_heavy_energy"])
+                f=Fraction(profile["exact_original_global_endpoint_weighted_heavy_mass_fraction"])
+                cap=Fraction(profile["all_h_original_profile_valid_B_over_M_upper"])
+                self.assertEqual(f,e/M)
+                self.assertEqual(cap,t+(1-t)*f)
+                self.assertTrue(0<=f<=1)
+                self.assertLessEqual(B/M,cap)
+                self.assertEqual(profile["profile_by_itself_certifies_strict_B75"],cap<B75)
+                if t<B75:
+                    self.assertEqual(
+                        Fraction(profile["hypothetical_global_B75_BAD_requires_mass_above"]),
+                        (B75-t)/(1-t))
+                fractions.append(f)
+            self.assertGreaterEqual(fractions[0],fractions[1])
+            self.assertGreaterEqual(fractions[1],fractions[2])
+            count=z["counts"]
+            self.assertEqual(
+                count["paths_with_exact_bad_neighbor_fraction_above_75pct"],
+                count["paths_bad_neighbor_above_three_quarters"])
+            # The genuinely original fixed sources have many individual
+            # heavy paths despite total B/M<3/4; do not make the false
+            # claim that a heavy path alone is a counterexample.
+            self.assertGreater(count["paths_bad_neighbor_above_three_quarters"],0)
+            self.assertGreater(count["paths_bad_neighbor_above_two_thirds"],0)
+
+    def test_independently_recompute_all_true_W32_reverse_bulk_heavy_mass(self):
+        c=_source(2,"reverse","full")
+        bins,_=_joint_original_three_owner_ports(c)
+        M=Fraction(0)
+        energies={label:Fraction(0) for label,_ in PROFILE}
+        for group in bins.values():
+            charge=_physical_original_pathwise_charges(group,c,2)
+            W=charge["W"];M+=W*W
+            for row,(g,b,*_) in zip(group,charge["rows"]):
+                for label,t in PROFILE:
+                    if b>t*W:
+                        energies[label]+=W*row[2]
+        target=next(z for z in self.report["complete_genuine_original_source_cases"]
+                    if z["s"]==2 and z["scheme"]=="reverse"
+                    and z["retained_original_CORE"]=="full")
+        self.assertEqual(M,Fraction(target["exact_original_M"]))
+        for label,_ in PROFILE:
+            self.assertEqual(
+                energies[label],
+                Fraction(target["new_original_path_bad_neighbor_bulk_weighted_profiles"]
+                         [label]["exact_original_source_endpoint_weighted_heavy_energy"]))
+
+    def test_abstract_bulk_tail_necessity_exact_algebra(self):
+        # NOT claimed realizable in genuine GQ. Positive 5-clique source
+        # risk 4/5 requires >1/2 mass at >1/2 badness and >1/4 mass
+        # at >2/3 badness; all heavy vertices carry all mass.
+        weights=[Fraction(1,5)]*5
+        W=sum(weights)
+        risk=Fraction(4,5)
+        for label,t in PROFILE:
+            heavy=sum((w for w in weights if (W-w)/W>t),Fraction(0))
+            P=heavy/W
+            self.assertLessEqual(risk,t+(1-t)*P)
+            if t<B75:
+                self.assertGreater(P,(B75-t)/(1-t))
 
     def test_geometry_is_NOT_misinterpreted_as_shared_rank_event_probability(self):
         # The quadratic forms are products of marginal selector weights,
