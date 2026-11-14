@@ -61,6 +61,24 @@ jobs:
               assert B/M<=best<=parent<1
               assert best==min(parent,rowcap)
               assert r["new_pathwise_signed_strict_B75_criterion"]==(L>0)
+              assert r["new_all_h_original_B75_needs_heavy_path_GLOBAL_BULK_mass"] is True
+              profiles=r["new_original_path_bad_neighbor_bulk_weighted_profiles"]
+              assert set(profiles)=={"one_half","two_thirds","three_quarters"}
+              mass=[]
+              for k,t in (("one_half",Fraction(1,2)),
+                          ("two_thirds",Fraction(2,3)),
+                          ("three_quarters",Fraction(3,4))):
+                  q=profiles[k]
+                  assert Fraction(q["bad_neighbor_threshold"])==t
+                  weighted_energy=Fraction(q["exact_original_source_endpoint_weighted_heavy_energy"])
+                  weighted_fraction=Fraction(q["exact_original_global_endpoint_weighted_heavy_mass_fraction"])
+                  bound=Fraction(q["all_h_original_profile_valid_B_over_M_upper"])
+                  assert weighted_fraction==weighted_energy/M
+                  assert 0<=weighted_fraction<=1
+                  assert bound==t+(1-t)*weighted_fraction and B/M<=bound
+                  mass.append(weighted_fraction)
+              assert mass[0]>=mass[1]>=mass[2]
+              assert r["counts"]["paths_bad_neighbor_above_three_quarters"] == r["counts"]["paths_with_exact_bad_neighbor_fraction_above_75pct"]
               assert r["finite_complete_not_sampling"] is True
               assert r["root_PROVED_A"] is False
               print("ORIGINAL",r["s"],r["scheme"],r["retained_original_CORE"],
@@ -71,7 +89,10 @@ jobs:
                     "local_safe_bins",
                     r["counts"]["strict_pathwise_row_B75_certified_endpoint_bins"],
                     "middle-corner_obstructions",
-                    r["counts"]["paths_with_exact_bad_neighbor_fraction_above_75pct"])
+                    r["counts"]["paths_with_exact_bad_neighbor_fraction_above_75pct"],
+                    "bulk_mass_P_1_2",profiles["one_half"]["exact_original_global_endpoint_weighted_heavy_mass_fraction"],
+                    "bulk_mass_P_2_3",profiles["two_thirds"]["exact_original_global_endpoint_weighted_heavy_mass_fraction"],
+                    "bulk_mass_P_3_4",profiles["three_quarters"]["exact_original_global_endpoint_weighted_heavy_mass_fraction"])
           print("ALL_EIGHT_TRUE_ORIGINAL_PATHWISE_CORNER_CHARGE_ACCEPTED")
           PY
       - uses: actions/upload-artifact@v4
