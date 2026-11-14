@@ -113,7 +113,7 @@ def _physical_original_pathwise_charges(rows,c,weight_index):
             raise AssertionError("pathwise ORIGINAL good/bad cone inclusion-exclusion broken")
         G+=z*good;B+=z*bad
         sum_N_correction+=z*(N-z-tail-head)
-        if heavy is None or bad*heavy[0]>heavy[1]*W:
+        if heavy is None or bad*heavy[1]>heavy[0]*W:
             # Compare exact ratios across SAME W in this endpoint bin.
             heavy=(bad,W,path,owners,i,tail,head,z,N)
         result.append((good,bad,N,tail,head))
@@ -188,8 +188,12 @@ def _pathwise_one_complete_source(s,scheme,core):
             counts["prior_pair_cone_B75_certified_endpoint_bins"]+=1
         if true["B"]*4>=3*true["M"]:
             counts["true_local_B75_fail_or_equality_endpoint_bins"]+=1
-            if not counts["paths_with_exact_bad_neighbor_fraction_above_75pct"] and true["B"]*4>3*true["M"]:
-                raise AssertionError("strict endpoint B75 BAD has no pathwise real witness")
+            if not any(4*charge[1]>=3*true["W"] for charge in true["rows"]):
+                raise AssertionError("weak endpoint B75 BAD has no LOCAL pathwise real witness")
+            if true["B"]*4>3*true["M"] and not any(
+                4*charge[1]>3*true["W"] for charge in true["rows"]
+            ):
+                raise AssertionError("strict endpoint B75 BAD has no LOCAL strict pathwise witness")
         for k in ("M","G","B"):
             sums["exact_"+k]+=true[k]
         sums["parent_G_lower"]+=lower["G"]
