@@ -126,6 +126,52 @@ For an explicit global risk upper when \(L_{\rm row}\ge0\), let \(M_U=M(u)\), so
 \]
 For \(L_{\rm row}<0\) P5's denominator sign would reverse: **do not** use it with \(M_U\); the source program conservatively reports 1 for that optional bound. At any sign, combine with accepted #766 ratio upper via minimum. All tests check non-deterioration and direct exact risk.
 
+## 5a. CRITICAL falsification: individual heavy P3 paths ALREADY EXIST in safe original source cases
+
+The first exact-specialist CI on real, complete original W32/W34 sources independently verified P1 and P4 (eight tests SUCCESS; strict full-source JSON SUCCESS). But it exposed a **key negative diagnostic**, which prevents a naive continuation: safe genuine fixed labelings contain MANY individual paths with **bad-neighborhood fraction exceeding 3/4**. For example:
+
+- TRUE original full W(3,4), lex f/g: **6,554** actual physical P3 have \(b_\gamma(w)/W_{uv}>3/4\), while exact GLOBAL \(B/M=18.9249\%\).
+- TRUE original full W(3,4), reverse f/g: **6,276** such paths, while GLOBAL \(B/M=20.5221\%\).
+- TRUE original full W(3,4), shift f/g: **5,982** such paths, while GLOBAL \(B/M=19.8639\%\).
+
+Therefore **do NOT claim** universal nonexistence of a single heavy ORIGINAL path. The P3 witness in P3 is necessary for B75 failure but **does not suffice**, and the strategy "prove no such path" is already falsified by genuine sources. The unclosed proof has to control their **weighted abundance**, not raw occurrence or count. This leads to a stronger, *truly global*, all-order necessary obstruction with explicit physical-source mass thresholds.
+
+## 5b. NEW all-h endpoint-weighted BAD-path BULK concentration theorem
+
+For every actual source with \(M(w)>0\), define, for a threshold \(0\le t<1\), each true ordered physical endpoint bin's strict heavy-path subset
+\[
+ \mathcal H_t(u,v):=\{\gamma\in\mathcal P_{uv}:
+             b_\gamma(w)>tW_{uv}\}.
+\]
+Its **endpoint-weighted ORIGINAL path mass fraction** is
+\[
+ \boxed{
+ P_t=\frac{1}{M(w)}
+       \sum_{uv} W_{uv}
+          \sum_{\gamma\in\mathcal H_t(u,v)}w_\gamma.
+ }\tag{P6}
+\]
+Here \(P_t\) weighs paths by the actual physical endpoint total W **AND** genuine original shared-priority path marginal wγ. Hence \(P_t\in[0,1]\), it is nonincreasing in t, and it is very different from *counting* heavy paths. Since on nonheavy paths \(b_\gamma\le tW_{uv}\) and on heavy paths \(b_\gamma\le W_{uv}\), the exact source row identity P2 gives
+
+\[
+ \boxed{
+ \frac{B(w)}{M(w)}\le t+(1-t)P_t.
+ }\tag{P7}
+\]
+This is an **all-h unconditional identity-based inequality**, no random-label f/g independence or asymptotic assumptions. In particular a hypothetical bad original source with \(B/M>3/4\) MUST satisfy simultaneously
+\[
+\boxed{
+P_{1/2}>\tfrac12,\qquad
+P_{2/3}>\tfrac14,\qquad
+P_{3/4}>0.
+}\tag{P8}
+\]
+For a weak \(B/M\ge3/4\), replace strict > by \(\ge\) in the first two statements; \(P_{3/4}\ge0\) is then tautological, so no false positive-mass conclusion at equality is asserted. Equivalently, a **uniform all-source geometric estimate** \(P_{1/2}\le1/2-\delta\) or \(P_{2/3}\le1/4-\delta\) for \(\delta>0\) immediately yields a uniform \(\frac{B}{M}\le\frac34-(1-t)\delta\), a genuine quantitative route towards B75.
+
+**Acceptance/falsification:** The source verifier now computes exact Fraction numerators of P6 for three thresholds \(t\in\{1/2,2/3,3/4\}\), independently validates P7 in every original endpoint bin and for the global source, checks \(P_{1/2}\ge P_{2/3}\ge P_{3/4}\), and independently recomputes all three actual W32 reverse profiles with a separate traversal. It also keeps the logical distinction between "many heavy paths" and "heavy mass". All **finite** results are restricted to sampled *fixed* original f/g schemes and cannot establish uniform P8-precluding bounds for arbitrary correlated labels or all h.
+
+This NEW bulk-mass formulation, not P3 individual nonexistence, is the sharp next geometric target: bound the endpoint-weighted frequency of true first/middle/last ORIGINAL P3 with strongly overlapping physical middle-label neighborhood after genuine common first/last physical corner corrections.
+
 ## 6. Acceptance, falsifiers and prior-art honesty
 
 The hosted specialist:
@@ -138,4 +184,4 @@ The hosted specialist:
 
 Order-statistics, weighted averaging, sparse inclusion-exclusion and positive coefficient arithmetic are standard. What is scoped as useful new HYP-105 research is the all-h **true original incidence owner FIRST/MIDDLE/LAST physical-corner local witness identity** bridging the existing source endpoints, selector-weighted exact risk and one REAL path forced to carry the obstruction.
 
-**Remaining root barrier:** show no such heavy true physical joint three-owner/corner witness can occur with enough total mass to spoil \(\Omega(s^6)\) for ALL correlated f/g/h, OR build a true legal infinite dyadic bad family. None of the current exact finite sources proves this.
+**Remaining root barrier:** a single genuine heavy joint three-owner/corner P3 CAN occur in safe finite sources. Instead, derive a UNIFORM all-dyadic and all-fixed-correlated-label upper on the endpoint-weighted physical heavy-path bulk (P_{2/3}) (preferably below (1/4)) or a different quantitative bound that rules out the necessary mass profile of P8, OR construct an explicit legal infinite adverse dyadic labeling family. None of the fixed W32/W34 sources establishes this universal step.
