@@ -148,6 +148,14 @@ def _source_signed_pair_one_case(s,scheme,core):
         raise AssertionError("signed ORIGINAL source risk upper worse than prior codegree")
     if (BU<3*GL)!=(signed_gate<THRESHOLD):
         raise AssertionError("new strict B75 signed source criterion mismatch")
+    # A zero count is a meaningful complete-census statement: retaining
+    # the explicit fields permits an independent verifier to distinguish
+    # "no uncertified endpoint bins" from an omitted/missing check.
+    for name in ("strict_signed_B75_safe_endpoint_bins",
+                 "not_locally_certified_endpoint_bins",
+                 "previous_codegree_strict_B75_safe_endpoint_bins",
+                 "actual_local_B75_bad_endpoint_bins"):
+        counts[name]+=0
     return {
         "s":s,"scheme":scheme,"retained_original_CORE":core,
         "original_source_three_owner_sets":owner_triples,
