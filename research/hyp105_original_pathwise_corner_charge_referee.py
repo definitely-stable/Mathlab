@@ -44,6 +44,11 @@ SCHEMA="mathlab.hyp105.original-pathwise-corner-physical-charge.v1"
 STATUS="OPEN_WITH_FORMAL_BLOCKER"
 EXPECTED=(1346,1154,838,83892,82846,79404,9966,66418)
 B75=Fraction(3,4)
+# A hypothetical global strict B75 BAD source must carry BULK
+# physical-path bad-neighborhood mass at these all-h thresholds.
+PROFILE=(("one_half",Fraction(1,2)),
+         ("two_thirds",Fraction(2,3)),
+         ("three_quarters",Fraction(3,4)))
 
 
 def _physical_original_pathwise_charges(rows,c,weight_index):
@@ -156,6 +161,7 @@ def _pathwise_one_complete_source(s,scheme,core):
                     raise AssertionError("genuine pathwise all-h port corner charge differs from original source moment")
         signed_lower=Fraction(0)
         all_local_signs_positive=True
+        heavy_weight={name:Fraction(0) for name,_ in PROFILE}
         for ix,row in enumerate(enriched):
             lo=row[5];up=row[6]
             ge,be,Ne,te,he=true["rows"][ix]
@@ -173,9 +179,23 @@ def _pathwise_one_complete_source(s,scheme,core):
                 counts["paths_with_nonpositive_codegree_local_signed_deficit"]+=1
             if be*4>3*true["W"]:
                 counts["paths_with_exact_bad_neighbor_fraction_above_75pct"]+=1
+            for label,t in PROFILE:
+                if be>t*true["W"]:
+                    heavy_weight[label]+=row[2]
+                    counts["paths_bad_neighbor_above_"+label]+=1
             if be*4>3*true["W"] and not Ne>3*true["W"]/4+row[2]+te+he:
                 raise AssertionError("missing genuine ORIGINAL first/middle/last heavy-path obstruction")
             counts["true_original_physical_proper_P3"]+=1
+        # NEW ALL-h weighted BULK-obstruction source theorem.
+        # A finite source may have thousands of isolated paths whose
+        # bad-neighborhood fraction exceeds 3/4 while the GLOBAL
+        # source risk stays small. Only an endpoint-weighted mass
+        # obstruction can serve a plausible all-label proof target.
+        for label,t in PROFILE:
+            E=true["W"]*heavy_weight[label]
+            if not true["B"]<=t*true["M"]+(1-t)*E:
+                raise AssertionError("all-h heavy physical path BULK-mass risk tail bound false")
+            sums["true_original_heavy_bad_endpoint_energy_"+label]+=E
         if 3*true["G"]-true["B"]<signed_lower:
             raise AssertionError("new pathwise signed interval margin invalid on actual source")
         if 3*lower["G"]-upper["B"]>3*true["G"]-true["B"]:
@@ -212,6 +232,32 @@ def _pathwise_one_complete_source(s,scheme,core):
         raise AssertionError("global ORIGINAL exact and interval cone quantities fail")
     if not (Lrow<=3*G-B and 3*GL-BU<=3*G-B):
         raise AssertionError("global pathwise signed source margin not lower")
+    profiles={}
+    for label,t in PROFILE:
+        E=sums["true_original_heavy_bad_endpoint_energy_"+label]
+        fraction=E/M
+        cap=t+(1-t)*fraction
+        if not 0<=fraction<=1 or not B/M<=cap<=1:
+            raise AssertionError("true original endpoint-weighted physical path heavy-tail cone invalid")
+        if B/M>B75 and t<B75 and not fraction>(B75-t)/(1-t):
+            raise AssertionError("strict B75 BAD source lacks its necessary BULK heavy-path mass")
+        if B/M>B75 and t==B75 and fraction<=0:
+            raise AssertionError("strict B75 BAD source has no physical heavy path")
+        profiles[label]={
+            "bad_neighbor_threshold":str(t),
+            "exact_original_source_endpoint_weighted_heavy_energy":str(E),
+            "exact_original_global_endpoint_weighted_heavy_mass_fraction":str(fraction),
+            "all_h_original_profile_valid_B_over_M_upper":str(cap),
+            "hypothetical_global_B75_BAD_requires_mass_above":
+                str((B75-t)/(1-t)) if t<B75 else "0",
+            "profile_by_itself_certifies_strict_B75":cap<B75,
+        }
+    if not (Fraction(profiles["one_half"]["exact_original_global_endpoint_weighted_heavy_mass_fraction"])
+            >=Fraction(profiles["two_thirds"]["exact_original_global_endpoint_weighted_heavy_mass_fraction"])
+            >=Fraction(profiles["three_quarters"]["exact_original_global_endpoint_weighted_heavy_mass_fraction"])):
+        raise AssertionError("all-h heavy path mass thresholds must be nested")
+    if counts["paths_bad_neighbor_above_three_quarters"] != counts["paths_with_exact_bad_neighbor_fraction_above_75pct"]:
+        raise AssertionError("independent global strict heavy-path source counts disagree")
     if Lrow>=0:
         row_risk=B75-Lrow/(4*MU)
     else:
@@ -224,6 +270,9 @@ def _pathwise_one_complete_source(s,scheme,core):
     for key in (
         "paths_with_nonpositive_codegree_local_signed_deficit",
         "paths_with_exact_bad_neighbor_fraction_above_75pct",
+        "paths_bad_neighbor_above_one_half",
+        "paths_bad_neighbor_above_two_thirds",
+        "paths_bad_neighbor_above_three_quarters",
         "strict_pathwise_row_B75_certified_endpoint_bins",
         "prior_pair_cone_B75_certified_endpoint_bins",
         "true_local_B75_fail_or_equality_endpoint_bins",
@@ -241,6 +290,8 @@ def _pathwise_one_complete_source(s,scheme,core):
         "new_pathwise_signed_risk_upper_if_positive_else_one":str(row_risk),
         "best_certified_risk_upper_parent_or_pathwise":str(final),
         "new_pathwise_signed_strict_B75_criterion":Lrow>0,
+        "new_all_h_original_B75_needs_heavy_path_GLOBAL_BULK_mass":True,
+        "new_original_path_bad_neighbor_bulk_weighted_profiles":profiles,
         "true_original_source_all_h_witness_theorem_conditional":True,
         "finite_complete_not_sampling":True,
         "root_PROVED_A":False,
