@@ -170,6 +170,17 @@ def _exact_genuine_original_tail(fperm,gperm,strict_full_pair_crosscheck=True):
         tail[str(t)]=n/M
     if not (1>=tail["0"]>=tail["1/2"]>=tail["2/3"]>=tail["3/4"]>=tail["1"]==0):
         raise AssertionError("ORIGINAL weighted bad fraction tail not decreasing")
+    # NEW universal 3-threshold coarse physical risk certificate.
+    # On [0,1/2], [1/2,2/3], [2/3,3/4], [3/4,1],
+    # bound each nonincreasing tail by its LEFT value. For the first
+    # interval use P_0<=1, eliminating the need to compute P_0.
+    composite=(Fraction(1,2)+tail["1/2"]/6+
+               tail["2/3"]/12+tail["3/4"]/4)
+    composite_mass=2*tail["1/2"]+tail["2/3"]+3*tail["3/4"]
+    if not B/M<=composite<=1 or (composite<B75)!=(composite_mass<3):
+        raise AssertionError("universal ORIGINAL three-tail combined B75 bound invalid")
+    if B/M>B75 and not composite_mass>3:
+        raise AssertionError("adversarial strict B75 source lacks joint heavy-tail obstruction")
 
     # An exact alternative computation via the STRICT survival-function
     # step intervals, independent of the original good/bad sparse moment.
@@ -205,6 +216,10 @@ def _exact_genuine_original_tail(fperm,gperm,strict_full_pair_crosscheck=True):
         "exact_original_weighted_tail_P_1_over_2":str(tail["1/2"]),
         "exact_original_weighted_tail_P_2_over_3":str(tail["2/3"]),
         "exact_original_weighted_tail_P_3_over_4":str(tail["3/4"]),
+        "new_three_physical_tail_combined_B_over_M_upper":str(composite),
+        "new_three_physical_tail_joint_halfspace_mass":str(composite_mass),
+        "new_three_physical_tail_certifies_B75":composite<B75,
+        "new_all_h_three_tail_B75_necessary_mass_above_three":True,
         "exact_original_tail_LayerCake_equals_B_over_M":str(integral),
         "exact_original_tail_mesh32_lower":str(grid_L),
         "exact_original_tail_mesh32_upper":str(grid_U),
@@ -302,6 +317,8 @@ def _deterministic_frontier(trials=TRIALS,seed=SEED,shortlist=SHORTLIST):
         "schema":SCHEMA,"issue":ROOT,"status":STATUS,
         "all_h_exact_original_layer_cake_tail_identity_proved":True,
         "all_h_finite_mesh_original_tail_sandwich_proved":True,
+        "all_h_original_three_tail_composite_B75_sufficient_inequality_proved":True,
+        "all_h_universal_three_tail_composite_strict_B75_PROVED":False,
         "all_h_universal_P_2_over_3_below_quarter_PROVED":False,
         "all_h_original_B75_proved":False,
         "root_seven_six_motif_Omega_s6_PROVED":False,
@@ -320,6 +337,11 @@ def _deterministic_frontier(trials=TRIALS,seed=SEED,shortlist=SHORTLIST):
         "at_least_one_exact_original_W32_violates_auxiliary_quarter_gate":
             any(x["fixed_source_violates_auxiliary_P_2_over_3_below_1_over_4"]
                 for x in exact),
+        "at_least_one_exact_original_W32_violates_auxiliary_half_gate":
+            any(Fraction(x["exact_original_weighted_tail_P_1_over_2"])>=Fraction(1,2)
+                for x in exact),
+        "all_exact_candidates_three_tail_composite_certify_strict_B75":
+            all(x["new_three_physical_tail_certifies_B75"] for x in exact),
         "at_least_one_exact_original_W32_violates_B75":
             any(x["fixed_source_violates_global_B75"] for x in exact),
         "finite_search_nonproof_for_all_h":True,
