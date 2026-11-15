@@ -29,6 +29,8 @@ class TestOriginalAdversarialPhysicalHeavyTail(unittest.TestCase):
         self.assertEqual(r["issue"],230)
         self.assertTrue(r["all_h_exact_original_layer_cake_tail_identity_proved"])
         self.assertTrue(r["all_h_finite_mesh_original_tail_sandwich_proved"])
+        self.assertTrue(r["all_h_original_three_tail_composite_B75_sufficient_inequality_proved"])
+        self.assertFalse(r["all_h_universal_three_tail_composite_strict_B75_PROVED"])
         self.assertFalse(r["all_h_universal_P_2_over_3_below_quarter_PROVED"])
         self.assertFalse(r["all_h_original_B75_proved"])
         self.assertFalse(r["root_seven_six_motif_Omega_s6_PROVED"])
@@ -82,6 +84,13 @@ class TestOriginalAdversarialPhysicalHeavyTail(unittest.TestCase):
             self.assertEqual(q["owned_actual_physical_opposite_diagonals"],90)
             self.assertTrue(1>=P0>=P1>=P2>=P3>=0)
             self.assertEqual(Fraction(q["exact_original_tail_LayerCake_equals_B_over_M"]),B/M)
+            composite=Fraction(q["new_three_physical_tail_combined_B_over_M_upper"])
+            mass=Fraction(q["new_three_physical_tail_joint_halfspace_mass"])
+            self.assertEqual(composite,Fraction(1,2)+P1/6+P2/12+P3/4)
+            self.assertEqual(mass,2*P1+P2+3*P3)
+            self.assertTrue(0<=B/M<=composite<=1)
+            self.assertEqual(q["new_three_physical_tail_certifies_B75"],mass<3)
+            self.assertTrue(q["new_all_h_three_tail_B75_necessary_mass_above_three"])
             self.assertTrue(0<=L<=B/M<=U<=1)
             self.assertLessEqual(U-L,Fraction(1,MESH))
             self.assertEqual(q["fixed_source_violates_auxiliary_P_2_over_3_below_1_over_4"],
@@ -90,6 +99,33 @@ class TestOriginalAdversarialPhysicalHeavyTail(unittest.TestCase):
             self.assertEqual(len(set(q["f_pair_perm_indices"])),15)
             self.assertEqual(len(set(q["g_pair_perm_indices"])),15)
             self.assertFalse(q["root_PROVED_A"])
+
+    def test_actual_original_genuine_counterexample_to_two_auxiliary_universal_gates(self):
+        # FIXED true ORIGINAL W32 source, independently found by seeded
+        # adversarial scan and exact common-priority Fraction-ranked;
+        # does NOT disprove the root B75/seven-motif all-h theorem.
+        r=self.report
+        self.assertTrue(r["at_least_one_exact_original_W32_violates_auxiliary_quarter_gate"])
+        self.assertTrue(r["at_least_one_exact_original_W32_violates_auxiliary_half_gate"])
+        violating=[q for q in r["exact_fraction_true_source_candidates"]
+                   if Fraction(q["exact_original_weighted_tail_P_2_over_3"])>=Fraction(1,4)]
+        self.assertTrue(violating)
+        for q in violating:
+            self.assertLess(Fraction(q["exact_original_B_over_M"]),B75)
+            self.assertTrue(q["new_three_physical_tail_certifies_B75"])
+            self.assertLess(Fraction(q["new_three_physical_tail_combined_B_over_M_upper"]),B75)
+
+    def test_abstract_three_tail_combined_halfspace_falsifier(self):
+        # Three tail thresholds are a sufficient global risk test,
+        # NOT a proven unconditional bound on all source labelings.
+        row_profiles=[(Fraction(7,10),Fraction(2,5)),
+                      (Fraction(0),Fraction(3,5))]
+        P=lambda t:sum((w for r,w in row_profiles if r>t),Fraction(0))
+        cap=Fraction(1,2)+P(Fraction(1,2))/6+P(Fraction(2,3))/12+P(Fraction(3,4))/4
+        risk=sum((r*w for r,w in row_profiles),Fraction(0))
+        self.assertTrue(risk<cap<B75)
+        self.assertEqual(2*P(Fraction(1,2))+P(Fraction(2,3))
+                         +3*P(Fraction(3,4)),Fraction(6,5))
 
     def test_strict_adversarial_proxy_not_mislabeled_exact_priority(self):
         # Independent actual physical graph with pointwise FLOAT product
