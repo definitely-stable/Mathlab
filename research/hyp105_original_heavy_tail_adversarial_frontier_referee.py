@@ -270,12 +270,30 @@ def _deterministic_frontier(trials=TRIALS,seed=SEED,shortlist=SHORTLIST):
     # Exact-certify TOP K, plus the predeclared lex/reverse baseline.
     selected=scores[:shortlist]
     exact=[_exact_genuine_original_tail(f,g) for _,f,g,_,_ in selected]
-    baseline=next((z for z in scores if z[3]=="baseline:lex-reverse"),None)
-    if baseline:
+    # Mandatory independently established original full W32 baseline
+    # exact Fraction values from AA4-PATHCHARGE, not just optimizer picks.
+    for label in ("baseline:lex-lex","baseline:lex-reverse"):
+        baseline=next((z for z in scores if z[3]==label),None)
+        if baseline is None:
+            raise AssertionError("mandatory original W32 source baseline missing")
         known=(baseline[1],baseline[2])
         if not any(tuple(x["f_pair_perm_indices"])==known[0] and
                    tuple(x["g_pair_perm_indices"])==known[1] for x in exact):
             exact.append(_exact_genuine_original_tail(*known))
+    by_scheme={
+        "lex-lex":(Fraction(395498199363009600,1190067603581473393),
+                   Fraction(203238170327875425,1190067603581473393)),
+        "lex-reverse":(Fraction(2197221736032,6861627242215),
+                       Fraction(816966722907,6861627242215)),
+    }
+    for label,permF,permG in ((name,f,g) for name,f,g in _initial_labelings()
+                               if name in by_scheme):
+        original=next(x for x in exact if tuple(x["f_pair_perm_indices"])==permF
+                      and tuple(x["g_pair_perm_indices"])==permG)
+        expected_risk,expected_P=by_scheme[label]
+        if (Fraction(original["exact_original_B_over_M"])!=expected_risk or
+            Fraction(original["exact_original_weighted_tail_P_2_over_3"])!=expected_P):
+            raise AssertionError("adversarial exact ORIGINAL priority source fails frozen independent W32 baseline")
     if not exact:
         raise AssertionError("no exact genuine ORIGINAL adverse candidates audited")
     besttrue=max(exact,key=lambda x:Fraction(x["exact_original_weighted_tail_P_2_over_3"]))
