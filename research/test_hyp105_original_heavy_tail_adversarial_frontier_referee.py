@@ -1,5 +1,7 @@
 """Independent exact full-original W32 adversarial physical-tail falsifiers."""
 from fractions import Fraction
+from pathlib import Path
+import json
 import unittest
 from hyp105_original_adversarial_B75_referee import (
     IDENTITY,REVERSE,_initial_labelings
@@ -126,6 +128,52 @@ class TestOriginalAdversarialPhysicalHeavyTail(unittest.TestCase):
         self.assertTrue(risk<cap<B75)
         self.assertEqual(2*P(Fraction(1,2))+P(Fraction(2,3))
                          +3*P(Fraction(3,4)),Fraction(6,5))
+
+    def test_PINNED_genuine_original_W32_auxiliary_double_gate_falsifier(self):
+        # Immutable source-level counterexample with FULL explicit f/g
+        # permutation indices. This test remains reproducible even if
+        # the deterministic optimizer or its seed is changed.
+        path=Path(__file__).with_name(
+            "hyp105_original_W32_auxiliary_heavy_tail_counterexample.json")
+        source=json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(source["issue"],230)
+        self.assertEqual(source["status"],STATUS)
+        self.assertEqual(source["original_named_incidence_flags"],45)
+        self.assertEqual(source["true_original_physical_diagonal_edges"],90)
+        self.assertEqual(source["retained_original_CORE"],"full")
+        f=tuple(source["f_pair_perm_indices"])
+        g=tuple(source["g_pair_perm_indices"])
+        self.assertEqual(sorted(f),list(range(15)))
+        self.assertEqual(sorted(g),list(range(15)))
+        measured=_exact_genuine_original_tail(f,g)
+        self.assertEqual(measured["true_original_coordinate_proper_P3s"],1142)
+        self.assertEqual(measured["true_original_endpoint_bins"],562)
+        cases=(
+            ("expected_exact_original_B_over_M","exact_original_B_over_M"),
+            ("expected_exact_weighted_tail_P_1_over_2",
+             "exact_original_weighted_tail_P_1_over_2"),
+            ("expected_exact_weighted_tail_P_2_over_3",
+             "exact_original_weighted_tail_P_2_over_3"),
+            ("expected_exact_weighted_tail_P_3_over_4",
+             "exact_original_weighted_tail_P_3_over_4"),
+            ("expected_three_tail_combined_upper",
+             "new_three_physical_tail_combined_B_over_M_upper"),
+        )
+        for expected,actual in cases:
+            self.assertEqual(Fraction(source[expected]),
+                             Fraction(measured[actual]))
+        self.assertGreater(
+            Fraction(measured["exact_original_weighted_tail_P_1_over_2"]),
+            Fraction(1,2))
+        self.assertGreater(
+            Fraction(measured["exact_original_weighted_tail_P_2_over_3"]),
+            Fraction(1,4))
+        self.assertLess(Fraction(measured["exact_original_B_over_M"]),B75)
+        self.assertLess(
+            Fraction(measured["new_three_physical_tail_combined_B_over_M_upper"]),
+            B75)
+        self.assertFalse(source["original_global_B75_disproved"])
+        self.assertFalse(source["root_all_label_seven_motif_asymptotic_obstruction_disproved"])
 
     def test_strict_adversarial_proxy_not_mislabeled_exact_priority(self):
         # Independent actual physical graph with pointwise FLOAT product
