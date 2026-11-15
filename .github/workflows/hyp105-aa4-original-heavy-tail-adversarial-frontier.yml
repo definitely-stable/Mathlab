@@ -7,6 +7,7 @@ on:
       - 'docs/research/HYP-105-AA4-ORIGINAL-HEAVY-TAIL-ADVERSARIAL-FRONTIER.md'
       - 'research/hyp105_original_heavy_tail_adversarial_frontier_referee.py'
       - 'research/test_hyp105_original_heavy_tail_adversarial_frontier_referee.py'
+      - 'research/hyp105_original_W32_auxiliary_heavy_tail_counterexample.json'
   workflow_dispatch:
 
 permissions:
@@ -38,6 +39,8 @@ jobs:
           assert c["issue"]==230 and c["status"]=="OPEN_WITH_FORMAL_BLOCKER"
           assert c["all_h_exact_original_layer_cake_tail_identity_proved"] is True
           assert c["all_h_finite_mesh_original_tail_sandwich_proved"] is True
+          assert c["all_h_original_three_tail_composite_B75_sufficient_inequality_proved"] is True
+          assert c["all_h_universal_three_tail_composite_strict_B75_PROVED"] is False
           assert c["all_h_universal_P_2_over_3_below_quarter_PROVED"] is False
           assert c["all_h_original_B75_proved"] is False
           assert c["root_seven_six_motif_Omega_s6_PROVED"] is False
@@ -64,6 +67,13 @@ jobs:
               assert len(set(r["f_pair_perm_indices"]))==15
               assert len(set(r["g_pair_perm_indices"]))==15
               assert 1>=P0>=P1>=P2>=P3>=0
+              combined=Fraction(r["new_three_physical_tail_combined_B_over_M_upper"])
+              combined_mass=Fraction(r["new_three_physical_tail_joint_halfspace_mass"])
+              assert combined==Fraction(1,2)+P1/6+P2/12+P3/4
+              assert combined_mass==2*P1+P2+3*P3
+              assert B/M<=combined<=1
+              assert r["new_three_physical_tail_certifies_B75"]==(combined_mass<3)
+              assert r["new_all_h_three_tail_B75_necessary_mass_above_three"] is True
               assert Fraction(r["exact_original_tail_LayerCake_equals_B_over_M"])==B/M
               assert 0<=lo<=B/M<=hi<=1 and hi-lo<=Fraction(1,32)
               assert r["fixed_source_violates_auxiliary_P_2_over_3_below_1_over_4"]==(P2>=Fraction(1,4))
@@ -76,12 +86,18 @@ jobs:
                     "P_3_4",str(P3),
                     "exact_B_over_M",str(B/M),
                     "exact_tail_mesh32_risk_upper",str(hi),
+                    "new_three_tail_robust_B75_upper",str(combined),
+                    "violates_auxiliary_half",P1>=Fraction(1,2),
                     "violates_auxiliary_quarter",P2>=Fraction(1,4),
                     "violates_global_B75",B/M>=Fraction(3,4))
           print("BEST_TRUE_ORIGINAL_P_2_3",
                 c["best_exact_original_P_2_over_3"]["exact_original_weighted_tail_P_2_over_3"])
-          print("ANY_AUXILIARY_QUARTER_GATE_VIOLATED",
-                c["at_least_one_exact_original_W32_violates_auxiliary_quarter_gate"])
+          assert c["at_least_one_exact_original_W32_violates_auxiliary_quarter_gate"] is True
+          assert c["at_least_one_exact_original_W32_violates_auxiliary_half_gate"] is True
+          assert c["all_exact_candidates_three_tail_composite_certify_strict_B75"] is True
+          print("GENUINE_ORIGINAL_W32_AUXILIARY_QUARTER_GATE_DISPROVED_FINITE",True)
+          print("GENUINE_ORIGINAL_W32_AUXILIARY_HALF_GATE_DISPROVED_FINITE",True)
+          print("NEW_ALL_H_COMPOSITE_THREE_TAIL_PROOF_CHECKED",True)
           print("ROOT_OPEN_WITH_FORMAL_BLOCKER")
           print("ALL_EXACT_TRUE_ORIGINAL_W32_ADVERSARIAL_TAILS_ACCEPTED")
           PY
