@@ -1,0 +1,92 @@
+name: hyp105-aa4-low-formal-weighted-witness
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-low-formal-weighted-witness.yml'
+      - 'docs/research/HYP-105-AA4-LOW-FORMAL-REVERSIBLE-WEIGHTED-WITNESS.md'
+      - 'research/hyp105_original_low_formal_weighted_witness.py'
+      - 'research/test_hyp105_original_low_formal_weighted_witness.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-source-reversible-blocker:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent real-original source-witness and weighted-fourth-trace unit tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_low_formal_weighted_witness.py' -v
+      - name: Strict integer source-book and physical triple inverse certificate
+        shell: bash
+        run: |
+          python research/hyp105_original_low_formal_weighted_witness.py > low-formal-weighted-certificate.txt
+          python - low-formal-weighted-certificate.txt <<'PY'
+          import json,sys
+          raw=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_LOW_FORMAL_WEIGHTED_CERTIFICATE='
+          assert raw.startswith(prefix) and raw.count(prefix)==1
+          c=json.loads(raw[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.original-low-formal-weighted-source-witness.v1'
+          assert c['issue']==230 and c['parent_pr']==769
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['all_h_source_witness_proof_in_manuscript'] is True
+          assert c['all_h_general_typed_incidence_local_extension_proved_in_manuscript'] is True
+          assert c['all_h_weighted_fourth_trace_bound_proved_in_manuscript'] is True
+          assert c['all_h_any_original_Z_and_C_subset_A_in_local_theorem'] is True
+          assert c['all_h_GQ_spectral_and_ROOT_dependencies_not_accepted_by_this_code'] is True
+          assert c['root_PROVED_A'] is False
+          assert c['all_h_B75_proved'] is False
+          assert c['general_ASET_exponent_claimed'] is False
+          real=c['true_original_W32_W34_correlated_fixed_map_cases']
+          abstract=c['non_GQ_partial_projection_falsifier_cases']
+          assert len(real)==5 and len(abstract)==3
+          assert {(r['s'],r['mode']) for r in real}=={
+              (2,'lex'),(2,'reverse'),(4,'lex'),(4,'reverse'),(4,'shift')}
+          assert any(r['deleted_original_Z']>0 for r in real)
+          assert any(r['deleted_original_Z']==0 for r in real)
+          assert any(r[side]['genuine_first_blockers']>0
+              for r in real for side in ('x','y'))
+          for r in real+abstract:
+              assert r['A_not_equal_C'] is True
+              assert r['full_allowed_A']>r['paired_original_CORE_C']>0
+              assert r['original_first_equals_last_by_reversal'] is True
+              assert r['distinct_original_diagonals_core']==2*r['paired_original_CORE_C']
+              assert r['point_source_book_theta']==r['physical_mixed_degree_theta']
+              assert r['line_source_book_theta']==r['physical_mixed_degree_theta']
+              for side in ('x','y'):
+                  v=r[side]
+                  assert v['exact_source_book_count_verified'] is True
+                  assert v['all_source_triples_have_unique_reversible_witness'] is True
+                  assert v['physical_path_charging_all_steps_pass'] is True
+                  I=v['genuine_first_blockers']
+                  W=v['direct_source_triple_two_walk_weight']
+                  T=v['distinct_reconstructible_source_triples']
+                  Phi=v['direct_source_triple_two_walk_square']
+                  B=v['original_book_witnesses']
+                  weighted=v['degree_weighted_physical_fourth_trace']
+                  cap=v['Delta']*v['ordinary_physical_fourth_trace']
+                  assert 0<=I<=W
+                  assert 0<=T<=B
+                  assert W*W<=T*Phi<=B*weighted<=B*cap
+                  assert v['original_source_book_surplus']==B-T
+              print('SOURCE_ROW',r.get('s','abstract'),r.get('mode',r.get('seed')),
+                    'flags',r['flags'],'deleted',r['deleted_original_Z'],
+                    'point_book',r['x']['original_book_witnesses'],
+                    'point_triples',r['x']['distinct_reconstructible_source_triples'],
+                    'line_book',r['y']['original_book_witnesses'],
+                    'line_triples',r['y']['distinct_reconstructible_source_triples'])
+          print('RECONSTRUCTIBLE_ORIGINAL_SOURCE_WITNESS_ALL_CASES_PASS')
+          print('STRICT_LOCAL_ALL_ORDER_MATH_ONLY_ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-low-formal-weighted-witness-certificate
+          path: low-formal-weighted-certificate.txt
+          retention-days: 14
