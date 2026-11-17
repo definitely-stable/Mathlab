@@ -9,7 +9,7 @@ from hyp105_root_z0_minimal_proof_referee import (
     K, R_ZERO, R_ZPOS, NO_Z_CORE, NEW_W3, NEW_BBO, OLD_BBO,
     SCHEMA, ROOT_STATUS, _ceil, _ceil_sqrt, _pair_alphabet,
     _source_projection, original_physical_model, source_case, source_z0_budget,
-    certificate,
+    genuine_mixed_AC_blocker_case, certificate,
 )
 
 
@@ -145,7 +145,40 @@ class TestRootZ0Independent(unittest.TestCase):
         with self.assertRaises(ValueError):
             original_physical_model(s,original,"not-a-real-map")
 
-    def test_12_certificate_is_explicitly_scoped_not_unconditional_theorem(self):
+
+    def test_12_original_full_A_differs_from_smaller_core_C_mixed_books(self):
+        rows=[genuine_mixed_AC_blocker_case(s,mode) for s in (2,4)
+              for mode in ("lex","reverse")]
+        self.assertEqual(len(rows),4)
+        self.assertTrue(all(r["A_not_equal_C"] for r in rows))
+        for r in rows:
+            self.assertEqual(r["Z"],0)
+            self.assertGreater(r["full_A_original_IDs"],
+                               r["strict_smaller_paired_CORE_IDs"])
+            self.assertGreaterEqual(r["source_mixed_point_book_Bx"],
+                                    r["literal_original_first_x_blocker_triples"])
+            self.assertGreaterEqual(r["source_mixed_line_book_By"],
+                                    r["literal_original_first_y_blocker_triples"])
+            self.assertTrue(r["mixed_source_BOOK_two_contraction_methods_agree"])
+            self.assertTrue(r["all_four_literal_original_blockers_within_mixed_books"])
+            d=r["physical_CORE_delta"]*r["physical_CORE_trace_A4"]
+            self.assertLessEqual(r["blockers_actual_first_x"]**2,
+                                 d*r["source_mixed_point_book_Bx"])
+            self.assertLessEqual(r["blockers_actual_last_x"]**2,
+                                 d*r["source_mixed_point_book_Bx"])
+            self.assertLessEqual(r["blockers_actual_first_y"]**2,
+                                 d*r["source_mixed_line_book_By"])
+            self.assertLessEqual(r["blockers_actual_last_y"]**2,
+                                 d*r["source_mixed_line_book_By"])
+
+    def test_13_original_mixed_source_has_nonzero_true_blocker_witness(self):
+        rows=[genuine_mixed_AC_blocker_case(4,mode)
+              for mode in ("lex","reverse")]
+        self.assertTrue(any(sum(r[k] for k in (
+            "blockers_actual_first_x","blockers_actual_last_x",
+            "blockers_actual_first_y","blockers_actual_last_y"))>0 for r in rows))
+
+    def test_14_certificate_is_explicitly_scoped_not_unconditional_theorem(self):
         c=certificate()
         self.assertEqual(c["schema"],SCHEMA)
         self.assertEqual(c["status"],ROOT_STATUS)
@@ -155,6 +188,7 @@ class TestRootZ0Independent(unittest.TestCase):
         self.assertFalse(c["general_ASET_exponent"])
         self.assertEqual(Fraction(c["new_analytical_Z0_BBo"]),NEW_BBO)
         self.assertEqual(len(c["genuine_original_W32_W34_independent_source_cases"]),4)
+        self.assertEqual(len(c["genuine_original_W32_W34_A_not_C_mixed_blocker_cases"]),4)
 
 
 if __name__=="__main__":
