@@ -309,6 +309,166 @@ def source_case(s, mode):
                 accepted_to_original_sixset_exactly_two=all(n==2 for n in sixsets.values()))
 
 
+
+
+def genuine_mixed_AC_blocker_case(s, mode):
+    """Independent literal ORIGINAL A=I versus retained proper C mixed-book test.
+
+    C is intentionally a *smaller* original paired source: this is a finite
+    adversarial falsifier for all-order mixed A/C lemmas, NOT the particular
+    asymptotic low-core construction, and it has Z=empty.
+    """
+    from hyp105_original_defect_factor_referee import genuine_symplectic_source
+    m=original_physical_model(s,genuine_symplectic_source(s),mode)
+    V=m["V"]
+    N=len(m["flags"])
+    keep={i for i in range(N) if i%5 not in (0,1)}
+    assert 0<len(keep)<N
+    owners={e:i for e,i in m["owners"].items() if i in keep}
+    adj=_adjacency(owners)
+    adj_A=_adjacency(m["owners"])
+    degC={v:len(ns) for v,ns in adj.items()}
+    Delta=max(degC.values(),default=0)
+    RA=Counter()
+    RC=Counter()
+    SA=Counter()
+    SC=Counter()
+    for i,(p,l) in enumerate(m["flags"]):
+        for y in m["g"][l]:
+            RA[p,y]+=1
+            if i in keep: RC[p,y]+=1
+        for x in m["f"][p]:
+            SA[l,x]+=1
+            if i in keep: SC[l,x]+=1
+
+    point_neighbors=[set() for _ in range(V)]
+    line_neighbors=[set() for _ in range(V)]
+    for ids in m["byl"].values():
+        ps=[m["flags"][i][0] for i in ids]
+        for p,q in combinations(ps,2):
+            point_neighbors[p].add(q)
+            point_neighbors[q].add(p)
+    for ids in m["byp"].values():
+        ls=[m["flags"][i][1] for i in ids]
+        for l,r in combinations(ls,2):
+            line_neighbors[l].add(r)
+            line_neighbors[r].add(l)
+
+    cx=Counter()
+    cy=Counter()
+    for p in range(V):
+        for q in point_neighbors[p]:
+            for x in m["f"][q]: cx[p,x]+=1
+        for r in line_neighbors[p]:
+            for y in m["g"][r]: cy[p,y]+=1
+
+    left_symbols=defaultdict(list)
+    right_symbols=defaultdict(list)
+    for p,fp in enumerate(m["f"]):
+        for x in fp: left_symbols[x].append(p)
+    for l,gl in enumerate(m["g"]):
+        for y in gl: right_symbols[y].append(l)
+
+    KACx={}
+    KACy={}
+    for p in range(V):
+        for u in range(V):
+            KACx[p,u]=sum(RA[p,y]*RC[u,y] for y in range(m["a"]))
+            KACy[p,u]=sum(SA[p,x]*SC[u,x] for x in range(m["a"]))
+    Bx=By=theta_book_x=theta_book_y=0
+    for u in range(V):
+        x0,x1=m["f"][u]
+        for x,k in ((x0,x1),(x1,x0)):
+            for p in left_symbols[k]:
+                w=KACx[p,u]
+                theta_book_x+=w
+                Bx+=cx[p,x]*w
+        y0,y1=m["g"][u]
+        for y,k in ((y0,y1),(y1,y0)):
+            for ell in right_symbols[k]:
+                w=KACy[ell,u]
+                theta_book_y+=w
+                By+=cy[ell,y]*w
+    theta_physical=sum(len(adj_A[v])*len(adj[v]) for v in adj_A)
+    if theta_book_x != theta_physical or theta_book_y != theta_physical:
+        raise AssertionError("mixed original full/core book loses physical coupling")
+    if theta_physical > 4*N*Delta:
+        raise AssertionError("mixed theta Cauchy charge violated")
+
+    # Literal FIRST-edge triples: source project endpoints from full
+    # original f and g. v3 need NOT be attached to any retained C edge.
+    # This catches an invalid replacement of A=I by C.
+    Tx=Ty=0
+    for v0, v1 in ((a,b) for e in owners for a,b in (e,(e[1],e[0]))):
+        x0,y0=v0
+        for q in left_symbols[x0]:
+            x3=next(x for x in m["f"][q] if x != x0)
+            for r in right_symbols[y0]:
+                y3=next(y for y in m["g"][r] if y != y0)
+                if (q,r) in m["flagid"]:
+                    continue
+                p,ell=_source_projection(m,q,r)
+                if set(m["f"][q]) & set(m["f"][p]):
+                    continue
+                if set(m["g"][r]) & set(m["g"][ell]):
+                    continue
+                if v1[0] in m["f"][p]: Tx+=1
+                if v1[1] in m["g"][ell]: Ty+=1
+    if Tx > Bx or Ty > By:
+        raise AssertionError("literal ORIGINAL first-inner triples exceed mixed books")
+
+    # Literal inner blocker classes on true coordinate-proper physical
+    # three-paths. All four events are allowed to overlap.
+    Ix1=Ix2=Iy1=Iy2=0
+    proper=0
+    for u in adj:
+        for a in adj[u]:
+            for b in adj[a]:
+                for v in adj[b]:
+                    path=(u,a,b,v)
+                    if len({x[0] for x in path})!=4 or len(
+                        {x[1] for x in path})!=4:
+                        continue
+                    proper+=1
+                    q={fp:p for p,fp in enumerate(m["f"])}.get(_edge(u[0],v[0]))
+                    r={gl:l for l,gl in enumerate(m["g"])}.get(_edge(u[1],v[1]))
+                    if q is None or r is None or (q,r) in m["flagid"]:
+                        continue
+                    p,ell=_source_projection(m,q,r)
+                    if set(m["f"][q]) & set(m["f"][p]) or set(
+                        m["g"][r]) & set(m["g"][ell]):
+                        continue
+                    Ix1+=(a[0] in m["f"][p])
+                    Ix2+=(b[0] in m["f"][p])
+                    Iy1+=(a[1] in m["g"][ell])
+                    Iy2+=(b[1] in m["g"][ell])
+    # Literal trace(A_C^4) = sum_{u,v} |N_C(u) intersection N_C(v)|^2
+    t4=sum(len(adj[u] & adj[v])**2 for u in adj for v in adj)
+    assert t4>0 and Delta>0
+    if not (Ix1**2<=Bx*Delta*t4 and Ix2**2<=Bx*Delta*t4 and
+            Iy1**2<=By*Delta*t4 and Iy2**2<=By*Delta*t4):
+        raise AssertionError("one of four inherited actual A/C blockers fails")
+    return {
+        "s":s,"mode":mode,"Z":0,
+        "full_A_original_IDs":N,"strict_smaller_paired_CORE_IDs":len(keep),
+        "A_not_equal_C":N!=len(keep),
+        "original_full_core_contraction_theta":theta_physical,
+        "source_mixed_point_book_Bx":Bx,
+        "source_mixed_line_book_By":By,
+        "literal_original_first_x_blocker_triples":Tx,
+        "literal_original_first_y_blocker_triples":Ty,
+        "actual_original_proper_P3":proper,
+        "blockers_actual_first_x":Ix1,
+        "blockers_actual_last_x":Ix2,
+        "blockers_actual_first_y":Iy1,
+        "blockers_actual_last_y":Iy2,
+        "physical_CORE_delta":Delta,
+        "physical_CORE_trace_A4":t4,
+        "mixed_source_BOOK_two_contraction_methods_agree":True,
+        "all_four_literal_original_blockers_within_mixed_books":True,
+    }
+
+
 def certificate():
     probes=[source_z0_budget(*x) for x in (
         (Fraction(1),Fraction(1)),
@@ -318,6 +478,8 @@ def certificate():
               for mode in ("lex","reverse")]
     if not any(x["produced_original_distinct_BBo"]>0 for x in examples):
         raise AssertionError("original P3-to-BBo source oracle was vacuous")
+    mixed=[genuine_mixed_AC_blocker_case(s,mode) for s in (2,4)
+           for mode in ("lex","reverse")]
     return {
         "schema":SCHEMA, "issue":230, "status":ROOT_STATUS,
         "parent_pr":768,
@@ -327,6 +489,7 @@ def certificate():
         "root_branch_A_math_premises_still_need_independent_signoff":True,
         "all_h_formal_not_numeric_graph_constant_probes":probes,
         "genuine_original_W32_W34_independent_source_cases":examples,
+        "genuine_original_W32_W34_A_not_C_mixed_blocker_cases":mixed,
         "root_PROVED_A":False,"infinite_B_counterexample":False,
         "general_ASET_exponent":False,
     }
