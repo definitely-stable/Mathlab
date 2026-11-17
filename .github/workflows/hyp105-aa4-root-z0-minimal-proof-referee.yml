@@ -1,0 +1,86 @@
+name: hyp105-aa4-root-z0-minimal-proof-referee
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-root-z0-minimal-proof-referee.yml'
+      - 'docs/research/HYP-105-AA4-ROOT-Z0-SHARP-MINIMAL-BRANCH-A.md'
+      - 'research/hyp105_root_z0_minimal_proof_referee.py'
+      - 'research/test_hyp105_root_z0_minimal_proof_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-root-z0-referee:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact all-h Z0 source budget and genuine original W32 W34 independent tests
+        run: python -m unittest discover -s research -p 'test_hyp105_root_z0_minimal_proof_referee.py' -v
+      - name: Fail-closed exact Z0 source and four mixed A!=C source oracle
+        shell: bash
+        run: |
+          python research/hyp105_root_z0_minimal_proof_referee.py > root-z0-certificate.txt
+          python - root-z0-certificate.txt <<'PY'
+          from fractions import Fraction
+          import json,sys
+          raw=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_ROOT_Z0_CERTIFICATE='
+          assert raw.startswith(prefix) and raw.count(prefix)==1
+          c=json.loads(raw[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.original-root-z0-sharp-core.v1'
+          assert c['issue']==230 and c['parent_pr']==768
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['root_branch_A_math_premises_still_need_independent_signoff'] is True
+          assert c['root_PROVED_A'] is False
+          assert c['infinite_B_counterexample'] is False
+          assert c['general_ASET_exponent'] is False
+          assert Fraction(c['new_analytical_Z0_core'])==Fraction(83,104)
+          assert Fraction(c['new_analytical_Z0_W3'])==Fraction(1143574,177957)
+          assert Fraction(c['new_analytical_Z0_BBo'])==Fraction(8614721,2847312)
+          probes=c['all_h_formal_not_numeric_graph_constant_probes']
+          assert len(probes)==3
+          for r in probes:
+              assert r['R_zero_Z']==93312 and r['R_with_Z_parent']==93313
+              assert len(r['exact_25_gate_ledger'])==25
+              assert all(r['exact_25_gate_ledger'].values())
+              assert r['root_PROVED_A'] is False
+              assert r['full_predecessor_scientific_acceptance'] is False
+              assert r['ASET_exponent_claimed'] is False
+              assert Fraction(r['new_Z0_produced_BBo_floor'])>Fraction(119,48)
+              assert Fraction(r['heavy_delta_conditioned'])<=1
+              print('FORMAL_C6_ONLY',r['formal_C0_NOT_A_PUBLISHED_VALUE'],
+                    r['formal_c0_NOT_A_PUBLISHED_VALUE'],'h0',r['h0'])
+          rows=c['genuine_original_W32_W34_independent_source_cases']
+          mixed=c['genuine_original_W32_W34_A_not_C_mixed_blocker_cases']
+          assert len(rows)==4 and len(mixed)==4
+          assert {(x['s'],x['mode']) for x in rows}=={(s,m) for s in (2,4) for m in ('lex','reverse')}
+          assert {(x['s'],x['mode']) for x in mixed}=={(s,m) for s in (2,4) for m in ('lex','reverse')}
+          for x in rows:
+              assert x['physical_real_diagonals']==2*x['source_core']
+              assert x['accepted_original_directed_P3']==2*x['produced_original_distinct_BBo']
+              assert x['accepted_to_original_sixset_exactly_two'] is True
+          for x in mixed:
+              assert x['Z']==0 and x['A_not_equal_C'] is True
+              assert x['mixed_source_BOOK_two_contraction_methods_agree'] is True
+              assert x['all_four_literal_original_blockers_within_mixed_books'] is True
+              assert x['literal_original_first_x_blocker_triples']<=x['source_mixed_point_book_Bx']
+              assert x['literal_original_first_y_blocker_triples']<=x['source_mixed_line_book_By']
+          assert any(x['produced_original_distinct_BBo']>0 for x in rows)
+          assert any(sum(x[k] for k in (
+              'blockers_actual_first_x','blockers_actual_last_x',
+              'blockers_actual_first_y','blockers_actual_last_y'))>0 for x in mixed)
+          print('TRUE_ORIGINAL_W32_W34_ALL_FOUR_MIXED_BOOKS_PASS')
+          print('ROOT_Z0_SCOPED_CONDITIONAL_THEOREM_NO_PROMOTION')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-root-z0-sharp-core-physical-referee
+          path: root-z0-certificate.txt
+          retention-days: 14
