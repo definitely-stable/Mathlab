@@ -86,8 +86,8 @@ class TestOriginalHeavySrgPhysicalDensity(unittest.TestCase):
         self.assertGreater(Q(old_R,new_R)**6,Q(7))
 
     def test_07_formal_root_probes_not_published_external_constants(self):
-        inputs=((Q(1),Q(1),653),(Q(2),Q(1,5),683),
-                (Q(7,3),Q(1,17),689))
+        inputs=((Q(1),Q(1),650),(Q(2),Q(1,5),680),
+                (Q(7,3),Q(1,17),687))
         for C0,c0,h in inputs:
             z=formal_root(32,10,C0,c0)
             self.assertEqual(z["R"],66562)
@@ -96,6 +96,10 @@ class TestOriginalHeavySrgPhysicalDensity(unittest.TestCase):
             self.assertEqual(z["q2"],1936)
             self.assertEqual(z["q3"],85184)
             self.assertGreater(z["BBo_floor"],z["delta"])
+            # The exact physical a²<A_H*s³ also strengthens the LOW W3 floor.
+            old_w=Q(16,81)*(4*z["core"])**3
+            self.assertGreater(z["W3_floor"],old_w)
+            self.assertEqual(z["W3_floor"],(4*z["core"])**3/envelope(32)["A"]**2)
             self.assertFalse(z["root_PROVED_A"])
             self.assertFalse(z["external_C6_numeric_constants_known"])
             self.assertFalse(z["inherited_LOW_lemmas_independently_accepted"])
@@ -106,9 +110,9 @@ class TestOriginalHeavySrgPhysicalDensity(unittest.TestCase):
 
     def test_08_independent_parent_K10_H32_comparison_test_only(self):
         from hyp105_root_srg_frontier_independent import _ceilroot_budget
-        for C0,c0,parent_h,new_h in ((Q(1),Q(1),667,653),
-                                    (Q(2),Q(1,5),697,683),
-                                    (Q(7,3),Q(1,17),704,689)):
+        for C0,c0,parent_h,new_h in ((Q(1),Q(1),667,650),
+                                    (Q(2),Q(1,5),697,680),
+                                    (Q(7,3),Q(1,17),704,687)):
             old=_ceilroot_budget(10,32,C0,c0)
             new=formal_root(32,10,C0,c0)
             self.assertEqual(old["exact_root_h0"],parent_h)
@@ -149,7 +153,7 @@ class TestOriginalHeavySrgPhysicalDensity(unittest.TestCase):
         self.assertTrue(r["external_C6_numerical_constants_NOT_established"])
         self.assertTrue(r["inherited_LOW_lemma_acceptance_still_open"])
         self.assertEqual([q["h0"] for q in r["formal_not_published_graph_probes"]],
-                         [653,683,689])
+                         [650,680,687])
 
 
 if __name__=="__main__":
