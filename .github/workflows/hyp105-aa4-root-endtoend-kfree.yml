@@ -65,7 +65,6 @@ jobs:
               for mode in ('no_Q_K11','low_Q_K11','test_nontrivial_K3_pruning'):
                   p=z[mode]
                   assert p['actual_original_N']==(z['s']+1)**2*(z['s']**2+1)
-                  assert p['original_FULL_Q_touching_physical_edges'] if False else True
                   assert p['original_full_J_edges']==p['original_collinear_point_J_edges']+p['original_collinear_line_J_edges']
                   assert p['original_pruned_CORE_flags']>=0
                   assert p['original_CORE_real_edges']==2*p['original_pruned_CORE_flags']
@@ -98,7 +97,10 @@ jobs:
               assert q['true_original_FULL_J_high_degree_strictly_above_K']==12
               assert q['source_owner_selected_moment_harris_q2']==2304
               assert q['source_owner_selected_moment_harris_q3']==110592
-              assert q['original_LOW_L6']==24+153*int((q['original_LOW_L6']-24)//153)**1 if False else True
+              from math import isqrt
+              assert (q['original_LOW_L6']-24)%153==0
+              T_sq=(q['original_LOW_L6']-24)//153
+              assert isqrt(T_sq)**2==T_sq
               assert Fraction(*q['at_least_original_produced_BBo_coefficient'])>=Fraction(*q['heavy_original_D6_delta'])
               assert z['external_C6_constants_remain_existential'] is True
               assert q['root_PROVED_A'] is False
