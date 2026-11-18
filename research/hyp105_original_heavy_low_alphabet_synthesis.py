@@ -298,6 +298,41 @@ def _cuts(owners,source,typ):
     return bit,out
 
 
+def physical_C6_original_source_check(F,source):
+    """Independent ordinary graph-first unoriented C6 to unique original sixset."""
+    adj=defaultdict(set)
+    for u,v in F:
+        adj[u].add(v);adj[v].add(u)
+    def canonical(path):
+        path=tuple(path)
+        return min(tuple(z[k:]+z[:k]) for z in (path,path[::-1]) for k in range(6))
+    cycles=set()
+    for start in sorted(adj):
+        stack=[(start,)]
+        while stack:
+            path=stack.pop()
+            if len(path)==6:
+                if start in adj[path[-1]]:
+                    cycles.add(canonical(path))
+                continue
+            for v in adj[path[-1]]:
+                if v not in path and v>=start:
+                    stack.append(path+(v,))
+    names=set()
+    for path in cycles:
+        if len({v[0] for v in path})!=6 or len({v[1] for v in path})!=6:
+            raise AssertionError("actual source independent two-cut graph has improper C6")
+        ids=tuple(F[_edge(path[i],path[(i+1)%6])] for i in range(6))
+        if len(set(ids))!=6 or len({source["flags"][i][0] for i in ids})!=6 or len({source["flags"][i][1] for i in ids})!=6:
+            raise AssertionError("physical original C6 source IDs are not a valid D6")
+        if frozenset(ids) in names:
+            raise AssertionError("two distinct ordinary C6 share one ORIGINAL six-ID set")
+        names.add(frozenset(ids))
+    return dict(actual_ordinary_simple_unoriented_C6=len(cycles),
+                distinct_TRUE_original_D6_sixsets=len(names),
+                no_original_sixset_cloning_or_twelve_fold_loss=True)
+
+
 def finite_dual_referee(s,mode,Tdiag):
     """Genuine full ORIGINAL HEAVY F + independently frozen LOW paired core."""
     if type(Tdiag) is not int or Tdiag<0:
@@ -361,7 +396,9 @@ def finite_dual_referee(s,mode,Tdiag):
             raise AssertionError("original top-r physical density FAIL")
         if any(edges[e]!=i or i not in S for e,i in F.items()):
             raise AssertionError("source-clone physical edge in actual F")
+        invert=physical_C6_original_source_check(F,source)
         Hresult=dict(
+            physically_checked_actual_C6_original_source_inverse=invert,
             source_real_heavy_edges=len(heavy),source_original_heavy_owners=len(heavy_ids),
             original_CaroWei_lower=str(caro),
             selected_source_independent_count=len(selected),after_x_cut=len(selx),
