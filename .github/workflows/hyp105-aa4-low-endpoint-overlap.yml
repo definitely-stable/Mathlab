@@ -1,0 +1,72 @@
+name: hyp105-aa4-low-endpoint-overlap
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-low-endpoint-overlap
+    paths:
+      - '.github/workflows/hyp105-aa4-low-endpoint-overlap.yml'
+      - 'docs/research/HYP-105-AA4-LOW-ENDPOINT-OVERLAP-SOURCE-EXACT.md'
+      - 'research/hyp105_original_low_endpoint_overlap.py'
+      - 'research/test_hyp105_original_low_endpoint_overlap.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-low-endpoint-overlap.yml'
+      - 'docs/research/HYP-105-AA4-LOW-ENDPOINT-OVERLAP-SOURCE-EXACT.md'
+      - 'research/hyp105_original_low_endpoint_overlap.py'
+      - 'research/test_hyp105_original_low_endpoint_overlap.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-gq-endpoint-overlap:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True ORIGINAL W32 W34 source deletion overlap and physical label-correlation tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_low_endpoint_overlap.py' -v
+      - name: Fail-closed exact source-only degree and original projection JSON
+        shell: bash
+        run: |
+          python research/hyp105_original_low_endpoint_overlap.py > aa4-low-endpoint-overlap-certificate.txt
+          python - aa4-low-endpoint-overlap-certificate.txt <<'PY'
+          import json,sys
+          line=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_LOW_ENDPOINT_OVERLAP_CERTIFICATE='
+          assert line.startswith(prefix) and line.count(prefix)==1
+          z=json.loads(line[len(prefix):])
+          assert z['schema']=='mathlab.hyp105.original-low-endpoint-overlap.v1'
+          assert z['issue']==230 and z['parent_pr']==772
+          assert z['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert z['root_PROVED_A'] is False
+          assert z['universal_Cheeger_equality_claimed'] is False
+          assert z['prior_748_equivalent_union_identity_acknowledged'] is True
+          assert z['all_order_source_identity_proved_in_manuscript'] is True
+          assert z['finite_verified_orders']==[2,4]
+          rows=z['rows']
+          assert len(rows)>=30
+          assert {(s,m) for s in (2,4) for m in ('single','point-star','line-star','mixed-star')} <= {(r['s'],r['case']) for r in rows}
+          for r in rows:
+              s,k=r['s'],r['Z']
+              assert 0<=r['outer']<=s*s*k
+              assert 0<=r['D']<=s*s*k
+              assert r['U']==2*s*s*k-r['outer']+r['D']
+              assert 0<=r['U']<=3*s*s*k
+              if r['star']: assert r['D']==0 and 4*r['U']<=8*s*s*k
+              if r['case']=='single': assert r['U']==3*s*s
+              if r['case']=='point-star': assert r['U']==2*s*s*(s+1)
+          assert any(r['case']=='mixed-star' and r['outer']>0 for r in rows)
+          print('SOURCE_ORIGINAL_DEGREE_QUADRATIC_AND_FULL_PROJECTION_AGREE')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-low-endpoint-overlap-certificate
+          path: aa4-low-endpoint-overlap-certificate.txt
+          retention-days: 14
