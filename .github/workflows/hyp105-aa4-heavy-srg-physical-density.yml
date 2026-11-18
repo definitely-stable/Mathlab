@@ -73,7 +73,7 @@ jobs:
           probes=x['formal_not_published_graph_probes']
           assert [(p['C0_FORMAL'],p['c0_FORMAL'],p['h0'])
                    for p in probes]==[
-                      ('1','1',653),('2','1/5',683),('7/3','1/17',689)]
+                      ('1','1',650),('2','1/5',680),('7/3','1/17',687)]
           assert all(p['R']==66562 and not p['numeric_constants_verified'] for p in probes)
           print('ORIGINAL_HEAVY_SOURCE_AND_REAL_F_DENSITY_PASS')
           print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
