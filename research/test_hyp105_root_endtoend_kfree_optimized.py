@@ -201,7 +201,25 @@ class TestOriginalRootKFreeEndToEnd(unittest.TestCase):
                 high=sum(len(x)>K for x in m["source_J_neighbors"])
                 self.assertLessEqual(high*(K+1),2*m["source_J_edge_count"])
 
-    def test_19_result_scope_and_number_of_true_source_cases(self):
+    def test_19_genuine_partial_heavy_Q_with_nonempty_real_paired_core(self):
+        rows=self.cert["genuine_original_W32_W34_pruning_and_Blackley_Roy_falsifiers"]
+        self.assertTrue(any(z["actual_partial_Q_nonempty_CORE_case"] is not None
+                            for z in rows))
+        for z in rows:
+            self.assertEqual(z["tested_exact_original_physical_T_grid_count"],11)
+            q=z["actual_partial_Q_nonempty_CORE_case"]
+            if q is None:
+                continue
+            self.assertGreater(q["genuine_FULL_Q_vertices"],0)
+            self.assertGreater(q["original_pruned_CORE_flags"],0)
+            self.assertLess(q["original_pruned_CORE_flags"],q["actual_original_N"])
+            self.assertGreater(q["original_CORE_real_edges"],0)
+            self.assertLessEqual(q["original_CORE_max_J_degree"],11)
+            self.assertLessEqual(q["original_CORE_max_physical_degree"],
+                                 q["diagnostic_T_not_HEAVY_all_h"]*q["s"])
+            self.assertTrue(q["Blakley_Roy_exact_true_actual_physical_graph_verified"])
+
+    def test_20_result_scope_and_number_of_true_source_cases(self):
         c=self.cert
         self.assertEqual(c["schema"],SCHEMA)
         self.assertEqual(c["issue"],230)
