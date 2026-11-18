@@ -69,6 +69,12 @@ jobs:
           assert len(rows)==6
           assert {(q['s'],q['mode']) for q in rows}=={
               (s,m) for s in (2,4) for m in ('lex','reverse','shift')}
+          positive_true_C6=[
+              (q,p) for q in rows for p in q['true_original_heavy_cases']
+              if p['HEAVY_nonvacuous'] and
+                 p['direct_C6_all_original_six_ID_inverse_proper']['real_F_simple_unoriented_C6']>0]
+          assert positive_true_C6, 'the REAL HEAVY original source C6 guard must not be vacuous'
+          assert any(q['s']==4 and q['mode']=='reverse' for q,p in positive_true_C6)
           for q in rows:
               assert q['original_flag_count']==(q['s']+1)**2*(q['s']**2+1)
               assert q['all_original_source_edges']==2*q['original_flag_count']
