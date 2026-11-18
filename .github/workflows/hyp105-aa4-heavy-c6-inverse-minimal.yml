@@ -1,6 +1,14 @@
 name: hyp105-aa4-heavy-c6-inverse-minimal
 
 on:
+  push:
+    branches:
+      - research/hyp105-aa4-heavy-c6-inverse-minimal
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-c6-inverse-minimal.yml'
+      - 'docs/research/HYP-105-AA4-HEAVY-C6-INVERSE-MINIMAL-ASSUMPTIONS.md'
+      - 'research/hyp105_original_heavy_c6_inverse_minimal.py'
+      - 'research/test_hyp105_original_heavy_c6_inverse_minimal.py'
   pull_request:
     paths:
       - '.github/workflows/hyp105-aa4-heavy-c6-inverse-minimal.yml'
