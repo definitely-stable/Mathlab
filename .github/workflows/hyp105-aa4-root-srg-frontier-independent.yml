@@ -1,0 +1,137 @@
+name: hyp105-aa4-root-srg-frontier-independent
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-root-srg-asymptotic-frontier
+    paths:
+      - '.github/workflows/hyp105-aa4-root-srg-frontier-independent.yml'
+      - 'docs/research/HYP-105-AA4-ROOT-SRG-FRONTIER-INDEPENDENT.md'
+      - 'research/hyp105_root_srg_frontier_independent.py'
+      - 'research/test_hyp105_root_srg_frontier_independent.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-root-srg-frontier-independent.yml'
+      - 'docs/research/HYP-105-AA4-ROOT-SRG-FRONTIER-INDEPENDENT.md'
+      - 'research/hyp105_root_srg_frontier_independent.py'
+      - 'research/test_hyp105_root_srg_frontier_independent.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-original-dual-GQ-SRG-source-J:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent true W32/W34 dual SRG and all-order source-K4 root mathematical falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_root_srg_frontier_independent.py' -v
+      - name: Fail-closed exact all-h ORIGINAL source certificate and formal thresholds
+        shell: bash
+        run: |
+          python research/hyp105_root_srg_frontier_independent.py > srg-frontier-certificate.txt
+          python - srg-frontier-certificate.txt <<'PY'
+          import json,sys
+          from fractions import Fraction as F
+          from math import comb,isqrt
+          raw=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_ROOT_SRG_FRONTIER_CERTIFICATE='
+          assert raw.startswith(prefix) and raw.count(prefix)==1
+          c=json.loads(raw[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.root-srg-frontier-exact.v1'
+          assert c['issue']==230 and c['parent_pr']==773
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          for field in (
+              'independently_proved_all_h_original_GQ_SRG_source_collision_bound',
+              'all_h_original_J_stronger_19_over_8_for_s_ge64',
+              'all_h_new_K4_original_core_for_dyadic_s_ge256',
+              'all_h_source_symbol_occupancy_original_dual',
+              'all_h_original_source_exact_dimensionless_envelope_for_all_even_H_ge8',
+              'retained_original_predecessor_heavy_and_LOW_lemmas_REVIEW_OPEN',
+              'external_C6_unknown_numerical_constants'):
+              assert c[field] is True,field
+          assert c['root_PROVED_A'] is False
+          assert c['ASET_exponent_claimed'] is False
+          assert c['K4_uniform_core_floor_dyadic_256']=='65257/20971520'
+          assert c['source_GQ_SRG_prerequisite_local_status']=='INDEPENDENT_PROOF_CHECKED'
+          assert c['first_following_open_proof_gate']=='HEAVY_OWNER_AND_SELECTED_F'
+          real=c['real_original_W32_W34_genuine_symplectic_dual_SRG_censuses']
+          assert len(real)==6
+          assert {(q['s'],q['scheme']) for q in real}=={
+              (s,k) for s in (2,4) for k in ('lex','reverse','shift')}
+          for q in real:
+              s=q['s']
+              assert q['original_flags']==(s+1)**2*(s*s+1)
+              assert q['V']==(s+1)*(s*s+1)
+              assert q['true_original_J_edges']==(q['true_original_point_collinear_overlaps']+
+                                                  q['true_original_line_collinear_overlaps'])
+              assert q['actual_true_J_no_more_than_2Cs']
+              assert q['original_point_line_spectral_SRG_identities_passed']
+              assert q['projection_off_each_original_nonincident_point_line_is_unique']
+              for typ in ('full_original_point_symbol_energy',
+                          'full_original_line_symbol_energy'):
+                  v=q[typ]
+                  assert v['true_original_SRG_G_energy']==v['true_original_SRG_expected_G_energy']
+                  assert F(v['e_col_from_symbol_induced'])<=F(v['spectral_instance_adaptive_upper'])
+                  assert F(v['spectral_instance_adaptive_upper'])<=v['universal_original_Cs']
+              print('TRUE_ORIGINAL_GQ_SRG',s,q['scheme'],'J',q['true_original_J_edges'],
+                    'point',q['true_original_point_collinear_overlaps'],
+                    'line',q['true_original_line_collinear_overlaps'])
+          ratios=c['true_dyadic_exact_original_Cs_envelopes']
+          assert [v['s'] for v in ratios]==[64,128,256,512,1024]
+          for v in ratios:
+              assert v['s_ge64_uniform_19over8_applicable']
+              assert F(v['dimensionless_J_ratio_upper'])<F(19,8)
+              if v['s']>=256:
+                  assert v['s_ge256_K4_from_spectral_applicable']
+                  assert F(v['K4_CORE_fraction_after_FULL_Q'])>0
+          envelopes=c['all_h_symbolic_rational_envelope_cases']
+          assert [v['H'] for v in envelopes]==[8,16,32,64]
+          assert envelopes[0]['M']=='18284823/16777216'
+          assert envelopes[0]['K4_original_CORE_floor']=='65257/20971520'
+          for i,q in enumerate(envelopes):
+              assert q['min_s']==2**q['H']
+              assert F(q['K4_original_CORE_floor'])>0
+              assert F(q['source_J_coefficient'])<F(19,8)
+              if i:
+                  assert F(q['M'])<F(envelopes[i-1]['M'])
+          formal=c['formal_graph_constant_conditional_ROOT_comparison']
+          optimized=c['formal_graph_constant_conditional_ROOT_optimized_H32_K10']
+          assert len(formal)==len(optimized)==3
+          for i,(old_h,new_h) in enumerate(((673,667),(703,697),(710,704))):
+              p=formal[i]
+              q=optimized[i]
+              assert p['previous_K11_h0']==old_h
+              assert p['improved_FIXED_K10_H32_h0']==new_h
+              assert p['h0_reduction']==6
+              assert 10 in p['K_winners_from_4_to_64']
+              assert p['formal_not_published_C6_constants']
+              assert q['K']==10 and q['H']==32 and q['R']==93312
+              assert q['q2']==1936 and q['q3']==85184
+              assert q['exact_root_h0']==new_h
+              assert q['retained_source_alpha_errors']==['1/64','1/64','15/16']
+              assert q['actual_original_FULL_J_high_source_degree_pruned_gt_K']==11
+              assert q['all_order_inherited_global_LOW_moment_proof_STILL_SEPARATE']
+              assert q['external_graph_C6_constants_NOT_numeric']
+              assert q['root_PROVED_A'] is False
+              assert F(q['original_produced_BBo_floor'])>F(q['unchanged_heavy_D6_delta'])
+              print('FORMAL_ONLY',p['formal_C0_not_published'],
+                    p['formal_c0_not_published'],
+                    'old_h',old_h,'new_h',new_h,'gain',6)
+          k4=c['K4_positive_original_CORE_conditional_budget_H8']
+          assert k4['K']==4 and k4['H']==8 and k4['exact_root_h0']==823
+          assert F(k4['original_CORE_fraction'])==F(65257,20971520)
+          assert k4['root_PROVED_A'] is False
+          print('ALL_H_ORIGINAL_SOURCE_GQ_SRG_K4_FRONTIER_ACCEPTED_LOCALLY')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-GQ-SRG-K4-source-frontier-certificate
+          path: srg-frontier-certificate.txt
+          retention-days: 14
