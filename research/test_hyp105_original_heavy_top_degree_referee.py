@@ -209,7 +209,22 @@ class TestOriginalHeavyTopR(unittest.TestCase):
         self.assertGreater(density,F(1,improved_R(32)))
         self.assertEqual(improved_R(32),37441)
 
-    def test_19_no_root_or_ASET_promotion_and_counts(self):
+    def test_19_nonvacuous_TRUE_original_W34_heavy_F_has_source_injective_C6(self):
+        cases=[x for row in self.c["real_original_W32_W34_heavy_true_physical_cases"]
+               for x in row["true_original_heavy_cases"]
+               if x["HEAVY_nonvacuous"] and
+                  x["direct_C6_all_original_six_ID_inverse_proper"]
+                   ["real_F_simple_unoriented_C6"]>0]
+        self.assertGreater(len(cases),0)
+        self.assertTrue(any(x["s"]==4 and x["mode"]=="reverse" for x in cases))
+        for x in cases:
+            c=x["direct_C6_all_original_six_ID_inverse_proper"]
+            self.assertEqual(c["real_F_simple_unoriented_C6"],
+                             c["corresponding_distinct_original_D6_sixsets"])
+            self.assertGreater(c["real_F_simple_unoriented_C6"],0)
+            self.assertTrue(x["all_F_edges_have_unique_original_owner"])
+
+    def test_20_no_root_or_ASET_promotion_and_counts(self):
         c=self.c
         self.assertEqual(c["schema"],SCHEMA)
         self.assertEqual(c["status"],ROOT_STATUS)
