@@ -61,7 +61,10 @@ def formal_root(H,K,C0,c0):
     c=Q(7,8)-4*z["M"]/Q(K+1)
     if c<=0:
         raise ValueError("nonpositive source CORE from true J bound")
-    w=Q(16,81)*(4*c)**3
+    # NEW: reuse the same sharp original minimal-alphabet a² < A_H*s³
+    # in Blakley–Roy: W3 >= (4|C|)^3/a^4 > (4*c)^3/A_H²*s^6.
+    # Parent #775 used the coarser 9/4 physical alphabet coefficient.
+    w=(4*c)**3/(z["A"]**2)
     R=z["R"]
     T=ceilq(Q(17*R**3,2)*C0**3)
     L6=24+153*T*T
