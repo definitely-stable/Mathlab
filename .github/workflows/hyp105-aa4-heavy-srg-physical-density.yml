@@ -1,0 +1,85 @@
+name: hyp105-aa4-heavy-srg-physical-density
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-heavy-srg-physical-density
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-srg-physical-density.yml'
+      - 'docs/research/HYP-105-AA4-HEAVY-SRG-PHYSICAL-DENSITY.md'
+      - 'research/hyp105_heavy_srg_physical_density.py'
+      - 'research/test_hyp105_heavy_srg_physical_density.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-srg-physical-density.yml'
+      - 'docs/research/HYP-105-AA4-HEAVY-SRG-PHYSICAL-DENSITY.md'
+      - 'research/hyp105_heavy_srg_physical_density.py'
+      - 'research/test_hyp105_heavy_srg_physical_density.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-heavy-srg-real-physical-density:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent ORIGINAL W32 W34 actual physical HEAVY F and symbolic all-h tests
+        run: python -m unittest discover -s research -p 'test_hyp105_heavy_srg_physical_density.py' -v
+      - name: Exact rational and real-source fail-closed JSON certificate
+        shell: bash
+        run: |
+          python research/hyp105_heavy_srg_physical_density.py > heavy-srg-physical-density-certificate.txt
+          python - heavy-srg-physical-density-certificate.txt <<'PY'
+          import json,sys
+          raw=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_HEAVY_SRG_PHYSICAL_DENSITY_CERTIFICATE='
+          assert raw.startswith(prefix) and raw.count(prefix)==1
+          x=json.loads(raw[len(prefix):])
+          assert x['schema']=='mathlab.hyp105.heavy-srg-physical-density.v1'
+          assert x['issue']==230 and x['parent_pr']==775
+          assert x['head_scope']=='Z_EMPTY'
+          assert x['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert x['root_PROVED_A'] is False and x['ASET_claimed'] is False
+          assert x['new_R']==66562 and x['previous_R']==93312
+          from fractions import Fraction as F
+          assert F(7)<F(x['improved_D6_coefficient_factor'])<F(8)
+          assert x['all_h_HEAVY_no_clone_density_proof_in_manuscript'] is True
+          assert x['physical_label_maps_arbitrarily_correlated_in_theorem'] is True
+          assert x['external_C6_numerical_constants_NOT_established'] is True
+          assert x['inherited_LOW_lemma_acceptance_still_open'] is True
+          rows=x['genuine_original_finite_cases']
+          assert len(rows)==6
+          assert {(r['s'],r['scheme']) for r in rows}=={
+            (s,t) for s in (2,4) for t in ('lex','reverse','shift')}
+          for r in rows:
+              s=r['s']
+              assert r['diagnostic_T']==1
+              assert r['original_flags']==(s+1)**2*(s*s+1)
+              assert r['physical_full_edges']==2*r['original_flags']
+              assert r['real_heavy_edges']>0
+              assert 2*r['heavy_unique_owners']>=r['real_heavy_edges']
+              assert 4*r['after_two_cuts_owners']>=r['independent_owners']
+              assert r['physical_selected_edges']==2*r['after_two_cuts_owners']
+              assert r['true_F_edges']>0
+              assert F(r['F_density'])>=F(r['direct_source_density'])
+              assert r['real_F_no_clone'] and r['source_J_independent']
+              assert r['retains_both_original_diagonals_before_F']
+          probes=x['formal_not_published_graph_probes']
+          assert [(p['C0_FORMAL'],p['c0_FORMAL'],p['h0'])
+                   for p in probes]==[
+                      ('1','1',653),('2','1/5',683),('7/3','1/17',689)]
+          assert all(p['R']==66562 and not p['numeric_constants_verified'] for p in probes)
+          print('ORIGINAL_HEAVY_SOURCE_AND_REAL_F_DENSITY_PASS')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-heavy-srg-physical-density-certificate
+          path: heavy-srg-physical-density-certificate.txt
+          retention-days: 14
