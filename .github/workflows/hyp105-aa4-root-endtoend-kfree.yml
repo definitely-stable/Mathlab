@@ -61,7 +61,21 @@ jobs:
           assert len(rows)==5
           assert {(z['s'],z['scheme']) for z in rows}=={
               (2,'lex'),(2,'reverse'),(4,'lex'),(4,'reverse'),(4,'shift')}
+          assert any(z['actual_partial_Q_nonempty_CORE_case'] is not None for z in rows)
           for z in rows:
+              assert z['tested_exact_original_physical_T_grid_count']==11
+              partial=z['actual_partial_Q_nonempty_CORE_case']
+              if partial is not None:
+                  assert 0<partial['genuine_FULL_Q_vertices']
+                  assert 0<partial['original_pruned_CORE_flags']<partial['actual_original_N']
+                  assert partial['original_CORE_real_edges']==2*partial['original_pruned_CORE_flags']
+                  assert partial['original_CORE_max_J_degree']<=11
+                  assert partial['original_CORE_max_physical_degree']<=partial['diagnostic_T_not_HEAVY_all_h']*z['s']
+                  assert partial['Blakley_Roy_exact_true_actual_physical_graph_verified']
+                  print('NONTRIVIAL_FULL_Q_ORIGINAL_CORE',z['s'],z['scheme'],
+                        'Tdiag',partial['diagnostic_T_not_HEAVY_all_h'],
+                        'Q',partial['genuine_FULL_Q_vertices'],
+                        'retained_flags',partial['original_pruned_CORE_flags'])
               for mode in ('no_Q_K11','low_Q_K11','test_nontrivial_K3_pruning'):
                   p=z[mode]
                   assert p['actual_original_N']==(z['s']+1)**2*(z['s']**2+1)
