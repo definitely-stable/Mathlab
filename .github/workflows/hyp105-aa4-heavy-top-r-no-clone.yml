@@ -1,0 +1,129 @@
+name: hyp105-aa4-heavy-top-r-no-clone
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-heavy-top-degree-no-clone
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-top-r-no-clone.yml'
+      - 'docs/research/HYP-105-AA4-HEAVY-TOP-R-NO-CLONE-STRONGER-SOURCE.md'
+      - 'research/hyp105_original_heavy_top_degree_referee.py'
+      - 'research/test_hyp105_original_heavy_top_degree_referee.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-top-r-no-clone.yml'
+      - 'docs/research/HYP-105-AA4-HEAVY-TOP-R-NO-CLONE-STRONGER-SOURCE.md'
+      - 'research/hyp105_original_heavy_top_degree_referee.py'
+      - 'research/test_hyp105_original_heavy_top_degree_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-heavy-top-r-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: True W32/W34 ORIGINAL heavy owners, Caro Wei, two cuts, real no-clone F
+        run: python -m unittest discover -s research -p 'test_hyp105_original_heavy_top_degree_referee.py' -v
+      - name: Fail-closed original all-h physical top-r and HEAVY/LOW same-T certificate
+        shell: bash
+        run: |
+          python research/hyp105_original_heavy_top_degree_referee.py > heavy-top-r-certificate.txt
+          python - heavy-top-r-certificate.txt <<'PY'
+          import json,sys
+          from fractions import Fraction as F
+          data=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_HEAVY_TOP_R_CERTIFICATE='
+          assert data.startswith(prefix) and data.count(prefix)==1
+          c=json.loads(data[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.original-heavy-top-degree-no-clone.v1'
+          assert c['issue']==230 and c['parent_pr']==775
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['precise_fixed_H32_R']==37441
+          assert c['previous_source_R']==93312
+          assert c['new_exact_improvement_in_heavy_delta']==str(F(93312,37441)**6)
+          assert F(c['new_exact_improvement_in_heavy_delta'])>239
+          for gate in (
+              'independently_derived_all_h_original_heavy_top_r_no_clone',
+              'new_all_h_top_r_without_old_chunk_ceil_factor_2',
+              'all_h_source_J_bound_from_parent_775_used_with_explicit_scope',
+              'all_h_full_original_HEAVY_owner_and_selected_F_lemma_PROVED_in_manuscript',
+              'all_h_external_C6_application_only_with_unknown_existential_constants',
+              'all_h_selected_C6_to_original_D6_requires_parent_772',
+              'original_BBo_LOW_global_moment_prerequisites_STILL_OPEN',
+          ):
+              assert c[gate] is True,gate
+          assert c['full_ROOT_PROVED_A'] is False
+          assert c['ASET_exponent_claimed'] is False
+          abstract=c['abstract_source_free_bipartite_prefix_counterfactual']
+          assert abstract['abstract_bipartite_graphs_exhausted']==255
+          assert abstract['exact_equality_witness_2_by_4'] is True
+          assert abstract['extra_half_from_old_chunk_bound_not_required'] is True
+          rows=c['real_original_W32_W34_heavy_true_physical_cases']
+          assert len(rows)==6
+          assert {(q['s'],q['mode']) for q in rows}=={
+              (s,m) for s in (2,4) for m in ('lex','reverse','shift')}
+          for q in rows:
+              assert q['original_flag_count']==(q['s']+1)**2*(q['s']**2+1)
+              assert q['all_original_source_edges']==2*q['original_flag_count']
+              assert len(q['true_original_heavy_cases'])==4
+              assert any(p['HEAVY_nonvacuous'] for p in q['true_original_heavy_cases'])
+              for p in q['true_original_heavy_cases']:
+                  if not p['HEAVY_nonvacuous']:
+                      continue
+                  assert p['original_full_heavy_edges']<=q['all_original_source_edges']
+                  assert p['original_pencil_J_edges']==(
+                      p['original_point_collinear_J']+p['original_line_collinear_J'])
+                  assert p['original_heavy_distinct_source_owners']*2>=p['original_full_heavy_edges']
+                  assert p['original_independent_owners']>=F(p['original_CaroWei_source_lower'])
+                  assert p['original_independent_owners']>=F(p['original_CaroWei_source_potential'])
+                  assert 2*p['after_original_x_cut']>=p['original_independent_owners']
+                  assert 2*p['after_original_y_cut']>=p['after_original_x_cut']
+                  assert p['selected_original_true_two_diagonal_edges']==2*p['after_original_y_cut']
+                  assert 2*p['actual_original_heavy_witness_majority']>=p['after_original_y_cut']
+                  assert p['original_true_cross_edges']>=p['actual_original_heavy_witness_majority']
+                  assert p['true_no_clone_F_real_edges']>=F(p['sharp_top_r_average_lower'])
+                  assert p['selected_true_top_r_Y']<=p['actual_physical_majority_Q_R']
+                  assert p['true_no_clone_F_real_vertices']<=2*p['actual_physical_majority_Q_R']
+                  assert F(p['actual_F_edge_per_vertex_density'])>=F(p['physical_top_r_density_lower'])
+                  assert p['all_F_edges_have_unique_original_owner'] is True
+                  assert p['all_source_J_independence_verified'] is True
+                  assert p['all_selected_source_flags_doubly_bichromatic'] is True
+                  assert p['root_PROVED_A'] is False
+                  x=p['direct_C6_all_original_six_ID_inverse_proper']
+                  assert x['real_F_simple_unoriented_C6']==x['corresponding_distinct_original_D6_sixsets']
+                  print('ORIGINAL',q['s'],q['mode'],'Tdiag',p['Tdiag'],
+                        'full-heavy-edges',p['original_full_heavy_edges'],
+                        'true F edges',p['true_no_clone_F_real_edges'],
+                        'original selected',p['after_original_y_cut'],
+                        'C6',x['real_F_simple_unoriented_C6'])
+          formal=c['formal_ROOT_H32_K10_same_low_with_better_heavy_top_r']
+          assert len(formal)==3
+          for p,expected_old,expected_new in zip(formal,(667,697,704),(628,658,664)):
+              assert p['previous_R']==93312 and p['new_R']==37441
+              assert p['previous_h0']==expected_old
+              assert p['new_h0']==expected_new
+              assert p['improved_dyadic_orders']==expected_old-expected_new
+              assert p['heavy_delta_multiplier']==str(F(93312,37441)**6)
+              assert int(p['new_T'])<int(p['previous_T'])
+              assert F(p['NEW_ROOT_delta'])>F(p['previous_ROOT_delta'])
+              assert p['exact_and_conditional_only'] is True
+              assert p['original_ROOT_PROVED_A'] is False
+              print('FORMAL_EXTERNAL_GRAPH_ONLY',p['FORMAL_C0_NOT_PUBLISHED'],
+                    p['FORMAL_c0_NOT_PUBLISHED'],
+                    'prior h0',expected_old,'new h0',expected_new,
+                    'dyadic savings',p['improved_dyadic_orders'])
+          print('ALL_ORDER_ORIGINAL_TOP_R_HEAVY_SOURCE_PROOF_ONLY')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-heavy-top-r-no-clone-source-certificate
+          path: heavy-top-r-certificate.txt
+          retention-days: 14
