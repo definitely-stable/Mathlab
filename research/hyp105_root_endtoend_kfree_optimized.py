@@ -332,12 +332,19 @@ def physical_core_referee(model,K,Tdiag):
 
 def genuine_case(s,scheme):
     m=source_model(genuine_original_source(s,scheme))
-    # Tdiag=10 deliberately makes Q empty at these true finite source sizes,
-    # Tdiag=1 can produce large heavy Q and a sparsified physical CORE.
+    # Diagnostic T values are NOT the astronomical all-h published
+    # supersaturation threshold. Scan all integer physical-degree bands
+    # to find a truly NONEMPTY Q with a genuinely retained paired CORE.
+    trial=[physical_core_referee(m,11,t) for t in range(0,11)]
+    partial=[z for z in trial if
+             0<z["genuine_FULL_Q_vertices"] and
+             0<z["original_pruned_CORE_flags"]<m["N"]]
     return dict(s=s,scheme=scheme,
                 no_Q_K11=physical_core_referee(m,11,10),
                 low_Q_K11=physical_core_referee(m,11,1),
-                test_nontrivial_K3_pruning=physical_core_referee(m,3,10))
+                test_nontrivial_K3_pruning=physical_core_referee(m,3,10),
+                actual_partial_Q_nonempty_CORE_case=partial[0] if partial else None,
+                tested_exact_original_physical_T_grid_count=len(trial))
 
 DEPENDENCY_GATE=(
     ("ROOT_GOAL", "root issue #230 seven disjoint named ORIGINAL 6-ID classes",
