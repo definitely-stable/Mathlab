@@ -342,6 +342,74 @@ def abstract_mask_case(r,mask_counts):
                 all_h_factorization_exact=True)
 
 
+
+
+def _ceil(q):
+    if not isinstance(q,Fraction):
+        raise TypeError("exact Fraction required")
+    return -(-q.numerator//q.denominator)
+
+
+def _ceil_sqrt(n):
+    from math import isqrt
+    if type(n)!=int or n<0:
+        raise ValueError("nonnegative exact integer required")
+    a=isqrt(n)
+    return a+(a*a<n)
+
+
+def conditional_z0_moment_budget(C0,c0):
+    """NEW exact all-h no-deletion threshold from proved Harris q2,q3.
+
+    This is a monotone conditional transplant into the frozen #769
+    moment ledger. It does not independently prove the remaining
+    physical LOW moment bounds, source-motif inverses or graph C6.
+    """
+    if not isinstance(C0,Fraction) or not isinstance(c0,Fraction):
+        raise TypeError("published unknown constants treated symbolically")
+    if C0<1 or not 0<c0<=1:
+        raise ValueError("formal bounds require C0>=1 and 0<c0<=1")
+    K=K_ROOT
+    R=93312
+    T=_ceil(Fraction(17*R**3,2)*C0**3)
+    L6=24+153*T*T
+    ceil_spectral=_ceil_sqrt(_ceil(Fraction(17*L6,4)))
+    B0=_ceil_sqrt(360*(K+1)*T)
+    q2old=16*comb(2*(K+1),2)
+    q3old=64*comb(3*(K+1),3)
+    q2new=16*(K+1)**2
+    q3new=64*(K+1)**3
+    vals={}
+    for key,q2,q3 in (("first_r",q2old,q3old),("Harris",q2new,q3new)):
+        L4=q2*q2*ceil_spectral+19*T
+        E=5*q3*_ceil_sqrt(L6)
+        D=4*_ceil_sqrt(B0*T*L4)
+        s0=max(64,444*T,(8*E)**2,(8*D)**8)
+        h0=(s0-1).bit_length()
+        vals[key]=dict(q2=q2,q3=q3,L4=str(L4),E=str(E),
+                       D=str(D),s0=str(s0),h0=h0)
+    old,new=vals["first_r"],vals["Harris"]
+    if not (new["q2"]<old["q2"] and new["q3"]<old["q3"]
+            and int(new["L4"])<int(old["L4"])
+            and int(new["E"])<int(old["E"])
+            and int(new["D"])<int(old["D"])
+            and int(new["s0"])<int(old["s0"])
+            and new["h0"]<=old["h0"]):
+        raise AssertionError("global conditional Z0 moment budgets not monotone")
+    return dict(
+        formal_C0_NOT_verified_graph_constant=str(C0),
+        formal_c0_NOT_verified_graph_constant=str(c0),
+        R_zero_Z=R,T=str(T),L6=str(L6),B0=str(B0),
+        old_first_r=old,new_Harris=new,
+        new_h0_reduction=old["h0"]-new["h0"],
+        harris_q2_improvement_exact=str(Fraction(q2old,q2new)),
+        harris_q3_improvement_exact=str(Fraction(q3old,q3new)),
+        unchanged_conditional_heavy_delta=str(c0/Fraction(R**6)),
+        original_LOW_remaining_global_inherited_lemmas_NOT_reproved=True,
+        external_C6_numerical_constants_NOT_inferred=True,
+        root_PROVED_A=False)
+
+
 def certificate():
     toy=[
         abstract_mask_case(2,{1:1,2:1}),
@@ -357,6 +425,9 @@ def certificate():
     real=[sample_exact_weighted_jensen(s,mode,r) for s,mode,r in (
         (2,"lex",2),(2,"reverse",3),(4,"lex",2),
         (4,"reverse",3),(4,"shift",3))]
+    z0=[conditional_z0_moment_budget(*v) for v in (
+        (Fraction(1),Fraction(1)),(Fraction(2),Fraction(1,5)),
+        (Fraction(7,3),Fraction(1,17)))]
     assert all(Fraction(x["exact_marginal_weighted_endpoint_energy"])>=
                Fraction(x["harris_degree_weighted_endpoint_energy"])>=
                Fraction(x["harris_uniform_true_K_endpoint_energy"])>=
@@ -376,7 +447,8 @@ def certificate():
                 all_h_NO_path_independence_assumed=True,
                 all_h_original_C6_to_D6_and_GLOBAL_moment_dependencies_remain_open=True,
                 abstract_real_source_conflict_mask_cases=toy,
-                genuine_original_W32_W34_weighted_marginal_cases=real)
+                genuine_original_W32_W34_weighted_marginal_cases=real,
+                conditional_original_Z0_universal_Harris_moment_budgets=z0)
 
 
 if __name__=="__main__":
