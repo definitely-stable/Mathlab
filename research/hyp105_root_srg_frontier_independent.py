@@ -301,6 +301,11 @@ def complete_original_maps(V,scheme):
 
 def typed_collinear_overlap(adj,pairs):
     """First algorithm: enumerate source-typed ORIGINAL collinearity."""
+    if (len(adj)!=len(pairs) or len(set(pairs))!=len(pairs)
+            or any(not isinstance(p,tuple) or len(p)!=2 or
+                   type(p[0]) is not int or type(p[1]) is not int or
+                   p[0]<0 or p[0]>=p[1] for p in pairs)):
+        raise ValueError("need separately globally injected original two-symbol pairs")
     return sum(bool(set(pairs[i])&set(pairs[j]))
                for i,A in enumerate(adj) for j in A if i<j)
 
@@ -308,6 +313,12 @@ def typed_collinear_overlap(adj,pairs):
 def typed_symbol_spectral_energy(adj,pairs,a,s):
     """Second algorithm: exact physical pair-occupancy and GQ SRG Gram."""
     V=len(pairs)
+    if (type(a) is not int or a<2 or len(adj)!=V or
+            len(set(pairs))!=V or any(
+                not isinstance(x,tuple) or len(x)!=2 or
+                type(x[0]) is not int or type(x[1]) is not int or
+                not 0<=x[0]<x[1]<a for x in pairs)):
+        raise ValueError("invalid complete globally pair-injected original source map")
     by_symbol=[set() for _ in range(a)]
     for p,(x,y) in enumerate(pairs):
         by_symbol[x].add(p)
