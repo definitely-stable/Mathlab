@@ -79,13 +79,32 @@ def priority_probability(nbr, owners):
             term/=prefix+j
         total+=term
     sufficient=Fraction(1,comb(b,r))
-    if not sufficient<=total<=1:
-        raise AssertionError("exact priority is below first-r sufficient event")
+    # Condition on all external ORIGINAL priorities. Each target owner
+    # survives independently given those priorities, with conditional
+    # probability equal to the minimum of its neighbors' priorities.
+    # These nonnegative minimum functions are ALL coordinatewise
+    # nondecreasing in the independent external priorities.
+    # The elementary product-measure monotone-covariance (Harris)
+    # inequality therefore gives E(prod minimum_i)>=prod E(minimum_i)
+    # =prod 1/(degree_J(owner_i)+1). NO source event independence assumed.
+    degree_product=Fraction(1)
+    for o in owners:
+        degree_product/=len(nbr[o])+1
+    harris_root=Fraction(1,(K_ROOT+1)**r)
+    if not sufficient<=degree_product<=total<=1:
+        raise AssertionError("exact priority breaks source Harris association")
+    if degree_product<harris_root:
+        raise AssertionError("root K64 assumption is violated; prune J first")
     return dict(owners=owners,b=b,mask_counts=tuple(sorted(mask_count.items())),
                 exact=total,first_r_sufficient=sufficient,
                 exact_beyond_sufficient=total-sufficient,
+                source_degree_product_harris=degree_product,
+                exact_beyond_degree_product=total-degree_product,
+                universal_K64_harris=harris_root,
                 physical_two_cut_probability=Fraction(1,4**r),
                 exact_path_survival=total/Fraction(4**r),
+                harris_degree_path_survival=degree_product/Fraction(4**r),
+                harris_K64_path_survival=harris_root/Fraction(4**r),
                 global_K64_survival_floor=Fraction(1,4**r*comb(r*(K_ROOT+1),r)))
 
 
@@ -226,6 +245,7 @@ def sample_exact_weighted_jensen(s,mode,r,cap=350):
         raise ValueError("proper physical 2/3walks only")
     counts=Counter()
     lower=defaultdict(Fraction)
+    lower_harris=defaultdict(Fraction)
     p_cache={}
     min_sufficient_gain=Fraction(1)
     improvement=0
@@ -240,6 +260,7 @@ def sample_exact_weighted_jensen(s,mode,r,cap=350):
         item=p_cache[key]
         p=item["exact_path_survival"]
         lower[ep]+=p
+        lower_harris[ep]+=item["harris_degree_path_survival"]
         if item["exact_beyond_sufficient"]>0:
             improvement+=1
         high_b=max(high_b,item["b"])
@@ -251,10 +272,16 @@ def sample_exact_weighted_jensen(s,mode,r,cap=350):
     root_sigma=Fraction(1,4**r*comb(r*(K_ROOT+1),r))
     mass=sum((v*v for v in counts.values()),0)
     weighted_mass=sum((v*v for v in lower.values()),Fraction(0))
+    harris_mass=sum((v*v for v in lower_harris.values()),Fraction(0))
+    harris_true_sigma=Fraction(1,4**r*(K+1)**r)
+    harris_root_sigma=Fraction(1,4**r*(K_ROOT+1)**r)
+    harris_true_mass=harris_true_sigma**2*mass
+    harris_root_mass=harris_root_sigma**2*mass
     uniform_mass=global_r_sigma**2*mass
     global_mass=root_sigma**2*mass
-    if not weighted_mass>=uniform_mass>=global_mass:
-        raise AssertionError("exact weighted Jensen below uniform source lower")
+    if not (weighted_mass>=harris_mass>=harris_true_mass>=uniform_mass
+            and harris_true_mass>=harris_root_mass>=global_mass):
+        raise AssertionError("exact source Jensen below NEW Harris bound")
     # A correct expected path matrix needs ONE *global* shared selector;
     # linearity is enough for its per-path exact marginal probability.
     return dict(s=s,mode=mode,r=r,sampled_source_proper_paths=n,
@@ -267,9 +294,13 @@ def sample_exact_weighted_jensen(s,mode,r,cap=350):
                 paths_strict_priority_improvement=improvement,
                 endpoint_energy_P_r=mass,
                 exact_marginal_weighted_endpoint_energy=str(weighted_mass),
+                harris_degree_weighted_endpoint_energy=str(harris_mass),
+                harris_uniform_true_K_endpoint_energy=str(harris_true_mass),
+                harris_uniform_K64_endpoint_energy=str(harris_root_mass),
                 uniform_true_K_endpoint_energy=str(uniform_mass),
                 uniform_K64_endpoint_energy=str(global_mass),
                 exact_global_K64_lower=str(root_sigma),
+                NEW_HARRIS_uniform_K64_lower=str(harris_root_sigma),
                 exact_first_r_unconditional_conjunction_not_assumed=True,
                 physical_color_cut_r_probability=str(Fraction(1,4**r)),
                 actual_exact_priority_marginal_is_shared_global_permutation=True,
@@ -298,8 +329,10 @@ def abstract_mask_case(r,mask_counts):
             raise AssertionError("priority integration != independent subset DP")
     return dict(r=r,b=p["b"],mask_counts=tuple(sorted(mask_counts.items())),
                 priority=str(p["exact"]),sufficient=str(p["first_r_sufficient"]),
+                source_harris_degree_product=str(p["source_degree_product_harris"]),
                 full_path_survival=str(p["exact_path_survival"]),
                 strict_improvement=p["exact"]>p["first_r_sufficient"],
+                exact_above_harris=p["exact"]>=p["source_degree_product_harris"],
                 all_h_factorization_exact=True)
 
 
@@ -319,6 +352,8 @@ def certificate():
         (2,"lex",2),(2,"reverse",3),(4,"lex",2),
         (4,"reverse",3),(4,"shift",3))]
     assert all(Fraction(x["exact_marginal_weighted_endpoint_energy"])>=
+               Fraction(x["harris_degree_weighted_endpoint_energy"])>=
+               Fraction(x["harris_uniform_true_K_endpoint_energy"])>=
                Fraction(x["uniform_true_K_endpoint_energy"])
                for x in real)
     return dict(schema=SCHEMA,issue=230,parent_pr=770,
@@ -327,6 +362,10 @@ def certificate():
                 all_h_priority_mask_simplex_identity_proved_in_manuscript=True,
                 all_h_no_b20_or_exponential_subset_DP_restriction=True,
                 all_h_shared_priority_exact_marginal_valid=True,
+                all_h_Harris_positive_association_degree_product_PROVED_in_manuscript=True,
+                all_h_K64_sharp_reciprocal_q2=16*65**2,
+                all_h_K64_sharp_reciprocal_q3=64*65**3,
+                all_h_harris_uniform_lower_stronger_than_first_r=True,
                 all_h_weighted_endpoint_Jensen_upper_via_selected_moment=True,
                 all_h_NO_path_independence_assumed=True,
                 all_h_original_C6_to_D6_and_GLOBAL_moment_dependencies_remain_open=True,
