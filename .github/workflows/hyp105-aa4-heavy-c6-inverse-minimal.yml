@@ -1,0 +1,105 @@
+name: hyp105-aa4-heavy-c6-inverse-minimal
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-heavy-c6-inverse-minimal
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-c6-inverse-minimal.yml'
+      - 'docs/research/HYP-105-AA4-HEAVY-C6-INVERSE-MINIMAL-ASSUMPTIONS.md'
+      - 'research/hyp105_original_heavy_c6_inverse_minimal.py'
+      - 'research/test_hyp105_original_heavy_c6_inverse_minimal.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-c6-inverse-minimal.yml'
+      - 'docs/research/HYP-105-AA4-HEAVY-C6-INVERSE-MINIMAL-ASSUMPTIONS.md'
+      - 'research/hyp105_original_heavy_c6_inverse_minimal.py'
+      - 'research/test_hyp105_original_heavy_c6_inverse_minimal.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-original-heavy-c6-inversion:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Genuine ORIGINAL W32 W34 source-specific C6 inversion and necessity tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_heavy_c6_inverse_minimal.py' -v
+      - name: Strict independent actual original source C6 counterfactuals and six-ID inverse certificate
+        shell: bash
+        run: |
+          python research/hyp105_original_heavy_c6_inverse_minimal.py > heavy-c6-minimal-certificate.txt
+          python - heavy-c6-minimal-certificate.txt <<'PY'
+          import json,sys
+          raw=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_HEAVY_C6_MINIMAL_CERTIFICATE='
+          assert raw.startswith(prefix) and raw.count(prefix)==1
+          c=json.loads(raw[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.original-heavy-c6-inverse-minimal.v1'
+          assert c['issue']==230 and c['parent_pr']==771
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          for gate in (
+              'all_h_proper_C6_from_source_J_independence_and_both_typed_cuts_proved_in_manuscript',
+              'all_h_source_sixID_unoriented_cycle_unique_lift_proved_in_manuscript',
+              'all_h_no_extra_twelve_or_six_factor_in_C6_to_D6',
+              'all_h_original_source_point_line_dual_C6_inverse',
+              'both_cuts_and_original_J_independence_individually_necessary_for_given_proof_sufficient_condition',
+          ):
+              assert c[gate] is True,gate
+          assert c['root_PROVED_A'] is False
+          assert c['global_LOW_acceptance'] is False
+          assert c['general_ASET_exponent_claimed'] is False
+          rows=c['full_physical_original_W32_W34_adversarial_rows']
+          assert len(rows)==8
+          assert {(z['s'],z['mode']) for z in rows}=={
+              (s,m) for s in (2,4) for m in (
+                  'proper','drop_left_cut','drop_right_cut','drop_J_independence')}
+          for z in rows:
+              assert z['original_flags_total']==(z['s']+1)**2*(z['s']**2+1)
+              assert z['original_true_physical_diagonals']==12
+              assert len(set(z['original_source_sixID']))==6
+              assert z['selected_true_diagonals']>=6
+              assert z['graph_first_unoriented_C6']>=1
+              assert z['no_two_proper_C6_share_six_original_IDs']
+              assert z['for_all_proper_sixsets_dual_source_first_inverse_exact']
+              if z['mode']=='proper':
+                  assert z['proof_condition_fulfilled']
+                  assert z['actual_original_J_conflicts']==0
+                  assert z['x_cut_enabled'] and z['y_cut_enabled']
+                  assert z['source_proper_C6']==1
+                  assert z['physical_improper_C6']==0
+              elif z['mode']=='drop_left_cut':
+                  assert not z['proof_condition_fulfilled']
+                  assert z['actual_original_J_conflicts']==0
+                  assert not z['x_cut_enabled'] and z['y_cut_enabled']
+                  assert z['physical_improper_C6']>=1
+              elif z['mode']=='drop_right_cut':
+                  assert not z['proof_condition_fulfilled']
+                  assert z['actual_original_J_conflicts']==0
+                  assert z['x_cut_enabled'] and not z['y_cut_enabled']
+                  assert z['physical_improper_C6']>=1
+              else:
+                  assert not z['proof_condition_fulfilled']
+                  assert z['actual_original_J_conflicts']>=1
+                  assert z['x_cut_enabled'] and z['y_cut_enabled']
+                  assert z['physical_improper_C6']>=1
+              print('TRUE_ORIGINAL',z['s'],z['mode'],
+                    'original_IDs',z['original_source_sixID'],
+                    'physical_C6',z['graph_first_unoriented_C6'],
+                    'proper',z['source_proper_C6'],
+                    'improper',z['physical_improper_C6'],
+                    'J_conflicts',z['actual_original_J_conflicts'])
+          print('GQ_ORIGINAL_POINT_LINE_INVERSE_AND_NEGATIVE_CONTROLS_PASS')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-heavy-c6-inverse-minimal-certificate
+          path: heavy-c6-minimal-certificate.txt
+          retention-days: 14
