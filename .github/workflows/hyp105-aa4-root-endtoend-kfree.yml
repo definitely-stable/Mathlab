@@ -1,0 +1,139 @@
+name: hyp105-aa4-root-endtoend-kfree
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-root-endtoend-k11-optimized
+    paths:
+      - '.github/workflows/hyp105-aa4-root-endtoend-kfree.yml'
+      - 'docs/research/HYP-105-AA4-ROOT-ENDTOEND-KFREE-ASYMMETRIC.md'
+      - 'research/hyp105_root_endtoend_kfree_optimized.py'
+      - 'research/test_hyp105_root_endtoend_kfree_optimized.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-root-endtoend-kfree.yml'
+      - 'docs/research/HYP-105-AA4-ROOT-ENDTOEND-KFREE-ASYMMETRIC.md'
+      - 'research/hyp105_root_endtoend_kfree_optimized.py'
+      - 'research/test_hyp105_root_endtoend_kfree_optimized.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-original-root-kfree-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently falsify true-original GQ J, all-h K-free and conditional Branch A
+        run: python -m unittest discover -s research -p 'test_hyp105_root_endtoend_kfree_optimized.py' -v
+      - name: Strict exact Fractions and original-source end-to-end proof gate
+        shell: bash
+        run: |
+          python research/hyp105_root_endtoend_kfree_optimized.py > root-kfree-certificate.txt
+          python - root-kfree-certificate.txt <<'PY'
+          import json,sys
+          from fractions import Fraction
+          raw=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_ROOT_ENDTOEND_KFREE_CERTIFICATE='
+          assert raw.startswith(prefix) and raw.count(prefix)==1
+          c=json.loads(raw[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.root-endtoend-kfree-optimized.v1'
+          assert c['issue']==230 and c['parent_pr']==772
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['source_modification_branch_only'] is True
+          assert c['closed_root_PROVED_A'] is False
+          assert c['general_ASET_exponent_claimed'] is False
+          assert c['GF5_or_B75_required_for_ROOT'] is False
+          for k in ('standalone_all_h_conditional_root_implication_proved_in_manuscript',
+                    'all_h_genuine_original_K_free_pruning_proved_in_manuscript',
+                    'all_h_asymmetric_error_budget_gluing_proved_in_manuscript',
+                    'all_h_K11_valid_one_fixed_choice_before_maps',
+                    'all_h_unknown_graph_constants_not_numeric',
+                    'all_h_GQ_and_source_inverses_inherited_not_newly_accepted'):
+              assert c[k] is True,k
+          assert c['all_h_K_minimum_from_source_J_bound']==5
+          rows=c['genuine_original_W32_W34_pruning_and_Blackley_Roy_falsifiers']
+          assert len(rows)==5
+          assert {(z['s'],z['scheme']) for z in rows}=={
+              (2,'lex'),(2,'reverse'),(4,'lex'),(4,'reverse'),(4,'shift')}
+          assert any(z['actual_partial_Q_nonempty_CORE_case'] is not None for z in rows)
+          for z in rows:
+              assert z['tested_exact_original_physical_T_grid_count']==11
+              partial=z['actual_partial_Q_nonempty_CORE_case']
+              if partial is not None:
+                  assert 0<partial['genuine_FULL_Q_vertices']
+                  assert 0<partial['original_pruned_CORE_flags']<partial['actual_original_N']
+                  assert partial['original_CORE_real_edges']==2*partial['original_pruned_CORE_flags']
+                  assert partial['original_CORE_max_J_degree']<=11
+                  assert partial['original_CORE_max_physical_degree']<=partial['diagnostic_T_not_HEAVY_all_h']*z['s']
+                  assert partial['Blakley_Roy_exact_true_actual_physical_graph_verified']
+                  print('NONTRIVIAL_FULL_Q_ORIGINAL_CORE',z['s'],z['scheme'],
+                        'Tdiag',partial['diagnostic_T_not_HEAVY_all_h'],
+                        'Q',partial['genuine_FULL_Q_vertices'],
+                        'retained_flags',partial['original_pruned_CORE_flags'])
+              for mode in ('no_Q_K11','low_Q_K11','test_nontrivial_K3_pruning'):
+                  p=z[mode]
+                  assert p['actual_original_N']==(z['s']+1)**2*(z['s']**2+1)
+                  assert p['original_full_J_edges']==p['original_collinear_point_J_edges']+p['original_collinear_line_J_edges']
+                  assert p['original_pruned_CORE_flags']>=0
+                  assert p['original_CORE_real_edges']==2*p['original_pruned_CORE_flags']
+                  assert p['original_CORE_max_J_degree']<=p['K']
+                  assert p['original_CORE_max_physical_degree']<=p['diagnostic_T_not_HEAVY_all_h']*p['s']
+                  assert p['original_flags_removed_by_J_gt_K']*(p['K']+1)<=2*p['original_full_J_edges']
+                  assert p['Blakley_Roy_exact_true_actual_physical_graph_verified'] is True
+              print('GENUINE_ORIGINAL',z['s'],z['scheme'],
+                    'full_CORE',z['no_Q_K11']['original_pruned_CORE_flags'],
+                    'diagnostic_low_CORE',z['low_Q_K11']['original_pruned_CORE_flags'],
+                    'test_high_J_K3',z['test_nontrivial_K3_pruning']['original_flags_removed_by_J_gt_K'])
+          data=c['formal_graph_constant_probe_K_optimization']
+          full=c['formal_graph_constant_probe_complete_K11_ledger']
+          assert len(data)==3 and len(full)==3
+          for i,(old_h,new_h) in enumerate(((743,673),(773,703),(779,710))):
+              z=data[i]
+              q=full[i]
+              assert z['previous_K64_Harris_uniform_h0']==old_h
+              assert z['fixed_K11_optimized_h0']==new_h
+              assert z['best_formal_h0_over_K_5_through_64']==new_h
+              assert 11 in z['winning_integer_K_in_examined_range_5_through_64']
+              assert z['new_K11_q2']==2304 and z['new_K11_q3']==110592
+              assert z['old_K64_q2']==67600 and z['old_K64_q3']==17576000
+              assert z['fixed_K11_sharp_core_floor']==[11,24]
+              assert z['fixed_K11_walk_floor']==[2662,2187]
+              assert z['fixed_K11_positive_BBo_floor']==[1331,69984]
+              assert q['K']==11 and q['original_HEAVY_R_zero']==93312
+              assert q['error_fractions']==[[1,64],[1,64],[15,16]]
+              assert q['all_h_sufficient_dyadic_h0']==new_h
+              assert q['true_original_FULL_J_high_degree_strictly_above_K']==12
+              assert q['source_owner_selected_moment_harris_q2']==2304
+              assert q['source_owner_selected_moment_harris_q3']==110592
+              from math import isqrt
+              assert (q['original_LOW_L6']-24)%153==0
+              T_sq=(q['original_LOW_L6']-24)//153
+              assert isqrt(T_sq)**2==T_sq
+              assert Fraction(*q['at_least_original_produced_BBo_coefficient'])>=Fraction(*q['heavy_original_D6_delta'])
+              assert z['external_C6_constants_remain_existential'] is True
+              assert q['root_PROVED_A'] is False
+              print('FORMAL_GRAPH_ONLY',z['FORMAL_C0_NOT_PUBLISHED'],
+                    z['FORMAL_c0_NOT_PUBLISHED'],
+                    'baseline_H',old_h,'new_H',new_h,'gained',old_h-new_h)
+          gate={x['id']:x for x in c['dependency_gate']}
+          assert len(gate)>=14
+          assert gate['LOW_CORE']['proof_status']=='NEW_ALL_ORDER_DERIVATION'
+          assert gate['QUANTIFIERS']['proof_status']=='NEW_ALL_ORDER_DERIVATION'
+          for id_ in ('GQ_SRG','EXT6','HEAVY_OWNER','C6_D6',
+                      'LOW_SELECTOR','LOW_MOMENT','LOW_ENDPOINT',
+                      'LOW_BLOCKERS','LOW_BBO'):
+              assert gate[id_]['proof_status'] not in ('NEW_ALL_ORDER_DERIVATION','ROOT_ACCEPTED')
+          print('ORIGINAL_ROOT_K_FREE_ASYMMETRIC_CONDITIONAL_ALL_H_GATES_PASS')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-root-endtoend-kfree-conditional-certificate
+          path: root-kfree-certificate.txt
+          retention-days: 14
