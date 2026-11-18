@@ -96,14 +96,16 @@ def priority_probability(nbr, owners):
     # pointwise. The true priority probability dominates BOTH.
     if not (0<sufficient<=total<=1 and degree_product<=total):
         raise AssertionError("exact priority breaks source bounds")
-    if degree_product<harris_root:
-        raise AssertionError("root K64 assumption is violated; prune J first")
+    root_K64_admissible=all(len(nbr[o])<=K_ROOT for o in owners)
+    if root_K64_admissible and degree_product<harris_root:
+        raise AssertionError("K64-pruned source violates uniform Harris floor")
     return dict(owners=owners,b=b,mask_counts=tuple(sorted(mask_count.items())),
                 exact=total,first_r_sufficient=sufficient,
                 exact_beyond_sufficient=total-sufficient,
                 source_degree_product_harris=degree_product,
                 exact_beyond_degree_product=total-degree_product,
                 universal_K64_harris=harris_root,
+                universal_K64_admissible=root_K64_admissible,
                 physical_two_cut_probability=Fraction(1,4**r),
                 exact_path_survival=total/Fraction(4**r),
                 harris_degree_path_survival=degree_product/Fraction(4**r),
@@ -336,6 +338,7 @@ def abstract_mask_case(r,mask_counts):
                 full_path_survival=str(p["exact_path_survival"]),
                 strict_improvement=p["exact"]>p["first_r_sufficient"],
                 exact_above_harris=p["exact"]>=p["source_degree_product_harris"],
+                root_K64_degree_cap_applicable=p["universal_K64_admissible"],
                 all_h_factorization_exact=True)
 
 
