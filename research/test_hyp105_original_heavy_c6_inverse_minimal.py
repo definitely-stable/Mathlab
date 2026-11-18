@@ -167,13 +167,16 @@ class TestHeavyC6MinimalIndependent(unittest.TestCase):
         c=planted_source(2,"proper")
         owner,_=true_owned_edges(c,c["ids"])
         selected,_,_=two_cuts(c,c["ids"],owner,"proper")
-        for edge in list(selected)[:2]:
+        actual_cycle_edges={
+            _e(c["planted"][i],c["planted"][(i+1)%6])
+            for i in range(6)}
+        self.assertEqual(len(actual_cycle_edges),6)
+        for edge in actual_cycle_edges:
+            self.assertIn(edge,selected)
             smaller=dict(selected)
             del smaller[edge]
-            if edge in {_e(c["planted"][i],c["planted"][(i+1)%6])
-                        for i in range(6)}:
-                self.assertIsNone(inverse_x(c["ids"],c,smaller))
-                self.assertIsNone(inverse_y(c["ids"],c,smaller))
+            self.assertIsNone(inverse_x(c["ids"],c,smaller))
+            self.assertIsNone(inverse_y(c["ids"],c,smaller))
 
     def test_13_original_duplicate_or_invalid_flag_ID_denied(self):
         c=planted_source(2,"proper")
