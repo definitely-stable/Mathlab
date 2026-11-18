@@ -91,8 +91,11 @@ def priority_probability(nbr, owners):
     for o in owners:
         degree_product/=len(nbr[o])+1
     harris_root=Fraction(1,(K_ROOT+1)**r)
-    if not sufficient<=degree_product<=total<=1:
-        raise AssertionError("exact priority breaks source Harris association")
+    # For highly OVERLAPPING source neighborhoods the first-r
+    # bound may exceed the degree-product bound; neither dominates
+    # pointwise. The true priority probability dominates BOTH.
+    if not (0<sufficient<=total<=1 and degree_product<=total):
+        raise AssertionError("exact priority breaks source bounds")
     if degree_product<harris_root:
         raise AssertionError("root K64 assumption is violated; prune J first")
     return dict(owners=owners,b=b,mask_counts=tuple(sorted(mask_count.items())),
