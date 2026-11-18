@@ -369,8 +369,10 @@ def physical_heavy_top_degree_referee(model,Tdiag):
         raise AssertionError("real physical no-clone F density lower bound false")
     if not set(F).issubset(model["physical"]) or not set(F).issubset(physical_sel):
         raise AssertionError("non-original physical F edge materialized")
-    if len(set(model["physical"][e] for e in F))<0:
-        raise AssertionError("impossible original graph")
+    if len({e for e,_ in witness.values()})!=len(S):
+        raise AssertionError("two named ORIGINAL witness IDs share one physical edge")
+    if len(physical_sel)!=2*len(S):
+        raise AssertionError("selected original whole flags did not own both diagonals")
     for e,i in F.items():
         if model["physical"][e]!=i or i not in S:
             raise AssertionError("F edge has wrong ORIGINAL source owner")
