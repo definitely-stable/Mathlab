@@ -66,19 +66,28 @@ D6_ORIGINAL(f,g) ≥ (c0/R_H^6)s^6.                (E1)
 
 This is a properly quantified deterministic all-h HEAVY implication from GQ and the published ordinary graph theorem, NOT the full LOW/HEAVY root result.
 
-## F. Numerical constants: exact rational, NOT a numerical published graph theorem
+## F. NEW unified physical alphabet improvement: BOTH HEAVY and LOW
 
-At fixed H=32, R_H=**66562**, previously R_old=93312. The coefficient improves by the exact ratio (93312/66562)^6 ≈ **7.59044**, with the SAME s^6 exponent and same existential c0. The LOW inherited K=10, H=32 source core bound, Blakley–Roy, Harris q2=1936/q3=85184, and asymmetric allocation α=(1/64,1/64,15/16) are unchanged, while T,L6,L4,B0,E,D,s0,δ must ALL use the NEW R.
+The same B2 inequality also strengthens the **independent original physical walk density** in the inherited LOW argument. On the TRUE original paired CORE of #775, size |C|≥c_{K,H}s⁴ with c_{K,H}=7/8−4M_H/(K+1)>0, physical vertices are ALL a² real corners including isolates and the number of real physical edges is m=2|C|. Blakley–Roy for all physical vertices implies
 
-Independent exact Fraction root probes, using deliberately FORMAL C0/c0 placeholders only:
+W3 ≥ (2m)^3/a⁴ = (4|C|)^3/a⁴
+   > (4c_{K,H})³/A_H² · s⁶ =: w^{NEW}_{K,H} s⁶.   (F1)
 
-| FORMAL C0,c0 | Previous #775 h0 | New conditional h0 |
-| --- | ---: | ---: |
-| (1,1) | 667 | **653** |
-| (2,1/5) | 697 | **683** |
-| (7/3,1/17) | 704 | **689** |
+Earlier #775 used w^{OLD}_{K,H}=(16/81)(4c_{K,H})³ because it substituted a²≤(9/4)s³, so the **new mathematically valid gain** is w_NEW/w_OLD = 81/(16 A_H²) >1. For H=32 this ratio is about 1.265625. This remains a lower bound on actual ordinary directed physical 3walks, NOT on all ORIGINAL BBo motifs; their lower bound still requires the separately inherited original endpoint and blocker budgets and genuine P3→sixset inverse.
 
-All three numbers are formal algebraic examples; they are NOT actual published theorem thresholds or finite-s verified results. The LOW branch and exact P3→BBo original sixset inverse remain separate acceptance conditions. If those are independently proved and accepted, unchanged HEAVY/LOW logic conditionally gives S_s(f,g)≥(c0/R_H^6)s^6 for the unweighted seven original six-ID classes. Do NOT promote #230 to PROVED_A merely on finite tests or green CI.
+At H=32, R_H=**66562** (old 93312). The conditional HEAVY D6 coefficient improves by exact ratio (93312/66562)^6≈**7.59044**, with unchanged s⁶ exponent, fixed existential c0, and no fabricated external graph constants.
+
+For the same inherited original K=10/H32 FULL-J core, Harris q2=1936, q3=85184 and asymmetric α=(1/64,1/64,15/16), **recompute the entire LOW budget with BOTH new R_H and new w_NEW**: T=ceil((17/2)R_H³ C0³); L6=24+153T²; L4=q2²ceil_sqrt(ceil(17L6/4))+19T; B0=ceil_sqrt(360(K+1)T); E=5q3ceil_sqrt(L6); D=4ceil_sqrt(B0*T*L4). Exact s0=max{2^H,64,ceil(111T/(2α1w_NEW)),ceil((E/(α2w_NEW))²),ceil((D/(α3w_NEW))⁸)}. Then, *conditional on the still-unaudited full global LOW lemmas*, produced original BBo ≥ w_NEW(1−α1−α2−α3)s⁶/2, and δ_NEW=c0/R_H⁶ is bounded by both HEAVY and LOW source classes for every fixed f/g once s≥s0. No independent claim that all those global LOW lemmas have been newly proved here.
+
+Exact Fraction root probes, using deliberately **FORMAL C0/c0 placeholders, NOT the published C6 constants**:
+
+| FORMAL C0,c0 | Previous #775 h0 | HEAVY-only new R h0 | BOTH improved R and w h0 |
+| --- | ---: | ---: | ---: |
+| (1,1) | 667 | 653 | **650** |
+| (2,1/5) | 697 | 683 | **680** |
+| (7/3,1/17) | 704 | 689 | **687** |
+
+The final hypothetical dyadic sufficient order improves by 17, 17 and 17 exponents, respectively, relative to #775 (the third is 704−687=17). These are exact formal algebraic consequences, not numerically verified external theorem thresholds; all-order ROOT Branch A remains OPEN_WITH_FORMAL_BLOCKER pending acceptance of global HEAVY/LOW composition and ORIGINAL motif inverse prerequisites. A green finite CI cannot replace this mathematical review.
 
 ## G. Independent falsifiers, scientific limits, next proof gate
 
