@@ -210,7 +210,7 @@ class TestOriginalLowMomentExactPriority(unittest.TestCase):
         p=priority_probability(nbr,(0,1))
         self.assertGreater(p["first_r_sufficient"],p["source_degree_product_harris"])
         self.assertEqual(p["exact"],p["first_r_sufficient"])
-        self.assertEqual(p["exact_path_survival"],Fraction(1,12))
+        self.assertEqual(p["exact_path_survival"],Fraction(1,48))  # exact 1/3 priority times TWO 1/4 cuts
 
     def test_16_subsample_source_weighted_matrix_not_mistaken_full_census(self):
         row=sample_exact_weighted_jensen(2,"lex",3,cap=12)
