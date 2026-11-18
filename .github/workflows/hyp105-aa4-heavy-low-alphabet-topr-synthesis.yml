@@ -1,0 +1,133 @@
+name: hyp105-aa4-heavy-low-alphabet-topr-synthesis
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-heavy-low-alphabet-topr-synthesis
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-low-alphabet-topr-synthesis.yml'
+      - 'docs/research/HYP-105-AA4-HEAVY-LOW-SYNERGY-ALPHABET-TOPR.md'
+      - 'research/hyp105_original_heavy_low_alphabet_synthesis.py'
+      - 'research/test_hyp105_original_heavy_low_alphabet_synthesis.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-low-alphabet-topr-synthesis.yml'
+      - 'docs/research/HYP-105-AA4-HEAVY-LOW-SYNERGY-ALPHABET-TOPR.md'
+      - 'research/hyp105_original_heavy_low_alphabet_synthesis.py'
+      - 'research/test_hyp105_original_heavy_low_alphabet_synthesis.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-heavy-low-synthesis:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent full ORIGINAL source heavy/low shared-Q, sibling envelope and top-r tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_heavy_low_alphabet_synthesis.py' -v
+      - name: Strict all-h Fraction R33281, W3 and real original-sixset certificate
+        shell: bash
+        run: |
+          python research/hyp105_original_heavy_low_alphabet_synthesis.py > heavy-low-synergy-certificate.txt
+          python - heavy-low-synergy-certificate.txt <<'PY'
+          import json,sys
+          from fractions import Fraction as F
+          data=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_HEAVY_LOW_SYNERGY_CERTIFICATE='
+          assert data.startswith(prefix) and data.count(prefix)==1
+          c=json.loads(data[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.heavy-low-alphabet-topr-synthesis.v1'
+          assert c['issue']==230 and c['parent_pr']==777 and c['parallel_pr']==776
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['branch_Z_scope']=='EMPTY'
+          assert c['fixed_H']==32 and c['fixed_K']==10
+          assert c['combined_R']==33281
+          assert c['old_R_parent_777']==37441 and c['old_R_parallel_776']==66562
+          assert c['original_ROOT_unweighted_seven_sixset_PROVED_A'] is False
+          for field in (
+              'new_synthesis_all_h_mathematical_proof_in_manuscript',
+              'entire_FULL_GQ_original_SOURCE_quantifier_preserved',
+              'external_graph_C6_constants_remain_existential',
+              'original_source_pruning_K10_coherent_with_new_graph_T',
+              'exact_minimal_original_a2_envelope_from_sibling_776_independently_checked',
+              'real_physical_top_r_unrounded_source_from_parent_777_independently_checked',
+              'original_full_LOW_moments_and_BBo_inverse_not_newly_accepted',
+              'no_GF5_or_ASET_exponent_claimed'):
+              assert c[field] is True,field
+          M=F(c['source_M_H'])
+          A=F(c['physical_A_H'])
+          assert 1<M<F(35,32)
+          assert 2<A<F(9,4)
+          assert 33280<256*A*(1+64*M)<33281
+          assert F(c['original_true_heavy_density_lower'])==1/(256*A*(1+64*M))
+          assert c['combined_R']*F(c['original_true_heavy_density_lower'])>1
+          exact_large=c['true_large_dyadic_minimal_alphabet_envelopes']
+          assert [int(v['s']) for v in exact_large]==[2**32,2**34,2**40]
+          for v in exact_large:
+              assert v['both_true_minimal_alphabet_and_SRG_envelopes_hold']
+              assert F(v['actual_a2_over_s3'])<A
+              assert F(v['actual_original_source_Cs_over_s4'])<M
+          real=c['TRUE_original_W32_W34_finite_same_H_heavy_low_Q_cases']
+          assert len(real)==24
+          assert {(p['s'],p['mode'],p['diagnostic_T_not_asymptotic']) for p in real}=={
+              (s,m,T) for s in (2,4) for m in ('lex','reverse','shift')
+              for T in (0,1,2,3)}
+          assert any(0<p['LOW_original_named_core_flags']<p['original_source_N']
+                     and p['full_physical_Q_real_vertices']>0 and
+                     p['LOW_true_physical_W3']>0 for p in real)
+          has_actual_C6=False
+          for p in real:
+              assert p['full_genuine_original_physical_edges']==2*p['original_source_N']
+              assert p['LOW_original_paired_physical_edges']==2*p['LOW_original_named_core_flags']
+              assert p['LOW_true_Blackley_Roy_exact_verified']
+              assert p['heavy_source_unchanged_all_alphabet_labels']
+              x=p['HEAVY_real_no_clone_top_r']
+              if x is None: continue
+              assert x['actual_F_edges_only_from_original_owners']
+              assert x['all_selected_source_J_independent']
+              assert x['selected_original_F_real_edges']>0
+              assert F(x['physical_actual_F_density'])>=F(x['physical_no_clone_F_topr_bound'])
+              assert x['original_selected_paired_edges']==2*x['after_both_cuts']
+              assert 2*x['after_both_cuts']>=x['after_x_cut']
+              z=x['physically_checked_actual_C6_original_source_inverse']
+              assert z['actual_ordinary_simple_unoriented_C6']==z['distinct_TRUE_original_D6_sixsets']
+              assert z['no_original_sixset_cloning_or_twelve_fold_loss']
+              if p['s']==4 and p['mode']=='reverse' and z['actual_ordinary_simple_unoriented_C6']>0:
+                  has_actual_C6=True
+                  print('GENUINE_NONVACUOUS_ORIGINAL_C6',p['s'],p['mode'],
+                        p['diagnostic_T_not_asymptotic'],
+                        z['actual_ordinary_simple_unoriented_C6'])
+          assert has_actual_C6, 'cannot claim source inverse accepted from vacuous zero-C6 samples'
+          formal=c['formal_ROOT_comparisons']
+          assert len(formal)==3
+          for i,(p775,p776,p777,new_h) in enumerate(
+              ((667,650,628,620),(697,680,658,650),(704,687,664,657))):
+              f=formal[i]
+              assert f['baseline_pr775_h0']==p775 and f['sibling_pr776_h0']==p776
+              assert f['parent_pr777_h0']==p777 and f['combined_h0']==new_h
+              assert f['combined_R']==33281
+              assert f['sibling_pr776_R']==66562 and f['parent_pr777_R']==37441
+              assert f['sextic_delta_gain_vs_pr776']=='64'
+              assert F(f['sextic_delta_gain_vs_pr777'])==F(37441,33281)**6
+              assert F(f['sextic_delta_gain_vs_pr775'])>485
+              assert F(f['LOW_W3_gain_over_parent777'])==F(81,16)/A**2
+              assert F(f['root_new_BBo_floor'])>F(f['root_new_delta'])
+              assert f['actual_original_sixset_and_moments_STILL_PROOF_GATES']
+              assert f['root_PROVED_A'] is False
+              print('FORMAL_ONLY',f['C0_FORMAL_NOT_PUBLISHED'],
+                    f['c0_FORMAL_NOT_PUBLISHED'],
+                    'old',p775,'sibling',p776,'parent',p777,'NEW',new_h)
+          print('TRUE_ORIGINAL_HEAVY_TOP_R_AND_LOW_ALPHABET_SAME_Q_ACCEPTED_LOCALLY')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-heavy-low-synergy-R33281-certificate
+          path: heavy-low-synergy-certificate.txt
+          retention-days: 14
