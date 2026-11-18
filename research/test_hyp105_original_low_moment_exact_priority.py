@@ -183,7 +183,47 @@ class TestOriginalLowMomentExactPriority(unittest.TestCase):
         with self.assertRaises(ValueError):
             abstract_mask_case(4,{1:1})
 
-    def test_14_no_root_theorem_promotion_only_local_marginal_transfer(self):
+    def test_14_formal_new_Harris_q2_q3_fourth_and_s0_improve_all_probes(self):
+        from hyp105_original_low_moment_exact_priority import (
+            conditional_z0_moment_budget)
+        probes=((Fraction(1),Fraction(1)),
+                (Fraction(2),Fraction(1,5)),
+                (Fraction(7,3),Fraction(1,17)))
+        for C0,c0 in probes:
+            c=conditional_z0_moment_budget(C0,c0)
+            old=c["old_first_r"]
+            new=c["new_Harris"]
+            self.assertEqual(old["q2"],134160)
+            self.assertEqual(old["q3"],77879360)
+            self.assertEqual(new["q2"],67600)
+            self.assertEqual(new["q3"],17576000)
+            self.assertLess(int(new["L4"]),int(old["L4"]))
+            self.assertLess(int(new["D"]),int(old["D"]))
+            self.assertLess(int(new["E"]),int(old["E"]))
+            self.assertLess(int(new["s0"]),int(old["s0"]))
+            self.assertLessEqual(new["h0"],old["h0"])
+            self.assertFalse(c["root_PROVED_A"])
+            self.assertTrue(c["external_C6_numerical_constants_NOT_inferred"])
+
+    def test_15_Harris_not_dominated_by_first_r_on_overlapping_sources(self):
+        nbr=graph_from_masks(2,{3:1})
+        p=priority_probability(nbr,(0,1))
+        self.assertGreater(p["first_r_sufficient"],p["source_degree_product_harris"])
+        self.assertEqual(p["exact"],p["first_r_sufficient"])
+        self.assertEqual(p["exact_path_survival"],Fraction(1,12))
+
+    def test_16_subsample_source_weighted_matrix_not_mistaken_full_census(self):
+        row=sample_exact_weighted_jensen(2,"lex",3,cap=12)
+        self.assertEqual(row["sampled_source_proper_paths"],12)
+        self.assertTrue(row["sampled_not_claimed_exhaustive"])
+        self.assertGreaterEqual(
+            Fraction(row["exact_marginal_weighted_endpoint_energy"]),
+            Fraction(row["harris_degree_weighted_endpoint_energy"]))
+        self.assertGreaterEqual(
+            Fraction(row["harris_uniform_K64_endpoint_energy"]),
+            Fraction(row["uniform_K64_endpoint_energy"]))
+
+    def test_17_no_root_theorem_promotion_only_local_marginal_transfer(self):
         c=self.cert
         self.assertEqual(c["schema"],SCHEMA)
         self.assertEqual(c["status"],ROOT_STATUS)
@@ -195,6 +235,7 @@ class TestOriginalLowMomentExactPriority(unittest.TestCase):
         self.assertFalse(c["ASET_exponent_claimed"])
         self.assertTrue(c["all_h_no_b20_or_exponential_subset_DP_restriction"])
         self.assertTrue(c["all_h_NO_path_independence_assumed"])
+        self.assertEqual(len(c["conditional_original_Z0_universal_Harris_moment_budgets"]),3)
         self.assertTrue(c["all_h_Harris_positive_association_degree_product_PROVED_in_manuscript"])
         self.assertEqual(c["all_h_K64_sharp_reciprocal_q2"],67600)
         self.assertEqual(c["all_h_K64_sharp_reciprocal_q3"],17576000)
