@@ -331,7 +331,7 @@ def physical_heavy_top_degree_referee(model,Tdiag):
         e=min(candidates)
         possible=sorted(q for q in e if q in Q)
         witness[i]=(e,possible[0])
-    by_side=Counter(bx[v] for e,v in witness.values())
+    by_side=Counter(bx[v[0]] for e,v in witness.values())
     bit=max((0,1),key=lambda k:(by_side[k],-k))
     RQ={v for v in Q if bx[v[0]]==bit}
     r=len(RQ)
