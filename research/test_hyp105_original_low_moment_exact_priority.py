@@ -35,6 +35,7 @@ class TestOriginalLowMomentExactPriority(unittest.TestCase):
         nbr=graph_from_masks(2,{1:1,2:1})
         d=priority_probability(nbr,(0,1))
         self.assertEqual(d["exact"],Fraction(1,4))
+        self.assertEqual(d["source_degree_product_harris"],Fraction(1,4))
         self.assertEqual(d["first_r_sufficient"],Fraction(1,6))
         self.assertEqual(d["exact"],exact_direct_permutations(nbr,(0,1)))
         self.assertEqual(d["exact"],exact_subset_priority(nbr,(0,1)))
@@ -43,6 +44,7 @@ class TestOriginalLowMomentExactPriority(unittest.TestCase):
         nbr=graph_from_masks(2,{3:1})
         d=priority_probability(nbr,(0,1))
         self.assertEqual(d["exact"],Fraction(1,3))
+        self.assertEqual(d["source_degree_product_harris"],Fraction(1,4))
         self.assertNotEqual(d["exact"],Fraction(1,4))
         self.assertEqual(d["exact"],d["first_r_sufficient"])
         self.assertEqual(d["exact"],exact_direct_permutations(nbr,(0,1)))
@@ -79,6 +81,7 @@ class TestOriginalLowMomentExactPriority(unittest.TestCase):
         nbr=graph_from_masks(3,{7:192})
         v=priority_probability(nbr,(0,1,2))
         self.assertEqual(v["b"],195)
+        self.assertFalse(v["universal_K64_admissible"])
         self.assertEqual(v["exact"],Fraction(1,comb(195,3)))
         self.assertEqual(v["first_r_sufficient"],v["exact"])
         with self.assertRaises(ValueError):
@@ -88,7 +91,9 @@ class TestOriginalLowMomentExactPriority(unittest.TestCase):
         nbr=graph_from_masks(3,{1:64,2:64,4:64})
         d=priority_probability(nbr,(0,1,2))
         self.assertEqual(d["b"],195)
+        self.assertTrue(d["universal_K64_admissible"])
         self.assertEqual(d["exact"],Fraction(1,65**3))
+        self.assertEqual(d["source_degree_product_harris"],d["exact"])
         self.assertGreater(d["exact"],d["first_r_sufficient"])
         self.assertEqual(d["exact_path_survival"],Fraction(1,64*65**3))
 
@@ -125,9 +130,13 @@ class TestOriginalLowMomentExactPriority(unittest.TestCase):
     def test_10_exact_weighted_Jensen_endpoint_norm_beats_global_uniform(self):
         for row in self.cert["genuine_original_W32_W34_weighted_marginal_cases"]:
             exact=Fraction(row["exact_marginal_weighted_endpoint_energy"])
+            degree=Fraction(row["harris_degree_weighted_endpoint_energy"])
+            harris=Fraction(row["harris_uniform_true_K_endpoint_energy"])
             uniform=Fraction(row["uniform_true_K_endpoint_energy"])
             root=Fraction(row["uniform_K64_endpoint_energy"])
-            self.assertGreaterEqual(exact,uniform)
+            self.assertGreaterEqual(exact,degree)
+            self.assertGreaterEqual(degree,harris)
+            self.assertGreaterEqual(harris,uniform)
             self.assertGreaterEqual(uniform,root)
             self.assertGreater(row["sampled_source_proper_paths"],0)
             self.assertGreater(row["distinct_true_owner_sets"],0)
@@ -186,6 +195,9 @@ class TestOriginalLowMomentExactPriority(unittest.TestCase):
         self.assertFalse(c["ASET_exponent_claimed"])
         self.assertTrue(c["all_h_no_b20_or_exponential_subset_DP_restriction"])
         self.assertTrue(c["all_h_NO_path_independence_assumed"])
+        self.assertTrue(c["all_h_Harris_positive_association_degree_product_PROVED_in_manuscript"])
+        self.assertEqual(c["all_h_K64_sharp_reciprocal_q2"],67600)
+        self.assertEqual(c["all_h_K64_sharp_reciprocal_q3"],17576000)
         self.assertTrue(c["all_h_original_C6_to_D6_and_GLOBAL_moment_dependencies_remain_open"])
 
 
