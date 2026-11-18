@@ -1,0 +1,110 @@
+name: hyp105-aa4-low-moment-exact-priority-harris
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-low-moment-exact-priority-harris.yml'
+      - 'docs/research/HYP-105-AA4-LOW-MOMENT-EXACT-PRIORITY-HARRIS.md'
+      - 'research/hyp105_original_low_moment_exact_priority.py'
+      - 'research/test_hyp105_original_low_moment_exact_priority.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-original-priority-moment-referee:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact rational shared-priority source masks, Harris and Jensen tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_low_moment_exact_priority.py' -v
+      - name: Fail-closed full-original W32 W34 source and conditional all-h Z0 certificate
+        shell: bash
+        run: |
+          python research/hyp105_original_low_moment_exact_priority.py > aa4-low-moment-exact.txt
+          python - aa4-low-moment-exact.txt <<'PY'
+          import json,sys
+          from fractions import Fraction
+          from math import comb
+          raw=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_LOW_MOMENT_EXACT_CERTIFICATE='
+          assert raw.startswith(prefix) and raw.count(prefix)==1
+          c=json.loads(raw[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.original-low-moment-exact-priority.v1'
+          assert c['issue']==230 and c['parent_pr']==770
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['root_PROVED_A'] is False and c['ASET_exponent_claimed'] is False
+          for field in (
+              'all_h_priority_mask_simplex_identity_proved_in_manuscript',
+              'all_h_no_b20_or_exponential_subset_DP_restriction',
+              'all_h_shared_priority_exact_marginal_valid',
+              'all_h_Harris_positive_association_degree_product_PROVED_in_manuscript',
+              'all_h_harris_uniform_lower_stronger_than_first_r',
+              'all_h_weighted_endpoint_Jensen_upper_via_selected_moment',
+              'all_h_NO_path_independence_assumed',
+              'all_h_original_C6_to_D6_and_GLOBAL_moment_dependencies_remain_open',
+          ):
+              assert c[field] is True,field
+          assert c['all_h_K64_sharp_reciprocal_q2']==67600
+          assert c['all_h_K64_sharp_reciprocal_q3']==17576000
+          toy=c['abstract_real_source_conflict_mask_cases']
+          assert len(toy)==6
+          assert max(z['b'] for z in toy)==195
+          assert any(z['b']==195 and z['root_K64_degree_cap_applicable'] for z in toy)
+          assert any(z['b']==195 and not z['root_K64_degree_cap_applicable'] for z in toy)
+          assert all(z['exact_above_harris'] and z['all_h_factorization_exact'] for z in toy)
+          assert any(z['strict_improvement'] for z in toy)
+          for z in toy:
+              assert Fraction(z['priority'])>=Fraction(z['sufficient'])
+              assert Fraction(z['priority'])>=Fraction(z['source_harris_degree_product'])
+              print('PRIORITY_MASK',z['r'],z['b'],z['priority'],
+                    'Harris',z['source_harris_degree_product'])
+          rows=c['genuine_original_W32_W34_weighted_marginal_cases']
+          assert len(rows)==5
+          for z in rows:
+              assert z['physical_original_diagonals']==2*z['source_original_flags']
+              assert z['sampled_source_proper_paths']>0
+              assert z['actual_exact_priority_marginal_is_shared_global_permutation']
+              assert z['no_joint_path_independence_assumed']
+              exact=Fraction(z['exact_marginal_weighted_endpoint_energy'])
+              harris=Fraction(z['harris_degree_weighted_endpoint_energy'])
+              true_k=Fraction(z['harris_uniform_true_K_endpoint_energy'])
+              previous=Fraction(z['uniform_true_K_endpoint_energy'])
+              assert exact>=harris>=true_k>=previous
+              print('ORIGINAL',z['s'],z['mode'],'r',z['r'],
+                    'paths',z['sampled_source_proper_paths'],
+                    'Jmax',z['max_original_J_degree'],
+                    'weighted_norm',str(exact),'Harris_norm',str(harris))
+          data=c['conditional_original_Z0_universal_Harris_moment_budgets']
+          assert len(data)==3
+          for z in data:
+              old=z['old_first_r']
+              new=z['new_Harris']
+              assert z['R_zero_Z']==93312
+              assert old['q2']==134160 and old['q3']==77879360
+              assert new['q2']==67600 and new['q3']==17576000
+              assert int(new['L4'])<int(old['L4'])
+              assert int(new['E'])<int(old['E'])
+              assert int(new['D'])<int(old['D'])
+              assert int(new['s0'])<int(old['s0'])
+              assert new['h0']<=old['h0']
+              assert z['original_LOW_remaining_global_inherited_lemmas_NOT_reproved']
+              assert z['external_C6_numerical_constants_NOT_inferred']
+              assert z['root_PROVED_A'] is False
+              print('FORMAL_C0_C0',z['formal_C0_NOT_verified_graph_constant'],
+                    z['formal_c0_NOT_verified_graph_constant'],
+                    'old_h0',old['h0'],'new_h0',new['h0'],
+                    'q2',new['q2'],'q3',new['q3'])
+          print('ORIGINAL_ALL_ORDER_HARRIS_MOMENT_STRENGTHENING_ONLY')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-low-moment-exact-priority-harris-certificate
+          path: aa4-low-moment-exact.txt
+          retention-days: 14
