@@ -1,0 +1,116 @@
+name: hyp105-aa4-heavy-publication-SRG-referee
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-root-publication-heavy-srg-referee
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-publication-SRG-referee.yml'
+      - 'docs/research/HYP-105-AA4-ROOT-PUBLICATION-HEAVY-SRG-REFEREE.md'
+      - 'research/hyp105_original_heavy_publication_srg_referee.py'
+      - 'research/test_hyp105_original_heavy_publication_srg_referee.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-heavy-publication-SRG-referee.yml'
+      - 'docs/research/HYP-105-AA4-ROOT-PUBLICATION-HEAVY-SRG-REFEREE.md'
+      - 'research/hyp105_original_heavy_publication_srg_referee.py'
+      - 'research/test_hyp105_original_heavy_publication_srg_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-heavy-all-h-spectral-no-clone:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently review genuine GQ SRG source conflict and actual physical top-r HEAVY
+        run: python -m unittest discover -s research -p 'test_hyp105_original_heavy_publication_srg_referee.py' -v
+      - name: Strict TRUE original HEAVY source and physical certificate
+        shell: bash
+        run: |
+          python research/hyp105_original_heavy_publication_srg_referee.py > original-heavy-publication-cert.txt
+          python - original-heavy-publication-cert.txt <<'PY'
+          import json,sys
+          from fractions import Fraction as F
+          raw=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_HEAVY_PUBLICATION_SRG_TOPR_CERTIFICATE='
+          assert raw.startswith(prefix) and raw.count(prefix)==1
+          c=json.loads(raw[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.original-heavy-SRG-topr-publication-referee.v1'
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['issue']==230 and c['parent_pr']==782
+          assert c['fixed_H']==32 and c['R']==33281
+          assert c['published_ordinary_graph_C6_theorem_constants_numeric_unknown']
+          assert c['original_HEAVY_no_clone_Caro_Wei_twocut_topr_refereed_all_h']
+          assert c['original_HEAVY_simple_graph_F_external_C6_hypotheses_proved_conditional']
+          assert c['true_original_D6_sixID_cycle_inverse_inherited_from_separate_referee']
+          assert c['LOW_PRODUCED_publication_acceptance_still_open']
+          assert not c['original_ROOT_PROVED_A']
+          proof=c['ALL_H_true_GQ_SRG_and_source_J_analytic_proof']
+          assert proof['threshold_min_s']==256
+          assert proof['source_sqrt_2V_over_s3_LESS_than']=='10/7'
+          assert F(proof['true_bound_2V_nonlinear_square'])<F(proof['sqrt_ceiling_square'])
+          assert F(proof['positive_margin_lower_exact'])>0
+          assert proof['source_eJ_strict_2M_Hs4_all_h_proved']
+          finite=c['genuine_W32_W34_source_cases']
+          assert len(finite)==6
+          assert {(z['s'],z['scheme']) for z in finite}=={
+              (s,m) for s in (2,4) for m in ('lex','reverse','shift')}
+          all_heavy=0
+          for z in finite:
+              s=z['s'];n=(s+1)**2*(s*s+1)
+              a=z['physical_alphabet_a']
+              assert z['original_named_I']==n
+              assert z['all_physical_real_owned_diagonal_edges']==2*n
+              assert z['true_original_SRG_parameters']['degree']==s*(s+1)
+              assert z['true_original_SRG_parameters']['lam']==s-1
+              assert z['true_original_SRG_parameters']['mu']==s+1
+              assert z['source_SRG_y_pencils']['exact']==z['TRUE_original_J_point_pencils']
+              assert z['source_SRG_x_pencils']['exact']==z['TRUE_original_J_line_pencils']
+              assert z['original_source_J_edges']==(
+                  z['TRUE_original_J_point_pencils']+z['TRUE_original_J_line_pencils'])
+              for key in ('source_SRG_y_pencils','source_SRG_x_pencils'):
+                  assert z[key]['max_fiber']<=a-1
+                  assert z[key]['exact']<=z[key]['cap']
+              levels=z['real_frozen_HEAVY_top_r_cases']
+              assert [q['T'] for q in levels]==[0,1,2]
+              assert levels[0]['heavy']
+              for q in levels:
+                  if q['true_heavy_owners']==0:continue
+                  all_heavy+=1
+                  assert q['TWO_global_symbol_cuts_whole_flags']
+                  assert q['original_source_J_independent_actual_source']
+                  assert q['top_r_no_vertex_or_edge_clones']
+                  assert q['original_full_frozen_Q_global_cut_real_vertices']
+                  assert 4*q['true_selected_original_whole_IDs']>=q['independent_owner_count']
+                  assert 2*q['actual_real_source_RQ_Y_cross_edges']>=q['true_selected_original_whole_IDs']
+                  assert q['actual_genuine_simple_F_vertices']<=2*q['actual_frozen_Q_R_count']
+                  assert F(q['genuine_original_F_density'])>=F(q['guaranteed_selected_source_density'])
+                  print('TRUE_ORIGINAL_HEAVY',s,z['scheme'],'T',q['T'],
+                        'Q',q['frozen_Q_count'],'named owners',q['true_heavy_owners'],
+                        'selected',q['true_selected_original_whole_IDs'],
+                        'F edges',q['actual_genuine_simple_F_edges'])
+          assert all_heavy>=6
+          formal=c['formal_external_unknown_graph_scenarios']
+          assert len(formal)==3
+          for k in formal:
+              assert k['fixed_HEAVY_R']==33281
+              assert k['exact_ordinary_graph_threshold_applies']
+              assert not k['actual_numerical_graph_constants_known']
+              assert not k['original_ROOT_PROVED_A']
+              print('FORMAL_UNKNOWN_EXTERNAL_C6',k['C0_FORMAL_NOT_PUBLISHED'],
+                    k['c0_FORMAL_NOT_PUBLISHED'],'T',k['common_source_T_exact'])
+          print('ACCEPT_ALL_H_ORIGINAL_HEAVY_SRG_CARO_WEI_2CUT_TOPR')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-HEAVY-publication-SRG-topr-certificate
+          path: original-heavy-publication-cert.txt
+          retention-days: 14
