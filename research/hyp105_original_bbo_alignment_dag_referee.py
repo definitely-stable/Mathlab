@@ -106,13 +106,31 @@ def all_four_cycles():
     return tuple(sorted(out))
 
 
-def _factor_cycle_assign(cycle,anchor_factor,three_factors):
-    """Assign one C4 edge to source anchor and remaining THREE to path IDs."""
-    pairlist=list(cycle)
-    keys=[anchor_factor]+list(three_factors)
-    if len(keys)!=4 or len(set(keys))!=4:
-        raise AssertionError("original factors not distinct")
-    return dict(zip(keys,pairlist))
+def _factor_cycle_assign(cycle,anchor_factor,three_factors,middle_index):
+    """Assign the OPPOSITE C4 edge to a DIFFERENT owner in each template.
+
+    The three K4 C4s must realize the three choices of middle ORIGINAL
+    residual owner ID, not all share one middle ID due to sorted edges.
+    Otherwise the 3x3 independent source-template census is vacuous.
+    """
+    middle_index=int(middle_index)
+    three_factors=tuple(three_factors)
+    if not (0<=middle_index<3) or len(three_factors)!=3 or len(set(three_factors))!=3:
+        raise AssertionError("exactly three distinct TRUE residual factors")
+    edge_anchor=cycle[0]
+    opposite=[e for e in cycle if not(set(e)&set(edge_anchor))]
+    if len(opposite)!=1:
+        raise AssertionError("a simple original C4 has one opposite edge")
+    side=[e for e in cycle if e!=edge_anchor and e!=opposite[0]]
+    if len(side)!=2:
+        raise AssertionError("two adjacent C4 source edges required")
+    factors={anchor_factor:edge_anchor,
+             three_factors[middle_index]:opposite[0]}
+    remaining=[f for j,f in enumerate(three_factors) if j!=middle_index]
+    factors.update(zip(remaining,side))
+    if len(factors)!=4 or len(set(factors.values()))!=4:
+        raise AssertionError("original factor assignment must be globally injected")
+    return factors
 
 
 def template_model(s,left_cycle_index,right_cycle_index,mask="seed",delete_middle=False):
@@ -130,9 +148,9 @@ def template_model(s,left_cycle_index,right_cycle_index,mask="seed",delete_middl
     if a<6:raise AssertionError("physical original minimal alphabet <6")
     cycles=all_four_cycles()
     first=_factor_cycle_assign(cycles[left_cycle_index],seed["q"],
-                   (flags[i][0] for i in seed["residual"]))
+                   (flags[i][0] for i in seed["residual"]),left_cycle_index)
     second=_factor_cycle_assign(cycles[right_cycle_index],seed["r"],
-                   (flags[i][1] for i in seed["residual"]))
+                   (flags[i][1] for i in seed["residual"]),right_cycle_index)
     first[seed["p"]]=(4,5);second[seed["ell"]]=(4,5)
     def complete(known):
         if len(set(known.values()))!=len(known):
