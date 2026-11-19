@@ -349,7 +349,6 @@ def exhaustive_one_global_priorities_and_two_cuts(source,ids):
         raise AssertionError("EXACT one-global source expected edge/trace2 identity false")
     if E["tr4"]**2>E["tr2"]*E["tr6"]:
         raise AssertionError("Cauchy across SAME global selector probability space violated")
-    delta=max((sum((v==u or u==w for w in [])) for u,v in []),default=0)
     # Use the *unselected* original CORE maximum physical degree, not a
     # random selected graph Delta, for the all-h moment theorem.
     full=_trace_even_and_cycles(_actual_physical_graph(small,ids))
