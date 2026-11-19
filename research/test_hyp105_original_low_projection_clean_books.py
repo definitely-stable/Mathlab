@@ -4,6 +4,8 @@ from fractions import Fraction
 from itertools import combinations
 import unittest
 
+from hyp105_original_AC_independent_source_contraction import independent_source_mixed_contractions
+
 from hyp105_original_low_projection_clean_books import (
     SCHEMA,STATUS,PARENT,canonical_pair,other,min_pairs,genuine_original,
     true_gq_projection,physical_source_edges,physical_graph,key_books,
@@ -61,6 +63,29 @@ class TestLOWProjectionCleanSource(unittest.TestCase):
             self.assertGreaterEqual(c["original_CORE_trace4"],0)
             self.assertLessEqual(c["original_CORE_degree_weighted_trace4"],
                                  c["original_CORE_actual_Delta"]*c["original_CORE_trace4"])
+
+        # THIRD source-first calculation: F1/F2/Gram/Theta does not
+        # enumerate old/new witness keys or physical blocker triples.
+        for s,mode,core,Z in ((2,"lex","full",()),
+                              (4,"lex","full",()),
+                              (4,"reverse","two_thirds",()),
+                              (4,"shift","half",(0,7,19,101))):
+            src=genuine_original(s,mode,removed=Z,core_scheme=core)
+            gq=true_gq_projection(src)
+            p=physical_graph(src)
+            keys=key_books(src,gq)
+            check=independent_source_mixed_contractions(src,gq,p)
+            for side in ("x","y"):
+                val=check[side]
+                self.assertEqual(val["historical_book_independent_multiplicity"],
+                                 len(keys["old"][side]))
+                self.assertEqual(val["full_allowed_SOURCE_and_CORE_physical_theta"],
+                                 p["theta"])
+                self.assertTrue(val["distinct_original_source_mixed_SRG_Gram_F1_F2_theta_proof_passed"])
+                self.assertLessEqual(val["source_F1"],
+                                     2*val["true_original_SR_G_collinearity_Gram"])
+                self.assertLessEqual(val["actual_CORE_symbol_clique_max"],
+                                     val["actual_original_induced_source_J_max_K"]+1)
 
     def test_06_new_clean_book_never_exceeds_old_original_full_A_C_book(self):
         for c in self.c["original_true_W32_W34_cases"]:
