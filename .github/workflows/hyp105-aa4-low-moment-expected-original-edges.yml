@@ -1,0 +1,119 @@
+name: hyp105-aa4-low-moment-expected-original-edges
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-low-moment-expected-edge-rank
+    paths:
+      - '.github/workflows/hyp105-aa4-low-moment-expected-original-edges.yml'
+      - 'docs/research/HYP-105-AA4-LOW-MOMENT-EXACT-GLOBAL-MEAN-EDGE.md'
+      - 'research/hyp105_original_low_moment_expected_edges.py'
+      - 'research/test_hyp105_original_low_moment_expected_edges.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-low-moment-expected-original-edges.yml'
+      - 'docs/research/HYP-105-AA4-LOW-MOMENT-EXACT-GLOBAL-MEAN-EDGE.md'
+      - 'research/hyp105_original_low_moment_expected_edges.py'
+      - 'research/test_hyp105_original_low_moment_expected_edges.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-global-original-low-moment:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently check 20 exact original source rank/cut and LOW moment cases
+        run: python -m unittest discover -s research -p 'test_hyp105_original_low_moment_expected_edges.py' -v
+      - name: Strict exact Fraction original global source selector and improved root certificate
+        shell: bash
+        run: |
+          python research/hyp105_original_low_moment_expected_edges.py > low-expected-rank-certificate.txt
+          python - low-expected-rank-certificate.txt <<'PY'
+          import json,sys
+          from fractions import Fraction as F
+          from math import isqrt
+          raw=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_LOW_MOMENT_RANK_EXPECTATION_CERTIFICATE='
+          assert raw.startswith(prefix) and raw.count(prefix)==1
+          c=json.loads(raw[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.low-moment-exact-global-expected-edges.v1'
+          assert c['issue']==230 and c['parent_pr']==778
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['H']==32 and c['K']==10 and c['R']==33281
+          for field in (
+              'exact_ALL_h_source_rank_weight_expected_physical_edges_theorem_proved',
+              'new_all_h_selected_sixth_moment_EXPECTATION_only',
+              'new_all_h_selected_fourth_moment_Cauchy_across_ONE_selector',
+              'actual_source_graph_GQ_and_proper_path_prerequisites_inherited',
+              'original_LOW_full_mixed_books_and_BBo_inverses_still_open',
+              'no_fabricated_external_graph_C6_numerical_constants'):
+              assert c[field] is True,field
+          assert c['full_root_PROVED_A'] is False
+          assert c['ASET_exponent_claimed'] is False
+          nu=F(c['NEW_original_N_to_s4_envelope_nu_H'])
+          assert 1<nu<F(17,16)
+          assert F(c['original_source_M_H'])<F(35,32)
+          assert 2<F(c['original_physical_A_H'])<F(9,4)
+          x=c['original_source_full_J_priority_and_cut_TRUE_W32']
+          assert x['s']==2 and len(x['named_original_ids'])==3
+          assert x['full_joint_global_owner_priority_orderings']==6
+          assert x['full_joint_rank_and_global_bit_outcomes']>6
+          assert x['all_outcomes_one_global_priority_and_two_global_coloring']
+          assert x['expected_sixth_walk_SW2_using_actual_mean_m_verified']
+          assert x['individual_selected_SW2_verified']
+          assert x['expectation_Jensen_trace2_trace6_verified']
+          assert 2*F(x['exact_EXPECTED_selected_m'])==F(x['exact_EXPECTED_selected_tr2'])
+          assert F(x['exact_EXPECTED_selected_tr6'])>0
+          deg=list(x['original_J_induced_degree'].values())
+          assert 0 in deg and any(t>0 for t in deg)
+          print('TRUE_ORIGINAL_W32_EXACT_J_PRIORITY',x['named_original_ids'],
+                'joint outcomes',x['full_joint_rank_and_global_bit_outcomes'],
+                'E_m',x['exact_EXPECTED_selected_m'],
+                'E_tr6',x['exact_EXPECTED_selected_tr6'])
+          y=c['original_W34_NONVACUOUS_C6_full_global_two_cut_expectation']
+          assert y['s']==4 and y['mode']=='lex'
+          assert len(y['real_source_named_positive_sixset'])==6
+          assert y['all_original_source_J_independent']
+          assert y['original_full_graph_simple_physical_C6']>0
+          assert y['outcomes_with_true_selected_physical_C6']>0
+          assert F(y['exact_EXPECTED_selected_C6'])>0
+          assert F(y['exact_EXPECTED_selected_m'])==3
+          assert F(y['exact_EXPECTED_selected_tr2'])==6
+          assert y['expected_true_global_r2_Jensen_and_survival_verified']
+          assert y['expected_true_global_r3_Jensen_and_survival_verified']
+          assert y['all_true_selected_physical_source_edges_kept_in_pairs']
+          print('TRUE_ORIGINAL_W34_NONVACUOUS_C6',y['real_source_named_positive_sixset'],
+                'outcomes',y['exact_global_color_outcomes'],
+                'positive',y['outcomes_with_true_selected_physical_C6'],
+                'E_C6',y['exact_EXPECTED_selected_C6'])
+          formal=c['FORMAL_not_published_graph_constants_common_T_ROOT']
+          assert len(formal)==3
+          for i,(old_h,new_h) in enumerate(((620,612),(650,642),(657,648))):
+              q=formal[i]
+              assert q['R_exact_same_parent']==33281
+              assert q['old_root_h0']==old_h and q['new_root_h0']==new_h
+              assert q['strict_dyadic_gain']==old_h-new_h
+              assert q['new_selected_L6_only_in_expectation']
+              assert q['exact_rank_mass_bound_all_h']
+              assert q['root_PROVED_A'] is False
+              assert F(q['LOW_original_BBo_floor_unchanged'])>F(q['new_root_delta_unchanged'])
+              assert int(q['new_EXPECTED_selected_L6'])<int(q['old_selected_L6'])
+              assert int(q['new_EXPECTED_selected_L4'])<int(q['old_selected_L4'])
+              print('FORMAL_UNKNOWN_EXTERNAL_GRAPH_ONLY',q['C0_FORMAL_NOT_PUBLISHED'],
+                    q['c0_FORMAL_NOT_PUBLISHED'],
+                    'parent_h',old_h,'new_h',new_h,'gain',old_h-new_h)
+          print('TRUE_ORIGINAL_ALL_H_GLOBAL_SELECTOR_EXPECTED_MOMENT_LOCAL_ACCEPT')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-global-low-expected-edges-moment-certificate
+          path: low-expected-rank-certificate.txt
+          retention-days: 14
