@@ -213,11 +213,21 @@ class TestOriginalBBoSourceFactorSixId(unittest.TestCase):
             self.assertEqual(original_sixset_factor_profile(m,seed),
                              "FIVE_P_AND_L_SHARED_ANCHOR_BBO_OVERLAP")
             source=real_source(s)
-            match=[];pused=set();lused=set()
-            for i,(p,ell) in enumerate(source["flags"]):
-                if p not in pused and ell not in lused:
-                    match.append(i);pused.add(p);lused.add(ell)
-                    if len(match)==6:break
+            # Construct a REAL original perfect point-line matching by
+            # augmenting paths; no unjustified greedy matching size claim.
+            byline={}
+            def augment(p,seen):
+                for ell in sorted(source["bp"][p]):
+                    if ell in seen:continue
+                    seen.add(ell)
+                    if ell not in byline or augment(byline[ell],seen):
+                        byline[ell]=p
+                        return True
+                return False
+            for p in range(source["V"]):
+                self.assertTrue(augment(p,set()))
+            self.assertEqual(len(byline),source["V"])
+            match=[source["idx"][p,ell] for ell,p in sorted(byline.items())][:6]
             self.assertEqual(len(match),6)
             self.assertEqual(original_sixset_factor_profile(m,match),
                              "SIX_DISTINCT_P_AND_L_ONLY_D6_NECESSARY")
