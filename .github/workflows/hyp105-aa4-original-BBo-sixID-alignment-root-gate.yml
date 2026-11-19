@@ -1,0 +1,97 @@
+name: hyp105-aa4-original-BBo-sixID-alignment-root-gate
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-bbo-sixid-alignment-dag-referee
+    paths:
+      - '.github/workflows/hyp105-aa4-original-BBo-sixID-alignment-root-gate.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-BBO-ALIGNMENT-SIXID-GATE.md'
+      - 'research/hyp105_original_bbo_alignment_dag_referee.py'
+      - 'research/test_hyp105_original_bbo_alignment_dag_referee.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-original-BBo-sixID-alignment-root-gate.yml'
+      - 'docs/research/HYP-105-AA4-ORIGINAL-BBO-ALIGNMENT-SIXID-GATE.md'
+      - 'research/hyp105_original_bbo_alignment_dag_referee.py'
+      - 'research/test_hyp105_original_bbo_alignment_dag_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-source-factor-sixID-inverse:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: REAL original W32/W34 nine-template six-ID source and independent physical-first tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_bbo_alignment_dag_referee.py' -v
+      - name: Fail-closed positive GF5 exact original source BBo and no-false-root certificate
+        shell: bash
+        run: |
+          python research/hyp105_original_bbo_alignment_dag_referee.py > original-bbo-source-alignment-certificate.txt
+          python - original-bbo-source-alignment-certificate.txt <<'PY'
+          import json,sys
+          from collections import Counter
+          data=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_BBO_SIXID_ALIGNMENT_DAG_CERTIFICATE='
+          assert data.startswith(prefix) and data.count(prefix)==1
+          c=json.loads(data[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.original-BBo-alignment-sixID-root-gate.v1'
+          assert c['issue']==230 and c['parent_pr']==780
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          for field in (
+              'all_h_original_factor_alignment_zero_or_two_mathematically_proved',
+              'all_h_original_BBo_produced_SOURCE_class_canonical',
+              'all_h_source_GQ_projection_anchoring_required',
+              'all_h_per_source_sixset_TWO_reverse_physical_paths_in_real_CORE',
+              'original_SIGNED_R3_or_ASET_exponent_NOT_claimed',
+              'exact_GF5_potential_integer_Fourier_verified',
+              'graph_C6_external_constants_numerically_unknown',
+              'root_global_dependency_DAG_STILL_REQUIRES_independent_acceptance'):
+              assert c[field] is True,field
+          assert c['true_original_S_s_seven_class_PROVED_A'] is False
+          rows=c['original_nine_C4xC4_W32_templates']
+          assert len(rows)==9
+          assert {(x['left'],x['right']) for x in rows}=={
+              (i,j) for i in range(3) for j in range(3)}
+          assert Counter((r['source_aligned'],r['exact_GF5_ten_sign_mass'])
+                         for r in rows)==Counter({(True,53838):3,(False,53526):6})
+          for r in rows:
+              expected=2 if r['source_aligned'] else 0
+              assert r['SOURCE_ONLY_inverse_directed_count']==expected
+              assert r['INDEPENDENT_PHYSICAL_first_directed_count']==expected
+              assert r['actual_true_original_source_BBo_sixsets']==expected//2
+              assert r['full_inverse_no_original_owner_clone'] and not r['root_PROVED_A']
+              print('TRUE_ORIGINAL_W32_GF5_0_OR_2',r['left'],r['right'],
+                    'aligned',r['source_aligned'],
+                    'physical_paths',expected,
+                    'gf5_mass',r['exact_GF5_ten_sign_mass'])
+          assert len(c['original_W34_positive_and_negative_sixsets'])==2
+          assert {r['SOURCE_ONLY_inverse_directed_count'] for r in
+                  c['original_W34_positive_and_negative_sixsets']}=={0,2}
+          other=c['additional_true_original_core_and_deleted_cases']
+          assert len(other)==5
+          assert any(r['produced_true_original_sixsets']>0 for r in other)
+          for r in other:
+              assert r['all_produced_sixsets_two_oracles_agree']
+              assert r['all_TRUE_original_sixsets_two_directed_paths']
+              assert r['root_PROVED_A'] is False
+              if r['Zmode']=='middle':
+                  assert r['seed_source_inverse']==0
+              print('TRUE_ORIGINAL_CORE_Z',r['s'],r['Cmode'],r['Zmode'],
+                    'original_core',r['full_paired_CORE_original_flags'],
+                    'positive_sixsets',r['produced_true_original_sixsets'])
+          print('ALL_H_LOCAL_ORIGINAL_SIXID_BBO_INVERSE_ONLY')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-BBo-sixID-alignment-GF5-source-certificate
+          path: original-bbo-source-alignment-certificate.txt
+          retention-days: 14
