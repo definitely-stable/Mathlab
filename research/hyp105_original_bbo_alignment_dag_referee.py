@@ -342,6 +342,32 @@ def physical_first_paths(m,graph=None):
                 actual_accepted_directed_3walks=counts["accepted"])
 
 
+def original_sixset_factor_profile(m,ids):
+    """Original six-ID factor multiplicity firewall, independent of GF5.
+
+    A genuine original D6 sixset has SIX distinct points and SIX distinct
+    lines. A genuine produced B/B-overlap sixset has exactly FIVE of each,
+    with one repeated source point p and line ell sharing a REAL named
+    incidence flag. These necessary profiles are disjoint. This routine
+    does NOT claim every six-disjoint-profile set is a positive D6.
+    """
+    ids=tuple(ids)
+    flags=m["flags"]
+    if len(ids)!=6 or len(set(ids))!=6 or any(
+            type(i)!=int or i<0 or i>=len(flags) for i in ids):
+        raise ValueError("six distinct original source flag IDs required")
+    cp=Counter(flags[i][0] for i in ids)
+    cl=Counter(flags[i][1] for i in ids)
+    if len(cp)==6 and len(cl)==6:
+        return "SIX_DISTINCT_P_AND_L_ONLY_D6_NECESSARY"
+    if sorted(cp.values())==[1,1,1,1,2] and sorted(cl.values())==[1,1,1,1,2]:
+        p=next(v for v,k in cp.items() if k==2)
+        ell=next(v for v,k in cl.items() if k==2)
+        if any(flags[i]==(p,ell) for i in ids):
+            return "FIVE_P_AND_L_SHARED_ANCHOR_BBO_OVERLAP"
+    return "OTHER_ORIGINAL_SIX_ID_PROFILE"
+
+
 def _source_alignment(m,ids):
     flags=m["flags"];cp=Counter(flags[i][0] for i in ids)
     cl=Counter(flags[i][1] for i in ids)
@@ -423,6 +449,8 @@ def template_referee(s,left,right):
     expected=2 if align["aligned"] else 0
     if len(inv)!=expected or len(fw["accepted"].get(frozenset(ids),()))!=expected:
         raise AssertionError("nine real ORIGINAL templates do not match 0/2 alignment")
+    if original_sixset_factor_profile(m,ids)!="FIVE_P_AND_L_SHARED_ANCHOR_BBO_OVERLAP":
+        raise AssertionError("produced source BBo not disjoint from D6 profile")
     if (len(fw["accepted"])!=(1 if expected else 0) or
         fw["actual_accepted_directed_3walks"]!=expected):
         raise AssertionError("original SOURCE seed generated extraneous BBo 3walks")
@@ -450,6 +478,8 @@ def extra_core_and_deleted_case(s,left,right,Cmode,Zmode):
         # Can be large but independently checks every positive source sixset.
         pass
     for ids,paths in forward["accepted"].items():
+        if original_sixset_factor_profile(m,ids)!="FIVE_P_AND_L_SHARED_ANCHOR_BBO_OVERLAP":
+            raise AssertionError("true produced BBo source factor profile is not original BBo")
         inv=independent_sixID_factor_inverse(m,ids,graph)
         if {p for p,_ in inv}!=paths:
             raise AssertionError("SOURCE-FIRST inverse does not match FULL PHYSICAL-FIRST enumeration")
@@ -487,6 +517,7 @@ def certificate():
                 all_h_original_factor_alignment_zero_or_two_mathematically_proved=True,
                 all_h_original_BBo_produced_SOURCE_class_canonical=True,
                 all_h_source_GQ_projection_anchoring_required=True,
+                original_D6_and_produced_BBo_disjoint_by_named_source_factor_profile=True,
                 all_h_per_source_sixset_TWO_reverse_physical_paths_in_real_CORE=True,
                 true_original_S_s_seven_class_PROVED_A=False,
                 original_SIGNED_R3_or_ASET_exponent_NOT_claimed=True,
