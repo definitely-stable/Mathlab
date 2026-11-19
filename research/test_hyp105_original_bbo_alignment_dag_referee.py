@@ -8,7 +8,7 @@ from hyp105_original_bbo_alignment_dag_referee import (
     real_source,genuine_projection,minimal_pairs,all_four_cycles,
     _source_six_seed,template_model,source_owned_graph,
     _chain_from_three_ids,independent_sixID_factor_inverse,
-    physical_first_paths,_source_alignment,_canonical_edges_for_gf5,
+    physical_first_paths,original_sixset_factor_profile,_source_alignment,_canonical_edges_for_gf5,
     independent_gf5_fourier_mass,template_referee,
     extra_core_and_deleted_case,certificate,
 )
@@ -206,7 +206,26 @@ class TestOriginalBBoSourceFactorSixId(unittest.TestCase):
             self.assertEqual(sorted(cl.values()),[1,1,1,1,2])
             self.assertEqual(len(set(ids)),6)
 
-    def test_20_root_dependency_DAG_not_accidentally_promoted(self):
+    def test_20_original_D6_and_produced_BBo_factor_profile_are_disjoint(self):
+        for s in (2,4):
+            m=template_model(s,0,0,mask="seed")
+            seed=m["seed"]["ids"]
+            self.assertEqual(original_sixset_factor_profile(m,seed),
+                             "FIVE_P_AND_L_SHARED_ANCHOR_BBO_OVERLAP")
+            source=real_source(s)
+            match=[];pused=set();lused=set()
+            for i,(p,ell) in enumerate(source["flags"]):
+                if p not in pused and ell not in lused:
+                    match.append(i);pused.add(p);lused.add(ell)
+                    if len(match)==6:break
+            self.assertEqual(len(match),6)
+            self.assertEqual(original_sixset_factor_profile(m,match),
+                             "SIX_DISTINCT_P_AND_L_ONLY_D6_NECESSARY")
+            with self.assertRaises(ValueError):
+                original_sixset_factor_profile(m,seed[:5])
+        self.assertTrue(self.c["original_D6_and_produced_BBo_disjoint_by_named_source_factor_profile"])
+
+    def test_21_root_dependency_DAG_not_accidentally_promoted(self):
         c=self.c
         self.assertEqual(c["schema"],SCHEMA)
         self.assertEqual(c["status"],STATUS)
