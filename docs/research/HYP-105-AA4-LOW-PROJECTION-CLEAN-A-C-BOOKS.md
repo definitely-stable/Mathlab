@@ -192,6 +192,32 @@ where G_f,G_g are the true ORIGINAL point- and line-SRG Gram energies. This requ
 
 **No new universal B0 or root h0 value is claimed merely because finite books shrink.** Parent #779 already provides the improved selected EXPECTED sixth/fourth moments L6=24+ceil(36 nu_H T²) and L4=q2²ceil_sqrt(ceil(nu_H L6))+19T, with fixed H=32, K=10, R=33281 and ONE common T. The cleaned books strictly improve the instance-specific remaining mixed blocker charge at those SAME universal coefficients; they cannot by themselves close the missing original six-ID P3→BBo and full-root theorem.
 
+### Additional independent third-algorithm audit of the inherited uniform book premise
+
+The stronger clean books are useful only if the historical source books remain correctly controlled uniformly. Therefore the separate new program research/hyp105_original_AC_independent_source_contraction.py **does not invoke the literal key enumerator**; it independently reconstructs actual FULL-A and CORE-C source pencil counts R_A and R_C, the point/line original collinearity Gram energies G_f/G_g, and the contractions
+
+\[
+B_x=\sum c_x(p)K_{AC}(p,u),\quad
+F_{1,x}=\sum c_x(p)^2,\quad
+F_{2,x}=\sum K_{AC}(p,u)^2,\quad
+\Theta_{AC}=\sum K_{AC}(p,u).
+\]
+
+It checks equality to the separately generated literal old source keys, and independently to the **physical** cross graph degree sum \(\Theta_{AC}=\sum_vd_A(v)d_C(v)\). It rebuilds the ACTUAL induced original CORE conflict J_C to compute its own maximum degree K_C; it never falsely assumes the finite diagnostic cores have K=10. Every physical right-symbol fibre of original source flags on one point forms a genuine J_C clique, hence R_C(p,y)≤K_C+1, and therefore K_AC≤2(s+1)(K_C+1). The direct program checks every inequality in the inherited full/core source-to-physical bridge:
+
+\[
+F_{1,x}\le2G_f,\quad
+F_{2,x}\le2(s+1)(K_C+1)\Theta_{AC},\quad
+\Theta_{AC}\le4|A|\Delta_C,
+\]
+
+\[
+B_x^2\le F_{1,x}F_{2,x}
+\le16(s+1)(K_C+1)|A|\Delta_C G_f.
+\]
+
+The line dual is independently recomputed rather than copying the point-side result. True original W(3,2) FULL and W(3,4) FULL/reverse smaller CORE/shift with deleted ORIGINAL IDs are validated by the **third independent algorithm**, called by the same fail-closed 20-test suite. This gives a second route to detect a source-book enumeration discrepancy; passing merely Bh≤B is no longer sufficient. The uniform B0 remains inherited in its original scope and is not reduced by the new finite improvements.
+
 ## 8. Independent real symplectic falsifiers
 
 The new standalone research program imports ONLY the genuine symplectic W(3,2)/W(3,4) original incidence fixture, not any previous GQ projection, endpoint, source-book, A/C blocker, LOW/root or sixset evaluator.
