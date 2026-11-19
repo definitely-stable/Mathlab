@@ -43,7 +43,7 @@ class TestTrueOriginalHeavyPublication(unittest.TestCase):
         self.assertTrue(F(1)<z["M"]<F(35,32))
         self.assertTrue(F(1)<z["nu"]<F(17,16))
 
-    def test_04_source_spectrum_even_H>=8(self):
+    def test_04_source_spectrum_even_H_at_least_8(self):
         for H in (8,10,16,24,32,40):
             z=true_envelopes(H)
             self.assertLess(z["R"],93312)
