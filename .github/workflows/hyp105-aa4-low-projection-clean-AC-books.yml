@@ -8,12 +8,14 @@ on:
       - '.github/workflows/hyp105-aa4-low-projection-clean-AC-books.yml'
       - 'docs/research/HYP-105-AA4-LOW-PROJECTION-CLEAN-A-C-BOOKS.md'
       - 'research/hyp105_original_low_projection_clean_books.py'
+      - 'research/hyp105_original_AC_independent_source_contraction.py'
       - 'research/test_hyp105_original_low_projection_clean_books.py'
   pull_request:
     paths:
       - '.github/workflows/hyp105-aa4-low-projection-clean-AC-books.yml'
       - 'docs/research/HYP-105-AA4-LOW-PROJECTION-CLEAN-A-C-BOOKS.md'
       - 'research/hyp105_original_low_projection_clean_books.py'
+      - 'research/hyp105_original_AC_independent_source_contraction.py'
       - 'research/test_hyp105_original_low_projection_clean_books.py'
   workflow_dispatch:
 
