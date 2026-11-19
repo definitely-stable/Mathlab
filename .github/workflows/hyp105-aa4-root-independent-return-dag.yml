@@ -1,0 +1,112 @@
+name: hyp105-aa4-root-independent-return-dag
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-root-independent-endtoend-referee
+    paths:
+      - '.github/workflows/hyp105-aa4-root-independent-return-dag.yml'
+      - 'docs/research/HYP-105-AA4-ROOT-INDEPENDENT-RETURN-DAG.md'
+      - 'research/hyp105_original_root_independent_return_dag.py'
+      - 'research/test_hyp105_original_root_independent_return_dag.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-root-independent-return-dag.yml'
+      - 'docs/research/HYP-105-AA4-ROOT-INDEPENDENT-RETURN-DAG.md'
+      - 'research/hyp105_original_root_independent_return_dag.py'
+      - 'research/test_hyp105_original_root_independent_return_dag.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-source-return-and-root-dag:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Real original named W32 and W34 SOURCE vs PHYSICAL 2step and ROOT tests
+        run: python -m unittest discover -s research -p 'test_hyp105_original_root_independent_return_dag.py' -v
+      - name: Fail-closed exact all-h source/physical return and conditional DAG certificate
+        shell: bash
+        run: |
+          python research/hyp105_original_root_independent_return_dag.py > original-root-return-certificate.txt
+          python - original-root-return-certificate.txt <<'PY'
+          import json,sys
+          from fractions import Fraction as F
+          raw=open(sys.argv[1],encoding='utf-8').read().strip()
+          label='AA4_ROOT_INDEPENDENT_RETURN_DAG_CERTIFICATE='
+          assert raw.startswith(label) and raw.count(label)==1
+          c=json.loads(raw[len(label):])
+          assert c['schema']=='mathlab.hyp105.root-endtoend-return-dag.v1'
+          assert c['issue']==230 and c['parent_pr']==781
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['fixed_H']==32 and c['fixed_K']==10 and c['fixed_R']==33281
+          assert c['new_all_h_exact_original_Qx_Qy_source_identity'] is True
+          assert c['one_SHARED_full_original_J_envelope_for_HEAVY_and_LOW'] is True
+          assert c['genuine_original_all_h_improper3_SHARP_49T_and_fourth_17T'] is True
+          assert c['actual_true_original_source_selectors_not_replaced_by_random_f_g'] is True
+          assert c['original_D6_BBo_sixset_nonoverlap_INHERITED_not_falsely_new'] is True
+          assert c['published_Simonovits_graph_C6_constants_numeric_unknown'] is True
+          assert c['original_seven_unweighted_motif_ROOT_PROVED_A'] is False
+          q=F(c['actual_source_Q_bound_exact_coefficient'])
+          assert 16<q<17 and 48<3*q<49
+          assert c['new_integer_source_Qx_y_bound']==17
+          assert c['new_integer_coordinate_improper_bound']==49
+          orig=c['TRUE_W32_W34_named_original_source_cases']
+          assert len(orig)==24
+          assert {(v['s'],v['mode'],v['core']) for v in orig}=={
+              (s,m,k) for s in (2,4) for m in ('lex','reverse','shift')
+              for k in ('full','even','thin','shifted')}
+          assert any(v['real_coordinate_improper_directed_three_walks']>0 for v in orig)
+          assert any(v['source_true_J_total']>0 for v in orig)
+          for v in orig:
+              N=(v['s']+1)**2*(v['s']**2+1)
+              assert v['original_N']==N
+              assert v['genuine_physical_real_owned_edges']==2*v['original_CORE_named_flags']
+              assert v['Qx_from_named_SOURCE']==v['Qx_from_physical_two_walks']
+              assert v['Qy_from_named_SOURCE']==v['Qy_from_physical_two_walks']
+              assert v['Qx_from_named_SOURCE']==4*v['original_CORE_named_flags']+4*v['source_J_point_conflicts']
+              assert v['Qy_from_named_SOURCE']==4*v['original_CORE_named_flags']+4*v['source_J_line_conflicts']
+              assert v['TRUE_physical_Qtotal']==8*v['original_CORE_named_flags']+4*v['source_true_J_total']
+              assert v['real_coordinate_improper_directed_three_walks']<=v['REAL_improper3_upper']
+              assert v['real_coordinate_improper_two_path_norm2']<=v['real_improper_two_path_norm2_upper']
+              assert v['actual_original_2step_return_SOURCE_identity_verified']
+              assert v['actual_original_coordinate_improper3_and_fourth_bounds_verified']
+          print('ORIGINAL_REAL_SOURCE_RETURN_IDENTITIES',len(orig),'TRUE W32/W34 cases')
+          dag=c['independent_root_dependency_gate_graph']
+          order=dag['order']
+          assert len(order)==17 and len(set(order))==17 and order[-1]=='ROOT_SEVEN'
+          assert dag['ROOT_PROVED_A'] is False
+          assert dag['all_h_new_SOURCE_RETURN_gate_proved_by_literal_identities']
+          assert dag['external_graph_C6_theorem_correctly_scoped_to_SIMPLE_UNDIRECTED_Graph']
+          for node,data in dag['nodes'].items():
+              for dep in data['deps']:
+                  assert dep in dag['nodes'] and order.index(dep)<order.index(node)
+          assert 'LOW_BBO_INVERSE' in dag['unaccepted_publication_gates']
+          assert 'FOUR_BLOCKERS' in dag['unaccepted_publication_gates']
+          assert 'HEAVY_F' in dag['unaccepted_publication_gates']
+          rows=c['formal_unknown_graph_constant_ROOT_scenarios']
+          assert len(rows)==3
+          for r in rows:
+              assert r['T_same'] and r['original_BBo_HEAVY_delta_unchanged']
+              assert r['new_return_all_h_proved_from_named_SOURCE_pencils']
+              assert r['old_q2return']==19 and r['new_q2return']==17
+              assert r['old_q3return']=='111/2' and r['new_q3return']=='49'
+              assert int(r['new_L4'])<int(r['old_L4'])
+              assert r['new_h0']<=r['old_h0']
+              assert r['ROOT_PROVED_A'] is False
+              print('FORMAL_UNKNOWN_EXTERNAL_GRAPH',r['C0_FORMAL'],r['c0_FORMAL'],
+                    'old_h',r['old_h0'],'new_h',r['new_h0'])
+          print('ACCEPT_LOCAL_TRUE_ORIGINAL_NEW_RETURN_17T_49T')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-root-independent-return-DAG-exact-source-certificate
+          path: original-root-return-certificate.txt
+          retention-days: 14
