@@ -29,7 +29,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: REAL original W32/W34 nine-template six-ID source and independent physical-first tests
+      - name: REAL original W32/W34 21 independent six-ID and disjoint-D6-profile tests
         run: python -m unittest discover -s research -p 'test_hyp105_original_bbo_alignment_dag_referee.py' -v
       - name: Fail-closed positive GF5 exact original source BBo and no-false-root certificate
         shell: bash
@@ -49,6 +49,7 @@ jobs:
               'all_h_original_factor_alignment_zero_or_two_mathematically_proved',
               'all_h_original_BBo_produced_SOURCE_class_canonical',
               'all_h_source_GQ_projection_anchoring_required',
+              'original_D6_and_produced_BBo_disjoint_by_named_source_factor_profile',
               'all_h_per_source_sixset_TWO_reverse_physical_paths_in_real_CORE',
               'original_SIGNED_R3_or_ASET_exponent_NOT_claimed',
               'exact_GF5_potential_integer_Fourier_verified',
