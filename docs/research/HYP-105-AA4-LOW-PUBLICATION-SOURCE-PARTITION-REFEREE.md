@@ -75,3 +75,23 @@ Locally proved in this independent source: first-failure exact partition LP-1, o
 Still OPEN: the all-h one-global-source priority/Harris/Jensen transfer, expected selected fourth and sixth spectral moments, the FULL A/CORE C original mixed-book spectral fourth blockers, asymptotic error coefficients 17T/49T, HEAVY/D6 bridge and ultimate all-label global HEAVY/LOW six-positive-family proof DAG. Root #230 is OPEN_WITH_FORMAL_BLOCKER; NO PROVED_A, ASET exponent, claimed numeric external Simonovits constants, or merge.
 
 **Next allowed action:** a similarly independent publication-level referee of the single-global-selector/moment → FULL A/CORE C four-blocker all-h chain using this exact LP-3 interface, or report its FIRST demonstrably false/unproved edge. Exact final-head specialist, INDEX and full Research must all succeed for engineering acceptance.
+
+
+## 7. Actual first independent CI finite source counts (not asymptotic claims)
+
+The initial specialist CI checked all ten genuine original cases. The full directed physical W3 walk count includes backtracks; ACCEPTED is the subset surviving ALL seven masks:
+
+| Genuine original W(s) | Fixed complete f/g | Paired CORE | W3 all directed | ACCEPTED | Distinct produced original BBo |
+|---|---|---|---:|---:|---:|
+| s=2 | lex | FULL | 5,838 | 4 | 2 |
+| s=2 | reverse | FULL | 5,206 | 0 | 0 |
+| s=2 | correlated | FULL | 5,176 | 0 | 0 |
+| s=2 | lex | EVEN | 916 | 0 | 0 |
+| s=2 | reverse | FULL minus three named Z | 4,216 | 0 | 0 |
+| s=4 | lex | FULL | 165,452 | 15,064 | 7,532 |
+| s=4 | reverse | FULL | 164,738 | 14,748 | 7,374 |
+| s=4 | correlated | FULL | 155,318 | 16,230 | 8,115 |
+| s=4 | lex | EVEN | 23,192 | 1,902 | 951 |
+| s=4 | reverse | FULL minus three named Z | 160,392 | 14,234 | 7,117 |
+
+Every row satisfies exact #ACCEPTED = 2·#produced ORIGINAL BBo; nonzero GF5 mass of every independently sampled positive produced source template is 53838. The s=2 minimal alphabet has binom(6,2)=15=V, so the MISSING endpoint mask is empty **by theorem LP-4**, and the certificate must explicitly record zero instead of omitting a dictionary key (caught and repaired without relaxing a test). The s=4 minimal alphabet a=14 has binom(14,2)=91>85, making MISSING nonvacuous. These observations are **finite falsifiers only**: zeros at s=2 for some labelings do not refute any sufficiently-large-s omega(s^6) statement. A pass does not sign off the inherited all-h LOW energy and books.
