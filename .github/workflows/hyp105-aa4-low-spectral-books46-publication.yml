@@ -1,0 +1,117 @@
+name: hyp105-aa4-low-spectral-books46-publication
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-low-spectral-books46-publication
+    paths:
+      - '.github/workflows/hyp105-aa4-low-spectral-books46-publication.yml'
+      - 'docs/research/HYP-105-AA4-LOW-SPECTRAL-BOOKS46-PUBLICATION.md'
+      - 'research/hyp105_low_spectral_books46_referee.py'
+      - 'research/test_hyp105_low_spectral_books46_referee.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-low-spectral-books46-publication.yml'
+      - 'docs/research/HYP-105-AA4-LOW-SPECTRAL-BOOKS46-PUBLICATION.md'
+      - 'research/hyp105_low_spectral_books46_referee.py'
+      - 'research/test_hyp105_low_spectral_books46_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actual-original-source-books46:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently referee source GQ SRG Gram, mixed A/C and all four physical blockers
+        run: python -m unittest discover -s research -p 'test_hyp105_low_spectral_books46_referee.py' -v
+      - name: Exact all-h 46 coefficient, FULL original source and formal root certificate
+        shell: bash
+        run: |
+          python research/hyp105_low_spectral_books46_referee.py > original-books46-cert.txt
+          python - original-books46-cert.txt <<'PY'
+          import json,sys
+          from fractions import Fraction as F
+          text=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_LOW_SPECTRAL_BOOKS46_CERTIFICATE='
+          assert text.startswith(prefix) and text.count(prefix)==1
+          c=json.loads(text[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.low-spectral-books46-publication.v1'
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['issue']==230 and c['parent_pr']==784
+          assert not c['global_HYP105_root_PROVED_A']
+          assert c['low_selector_expected_moments_inherited_not_independently_refereed']
+          q=c['new_all_h_original_source_Gram_book_46']
+          assert q['fixed_H']==32
+          assert q['certified_book_squared_integer_coefficient']==46
+          assert q['inherited_previous_book_squared_integer_coefficient']==360
+          assert q['valid_all_dyadic_s_at_least_2_to_32']
+          assert q['arbitrary_fixed_correlated_global_f_g']
+          assert q['root_only_Z_empty_core_degree_K_at_most_10']
+          assert q['external_graph_C6_constants_numeric_unknown']
+          assert not q['root_PROVED_A']
+          assert F(q['strict_sqrt_2V_bound_margin'])>0
+          assert 45<F(q['exact_Bx_squared_coefficient_bound'])<46
+          cases=c['genuine_original_independent_source_books']
+          assert len(cases)==10
+          assert {(z['s'],z['scheme'],z['core']) for z in cases}=={
+              (s,scheme,core) for s in (2,4) for scheme,core in (
+                  ('lex','full'),('reverse','full'),('correlated','full'),
+                  ('lex','even'),('reverse','deleted'))}
+          nontrivial=0
+          for z in cases:
+              assert z['source_Gf']['G']==z['source_Gf']['formula']
+              assert z['source_Gg']['G']==z['source_Gg']['formula']
+              assert z['source_Gf']['G']<=z['source_Gf']['spectrum_upper']
+              assert z['source_Gg']['G']<=z['source_Gg']['spectrum_upper']
+              for side,gram in (('point_book','source_Gf'),('line_book','source_Gg')):
+                  book=z[side]
+                  assert book['Theta_source']==book['Theta_physical']
+                  assert book['Theta_source']==z['true_physical_A_C_cross_Theta']
+                  assert book['F1']<=2*z[gram]['G']
+                  assert book['F2']<=2*(z['s']+1)*(book['Kc']+1)*book['Theta_source']
+                  assert book['source_book_B']**2<=book['F1']*book['F2']
+                  assert book['Theta_source']<=4*z['true_original_A_size']*book['Delta']
+              ph=z['physical']
+              a,b,d,e=ph['four_blocker_cardinalities']
+              assert a==b and d==e
+              assert ph['four_blocker_union']<=a+b+d+e
+              assert a*a<=ph['point_source_Bx']*ph['actual_Delta']*ph['actual_trace_A4']
+              assert d*d<=ph['line_source_By']*ph['actual_Delta']*ph['actual_trace_A4']
+              nontrivial+=int(ph['four_blocker_union']>0)
+              print('REAL_ORIGINAL_SOURCE',z['s'],z['scheme'],z['core'],
+                    'J_K',z['source_JC_max_degree'],
+                    'Gf',z['source_Gf']['G'],'Gg',z['source_Gg']['G'],
+                    'Bx',z['point_book']['source_book_B'],
+                    'By',z['line_book']['source_book_B'],
+                    'blocker-union',ph['four_blocker_union'])
+          assert nontrivial>0
+          formal=c['FORMAL_external_C6_constants_scenarios']
+          assert len(formal)==3
+          for z in formal:
+              assert z['R']==33281 and z['root_K']==10 and z['fixed_H']==32
+              assert int(z['book_B0_NEW_46'])<int(z['book_B0_historical_360'])
+              assert int(z['fourblocker_D_NEW'])<int(z['fourblocker_D_old'])
+              assert z['dyadic_h_gained']==z['root_previous_h0']-z['root_NEW_h0']
+              assert z['dyadic_h_gained']>0
+              assert not z['numeric_external_graph_constants_known']
+              assert not z['original_ROOT_PROVED_A']
+              print('FORMAL_UNKNOWN_EXTERNAL_C6',z['C0_FORMAL_UNKNOWN'],
+                    z['c0_FORMAL_UNKNOWN'],
+                    'old_h0',z['root_previous_h0'],
+                    'new_h0',z['root_NEW_h0'],
+                    'gain',z['dyadic_h_gained'])
+          print('ACCEPT_ALL_H_ORIGINAL_SOURCE_SRG_GRAM_BOOK46')
+          print('STOP_INHERITED_SELECTOR_MOMENT_AND_ROOT_NOT_PROVED')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-low-books46-source-certificate
+          path: original-books46-cert.txt
+          retention-days: 14
