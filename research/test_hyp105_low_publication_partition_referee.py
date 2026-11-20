@@ -7,7 +7,7 @@ from math import comb
 from hyp105_low_publication_partition_referee import (
     SCHEMA, STATUS, genuine_gq, model, labels, multiply, canonical,
     bracket, endpoint_status, check_source_inverse, classify,
-    integer_gf5_flow_mass, census, certificate,
+    integer_gf5_flow_mass, census, certificate, prove_root_endpoint_17,
 )
 
 
@@ -135,6 +135,31 @@ class TestLowPublicationIndependent(unittest.TestCase):
             labels(15,"bad")
         with self.assertRaises(ValueError):
             model(2,"lex","unknown")
+
+    def test_15_true_all_h_new_17s5_source_endpoint_bound(self):
+        from fractions import Fraction as Q
+        e=prove_root_endpoint_17()
+        self.assertEqual(e["fixed_H"],32)
+        self.assertTrue(e["Z_empty_only"])
+        self.assertGreater(Q(e["combined_strict_coefficient_upper"]),16)
+        self.assertLess(Q(e["combined_strict_coefficient_upper"]),17)
+        self.assertLess(Q(e["exact_source_missing_coefficient_upper"]),Q(1,1000))
+        self.assertLess(Q(e["exact_source_incident_coefficient_upper"]),Q(1,1000))
+        self.assertEqual(e["consequence_proper_P3_endpoint_error_coefficient"],
+                         "q3*ceil_sqrt(17*L6)")
+        self.assertTrue(e["all_h_original_bad_endpoints_STRICT_LT_17_s5"])
+        self.assertFalse(e["original_ROOT_PROVED_A"])
+
+    def test_16_exact_spectral_error_component_sum_no_float(self):
+        from fractions import Fraction as Q
+        e=self.c["NEW_all_h_original_17s5_endpoint_referee"]
+        total=(Q(e["exact_source_endbad_coefficient_upper"])
+               +Q(e["exact_source_missing_coefficient_upper"])
+               +Q(e["exact_source_incident_coefficient_upper"]))
+        self.assertEqual(total,Q(e["combined_strict_coefficient_upper"]))
+        self.assertLess(total,17)
+        self.assertEqual(e["genuine_GQ_source_SRG_positive_eigenvalue"],"s-1")
+        self.assertTrue(e["independent_correlated_f_g_alphabet"])
 
     def test_14_status_and_all_h_quantifier_firewall(self):
         c=self.c
