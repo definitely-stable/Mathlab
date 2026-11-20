@@ -1,0 +1,91 @@
+name: hyp105-aa4-low-publication-partition-referee
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-low-publication-source-partition-referee
+    paths:
+      - '.github/workflows/hyp105-aa4-low-publication-partition-referee.yml'
+      - 'docs/research/HYP-105-AA4-LOW-PUBLICATION-SOURCE-PARTITION-REFEREE.md'
+      - 'research/hyp105_low_publication_partition_referee.py'
+      - 'research/test_hyp105_low_publication_partition_referee.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-low-publication-partition-referee.yml'
+      - 'docs/research/HYP-105-AA4-LOW-PUBLICATION-SOURCE-PARTITION-REFEREE.md'
+      - 'research/hyp105_low_publication_partition_referee.py'
+      - 'research/test_hyp105_low_publication_partition_referee.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-low-partition:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent original source and physical LOW partition / GF5 tests
+        run: python -m unittest discover -s research -p 'test_hyp105_low_publication_partition_referee.py' -v
+      - name: Strict genuine symplectic ORIGINAL W32/W34 certificate
+        shell: bash
+        run: |
+          python research/hyp105_low_publication_partition_referee.py > original-low-publication-partition.txt
+          python - original-low-publication-partition.txt <<'PY'
+          import json,sys
+          text=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix='AA4_LOW_PUBLICATION_SOURCE_PARTITION_CERTIFICATE='
+          assert text.startswith(prefix) and text.count(prefix)==1
+          c=json.loads(text[len(prefix):])
+          assert c['schema']=='mathlab.hyp105.low-publication-source-partition.v1'
+          assert c['status']=='OPEN_WITH_FORMAL_BLOCKER'
+          assert c['issue']==230 and c['parent_pr']==783
+          assert c['original_GQ_fixture_independent_GF2_GF4']
+          assert c['exact_partition_from_all_actual_physical_P3']
+          assert c['exact_original_unordered_sixID_two_direction_inverse']
+          assert c['original_GF5_integer_sign_palette_independent']
+          assert c['all_h_LOW_moment_and_full_AC_books_publication_signoff_still_open']
+          assert c['original_ROOT_PROVED_A'] is False
+          cases=c['real_cases']
+          assert len(cases)==10
+          assert {(z['s'],z['scheme'],z['core']) for z in cases} == {
+              (s,scheme,core)
+              for s in (2,4)
+              for scheme,core in (
+                  ('lex','full'),('reverse','full'),('correlated','full'),
+                  ('lex','even'),('reverse','deleted'))
+          }
+          positive=0
+          for z in cases:
+              n=(z['s']+1)**2*(z['s']*z['s']+1)
+              assert z['I']==n
+              assert z['genuine_two_diagonal_edges']==2*z['original_CORE_flags']
+              pathcounts=z['disjoint_first_failure']
+              assert sum(pathcounts.values())==z['physical_three_walks']
+              assert pathcounts.get('accepted',0)==2*z['true_original_produced_sixsets']
+              assert z['true_bad_endpoint_path_count']**2 <= (
+                  z['bad_endpoint_count']*z['real_proper_endpoint_energy'])
+              assert sum(z['four_inner_blocker_nonexclusive_signatures'].values()) == (
+                  pathcounts.get('blocked',0))
+              assert z['endpoint_types']['incident']==4*n
+              positive+=z['true_original_produced_sixsets']
+              print('TRUE_ORIGINAL_LOW',z['s'],z['scheme'],z['core'],
+                    'paths',z['physical_three_walks'],
+                    'accepted',pathcounts.get('accepted',0),
+                    'produced original sixsets',z['true_original_produced_sixsets'])
+          assert positive>0
+          assert c['positive_GF5_examples']
+          assert all(x['exact_GF5_ten_sign_mass']==53838
+                     for x in c['positive_GF5_examples'])
+          print('ACCEPT_LOCAL_ORIGINAL_LOW_SIXID_PARTITION_ONLY')
+          print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-LOW-publication-source-partition-certificate
+          path: original-low-publication-partition.txt
+          retention-days: 14
