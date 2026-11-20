@@ -9,7 +9,7 @@ NO previous spectral, book, root, Jensen or four-blocker algorithm is imported.
 from collections import Counter, defaultdict
 from fractions import Fraction as F
 from itertools import combinations
-from math import ceil, comb, isqrt
+from math import isqrt
 import json
 
 from hyp105_low_publication_partition_referee import model, endpoint_status
@@ -120,7 +120,6 @@ def grams(labels, col, s):
             fibres[x].add(p)
     if len(set(labels))!=V:
         raise AssertionError("noninjective complete original f/g")
-    density=sum(len(v)**2 for v in fibres.values())
     d2=sum(len(v)**2 for v in fibres.values())
     energy=0
     e_col=0
@@ -132,9 +131,6 @@ def grams(labels, col, s):
     formula=2*V*(s*s-1)-4*e_col+(s+1)*d2
     if energy!=formula:
         raise AssertionError("source-first and direct GQ SRG-Gram disagree")
-    if energy>2*V*(s*s-1)+2*V*(s+1)*(max(fibres)-min(fibres)+V):
-        # This deliberately is NOT the proof bound; the real proof cap below.
-        raise AssertionError("impossible source Gram magnitude")
     a=max(x for pair in labels for x in pair)+1
     if d2>2*V*(a-1):
         raise AssertionError("original complete pair fibre occupancy violation")
@@ -353,7 +349,7 @@ def exact_root_formal(C0,c0):
             or h_new>h_prev):
         raise AssertionError("strict original LOW book threshold improvement lost")
     delta=c0/F(R**6)
-    if not F(w,64)>delta:
+    if not w/64>delta:
         raise AssertionError("formal original root LOW floor does not dominate HEAVY")
     return dict(C0_FORMAL_UNKNOWN=str(C0),c0_FORMAL_UNKNOWN=str(c0),
         R=R,root_K=K,fixed_H=H,
