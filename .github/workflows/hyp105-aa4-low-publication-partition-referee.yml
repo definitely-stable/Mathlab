@@ -50,6 +50,21 @@ jobs:
           assert c['original_GF5_integer_sign_palette_independent']
           assert c['all_h_LOW_moment_and_full_AC_books_publication_signoff_still_open']
           assert c['original_ROOT_PROVED_A'] is False
+          from fractions import Fraction as F
+          e=c['NEW_all_h_original_17s5_endpoint_referee']
+          assert e['fixed_H']==32 and e['Z_empty_only']
+          assert e['all_h_original_bad_endpoints_STRICT_LT_17_s5']
+          assert e['original_ROOT_PROVED_A'] is False
+          assert 16 < F(e['combined_strict_coefficient_upper']) < 17
+          assert (
+              F(e['exact_source_endbad_coefficient_upper'])
+              + F(e['exact_source_missing_coefficient_upper'])
+              + F(e['exact_source_incident_coefficient_upper'])
+              == F(e['combined_strict_coefficient_upper'])
+          )
+          assert e['consequence_proper_P3_endpoint_error_coefficient'] == (
+              'q3*ceil_sqrt(17*L6)')
+
           cases=c['real_cases']
           assert len(cases)==10
           assert {(z['s'],z['scheme'],z['core']) for z in cases} == {
@@ -81,7 +96,7 @@ jobs:
           assert c['positive_GF5_examples']
           assert all(x['exact_GF5_ten_sign_mass']==53838
                      for x in c['positive_GF5_examples'])
-          print('ACCEPT_LOCAL_ORIGINAL_LOW_SIXID_PARTITION_ONLY')
+          print('ACCEPT_LOCAL_ORIGINAL_LOW_SIXID_PARTITION_AND_ALL_H_ENDPOINT_17S5')
           print('ROOT_OPEN_WITH_FORMAL_BLOCKER')
           PY
       - uses: actions/upload-artifact@v4
