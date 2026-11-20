@@ -374,6 +374,46 @@ def census(m):
                 sixsets=tuple(sorted(groups)))
 
 
+def prove_root_endpoint_17():
+    """Exact-rational ALL-s>=2^32, Z-empty SOURCE GQ endpoint proof budget.
+
+    V/s^3=(1+u)(1+u^2), N/s^4=(1+u)^2(1+u^2).
+    For u<=2^-32, sqrt(2V)<(3/2)*s^(3/2) and minimal
+    alphabet implies a-1<sqrt(2V)+1<2*s^(3/2).
+    With B=binom(a,2), 0<=M=B-V<a-1:
+      missing=4(2VM+M^2)
+      incident=4N
+      endbad<=8s*(e_col_f+e_col_g)
+    SRG positive spectrum gives each e_col <=(s^2+1)(s^2+a-2).
+    Divide the three universal upper bounds by s^5 and use t=1/sqrt(s).
+    Every polynomial term is monotone in nonnegative u,t.
+    """
+    from fractions import Fraction as F
+    u = F(1,2**32)
+    t = F(1,2**16)
+    if not (2*(1+u)*(1+u*u) < F(9,4) and t <= F(1,2)):
+        raise AssertionError("actual minimal-a sqrt envelope not established")
+    endbad = 16*(1+u*u)*(1+2*t)
+    missing = 16*(1+u)*(1+u*u)*t + 16*u*u
+    incident = 4*u*(1+u)**2*(1+u*u)
+    total = endbad + missing + incident
+    if not (16 < total < 17):
+        raise AssertionError("NEW strict all-h endpoint coefficient failed")
+    return dict(
+        fixed_H=32, Z_empty_only=True,
+        exact_source_endbad_coefficient_upper=str(endbad),
+        exact_source_missing_coefficient_upper=str(missing),
+        exact_source_incident_coefficient_upper=str(incident),
+        combined_strict_coefficient_upper=str(total),
+        genuine_GQ_source_SRG_positive_eigenvalue="s-1",
+        independent_correlated_f_g_alphabet=True,
+        all_h_original_bad_endpoints_STRICT_LT_17_s5=True,
+        historic_root_bad_endpoint_upper_was_24_s5=True,
+        consequence_proper_P3_endpoint_error_coefficient=
+            "q3*ceil_sqrt(17*L6)",
+        original_ROOT_PROVED_A=False)
+
+
 def certificate():
     cases=[]
     example_masses=[]
@@ -396,6 +436,7 @@ def certificate():
                                   for x in cases)==0:
         raise AssertionError("certificate must contain positive real source BBo")
     return dict(schema=SCHEMA,status=STATUS,issue=230,parent_pr=783,
+       NEW_all_h_original_17s5_endpoint_referee=prove_root_endpoint_17(),
        original_GQ_fixture_independent_GF2_GF4=True,
        exact_partition_from_all_actual_physical_P3=True,
        exact_original_unordered_sixID_two_direction_inverse=True,
