@@ -367,7 +367,7 @@ def census(m):
                 real_proper_endpoint_energy=energy,
                 bad_endpoint_count=bad_endpoints,
                 true_bad_endpoint_path_count=endpoint_bad_path_count,
-                endpoint_types=dict(terminal),
+                endpoint_types={k:terminal.get(k,0) for k in ("missing","incident","endbad","deleted","good")},
                 four_inner_blocker_nonexclusive_signatures={
                     "".join("1" if i else "0" for i in k):v
                     for k,v in blocked_masks.items()},
