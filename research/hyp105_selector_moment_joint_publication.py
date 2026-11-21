@@ -204,6 +204,60 @@ def energy(c):
     return sum(v*v for v in c.values())
 
 
+def exact_external_shared_neighbor_probability(r, masks):
+    """Source-graph combinatorial adversary independent of geometry fixture.
+
+    r pairwise nonadjacent target source owners and each external owner w
+    has a nonempty subset mask S_w of those targets as original J neighbors.
+    Enumerate ONE joint global priority order of all distinct original IDs.
+    A shared neighbor is ONE ID, NOT one independent copy per target.
+    """
+    if type(r) is not int or not 1<=r<=3:
+        raise ValueError("1<=r<=3 priority mask oracle only")
+    masks=tuple(tuple(sorted(set(z))) for z in masks)
+    if (r+len(masks)>9 or
+        any(not z or any(type(i)!=int or i<0 or i>=r for i in z)
+            for z in masks)):
+        raise ValueError("invalid genuine external-source-neighbor masks")
+    n=r+len(masks)
+    good=0
+    for perm in permutations(range(n)):
+        pos={x:i for i,x in enumerate(perm)}
+        if all(pos[i]<pos[r+j] for j,z in enumerate(masks) for i in z):
+            good+=1
+    probability=Q(good,factorial(n))
+    degrees=[sum(i in z for z in masks) for i in range(r)]
+    product_bound=Q(1)
+    for deg in degrees:
+        product_bound*=Q(1,deg+1)
+    if probability<product_bound:
+        raise AssertionError("direct priority-overlap integral false")
+    return dict(target_owner_count=r,external_original_ID_count=len(masks),
+                actual_original_external_neighbor_masks=[list(z) for z in masks],
+                target_source_degrees=degrees,
+                exact_ONE_priority_probability=str(probability),
+                independent_product_lower=str(product_bound),
+                strict_shared_overlap_gain=probability>product_bound)
+
+
+def original_neighbor_overlap_falsifiers():
+    scenarios=(
+       (2,((0,),(1,))),
+       (2,((0,1),)),
+       (3,((0,),(1,),(2,))),
+       (3,((0,1,2),)),
+       (3,((0,1),(1,2))),
+       (3,((0,1,2),(0,1,2))),
+    )
+    z=[exact_external_shared_neighbor_probability(r,ms) for r,ms in scenarios]
+    if ([x["exact_ONE_priority_probability"] for x in z[:4]]
+        !=["1/4","1/3","1/8","1/4"]):
+        raise AssertionError("independent/disjoint and true shared-owner adversary")
+    if not z[1]["strict_shared_overlap_gain"] or not z[3]["strict_shared_overlap_gain"]:
+        raise AssertionError("shared source priority owners not exercised")
+    return z
+
+
 def integer_root_formal():
     """Only source moment coefficient exact, no external numeric constants."""
     # q_r sharpened by positive association with a single common priority.
@@ -410,6 +464,7 @@ def certificate():
     return dict(schema=SCHEMA,status=STATUS,issue=230,parent_pr=PARENT_PR,
                 exact_global_selector_priority_and_TWO_global_typed_cuts=True,
                 independent_all_h_source_overlap_product_integral_proof=True,
+                all_original_shared_external_J_neighbor_adversaries=original_neighbor_overlap_falsifiers(),
                 NEW_weighted_original_path_energy_transfer=True,
                 genuine_original_selected_GQ_cases=cases,
                 published_ordinary_graph_C6_constants_numeric_unknown=True,
