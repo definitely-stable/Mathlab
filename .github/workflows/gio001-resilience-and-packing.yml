@@ -1,0 +1,65 @@
+name: gio001-resilience-and-packing
+on:
+  push:
+    branches:
+      - research/gio001-resilience-and-packing
+    paths:
+      - 'research/gio_resilience.py'
+      - 'research/test_gio_resilience.py'
+      - 'docs/research/GIO-001-RESILIENCE.md'
+      - '.github/workflows/gio001-resilience-and-packing.yml'
+  pull_request:
+    paths:
+      - 'research/gio_resilience.py'
+      - 'research/test_gio_resilience.py'
+      - 'docs/research/GIO-001-RESILIENCE.md'
+      - '.github/workflows/gio001-resilience-and-packing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  resilience:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact all-order ledger and genuine adversarial W32/W34 independent falsifiers
+        run: python -m unittest discover -s research -p 'test_gio_resilience.py' -v
+      - name: Emit exact resilience and packing certificate
+        shell: bash
+        run: |
+          python research/gio_resilience.py --out gio-resilience-certificate.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          c=json.loads(Path("gio-resilience-certificate.json").read_text())
+          assert c["schema"]=="mathlab.gio001.resilience.v1" and c["issue"]==791
+          assert c["claim"]=="RESILIENCE_AND_PACKING_PROOF_CANDIDATE"
+          assert not c["external_peer_review_received"] and not c["general_ASET_exponent"]
+          for l in c["formal_ledgers"]:
+              assert l["FORMAL_ONLY"] and l["external_numeric_constants_unknown"]
+              assert Fraction(l["rho"])>0 and Fraction(l["delta"])>0
+              assert 12*Fraction(l["rho"])*l["q3"]**2*int(l["L6"])<=Fraction(l["error_budget_each"])**2
+              print("FORMAL_LEDGER",l["C0"],l["c0"],"R",l["R"],"h0",l["sufficient_h0"],
+                    "rho_approx",format(float(Fraction(l["rho"])),".6e"))
+          for case in c["finite_cases"]:
+              assert case["duality_verified"]
+              for x in case["masks"]:
+                  assert x["independent_exact_sets_agree"]
+                  assert x["damaged_ordered_endpoints"]<=x["deletion_endpoint_bound"]
+                  print("GIO_MASK",case["s"],case["scheme"],x["mask"],"deleted",x["deleted"],
+                        "endpoints",x["damaged_ordered_endpoints"],"D6",x["D6"],
+                        "produced_BBo",x["produced_BBo"],"packed",x["greedy_disjoint_witnesses"])
+          print("PASS_GIO_RESILIENCE_FINITE_FALSIFIERS_AND_EXACT_LEDGER")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio001-resilience-exact-certificate
+          path: gio-resilience-certificate.json
+          retention-days: 90
