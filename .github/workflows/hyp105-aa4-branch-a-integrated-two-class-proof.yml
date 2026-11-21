@@ -1,0 +1,90 @@
+name: hyp105-aa4-branch-a-integrated-two-class-proof
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-branch-a-integrated-two-class-proof
+    paths:
+      - 'research/hyp105_aa4_branch_a_integrated_referee.py'
+      - 'research/test_hyp105_aa4_branch_a_integrated_referee.py'
+      - 'docs/research/HYP-105-AA4-BRANCH-A-INTEGRATED-TWO-CLASS-PROOF.md'
+      - '.github/workflows/hyp105-aa4-branch-a-integrated-two-class-proof.yml'
+  pull_request:
+    paths:
+      - 'research/hyp105_aa4_branch_a_integrated_referee.py'
+      - 'research/test_hyp105_aa4_branch_a_integrated_referee.py'
+      - 'docs/research/HYP-105-AA4-BRANCH-A-INTEGRATED-TWO-CLASS-PROOF.md'
+      - '.github/workflows/hyp105-aa4-branch-a-integrated-two-class-proof.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integrated-original-two-class:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent original D6 and BBo physical-first versus source-first and GF5 tree flow tests
+        run: python -m unittest discover -s research -p 'test_hyp105_aa4_branch_a_integrated_referee.py' -v
+      - name: Exact two-class certificate and quantified threshold check
+        shell: bash
+        run: |
+          python research/hyp105_aa4_branch_a_integrated_referee.py > branch-a-integrated-source-cert.txt
+          python - branch-a-integrated-source-cert.txt <<'PY'
+          import json,sys
+          from fractions import Fraction as Q
+          t=open(sys.argv[1],encoding="utf-8").read().strip()
+          prefix="AA4_BRANCH_A_INTEGRATED_CERTIFICATE="
+          assert t.startswith(prefix) and t.count(prefix)==1
+          c=json.loads(t[len(prefix):])
+          assert c["schema"]=="mathlab.hyp105.branch-a-integrated.v1"
+          assert c["status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert c["issue"]==230 and c["parent_pr"]==786
+          assert c["mathematical_candidate"]=="TWO_CLASS_BRANCH_A_COMPLETE_PROOF"
+          assert c["repository_PROVED_A"] is False
+          assert c["external_constants_numeric_unknown"] and c["no_new_ASET_exponent"]
+          f=c["direct_nonzero_palette_flow"]
+          assert f["palette"]==51 and f["d6_alternating"]==5643
+          assert len(f["bbo_sign_counts"])==10
+          assert sum(f["bbo_sign_counts"])==f["bbo_balanced_total"]==53838
+          assert min(f["bbo_sign_counts"])>=5175
+          print("ORIGINAL_GF5_DIRECT_TREE_FLOW",f)
+          cases=c["genuine_W32_two_independent_source_censuses"]
+          assert {z["scheme"] for z in cases}=={"lex","reverse","correlated"}
+          for z in cases:
+              assert z["two_independent_D6_censuses_equal"]
+              assert z["two_independent_BBo_censuses_equal"]
+              assert z["D6"]>=0 and z["produced_BBo"]>=0
+              if z["nonzero_cycle_cut"] is not None:
+                  assert Q(z["nonzero_cycle_cut"]["probability"])==Q(1,1024)
+                  assert z["nonzero_cycle_cut"]["coherent_global_cut_successes"]==4
+              print("ORIGINAL_W32_TWO_CLASS_CENSUS",z["scheme"],
+                    "D6",z["D6"],"BBo",z["produced_BBo"])
+          c4=c["genuine_W34_positive_cycle"]
+          assert len(set(c4["original_ids"]))==6
+          assert c4["cut_assignments"]==4096
+          assert c4["coherent_global_cut_successes"]==4
+          assert Q(c4["probability"])==Q(1,1024)
+          print("TRUE_NONZERO_W34_D6",c4)
+          for z in c["formal_root_ledgers"]:
+              assert z["FORMAL_ONLY"] and z["theorem_constants_numeric_unknown"]
+              assert z["R"]==33281 and z["K"]==10
+              assert z["q2"]==1936 and z["q3"]==85184
+              assert Q(z["endpoint"])<17 and Q(z["book"])<46
+              assert Q(z["sixth_D6_coefficient"])==Q(3,128)
+              assert Q(z["expected_C6_cut_upper"])==Q(1,1024)
+              assert Q(z["delta"])==Q(z["c0"])/33281**6
+              print("FORMAL_UNKNOWN_C6_CONSTANTS",z["C0"],z["c0"],
+                    "sufficient_h0",z["sufficient_h0"])
+          print("PASS_TWO_CLASS_BRANCH_A_PROOF_CANDIDATE_FALSIFIERS")
+          print("STOP_NO_AUTOMATIC_REPOSITORY_PROVED_A_OR_ASET_EXPONENT")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-branch-a-integrated-two-class-source-certificate
+          path: branch-a-integrated-source-cert.txt
+          retention-days: 14
