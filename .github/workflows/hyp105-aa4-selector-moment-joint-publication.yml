@@ -1,0 +1,114 @@
+name: hyp105-aa4-selector-moment-joint-publication
+
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-selector-moment-publication-joint
+    paths:
+      - '.github/workflows/hyp105-aa4-selector-moment-joint-publication.yml'
+      - 'docs/research/HYP-105-AA4-SELECTOR-MOMENT-JOINT-PUBLICATION.md'
+      - 'research/hyp105_selector_moment_joint_publication.py'
+      - 'research/test_hyp105_selector_moment_joint_publication.py'
+  pull_request:
+    paths:
+      - '.github/workflows/hyp105-aa4-selector-moment-joint-publication.yml'
+      - 'docs/research/HYP-105-AA4-SELECTOR-MOMENT-JOINT-PUBLICATION.md'
+      - 'research/hyp105_selector_moment_joint_publication.py'
+      - 'research/test_hyp105_selector_moment_joint_publication.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  true-original-one-global-selector-moment:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent all-h original one-global-source-priority, two typed cuts and Jensen test
+        run: python -m unittest discover -s research -p 'test_hyp105_selector_moment_joint_publication.py' -v
+      - name: Exact original W32 W34 joint priority-cut expectation and weighted source-energy certificate
+        shell: bash
+        run: |
+          python research/hyp105_selector_moment_joint_publication.py > original-selector-moment-joint-cert.txt
+          python - original-selector-moment-joint-cert.txt <<'PY'
+          import json,sys
+          from fractions import Fraction as Q
+          t=open(sys.argv[1],encoding='utf-8').read().strip()
+          prefix="AA4_SELECTOR_MOMENT_JOINT_CERTIFICATE="
+          assert t.startswith(prefix) and t.count(prefix)==1
+          c=json.loads(t[len(prefix):])
+          assert c['schema']=="mathlab.hyp105.selector-moment-joint-publication.v1"
+          assert c["status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert c["issue"]==230 and c["parent_pr"]==785
+          assert c["exact_global_selector_priority_and_TWO_global_typed_cuts"]
+          assert c["independent_all_h_source_overlap_product_integral_proof"]
+          assert c["NEW_weighted_original_path_energy_transfer"]
+          assert c["published_ordinary_graph_C6_constants_numeric_unknown"]
+          assert c["all_h_C6_source_original_sixID_inverse_inherited_from_772"]
+          assert c["full_original_LOW_PRODUCED_publication_signoff_still_open"]
+          assert c["original_ROOT_PROVED_A"] is False
+          adv=c["all_original_shared_external_J_neighbor_adversaries"]
+          assert len(adv)==6
+          assert [Q(z["exact_ONE_priority_probability"]) for z in adv[:4]] == [
+              Q(1,4),Q(1,3),Q(1,8),Q(1,4)]
+          assert [Q(z["independent_product_lower"]) for z in adv[:4]] == [
+              Q(1,4),Q(1,4),Q(1,8),Q(1,8)]
+          assert adv[1]["strict_shared_overlap_gain"]
+          assert adv[3]["strict_shared_overlap_gain"]
+          assert adv[4]["strict_shared_overlap_gain"]
+          assert adv[5]["strict_shared_overlap_gain"]
+          q=c["formal_root_quantifier_interface"]
+          assert q["q2"]==1936 and q["q3"]==85184
+          assert q["old_heuristic_independent_paths_forbidden"]
+          z=c["genuine_original_selected_GQ_cases"]
+          assert len(z)==6
+          assert {(e['s'],e['scheme']) for e in z} == {
+              (s,m) for s in (2,4) for m in ('lex','reverse','correlated')}
+          for e in z:
+              assert e["source_CORE_flag_count"]==4
+              assert e["true_original_SOURCE_J_edges"]>0
+              assert e["priority_outcomes"]==24
+              assert e["global_selected_subset_count"]>=2
+              W=Q(e["source_W_C"])
+              assert Q(e["expected_selected_edges"])==W/2
+              assert Q(e["expected_selected_trace2"])==W
+              assert Q(e["expected_selected_trace6"]) <= (
+                  Q(e["EXPECTED_sixwalk_source_bound"]))
+              assert Q(e["expected_fourth_Cauchy_squared"]) <= (
+                  Q(e["expected_fourth_Cauchy_upper"]))
+              assert (e["original_CORE_trace4"] ==
+                  e["core_proper2_Gram"]+e["core_improper2_Gram"])
+              assert (e["original_coordinate_return_Qx"]+
+                      e["original_coordinate_return_Qy"] ==
+                      8*e["source_CORE_flag_count"]+
+                      4*e["true_original_SOURCE_J_edges"])
+              assert e["selected_graph_C6_every_outcome_zero"]
+              for r,moment in ((2,"expected_selected_trace4"),(3,"expected_selected_trace6")):
+                  t=e["physical_proper_paths"][str(r)]
+                  assert t["paths"]>0
+                  assert Q(t["EXPECTED_path_Gram"]) >= (
+                      Q(t["lower_uniform_q_energy"]))
+                  assert Q(t["EXPECTED_path_Gram"]) <= (
+                      Q(t["EXPECTED_selected_proper_energy"]))
+                  assert Q(t["EXPECTED_selected_proper_energy"]) <= (
+                      Q(e[moment]))
+                  assert Q(t["weighted_Gram"]) <= (
+                      16**r * Q(e[moment]))
+              print("TRUE_ORIGINAL_GLOBAL_SELECTOR",e["s"],e["scheme"],
+                    "sourceJ",e["true_original_SOURCE_J_edges"],
+                    "W",e["source_W_C"],
+                    "E-tr4",e["expected_selected_trace4"],
+                    "E-tr6",e["expected_selected_trace6"])
+          print("ACCEPT_LOCAL_ALL_H_GLOBAL_PRIORITY_TWO_CUT_MOMENT")
+          print("STOP_INHERITED_C6_ORIGINAL_D6_AND_ROOT_NOT_PROVED")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-original-global-selector-joint-moment-certificate
+          path: original-selector-moment-joint-cert.txt
+          retention-days: 14
