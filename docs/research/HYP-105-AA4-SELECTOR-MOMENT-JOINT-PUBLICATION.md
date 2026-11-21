@@ -139,3 +139,23 @@ Enumerates **ALL 4! actual relative source priority orders** and ALL actual rele
 The source referee checks exact SM-8, per-outcome selected bipartite sixth-walk inequalities SM-9/SM-10, same-outcome spectral fourth Cauchy, global expected fourth bound SM-12, both uniform path Jensen bounds and the NEW weighted SM-6 for EVERY finite case, plus exact uncut SM-15 and original source Qx+Qy=8|C|+4e(J[C]). The r=3 source probability is tested by exact full priority orders against SM-2 and actual global two-cut bit masks, not by independently resampling physical paths. In this test there are **only 4 source owners**, so the selected true C6 count is necessarily zero under the full source hypotheses; this is intentionally disclosed as **not an independent positive finite test of source C6→D6** (that gate remains in PR #772).
 
 Hosted GitHub Actions specialist + INDEX + full Research must be SUCCESS on exact final SHA. STOP on the FIRST false original source probability/moment/geometry implication, not on numerical root cosmetic improvements. Passing this 4-owner finite referee is engineering falsification evidence; the all-h mathematical claims rely on the explicit proofs SM-1–SM-16, not on finite testing.
+
+
+## 7. Independent exact priority-overlap adversaries: ONE shared source ID cannot be cloned
+
+The direct all-order integral SM-1/SM-2 has a critically important risk: a source neighbor shared by two or three target flags is only ONE global priority random variable. Incorrectly replacing it with independent copies may produce a plausible lower bound for the wrong model. The new referee therefore adds an independent abstract finite ORIGINAL J-neighborhood experiment, with r=2 or r=3 mutually nonadjacent target owner flags and a literal collection of **distinct external source owner IDs**. Each external ID w is represented by a nonempty subset mask S_w of target owner indices which it conflicts with. It enumerates the FULL (r+number_of_external_IDs)! uniform global source priority permutations, counts source-local-minimum outcomes, and compares the EXACT rational probability to the SM-2 product lower bound. No independent-owner or independent-path simplification is used.
+
+Four exact sharp/strict cases:
+
+| Actual source owner targets | External original neighbor IDs (each mask is ONE ID) | Exact joint source priority survival | Product bound |
+|---|---|---:|---:|
+| 2 | {0}, {1} (disjoint) | 1/4 | 1/4 |
+| 2 | {0,1} (one SHARED source ID) | 1/3 | 1/4 |
+| 3 | {0}, {1}, {2} (disjoint) | 1/8 | 1/8 |
+| 3 | {0,1,2} (one TRIPLY shared source ID) | 1/4 | 1/8 |
+
+Additionally r3 partially overlapped neighborhoods {0,1},{1,2} and two distinct triply shared original external owner IDs {0,1,2},{0,1,2} are enumerated exhaustively and strictly checked. Invalid target count, out-of-range J masks, empty masks, and excess factorial size fail CLOSED.
+
+These local abstract J models test the source-priority probability theorem, **not** existence of that precise pattern in a given W(3,s) with a given f/g map. The separate actual genuine symplectic W32/W34 tests supply six nonvacuous TRUE original CORE source experiments with both typed physical cuts and one source conflict. This division of oracle responsibilities is intentional and preserves exact quantifiers. The all-r direct overlap integral statement SM-1–SM-6 applies to any coordinate-proper r-path with pairwise original J-independent named owners; the ROOT uses specifically r=2/3 for fourth/sixth moments.
+
+The source manuscript and exact-source certificate now include these original shared-external-ID adversaries explicitly, and dedicated GitHub CI checks them on the **same final SHA** as the true symplectic source experiments. The six-ID C6→D6 separate inherited gate stays OPEN for independent root referee acceptance.
