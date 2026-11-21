@@ -33,13 +33,14 @@ class TestOriginalSelectorMomentJoint(unittest.TestCase):
         for z in self.c["genuine_original_selected_GQ_cases"]:
             self.assertEqual(z["priority_outcomes"],24)
             self.assertGreaterEqual(z["global_selected_subset_count"],2)
-            self.assertGreater(z["source_W_C"],"0") if False else None
+            self.assertGreater(Q(z["source_W_C"]),0)
 
     def test_04_two_physical_coordinate_cuts_one_global_assignment(self):
         for s in (2,4):
             m,owners,_=chosen_core(s,"lex")
             J=source_J(m,owners)
-            dist,cuts,nx,ny=product_selector_distribution(m,owners,J)
+            dist,priorities,cuts,nx,ny=product_selector_distribution(m,owners,J)
+            self.assertEqual(sum(priorities.values()),24)
             self.assertEqual(sum(dist.values()),Q(1))
             self.assertEqual(sum(cuts.values()),2**(nx+ny))
             self.assertGreaterEqual(nx,2)
