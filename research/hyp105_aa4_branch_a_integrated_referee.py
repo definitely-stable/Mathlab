@@ -18,7 +18,7 @@ STATUS = "OPEN_WITH_FORMAL_BLOCKER"  # repository acceptance is distinct from pr
 
 def canonical_cycle(v):
     t = tuple(v)
-    return min(t[i:]+t[:i] for i in range(len(t))) if False else min(
+    return min(
         w[i:]+w[:i] for w in (t,t[::-1]) for i in range(len(t)))
 
 
@@ -237,6 +237,23 @@ def proper_bbo_from_physical(m):
     return result
 
 
+def actual_bbo_flow_topology(m,ids,path):
+    """Check the actual produced source template, not just an abstract graph."""
+    a,b,c,d=path
+    q=m["point_by_pair"][tuple(sorted((a[0],d[0])))]
+    r=m["line_by_pair"][tuple(sorted((a[1],d[1])))]
+    p,l=m["projection"][q,r]
+    ordered=[m["flag_to_id"][z] for z in ((q,l),(p,l),(p,r))]
+    ordered += [m["owned"][tuple(sorted((u,v)))] for u,v in zip(path,path[1:])]
+    assert sorted(ordered)==list(ids)
+    flags=[m["flags"][i] for i in ordered]
+    x=typed_dual([m["f"][p] for p,l in flags])
+    y=typed_dual([m["g"][l] for p,l in flags])
+    assert x==sorted([(1,2),(1,2),(0,3),(3,4),(4,5),(0,5)])
+    assert y==sorted([(0,1),(0,1),(2,3),(3,4),(4,5),(2,5)])
+    return True
+
+
 def historical_bbo(m,ids):
     """B/B overlap structural class in accepted merged E1A."""
     if len(ids)!=6 or len(set(ids))!=6:
@@ -386,6 +403,7 @@ def certificate():
         sb=source_first_bbo_w32(m)
         assert dict(b)==sb
         assert set(b).isdisjoint(d)
+        assert all(actual_bbo_flow_topology(m,ids,next(iter(paths))) for ids,paths in b.items())
         cut=verify_positive_cycle_cuts(m,next(iter(d))) if d else None
         cases.append(dict(s=2,scheme=scheme,D6=len(d),produced_BBo=len(b),
                           two_independent_D6_censuses_equal=True,
