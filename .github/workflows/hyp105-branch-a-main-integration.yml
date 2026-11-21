@@ -1,0 +1,99 @@
+name: hyp105-branch-a-main-integration
+on:
+  push:
+    branches:
+      - research/hyp105-branch-a-main-integration
+      - main
+  pull_request:
+    paths:
+      - 'research/hyp105*'
+      - 'research/test_hyp105*'
+      - 'docs/research/HYP-105*'
+      - 'docs/research/hyp105/BRANCH-A-MAIN-INTEGRATION.md'
+      - '.github/workflows/hyp105-branch-a-main-integration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  branch-a-exact-intake:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source provenance on actual integration tree
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          m=json.loads(Path("research/hyp105_branch_a_main_integration_manifest.json").read_text())
+          assert m["schema"]=="mathlab.hyp105.branch-a.main-integration.v1"
+          assert m["issue"]==230
+          assert m["repository_status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert m["external_review_receipt"] is False
+          assert m["postmerge_main_ci_verified"] is False
+          def git_sha(p):
+              b=Path(p).read_bytes()
+              return hashlib.sha1(b"blob "+str(len(b)).encode()+b"\0"+b).hexdigest()
+          assert len(m["imported_blobs"])==9
+          for z in m["imported_blobs"]:
+              assert git_sha(z["path"])==z["git_blob_sha"],z["path"]
+          for z in m["retained_historical_blobs"]:
+              assert git_sha(z["path"])==z["main_blob_sha"],z["path"]
+          print("EXACT_SOURCE_BLOB_PROVENANCE_VERIFIED",len(m["imported_blobs"]))
+          PY
+      - name: Genuine original geometry LOW partition and endpoint checks
+        run: python -m unittest discover -s research -p 'test_hyp105_low_publication_partition_referee.py' -v
+      - name: Integrated D6 and BBo source inverse and GF5 direct flow falsifiers
+        run: python -m unittest discover -s research -p 'test_hyp105_aa4_branch_a_integrated_referee.py' -v
+      - name: Complete named partition index and independent same-map census
+        run: python -m unittest discover -s research -p 'test_hyp105_branch_a_final_evidence_review.py' -v
+      - name: Rebuild and assert source certificate and complete named index
+        shell: bash
+        run: |
+          python research/hyp105_aa4_branch_a_integrated_referee.py > branch-a-proof-cert.txt
+          python research/hyp105_branch_a_final_evidence_review.py --out hyp105-final-evidence
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          p=Path("hyp105-final-evidence")
+          m=json.loads(Path("research/hyp105_branch_a_main_integration_manifest.json").read_text())
+          c=json.loads((p/"certificate.json").read_text())
+          rows=json.loads((p/"named_original_partition_index.json").read_text())
+          e=m["expected_catalog"]
+          assert len(rows)==len({z["id"] for z in rows})==e["rows"]
+          assert c["by_stratum"]=={"LEADING":e["leading"],"SUBLEADING_NECESSARY_ONLY":e["subleading_necessary_only"]}
+          digest=hashlib.sha256(json.dumps(rows,sort_keys=True,separators=(",",":")).encode()).hexdigest()
+          assert digest==c["catalog_sha256"]==e["sha256"]
+          assert len((p/"named_original_partition_index.csv").read_text().splitlines())==e["rows"]+1
+          assert set(z["scheme"] for z in c["same_map_joint_cases"])==set(m["expected_same_map"])
+          for z in c["same_map_joint_cases"]:
+              exp=m["expected_same_map"][z["scheme"]]
+              assert [z["counts"][k] for k in m["class_order"]]==exp["counts"]
+              assert z["Q4"]==exp["Q4"]
+              assert z["certified_R3_floor_numerator"]==exp["R3_floor_numerator"]
+              assert z["independent_Q4_count_agrees"] and z["independent_source_sets_agree"]
+              print("SAME_MAP_VERIFIED",z["scheme"],z["Q4"],z["counts"])
+          line=Path("branch-a-proof-cert.txt").read_text().strip()
+          prefix="AA4_BRANCH_A_INTEGRATED_CERTIFICATE="
+          assert line.startswith(prefix)
+          b=json.loads(line[len(prefix):])
+          assert b["direct_nonzero_palette_flow"]["palette"]==51
+          assert b["direct_nonzero_palette_flow"]["d6_alternating"]==5643
+          assert b["direct_nonzero_palette_flow"]["bbo_balanced_total"]==53838
+          assert b["repository_PROVED_A"] is False and c["postmerge_main_CI_verified"] is False
+          print("INTEGRATION_EVIDENCE_EXACT",digest)
+          print("NO_AUTOMATIC_PROVED_A")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-branch-a-main-integration-evidence
+          path: |
+            hyp105-final-evidence/
+            branch-a-proof-cert.txt
+          retention-days: 90

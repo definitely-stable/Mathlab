@@ -1,0 +1,143 @@
+{
+  "schema": "mathlab.hyp105.branch-a.main-integration.v1",
+  "issue": 230,
+  "source_snapshot_commit": "bcc4cf3ec0e511e8289cca13477d3025d993d996",
+  "source_prs": [
+    784,
+    787,
+    788
+  ],
+  "integration_base_commit": "89c8a4988881da26af514591584fcc8e43071a83",
+  "scope": "CURATED_PROOF_AND_REPRODUCIBLE_EVIDENCE_NOT_STACK_MERGE",
+  "mathematical_review": "NO_FATAL_GAP_FOUND_INTERNAL_REVIEW",
+  "repository_status": "OPEN_WITH_FORMAL_BLOCKER",
+  "external_review_receipt": false,
+  "postmerge_main_ci_verified": false,
+  "imported_blobs": [
+    {
+      "path": "docs/research/HYP-105-AA4-LOW-PUBLICATION-SOURCE-PARTITION-REFEREE.md",
+      "git_blob_sha": "c60cbd745077cae85c4d733c7afac8bb63c7b3eb"
+    },
+    {
+      "path": "docs/research/HYP-105-AA4-BRANCH-A-INTEGRATED-TWO-CLASS-PROOF.md",
+      "git_blob_sha": "9a97945eacf328781e8d1dbed732ae0f000ad535"
+    },
+    {
+      "path": "docs/research/HYP-105-AA4-BRANCH-A-FINAL-EVIDENCE-REVIEW.md",
+      "git_blob_sha": "73d13b8eb642d0be8b6aab5d8822627a3bed5c5b"
+    },
+    {
+      "path": "research/hyp105_low_publication_partition_referee.py",
+      "git_blob_sha": "b09e05805221809e06db515c27ff2f80439b7ece"
+    },
+    {
+      "path": "research/test_hyp105_low_publication_partition_referee.py",
+      "git_blob_sha": "20bda529b3f6b7a2a1d6e169e5a2616ddc14b7ce"
+    },
+    {
+      "path": "research/hyp105_aa4_branch_a_integrated_referee.py",
+      "git_blob_sha": "5030406503d605c66edc13900b578921b0996e94"
+    },
+    {
+      "path": "research/test_hyp105_aa4_branch_a_integrated_referee.py",
+      "git_blob_sha": "d0eb3f89be7ee793b82040b9c499a68c7e5cddd5"
+    },
+    {
+      "path": "research/hyp105_branch_a_final_evidence_review.py",
+      "git_blob_sha": "98adff051273b0f0168aad99ac61e08212da3199"
+    },
+    {
+      "path": "research/test_hyp105_branch_a_final_evidence_review.py",
+      "git_blob_sha": "94eb029c7d8f621e5d3200f381c8f301343057c7"
+    }
+  ],
+  "retained_historical_blobs": [
+    {
+      "path": "research/hyp105_g5e2b3_forests.py",
+      "main_blob_sha": "56a6b86823f92a1db1de7ab1c2d85f08b86ef989",
+      "source_blob_sha": "56a6b86823f92a1db1de7ab1c2d85f08b86ef989",
+      "byte_identical": true
+    },
+    {
+      "path": "research/hyp105_g5e2b3e1b0_seven_signature.py",
+      "main_blob_sha": "d7193a943d0a2b36b9670c0075c70a3339a6e960",
+      "source_blob_sha": "d7193a943d0a2b36b9670c0075c70a3339a6e960",
+      "byte_identical": true
+    },
+    {
+      "path": "research/hyp105_g5e2b3e1a_fixed_leading.py",
+      "main_blob_sha": "b5681ec036e957b1a6617f1b35a28b66796cfc8e",
+      "source_blob_sha": "38bbb4e4b4c54bb89d237773de527c18ce95687b",
+      "byte_identical": false
+    },
+    {
+      "path": "docs/research/HYP-105-G5-E2-B3-B2-COINCIDENT-CYCLES.md",
+      "main_blob_sha": "51047441df2a3821e853cfa6ef1542afc721f755",
+      "source_blob_sha": "51047441df2a3821e853cfa6ef1542afc721f755",
+      "byte_identical": true
+    },
+    {
+      "path": "docs/research/HYP-105-G5-E2-B3-E1A-FIXED-LEADING-MOTIFS.md",
+      "main_blob_sha": "5e10a34ecdc281d488521c0d04c4953e5ead72f6",
+      "source_blob_sha": "5e10a34ecdc281d488521c0d04c4953e5ead72f6",
+      "byte_identical": true
+    }
+  ],
+  "expected_catalog": {
+    "rows": 11663,
+    "leading": 631,
+    "subleading_necessary_only": 11032,
+    "sha256": "16edf2e34b5eb28d21c03641c3da504c82eea373fd96c02af71cdcdbd1a17530"
+  },
+  "expected_same_map": {
+    "lex": {
+      "Q4": 50,
+      "counts": [
+        15,
+        98,
+        110,
+        13,
+        1,
+        8,
+        14
+      ],
+      "R3_floor_numerator": 11225795
+    },
+    "reverse": {
+      "Q4": 32,
+      "counts": [
+        3,
+        77,
+        74,
+        1,
+        1,
+        7,
+        6
+      ],
+      "R3_floor_numerator": 7627209
+    },
+    "correlated": {
+      "Q4": 15,
+      "counts": [
+        1,
+        55,
+        73,
+        4,
+        0,
+        3,
+        7
+      ],
+      "R3_floor_numerator": 6486043
+    }
+  },
+  "class_order": [
+    "D6",
+    "B-left/A-right",
+    "A-left/B-right",
+    "C/A",
+    "C/B",
+    "B/B-overlap",
+    "B/B-disjoint"
+  ],
+  "risk_scope": "HISTORICAL_NECESSARY_GF5_FLOORS_ONLY"
+}
