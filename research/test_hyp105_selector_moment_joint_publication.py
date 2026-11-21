@@ -6,7 +6,8 @@ from hyp105_selector_moment_joint_publication import (
     SCHEMA,STATUS,PARENT_PR,certificate,selected_case,chosen_core,
     source_J,priority_masks,global_two_cut_masks,product_selector_distribution,
     conflict,selected_original_graph,proper_matrix,traces,simple_C6,
-    integer_root_formal,
+    integer_root_formal,exact_external_shared_neighbor_probability,
+    original_neighbor_overlap_falsifiers,
 )
 
 
@@ -186,6 +187,32 @@ class TestOriginalSelectorMomentJoint(unittest.TestCase):
         self.assertTrue(c["all_h_C6_source_original_sixID_inverse_inherited_from_772"])
         self.assertTrue(c["full_original_LOW_PRODUCED_publication_signoff_still_open"])
         self.assertFalse(c["original_ROOT_PROVED_A"])
+
+    def test_21_true_SOURCE_shared_neighbor_priority_not_independent(self):
+        z=exact_external_shared_neighbor_probability(2,((0,1),))
+        self.assertEqual(Q(z["exact_ONE_priority_probability"]),Q(1,3))
+        self.assertEqual(Q(z["independent_product_lower"]),Q(1,4))
+        self.assertTrue(z["strict_shared_overlap_gain"])
+        a=exact_external_shared_neighbor_probability(3,((0,1,2),))
+        self.assertEqual(Q(a["exact_ONE_priority_probability"]),Q(1,4))
+        self.assertEqual(Q(a["independent_product_lower"]),Q(1,8))
+        self.assertTrue(a["strict_shared_overlap_gain"])
+
+    def test_22_DISJOINT_source_neighbors_and_overlap_masks_fail_closed(self):
+        scenarios=original_neighbor_overlap_falsifiers()
+        self.assertEqual(len(scenarios),6)
+        self.assertEqual([Q(x["exact_ONE_priority_probability"]) for x in scenarios[:4]],
+                         [Q(1,4),Q(1,3),Q(1,8),Q(1,4)])
+        self.assertFalse(scenarios[0]["strict_shared_overlap_gain"])
+        self.assertFalse(scenarios[2]["strict_shared_overlap_gain"])
+        self.assertTrue(scenarios[4]["strict_shared_overlap_gain"])
+        self.assertTrue(scenarios[5]["strict_shared_overlap_gain"])
+        self.assertEqual(self.c["all_original_shared_external_J_neighbor_adversaries"],
+                         scenarios)
+        for r,ms in ((0,()),(4,()),(2,((0,2),)),
+                     (3,((0,),)*10),(3,((),))):
+            with self.assertRaises(ValueError):
+                exact_external_shared_neighbor_probability(r,ms)
 
     def test_20_bad_original_input_rejected(self):
         m,owners,_=chosen_core(2,"lex")
