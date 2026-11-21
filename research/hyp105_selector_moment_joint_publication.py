@@ -293,7 +293,7 @@ def selected_case(s,scheme):
     outcomes=[]
     for mask,prob in global_prob.items():
         adj,edges=selected_original_graph(m,owners,mask)
-        if any((mask>>i&1) and (mask>>j&1) for i in J for j in J[i]):
+        if any((mask>>i&1) and (mask>>j&1) for i in range(len(J)) for j in J[i]):
             raise AssertionError("selected J independence lost")
         tr2,tr4,tr6=traces(adj,edges)
         m_edges=len(edges)
