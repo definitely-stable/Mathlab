@@ -1,0 +1,71 @@
+name: hyp105-aa4-branch-a-final-evidence-review
+on:
+  push:
+    branches:
+      - research/hyp105-aa4-branch-a-final-evidence-review
+    paths:
+      - 'research/hyp105_branch_a_final_evidence_review.py'
+      - 'research/test_hyp105_branch_a_final_evidence_review.py'
+      - 'docs/research/HYP-105-AA4-BRANCH-A-FINAL-EVIDENCE-REVIEW.md'
+      - '.github/workflows/hyp105-aa4-branch-a-final-evidence-review.yml'
+  pull_request:
+    paths:
+      - 'research/hyp105_branch_a_final_evidence_review.py'
+      - 'research/test_hyp105_branch_a_final_evidence_review.py'
+      - 'docs/research/HYP-105-AA4-BRANCH-A-FINAL-EVIDENCE-REVIEW.md'
+      - '.github/workflows/hyp105-aa4-branch-a-final-evidence-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  final-original-evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent named-forest catalog and complete same-map source census
+        run: python -m unittest discover -s research -p 'test_hyp105_branch_a_final_evidence_review.py' -v
+      - name: Write full row-level named partition catalog and original same-map diagnostics
+        shell: bash
+        run: |
+          python research/hyp105_branch_a_final_evidence_review.py --out hyp105-final-evidence
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          p=Path("hyp105-final-evidence")
+          r=json.loads((p/"named_original_partition_index.json").read_text())
+          c=json.loads((p/"certificate.json").read_text())
+          assert len(r)==11663 and len({z["id"] for z in r})==11663
+          assert c["partition_catalog_rows"]==11663
+          assert c["by_stratum"]=={"LEADING":631,"SUBLEADING_NECESSARY_ONLY":11032}
+          assert c["catalog_sha256"]==hashlib.sha256(json.dumps(r,sort_keys=True,separators=(",",":")).encode()).hexdigest()
+          assert len((p/"named_original_partition_index.csv").read_text().splitlines())==11664
+          assert c["mathematical_review_verdict"]=="NO_FATAL_GAP_FOUND_INTERNAL_REVIEW"
+          assert c["repository_status"]=="OPEN_WITH_FORMAL_BLOCKER"
+          assert not c["independent_external_review_received"]
+          assert not c["postmerge_main_CI_verified"]
+          assert not c["fixed_label_subleading_upper_claimed"]
+          assert not c["new_ASET_exponent"]
+          print("NAMED_CATALOG_SHA256",c["catalog_sha256"])
+          print("NAMED_STRATA",c["by_stratum"])
+          print("NAMED_NECESSARY_POWER_HISTOGRAM",c["by_power"])
+          for z in c["same_map_joint_cases"]:
+              assert z["independent_source_sets_agree"] and z["independent_Q4_count_agrees"]
+              assert len(z["counts"])==7 and z["S_seven"]==sum(z["counts"].values())
+              assert not z["full_weighted_R2_R3_computed"]
+              print("ORIGINAL_SAME_MAP",z["scheme"],z["same_original_map_sha256"],
+                    "Q4",z["Q4"],"SEVEN",z["counts"],"S",z["S_seven"],
+                    "GF5_R3_FLOOR_NUMERATOR",z["certified_R3_floor_numerator"])
+          print("PASS_COMPLETE_NAMED_INDEX_AND_SAME_MAP_EVIDENCE")
+          print("STOP_NO_AUTOMATIC_EXTERNAL_REVIEW_OR_POSTMERGE_ACCEPTANCE")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hyp105-branch-a-final-named-index-and-joint-census
+          path: hyp105-final-evidence/
+          retention-days: 90
