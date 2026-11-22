@@ -11,7 +11,7 @@ f:P -> binom([aP],2),  aP=min{a:binom(a,2)>=|P|},
 g:L -> binom([aL],2),  aL=min{a:binom(a,2)>=|L|}.
 ```
 
-These maps can be arbitrarily correlated and adversarial. They are chosen on the actual full P,L and must **not be changed after editing**. Let `Z subset I` be arbitrary old-source flags removed (allowed to depend on Q,f,g). Let `E subset (P x L)\I` be **any** new original point-line incidences, with no multiplicity, again arbitrarily chosen and correlated. The edited named flag source is
+These maps can be arbitrarily correlated and adversarial; in fact, **they may be chosen AFTER the entire edit Z,E is known**. The proof freezes whichever complete f,g are finally selected and applies #793, whose quantifiers are uniform over all such choices. What must remain fixed is their interpretation on the **same factor vertex sets** when comparing the original GQ certificate and the edited source; no resampling or redefining labels per original flag is permitted. Let `Z subset I` be arbitrary old-source flags removed (allowed to depend on Q,f,g). Let `E subset (P x L)\I` be **any** new original point-line incidences, with no multiplicity, again arbitrarily chosen and correlated. The edited named flag source is
 
 ```
 I' = (I\Z) union E.
@@ -48,7 +48,7 @@ D6_{I'\U}(f,g) + BBo_historical,I'\U(f,g) >= delta_b*r^6.
 
 ### Corollary: optimal-order source packing and independent GF5 tail
 
-Let `H*(I';Q)` be the six-uniform certified source hypergraph. Since for **every** `|U|<=eta_b*r^4`, at least one hyperedge survives, any transversal has size greater than `floor(eta_b*r^4)`. The union of a maximal packing of `k` pairwise source-flag-disjoint sixsets is a transversal, so `6k > eta_b*r^4`, hence
+Let `H*(I';Q)` be the six-uniform certified source hypergraph **on preserved original GQ flags only**. Even when E is arbitrary and the edited source has many more flags, this certified hypergraph still has only `Theta_b(r^4)` available vertices; consequently its maximum packing has order `Theta_b(r^4)`. This is NOT an optimal upper bound on the full edited-source motif packing when `|E|\gg r^4`. Since for **every** `|U|<=eta_b*r^4`, at least one hyperedge survives, any transversal has size greater than `floor(eta_b*r^4)`. The union of a maximal packing of `k` pairwise source-flag-disjoint sixsets is a transversal, so `6k > eta_b*r^4`, hence
 
 `k >= floor(eta_b*r^4/6)+1 = Theta_b(r^4).`
 
