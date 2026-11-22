@@ -485,6 +485,14 @@ def wenger_W2_spectral_parameters(q):
     assert r**3-a==r*r+r-1>0
     assert 3*r**3-b==(r-2)*(3*r*r+6*r+4)>=0
     assert 2*q*r<=3*r*r
+    # Asymptotically the centered source gate is much sharper:
+    # for q>=5 (r>=4), r^3 >= 16*r > 8*(r+1)=8q,
+    # and the other eigenlevel is always strictly below r^3.
+    if q>=5:
+        assert r*r>=16 and r**3>=8*q
+        assert spectral<=r**3
+    optimal_integer_kappa=exact_ceil(Q(spectral,r**3))
+    assert optimal_integer_kappa==(3 if q==3 else 2 if q==4 else 1)
     s6=m1*a**3+m2*b**3
     s2=m1*a+m2*b
     # Also derived by F 0/1 row sums, without published multiplicities.
@@ -500,6 +508,8 @@ def wenger_W2_spectral_parameters(q):
         centered_F0_nontrivial_spectral_levels=[0,a,b],
         exact_centered_F0_norm_squared=spectral,
         uniform_fixed_operator_kappa=3,
+        optimal_integer_centered_kappa_for_this_q=optimal_integer_kappa,
+        fixed_asymptotic_centered_kappa_for_all_q_ge5=1,
         uniform_quadratic_excess_C=3,
         source_balance_b=1,
         centered_source_second_moment=s2,
@@ -585,10 +595,11 @@ def wenger_original_six_id_inverse_case(scheme="lex",mask="full"):
 
 def wenger_quadratic_theorem_ledger():
     """A GENUINELY NONVACUOUS prime-power family, external C6 numeric formal."""
-    fixed=integrated_quadratic_direct_ledger(1,3,3,Q(1),Q(1))
+    fixed=integrated_quadratic_direct_ledger(1,3,1,Q(1),Q(1))
     assert fixed["moment_sixth_condition_is_NOT_required"]
-    return dict(family="published_Wenger_W2(q)_for_all_prime_powers_q_ge3",
-       source_fixed_parameters=dict(b=1,C=3,kappa=3),
+    return dict(family="published_Wenger_W2(q)_for_all_prime_powers_q_ge5",
+       source_fixed_parameters=dict(b=1,C=3,kappa=1),
+       independently_valid_all_q_ge3_weaker_kappa=3,
        theorem="D6+BBo_produced>=delta*r^6 for all sufficiently large q",
        deletions="any named original source |Z|<=rho*r^4",
        arbitrary_complete_minimal_injective_factor_maps=True,
