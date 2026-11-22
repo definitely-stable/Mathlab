@@ -98,6 +98,14 @@ Files:
 
 All finite tests are counterexample/falsification checks only. In particular small W32/W33/small unequal fixtures do **not** satisfy the theorem's enormous asymptotic threshold, and their observed motif counts are not a lower-bound proof. The source checker must not silently relabel the new geometry as GQ or manufacture a post-edit full projection mapping.
 
+## 5A. Exact failure boundary: dropping the tight physical alphabet destroys ALL motifs
+
+The preceding theorem deliberately keeps the original minimal pair-label alphabets. This assumption cannot be omitted wholesale. For **any** simple source incidence system, including an unedited genuine GQ, give each point p its **private** unordered pair `f(p)={2p,2p+1}` and each line l its private pair `g(l)={2l,2l+1}`. Then for any two distinct source flags `(p,l)`, `(p',l')`, their sets of physical corners `f(p) × g(l)` and `f(p') × g(l')` are disjoint: sharing a corner would force both p=p' and l=l', contradicting distinct original flags. Thus the physical graph consists of disjoint owner rectangles/diagonals; no consecutive multi-owner physical walk exists. In particular, there are **zero historical D6 and BBo six-ID motifs** under these labels, even on actual GQ.
+
+This is a rigorous counterexample to a proposed unrestricted extension with arbitrary injective physical alphabet sizes. Here `aP=2|P|`, `aL=2|L|`, `aP*aL=4|P||L|=Theta_b(r^6)` rather than `Theta_b(r^3)`. It **does not** contradict the accepted fixed-minimum-alphabet GQ theorem or rule out extension to physical alphabets within a fixed constant of minimal size. The fail-closed fixture independently enumerates the real source sixsets and checks that both D6/BBo counts are zero, and that this oversized label family is explicitly rejected by the edit-transfer domain gate.
+
+**Scientific implication for truly intrinsic T3:** retaining some physical symbol-density or alphabet-tightness condition is indispensable; a hypothesis set limited to incidence geometry/projection/spectral quantities while allowing completely private physical pairs cannot imply an `Omega(r^6)` source-risk obstruction.
+
 ## 6. Independent review of scope and prior art
 
 Classical Moore bounds, GQ incidence spectra, and the ordinary graph C6 supersaturation theorem are prior art; compare [On biregular bipartite graphs of small excess](https://www.sciencedirect.com/science/article/pii/S0012365X19301232), [Bipartite biregular Moore graphs](https://www.sciencedirect.com/science/article/pii/S0012365X21002958), and the published ordinary graph input quoted in #799. The present `GQ template -> edited source` bound is an **immediate but explicitly validated consequence of accepted resilience plus monotonicity**. We do **not** claim a new intrinsic incidence obstruction theorem or publication priority for editing/switching.
