@@ -202,10 +202,20 @@ class TestGIO003C2(unittest.TestCase):
     def test_09_deliberate_deleted_anchor_endpoint_charge(self):
         m=make_model("W32")
         full,C=selected_mask(m,"full")
-        A=full-{0}
+        valid=manual_produced_bbo(m,full,C)
+        self.assertGreater(len(valid),0)
+        first=next(iter(sorted(valid)))
+        six=[m["flags"][i] for i in first]
+        p=next(q for q,n in Counter(q for q,ell in six).items() if n==2)
+        ell=next(l for l,n in Counter(l for q,l in six).items() if n==2)
+        central=m["flag_to_id"][p,ell]
+        self.assertIn(central,first)
+        A=full-{central}
         base=endpoint_mask(m,full)
         after=endpoint_mask(m,A)
         self.assertEqual(base["parts"]["deleted_anchors"],0)
+        # A genuine produced endpoint with clean outer symbols has been
+        # selected, so deleting its central anchor MUST create damage.
         self.assertGreater(after["parts"]["deleted_anchors"],0)
         self.assertLessEqual(after["parts"]["deleted_anchors"],
                              12*m["s"]*m["t"]*1)
