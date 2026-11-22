@@ -64,6 +64,10 @@ jobs:
                  "R",s["HEAVY_R"],"rho",c["rho"],"delta",c["delta"])
           assert x["local_D6_coherent_cut_probability"]["probability_reduced"]=="1/1024"
           assert x["local_coherent_cut_probability"]["cut_probabilities"]["3"]["exact_probability"]=="1/64"
+          rivals=x["shared_competitor_global_priority"]
+          assert rivals["exact_all_priority_orders"]==120
+          assert rivals["shared_competitor_correlation_nontrivial"]
+          assert Q(rivals["exact_probability"])>Q(rivals["independent_event_product_lower"])
           shared=x["exact_threeowner_same_global_selected_moments"]
           assert shared["same_global_selector_moment_inequalities_exact"]
           assert shared["enumerated_one_global_typed_cut_assignments"]==256
