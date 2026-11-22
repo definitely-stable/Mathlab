@@ -222,6 +222,35 @@ class TestGIO003T3B(unittest.TestCase):
         self.assertEqual(alt_missing,
              actual_missing_projections(available,m["Vp"],m["Vl"]))
 
+    def test_16_post_edit_adversarial_factor_relabeling_same_template(self):
+        m=model("W32")
+        sw=switch_with_forced_four_cycle(m)
+        # Physical label permutation is deliberately chosen FROM the edit,
+        # rather than independently or before it.
+        changed=verify_edit(m,sw["removed"],sw["added"])["edited"]
+        points=sorted({p for p,l in sw["added"]})
+        lines=sorted({l for p,l in sw["added"]})
+        f=list(m["f"]); g=list(m["g"])
+        self.assertEqual(len(points),2)
+        self.assertEqual(len(lines),2)
+        f[points[0]],f[points[1]]=f[points[1]],f[points[0]]
+        g[lines[0]],g[lines[1]]=g[lines[1]],g[lines[0]]
+        updated=dict(m,f=tuple(f),g=tuple(g),
+                     point_by_pair={z:i for i,z in enumerate(f)},
+                     line_by_pair={z:i for i,z in enumerate(g)})
+        self.assertEqual(len(set(updated["f"])),updated["Vp"])
+        self.assertEqual(len(set(updated["g"])),updated["Vl"])
+        edit=verify_edit(updated,sw["removed"],sw["added"])
+        self.assertEqual(edit["edited"],changed)
+        D=source_first_d6(updated,frozenset(range(len(m["flags"]))))
+        B=source_first_bbo(updated,frozenset(range(len(m["flags"]))))
+        self.assertFalse(set(D)&set(B))
+        alive={i for i,x in enumerate(m["flags"]) if x in changed}
+        for cls,inventory in (("D6",D),("BBo_historical",B)):
+            for key in inventory:
+                if set(key)<=alive:
+                    self.assertTrue(independent_signature_check(updated,changed,key,cls))
+
     def test_12_literal_source_profiles_not_an_edited_projection_claim(self):
         m=model("W32")
         sw=switch_with_forced_four_cycle(m)
