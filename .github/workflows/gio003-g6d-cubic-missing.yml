@@ -57,6 +57,15 @@ jobs:
               assert k["exact_dual_no_GQ_identity"]
               assert k["original_missing_F_support"]==(
                    c["points"]*c["direct_cubic_bound"]["delta_line"])
+              screen=c["necessary_integer_feasibility"]
+              bfs=c["actual_source_BFS"]
+              assert screen["actual_source_existence_NOT_proved"]
+              assert bfs["literal_BFS_source_not_just_parameter_guess"]
+              assert bfs["actual_components"]<=screen["component_count_upper"]
+              if screen["connectedness_forced_by_size"]:
+                  assert bfs["actual_components"]==1
+              if screen["diameter_at_most_five_if_actual_source"]:
+                  assert bfs["actual_max_finite_distance"]<=5
               assert c["source_conflict"]["J"]<=(
                  c["explicit_source_constants"]["combined_owner_conflict_J0"]
                  *min(c["source_s"],c["source_t"])**4)
