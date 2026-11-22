@@ -51,7 +51,34 @@ For a complete minimal physical map and the **fixed-b, fixed-C linear Moore exce
 
 `B_x²,B_y² <= 16(b+1)(K+1)n0 T G0 r^(23/2)`.
 
-Thus the needed mixed-book *scaling* holds intrinsically. The separate **three-corner path-to-book injection** and fourth-moment application from #230/#799 are to be audited before declaring the full LOW error proved; a book bound by itself is **not** the entire four-blocker argument.
+Thus the needed mixed-book *scaling* holds intrinsically.
+
+### Theorem M2 — actual three-corner injection and fourth-moment completion (all four typed positions)
+
+Fix an **eligible proper directed** length-three walk `v0,v1,v2,v3` in H_C: both typed coordinates are separately distinct along all four corners; its endpoint pair decodes to q,r with an **existing** original projection `q--ell--p--r`; all three projection flags belong to FULL A; and its two **outer** x symbols are disjoint from f(p), while its two **outer** y symbols are disjoint from g(ell). These are *before checking inner blockers*. Say it has the first-inner-x blocker if `k=x(v1) in f(p)`.
+
+For every DISTINCT three-corner triple `(v0,v1,v3)` that appears in such a blocked walk, the first physical edge has unique original CORE owner `(j,m)`. The original endpoint point is q, and the original last anchor `(p,r)` belongs to FULL A. Writing `v0=(x,y),v1=(k,z),v3=(x',y')`, the **literal book key**
+
+`(j, oriented (x,k) in f(j), p, q, FULL flag (p,r), CORE flag (j,m), y)`
+
+is a member of the mixed FULL/CORE book B_x: q is originally collinear with p, its f label contains x; f(p) contains k; both the FULL anchor line r and the CORE owner line m have label containing y. The tuple determines v0 from (x,y), v1 from (k, other symbol of g(m)) and v3 from (other symbol of f(q), other symbol of g(r)). Therefore the three-corner map is **injective**. It is **NOT** an assertion that every *full threewalk* has a distinct book key: several v2 can complete the same triple, so that stronger statement is false in general.
+
+Let `P=(A_C)^2` be the **actual physical two-walk matrix** of the CORE's undirected simple physical graph, and let `Delta_C` be its actual maximum degree. For each triple, the number of eligible v2 completions is at most `P[v1,v3]`. For each fixed pair (v1,v3), there are at most `Delta_C` different choices of v0. Thus
+
+```
+I_x1²
+ <= (#distinct blocked triples) * sum_blocked_triples P[v1,v3]²
+ <= B_x * Delta_C * tr(A_C^4).
+```
+
+Reversing the directed walk gives the exact same bound for the second-inner-x blocker I_x2; swapping point and line factors gives both y blockers:
+
+`I_x1²,I_x2²<=B_x Delta_C tr(A_C^4)`;
+`I_y1²,I_y2²<=B_y Delta_C tr(A_C^4)`.
+
+This is a complete **local FULL-A/CORE-C four-blocker** injection and moment reduction, not merely a source-book inequality. The independent specialist checks: literal unique original book-key for each physical triple, no collision of two triples into one book term, observed number of completions, `P[v1,v3]` for every actual pair, exact integer `tr(A_C^4)=sum_{v,w}P[v,w]^2`, Cauchy, both x positions and both y positions and true source line dual. It never uses a GQ witness or fills missing source projections. The next global task remains the **A4 shared-priority selection and its uniform fourth/sixth-moment bounds**, followed by a fixed-constant all-order closure.
+
+
 
 ## 3. Theorem I — genuine original BBo reconstruction from PARTIAL projections
 
@@ -94,4 +121,4 @@ For fixed b,C linear excess, the extra `4 V_P Delta_L=O_b,C(r^4)` is *subleading
 
 **Acceptance:** all exact-head specialist, full Research and INDEX gates green; independent internal critical mathematical review of the three local lemmas and quantifiers. This is not an external human referee or Lean proof.
 
-**STOP:** G6-C2 proves *local* A5 book scaling, A6 partial projection reconstruction, and an intrinsic endpoint error inventory; it is not a complete global A4/A5/A6 LOW sixset supersaturation theorem. The shared global selector and its moment controls, the triple-to-book blocker completion bound with a common retained CORE, and resulting HEAVY/LOW alternative have **not** been rerun as an integrated all-order non-template proof. No new unrestricted ASET exponent or external numeric Simonovits constants are claimed. Parent #793 remains OPEN. Next G6-C3 should integrate these sharp local gates into the accepted #799 HEAVY/LOW calculus with a completely explicit fixed-(b,C) parameter ledger and rigorous comprehensive proof review.
+**STOP:** G6-C2 proves *local* A5 book scaling, A6 partial projection reconstruction, and an intrinsic endpoint error inventory; it is not a complete global A4/A5/A6 LOW sixset supersaturation theorem. The full **A4 shared global selector and its moment controls**, and resulting quantified HEAVY/LOW alternative have **not** been rerun as one integrated all-order non-template proof. The local triple-to-book completion bound itself has been proved and independently falsifier-tested in Theorem M2, but this is not a substitute for uniform selected moments. No new unrestricted ASET exponent or external numeric Simonovits constants are claimed. Parent #793 remains OPEN. Next G6-C3 should integrate these sharp local gates into the accepted #799 HEAVY/LOW calculus with a completely explicit fixed-(b,C) parameter ledger and rigorous comprehensive proof review.
