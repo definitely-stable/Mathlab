@@ -1,0 +1,93 @@
+name: gio003-g6d-cubic-missing
+
+on:
+  push:
+    branches:
+      - research/gio003-g6d-cubic-missing-projections
+    paths:
+      - 'research/gio_t3d_cubic_missing.py'
+      - 'research/test_gio_t3d_cubic_missing.py'
+      - 'docs/research/GIO-003-G6D-CUBIC-MISSING-PROJECTIONS.md'
+      - '.github/workflows/gio003-g6d-cubic-missing.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3d_cubic_missing.py'
+      - 'research/test_gio_t3d_cubic_missing.py'
+      - 'docs/research/GIO-003-G6D-CUBIC-MISSING-PROJECTIONS.md'
+      - '.github/workflows/gio003-g6d-cubic-missing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cubic-missing:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile and run independently grounded source matrix tests
+        run: |
+          python -m py_compile research/gio_t3d_cubic_missing.py research/test_gio_t3d_cubic_missing.py
+          python -m unittest discover -s research -p 'test_gio_t3d_cubic_missing.py' -v
+      - name: Produce exact cubic, nonexistence and fractional-excess certificate
+        shell: bash
+        run: |
+          python research/gio_t3d_cubic_missing.py --out gio003-g6d-cubic-missing.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction as Q
+          from pathlib import Path
+          x=json.loads(Path("gio003-g6d-cubic-missing.json").read_text())
+          assert x["schema"]=="mathlab.gio003.g6d1.cubic-missing-projection.v1"
+          assert x["issue"]==793
+          assert x["claim"]=="CONDITIONAL_T3_EXCESS_O_R_THREE_HALVES_CUBIC_IDENTITY"
+          assert x["local_cubic_identity_proved_without_GQ"]
+          assert x["no_infinite_nonGQ_half_integer_excess_family_constructed"]
+          assert x["no_unrestricted_T3"] and x["no_numeric_external_C6_constants"]
+          assert len(x["exact_finite_sources"])>=8
+          assert len(x["equal_order_excess_one_nonexistence"])>=8
+          for c in x["exact_finite_sources"]:
+              k=c["cubic_identity"]
+              assert k["exact_point_and_line_cubic_identity"]
+              assert k["original_threewalk_matrix_identity"]
+              assert k["exact_dual_no_GQ_identity"]
+              assert k["original_missing_F_support"]==(
+                   c["points"]*c["direct_cubic_bound"]["delta_line"])
+              assert c["source_conflict"]["J"]<=(
+                 c["explicit_source_constants"]["combined_owner_conflict_J0"]
+                 *min(c["source_s"],c["source_t"])**4)
+              print("G6D_CUBIC_SOURCE",c["kind"],c["scheme"],
+                  "DeltaL",c["direct_cubic_bound"]["delta_line"],
+                  "Fsupport",k["original_missing_F_support"],
+                  "J",c["source_conflict"]["J"])
+          for v in x["equal_order_excess_one_nonexistence"]:
+              assert v["strict_trace_contradiction"]
+              assert v["exact_trace_discrepancy"]<0
+              assert v["no_equal_order_one_excess_girth8_source"]
+          for a in x["formal_half_integer_excess_ledgers"]:
+              assert a["FORMAL_ONLY"] and a["no_full_unrestricted_T3"]
+              assert a["closure"]["four_error_budgets_checked"]
+              b=a["fixed_before_source"]["balance_b"]
+              E=Q(a["closure"]["eps"])
+              rho=Q(a["closure"]["rho"])
+              r=int(a["closure"]["sufficient_r0"])
+              moment=a["moment"];selector=a["selector"]
+              assert moment["improper"]<=E*r
+              assert moment["E"]**2<=E**2*r
+              assert moment["blocker_D"]**8<=E**8*r
+              assert 12*b*b*rho*selector["q3"]**2*moment["L6"]<=E*E
+              print("G6D_FORMAL_LEDGER",b,
+                   a["fixed_before_source"]["excess_C"],
+                   "rho",a["closure"]["rho"],
+                   "delta",a["closure"]["delta"])
+          print("PASS_GIO003_G6D_CUBIC_HALF_INTEGER_EXCESS_CERTIFICATE")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6d-cubic-missing-exact-certificate
+          path: gio003-g6d-cubic-missing.json
+          retention-days: 90
