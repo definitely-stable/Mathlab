@@ -17,6 +17,7 @@ import argparse
 import json
 import random
 from fractions import Fraction as Q
+from collections import deque
 from math import comb, gcd, isqrt
 from pathlib import Path
 
@@ -336,11 +337,104 @@ def delta_one_equal_no_go(q):
        prior_art_not_claimed_novel=True)
 
 
+def necessary_small_excess_screen(s,t,DeltaL,DeltaP):
+    """EXACT necessary integer conditions; does NOT construct a graph.
+
+    Connectedness is FORCED when source has < 2 Moore components.
+    A strict smaller-than-the-degree missing budget forces every
+    same-type pair to have incidence distance <=4 and every cross-type
+    pair to have distance <=5 (even before assuming connectivity).
+    Both directions are only NECESSARY screens, not realization claims.
+    """
+    if any(type(z) is not int for z in (s,t,DeltaL,DeltaP)):
+        raise ValueError("all source parameters must be integers")
+    if min(s,t)<2 or DeltaL<0 or DeltaP<0:
+        raise ValueError("thick simple source and nonnegative excess required")
+    d=gcd(s+1,t+1)
+    stepL=(t+1)//d
+    stepP=(s+1)//d
+    if (s+1)*DeltaL!=(t+1)*DeltaP:
+        raise ValueError("degree-side incidence balance violated")
+    assert DeltaL%stepL==0 and DeltaP%stepP==0
+    level=DeltaL//stepL
+    assert DeltaP//stepP==level
+    MooreP=(s+1)*(s*t+1)
+    MooreL=(t+1)*(s*t+1)
+    VP=MooreP+DeltaP
+    VL=MooreL+DeltaL
+    cap=min(VP//MooreP,VL//MooreL)
+    force_connected=(cap==1)
+    force_same_type_distance_four=(DeltaL<=t and DeltaP<=s)
+    return dict(s=s,t=t,delta_line=DeltaL,delta_point=DeltaP,
+        excess_step_lines=stepL,excess_step_points=stepP,
+        positive_excess_quantum=level,
+        mandatory_total_source_vertices=VP+VL,
+        Moore_points=MooreP,Moore_lines=MooreL,
+        component_count_upper=cap,
+        connectedness_forced_by_size=force_connected,
+        diameter_at_most_five_if_actual_source=force_same_type_distance_four,
+        actual_source_existence_NOT_proved=True)
+
+
+def graph_distance_falsifier(m):
+    """BFS literal original incidence, not a geometry/projection oracle."""
+    P=m["points"];L=len(m["lines"])
+    nbr=[set() for _ in range(P+L)]
+    for ell,line in enumerate(m["lines"]):
+        for p in line:
+            nbr[p].add(P+ell)
+            nbr[P+ell].add(p)
+    unseen=set(range(P+L));components=[];maxdist=0
+    while unseen:
+        start=min(unseen)
+        reach={start:0};todo=deque([start])
+        while todo:
+            p=todo.popleft()
+            for z in nbr[p]:
+                if z not in reach:
+                    reach[z]=reach[p]+1
+                    todo.append(z)
+        components.append(len(reach))
+        unseen.difference_update(reach)
+        # Each connected component must be separately (s,t)-biregular
+        # and meet the same Moore point/line lower bounds.
+        nP=sum(x<P for x in reach)
+        nL=len(reach)-nP
+        assert nP>=(m["s"]+1)*(m["s"]*m["t"]+1)
+        assert nL>=(m["t"]+1)*(m["s"]*m["t"]+1)
+        for point in sorted(reach):
+            dist={point:0};q=deque([point])
+            while q:
+                u=q.popleft()
+                for v in nbr[u]:
+                    if v not in dist:
+                        dist[v]=dist[u]+1
+                        q.append(v)
+            assert len(dist)==len(reach)
+            maxdist=max(maxdist,max(dist.values()))
+    z=necessary_small_excess_screen(m["s"],m["t"],
+                                    m["excess_lines"],m["excess_points"])
+    assert len(components)<=z["component_count_upper"]
+    if z["connectedness_forced_by_size"]:
+        assert len(components)==1
+    if z["diameter_at_most_five_if_actual_source"]:
+        assert len(components)==1 and maxdist<=5
+    return dict(actual_components=len(components),
+        actual_component_sizes=components,
+        actual_max_finite_distance=maxdist,
+        size_enforced_connected=z["connectedness_forced_by_size"],
+        size_enforced_diameter_at_most_five=z["diameter_at_most_five_if_actual_source"],
+        literal_BFS_source_not_just_parameter_guess=True)
+
+
 def finite_case(name,scheme="lex"):
     m=make_model(name,scheme)
     mats=construct_missing_matrices(m)
     identity=polynomial_identity(mats)
     center=centered_rayleigh(mats)
+    feasible=necessary_small_excess_screen(m["s"],m["t"],
+                        m["excess_lines"],m["excess_points"])
+    distances=graph_distance_falsifier(m)
     conflict=conflict_finite_gate(m,scheme)
     b=(max(m["s"],m["t"])+min(m["s"],m["t"])-1)//min(m["s"],m["t"])
     r=min(m["s"],m["t"])
@@ -357,6 +451,8 @@ def finite_case(name,scheme="lex"):
                 original_source_flags=len(m["flags"]),
                 equal_order_positive_excess_vacuity_not_assumed=True,
                 cubic_identity=identity,centered_Rayleigh=center,
+                necessary_integer_feasibility=feasible,
+                actual_source_BFS=distances,
                 source_conflict=conflict["owners"],
                 direct_cubic_bound=conflict["actual_cubic_bound"],
                 checked_finite_b=b,checked_finite_C=C,
@@ -381,6 +477,7 @@ def certificate():
       exact_finite_sources=cases,
       formal_half_integer_excess_ledgers=formal,
       equal_order_excess_one_nonexistence=no_go,
+      no_hidden_nonGQ_existence_claim_in_arithmetic_screen=True,
       claim="CONDITIONAL_T3_EXCESS_O_R_THREE_HALVES_CUBIC_IDENTITY",
       local_cubic_identity_proved_without_GQ=True,
       arbitrary_minimal_factor_maps_uniform_spectral_gate=True,
