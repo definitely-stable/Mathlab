@@ -195,6 +195,36 @@ class TestGIO003(unittest.TestCase):
         self.assertEqual(len(v["bbo_sign_counts"]),10)
         self.assertGreaterEqual(min(v["bbo_sign_counts"]),5175)
 
+    def test_21_actual_produced_BBo_signed_topology_odd_and_unequal(self):
+        from hyp105_aa4_branch_a_integrated_referee import (
+            actual_bbo_flow_topology, flow_catalog,
+        )
+        flow=flow_catalog()
+        self.assertGreaterEqual(min(flow["bbo_sign_counts"]),5175)
+        for kind in ("W33","Qminus24","dualQminus42"):
+            m=model(kind)
+            A=frozenset(range(len(m["flags"])))
+            b=source_first_bbo(m,A)
+            self.assertGreater(len(b),0)
+            keys=sorted(b)
+            for ids in keys[::max(1,len(keys)//15)][:15]:
+                self.assertEqual(len(b[ids]),2)
+                path=next(iter(b[ids]))
+                self.assertTrue(actual_bbo_flow_topology(m,ids,path))
+                self.assertEqual(len(ids),6)
+
+    def test_22_naive_equal_order_minus_four_srg_term_is_false(self):
+        from collections import Counter
+        for kind in ("Qminus24","dualQminus42"):
+            m=model(kind)
+            d=collinearity_conflict_certificate(m)
+            s,t=m["s"],m["t"]
+            V=m["Vp"]
+            fibre=Counter(x for pair in m["f"] for x in pair)
+            naive=2*V*(s-1)*(t+1)-4*d["e_col_point"]+(t+1)*sum(n*n for n in fibre.values())
+            self.assertEqual(d["G_point"]-naive,2*(s-t)*d["e_col_point"])
+            self.assertNotEqual(d["G_point"],naive)
+
     def test_20_explicit_nonimplications_and_program_scope(self):
         self.assertEqual(self.c["issue"],793)
         self.assertEqual(self.c["claim"],"BALANCED_GQ_RESILIENCE_PROOF_CANDIDATE_T1_T2")
