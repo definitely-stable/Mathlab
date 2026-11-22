@@ -88,11 +88,41 @@ Check `7/8−rho_cap−2J0/(K+1)>c`. The original source owner conflict graph J 
 
 The **shared selector lemma** is exactly the accepted all-source combinatorial step of #230/#799: independently give each surviving CORE original owner a single continuous random priority and keep J_C-local minima; give each typed coordinate symbol its **one global independent fair bit** (first factor and second factor). A retained original owner contributes its two physical diagonals only when BOTH of its typed factor symbol pairs cross the global bit cuts. The resulting physical graph G is one simple bipartite graph: every selected physical edge flips the first bit and the second bit. Do not draw a fresh cut/priority for each queried path or C6.
 
-For any physical proper original CORE iwalk (i=2,3), whose i+1 x symbols and i+1 y symbols are separately distinct, its i distinct original owners are J_C-independent; all priority winners survive simultaneously with probability ≥`(K+1)^(-i)` and the correct global cut succeeds with probability exactly `4^(-i)`. Therefore for ordered proper iwalk endpoint matrix P_i of unselected H_C and the **same selected** graph G,
+For any physical proper original CORE iwalk (i=2,3), whose i+1 x symbols and i+1 y symbols are separately distinct, its i distinct original owners are J_C-independent. Here is the precise shared-priority argument, rather than assuming the owner selections are independently sampled.
+
+Let S be those i original owner IDs. They are pairwise nonadjacent in J_C (otherwise two owners share an original point and physical y symbol, or an original line and physical x symbol, forcing a repeated typed coordinate in the proper walk). Give all original owners independent `U_j~Uniform[0,1]` priorities ONCE. Conditional on the distinct owner priorities `U_j=t_j` for j∈S, each original competitor owner w∉S that is adjacent to some S owner must have `U_w>max_{j∈S∩N(w)}t_j`. Different w are conditionally independent. For every competitor w,
 
 ```
-||P_i||_F² ≤ q_i² E tr(A_G^(2i)).
+1-max_{j∈S∩N(w)} t_j
+  ≥ product_{j∈S∩N(w)} (1-t_j).
 ```
+
+Multiplying over competitors and integrating the independent t_j gives
+
+```
+Pr[all owners in S are J_C-local priority minima]
+ ≥ product_{j∈S} ∫_0^1 (1-t)^{d_JC(j)} dt
+ = product_{j∈S} 1/(1+d_JC(j))
+ ≥ (K+1)^{-i}.
+```
+
+**Crucially, no independence of the different local-minimum winner events is asserted.** This product lower bound follows from their shared competitors and the displayed elementary inequality. Independently, the SAME globally assigned first/second typed symbol bits must alternate along the i+1 distinct first and i+1 distinct second symbols, with exact success `4^{-i}`. Since cuts are independent of the priority array, each fixed proper iwalk survives in G with probability at least `q_i^{-1}=4^{-i}(K+1)^{-i}`.
+
+Write `P_{i,G}(u,v)` for the number of actual length-i walks from u to v in the ONE selected graph G, including any nonproper walks. By linearity of expectation over **fixed original proper walks**,
+
+```
+E P_{i,G}(u,v) ≥ q_i^{-1} P_i(u,v).
+```
+
+Thus Jensen on the SAME G and symmetry of its adjacency matrix give
+
+```
+P_i(u,v)^2 ≤ q_i^2 (E P_{i,G}(u,v))^2
+            ≤ q_i^2 E[P_{i,G}(u,v)^2],
+||P_i||_F² ≤ q_i² E tr(A_G^(2i)),   i=2,3.
+```
+
+There is **no multiplication of path-survival events**, no pathwise resampling and no interchange of an expectation with the minimum over arbitrary f/g. This supplies a direct self-contained rederivation of the local probability and selected-moment step that was previously accepted in #230/#799.
 
 Each selected simple physical C6 is proper (J_C independent removes gap-two typed repeats, global cuts remove gap-three repeats) and has a unique **historical original D6** six-ID source inverse by the **geometry-unconditional** G6-C1 A2 lemma. A fixed proper physical D6 cycle survives both global cuts with probability exactly `1/1024`; priorities can only delete it. Thus `E C6(G)≤D6_A/1024` (not a separate independent draw for each possible cycle). The selected simple bipartite graph's closed-six-walk reversal bound gives
 
