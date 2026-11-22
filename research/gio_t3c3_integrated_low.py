@@ -414,6 +414,38 @@ def exact_coherent_cut_path_probability(name="W32"):
                 full_global_selection_not_replaced_by_pathwise_cuts=True)
 
 
+def exact_shared_competitor_priority_certificate():
+    """All 5! global priority orders: local winner events are NOT independent.
+
+    Three desired named owners (0,1,2) have no internal J edges,
+    but share two actual potential competitor IDs 3,4. This is a
+    deliberately correlated local-minimum example; the valid bound is
+    product(1/(d_i+1)), not multiplication of true event probabilities.
+    """
+    edges=((0,3),(0,4),(1,3),(1,4),(2,3))
+    graph={i:set() for i in range(5)}
+    for i,j in edges:
+        graph[i].add(j);graph[j].add(i)
+    desired={0,1,2}
+    assert all(not (graph[i]&desired) for i in desired)
+    success=0
+    for order in permutations(range(5)):
+        position={v:p for p,v in enumerate(order)}
+        if all(all(position[i]<position[j] for j in graph[i])
+               for i in desired):
+            success+=1
+    p=Q(success,120)
+    product_floor=Q(1,3)*Q(1,3)*Q(1,2)
+    assert p>=product_floor and p>product_floor
+    return dict(source="five_named_owners_shared_competitors",
+                exact_all_priority_orders=120,
+                exact_simultaneous_local_minima_orders=success,
+                exact_probability=str(p),
+                independent_event_product_lower=str(product_floor),
+                shared_competitor_correlation_nontrivial=True,
+                all_priorities_are_ONE_global_order=True)
+
+
 def exact_threeowner_shared_cut_moments(name="W32"):
     """Exhaustive ONE global cut on a real 3-owner proper physical path.
 
@@ -526,6 +558,7 @@ def certificate():
        local_coherent_cut_probability=exact_coherent_cut_path_probability(),
        local_D6_coherent_cut_probability=exact_d6_cut_probability(),
        exact_threeowner_same_global_selected_moments=exact_threeowner_shared_cut_moments(),
+       shared_competitor_global_priority=exact_shared_competitor_priority_certificate(),
        claim="CONDITIONAL_INTRINSIC_T3_LINEAR_EXCESS_HEAVY_LOW_CLOSED",
        no_claim_external_C6_numeric_constants=True,
        no_infinite_nonGQ_linear_excess_existence=True,
