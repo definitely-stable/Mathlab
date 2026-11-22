@@ -177,9 +177,15 @@ The two **all-integer checks** are
  3(q-1)³-8q = (q-3)*(3(q-1)²+6(q-1)+4)>=0.
 ```
 
-Thus **kappa=3 is an actual fixed global operator certificate** for the entire known Wenger family. No S6 bound is needed. We now have a concrete **nonvacuous infinite** corollary to the quadratic theorem, rather than merely a theorem about a possibly empty nonGQ class:
+Thus **kappa=3 is an actual fixed global operator certificate** for EVERY prime power q≥3, and is sharp at q=3. There is a **strictly stronger uniform asymptotic certificate**: whenever q≥5, r=q−1≥4, `8q=8(r+1)≤r³` (because r²≥16), and we already proved `q(q−2)²<r³`. Hence
 
-**Corollary WENGER-T3.** For every sufficiently large prime power q, put r=q−1 and take the ACTUAL original `W_2(q)` flags with ANY complete minimal separately pair-injective f/g (no random labels), and adversarial original Z with |Z|≤rho*r⁴. With b=1,C=3,kappa=3 fixed, and positive constants rho,delta determined by the external existential ordinary-graph C6 theorem, the historical original six-named-ID obstruction satisfies
+```
+                ||F0||² <= (q−1)³       for ALL q>=5.
+```
+
+The minimal integer scaled certificate `ceil(||F0||²/r³)` is **3 for q=3, 2 for q=4, and 1 for every q≥5**. Therefore the relevant *asymptotic* fixed parameters are **b=1,C=3,kappa=1**, improving the fixed source collinearity constants and HEAVY/LOW radius relative to the safe all-q kappa=3. The exact Python source and CI check both small-q exceptional values and the all-q inequality. No S6 bound is needed. We now have a concrete **nonvacuous infinite** corollary to the quadratic theorem, rather than merely a theorem about a possibly empty nonGQ class:
+
+**Corollary WENGER-T3.** For every sufficiently large prime power q≥5, put r=q−1 and take the ACTUAL original `W_2(q)` flags with ANY complete minimal separately pair-injective f/g (no random labels), and adversarial original Z with |Z|≤rho*r⁴. With **b=1,C=3,kappa=1** fixed, and positive constants rho,delta determined by the external existential ordinary-graph C6 theorem, the historical original six-named-ID obstruction satisfies
 
 ```
          D6_(W_2(q)\Z)(f,g)
