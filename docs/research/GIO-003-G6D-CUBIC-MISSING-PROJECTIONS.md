@@ -175,7 +175,14 @@ An additional exact source degree divisibility gate always holds:
 
 `(t+1)Delta_P=(s+1)Delta_L ⇒ Delta_L is divisible by (t+1)/gcd(s+1,t+1).`
 
-For unequal parameters this can exclude individual positive excess values, but does **not** show all possible small positive excess is impossible. All-order connectedness likewise holds automatically once `Delta_L<(t+1)(st+1)`, since every connected component must separately contain at least the full Moore number of source lines. The G6-D finite classifier should test these necessary constraints and distinguish them from an existence/construction certificate.
+For unequal parameters this excludes some positive excess values; it does **not** show that all small positive excess values are impossible.
+
+**Connectivity from excess alone.** Every nonempty connected component of an actual biregular girth-eight incidence graph retains the SAME degrees and girth and must therefore contain at least `V_P0=(s+1)(st+1)` source points and `V_L0=(t+1)(st+1)` lines. Hence the number of connected components is at most
+`min(floor(V_P/V_P0),floor(V_L/V_L0))`. In particular if `Delta_L<V_L0` (equivalently `Delta_P<V_P0`), connectedness is **forced** without any hidden GQ assumption. This applies automatically to every sufficiently large actual source with the fixed `Delta_L<=C*r^(3/2)` hypothesis, because `V_L0=Theta(r³)`. It does **not** by itself establish existence of any such source.
+
+**Additional small-excess diameter gate.** If `Delta_L<=t` then ANY two original source points are at graph distance at most four: otherwise let p,q be an unconnected or distance≥6 pair of points. Any line through q reachable in three edges from p would append its incidence q and give a length-four p-to-q walk, contradiction. Thus all t+1 lines through q must be missing original projections from p, forcing `Delta_L>=t+1`, contradiction. Dually `Delta_P<=s` forces any two original lines to have distance at most four. Under BOTH conditions the original graph is connected and every point-to-line pair is at distance at most five (take any q on the target line ell, reach q within four edges, append q–ell); therefore its whole incidence graph has diameter at most five. This is only a **sufficient** bound, not an equivalence, and does not assert existence of positive excess.
+
+The certificate implements these as **necessary integer parameter filters**, and separately verifies real connected/disconnected source components and distances using an **independently written literal incidence BFS**. It explicitly distinguishes a size bound from an actual graph-construction certificate. The doubled W32 source has two components and is not incorrectly declared connected; the cross-switched W32 double is connected but has an admissible component upper bound two, which is not mistakenly upgraded to a mandatory two components.
 
 ## 7. Evidence, previous work and strict STOP
 
