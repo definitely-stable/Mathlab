@@ -1,0 +1,92 @@
+name: gio003-g6d2-centered-sixth
+
+on:
+  push:
+    branches:
+      - research/gio003-g6d2-centered-sixth-moment
+    paths:
+      - 'research/gio_t3d2_centered_sixth.py'
+      - 'research/test_gio_t3d2_centered_sixth.py'
+      - 'docs/research/GIO-003-G6D2-CENTERED-SPECTRUM-WENGER.md'
+      - '.github/workflows/gio003-g6d2-centered-sixth.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3d2_centered_sixth.py'
+      - 'research/test_gio_t3d2_centered_sixth.py'
+      - 'docs/research/GIO-003-G6D2-CENTERED-SPECTRUM-WENGER.md'
+      - '.github/workflows/gio003-g6d2-centered-sixth.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quadratic-centered:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact actual source, published Wenger and rational PSD tests
+        run: |
+          python -m py_compile research/gio_t3d2_centered_sixth.py research/test_gio_t3d2_centered_sixth.py
+          python -m unittest discover -s research -p 'test_gio_t3d2_centered_sixth.py' -v
+      - name: Exact quadratic source, spectral and moment certificates
+        shell: bash
+        run: |
+          python research/gio_t3d2_centered_sixth.py --out gio003-g6d2-centered-sixth.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction as Q
+          from pathlib import Path
+          x=json.loads(Path('gio003-g6d2-centered-sixth.json').read_text())
+          assert x["schema"]=="mathlab.gio003.g6d2.centered-missing-sixth.v1"
+          assert x["claim"]=="CONDITIONAL_QUADRATIC_T3_SPECTRAL_GATE_WITH_EXPLICIT_WENGER_FAMILY"
+          assert x["issue"]==793
+          assert x["sixth_moment_condition_is_sufficient_not_necessary"]
+          assert x["real_positive_excess_infinite_family_from_published_Wenger"]
+          assert x["full_quadratic_without_a_spectral_gate_remains_OPEN"]
+          for c in x["exact_source_finite_checks"]:
+              m=c["exact_centered_moments"]
+              k=c["exact_centered_spectral"]
+              assert m["exact_centered_S6"]>=0
+              assert k["exact_centered_Gram_PSD_passed"]
+              assert k["exact_min_integer_centered_norm_kappa"]<=k["Sixth_moment_operator_bound_integer"]
+              assert k["exact_min_integer_centered_norm_kappa"]<=k["row_abs_scaled_kappa"]
+          for q in x["actual_Wenger_prime_field_sources"]:
+              assert q["genuine_original_source_graph_girth8"]
+              assert q["all_entries_published_W2_spectral_polynomial_exact"]
+              assert q["centered_S6_checked_against_published_eigen_multiplicities"]
+              assert q["genuine_nongq_delta"]>0
+              print("G6D2_WENGER_ACTUAL",q["q"],"points",q["points"],
+                    "excess",q["genuine_nongq_delta"],
+                    "S6",q["actual_sixth_moment"])
+          for q in x["published_Wenger_prime_power_symbolic"]:
+              assert q["actual_Moore_excess_each"]<=3*q["r"]**2
+              assert q["exact_centered_F0_norm_squared"]<=3*q["r"]**3
+          wg=x["explicit_infinite_Wenger_nongq_quadratic_T3"]
+          assert wg["source_fixed_parameters"]=={"b":1,"C":3,"kappa":3}
+          assert wg["published_W2_is_known_induced_GQ_subgraph"]
+          assert wg["example_formal_ledger"]["moment_sixth_condition_is_NOT_required"]
+          for z in x["exact_all_order_formal_ledgers"]+x["direct_centered_spectral_family_ledgers"]:
+              assert z["FORMAL_ONLY"]
+              f=z["fixed_before_source"];m=z["moments"];s=z["selector"]
+              c=z["closure"];r=int(c["sufficient_r0"])
+              eps=Q(c["eps"]);rho=Q(c["rho"])
+              assert m["improper"]<=eps*r
+              assert m["E"]**2<=eps**2*r
+              assert m["blocker_D"]**8<=eps**8*r
+              assert 12*f["balance_b"]**2*rho*s["q3"]**2*m["L6"]<=eps**2
+              assert c["four_LOW_errors_each_below_eps"]
+          for f in x["zero_one_regular_F_barriers_not_source_graphs"]:
+              assert f["mask_IS_NOT_verified_as_incidence_source"]
+              assert Q(f["centered_operator_over_q_cubed"])==f["q"]
+          print("PASS_GIO003_G6D2_QUADRATIC_WENGER_EXACT_CERTIFICATE")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6d2-centered-sixth-wenger
+          path: gio003-g6d2-centered-sixth.json
+          retention-days: 90
