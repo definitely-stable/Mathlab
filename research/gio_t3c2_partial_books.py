@@ -354,6 +354,113 @@ def typed_e_col(m,side):
                for i,adj in enumerate(neighbors) for j in adj if j>i)
 
 
+def fourblocker_triple_injection(m,A,C):
+    """Exact local original three-corner injection and fourth-moment budget.
+
+    Count only eligible *proper* physical CORE length-three directed walks
+    with existing FULL original projection anchors, clean outer symbols.
+    Every first-inner-blocked triple (v0,v1,v3), rather than the full
+    v0,v1,v2,v3 walk, injects into a DISTINCT literal original source book
+    term. Its middle v1--v2--v3 completion is charged by (A_C**2)[v1,v3].
+    Reversing the path handles second positions on both typed sides.
+    """
+    if not set(C)<=set(A):
+        raise ValueError("CORE outside surviving FULL")
+    adj,own=actual_edges(m,C)
+    Bx=full_core_book(m,A,C,"point")
+    By=full_core_book(m,A,C,"line")
+    books={"x1":Bx,"x2":Bx,"y1":By,"y2":By}
+    groups={kind:defaultdict(set) for kind in books}
+    triples_by_book={kind:{} for kind in books}
+    vtx=set(adj)
+    A2={(u,v):len(adj[u]&adj[v]) for u in vtx for v in vtx}
+    trA4=sum(z*z for z in A2.values())
+    Delta=max(map(len,adj.values()),default=0)
+    assert Delta==Bx["physical_max_degree_core"]==By["physical_max_degree_core"]
+
+    def source_book_key(v0,v1,v3,p,ell,q,r,mode):
+        owner_id=own[tuple(sorted((v0,v1)))]
+        j,mline=m["flags"][owner_id]
+        if mode=="x":
+            return (j,v0[0],v1[0],p,q,m["flag_to_id"][p,r],owner_id,v0[1])
+        return (mline,v0[1],v1[1],ell,r,
+                m["flag_to_id"][q,ell],owner_id,v0[0])
+
+    def register(group,walk,p,ell,q,r):
+        if group.endswith("2"):
+            walk=walk[::-1]
+        v0,v1,v2,v3=walk
+        mode=group[0]
+        tri=(v0,v1,v3)
+        key=source_book_key(v0,v1,v3,p,ell,q,r,mode)
+        assert key in books[group]["book_keys"],("book injection failed",group,key)
+        if tri in triples_by_book[group]:
+            assert triples_by_book[group][tri]==key
+        else:
+            # The ORIGINAL flag tuple uniquely determines all 3 corners;
+            # two different triples cannot collapse onto one book term.
+            assert key not in triples_by_book[group].values()
+            triples_by_book[group][tri]=key
+        groups[group][tri].add(v2)
+
+    eligible=0
+    for v0 in sorted(adj):
+        for v1 in sorted(adj[v0]):
+            for v2 in sorted(adj[v1]):
+                for v3 in sorted(adj[v2]):
+                    walk=(v0,v1,v2,v3)
+                    if len({z[0] for z in walk})!=4 or len({z[1] for z in walk})!=4:
+                        continue
+                    q=m["point_by_pair"].get(tuple(sorted((v0[0],v3[0]))))
+                    r=m["line_by_pair"].get(tuple(sorted((v0[1],v3[1]))))
+                    if q is None or r is None or (q,r) not in m["projection"]:
+                        continue
+                    p,ell=m["projection"][q,r]
+                    anchors=(m["flag_to_id"][q,ell],
+                             m["flag_to_id"][p,ell],
+                             m["flag_to_id"][p,r])
+                    if not set(anchors)<=A:
+                        continue
+                    if set(m["f"][p])&{z[0] for z in walk} & {v0[0],v3[0]}:
+                        continue
+                    if set(m["g"][ell])&{z[1] for z in walk} & {v0[1],v3[1]}:
+                        continue
+                    eligible+=1
+                    if v1[0] in m["f"][p]:
+                        register("x1",walk,p,ell,q,r)
+                    if v2[0] in m["f"][p]:
+                        register("x2",walk,p,ell,q,r)
+                    if v1[1] in m["g"][ell]:
+                        register("y1",walk,p,ell,q,r)
+                    if v2[1] in m["g"][ell]:
+                        register("y2",walk,p,ell,q,r)
+    out={}
+    for kind,tri_to_middle in groups.items():
+        actual=sum(len(z) for z in tri_to_middle.values())
+        m2=sum(A2[v1,v3]**2 for v0,v1,v3 in tri_to_middle)
+        count=len(tri_to_middle)
+        unique_book_count=len(set(triples_by_book[kind].values()))
+        assert unique_book_count==count
+        assert count<=books[kind]["source_book"]
+        assert m2<=Delta*trA4
+        assert actual*actual<=count*m2
+        exact_bound=books[kind]["source_book"]*Delta*trA4
+        assert actual*actual<=exact_bound
+        out[kind]=dict(actual_proper_blocked_paths=actual,
+            injected_original_3corner_triples=count,
+            independent_original_source_book_keys=unique_book_count,
+            middle_2walk_moment=m2,
+            original_source_book=books[kind]["source_book"],
+            exact_Cauchy_inner_blocker_upper_squared=exact_bound,
+            actual_blockers_squared_le_book_Delta_trace4=True)
+    return dict(eligible_proper_original_3walks=eligible,
+                actual_physical_core_max_degree=Delta,
+                actual_physical_core_trace_A4=trA4,
+                positions=out,
+                no_full_path_to_book_injection_claim=True,
+                original_source_full_anchors_only=True)
+
+
 def source_finite_case(name,scheme="lex",mask="full"):
     m=make_model(name,scheme)
     A,C=selected_mask(m,mask)
@@ -361,6 +468,7 @@ def source_finite_case(name,scheme="lex",mask="full"):
     line_book=full_core_book(m,A,C,"line")
     inverse=inverse_certificate(m,A,C)
     endpoints=endpoint_mask(m,A)
+    blocker=fourblocker_triple_injection(m,A,C)
     # Independent original source Gram from C1, without GQ SRG formula.
     Dp,Dl,_=defect_matrices(m)
     pdata=typed_conflicts_and_gram(m,m["f"],m["neighbors_point"],Dp,
@@ -380,6 +488,7 @@ def source_finite_case(name,scheme="lex",mask="full"):
                 line_book={k:v for k,v in line_book.items() if k!="book_keys"},
                 produced_inverse=inverse,
                 endpoint_mask=endpoints,
+                inner_fourblocker_injection=blocker,
                 no_external_GQ_template_used=True,
                 finite_falsifier_only=True)
 
@@ -407,6 +516,7 @@ def certificate():
        source_first_equals_physical_first_for_partial_nonGQ=True,
        full_A_core_C_never_conflated=True,
        exact_mixed_book_Cauchy_and_Theta_bound=True,
+       proper_physical_threecorner_to_original_book_and_trace4=True,
        no_abstract_T3_full_obstruction_claim=True,
        no_intrinsic_A4_LOW_sixset_supersaturation=True,
        no_Lean_or_external_independent_referee=True,
