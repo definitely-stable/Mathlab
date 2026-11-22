@@ -13,6 +13,7 @@ from gio_t3d2_centered_sixth import (
     validate_direct_family_gate,synthetic_2block_missing_barrier,
     wenger_W2_prime_source,wenger_W2_spectral_parameters,
     wenger_finite_exact_case,wenger_quadratic_theorem_ledger,
+    wenger_original_six_id_inverse_case,
     is_prime,
 )
 from gio_t3d_cubic_missing import (
@@ -306,6 +307,21 @@ class TestG6D2(unittest.TestCase):
         self.assertTrue(x["cited_published_spectrum_is_NOT_our_novelty"])
         self.assertTrue(x["example_formal_ledger"]["moment_sixth_condition_is_NOT_required"])
         self.assertTrue(x["no_external_numeric_C6_theorem_constants_certified"])
+
+    def test_19_actual_Wenger_historical_source_six_ID_threeway_inverse(self):
+        selected=self.data["actual_Wenger_historical_original_BBo_inverses"]
+        self.assertEqual(len(selected),3)
+        self.assertEqual({x["scheme"] for x in selected},{"lex","correlated"})
+        for z in selected:
+            self.assertEqual(z["kind"],"actual_Wenger_W2_prime3")
+            self.assertEqual(z["ORIGINAL_source_flags"],81)
+            self.assertGreater(z["frozen_original_source_missing_pairs"],0)
+            self.assertTrue(z["actual_produced_original_BBo_inverse_three_way_checked"])
+            self.assertTrue(z["no_projected_anchor_filled_from_GQ"])
+            self.assertLessEqual(z["actual_CORE_survivor_flags"],
+                                 z["actual_FULL_survivor_flags"])
+            self.assertEqual(
+                z,wenger_original_six_id_inverse_case(z["scheme"],z["mask"]))
 
     def test_18_prime_power_scope_not_confused_with_prime_only_literal_oracle(self):
         self.assertTrue(is_prime(3))
