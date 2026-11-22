@@ -253,6 +253,11 @@ class TestG6D2(unittest.TestCase):
             r=q-1
             self.assertEqual(x["uniform_fixed_operator_kappa"],3)
             self.assertEqual(x["uniform_quadratic_excess_C"],3)
+            self.assertEqual(x["optimal_integer_centered_kappa_for_this_q"],
+                3 if q==3 else 2 if q==4 else 1)
+            if q>=5:
+                self.assertLessEqual(x["exact_centered_F0_norm_squared"],r**3)
+                self.assertEqual(x["fixed_asymptotic_centered_kappa_for_all_q_ge5"],1)
             self.assertGreater(x["actual_Moore_excess_each"],0)
             self.assertLessEqual(x["actual_Moore_excess_each"],3*r*r)
             self.assertLessEqual(x["exact_centered_F0_norm_squared"],3*r**3)
@@ -301,7 +306,8 @@ class TestG6D2(unittest.TestCase):
 
     def test_17_wenger_conditional_T3_applies_to_real_infinite_family(self):
         x=self.data["explicit_infinite_Wenger_nongq_quadratic_T3"]
-        self.assertEqual(x["source_fixed_parameters"],{"b":1,"C":3,"kappa":3})
+        self.assertEqual(x["source_fixed_parameters"],{"b":1,"C":3,"kappa":1})
+        self.assertEqual(x["independently_valid_all_q_ge3_weaker_kappa"],3)
         self.assertTrue(x["arbitrary_complete_minimal_injective_factor_maps"])
         self.assertTrue(x["published_W2_is_known_induced_GQ_subgraph"])
         self.assertTrue(x["cited_published_spectrum_is_NOT_our_novelty"])
