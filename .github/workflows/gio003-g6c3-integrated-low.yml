@@ -64,11 +64,18 @@ jobs:
                  "R",s["HEAVY_R"],"rho",c["rho"],"delta",c["delta"])
           assert x["local_D6_coherent_cut_probability"]["probability_reduced"]=="1/1024"
           assert x["local_coherent_cut_probability"]["cut_probabilities"]["3"]["exact_probability"]=="1/64"
+          shared=x["exact_threeowner_same_global_selected_moments"]
+          assert shared["same_global_selector_moment_inequalities_exact"]
+          assert shared["enumerated_one_global_typed_cut_assignments"]==256
+          assert shared["all_three_original_owners_preserved_cut_count"]==4
+          assert shared["exact_original_proper_P2_Frobenius_square"]*256<=(16**2)*shared["sum_selected_true_trace_A4_over_all_cuts"]
+          assert shared["exact_original_proper_P3_Frobenius_square"]*256<=(64**2)*shared["sum_selected_true_trace_A6_over_all_cuts"]
           for y in x["finite_global_core_falsifiers"]:
               assert y["return_formula_exact"] and y["exact_walk_Jensen_lower"]
               assert y["actual_inner_blocker_bound_four_positions"]
               print("G6C3_REAL_SOURCE",y["kind"],y["scheme"],
                     "core",y["LOW_core"],"threewalks",y["threewalks_all"])
+          assert sum(z["LOW_core"]>0 for z in x["finite_global_core_falsifiers"])>=4
           print("PASS_GIO003_G6C3_EXACT_INTEGRATED_LOW_CLOSURE")
           PY
       - uses: actions/upload-artifact@v4
