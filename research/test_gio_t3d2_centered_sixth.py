@@ -8,7 +8,7 @@ from gio_t3d2_centered_sixth import (
     SCHEMA,PARENT_G6D1,certificate,raw_trace_cube,
     sixth_moment_certificate,exact_codegrees,centered_gram,
     fractional_psd,direct_centered_spectral_certificate,
-    mixing_constants,integrated_quadratic_moment_ledger,
+    mixing_constants,uniform_direct_spectral_constants,integrated_quadratic_moment_ledger,
     integrated_quadratic_direct_ledger,validate_family_gate,
     validate_direct_family_gate,synthetic_2block_missing_barrier,
     wenger_W2_prime_source,wenger_W2_spectral_parameters,
