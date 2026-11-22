@@ -414,6 +414,63 @@ def exact_coherent_cut_path_probability(name="W32"):
                 full_global_selection_not_replaced_by_pathwise_cuts=True)
 
 
+def exact_threeowner_shared_cut_moments(name="W32"):
+    """Exhaustive ONE global cut on a real 3-owner proper physical path.
+
+    For independent original owners the local-min priority retains all;
+    enumerate physical G over every shared typed bit assignment, and
+    verify the genuine Frob(P2/P3)^2 <= q_i^2 E trace(A_G^(2i))
+    on this source, not a separate cut per queried path.
+    """
+    m=make_model(name)
+    witness=exact_coherent_cut_path_probability(name)
+    ids=tuple(witness["source_owner_ids"])
+    J=owner_conflict_graph(m,ids)
+    assert all(len(x)==0 for x in J.values())
+    H,_=actual_edges(m,ids)
+    xs=sorted({symbol for i in ids for symbol in m["f"][m["flags"][i][0]]})
+    ys=sorted({symbol for i in ids for symbol in m["g"][m["flags"][i][1]]})
+    assert len(xs)==len(ys)==4
+    cuts=2**(len(xs)+len(ys))
+    sum_tr4=0;sum_tr6=0
+    event_count=0
+    for bx in product((0,1),repeat=len(xs)):
+        xbits=dict(zip(xs,bx))
+        for by in product((0,1),repeat=len(ys)):
+            ybits=dict(zip(ys,by))
+            keep=set()
+            for i in ids:
+                p,l=m["flags"][i]
+                xx=m["f"][p];yy=m["g"][l]
+                if xbits[xx[0]]!=xbits[xx[1]] and ybits[yy[0]]!=ybits[yy[1]]:
+                    keep.add(i)
+            selected,_=actual_edges(m,keep)
+            for u in selected:
+                for v in selected[u]:
+                    assert xbits[u[0]]!=xbits[v[0]]
+                    assert ybits[u[1]]!=ybits[v[1]]
+            sum_tr4+=trace_even(selected,2)
+            sum_tr6+=trace_even(selected,3)
+            event_count+=(len(keep)==3)
+    assert event_count*64==cuts
+    p2=counted_walks(H,2,True)
+    p3=counted_walks(H,3,True)
+    fro2=sum(x*x for x in p2.values())
+    fro3=sum(x*x for x in p3.values())
+    assert fro2*cuts<=16**2*sum_tr4
+    assert fro3*cuts<=64**2*sum_tr6
+    return dict(kind=name,independent_original_owners=3,
+        enumerated_one_global_typed_cut_assignments=cuts,
+        all_three_original_owners_preserved_cut_count=event_count,
+        cut_probability_three_owner="1/64",
+        exact_original_proper_P2_Frobenius_square=fro2,
+        exact_original_proper_P3_Frobenius_square=fro3,
+        sum_selected_true_trace_A4_over_all_cuts=sum_tr4,
+        sum_selected_true_trace_A6_over_all_cuts=sum_tr6,
+        same_global_selector_moment_inequalities_exact=True,
+        no_pathwise_resampling=True)
+
+
 def exact_d6_cut_probability(name="W32"):
     """One original D6 -> exactly 4 valid coherent cuts among 2^12."""
     m=make_model(name)
@@ -457,13 +514,18 @@ def certificate():
             ("doubleW32","lex","full",2,3),
             ("switchedDoubleW32","lex","mixed",2,3),
             ("switchedDoubleW32","correlated","mixed",3,4),
-            ("W32","lex","empty_core",1,1))]
+            ("W32","lex","empty_core",1,1),
+            ("W32","lex","full",100,100),
+            ("W33","lex","mixed",100,100),
+            ("Qminus24","lex","mixed",100,100),
+            ("switchedDoubleW32","correlated","mixed",100,100))]
     return dict(schema=SCHEMA,parent_issue=793,meta_issue=790,
        parent_G6C1_HEAD=PARENT_C1,parent_G6C2_HEAD=PARENT_C2,
        exact_formal_ledgers=ledgers,
        finite_global_core_falsifiers=finite,
        local_coherent_cut_probability=exact_coherent_cut_path_probability(),
        local_D6_coherent_cut_probability=exact_d6_cut_probability(),
+       exact_threeowner_same_global_selected_moments=exact_threeowner_shared_cut_moments(),
        claim="CONDITIONAL_INTRINSIC_T3_LINEAR_EXCESS_HEAVY_LOW_CLOSED",
        no_claim_external_C6_numeric_constants=True,
        no_infinite_nonGQ_linear_excess_existence=True,
