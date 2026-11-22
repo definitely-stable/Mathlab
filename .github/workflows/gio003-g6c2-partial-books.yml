@@ -57,6 +57,14 @@ jobs:
               assert inv["manual_physical_first_equals_published"]
               assert inv["manual_physical_first_equals_source_owner_join"]
               assert inv["exact_original_six_ID_nontrivial_inverse"]
+              b=c["inner_fourblocker_injection"]
+              assert b["no_full_path_to_book_injection_claim"]
+              assert b["original_source_full_anchors_only"]
+              for part in b["positions"].values():
+                  assert part["injected_original_3corner_triples"]<=part["original_source_book"]
+                  assert part["actual_proper_blocked_paths"]**2<=(
+                    part["exact_Cauchy_inner_blocker_upper_squared"])
+                  assert part["actual_blockers_squared_le_book_Delta_trace4"]
               e=c["endpoint_mask"]
               assert e["total_bad"]<=e["total_conservative_cap"]
               assert e["parts"]["unprojected"]==4*c["source_points"]*c["source_excess_lines"]
