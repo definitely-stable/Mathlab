@@ -345,8 +345,8 @@ def finite_case(name,scheme="lex"):
     b=(max(m["s"],m["t"])+min(m["s"],m["t"])-1)//min(m["s"],m["t"])
     r=min(m["s"],m["t"])
     # C is a per-fixture finite admissibility witness only.
-    C=cube_ceil((m["excess_lines"]**2+r**3-1)//r**3)
-    # C^2 >= ceil(Delta_L^2/r^3) by construction.
+    C=sqrt_ceil(Q(m["excess_lines"]**2,r**3))
+    # This C is only a finite single-fixture envelope, never a family bound.
     assert m["excess_lines"]**2<=C*C*r**3
     constants=bounded_cubic_source_constants(b,C)
     assert conflict["owners"]["J"]<=constants["combined_owner_conflict_J0"]*r**4
