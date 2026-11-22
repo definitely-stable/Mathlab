@@ -146,9 +146,34 @@ class TestGIOResilience(unittest.TestCase):
         self.assertTrue(all(set(k).isdisjoint(Z) for k in {*d,*b}))
         self.assertEqual(len(m["projection"]),m["V"]*(m["V"]-m["s"]-1))
 
+    def test_12_all_sampled_W34_produced_BBo_have_aligned_GF5_topology(self):
+        # Independent original-source topology check, with and without deletions.
+        # This is distinct from checking just the named historical BBo class.
+        from hyp105_aa4_branch_a_integrated_referee import (
+            actual_bbo_flow_topology, flow_catalog,
+        )
+        flows=flow_catalog()
+        self.assertEqual(len(flows["bbo_sign_counts"]),10)
+        self.assertGreaterEqual(min(flows["bbo_sign_counts"]),5175)
+        for scheme in ("lex","correlated"):
+            m=model(4,scheme,"full")
+            full=frozenset(range(len(m["flags"])))
+            star=masks(m,source_first_bbo(m,full))["mixed_star_union"]
+            for A in (full,full-star):
+                candidates=source_first_bbo(m,A)
+                self.assertGreater(len(candidates),0)
+                keys=sorted(candidates)
+                step=max(1,len(keys)//12)
+                for ids in keys[::step][:12]:
+                    self.assertEqual(len(candidates[ids]),2)
+                    path=next(iter(candidates[ids]))
+                    self.assertTrue(actual_bbo_flow_topology(m,ids,path))
+                    self.assertTrue(set(ids)<=A)
+
     def test_12_scope_no_finite_proof_no_external_acceptance(self):
         self.assertEqual(self.cert["claim"],"RESILIENCE_AND_PACKING_PROOF_CANDIDATE")
         self.assertEqual(self.cert["issue"],791)
+        self.assertEqual(self.cert["packed_BBo_subset"],"CONSTRUCTIVELY_PRODUCED_ONLY")
         self.assertTrue(self.cert["finite_checks_not_all_order_proof"])
         self.assertFalse(self.cert["general_ASET_exponent"])
         self.assertFalse(self.cert["external_peer_review_received"])
