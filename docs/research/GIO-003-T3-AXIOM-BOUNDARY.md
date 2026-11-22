@@ -31,6 +31,40 @@ Then every nonincident point-line pair admits exactly one three-flag projection;
 
 **Critical consequence.** Keeping *all* exact GQ vertex counts, point/line biregularity and girth-eight does **not** enlarge the mathematical class. A claimed T3 based on those assumptions would only restate T1/T2 in abstract syntax. Actual generalization must weaken at least one of exact size, bidegree, full projection coverage or girth. Merely weakening characteristic/field is already done by #799.
 
+## 3A. PROVED: exact Moore-excess projection law for ALL biregular girth-eight incidence systems
+
+The preceding saturation argument admits a **stronger exact quantitative statement that does not assume GQ sizes**.
+
+**Lemma E (regular projection excess and exact source-anchor load).** Let the simple incidence graph be `(t+1,s+1)`-biregular, with girth at least eight, but let its actual point and line counts `V_P,V_L` be arbitrary. Set
+`V_{P,0}=(s+1)(st+1)`, `V_{L,0}=(t+1)(st+1)`. Then necessarily
+`V_P>=V_{P,0}`, `V_L>=V_{L,0}`, and with line excess `Delta_L=V_L-V_{L,0}`,
+
+```
+missing_nonincident_projections = V_P * Delta_L,
+selected_three_paths = V_P * (t+1)*s*t,
+load_pi(e) = 3*s*t  for EVERY source flag e.
+```
+
+**Proof of exact defect.** From every q there are exactly `(t+1)st` different length-three paths `q-E-p-R`, as in Lemma M. Every path ends at a *distinct* nonincident `R` because any repetition would create an incidence four- or six-cycle. Therefore the number of initially nonincident lines without any such path is
+`V_L-(t+1)-(t+1)st=V_L-(t+1)(st+1)=Delta_L`.
+Summing over all `V_P` source points gives the identity. In particular `Delta_L>=0`; the dual argument yields `Delta_P>=0`. Degree double counting gives `Delta_P(t+1)=Delta_L(s+1)`.
+
+**Proof of exact flag load.** Fix `e=(p,E)`. For each of its three possible positions in a three-edge projection, choose an alternate point on its line (`s` possibilities) and an alternate line at its point (`t` possibilities), in the corresponding order. This constructs exactly `st` distinct projected endpoints in each position. Girth-eight guarantees the resulting endpoints are nonincident, different within each position and have no second projection. The position sets do not coincide because the fixed flag would play different roles in the same unique path. Hence every source flag is in exactly `3st` canonical projections.
+
+**New general endpoint-budget corollary.** For any adversarial `Z` of original flags, the initially absent plus destroyed full-source projections are bounded **exactly at the level of assumptions** by
+
+```
+V_P * Delta_L + 3*s*t*|Z|,
+or, under independently injective typed 2-symbol maps,
+4*V_P*Delta_L + 12*s*t*|Z| oriented endpoint representatives.
+```
+
+The second term is an upper bound (deleted projection fibres may overlap), whereas the initial `V_P Delta_L` is an exact count. The projection selector, source bidegrees and missing-mask counts are frozen **before** deletion; if one redefines nonincidence after deleting flags, at most `|Z|` newly nonincident pairs must be handled separately.
+
+For a fixed balance `max(s,t)<=b*min(s,t)=br` and `V_P=O_b(r^3)`, a source with `Delta_L=O_b(r^2)` has the desired `O_b(r^5)` pre-deletion projection defect. Conversely within these biregular girth-eight premises, this small-defect property **requires** `Delta_L=O_b(r^2)` when `V_P=Theta_b(r^3)`. With `|Z|<=rho r^4`, the deletion term is `O_b(rho r^6)`, precisely the scale needed for a quantitative LOW endpoint ledger.
+
+This is a nontrivial **partial abstractization of gate A3**, not an abstract theorem for D6/BBo: even `Delta_L=O(r^2)` and exact `3st` loading say nothing by themselves about the conflict spectral bounds, FULL/CORE mixed books or historical produced-BBo inverse. Existence of infinite non-GQ biregular girth-eight families with that near-Moore excess is **not asserted**.
+
 ## 4. PROVED: universal selected-projection deletion lemma
 
 Let `D` be an arbitrary set of nonincident source point-line pairs with a fixed, **single chosen real projection** `pi(q,R)` consisting of three distinct existing flags for each pair in `D`. It may be partial; if the graph has six-cycles, the selected projection is a *choice*, not an assertion that the historical BBo inverse remains valid.
@@ -61,7 +95,7 @@ For genuine GQ(s,t), the selected full projection has exact `load_pi(e)=3st` for
 
 Take two disjoint copies of any genuine GQ(s,t), including all point and line vertices. This retains simple incidence, **the same bidegrees** and girth-eight, and has
 `|P|=2V_P`, `|L|=2V_L`, `N=2(s+1)(t+1)(st+1)=Theta_b(r^4)`.
-The pair-label alphabets would still have product `Theta_b(r^3)`, but independent conflict/spectral and motif-inverse bounds are not claimed.
+Here `Delta_L=V_{L,0}=Theta_b(r^3)`; Lemma E immediately gives exactly `V_P Delta_L=2V_{P,0}V_{L,0}` defects. The pair-label alphabets would still have product `Theta_b(r^3)`, but independent conflict/spectral and motif-inverse bounds are not claimed.
 
 Every across-component point/line pair has no three-edge projection. Exactly
 `2V_P V_L=2(s+1)(t+1)(st+1)^2=Theta_b(r^6)`
@@ -78,7 +112,7 @@ Remove a single incidence `e=(p,R)` while preserving all point/line vertices and
 | A0 | `N=Theta(r^4)`, `|P|,|L|=Theta(r^3)`; minimal injective typed pair labels | needs family assumptions |
 | A1 | original conflict `e(J)=O(r^4)`, suitable fibre/Gram bounds | not implied by A0/girth |
 | A2 | real two-diagonal owner lift, GQ-source-free `C6 -> original D6` inverse | not generalized yet |
-| A3 | selected partial original three-flag projection with defect `O(r^5)`, max flag load `O(r^2)` | **deletion lemma proved here**; not inferred from size/girth |
+| A3 | selected partial original three-flag projection with defect `O(r^5)`, max flag load `O(r^2)` | **Lemma E proves this if biregular girth-eight source has line excess `O(r^2)`**; otherwise still a separate hypothesis |
 | A4 | one shared LOW priority/cut selector, proper walk and tr(A)^4/tr(A)^6 moments | inherited only in GQ scope |
 | A5 | mixed FULL/CORE source books and inner-error `o(r^6)` | major unproved abstract input |
 | A6 | bounded original 3path to **produced aligned historical BBo six-ID** inverse | new source compatibility proof required |
