@@ -86,6 +86,46 @@ def literal_historical_class(source_flags, point_labels, line_labels):
     return None
 
 
+def oversized_disjoint_symbol_map(m):
+    """Construct a sharp FALSE-extension example if tight alphabets are dropped.
+
+    Allocate TWO symbols unique to each point/line factor. Distinct original
+    flags never share a physical corner: same p but distinct l have disjoint
+    y symbols; same l but distinct p have disjoint x symbols; different
+    p,l have neither in common. No physical multi-edge path, C6 or BBo
+    source 6-set can exist. This deliberately violates minimal alphabets.
+    """
+    f=tuple((2*p,2*p+1) for p in range(m["Vp"]))
+    g=tuple((2*l,2*l+1) for l in range(m["Vl"]))
+    return dict(m, f=f,g=g, aP=2*m["Vp"],aL=2*m["Vl"],
+                a=max(2*m["Vp"],2*m["Vl"]),
+                point_by_pair={pair:p for p,pair in enumerate(f)},
+                line_by_pair={pair:l for l,pair in enumerate(g)})
+
+
+def disjoint_symbol_failure(kind="W32"):
+    m=model(kind)
+    other=oversized_disjoint_symbol_map(m)
+    flags=frozenset(range(len(m["flags"])))
+    # Two independent source-first oracles must both count ZERO.
+    d=source_first_d6(other,flags)
+    b=source_first_bbo(other,flags)
+    assert not d and not b
+    # Direct literal check of corner ownership per original flag.
+    owned=set()
+    for p,l in other["flags"]:
+        points={(x,y) for x in other["f"][p] for y in other["g"][l]}
+        assert not (owned & points)
+        owned.update(points)
+    assert other["aP"]*other["aL"]==4*other["Vp"]*other["Vl"]
+    return dict(kind=kind,original_flags=len(flags),
+                D6=0,BBo_historical=0,
+                physical_alphabet_product=other["aP"]*other["aL"],
+                physical_alphabet_exceeds_minimal=True,
+                every_original_flag_has_private_physical_corners=True,
+                not_in_accepted_minimal_alphabet_domain=True)
+
+
 def switch_with_forced_four_cycle(m):
     """Two-edge switch which CERTIFIABLY destroys GQ on all thick fixtures.
 
@@ -347,11 +387,14 @@ def certificate():
     assert flow["palette"] == 51
     assert flow["d6_alternating"] == 5643
     assert min(flow["bbo_sign_counts"]) >= 5175
+    oversize=disjoint_symbol_failure("W32")
+    assert oversize["D6"]==oversize["BBo_historical"]==0
     return dict(schema=SCHEMA, issue=793, meta_issue=790, root_issue=230,
                 base_main_sha=BASE_MAIN,
                 claim="PROVED_GQ_TEMPLATE_EDIT_TRANSFER_NOT_GENERAL_ABSTRACT_T3",
                 proof_input="accepted #793 T1/T2 uniform original-flag deletion resilience",
                 finite_examples=examples, formal_ledgers=ledgers,
+                oversized_alphabet_counterexample=oversize,
                 GF5=dict(palette=51,D6_sign=5643,BBo_min_sign=5175),
                 no_new_C6_spectral_estimate=True,
                 no_non_template_T3_theorem=True,
