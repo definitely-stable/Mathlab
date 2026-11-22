@@ -1,0 +1,68 @@
+name: gio003-t3b-edit-transfer
+
+on:
+  push:
+    branches:
+      - research/gio003-t3b-edit-transfer
+    paths:
+      - 'research/gio_t3b_edit_transfer.py'
+      - 'research/test_gio_t3b_edit_transfer.py'
+      - 'docs/research/GIO-003-T3B-EDIT-TRANSFER.md'
+      - '.github/workflows/gio003-t3b-edit-transfer.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3b_edit_transfer.py'
+      - 'research/test_gio_t3b_edit_transfer.py'
+      - 'docs/research/GIO-003-T3B-EDIT-TRANSFER.md'
+      - '.github/workflows/gio003-t3b-edit-transfer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  edit-transfer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent non-GQ switch and original six-ID source preservation tests
+        run: python -m unittest discover -s research -p 'test_gio_t3b_edit_transfer.py' -v
+      - name: Generate exact named-source edit transfer certificate
+        shell: bash
+        run: |
+          python research/gio_t3b_edit_transfer.py --out gio003-t3b-edit-transfer.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction as Q
+          from pathlib import Path
+          x=json.loads(Path("gio003-t3b-edit-transfer.json").read_text())
+          assert x["schema"]=="mathlab.gio003.t3b.edit-certified.v1"
+          assert x["claim"]=="PROVED_GQ_TEMPLATE_EDIT_TRANSFER_NOT_GENERAL_ABSTRACT_T3"
+          assert x["issue"]==793 and x["no_non_template_T3_theorem"]
+          assert x["no_new_C6_spectral_estimate"] and x["no_general_ASET_improvement"]
+          assert len(x["finite_examples"])==4
+          for z in x["finite_examples"]:
+              assert z["new_geometry_has_four_cycle"] and z["point_and_line_degrees_preserved"]
+              assert z["literal_and_independent_historical_classifier_agree"]
+              assert z["switched_missing_projections"]<=z["switched_missing_3st_plus_one_bound"]
+              assert len(z["switch_removed"])==len(z["switch_added"])==2
+              for row in z["post_edit_masks"]:
+                  assert row["actual_missing_projections"]<=(
+                      3*z["s"]*z["t"]+1)*row["removed_original_GQ_flags_total"]
+              print("GIO_T3B_ACTUAL_NON_GQ",z["kind"],
+                    "D6",z["edited_certified_D6"],"BBo",z["edited_certified_BBo"])
+          for z in x["formal_ledgers"]:
+              assert z["FORMAL_ONLY"] and z["external_C6_numeric_constants_unknown"]
+              assert Q(z["edited_source_deletion_radius_eta"])*2==Q(z["inherited_GQ_rho"])
+              assert Q(z["surviving_lower_delta"])>0
+          print("PASS_GIO003_T3B_EDIT_TRANSFER_EXACT_CERTIFICATE")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-t3b-edit-transfer-exact-certificate
+          path: gio003-t3b-edit-transfer.json
+          retention-days: 90
