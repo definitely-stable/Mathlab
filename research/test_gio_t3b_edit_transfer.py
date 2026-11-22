@@ -11,7 +11,7 @@ from gio_t3b_edit_transfer import (
     SCHEMA, BASE_MAIN, certificate, finite_case, verify_edit,
     switch_with_forced_four_cycle, literal_historical_class, typed_adjacency,
     is_six_cycle, independent_signature_check, symbolic_transfer_ledger,
-    actual_missing_projections,
+    actual_missing_projections, oversized_disjoint_symbol_map, disjoint_symbol_failure,
 )
 
 
@@ -254,6 +254,20 @@ class TestGIO003T3B(unittest.TestCase):
             for key in inventory:
                 if set(key)<=alive:
                     self.assertTrue(independent_signature_check(updated,changed,key,cls))
+
+    def test_17_dropping_tight_alphabet_can_kill_all_six_motifs(self):
+        for kind in ("W32","Qminus24","dualQminus42"):
+            z=disjoint_symbol_failure(kind)
+            self.assertEqual((z["D6"],z["BBo_historical"]),(0,0))
+            self.assertTrue(z["every_original_flag_has_private_physical_corners"])
+            self.assertTrue(z["physical_alphabet_exceeds_minimal"])
+            self.assertTrue(z["not_in_accepted_minimal_alphabet_domain"])
+            m=model(kind)
+            blown=oversized_disjoint_symbol_map(m)
+            # A true counterexample only OUTSIDE the fixed minimal alphabet.
+            with self.assertRaises(ValueError):
+                verify_edit(blown,(),())
+            self.assertGreater(blown["aP"]*blown["aL"],m["aP"]*m["aL"])
 
     def test_12_literal_source_profiles_not_an_edited_projection_claim(self):
         m=model("W32")
