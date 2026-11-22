@@ -159,6 +159,10 @@ class TestGIO003T3B(unittest.TestCase):
             self.assertGreater(Q(z["surviving_lower_delta"]),0)
             self.assertGreater(Q(z["iid_GF5_sign_probability_min"]),0)
             self.assertTrue(z["all_insertions_allowed_without_new_spectral_claim"])
+            r0=int(z["sufficient_non_GQ_two_switch_r0"])
+            self.assertGreaterEqual(r0,int(z["r0"]))
+            self.assertGreaterEqual(Q(z["edited_source_deletion_radius_eta"])*r0**4,2)
+            self.assertIn("W(3,2^h)",z["explicit_infinite_family"])
 
     def test_11_positive_lower_asymptotic_not_claimed_for_small_fixture(self):
         self.assertEqual(self.c["schema"],SCHEMA)
