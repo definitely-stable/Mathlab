@@ -373,6 +373,200 @@ def synthetic_2block_missing_barrier(q=2):
        no_unconditional_quadratic_conclusion_from_degree_counts=True)
 
 
+def uniform_direct_spectral_constants(b,C,kappa):
+    """Quadratic source envelope, WITHOUT any sixth-moment assumption."""
+    if any(type(z) is not int for z in (b,C,kappa)) or b<1 or C<0 or kappa<0:
+        raise ValueError("fixed integer b>=1,C>=0,kappa>=0")
+    # Same algebraic envelopes as moment ledger, but kappa is a separately
+    # assumed centered OPERATOR bound (NOT deduced from S6 here).
+    x=mixing_constants(b,C,kappa**3)
+    x.pop("centered_sixth_moment_M")
+    x.pop("structural_M_is_AN_ADDITIONAL_assumption")
+    x["centered_operator_kappa0"]=kappa
+    x["structural_centered_spectral_bound_is_AN_ADDITIONAL_assumption"]=True
+    return x
+
+
+def integrated_quadratic_direct_ledger(b=1,C=3,kappa=3,C0=Q(1),c0=Q(1)):
+    """Correct transfer using ||F0||^2 <= kappa*r^3, not S6<=M*r^9."""
+    if type(kappa) is not int or kappa<0:
+        raise ValueError("fixed centered integer kappa>=0")
+    # Shared all-error arithmetic is reused with M=kappa^3 solely as a
+    # parametrization yielding cube_ceil(M)=kappa. A moment gate is NOT
+    # imported as a hypothesis in this alternative theorem.
+    z=integrated_quadratic_moment_ledger(b,C,kappa**3,C0,c0)
+    z["claim"]="CONDITIONAL_INTRINSIC_QUADRATIC_T3_WITH_DIRECT_CENTERED_SPECTRAL_GATE"
+    z["fixed_before_source"].pop("centered_M")
+    z["fixed_before_source"]["centered_operator_kappa"]=kappa
+    z["source"]=uniform_direct_spectral_constants(b,C,kappa)
+    z["moments"].pop("centered_moment_gate")
+    z["moments"]["centered_spectral_gate"]="lambda_max(F F^T-(DeltaL*DeltaP/|P|)*J) <= kappa*r^3"
+    z["moment_sixth_condition_is_NOT_required"]=True
+    z["exact_LDL_source_certificate_available"]=True
+    z["no_unconditional_quadratic_T3"]=True
+    return z
+
+
+def validate_direct_family_gate(s,t,DL,DP,observed_kappa,deleted,ledger):
+    """No assumption on S6, only a directly certified centered F norm."""
+    if any(type(x) is not int for x in (s,t,DL,DP,observed_kappa,deleted)):
+        raise ValueError("all source and spectral inputs must be exact integers")
+    f=ledger["fixed_before_source"]
+    b,C,kappa=(f["balance_b"],f["quadratic_C"],f["centered_operator_kappa"])
+    r=min(s,t)
+    if r<int(ledger["closure"]["sufficient_r0"]) or max(s,t)>b*r:
+        raise ValueError("balance/threshold failure")
+    if DL<0 or DP<0 or (s+1)*DL!=(t+1)*DP or DL>C*r*r:
+        raise ValueError("invalid source Moore excess")
+    if observed_kappa<0 or observed_kappa>kappa:
+        raise ValueError("source lacks centered spectral gate")
+    if deleted<0 or deleted>Q(ledger["closure"]["rho"])*r**4:
+        raise ValueError("source deletion exceeds budget")
+    return True
+
+
+def is_prime(q):
+    if type(q) is not int or q<2:
+        return False
+    return all(q%d for d in range(2,isqrt(q)+1))
+
+
+def wenger_W2_prime_source(q):
+    """Literal **prime** field realization of published Wenger W'_2(q).
+
+    Points (a,b,c), lines [u,v,w] over F_q, with v+b=u*a and
+    w+c=u*a^2; THIS is the W'_2(q) monomial representation, which
+    the Cioaba-Lazebnik-Li paper proves is isomorphic to W_2(q).
+    The all-prime-POWERS existence theorem uses that published result;
+    this finite oracle intentionally implements only actual prime fields.
+    """
+    if not is_prime(q) or q<3:
+        raise ValueError("finite literal oracle requires a prime q>=3")
+    pts=list(product(range(q),repeat=3))
+    lins=list(product(range(q),repeat=3))
+    pindex={p:i for i,p in enumerate(pts)}
+    lindex={ell:i for i,ell in enumerate(lins)}
+    lines=[set() for _ in lins]
+    for p,(a,b,c) in enumerate(pts):
+        for u in range(q):
+            name=(u,(u*a-b)%q,(u*a*a-c)%q)
+            lines[lindex[name]].add(p)
+    assert all(len(x)==q for x in lines)
+    from gio_t3c_intrinsic_defect import source_graph
+    source=source_graph(lines,q**3,q-1,q-1)
+    assert len(source["flags"])==q**4
+    assert source["excess_lines"]==2*q*(q-1)
+    assert source["excess_points"]==2*q*(q-1)
+    return source
+
+
+def wenger_W2_spectral_parameters(q):
+    """ALL prime powers q>=3: published exact W2(q) spectrum + arithmetic.
+
+    Published source: Cioaba, Lazebnik, Li (2014), Theorem 2.1.
+    T=BB^T eigenvalues q^2 (one), 0, q, 2q.
+    The multiplicities m0,m1,m2 count nonzero polynomial coefficients.
+    Here r=q-1, source Moore excess 2qr, and centered F0 Gram equals
+    T(T-2rI)^2 on 1^perp, so its nonzero spectra are
+       q*(q-2)^2, 8q.
+    """
+    if type(q) is not int or q<3:
+        raise ValueError("q>=3 integer (and separately PRIME POWER) required")
+    r=q-1
+    m1=2*q*(q-1)
+    m2=q*(q-1)**2//2
+    assert q*(q-1)**2%2==0
+    m0=q**3-1-m1-m2
+    assert m0>=0 and 1+m0+m1+m2==q**3
+    a=q*(q-2)**2
+    b=8*q
+    spectral=max(a,b)
+    # Exact inequalities valid for all integers q>=3:
+    assert r**3-a==r*r+r-1>0
+    assert 3*r**3-b==(r-2)*(3*r*r+6*r+4)>=0
+    assert 2*q*r<=3*r*r
+    s6=m1*a**3+m2*b**3
+    s2=m1*a+m2*b
+    # Also derived by F 0/1 row sums, without published multiplicities.
+    DL=2*q*r
+    assert s2==q**3*DL-DL**2
+    return dict(q=q,r=r,actual_source_vertices_per_part=q**3,
+        actual_source_degree=q,actual_girth=8,
+        actual_Moore_excess_each=DL,
+        source_nongq_for_all_q_ge3=True,
+        eigenvalues_BBt_nontrivial=[0,q,2*q],
+        eigen_multiplicities_BBt=dict(zero=m0,q=m1,two_q=m2,
+                                   principal_q_squared=1),
+        centered_F0_nontrivial_spectral_levels=[0,a,b],
+        exact_centered_F0_norm_squared=spectral,
+        uniform_fixed_operator_kappa=3,
+        uniform_quadratic_excess_C=3,
+        source_balance_b=1,
+        centered_source_second_moment=s2,
+        centered_source_sixth_moment=s6,
+        six_moment_over_r_ninth=str(Q(s6,r**9)),
+        direct_centered_gate_verified_for_all_integer_q_ge3=True,
+        # Mathematical all-q proof requires a prime-power q. The purely
+        # integer spectral envelope itself holds for all q>=3.
+        actual_family_exists_for_all_prime_powers_q_ge3_by_published_work=True,
+        published_W2_not_newly_discovered=True,
+        known_induced_GQ_embedding_not_assumed_in_source_T3_proof=True)
+
+
+def wenger_finite_exact_case(q):
+    """Small actual Wenger W'_2 prime field, exact source polynomial checks."""
+    m=wenger_W2_prime_source(q)
+    mat=construct_missing_matrices(m)
+    identity=polynomial_identity(mat)
+    assert identity["exact_point_and_line_cubic_identity"]
+    P=m["points"]
+    T=mat["T"]
+    def shift(scale):
+        return [[T[i][j]-scale*(i==j) for j in range(P)]
+                for i in range(P)]
+    left=matmul(matmul(T,shift(q)),shift(2*q))
+    constant=q*(q-1)*(q-2)
+    assert all(v==constant for row in left for v in row)
+    expected=wenger_W2_spectral_parameters(q)
+    exact=sixth_moment_certificate(mat)
+    assert exact["exact_centered_S6"]==expected["centered_source_sixth_moment"]
+    assert exact["exact_centered_S2"]==expected["centered_source_second_moment"]
+    assert mat["delta_line"]==expected["actual_Moore_excess_each"]
+    assert mat["delta_point"]==expected["actual_Moore_excess_each"]
+    if q==3:
+        cert=direct_centered_spectral_certificate(mat)
+        assert cert["exact_min_integer_centered_norm_kappa"]==3
+    return dict(q=q,points=P,lines=len(m["lines"]),
+      original_source_flags=len(m["flags"]),
+      genuine_original_source_graph_girth8=True,
+      cubic_identity_point_line_exact=True,
+      all_entries_published_W2_spectral_polynomial_exact=True,
+      spectral_polynomial_constant=constant,
+      centered_S2_checked_against_published_eigen_multiplicities=True,
+      centered_S6_checked_against_published_eigen_multiplicities=True,
+      genuine_nongq_delta=m["excess_lines"],
+      actual_sixth_moment=exact["exact_centered_S6"],
+      published_formula_centered_kappa=3,
+      exact_PSD_q3_sharp=(q==3),
+      never_assumed_GQ_source_projection_completeness=True)
+
+
+def wenger_quadratic_theorem_ledger():
+    """A GENUINELY NONVACUOUS prime-power family, external C6 numeric formal."""
+    fixed=integrated_quadratic_direct_ledger(1,3,3,Q(1),Q(1))
+    assert fixed["moment_sixth_condition_is_NOT_required"]
+    return dict(family="published_Wenger_W2(q)_for_all_prime_powers_q_ge3",
+       source_fixed_parameters=dict(b=1,C=3,kappa=3),
+       theorem="D6+BBo_produced>=delta*r^6 for all sufficiently large q",
+       deletions="any named original source |Z|<=rho*r^4",
+       arbitrary_complete_minimal_injective_factor_maps=True,
+       no_GQ_witness_in_abstract_proof=True,
+       published_W2_is_known_induced_GQ_subgraph=True,
+       cited_published_spectrum_is_NOT_our_novelty=True,
+       no_external_numeric_C6_theorem_constants_certified=True,
+       example_formal_ledger=fixed)
+
+
 def certificate():
     cases=[finite_source_case(name,scheme) for name,scheme in (
         ("W32","lex"),("W33","lex"),
@@ -384,16 +578,27 @@ def certificate():
           (1,1,1,Q(1),Q(1)),(2,2,8,Q(2),Q(1,2)),
           (3,4,64,Q(3),Q(1,3)))]
     barriers=[synthetic_2block_missing_barrier(q) for q in (2,3)]
+    wenger_finite=[wenger_finite_exact_case(q) for q in (3,5)]
+    wenger_symbolic=[wenger_W2_spectral_parameters(q)
+       for q in (3,4,5,7,8,9,11,16,25,101)]
+    direct_ledgers=[integrated_quadratic_direct_ledger(b,C,k)
+       for b,C,k in ((1,3,3),(2,4,4),(3,5,8))]
     return dict(schema=SCHEMA,issue=793,meta_issue=790,
        parent_G6D1_HEAD=PARENT_G6D1,
-       claim="PROVED_CONDITIONAL_QUADRATIC_EXCESS_WITH_CENTERED_SIXTH_MOMENT",
+       claim="CONDITIONAL_QUADRATIC_T3_SPECTRAL_GATE_WITH_EXPLICIT_WENGER_FAMILY",
        exact_source_finite_checks=cases,
        exact_all_order_formal_ledgers=ledgers,
        zero_one_regular_F_barriers_not_source_graphs=barriers,
+       actual_Wenger_prime_field_sources=wenger_finite,
+       published_Wenger_prime_power_symbolic=wenger_symbolic,
+       direct_centered_spectral_family_ledgers=direct_ledgers,
+       explicit_infinite_Wenger_nongq_quadratic_T3=wenger_quadratic_theorem_ledger(),
        exact_nontrivial_sixth_moment_proof=True,
        six_moment_scale_matches_Jensen_lower_bound=True,
-       full_quadratic_without_moment_remains_OPEN=True,
-       no_real_positive_excess_infinite_family_constructed=True,
+       full_quadratic_without_a_spectral_gate_remains_OPEN=True,
+       sixth_moment_condition_is_sufficient_not_necessary=True,
+       real_positive_excess_infinite_family_from_published_Wenger=True,
+       published_Wenger_spectral_theorem_is_prior_art=True,
        no_unrestricted_T3_or_ASET_claim=True,
        no_external_referee_or_Lean=True)
 
