@@ -7,7 +7,7 @@ from gio_generalized_gq import geometry
 from gio_t3_axiom_boundary import (
     SCHEMA, BASE_MAIN, audit_incidence, certificate, deleted_projection_damage,
     disjoint_copies, remove_one_flag, exact_moore_gate, finite_case,
-    regular_projection_excess_ledger,
+    regular_projection_excess_ledger, switched_connected_double, is_connected,
 )
 
 
@@ -180,6 +180,33 @@ class TestT3AxiomBoundary(unittest.TestCase):
         self.assertEqual(led["line_excess"],2*len(g["lines"]))
         self.assertEqual(len(a["missing"]),6*vp*len(g["lines"]))
         self.assertEqual(set(a["loads"].values()),{3*g["s"]*g["t"]})
+
+    def test_15_connected_switched_double_preserves_girth_and_defect(self):
+        for name in self.by:
+            g=geometry(name);s,t=g["s"],g["t"]
+            vp=(s+1)*(s*t+1)
+            disjoined,n=disjoint_copies(g["lines"],vp)
+            self.assertFalse(is_connected(audit_incidence(disjoined,n)))
+            switched,n=switched_connected_double(g["lines"],vp)
+            a=audit_incidence(switched,n)
+            self.assertTrue(is_connected(a))
+            self.assertTrue(a["girth_at_least_eight"])
+            led=regular_projection_excess_ledger(a,s,t)
+            self.assertEqual(led["total_missing"],2*vp*len(g["lines"]))
+            self.assertEqual(led["exact_all_flag_projection_load"],3*s*t)
+            self.assertEqual(led["point_excess"],vp)
+            self.assertEqual(led["line_excess"],len(g["lines"]))
+            self.assertTrue(self.by[name]["connected_switched_verified"])
+
+    def test_16_switched_connected_literal_3walk_crosscheck(self):
+        g=geometry("W32");rows,n=switched_connected_double(g["lines"],15)
+        a=audit_incidence(rows,n)
+        alt=independent_three_paths(rows,n)
+        self.assertEqual(sum(not p for p in alt.values()),len(a["missing"]))
+        self.assertEqual(sum(len(p)==1 for p in alt.values()),len(a["projected"]))
+        self.assertEqual(sum(len(p)>1 for p in alt.values()),0)
+        for flag in a["flags"][::5]:
+            self.assertEqual(a["loads"][flag],3*g["s"]*g["t"])
 
     def test_14_regular_excess_gate_rejects_irregular_and_short_cycle(self):
         g=geometry("W32")
