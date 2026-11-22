@@ -2,6 +2,7 @@
 from collections import Counter
 from fractions import Fraction as Q
 from itertools import combinations
+from math import isqrt
 import random
 import unittest
 
