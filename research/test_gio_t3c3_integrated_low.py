@@ -10,6 +10,7 @@ from gio_t3c3_integrated_low import (
     frozen_heavy_low_core,actual_physical_degrees,counted_walks,
     trace_even,coordinate_returns,walk_and_selector_finite,
     exact_coherent_cut_path_probability,exact_d6_cut_probability,
+    exact_threeowner_shared_cut_moments,
 )
 from gio_t3c2_partial_books import make_model,selected_mask
 from hyp105_aa4_branch_a_integrated_referee import actual_edges
@@ -206,6 +207,36 @@ class TestG6C3(unittest.TestCase):
         self.assertEqual(x["threewalks_all"],0)
         self.assertEqual(x["actual_uncut_trace_A4"],0)
         self.assertFalse(x["shared_priority_and_two_global_cuts_checked"])
+
+    def test_16_exhaustive_same_graph_selected_fourth_sixth_moments(self):
+        # Every global cut of an actual CORE three-original-owner path
+        # is used for BOTH P2/P3 moment estimates, no per-path resampling.
+        x=self.z["exact_threeowner_same_global_selected_moments"]
+        self.assertTrue(x["same_global_selector_moment_inequalities_exact"])
+        self.assertTrue(x["no_pathwise_resampling"])
+        self.assertEqual(x["enumerated_one_global_typed_cut_assignments"],256)
+        self.assertEqual(x["all_three_original_owners_preserved_cut_count"],4)
+        self.assertEqual(x["cut_probability_three_owner"],"1/64")
+        self.assertGreater(x["exact_original_proper_P2_Frobenius_square"],0)
+        self.assertGreater(x["exact_original_proper_P3_Frobenius_square"],0)
+        self.assertLessEqual(
+            x["exact_original_proper_P2_Frobenius_square"]*256,
+            16**2*x["sum_selected_true_trace_A4_over_all_cuts"])
+        self.assertLessEqual(
+            x["exact_original_proper_P3_Frobenius_square"]*256,
+            64**2*x["sum_selected_true_trace_A6_over_all_cuts"])
+
+    def test_17_nonempty_CORE_and_nonzero_original_walk_moments(self):
+        active=[x for x in self.z["finite_global_core_falsifiers"]
+                if x["LOW_core"]>0]
+        self.assertGreaterEqual(len(active),4)
+        self.assertTrue(any(x["kind"]=="switchedDoubleW32" for x in active))
+        self.assertTrue(any(x["kind"]=="W33" for x in active))
+        for x in active:
+            self.assertTrue(x["shared_priority_and_two_global_cuts_checked"])
+            self.assertGreater(x["threewalks_all"],0)
+            self.assertGreater(x["actual_uncut_trace_A4"],0)
+            self.assertGreater(x["LOW_core"],0)
 
     def test_15_formal_external_inputs_independent_of_actual_finite_cases(self):
         x=self.z
