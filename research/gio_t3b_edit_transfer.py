@@ -11,7 +11,7 @@ spectral theorem. Numeric graph C6 inputs in sample ledgers are FORMAL ONLY.
 from collections import Counter, defaultdict
 from fractions import Fraction as Q
 from itertools import combinations
-from math import comb
+from math import comb, isqrt
 from pathlib import Path
 import argparse
 import json
@@ -311,12 +311,23 @@ def symbolic_transfer_ledger(b, C0=Q(1), c0=Q(1)):
     delta = Q(original["delta"])
     p = Q(5175, 51**6)
     assert eta > 0 and eta*2 == rho and delta > 0
+    # To exhibit the explicit two-flag non-GQ switch on an asymptotic
+    # GQ family, ensure 2 <= eta*r^4 with a true exact integer root.
+    target = (2/eta).__ceil__()
+    rs = isqrt(isqrt(target))
+    while rs**4 < target:
+        rs += 1
+    switch_r0 = max(int(original["sufficient_integer_r0"]), rs)
+    assert eta*switch_r0**4 >= 2
+    assert switch_r0 >= int(original["sufficient_integer_r0"])
     return dict(balance=b, FORMAL_ONLY=True,
                 external_C6_numeric_constants_unknown=True,
                 C0=str(C0), c0=str(c0), inherited_GQ_rho=str(rho),
                 edited_source_deletion_radius_eta=str(eta),
                 surviving_lower_delta=str(delta),
                 r0=str(original["sufficient_integer_r0"]),
+                sufficient_non_GQ_two_switch_r0=str(switch_r0),
+                explicit_infinite_family="W(3,2^h) with h sufficiently large",
                 original_change_gate="|I_GQ minus I_edited| <= eta*r^4",
                 extra_deletion_gate="|U| <= eta*r^4",
                 union_gate="|Z|+|U intersect I_GQ| <= 2*eta*r^4 = rho*r^4",
