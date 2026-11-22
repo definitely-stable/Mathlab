@@ -266,6 +266,25 @@ class TestGIO003G6C(unittest.TestCase):
             x=spectral_cap(k,theta,mu,d)
             self.assertGreaterEqual(x*x-abs(theta)*x,k-mu+d)
 
+    def test_14_defect_matrix_is_NOT_positive_semidefinite(self):
+        # In disconnected double W32, every cross-component point pair
+        # has exactly t+1 missing 3path line choices. Thus Dp has block
+        # form [0,3*J;3*J,0], whose signed vector (1^15,-1^15) has
+        # exact negative eigenvalue -45. Any proof using D>=0 in the
+        # positive-semidefinite sense would be invalid.
+        lines,P,s,t=doubled_gq("W32",False)
+        m=source_graph(lines,P,s,t)
+        Dp,Dl,d=defect_matrices(m)
+        x=[1]*(P//2)+[-1]*(P//2)
+        self.assertEqual(sum(x),0)
+        self.assertEqual(d,45)
+        self.assertEqual([sum(Dp[i][j]*x[j] for j in range(P))
+                          for i in range(P)],[-d*z for z in x])
+        self.assertEqual(
+            sum(x[i]*Dp[i][j]*x[j] for i in range(P) for j in range(P)),
+            -d*sum(z*z for z in x))
+        self.assertTrue(all(y>=0 for row in Dp for y in row))
+
     def test_13_fixture_metadata_and_proper_alphabet_scales(self):
         expect={"W32":(15,15,45),"W33":(40,40,160),
                 "Qminus24":(27,45,135),"dualQminus42":(45,27,135),
