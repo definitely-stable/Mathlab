@@ -46,6 +46,10 @@ jobs:
               assert c["moore"]["forces_full_unique_projection"]
               assert c["singleton_damage"]["affected_endpoints"]==3*c["s"]*c["t"]
               assert c["double"]["missing_pairs"]==c["double_cross_missing_exact"]
+              assert c["original_excess_ledger"]["line_excess"]==0
+              assert c["double_excess_ledger"]["line_excess"]==c["full"]["lines"]
+              assert c["double_excess_ledger"]["total_missing"]==c["double"]["missing_pairs"]
+              assert c["double_excess_ledger"]["exact_all_flag_projection_load"]==3*c["s"]*c["t"]
               assert c["deleted_one_flag"]["missing_pairs"]==3*c["s"]*c["t"]+1
           print("PASS_GIO003_T3_AXIOM_BOUNDARY_EXACT_CERTIFICATE")
           PY
