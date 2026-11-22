@@ -159,6 +159,42 @@ def exact_moore_gate(audit, s, t):
                 nonincident_lines_per_point=nonincident_per_point)
 
 
+
+def regular_projection_excess_ledger(audit, s, t):
+    """Exact source-level T3 projection budget for ANY biregular girth-8 system.
+
+    From each point: (t+1)*s*t different nonincident 3-path endpoints;
+    therefore missed nonincident pairs per point equal
+    |L|-(t+1)*(s*t+1), no extra GQ/projective/spectral assumption.
+    Every original flag is in exactly st projections in each of the
+    three path positions, hence its total selected-anchor load = 3st.
+    """
+    gate = exact_moore_gate(audit, s, t)
+    if not gate["regular"] or not gate["girth_at_least_eight"]:
+        raise ValueError("requires (s,t)-biregularity and girth>=8")
+    base_points = (s + 1) * (s * t + 1)
+    base_lines = (t + 1) * (s * t + 1)
+    excess_lines = audit["lines"] - base_lines
+    excess_points = audit["points"] - base_points
+    assert excess_lines >= 0 and excess_points >= 0
+    # Degree double count imposes |P|(t+1)=|L|(s+1).
+    assert audit["points"] * (t + 1) == audit["lines"] * (s + 1)
+    assert excess_points * (t + 1) == excess_lines * (s + 1)
+    assert not audit["multiple"]
+    assert len(audit["missing"]) == audit["points"] * excess_lines
+    assert len(audit["projected"]) == audit["points"] * (t + 1) * s * t
+    assert len(audit["loads"]) == len(audit["flags"])
+    assert all(audit["loads"][e] == 3 * s * t for e in audit["flags"])
+    return dict(point_excess=excess_points, line_excess=excess_lines,
+                missing_per_point=excess_lines,
+                total_missing=len(audit["missing"]),
+                exact_three_paths_per_point=(t + 1) * s * t,
+                exact_all_flag_projection_load=3 * s * t,
+                bound_for_Z_flags="missing + 3*s*t*|Z|",
+                oriented_bound_for_injective_pairs="4*missing + 12*s*t*|Z|",
+                no_GQ_axiom_assumed=True)
+
+
 def summarize(a):
     return dict(points=a["points"], lines=a["lines"], flags=len(a["flags"]),
                 unique_projected_pairs=len(a["projected"]),
@@ -174,6 +210,8 @@ def finite_case(name):
     moore = exact_moore_gate(orig, s, t)
     assert moore["forces_full_unique_projection"]
     assert orig["maximum_load"] == 3 * s * t
+    original_excess = regular_projection_excess_ledger(orig, s, t)
+    assert original_excess["line_excess"] == 0
     first = orig["flags"][0]
     exact_singleton = deleted_projection_damage(orig, {first})
     assert exact_singleton["affected_endpoints"] == 3 * s * t
@@ -185,6 +223,8 @@ def finite_case(name):
     # Missing projections are precisely cross-component point/line pairs.
     assert len(double["missing"]) == 2 * orig["points"] * orig["lines"]
     assert len(double["projected"]) == 2 * len(orig["projected"])
+    double_excess = regular_projection_excess_ledger(double, s, t)
+    assert double_excess["line_excess"] == orig["lines"]
     damaged_lines, removed = remove_one_flag(g["lines"])
     punctured = audit_incidence(damaged_lines, orig["points"])
     assert not exact_moore_gate(punctured, s, t)["regular"]
@@ -197,6 +237,8 @@ def finite_case(name):
     damage = deleted_projection_damage(orig, z)
     assert damage["affected_endpoints"] <= 3 * s * t * len(z)
     return dict(kind=name, s=s, t=t, full=summarize(orig), moore=moore,
+                original_excess_ledger=original_excess,
+                double_excess_ledger=double_excess,
                 singleton_damage=exact_singleton, arbitrary_damage=damage,
                 double=summarize(double), double_gate=double_gate,
                 deleted_one_flag=summarize(punctured),
@@ -227,6 +269,8 @@ def certificate():
                 proof_obligations=dict(
                     no_c4_c6_implies_projection_at_most_one=True,
                     exact_biregular_moore_saturation_forces_GQ=True,
+                    biregular_girth8_missing_equals_P_times_line_excess=True,
+                    biregular_girth8_each_flag_load_exact_3st=True,
                     partial_selector_damage_at_most_maxload_times_deletions=True,
                     oriented_factor_requires_injective_two_symbol_maps=True),
                 cases=examples, cycle6=summarize(triangle),
