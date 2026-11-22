@@ -7,6 +7,7 @@ from gio_generalized_gq import geometry
 from gio_t3_axiom_boundary import (
     SCHEMA, BASE_MAIN, audit_incidence, certificate, deleted_projection_damage,
     disjoint_copies, remove_one_flag, exact_moore_gate, finite_case,
+    regular_projection_excess_ledger,
 )
 
 
@@ -152,6 +153,42 @@ class TestT3AxiomBoundary(unittest.TestCase):
         self.assertLess(Fraction((1000+1)*(1000**2+1),
                 2*(1000+1)*(1000**2+1)-(1000+1))-Fraction(1,2),
                 Fraction(1,100000))
+
+    def test_12_biregular_girth8_exact_excess_not_just_moore(self):
+        for name in self.by:
+            g=geometry(name)
+            vp=(g["s"]+1)*(g["s"]*g["t"]+1)
+            a=audit_incidence(g["lines"],vp)
+            base=regular_projection_excess_ledger(a,g["s"],g["t"])
+            self.assertEqual(base["line_excess"],0)
+            self.assertEqual(base["total_missing"],0)
+            double_rows,double_pts=disjoint_copies(g["lines"],vp)
+            twice=audit_incidence(double_rows,double_pts)
+            led=regular_projection_excess_ledger(twice,g["s"],g["t"])
+            self.assertEqual(led["line_excess"],len(g["lines"]))
+            self.assertEqual(led["point_excess"],vp)
+            self.assertEqual(led["total_missing"],2*vp*len(g["lines"]))
+            self.assertEqual(led["exact_all_flag_projection_load"],3*g["s"]*g["t"])
+            self.assertTrue(led["no_GQ_axiom_assumed"])
+
+    def test_13_triple_copy_exact_excess_identity(self):
+        g=geometry("W32");vp=15
+        lines=tuple(g["lines"])+tuple(tuple(x+vp for x in L) for L in g["lines"]) + tuple(
+            tuple(x+2*vp for x in L) for L in g["lines"])
+        a=audit_incidence(lines,3*vp)
+        led=regular_projection_excess_ledger(a,g["s"],g["t"])
+        self.assertEqual(led["line_excess"],2*len(g["lines"]))
+        self.assertEqual(len(a["missing"]),6*vp*len(g["lines"]))
+        self.assertEqual(set(a["loads"].values()),{3*g["s"]*g["t"]})
+
+    def test_14_regular_excess_gate_rejects_irregular_and_short_cycle(self):
+        g=geometry("W32")
+        shortened,_=remove_one_flag(g["lines"])
+        with self.assertRaises(ValueError):
+            regular_projection_excess_ledger(audit_incidence(shortened,15),2,2)
+        with self.assertRaises(ValueError):
+            regular_projection_excess_ledger(
+                audit_incidence(((0,1),(1,2),(0,2)),3),1,1)
 
     def test_11_domain_guards_and_no_false_full_T3_claim(self):
         self.assertEqual(self.c["schema"],SCHEMA)
