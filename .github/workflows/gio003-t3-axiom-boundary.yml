@@ -1,0 +1,56 @@
+name: gio003-t3-axiom-boundary
+on:
+  push:
+    branches:
+      - research/gio003-t3-axiom-boundary
+    paths:
+      - 'research/gio_t3_axiom_boundary.py'
+      - 'research/test_gio_t3_axiom_boundary.py'
+      - 'docs/research/GIO-003-T3-AXIOM-BOUNDARY.md'
+      - '.github/workflows/gio003-t3-axiom-boundary.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3_axiom_boundary.py'
+      - 'research/test_gio_t3_axiom_boundary.py'
+      - 'docs/research/GIO-003-T3-AXIOM-BOUNDARY.md'
+      - '.github/workflows/gio003-t3-axiom-boundary.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  incidence-boundary:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent finite projection, Moore and counterexample falsifiers
+        run: python -m unittest discover -s research -p 'test_gio_t3_axiom_boundary.py' -v
+      - name: Generate exact source-geometry boundary certificate
+        shell: bash
+        run: |
+          python research/gio_t3_axiom_boundary.py --out gio003-t3-axiom-boundary.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("gio003-t3-axiom-boundary.json").read_text())
+          assert x["schema"]=="mathlab.gio003.t3-axiom-boundary.v1"
+          assert x["claim"]=="PROVED_RESTRICTED_AXIOM_BOUNDARY_NOT_T3"
+          assert x["no_full_abstract_T3_motif_theorem"] and x["no_general_ASET_exponent"]
+          assert len(x["cases"])==4 and x["cycle6"]["multi_projection_pairs"]==3
+          for c in x["cases"]:
+              assert c["moore"]["forces_full_unique_projection"]
+              assert c["singleton_damage"]["affected_endpoints"]==3*c["s"]*c["t"]
+              assert c["double"]["missing_pairs"]==c["double_cross_missing_exact"]
+              assert c["deleted_one_flag"]["missing_pairs"]==3*c["s"]*c["t"]+1
+          print("PASS_GIO003_T3_AXIOM_BOUNDARY_EXACT_CERTIFICATE")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-t3-axiom-boundary-exact-certificate
+          path: gio003-t3-axiom-boundary.json
+          retention-days: 90
