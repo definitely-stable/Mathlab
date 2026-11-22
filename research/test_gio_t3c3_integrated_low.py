@@ -11,6 +11,7 @@ from gio_t3c3_integrated_low import (
     trace_even,coordinate_returns,walk_and_selector_finite,
     exact_coherent_cut_path_probability,exact_d6_cut_probability,
     exact_threeowner_shared_cut_moments,
+    exact_shared_competitor_priority_certificate,
 )
 from gio_t3c2_partial_books import make_model,selected_mask
 from hyp105_aa4_branch_a_integrated_referee import actual_edges
@@ -225,6 +226,15 @@ class TestG6C3(unittest.TestCase):
         self.assertLessEqual(
             x["exact_original_proper_P3_Frobenius_square"]*256,
             64**2*x["sum_selected_true_trace_A6_over_all_cuts"])
+
+    def test_18_shared_J_competitor_priorities_not_falsely_independent(self):
+        z=self.z["shared_competitor_global_priority"]
+        self.assertEqual(z["exact_all_priority_orders"],120)
+        self.assertTrue(z["shared_competitor_correlation_nontrivial"])
+        self.assertTrue(z["all_priorities_are_ONE_global_order"])
+        self.assertGreater(Q(z["exact_probability"]),
+                           Q(z["independent_event_product_lower"]))
+        self.assertEqual(z,exact_shared_competitor_priority_certificate())
 
     def test_17_nonempty_CORE_and_nonzero_original_walk_moments(self):
         active=[x for x in self.z["finite_global_core_falsifiers"]
