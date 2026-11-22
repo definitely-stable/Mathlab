@@ -159,7 +159,7 @@ class TestT3AxiomBoundary(unittest.TestCase):
         self.assertEqual(self.c["claim"],"PROVED_RESTRICTED_AXIOM_BOUNDARY_NOT_T3")
         self.assertTrue(self.c["no_full_abstract_T3_motif_theorem"])
         self.assertTrue(self.c["no_general_ASET_exponent"])
-        self.assertFalse(self.c["no_external_referee"])
+        self.assertTrue(self.c["no_external_referee"])
         with self.assertRaises(ValueError):
             exact_moore_gate(audit_incidence(((0,1),),2),0,1)
         self.assertEqual(set(self.by),{"W32","W33","Qminus24","dualQminus42"})
