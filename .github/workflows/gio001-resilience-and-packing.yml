@@ -7,12 +7,14 @@ on:
       - 'research/gio_resilience.py'
       - 'research/test_gio_resilience.py'
       - 'docs/research/GIO-001-RESILIENCE.md'
+      - 'docs/research/GIO-001-RESILIENCE-INTERNAL-REFEREE.md'
       - '.github/workflows/gio001-resilience-and-packing.yml'
   pull_request:
     paths:
       - 'research/gio_resilience.py'
       - 'research/test_gio_resilience.py'
       - 'docs/research/GIO-001-RESILIENCE.md'
+      - 'docs/research/GIO-001-RESILIENCE-INTERNAL-REFEREE.md'
       - '.github/workflows/gio001-resilience-and-packing.yml'
   workflow_dispatch:
 
@@ -41,6 +43,7 @@ jobs:
           c=json.loads(Path("gio-resilience-certificate.json").read_text())
           assert c["schema"]=="mathlab.gio001.resilience.v1" and c["issue"]==791
           assert c["claim"]=="RESILIENCE_AND_PACKING_PROOF_CANDIDATE"
+          assert c["packed_BBo_subset"]=="CONSTRUCTIVELY_PRODUCED_ONLY"
           assert not c["external_peer_review_received"] and not c["general_ASET_exponent"]
           for l in c["formal_ledgers"]:
               assert l["FORMAL_ONLY"] and l["external_numeric_constants_unknown"]
