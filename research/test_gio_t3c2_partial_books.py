@@ -8,6 +8,7 @@ from gio_t3c2_partial_books import (
     full_core_book,manual_produced_bbo,inverse_certificate,
     original_source_conflict_degrees,endpoint_mask,
     source_finite_case,certificate,typed_e_col,
+    fourblocker_triple_injection,
 )
 from gio_t3c_intrinsic_defect import source_graph,doubled_gq
 from hyp105_aa4_branch_a_integrated_referee import (
@@ -279,6 +280,40 @@ class TestGIO003C2(unittest.TestCase):
         self.assertTrue(z["full_A_core_C_never_conflated"])
         self.assertTrue(z["exact_mixed_book_Cauchy_and_Theta_bound"])
         self.assertTrue(z["no_abstract_T3_full_obstruction_claim"])
+
+    def test_16_original_threecorner_injection_and_fourth_moment(self):
+        # The three-corner book map is separately tested for four blocker
+        # positions: point first/second, line first/second, not just B.
+        for kind,scheme,mask in [
+            ("W32","lex","full"),("W32","lex","mixed"),
+            ("W32","correlated","mixed"),
+            ("W33","lex","mixed"),
+            ("Qminus24","lex","mixed"),
+            ("dualQminus42","lex","mixed"),
+            ("doubleW32","lex","full"),
+            ("switchedDoubleW32","lex","mixed")]:
+            m=make_model(kind,scheme)
+            A,C=selected_mask(m,mask)
+            output=fourblocker_triple_injection(m,A,C)
+            self.assertTrue(output["no_full_path_to_book_injection_claim"])
+            self.assertTrue(output["original_source_full_anchors_only"])
+            for k,part in output["positions"].items():
+                self.assertLessEqual(part["injected_original_3corner_triples"],
+                                     part["original_source_book"])
+                self.assertLessEqual(
+                    part["actual_proper_blocked_paths"]**2,
+                    part["exact_Cauchy_inner_blocker_upper_squared"])
+                self.assertTrue(part["actual_blockers_squared_le_book_Delta_trace4"])
+
+    def test_17_zero_CORE_gives_zero_fourblockers(self):
+        m=make_model("W32")
+        A,C=selected_mask(m,"empty_core")
+        x=fourblocker_triple_injection(m,A,C)
+        self.assertEqual(x["eligible_proper_original_3walks"],0)
+        self.assertEqual(x["actual_physical_core_trace_A4"],0)
+        for item in x["positions"].values():
+            self.assertEqual(item["actual_proper_blocked_paths"],0)
+            self.assertEqual(item["injected_original_3corner_triples"],0)
 
     def test_15_old_projection_mask_keeps_true_biregular_source_only(self):
         for name in ("W32","Qminus24","doubleW32",
