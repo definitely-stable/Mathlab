@@ -76,8 +76,12 @@ jobs:
           for q in x["published_Wenger_prime_power_symbolic"]:
               assert q["actual_Moore_excess_each"]<=3*q["r"]**2
               assert q["exact_centered_F0_norm_squared"]<=3*q["r"]**3
+              assert q["optimal_integer_centered_kappa_for_this_q"]==(3 if q["q"]==3 else 2 if q["q"]==4 else 1)
+              if q["q"]>=5:
+                  assert q["exact_centered_F0_norm_squared"]<=q["r"]**3
           wg=x["explicit_infinite_Wenger_nongq_quadratic_T3"]
-          assert wg["source_fixed_parameters"]=={"b":1,"C":3,"kappa":3}
+          assert wg["source_fixed_parameters"]=={"b":1,"C":3,"kappa":1}
+          assert wg["independently_valid_all_q_ge3_weaker_kappa"]==3
           assert wg["published_W2_is_known_induced_GQ_subgraph"]
           assert wg["example_formal_ledger"]["moment_sixth_condition_is_NOT_required"]
           for z in x["exact_all_order_formal_ledgers"]+x["direct_centered_spectral_family_ledgers"]:
