@@ -421,6 +421,7 @@ def certificate():
     return dict(schema=SCHEMA,foundation_issue=230,issue=791,
         foundation_commit="a49e1de8a46b6afbeb668c4413647fd4eeb63d8a",
         claim="RESILIENCE_AND_PACKING_PROOF_CANDIDATE",
+        packed_BBo_subset="CONSTRUCTIVELY_PRODUCED_ONLY",
         formal_ledgers=ledgers,finite_cases=cases,
         finite_checks_not_all_order_proof=True,
         general_ASET_exponent=False,external_peer_review_received=False)
