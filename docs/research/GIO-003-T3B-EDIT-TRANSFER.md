@@ -85,6 +85,8 @@ p -- J -- u -- Lq -- p
 
 because original flags `(p,J),(u,J),(u,Lq)` remain and `(p,Lq)` is new. Thus it is **provably not GQ**, although it retains the original point and line counts, bidegrees, minimal typed pair-label alphabets and `N=Theta_b(r^4)`. Its source incidence girth is now 4, yet Theorem E applies because only two old original flags were deleted, for every sufficiently large existing balanced GQ order with `2<=eta_b*r^4`. Such orders are included after increasing the existential all-order threshold if necessary.
 
+**This is an explicit infinite non-GQ family, not merely an existence-conditioned example.** For every sufficiently large dyadic order `s=t=2^h`, the classical genuine symplectic `W(3,2^h)` exists (the accepted #230 foundation). Perform this two-edge switch. Its result is a non-GQ incidence system with `N=Theta(s^4)`, girth **4**, and the uniform historical `Omega(s^6)` obstruction for all admissible physical labels. Formally increase the lower order threshold to `max(r0_b,ceil((2/eta_b)^(1/4)))`, verified by exact integer fourth-power arithmetic in the formal ledger. The finite small fixtures are only falsification checks, not empirical evidence for the asymptotic bound.
+
 Any sequence of degree-preserving legal switches with no more than `eta_b*r^4` distinct deleted original-Q flags also falls under the theorem, whether or not the edited graph contains additional short cycles or has lost GQ projection uniqueness. This does NOT construct an arbitrary non-GQ near-Moore structure without a GQ template; it is a genuinely non-GQ **perturbation family** whose obstruction is inherited.
 
 ## 5. Independent exact finite falsifiers
