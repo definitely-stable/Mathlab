@@ -45,6 +45,10 @@ jobs:
           assert x["issue"]==793 and x["no_non_template_T3_theorem"]
           assert x["no_new_C6_spectral_estimate"] and x["no_general_ASET_improvement"]
           assert len(x["finite_examples"])==4
+          o=x["oversized_alphabet_counterexample"]
+          assert o["D6"]==0 and o["BBo_historical"]==0
+          assert o["every_original_flag_has_private_physical_corners"]
+          assert o["not_in_accepted_minimal_alphabet_domain"]
           for z in x["finite_examples"]:
               assert z["new_geometry_has_four_cycle"] and z["point_and_line_degrees_preserved"]
               assert z["literal_and_independent_historical_classifier_agree"]
