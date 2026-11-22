@@ -1,0 +1,78 @@
+name: gio003-g6c3-integrated-low
+
+on:
+  push:
+    branches:
+      - research/gio003-g6c3-integrated-low-closure
+    paths:
+      - 'research/gio_t3c3_integrated_low.py'
+      - 'research/test_gio_t3c3_integrated_low.py'
+      - 'docs/research/GIO-003-G6C3-INTRINSIC-T3-LINEAR-EXCESS.md'
+      - '.github/workflows/gio003-g6c3-integrated-low.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3c3_integrated_low.py'
+      - 'research/test_gio_t3c3_integrated_low.py'
+      - 'docs/research/GIO-003-G6C3-INTRINSIC-T3-LINEAR-EXCESS.md'
+      - '.github/workflows/gio003-g6c3-integrated-low.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  intrinsic-global-low:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Python syntax plus exact source selector and closure falsifiers
+        run: |
+          python -m py_compile research/gio_t3c3_integrated_low.py research/test_gio_t3c3_integrated_low.py
+          python -m unittest discover -s research -p 'test_gio_t3c3_integrated_low.py' -v
+      - name: Produce all-order FORMAL ONLY parameter gates and physical checks
+        shell: bash
+        run: |
+          python research/gio_t3c3_integrated_low.py --out gio003-g6c3-integrated-low.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction as Q
+          from pathlib import Path
+          x=json.loads(Path("gio003-g6c3-integrated-low.json").read_text())
+          assert x["schema"]=="mathlab.gio003.g6c3.intrinsic-low-closure.v1"
+          assert x["claim"]=="CONDITIONAL_INTRINSIC_T3_LINEAR_EXCESS_HEAVY_LOW_CLOSED"
+          assert x["parent_issue"]==793
+          assert x["no_claim_external_C6_numeric_constants"]
+          assert x["no_infinite_nonGQ_linear_excess_existence"]
+          assert x["no_unrestricted_incidence_T3"] and x["no_general_ASET_exponent"]
+          for z in x["exact_formal_ledgers"]:
+              assert z["FORMAL_ONLY"] and z["published_graph_numeric_constants_not_supplied"]
+              c=z["closure"];p=z["fixed_before_source"];m=z["moment"];s=z["selector"]
+              eps=Q(c["eps"]);rho=Q(c["rho"]);delta=Q(c["delta"])
+              r=int(c["sufficient_integer_r0"])
+              assert 0<rho<=Q(1,32) and delta>0 and r>=2**32
+              assert m["improper_coefficient"]<=eps*r
+              assert m["endpoint_clean_E"]**2<=eps**2*r
+              assert m["physical_fourblocker_D"]**8<=eps**8*r
+              assert 12*p["balance_b"]**2*rho*s["cut_path_q3"]**2*m["L6"]<=eps**2
+              assert c["arithmetic_gates_validated"] and s["one_global_owner_priority"]
+              assert not s["independent_reselection_per_path"]
+              print("G6C3_FORMAL_ONLY",p["balance_b"],p["line_excess_C"],
+                 "R",s["HEAVY_R"],"rho",c["rho"],"delta",c["delta"])
+          assert x["local_D6_coherent_cut_probability"]["probability_reduced"]=="1/1024"
+          assert x["local_coherent_cut_probability"]["cut_probabilities"]["3"]["exact_probability"]=="1/64"
+          for y in x["finite_global_core_falsifiers"]:
+              assert y["return_formula_exact"] and y["exact_walk_Jensen_lower"]
+              assert y["actual_inner_blocker_bound_four_positions"]
+              print("G6C3_REAL_SOURCE",y["kind"],y["scheme"],
+                    "core",y["LOW_core"],"threewalks",y["threewalks_all"])
+          print("PASS_GIO003_G6C3_EXACT_INTEGRATED_LOW_CLOSURE")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6c3-exact-intrinsic-low-closure
+          path: gio003-g6c3-integrated-low.json
+          retention-days: 90
