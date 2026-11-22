@@ -101,7 +101,7 @@ E tr(A_G^6) ≤ (3/128) D6_A +36(Tr)² W_C,
  W_C=Σ_(i∈C) 1/(1+degree_JC(i)) ≤ N.
 ```
 
-The finite specialist independently enumerates **every** global bit-cut for a genuine proper 2edge/3edge path (exact probabilities 1/16 and 1/64) and for an actual proper original D6 (4/4096=1/1024), and samples one common global priority+two cuts on true and non-GQ source cores. These are falsifiers, **not** proof of the all-order selector inequalities, which are inherited and analyzed explicitly above.
+The finite specialist independently enumerates **every** global bit-cut for a genuine proper 2edge/3edge path (exact probabilities 1/16 and 1/64) and for an actual proper original D6 (4/4096=1/1024), and samples one common global priority+two cuts on true and non-GQ source cores. It additionally selects an **actual three-owner proper original path** with mutually nonadjacent original source owners, enumerates **all 256 global bit assignments** on its four x and four y factor symbols, builds the actual selected physical graph G for every assignment, measures **both** exact fourth and sixth traces of that SAME G, and checks the two squared proper endpoint-moment inequalities with q2=16, q3=64. This is a stronger nonvacuous falsifier of the selected-graph moment transfer; it is still **not** the all-order selector proof, which is inherited and analyzed explicitly above.
 
 ## 4. HEAVY — ordinary physical supersaturation remains geometric-free
 
