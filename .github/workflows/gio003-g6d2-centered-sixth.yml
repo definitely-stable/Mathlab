@@ -63,6 +63,16 @@ jobs:
               print("G6D2_WENGER_ACTUAL",q["q"],"points",q["points"],
                     "excess",q["genuine_nongq_delta"],
                     "S6",q["actual_sixth_moment"])
+          for z in x["actual_Wenger_historical_original_BBo_inverses"]:
+              assert z["kind"]=="actual_Wenger_W2_prime3"
+              assert z["ORIGINAL_source_flags"]==81
+              assert z["frozen_original_source_missing_pairs"]>0
+              assert z["actual_produced_original_BBo_inverse_three_way_checked"]
+              assert z["no_projected_anchor_filled_from_GQ"]
+              print("G6D2_WENGER_SIX_IDS",z["scheme"],z["mask"],
+                    "FULL",z["actual_FULL_survivor_flags"],
+                    "CORE",z["actual_CORE_survivor_flags"],
+                    "real_BBo",z["actual_original_six_named_BBo_count"])
           for q in x["published_Wenger_prime_power_symbolic"]:
               assert q["actual_Moore_excess_each"]<=3*q["r"]**2
               assert q["exact_centered_F0_norm_squared"]<=3*q["r"]**3
