@@ -1,0 +1,76 @@
+name: gio003-g6c-intrinsic-defect
+
+on:
+  push:
+    branches:
+      - research/gio003-g6c-intrinsic-defect-spectrum
+    paths:
+      - 'research/gio_t3c_intrinsic_defect.py'
+      - 'research/test_gio_t3c_intrinsic_defect.py'
+      - 'docs/research/GIO-003-G6C-INTRINSIC-DEFECT-SPECTRUM.md'
+      - '.github/workflows/gio003-g6c-intrinsic-defect.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3c_intrinsic_defect.py'
+      - 'research/test_gio_t3c_intrinsic_defect.py'
+      - 'docs/research/GIO-003-G6C-INTRINSIC-DEFECT-SPECTRUM.md'
+      - '.github/workflows/gio003-g6c-intrinsic-defect.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  intrinsic-defect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate Python syntax and deterministic independent source graph
+        run: |
+          python -m py_compile research/gio_t3c_intrinsic_defect.py research/test_gio_t3c_intrinsic_defect.py
+          python -m unittest discover -s research -p 'test_gio_t3c_intrinsic_defect.py' -v
+      - name: Generate exact algebra-free proof certificate and check both typed matrices
+        shell: bash
+        run: |
+          python research/gio_t3c_intrinsic_defect.py --out gio003-g6c-intrinsic-defect.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("gio003-g6c-intrinsic-defect.json").read_text())
+          assert x["schema"]=="mathlab.gio003.g6c1.intrinsic-defect.v1"
+          assert x["claim"]=="PROVED_CONDITIONAL_INTRINSIC_A1_A2_A3_NOT_FULL_T3"
+          assert x["issue"]==793 and len(x["finite_cases"])==8
+          assert x["no_full_abstract_T3_theorem"]
+          assert x["no_intrinsic_A4_A5_A6_mixed_book_or_BBo_supersaturation"]
+          assert x["existence_of_infinite_non_GQ_small_excess_family_not_claimed"]
+          d=x["physical_rainbow_C6_inverse"]
+          assert d["non_GQ_C4"] and d["physical_first_equals_source_first"]
+          assert d["real_physical_rainbow_C6"]>0
+          for c in x["finite_cases"]:
+              assert c["point_matrix"]["exact_identity"]
+              assert c["line_matrix"]["exact_identity"]
+              assert c["point_label"]["repaired_gram_formula"]
+              assert c["line_label"]["repaired_gram_formula"]
+              assert c["owner_conflicts"]["J"]==(
+                  c["point_label"]["e_col"]+c["line_label"]["e_col"])
+              led=c["spectral_and_conflict_ledger"]
+              assert led["no_GQ_spectrum_assumed"] and led["no_external_C6_input_used"]
+              assert led["exact_conflict_J_upper"]>=c["owner_conflicts"]["J"]
+              assert c["point_label"]["gram"]**2<=led["exact_pencil_square_squared_upper"]
+              assert c["line_label"]["gram"]**2<=led["exact_pencil_square_squared_upper"]
+              print("G6C1_INTRINSIC",c["kind"],c["scheme"],
+                    "DeltaL",c["source_excess_lines"],
+                    "J",c["owner_conflicts"]["J"],
+                    "GramP",c["point_label"]["gram"],
+                    "GramL",c["line_label"]["gram"])
+          print("PASS_GIO003_G6C1_INTRINSIC_A1_A2_A3_EXACT")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6c-intrinsic-defect-certificate
+          path: gio003-g6c-intrinsic-defect.json
+          retention-days: 90
