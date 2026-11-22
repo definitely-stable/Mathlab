@@ -197,12 +197,17 @@ class TestGIO003(unittest.TestCase):
 
     def test_21_actual_produced_BBo_signed_topology_odd_and_unequal(self):
         from hyp105_aa4_branch_a_integrated_referee import (
-            actual_bbo_flow_topology, flow_catalog,
+            actual_bbo_flow_topology, flow_catalog, actual_edges,
         )
         flow=flow_catalog()
         self.assertGreaterEqual(min(flow["bbo_sign_counts"]),5175)
         for kind in ("W33","Qminus24","dualQminus42"):
             m=model(kind)
+            # The old oracle expects a full physical-edge -> source-ID map;
+            # reconstruct it independently from original owners, not by
+            # recycling the source-first BBo walk's inferred owner sequence.
+            _,owner_index=actual_edges(m,range(len(m["flags"])))
+            m=dict(m,owned=owner_index)
             A=frozenset(range(len(m["flags"])))
             b=source_first_bbo(m,A)
             self.assertGreater(len(b),0)
