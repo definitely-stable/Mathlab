@@ -60,6 +60,8 @@ since each point is missing exactly `Delta_L` nonincident lines and every such l
 `k_L=t(s+1)`, `lambda_L=t-1`, `mu_L=s+1`,
 `theta_L=t-s-2`.
 
+**Exact negative-eigenvalue falsifier.** For the disjoint union of two W(3,2) copies, `D_P` has 15×15 zero diagonal blocks and off-diagonal blocks `3*11^T`; its row sum is `d=45`. The 30-entry signed vector `(+1)^15,(-1)^15` is an exact eigenvector of eigenvalue **−45**, so `v^T D_P v=-45||v||²<0`. Therefore a purported proof that treats an entrywise-nonnegative projection-defect matrix as **positive semidefinite** is false. This is why Lemma S uses the two-sided bound `|v^T D v|<=d||v||²` on centered vectors, whereas the Gram upper bound in Theorem A1-C only drops `u_z^T D u_z` for actual *nonnegative indicator* vectors.
+
 For a genuine GQ, `Delta_P=Delta_L=0`, so both D matrices vanish and the classical strongly regular identities from #799 reappear **exactly**. In a non-GQ source the correction must not be silently discarded. Nothing here asserts that `D_P` is positive semidefinite; it is entrywise nonnegative and symmetric, which is strictly weaker.
 
 ## 3. Lemma S: explicit intrinsic spectral envelope
