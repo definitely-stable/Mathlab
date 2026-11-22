@@ -1,0 +1,74 @@
+name: gio003-g6c2-partial-books
+
+on:
+  push:
+    branches:
+      - research/gio003-g6c2-partial-books-inverse
+    paths:
+      - 'research/gio_t3c2_partial_books.py'
+      - 'research/test_gio_t3c2_partial_books.py'
+      - 'docs/research/GIO-003-G6C2-PARTIAL-BOOKS-INVERSE.md'
+      - '.github/workflows/gio003-g6c2-partial-books.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3c2_partial_books.py'
+      - 'research/test_gio_t3c2_partial_books.py'
+      - 'docs/research/GIO-003-G6C2-PARTIAL-BOOKS-INVERSE.md'
+      - '.github/workflows/gio003-g6c2-partial-books.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  partial-books:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent exact FULL-CORE mixed books and partial BBo inverse
+        run: |
+          python -m py_compile research/gio_t3c2_partial_books.py research/test_gio_t3c2_partial_books.py
+          python -m unittest discover -s research -p 'test_gio_t3c2_partial_books.py' -v
+      - name: Assert exact reproducible original source certificate
+        shell: bash
+        run: |
+          python research/gio_t3c2_partial_books.py --out gio003-g6c2-partial-books.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("gio003-g6c2-partial-books.json").read_text())
+          assert x["schema"]=="mathlab.gio003.g6c2.partial-book-inverse.v1"
+          assert x["claim"]=="PROVED_INTRINSIC_A5_BOOK_AND_PARTIAL_A6_INVERSE_NOT_FULL_T3"
+          assert x["parent_issue"]==793 and len(x["selected_cases"])>=10
+          assert x["no_abstract_T3_full_obstruction_claim"]
+          assert x["no_intrinsic_A4_LOW_sixset_supersaturation"]
+          for c in x["selected_cases"]:
+              for side in ("point_book","line_book"):
+                  t=c[side]
+                  assert t["source_book"]==t["book_term_count"]
+                  assert t["source_book"]**2<=t["exact_source_book_squared_bound"]
+                  assert t["F1"]<=2*t["G"]
+                  assert t["source_full_core_theta"]<=4*t["N_full"]*t["physical_max_degree_core"]
+              inv=c["produced_inverse"]
+              assert inv["manual_physical_first_equals_published"]
+              assert inv["manual_physical_first_equals_source_owner_join"]
+              assert inv["exact_original_six_ID_nontrivial_inverse"]
+              e=c["endpoint_mask"]
+              assert e["total_bad"]<=e["total_conservative_cap"]
+              assert e["parts"]["unprojected"]==4*c["source_points"]*c["source_excess_lines"]
+              print("G6C2_PARTIAL",c["kind"],c["scheme"],c["mask"],
+                 "BX",c["point_book"]["source_book"],
+                 "BY",c["line_book"]["source_book"],
+                 "BBo",inv["original_source_motifs"],
+                 "Moore_Holes",e["parts"]["unprojected"])
+          print("PASS_GIO003_G6C2_EXACT_INTEGRITY")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6c2-partial-books-certificate
+          path: gio003-g6c2-partial-books.json
+          retention-days: 90
