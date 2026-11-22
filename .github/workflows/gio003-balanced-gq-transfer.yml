@@ -1,0 +1,70 @@
+name: gio003-balanced-gq-transfer
+on:
+  push:
+    branches:
+      - research/gio003-balanced-gq-transfer
+    paths:
+      - 'research/gio_generalized_gq.py'
+      - 'research/test_gio_generalized_gq.py'
+      - 'docs/research/GIO-003-GENERALIZED-INCIDENCE.md'
+      - 'docs/research/GIO-003-INTERNAL-REFEREE.md'
+      - '.github/workflows/gio003-balanced-gq-transfer.yml'
+  pull_request:
+    paths:
+      - 'research/gio_generalized_gq.py'
+      - 'research/test_gio_generalized_gq.py'
+      - 'docs/research/GIO-003-GENERALIZED-INCIDENCE.md'
+      - 'docs/research/GIO-003-INTERNAL-REFEREE.md'
+      - '.github/workflows/gio003-balanced-gq-transfer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  axiomatic:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact balanced GQ proof ledger and independent genuine geometry falsifiers
+        run: python -m unittest discover -s research -p 'test_gio_generalized_gq.py' -v
+      - name: Generate field-free GQ and mixed-parameter certificate
+        shell: bash
+        run: |
+          python research/gio_generalized_gq.py --out gio003-balanced-gq-certificate.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction
+          from pathlib import Path
+          x=json.loads(Path("gio003-balanced-gq-certificate.json").read_text())
+          assert x["schema"]=="mathlab.gio003.balanced-axiomatic-gq.v1"
+          assert x["issue"]==793 and x["claim"]=="BALANCED_GQ_RESILIENCE_PROOF_CANDIDATE_T1_T2"
+          assert len(x["finite_cases"])==5
+          for f in x["finite_cases"]:
+              assert f["structural"]["both_source_SRG_checked_directly"]
+              assert f["spectral"]["unequal_typed_Gram_identity_checked"]
+              assert f["all_source_first_physical_first_equal"]
+              for z in f["masks"]:
+                  assert z["independent_censuses_agree"]
+                  assert z["damaged_oriented_endpoint_pairs"]<=12*f["s"]*f["t"]*z["removed"]
+              print("GIO003_GENUINE",f["kind"],"s",f["s"],"t",f["t"],
+                    "original_flags",f["original_flags"],"D6",f["D6"],
+                    "BBo_produced",f["produced_BBo"],"direct_J",f["spectral"]["J"])
+          for z in x["formal_ledgers"]:
+              assert z["FORMAL_ONLY"] and z["external_numeric_constants_unknown"]
+              assert Fraction(z["rho"])>0 and Fraction(z["delta"])>0
+              assert 12*z["balance_upper"]**2*Fraction(z["rho"])*z["q3"]**2*int(z["L6"])<=Fraction(z["error_budget_each"])**2
+              print("GIO003_FORMAL",z["balance_upper"],
+                    "r0_bits",int(z["sufficient_integer_r0"]).bit_length(),
+                    "rho_approx",format(float(Fraction(z["rho"])),".4e"))
+          print("PASS_GIO003_BALANCED_FIELD_FREE_EXACT_REFEREE")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-balanced-gq-exact-certificate
+          path: gio003-balanced-gq-certificate.json
+          retention-days: 90
