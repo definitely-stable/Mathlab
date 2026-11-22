@@ -151,6 +151,31 @@ def verify_edit(m, removed, added):
                 original_count=len(old), edited_count=len(edited))
 
 
+def actual_missing_projections(edited, point_count, line_count):
+    """Exact missed (point,line) pairs on any edited source, even with C4/C6.
+
+    Counts existence of at least one length-three path, NOT uniqueness.
+    Does not reuse the frozen old GQ 'projection' dict.
+    """
+    per_line = [set() for _ in range(line_count)]
+    per_point = [set() for _ in range(point_count)]
+    for p,l in edited:
+        if type(p) is not int or type(l) is not int or not 0 <= p < point_count or not 0 <= l < line_count:
+            raise ValueError("edited source endpoint outside original factors")
+        per_line[l].add(p)
+        per_point[p].add(l)
+    adjacent = [set() for _ in range(point_count)]
+    for p in range(point_count):
+        for ell in per_point[p]:
+            adjacent[p].update(per_line[ell]-{p})
+    missing = set()
+    for q in range(point_count):
+        for r in range(line_count):
+            if q not in per_line[r] and not (adjacent[q] & per_line[r]):
+                missing.add((q,r))
+    return missing
+
+
 def independent_signature_check(m, edited, source_ids, expected_class):
     """Two classification implementations and identity-of-support checksum.
 
@@ -201,6 +226,8 @@ def finite_case(kind, scheme="lex"):
     assert len({p for p, _ in sw["four_cycle"]}) == 2
     assert len({l for _, l in sw["four_cycle"]}) == 2
     assert any(z in sw["added"] for z in sw["four_cycle"])
+    switched_missing = actual_missing_projections(edit["edited"],m["Vp"],m["Vl"])
+    assert len(switched_missing) <= (3*m["s"]*m["t"]+1)*len(sw["removed"])
 
     ids = frozenset(range(len(m["flags"])))
     D = source_first_d6(m, ids)
@@ -243,6 +270,9 @@ def finite_case(kind, scheme="lex"):
         for key in filtered_b:
             assert literal_historical_class(
                 tuple(m["flags"][i] for i in key), m["f"], m["g"]) == "BBo_historical"
+        actual_missing=actual_missing_projections(available,m["Vp"],m["Vl"])
+        removed_old=edit["original"]-available
+        assert len(actual_missing) <= (3*m["s"]*m["t"]+1)*len(removed_old)
         packed = greedy_pack(set(filtered_d)|set(filtered_b))
         assert all(len(x) == 6 for x in packed)
         used = set()
@@ -253,7 +283,10 @@ def finite_case(kind, scheme="lex"):
                          surviving_D6=len(filtered_d),
                          surviving_certified_BBo=len(filtered_b),
                          greedy_original_disjoint_packing=len(packed),
-                         contains_inserted_flag=bool(U & sw["added"])))
+                         contains_inserted_flag=bool(U & sw["added"]),
+                         actual_missing_projections=len(actual_missing),
+                         removed_original_GQ_flags_total=len(removed_old),
+                         bounded_by_3st_plus_one=True))
     return dict(kind=kind, scheme=scheme, s=m["s"], t=m["t"],
                 original_flags=len(m["flags"]), edited_flags=len(edit["edited"]),
                 switch_removed=tuple(sorted(sw["removed"])),
@@ -264,6 +297,8 @@ def finite_case(kind, scheme="lex"):
                 edited_certified_BBo=len(old_b),
                 literal_and_independent_historical_classifier_agree=True,
                 new_geometry_has_four_cycle=True,
+                switched_missing_projections=len(switched_missing),
+                switched_missing_3st_plus_one_bound=(3*m["s"]*m["t"]+1)*2,
                 point_and_line_degrees_preserved=True,
                 post_edit_masks=post)
 
