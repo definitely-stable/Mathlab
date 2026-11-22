@@ -551,6 +551,38 @@ def wenger_finite_exact_case(q):
       never_assumed_GQ_source_projection_completeness=True)
 
 
+def wenger_original_six_id_inverse_case(scheme="lex",mask="full"):
+    """G6-C2 historical produced BBo inverse on a REAL Wenger source.
+
+    This tests the original named-source flags and genuine partial
+    projections, not just the new spectral source inequalities.
+    """
+    from gio_t3c_intrinsic_defect import typed_maps
+    from gio_t3c2_partial_books import selected_mask,inverse_certificate
+    original=wenger_W2_prime_source(3)
+    labels=typed_maps(original,scheme)
+    projected={(p,ell):(anchors[1][0],anchors[1][1])
+               for (p,ell),anchors in original["projected"].items()}
+    m=dict(original,**labels,projection=projected,
+           flag_to_id={f:i for i,f in enumerate(original["flags"])})
+    assert len(m["projection"])<(
+        original["points"]*len(original["lines"])-
+        len(original["flags"]))
+    A,C=selected_mask(m,mask)
+    checked=inverse_certificate(m,A,C)
+    assert checked["manual_physical_first_equals_published"]
+    assert checked["manual_physical_first_equals_source_owner_join"]
+    return dict(kind="actual_Wenger_W2_prime3",
+       scheme=scheme,mask=mask,
+       ORIGINAL_source_flags=len(original["flags"]),
+       frozen_original_source_missing_pairs=len(original["missing"]),
+       actual_FULL_survivor_flags=len(A),
+       actual_CORE_survivor_flags=len(C),
+       actual_original_six_named_BBo_count=checked["original_source_motifs"],
+       actual_produced_original_BBo_inverse_three_way_checked=True,
+       no_projected_anchor_filled_from_GQ=True)
+
+
 def wenger_quadratic_theorem_ledger():
     """A GENUINELY NONVACUOUS prime-power family, external C6 numeric formal."""
     fixed=integrated_quadratic_direct_ledger(1,3,3,Q(1),Q(1))
@@ -579,6 +611,9 @@ def certificate():
           (3,4,64,Q(3),Q(1,3)))]
     barriers=[synthetic_2block_missing_barrier(q) for q in (2,3)]
     wenger_finite=[wenger_finite_exact_case(q) for q in (3,5)]
+    wenger_inverse=[wenger_original_six_id_inverse_case(*x)
+        for x in (("lex","full"),("lex","mixed"),
+                  ("correlated","mixed"))]
     wenger_symbolic=[wenger_W2_spectral_parameters(q)
        for q in (3,4,5,7,8,9,11,16,25,101)]
     direct_ledgers=[integrated_quadratic_direct_ledger(b,C,k)
@@ -590,6 +625,7 @@ def certificate():
        exact_all_order_formal_ledgers=ledgers,
        zero_one_regular_F_barriers_not_source_graphs=barriers,
        actual_Wenger_prime_field_sources=wenger_finite,
+       actual_Wenger_historical_original_BBo_inverses=wenger_inverse,
        published_Wenger_prime_power_symbolic=wenger_symbolic,
        direct_centered_spectral_family_ledgers=direct_ledgers,
        explicit_infinite_Wenger_nongq_quadratic_T3=wenger_quadratic_theorem_ledger(),
