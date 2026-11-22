@@ -11,6 +11,7 @@ from gio_t3b_edit_transfer import (
     SCHEMA, BASE_MAIN, certificate, finite_case, verify_edit,
     switch_with_forced_four_cycle, literal_historical_class, typed_adjacency,
     is_six_cycle, independent_signature_check, symbolic_transfer_ledger,
+    actual_missing_projections,
 )
 
 
@@ -170,6 +171,56 @@ class TestGIO003T3B(unittest.TestCase):
         self.assertEqual(self.c["GF5"]["BBo_min_sign"],5175)
         for z in self.c["formal_ledgers"]:
             self.assertTrue(z["FORMAL_ONLY"])
+
+    def test_13_direct_missing_projection_budget_in_edited_graph(self):
+        for kind in self.by:
+            m=model(kind); sw=switch_with_forced_four_cycle(m)
+            edit=verify_edit(m,sw["removed"],sw["added"])
+            absent=actual_missing_projections(edit["edited"],m["Vp"],m["Vl"])
+            self.assertEqual(len(absent),self.by[kind]["switched_missing_projections"])
+            self.assertLessEqual(len(absent),(3*m["s"]*m["t"]+1)*2)
+            self.assertEqual(self.by[kind]["switched_missing_3st_plus_one_bound"],
+                             (3*m["s"]*m["t"]+1)*2)
+            for row in self.by[kind]["post_edit_masks"]:
+                self.assertTrue(row["bounded_by_3st_plus_one"])
+                self.assertLessEqual(
+                    row["actual_missing_projections"],
+                    (3*m["s"]*m["t"]+1)*row["removed_original_GQ_flags_total"])
+
+    def test_14_unlimited_insertions_cannot_create_missing_projection(self):
+        m=model("W32")
+        old=set(m["flags"])
+        extra={(p,l) for p in range(m["Vp"]) for l in range(m["Vl"])
+               if (p,l) not in old}
+        self.assertEqual(actual_missing_projections(old,m["Vp"],m["Vl"]),set())
+        self.assertEqual(
+            actual_missing_projections(old|extra,m["Vp"],m["Vl"]),set())
+        self.assertEqual(
+            actual_missing_projections(set(),m["Vp"],m["Vl"]),
+            set((p,l) for p in range(m["Vp"]) for l in range(m["Vl"])))
+
+    def test_15_independent_three_path_endpoint_census(self):
+        m=model("W32"); sw=switch_with_forced_four_cycle(m)
+        available=verify_edit(m,sw["removed"],sw["added"])["edited"]
+        byp={}
+        byline={}
+        for p,l in available:
+            byp.setdefault(p,set()).add(l)
+            byline.setdefault(l,set()).add(p)
+        alt_missing=set()
+        for p in range(m["Vp"]):
+            for ell in range(m["Vl"]):
+                if ell in byp.get(p,()):
+                    continue
+                found=False
+                for mid in byp.get(p,()):
+                    for foot in byline[mid]:
+                        if foot!=p and ell in byp.get(foot,()):
+                            found=True
+                if not found:
+                    alt_missing.add((p,ell))
+        self.assertEqual(alt_missing,
+             actual_missing_projections(available,m["Vp"],m["Vl"]))
 
     def test_12_literal_source_profiles_not_an_edited_projection_claim(self):
         m=model("W32")
