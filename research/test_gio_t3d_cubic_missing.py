@@ -11,6 +11,7 @@ from gio_t3d_cubic_missing import (
     polynomial_identity,centered_rayleigh,cubic_bound_finite,
     bounded_cubic_source_constants,cubic_heavy_low_ledger,
     validate_cubic_domain,delta_one_equal_no_go,finite_case,certificate,
+    necessary_small_excess_screen,graph_distance_falsifier,
 )
 from gio_t3c2_partial_books import make_model
 from gio_t3c_intrinsic_defect import defect_matrices,typed_conflicts_and_gram
@@ -267,6 +268,51 @@ class TestG6D1(unittest.TestCase):
         self.assertEqual(left["lines"],right["points"])
         self.assertTrue(left["cubic_identity"]["exact_dual_no_GQ_identity"])
         self.assertTrue(right["cubic_identity"]["exact_dual_no_GQ_identity"])
+
+    def test_16_exact_moore_excess_divisibility_unequal_orders(self):
+        for s,t in ((2,4),(4,2),(3,5),(5,3),(5,8),(8,5)):
+            d=__import__("math").gcd(s+1,t+1)
+            q=(t+1)//d;p=(s+1)//d
+            for a in (0,1,2,3,7):
+                z=necessary_small_excess_screen(s,t,q*a,p*a)
+                self.assertEqual(z["positive_excess_quantum"],a)
+                self.assertEqual(z["excess_step_lines"],q)
+                self.assertEqual(z["excess_step_points"],p)
+                self.assertTrue(z["actual_source_existence_NOT_proved"])
+            with self.assertRaises(ValueError):
+                necessary_small_excess_screen(s,t,q*2,p*2+1)
+
+    def test_17_no_fake_connectedness_or_diameter_on_double_source(self):
+        for name,expected in (("W32",1),("Qminus24",1),
+                              ("doubleW32",2),
+                              ("switchedDoubleW32",1)):
+            m=make_model(name)
+            got=graph_distance_falsifier(m)
+            self.assertEqual(got["actual_components"],expected)
+            self.assertTrue(got["literal_BFS_source_not_just_parameter_guess"])
+            if name in ("W32","Qminus24"):
+                self.assertTrue(got["size_enforced_connected"])
+                self.assertTrue(got["size_enforced_diameter_at_most_five"])
+                self.assertLessEqual(got["actual_max_finite_distance"],5)
+            else:
+                self.assertFalse(got["size_enforced_connected"])
+                self.assertFalse(got["size_enforced_diameter_at_most_five"])
+
+    def test_18_small_positive_excess_size_forces_connected_only_conditionally(self):
+        # These are pure *necessary* parameter gates, not actual graph
+        # existence certificates; no nonGQ family is synthesized.
+        for q in (2,3,5,7,11,13):
+            z=necessary_small_excess_screen(q,q,1,1)
+            self.assertTrue(z["connectedness_forced_by_size"])
+            self.assertTrue(z["diameter_at_most_five_if_actual_source"])
+            self.assertTrue(z["actual_source_existence_NOT_proved"])
+            self.assertLess(z["delta_line"],z["Moore_lines"])
+            # G6-D separately proves this hypothetical Delta=1
+            # parameter source is actually impossible for q>=2.
+            self.assertTrue(delta_one_equal_no_go(q)["strict_trace_contradiction"])
+        for bad in ((2,4,1,0),(1,2,0,0),(2,2,-1,-1),(2,2,0,1)):
+            with self.assertRaises(ValueError):
+                necessary_small_excess_screen(*bad)
 
     def test_15_no_false_derivation_from_degree_only_when_girth_fails(self):
         from gio_t3c_intrinsic_defect import shortcycle_edit_from_gq
