@@ -123,6 +123,44 @@ def disjoint_copies(lines, point_count):
     ), 2 * point_count
 
 
+def switched_connected_double(lines, point_count):
+    """Bridge two GQ copies using a degree-preserving two-edge switch.
+
+    Remove each copy's (p0,L0) source edge, replace with crossed edges.
+    The internal alternate p0->L0 walk has length >=7 by girth>=8;
+    any cycle using cross edges thus has length >=16.
+    """
+    rows, count = disjoint_copies(lines, point_count)
+    rows = [list(x) for x in rows]
+    L = len(lines)
+    p = rows[0][0]
+    assert p + point_count in rows[L]
+    rows[0].remove(p)
+    rows[L].remove(p + point_count)
+    rows[0].append(p + point_count)
+    rows[L].append(p)
+    return tuple(tuple(row) for row in rows), count
+
+
+def is_connected(audit):
+    """Independent BFS on literal point and line vertices."""
+    seen_points = {0}
+    seen_lines = set()
+    frontier = [(0, 0)]
+    for kind, index in frontier:
+        if kind == 0:
+            for line in audit["on"][index]:
+                if line not in seen_lines:
+                    seen_lines.add(line)
+                    frontier.append((1, line))
+        else:
+            for point in audit["raw_lines"][index]:
+                if point not in seen_points:
+                    seen_points.add(point)
+                    frontier.append((0, point))
+    return len(seen_points) == audit["points"] and len(seen_lines) == audit["lines"]
+
+
 def remove_one_flag(lines):
     """Remove first named flag without deleting its point or line."""
     rows = [tuple(x) for x in lines]
@@ -225,6 +263,12 @@ def finite_case(name):
     assert len(double["projected"]) == 2 * len(orig["projected"])
     double_excess = regular_projection_excess_ledger(double, s, t)
     assert double_excess["line_excess"] == orig["lines"]
+    switched_lines, switched_points = switched_connected_double(g["lines"], orig["points"])
+    switched = audit_incidence(switched_lines, switched_points)
+    switched_excess = regular_projection_excess_ledger(switched, s, t)
+    assert is_connected(switched) and not is_connected(double)
+    assert switched["girth_at_least_eight"]
+    assert switched_excess["total_missing"] == 2 * orig["points"] * orig["lines"]
     damaged_lines, removed = remove_one_flag(g["lines"])
     punctured = audit_incidence(damaged_lines, orig["points"])
     assert not exact_moore_gate(punctured, s, t)["regular"]
@@ -239,6 +283,9 @@ def finite_case(name):
     return dict(kind=name, s=s, t=t, full=summarize(orig), moore=moore,
                 original_excess_ledger=original_excess,
                 double_excess_ledger=double_excess,
+                connected_switched_double=summarize(switched),
+                connected_switched_excess_ledger=switched_excess,
+                connected_switched_verified=is_connected(switched),
                 singleton_damage=exact_singleton, arbitrary_damage=damage,
                 double=summarize(double), double_gate=double_gate,
                 deleted_one_flag=summarize(punctured),
@@ -271,6 +318,7 @@ def certificate():
                     exact_biregular_moore_saturation_forces_GQ=True,
                     biregular_girth8_missing_equals_P_times_line_excess=True,
                     biregular_girth8_each_flag_load_exact_3st=True,
+                    connectivity_does_not_force_near_moore_coverage=True,
                     partial_selector_damage_at_most_maxload_times_deletions=True,
                     oriented_factor_requires_injective_two_symbol_maps=True),
                 cases=examples, cycle6=summarize(triangle),
