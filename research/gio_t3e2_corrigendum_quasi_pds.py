@@ -307,6 +307,98 @@ def literal_case(q,x,y,scheme="lex",check_full_original_F0=False):
         no_unrestricted_T3_or_ASET=True)
 
 
+
+def literal_corrected_six_original_ID_witness(q,x,y,scheme="lex",
+                                               max_walks=3000000):
+    """Find one TRUE corrected-original six-flag BBo via physical 3walk.
+
+    Only six actual ORIGINAL flag owners are submitted to three
+    independently implemented historical BBo inverses. The actual
+    G_q^x - S - M source is NOT GQ-completed and NOT synthetic.
+    A FULL anchor deletion must destroy the targeted witness.
+    """
+    from hyp105_aa4_branch_a_integrated_referee import (
+        actual_edges,historical_bbo,
+    )
+    from gio_t3c2_partial_books import inverse_certificate
+    ins=actual_corrigendum_source(Field(q),x,y)
+    src=ins["new_source"]
+    typed=typed_maps(src,scheme)
+    projection={(p,l):(anchors[1][0],anchors[1][1])
+                for (p,l),anchors in src["projected"].items()}
+    model=dict(src,**typed,projection=projection,
+        flag_to_id={flag:i for i,flag in enumerate(src["flags"])})
+    FULL=frozenset(range(len(src["flags"])))
+    actual,owner=actual_edges(model,FULL)
+    found=None
+    examined=0
+    for v0 in sorted(actual):
+        if found is not None:break
+        for v1 in sorted(actual[v0]):
+            if found is not None:break
+            for v2 in sorted(actual[v1]):
+                if found is not None:break
+                for v3 in sorted(actual[v2]):
+                    examined+=1
+                    if examined>max_walks:
+                        raise AssertionError("true source BBo missing within bounded physical threewalk search")
+                    vs=(v0,v1,v2,v3)
+                    xs={v[0] for v in vs}
+                    ys={v[1] for v in vs}
+                    if len(xs)!=4 or len(ys)!=4:
+                        continue
+                    p=model["point_by_pair"].get(tuple(sorted((v0[0],v3[0]))))
+                    ell=model["line_by_pair"].get(tuple(sorted((v0[1],v3[1]))))
+                    if p is None or ell is None or (p,ell) not in projection:
+                        continue
+                    foot,join=projection[p,ell]
+                    if set(model["f"][foot])&xs or set(model["g"][join])&ys:
+                        continue
+                    anchors=tuple(model["flag_to_id"][flag] for flag in
+                        ((p,join),(foot,join),(foot,ell)))
+                    residual=tuple(owner[tuple(sorted((a,b)))]
+                        for a,b in zip(vs,vs[1:]))
+                    if len(set(anchors))!=3 or len(set(residual))!=3:
+                        continue
+                    if len(set(anchors+residual))!=6:
+                        continue
+                    six=tuple(sorted(anchors+residual))
+                    if not historical_bbo(model,six):
+                        continue
+                    found=(anchors,residual,six,vs)
+                    break
+    if found is None:
+        raise AssertionError("corrected q-1 source has no found genuine six flag BBo")
+    anchors,residual,six,path=found
+    A=frozenset(six)
+    C=frozenset(residual)
+    original=inverse_certificate(model,A,C)
+    assert original["original_source_motifs"]>=1
+    assert original["manual_physical_first_equals_published"]
+    assert original["manual_physical_first_equals_source_owner_join"]
+    assert original["exact_original_six_ID_nontrivial_inverse"]
+    assert original["missing_projections_not_completed"]
+    after=inverse_certificate(model,A-{anchors[0]},C)
+    assert after["original_source_motifs"]==0
+    return dict(q=q,scheme=scheme,
+        true_corrected_original_source_flags=len(src["flags"]),
+        original_M_edges_removed=len(ins["original_M_edges"]),
+        bounded_actual_physical_threewalks_examined=examined,
+        three_original_FULL_projection_anchor_IDs=anchors,
+        three_original_CORE_physical_owner_IDs=residual,
+        actual_six_distinct_original_flag_IDs=six,
+        actual_six_original_flag_coordinates=[
+            src["flags"][k] for k in six],
+        original_six_ID_physical_path=path,
+        independently_confirmed_produced_BBo_count=original[
+            "original_source_motifs"],
+        all_three_historical_BBo_inverses_exact_agree=True,
+        removing_original_FULL_anchor_destroys_witness=True,
+        no_fabricated_projection_or_parent_completion=True,
+        finite_positive_not_asymptotic_count=True)
+
+
+
 def exact_all_order_ledger():
     d=integrated_quadratic_direct_ledger(
         b=1,C=5,kappa=48,C0=Q(1),c0=Q(1))
