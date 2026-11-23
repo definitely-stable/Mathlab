@@ -415,6 +415,8 @@ def certificate():
             literal_case(7,2,3,"correlated",False)]
     symbolic=[spectral_compression_with_matching(q) for q in
               (7,9,11,13,17,19,23,25,27,31,49,81,101,121)]
+    positive=literal_corrected_six_original_ID_witness(7,2,3,"lex")
+    assert positive["independently_confirmed_produced_BBo_count"]>=1
     d=exact_all_order_ledger()
     return dict(schema=SCHEMA,issue=793,
         parent_G6E1_HEAD=PARENT_G6E1,
@@ -422,6 +424,7 @@ def certificate():
         corrigendum_date=CORRIGENDUM_DATE,
         claim="CONDITIONAL_G6D2_T3_CORRECTED_2021_QMINUS1_PDS_PLUS_MATCHING",
         true_original_corrected_quasi_PDS_source_examples=finite,
+        actual_corrected_q7_positive_original_six_ID_BBo=positive,
         fixed_all_odd_prime_power_symbolic_spectral_transfer=symbolic,
         inherited_G6D2_DIRECT_four_low_ledger=d,
         first_original_2015_q_minus1_family_RETRACTED=True,
