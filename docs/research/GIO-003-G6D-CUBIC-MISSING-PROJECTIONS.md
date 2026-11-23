@@ -34,16 +34,18 @@ The missing matrix F has **constant row sum** Delta_L and **constant column sum*
 
 Put `T=BB^T`, `U=B^TB`, `h=s+t`. Multiply (CUBIC-I) by its transpose. Since
 
-`(J_PL-F)(J_PL-F)^T=FF^T+(|L|-2Delta_P)J_PP`,
+`(J_PL-F)(J_PL-F)^T=FF^T+(|L|-2Delta_L)J_PP`,
 
 the following matrix identity holds **on all entries**, not merely on centered vectors:
 
 ```
- T (T-hI)^2 = FF^T + (|L|-2Delta_P)*J_PP.             (CUBIC-II-P)
- U (U-hI)^2 = F^TF + (|P|-2Delta_L)*J_LL.             (CUBIC-II-L)
+ T (T-hI)^2 = FF^T + (|L|-2Delta_L)*J_PP.             (CUBIC-II-P)
+ U (U-hI)^2 = F^TF + (|P|-2Delta_P)*J_LL.             (CUBIC-II-L)
 ```
 
 The second equation follows independently by transposing the original incidence. Both F and B may be rectangular, and s need not equal t.
+**Asymmetric full-matrix correction (G6-D1-FIX, 23 November 2026).** The original stacked #805 text interchanged `Delta_L` and `Delta_P` in the rank-one coefficients above. `F` has **row sum `Delta_L`** and **column sum `Delta_P`**; hence `JF^T=FJ^T=Delta_L J_PP` and `F^TJ=JF=Delta_P J_LL` with the appropriate rectangular all-ones matrices. This changes the full-entry equations for asymmetric positive-excess sources. It does **not** alter their centered restrictions on `1^perp`, nor the resulting `x(x-h)^2 <= Delta_L Delta_P` bound, because every rank-one `J` term vanishes there. An independent exact genuine non-GQ disconnected doubled `GQ(2,4)` (and its dual) fails the old formula and satisfies the corrected one on all entries; see `test_19_asymmetric_nonGQ_full_rank_one_coefficients` and the [correction audit](GIO-003-G6D1-RECTANGULAR-CUBIC-CORRECTION.md). Historical immutable PR-head prose is superseded by this repair; #793 unrestricted T3 stays OPEN.
+
 
 Because F has nonnegative entries, constant row sum Delta_L and constant column sum Delta_P, its exact operator norm is `||F||₂=sqrt(Delta_L*Delta_P)`: the all-ones left/right singular vectors realize this value, while the induced norm inequality `||F||₂²<=||F||_∞||F||₁=Delta_L*Delta_P` gives the matching upper bound. When both defects vanish, F=0. The symmetric nonnegative matrices `FF^T,F^TF` ARE positive semidefinite; this **does not** imply the old G6-C1 square defect `D_P` is positive semidefinite (it is not, as its negative -45 eigencase shows).
 
