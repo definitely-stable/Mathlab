@@ -110,12 +110,12 @@ G6-D1 proved for ANY actual girth>=8 original source, without GQ axioms,
 ```
 
 where F is the **rectangular original missing 3flag projection matrix**. On centered vectors, its nontrivial squared singular levels are precisely `x(x-2r)^2` for x the centered eigenvalues (ARC-SPEC). Thus the centered missing projection `F0=F-(Delta_L/|L|)J` obeys **exactly**
-The corrected rank-one coefficient is `Delta_L` (the row sum of original missing-projection `F`), not `Delta_P` for unequal source orders. In the present q-arc family `s=t=q-1` and `Delta_L=Delta_P`, so the correction does not change any q-arc statement or Fourier eigenvalue. In the general source theorem the centered restriction remains valid; see [G6-D1 asymmetric correction](GIO-003-G6D1-RECTANGULAR-CUBIC-CORRECTION.md).
-
 
 ```
    ||F0||₂² = max{ q(q-2)², 8q }.
 ```
+
+The corrected rank-one coefficient is `Delta_L` (the row sum of original missing-projection `F`), not `Delta_P` for unequal source orders. In the present q-arc family `s=t=q-1` and `Delta_L=Delta_P`, so the correction does not change any q-arc statement or Fourier eigenvalue. In the general source theorem the centered restriction remains valid; see [G6-D1 asymmetric correction](GIO-003-G6D1-RECTANGULAR-CUBIC-CORRECTION.md).
 
 The positive levels actually occur because q-point arcs have secants and tangent lines. For q>=5, r=q−1>=4,
 
