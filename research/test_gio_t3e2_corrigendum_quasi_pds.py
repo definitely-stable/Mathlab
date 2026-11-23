@@ -196,7 +196,10 @@ class TestE2(unittest.TestCase):
             self.assertLessEqual(Delta,5*r*r)
             self.assertEqual(newn,q**3-q**2-4*q)
             # Old false 2015 family uses q(q-1)^2 instead:
-            self.assertNotEqual(newn,q*(q-1)**2)
+            if q==5:
+                self.assertEqual(newn,q*(q-1)**2) # exceptional q5 coincidence
+            else:
+                self.assertNotEqual(newn,q*(q-1)**2)
 
     def test_11_exact_uniform_Weyl_interlacing_rational_upper(self):
         for q in (7,9,11,13,17,19,23,25,27,31,49,81,101,121):
@@ -302,7 +305,10 @@ class TestE2(unittest.TestCase):
             self.assertEqual(new["s"],q-2)
             self.assertLess(new["points"],stage["points"])
             self.assertEqual(stage["points"]-new["points"],q*q+2*q)
-            self.assertNotEqual(new["points"],q*(q-1)**2)
+            if q==5:
+                self.assertEqual(new["points"],q*(q-1)**2)
+            else:
+                self.assertNotEqual(new["points"],q*(q-1)**2)
             self.assertEqual(stage["excess_lines"],2*q*(q-2))
             self.assertEqual(new["excess_lines"],4*(q-2)**2+3*(q-2)-5)
 
