@@ -95,8 +95,8 @@ def construct_missing_matrices(m):
 def polynomial_identity(mats):
     """Prove *all entries* of cubic point+dual matrix identities exactly.
 
-    [T(T-hI)^2] = FF^T + (|L|-2 Delta_P)*J_P
-    [U(U-hI)^2] = F^T F + (|P|-2 Delta_L)*J_L
+    [T(T-hI)^2] = FF^T + (|L|-2 Delta_L)*J_P
+    [U(U-hI)^2] = F^T F + (|P|-2 Delta_P)*J_L
     where T=BB^T, U=B^TB, and h=s+t.
     """
     B,F,T,U=mats["B"],mats["F"],mats["T"],mats["U"]
@@ -109,8 +109,8 @@ def polynomial_identity(mats):
     mcenter=[[M[p][ell]-h*B[p][ell] for ell in range(vl)] for p in range(vp)]
     assert mcenter==[[1-v for v in row] for row in F]
     for v,a,n,z,other in (
-        ("point",T,vp,mats["delta_point"],vl),
-        ("line",U,vl,mats["delta_line"],vp)):
+        ("point",T,vp,mats["delta_line"],vl),
+        ("line",U,vl,mats["delta_point"],vp)):
         shifted=[[a[i][j]-h*(i==j) for j in range(n)] for i in range(n)]
         poly=matmul(matmul(a,shifted),shifted)
         X=F if v=="point" else transpose(F)
