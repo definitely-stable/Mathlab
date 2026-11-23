@@ -142,9 +142,12 @@ def outlier_mixing_constants(b,C,ell,nu):
 
     With Delta_L<=C*r^2 and max(s,t)<=b*r:
       centered positive collinearity eigenvalues exceeding ell*r
-      have multiplicity at most nu*r, on BOTH point and line sides.
+      have multiplicity m with m**6<=nu**6*r**7 on BOTH types.
     The cubic source identity bounds every such eigenvalue by
       (4*b+cube_ceil(4*(b+1)*C^2))*r^(4/3).
+    At the CRITICAL rank m<=nu*r^(7/6), the exceptional trace
+    term scales as a*r^(7/6)*r^(4/3) = r^4. The sixth-power
+    integer inequality avoids any floating fractional exponent.
     Factor incidence H has max row 2, max column (a-1), hence
       sum_x <1_Sx,A 1_Sx> <=
          2*k*(a-1)+2*ell*r*V+
@@ -230,7 +233,7 @@ def integrated_outlier_ledger(b=1,C=3,ell=2,nu=1,C0=Q(1),c0=Q(1)):
         moments=dict(Q0=Q0,L6=L6,L4=L4,E0=E0,E=E,
             mixed_book_BK=BK,blocker_D=D,improper=improper,
             missing_endpoint_bound="4*V_P*Delta_L<=4*v0*C*r^5",
-            new_source_gate="for BOTH collinearity types, count(lambda>ell*r on 1_perp)<=nu*r",
+            new_source_gate="for BOTH collinearity types, m=count(lambda>ell*r on 1_perp), m^6<=nu^6*r^7",
             no_centered_F0_operator_or_sixth_moment_gate=True),
         closure=dict(rho=str(rho),delta=str(delta),eps=str(eps),
             sufficient_r0=str(r0),four_LOW_errors_each_below_eps=True),
@@ -255,8 +258,8 @@ def source_case(name,scheme="lex",ell=2,nu=1):
     constants=outlier_mixing_constants(b,C,ell,nu)
     outp=actual_outlier_count(src["neighbors_point"],ell*r)
     outl=actual_outlier_count(src["neighbors_line"],ell*r)
-    assert outp["centered_positive_outliers"]<=nu*r
-    assert outl["centered_positive_outliers"]<=nu*r
+    assert outp["centered_positive_outliers"]**6<=nu**6*r**7
+    assert outl["centered_positive_outliers"]**6<=nu**6*r**7
     DP,DL,_=defect_matrices(src)
     pd=typed_conflicts_and_gram(src,maps["f"],src["neighbors_point"],DP,s,t)
     ld=typed_conflicts_and_gram(src,maps["g"],src["neighbors_line"],DL,t,s)
