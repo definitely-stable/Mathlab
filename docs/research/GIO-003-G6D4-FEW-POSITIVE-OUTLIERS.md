@@ -35,13 +35,13 @@ Let `A_P` be the original point-collinearity adjacency matrix: two *distinct* or
 
 ```
   #{ eigenvalues lambda of A_P restricted to 1_P^perp
-       with lambda > ell*r } <= nu*r,
+       with lambda > ell*r }^6 <= nu^6*r^7,
 
   #{ eigenvalues lambda of A_L restricted to 1_L^perp
-       with lambda > ell*r } <= nu*r.
+       with lambda > ell*r }^6 <= nu^6*r^7.
 ```
 
-Count multiplicity exactly, include nontrivial principal-sized modes of disconnected graphs. Negative eigenvalues need no extra gate.
+This is the **critical fractional outlier-rank gate** `m<=nu*r^(7/6)`, verified with **exact integers** as `m^6<=nu^6*r^7`. Count multiplicity exactly, including nontrivial principal-sized modes of disconnected graphs. Negative eigenvalues need no extra gate. The older `m<=nu*r` condition is a strictly stronger sufficient subcase for r>1.
 
 Under these conditions, for **EVERY** complete minimal separately pair-injective typed fixed factor labels `f:P -> C([aP],2)`, `g:L -> C([aL],2)`, allowing arbitrary within-type ordering and **adversarial f/g correlation**, there exist uniform constants
 
@@ -113,10 +113,10 @@ Any positive original collinearity eigenvalue `lambda=x-(t+1)` obeys
   lambda <= (4b+B0)*r^(4/3)           (r>=1).
 ```
 
-At most `nu*r` positive exceptional eigenvalues occur, so
+The exact sixth-power gate implies at most `nu*r^(7/6)` positive exceptional eigenvalues, so
 
 ```
- sum_exceptional lambda_j^+ <= nu(4b+B0) r^(7/3).
+ sum_exceptional lambda_j^+ <= nu(4b+B0) r^(5/2).
 ```
 
 As `V<=v0*r^3`, `a_P<=a0*r^(3/2)`, `k<=k0*r^2`, the right-hand side of (D4-C) is
@@ -126,7 +126,7 @@ As `V<=v0*r^3`, `a_P<=a0*r^(3/2)`, `k<=k0*r^2`, the right-hand side of (D4-C) is
            = j0*r^4
 ```
 
-because `r^(7/2)<=r^4` and `r^(23/6)<=r^4` for every r>=1. **This is a genuinely uniform all-label bound.** Note the strict exponent `23/6=3.833...<4`, which is why up to `O(r)` exceptional modes are allowed.
+because `r^(7/2)<=r^4` and the exceptional factor `r^(3/2)*r^(5/2)=r^4` **exactly**, for every r>=1. **This is a genuinely uniform all-label bound at the critical exponent 7/6.** More generally, if exceptional rank is `O(r^gamma)`, this proof yields exceptional conflict scale `O(r^(gamma+17/6))` and closes at the r⁴ threshold precisely for `gamma<=7/6`. This is a threshold **for this trace-and-cubic bound**, not an impossibility theorem for larger rank or a claim that sources attaining equality exist. The earlier O(r)-rank subcase gives the stronger `O(r^(23/6))=o(r⁴)` exceptional term.
 
 For clarity the explicit constants match the G6-D2/source ledger envelope:
 
