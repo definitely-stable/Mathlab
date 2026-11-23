@@ -422,6 +422,22 @@ class TestG6E1(unittest.TestCase):
                     self.assertEqual(z["N_full"],len(A))
                     self.assertEqual(z["N_core"],len(C))
 
+
+    def test_23_finite_positive_six_ID_examples_enter_serialized_certificate(self):
+        cases=self.z["finite_nontrivial_original_FULL_CORE_six_ID_BBo_certificates"]
+        self.assertEqual(len(cases),2)
+        self.assertEqual({x["q"]:x["original_produced_six_ID_BBo_motifs"]
+                          for x in cases},{3:4,4:258})
+        for x in cases:
+            self.assertTrue(x["three_independent_original_BBo_inverses_agree"])
+            self.assertTrue(x["literal_source_missing_pairs_never_completed"])
+            self.assertTrue(x["finite_original_nontrivial_BBo_not_asymptotic_T3"])
+            self.assertEqual(len(set(x["example_six_distinct_original_flag_IDs"])),6)
+            self.assertEqual(len(set(map(tuple,x["example_six_original_flag_coordinates"]))),6)
+            self.assertGreater(x["exact_point_FULL_CORE_book_count"],0)
+            self.assertGreater(x["exact_line_FULL_CORE_book_count"],0)
+
+
     def test_22_actual_PDS_source_historical_six_ID_inverse(self):
         from gio_t3c2_partial_books import inverse_certificate,selected_mask
         # No fabricated source anchor: every projected original pair
@@ -440,7 +456,8 @@ class TestG6E1(unittest.TestCase):
             self.assertTrue(z["manual_physical_first_equals_source_owner_join"])
             self.assertTrue(z["exact_original_six_ID_nontrivial_inverse"])
             self.assertTrue(z["missing_projections_not_completed"])
-            self.assertGreaterEqual(z["original_source_motifs"],0)
+            self.assertEqual(z["original_source_motifs"],{3:4,4:258}[q])
+            self.assertGreater(z["original_source_motifs"],0)
             print("G6E1_ACTUAL_PDS_FULL_CORE_SIX_ID",q,scheme,
                   "historical_original_motifs",z["original_source_motifs"])
 
