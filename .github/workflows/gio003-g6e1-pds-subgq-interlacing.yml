@@ -1,0 +1,121 @@
+name: gio003-g6e1-pds-subgq-interlacing
+
+on:
+  push:
+    branches:
+      - research/gio003-g6e1-pds-subgq-transfer
+    paths:
+      - 'research/gio_t3e1_subgq_pds.py'
+      - 'research/test_gio_t3e1_subgq_pds.py'
+      - 'docs/research/GIO-003-G6E1-PDS-SUBGQ-INTERLACING.md'
+      - '.github/workflows/gio003-g6e1-pds-subgq-interlacing.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3e1_subgq_pds.py'
+      - 'research/test_gio_t3e1_subgq_pds.py'
+      - 'docs/research/GIO-003-G6E1-PDS-SUBGQ-INTERLACING.md'
+      - '.github/workflows/gio003-g6e1-pds-subgq-interlacing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  genuine-smaller-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent published GQ, perfect domination, spectrum, actual original source tests
+        run: |
+          python -m py_compile research/gio_t3e1_subgq_pds.py research/test_gio_t3e1_subgq_pds.py
+          python -m unittest discover -s research -p 'test_gio_t3e1_subgq_pds.py' -v
+      - name: Generate exact PDS source and GQ interlacing certificates
+        shell: bash
+        run: |
+          python research/gio_t3e1_subgq_pds.py --out gio003-g6e1-pds-subgq.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction as Q
+          from pathlib import Path
+          z=json.loads(Path('gio003-g6e1-pds-subgq.json').read_text())
+          assert z["schema"]=="mathlab.gio003.g6e1.pds-gq-embedded-real-source.v1"
+          assert z["issue"]==793
+          assert z["parent_G6D7_HEAD"]=="4d7cd8f80a407da85e8e9c2ff6aa5edfc57ec261"
+          assert z["claim"]=="CONDITIONAL_T3_REAL_PDS_SUBGQ_SOURCE_VIA_INTERLACING"
+          assert z["published_source"]=="https://arxiv.org/abs/1111.3279"
+          assert z["published_graph_family_NOT_NEW"]
+          assert z["genuinely_distinct_smaller_source_cardinality_than_Wenger"]
+          assert z["no_unrestricted_abstract_T3_or_ASET"]
+          cases=z["independently_constructed_original_PDS_source_cases"]
+          assert len(cases)==6
+          assert {x["q"] for x in cases}=={3,4,5}
+          for x in cases:
+              q=x["q"];r=q-1;n=q*(q*q-2);delta=2*q*(q-2)
+              assert x["original_parent_GQ_missing"]==0
+              assert x["true_original_source_points"]==n
+              assert x["true_original_source_lines"]==n
+              assert x["true_original_source_flags"]==q*n
+              assert x["true_original_Moore_excess"]==delta
+              assert delta<2*r*r
+              assert x["perfect_dominating_all_outside_exactly_one"]
+              assert x["true_original_PDS_removed_each"]==q*q+3*q+1
+              assert x["source_parent_induced_edges_exact"]
+              assert x["all_orig_projection_loads_exact_3st"]
+              assert x["different_vertex_count_from_Wenger_W2"]
+              assert x["original_total_J"]==x["original_point_conflicts"]+x["original_line_conflicts"]
+              assert x["true_original_not_synthetic_F"]
+              env=x["interlacing_all_order"]
+              assert env["parent_second_squared_singular"]==2*q
+              assert env["reduced_second_squared_singular_upper"]==2*q
+              assert env["strict_connectedness_from_interlacing"]
+              kappa=3 if q==3 else 2
+              assert env["fixed_centered_operator_kappa"]==kappa
+              assert Q(env["upper_centered_F0_squared"])<=kappa*r**3
+              for side,p in x["center_exact_two_sided_PSD"].items():
+                  assert p["residual_inertia"]["negative"]==0
+                  assert p["exact_original_F0_operator_upper"]==kappa*r**3
+              print("G6E1_TRUE_SMALLER_SOURCE",q,x["scheme"],
+                    "points",n,"original_flags",q*n,"delta",delta,
+                    "fixed_kappa",kappa)
+          historical=z["finite_nontrivial_original_FULL_CORE_six_ID_BBo_certificates"]
+          assert {x["q"]:x["original_produced_six_ID_BBo_motifs"] for x in historical}=={3:4,4:258}
+          for x in historical:
+              assert x["three_independent_original_BBo_inverses_agree"]
+              assert x["literal_source_missing_pairs_never_completed"]
+              assert len(set(x["example_six_distinct_original_flag_IDs"]))==6
+              assert x["exact_point_FULL_CORE_book_count"]>0
+              assert x["exact_line_FULL_CORE_book_count"]>0
+              print("G6E1_NONTRIVIAL_ORIGINAL_SIX_ID",x["q"],x["scheme"],
+                    "BBo",x["original_produced_six_ID_BBo_motifs"],
+                    "source_flags",x["source_original_flags"])
+          published=z["exact_all_prime_power_source_interlacing_certificate"]
+          assert len(published)>=12
+          assert all(v["fixed_centered_operator_kappa"]==2
+                     for v in published if v["q"]>=4)
+          assert all(v["source_regular_induced_parent_GQ_hypothesis_REQUIRED"]
+                     for v in published)
+          ledger=z["inherited_G6D2_direct_operator_ledger_FORMAL_ONLY"]
+          assert ledger["FORMAL_ONLY"]
+          assert ledger["moment_sixth_condition_is_NOT_required"]
+          f=ledger["fixed_before_source"]
+          assert (f["balance_b"],f["quadratic_C"],f["centered_operator_kappa"])==(1,2,2)
+          assert ledger["no_unconditional_quadratic_T3"]
+          c=ledger["closure"];m=ledger["moments"];s=ledger["selector"]
+          r0=int(c["sufficient_r0"]);eps=Q(c["eps"]);rho=Q(c["rho"])
+          assert m["improper"]<=eps*r0
+          assert m["E"]**2<=eps**2*r0
+          assert m["blocker_D"]**8<=eps**8*r0
+          assert 12*f["balance_b"]**2*rho*s["q3"]**2*m["L6"]<=eps**2
+          assert Q(c["delta"])>0
+          print("G6E1_FORMAL",f,"rho",c["rho"],"delta",c["delta"])
+          print("PASS_GIO003_G6E1_TRUE_PDS_SMALLER_NEAR_MOORE_INTERLACING")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6e1-true-small-gq-pds-source-and-spectral-certificates
+          path: gio003-g6e1-pds-subgq.json
+          retention-days: 90
