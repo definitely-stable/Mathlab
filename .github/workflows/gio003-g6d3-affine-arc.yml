@@ -75,8 +75,13 @@ jobs:
           assert six["q"]==8 and six["curve_power"]==4
           assert six["true_original_source_flags"]==4096
           assert six["original_missing_projection_count"]==57344
-          assert six["actual_produced_original_BBo_sixsets"]>0
-          assert six["proper_CORE_owners"]<six["original_FULL_survivors"]
+          assert six["actual_produced_original_BBo_sixsets"]==1
+          assert six["original_FULL_survivors"]==6
+          assert six["proper_CORE_owners"]==3
+          assert 0<six["bounded_actual_physical_threewalks_examined"]<=3000000
+          assert len(set(six["genuine_original_six_source_IDs"]))==6
+          assert six["witness_uses_genuine_original_3flag_projection"]
+          assert six["witness_vanishes_after_one_FULL_anchor_deleted"]
           assert six["manual_published_source_first_exactly_agree"]
           assert six["no_GQ_completion_or_synthetic_old_anchor"]
           print("G6D3_Q8_HISTORICAL_SOURCE_BBO",six["actual_produced_original_BBo_sixsets"],
