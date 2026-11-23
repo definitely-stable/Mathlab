@@ -184,6 +184,19 @@ Verification is TRUE original-source first:
 - Explicit negative novelty check: published H_q is exactly a DUAL of the existing G6-D3 parabola arc source; it is NOT counted as a separate new family. Smaller reduced cardinality q³−2q differs from all q³ affine-arc/Wenger sources.
 - Prime-power symbolic all-order q=3,4,5,7,8,9,11,13,16,17,19,32,64,101 with **exact inequalities**; only implementation-supported literal F_q (prime and selected binary powers) is instantiated for finite graphs.
 
+### 6.1 Nontrivial genuine original FULL/CORE six-ID BBo, not merely spectra
+
+Beyond mathematical feasibility, the new source now runs through the **existing, fully original named-flag G6-C2 inverse**, with a deterministic adversarial mixed FULL/CORE subset. Three separately implemented algorithms (manual physical 3-walk, published physical BBo classifier and source-first owner-join) return exactly the **same six-original-flag sets**:
+
+| TRUE original PDS source | Factor labels | Original flags | Mixed FULL/CORE produced original six-ID BBo motifs |
+|---|---|---:|---:|
+| q=3, 21 original points + 21 lines | Lexicographic minimal | 63 | **4** |
+| q=4 (GF(4)), 56 original points + 56 lines | Correlated minimal fixed | 224 | **258** |
+
+The certificate stores a concrete tuple of **six distinct ORIGINAL flag IDs and six original point-line owner names** for each case, the independently verified point and line FULL/CORE book counts, and explicit `nontrivial=TRUE` gates. The counting is over actual FULL projection anchors and CORE physical owners; it never supplies a projection where the reduced source has a missing threeflag path. The paper's original perfect dominating deletion is reconstructed independently of the inverse algorithm.
+
+These are strict FINITE nontrivial witness and source-program integration checks. The all-order `D6+BBo>=delta*r^6` conclusion still requires the imported G6-C2/C3 HEAVY/LOW analytic machinery, published graph C6 theorem and r>=r0. The values **4** and **258** are not estimates of delta or of the asymptotic leading coefficient.
+
 ## 7. Publication/priority and next mathematical step
 
 World prior art includes the **2011 Abreu et al. original graph construction**, earlier generalized-quadrangle PDS/geometric configurations and classical matrix interlacing. Do not call those constructions or interlacing themselves a new theorem of worldwide graph theory. An independent thorough novelty/prior-art referee would still be needed before claiming the specific transfer result as publishable.
