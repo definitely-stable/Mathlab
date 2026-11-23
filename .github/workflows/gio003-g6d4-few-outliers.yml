@@ -1,0 +1,94 @@
+name: gio003-g6d4-few-outliers
+
+on:
+  push:
+    branches:
+      - research/gio003-g6d4-few-outlier-modes
+    paths:
+      - 'research/gio_t3d4_few_outliers.py'
+      - 'research/test_gio_t3d4_few_outliers.py'
+      - 'docs/research/GIO-003-G6D4-FEW-POSITIVE-OUTLIERS.md'
+      - '.github/workflows/gio003-g6d4-few-outliers.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3d4_few_outliers.py'
+      - 'research/test_gio_t3d4_few_outliers.py'
+      - 'docs/research/GIO-003-G6D4-FEW-POSITIVE-OUTLIERS.md'
+      - '.github/workflows/gio003-g6d4-few-outliers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  positive-outlier-t3:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile and independent exact symmetric-inertia tests on actual sources
+        run: |
+          python -m py_compile research/gio_t3d4_few_outliers.py research/test_gio_t3d4_few_outliers.py
+          python -m unittest discover -s research -p 'test_gio_t3d4_few_outliers.py' -v
+      - name: Generate and verify exact few-outlier conditional transfer certificate
+        shell: bash
+        run: |
+          python research/gio_t3d4_few_outliers.py --out gio003-g6d4-few-outliers.json
+          python - <<'PY'
+          from fractions import Fraction as Q
+          import json
+          from pathlib import Path
+          z=json.loads(Path("gio003-g6d4-few-outliers.json").read_text())
+          assert z["schema"]=="mathlab.gio003.g6d4.few-positive-collinearity-outliers.v1"
+          assert z["issue"]==793
+          assert z["parent_G6D1_FIX_HEAD"]=="2940b21deefaa997f78f3f9b0ec7beb8047f7334"
+          assert z["claim"]=="CONDITIONAL_T3_QUADRATIC_EXCESS_FEW_POSITIVE_OUTLIERS"
+          assert z["eigenvector_delocalization_NOT_required"]
+          assert z["unconditional_quadratic_excess_T3_NOT_proved"]
+          assert z["new_infinite_bad_gap_family_NOT_constructed"]
+          fixtures=z["exact_source_inertia_finite_falsifiers"]
+          assert len(fixtures)>=9
+          for x in fixtures:
+              r=x["r"];a=x["finite_source_constants"]
+              for side in ("point","line"):
+                  m=x["centered_"+side+"_inertia"]
+                  assert m["centered_positive_outliers"]<=r
+                  assert m["inertia"]["exact_rational_congruence"]
+                  assert m["inertia"]["positive"]+m["inertia"]["negative"]+m["inertia"]["zero"]==m["vertices"]
+              assert x["true_source_not_synthetic_missing_F"]
+              assert x["no_GQ_completion"]
+              assert x["actual_original_owner_conflicts"]<=a["original_owner_conflict_J0"]*r**4
+              assert x["point_gram"]**2<=a["original_pencil_Gram_G0"]**2*r**11
+              assert x["line_gram"]**2<=a["original_pencil_Gram_G0"]**2*r**11
+              if x["kind"].startswith("double"):
+                  assert x["centered_point_inertia"]["centered_positive_outliers"]==1
+                  assert x["centered_line_inertia"]["centered_positive_outliers"]==1
+              print("G6D4_ACTUAL_ORIGINAL_SOURCE",x["kind"],x["scheme"],
+                    "r",r,"DeltaL",x["delta_line"],
+                    "Pout",x["centered_point_inertia"]["centered_positive_outliers"],
+                    "Lout",x["centered_line_inertia"]["centered_positive_outliers"])
+          for w in z["all_order_formal_ledgers"]:
+              assert w["FORMAL_ONLY"]
+              assert w["no_unrestricted_T3"]
+              assert w["source"]["no_eigenvector_delocalization_assumption"]
+              assert w["source"]["no_global_F0_operator_norm_assumption"]
+              assert w["moments"]["no_centered_F0_operator_or_sixth_moment_gate"]
+              a=w["source"];f=w["fixed_before_source"]
+              assert a["cubic_source_root0"]**3>=4*(f["balance_b"]+1)*f["quadratic_C"]**2
+              c=w["closure"];m=w["moments"];s=w["selector"]
+              r=int(c["sufficient_r0"]);e=Q(c["eps"]);rho=Q(c["rho"])
+              assert m["improper"]<=e*r
+              assert m["E"]**2<=e*e*r
+              assert m["blocker_D"]**8<=e**8*r
+              assert 12*f["balance_b"]**2*rho*s["q3"]**2*m["L6"]<=e*e
+              print("G6D4_FORMAL",f,"rho",c["rho"],"delta",c["delta"])
+          print("PASS_GIO003_G6D4_REAL_SOURCE_FEW_OUTLIER_CONDITIONAL_T3")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6d4-real-source-exact-inertia-and-formal-ledger
+          path: gio003-g6d4-few-outliers.json
+          retention-days: 90
