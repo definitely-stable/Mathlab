@@ -110,6 +110,14 @@ This is a **literal connected real quadratic-excess, non-GQ source** with origin
 
 The finite W₂(3) (r=2) provides a second exact connected non-GQ separation: its tail equals 6 on both types while the positive outlier multiplicity also equals 6 and fails the corresponding fixed rank gate.
 
+**Symbolic no-go for this very same fixed infinite Wenger parameter gate.** For every published prime-power q>=3, put r=q−1 and ell=1,nu=2. The positive-outlier multiplicity is `m2=q r²/2`; each contributes exactly `q−r=1` beyond the cutoff, so `tau=q r²/2`. Therefore the weighted tail inequality becomes **precisely**
+
+```
+   tau² <= 4 r^5    <=>    (r+1)² <= 16r.
+```
+
+It fails for **every integer r>=14**, since `r²−14r+1>0` already at r=14 and increases thereafter. In particular published prime-field `q=13` passes the fixed gate arithmetically (`tau=936`), whereas the actual available prime-power `q=17` fails (`tau=2176` exceeds `2*16^(5/2)=2048`). The symbolic regression checks prime q=3,5,7,11,13,17,19 via **published spectra**, without pretending to build original `q³`-vertex incidence graphs at large q. This is a formal **non-extension** result for the fixed `ell=1,nu=2` Wenger route, not a universal no-go for D5 on other sources or different cutoff parameters.
+
 ### Exact polynomial projector as PSD witness
 
 For these **actual source Wenger instances** (not arbitrary sources), let `n=q³`, `k=q(q−1)` and A be its literal original point or line adjacency. The centered projector onto its `+q` eigenspace is **exactly**
