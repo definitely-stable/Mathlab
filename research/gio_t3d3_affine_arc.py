@@ -318,13 +318,17 @@ def bad_curve_falsifier(q,exponent):
 
 
 def binary_q8_historical_six_id_inverse(scheme="lex"):
-    """Three-way original historical BBo check on TRUE nonparabola h=u^4.
+    """Targeted actual GF8 fourth-power source historical BBo witness.
 
-    ONLY actual source flags are assigned named IDs. FULL original
-    source survivors and CORE proper physical path owners are separate.
-    This is NOT the q3/q5 Wenger parabola fixture from G6-D2.
+    First derive a real proper physical 3walk from original geometry
+    and freeze the six ACTUAL named source owners: 3 FULL projection
+    anchors and 3 CORE physical edge owners. Run the THREE complete
+    independent historical BBo inverse algorithms on ONLY these owners,
+    not an unbounded exhaustive 4096-owner census. Then delete one
+    original FULL anchor and independently confirm the witness vanishes.
     """
-    from gio_t3c2_partial_books import selected_mask,inverse_certificate
+    from gio_t3c2_partial_books import inverse_certificate
+    from hyp105_aa4_branch_a_integrated_referee import actual_edges,historical_bbo
     field=Field(8)
     m=source_from_affine_arc(field,4)
     typed=typed_maps(m,scheme)
@@ -333,17 +337,71 @@ def binary_q8_historical_six_id_inverse(scheme="lex"):
     model=dict(m,**typed,
        projection=actual_projection,
        flag_to_id={f:i for i,f in enumerate(m["flags"])})
-    A,C=selected_mask(model,"mixed")
+    original=frozenset(range(len(m["flags"])))
+    physical,owner=actual_edges(model,original)
+    witness=None
+    examined=0
+    # The bound catches a real loss of test coverage rather than silently
+    # enumerating the whole physical graph indefinitely in CI.
+    for v0 in sorted(physical):
+        if witness is not None:
+            break
+        for v1 in sorted(physical[v0]):
+            if witness is not None:
+                break
+            for v2 in sorted(physical[v1]):
+                if witness is not None:
+                    break
+                for v3 in sorted(physical[v2]):
+                    examined+=1
+                    if examined>3000000:
+                        raise AssertionError("no genuine q8 arc source BBo in bounded 3walk search")
+                    vs=(v0,v1,v2,v3)
+                    xs={u[0] for u in vs};ys={u[1] for u in vs}
+                    if len(xs)!=4 or len(ys)!=4:
+                        continue
+                    q=model["point_by_pair"].get(tuple(sorted((v0[0],v3[0]))))
+                    ell=model["line_by_pair"].get(tuple(sorted((v0[1],v3[1]))))
+                    if q is None or ell is None or (q,ell) not in actual_projection:
+                        continue
+                    p,k=actual_projection[q,ell]
+                    if set(model["f"][p])&xs or set(model["g"][k])&ys:
+                        continue
+                    anchors=tuple(model["flag_to_id"][flag] for flag
+                       in ((q,k),(p,k),(p,ell)))
+                    residual=tuple(owner[tuple(sorted((a,b)))]
+                       for a,b in zip(vs,vs[1:]))
+                    if len(set(residual))!=3 or len(set(anchors+residual))!=6:
+                        continue
+                    six=tuple(sorted(anchors+residual))
+                    if not historical_bbo(model,six):
+                        continue
+                    witness=(anchors,residual,six,vs)
+                    break
+    assert witness is not None
+    anchors,residual,six,path=witness
+    A=frozenset(six)
+    C=frozenset(residual)
+    assert len(A)==6 and len(C)==3 and C<=A
     cert=inverse_certificate(model,A,C)
-    assert cert["original_source_motifs"]>0
+    assert cert["original_source_motifs"]==1
     assert cert["manual_physical_first_equals_published"]
     assert cert["manual_physical_first_equals_source_owner_join"]
     assert cert["exact_original_six_ID_nontrivial_inverse"]
     assert cert["missing_projections_not_completed"]
+    deleted_anchor=anchors[0]
+    after=inverse_certificate(model,A-{deleted_anchor},C)
+    assert after["original_source_motifs"]==0
     return dict(q=8,curve_power=4,scheme=scheme,
        true_original_source_flags=len(m["flags"]),
        original_missing_projection_count=len(m["missing"]),
+       bounded_actual_physical_threewalks_examined=examined,
        original_FULL_survivors=len(A),proper_CORE_owners=len(C),
+       genuine_original_six_source_IDs=six,
+       three_FULL_original_projection_anchors=anchors,
+       three_CORE_original_owners=residual,
+       witness_uses_genuine_original_3flag_projection=True,
+       witness_vanishes_after_one_FULL_anchor_deleted=True,
        actual_produced_original_BBo_sixsets=cert["original_source_motifs"],
        manual_published_source_first_exactly_agree=True,
        no_GQ_completion_or_synthetic_old_anchor=True)
