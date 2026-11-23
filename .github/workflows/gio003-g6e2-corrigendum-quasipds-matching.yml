@@ -79,6 +79,16 @@ jobs:
                     "original_vertices_side",n,"flags",x["original_named_flags"],
                     "true_S_removed",x["corrected_2021_quasi_domination_S_size"],
                     "true_matching",x["residual_pre_M_matching_edges"])
+          witness=z["actual_corrected_q7_positive_original_six_ID_BBo"]
+          assert witness["true_corrected_original_source_flags"]==1596
+          assert witness["original_M_edges_removed"]==14
+          assert witness["independently_confirmed_produced_BBo_count"]>=1
+          assert len(set(witness["actual_six_distinct_original_flag_IDs"]))==6
+          assert witness["all_three_historical_BBo_inverses_exact_agree"]
+          assert witness["removing_original_FULL_anchor_destroys_witness"]
+          assert witness["no_fabricated_projection_or_parent_completion"]
+          print("G6E2_REAL_CORRECTED_Q7_HISTORICAL_SIX_ID",witness["actual_six_distinct_original_flag_IDs"],
+                "BBo",witness["independently_confirmed_produced_BBo_count"])
           symbolic=z["fixed_all_odd_prime_power_symbolic_spectral_transfer"]
           assert len(symbolic)>=12
           for x in symbolic:
