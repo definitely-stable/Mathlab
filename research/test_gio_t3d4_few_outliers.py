@@ -252,6 +252,31 @@ class TestG6D4(unittest.TestCase):
         with self.assertRaises(AssertionError):
             source_case("wenger3",ell=0,nu=0)
 
+
+    def test_15_critical_rank_sixth_power_gate_exact_boundary(self):
+        # Exact r=64=2^6: rank 128=2^7 is r^(7/6)
+        # and strictly EXCEEDS the prior O(r) rank=64 threshold.
+        r=64;nu=1;m=128
+        self.assertGreater(m,nu*r)
+        self.assertEqual(m**6,nu**6*r**7)
+        self.assertGreater((m+1)**6,nu**6*r**7)
+        for r in (1,2,3,4,7,64,127,512):
+            for nu in (0,1,3):
+                m=nu*r
+                self.assertLessEqual(m**6,nu**6*r**7)
+                # Exact integer gate cannot be replaced with ceiling
+                # rounded floating powers or a bound on only ONE side.
+        for x in self.c["exact_source_inertia_finite_falsifiers"]:
+            r=x["r"];nu=x["finite_source_constants"]["outlier_count_nu"]
+            p=x["centered_point_inertia"]["centered_positive_outliers"]
+            l=x["centered_line_inertia"]["centered_positive_outliers"]
+            self.assertLessEqual(p**6,nu**6*r**7)
+            self.assertLessEqual(l**6,nu**6*r**7)
+        for ledger in self.c["all_order_formal_ledgers"]:
+            self.assertIn("m^6<=nu^6*r^7",
+                          ledger["moments"]["new_source_gate"])
+
+
     def test_14_independent_girth_fail_closed_not_synthetic_source(self):
         # C4 original incidences are rejected BEFORE any spectral test.
         src,maps=original_source_case("W32")
