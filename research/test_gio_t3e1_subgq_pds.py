@@ -79,7 +79,7 @@ def independent_centered_T_psd(source,q,side):
     assert n==source["points"]==len(source["lines"])
     neighbor=source["neighbors_point" if side=="point" else "neighbors_line"]
     # T=A+qI with principal eigenvalue q² for q-regular incidence.
-    R=[[Q(2*q-(q if i==j else 0)-int(j in neighbor[i]))
+    R=[[Q(q*(i==j)-int(j in neighbor[i]))
         +Q(q*q,n) for j in range(n)] for i in range(n)]
     z=exact_symmetric_inertia(R)
     assert z["negative"]==0
@@ -392,7 +392,7 @@ class TestG6E1(unittest.TestCase):
             dpoint,dline,_=defect_matrices(parent)
             self.assertTrue(all(x==0 for row in dpoint for x in row))
             self.assertTrue(all(x==0 for row in dline for x in row))
-            self.assertEqual(len(independent_components(parent)),
+            self.assertEqual(independent_components(parent),
                              [2*(q+1)*(q*q+1)])
 
 
