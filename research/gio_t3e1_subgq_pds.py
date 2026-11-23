@@ -330,6 +330,54 @@ def exact_all_order_ledger():
     return old
 
 
+
+def actual_original_six_ID_case(q,scheme="lex"):
+    """Reconstruct a NONTRIVIAL proper historical BBo from NEW source flags.
+
+    THREE independent inherited algorithms must agree on the true
+    ORIGINAL six named flag owners. The input graph is the explicit
+    published PDS-induced source, not a GQ-completed projection.
+    """
+    from gio_t3c2_partial_books import (
+        selected_mask, full_core_book, inverse_certificate,
+        manual_produced_bbo,
+    )
+    source=actual_smaller_source(Field(q))["new_original_source"]
+    typed=typed_maps(source,scheme)
+    projections={(p,l):(anchors[1][0],anchors[1][1])
+                 for (p,l),anchors in source["projected"].items()}
+    model=dict(source,**typed,projection=projections,
+        flag_to_id={flag:i for i,flag in enumerate(source["flags"])})
+    A,C=selected_mask(model,"mixed")
+    exact=inverse_certificate(model,A,C)
+    assert exact["manual_physical_first_equals_published"]
+    assert exact["manual_physical_first_equals_source_owner_join"]
+    assert exact["missing_projections_not_completed"]
+    count=exact["original_source_motifs"]
+    assert count>0
+    # A deterministic exact-head mathematical regression on actual
+    # q=3/4 source geometry, not a claim about all q or all masks.
+    expected={3:4,4:258}
+    if q in expected:
+        assert count==expected[q]
+    both={side:full_core_book(model,A,C,side)
+          for side in ("point","line")}
+    six=sorted(manual_produced_bbo(model,A,C))[0]
+    assert len(six)==len(set(six))==6
+    assert all(idx in A for idx in six)
+    return dict(q=q,scheme=scheme,source_original_flags=len(source["flags"]),
+        full_original_flags=len(A),core_original_flags=len(C),
+        original_produced_six_ID_BBo_motifs=count,
+        example_six_distinct_original_flag_IDs=six,
+        example_six_original_flag_coordinates=[source["flags"][i] for i in six],
+        exact_point_FULL_CORE_book_count=both["point"]["source_book"],
+        exact_line_FULL_CORE_book_count=both["line"]["source_book"],
+        three_independent_original_BBo_inverses_agree=True,
+        literal_source_missing_pairs_never_completed=True,
+        finite_original_nontrivial_BBo_not_asymptotic_T3=True)
+
+
+
 def certificate():
     finite=[literal_case(q,scheme,xi,heavy_PSD=heavy) for q,scheme,xi,heavy in (
         (3,"lex",1,True),
@@ -343,12 +391,15 @@ def certificate():
         (3,4,5,7,8,9,11,13,16,17,19,32,64,101)]
     assert all(x["fixed_centered_operator_kappa"]==2
                for x in symbolic if x["q"]>=4)
+    historical=[actual_original_six_ID_case(q,s) for q,s in
+        ((3,"lex"),(4,"correlated"))]
     ledger=exact_all_order_ledger()
     return dict(schema=SCHEMA,issue=793,
         parent_G6D7_HEAD=PARENT_G6D7_HEAD,
         published_source=ABREU_ARXIV,
         claim="CONDITIONAL_T3_REAL_PDS_SUBGQ_SOURCE_VIA_INTERLACING",
         independently_constructed_original_PDS_source_cases=finite,
+        finite_nontrivial_original_FULL_CORE_six_ID_BBo_certificates=historical,
         exact_all_prime_power_source_interlacing_certificate=symbolic,
         inherited_G6D2_direct_operator_ledger_FORMAL_ONLY=ledger,
         genuinely_distinct_smaller_source_cardinality_than_Wenger=True,
