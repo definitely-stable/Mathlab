@@ -1,0 +1,99 @@
+name: gio003-g6d7-local-psd-rowtop
+
+on:
+  push:
+    branches:
+      - research/gio003-g6d7-local-psd-rowtop
+    paths:
+      - 'research/gio_t3d7_local_psd_rowtop.py'
+      - 'research/test_gio_t3d7_local_psd_rowtop.py'
+      - 'docs/research/GIO-003-G6D7-LOCAL-PSD-ROWTOP.md'
+      - '.github/workflows/gio003-g6d7-local-psd-rowtop.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3d7_local_psd_rowtop.py'
+      - 'research/test_gio_t3d7_local_psd_rowtop.py'
+      - 'docs/research/GIO-003-G6D7-LOCAL-PSD-ROWTOP.md'
+      - '.github/workflows/gio003-g6d7-local-psd-rowtop.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-local-psd:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent original incidence row-top, Loewner and all-factor tests
+        run: |
+          python -m py_compile research/gio_t3d7_local_psd_rowtop.py research/test_gio_t3d7_local_psd_rowtop.py
+          python -m unittest discover -s research -p 'test_gio_t3d7_local_psd_rowtop.py' -v
+      - name: Generate and inspect exact local PSD and inherited four-error certificates
+        shell: bash
+        run: |
+          python research/gio_t3d7_local_psd_rowtop.py --out gio003-g6d7-local-psd.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction as Q
+          from pathlib import Path
+          z=json.loads(Path('gio003-g6d7-local-psd.json').read_text())
+          assert z["schema"]=="mathlab.gio003.g6d7.local-psd-rowtop.v1"
+          assert z["issue"]==793
+          assert z["parent_G6D6_HEAD"]=="e4491693df03c263401f3cd8baa8d81278ec68c4"
+          assert z["claim"]=="CONDITIONAL_T3_QUADRATIC_EXCESS_LOCAL_PSD_ROW_TOP"
+          assert z["fixed_cutoff_infinite_Wenger_separation_from_D5_D6"]
+          assert z["existing_Wenger_already_satisfies_optimized_D2"]
+          assert z["no_new_unrestricted_T3_or_ASET"]
+          cases=z["actual_source_exact_loewner_and_local_certificate"]
+          assert len(cases)>=12
+          for x in cases:
+              r=x["r"];a=x["source_constants"]
+              assert x["actual_original_source_no_synthetic_F"]
+              assert x["original_GQ_axiom_not_used"]
+              for side in ("point","line"):
+                  w=x["exact_source_two_sided_certificates"][side]
+                  assert w["W_PSD_exact_inertia"]["negative"]==0
+                  assert w["W_dominance_PSD_exact_inertia"]["negative"]==0
+                  assert w["exact_r4_local_budget"]
+                  L=Q(w["local"]["exact_rowtop_energy"])
+                  assert L<=w["M"]*r**4
+                  assert w["minimum_pair_alphabet"]*(w["minimum_pair_alphabet"]-1)//2>=w["source_original_vertices"]
+                  assert w["local"]["rowtop_is_factor_independent"]
+              assert x["original_J"]<=a["original_owner_conflict_J0"]*r**4
+              assert x["point_Gram"]**2<=a["original_pencil_Gram_G0"]**2*r**11
+              assert x["line_Gram"]**2<=a["original_pencil_Gram_G0"]**2*r**11
+              print("G6D7_ACTUAL_ORIGINAL",x["name"],x["scheme"],x["witness_mode"],
+                "r",r,"localP",x["exact_source_two_sided_certificates"]["point"]["local"]["exact_rowtop_energy"],
+                "localL",x["exact_source_two_sided_certificates"]["line"]["local"]["exact_rowtop_energy"])
+          known=z["published_prime_power_Wenger_diagonal_symbolic_family"]
+          assert len(known)>=15
+          assert all(x["local_rowtop_gate"] for x in known)
+          assert all(x["fixed_source_quadratic_excess_C3"] for x in known)
+          assert all(not x["D6_squared_tail_same_ell_M"]
+              and not x["D5_first_tail_same_ell_M"] for x in known if x["r"]>=8)
+          for l in z["all_order_formal_original_HEAVY_LOW_ledgers"]:
+              assert l["FORMAL_ONLY"] and l["no_unrestricted_T3"]
+              assert l["source"]["no_global_Schatten_or_trace_gate"]
+              assert l["prerequisites"]["inherited_G6C2_FULL_CORE_original_inverse"]
+              assert l["prerequisites"]["inherited_G6C3_HEAVY_LOW_original_selector"]
+              c=l["closure"];m=l["moments"];s=l["selector"]
+              e=Q(c["eps"]);rho=Q(c["rho"]);r=int(c["sufficient_r0"])
+              assert m["improper"]<=e*r
+              assert m["E"]**2<=e*e*r
+              assert m["D"]**8<=e**8*r
+              assert 12*l["fixed_before_source"]["balance_b"]**2*rho*s["q3"]**2*m["L6"]<=e*e
+              assert Q(c["delta"])>0
+              print("G6D7_FORMAL",l["fixed_before_source"],
+                "rho",c["rho"],"delta",c["delta"])
+          print("PASS_GIO003_G6D7_ORIGINAL_LOCAL_PSD_ROW_CAPACITY")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6d7-original-local-psd-rowtop-certificate
+          path: gio003-g6d7-local-psd.json
+          retention-days: 90
