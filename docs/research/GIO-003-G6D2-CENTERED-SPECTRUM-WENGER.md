@@ -22,6 +22,7 @@ G6-D1 independently proved the literal point-line cubic
 ```
 
 and the exact dual for `U=B^TB`. F is original rectangular, 0/1, regular by rows and columns, and row(F)=Delta_L, col(F)=Delta_P. The full operator norm `||F||²=Delta_L Delta_P` includes the trivial all-ones singular vectors; **we do not use this full norm in G6-D2**.
+
 **Asymmetric rank-one correction / exact dual:** the full-entry source identity (2) uses the **row** sum `Delta_L`; its dual reads `U(U-(s+t)I)^2=F^TF+(|P|-2Delta_P)J_LL`, `U=B^TB`. The earlier source #805/#806 texts swapped the two deficits on these rank-one terms. This repair is witnessed by a genuine disconnected asymmetric positive-excess `GQ(2,4)` double and its dual, not by a synthetic missing matrix. On centered vectors `J` vanishes, so all `F0`, PSD, Wenger, source spectral and conditional HEAVY/LOW bounds derived from centered eigenvalues retain their stated scope. See [asymmetric proof audit](GIO-003-G6D1-RECTANGULAR-CUBIC-CORRECTION.md).
 
 
