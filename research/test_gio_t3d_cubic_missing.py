@@ -329,5 +329,51 @@ class TestG6D1(unittest.TestCase):
             source_graph(lines,m["points"],m["s"],m["t"])
 
 
+    def test_19_asymmetric_nonGQ_full_rank_one_coefficients(self):
+        """Real original incidence, positive unequal Moore excess, both duals.
+
+        Unlike prior tests (equal s=t positive excess or unequal zero
+        excess), this fails against the *old* Delta_P/Delta_L swap.
+        Two disjoint copies of each genuine unequal-order GQ have
+        girth >= 8, but missing original projections across components.
+        The no-GQ hypothesis is NOT replaced with a synthetic F matrix.
+        """
+        from gio_t3c_intrinsic_defect import source_graph
+        for name in ("Qminus24", "dualQminus42"):
+            original=make_model(name)
+            P=original["points"]
+            L=len(original["lines"])
+            doubled=[set(line) for line in original["lines"]]
+            doubled += [{p+P for p in line} for line in original["lines"]]
+            m=source_graph(doubled,2*P,original["s"],original["t"])
+            z=construct_missing_matrices(m)
+            self.assertEqual((z["vp"],z["vl"]),(2*P,2*L))
+            self.assertEqual(z["delta_line"],L)
+            self.assertEqual(z["delta_point"],P)
+            self.assertNotEqual(z["delta_line"],z["delta_point"])
+            self.assertEqual(z["F"],independent_threepath_missing(m))
+            self.assertEqual([sum(row) for row in z["F"]],[L]*(2*P))
+            self.assertEqual(
+                [sum(z["F"][p][ell] for p in range(2*P))
+                 for ell in range(2*L)], [P]*(2*L))
+            self.assertEqual(sum(map(sum,z["F"])),2*P*L)
+            self.assertTrue(independent_direct_cubic(z))
+            self.assertTrue(polynomial_identity(z)["exact_dual_no_GQ_identity"])
+            h=z["s"]+z["t"]
+            principal=(z["s"]+1)*(z["t"]+1)
+            lhs=principal*(principal-h)**2
+            dL,dP=z["delta_line"],z["delta_point"]
+            VP,VL=z["vp"],z["vl"]
+            # All-ones eigenvalue of FF^T and F^TF is dL*dP.
+            # Old rank-one coefficients are demonstrably false.
+            self.assertEqual(lhs,dL*dP+(VL-2*dL)*VP)
+            self.assertEqual(lhs,dL*dP+(VP-2*dP)*VL)
+            self.assertNotEqual(lhs,dL*dP+(VL-2*dP)*VP)
+            self.assertNotEqual(lhs,dL*dP+(VP-2*dL)*VL)
+            if name=="Qminus24":
+                self.assertEqual((VP,VL,dL,dP,lhs),(54,90,45,27,1215))
+                self.assertEqual(dL*dP+(VL-2*dP)*VP,3159)
+
+
 if __name__=="__main__":
     unittest.main()
