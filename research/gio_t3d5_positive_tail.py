@@ -305,6 +305,32 @@ def finite_case(name,scheme="lex",ell=1,nu=2):
        no_GQ_projection_completion=True)
 
 
+def published_Wenger_symbolic_tail(q,ell=1,nu=2):
+    """Published W2(q) spectrum, conditional on q being a prime power.
+
+    Computes the all-order tail without building a q^3-by-q^3 matrix.
+    The *arithmetic* is valid at every integer q>=3; actual source
+    existence in this theorem is asserted only for PRIME POWERS q.
+    """
+    if any(type(v) is not int for v in (q,ell,nu)) or q<3 or ell<0 or nu<0:
+        raise ValueError("q>=3 and ell,nu>=0 exact integers")
+    r=q-1
+    m2=q*r*r//2
+    assert q*r*r%2==0
+    lam_plus=q
+    cutoff=ell*r
+    rank=m2 if lam_plus>cutoff else 0
+    tau=rank*max(lam_plus-cutoff,0)
+    return dict(q=q,r=r,ell=ell,nu=nu,
+        published_Wenger_W2_prime_power_hypothesis_REQUIRED=True,
+        actual_source_NOT_instantiated_for_this_symbolic_formula=True,
+        positive_outlier_rank=rank,positive_tail_exact=tau,
+        rank_gate_G6D4=rank**6<=nu**6*r**7,
+        positive_tail_gate_G6D5=tau**2<=nu**2*r**5,
+        positive_tail_squared=tau**2,
+        source_tail_bound_squared=nu**2*r**5)
+
+
 def certificate():
     examples=[
         finite_case("wenger3","lex",1,2),
@@ -319,9 +345,17 @@ def certificate():
     ]
     ledgers=[integrated_tail_ledger(*v) for v in
         ((1,3,1,2),(1,3,2,0),(2,12,2,2))]
+    published_symbolic=[published_Wenger_symbolic_tail(q) for q in
+        (3,5,7,11,13,17,19)]
+    assert all(x["positive_tail_gate_G6D5"] for x in published_symbolic
+               if x["q"]<=13)
+    assert all(not x["positive_tail_gate_G6D5"] for x in published_symbolic
+               if x["q"]>=17)
+    assert 15**2>16*14
     return dict(schema=SCHEMA,issue=793,parent_G6D4_HEAD=PARENT_G6D4,
         claim="CONDITIONAL_QUADRATIC_T3_POSITIVE_SPECTRAL_TAIL",
         exact_actual_source_PSD_witnesses=examples,
+        published_Wenger_all_order_symbolic_tail_boundary=published_symbolic,
         formal_all_order_source_and_four_error_ledgers=ledgers,
         strict_finite_Wenger5_separation_from_D4_at_same_parameters=True,
         no_infinite_separation_claim=True,
