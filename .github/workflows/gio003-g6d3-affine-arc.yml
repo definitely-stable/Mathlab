@@ -71,6 +71,16 @@ jobs:
           for x in z["actual_bad_source_negative_controls"]:
               assert x["original_C6_rejected_by_independent_graph_checker"]
           assert not z["q16_nonarc_det_only"]["projective_arc"]
+          six=z["true_binary_q8_novel_arc_historical_BBo_inverse"]
+          assert six["q"]==8 and six["curve_power"]==4
+          assert six["true_original_source_flags"]==4096
+          assert six["original_missing_projection_count"]==57344
+          assert six["actual_produced_original_BBo_sixsets"]>0
+          assert six["proper_CORE_owners"]<six["original_FULL_survivors"]
+          assert six["manual_published_source_first_exactly_agree"]
+          assert six["no_GQ_completion_or_synthetic_old_anchor"]
+          print("G6D3_Q8_HISTORICAL_SOURCE_BBO",six["actual_produced_original_BBo_sixsets"],
+                "FULL",six["original_FULL_survivors"],"CORE",six["proper_CORE_owners"])
           for e in z["infinite_binary_power4_arc_certificate"]:
               assert e["projective_arc_exactly_if_odd_e"]==(e["e"]%2==1)
               assert e["actual_infinite_nongq_family_when_e_odd_ge3"]==(e["e"]%2==1 and e["e"]>=3)
