@@ -21,7 +21,7 @@ Correct theorem / exact source parameters for odd prime-power q≥7:
             = 4r²+3r−5 <=5r²   (r>=5).
 ```
 
-Unlike the retracted claim, this is NOT q(q−1)². For q=7, the q−1 construction has 266 original points +266 lines, 1,596 original flags, true Δ=110. For q=5 it yields a finite exceptional example of 80 points+80 lines, 320 original flags, Δ=40, but q5 is **never used as evidence for the incorrect 2015 all-order statement**.
+For all q>=7 this order differs from the retracted 2015 expression q(q−1)². At the exceptional q=5 the two order formulas coincide numerically (both equal 80 vertices per type), consistent with the corrigendum's statement that the old proposed perfect dominating set worked only at q=5; this isolated equality must never be promoted to the false all-order construction. For q=7, the q−1 construction has 266 original points +266 lines, 1,596 original flags, true Δ=110. For q=5 it yields a finite exceptional example of 80 points+80 lines, 320 original flags, Δ=40, but q5 is **never used as evidence for the incorrect 2015 all-order statement**.
 
 ## 2. Corrected source construction from ACTUAL original incidences
 
