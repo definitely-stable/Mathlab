@@ -44,6 +44,7 @@ the following matrix identity holds **on all entries**, not merely on centered v
 ```
 
 The second equation follows independently by transposing the original incidence. Both F and B may be rectangular, and s need not equal t.
+
 **Asymmetric full-matrix correction (G6-D1-FIX, 23 November 2026).** The original stacked #805 text interchanged `Delta_L` and `Delta_P` in the rank-one coefficients above. `F` has **row sum `Delta_L`** and **column sum `Delta_P`**; hence `JF^T=FJ^T=Delta_L J_PP` and `F^TJ=JF=Delta_P J_LL` with the appropriate rectangular all-ones matrices. This changes the full-entry equations for asymmetric positive-excess sources. It does **not** alter their centered restrictions on `1^perp`, nor the resulting `x(x-h)^2 <= Delta_L Delta_P` bound, because every rank-one `J` term vanishes there. An independent exact genuine non-GQ disconnected doubled `GQ(2,4)` (and its dual) fails the old formula and satisfies the corrected one on all entries; see `test_19_asymmetric_nonGQ_full_rank_one_coefficients` and the [correction audit](GIO-003-G6D1-RECTANGULAR-CUBIC-CORRECTION.md). Historical immutable PR-head prose is superseded by this repair; #793 unrestricted T3 stays OPEN.
 
 
