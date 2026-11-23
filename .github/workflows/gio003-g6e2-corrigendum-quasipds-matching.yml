@@ -1,0 +1,121 @@
+name: gio003-g6e2-corrigendum-quasipds-matching
+
+on:
+  push:
+    branches:
+      - research/gio003-g6e2-corrigendum-quasipds-matching
+    paths:
+      - 'research/gio_t3e2_corrigendum_quasi_pds.py'
+      - 'research/test_gio_t3e2_corrigendum_quasi_pds.py'
+      - 'docs/research/GIO-003-G6E2-2021-CORRIGENDUM-QUASI-PDS.md'
+      - '.github/workflows/gio003-g6e2-corrigendum-quasipds-matching.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3e2_corrigendum_quasi_pds.py'
+      - 'research/test_gio_t3e2_corrigendum_quasi_pds.py'
+      - 'docs/research/GIO-003-G6E2-2021-CORRIGENDUM-QUASI-PDS.md'
+      - '.github/workflows/gio003-g6e2-corrigendum-quasipds-matching.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  corrected-2021-true-sources:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent actual original source, quasi-domination and matching, 2021-correction tests
+        run: |
+          python -m py_compile research/gio_t3e2_corrigendum_quasi_pds.py research/test_gio_t3e2_corrigendum_quasi_pds.py
+          python -m unittest discover -s research -p 'test_gio_t3e2_corrigendum_quasi_pds.py' -v
+      - name: Generate and inspect corrected q-1 source certificate, fixed all-order gates
+        shell: bash
+        run: |
+          python research/gio_t3e2_corrigendum_quasi_pds.py --out gio003-g6e2-corrected-2021-source.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction as Q
+          from pathlib import Path
+          z=json.loads(Path('gio003-g6e2-corrected-2021-source.json').read_text())
+          assert z["schema"]=="mathlab.gio003.g6e2.corrigendum-2021-quasipds.v1"
+          assert z["parent_G6E1_HEAD"]=="d82b8d784710e47e37ca30d912ee097f9dfbea57"
+          assert z["corrigendum_date"]=="2021-05-18"
+          assert z["first_original_2015_q_minus1_family_RETRACTED"]
+          assert z["corrected_2021_matching_is_required"]
+          assert z["corrected_family_exists_for_odd_prime_power_q_ge7"]
+          assert z["no_new_worldwide_graph_construction"]
+          assert z["no_unrestricted_T3_or_new_ASET_exponent"]
+          cases=z["true_original_corrected_quasi_PDS_source_examples"]
+          assert len(cases)==3
+          assert {x["q"] for x in cases}=={5,7}
+          for x in cases:
+              q=x["q"];r=q-2
+              n=q*(q*q-q-4)
+              assert x["genuine_smaller_source_each_side"]==n
+              assert x["original_named_flags"]==(q-1)*n
+              assert x["original_Moore_excess"]==4*r*r+3*r-5
+              assert x["original_Moore_excess"]<=5*r*r
+              assert x["no_false_2015_PDS_claim"]
+              assert x["every_degree_q_residual_matched"]
+              assert x["actual_source_after_S_plus_M"]
+              assert x["original_source_projected_loads_all_exact"]
+              assert x["original_total_J"]==(x["independent_original_point_conflicts"]
+                +x["independent_original_line_conflicts"])
+              if q==7:
+                  assert x["residual_pre_M_matching_edges"]==14
+                  assert (n,x["original_named_flags"],x["original_Moore_excess"])==(266,1596,110)
+                  assert x["uniform_all_order_spectral_gate"]["uniform_fixed_kappa"]==48
+              else:
+                  assert x["residual_pre_M_matching_edges"]==0
+                  assert x["q5_is_finite_exception_NOT_an_infinite_family"]
+                  for p in x["exact_full_original_missing_PSD"].values():
+                      assert p["residual_inertia"]["negative"]==0
+              print("G6E2_ACTUAL_CORRECTED_2021",q,x["scheme"],
+                    "original_vertices_side",n,"flags",x["original_named_flags"],
+                    "true_S_removed",x["corrected_2021_quasi_domination_S_size"],
+                    "true_matching",x["residual_pre_M_matching_edges"])
+          witness=z["actual_corrected_q7_positive_original_six_ID_BBo"]
+          assert witness["true_corrected_original_source_flags"]==1596
+          assert witness["original_M_edges_removed"]==14
+          assert witness["independently_confirmed_produced_BBo_count"]>=1
+          assert len(set(witness["actual_six_distinct_original_flag_IDs"]))==6
+          assert witness["all_three_historical_BBo_inverses_exact_agree"]
+          assert witness["removing_original_FULL_anchor_destroys_witness"]
+          assert witness["no_fabricated_projection_or_parent_completion"]
+          print("G6E2_REAL_CORRECTED_Q7_HISTORICAL_SIX_ID",witness["actual_six_distinct_original_flag_IDs"],
+                "BBo",witness["independently_confirmed_produced_BBo_count"])
+          symbolic=z["fixed_all_odd_prime_power_symbolic_spectral_transfer"]
+          assert len(symbolic)>=12
+          for x in symbolic:
+              q=x["q"];r=q-2
+              assert x["uniform_fixed_kappa"]==48
+              assert x["uniform_quadratic_excess_C"]==5
+              assert Q(x["exact_centered_G6D1_cubic_upper"])<=48*r**3
+              assert x["old_2015_perfect_dominating_order_RETRACTED"]
+              assert x["MATCHING_operator_norm_exactly_one"]
+              assert x["field_existence_requires_corrected_2021_theorem"]
+          ledger=z["inherited_G6D2_DIRECT_four_low_ledger"]
+          assert ledger["FORMAL_ONLY"]
+          assert ledger["moment_sixth_condition_is_NOT_required"]
+          f=ledger["fixed_before_source"]
+          assert (f["balance_b"],f["quadratic_C"],
+                  f["centered_operator_kappa"])==(1,5,48)
+          c=ledger["closure"];m=ledger["moments"];s=ledger["selector"]
+          R=int(c["sufficient_r0"]);eps=Q(c["eps"]);rho=Q(c["rho"])
+          assert m["improper"]<=eps*R
+          assert m["E"]**2<=eps*eps*R
+          assert m["blocker_D"]**8<=eps**8*R
+          assert 12*rho*s["q3"]**2*m["L6"]<=eps**2
+          assert Q(c["delta"])>0
+          print("PASS_GIO003_G6E2_CORRECTED_2021_QUASIPDS_MATCHING")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6e2-corrected-2021-original-sources-and-weyl-certificate
+          path: gio003-g6e2-corrected-2021-source.json
+          retention-days: 90
