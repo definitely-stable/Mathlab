@@ -81,6 +81,17 @@ jobs:
               print("G6E1_TRUE_SMALLER_SOURCE",q,x["scheme"],
                     "points",n,"original_flags",q*n,"delta",delta,
                     "fixed_kappa",kappa)
+          historical=z["finite_nontrivial_original_FULL_CORE_six_ID_BBo_certificates"]
+          assert {x["q"]:x["original_produced_six_ID_BBo_motifs"] for x in historical}=={3:4,4:258}
+          for x in historical:
+              assert x["three_independent_original_BBo_inverses_agree"]
+              assert x["literal_source_missing_pairs_never_completed"]
+              assert len(set(x["example_six_distinct_original_flag_IDs"]))==6
+              assert x["exact_point_FULL_CORE_book_count"]>0
+              assert x["exact_line_FULL_CORE_book_count"]>0
+              print("G6E1_NONTRIVIAL_ORIGINAL_SIX_ID",x["q"],x["scheme"],
+                    "BBo",x["original_produced_six_ID_BBo_motifs"],
+                    "source_flags",x["source_original_flags"])
           published=z["exact_all_prime_power_source_interlacing_certificate"]
           assert len(published)>=12
           assert all(v["fixed_centered_operator_kappa"]==2
