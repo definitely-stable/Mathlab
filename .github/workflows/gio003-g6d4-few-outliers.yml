@@ -55,7 +55,7 @@ jobs:
               r=x["r"];a=x["finite_source_constants"]
               for side in ("point","line"):
                   m=x["centered_"+side+"_inertia"]
-                  assert m["centered_positive_outliers"]<=r
+                  assert m["centered_positive_outliers"]**6<=a["outlier_count_nu"]**6*r**7
                   assert m["inertia"]["exact_rational_congruence"]
                   assert m["inertia"]["positive"]+m["inertia"]["negative"]+m["inertia"]["zero"]==m["vertices"]
               assert x["true_source_not_synthetic_missing_F"]
