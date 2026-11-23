@@ -340,5 +340,19 @@ class TestE2(unittest.TestCase):
 
 
 
+    def test_22_exact_cert_contains_real_corrected_q7_six_original_owners(self):
+        x=self.data["actual_corrected_q7_positive_original_six_ID_BBo"]
+        self.assertEqual((x["q"],x["scheme"]),(7,"lex"))
+        self.assertEqual(x["true_corrected_original_source_flags"],1596)
+        self.assertEqual(x["original_M_edges_removed"],14)
+        self.assertGreaterEqual(x["independently_confirmed_produced_BBo_count"],1)
+        self.assertEqual(len(set(x["actual_six_distinct_original_flag_IDs"])),6)
+        self.assertEqual(len(x["actual_six_original_flag_coordinates"]),6)
+        self.assertTrue(x["all_three_historical_BBo_inverses_exact_agree"])
+        self.assertTrue(x["removing_original_FULL_anchor_destroys_witness"])
+        self.assertTrue(x["no_fabricated_projection_or_parent_completion"])
+        self.assertTrue(x["finite_positive_not_asymptotic_count"])
+
+
 if __name__=="__main__":
     unittest.main()
