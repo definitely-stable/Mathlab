@@ -396,5 +396,54 @@ class TestG6E1(unittest.TestCase):
                              [2*(q+1)*(q*q+1)])
 
 
+    def test_21_new_source_original_G6C2_FULL_CORE_book_both_types(self):
+        # Reuse the ACTUAL six-original-ID inverse implementation on
+        # the newly constructed smaller source, without GQ completion.
+        from gio_t3c2_partial_books import selected_mask,full_core_book
+        for q,scheme in ((3,"lex"),(4,"correlated")):
+            src=actual_smaller_source(Field(q))["new_original_source"]
+            typed=typed_maps(src,scheme)
+            source_projection={(p,l):(anchors[1][0],anchors[1][1])
+                for (p,l),anchors in src["projected"].items()}
+            m=dict(src,**typed,
+                projection=source_projection,
+                flag_to_id={flag:i for i,flag in enumerate(src["flags"])})
+            for which in ("full","mixed"):
+                A,C=selected_mask(m,which)
+                self.assertTrue(C<=A)
+                self.assertLessEqual(len(C),len(A))
+                for side in ("point","line"):
+                    z=full_core_book(m,A,C,side)
+                    self.assertTrue(z["exact_source_book_squared_bound"])
+                    self.assertTrue(z["exact_theta_equals_product_degrees"])
+                    self.assertTrue(z["exact_F1_le_2G"])
+                    self.assertTrue(z["exact_F2_le_2degree_K_Theta"])
+                    self.assertGreaterEqual(z["source_book"],0)
+                    self.assertEqual(z["N_full"],len(A))
+                    self.assertEqual(z["N_core"],len(C))
+
+    def test_22_actual_PDS_source_historical_six_ID_inverse(self):
+        from gio_t3c2_partial_books import inverse_certificate,selected_mask
+        # No fabricated source anchor: every projected original pair
+        # must carry the three G6-C1 flags from the reduced geometry.
+        for q,scheme in ((3,"lex"),(4,"correlated")):
+            src=actual_smaller_source(Field(q))["new_original_source"]
+            typed=typed_maps(src,scheme)
+            projected={(p,l):(anchors[1][0],anchors[1][1])
+                for (p,l),anchors in src["projected"].items()}
+            m=dict(src,**typed,
+                projection=projected,
+                flag_to_id={flag:i for i,flag in enumerate(src["flags"])})
+            A,C=selected_mask(m,"mixed")
+            z=inverse_certificate(m,A,C)
+            self.assertTrue(z["manual_physical_first_equals_published"])
+            self.assertTrue(z["manual_physical_first_equals_source_owner_join"])
+            self.assertTrue(z["exact_original_six_ID_nontrivial_inverse"])
+            self.assertTrue(z["missing_projections_not_completed"])
+            self.assertGreaterEqual(z["original_source_motifs"],0)
+            print("G6E1_ACTUAL_PDS_FULL_CORE_SIX_ID",q,scheme,
+                  "historical_original_motifs",z["original_source_motifs"])
+
+
 if __name__=="__main__":
     unittest.main()
