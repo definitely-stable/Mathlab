@@ -317,6 +317,38 @@ def bad_curve_falsifier(q,exponent):
         no_false_girth8_from_plain_q_regular_degree=True)
 
 
+def binary_q8_historical_six_id_inverse(scheme="lex"):
+    """Three-way original historical BBo check on TRUE nonparabola h=u^4.
+
+    ONLY actual source flags are assigned named IDs. FULL original
+    source survivors and CORE proper physical path owners are separate.
+    This is NOT the q3/q5 Wenger parabola fixture from G6-D2.
+    """
+    from gio_t3c2_partial_books import selected_mask,inverse_certificate
+    field=Field(8)
+    m=source_from_affine_arc(field,4)
+    typed=typed_maps(m,scheme)
+    actual_projection={(p,l):(anchors[1][0],anchors[1][1])
+         for (p,l),anchors in m["projected"].items()}
+    model=dict(m,**typed,
+       projection=actual_projection,
+       flag_to_id={f:i for i,f in enumerate(m["flags"])})
+    A,C=selected_mask(model,"mixed")
+    cert=inverse_certificate(model,A,C)
+    assert cert["original_source_motifs"]>0
+    assert cert["manual_physical_first_equals_published"]
+    assert cert["manual_physical_first_equals_source_owner_join"]
+    assert cert["exact_original_six_ID_nontrivial_inverse"]
+    assert cert["missing_projections_not_completed"]
+    return dict(q=8,curve_power=4,scheme=scheme,
+       true_original_source_flags=len(m["flags"]),
+       original_missing_projection_count=len(m["missing"]),
+       original_FULL_survivors=len(A),proper_CORE_owners=len(C),
+       actual_produced_original_BBo_sixsets=cert["original_source_motifs"],
+       manual_published_source_first_exactly_agree=True,
+       no_GQ_completion_or_synthetic_old_anchor=True)
+
+
 def arc_family_theorem():
     ledger=integrated_quadratic_direct_ledger(1,3,1,Q(1),Q(1))
     assert ledger["moment_sixth_condition_is_NOT_required"]
@@ -348,6 +380,7 @@ def certificate():
        (8,4,"lex"),(8,4,"correlated"))]
     assert actual[3]["Fourier"]["exact_zero_count_multiplicity"]==actual[2]["Fourier"]["exact_zero_count_multiplicity"]
     negatives=[bad_curve_falsifier(4,4)]
+    original_binary_BBo=binary_q8_historical_six_id_inverse("lex")
     # q=16 is non-arc but constructing a 4096x4096 source would be
     # needless; the independent determinant+slope oracle still rejects.
     q16=affine_arc_oracle(Field(16),4)
@@ -360,6 +393,7 @@ def certificate():
        claim="STRUCTURAL_AFFINE_ARC_TO_QUADRATIC_T3_ALL_FAMILIES",
        actual_finite_source_falsifiers=actual,
        actual_bad_source_negative_controls=negatives,
+       true_binary_q8_novel_arc_historical_BBo_inverse=original_binary_BBo,
        q16_nonarc_det_only=q16,
        infinite_binary_power4_arc_certificate=binary,
        general_affine_projective_q_arc_theorem=arc_family_theorem(),
