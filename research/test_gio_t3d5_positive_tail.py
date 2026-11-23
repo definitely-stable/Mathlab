@@ -7,6 +7,7 @@ from gio_t3d5_positive_tail import (
     exact_positive_tail_psd,wenger_q_eigenspace_witness,
     doubled_gq_sign_witness,witness_for_fixture,tail_mixing_constants,
     integrated_tail_ledger,finite_case,certificate,
+    published_Wenger_symbolic_tail,
 )
 from gio_t3d4_few_outliers import (
     original_source_case, actual_outlier_count,
@@ -286,6 +287,32 @@ class TestG6D5(unittest.TestCase):
                 outs=actual_outlier_count(src["neighbors_point"],ell*r)
                 self.assertEqual(outs["centered_positive_outliers"],
                                  m2 if q>ell*r else 0)
+
+
+    def test_17_symbolic_Wenger_tail_fixed_nu_finite_not_infinite(self):
+        # W2(q) is a genuine infinite published source family for PRIME
+        # POWERS q; these arithmetic rows do not construct q^3 sources.
+        out=[published_Wenger_symbolic_tail(q,1,2)
+             for q in (3,5,7,11,13,17,19)]
+        self.assertTrue(all(x["positive_tail_gate_G6D5"] for x in out[:5]))
+        self.assertTrue(all(not x["positive_tail_gate_G6D5"] for x in out[5:]))
+        self.assertTrue(all(x["published_Wenger_W2_prime_power_hypothesis_REQUIRED"]
+                            for x in out))
+        self.assertTrue(all(x["actual_source_NOT_instantiated_for_this_symbolic_formula"]
+                            for x in out))
+        self.assertEqual(out[1]["positive_outlier_rank"],40)
+        self.assertEqual(out[1]["positive_tail_exact"],40)
+        self.assertEqual(out[4]["positive_tail_exact"],936)
+        self.assertEqual(out[5]["positive_tail_exact"],2176)
+        self.assertFalse(out[1]["rank_gate_G6D4"])
+        # For ell=1, nu=2, the G6D5 criterion is exactly
+        #   (r+1)^2 <=16r; false for every r>=14
+        # since r^2-14r+1 is already positive at r=14 and increasing.
+        for r in range(14,401):
+            self.assertGreater((r+1)**2,16*r)
+        for a in ((2,1,2),(5,-1,2),(5,1,-1),(5,1,True)):
+            with self.assertRaises(ValueError):
+                published_Wenger_symbolic_tail(*a)
 
 
 if __name__=="__main__":
