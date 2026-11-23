@@ -75,6 +75,11 @@ jobs:
           assert wg["previous_G6D4_rank_gate_fails_at_same_ell_nu"]
           assert wg["exact_psd_tail_witnesses"]["point"]["trace_W"]=="40"
           assert wg["exact_psd_tail_witnesses"]["line"]["trace_W"]=="40"
+          sym=z["published_Wenger_all_order_symbolic_tail_boundary"]
+          assert len(sym)==7
+          assert all(x["positive_tail_gate_G6D5"] for x in sym if x["q"]<=13)
+          assert all(not x["positive_tail_gate_G6D5"] for x in sym if x["q"]>=17)
+          assert sym[-2]["positive_tail_exact"]==2176
           for w in z["formal_all_order_source_and_four_error_ledgers"]:
               assert w["FORMAL_ONLY"] and w["no_unrestricted_T3"]
               assert w["source"]["no_positive_outlier_rank_gate"]
