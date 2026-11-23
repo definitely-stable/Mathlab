@@ -153,6 +153,17 @@ The numerical external graph constants C0=c0=1 in the inherited ledger are **FOR
 
 CI acceptance: exact PR HEAD specialist tests + machine-readable source JSON gate, INDEX and full Research GitHub-hosted SUCCESS. Independently audit the corrigendum provenance, the matching adjacency, the field operations, the singular-compression perturbation and both source types. Keep Draft; do NOT merge staged ancestors or close #793 automatically.
 
+### 5.1 Genuine corrected q=7 historical six-original-flag BBo witness
+
+Besides proving the source spectral gate, the corrected q=7, x=2, y=3 actual `G_q^x - S - M` source is passed directly through the **historical six-ID BBo owner inverse**. The targeted original FULL/CORE procedure finds a nontrivial BBo after examining only **44** actual physical threewalks; it extracts six pairwise DISTINCT original point-by-line flag IDs:
+
+- Three ORIGINAL full projection anchors from a real nonincident source point/line pair with a valid threeflag path in the corrected source; and
+- Three ORIGINAL physical edge owners from the residual threewalk.
+
+The production certificate serializes all six original flag IDs, original point/line coordinates and the physical path itself. The three independent inherited implementations (manual physical, published physical and source-first original-owner inverse) agree exactly and report at least one produced BBo for the frozen **six original** owner flags. Deleting one ORIGINAL FULL projection anchor destroys that witness, a nontrivial negative control. The test also verifies that the corrected source **already had its 14 matching edges removed**, so no positive witness is accidentally counted on the wrong, quasi-regular pre-matching graph.
+
+This is a **finite** witness for historical original six-ID machinery at the first literal corrected q>=7 source (q=7, 266 vertices each part, 1596 original flags). It is **not** a proof of the asymptotic `delta*r^6` conclusion at q=7, and it does not establish all-order T3 without the imported G6-C2/C3 analytic machinery.
+
 ## 6. Further research
 
 The most valuable next source advance is **the EVEN prime-power q>=8 corrected Theorem 6**, which uses a different quasi-dominating S and matching M. Implement independently rather than reusing odd-coordinate formulas (the characteristics differ). Separately, improve κ=48 by exploiting the exact sign/symmetry of the matching perturbation instead of the blunt operator norm 1, or import the 2018 `q³−q sqrt(q)−q` smaller q-regular W(3,q) family for square q with its published source geometry.
