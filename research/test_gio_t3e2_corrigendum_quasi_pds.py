@@ -322,5 +322,23 @@ class TestE2(unittest.TestCase):
         self.assertTrue(z["new_to_Mathlab_true_source_degree_q_minus_1"])
 
 
+    def test_21_actual_corrected_q7_original_six_ID_BBo_inverse(self):
+        from gio_t3e2_corrigendum_quasi_pds import literal_corrected_six_original_ID_witness
+        z=literal_corrected_six_original_ID_witness(
+            7,2,3,"lex",max_walks=3000000)
+        self.assertEqual(z["q"],7)
+        self.assertEqual(z["true_corrected_original_source_flags"],1596)
+        self.assertEqual(z["original_M_edges_removed"],14)
+        self.assertEqual(len(set(z["actual_six_distinct_original_flag_IDs"])),6)
+        self.assertTrue(z["all_three_historical_BBo_inverses_exact_agree"])
+        self.assertTrue(z["removing_original_FULL_anchor_destroys_witness"])
+        self.assertGreaterEqual(z["independently_confirmed_produced_BBo_count"],1)
+        self.assertTrue(z["no_fabricated_projection_or_parent_completion"])
+        print("G6E2_NONTRIVIAL_CORRECTED_Q7_ORIGINAL_SIX_ID",
+            z["independently_confirmed_produced_BBo_count"],
+            "examined",z["bounded_actual_physical_threewalks_examined"])
+
+
+
 if __name__=="__main__":
     unittest.main()
