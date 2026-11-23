@@ -9,6 +9,7 @@ from gio_t3d3_affine_arc import (
     source_from_affine_arc,fourier_root_character_census,
     binary_fourth_power_all_order,finite_arc_case,
     bad_curve_falsifier,arc_family_theorem,certificate,
+    binary_q8_historical_six_id_inverse,
 )
 from gio_t3d2_centered_sixth import (
     wenger_W2_spectral_parameters,integrated_quadratic_direct_ledger,
@@ -281,6 +282,20 @@ class TestG6D3(unittest.TestCase):
                 fourier_root_character_census(Field(q),e)
         with self.assertRaises(ValueError):
             affine_arc_oracle(Field(3),-1)
+
+    def test_20_actual_binary_fourth_power_historical_six_ID_BBo(self):
+        # Critically: a REAL q=8 h=u^4 nonparabolic arc source,
+        # rather than only the parent Wenger h=u^2 q3/q5.
+        z=self.c["true_binary_q8_novel_arc_historical_BBo_inverse"]
+        self.assertEqual(z["q"],8)
+        self.assertEqual(z["curve_power"],4)
+        self.assertEqual(z["scheme"],"lex")
+        self.assertEqual(z["true_original_source_flags"],4096)
+        self.assertEqual(z["original_missing_projection_count"],57344)
+        self.assertGreater(z["actual_produced_original_BBo_sixsets"],0)
+        self.assertLess(z["proper_CORE_owners"],z["original_FULL_survivors"])
+        self.assertTrue(z["manual_published_source_first_exactly_agree"])
+        self.assertTrue(z["no_GQ_completion_or_synthetic_old_anchor"])
 
     def test_19_cited_Wenger_Fourier_spectrum_consistency_in_prime_cases(self):
         for q in (3,5):
