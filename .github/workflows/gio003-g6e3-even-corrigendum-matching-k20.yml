@@ -92,6 +92,30 @@ jobs:
               assert Q(x["exact_F0_squared_cubic_upper"])==Q(4225*x["r"]**3,216)
               assert Q(x["exact_F0_squared_cubic_upper"])<20*x["r"]**3
               assert x["corrected_even_2021_theorem_6_required"]
+          refined=z["stronger_even_q16_q32_source_operator_gates"]
+          assert [x["sharp_subfamily_kappa"] for x in refined][:3]==[20,5,2]
+          for x in refined:
+              q=x["q"];r=x["r"];k=x["sharp_subfamily_kappa"]
+              assert Q(x["exact_sharpened_F0_squared_upper"])<k*r**3
+              assert x["mandatory_original_matching_edge_deletion"]
+              assert x["can_use_fixed_kappa_2_at_all_q_ge_32"]==(q>=32)
+              assert x["can_use_fixed_kappa_5_at_all_q_ge_16"]==(q>=16)
+              print("G6E3_REFINED_SOURCE_GATE",q,"kappa",k,
+                    "exact-upper",x["exact_sharpened_F0_squared_upper"])
+          strong=z["stronger_q16_q32_formal_direct_ledgers"]
+          assert [(x["q_threshold"],x["formal_ledger"]["fixed_before_source"][
+              "centered_operator_kappa"]) for x in strong]==[(16,5),(32,2)]
+          for x in strong:
+              a=x["formal_ledger"];f=a["fixed_before_source"]
+              assert a["FORMAL_ONLY"] and a["moment_sixth_condition_is_NOT_required"]
+              assert (f["balance_b"],f["quadratic_C"])==(1,5)
+              c=a["closure"];m=a["moments"];s=a["selector"]
+              e=Q(c["eps"]);rho=Q(c["rho"]);r0=int(c["sufficient_r0"])
+              assert m["improper"]<=e*r0
+              assert m["E"]**2<=e*e*r0
+              assert m["blocker_D"]**8<=e**8*r0
+              assert 12*rho*s["q3"]**2*m["L6"]<=e**2
+              assert Q(c["delta"])>0
           led=z["inherited_G6D2_DIRECT_formal_ledger"]
           assert led["FORMAL_ONLY"] and led["moment_sixth_condition_is_NOT_required"]
           f=led["fixed_before_source"]
