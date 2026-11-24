@@ -128,6 +128,8 @@ class TestG6F2(unittest.TestCase):
 
     def test_10_exact_original_D6_one_global_cut_orientation_norm(self):
         d=self.z["original_six_distinct_source_D6_from_TRUE_physical_C6"]
+        self.assertEqual(d["exact_ONE_global_D6_typed_cut_assignments"],4096)
+        self.assertEqual(d["exact_ONE_global_D6_typed_cut_favorable"],4)
         self.assertEqual(Q(d["one_global_typed_cut_D6_probability"]),Q(1,1024))
         self.assertTrue(d["no_fake_GQ_projection_or_nonproper_C6_count"])
 
