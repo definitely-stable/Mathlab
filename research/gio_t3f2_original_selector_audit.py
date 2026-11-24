@@ -405,6 +405,7 @@ def independent_original_six_cycle_inverse():
     A=frozenset(range(len(m["flags"])))
     H,owner=actual_edges(m,A)
     found=Counter()
+    first_cycle=[]
     def recurse(path):
         if len(path)==6:
             if path[0] not in H[path[-1]]:
@@ -416,6 +417,8 @@ def independent_original_six_cycle_inverse():
             assert len(set(owned))==6
             key=tuple(sorted(owned))
             found[key]+=1
+            if not first_cycle:
+                first_cycle.extend(path)
             return
         for v in H[path[-1]]:
             if v not in path:
@@ -430,7 +433,25 @@ def independent_original_six_cycle_inverse():
     assert all(len(k)==6 and len(set(k))==6 for k in found)
     J=owner_conflict_graph(m,A)
     assert all(not any(J[i]&set(k) for i in k) for k in found)
+    assert len(first_cycle)==6
+    xs=sorted({v[0] for v in first_cycle})
+    ys=sorted({v[1] for v in first_cycle})
+    assert len(xs)==len(ys)==6
+    global_bits=0
+    global_cut_success=0
+    for xb in product((0,1),repeat=6):
+        b1=dict(zip(xs,xb))
+        for yb in product((0,1),repeat=6):
+            b2=dict(zip(ys,yb))
+            global_bits+=1
+            if all(b1[first_cycle[i][0]]!=b1[first_cycle[(i+1)%6][0]]
+                   and b2[first_cycle[i][1]]!=b2[first_cycle[(i+1)%6][1]]
+                   for i in range(6)):
+                global_cut_success+=1
+    assert global_bits==2**12 and global_cut_success==4
     return dict(actual_source="original_W32",
+        exact_ONE_global_D6_typed_cut_assignments=global_bits,
+        exact_ONE_global_D6_typed_cut_favorable=global_cut_success,
         literal_rooted_DIRECTED_original_physical_C6_count=sum(found.values()),
         true_original_named_six_ID_D6_count=len(found),
         each_original_D6_has_exactly_12_oriented_rooted_C6=all(
