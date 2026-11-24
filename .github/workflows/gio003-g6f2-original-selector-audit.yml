@@ -1,0 +1,115 @@
+name: gio003-g6f2-original-selector-audit
+
+on:
+  push:
+    branches:
+      - research/gio003-g6f2-original-selector-audit
+    paths:
+      - 'research/gio_t3f2_original_selector_audit.py'
+      - 'research/test_gio_t3f2_original_selector_audit.py'
+      - 'docs/research/GIO-003-G6F2-ORIGINAL-SELECTOR-AUDIT.md'
+      - '.github/workflows/gio003-g6f2-original-selector-audit.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3f2_original_selector_audit.py'
+      - 'research/test_gio_t3f2_original_selector_audit.py'
+      - 'docs/research/GIO-003-G6F2-ORIGINAL-SELECTOR-AUDIT.md'
+      - '.github/workflows/gio003-g6f2-original-selector-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-global-selector-and-numeric-LOW:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 24 independent original six-ID and one-global-selector falsifiers
+        run: |
+          python -m py_compile research/gio_t3f2_original_selector_audit.py research/test_gio_t3f2_original_selector_audit.py
+          python -m unittest discover -s research -p 'test_gio_t3f2_original_selector_audit.py' -v
+      - name: Reconstruct and inspect original FULL CORE, six-owner, and numeric C6 closure
+        shell: bash
+        run: |
+          python research/gio_t3f2_original_selector_audit.py --out gio003-g6f2-original-selector.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction as Q
+          from pathlib import Path
+          z=json.loads(Path('gio003-g6f2-original-selector.json').read_text())
+          assert z["schema"]=="mathlab.gio003.g6f2.original-selector-six-ID-audit.v1"
+          assert z["parent_G6F1_HEAD"]=="bcc19592f8e290cae8657084a17ac461dd056a7d"
+          assert z["claim"]=="CERTIFIED_NUMERIC_C6_PLUS_INDEPENDENT_ORIGINAL_SOURCE_C2_C3_AUDIT"
+          assert z["issue"]==793
+          p=z["exhaustive_one_global_original_priority_on_every_five_owner_J"]
+          assert p["number_of_owner_labels"]==5
+          assert p["original_owner_conflict_simple_graphs_exhausted"]==1024
+          assert p["independent_nonempty_owner_subsets_exhausted"]>5000
+          assert p["strict_shared_competitor_cases"]>0
+          assert Q(p["exact_minimum_probability_to_product_ratio"])>=1
+          assert p["no_independent_owner_event_assumption"]
+          assert p["exact_adjacency_counterexample_breaks_bound_for_non_independent_S"]
+          print("G6F2_ALL_1024_GLOBAL_J",p["independent_nonempty_owner_subsets_exhausted"],
+                "independent subsets")
+          a=z["ACTUAL_original_W32_threeowner_one_priority_two_global_cuts"]
+          assert len(a["actual_three_DISTINCT_named_original_owners"])==3
+          assert a["original_J_independent_target_owners"]
+          assert a["one_global_symbol_cut_assignments"]==256
+          assert a["original_threeedge_path_cut_favorable_assignments"]==4
+          assert Q(a["exact_joint_priority_AND_cuts_probability"])>=Q(a["lower_joint_probability"])
+          assert a["physical_path_ACTUALLY_survives_one_common_selector"]
+          b=z["original_FULL_CORE_3pow6_ternary_mask_source_inverse"]
+          assert len(set(b["six_DISTINCT_original_flag_IDs"]))==6
+          assert b["all_ternary_FULL_CORE_deletion_masks_exhaustively_checked"]==729
+          assert b["positive_original_six_ID_produced_masks"]==8
+          assert b["negative_original_six_ID_masks"]==721
+          assert b["physical_source_middle_owner_THREE_independent_algorithms_equal"]
+          print("G6F2_TRUE_SIX_ORIGINAL_IDS",b["six_DISTINCT_original_flag_IDs"],
+                "FULL_CORE_positive_masks",b["positive_original_six_ID_produced_masks"])
+          d=z["original_six_distinct_source_D6_from_TRUE_physical_C6"]
+          assert d["true_original_named_six_ID_D6_count"]>=1
+          assert d["literal_rooted_DIRECTED_original_physical_C6_count"]==12*d[
+              "true_original_named_six_ID_D6_count"]
+          assert d["all_original_D6_six_owners_GLOBAL_J_independent"]
+          assert Q(d["one_global_typed_cut_D6_probability"])==Q(1,1024)
+          for a in z["independent_original_endpoint_BAD_precedence_cases"]:
+              assert a["independent_partition_equals_old_G6C2"]
+              assert a["all_five_bad_original_endpoint_caps_checked"]
+              assert sum(a["exact_independent_original_endpoint_classes"].values())==a[
+                  "exact_original_endpoint_universe"]
+          for a in z["independently_counted_four_original_inner_blocker_cases"]:
+              assert a["old_and_independent_blocker_classifiers_agree"]
+              assert a["exact_source_book_triple_injection_on_ALL_FOUR_positions"]
+          regimes=z["all_five_real_G6C3_G6D7_numeric_closure_regimes"]
+          assert len(regimes)==5
+          assert [x["regime"] for x in regimes]==[
+              "linear_GQ_base","G6E1_GQ_PDS_zero_PSD",
+              "G6E2_first_odd_q7","G6E2_E3_q_ge8","G6E2_E3_q_ge18"]
+          for a in regimes:
+              assert a["actual_proven_graph_C0"]==2**41
+              assert Q(a["actual_proven_graph_c0"])==Q(1,98304)
+              assert all(a["four_LOW_errors"].values())
+              assert Q(a["exact_rho"])>0 and Q(a["exact_delta"])>0
+              assert a["HEAVY_graph_C6_density_implication_int_check"]
+              assert a["actual_original_source_C2_C3_all_order_lemmas_still_inherited"]
+              K=a["original_source_selector_K"]
+              assert a["original_global_selector_q2"]==16*(K+1)**2
+              assert a["original_global_selector_q3"]==64*(K+1)**3
+              print("G6F2_TRUE_NUMERIC_HEAVY_LOW",a["regime"],
+                    "r0digits",a["cutoff_r0_decimal_digits"],
+                    "rho",a["exact_rho"],"delta",a["exact_delta"])
+          assert z["old_GENERIC_FORMAL_ONLY_label_intentionally_unmodified"]
+          assert z["G6C2_G6C3_original_source_general_lemmas_remain_proof_dependencies"]
+          assert z["no_unrestricted_abstract_T3_or_dependent_GF5_ASET"]
+          print("PASS_GIO003_G6F2_TRUE_ORIGINAL_SIX_ID_SELECTOR_NUMERIC_CLOSURE")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6f2-original-selector-six-ID-numeric-C6
+          path: gio003-g6f2-original-selector.json
+          retention-days: 90
