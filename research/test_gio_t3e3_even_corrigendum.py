@@ -352,5 +352,61 @@ class TestEvenE3(unittest.TestCase):
                                  const["original_pencil_Gram_G0"]**2*r**11)
 
 
+    def test_24_all_order_even_tail_sharp_kappa_5_and_2(self):
+        from gio_t3e3_even_corrigendum import sharper_even_piecewise_envelope
+        for q in (8,16,32,64,128,256,512,1024):
+            z=sharper_even_piecewise_envelope(q)
+            k=20 if q==8 else 5 if q==16 else 2
+            r=q-2
+            self.assertEqual(z["sharp_subfamily_kappa"],k)
+            self.assertLess(Q(z["exact_sharpened_F0_squared_upper"]),
+                            k*r**3)
+            self.assertLessEqual(Q(z["exact_nonprincipal_T_upper"]),
+                                 Q(25*r,6))
+            self.assertTrue(z["mandatory_original_matching_edge_deletion"])
+            self.assertTrue(z["not_a_new_graph_family"])
+            self.assertEqual(z["certified_direct_source_C"],5)
+            self.assertEqual(z["can_use_fixed_kappa_5_at_all_q_ge_16"],q>=16)
+            self.assertEqual(z["can_use_fixed_kappa_2_at_all_q_ge_32"],q>=32)
+            if q>=32:
+                self.assertEqual(Q(z["exact_nonprincipal_T_upper"]),
+                                 Q(27*r,10))
+                self.assertEqual(Q(z["exact_cubic_endpoint"]),
+                                 Q(1323*r**3,1000))
+            elif q>=16:
+                self.assertEqual(Q(z["exact_nonprincipal_T_upper"]),
+                                 Q(45*r,14))
+                self.assertEqual(Q(z["exact_cubic_endpoint"]),
+                                 Q(13005*r**3,2744))
+        self.assertEqual([z["sharp_subfamily_kappa"] for z in
+            self.cert["stronger_even_q16_q32_source_operator_gates"]][:3],
+            [20,5,2])
+
+    def test_25_refined_q16_q32_formal_legacy_D2_SOURCE_ledgers(self):
+        z=self.cert["stronger_q16_q32_formal_direct_ledgers"]
+        self.assertEqual(len(z),2)
+        for item,k in zip(z,(5,2)):
+            q=item["q_threshold"]
+            self.assertEqual((q,item["minimum_r"]),(16 if k==5 else 32,q-2))
+            old=item["formal_ledger"]
+            self.assertTrue(old["FORMAL_ONLY"])
+            self.assertTrue(old["moment_sixth_condition_is_NOT_required"])
+            self.assertTrue(old["no_unconditional_quadratic_T3"])
+            f=old["fixed_before_source"]
+            self.assertEqual((f["balance_b"],f["quadratic_C"],
+                              f["centered_operator_kappa"]),(1,5,k))
+            c=old["closure"];m=old["moments"];sel=old["selector"]
+            eps=Q(c["eps"]);rho=Q(c["rho"]);R=int(c["sufficient_r0"])
+            self.assertLessEqual(m["improper"],eps*R)
+            self.assertLessEqual(m["E"]**2,eps**2*R)
+            self.assertLessEqual(m["blocker_D"]**8,eps**8*R)
+            self.assertLessEqual(12*rho*sel["q3"]**2*m["L6"],eps**2)
+            self.assertGreater(Q(c["delta"]),0)
+            # No illicit claim that small q16/32 already exceeds the
+            # very large inherited sufficient asymptotic threshold.
+            self.assertLess(q-2,R)
+
+
+
 if __name__=="__main__":
     unittest.main()
