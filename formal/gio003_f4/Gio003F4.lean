@@ -1,3 +1,5 @@
+import Mathlib
+
 /-!
 # GIO-003 / G6-F4: kernel-checked partial arithmetic core of G6-F3
 
@@ -6,7 +8,6 @@ inverse, global priority and graph six-walk counting are separate,
 currently unformalized premises. This file proves universal
 algebraic/finite-set transformations only. No sorry/admit/axioms.
 -/
-import Mathlib
 
 set_option autoImplicit false
 namespace Mathlab.GIO003.G6F4
