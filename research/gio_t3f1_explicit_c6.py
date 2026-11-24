@@ -226,6 +226,47 @@ def exact_bipartite_walk_certificate(adjacency):
         odd_distance3_repeats_impossible_by_actual_bipartiteness=True)
 
 
+
+def exact_small_graph_bipartite_cut(adjacency):
+    """Finite EXHAUSTIVE witness for the global random-cut reduction.
+
+    Only a small-graph oracle (n<=12); the all-order theorem uses
+    linearity of expectation, not exponential enumeration of huge G.
+    Every input ORIGINAL edge crossing the chosen partition is kept
+    exactly once, so cycles in that subgraph are genuine cycles in G.
+    """
+    rows=_checked_adj(adjacency)
+    n=len(rows)
+    if n>12:
+        raise ValueError("exhaustive finite-cut oracle only n<=12")
+    edges=[(i,j) for i in range(n) for j in rows[i] if i<j]
+    best=-1
+    mask_best=0
+    for mask in range(1<<(n-1)):
+        count=sum(bool((mask>>i)&1) != bool((mask>>j)&1)
+                  for i,j in edges)
+        if count>best:
+            best=count
+            mask_best=mask
+    assert best*2>=len(edges)
+    H=[set() for _ in range(n)]
+    for i,j in edges:
+        if bool((mask_best>>i)&1)!=bool((mask_best>>j)&1):
+            H[i].add(j);H[j].add(i)
+    assert sum(map(len,H))//2==best
+    bipartite_coloring(H)
+    if n<=12:
+        assert brute_c6(H)<=brute_c6(rows)
+    return dict(n=n,original_edges=len(edges),
+        exactly_retained_original_cross_edges=best,
+        original_simple_graph_cut_at_least_half=best*2>=len(edges),
+        actual_original_sixcycles=brute_c6(rows),
+        genuine_subgraph_sixcycles=brute_c6(H),
+        no_new_synthetic_edges=True,
+        all_cut_assignments_exhaustively_searched=1<<(n-1))
+
+
+
 def complete_bipartite_oracle(h):
     """Closed-form independent K_{h,h} 6cycle/trace, any h (no huge matrix)."""
     if type(h) is not int or h<1:
