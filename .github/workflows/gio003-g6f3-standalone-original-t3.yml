@@ -1,0 +1,110 @@
+name: gio003-g6f3-standalone-original-t3
+
+on:
+  push:
+    branches:
+      - research/gio003-g6f3-standalone-original-t3-transfer
+    paths:
+      - 'research/gio_t3f3_standalone_t3.py'
+      - 'research/test_gio_t3f3_standalone_t3.py'
+      - 'docs/research/GIO-003-G6F3-STANDALONE-ORIGINAL-T3.md'
+      - '.github/workflows/gio003-g6f3-standalone-original-t3.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3f3_standalone_t3.py'
+      - 'research/test_gio_t3f3_standalone_t3.py'
+      - 'docs/research/GIO-003-G6F3-STANDALONE-ORIGINAL-T3.md'
+      - '.github/workflows/gio003-g6f3-standalone-original-t3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  standalone-original-source-t3:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 25 independent original source C2 C3 C6 moment and real numeric all-order tests
+        run: |
+          python -m py_compile research/gio_t3f3_standalone_t3.py research/test_gio_t3f3_standalone_t3.py
+          python -m unittest discover -s research -p 'test_gio_t3f3_standalone_t3.py' -v
+      - name: Generate independently derived all-order source T3 and real-source sixth-moment certificate
+        shell: bash
+        run: |
+          python research/gio_t3f3_standalone_t3.py --out gio003-g6f3-standalone-original-t3.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction as Q
+          from pathlib import Path
+          z=json.loads(Path("gio003-g6f3-standalone-original-t3.json").read_text())
+          assert z["schema"]=="mathlab.gio003.g6f3.standalone-original-conditional-T3.v1"
+          assert z["parent_G6F2_HEAD"]=="22d040d84e90bc8498f441eb0d77f4207cc0fe86"
+          assert z["issue"]==793
+          assert z["standalone_numeric_theorem_derived_WITHOUT_old_C2_C3_D7_ledgers"]
+          assert z["source_specific_TYPED_PSD_gate_and_original_girth8_are_PREMISES"]
+          assert z["no_unrestricted_abstract_T3_or_new_GF5_ASET_exponent"]
+          cases=z["all_five_original_SOURCE_specific_positive_theorem_instances"]
+          assert len(cases)==5
+          for x in cases:
+              p=x["standalone_proof"]
+              f=p["input_fixed"]; c=p["closure"]; s=p["source_constants"]
+              assert p["mode"]=="NEW_INDEPENDENT_PROOF_NOT_OLD_C2_C3_LEDGER"
+              assert p["external_ordinary_graph_C6_THEOREM_PROVEN_C0"]==2**41
+              assert Q(p["external_ordinary_graph_C6_THEOREM_PROVEN_c0"])==Q(1,98304)
+              assert p["no_generic_OLD_FORMAL_ONLY_ledger_used"]
+              assert all(p["all_four_independently_derived_LOW_errors"].values())
+              assert len(c["sufficient_r0"])==c["r0_decimal_digits"]
+              assert Q(c["rho"])>0 and Q(c["delta"])>0
+              assert c["r0_decimal_digits"]>100
+              assert s["J0"]==2*s["j0"]
+              sel=p["priority_and_moments"];K=sel["K"]
+              assert sel["q2"]==16*(K+1)**2
+              assert sel["q3"]==64*(K+1)**3
+              assert int(sel["T"])>=8*s["n0"]*sel["R"]**3*(2**41)**3
+              print("G6F3_STANDALONE_SOURCE_THEOREM",x["regime"],
+                    "actual_r0_digits",c["r0_decimal_digits"],
+                    "C0",p["external_ordinary_graph_C6_THEOREM_PROVEN_C0"])
+          finite=z["independent_literal_original_SOURCE_RETURN_and_IMPROPER_and_tr4"]
+          assert len(finite)==5
+          for w in finite:
+              assert w["exact_source_owner_return_identity"]
+              assert w["no_external_Lemma_for_return_or_improper"]
+              assert w["actual_improper_threewalks"]<=w["exact_algebraic_improper_bound"]
+              assert w["actual_ordered_threewalks"]>=w["actual_PROPER_ordered_threewalks"]
+              assert w["exact_tr_A4"]==w["exact_proper_P2_Frobenius_squared"]+w[
+                  "exact_improper_R2_Frobenius_squared"]
+              print("G6F3_TRUE_ORIGINAL_RETURN",w["name"],w["scheme"],
+                    "CORE",w["source_CORE_C"],"J",w["actual_CORE_J_edges"])
+          host=z["exhaustive_bipartite_512_host_sixwalk_identity"]
+          assert host["exhaustive_original_bipartite_simple_graphs"]==512
+          assert host["total_unoriented_simple_C6_across_512"]==48
+          assert host["young_trace6_le_24C6_plus_72mD_squared_ALL"]
+          assert host["Cauchy_trace4_squared_le_trace2_trace6_ALL"]
+          s=z["exact_one_GLOBAL_selector_EXPECTED_physical_edges"]
+          assert s["identity_EXPECTED_m_equals_half_W"]
+          assert s["actual_SOURCE_J_conflict_edges"]>0
+          assert Q(s["exact_expected_SELECTED_edges"])==Q(
+              s["exact_original_source_Caro_Wei_W"])/2
+          selected=z["true_original_sixowner_D6_all_4096_selected_trace_cycles"]
+          assert selected["global_cut_assignments_exhausted"]==4096
+          assert selected["exactly_four_all_six_owner_crossing_cuts"]==4
+          assert selected["actual_unoriented_source_C6_sum_over_cuts"]==4
+          assert Q(selected["exact_expected_source_C6"])==Q(1,1024)
+          assert selected["Cauchy_EXPECTED_trace4_squared_bound"]
+          assert selected["actual_source_trace6_graph_bound"]
+          assert selected["original_conditional_expected_C6_le_D6_div_1024"]
+          print("G6F3_TRUE_SOURCE_ONE_GLOBAL_C6_EXPECTATION",selected[
+              "actual_source_six_named_original_FLAG_IDs"],
+              "ETr6",selected["exact_expected_trace6"])
+          print("PASS_GIO003_G6F3_STANDALONE_CONDITIONAL_ORIGINAL_SOURCE_T3")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6f3-standalone-original-source-t3
+          path: gio003-g6f3-standalone-original-t3.json
+          retention-days: 90
