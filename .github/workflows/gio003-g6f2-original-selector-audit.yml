@@ -98,6 +98,10 @@ jobs:
               assert all(a["four_LOW_errors"].values())
               assert Q(a["exact_rho"])>0 and Q(a["exact_delta"])>0
               assert a["HEAVY_graph_C6_density_implication_int_check"]
+              assert len(a["exact_sufficient_r0"])==a["cutoff_r0_decimal_digits"]
+              assert len(a["exact_fixed_HEAVY_T"])==a["fixed_HEAVY_graph_density_T_digits"]
+              assert int(a["exact_sufficient_r0"])>0
+              assert int(a["exact_fixed_HEAVY_T"])>0
               assert a["actual_original_source_C2_C3_all_order_lemmas_still_inherited"]
               K=a["original_source_selector_K"]
               assert a["original_global_selector_q2"]==16*(K+1)**2
