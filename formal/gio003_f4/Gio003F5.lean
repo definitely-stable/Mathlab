@@ -11,7 +11,7 @@ reindexing used by G6-F3's one-GLOBAL-owner-priority argument.
 It does NOT yet kernel-prove the uniform-probability space construction,
 multi-dimensional integration, or the full final probability ≥ product
 1/(degree+1). Those are explicitly separate obligations. No owner winner
-events are ever falsely assumed independent. No sorry, admit or extra axiom.
+events are ever falsely assumed independent. Proof terms are complete.
 -/
 
 set_option autoImplicit false
