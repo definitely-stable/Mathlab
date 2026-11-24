@@ -31,17 +31,15 @@ jobs:
             echo 'Forbidden sorry, admit, or user axiom in the F4 proof'
             exit 1
           fi
-      - name: Install pinned Lean 4 toolchain
-        uses: leanprover/lean-action@v1
-        with:
-          lake-package-directory: formal/gio003_f4
-          auto-config: false
-          use-github-cache: false
-          use-mathlib-cache: false
-          build: false
-          test: false
-          lint: false
-          leanchecker: false
+      - name: Install official elan and pinned Lean 4 toolchain before Lake manifest exists
+        shell: bash
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/gio003-f4-elan-init.sh
+          sh /tmp/gio003-f4-elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v4.34.0
+          "$HOME/.elan/bin/elan" --version
+          "$HOME/.elan/bin/lake" --version
       - name: Initialize Lake manifest, fetch Mathlib, and kernel-check
         working-directory: formal/gio003_f4
         shell: bash
