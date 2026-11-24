@@ -127,6 +127,49 @@ Delta_L,Delta_P≤5r²,
 
 This is a complete geometric **source-gate proof**, not a guess from a finite numerical spectrum. The generic inequality and GQ spectrum are prior art; the resulting exact even-source gate and κ20 improve on the conservative odd-source κ48 in the Mathlab project. It is not asserted that 20 is sharp.
 
+### 3.1 Sharper all-order regimes: κ=5 for q≥16, κ=2 for q≥32
+
+The uniform κ=20 is already a complete source gate, but the SAME parent-matching spectral inequality sharpens **without any new source hypothesis** as q increases. This is an important improvement to all-order T3 constants and not a regression-based extrapolation from finite q=8.
+
+**For all even prime powers q≥16**, r=q−2≥14:
+
+~~~
+  2q=2r+4 ≤(16/7)r,
+  sqrt(2q) ≤(4/sqrt(7))sqrt(r),
+  1 ≤sqrt(r/14),
+
+  sigma2(C) ≤ (4sqrt(2)+1)sqrt(r/14).
+  Since (4sqrt(2)+1)²=33+8sqrt(2)≤45,
+  nonprincipal x≤(45/14)r.
+
+  max_{0≤x≤45r/14} x(x−2r)²
+     =max{32r³/27,(45r/14)*(17r/14)²}
+     =(13005/2744)r³
+     <5r³.
+~~~
+
+Therefore the identical real corrected even family automatically satisfies **G6-D2 DIRECT with (b,C,κ)=(1,5,5) for ALL even q≥16**, with no independent centered-F0 assumption.
+
+**For all even prime powers q≥32**, r=q−2≥30:
+
+~~~
+  2q=2r+4≤(32/15)r,
+  sqrt(2q)≤(8/sqrt(30))sqrt(r),
+  1≤sqrt(r/30),
+
+  sigma2(C)≤9sqrt(r/30),
+  nonprincipal x≤(27/10)r.
+
+  max_{0≤x≤27r/10} x(x−2r)²
+     =max{32r³/27,(27r/10)*(7r/10)²}
+     =(1323/1000)r³
+     <2r³.
+~~~
+
+Consequently the **strongest fixed large-q source gate proven here is (b,C,κ)=(1,5,2) for ALL even q≥32**, on BOTH original point and line types. This matches the small κ=2 coefficient achieved earlier for G6-E1 but applies to **a different published q−1-regular corrected source family with C=5**, not the G6-E1 q-regular PDS source with C=2.
+
+The q=8 value κ20, q≥16 value κ5 and q≥32 value κ2 are verified by exact rational all-order inequalities and separate inherited G6-D2 DIRECT four-error formal ledgers. Importantly, **the formal source threshold r0 may be vastly larger than r=14 or r=30**: the source operator conditions hold at those orders, but the asymptotic δr⁶ supersaturation conclusion still requires r≥r0 and the G6-C2/C3/external-C6 premises. No finite-order overclaim is permitted.
+
 ## 4. Historical conditional T3 transfer and finite BBo
 
 The accepted G6-D2 **DIRECT** source theorem with fixed (b,C,κ)=(1,5,20) controls true original source J(f,g)=O(r⁴) and both pencil Grams O(r^(11/2)) for **any** complete minimal unordered-pair-injective fixed typed f/g, even maximally correlated. It imports the G6-C2 proper FULL/CORE original six-source-ID inverse and G6-C3 HEAVY/LOW single global owner/selector, real original 3st source projection loads, and exact unprojected original missing-endpoint term 4|P|Δ_L=O(r⁵). Together with the external ordinary graph C6 counting theorem, this yields only the previously established **CONDITIONAL** original T3 lower bound, for all sufficiently large even q and up to ρr⁴ adversarially removed ORIGINAL flags:
