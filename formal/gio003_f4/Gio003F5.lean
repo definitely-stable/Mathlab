@@ -30,9 +30,9 @@ theorem two_targets_one_shared_competitor
     (1 - a) * (1 - b) ≤ 1 - max a b := by
   rcases le_total a b with hab | hba
   · rw [max_eq_right hab]
-    nlinarith [mul_nonneg (sub_nonneg.mpr ha0) (sub_nonneg.mpr hb1)]
+    nlinarith [mul_nonneg ha0 (sub_nonneg.mpr hb1)]
   · rw [max_eq_left hba]
-    nlinarith [mul_nonneg (sub_nonneg.mpr ha1) (sub_nonneg.mpr hb0)]
+    nlinarith [mul_nonneg hb0 (sub_nonneg.mpr ha1)]
 
 /-- Three target owners may share ONE competitor. All three desired
 local-minimum events are correlated, but their exact conditional factor
@@ -54,7 +54,7 @@ theorem three_targets_one_shared_competitor
           mul_le_mul_of_nonneg_right hab hc
     _ ≤ 1 - max (max a b) c :=
           two_targets_one_shared_competitor (max a b) c
-            (le_max_of_le_left ha0) (max_le ha1 hb1) hc0 hc1
+            (le_trans ha0 (le_max_left a b)) (max_le ha1 hb1) hc0 hc1
 
 /-! ### Every finite target set, not just two/three targets -/
 
@@ -179,7 +179,11 @@ theorem shared_competitor_strict_correlation
     (1 - t) ^ 3 < 1 - t := by
   have hpos : 0 < 1 - t := by linarith
   have hsmall : 1 - t < 1 := by linarith
-  nlinarith [sq_nonneg t, mul_pos hpos (sub_pos.mpr hsmall)]
+  have hprod₁ : 0 < (1 - t) * (1 - (1 - t)) :=
+    mul_pos hpos (sub_pos.mpr hsmall)
+  have hprod₂ : 0 < (1 - t) ^ 2 * (1 - (1 - t)) :=
+    mul_pos (sq_pos_of_pos hpos) (sub_pos.mpr hsmall)
+  nlinarith [hprod₁, hprod₂]
 
 /-! All new proofs are real universal theorems, not examples. -/
 
