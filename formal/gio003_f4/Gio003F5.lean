@@ -144,9 +144,7 @@ theorem global_shared_competitors_conditional_lower
       ∃ i ∈ neighbors j, t i = maxPriority j) :
     (∏ j ∈ competitors, ∏ i ∈ neighbors j, (1 - t i)) ≤
     (∏ j ∈ competitors, (1 - maxPriority j)) := by
-  apply multiply_shared_competitor_bounds competitors
-    (fun j => ∏ i ∈ neighbors j, 1 - t i)
-    (fun j => 1 - maxPriority j)
+  apply Finset.prod_le_prod₀
   · intro j hj
     apply Finset.prod_nonneg
     intro i hi
