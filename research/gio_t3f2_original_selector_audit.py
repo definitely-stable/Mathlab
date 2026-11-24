@@ -565,8 +565,10 @@ def independent_numeric_four_LOW_regime(regime,mode,b,C,ell):
         original_global_selector_q2=q2,original_global_selector_q3=q3,
         fixed_HEAVY_R=R,
         fixed_HEAVY_graph_density_T_digits=len(str(T)),
+        exact_fixed_HEAVY_T=str(T),
         exact_n0=n0,exact_A0=A0,
         cutoff_r0_decimal_digits=len(str(r0)),
+        exact_sufficient_r0=str(r0),
         exact_rho=str(rho),exact_delta=str(delta),
         exact_w=str(w),exact_eps=str(eps),
         four_LOW_errors=dict(
