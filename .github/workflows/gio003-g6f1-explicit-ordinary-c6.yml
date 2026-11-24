@@ -1,0 +1,114 @@
+name: gio003-g6f1-explicit-ordinary-c6
+
+on:
+  push:
+    branches:
+      - research/gio003-g6f1-explicit-ordinary-c6
+    paths:
+      - 'research/gio_t3f1_explicit_c6.py'
+      - 'research/test_gio_t3f1_explicit_c6.py'
+      - 'docs/research/GIO-003-G6F1-EXPLICIT-NUMERIC-C6.md'
+      - '.github/workflows/gio003-g6f1-explicit-ordinary-c6.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3f1_explicit_c6.py'
+      - 'research/test_gio_t3f1_explicit_c6.py'
+      - 'docs/research/GIO-003-G6F1-EXPLICIT-NUMERIC-C6.md'
+      - '.github/workflows/gio003-g6f1-explicit-ordinary-c6.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  numeric-ordinary-simple-c6:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independent exact graph C6 walks, regularization and certified source numerics
+        run: |
+          python -m py_compile research/gio_t3f1_explicit_c6.py research/test_gio_t3f1_explicit_c6.py
+          python -m unittest discover -s research -p 'test_gio_t3f1_explicit_c6.py' -v
+      - name: Generate and independently assert all-simple-graph numeric C6 source certificate
+        shell: bash
+        run: |
+          python research/gio_t3f1_explicit_c6.py --out gio003-g6f1-explicit-c6.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction as Q
+          from pathlib import Path
+          z=json.loads(Path('gio003-g6f1-explicit-c6.json').read_text())
+          assert z["schema"]=="mathlab.gio003.g6f1.explicit-ordinary-c6.v1"
+          assert z["parent_G6E4_HEAD"]=="15dc474680686483d76bf950fcafcb7402effd53"
+          assert z["issue"]==793
+          assert z["claim"]=="EXPLICIT_NUMERIC_ORDINARY_SIMPLE_GRAPH_C6_SUPERSATURATION"
+          p=z["self_contained_graph_C6_theorem"]
+          assert p["threshold_C0"]==2**41
+          assert Q(p["cycle_coefficient_c0"])==Q(1,98304)
+          assert p["host_simple_graph_NO_other_hypotheses"]
+          assert p["densities_certified_by_this_proof_NOT_assumed_from_paper"]
+          assert p["regularization_parts"]==2**20
+          assert p["regularization_leaf_degree_ratio"]==2**23
+          assert p["bipartite_threshold"]==2**40
+          assert Q(p["bipartite_c6_constant"])==Q(1,1536)
+          assert p["case2_mass_factor_at_least_one"]
+          assert p["explicit_bad_piece_mass_gate"]
+          assert p["ceiling_safe_from_n_at_least_p_squared"]
+          assert Q(p["mass_retained_at_least"])==Q(1,4096)
+          assert Q(p["case2_mass_lower_factor"])>=1
+          cases=z["exact_complete_bipartite_closed_walk_falsifiers"]
+          assert [x["h"] for x in cases]==[3,4,58,59,64,100]
+          for x in cases:
+              h=x["h"]
+              assert x["trace_A4"]==2*h**4
+              assert x["trace_A6"]==2*h**6
+              assert x["closed_sixwalks_noninjective"]>=0
+              assert x["closed_sixwalks_noninjective"]<=x["exact_walk_bad_bound"]
+              assert x["almost_regular_gate"][
+                  "almost_regular_simple_C6_bound_applies"]==(h>=59)
+              if h>=59:
+                  assert Q(x["exact_unoriented_sixcycles"])>=Q(x[
+                      "almost_regular_gate"]["minimum_unoriented_C6"])
+              print("G6F1_REAL_KHH_C6",h,x["exact_unoriented_sixcycles"],
+                    "almostregular",h>=59)
+          for w in z["real_small_bipartite_trace_witnesses"]:
+              assert w["exact_trace_identity_and_bad_bound"]
+              assert w["injective_ordered_closed_sixwalks"]==12*w[
+                  "original_unoriented_sixcycles"]
+              assert w["noninjective_closed_sixwalks"]<=w[
+                  "maximum_noninjective_walks_from_six_distance2_pairs"]
+          symbolic=z["dense_arithmetic_not_materialized"]
+          assert symbolic["symbolic_only"]
+          assert symbolic["finite_graph_edge_list_NOT_instantiated"]
+          assert symbolic["bipartite_density_exactly_threshold"]
+          ledgers=z[
+              "certified_input_constants_inherited_all_order_original_source_ledgers"]
+          assert len(ledgers)==5
+          for x in ledgers:
+              assert x["graph_external_numeric_constants_CERTIFIED_from_explicit_proof"]
+              assert x["actual_proven_graph_C0"]==2**41
+              assert Q(x["actual_proven_graph_c0"])==Q(1,98304)
+              assert x["legacy_ledger_FORMAL_ONLY_flag_intentionally_retained"]
+              assert x["inherited_source_and_SELECTOR_lemmas_not_reproved"]
+              c=x["closure"]
+              assert Q(c["rho"])>0 and Q(c["delta"])>0
+              assert int(c["sufficient_r0"])>0
+              print("G6F1_PROVEN_NUMERIC_C6_LEDGER",x["regime"],
+                    "C0",x["actual_proven_graph_C0"],
+                    "c0",x["actual_proven_graph_c0"],
+                    "rho",c["rho"],"delta",c["delta"])
+          assert z["graph_C6_external_numeric_placeholders_ELIMINATED"]
+          assert z["no_external_numeric_graph_theorem_assumed"]
+          assert z["old_source_FULL_CORE_and_shared_SELECTOR_prerequisites_still_inherited"]
+          assert z["not_an_unrestricted_abstract_T3_or_dependent_ASET_proof"]
+          print("PASS_GIO003_G6F1_PROVEN_NUMERIC_C6_ALL_SIMPLE_GRAPHS")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6f1-proven-numeric-all-ordinary-graph-c6
+          path: gio003-g6f1-explicit-c6.json
+          retention-days: 90
