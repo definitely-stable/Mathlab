@@ -235,6 +235,70 @@ def even_matching_spectral_envelope(q):
         no_independent_F0_operator_or_sixth_moment_gate=True)
 
 
+
+def sharper_even_piecewise_envelope(q):
+    """Actually stronger all-order DIRECT source gates for q=16 and q>=32.
+
+    The generic first-principles bound is sigma2<=sqrt(2q)+1.
+    For r=q-2>=14:
+       2q<=16r/7, 1<=sqrt(r/14).
+       sigma2<=(4sqrt(2)+1)sqrt(r/14).
+       (4sqrt(2)+1)^2=33+8sqrt(2)<=45,
+       therefore centered x<=45r/14.
+       p(x)<=max(32/27, 13005/2744)*r^3 <5r^3.
+    For r>=30:
+       2q<=32r/15; 1<=sqrt(r/30);
+       sigma2<=(8+1)sqrt(r/30), x<=27r/10.
+       p(x)<=max(32/27,1323/1000)*r^3 <2r^3.
+    q=8 retains existing uniform kappa20. These are universal
+    rational proofs, not interpolations over finitely tested q.
+    """
+    base=even_matching_spectral_envelope(q)
+    r=q-2
+    if q>=32:
+        x_bound=Q(27*r,10)
+        endpoint=Q(1323*r**3,1000)
+        kappa=2
+        proof="r>=30: 2q<=32r/15 and 1<=sqrt(r/30)"
+    elif q>=16:
+        x_bound=Q(45*r,14)
+        endpoint=Q(13005*r**3,2744)
+        kappa=5
+        proof="r>=14: 2q<=16r/7 and (4sqrt(2)+1)^2<=45"
+    else:
+        x_bound=Q(25*r,6)
+        endpoint=Q(4225*r**3,216)
+        kappa=20
+        proof="r>=6: 2q<=8r/3 and 1<=sqrt(r/6)"
+    critical=Q(32*r**3,27)
+    max_bound=max(critical,endpoint)
+    assert max_bound < kappa*r**3
+    assert kappa<=20
+    return dict(q=q,r=r,
+        actual_even_prime_power_source_requires_published_Theorem6=True,
+        mandatory_original_matching_edge_deletion=True,
+        sharpened_proof=proof,
+        exact_nonprincipal_T_upper=str(x_bound),
+        exact_cubic_endpoint=str(endpoint),
+        exact_cubic_interior=str(critical),
+        sharp_subfamily_kappa=kappa,
+        exact_sharpened_F0_squared_upper=str(max_bound),
+        certified_direct_source_C=5,
+        can_use_fixed_kappa_2_at_all_q_ge_32=(q>=32),
+        can_use_fixed_kappa_5_at_all_q_ge_16=(q>=16),
+        improved_beyond_uniform_kappa20=(q>=16),
+        not_a_new_graph_family=True)
+
+
+def additional_large_even_direct_ledgers():
+    """Formal previous DIRECT closure with BETTER fixed kappa 5/2."""
+    return [dict(q_threshold=q,minimum_r=q-2,formal_ledger=
+                 integrated_quadratic_direct_ledger(
+                     b=1,C=5,kappa=k,C0=Q(1),c0=Q(1)))
+            for q,k in ((16,5),(32,2))]
+
+
+
 def literal_source_case(q,x,m,scheme="lex"):
     ins=actual_even_source(q,x,m)
     src=ins["original_source"]
@@ -376,6 +440,9 @@ def certificate():
     symbolic=[even_matching_spectral_envelope(q) for q in
               (8,16,32,64,128,256,512,1024)]
     assert all(x["uniform_kappa"]==20 for x in symbolic)
+    refined=[sharper_even_piecewise_envelope(q) for q in
+             (8,16,32,64,128,256,512,1024)]
+    assert [x["sharp_subfamily_kappa"] for x in refined][:3]==[20,5,2]
     return dict(schema=SCHEMA,parent_G6E2_HEAD=PARENT_G6E2,
         issue=793,corrigendum_publisher_pdf=PAPER,
         corrigendum_date=CORRIGENDUM_DATE,
@@ -384,6 +451,8 @@ def certificate():
         exact_even_GF8_true_original_source_cases=[case,correlated],
         actual_even_GF8_original_six_ID_positive_BBo=positive,
         published_even_prime_power_all_order_spectral_envelope=symbolic,
+        stronger_even_q16_q32_source_operator_gates=refined,
+        stronger_q16_q32_formal_direct_ledgers=additional_large_even_direct_ledgers(),
         inherited_G6D2_DIRECT_formal_ledger=all_order_direct_ledger(),
         true_even_characteristic_all_order_GQ_source_family=True,
         published_graph_family_PRIOR_ART_not_new=True,
