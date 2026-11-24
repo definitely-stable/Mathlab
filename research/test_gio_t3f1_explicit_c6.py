@@ -251,5 +251,43 @@ class TestF1ExplicitC6(unittest.TestCase):
         # from the independently proved almost-regular small threshold.
 
 
+    def test_19_exhaustive_all_512_bipartite_3_by_3_graphs(self):
+        # There are 2^9 genuine 3-by-3 original bipartite edge sets.
+        # The 6 different simple C6 in K3,3 each appear in 2^(9-6)=8
+        # of these graphs, so total sum of C6=6*8=48.
+        sum_c6=0
+        n_positive=0
+        for mask in range(512):
+            edges=[set() for _ in range(6)]
+            for i in range(3):
+                for j in range(3):
+                    if mask&(1<<(3*i+j)):
+                        edges[i].add(3+j)
+                        edges[3+j].add(i)
+            z=exact_bipartite_walk_certificate(edges)
+            self.assertTrue(z["exact_trace_identity_and_bad_bound"])
+            self.assertLessEqual(z["noninjective_closed_sixwalks"],
+                                 6*z["max_degree"]*z["trace_A4"])
+            sum_c6+=z["original_unoriented_sixcycles"]
+            n_positive+=z["original_unoriented_sixcycles"]>0
+        self.assertEqual(sum_c6,48)
+        self.assertGreater(n_positive,0)
+
+    def test_20_real_K6_to_genuine_K33_bipartite_cut(self):
+        from gio_t3f1_explicit_c6 import exact_small_graph_bipartite_cut
+        K6=[{j for j in range(6) if j!=i} for i in range(6)]
+        z=exact_small_graph_bipartite_cut(K6)
+        self.assertEqual(z["original_edges"],15)
+        self.assertEqual(z["exactly_retained_original_cross_edges"],9)
+        self.assertEqual(z["actual_original_sixcycles"],60)
+        self.assertEqual(z["genuine_subgraph_sixcycles"],6)
+        self.assertTrue(z["original_simple_graph_cut_at_least_half"])
+        self.assertTrue(z["no_new_synthetic_edges"])
+        self.assertEqual(z["all_cut_assignments_exhaustively_searched"],32)
+        with self.assertRaises(ValueError):
+            exact_small_graph_bipartite_cut([[] for _ in range(13)])
+
+
+
 if __name__=="__main__":
     unittest.main()
