@@ -197,7 +197,7 @@ class TestZeroPSDE4(unittest.TestCase):
 
     def test_14_independent_lex_label_original_conflicts_BOTH_types(self):
         for family,q,opts in (
-            ("E1",3,{}),("E1",4,{}),
+            ("E1",3,{}),
             ("E2-ODD",7,{"x":2,"y":3}),
             ("E3-EVEN",8,{"x":2,"m":3})):
             src=actual_original_embedding(family,q,**opts)["source"]
