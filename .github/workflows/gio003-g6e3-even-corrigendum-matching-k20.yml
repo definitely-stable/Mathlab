@@ -1,0 +1,136 @@
+name: gio003-g6e3-even-corrigendum-matching-k20
+
+on:
+  push:
+    branches:
+      - research/gio003-g6e3-even-corrigendum-matching-k20
+    paths:
+      - 'research/gio_t3e3_even_corrigendum.py'
+      - 'research/test_gio_t3e3_even_corrigendum.py'
+      - 'docs/research/GIO-003-G6E3-EVEN-CORRIGENDUM-K20.md'
+      - '.github/workflows/gio003-g6e3-even-corrigendum-matching-k20.yml'
+  pull_request:
+    paths:
+      - 'research/gio_t3e3_even_corrigendum.py'
+      - 'research/test_gio_t3e3_even_corrigendum.py'
+      - 'docs/research/GIO-003-G6E3-EVEN-CORRIGENDUM-K20.md'
+      - '.github/workflows/gio003-g6e3-even-corrigendum-matching-k20.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  even-corrected-original-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test GF8 original source, true quasi-PDS matching, kappa20 and six-ID BBo
+        run: |
+          python -m py_compile research/gio_t3e3_even_corrigendum.py research/test_gio_t3e3_even_corrigendum.py
+          python -m unittest discover -s research -p 'test_gio_t3e3_even_corrigendum.py' -v
+      - name: Generate and assert exact EVEN corrigendum source and historical six-ID certificate
+        shell: bash
+        run: |
+          python research/gio_t3e3_even_corrigendum.py --out gio003-g6e3-even-corrigendum.json
+          python - <<'PY'
+          import json
+          from fractions import Fraction as Q
+          from pathlib import Path
+          z=json.loads(Path('gio003-g6e3-even-corrigendum.json').read_text())
+          assert z["schema"]=="mathlab.gio003.g6e3.even-2021-corrigendum-matching-k20.v1"
+          assert z["parent_G6E2_HEAD"]=="ddac1e2eeb52556e7abda95f57ee6f5fd9c4a4ec"
+          assert z["corrigendum_date"]=="2021-05-18"
+          assert z["cited_published_theorem"]=="6 (even prime-power q>=8), pp. 10-11"
+          assert z["published_graph_family_PRIOR_ART_not_new"]
+          assert z["sharper_even_only_kappa20_vs_odd_kappa48"]
+          assert z["no_unrestricted_abstract_T3_or_new_GF5_ASET_exponent"]
+          cases=z["exact_even_GF8_true_original_source_cases"]
+          assert len(cases)==2 and {x["scheme"] for x in cases}=={"lex","correlated"}
+          for x in cases:
+              assert (x["q"],x["x"],x["m"],x["r"])==(8,2,3,6)
+              assert x["actual_original_points"]==416
+              assert x["actual_original_lines"]==416
+              assert x["actual_original_flags"]==2912
+              assert x["actual_original_Moore_excess"]==157
+              assert x["true_quasi_deleted_vertices"]==160
+              assert x["true_quasi_degree_q_count"]==48
+              assert x["original_matching_edges_removed"]==24
+              assert x["original_source_original_3st_projection_load"]==108
+              assert x["original_flags_from_corrected_S_plus_M"]
+              assert x["original_J"]==x["original_point_conflicts"]+x["original_line_conflicts"]
+              a=x["all_order_spectral_envelope"]
+              assert a["uniform_kappa"]==20
+              assert Q(a["exact_F0_squared_cubic_upper"])==Q(4225,216)*6**3
+              assert Q(a["exact_F0_squared_cubic_upper"])<20*6**3
+              assert a["strict_connectivity_from_first_singular_gap"]
+              print("G6E3_TRUE_EVEN_ORIGINAL",x["scheme"],"flags",x["actual_original_flags"],
+                    "source_DELTA",x["actual_original_Moore_excess"],
+                    "matching",x["original_matching_edges_removed"])
+          witness=z["actual_even_GF8_original_six_ID_positive_BBo"]
+          assert witness["true_original_flags"]==2912
+          assert witness["required_original_matching_edges_removed"]==24
+          assert len(set(witness["six_distinct_original_flag_IDs"]))==6
+          assert len(set(map(tuple,witness["six_original_source_flag_coordinates"])))==6
+          assert witness["independent_three_original_six_ID_inverses_agree"]
+          assert witness["deleting_one_original_FULL_anchor_falsifies"]
+          assert witness["original_BBo_count_at_least_one"]>=1
+          assert witness["no_GQ_completion_or_synthetic_F"]
+          print("G6E3_TRUE_EVEN_ORIGINAL_SIX_ID",witness["six_distinct_original_flag_IDs"],
+                "BBo",witness["original_BBo_count_at_least_one"],
+                "walks",witness["actual_original_physical_threewalks_examined"])
+          sym=z["published_even_prime_power_all_order_spectral_envelope"]
+          assert len(sym)>=8
+          for x in sym:
+              assert x["uniform_kappa"]==20
+              assert x["fixed_quadratic_C"]==5
+              assert Q(x["exact_centered_T_upper"])==Q(25*x["r"],6)
+              assert Q(x["exact_F0_squared_cubic_upper"])==Q(4225*x["r"]**3,216)
+              assert Q(x["exact_F0_squared_cubic_upper"])<20*x["r"]**3
+              assert x["corrected_even_2021_theorem_6_required"]
+          refined=z["stronger_even_q16_q32_source_operator_gates"]
+          assert [x["sharp_subfamily_kappa"] for x in refined][:3]==[20,5,2]
+          for x in refined:
+              q=x["q"];r=x["r"];k=x["sharp_subfamily_kappa"]
+              assert Q(x["exact_sharpened_F0_squared_upper"])<k*r**3
+              assert x["mandatory_original_matching_edge_deletion"]
+              assert x["can_use_fixed_kappa_2_at_all_q_ge_32"]==(q>=32)
+              assert x["can_use_fixed_kappa_5_at_all_q_ge_16"]==(q>=16)
+              print("G6E3_REFINED_SOURCE_GATE",q,"kappa",k,
+                    "exact-upper",x["exact_sharpened_F0_squared_upper"])
+          strong=z["stronger_q16_q32_formal_direct_ledgers"]
+          assert [(x["q_threshold"],x["formal_ledger"]["fixed_before_source"][
+              "centered_operator_kappa"]) for x in strong]==[(16,5),(32,2)]
+          for x in strong:
+              a=x["formal_ledger"];f=a["fixed_before_source"]
+              assert a["FORMAL_ONLY"] and a["moment_sixth_condition_is_NOT_required"]
+              assert (f["balance_b"],f["quadratic_C"])==(1,5)
+              c=a["closure"];m=a["moments"];s=a["selector"]
+              e=Q(c["eps"]);rho=Q(c["rho"]);r0=int(c["sufficient_r0"])
+              assert m["improper"]<=e*r0
+              assert m["E"]**2<=e*e*r0
+              assert m["blocker_D"]**8<=e**8*r0
+              assert 12*rho*s["q3"]**2*m["L6"]<=e**2
+              assert Q(c["delta"])>0
+          led=z["inherited_G6D2_DIRECT_formal_ledger"]
+          assert led["FORMAL_ONLY"] and led["moment_sixth_condition_is_NOT_required"]
+          f=led["fixed_before_source"]
+          assert (f["balance_b"],f["quadratic_C"],f["centered_operator_kappa"])==(1,5,20)
+          c=led["closure"];m=led["moments"];s=led["selector"]
+          r0=int(c["sufficient_r0"]);e=Q(c["eps"]);rho=Q(c["rho"])
+          assert m["improper"]<=e*r0
+          assert m["E"]**2<=e*e*r0
+          assert m["blocker_D"]**8<=e**8*r0
+          assert 12*rho*s["q3"]**2*m["L6"]<=e**2
+          assert Q(c["delta"])>0
+          print("PASS_GIO003_G6E3_EVEN_TRUE_GQ_PDS_MATCHING_KAPPA20")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6e3-even-original-gq-source-and-matching-k20
+          path: gio003-g6e3-even-corrigendum.json
+          retention-days: 90
