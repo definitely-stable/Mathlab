@@ -31,16 +31,24 @@ jobs:
             echo 'Forbidden sorry, admit, or user axiom in the F4 proof'
             exit 1
           fi
-      - name: Install pinned Lean 4 and Mathlib (no independent global T3 claim)
+      - name: Install pinned Lean 4 toolchain
         uses: leanprover/lean-action@v1
         with:
           lake-package-directory: formal/gio003_f4
-          use-mathlib-cache: true
-          auto-config: true
-          leanchecker: true
-      - name: Independently run Lean kernel against the exact module
+          auto-config: false
+          use-github-cache: false
+          use-mathlib-cache: false
+          build: false
+          test: false
+          lint: false
+          leanchecker: false
+      - name: Initialize Lake manifest, fetch Mathlib, and kernel-check
         working-directory: formal/gio003_f4
+        shell: bash
         run: |
+          lake update
+          lake exe cache get
+          lake build Gio003F4
           lake env lean Gio003F4.lean | tee gio003-f4-axioms.log
           grep -q 'sixth_walk_young' Gio003F4.lean
           grep -q 'heavy_density_from_source' Gio003F4.lean
