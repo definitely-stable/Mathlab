@@ -1,0 +1,66 @@
+name: gio003-g6f4-lean-kernel-core
+
+on:
+  push:
+    branches:
+      - research/gio003-g6f4-lean-critical-arithmetic
+    paths:
+      - 'formal/gio003_f4/**'
+      - 'docs/research/GIO-003-G6F4-LEAN-ARITHMETIC-CORE.md'
+      - '.github/workflows/gio003-g6f4-lean-kernel-core.yml'
+  pull_request:
+    paths:
+      - 'formal/gio003_f4/**'
+      - 'docs/research/GIO-003-G6F4-LEAN-ARITHMETIC-CORE.md'
+      - '.github/workflows/gio003-g6f4-lean-kernel-core.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-kernel-f3-source-transfer-core:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fail closed on admitted source proofs
+        shell: bash
+        run: |
+          if grep -nE '(^|[[:space:]])(sorry|admit|axiom)[[:space:]]' formal/gio003_f4/Gio003F4.lean; then
+            echo 'Forbidden sorry, admit, or user axiom in the F4 proof'
+            exit 1
+          fi
+      - name: Install official elan and pinned Lean 4 toolchain before Lake manifest exists
+        shell: bash
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/gio003-f4-elan-init.sh
+          sh /tmp/gio003-f4-elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v4.34.0
+          "$HOME/.elan/bin/elan" default leanprover/lean4:v4.34.0
+          "$HOME/.elan/bin/elan" --version
+          "$HOME/.elan/bin/lake" --version
+      - name: Initialize Lake manifest, fetch Mathlib, and kernel-check
+        working-directory: formal/gio003_f4
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+          lake build Gio003F4
+          lake env lean Gio003F4.lean | tee gio003-f4-axioms.log
+          grep -q 'sixth_walk_young' Gio003F4.lean
+          grep -q 'heavy_density_from_source' Gio003F4.lean
+          grep -q 'four_low_losses_half' Gio003F4.lean
+          grep -q 'low_core_fraction' Gio003F4.lean
+          grep -q 'six_original_flag_ids' Gio003F4.lean
+          if grep -E 'sorryAx|unknown constant|error:' gio003-f4-axioms.log; then
+            echo 'Lean kernel / axiom error in F4'
+            exit 1
+          fi
+          printf 'PASS_GIO003_G6F4_KERNEL_CHECKED_PARTIAL_SOURCE_ARITHMETIC\n'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6f4-lean-axiom-audit
+          path: formal/gio003_f4/gio003-f4-axioms.log
+          retention-days: 90
