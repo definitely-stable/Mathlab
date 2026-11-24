@@ -200,6 +200,10 @@ class TestG6F2(unittest.TestCase):
             self.assertGreater(Q(a["exact_rho"]),0)
             self.assertGreater(Q(a["exact_delta"]),0)
             self.assertGreater(int(a["cutoff_r0_decimal_digits"]),1)
+            self.assertEqual(len(a["exact_sufficient_r0"]),a["cutoff_r0_decimal_digits"])
+            self.assertEqual(len(a["exact_fixed_HEAVY_T"]),a["fixed_HEAVY_graph_density_T_digits"])
+            self.assertGreater(int(a["exact_sufficient_r0"]),0)
+            self.assertGreater(int(a["exact_fixed_HEAVY_T"]),0)
             self.assertTrue(a["source_r0_threshold_is_not_claimed_small_finite_fixture"])
 
     def test_18_one_GLOBAL_owner_selector_K_q2_q3_shapes(self):
