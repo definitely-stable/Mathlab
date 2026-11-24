@@ -1,0 +1,74 @@
+name: gio003-g6f5-lean-global-shared-competitor
+
+on:
+  push:
+    branches:
+      - research/gio003-g6f5-lean-shared-competitor
+    paths:
+      - 'formal/gio003_f4/Gio003F5.lean'
+      - 'docs/research/GIO-003-G6F5-LEAN-SHARED-COMPETITOR.md'
+      - '.github/workflows/gio003-g6f5-lean-global-shared-competitor.yml'
+  pull_request:
+    paths:
+      - 'formal/gio003_f4/Gio003F5.lean'
+      - 'docs/research/GIO-003-G6F5-LEAN-SHARED-COMPETITOR.md'
+      - '.github/workflows/gio003-g6f5-lean-global-shared-competitor.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-global-priority-conditional:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject unproved Lean declarations
+        shell: bash
+        run: |
+          if grep -nE '(^|[[:space:]])(sorry|admit|axiom)[[:space:]]' formal/gio003_f4/Gio003F5.lean; then
+            echo 'F5 Lean proof must have no admitted steps or custom axioms'
+            exit 1
+          fi
+      - name: Bootstrap exact pinned Lean 4.34.0
+        shell: bash
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/gio003-f5-elan-init.sh
+          sh /tmp/gio003-f5-elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v4.34.0
+          "$HOME/.elan/bin/elan" default leanprover/lean4:v4.34.0
+          "$HOME/.elan/bin/elan" --version
+          "$HOME/.elan/bin/lake" --version
+      - name: Lean kernel checks arbitrary finite shared-competitor algebra
+        working-directory: formal/gio003_f4
+        shell: bash
+        run: |
+          lake update
+          lake exe cache get
+          lake build Gio003F4
+          set -o pipefail
+          lake env lean Gio003F5.lean | tee gio003-f5-global-priority-axioms.log
+          for theorem in \
+            two_targets_one_shared_competitor \
+            three_targets_one_shared_competitor \
+            product_bounded_by_any_factor \
+            shared_competitor_attained_max \
+            shared_competitor_factor_nonneg \
+            multiply_shared_competitor_bounds \
+            global_shared_competitors_conditional_lower \
+            global_competitor_target_product_commute \
+            shared_competitor_strict_correlation; do
+            grep -q "$theorem' depends on axioms:" gio003-f5-global-priority-axioms.log
+          done
+          if grep -E 'sorryAx|unknown constant|error:' gio003-f5-global-priority-axioms.log; then
+            echo 'Lean proof did not pass closed kernel/axiom test'
+            exit 1
+          fi
+          printf 'PASS_GIO003_G6F5_LEAN_SHARED_COMPETITOR_CONDITIONAL_CORE\n'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6f5-lean-global-priority-conditional-axioms
+          path: formal/gio003_f4/gio003-f5-global-priority-axioms.log
+          retention-days: 90
