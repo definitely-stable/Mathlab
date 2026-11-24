@@ -150,7 +150,7 @@ class TestZeroPSDE4(unittest.TestCase):
                      (8,1,3.0)):
             with self.assertRaises(ValueError):
                 exact_zero_PSD_gate(*args)
-        for args in ((1,2),(2,1),(-1,2),(1,1)):
+        for args in ((1,0),(2,1),(-1,2),(1,1)):
             with self.assertRaises(ValueError):
                 universal_threshold(*args)
 
