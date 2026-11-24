@@ -158,7 +158,7 @@ def actual_even_source(q=8,x=2,m=3):
     matched={(p,l-n) for p,l in data["matching_original_flags"]}
     final=[]
     for ell in keepL:
-        line=(stage["source"]["lines"][ell]&set(keepP))
+        line=(set(stage["source"]["lines"][ell])&set(keepP))
         line={p for p in line if (p,ell) not in matched}
         assert len(line)==q-1
         final.append({local[p] for p in line})
@@ -173,7 +173,7 @@ def actual_even_source(q=8,x=2,m=3):
     # Independent source-first reverse-embedding into the ACTUAL
     # original G_q^x, not the completed parent projection.
     assert all({keepP[p] for p in line}
-        ==((stage["source"]["lines"][keepL[i]]&set(keepP))
+        ==((set(stage["source"]["lines"][keepL[i]])&set(keepP))
            -{p for p,ell in matched if ell==keepL[i]})
                for i,line in enumerate(src["lines"]))
     return dict(q=q,field=field,original_source=src,
