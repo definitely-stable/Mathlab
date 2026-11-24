@@ -73,6 +73,8 @@ jobs:
                 "FULL_CORE_positive_masks",b["positive_original_six_ID_produced_masks"])
           d=z["original_six_distinct_source_D6_from_TRUE_physical_C6"]
           assert d["true_original_named_six_ID_D6_count"]>=1
+          assert d["exact_ONE_global_D6_typed_cut_assignments"]==4096
+          assert d["exact_ONE_global_D6_typed_cut_favorable"]==4
           assert d["literal_rooted_DIRECTED_original_physical_C6_count"]==12*d[
               "true_original_named_six_ID_D6_count"]
           assert d["all_original_D6_six_owners_GLOBAL_J_independent"]
