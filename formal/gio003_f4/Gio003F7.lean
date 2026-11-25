@@ -179,10 +179,16 @@ theorem global_actual_joint_target_power_expectation
        ∏ i : ι, (1 - ω i) ^ (degree i)
        ∂globalOwnerPriorities ι) =
       ∏ i : ι, (1 / ((degree i : ℝ) + 1)) := by
-  rw [global_priorities_fubini]
-  apply Finset.prod_congr rfl
-  intro i hi
-  exact global_one_priority_power_moment (degree i)
+  calc
+    (∫ ω : ι → ℝ,
+       ∏ i : ι, (1 - ω i) ^ (degree i)
+       ∂globalOwnerPriorities ι) =
+        ∏ i : ι, ∫ t : ℝ, (1 - t) ^ (degree i) ∂unitPriority :=
+      global_priorities_fubini (fun i t => (1 - t) ^ (degree i))
+    _ = ∏ i : ι, (1 / ((degree i : ℝ) + 1)) := by
+      apply Finset.prod_congr rfl
+      intro i hi
+      exact global_one_priority_power_moment (degree i)
 
 #print axioms global_law_is_probability
 #print axioms coordinate_is_uniform
