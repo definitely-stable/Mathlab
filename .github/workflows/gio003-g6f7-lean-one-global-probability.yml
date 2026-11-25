@@ -1,0 +1,71 @@
+name: gio003-g6f7-lean-one-global-probability
+
+on:
+  push:
+    branches:
+      - research/gio003-g6f7-lean-one-global-probability
+    paths:
+      - 'formal/gio003_f4/Gio003F7.lean'
+      - 'docs/research/GIO-003-G6F7-LEAN-GLOBAL-PROBABILITY.md'
+      - '.github/workflows/gio003-g6f7-lean-one-global-probability.yml'
+  pull_request:
+    paths:
+      - 'formal/gio003_f4/Gio003F7.lean'
+      - 'docs/research/GIO-003-G6F7-LEAN-GLOBAL-PROBABILITY.md'
+      - '.github/workflows/gio003-g6f7-lean-one-global-probability.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  real-global-owner-product-measure:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject admitted proofs and custom axioms
+        shell: bash
+        run: |
+          if grep -nE '(^|[[:space:]])(sorry|admit|axiom)[[:space:]]' formal/gio003_f4/Gio003F7.lean; then
+            echo 'Formal G6-F7 proof contains a hole or user-defined axiom'
+            exit 1
+          fi
+      - name: Install pinned Lean 4.34.0
+        shell: bash
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/gio003-f7-elan-init.sh
+          sh /tmp/gio003-f7-elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v4.34.0
+          "$HOME/.elan/bin/elan" default leanprover/lean4:v4.34.0
+      - name: Kernel-check true global uniform measure, independence, fixed competitor event and Fubini
+        shell: bash
+        working-directory: formal/gio003_f4
+        run: |
+          set -euo pipefail
+          lake update
+          lake exe cache get
+          lake build Gio003F4
+          lake env lean Gio003F7.lean | tee gio003-f7-global-axioms.log
+          for theorem in \
+            global_law_is_probability \
+            coordinate_is_uniform \
+            all_priority_coordinates_independent \
+            global_competitor_fixed_threshold_probability \
+            uniform_one_priority_tail \
+            global_competitor_fixed_threshold_exact \
+            global_priorities_fubini \
+            global_one_priority_power_moment \
+            global_actual_joint_target_power_expectation; do
+            grep -q "$theorem' depends on axioms:" gio003-f7-global-axioms.log
+          done
+          if grep -E 'sorryAx|unknown constant|error:' gio003-f7-global-axioms.log; then
+            exit 1
+          fi
+          echo PASS_GIO003_G6F7_SINGLE_ACTUAL_GLOBAL_IID_UNIFORM_OWNER_MEASURE_AND_FUBINI
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6f7-global-uniform-measure-kernel-axioms
+          path: formal/gio003_f4/gio003-f7-global-axioms.log
+          retention-days: 90
