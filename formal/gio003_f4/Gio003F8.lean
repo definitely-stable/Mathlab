@@ -76,7 +76,7 @@ def randomThresholdEvent
 /-- If every random threshold is measurable as a function of the WHOLE
 target priority tuple, then the TRUE joint event is measurable. -/
 theorem random_threshold_event_measurable
-    {ι κ : Type*}
+    {ι κ : Type*} [Fintype κ]
     (m : (ι → ℝ) → κ → ℝ)
     (hm : ∀ j : κ, Measurable (fun t => m t j)) :
     MeasurableSet (randomThresholdEvent m) := by
@@ -142,6 +142,9 @@ theorem random_threshold_joint_disintegration
       ∫⁻ t : ι → ℝ,
         (∏ j : κ, uniformPriority (Set.Ioi (m t j)))
         ∂targetLaw ι := by
+  haveI : IsProbabilityMeasure (competitorLaw κ) := by
+    change IsProbabilityMeasure (Measure.pi (fun _ : κ => uniformPriority))
+    infer_instance
   change (targetLaw ι).prod (competitorLaw κ)
     (randomThresholdEvent m) = _
   rw [Measure.prod_apply (random_threshold_event_measurable m hm)]
@@ -197,10 +200,10 @@ theorem random_threshold_global_lower_of_pointwise
     {ι κ : Type*} [Fintype ι] [Fintype κ]
     (m : (ι → ℝ) → κ → ℝ)
     (hm : ∀ j : κ, Measurable (fun t => m t j))
-    (lower : (ι → ℝ) → ℝ≥0∞)
-    (hlower : ∀ t, lower t ≤
+    (lowerFn : (ι → ℝ) → ENNReal)
+    (hlower : ∀ t, lowerFn t ≤
       ∏ j : κ, uniformPriority (Set.Ioi (m t j))) :
-    (∫⁻ t : ι → ℝ, lower t ∂targetLaw ι) ≤
+    (∫⁻ t : ι → ℝ, lowerFn t ∂targetLaw ι) ≤
       splitGlobalLaw ι κ (randomThresholdEvent m) := by
   rw [random_threshold_joint_disintegration m hm]
   exact lintegral_mono hlower
