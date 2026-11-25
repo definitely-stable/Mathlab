@@ -1,0 +1,67 @@
+name: gio003-g6f6-lean-target-priority-integration
+
+on:
+  push:
+    branches:
+      - research/gio003-g6f6-lean-target-integration
+    paths:
+      - 'formal/gio003_f4/Gio003F6.lean'
+      - 'docs/research/GIO-003-G6F6-LEAN-TARGET-INTEGRATION.md'
+      - '.github/workflows/gio003-g6f6-lean-target-integration.yml'
+  pull_request:
+    paths:
+      - 'formal/gio003_f4/Gio003F6.lean'
+      - 'docs/research/GIO-003-G6F6-LEAN-TARGET-INTEGRATION.md'
+      - '.github/workflows/gio003-g6f6-lean-target-integration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-target-priority-integrals:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject unproved F6 declarations
+        run: |
+          if grep -nE '(^|[[:space:]])(sorry|admit|axiom)[[:space:]]' formal/gio003_f4/Gio003F6.lean; then
+            echo 'F6 formal statement has an admitted proof or a custom axiom'
+            exit 1
+          fi
+      - name: Install exact pinned Lean 4.34.0
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/gio003-f6-elan-init.sh
+          sh /tmp/gio003-f6-elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v4.34.0
+          "$HOME/.elan/bin/elan" default leanprover/lean4:v4.34.0
+      - name: Lean kernel tests the exact real integral and all-degree products
+        working-directory: formal/gio003_f4
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake update
+          lake exe cache get
+          lake build Gio003F4
+          lake env lean Gio003F6.lean | tee gio003-f6-integral-axioms.log
+          for theorem in \
+            uniform_target_power_integral \
+            all_target_priority_moments \
+            uniform_target_moment_positive \
+            all_target_moments_positive \
+            product_if_eq_pow_filter \
+            global_competitor_product_eq_neighbor_degree \
+            integrated_original_competitor_degrees; do
+            grep -q "$theorem' depends on axioms:" gio003-f6-integral-axioms.log
+          done
+          if grep -E 'sorryAx|unknown constant|error:' gio003-f6-integral-axioms.log; then
+            exit 1
+          fi
+          echo PASS_GIO003_G6F6_LEAN_REAL_UNIFORM_INTEGRAL_AND_TRUE_COMPETITOR_DEGREE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6f6-lean-true-priority-integral
+          path: formal/gio003_f4/gio003-f6-integral-axioms.log
+          retention-days: 90
