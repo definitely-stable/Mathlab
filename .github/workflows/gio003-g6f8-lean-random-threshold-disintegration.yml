@@ -1,0 +1,70 @@
+name: gio003-g6f8-lean-random-threshold-disintegration
+
+on:
+  push:
+    branches:
+      - research/gio003-g6f8-lean-random-threshold-disintegration
+    paths:
+      - 'formal/gio003_f4/Gio003F8.lean'
+      - 'docs/research/GIO-003-G6F8-LEAN-RANDOM-THRESHOLDS.md'
+      - '.github/workflows/gio003-g6f8-lean-random-threshold-disintegration.yml'
+  pull_request:
+    paths:
+      - 'formal/gio003_f4/Gio003F8.lean'
+      - 'docs/research/GIO-003-G6F8-LEAN-RANDOM-THRESHOLDS.md'
+      - '.github/workflows/gio003-g6f8-lean-random-threshold-disintegration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  kernel-check-random-threshold-disintegration:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject admitted declarations and user-defined axioms
+        shell: bash
+        run: |
+          if grep -nE '(^|[[:space:]])(sorry|admit|axiom)[[:space:]]' formal/gio003_f4/Gio003F8.lean; then
+            echo 'Forbidden proof hole or Mathlab axiom in F8 theorem'
+            exit 1
+          fi
+      - name: Install exact Lean 4.34.0
+        shell: bash
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/gio003-f8-elan-init.sh
+          sh /tmp/gio003-f8-elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install leanprover/lean4:v4.34.0
+          "$HOME/.elan/bin/elan" default leanprover/lean4:v4.34.0
+      - name: Kernel-check actual global random thresholds and Tonelli
+        working-directory: formal/gio003_f4
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake update
+          lake exe cache get
+          lake build Gio003F4
+          lake env lean Gio003F8.lean | tee gio003-f8-axioms.log
+          for theorem in \
+            split_global_law_probability \
+            random_threshold_event_measurable \
+            random_threshold_fiber \
+            fixed_target_competitor_probability \
+            random_threshold_joint_disintegration \
+            exact_uniform_competitor_tail \
+            random_threshold_conditional_exact \
+            random_threshold_global_lower_of_pointwise; do
+            grep -q "$theorem' depends on axioms:" gio003-f8-axioms.log
+          done
+          if grep -E 'sorryAx|unknown constant|error:' gio003-f8-axioms.log; then
+            exit 1
+          fi
+          echo PASS_GIO003_G6F8_GLOBAL_RANDOM_THRESHOLD_DISINTEGRATION
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gio003-g6f8-random-threshold-kernel-axioms
+          path: formal/gio003_f4/gio003-f8-axioms.log
+          retention-days: 90
