@@ -42,7 +42,7 @@ theorem uniform_target_power_integral (d : ℕ) :
       (intervalIntegral.integral_comp_sub_left
         (a := (0 : ℝ)) (b := (1 : ℝ))
         (f := fun t : ℝ => t ^ d) (1 : ℝ))
-  rw [hreflect, intervalIntegral.integral_pow]
+  rw [hreflect, integral_pow]
   simp
 
 /--
@@ -95,8 +95,8 @@ theorem product_if_eq_pow_filter
   | empty => simp
   | @insert j s hj ih =>
     by_cases h : adj j i
-    · simp [hj, h, ih, pow_succ, mul_comm]
-    · simp [hj, h, ih]
+    · simp [Finset.filter_insert, hj, h, ih, pow_succ, mul_comm]
+    · simp [Finset.filter_insert, hj, h, ih]
 
 /--
 The exact competing-owner × target-owner product reordering for an
